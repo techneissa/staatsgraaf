@@ -1,0 +1,1382 @@
+{
+  "workstream": "K",
+  "generatedAt": "2026-09-18T03:00:00+02:00",
+  "endpointsUsed": [
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/elanor-boekholt-osullivan",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/sophie-hermans",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/mirjam-sterk",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/sandra-palmen-schlangen",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/stientje-van-veldhoven",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/jo-annes-de-bat",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/heleen-herbert",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/bart-van-den-brink",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/rianne-letschert",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/judith-tielen",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/david-van-weel",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/pieter-heerma",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/eric-van-der-burg",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/hans-vijlbrief",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/thierry-aartsen",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/jaimi-van-essen",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/silvio-erkens",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/vincent-karremans",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/annet-bertram",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/rob-jetten",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/eelco-heinen",
+      "retrieved": "2026-09-18",
+      "notes": "Bewindspersoonpagina met portefeuilletaken."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken",
+      "retrieved": "2026-09-18",
+      "notes": "Ministeriepagina."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "retrieved": "2026-09-18",
+      "notes": "Ministeriepagina."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-buitenlandse-zaken",
+      "retrieved": "2026-09-18",
+      "notes": "Ministeriepagina."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-defensie",
+      "retrieved": "2026-09-18",
+      "notes": "Ministeriepagina."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-economische-zaken-en-klimaat",
+      "retrieved": "2026-09-18",
+      "notes": "Ministeriepagina."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-financien",
+      "retrieved": "2026-09-18",
+      "notes": "Ministeriepagina."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-infrastructuur-en-waterstaat",
+      "retrieved": "2026-09-18",
+      "notes": "Ministeriepagina."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-justitie-en-veiligheid",
+      "retrieved": "2026-09-18",
+      "notes": "Ministeriepagina."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "retrieved": "2026-09-18",
+      "notes": "Ministeriepagina."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "retrieved": "2026-09-18",
+      "notes": "Ministeriepagina."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "retrieved": "2026-09-18",
+      "notes": "Ministeriepagina."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-volksgezondheid-welzijn-en-sport",
+      "retrieved": "2026-09-18",
+      "notes": "Ministeriepagina."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen",
+      "retrieved": "2026-09-18",
+      "notes": "Overzicht van alle bewindspersonen van het kabinet-Jetten."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/ministeries",
+      "retrieved": "2026-09-18",
+      "notes": "Overzicht van de twaalf ministeries."
+    },
+    {
+      "url": "https://feeds.nos.nl/nosnieuwsalgemeen",
+      "retrieved": "2026-09-18",
+      "notes": "Nieuwsfeed van workstream J, hergebruikt voor de keyword-testset."
+    },
+    {
+      "url": "https://www.nu.nl/rss/Algemeen",
+      "retrieved": "2026-09-18",
+      "notes": "Nieuwsfeed van workstream J, hergebruikt voor de keyword-testset."
+    },
+    {
+      "url": "https://www.nrc.nl/rss/",
+      "retrieved": "2026-09-18",
+      "notes": "Nieuwsfeed van workstream J, hergebruikt voor de keyword-testset."
+    },
+    {
+      "url": "https://www.ad.nl/rss.xml",
+      "retrieved": "2026-09-18",
+      "notes": "Nieuwsfeed van workstream J, hergebruikt voor de keyword-testset."
+    },
+    {
+      "url": "https://www.volkskrant.nl/rss.xml",
+      "retrieved": "2026-09-18",
+      "notes": "Nieuwsfeed van workstream J, hergebruikt voor de keyword-testset."
+    },
+    {
+      "url": "https://www.trouw.nl/rss.xml",
+      "retrieved": "2026-09-18",
+      "notes": "Nieuwsfeed van workstream J, hergebruikt voor de keyword-testset."
+    },
+    {
+      "url": "https://www.parool.nl/rss.xml",
+      "retrieved": "2026-09-18",
+      "notes": "Nieuwsfeed van workstream J, hergebruikt voor de keyword-testset."
+    },
+    {
+      "url": "https://fd.nl/?rss",
+      "retrieved": "2026-09-18",
+      "notes": "Nieuwsfeed van workstream J, hergebruikt voor de keyword-testset."
+    },
+    {
+      "url": "https://www.rtlnieuws.nl/rss.xml",
+      "retrieved": "2026-09-18",
+      "notes": "Nieuwsfeed van workstream J, hergebruikt voor de keyword-testset."
+    },
+    {
+      "url": "https://www.binnenlandsbestuur.nl/feeds/articles.rss",
+      "retrieved": "2026-09-18",
+      "notes": "Nieuwsfeed van workstream J, hergebruikt voor de keyword-testset."
+    }
+  ],
+  "organizations": [],
+  "positions": [],
+  "people": [],
+  "tenures": [],
+  "memberships": [],
+  "relations": [],
+  "topics": [
+    {
+      "id": "topic:wonen",
+      "slug": "wonen",
+      "name": "Wonen",
+      "description": "Wonen gaat over voldoende en betaalbare huisvesting, woningbouw en de verdeling van de beschikbare ruimte. Het beleid valt onder de minister van Volkshuisvesting en Ruimtelijke Ordening bij het ministerie van Binnenlandse Zaken en Koninkrijksrelaties.",
+      "organizations": [
+        "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+        "org:rijksvastgoedbedrijf",
+        "org:dienst-van-de-huurcommissie",
+        "org:zbo-huurcommissie",
+        "org:zbo-stichting-visitatie-woningcorporaties-nederland",
+        "org:rwt-stichting-waarborgfonds-sociale-woningbouw-wsw",
+        "org:zbo-toelatingsorganisatie-kwaliteitsborging-bouw",
+        "org:zbo-dienst-voor-het-kadaster-en-de-openbare-registers",
+        "org:zbo-garantiewetcommissie",
+        "org:gemeente-amsterdam",
+        "org:gemeente-rotterdam",
+        "org:gemeente-s-gravenhage",
+        "org:provincie-utrecht"
+      ],
+      "positions": [
+        "pos:minister-van-volkshuisvesting-en-ruimtelijke-ordening"
+      ],
+      "keywords": [
+        "woning",
+        "woningen",
+        "woningbouw",
+        "woningcorporaties",
+        "corporaties",
+        "huurwoningen",
+        "huurwoning",
+        "huurders",
+        "huur",
+        "volkshuisvesting",
+        "omgevingswet",
+        "daklozen",
+        "bouw",
+        "woningnood",
+        "ruimtelijke ordening",
+        "woningmarkt",
+        "woningtekort"
+      ]
+    },
+    {
+      "id": "topic:zorg",
+      "slug": "zorg",
+      "name": "Zorg",
+      "description": "Zorg gaat over curatieve en langdurige zorg, jeugdzorg, publieke gezondheid en de toegankelijkheid van het zorgstelsel. Verantwoordelijk zijn de minister van Volksgezondheid, Welzijn en Sport en de minister van Langdurige Zorg, Jeugd en Sport.",
+      "organizations": [
+        "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+        "org:zbo-nederlandse-zorgautoriteit",
+        "org:zbo-zorginstituut-nederland",
+        "org:inspectie-gezondheidszorg-en-jeugd",
+        "org:rijksinstituut-voor-volksgezondheid-en-milieu",
+        "org:zbo-cak",
+        "org:zbo-ciz",
+        "org:zbo-college-ter-beoordeling-van-geneesmiddelen",
+        "org:agentschap-college-ter-beoordeling-van-geneesmiddelen",
+        "org:gezondheidsraad",
+        "org:raad-voor-volksgezondheid-en-samenleving",
+        "org:zbo-nederlandse-transplantatie-stichting",
+        "org:cibg",
+        "org:rwt-zorgverzekeraars-die-de-zorgverzekeringswet-uitvoeren"
+      ],
+      "positions": [
+        "pos:minister-van-volksgezondheid-welzijn-en-sport",
+        "pos:minister-van-langdurige-zorg-jeugd-en-sport"
+      ],
+      "keywords": [
+        "zorg",
+        "gezondheidszorg",
+        "ziekenhuis",
+        "ziekenhuizen",
+        "huisarts",
+        "huisartsen",
+        "ggz",
+        "jeugdzorg",
+        "verpleeghuis",
+        "medicijn",
+        "pandemie",
+        "kanker",
+        "dementie",
+        "zorgverzekeraar",
+        "zorgverzekering",
+        "verpleegkundige",
+        "wachtlijst",
+        "thuiszorg"
+      ]
+    },
+    {
+      "id": "topic:toeslagen",
+      "slug": "toeslagen",
+      "name": "Toeslagen",
+      "description": "Toeslagen gaat over de uitvoering van en het herstel na de toeslagenaffaire, met maatwerk en nazorg voor gedupeerde ouders. Verantwoordelijk zijn de minister van Financiën en de staatssecretaris Herstel Toeslagen, met Dienst Toeslagen en de Belastingdienst als uitvoering.",
+      "organizations": [
+        "org:ministerie-van-financien",
+        "org:dienst-toeslagen",
+        "org:belastingdienst",
+        "org:inspectie-belastingen-toeslagen-en-douane",
+        "org:nationale-ombudsman",
+        "org:zbo-autoriteit-persoonsgegevens",
+        "org:dienst-financieel-economische-integriteit",
+        "org:zbo-sociale-verzekeringsbank"
+      ],
+      "positions": [
+        "pos:staatssecretaris-herstel-toeslagen",
+        "pos:minister-van-financien",
+        "pos:directeur-generaal-toeslagen",
+        "pos:programmadirecteur-generaal-herstel-toeslagen"
+      ],
+      "keywords": [
+        "toeslagen",
+        "toeslag",
+        "kinderopvangtoeslag",
+        "huurtoeslag",
+        "zorgtoeslag",
+        "kinderopvang",
+        "toeslagenaffaire",
+        "hersteloperatie",
+        "dienst toeslagen",
+        "gedupeerde",
+        "gedupeerde ouders",
+        "belastingdienst",
+        "compensatie",
+        "schuldhulp",
+        "schulden"
+      ]
+    },
+    {
+      "id": "topic:klimaat-en-energie",
+      "slug": "klimaat-en-energie",
+      "name": "Klimaat en energie",
+      "description": "Klimaat en energie gaat over klimaatbeleid, de energietransitie, het volle stroomnet, kernenergie en de verduurzaming van de industrie. Verantwoordelijk zijn de minister en de staatssecretaris van Klimaat en Groene Groei en de minister van Economische Zaken en Klimaat.",
+      "organizations": [
+        "org:ministerie-van-economische-zaken-en-klimaat",
+        "org:nederlandse-emissieautoriteit",
+        "org:rijksdienst-voor-ondernemend-nederland",
+        "org:staatstoezicht-op-de-mijnen",
+        "org:planbureau-voor-de-leefomgeving",
+        "org:zbo-autoriteit-consument-en-markt",
+        "org:koninklijk-nederlands-meteorologisch-instituut",
+        "org:zbo-instituut-mijnbouwschade-groningen",
+        "org:zbo-nederlandse-organisatie-voor-toegepast-natuurwetenschappelijk-onderzoek"
+      ],
+      "positions": [
+        "pos:minister-van-klimaat-en-groene-groei",
+        "pos:staatssecretaris-van-klimaat-en-groene-groei",
+        "pos:minister-van-economische-zaken-en-klimaat"
+      ],
+      "keywords": [
+        "klimaat",
+        "klimaatverandering",
+        "klimaatdoelen",
+        "energie",
+        "energierekening",
+        "energietransitie",
+        "gas",
+        "aardgas",
+        "gaswinning",
+        "gasprijs",
+        "elektriciteit",
+        "stroom",
+        "stroomnet",
+        "netcongestie",
+        "netbeheerder",
+        "waterstof",
+        "groningen",
+        "zonnepark",
+        "kernenergie",
+        "windenergie",
+        "verduurzaming"
+      ]
+    },
+    {
+      "id": "topic:asiel-en-migratie",
+      "slug": "asiel-en-migratie",
+      "name": "Asiel en migratie",
+      "description": "Asiel en migratie gaat over asielprocedures, de opvang van asielzoekers, gezinshereniging en terugkeer. Verantwoordelijk zijn de minister van Asiel en Migratie en de staatssecretaris van Justitie en Veiligheid, met de IND, het COA en de DT&V als uitvoering.",
+      "organizations": [
+        "org:ministerie-van-justitie-en-veiligheid",
+        "org:immigratie-en-naturalisatiedienst",
+        "org:zbo-centraal-orgaan-opvang-asielzoekers",
+        "org:dienst-identificatie-en-screening-asielzoekers",
+        "org:dienst-terugkeer-en-vertrek",
+        "org:zbo-stichting-nidos",
+        "org:adviesraad-migratie",
+        "org:zbo-nationaal-rapporteur-mensenhandel-en-seksueel-geweld-tegen-kinderen",
+        "org:nationale-opvang-organisatie"
+      ],
+      "positions": [
+        "pos:minister-van-asiel-en-migratie",
+        "pos:staatssecretaris-van-justitie-en-veiligheid"
+      ],
+      "keywords": [
+        "asiel",
+        "asielzoeker",
+        "asielzoekers",
+        "asielzoekerscentrum",
+        "azc",
+        "asielopvang",
+        "asielaanvraag",
+        "migratie",
+        "vluchteling",
+        "vluchtelingen",
+        "opvang",
+        "noodopvang",
+        "opvanglocatie",
+        "opvangcentrum",
+        "spreidingswet",
+        "dwangsom",
+        "coa",
+        "immigratiedienst",
+        "gezinshereniging",
+        "inburgering",
+        "statushouder",
+        "asielcrisis",
+        "uitzetting",
+        "mensenhandel"
+      ]
+    },
+    {
+      "id": "topic:onderwijs",
+      "slug": "onderwijs",
+      "name": "Onderwijs",
+      "description": "Onderwijs gaat over primair en voortgezet onderwijs, beroepsonderwijs, hoger onderwijs en wetenschap. Verantwoordelijk zijn de minister van Onderwijs, Cultuur en Wetenschap en de staatssecretaris Onderwijs en Emancipatie, met DUO en de Onderwijsinspectie als uitvoering.",
+      "organizations": [
+        "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+        "org:dienst-uitvoering-onderwijs",
+        "org:inspectie-van-het-onderwijs",
+        "org:onderwijsraad",
+        "org:zbo-college-voor-toetsen-en-examens",
+        "org:zbo-nederlandse-organisatie-voor-wetenschappelijk-onderzoek",
+        "org:zbo-koninklijke-nederlandse-akademie-van-wetenschappen",
+        "org:zbo-samenwerkingsorganisatie-beroepsonderwijs-bedrijfsleven",
+        "org:nationaal-archief",
+        "org:zbo-nederlands-vlaamse-accreditatieorganisatie"
+      ],
+      "positions": [
+        "pos:minister-van-onderwijs-cultuur-en-wetenschap",
+        "pos:staatssecretaris-onderwijs-en-emancipatie"
+      ],
+      "keywords": [
+        "onderwijs",
+        "school",
+        "scholen",
+        "basisschool",
+        "leerlingen",
+        "scholieren",
+        "student",
+        "studenten",
+        "universiteit",
+        "universiteiten",
+        "hogeschool",
+        "hogescholen",
+        "mbo",
+        "duo",
+        "studie",
+        "praktijkonderwijs",
+        "examen",
+        "lerarentekort",
+        "docent",
+        "leraar",
+        "leraren",
+        "studiefinanciering"
+      ]
+    },
+    {
+      "id": "topic:veiligheid",
+      "slug": "veiligheid",
+      "name": "Veiligheid",
+      "description": "Veiligheid gaat over politie, justitie, criminaliteitsbestrijding, terrorismebestrijding en de rechtshandhaving. Verantwoordelijk zijn de minister en de staatssecretaris van Justitie en Veiligheid, met de Politie, het Openbaar Ministerie en de rechterlijke macht.",
+      "organizations": [
+        "org:ministerie-van-justitie-en-veiligheid",
+        "org:politie",
+        "org:openbaar-ministerie",
+        "org:nationaal-cyber-security-centrum",
+        "org:inspectie-justitie-en-veiligheid",
+        "org:zbo-onderzoeksraad-voor-veiligheid",
+        "org:zbo-autoriteit-online-terroristisch-en-kinderpornografisch-materiaal",
+        "org:nederlands-forensisch-instituut",
+        "org:dienst-justitiele-inrichtingen",
+        "org:directoraat-generaal-algemene-inlichtingen-en-veiligheidsdienst",
+        "org:raad-voor-de-rechtspraak",
+        "org:zbo-nederlands-instituut-publieke-veiligheid"
+      ],
+      "positions": [
+        "pos:minister-van-justitie-en-veiligheid",
+        "pos:staatssecretaris-van-justitie-en-veiligheid",
+        "pos:korpschef-politie",
+        "pos:voorzitter-college-van-procureurs-generaal",
+        "pos:president-hoge-raad",
+        "pos:nationale-ombudsman"
+      ],
+      "keywords": [
+        "politie",
+        "veiligheid",
+        "criminaliteit",
+        "misdaad",
+        "misdrijf",
+        "verdachte",
+        "aanhoudingen",
+        "aangifte",
+        "openbaar ministerie",
+        "justitie",
+        "rechter",
+        "rechtbank",
+        "gerechtshof",
+        "drugs",
+        "drugscriminaliteit",
+        "witwassen",
+        "schietpartij",
+        "terrorisme",
+        "cybercrime",
+        "ondermijning",
+        "brandweer",
+        "veiligheidsregio",
+        "slachtoffer",
+        "gevangenis"
+      ]
+    },
+    {
+      "id": "topic:openbaar-bestuur-en-democratie",
+      "slug": "openbaar-bestuur-en-democratie",
+      "name": "Openbaar bestuur en democratie",
+      "description": "Openbaar bestuur en democratie gaat over de inrichting van het openbaar bestuur, verkiezingen, de verhouding tussen het Rijk en de medeoverheden en de democratische rechtsstaat. Verantwoordelijk zijn de minister van Binnenlandse Zaken en Koninkrijksrelaties en de staatssecretaris Koninkrijksrelaties en Slagvaardige Overheid, met de Kiesraad en het parlement als kerninstellingen.",
+      "organizations": [
+        "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+        "org:tweede-kamer",
+        "org:eerste-kamer",
+        "org:kiesraad",
+        "org:raad-voor-het-openbaar-bestuur",
+        "org:zbo-huis-voor-klokkenluiders",
+        "org:regering",
+        "org:algemene-rekenkamer",
+        "org:nationale-ombudsman",
+        "org:logius",
+        "org:rijksdienst-voor-identiteitsgegevens",
+        "org:provincie-utrecht",
+        "org:gemeente-amsterdam"
+      ],
+      "positions": [
+        "pos:minister-van-binnenlandse-zaken-en-koninkrijksrelaties",
+        "pos:staatssecretaris-koninkrijksrelaties-en-slagvaardige-overheid",
+        "pos:minister-president",
+        "pos:koning",
+        "pos:nationale-ombudsman"
+      ],
+      "keywords": [
+        "democratie",
+        "verkiezingen",
+        "tweede kamer",
+        "kamerlid",
+        "kamerleden",
+        "kamervragen",
+        "kamerdebat",
+        "debat",
+        "gemeenteraad",
+        "burgemeester",
+        "wethouder",
+        "kabinet",
+        "regering",
+        "ministerraad",
+        "provincie",
+        "gemeente",
+        "coalitie",
+        "oppositie",
+        "formatie",
+        "motie",
+        "referendum",
+        "kiesraad",
+        "staatssecretaris",
+        "premier",
+        "provinciale staten",
+        "gedeputeerde staten",
+        "fractie",
+        "zetels"
+      ]
+    },
+    {
+      "id": "topic:arbeidsmarkt",
+      "slug": "arbeidsmarkt",
+      "name": "Arbeidsmarkt",
+      "description": "Arbeidsmarkt gaat over werkgelegenheid, arbeidsvoorwaarden, participatie, uitkeringen en pensioenen. Verantwoordelijk zijn de minister van Sociale Zaken en Werkgelegenheid en de minister van Werk en Participatie, met UWV, SVB en de Nederlandse Arbeidsinspectie als uitvoering.",
+      "organizations": [
+        "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+        "org:zbo-uitvoeringsinstituut-werknemersverzekeringen",
+        "org:zbo-sociale-verzekeringsbank",
+        "org:nederlandse-arbeidsinspectie",
+        "org:sociaal-economische-raad",
+        "org:uitvoering-van-beleid",
+        "org:rwt-inlichtingenbureau-ib",
+        "org:zbo-stichting-blik-op-werk",
+        "org:zbo-pensioen-en-uitkeringsraad",
+        "org:zbo-bedrijfstakpensioenfondsen"
+      ],
+      "positions": [
+        "pos:minister-van-sociale-zaken-en-werkgelegenheid",
+        "pos:minister-van-werk-en-participatie"
+      ],
+      "keywords": [
+        "arbeidsmarkt",
+        "werkgelegenheid",
+        "werknemer",
+        "werkgever",
+        "werkenden",
+        "vacature",
+        "vacatures",
+        "banen",
+        "salaris",
+        "loon",
+        "loonsverhoging",
+        "cao",
+        "pensioen",
+        "uitkering",
+        "bijstand",
+        "staking",
+        "vakbond",
+        "fnv",
+        "cnv",
+        "personeelstekorten",
+        "werkloosheid",
+        "minimumloon"
+      ]
+    },
+    {
+      "id": "topic:stikstof-en-landbouw",
+      "slug": "stikstof-en-landbouw",
+      "name": "Stikstof en landbouw",
+      "description": "Stikstof en landbouw gaat over de stikstofaanpak, natuurherstel, de landbouwtransitie, visserij en voedselzekerheid. Verantwoordelijk zijn de minister en de staatssecretaris van Landbouw, Visserij, Voedselzekerheid en Natuur, met de NVWA en Staatsbosbeheer als uitvoering.",
+      "organizations": [
+        "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+        "org:nederlandse-voedsel-en-warenautoriteit",
+        "org:rijksdienst-voor-ondernemend-nederland",
+        "org:planbureau-voor-de-leefomgeving",
+        "org:zbo-staatsbosbeheer",
+        "org:zbo-college-voor-de-toelating-van-gewasbeschermingsmiddelen-en-biociden",
+        "org:zbo-bureau-beheer-landbouwgronden",
+        "org:zbo-raad-voor-plantenrassen",
+        "org:zbo-skal-biocontrole",
+        "org:zbo-stichting-nederlandse-algemene-kwaliteitsdienst-tuinbouw"
+      ],
+      "positions": [
+        "pos:minister-van-landbouw-visserij-voedselzekerheid-en-natuur",
+        "pos:staatssecretaris-van-landbouw-visserij-voedselzekerheid-en-natuur"
+      ],
+      "keywords": [
+        "stikstof",
+        "stikstofcrisis",
+        "stikstofbeleid",
+        "boer",
+        "boeren",
+        "landbouw",
+        "landbouwbeleid",
+        "veehouderij",
+        "veehouder",
+        "veehouders",
+        "vee",
+        "mest",
+        "mestbeleid",
+        "natuur",
+        "natuurgebied",
+        "natuurherstel",
+        "natuurbeheer",
+        "voedsel",
+        "visserij",
+        "gewas",
+        "veestapel",
+        "landbouwgrond",
+        "derogatie",
+        "nitraat",
+        "bos",
+        "bomen",
+        "wolf",
+        "ganzen"
+      ]
+    },
+    {
+      "id": "topic:infrastructuur",
+      "slug": "infrastructuur",
+      "name": "Infrastructuur",
+      "description": "Infrastructuur gaat over wegen, spoor, water, scheepvaart, luchtvaart en openbaar vervoer. Verantwoordelijk zijn de minister en de staatssecretaris van Infrastructuur en Waterstaat, met Rijkswaterstaat en het KNMI als uitvoering.",
+      "organizations": [
+        "org:ministerie-van-infrastructuur-en-waterstaat",
+        "org:rijkswaterstaat",
+        "org:koninklijk-nederlands-meteorologisch-instituut",
+        "org:inspectie-leefomgeving-en-transport",
+        "org:zbo-rdw",
+        "org:zbo-centraal-bureau-rijvaardigheidsbewijzen",
+        "org:rwt-prorail-bv",
+        "org:zbo-luchtverkeersleiding-nederland",
+        "org:zbo-nederlandse-loodsencorporatie",
+        "org:waterschap-van-rijnland",
+        "org:waterschap-rijn-en-ijssel",
+        "org:provincie-utrecht"
+      ],
+      "positions": [
+        "pos:minister-van-infrastructuur-en-waterstaat",
+        "pos:staatssecretaris-van-infrastructuur-en-waterstaat",
+        "pos:rijkswaterstaat-directeur-generaal"
+      ],
+      "keywords": [
+        "infrastructuur",
+        "wegen",
+        "snelweg",
+        "verkeer",
+        "trein",
+        "spoor",
+        "spoorlijn",
+        "spoorwegen",
+        "openbaar vervoer",
+        "bus",
+        "metro",
+        "fietspad",
+        "brug",
+        "tunnel",
+        "sluis",
+        "dijk",
+        "auto",
+        "automobilisten",
+        "vrachtwagen",
+        "schiphol",
+        "luchthaven",
+        "luchtvaart",
+        "vliegtuig",
+        "haven",
+        "prorail",
+        "rijkswaterstaat",
+        "verkeersveiligheid"
+      ]
+    },
+    {
+      "id": "topic:koninkrijksrelaties",
+      "slug": "koninkrijksrelaties",
+      "name": "Koninkrijksrelaties",
+      "description": "Koninkrijksrelaties gaat over de verhoudingen tussen Nederland en Aruba, Curaçao en Sint Maarten en over het bestuur van Caribisch Nederland. Verantwoordelijk is de staatssecretaris Koninkrijksrelaties en Slagvaardige Overheid bij het ministerie van Binnenlandse Zaken en Koninkrijksrelaties.",
+      "organizations": [
+        "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+        "org:openbaar-lichaam-bonaire",
+        "org:openbaar-lichaam-saba",
+        "org:openbaar-lichaam-sint-eustatius",
+        "org:rijksvertegenwoordiger-bes",
+        "org:zbo-kamer-van-koophandel-en-nijverheid-bonaire",
+        "org:zbo-kamer-van-koophandel-en-nijverheid-sint-eustatius-en-saba",
+        "org:rwt-distributeurs-van-elektriciteit-en-drinkwater-zoals-bedoeld-in-de-wet-elektricit",
+        "org:ministerie-van-buitenlandse-zaken"
+      ],
+      "positions": [
+        "pos:staatssecretaris-koninkrijksrelaties-en-slagvaardige-overheid",
+        "pos:minister-van-binnenlandse-zaken-en-koninkrijksrelaties",
+        "pos:gezaghebber-bonaire",
+        "pos:gezaghebber-saba",
+        "pos:gezaghebber-sint-eustatius",
+        "pos:rijksvertegenwoordiger-bes"
+      ],
+      "keywords": [
+        "koninkrijksrelaties",
+        "rijkswet",
+        "landspakket",
+        "aruba",
+        "curacao",
+        "curaçao",
+        "sint maarten",
+        "sint-maarten",
+        "bonaire",
+        "sint eustatius",
+        "saba",
+        "caribisch",
+        "gouverneur",
+        "rijksvertegenwoordiger",
+        "eilandsraad",
+        "gezaghebber"
+      ]
+    }
+  ],
+  "budgets": [],
+  "sources": [
+    {
+      "id": "src:k-bewindspersoon-elanor-boekholt-osullivan",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/elanor-boekholt-osullivan",
+      "title": "Elanor Boekholt-O'Sullivan - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-sophie-hermans",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/sophie-hermans",
+      "title": "Sophie Hermans - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-mirjam-sterk",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/mirjam-sterk",
+      "title": "Mirjam Sterk - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-sandra-palmen-schlangen",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/sandra-palmen-schlangen",
+      "title": "Sandra Palmen-Schlangen - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-stientje-van-veldhoven",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/stientje-van-veldhoven",
+      "title": "Stientje van Veldhoven-van der Meer - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-jo-annes-de-bat",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/jo-annes-de-bat",
+      "title": "Jo-Annes de Bat - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-heleen-herbert",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/heleen-herbert",
+      "title": "Heleen Herbert - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-bart-van-den-brink",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/bart-van-den-brink",
+      "title": "Bart van den Brink - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-rianne-letschert",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/rianne-letschert",
+      "title": "Rianne Letschert - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-judith-tielen",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/judith-tielen",
+      "title": "Judith Tielen - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-david-van-weel",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/david-van-weel",
+      "title": "David van Weel - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-pieter-heerma",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/pieter-heerma",
+      "title": "Pieter Heerma - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-eric-van-der-burg",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/eric-van-der-burg",
+      "title": "Eric van der Burg - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-hans-vijlbrief",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/hans-vijlbrief",
+      "title": "Hans Vijlbrief - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-thierry-aartsen",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/thierry-aartsen",
+      "title": "Thierry Aartsen - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-jaimi-van-essen",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/jaimi-van-essen",
+      "title": "Jaimi van Essen - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-silvio-erkens",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/silvio-erkens",
+      "title": "Silvio Erkens - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-vincent-karremans",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/vincent-karremans",
+      "title": "Vincent Karremans - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-annet-bertram",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/annet-bertram",
+      "title": "Annet Bertram - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-rob-jetten",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/rob-jetten",
+      "title": "Rob Jetten - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-bewindspersoon-eelco-heinen",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/eelco-heinen",
+      "title": "Eelco Heinen - bewindspersoon",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Portfolio en taken van de bewindspersoon."
+    },
+    {
+      "id": "src:k-ministerie-algemene-zaken",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken",
+      "title": "Ministerie van Algemene Zaken",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Ministeriepagina met onderwerpen en taken."
+    },
+    {
+      "id": "src:k-ministerie-binnenlandse-zaken-en-koninkrijksrelaties",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "title": "Ministerie van Binnenlandse Zaken en Koninkrijksrelaties",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Ministeriepagina met onderwerpen en taken."
+    },
+    {
+      "id": "src:k-ministerie-buitenlandse-zaken",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-buitenlandse-zaken",
+      "title": "Ministerie van Buitenlandse Zaken",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Ministeriepagina met onderwerpen en taken."
+    },
+    {
+      "id": "src:k-ministerie-defensie",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-defensie",
+      "title": "Ministerie van Defensie",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Ministeriepagina met onderwerpen en taken."
+    },
+    {
+      "id": "src:k-ministerie-economische-zaken-en-klimaat",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-economische-zaken-en-klimaat",
+      "title": "Ministerie van Economische Zaken en Klimaat",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Ministeriepagina met onderwerpen en taken."
+    },
+    {
+      "id": "src:k-ministerie-financien",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-financien",
+      "title": "Ministerie van Financiën",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Ministeriepagina met onderwerpen en taken."
+    },
+    {
+      "id": "src:k-ministerie-infrastructuur-en-waterstaat",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-infrastructuur-en-waterstaat",
+      "title": "Ministerie van Infrastructuur en Waterstaat",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Ministeriepagina met onderwerpen en taken."
+    },
+    {
+      "id": "src:k-ministerie-justitie-en-veiligheid",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-justitie-en-veiligheid",
+      "title": "Ministerie van Justitie en Veiligheid",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Ministeriepagina met onderwerpen en taken."
+    },
+    {
+      "id": "src:k-ministerie-landbouw-visserij-voedselzekerheid-en-natuur",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "title": "Ministerie van Landbouw, Visserij, Voedselzekerheid en Natuur",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Ministeriepagina met onderwerpen en taken."
+    },
+    {
+      "id": "src:k-ministerie-onderwijs-cultuur-en-wetenschap",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "title": "Ministerie van Onderwijs, Cultuur en Wetenschap",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Ministeriepagina met onderwerpen en taken."
+    },
+    {
+      "id": "src:k-ministerie-sociale-zaken-en-werkgelegenheid",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "title": "Ministerie van Sociale Zaken en Werkgelegenheid",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Ministeriepagina met onderwerpen en taken."
+    },
+    {
+      "id": "src:k-ministerie-volksgezondheid-welzijn-en-sport",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-volksgezondheid-welzijn-en-sport",
+      "title": "Ministerie van Volksgezondheid, Welzijn en Sport",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Ministeriepagina met onderwerpen en taken."
+    },
+    {
+      "id": "src:k-feed-nos",
+      "url": "https://feeds.nos.nl/nosnieuwsalgemeen",
+      "title": "RSS-feed NOS",
+      "publisher": "NOS",
+      "type": "news",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Feed gebruikt uit research/raw/J/feeds voor de keyword-testset."
+    },
+    {
+      "id": "src:k-feed-nu",
+      "url": "https://www.nu.nl/rss/Algemeen",
+      "title": "RSS-feed NU.nl",
+      "publisher": "NU.nl",
+      "type": "news",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Feed gebruikt uit research/raw/J/feeds voor de keyword-testset."
+    },
+    {
+      "id": "src:k-feed-nrc",
+      "url": "https://www.nrc.nl/rss/",
+      "title": "RSS-feed NRC",
+      "publisher": "NRC",
+      "type": "news",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Feed gebruikt uit research/raw/J/feeds voor de keyword-testset."
+    },
+    {
+      "id": "src:k-feed-ad",
+      "url": "https://www.ad.nl/rss.xml",
+      "title": "RSS-feed AD",
+      "publisher": "AD",
+      "type": "news",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Feed gebruikt uit research/raw/J/feeds voor de keyword-testset."
+    },
+    {
+      "id": "src:k-feed-volkskrant",
+      "url": "https://www.volkskrant.nl/rss.xml",
+      "title": "RSS-feed de Volkskrant",
+      "publisher": "de Volkskrant",
+      "type": "news",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Feed gebruikt uit research/raw/J/feeds voor de keyword-testset."
+    },
+    {
+      "id": "src:k-feed-trouw",
+      "url": "https://www.trouw.nl/rss.xml",
+      "title": "RSS-feed Trouw",
+      "publisher": "Trouw",
+      "type": "news",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Feed gebruikt uit research/raw/J/feeds voor de keyword-testset."
+    },
+    {
+      "id": "src:k-feed-parool",
+      "url": "https://www.parool.nl/rss.xml",
+      "title": "RSS-feed Het Parool",
+      "publisher": "Het Parool",
+      "type": "news",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Feed gebruikt uit research/raw/J/feeds voor de keyword-testset."
+    },
+    {
+      "id": "src:k-feed-fd",
+      "url": "https://fd.nl/?rss",
+      "title": "RSS-feed FD",
+      "publisher": "FD",
+      "type": "news",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Feed gebruikt uit research/raw/J/feeds voor de keyword-testset."
+    },
+    {
+      "id": "src:k-feed-rtl",
+      "url": "https://www.rtlnieuws.nl/rss.xml",
+      "title": "RSS-feed RTL Nieuws",
+      "publisher": "RTL Nieuws",
+      "type": "news",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Feed gebruikt uit research/raw/J/feeds voor de keyword-testset."
+    },
+    {
+      "id": "src:k-feed-binnenlandsbestuur",
+      "url": "https://www.binnenlandsbestuur.nl/feeds/articles.rss",
+      "title": "RSS-feed Binnenlands Bestuur",
+      "publisher": "Binnenlands Bestuur",
+      "type": "news",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Feed gebruikt uit research/raw/J/feeds voor de keyword-testset."
+    }
+  ],
+  "media": [],
+  "gaps": [
+    {
+      "what": "topic.sources ontbreekt in het schema",
+      "why": "schema/v1/topic.schema.json staat additionalProperties:false en kent geen sources-veld, terwijl de opdracht per topic een sources[] vraagt.",
+      "endpoint": "schema/v1/topic.schema.json",
+      "resume": "Besluit nemen in docs/adr/ of topic.sources wordt toegevoegd; tot dan staat de bron per topic in K-topics.md en in envelope.sources[]."
+    },
+    {
+      "what": "Geen zelfstandige organisatie voor het kabinet",
+      "why": "Workstream A modelleert org:regering en org:ministerraad, niet het kabinet van ministers en staatssecretarissen, terwijl nieuws het woord kabinet breed gebruikt.",
+      "endpoint": "https://www.rijksoverheid.nl/regering",
+      "resume": "Org-kabinet toevoegen en de nieuwsalias daarheen verplaatsen."
+    },
+    {
+      "what": "Rijksministerraad, Gevolmachtigde Ministers en Gouverneurs van Aruba, Curaçao en Sint Maarten ontbreken",
+      "why": "Deze koninkrijksorganen en -posities zijn in workstreams A tot en met G niet gemodelleerd.",
+      "endpoint": "https://www.rijksoverheid.nl/onderwerpen/koninkrijksrelaties",
+      "resume": "Koninkrijkslaag modelleren in een latere fase en aan topic:koninkrijksrelaties koppelen."
+    },
+    {
+      "what": "Rijksdienst Caribisch Nederland ontbreekt als organisatie",
+      "why": "De rijksdienst voor Caribisch Nederland is geen record in workstreams A tot en met G.",
+      "endpoint": "https://www.rijksdienstcn.com/",
+      "resume": "Organisatie toevoegen en aan topic:koninkrijksrelaties koppelen."
+    },
+    {
+      "what": "Veiligheidsregio's ontbreken als organisaties",
+      "why": "Workstream G modelleert de 25 veiligheidsregio's niet, terwijl ze onder het thema veiligheid vallen.",
+      "endpoint": "https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/veiligheidsregios-en-crisisbeheersing/veiligheidsregios",
+      "resume": "Veiligheidsregio's modelleren en aan topic:veiligheid koppelen."
+    },
+    {
+      "what": "Koepels VNG, IPO en Unie van Waterschappen ontbreken",
+      "why": "De koepels zijn geen organisatierecord, zodat openbaar bestuur en infrastructuur geen koepel kunnen noemen.",
+      "endpoint": "https://vng.nl/",
+      "resume": "Koepelorganisaties modelleren in een latere fase."
+    },
+    {
+      "what": "Nieuwssteekproef dekt koninkrijksrelaties en toeslagen maar dun",
+      "why": "De feeds van 2026-09-18 bevatten vrijwel geen artikelen over het Koninkrijk en weinig over toeslagen, zodat de testset voor die thema's klein is.",
+      "endpoint": "https://www.rijksoverheid.nl/onderwerpen/koninkrijksrelaties",
+      "resume": "Meer feeds of een langere periode toevoegen en de testset opnieuw draaien."
+    },
+    {
+      "what": "Algemene keywords geven valse positieven",
+      "why": "Woorden als koninkrijk, terugkeer, bouw en auto komen ook buiten het beleidsterrein voor, bijvoorbeeld Verenigd Koninkrijk en sport.",
+      "endpoint": "research/raw/J/feeds/",
+      "resume": "De nieuwslinker moet context of een langere term gebruiken en algemene keywords laag wegen."
+    }
+  ]
+}

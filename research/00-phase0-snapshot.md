@@ -4,7 +4,7 @@ Recorded 2026-09-17 by the orchestrator as the frozen reference for Phase 2 coun
 
 ## 1. Kabinet
 
-Current kabinet: kabinet-Jetten. All 28 bewindspersonen (16 ministers, 12 staatssecretarissen) were appointed 23 februari 2026.
+Current kabinet: kabinet-Jetten. All 28 bewindspersonen (18 ministers, 10 staatssecretarissen) were appointed 23 februari 2026.
 
 Sources: https://www.rijksoverheid.nl/regering/bewindspersonen (overview, raw `bewindspersonen.out`) and the 28 individual pages under `research/raw/00/bewindspersonen/<slug>.html`. Appointment date read from each page's Loopbaan section ("23 februari 2026 Benoeming ... in het kabinet-Jetten"); the portfolio title and ministerie read from each page's meta description and first ministerie link. Pages carry DCTERMS.rights = "CC0 1.0 Universal".
 

@@ -1,0 +1,3552 @@
+{
+  "workstream": "F",
+  "generatedAt": "2026-09-18T14:00:00+02:00",
+  "endpointsUsed": [
+    {
+      "url": "https://www.raadvanstate.nl/",
+      "retrieved": "2026-09-18",
+      "notes": "403 voor geautomatiseerde fetch; alleen als website-URL."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/actueel/nieuws/2026/04/17/benoeming-vice-president-raad-van-state",
+      "retrieved": "2026-09-18",
+      "notes": "Sybrand van Haersma Buma per 1 juli 2026."
+    },
+    {
+      "url": "https://www.rekenkamer.nl/over-de-algemene-rekenkamer/organisatie/college/pieter-duisenberg",
+      "retrieved": "2026-09-18",
+      "notes": "Pieter Duisenberg sinds 1 september 2023 president."
+    },
+    {
+      "url": "https://www.nationaleombudsman.nl/wie-is-de-nationale-ombudsman",
+      "retrieved": "2026-09-18",
+      "notes": "Reinier van Zutphen en de Kinderombudsman."
+    },
+    {
+      "url": "https://www.kiesraad.nl/over-ons/leden-kiesraad",
+      "retrieved": "2026-09-18",
+      "notes": "Kiesraad telt 7 leden."
+    },
+    {
+      "url": "https://www.kiesraad.nl/personen/leden-kiesraad/wim-kuijken",
+      "retrieved": "2026-09-18",
+      "notes": "Wim Kuijken voorzitter, benoemd in 2021."
+    },
+    {
+      "url": "https://www.kiesraad.nl/actueel/nieuws/2020/10/02/nieuwe-voorzitter-kiesraad",
+      "retrieved": "2026-09-18",
+      "notes": "Start 1 januari 2021."
+    },
+    {
+      "url": "https://www.ser.nl/nl/ser/raad/voorzitters",
+      "retrieved": "2026-09-18",
+      "notes": "Kim Putters vanaf 16 september 2022."
+    },
+    {
+      "url": "https://www.wrr.nl/over-de-wrr/raad-en-adviserende-leden",
+      "retrieved": "2026-09-18",
+      "notes": "Corien Prins voorzitter."
+    },
+    {
+      "url": "https://www.wrr.nl/personen/raad-en-adviserende-leden/corien-prins",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter sinds 2017; geen exacte dag gepubliceerd."
+    },
+    {
+      "url": "https://www.rli.nl/raadsleden",
+      "retrieved": "2026-09-18",
+      "notes": "Jan Jacob van Dijk voorzitter."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/actueel/nieuws/2024/02/16/benoeming-voorzitter-raad-voor-de-leefomgeving-en-infrastructuur",
+      "retrieved": "2026-09-18",
+      "notes": "Start 1 augustus 2024."
+    },
+    {
+      "url": "https://www.raadopenbaarbestuur.nl/personen/raad/mariette-hamer",
+      "retrieved": "2026-09-18",
+      "notes": "Mariëtte Hamer, termijn 1 november 2025 tot 31 oktober 2029."
+    },
+    {
+      "url": "https://www.onderwijsraad.nl/actueel/nieuws/2024/06/14/louise-elffers-vanaf-1-september-voorzitter-onderwijsraad",
+      "retrieved": "2026-09-18",
+      "notes": "Louise Elffers per 1 september 2024."
+    },
+    {
+      "url": "https://www.gezondheidsraad.nl/over-ons/organisatie/raad/voorzitter-prof.-dr.-k.-stronks",
+      "retrieved": "2026-09-18",
+      "notes": "Karien Stronks sinds 1 januari 2025."
+    },
+    {
+      "url": "https://www.raadrvs.nl/personen/raad/prof.-dr.-m.-jet-bussemaker",
+      "retrieved": "2026-09-18",
+      "notes": "Jet Bussemaker sinds 1 juni 2019."
+    },
+    {
+      "url": "https://www.adviesraadinternationalevraagstukken.nl/personen/adviesraad/bert-koenders",
+      "retrieved": "2026-09-18",
+      "notes": "Bert Koenders voorzitter AIV."
+    },
+    {
+      "url": "https://www.adviesraadmigratie.nl/personen/monique-kremer",
+      "retrieved": "2026-09-18",
+      "notes": "Monique Kremer sinds 2020, herbenoemd maart 2024."
+    },
+    {
+      "url": "https://organisaties.overheid.nl/115625/Adviesraad_Migratie",
+      "retrieved": "2026-09-18",
+      "notes": "Kaderwet adviescolleges; ingesteld bij Vreemdelingenwet 2000."
+    },
+    {
+      "url": "https://www.awti.nl/personen/raadsleden/mirjam-van-praag",
+      "retrieved": "2026-09-18",
+      "notes": "Mirjam van Praag sinds 1 maart 2025."
+    },
+    {
+      "url": "https://www.awti.nl/actueel/nieuws/2026/09/11/mirjam-van-praag-stopt-op-1-januari-als-voorzitter-van-de-awti",
+      "retrieved": "2026-09-18",
+      "notes": "Vertrek per 1 januari 2027."
+    },
+    {
+      "url": "https://www.cpb.nl/medewerkers/pieter-hasekamp",
+      "retrieved": "2026-09-18",
+      "notes": "Pieter Hasekamp sinds 1 maart 2020 directeur."
+    },
+    {
+      "url": "https://www.pbl.nl/over-het-pbl/directie",
+      "retrieved": "2026-09-18",
+      "notes": "Marko Hekkert directeur."
+    },
+    {
+      "url": "https://www.algemenebestuursdienst.nl/actueel/nieuws/2022/10/07/marko-hekkert-directeur-planbureau-voor-de-leefomgeving",
+      "retrieved": "2026-09-18",
+      "notes": "Start 1 januari 2023."
+    },
+    {
+      "url": "https://www.scp.nl/over-het-scp/dit-zijn-wij",
+      "retrieved": "2026-09-18",
+      "notes": "Karen van Oudenhoven-van der Zee directeur."
+    },
+    {
+      "url": "https://www.scp.nl/actueel/nieuws/2022/05/20/karen-van-oudenhoven-van-der-zee-vanaf-1-oktober-nieuwe-directeur-van-het-sociaal-en-cultureel-planbureau",
+      "retrieved": "2026-09-18",
+      "notes": "Start 1 oktober 2022."
+    },
+    {
+      "url": "https://www.scp.nl/over-het-scp/zo-werken-wij",
+      "retrieved": "2026-09-18",
+      "notes": "SCP valt formeel onder VWS."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0002367",
+      "retrieved": "2026-09-18",
+      "notes": "Wet op de Raad van State."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0001840",
+      "retrieved": "2026-09-18",
+      "notes": "Grondwet."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0039429",
+      "retrieved": "2026-09-18",
+      "notes": "Comptabiliteitswet 2016."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0003372",
+      "retrieved": "2026-09-18",
+      "notes": "Wet Nationale ombudsman."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0004627",
+      "retrieved": "2026-09-18",
+      "notes": "Kieswet."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0002058",
+      "retrieved": "2026-09-18",
+      "notes": "Wet op de Sociaal-Economische Raad."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0003043",
+      "retrieved": "2026-09-18",
+      "notes": "Instellingswet W.R.R."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0031263",
+      "retrieved": "2026-09-18",
+      "notes": "Wet Raad voor de leefomgeving en infrastructuur."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0008419",
+      "retrieved": "2026-09-18",
+      "notes": "Wet op de Raad voor het openbaar bestuur."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0008683",
+      "retrieved": "2026-09-18",
+      "notes": "Wet op de Onderwijsraad."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0002202",
+      "retrieved": "2026-09-18",
+      "notes": "Gezondheidswet."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0035852",
+      "retrieved": "2026-09-18",
+      "notes": "Wet op de Raad voor volksgezondheid en samenleving."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0009474",
+      "retrieved": "2026-09-18",
+      "notes": "Wet op de Adviesraad internationale vraagstukken."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0011823",
+      "retrieved": "2026-09-18",
+      "notes": "Vreemdelingenwet 2000."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0008159",
+      "retrieved": "2026-09-18",
+      "notes": "Kaderwet adviescolleges."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0035175",
+      "retrieved": "2026-09-18",
+      "notes": "Wet Adviesraad voor wetenschap, technologie en innovatie."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0031972",
+      "retrieved": "2026-09-18",
+      "notes": "Aanwijzingen voor de Planbureaus."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/s/sociaal-economische-raad-ser",
+      "retrieved": "2026-09-18",
+      "notes": "SER hoort bij EZK."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/o/onderwijsraad",
+      "retrieved": "2026-09-18",
+      "notes": "Onderwijsraad hoort bij OCW."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/g/gezondheidsraad",
+      "retrieved": "2026-09-18",
+      "notes": "Gezondheidsraad hoort bij VWS."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/r/raad-voor-volksgezondheid-en-samenleving-rvs",
+      "retrieved": "2026-09-18",
+      "notes": "RVS hoort bij VWS."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/a/adviesraad-voor-wetenschap-technologie-en-innovatie-awti",
+      "retrieved": "2026-09-18",
+      "notes": "AWTI hoort bij OCW."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/c/centraal-planbureau-cpb",
+      "retrieved": "2026-09-18",
+      "notes": "CPB hoort bij EZK."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/p/planbureau-voor-de-leefomgeving-pbl",
+      "retrieved": "2026-09-18",
+      "notes": "PBL hoort bij IenW."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/a/algemene-rekenkamer",
+      "retrieved": "2026-09-18",
+      "notes": "Algemene Rekenkamer hoort bij Financiën."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/n/nationale-ombudsman",
+      "retrieved": "2026-09-18",
+      "notes": "Nationale ombudsman hoort bij BZK."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/k/kiesraad",
+      "retrieved": "2026-09-18",
+      "notes": "Kiesraad hoort bij BZK."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/r/raad-voor-het-openbaar-bestuur-rob",
+      "retrieved": "2026-09-18",
+      "notes": "ROB hoort bij BZK."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/a/adviesraad-migratie",
+      "retrieved": "2026-09-18",
+      "notes": "Adviesraad Migratie, voorheen ACVZ."
+    }
+  ],
+  "organizations": [
+    {
+      "id": "org:raad-van-state",
+      "slug": "raad-van-state",
+      "name": "Raad van State",
+      "aliases": [
+        "RvS",
+        "Raad van State"
+      ],
+      "type": "department",
+      "subtype": "hoge-college",
+      "branch": "hoge-colleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Onafhankelijk adviescollege van regering en parlement over wetgeving en bestuur en hoogste algemene bestuursrechter van Nederland. De Koning is voorzitter; de vice-president voert het dagelijks bestuur.",
+      "legalSource": {
+        "label": "Wet op de Raad van State",
+        "url": "https://wetten.overheid.nl/BWBR0002367"
+      },
+      "website": "https://www.raadvanstate.nl",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "sources": [
+        {
+          "source": "src:wet-raad-van-state",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:raad-van-state-website",
+          "retrieved": "2026-09-18",
+          "confidence": "low"
+        }
+      ]
+    },
+    {
+      "id": "org:algemene-rekenkamer",
+      "slug": "algemene-rekenkamer",
+      "name": "Algemene Rekenkamer",
+      "aliases": [
+        "ARK",
+        "Rekenkamer"
+      ],
+      "type": "department",
+      "subtype": "hoge-college",
+      "branch": "hoge-colleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Hoge College van Staat dat de ontvangsten en uitgaven van het Rijk controleert en regering en Staten-Generaal daarover informeert.",
+      "legalSource": {
+        "label": "Comptabiliteitswet 2016",
+        "url": "https://wetten.overheid.nl/BWBR0039429"
+      },
+      "website": "https://www.rekenkamer.nl",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "sources": [
+        {
+          "source": "src:comptabiliteitswet-2016",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rekenkamer-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:contactgids-rekenkamer",
+          "retrieved": "2026-09-18",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "org:nationale-ombudsman",
+      "slug": "nationale-ombudsman",
+      "name": "Nationale ombudsman",
+      "aliases": [
+        "de ombudsman"
+      ],
+      "type": "department",
+      "subtype": "hoge-college",
+      "branch": "hoge-colleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Hoge College van Staat dat klachten over de overheid onderzoekt en de Tweede Kamer jaarlijks informeert over zijn bevindingen.",
+      "legalSource": {
+        "label": "Wet Nationale ombudsman",
+        "url": "https://wetten.overheid.nl/BWBR0003372"
+      },
+      "website": "https://www.nationaleombudsman.nl",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "sources": [
+        {
+          "source": "src:wet-nationale-ombudsman",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:ombudsman-wie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:contactgids-ombudsman",
+          "retrieved": "2026-09-18",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "org:kiesraad",
+      "slug": "kiesraad",
+      "name": "Kiesraad",
+      "aliases": [
+        "Kiesraad"
+      ],
+      "type": "advisory",
+      "subtype": "kiesraad",
+      "branch": "adviescolleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Centraal stembureau bij verkiezingen en adviesorgaan en informatiecentrum over kiesrecht, referenda en verkiezingen.",
+      "legalSource": {
+        "label": "Kieswet",
+        "url": "https://wetten.overheid.nl/BWBR0004627"
+      },
+      "website": "https://www.kiesraad.nl",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": 7,
+      "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "sources": [
+        {
+          "source": "src:kieswet",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:kiesraad-leden",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:kiesraad-over",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:kiesraad-contactgids",
+          "retrieved": "2026-09-18",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "org:sociaal-economische-raad",
+      "slug": "sociaal-economische-raad",
+      "name": "Sociaal-Economische Raad",
+      "aliases": [
+        "SER",
+        "de Raad"
+      ],
+      "type": "advisory",
+      "subtype": "adviescollege",
+      "branch": "adviescolleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Belangrijkste adviesraad voor regering en parlement over sociaal-economische vraagstukken, met werkgevers, werknemers en onafhankelijke kroonleden.",
+      "legalSource": {
+        "label": "Wet op de Sociaal-Economische Raad",
+        "url": "https://wetten.overheid.nl/BWBR0002058"
+      },
+      "website": "https://www.ser.nl",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "sources": [
+        {
+          "source": "src:wet-ser",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:ser-over",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:ser-voorzitters",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:contactgids-ser",
+          "retrieved": "2026-09-18",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "org:wetenschappelijke-raad-voor-het-regeringsbeleid",
+      "slug": "wetenschappelijke-raad-voor-het-regeringsbeleid",
+      "name": "Wetenschappelijke Raad voor het Regeringsbeleid",
+      "aliases": [
+        "WRR"
+      ],
+      "type": "advisory",
+      "subtype": "adviescollege",
+      "branch": "adviescolleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Wetenschappelijke adviesraad van de regering over strategische vraagstukken met belangrijke gevolgen op de langere termijn.",
+      "legalSource": {
+        "label": "Instellingswet W.R.R.",
+        "url": "https://wetten.overheid.nl/BWBR0003043"
+      },
+      "website": "https://www.wrr.nl",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "sources": [
+        {
+          "source": "src:instellingswet-wrr",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wrr-raad",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wrr-prins",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:raad-voor-de-leefomgeving-en-infrastructuur",
+      "slug": "raad-voor-de-leefomgeving-en-infrastructuur",
+      "name": "Raad voor de leefomgeving en infrastructuur",
+      "aliases": [
+        "Rli"
+      ],
+      "type": "advisory",
+      "subtype": "adviescollege",
+      "branch": "adviescolleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Strategisch adviescollege voor regering en parlement op het brede domein van de fysieke leefomgeving en infrastructuur.",
+      "legalSource": {
+        "label": "Wet Raad voor de leefomgeving en infrastructuur",
+        "url": "https://wetten.overheid.nl/BWBR0031263"
+      },
+      "website": "https://www.rli.nl",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "sources": [
+        {
+          "source": "src:wet-rli",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rli-over",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rli-raadsleden",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:raad-voor-het-openbaar-bestuur",
+      "slug": "raad-voor-het-openbaar-bestuur",
+      "name": "Raad voor het Openbaar Bestuur",
+      "aliases": [
+        "ROB"
+      ],
+      "type": "advisory",
+      "subtype": "adviescollege",
+      "branch": "adviescolleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Adviescollege over de inrichting en het functioneren van het openbaar bestuur en over de bestuurlijke en financiele verhoudingen tussen Rijk, provincies en gemeenten.",
+      "legalSource": {
+        "label": "Wet op de Raad voor het openbaar bestuur",
+        "url": "https://wetten.overheid.nl/BWBR0008419"
+      },
+      "website": "https://www.raadopenbaarbestuur.nl",
+      "established": "1996-12-12",
+      "dissolved": null,
+      "seatsCount": null,
+      "sources": [
+        {
+          "source": "src:wet-rob",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rob-over",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:contactgids-rob",
+          "retrieved": "2026-09-18",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "org:onderwijsraad",
+      "slug": "onderwijsraad",
+      "name": "Onderwijsraad",
+      "aliases": [
+        "Onderwijsraad"
+      ],
+      "type": "advisory",
+      "subtype": "adviescollege",
+      "branch": "adviescolleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Adviescollege van regering en parlement over onderwijsbeleid en onderwijswetgeving, gevraagd en ongevraagd.",
+      "legalSource": {
+        "label": "Wet op de Onderwijsraad",
+        "url": "https://wetten.overheid.nl/BWBR0008683"
+      },
+      "website": "https://www.onderwijsraad.nl",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "sources": [
+        {
+          "source": "src:wet-onderwijsraad",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:onderwijsraad-over",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:contactgids-onderwijsraad",
+          "retrieved": "2026-09-18",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "org:gezondheidsraad",
+      "slug": "gezondheidsraad",
+      "name": "Gezondheidsraad",
+      "aliases": [
+        "Gezondheidsraad"
+      ],
+      "type": "advisory",
+      "subtype": "adviescollege",
+      "branch": "adviescolleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Adviescollege van de regering over volksgezondheid en gezondheidszorg, met benoemde leden op persoonlijke titel.",
+      "legalSource": {
+        "label": "Gezondheidswet",
+        "url": "https://wetten.overheid.nl/BWBR0002202"
+      },
+      "website": "https://www.gezondheidsraad.nl",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "sources": [
+        {
+          "source": "src:gezondheidswet",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:gezondheidsraad-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:contactgids-gezondheidsraad",
+          "retrieved": "2026-09-18",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "org:raad-voor-volksgezondheid-en-samenleving",
+      "slug": "raad-voor-volksgezondheid-en-samenleving",
+      "name": "Raad voor Volksgezondheid en Samenleving",
+      "aliases": [
+        "RVS"
+      ],
+      "type": "advisory",
+      "subtype": "adviescollege",
+      "branch": "adviescolleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Adviescollege van regering en parlement over volksgezondheid en samenleving, gericht op de langere termijn.",
+      "legalSource": {
+        "label": "Wet op de Raad voor volksgezondheid en samenleving",
+        "url": "https://wetten.overheid.nl/BWBR0035852"
+      },
+      "website": "https://www.raadrvs.nl",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "sources": [
+        {
+          "source": "src:wet-rvs",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rvs-over",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:contactgids-rvs",
+          "retrieved": "2026-09-18",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "org:adviesraad-internationale-vraagstukken",
+      "slug": "adviesraad-internationale-vraagstukken",
+      "name": "Adviesraad Internationale Vraagstukken",
+      "aliases": [
+        "AIV"
+      ],
+      "type": "advisory",
+      "subtype": "adviescollege",
+      "branch": "adviescolleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Adviescollege van regering en parlement over buitenlands beleid, in het bijzonder Europese samenwerking, mensenrechten, internationale ontwikkeling en veiligheid.",
+      "legalSource": {
+        "label": "Wet op de Adviesraad internationale vraagstukken",
+        "url": "https://wetten.overheid.nl/BWBR0009474"
+      },
+      "website": "https://www.adviesraadinternationalevraagstukken.nl",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": 9,
+      "sources": [
+        {
+          "source": "src:wet-aiv",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:aiv-over",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:aiv-adviesraad",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:adviesraad-migratie",
+      "slug": "adviesraad-migratie",
+      "name": "Adviesraad Migratie",
+      "aliases": [
+        "AM",
+        "Adviescommissie voor Vreemdelingenzaken",
+        "ACVZ"
+      ],
+      "type": "advisory",
+      "subtype": "adviescollege",
+      "branch": "adviescolleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Onafhankelijk adviescollege van regering en parlement over migratierecht en migratiebeleid; voorheen de Adviescommissie voor Vreemdelingenzaken (ACVZ).",
+      "legalSource": {
+        "label": "Vreemdelingenwet 2000",
+        "url": "https://wetten.overheid.nl/BWBR0011823"
+      },
+      "website": "https://www.adviesraadmigratie.nl",
+      "established": "2001-04-01",
+      "dissolved": null,
+      "seatsCount": null,
+      "parent": "org:ministerie-van-justitie-en-veiligheid",
+      "sources": [
+        {
+          "source": "src:vreemdelingenwet-2000",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:adviesraad-migratie-25jaar",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-adviesraad-migratie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:register-adviesraad-migratie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:adviesraad-voor-wetenschap-technologie-en-innovatie",
+      "slug": "adviesraad-voor-wetenschap-technologie-en-innovatie",
+      "name": "Adviesraad voor wetenschap, technologie en innovatie",
+      "aliases": [
+        "AWTI"
+      ],
+      "type": "advisory",
+      "subtype": "adviescollege",
+      "branch": "adviescolleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Adviescollege van regering en parlement over wetenschap, technologie en innovatie.",
+      "legalSource": {
+        "label": "Wet Adviesraad voor wetenschap, technologie en innovatie",
+        "url": "https://wetten.overheid.nl/BWBR0035175"
+      },
+      "website": "https://www.awti.nl",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "sources": [
+        {
+          "source": "src:wet-awti",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:awti-over",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:awti-raadsleden",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:contactgids-awti",
+          "retrieved": "2026-09-18",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "org:centraal-planbureau",
+      "slug": "centraal-planbureau",
+      "name": "Centraal Planbureau",
+      "aliases": [
+        "CPB"
+      ],
+      "type": "advisory",
+      "subtype": "planbureau",
+      "branch": "adviescolleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Onafhankelijk planbureau dat economische prognoses en analyses maakt voor het kabinet en de voorbereiding van de rijksbegroting.",
+      "legalSource": {
+        "label": "Aanwijzingen voor de Planbureaus",
+        "url": "https://wetten.overheid.nl/BWBR0031972"
+      },
+      "website": "https://www.cpb.nl",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "parent": "org:ministerie-van-economische-zaken-en-klimaat",
+      "sources": [
+        {
+          "source": "src:aanwijzingen-planbureaus",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:cpb-over",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:contactgids-cpb",
+          "retrieved": "2026-09-18",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "org:planbureau-voor-de-leefomgeving",
+      "slug": "planbureau-voor-de-leefomgeving",
+      "name": "Planbureau voor de Leefomgeving",
+      "aliases": [
+        "PBL"
+      ],
+      "type": "advisory",
+      "subtype": "planbureau",
+      "branch": "adviescolleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Onafhankelijk planbureau voor strategische beleidsanalyses op het gebied van milieu, natuur en ruimte.",
+      "legalSource": {
+        "label": "Aanwijzingen voor de Planbureaus",
+        "url": "https://wetten.overheid.nl/BWBR0031972"
+      },
+      "website": "https://www.pbl.nl",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "parent": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "sources": [
+        {
+          "source": "src:aanwijzingen-planbureaus",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:pbl-over",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:contactgids-pbl",
+          "retrieved": "2026-09-18",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "org:sociaal-en-cultureel-planbureau",
+      "slug": "sociaal-en-cultureel-planbureau",
+      "name": "Sociaal en Cultureel Planbureau",
+      "aliases": [
+        "SCP"
+      ],
+      "type": "advisory",
+      "subtype": "planbureau",
+      "branch": "adviescolleges",
+      "level": "rijk",
+      "country": "nederland",
+      "description": "Onafhankelijk planbureau dat de kwaliteit van leven en samenleving in Nederland volgt, verklaart en verkent.",
+      "legalSource": {
+        "label": "Aanwijzingen voor de Planbureaus",
+        "url": "https://wetten.overheid.nl/BWBR0031972"
+      },
+      "website": "https://www.scp.nl",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "parent": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+      "sources": [
+        {
+          "source": "src:aanwijzingen-planbureaus",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:scp-zo-werken-wij",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:scp-over",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "positions": [
+    {
+      "id": "pos:vice-president-raad-van-state",
+      "slug": "vice-president-raad-van-state",
+      "title": "Vice-president Raad van State",
+      "organization": "org:raad-van-state",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de Raad van State",
+        "url": "https://wetten.overheid.nl/BWBR0002367"
+      },
+      "sources": [
+        {
+          "source": "src:rijksoverheid-benoeming-buma",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-raad-van-state",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-algemene-rekenkamer",
+      "slug": "president-algemene-rekenkamer",
+      "title": "President Algemene Rekenkamer",
+      "organization": "org:algemene-rekenkamer",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Comptabiliteitswet 2016",
+        "url": "https://wetten.overheid.nl/BWBR0039429"
+      },
+      "sources": [
+        {
+          "source": "src:rekenkamer-duisenberg",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:comptabiliteitswet-2016",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:nationale-ombudsman",
+      "slug": "nationale-ombudsman",
+      "title": "Nationale ombudsman",
+      "organization": "org:nationale-ombudsman",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet Nationale ombudsman",
+        "url": "https://wetten.overheid.nl/BWBR0003372"
+      },
+      "sources": [
+        {
+          "source": "src:ombudsman-wie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-nationale-ombudsman",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:voorzitter-kiesraad",
+      "slug": "voorzitter-kiesraad",
+      "title": "Voorzitter Kiesraad",
+      "organization": "org:kiesraad",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Kieswet",
+        "url": "https://wetten.overheid.nl/BWBR0004627"
+      },
+      "sources": [
+        {
+          "source": "src:kiesraad-kuijken",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:kieswet",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:voorzitter-sociaal-economische-raad",
+      "slug": "voorzitter-sociaal-economische-raad",
+      "title": "Voorzitter Sociaal-Economische Raad",
+      "organization": "org:sociaal-economische-raad",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de Sociaal-Economische Raad",
+        "url": "https://wetten.overheid.nl/BWBR0002058"
+      },
+      "sources": [
+        {
+          "source": "src:ser-voorzitters",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-ser",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:voorzitter-wrr",
+      "slug": "voorzitter-wrr",
+      "title": "Voorzitter Wetenschappelijke Raad voor het Regeringsbeleid",
+      "organization": "org:wetenschappelijke-raad-voor-het-regeringsbeleid",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Instellingswet W.R.R.",
+        "url": "https://wetten.overheid.nl/BWBR0003043"
+      },
+      "sources": [
+        {
+          "source": "src:wrr-raad",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wrr-prins",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:voorzitter-rli",
+      "slug": "voorzitter-rli",
+      "title": "Voorzitter Raad voor de leefomgeving en infrastructuur",
+      "organization": "org:raad-voor-de-leefomgeving-en-infrastructuur",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet Raad voor de leefomgeving en infrastructuur",
+        "url": "https://wetten.overheid.nl/BWBR0031263"
+      },
+      "sources": [
+        {
+          "source": "src:rijksoverheid-benoeming-vandijk",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rli-raadsleden",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:voorzitter-rob",
+      "slug": "voorzitter-rob",
+      "title": "Voorzitter Raad voor het Openbaar Bestuur",
+      "organization": "org:raad-voor-het-openbaar-bestuur",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de Raad voor het openbaar bestuur",
+        "url": "https://wetten.overheid.nl/BWBR0008419"
+      },
+      "sources": [
+        {
+          "source": "src:rob-hamer",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rob-over",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:voorzitter-onderwijsraad",
+      "slug": "voorzitter-onderwijsraad",
+      "title": "Voorzitter Onderwijsraad",
+      "organization": "org:onderwijsraad",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de Onderwijsraad",
+        "url": "https://wetten.overheid.nl/BWBR0008683"
+      },
+      "sources": [
+        {
+          "source": "src:onderwijsraad-elffers",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:onderwijsraad-over",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:voorzitter-gezondheidsraad",
+      "slug": "voorzitter-gezondheidsraad",
+      "title": "Voorzitter Gezondheidsraad",
+      "organization": "org:gezondheidsraad",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Gezondheidswet",
+        "url": "https://wetten.overheid.nl/BWBR0002202"
+      },
+      "sources": [
+        {
+          "source": "src:gezondheidsraad-stronks",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:gezondheidsraad-raad",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:voorzitter-rvs",
+      "slug": "voorzitter-rvs",
+      "title": "Voorzitter Raad voor Volksgezondheid en Samenleving",
+      "organization": "org:raad-voor-volksgezondheid-en-samenleving",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de Raad voor volksgezondheid en samenleving",
+        "url": "https://wetten.overheid.nl/BWBR0035852"
+      },
+      "sources": [
+        {
+          "source": "src:rvs-bussemaker",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rvs-de-raad",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:voorzitter-aiv",
+      "slug": "voorzitter-aiv",
+      "title": "Voorzitter Adviesraad Internationale Vraagstukken",
+      "organization": "org:adviesraad-internationale-vraagstukken",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de Adviesraad internationale vraagstukken",
+        "url": "https://wetten.overheid.nl/BWBR0009474"
+      },
+      "sources": [
+        {
+          "source": "src:aiv-koenders",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:aiv-adviesraad",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:voorzitter-adviesraad-migratie",
+      "slug": "voorzitter-adviesraad-migratie",
+      "title": "Voorzitter Adviesraad Migratie",
+      "organization": "org:adviesraad-migratie",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Vreemdelingenwet 2000",
+        "url": "https://wetten.overheid.nl/BWBR0011823"
+      },
+      "sources": [
+        {
+          "source": "src:adviesraad-migratie-kremer",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:register-adviesraad-migratie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:voorzitter-awti",
+      "slug": "voorzitter-awti",
+      "title": "Voorzitter Adviesraad voor wetenschap, technologie en innovatie",
+      "organization": "org:adviesraad-voor-wetenschap-technologie-en-innovatie",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet Adviesraad voor wetenschap, technologie en innovatie",
+        "url": "https://wetten.overheid.nl/BWBR0035175"
+      },
+      "sources": [
+        {
+          "source": "src:awti-praag",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:awti-praag-stopt",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:directeur-cpb",
+      "slug": "directeur-cpb",
+      "title": "Directeur Centraal Planbureau",
+      "organization": "org:centraal-planbureau",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Aanwijzingen voor de Planbureaus",
+        "url": "https://wetten.overheid.nl/BWBR0031972"
+      },
+      "sources": [
+        {
+          "source": "src:cpb-hasekamp",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:cpb-over",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:directeur-pbl",
+      "slug": "directeur-pbl",
+      "title": "Directeur Planbureau voor de Leefomgeving",
+      "organization": "org:planbureau-voor-de-leefomgeving",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Aanwijzingen voor de Planbureaus",
+        "url": "https://wetten.overheid.nl/BWBR0031972"
+      },
+      "sources": [
+        {
+          "source": "src:pbl-directie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:abd-hekkert",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:directeur-scp",
+      "slug": "directeur-scp",
+      "title": "Directeur Sociaal en Cultureel Planbureau",
+      "organization": "org:sociaal-en-cultureel-planbureau",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Aanwijzingen voor de Planbureaus",
+        "url": "https://wetten.overheid.nl/BWBR0031972"
+      },
+      "sources": [
+        {
+          "source": "src:scp-dit-zijn-wij",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:scp-oudenhoven-benoemd",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": "person:sybrand-van-haersma-buma",
+      "slug": "sybrand-van-haersma-buma",
+      "name": "Sybrand van Haersma Buma",
+      "aliases": [
+        "Sybrand Buma",
+        "S. Buma"
+      ],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-benoeming-buma",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:pieter-duisenberg",
+      "slug": "pieter-duisenberg",
+      "name": "Pieter Duisenberg",
+      "aliases": [
+        "P.J. Duisenberg"
+      ],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:rekenkamer-duisenberg",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:reinier-van-zutphen",
+      "slug": "reinier-van-zutphen",
+      "name": "Reinier van Zutphen",
+      "aliases": [],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:ombudsman-wie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:wim-kuijken",
+      "slug": "wim-kuijken",
+      "name": "Wim Kuijken",
+      "aliases": [
+        "W.J. Kuijken"
+      ],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:kiesraad-kuijken",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:kiesraad-nieuwe-vz",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:kim-putters",
+      "slug": "kim-putters",
+      "name": "Kim Putters",
+      "aliases": [],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:ser-voorzitters",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:corien-prins",
+      "slug": "corien-prins",
+      "name": "Corien Prins",
+      "aliases": [
+        "J.E.J. Prins"
+      ],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:wrr-prins",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wrr-raad",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:jan-jacob-van-dijk",
+      "slug": "jan-jacob-van-dijk",
+      "name": "Jan Jacob van Dijk",
+      "aliases": [
+        "J.J. van Dijk"
+      ],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-benoeming-vandijk",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rli-raadsleden",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:mariette-hamer",
+      "slug": "mariette-hamer",
+      "name": "Mariëtte Hamer",
+      "aliases": [
+        "M.I. Hamer"
+      ],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:rob-hamer",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:louise-elffers",
+      "slug": "louise-elffers",
+      "name": "Louise Elffers",
+      "aliases": [],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:onderwijsraad-elffers",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:karien-stronks",
+      "slug": "karien-stronks",
+      "name": "Karien Stronks",
+      "aliases": [
+        "K. Stronks"
+      ],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:gezondheidsraad-stronks",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:jet-bussemaker",
+      "slug": "jet-bussemaker",
+      "name": "Jet Bussemaker",
+      "aliases": [
+        "M. Bussemaker"
+      ],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:rvs-bussemaker",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:bert-koenders",
+      "slug": "bert-koenders",
+      "name": "Bert Koenders",
+      "aliases": [
+        "A.G. Koenders"
+      ],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:aiv-koenders",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:leiden-koenders",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:monique-kremer",
+      "slug": "monique-kremer",
+      "name": "Monique Kremer",
+      "aliases": [
+        "M. Kremer"
+      ],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:adviesraad-migratie-kremer",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:mirjam-van-praag",
+      "slug": "mirjam-van-praag",
+      "name": "Mirjam van Praag",
+      "aliases": [
+        "C.M. van Praag"
+      ],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:awti-praag",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:pieter-hasekamp",
+      "slug": "pieter-hasekamp",
+      "name": "Pieter Hasekamp",
+      "aliases": [
+        "P.F. Hasekamp"
+      ],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:cpb-hasekamp",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:marko-hekkert",
+      "slug": "marko-hekkert",
+      "name": "Marko Hekkert",
+      "aliases": [
+        "M.P. Hekkert"
+      ],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:abd-hekkert",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:pbl-directie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:karen-van-oudenhoven-van-der-zee",
+      "slug": "karen-van-oudenhoven-van-der-zee",
+      "name": "Karen van Oudenhoven-van der Zee",
+      "aliases": [
+        "K. van Oudenhoven-van der Zee"
+      ],
+      "birthDate": null,
+      "sources": [
+        {
+          "source": "src:scp-oudenhoven-benoemd",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:scp-dit-zijn-wij",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "tenures": [
+    {
+      "id": "tenure:buma-vice-president-raad-van-state-2026",
+      "person": "person:sybrand-van-haersma-buma",
+      "position": "pos:vice-president-raad-van-state",
+      "start": "2026-07-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "source": {
+        "source": "src:rijksoverheid-benoeming-buma",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:duisenberg-president-algemene-rekenkamer-2023",
+      "person": "person:pieter-duisenberg",
+      "position": "pos:president-algemene-rekenkamer",
+      "start": "2023-09-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "source": {
+        "source": "src:rekenkamer-duisenberg",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:van-zutphen-nationale-ombudsman-2021",
+      "person": "person:reinier-van-zutphen",
+      "position": "pos:nationale-ombudsman",
+      "start": "2021-04-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "source": {
+        "source": "src:ombudsman-wie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:kuijken-voorzitter-kiesraad-2021",
+      "person": "person:wim-kuijken",
+      "position": "pos:voorzitter-kiesraad",
+      "start": "2021-01-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "source": {
+        "source": "src:kiesraad-nieuwe-vz",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:putters-voorzitter-ser-2022",
+      "person": "person:kim-putters",
+      "position": "pos:voorzitter-sociaal-economische-raad",
+      "start": "2022-09-16",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "source": {
+        "source": "src:ser-voorzitters",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:prins-voorzitter-wrr-2017",
+      "person": "person:corien-prins",
+      "position": "pos:voorzitter-wrr",
+      "start": "2017-01-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "source": {
+        "source": "src:wrr-prins",
+        "retrieved": "2026-09-18",
+        "confidence": "low"
+      }
+    },
+    {
+      "id": "tenure:van-dijk-voorzitter-rli-2024",
+      "person": "person:jan-jacob-van-dijk",
+      "position": "pos:voorzitter-rli",
+      "start": "2024-08-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "source": {
+        "source": "src:rijksoverheid-benoeming-vandijk",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:hamer-voorzitter-rob-2025",
+      "person": "person:mariette-hamer",
+      "position": "pos:voorzitter-rob",
+      "start": "2025-11-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "source": {
+        "source": "src:rob-hamer",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:elffers-voorzitter-onderwijsraad-2024",
+      "person": "person:louise-elffers",
+      "position": "pos:voorzitter-onderwijsraad",
+      "start": "2024-09-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "source": {
+        "source": "src:onderwijsraad-elffers",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:stronks-voorzitter-gezondheidsraad-2025",
+      "person": "person:karien-stronks",
+      "position": "pos:voorzitter-gezondheidsraad",
+      "start": "2025-01-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "source": {
+        "source": "src:gezondheidsraad-stronks",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:bussemaker-voorzitter-rvs-2019",
+      "person": "person:jet-bussemaker",
+      "position": "pos:voorzitter-rvs",
+      "start": "2019-06-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "source": {
+        "source": "src:rvs-bussemaker",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:koenders-voorzitter-aiv-2021",
+      "person": "person:bert-koenders",
+      "position": "pos:voorzitter-aiv",
+      "start": "2021-12-13",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "source": {
+        "source": "src:leiden-koenders",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "tenure:kremer-voorzitter-adviesraad-migratie-2024",
+      "person": "person:monique-kremer",
+      "position": "pos:voorzitter-adviesraad-migratie",
+      "start": "2024-03-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "source": {
+        "source": "src:adviesraad-migratie-kremer",
+        "retrieved": "2026-09-18",
+        "confidence": "low"
+      }
+    },
+    {
+      "id": "tenure:van-praag-voorzitter-awti-2025",
+      "person": "person:mirjam-van-praag",
+      "position": "pos:voorzitter-awti",
+      "start": "2025-03-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "source": {
+        "source": "src:awti-praag",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:hasekamp-directeur-cpb-2020",
+      "person": "person:pieter-hasekamp",
+      "position": "pos:directeur-cpb",
+      "start": "2020-03-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "source": {
+        "source": "src:cpb-hasekamp",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:hekkert-directeur-pbl-2023",
+      "person": "person:marko-hekkert",
+      "position": "pos:directeur-pbl",
+      "start": "2023-01-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "source": {
+        "source": "src:abd-hekkert",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:oudenhoven-directeur-scp-2022",
+      "person": "person:karen-van-oudenhoven-van-der-zee",
+      "position": "pos:directeur-scp",
+      "start": "2022-10-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "source": {
+        "source": "src:scp-oudenhoven-benoemd",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    }
+  ],
+  "memberships": [],
+  "relations": [
+    {
+      "id": "rel:raad-van-state-adviseert-regering",
+      "from": "org:raad-van-state",
+      "to": "org:regering",
+      "type": "advises",
+      "metadata": {
+        "domein": "advisering over wetgeving en bestuur"
+      },
+      "source": {
+        "source": "src:wet-raad-van-state",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:ser-adviseert-szw",
+      "from": "org:sociaal-economische-raad",
+      "to": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "type": "advises",
+      "metadata": {
+        "domein": "sociaal-economisch beleid"
+      },
+      "source": {
+        "source": "src:ser-over",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "rel:ser-adviseert-ezk",
+      "from": "org:sociaal-economische-raad",
+      "to": "org:ministerie-van-economische-zaken-en-klimaat",
+      "type": "advises",
+      "metadata": {
+        "domein": "sociaal-economisch beleid"
+      },
+      "source": {
+        "source": "src:contactgids-ser",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "rel:wrr-adviseert-regering",
+      "from": "org:wetenschappelijke-raad-voor-het-regeringsbeleid",
+      "to": "org:regering",
+      "type": "advises",
+      "metadata": {
+        "domein": "strategische vraagstukken op de lange termijn"
+      },
+      "source": {
+        "source": "src:instellingswet-wrr",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:rli-adviseert-ienw",
+      "from": "org:raad-voor-de-leefomgeving-en-infrastructuur",
+      "to": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "type": "advises",
+      "metadata": {
+        "domein": "fysieke leefomgeving en infrastructuur"
+      },
+      "source": {
+        "source": "src:rijksoverheid-benoeming-vandijk",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:rli-adviseert-ezk",
+      "from": "org:raad-voor-de-leefomgeving-en-infrastructuur",
+      "to": "org:ministerie-van-economische-zaken-en-klimaat",
+      "type": "advises",
+      "metadata": {
+        "domein": "fysieke leefomgeving en infrastructuur"
+      },
+      "source": {
+        "source": "src:rijksoverheid-benoeming-vandijk",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:rli-adviseert-lvvn",
+      "from": "org:raad-voor-de-leefomgeving-en-infrastructuur",
+      "to": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "type": "advises",
+      "metadata": {
+        "domein": "fysieke leefomgeving en infrastructuur"
+      },
+      "source": {
+        "source": "src:rijksoverheid-benoeming-vandijk",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:rli-adviseert-bzk",
+      "from": "org:raad-voor-de-leefomgeving-en-infrastructuur",
+      "to": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "type": "advises",
+      "metadata": {
+        "domein": "fysieke leefomgeving en infrastructuur"
+      },
+      "source": {
+        "source": "src:rijksoverheid-benoeming-vandijk",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:rob-adviseert-bzk",
+      "from": "org:raad-voor-het-openbaar-bestuur",
+      "to": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "type": "advises",
+      "metadata": {
+        "domein": "openbaar bestuur en bestuurlijke en financiele verhoudingen"
+      },
+      "source": {
+        "source": "src:contactgids-rob",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "rel:onderwijsraad-adviseert-ocw",
+      "from": "org:onderwijsraad",
+      "to": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "type": "advises",
+      "metadata": {
+        "domein": "onderwijsbeleid en onderwijswetgeving"
+      },
+      "source": {
+        "source": "src:contactgids-onderwijsraad",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "rel:gezondheidsraad-adviseert-vws",
+      "from": "org:gezondheidsraad",
+      "to": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+      "type": "advises",
+      "metadata": {
+        "domein": "volksgezondheid en gezondheidszorg"
+      },
+      "source": {
+        "source": "src:contactgids-gezondheidsraad",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "rel:rvs-adviseert-vws",
+      "from": "org:raad-voor-volksgezondheid-en-samenleving",
+      "to": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+      "type": "advises",
+      "metadata": {
+        "domein": "volksgezondheid en samenleving"
+      },
+      "source": {
+        "source": "src:contactgids-rvs",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "rel:aiv-adviseert-bz",
+      "from": "org:adviesraad-internationale-vraagstukken",
+      "to": "org:ministerie-van-buitenlandse-zaken",
+      "type": "advises",
+      "metadata": {
+        "domein": "buitenlands beleid en internationale vraagstukken"
+      },
+      "source": {
+        "source": "src:wet-aiv",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "rel:adviesraad-migratie-adviseert-jv",
+      "from": "org:adviesraad-migratie",
+      "to": "org:ministerie-van-justitie-en-veiligheid",
+      "type": "advises",
+      "metadata": {
+        "domein": "migratierecht en migratiebeleid"
+      },
+      "source": {
+        "source": "src:register-adviesraad-migratie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:awti-adviseert-ocw",
+      "from": "org:adviesraad-voor-wetenschap-technologie-en-innovatie",
+      "to": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "type": "advises",
+      "metadata": {
+        "domein": "wetenschap, technologie en innovatie"
+      },
+      "source": {
+        "source": "src:contactgids-awti",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "rel:awti-adviseert-ezk",
+      "from": "org:adviesraad-voor-wetenschap-technologie-en-innovatie",
+      "to": "org:ministerie-van-economische-zaken-en-klimaat",
+      "type": "advises",
+      "metadata": {
+        "domein": "wetenschap, technologie en innovatie"
+      },
+      "source": {
+        "source": "src:awti-over",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "rel:kiesraad-adviseert-bzk",
+      "from": "org:kiesraad",
+      "to": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "type": "advises",
+      "metadata": {
+        "domein": "kiesrecht, referenda en verkiezingen"
+      },
+      "source": {
+        "source": "src:kiesraad-contactgids",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "rel:cpb-adviseert-ezk",
+      "from": "org:centraal-planbureau",
+      "to": "org:ministerie-van-economische-zaken-en-klimaat",
+      "type": "advises",
+      "metadata": {
+        "domein": "economische prognoses en beleidsanalyses"
+      },
+      "source": {
+        "source": "src:cpb-over",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:pbl-adviseert-ienw",
+      "from": "org:planbureau-voor-de-leefomgeving",
+      "to": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "type": "advises",
+      "metadata": {
+        "domein": "milieu, natuur en ruimte"
+      },
+      "source": {
+        "source": "src:contactgids-pbl",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "rel:scp-adviseert-vws",
+      "from": "org:sociaal-en-cultureel-planbureau",
+      "to": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+      "type": "advises",
+      "metadata": {
+        "domein": "sociaal en cultureel beleid"
+      },
+      "source": {
+        "source": "src:scp-zo-werken-wij",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    }
+  ],
+  "topics": [],
+  "budgets": [],
+  "sources": [
+    {
+      "id": "src:grondwet",
+      "url": "https://wetten.overheid.nl/BWBR0001840",
+      "title": "Grondwet",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Artikelen 73-75 (Raad van State), 76-78 (Rekenkamer), 78a-78f (ombudsman)."
+    },
+    {
+      "id": "src:wet-raad-van-state",
+      "url": "https://wetten.overheid.nl/BWBR0002367",
+      "title": "Wet op de Raad van State",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:comptabiliteitswet-2016",
+      "url": "https://wetten.overheid.nl/BWBR0039429",
+      "title": "Comptabiliteitswet 2016",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:wet-nationale-ombudsman",
+      "url": "https://wetten.overheid.nl/BWBR0003372",
+      "title": "Wet Nationale ombudsman",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:kieswet",
+      "url": "https://wetten.overheid.nl/BWBR0004627",
+      "title": "Kieswet",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Kiesraad: artikelen A 4 en A 5."
+    },
+    {
+      "id": "src:wet-ser",
+      "url": "https://wetten.overheid.nl/BWBR0002058",
+      "title": "Wet op de Sociaal-Economische Raad",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:instellingswet-wrr",
+      "url": "https://wetten.overheid.nl/BWBR0003043",
+      "title": "Instellingswet W.R.R.",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:wet-rli",
+      "url": "https://wetten.overheid.nl/BWBR0031263",
+      "title": "Wet Raad voor de leefomgeving en infrastructuur",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:wet-rob",
+      "url": "https://wetten.overheid.nl/BWBR0008419",
+      "title": "Wet op de Raad voor het openbaar bestuur",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:wet-onderwijsraad",
+      "url": "https://wetten.overheid.nl/BWBR0008683",
+      "title": "Wet op de Onderwijsraad",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:gezondheidswet",
+      "url": "https://wetten.overheid.nl/BWBR0002202",
+      "title": "Gezondheidswet",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Gezondheidsraad is geregeld in de Gezondheidswet."
+    },
+    {
+      "id": "src:wet-rvs",
+      "url": "https://wetten.overheid.nl/BWBR0035852",
+      "title": "Wet op de Raad voor volksgezondheid en samenleving",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:wet-aiv",
+      "url": "https://wetten.overheid.nl/BWBR0009474",
+      "title": "Wet op de Adviesraad internationale vraagstukken",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:vreemdelingenwet-2000",
+      "url": "https://wetten.overheid.nl/BWBR0011823",
+      "title": "Vreemdelingenwet 2000",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Adviesraad Migratie is ingesteld bij de Vreemdelingenwet 2000."
+    },
+    {
+      "id": "src:kaderwet-adviescolleges",
+      "url": "https://wetten.overheid.nl/BWBR0008159",
+      "title": "Kaderwet adviescolleges",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:wet-awti",
+      "url": "https://wetten.overheid.nl/BWBR0035175",
+      "title": "Wet Adviesraad voor wetenschap, technologie en innovatie",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:aanwijzingen-planbureaus",
+      "url": "https://wetten.overheid.nl/BWBR0031972",
+      "title": "Aanwijzingen voor de Planbureaus",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Begripsbepaling noemt als planbureaus het CPB, het PBL en het SCP."
+    },
+    {
+      "id": "src:raad-van-state-website",
+      "url": "https://www.raadvanstate.nl/",
+      "title": "Raad van State",
+      "publisher": "Raad van State",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Website gaf 403 aan geautomatiseerde fetch; alleen als website-URL opgenomen, niet als bron voor feiten."
+    },
+    {
+      "id": "src:rijksoverheid-benoeming-buma",
+      "url": "https://www.rijksoverheid.nl/actueel/nieuws/2026/04/17/benoeming-vice-president-raad-van-state",
+      "title": "Benoeming vice-president Raad van State",
+      "publisher": "Rijksoverheid",
+      "type": "news",
+      "published": "2026-04-17",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Sybrand Buma benoemd per 1 juli 2026 als opvolger van Thom de Graaf."
+    },
+    {
+      "id": "src:rekenkamer-website",
+      "url": "https://www.rekenkamer.nl/",
+      "title": "Algemene Rekenkamer",
+      "publisher": "Algemene Rekenkamer",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rekenkamer-organisatie",
+      "url": "https://www.rekenkamer.nl/over-de-algemene-rekenkamer/organisatie",
+      "title": "Organisatie Algemene Rekenkamer",
+      "publisher": "Algemene Rekenkamer",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rekenkamer-duisenberg",
+      "url": "https://www.rekenkamer.nl/over-de-algemene-rekenkamer/organisatie/college/pieter-duisenberg",
+      "title": "Pieter Duisenberg, president Algemene Rekenkamer",
+      "publisher": "Algemene Rekenkamer",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Sinds 1 september 2023 president."
+    },
+    {
+      "id": "src:contactgids-rekenkamer",
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/a/algemene-rekenkamer",
+      "title": "Algemene Rekenkamer contactgegevens",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ombudsman-website",
+      "url": "https://www.nationaleombudsman.nl/",
+      "title": "Nationale ombudsman",
+      "publisher": "Nationale ombudsman",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ombudsman-over",
+      "url": "https://www.nationaleombudsman.nl/over-de-nationale-ombudsman",
+      "title": "Over de Nationale ombudsman",
+      "publisher": "Nationale ombudsman",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ombudsman-wie",
+      "url": "https://www.nationaleombudsman.nl/wie-is-de-nationale-ombudsman",
+      "title": "Wie is de Nationale ombudsman",
+      "publisher": "Nationale ombudsman",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Reinier van Zutphen sinds 2015, per april 2021 herbenoemd voor zes jaar."
+    },
+    {
+      "id": "src:contactgids-ombudsman",
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/n/nationale-ombudsman",
+      "title": "Nationale ombudsman contactgegevens",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:kiesraad-website",
+      "url": "https://www.kiesraad.nl/",
+      "title": "Kiesraad",
+      "publisher": "Kiesraad",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:kiesraad-over",
+      "url": "https://www.kiesraad.nl/over-ons",
+      "title": "Over ons",
+      "publisher": "Kiesraad",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:kiesraad-leden",
+      "url": "https://www.kiesraad.nl/over-ons/leden-kiesraad",
+      "title": "Leden Kiesraad",
+      "publisher": "Kiesraad",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "De Kiesraad bestaat uit 7 leden."
+    },
+    {
+      "id": "src:kiesraad-kuijken",
+      "url": "https://www.kiesraad.nl/personen/leden-kiesraad/wim-kuijken",
+      "title": "Wim Kuijken, voorzitter Kiesraad",
+      "publisher": "Kiesraad",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Voorzitter, benoemd in 2021."
+    },
+    {
+      "id": "src:kiesraad-nieuwe-vz",
+      "url": "https://www.kiesraad.nl/actueel/nieuws/2020/10/02/nieuwe-voorzitter-kiesraad",
+      "title": "Nieuwe voorzitter Kiesraad",
+      "publisher": "Kiesraad",
+      "type": "news",
+      "published": "2020-10-02",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Wim Kuijken voorzitter per 1 januari 2021."
+    },
+    {
+      "id": "src:kiesraad-herbenoeming",
+      "url": "https://www.kiesraad.nl/actueel/nieuws/2024/09/26/carolien-van-ham-nieuw-lid-kiesraad-en-herbenoeming-voorzitter-wim-kuijken",
+      "title": "Herbenoeming voorzitter Wim Kuijken",
+      "publisher": "Kiesraad",
+      "type": "news",
+      "published": "2024-09-26",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Voorzitter sinds 1 januari 2021, voorgedragen voor herbenoeming per 1 januari 2025."
+    },
+    {
+      "id": "src:kiesraad-contactgids",
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/k/kiesraad",
+      "title": "Kiesraad contactgegevens",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Hoort bij het ministerie van BZK."
+    },
+    {
+      "id": "src:ser-website",
+      "url": "https://www.ser.nl/",
+      "title": "Sociaal-Economische Raad",
+      "publisher": "SER",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ser-over",
+      "url": "https://www.ser.nl/nl/ser/over-ser",
+      "title": "Over de SER",
+      "publisher": "SER",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Adviseert regering en parlement over het sociaal-economisch beleid."
+    },
+    {
+      "id": "src:ser-voorzitters",
+      "url": "https://www.ser.nl/nl/ser/raad/voorzitters",
+      "title": "Voorzitter van de SER",
+      "publisher": "SER",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Kim Putters vanaf 16 september 2022."
+    },
+    {
+      "id": "src:ser-raadsleden",
+      "url": "https://www.ser.nl/nl/ser/raad/raadsleden",
+      "title": "Raadsleden SER",
+      "publisher": "SER",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:contactgids-ser",
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/s/sociaal-economische-raad-ser",
+      "title": "Sociaal-Economische Raad contactgegevens",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:wrr-website",
+      "url": "https://www.wrr.nl/",
+      "title": "Wetenschappelijke Raad voor het Regeringsbeleid",
+      "publisher": "WRR",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:wrr-raad",
+      "url": "https://www.wrr.nl/over-de-wrr/raad-en-adviserende-leden",
+      "title": "Raad en adviserende leden WRR",
+      "publisher": "WRR",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Voorzitter prof. mr. J.E.J. (Corien) Prins."
+    },
+    {
+      "id": "src:wrr-prins",
+      "url": "https://www.wrr.nl/personen/raad-en-adviserende-leden/corien-prins",
+      "title": "Corien Prins, voorzitter WRR",
+      "publisher": "WRR",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Kwam in 2017 terug bij de WRR als voorzitter; tweede en laatste termijn."
+    },
+    {
+      "id": "src:wrr-prins-verlaat",
+      "url": "https://www.wrr.nl/actueel/nieuws/2026/06/24/voorzitter-corien-prins-verlaat-de-wrr",
+      "title": "Voorzitter Corien Prins verlaat de WRR",
+      "publisher": "WRR",
+      "type": "news",
+      "published": "2026-06-24",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Zij wordt in 2017 voorzitter en vertrekt zodra een opvolger is aangetreden."
+    },
+    {
+      "id": "src:rli-website",
+      "url": "https://www.rli.nl/",
+      "title": "Raad voor de leefomgeving en infrastructuur",
+      "publisher": "Rli",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rli-over",
+      "url": "https://www.rli.nl/over-de-raad",
+      "title": "Over de raad",
+      "publisher": "Rli",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rli-raadsleden",
+      "url": "https://www.rli.nl/raadsleden",
+      "title": "Raadsleden Rli",
+      "publisher": "Rli",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "dr. J.J. van Dijk voorzitter."
+    },
+    {
+      "id": "src:rijksoverheid-benoeming-vandijk",
+      "url": "https://www.rijksoverheid.nl/actueel/nieuws/2024/02/16/benoeming-voorzitter-raad-voor-de-leefomgeving-en-infrastructuur",
+      "title": "Benoeming voorzitter Raad voor de leefomgeving en infrastructuur",
+      "publisher": "Rijksoverheid",
+      "type": "news",
+      "published": "2024-02-16",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Jan Jacob van Dijk per 1 augustus 2024; Rli adviseert IenW, EZK, LNV en BZK."
+    },
+    {
+      "id": "src:rob-website",
+      "url": "https://www.raadopenbaarbestuur.nl/",
+      "title": "Raad voor het Openbaar Bestuur",
+      "publisher": "ROB",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rob-over",
+      "url": "https://www.raadopenbaarbestuur.nl/over-de-rob",
+      "title": "Over de ROB",
+      "publisher": "ROB",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Ingesteld bij wet van 12 december 1996."
+    },
+    {
+      "id": "src:rob-raadsleden",
+      "url": "https://www.raadopenbaarbestuur.nl/over-de-rob/raadsleden",
+      "title": "Raadsleden ROB",
+      "publisher": "ROB",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rob-hamer",
+      "url": "https://www.raadopenbaarbestuur.nl/personen/raad/mariette-hamer",
+      "title": "Mariëtte Hamer, voorzitter ROB",
+      "publisher": "ROB",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Benoemingstermijn 1 november 2025 tot 31 oktober 2029."
+    },
+    {
+      "id": "src:contactgids-rob",
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/r/raad-voor-het-openbaar-bestuur-rob",
+      "title": "Raad voor het Openbaar Bestuur contactgegevens",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Hoort bij BZK."
+    },
+    {
+      "id": "src:onderwijsraad-website",
+      "url": "https://www.onderwijsraad.nl/",
+      "title": "Onderwijsraad",
+      "publisher": "Onderwijsraad",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:onderwijsraad-over",
+      "url": "https://www.onderwijsraad.nl/over-ons",
+      "title": "Over ons",
+      "publisher": "Onderwijsraad",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:onderwijsraad-elffers",
+      "url": "https://www.onderwijsraad.nl/actueel/nieuws/2024/06/14/louise-elffers-vanaf-1-september-voorzitter-onderwijsraad",
+      "title": "Louise Elffers vanaf 1 september voorzitter Onderwijsraad",
+      "publisher": "Onderwijsraad",
+      "type": "news",
+      "published": "2024-06-14",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Voorzitter per 1 september 2024, benoemd voor vier jaar."
+    },
+    {
+      "id": "src:rijksoverheid-onderwijsraad-leden",
+      "url": "https://www.rijksoverheid.nl/actueel/nieuws/2026/09/04/benoeming-vijf-nieuwe-leden-onderwijsraad",
+      "title": "Benoeming 5 nieuwe leden Onderwijsraad",
+      "publisher": "Rijksoverheid",
+      "type": "news",
+      "published": "2026-09-04",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Voorzitter Louise Elffers."
+    },
+    {
+      "id": "src:contactgids-onderwijsraad",
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/o/onderwijsraad",
+      "title": "Onderwijsraad contactgegevens",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Hoort bij OCW."
+    },
+    {
+      "id": "src:gezondheidsraad-website",
+      "url": "https://www.gezondheidsraad.nl/",
+      "title": "Gezondheidsraad",
+      "publisher": "Gezondheidsraad",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:gezondheidsraad-organisatie",
+      "url": "https://www.gezondheidsraad.nl/over-ons/organisatie",
+      "title": "Organisatie Gezondheidsraad",
+      "publisher": "Gezondheidsraad",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:gezondheidsraad-raad",
+      "url": "https://www.gezondheidsraad.nl/over-ons/organisatie/raad",
+      "title": "Raad Gezondheidsraad",
+      "publisher": "Gezondheidsraad",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Voorzitter prof. dr. K. Stronks."
+    },
+    {
+      "id": "src:gezondheidsraad-stronks",
+      "url": "https://www.gezondheidsraad.nl/over-ons/organisatie/raad/voorzitter-prof.-dr.-k.-stronks",
+      "title": "Karien Stronks, voorzitter Gezondheidsraad",
+      "publisher": "Gezondheidsraad",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Sinds 1 januari 2025 voorzitter."
+    },
+    {
+      "id": "src:contactgids-gezondheidsraad",
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/g/gezondheidsraad",
+      "title": "Gezondheidsraad contactgegevens",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Hoort bij VWS."
+    },
+    {
+      "id": "src:rvs-website",
+      "url": "https://www.raadrvs.nl/",
+      "title": "Raad voor Volksgezondheid en Samenleving",
+      "publisher": "RVS",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rvs-over",
+      "url": "https://www.raadrvs.nl/over-de-rvs",
+      "title": "Over de RVS",
+      "publisher": "RVS",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rvs-de-raad",
+      "url": "https://www.raadrvs.nl/over-de-rvs/de-raad",
+      "title": "De raad RVS",
+      "publisher": "RVS",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rvs-bussemaker",
+      "url": "https://www.raadrvs.nl/personen/raad/prof.-dr.-m.-jet-bussemaker",
+      "title": "Jet Bussemaker, voorzitter RVS",
+      "publisher": "RVS",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Sinds 1 juni 2019 voorzitter."
+    },
+    {
+      "id": "src:contactgids-rvs",
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/r/raad-voor-volksgezondheid-en-samenleving-rvs",
+      "title": "Raad voor Volksgezondheid en Samenleving contactgegevens",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Hoort bij VWS."
+    },
+    {
+      "id": "src:aiv-website",
+      "url": "https://www.adviesraadinternationalevraagstukken.nl/",
+      "title": "Adviesraad Internationale Vraagstukken",
+      "publisher": "AIV",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:aiv-over",
+      "url": "https://www.adviesraadinternationalevraagstukken.nl/over-de-aiv",
+      "title": "Over de AIV",
+      "publisher": "AIV",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:aiv-adviesraad",
+      "url": "https://www.adviesraadinternationalevraagstukken.nl/over-de-aiv/organisatie/adviesraad",
+      "title": "Adviesraad AIV",
+      "publisher": "AIV",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Negen leden inclusief de voorzitter."
+    },
+    {
+      "id": "src:aiv-koenders",
+      "url": "https://www.adviesraadinternationalevraagstukken.nl/personen/adviesraad/bert-koenders",
+      "title": "Bert Koenders, voorzitter AIV",
+      "publisher": "AIV",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:leiden-koenders",
+      "url": "https://www.universiteitleiden.nl/en/staffmembers/bert-koenders",
+      "title": "Bert Koenders, Leiden University",
+      "publisher": "Universiteit Leiden",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Tijdlijn noemt 13 december 2021 als nieuwe voorzitter van de adviesraad buitenlands beleid."
+    },
+    {
+      "id": "src:adviesraad-migratie-website",
+      "url": "https://www.adviesraadmigratie.nl/",
+      "title": "Adviesraad Migratie",
+      "publisher": "Adviesraad Migratie",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:adviesraad-migratie-over",
+      "url": "https://www.adviesraadmigratie.nl/over-de-adviesraad-migratie",
+      "title": "Over de Adviesraad Migratie",
+      "publisher": "Adviesraad Migratie",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:adviesraad-migratie-25jaar",
+      "url": "https://www.adviesraadmigratie.nl/25-jaar-adviesraad-migratie",
+      "title": "25 jaar Adviesraad Migratie",
+      "publisher": "Adviesraad Migratie",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Opgericht 1 april 2001, toen nog als ACVZ."
+    },
+    {
+      "id": "src:adviesraad-migratie-kremer",
+      "url": "https://www.adviesraadmigratie.nl/personen/monique-kremer",
+      "title": "Monique Kremer, voorzitter Adviesraad Migratie",
+      "publisher": "Adviesraad Migratie",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Sinds 2020 voorzitter, in maart 2024 herbenoemd voor vier jaar."
+    },
+    {
+      "id": "src:rijksoverheid-adviesraad-migratie",
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/a/adviesraad-migratie",
+      "title": "Adviesraad Migratie contactgegevens",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Voorheen Adviescommissie voor Vreemdelingenzaken (ACVZ)."
+    },
+    {
+      "id": "src:register-adviesraad-migratie",
+      "url": "https://organisaties.overheid.nl/115625/Adviesraad_Migratie",
+      "title": "Adviesraad Migratie in het overheidsregister",
+      "publisher": "Overheid.nl",
+      "type": "register",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Kaderwet adviescolleges van toepassing; ingesteld bij Vreemdelingenwet 2000; valt onder J&V."
+    },
+    {
+      "id": "src:awti-website",
+      "url": "https://www.awti.nl/",
+      "title": "Adviesraad voor wetenschap, technologie en innovatie",
+      "publisher": "AWTI",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:awti-over",
+      "url": "https://www.awti.nl/over-ons",
+      "title": "Over ons",
+      "publisher": "AWTI",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Adviseert regering en parlement."
+    },
+    {
+      "id": "src:awti-raadsleden",
+      "url": "https://www.awti.nl/over-ons/raadsleden",
+      "title": "Raadsleden AWTI",
+      "publisher": "AWTI",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:awti-praag",
+      "url": "https://www.awti.nl/personen/raadsleden/mirjam-van-praag",
+      "title": "Mirjam van Praag, voorzitter AWTI",
+      "publisher": "AWTI",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Sinds 1 maart 2025 voorzitter."
+    },
+    {
+      "id": "src:awti-praag-stopt",
+      "url": "https://www.awti.nl/actueel/nieuws/2026/09/11/mirjam-van-praag-stopt-op-1-januari-als-voorzitter-van-de-awti",
+      "title": "Mirjam van Praag stopt als voorzitter van de AWTI",
+      "publisher": "AWTI",
+      "type": "news",
+      "published": "2026-09-11",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Stopt per 1 januari 2027; vicevoorzitter Cisca Wijmenga neemt taken waar."
+    },
+    {
+      "id": "src:contactgids-awti",
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/a/adviesraad-voor-wetenschap-technologie-en-innovatie-awti",
+      "title": "AWTI contactgegevens",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Hoort bij OCW."
+    },
+    {
+      "id": "src:cpb-website",
+      "url": "https://www.cpb.nl/",
+      "title": "Centraal Planbureau",
+      "publisher": "CPB",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:cpb-over",
+      "url": "https://www.cpb.nl/over-het-cpb",
+      "title": "Over het CPB",
+      "publisher": "CPB",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "CPB is een organisatorisch onderdeel van het ministerie van EZK."
+    },
+    {
+      "id": "src:cpb-medewerkers",
+      "url": "https://www.cpb.nl/medewerkers",
+      "title": "Medewerkers CPB",
+      "publisher": "CPB",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Directie: Pieter Hasekamp, Jeroen Hinloopen, Marcel Timmer."
+    },
+    {
+      "id": "src:cpb-hasekamp",
+      "url": "https://www.cpb.nl/medewerkers/pieter-hasekamp",
+      "title": "Pieter Hasekamp, directeur CPB",
+      "publisher": "CPB",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Sinds 1 maart 2020 directeur."
+    },
+    {
+      "id": "src:contactgids-cpb",
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/c/centraal-planbureau-cpb",
+      "title": "Centraal Planbureau contactgegevens",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Hoort bij EZK."
+    },
+    {
+      "id": "src:pbl-website",
+      "url": "https://www.pbl.nl/",
+      "title": "Planbureau voor de Leefomgeving",
+      "publisher": "PBL",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:pbl-over",
+      "url": "https://www.pbl.nl/over-het-pbl",
+      "title": "Over het PBL",
+      "publisher": "PBL",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:pbl-directie",
+      "url": "https://www.pbl.nl/over-het-pbl/directie",
+      "title": "Directie PBL",
+      "publisher": "PBL",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Marko Hekkert directeur, Carola Koper plaatsvervangend directeur."
+    },
+    {
+      "id": "src:abd-hekkert",
+      "url": "https://www.algemenebestuursdienst.nl/actueel/nieuws/2022/10/07/marko-hekkert-directeur-planbureau-voor-de-leefomgeving",
+      "title": "Marko Hekkert directeur Planbureau voor de Leefomgeving",
+      "publisher": "Algemene Bestuursdienst",
+      "type": "news",
+      "published": "2022-10-07",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Benoeming per 1 januari 2023."
+    },
+    {
+      "id": "src:contactgids-pbl",
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/p/planbureau-voor-de-leefomgeving-pbl",
+      "title": "Planbureau voor de Leefomgeving contactgegevens",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Hoort bij IenW."
+    },
+    {
+      "id": "src:scp-website",
+      "url": "https://www.scp.nl/",
+      "title": "Sociaal en Cultureel Planbureau",
+      "publisher": "SCP",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:scp-over",
+      "url": "https://www.scp.nl/over-het-scp",
+      "title": "Over het SCP",
+      "publisher": "SCP",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:scp-dit-zijn-wij",
+      "url": "https://www.scp.nl/over-het-scp/dit-zijn-wij",
+      "title": "Dit zijn wij",
+      "publisher": "SCP",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Directeur Karen van Oudenhoven-van der Zee, adjunct-directeur Charlotte van Hees."
+    },
+    {
+      "id": "src:scp-zo-werken-wij",
+      "url": "https://www.scp.nl/over-het-scp/zo-werken-wij",
+      "title": "Zo werken wij",
+      "publisher": "SCP",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "SCP valt formeel onder het ministerie van VWS."
+    },
+    {
+      "id": "src:scp-oudenhoven-benoemd",
+      "url": "https://www.scp.nl/actueel/nieuws/2022/05/20/karen-van-oudenhoven-van-der-zee-vanaf-1-oktober-nieuwe-directeur-van-het-sociaal-en-cultureel-planbureau",
+      "title": "Karen van Oudenhoven-van der Zee vanaf 1 oktober nieuwe directeur van het SCP",
+      "publisher": "SCP",
+      "type": "news",
+      "published": "2022-05-20",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Directeur per 1 oktober 2022."
+    }
+  ],
+  "media": [],
+  "gaps": [
+    {
+      "what": "Raad van State: website en instellingspagina's",
+      "why": "raadvanstate.nl geeft HTTP 403 aan geautomatiseerde fetch; de vice-president en zijn startdatum zijn daarom bevestigd via de Rijksoverheid-publicatie over de benoeming",
+      "endpoint": "https://www.raadvanstate.nl/",
+      "resume": "Gebruik de repository-SRU (https://repository.overheid.nl/sru?query=...) of zoek.officielebekendmakingen.nl om de benoeming en de samenstelling van de Raad van State uit primaire bekendmakingen te halen."
+    },
+    {
+      "what": "WRR: exacte startdatum voorzitterschap Corien Prins",
+      "why": "de WRR-pagina en het nieuwsbericht noemen alleen het jaar 2017; geen dag of maand gepubliceerd",
+      "endpoint": "https://www.wrr.nl/personen/raad-en-adviserende-leden/corien-prins",
+      "resume": "Zoek het koninklijk besluit in de Staatscourant via de repository-SRU of de WRR-jaarverslagen om de exacte benoemingsdatum te bevestigen."
+    },
+    {
+      "what": "AIV: exacte benoemingsdatum voorzitter Bert Koenders",
+      "why": "de AIV-site noemt alleen de functie; de datum 13 december 2021 komt uit de tijdlijn op de pagina van de Universiteit Leiden",
+      "endpoint": "https://www.adviesraadinternationalevraagstukken.nl/personen/adviesraad/bert-koenders",
+      "resume": "Bevestig de benoeming via het koninklijk besluit in de Staatscourant of het AIV-jaarverslag 2021."
+    },
+    {
+      "what": "Adviesraad Migratie: exacte startdatum huidige termijn Monique Kremer",
+      "why": "de persoonpagina noemt alleen maart 2024; de dag is niet gepubliceerd",
+      "endpoint": "https://www.adviesraadmigratie.nl/personen/monique-kremer",
+      "resume": "Zoek het koninklijk besluit of de Staatscourant-publicatie over de herbenoeming in 2024."
+    },
+    {
+      "what": "Adviesraad Migratie: datum van de naamsverandering ACVZ naar Adviesraad Migratie",
+      "why": "Rijksoverheid en het register bevestigen de naamswijziging maar publiceren geen datum",
+      "endpoint": "https://organisaties.overheid.nl/115625/Adviesraad_Migratie",
+      "resume": "Zoek de bekendmaking van de naamswijziging in de Staatscourant of het jaarverslag van de raad."
+    },
+    {
+      "what": "rob-rfv.nl is niet langer de website van de ROB",
+      "why": "het domein rob-rfv.nl toont anno 2026 een commerciele blog en niet de Raad voor het Openbaar Bestuur; de ROB staat nu op raadopenbaarbestuur.nl",
+      "endpoint": "https://www.raadopenbaarbestuur.nl/",
+      "resume": "Neem de URL op in de bronnenlijst en werk 00-endpoints.md bij, zodat andere workstreams rob-rfv.nl niet meer als ROB-bron gebruiken."
+    },
+    {
+      "what": "acvz.nl is niet langer de website van de ACVZ",
+      "why": "het domein acvz.nl toont anno 2026 de Amsterdamsche Club voor Zweefvliegen; de Adviesraad Migratie staat op adviesraadmigratie.nl",
+      "endpoint": "https://www.adviesraadmigratie.nl/",
+      "resume": "Gebruik uitsluitend adviesraadmigratie.nl en registreer acvz.nl als vervallen domein in 00-endpoints.md."
+    },
+    {
+      "what": "Benoemingswijze van de planbureaudirecteuren",
+      "why": "de Aanwijzingen voor de Planbureaus regelen de positie, maar de site van CPB, PBL en SCP vermeldt niet wie de directeur benoemt",
+      "endpoint": "https://wetten.overheid.nl/BWBR0031972",
+      "resume": "Lees de Aanwijzingen en de organisatiebesluiten van EZK, IenW en VWS om de benoemingswijze per planbureau te bevestigen."
+    },
+    {
+      "what": "Artikelniveau juridische basis per orgaan",
+      "why": "dit werkstroom legt de instellingswet per orgaan vast, maar niet per artikel; dat is het werkterrein van workstream H",
+      "endpoint": "https://wetten.overheid.nl/BWBR0008159",
+      "resume": "Workstream H vult legalMappings per orgaan en per subtype aan, inclusief de artikelen in de Grondwet en de Kaderwet adviescolleges."
+    },
+    {
+      "what": "Volledige raadsledenlijsten van de adviescolleges",
+      "why": "de opdracht vraagt kop-posities met houder en datum; de volledige ledenlijsten zijn niet per orgaan uitgewerkt",
+      "endpoint": "https://www.wrr.nl/over-de-wrr/raad-en-adviserende-leden",
+      "resume": "Breid in een latere ronde uit met alle raadsleden als memberships of posities, met bron en datum per lid."
+    },
+    {
+      "what": "Eerste en Tweede Kamer niet gedupliceerd",
+      "why": "de Kamers vallen binnen workstream D; deze workstroom kruisverwijst alleen",
+      "endpoint": "research/D-parlement.json",
+      "resume": "Gebruik de bestaande org:eerste-kamer en org:tweede-kamer uit workstream D bij het samenstellen van de grafiek."
+    }
+  ]
+}

@@ -1,0 +1,311 @@
+export type Confidence = "high" | "medium" | "low";
+
+export type SourceRef = {
+  source: string;
+  retrieved: string;
+  confidence: Confidence;
+};
+
+export type LegalRef = {
+  label: string;
+  url: string;
+};
+
+export type OrgType =
+  | "department"
+  | "elected"
+  | "commission"
+  | "advisory"
+  | "dept_head"
+  | "constituency";
+
+export type OrgSubtype =
+  | "kiesgerechtigden-nederland"
+  | "kiezers-caribisch-nederland"
+  | "tweede-kamer"
+  | "eerste-kamer"
+  | "provinciale-staten"
+  | "gemeenteraad"
+  | "algemeen-bestuur-waterschap"
+  | "eilandsraad"
+  | "europees-parlement"
+  | "ministerie"
+  | "agentschap"
+  | "uitvoeringsorganisatie"
+  | "inspectie"
+  | "zbo"
+  | "rwt"
+  | "toezichthouder"
+  | "rechterlijke-instantie"
+  | "hoge-college"
+  | "adviescollege"
+  | "planbureau"
+  | "kiesraad"
+  | "provincie"
+  | "gemeente"
+  | "waterschap"
+  | "openbaar-lichaam-bes"
+  | "samenwerkingsverband"
+  | "veiligheidsregio"
+  | "defensieonderdeel"
+  | "koninkrijksorgaan"
+  | "land-regering"
+  | "staten-land"
+  | "staatscommissie"
+  | "commissie"
+  | "raad-van-advies";
+
+export type OrgBranch =
+  | "regering"
+  | "staten-generaal"
+  | "rechterlijke-macht"
+  | "hoge-colleges"
+  | "adviescolleges"
+  | "decentraal-provinciaal"
+  | "decentraal-lokaal"
+  | "waterschap"
+  | "caribisch-nederland"
+  | "koninkrijk"
+  | "zelfstandig";
+
+export type OrgLevel = "rijk" | "provinciaal" | "regionaal" | "lokaal" | "caribisch" | "koninkrijk";
+
+export type EmployeeCount = {
+  budgeted: number | null;
+  actual: number | null;
+  year: number | null;
+};
+
+export type Organization = {
+  id: string;
+  slug: string;
+  name: string;
+  aliases: string[];
+  type: OrgType;
+  subtype: OrgSubtype;
+  branch: OrgBranch;
+  level: OrgLevel;
+  country: string;
+  parent: string | null;
+  partOf: string[];
+  description: string | null;
+  legalSource?: LegalRef | null;
+  website?: string | null;
+  established: string | null;
+  dissolved: string | null;
+  seatsCount: number | null;
+  employeeCount?: EmployeeCount;
+  images: string[];
+  sources: SourceRef[];
+};
+
+export type FillMethod =
+  | "verkiezing"
+  | "koninklijk-besluit"
+  | "benoeming-door-college"
+  | "benoeming-door-minister"
+  | "van-rechtswege"
+  | "cooptatie";
+
+export type EntryMode =
+  | "benoemd"
+  | "benoemd-bij-kb"
+  | "gekozen"
+  | "waarnemend"
+  | "plaatsvervangend"
+  | "van-rechtswege";
+
+export type Position = {
+  id: string;
+  slug: string;
+  title: string;
+  organization: string;
+  type: OrgType;
+  fillMethod?: FillMethod | null;
+  entryModes: EntryMode[];
+  termLengthMonths: number | null;
+  seatsCount: number | null;
+  legalBasis?: LegalRef | null;
+  exOfficioOf: string[];
+  sources: SourceRef[];
+};
+
+export type Person = {
+  id: string;
+  slug: string;
+  name: string;
+  aliases: string[];
+  portrait: string | null;
+  birthDate: string | null;
+  party: string | null;
+  wikipedia: string | null;
+  wikidata: string | null;
+  description: string | null;
+  sources: SourceRef[];
+};
+
+export type EndReason = "aftreden" | "ontslag" | "einde-termijn" | "overlijden" | "reorganisatie";
+
+export type Tenure = {
+  id: string;
+  person: string;
+  position: string;
+  seat: number | null;
+  start: string;
+  end: string | null;
+  acting: boolean;
+  entryMode: EntryMode | null;
+  appointedBy: string | null;
+  predecessor: string | null;
+  successor: string | null;
+  endReason: EndReason | null;
+  source: SourceRef;
+};
+
+export type Membership = {
+  id: string;
+  organization: string;
+  person: string;
+  seatNumber: number | null;
+  fractie: string | null;
+  start: string;
+  end: string | null;
+  source: SourceRef;
+};
+
+export type RelationType =
+  | "elects"
+  | "appoints"
+  | "oversees"
+  | "advises"
+  | "office"
+  | "dept_head"
+  | "confirms"
+  | "ex_officio"
+  | "administers"
+  | "subsidises"
+  | "accountable_to"
+  | "part_of"
+  | "consists_of"
+  | "succeeded_by"
+  | "joint_arrangement_member";
+
+export type Relation = {
+  id: string;
+  from: string;
+  to: string;
+  type: RelationType;
+  metadata: Record<string, unknown>;
+  seatsAppointed: number | null;
+  source: SourceRef;
+};
+
+export type SourceType = "wet" | "kb" | "api" | "page" | "news" | "register";
+
+export type Source = {
+  id: string;
+  url: string;
+  title: string;
+  publisher: string;
+  type: SourceType;
+  published: string | null;
+  retrieved: string;
+  license: string | null;
+  archiveUrl: string | null;
+  notes: string | null;
+};
+
+export type Government = {
+  slug: string;
+  name: string;
+  type: "koninkrijk" | "land" | "scope";
+  level: OrgLevel;
+  country: string;
+  parent: string | null;
+  description: string | null;
+  sources: SourceRef[];
+};
+
+export type ChangeKind =
+  | "tenure-between"
+  | "appointment"
+  | "departure"
+  | "structural"
+  | "vacancy"
+  | "rename"
+  | "move";
+
+export type ChangeSide = {
+  tenure: string | null;
+  person: string | null;
+  label: string;
+};
+
+export type Change = {
+  id: string;
+  date: string;
+  kind: ChangeKind;
+  position: string | null;
+  organization: string | null;
+  out?: ChangeSide;
+  in?: ChangeSide;
+  summary: string;
+  source: SourceRef;
+};
+
+export type NewsItem = {
+  id: string;
+  title: string;
+  url: string;
+  publisher: string;
+  published: string;
+  summary: string | null;
+  summaryMarkup: string | null;
+  entities: string[];
+  topics: string[];
+  image: string | null;
+  sources: SourceRef[];
+};
+
+export type Topic = {
+  id: string;
+  slug: string;
+  name: string;
+  description: string | null;
+  organizations: string[];
+  positions: string[];
+  keywords: string[];
+  trending?: boolean;
+};
+
+export type AmountSet = {
+  spendingBudget: number | null;
+  spendingActual: number | null;
+  revenue: number | null;
+  net: number | null;
+  nonprofit: number | null;
+};
+
+export type Budget = {
+  organization: string;
+  fiscalYear: number;
+  unit: string | null;
+  current?: AmountSet | null;
+  previous?: AmountSet | null;
+  history: { fiscalYear: number; spendingActual: number | null; revenue: number | null }[];
+  breakdown: { category: string; amount: number | null; type: "spending" | "revenue" }[];
+  rankings?: Record<string, unknown>;
+  sources: SourceRef[];
+};
+
+export type MediaItem = {
+  id: string;
+  url: string;
+  type: "portrait" | "logo" | "photo";
+  license: string;
+  credit: string;
+  author: string | null;
+  width: number | null;
+  height: number | null;
+  source: string;
+};

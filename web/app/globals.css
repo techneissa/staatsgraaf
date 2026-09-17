@@ -1,0 +1,45 @@
+@import "tailwindcss";
+@import "./generated/tokens.css";
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  [data-theme="light"] {
+    color-scheme: light;
+  }
+
+  html {
+    font-family: var(--t-font-sans);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--t-color-canvas);
+    color: var(--t-color-ink);
+    font-size: var(--t-text-base);
+    line-height: var(--t-leading-normal);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--t-color-focus);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--t-color-accent);
+    color: var(--t-color-accent-ink);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

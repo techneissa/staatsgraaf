@@ -1,0 +1,1739 @@
+{
+  "workstream": "I",
+  "generatedAt": "2026-09-18T12:30:00+02:00",
+  "endpointsUsed": [
+    {
+      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon",
+      "retrieved": "2026-09-18",
+      "notes": "Paging $top=250&$skip; 1236 records opgehaald."
+    },
+    {
+      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Fractie",
+      "retrieved": "2026-09-18",
+      "notes": "Fractienamen en afkortingen."
+    },
+    {
+      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetel",
+      "retrieved": "2026-09-18",
+      "notes": "Koppeling zetel aan fractie."
+    },
+    {
+      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Persoon",
+      "retrieved": "2026-09-18",
+      "notes": "Naamgegevens van (oud-)Kamerleden; 4474 records."
+    },
+    {
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8174.xml",
+      "retrieved": "2026-09-18",
+      "notes": "Ontslag Schoof, benoeming Jetten als Minister-President."
+    },
+    {
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8175.xml",
+      "retrieved": "2026-09-18",
+      "notes": "Ontslag negen ministers en alle staatssecretarissen."
+    },
+    {
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8178.xml",
+      "retrieved": "2026-09-18",
+      "notes": "Niet-verlening ontslag vier ministers; benoeming nieuwe ministers en vice-minister-presidenten."
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/blg-1151692.html",
+      "retrieved": "2026-09-18",
+      "notes": "KB-afschriften kabinet-Schoof, benoemingen 2 juli 2024 (PDF via repository.overheid.nl)."
+    },
+    {
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8740.xml",
+      "retrieved": "2026-09-18",
+      "notes": "Directeur Kabinet van de Koning: ontslag Jonker, benoeming waarnemend directeur Princen."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/commissies/biza",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter en ondervoorzitter van de EK-commissie."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/commissies/bdo_3",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter en ondervoorzitter van de EK-commissie."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/commissies/digi",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter en ondervoorzitter van de EK-commissie."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/commissies/euza",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter en ondervoorzitter van de EK-commissie."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/commissies/ez_kgg",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter en ondervoorzitter van de EK-commissie."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/commissies/fin",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter en ondervoorzitter van de EK-commissie."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/commissies/geloofsbrieven",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter en ondervoorzitter van de EK-commissie."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/commissies/i_a_jbz",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter en ondervoorzitter van de EK-commissie."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/commissies/i_w_vro",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter en ondervoorzitter van de EK-commissie."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/commissies/j_v",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter en ondervoorzitter van de EK-commissie."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/commissies/korel",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter en ondervoorzitter van de EK-commissie."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/commissies/lnv",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter en ondervoorzitter van de EK-commissie."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/commissies/ocw",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter en ondervoorzitter van de EK-commissie."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/commissies/szw",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter en ondervoorzitter van de EK-commissie."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/commissies/verzoekschriften",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter en ondervoorzitter van de EK-commissie."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/commissies/vws",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter en ondervoorzitter van de EK-commissie."
+    }
+  ],
+  "organizations": [],
+  "positions": [],
+  "people": [
+    {
+      "id": "person:mark-rutte",
+      "slug": "mark-rutte",
+      "name": "Mark Rutte",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:tk-odata-fractiezetelpersoon",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:sigrid-agnes-maria-kaag",
+      "slug": "sigrid-agnes-maria-kaag",
+      "name": "Sigrid Agnes Maria Kaag",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:tk-odata-fractiezetelpersoon",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:franciscus-cornelis-gerardus-maria-timmermans",
+      "slug": "franciscus-cornelis-gerardus-maria-timmermans",
+      "name": "Franciscus Cornelis Gerardus Maria Timmermans",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:tk-odata-fractiezetelpersoon",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:thierry-henri-philippe-baudet",
+      "slug": "thierry-henri-philippe-baudet",
+      "name": "Thierry Henri Philippe Baudet",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:tk-odata-fractiezetelpersoon",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:lidewij-guinevere-de-vos",
+      "slug": "lidewij-guinevere-de-vos",
+      "name": "Lidewij Guinevere de Vos",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:tk-odata-fractiezetelpersoon",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:gert-jan-maarten-segers",
+      "slug": "gert-jan-maarten-segers",
+      "name": "Gert-Jan Maarten Segers",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:tk-odata-fractiezetelpersoon",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:emile-gerardus-maria-roemer",
+      "slug": "emile-gerardus-maria-roemer",
+      "name": "Emile Gerardus Maria Roemer",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:tk-odata-fractiezetelpersoon",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:lilian-marie-corneel-marijnissen",
+      "slug": "lilian-marie-corneel-marijnissen",
+      "name": "Lilian Marie Corneel Marijnissen",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:tk-odata-fractiezetelpersoon",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:cornelis-gerrit-van-der-staaij",
+      "slug": "cornelis-gerrit-van-der-staaij",
+      "name": "Cornelis Gerrit van der Staaij",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:tk-odata-fractiezetelpersoon",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:farid-azarkan",
+      "slug": "farid-azarkan",
+      "name": "Farid Azarkan",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:tk-odata-fractiezetelpersoon",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:natalia-liane-den-haan",
+      "slug": "natalia-liane-den-haan",
+      "name": "Natalia Liane den Haan",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:tk-odata-fractiezetelpersoon",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:h-w-m-schoof",
+      "slug": "h-w-m-schoof",
+      "name": "H.W.M. Schoof",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:blg-kabinet-schoof-2024",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "tenures": [
+    {
+      "id": "tenure:fvp-fractievoorzitter-vvd-mark-rutte-20210331",
+      "person": "person:mark-rutte",
+      "position": "pos:fractievoorzitter-vvd",
+      "seat": null,
+      "start": "2021-03-31",
+      "end": "2022-01-09",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": "tenure:fvp-fractievoorzitter-vvd-sophie-hermans-20220111",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-vvd-sophie-hermans-20220111",
+      "person": "person:sophie-hermans",
+      "position": "pos:fractievoorzitter-vvd",
+      "seat": null,
+      "start": "2022-01-11",
+      "end": "2023-12-05",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-vvd-mark-rutte-20210331",
+      "successor": "tenure:fvp-fractievoorzitter-vvd-dilan-yesilgoz-zegerius-20231206",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-vvd-dilan-yesilgoz-zegerius-20231206",
+      "person": "person:dilan-yesilgoz-zegerius",
+      "position": "pos:fractievoorzitter-vvd",
+      "seat": null,
+      "start": "2023-12-06",
+      "end": "2026-02-22",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-vvd-sophie-hermans-20220111",
+      "successor": "tenure:fvp-fractievoorzitter-vvd-ruben-pieter-brekelmans-20260223",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-vvd-ruben-pieter-brekelmans-20260223",
+      "person": "person:ruben-pieter-brekelmans",
+      "position": "pos:fractievoorzitter-vvd",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-vvd-dilan-yesilgoz-zegerius-20231206",
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-d66-sigrid-agnes-maria-kaag-20210928",
+      "person": "person:sigrid-agnes-maria-kaag",
+      "position": "pos:fractievoorzitter-d66",
+      "seat": null,
+      "start": "2021-09-28",
+      "end": "2022-01-09",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": "tenure:fvp-fractievoorzitter-d66-jan-maarten-paternotte-20220111",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-d66-jan-maarten-paternotte-20220111",
+      "person": "person:jan-maarten-paternotte",
+      "position": "pos:fractievoorzitter-d66",
+      "seat": null,
+      "start": "2022-01-11",
+      "end": "2023-12-05",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-d66-sigrid-agnes-maria-kaag-20210928",
+      "successor": "tenure:fvp-fractievoorzitter-d66-rob-jetten-20231206",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-d66-rob-jetten-20231206",
+      "person": "person:rob-jetten",
+      "position": "pos:fractievoorzitter-d66",
+      "seat": null,
+      "start": "2023-12-06",
+      "end": "2026-02-09",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-d66-jan-maarten-paternotte-20220111",
+      "successor": "tenure:fvp-fractievoorzitter-d66-jan-maarten-paternotte-20260210",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-d66-jan-maarten-paternotte-20260210",
+      "person": "person:jan-maarten-paternotte",
+      "position": "pos:fractievoorzitter-d66",
+      "seat": null,
+      "start": "2026-02-10",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-d66-rob-jetten-20231206",
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-pro-jesse-feras-klaver-20231027",
+      "person": "person:jesse-feras-klaver",
+      "position": "pos:fractievoorzitter-pro",
+      "seat": null,
+      "start": "2023-10-27",
+      "end": "2023-12-05",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": "tenure:fvp-fractievoorzitter-pro-franciscus-cornelis-gerardus-maria-timmermans-20231206",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-pro-franciscus-cornelis-gerardus-maria-timmermans-20231206",
+      "person": "person:franciscus-cornelis-gerardus-maria-timmermans",
+      "position": "pos:fractievoorzitter-pro",
+      "seat": null,
+      "start": "2023-12-06",
+      "end": "2025-10-29",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-pro-jesse-feras-klaver-20231027",
+      "successor": "tenure:fvp-fractievoorzitter-pro-jesse-feras-klaver-20251103",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-pro-jesse-feras-klaver-20251103",
+      "person": "person:jesse-feras-klaver",
+      "position": "pos:fractievoorzitter-pro",
+      "seat": null,
+      "start": "2025-11-03",
+      "end": "2026-06-09",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-pro-franciscus-cornelis-gerardus-maria-timmermans-20231206",
+      "successor": "tenure:fvp-fractievoorzitter-pro-jesse-feras-klaver-20260610",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-pro-jesse-feras-klaver-20260610",
+      "person": "person:jesse-feras-klaver",
+      "position": "pos:fractievoorzitter-pro",
+      "seat": null,
+      "start": "2026-06-10",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-pro-jesse-feras-klaver-20251103",
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-pvv-geert-wilders-20061130",
+      "person": "person:geert-wilders",
+      "position": "pos:fractievoorzitter-pvv",
+      "seat": null,
+      "start": "2006-11-30",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-cda-pieter-heerma-20220111",
+      "person": "person:pieter-heerma",
+      "position": "pos:fractievoorzitter-cda",
+      "seat": null,
+      "start": "2022-01-11",
+      "end": "2023-09-04",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": "tenure:fvp-fractievoorzitter-cda-hendrik-bontenbal-20230905",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-cda-hendrik-bontenbal-20230905",
+      "person": "person:hendrik-bontenbal",
+      "position": "pos:fractievoorzitter-cda",
+      "seat": null,
+      "start": "2023-09-05",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-cda-pieter-heerma-20220111",
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-ja21-bernard-johannes-eerdmans-20210331",
+      "person": "person:bernard-johannes-eerdmans",
+      "position": "pos:fractievoorzitter-ja21",
+      "seat": null,
+      "start": "2021-03-31",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-groep-markuszower-gideon-markuszower-20260120",
+      "person": "person:gideon-markuszower",
+      "position": "pos:fractievoorzitter-groep-markuszower",
+      "seat": null,
+      "start": "2026-01-20",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-fvd-thierry-henri-philippe-baudet-20170323",
+      "person": "person:thierry-henri-philippe-baudet",
+      "position": "pos:fractievoorzitter-fvd",
+      "seat": null,
+      "start": "2017-03-23",
+      "end": "2025-01-12",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": "tenure:fvp-fractievoorzitter-fvd-gideon-frederik-cornelis-van-meijeren-20250129",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-fvd-gideon-frederik-cornelis-van-meijeren-20250129",
+      "person": "person:gideon-frederik-cornelis-van-meijeren",
+      "position": "pos:fractievoorzitter-fvd",
+      "seat": null,
+      "start": "2025-01-29",
+      "end": "2025-04-01",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-fvd-thierry-henri-philippe-baudet-20170323",
+      "successor": "tenure:fvp-fractievoorzitter-fvd-thierry-henri-philippe-baudet-20250402",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-fvd-thierry-henri-philippe-baudet-20250402",
+      "person": "person:thierry-henri-philippe-baudet",
+      "position": "pos:fractievoorzitter-fvd",
+      "seat": null,
+      "start": "2025-04-02",
+      "end": "2025-09-04",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-fvd-gideon-frederik-cornelis-van-meijeren-20250129",
+      "successor": "tenure:fvp-fractievoorzitter-fvd-lidewij-guinevere-de-vos-20250904",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-fvd-lidewij-guinevere-de-vos-20250904",
+      "person": "person:lidewij-guinevere-de-vos",
+      "position": "pos:fractievoorzitter-fvd",
+      "seat": null,
+      "start": "2025-09-04",
+      "end": "2026-08-05",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-fvd-thierry-henri-philippe-baudet-20250402",
+      "successor": "tenure:fvp-fractievoorzitter-fvd-roelof-jan-dekker-20260806",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-fvd-roelof-jan-dekker-20260806",
+      "person": "person:roelof-jan-dekker",
+      "position": "pos:fractievoorzitter-fvd",
+      "seat": null,
+      "start": "2026-08-06",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-fvd-lidewij-guinevere-de-vos-20250904",
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-christenunie-gert-jan-maarten-segers-20151110",
+      "person": "person:gert-jan-maarten-segers",
+      "position": "pos:fractievoorzitter-christenunie",
+      "seat": null,
+      "start": "2015-11-10",
+      "end": "2023-01-16",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": "tenure:fvp-fractievoorzitter-christenunie-mirjam-hannah-bikker-20230117",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-christenunie-mirjam-hannah-bikker-20230117",
+      "person": "person:mirjam-hannah-bikker",
+      "position": "pos:fractievoorzitter-christenunie",
+      "seat": null,
+      "start": "2023-01-17",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-christenunie-gert-jan-maarten-segers-20151110",
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-sp-emile-gerardus-maria-roemer-20100305",
+      "person": "person:emile-gerardus-maria-roemer",
+      "position": "pos:fractievoorzitter-sp",
+      "seat": null,
+      "start": "2010-03-05",
+      "end": "2017-12-12",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": "tenure:fvp-fractievoorzitter-sp-lilian-marie-corneel-marijnissen-20171213",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-sp-lilian-marie-corneel-marijnissen-20171213",
+      "person": "person:lilian-marie-corneel-marijnissen",
+      "position": "pos:fractievoorzitter-sp",
+      "seat": null,
+      "start": "2017-12-13",
+      "end": "2023-12-12",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-sp-emile-gerardus-maria-roemer-20100305",
+      "successor": "tenure:fvp-fractievoorzitter-sp-jimmy-pieter-dijk-20231213",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-sp-jimmy-pieter-dijk-20231213",
+      "person": "person:jimmy-pieter-dijk",
+      "position": "pos:fractievoorzitter-sp",
+      "seat": null,
+      "start": "2023-12-13",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-sp-lilian-marie-corneel-marijnissen-20171213",
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-pvdd-christine-teunissen-20230926",
+      "person": "person:christine-teunissen",
+      "position": "pos:fractievoorzitter-pvdd",
+      "seat": null,
+      "start": "2023-09-26",
+      "end": "2023-10-25",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": "tenure:fvp-fractievoorzitter-pvdd-esther-ouwehand-20231026",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-pvdd-esther-ouwehand-20231026",
+      "person": "person:esther-ouwehand",
+      "position": "pos:fractievoorzitter-pvdd",
+      "seat": null,
+      "start": "2023-10-26",
+      "end": "2026-06-04",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-pvdd-christine-teunissen-20230926",
+      "successor": "tenure:fvp-fractievoorzitter-pvdd-christine-teunissen-20260605",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-pvdd-christine-teunissen-20260605",
+      "person": "person:christine-teunissen",
+      "position": "pos:fractievoorzitter-pvdd",
+      "seat": null,
+      "start": "2026-06-05",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-pvdd-esther-ouwehand-20231026",
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-sgp-cornelis-gerrit-van-der-staaij-20100617",
+      "person": "person:cornelis-gerrit-van-der-staaij",
+      "position": "pos:fractievoorzitter-sgp",
+      "seat": null,
+      "start": "2010-06-17",
+      "end": "2023-09-04",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": "tenure:fvp-fractievoorzitter-sgp-christiaan-stoffer-20230905",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-sgp-christiaan-stoffer-20230905",
+      "person": "person:christiaan-stoffer",
+      "position": "pos:fractievoorzitter-sgp",
+      "seat": null,
+      "start": "2023-09-05",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-sgp-cornelis-gerrit-van-der-staaij-20100617",
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-bbb-caroline-ann-maria-van-der-plas-20210331",
+      "person": "person:caroline-ann-maria-van-der-plas",
+      "position": "pos:fractievoorzitter-bbb",
+      "seat": null,
+      "start": "2021-03-31",
+      "end": "2026-02-23",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": "tenure:fvp-fractievoorzitter-bbb-hendrik-vermeer-20260224",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-bbb-hendrik-vermeer-20260224",
+      "person": "person:hendrik-vermeer",
+      "position": "pos:fractievoorzitter-bbb",
+      "seat": null,
+      "start": "2026-02-24",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-bbb-caroline-ann-maria-van-der-plas-20210331",
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-denk-farid-azarkan-20200321",
+      "person": "person:farid-azarkan",
+      "position": "pos:fractievoorzitter-denk",
+      "seat": null,
+      "start": "2020-03-21",
+      "end": "2023-08-02",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": "tenure:fvp-fractievoorzitter-denk-stephan-ruben-tobias-van-baarle-20230803",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-denk-stephan-ruben-tobias-van-baarle-20230803",
+      "person": "person:stephan-ruben-tobias-van-baarle",
+      "position": "pos:fractievoorzitter-denk",
+      "seat": null,
+      "start": "2023-08-03",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-denk-farid-azarkan-20200321",
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-50plus-natalia-liane-den-haan-20210331",
+      "person": "person:natalia-liane-den-haan",
+      "position": "pos:fractievoorzitter-50plus",
+      "seat": null,
+      "start": "2021-03-31",
+      "end": "2021-05-10",
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": "tenure:fvp-fractievoorzitter-50plus-jan-albert-struijs-20251112",
+      "endReason": "aftreden",
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-50plus-jan-albert-struijs-20251112",
+      "person": "person:jan-albert-struijs",
+      "position": "pos:fractievoorzitter-50plus",
+      "seat": null,
+      "start": "2025-11-12",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": "tenure:fvp-fractievoorzitter-50plus-natalia-liane-den-haan-20210331",
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-lid-keijzer-maria-cornelia-gezina-keijzer-20260224",
+      "person": "person:maria-cornelia-gezina-keijzer",
+      "position": "pos:fractievoorzitter-lid-keijzer",
+      "seat": null,
+      "start": "2026-02-24",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:fvp-fractievoorzitter-volt-laurens-antonius-josephus-maria-dassen-20210331",
+      "person": "person:laurens-antonius-josephus-maria-dassen",
+      "position": "pos:fractievoorzitter-volt",
+      "seat": null,
+      "start": "2021-03-31",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:tk-odata-fractiezetelpersoon",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-president-h-w-m-schoof-20240702",
+      "person": "person:h-w-m-schoof",
+      "position": "pos:minister-president",
+      "seat": null,
+      "start": "2024-07-02",
+      "end": "2026-02-23",
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": "tenure:minister-president-rob-jetten",
+      "endReason": "ontslag",
+      "source": {
+        "source": "src:blg-kabinet-schoof-2024",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-defensie-ruben-pieter-brekelmans-20240702",
+      "person": "person:ruben-pieter-brekelmans",
+      "position": "pos:minister-van-defensie",
+      "seat": null,
+      "start": "2024-07-02",
+      "end": "2026-02-23",
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": "tenure:minister-van-defensie-dilan-yesilgoz-zegerius",
+      "endReason": "ontslag",
+      "source": {
+        "source": "src:blg-kabinet-schoof-2024",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-landbouw-visserij-voedselzekerheid-en-natuur-femke-marije-wiersma-20240702",
+      "person": "person:femke-marije-wiersma",
+      "position": "pos:minister-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "seat": null,
+      "start": "2024-07-02",
+      "end": "2026-02-23",
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": "tenure:minister-van-landbouw-visserij-voedselzekerheid-en-natuur-jaimi-van-essen",
+      "endReason": "ontslag",
+      "source": {
+        "source": "src:blg-kabinet-schoof-2024",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-klimaat-en-groene-groei-sophie-hermans-20240702",
+      "person": "person:sophie-hermans",
+      "position": "pos:minister-van-klimaat-en-groene-groei",
+      "seat": null,
+      "start": "2024-07-02",
+      "end": "2026-02-23",
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": "tenure:minister-van-klimaat-en-groene-groei-stientje-van-veldhoven-van-der-meer",
+      "endReason": "ontslag",
+      "source": {
+        "source": "src:blg-kabinet-schoof-2024",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-volkshuisvesting-en-ruimtelijke-ordening-maria-cornelia-gezina-keijzer-20240702",
+      "person": "person:maria-cornelia-gezina-keijzer",
+      "position": "pos:minister-van-volkshuisvesting-en-ruimtelijke-ordening",
+      "seat": null,
+      "start": "2024-07-02",
+      "end": "2026-02-23",
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": "tenure:minister-van-volkshuisvesting-en-ruimtelijke-ordening-elanor-boekholt-osullivan",
+      "endReason": "ontslag",
+      "source": {
+        "source": "src:blg-kabinet-schoof-2024",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    }
+  ],
+  "memberships": [],
+  "relations": [],
+  "topics": [],
+  "budgets": [],
+  "sources": [
+    {
+      "id": "src:tk-odata-fractiezetelpersoon",
+      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon",
+      "title": "Tweede Kamer OData: FractieZetelPersoon",
+      "publisher": "Tweede Kamer der Staten-Generaal",
+      "type": "api",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Bevat per zetelhouder de functie (Lid/Fractievoorzitter), Van en TotEnMet. Paging via $top=250&$skip."
+    },
+    {
+      "id": "src:tk-odata-fractie",
+      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Fractie",
+      "title": "Tweede Kamer OData: Fractie",
+      "publisher": "Tweede Kamer der Staten-Generaal",
+      "type": "api",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Fractienamen en afkortingen."
+    },
+    {
+      "id": "src:tk-odata-persoon",
+      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Persoon",
+      "title": "Tweede Kamer OData: Persoon",
+      "publisher": "Tweede Kamer der Staten-Generaal",
+      "type": "api",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Naamgegevens van (oud-)Kamerleden."
+    },
+    {
+      "id": "src:tk-odata-fractiezetel",
+      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetel",
+      "title": "Tweede Kamer OData: FractieZetel",
+      "publisher": "Tweede Kamer der Staten-Generaal",
+      "type": "api",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Koppelt zetel aan fractie."
+    },
+    {
+      "id": "src:blg-kabinet-schoof-2024",
+      "url": "https://zoek.officielebekendmakingen.nl/blg-1151692.html",
+      "title": "Afschriften van Koninklijke Besluiten houdende ontslag oud-bewindslieden en benoeming bewindslieden van het kabinet Schoof (Kamerstuk 36471-72)",
+      "publisher": "Tweede Kamer der Staten-Generaal",
+      "type": "kb",
+      "published": "2024-07-08",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "PDF met de KB's van 2 juli 2024; bron voor de benoemingsdata van het kabinet-Schoof."
+    },
+    {
+      "id": "src:ek-commissies-biza",
+      "url": "https://www.eerstekamer.nl/commissies/biza",
+      "title": "Eerste Kamer: vaste commissie biza",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ek-commissies-bdo-3",
+      "url": "https://www.eerstekamer.nl/commissies/bdo_3",
+      "title": "Eerste Kamer: vaste commissie bdo-3",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ek-commissies-digi",
+      "url": "https://www.eerstekamer.nl/commissies/digi",
+      "title": "Eerste Kamer: vaste commissie digi",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ek-commissies-euza",
+      "url": "https://www.eerstekamer.nl/commissies/euza",
+      "title": "Eerste Kamer: vaste commissie euza",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ek-commissies-ez-kgg",
+      "url": "https://www.eerstekamer.nl/commissies/ez_kgg",
+      "title": "Eerste Kamer: vaste commissie ez-kgg",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ek-commissies-fin",
+      "url": "https://www.eerstekamer.nl/commissies/fin",
+      "title": "Eerste Kamer: vaste commissie fin",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ek-commissies-geloofsbrieven",
+      "url": "https://www.eerstekamer.nl/commissies/geloofsbrieven",
+      "title": "Eerste Kamer: vaste commissie geloofsbrieven",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ek-commissies-i-a-jbz",
+      "url": "https://www.eerstekamer.nl/commissies/i_a_jbz",
+      "title": "Eerste Kamer: vaste commissie i-a-jbz",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ek-commissies-i-w-vro",
+      "url": "https://www.eerstekamer.nl/commissies/i_w_vro",
+      "title": "Eerste Kamer: vaste commissie i-w-vro",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ek-commissies-j-v",
+      "url": "https://www.eerstekamer.nl/commissies/j_v",
+      "title": "Eerste Kamer: vaste commissie j-v",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ek-commissies-korel",
+      "url": "https://www.eerstekamer.nl/commissies/korel",
+      "title": "Eerste Kamer: vaste commissie korel",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ek-commissies-lnv",
+      "url": "https://www.eerstekamer.nl/commissies/lnv",
+      "title": "Eerste Kamer: vaste commissie lnv",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ek-commissies-ocw",
+      "url": "https://www.eerstekamer.nl/commissies/ocw",
+      "title": "Eerste Kamer: vaste commissie ocw",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ek-commissies-szw",
+      "url": "https://www.eerstekamer.nl/commissies/szw",
+      "title": "Eerste Kamer: vaste commissie szw",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ek-commissies-verzoekschriften",
+      "url": "https://www.eerstekamer.nl/commissies/verzoekschriften",
+      "title": "Eerste Kamer: vaste commissie verzoekschriften",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ek-commissies-vws",
+      "url": "https://www.eerstekamer.nl/commissies/vws",
+      "title": "Eerste Kamer: vaste commissie vws",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    }
+  ],
+  "media": [],
+  "gaps": [
+    {
+      "what": "Startdatum van de voorganger op pos:minister-van-asiel-en-migratie (M.C.G. Keijzer (en D.M. van Weel))",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:minister-van-buitenlandse-zaken (D.M. van Weel)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:minister-van-justitie-en-veiligheid (F. van Oosten)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:minister-van-binnenlandse-zaken-en-koninkrijksrelaties (F. Rijkaart)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:minister-van-onderwijs-cultuur-en-wetenschap (G. Moes)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:minister-van-infrastructuur-en-waterstaat (R. Tieman)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:minister-van-sociale-zaken-en-werkgelegenheid (M.L.J. Paul)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:minister-van-volksgezondheid-welzijn-en-sport (J.A. Bruijn)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:minister-van-economische-zaken-en-klimaat (V.P.G. Karremans)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:staatssecretaris-van-justitie-en-veiligheid (A.C.L. Rutte)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:staatssecretaris-koninkrijksrelaties-en-slagvaardige-overheid (E. van Marum)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:staatssecretaris-onderwijs-en-emancipatie (K.M. Becking)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:staatssecretaris-van-financien (E.H.J. Heijnen (en S.Th.P.H. Palmen-Schlangen))",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:staatssecretaris-van-defensie (G.P. Tuinman)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:staatssecretaris-van-infrastructuur-en-waterstaat (A.A. Aartsen)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:staatssecretaris-van-landbouw-visserij-voedselzekerheid-en-natuur (J.F. Rummenie)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:staatssecretaris-van-klimaat-en-groene-groei (geen directe voorganger in de ontslag-KB)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:staatssecretaris-digitale-economie-en-soevereiniteit (geen directe voorganger in de ontslag-KB)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Startdatum van de voorganger op pos:directeur-kabinet-van-de-koning (C. Jonker)",
+      "why": "De ontslag-KB (Staatscourant 2026, 8175 en 8178) noemt de naam en de einddatum 23 februari 2026, maar geen benoemings- of startdatum. Zonder bron-startdatum is geen tenure aangemaakt.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "resume": "Zoek het benoemings-KB van de voorganger in de Staatscourant of de Kamerstukken over de kabinetsformatie en vul start en tenure aan."
+    },
+    {
+      "what": "Benoemingsdata van de voorzitter en ondervoorzitter van de Eerste Kamer-commissie biza (voorzitter I.M. (Ilona) Lagas (BBB); ondervoorzitter H.J. (Henk Jan) Meijer (VVD))",
+      "why": "De commissiepagina noemt de zittende voorzitter en ondervoorzitter maar geen benoemings- of startdatum. De posities pos:voorzitter-eerste-kamer-commissie-biza en pos:ondervoorzitter-eerste-kamer-commissie-biza hebben daardoor geen open tenure.",
+      "endpoint": "https://www.eerstekamer.nl/commissies/biza",
+      "resume": "Zoek de benoeming in de Staatscourant of in de EK-pagina personele mutaties en vul de startdatum in; werk de posities bij."
+    },
+    {
+      "what": "Benoemingsdata van de voorzitter en ondervoorzitter van de Eerste Kamer-commissie bdo-3 (voorzitter K. (Koen) Petersen (VVD); ondervoorzitter J.C. (Tineke) Huizinga-Heringa (ChristenUnie))",
+      "why": "De commissiepagina noemt de zittende voorzitter en ondervoorzitter maar geen benoemings- of startdatum. De posities pos:voorzitter-eerste-kamer-commissie-bdo-3 en pos:ondervoorzitter-eerste-kamer-commissie-bdo-3 hebben daardoor geen open tenure.",
+      "endpoint": "https://www.eerstekamer.nl/commissies/bdo_3",
+      "resume": "Zoek de benoeming in de Staatscourant of in de EK-pagina personele mutaties en vul de startdatum in; werk de posities bij."
+    },
+    {
+      "what": "Benoemingsdata van de voorzitter en ondervoorzitter van de Eerste Kamer-commissie digi (voorzitter G.V.M. (Gala) Veldhoen (GroenLinks-PvdA); ondervoorzitter T. (Tekke) Panman (BBB))",
+      "why": "De commissiepagina noemt de zittende voorzitter en ondervoorzitter maar geen benoemings- of startdatum. De posities pos:voorzitter-eerste-kamer-commissie-digi en pos:ondervoorzitter-eerste-kamer-commissie-digi hebben daardoor geen open tenure.",
+      "endpoint": "https://www.eerstekamer.nl/commissies/digi",
+      "resume": "Zoek de benoeming in de Staatscourant of in de EK-pagina personele mutaties en vul de startdatum in; werk de posities bij."
+    },
+    {
+      "what": "Benoemingsdata van de voorzitter en ondervoorzitter van de Eerste Kamer-commissie euza (voorzitter E.B. (Bastiaan) van Apeldoorn (SP); ondervoorzitter E. (Eric) Kemperman (FVD))",
+      "why": "De commissiepagina noemt de zittende voorzitter en ondervoorzitter maar geen benoemings- of startdatum. De posities pos:voorzitter-eerste-kamer-commissie-euza en pos:ondervoorzitter-eerste-kamer-commissie-euza hebben daardoor geen open tenure.",
+      "endpoint": "https://www.eerstekamer.nl/commissies/euza",
+      "resume": "Zoek de benoeming in de Staatscourant of in de EK-pagina personele mutaties en vul de startdatum in; werk de posities bij."
+    },
+    {
+      "what": "Benoemingsdata van de voorzitter en ondervoorzitter van de Eerste Kamer-commissie ez-kgg (voorzitter S.M. (Saskia) Kluit (GroenLinks-PvdA); ondervoorzitter A. (Andrea) van Langen-Visbeek (BBB))",
+      "why": "De commissiepagina noemt de zittende voorzitter en ondervoorzitter maar geen benoemings- of startdatum. De posities pos:voorzitter-eerste-kamer-commissie-ez-kgg en pos:ondervoorzitter-eerste-kamer-commissie-ez-kgg hebben daardoor geen open tenure.",
+      "endpoint": "https://www.eerstekamer.nl/commissies/ez_kgg",
+      "resume": "Zoek de benoeming in de Staatscourant of in de EK-pagina personele mutaties en vul de startdatum in; werk de posities bij."
+    },
+    {
+      "what": "Benoemingsdata van de voorzitter en ondervoorzitter van de Eerste Kamer-commissie fin (voorzitter W.T. (Pim) van Ballekom (VVD); ondervoorzitter B. (Bart) Kroon (BBB))",
+      "why": "De commissiepagina noemt de zittende voorzitter en ondervoorzitter maar geen benoemings- of startdatum. De posities pos:voorzitter-eerste-kamer-commissie-fin en pos:ondervoorzitter-eerste-kamer-commissie-fin hebben daardoor geen open tenure.",
+      "endpoint": "https://www.eerstekamer.nl/commissies/fin",
+      "resume": "Zoek de benoeming in de Staatscourant of in de EK-pagina personele mutaties en vul de startdatum in; werk de posities bij."
+    },
+    {
+      "what": "Benoemingsdata van de voorzitter en ondervoorzitter van de Eerste Kamer-commissie geloofsbrieven (de pagina noemt geen voorzitter of ondervoorzitter)",
+      "why": "De commissiepagina noemt de zittende voorzitter en ondervoorzitter maar geen benoemings- of startdatum. De posities pos:voorzitter-eerste-kamer-commissie-geloofsbrieven en pos:ondervoorzitter-eerste-kamer-commissie-geloofsbrieven hebben daardoor geen open tenure.",
+      "endpoint": "https://www.eerstekamer.nl/commissies/geloofsbrieven",
+      "resume": "Zoek de benoeming in de Staatscourant of in de EK-pagina personele mutaties en vul de startdatum in; werk de posities bij."
+    },
+    {
+      "what": "Benoemingsdata van de voorzitter en ondervoorzitter van de Eerste Kamer-commissie i-a-jbz (voorzitter A.W.J.A. (Alexander) van Hattem (PVV); ondervoorzitter A. (Arie) Griffioen (D66))",
+      "why": "De commissiepagina noemt de zittende voorzitter en ondervoorzitter maar geen benoemings- of startdatum. De posities pos:voorzitter-eerste-kamer-commissie-i-a-jbz en pos:ondervoorzitter-eerste-kamer-commissie-i-a-jbz hebben daardoor geen open tenure.",
+      "endpoint": "https://www.eerstekamer.nl/commissies/i_a_jbz",
+      "resume": "Zoek de benoeming in de Staatscourant of in de EK-pagina personele mutaties en vul de startdatum in; werk de posities bij."
+    },
+    {
+      "what": "Benoemingsdata van de voorzitter en ondervoorzitter van de Eerste Kamer-commissie i-w-vro (voorzitter R. Lievense (BBB); ondervoorzitter Th. W. (Theo) Rietkerk (CDA))",
+      "why": "De commissiepagina noemt de zittende voorzitter en ondervoorzitter maar geen benoemings- of startdatum. De posities pos:voorzitter-eerste-kamer-commissie-i-w-vro en pos:ondervoorzitter-eerste-kamer-commissie-i-w-vro hebben daardoor geen open tenure.",
+      "endpoint": "https://www.eerstekamer.nl/commissies/i_w_vro",
+      "resume": "Zoek de benoeming in de Staatscourant of in de EK-pagina personele mutaties en vul de startdatum in; werk de posities bij."
+    },
+    {
+      "what": "Benoemingsdata van de voorzitter en ondervoorzitter van de Eerste Kamer-commissie j-v (voorzitter B.O. (Boris) Dittrich (D66); ondervoorzitter H.A. (Henk) Marquart Scholtz (BBB))",
+      "why": "De commissiepagina noemt de zittende voorzitter en ondervoorzitter maar geen benoemings- of startdatum. De posities pos:voorzitter-eerste-kamer-commissie-j-v en pos:ondervoorzitter-eerste-kamer-commissie-j-v hebben daardoor geen open tenure.",
+      "endpoint": "https://www.eerstekamer.nl/commissies/j_v",
+      "resume": "Zoek de benoeming in de Staatscourant of in de EK-pagina personele mutaties en vul de startdatum in; werk de posities bij."
+    },
+    {
+      "what": "Benoemingsdata van de voorzitter en ondervoorzitter van de Eerste Kamer-commissie korel (voorzitter P. (Paul) Rosenmöller (GroenLinks-PvdA); ondervoorzitter P. (Peter) Nicolaï (PvdD))",
+      "why": "De commissiepagina noemt de zittende voorzitter en ondervoorzitter maar geen benoemings- of startdatum. De posities pos:voorzitter-eerste-kamer-commissie-korel en pos:ondervoorzitter-eerste-kamer-commissie-korel hebben daardoor geen open tenure.",
+      "endpoint": "https://www.eerstekamer.nl/commissies/korel",
+      "resume": "Zoek de benoeming in de Staatscourant of in de EK-pagina personele mutaties en vul de startdatum in; werk de posities bij."
+    },
+    {
+      "what": "Benoemingsdata van de voorzitter en ondervoorzitter van de Eerste Kamer-commissie lnv (voorzitter G.J. (Gert-Jan) Oplaat (BBB); ondervoorzitter R. (Roel) van Gurp (GroenLinks-PvdA))",
+      "why": "De commissiepagina noemt de zittende voorzitter en ondervoorzitter maar geen benoemings- of startdatum. De posities pos:voorzitter-eerste-kamer-commissie-lnv en pos:ondervoorzitter-eerste-kamer-commissie-lnv hebben daardoor geen open tenure.",
+      "endpoint": "https://www.eerstekamer.nl/commissies/lnv",
+      "resume": "Zoek de benoeming in de Staatscourant of in de EK-pagina personele mutaties en vul de startdatum in; werk de posities bij."
+    },
+    {
+      "what": "Benoemingsdata van de voorzitter en ondervoorzitter van de Eerste Kamer-commissie ocw (voorzitter Th.W. (Theo) Rietkerk (CDA); ondervoorzitter G.V.M. (Gala) Veldhoen (GroenLinks-PvdA))",
+      "why": "De commissiepagina noemt de zittende voorzitter en ondervoorzitter maar geen benoemings- of startdatum. De posities pos:voorzitter-eerste-kamer-commissie-ocw en pos:ondervoorzitter-eerste-kamer-commissie-ocw hebben daardoor geen open tenure.",
+      "endpoint": "https://www.eerstekamer.nl/commissies/ocw",
+      "resume": "Zoek de benoeming in de Staatscourant of in de EK-pagina personele mutaties en vul de startdatum in; werk de posities bij."
+    },
+    {
+      "what": "Benoemingsdata van de voorzitter en ondervoorzitter van de Eerste Kamer-commissie szw (voorzitter R. (Roel) van Gurp (GroenLinks-PvdA); ondervoorzitter C.P.M. (Carla) Moonen (D66))",
+      "why": "De commissiepagina noemt de zittende voorzitter en ondervoorzitter maar geen benoemings- of startdatum. De posities pos:voorzitter-eerste-kamer-commissie-szw en pos:ondervoorzitter-eerste-kamer-commissie-szw hebben daardoor geen open tenure.",
+      "endpoint": "https://www.eerstekamer.nl/commissies/szw",
+      "resume": "Zoek de benoeming in de Staatscourant of in de EK-pagina personele mutaties en vul de startdatum in; werk de posities bij."
+    },
+    {
+      "what": "Benoemingsdata van de voorzitter en ondervoorzitter van de Eerste Kamer-commissie verzoekschriften (voorzitter G.A. (Gom) van Strien (PVV); ondervoorzitter mr. K. van Bijsterveld (JA21))",
+      "why": "De commissiepagina noemt de zittende voorzitter en ondervoorzitter maar geen benoemings- of startdatum. De posities pos:voorzitter-eerste-kamer-commissie-verzoekschriften en pos:ondervoorzitter-eerste-kamer-commissie-verzoekschriften hebben daardoor geen open tenure.",
+      "endpoint": "https://www.eerstekamer.nl/commissies/verzoekschriften",
+      "resume": "Zoek de benoeming in de Staatscourant of in de EK-pagina personele mutaties en vul de startdatum in; werk de posities bij."
+    },
+    {
+      "what": "Benoemingsdata van de voorzitter en ondervoorzitter van de Eerste Kamer-commissie vws (voorzitter J. (Janny) Bakker-Klein (CDA); ondervoorzitter H.A.M. (Hetty) Janssen-van Helvoort (GroenLinks-PvdA))",
+      "why": "De commissiepagina noemt de zittende voorzitter en ondervoorzitter maar geen benoemings- of startdatum. De posities pos:voorzitter-eerste-kamer-commissie-vws en pos:ondervoorzitter-eerste-kamer-commissie-vws hebben daardoor geen open tenure.",
+      "endpoint": "https://www.eerstekamer.nl/commissies/vws",
+      "resume": "Zoek de benoeming in de Staatscourant of in de EK-pagina personele mutaties en vul de startdatum in; werk de posities bij."
+    },
+    {
+      "what": "Functie en benoemingsdatum van de griffier van de Eerste Kamer (pos:griffier-eerste-kamer)",
+      "why": "De pagina personele mutaties meldt het vertrek van de griffier per 21 augustus 2026 maar noemt geen naam, benoemingsdatum of opvolger.",
+      "endpoint": "https://www.eerstekamer.nl/personele_mutaties",
+      "resume": "Open de EK-pagina ambtelijke organisatie en de Staatscourant om de griffier en de benoemingsdatum te bevestigen."
+    },
+    {
+      "what": "Startdata van de fractievoorzitters van de Tweede Kamer voor de periode voor 2023-12-06",
+      "why": "Deze workstream heeft de ketens teruggelegd tot de verkiezingen van 22 november 2023 (zittingsperiode vanaf 2023-12-06). Oudere segmenten zijn bewust niet meegenomen.",
+      "endpoint": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon",
+      "resume": "Herhaal het ophalen en breid de keten per fractie uit als een langere historie nodig is."
+    },
+    {
+      "what": "Startdata van de huidige secretarissen-generaal en directeuren-generaal bij de ministeries (Gert-Jan Buitendijk, Vincent Roozen, Sandor Gaastra, Bas van den Dungen, Roald Lapperre, Loes Mulder, Marieke van Wallenburg, Anita van den Ende, Ivar Nijhuis, Coen van de Louw, Peter Smink, Nanette van Schelven, Noor Sanders, Coen Hogendoorn, Jasper Wesseling, Marije Beens)",
+      "why": "De ambtelijke-leidingpagina's noemen de namen maar meestal geen benoemingsdatum. Zonder bron-startdatum is geen tenure aangemaakt. Workstream A noteerde dit ook als gap 4.",
+      "endpoint": "https://www.officielebekendmakingen.nl/",
+      "resume": "Zoek per functie het benoemingsbesluit in de Staatscourant en vul de open tenure aan."
+    },
+    {
+      "what": "Startdata van de hoofden van rijksdiensten, agentschappen en inspecties (de 35 posities die workstream B zonder tenure liet)",
+      "why": "Workstream B vond de zittende functionaris maar geen benoemings- of startdatum. Een tenure zonder bron-startdatum wordt niet aangemaakt.",
+      "endpoint": "https://organisaties.overheid.nl/ en https://www.officielebekendmakingen.nl/",
+      "resume": "Zoek per functie de benoeming in de Staatscourant of op de organisatiepagina en vul de startdatum in."
+    },
+    {
+      "what": "Persoonsgebonden tenures voor de 378 raadslid- en statenlid-posities in workstream G",
+      "why": "Deze posities zijn zetelklassen (een positie met veel zetels), niet een individuele functiehouder. Ze horen bij het membership-model (seatsCount plus membership per persoon), niet bij een enkele tenure. De benoemings-/verkiezingsdata per persoon zijn nog niet ontsloten.",
+      "endpoint": "https://openraadsinformatie.nl/ en https://www.kiesraad.nl/verkiezingen",
+      "resume": "Haal per orgaan de ledenlijst met installatiedatum op en leg die vast als memberships op de bestaande positie-ids."
+    },
+    {
+      "what": "Persoonsgebonden tenures voor de 378 wethouder- en gedeputeerde-posities in workstream G",
+      "why": "Ook deze posities modelleren een collegezetel met meerdere personen. Per gemeente en provincie ontbreekt de benoemingsdatum van de individuele wethouders en gedeputeerden.",
+      "endpoint": "https://openraadsinformatie.nl/ en de collegepagina's van de gemeenten en provincies",
+      "resume": "Haal per college de wethouders en gedeputeerden met benoemingsdatum op en leg ze vast als memberships of meerdere tenures."
+    },
+    {
+      "what": "Zittende burgemeester van Nuenen, Gerwen en Nederwetten (pos:burgemeester-nuenen-gerwen-en-nederwetten)",
+      "why": "Workstream G vond in de bulk-bron geen zittende burgemeester zonder aftredingsdatum. De gemeentepagina is een JavaScript-app zonder leesbare inhoud.",
+      "endpoint": "https://www.nuenen.nl/ en https://www.officielebekendmakingen.nl/",
+      "resume": "Zoek de benoeming in de Staatscourant of de gemeentesite en vul people en tenure aan."
+    },
+    {
+      "what": "Zittende burgemeester van Zwartewaterland (pos:burgemeester-zwartewaterland)",
+      "why": "Workstream G vond in de bulk-bron geen zittende burgemeester zonder aftredingsdatum. De gemeentepagina is een JavaScript-app zonder leesbare inhoud.",
+      "endpoint": "https://www.zwartewaterland.nl/ en https://www.officielebekendmakingen.nl/",
+      "resume": "Zoek de benoeming in de Staatscourant of de gemeentesite en vul people en tenure aan."
+    }
+  ]
+}

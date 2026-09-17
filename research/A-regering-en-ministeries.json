@@ -1,0 +1,5811 @@
+{
+  "workstream": "A",
+  "generatedAt": "2026-09-18T12:00:00+02:00",
+  "endpointsUsed": [
+    {
+      "url": "https://wetten.overheid.nl/BWBR0001840",
+      "retrieved": "2026-09-17",
+      "notes": "Grondwet artikelen 42 tot en met 47, gecachet als tekst en HTML."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/ministeries",
+      "retrieved": "2026-09-17",
+      "notes": "Lijst van 12 ministeries."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering",
+      "retrieved": "2026-09-17",
+      "notes": "Kabinet-Jetten, 18 ministers en 10 staatssecretarissen."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen",
+      "retrieved": "2026-09-17",
+      "notes": "Overzicht en 28 persoonspagina's."
+    },
+    {
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8174",
+      "retrieved": "2026-09-17",
+      "notes": "Benoeming minister-president; 302 naar zoek.officielebekendmakingen.nl."
+    },
+    {
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8178",
+      "retrieved": "2026-09-17",
+      "notes": "Benoeming 13 ministers en 2 vice-minister-presidenten."
+    },
+    {
+      "url": "https://www.koninklijkhuis.nl/leden-koninklijk-huis/koning-willem-alexander",
+      "retrieved": "2026-09-17",
+      "notes": "Koning en troonsopvolging 30 april 2013."
+    },
+    {
+      "url": "https://www.koninklijkhuis.nl/onderwerpen/koninklijk-huis/onderscheidingen/kanselarij-der-nederlandse-orden",
+      "retrieved": "2026-09-18",
+      "notes": "Kanselarij der Nederlandse Orden."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-financien/organisatie/organogram/ambtelijke-leiding",
+      "retrieved": "2026-09-18",
+      "notes": "SG en DG's van Financien."
+    }
+  ],
+  "organizations": [
+    {
+      "id": "org:ministerie-van-algemene-zaken",
+      "slug": "ministerie-van-algemene-zaken",
+      "name": "Ministerie van Algemene Zaken",
+      "aliases": [
+        "AZ",
+        "Algemene Zaken"
+      ],
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Het ministerie van Algemene Zaken coördineert het regeringsbeleid en de rijkscommunicatie en bewaakt de eenheid en de continuïteit daarvan. Het ondersteunt de minister-president bij de voorbereiding en uitvoering van het kabinetsbeleid. Het ministerie is ingesteld bij koninklijk besluit van 3 juli 1937 en zetelt in Den Haag.",
+      "legalSource": {
+        "label": "Grondwet art. 44",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken",
+      "established": "1937-07-03",
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministeries",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-algemene-zaken",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-algemene-zaken-geschiedenis",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "slug": "ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "name": "Ministerie van Binnenlandse Zaken en Koninkrijksrelaties",
+      "aliases": [
+        "BZK",
+        "Binnenlandse Zaken en Koninkrijksrelaties"
+      ],
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Het ministerie van Binnenlandse Zaken en Koninkrijksrelaties werkt aan democratie, openbaar bestuur, grondrechten, wonen en ruimtelijke ordening, en aan de betrekkingen binnen het Koninkrijk. Sinds de departementale herindeling van 23 februari 2026 vallen ook volkshuisvesting, ruimtelijke ordening en digitale zaken binnen het departement. Het ministerie zetelt in Den Haag.",
+      "legalSource": {
+        "label": "Grondwet art. 44",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministeries",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8177",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8180",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-van-buitenlandse-zaken",
+      "slug": "ministerie-van-buitenlandse-zaken",
+      "name": "Ministerie van Buitenlandse Zaken",
+      "aliases": [
+        "BZ",
+        "Buitenlandse Zaken"
+      ],
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Het ministerie van Buitenlandse Zaken coördineert en voert het buitenlands beleid van Nederland uit, vanuit Den Haag en via ambassades, consulaten en andere vertegenwoordigingen in ongeveer 150 landen. Het behartigt de Nederlandse belangen, draagt bij aan internationale stabiliteit en helpt Nederlanders in het buitenland. Het departement bestaat sinds 1798.",
+      "legalSource": {
+        "label": "Grondwet art. 44",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-buitenlandse-zaken",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministeries",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-buitenlandse-zaken",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-buitenlandse-zaken-geschiedenis",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-van-defensie",
+      "slug": "ministerie-van-defensie",
+      "name": "Ministerie van Defensie",
+      "aliases": [
+        "Defensie",
+        "DEF"
+      ],
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Het ministerie van Defensie beschermt de veiligheid van Nederland en zijn bondgenoten en draagt bij aan de internationale rechtsorde en stabiliteit. De krijgsmacht ondersteunt daarnaast de samenleving bij rampen en crises. Het departement bestaat uit de bestuursstaf in Den Haag en de operationele eenheden van de zee-, land- en luchtstrijdkrachten, de marechaussee en ondersteunende commando's.",
+      "legalSource": {
+        "label": "Grondwet art. 44",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-defensie",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministeries",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-defensie",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-defensie-organisatie",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-van-economische-zaken-en-klimaat",
+      "slug": "ministerie-van-economische-zaken-en-klimaat",
+      "name": "Ministerie van Economische Zaken en Klimaat",
+      "aliases": [
+        "EZK",
+        "Economische Zaken en Klimaat"
+      ],
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Het ministerie van Economische Zaken en Klimaat werkt aan een productieve, weerbare en duurzame economie. Het departement draagt zorg voor ondernemerschap, innovatie, klimaat en energie, digitalisering en het beheer van grondstoffen. Op 23 februari 2026 werd de naam gewijzigd van Economische Zaken in Economische Zaken en Klimaat; taken op het gebied van klimaat, groene groei en circulaire economie kwamen daarbij over.",
+      "legalSource": {
+        "label": "Grondwet art. 44",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-economische-zaken-en-klimaat",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministeries",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-economische-zaken-en-klimaat",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8176",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8177",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8180",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-van-financien",
+      "slug": "ministerie-van-financien",
+      "name": "Ministerie van Financiën",
+      "aliases": [
+        "FIN",
+        "Financiën"
+      ],
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Het ministerie van Financiën beheert de rijksfinanciën en is verantwoordelijk voor een financieel gezond Rijk. Het stelt de Rijksbegroting op, draagt zorg voor het belastingstelsel en houdt toezicht op de financiële sector. Het ministerie bestaat sinds 1798 en is daarmee een van de oudste departementen.",
+      "legalSource": {
+        "label": "Grondwet art. 44",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-financien",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministeries",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-financien",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-financien-geschiedenis",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "slug": "ministerie-van-infrastructuur-en-waterstaat",
+      "name": "Ministerie van Infrastructuur en Waterstaat",
+      "aliases": [
+        "IenW",
+        "Infrastructuur en Waterstaat"
+      ],
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Het ministerie van Infrastructuur en Waterstaat werkt aan bereikbaarheid, veilige dijken en een schone lucht, bodem en water. Het departement draagt zorg voor het wegen-, spoor- en waternet en voor het beheer van Rijkswaterstaat. Daarnaast zet het in op een goede leefomgeving en zuinig gebruik van grondstoffen.",
+      "legalSource": {
+        "label": "Grondwet art. 44",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-infrastructuur-en-waterstaat",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministeries",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-infrastructuur-en-waterstaat",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-infrastructuur-en-waterstaat-organogram",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-van-justitie-en-veiligheid",
+      "slug": "ministerie-van-justitie-en-veiligheid",
+      "name": "Ministerie van Justitie en Veiligheid",
+      "aliases": [
+        "JenV",
+        "J&V",
+        "Justitie en Veiligheid"
+      ],
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Het ministerie van Justitie en Veiligheid is verantwoordelijk voor de rechtsorde en voor een veiliger en rechtvaardiger samenleving. Het werkt samen met gemeenten, het Openbaar Ministerie, de politie en andere partners aan rechtshandhaving, bescherming en migratie. Sinds 23 februari 2026 vallen ook asiel en migratie binnen dit departement.",
+      "legalSource": {
+        "label": "Grondwet art. 44",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-justitie-en-veiligheid",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministeries",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-justitie-en-veiligheid",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8177",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "slug": "ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "name": "Ministerie van Landbouw, Visserij, Voedselzekerheid en Natuur",
+      "aliases": [
+        "LVVN",
+        "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      ],
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Het ministerie van Landbouw, Visserij, Voedselzekerheid en Natuur zet zich in voor duurzaam en veilig voedsel, gezonde natuur en een vitaal platteland. Het departement richt zich op landbouw, visserij, voedselzekerheid, natuur en stikstof, voor huidige en toekomstige generaties. Het zetelt in Den Haag.",
+      "legalSource": {
+        "label": "Grondwet art. 44",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministeries",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "slug": "ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "name": "Ministerie van Onderwijs, Cultuur en Wetenschap",
+      "aliases": [
+        "OCW",
+        "Onderwijs, Cultuur en Wetenschap"
+      ],
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Het ministerie van Onderwijs, Cultuur en Wetenschap zorgt voor goed onderwijs, ruimte voor wetenschap en voor een vrije culturele sector. Het stelt kaders en financiert het onderwijs- en cultuurbeleid en de wetenschap. Het departement draagt de huidige naam sinds 2003, toen het van Zoetermeer naar Den Haag verhuisde.",
+      "legalSource": {
+        "label": "Grondwet art. 44",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministeries",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-onderwijs-cultuur-en-wetenschap",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-onderwijs-cultuur-en-wetenschap-geschiedenis",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "slug": "ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "name": "Ministerie van Sociale Zaken en Werkgelegenheid",
+      "aliases": [
+        "SZW",
+        "Sociale Zaken en Werkgelegenheid"
+      ],
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Het ministerie van Sociale Zaken en Werkgelegenheid werkt aan eerlijk, gezond en veilig werk en aan bestaanszekerheid voor iedereen. Het draagt zorg voor de sociale zekerheid, de arbeidsmarkt en het inkomensbeleid. Het ministerie zetelt in Den Haag.",
+      "legalSource": {
+        "label": "Grondwet art. 44",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministeries",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-sociale-zaken-en-werkgelegenheid",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+      "slug": "ministerie-van-volksgezondheid-welzijn-en-sport",
+      "name": "Ministerie van Volksgezondheid, Welzijn en Sport",
+      "aliases": [
+        "VWS",
+        "Volksgezondheid, Welzijn en Sport"
+      ],
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Het ministerie van Volksgezondheid, Welzijn en Sport zet zich in voor goede en betaalbare zorg en ondersteuning. Het stimuleert een gezonde leefstijl, voldoende beweging en sport en draagt zorg voor het zorgstelsel. Het departement zetelt in Den Haag.",
+      "legalSource": {
+        "label": "Grondwet art. 44",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-volksgezondheid-welzijn-en-sport",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministeries",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-volksgezondheid-welzijn-en-sport",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerie-van-volksgezondheid-welzijn-en-sport-geschiedenis",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:regering",
+      "slug": "regering",
+      "name": "Regering",
+      "aliases": [
+        "Koning en ministers"
+      ],
+      "type": "department",
+      "subtype": "land-regering",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "De regering wordt gevormd door de Koning en de ministers. De Koning is onschendbaar; de ministers zijn verantwoordelijk voor het regeringsbeleid. Het kabinet-Jetten, gevormd door D66, VVD en CDA, is op 23 februari 2026 beëdigd en telt 18 ministers en 10 staatssecretarissen.",
+      "legalSource": {
+        "label": "Grondwet art. 42",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-regering",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-bewindspersonen",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8174",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerraad",
+      "slug": "ministerraad",
+      "name": "Ministerraad",
+      "aliases": [
+        "de ministerraad"
+      ],
+      "type": "commission",
+      "subtype": "commissie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": "org:regering",
+      "partOf": [
+        "org:regering"
+      ],
+      "description": "De ministers vormen te zamen de ministerraad en beraadslagen en besluiten over het algemeen regeringsbeleid. De minister-president is voorzitter en bevordert de eenheid van dat beleid. De raad komt in beginsel wekelijks bijeen onder voorzitterschap van de minister-president.",
+      "legalSource": {
+        "label": "Grondwet art. 45",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "website": "https://www.rijksoverheid.nl/regering/ministerraad",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-regering",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksoverheid-ministerraad",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:dienst-van-het-koninklijk-huis",
+      "slug": "dienst-van-het-koninklijk-huis",
+      "name": "Dienst van het Koninklijk Huis",
+      "aliases": [
+        "DKH"
+      ],
+      "type": "department",
+      "subtype": "uitvoeringsorganisatie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "De Dienst van het Koninklijk Huis ondersteunt de Koning, Koningin Máxima en Prinses Beatrix in hun werk en privéleven. De dienst ondersteunt ook de andere leden van het Koninklijk Huis bij hun werkzaamheden. De bijna 300 medewerkers werken in Den Haag, Amsterdam, Apeldoorn en Baarn; de grootmeester heeft de leiding over de hofhouding.",
+      "website": "https://www.koninklijkhuis.nl/onderwerpen/organisatie/dienst-koninklijk-huis",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:koninklijkhuis-dienst",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:kabinet-van-de-koning",
+      "slug": "kabinet-van-de-koning",
+      "name": "Kabinet van de Koning",
+      "aliases": [],
+      "type": "department",
+      "subtype": "uitvoeringsorganisatie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Het Kabinet van de Koning ondersteunt de Koning bij de uitoefening van zijn grondwettelijke taken. Het verzorgt en bereidt de contacten van de Koning met de minister-president en de andere bewindspersonen voor. Het verwerkt de wetten, algemene maatregelen van bestuur en koninklijke besluiten die ter tekening worden aangeboden en behandelt verzoekschriften van burgers.",
+      "website": "https://www.koninklijkhuis.nl/onderwerpen/organisatie/kabinet-van-de-koning",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:koninklijkhuis-kabinet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8740",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:kanselarij-der-nederlandse-orden",
+      "slug": "kanselarij-der-nederlandse-orden",
+      "name": "Kanselarij der Nederlandse Orden",
+      "aliases": [],
+      "type": "department",
+      "subtype": "uitvoeringsorganisatie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "De Kanselarij der Nederlandse Orden huisvest en ondersteunt het Kapittel voor de Civiele Orden en het Kapittel der Militaire Willems-Orde bij hun advisering over decoratievoorstellen. De organisatie beheert de versierselen, houdt registers bij van onderscheiden personen en bewaakt de zuiverheid en waardigheid van de orden. De geschiedenis gaat terug tot 1815, bij de instelling van de Militaire Willems-Orde en de Orde van de Nederlandse Leeuw; de Kanselier der Nederlandse Orden staat aan het hoofd.",
+      "website": "https://www.koninklijkhuis.nl/onderwerpen/koninklijk-huis/onderscheidingen/kanselarij-der-nederlandse-orden",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:koninklijkhuis-kanselarij",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:koninklijkhuis-onderscheidingen",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "positions": [
+    {
+      "id": "pos:staatssecretaris-van-infrastructuur-en-waterstaat",
+      "slug": "staatssecretaris-van-infrastructuur-en-waterstaat",
+      "title": "Staatssecretaris van Infrastructuur en Waterstaat",
+      "organization": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 46",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-annet-bertram",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8189",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-asiel-en-migratie",
+      "slug": "minister-van-asiel-en-migratie",
+      "title": "Minister van Asiel en Migratie",
+      "organization": "org:ministerie-van-justitie-en-veiligheid",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-bart-van-den-brink",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:staatssecretaris-van-justitie-en-veiligheid",
+      "slug": "staatssecretaris-van-justitie-en-veiligheid",
+      "title": "Staatssecretaris van Justitie en Veiligheid",
+      "organization": "org:ministerie-van-justitie-en-veiligheid",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 46",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-claudia-van-bruggen",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8181",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-justitie-en-veiligheid",
+      "slug": "minister-van-justitie-en-veiligheid",
+      "title": "Minister van Justitie en Veiligheid",
+      "organization": "org:ministerie-van-justitie-en-veiligheid",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-david-van-weel",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:staatssecretaris-van-defensie",
+      "slug": "staatssecretaris-van-defensie",
+      "title": "Staatssecretaris van Defensie",
+      "organization": "org:ministerie-van-defensie",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 46",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-derk-boswijk",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8187",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-defensie",
+      "slug": "minister-van-defensie",
+      "title": "Minister van Defensie",
+      "organization": "org:ministerie-van-defensie",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-dilan-yesilgoz-zegerius",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:staatssecretaris-van-financien",
+      "slug": "staatssecretaris-van-financien",
+      "title": "Staatssecretaris van Financiën",
+      "organization": "org:ministerie-van-financien",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 46",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-eelco-eerenberg",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8185",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-financien",
+      "slug": "minister-van-financien",
+      "title": "Minister van Financiën",
+      "organization": "org:ministerie-van-financien",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-eelco-heinen",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-volkshuisvesting-en-ruimtelijke-ordening",
+      "slug": "minister-van-volkshuisvesting-en-ruimtelijke-ordening",
+      "title": "Minister van Volkshuisvesting en Ruimtelijke Ordening",
+      "organization": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-elanor-boekholt-osullivan",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:staatssecretaris-koninkrijksrelaties-en-slagvaardige-overheid",
+      "slug": "staatssecretaris-koninkrijksrelaties-en-slagvaardige-overheid",
+      "title": "Staatssecretaris Koninkrijksrelaties en Slagvaardige Overheid",
+      "organization": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 46",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-eric-van-der-burg",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8182",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-sociale-zaken-en-werkgelegenheid",
+      "slug": "minister-van-sociale-zaken-en-werkgelegenheid",
+      "title": "Minister van Sociale Zaken en Werkgelegenheid",
+      "organization": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-hans-vijlbrief",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-economische-zaken-en-klimaat",
+      "slug": "minister-van-economische-zaken-en-klimaat",
+      "title": "Minister van Economische Zaken en Klimaat",
+      "organization": "org:ministerie-van-economische-zaken-en-klimaat",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-heleen-herbert",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "slug": "minister-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "title": "Minister van Landbouw, Visserij, Voedselzekerheid en Natuur",
+      "organization": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-jaimi-van-essen",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:staatssecretaris-van-klimaat-en-groene-groei",
+      "slug": "staatssecretaris-van-klimaat-en-groene-groei",
+      "title": "Staatssecretaris van Klimaat en Groene Groei",
+      "organization": "org:ministerie-van-economische-zaken-en-klimaat",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 46",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-jo-annes-de-bat",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8192",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:staatssecretaris-onderwijs-en-emancipatie",
+      "slug": "staatssecretaris-onderwijs-en-emancipatie",
+      "title": "Staatssecretaris Onderwijs en Emancipatie",
+      "organization": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 46",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-judith-tielen",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8184",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-langdurige-zorg-jeugd-en-sport",
+      "slug": "minister-van-langdurige-zorg-jeugd-en-sport",
+      "title": "Minister van Langdurige Zorg, Jeugd en Sport",
+      "organization": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-mirjam-sterk",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "slug": "minister-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "title": "Minister van Binnenlandse Zaken en Koninkrijksrelaties",
+      "organization": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-pieter-heerma",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-onderwijs-cultuur-en-wetenschap",
+      "slug": "minister-van-onderwijs-cultuur-en-wetenschap",
+      "title": "Minister van Onderwijs, Cultuur en Wetenschap",
+      "organization": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-rianne-letschert",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-president",
+      "slug": "minister-president",
+      "title": "Minister-president en Minister van Algemene Zaken",
+      "organization": "org:ministerie-van-algemene-zaken",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-rob-jetten",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8174",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:staatssecretaris-herstel-toeslagen",
+      "slug": "staatssecretaris-herstel-toeslagen",
+      "title": "Staatssecretaris Herstel Toeslagen",
+      "organization": "org:ministerie-van-financien",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 46",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-sandra-palmen-schlangen",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8186",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:staatssecretaris-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "slug": "staatssecretaris-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "title": "Staatssecretaris van Landbouw, Visserij, Voedselzekerheid en Natuur",
+      "organization": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 46",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-silvio-erkens",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8193",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-buitenlandse-handel-en-ontwikkelingssamenwerking",
+      "slug": "minister-van-buitenlandse-handel-en-ontwikkelingssamenwerking",
+      "title": "Minister van Buitenlandse Handel en Ontwikkelingssamenwerking",
+      "organization": "org:ministerie-van-buitenlandse-zaken",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-sjoerd-sjoerdsma",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-volksgezondheid-welzijn-en-sport",
+      "slug": "minister-van-volksgezondheid-welzijn-en-sport",
+      "title": "Minister van Volksgezondheid, Welzijn en Sport",
+      "organization": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-sophie-hermans",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-klimaat-en-groene-groei",
+      "slug": "minister-van-klimaat-en-groene-groei",
+      "title": "Minister van Klimaat en Groene Groei",
+      "organization": "org:ministerie-van-economische-zaken-en-klimaat",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-stientje-van-veldhoven",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-werk-en-participatie",
+      "slug": "minister-van-werk-en-participatie",
+      "title": "Minister van Werk en Participatie",
+      "organization": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-thierry-aartsen",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-buitenlandse-zaken",
+      "slug": "minister-van-buitenlandse-zaken",
+      "title": "Minister van Buitenlandse Zaken",
+      "organization": "org:ministerie-van-buitenlandse-zaken",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-tom-berendsen",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:minister-van-infrastructuur-en-waterstaat",
+      "slug": "minister-van-infrastructuur-en-waterstaat",
+      "title": "Minister van Infrastructuur en Waterstaat",
+      "organization": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-vincent-karremans",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:staatssecretaris-digitale-economie-en-soevereiniteit",
+      "slug": "staatssecretaris-digitale-economie-en-soevereiniteit",
+      "title": "Staatssecretaris Digitale Economie en Soevereiniteit",
+      "organization": "org:ministerie-van-economische-zaken-en-klimaat",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 46",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-willemijn-aerdts",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8191",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:vice-minister-president",
+      "slug": "vice-minister-president",
+      "title": "Vice-Minister-President",
+      "organization": "org:regering",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 2,
+      "legalBasis": {
+        "label": "Grondwet art. 43",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8194",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:koning",
+      "slug": "koning",
+      "title": "Koning der Nederlanden",
+      "organization": "org:regering",
+      "type": "dept_head",
+      "fillMethod": "van-rechtswege",
+      "entryModes": [
+        "van-rechtswege"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Grondwet art. 42",
+        "url": "https://wetten.overheid.nl/BWBR0001840"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:grondwet",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:koninklijkhuis-koning",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:koninklijkhuis-staatshoofd",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:directeur-kabinet-van-de-koning",
+      "slug": "directeur-kabinet-van-de-koning",
+      "title": "Directeur van het Kabinet van de Koning",
+      "organization": "org:kabinet-van-de-koning",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd",
+        "waarnemend"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:stcrt-2026-8740",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:secretaris-generaal-algemene-zaken",
+      "slug": "secretaris-generaal-algemene-zaken",
+      "title": "Secretaris-generaal",
+      "organization": "org:ministerie-van-algemene-zaken",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-az-secretaris-generaal",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:secretaris-generaal-binnenlandse-zaken-en-koninkrijksrelaties",
+      "slug": "secretaris-generaal-binnenlandse-zaken-en-koninkrijksrelaties",
+      "title": "Secretaris-generaal",
+      "organization": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-bzk-ambtelijke-leiding",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:secretaris-generaal-buitenlandse-zaken",
+      "slug": "secretaris-generaal-buitenlandse-zaken",
+      "title": "Secretaris-generaal",
+      "organization": "org:ministerie-van-buitenlandse-zaken",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-bz-secretaris-generaal",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:secretaris-generaal-defensie",
+      "slug": "secretaris-generaal-defensie",
+      "title": "Secretaris-generaal",
+      "organization": "org:ministerie-van-defensie",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-def-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:secretaris-generaal-economische-zaken-en-klimaat",
+      "slug": "secretaris-generaal-economische-zaken-en-klimaat",
+      "title": "Secretaris-generaal",
+      "organization": "org:ministerie-van-economische-zaken-en-klimaat",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-ezk-secretaris-generaal",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:secretaris-generaal-financien",
+      "slug": "secretaris-generaal-financien",
+      "title": "Secretaris-generaal",
+      "organization": "org:ministerie-van-financien",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:secretaris-generaal-landbouw-visserij-voedselzekerheid-en-natuur",
+      "slug": "secretaris-generaal-landbouw-visserij-voedselzekerheid-en-natuur",
+      "title": "Secretaris-generaal",
+      "organization": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-lvvn-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:secretaris-generaal-onderwijs-cultuur-en-wetenschap",
+      "slug": "secretaris-generaal-onderwijs-cultuur-en-wetenschap",
+      "title": "Secretaris-generaal",
+      "organization": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-ocw-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:secretaris-generaal-sociale-zaken-en-werkgelegenheid",
+      "slug": "secretaris-generaal-sociale-zaken-en-werkgelegenheid",
+      "title": "Secretaris-generaal",
+      "organization": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-szw-secretaris-generaal",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:secretaris-generaal-volksgezondheid-welzijn-en-sport",
+      "slug": "secretaris-generaal-volksgezondheid-welzijn-en-sport",
+      "title": "Secretaris-generaal",
+      "organization": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-vws-secretaris-generaal",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:directeur-generaal-rijksvoorlichtingsdienst",
+      "slug": "directeur-generaal-rijksvoorlichtingsdienst",
+      "title": "Directeur-generaal Rijksvoorlichtingsdienst",
+      "organization": "org:ministerie-van-algemene-zaken",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-az-secretaris-generaal",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:directeur-generaal-toeslagen",
+      "slug": "directeur-generaal-toeslagen",
+      "title": "Directeur-generaal Toeslagen",
+      "organization": "org:ministerie-van-financien",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:directeur-generaal-belastingdienst",
+      "slug": "directeur-generaal-belastingdienst",
+      "title": "Directeur-generaal Belastingdienst",
+      "organization": "org:ministerie-van-financien",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:directeur-generaal-douane",
+      "slug": "directeur-generaal-douane",
+      "title": "Directeur-generaal Douane",
+      "organization": "org:ministerie-van-financien",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:directeur-generaal-voor-fiscale-zaken",
+      "slug": "directeur-generaal-voor-fiscale-zaken",
+      "title": "Directeur-generaal voor Fiscale Zaken",
+      "organization": "org:ministerie-van-financien",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:directeur-generaal-rijksbegroting",
+      "slug": "directeur-generaal-rijksbegroting",
+      "title": "Directeur-generaal Rijksbegroting",
+      "organization": "org:ministerie-van-financien",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:thesaurier-generaal",
+      "slug": "thesaurier-generaal",
+      "title": "Thesaurier-Generaal",
+      "organization": "org:ministerie-van-financien",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:programmadirecteur-generaal-herstel-toeslagen",
+      "slug": "programmadirecteur-generaal-herstel-toeslagen",
+      "title": "Programmadirecteur-generaal Herstel Toeslagen",
+      "organization": "org:ministerie-van-financien",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": "person:annet-bertram",
+      "slug": "annet-bertram",
+      "name": "Annet Bertram",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-annet-bertram",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8189",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:bart-van-den-brink",
+      "slug": "bart-van-den-brink",
+      "name": "Bart van den Brink",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-bart-van-den-brink",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:claudia-van-bruggen",
+      "slug": "claudia-van-bruggen",
+      "name": "Claudia van Bruggen",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-claudia-van-bruggen",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8181",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:david-van-weel",
+      "slug": "david-van-weel",
+      "name": "David van Weel",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-david-van-weel",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:derk-boswijk",
+      "slug": "derk-boswijk",
+      "name": "Derk Boswijk",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-derk-boswijk",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8187",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:dilan-yesilgoz-zegerius",
+      "slug": "dilan-yesilgoz-zegerius",
+      "name": "Dilan Yeşilgöz-Zegerius",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-dilan-yesilgoz-zegerius",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:eelco-eerenberg",
+      "slug": "eelco-eerenberg",
+      "name": "Eelco Eerenberg",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-eelco-eerenberg",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8185",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:eelco-heinen",
+      "slug": "eelco-heinen",
+      "name": "Eelco Heinen",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-eelco-heinen",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:elanor-boekholt-osullivan",
+      "slug": "elanor-boekholt-osullivan",
+      "name": "Elanor Boekholt-O’Sullivan",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-elanor-boekholt-osullivan",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:eric-van-der-burg",
+      "slug": "eric-van-der-burg",
+      "name": "Eric van der Burg",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-eric-van-der-burg",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8182",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:hans-vijlbrief",
+      "slug": "hans-vijlbrief",
+      "name": "Hans Vijlbrief",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-hans-vijlbrief",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:heleen-herbert",
+      "slug": "heleen-herbert",
+      "name": "Heleen Herbert",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-heleen-herbert",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:jaimi-van-essen",
+      "slug": "jaimi-van-essen",
+      "name": "Jaimi van Essen",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-jaimi-van-essen",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:jo-annes-de-bat",
+      "slug": "jo-annes-de-bat",
+      "name": "Jo-Annes de Bat",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-jo-annes-de-bat",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8192",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:judith-tielen",
+      "slug": "judith-tielen",
+      "name": "Judith Tielen",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-judith-tielen",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8184",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:mirjam-sterk",
+      "slug": "mirjam-sterk",
+      "name": "Mirjam Sterk",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-mirjam-sterk",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:pieter-heerma",
+      "slug": "pieter-heerma",
+      "name": "Pieter Heerma",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-pieter-heerma",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:rianne-letschert",
+      "slug": "rianne-letschert",
+      "name": "Rianne Letschert",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-rianne-letschert",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:rob-jetten",
+      "slug": "rob-jetten",
+      "name": "Rob Jetten",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-rob-jetten",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8174",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:sandra-palmen-schlangen",
+      "slug": "sandra-palmen-schlangen",
+      "name": "Sandra Palmen-Schlangen",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-sandra-palmen-schlangen",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8186",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:silvio-erkens",
+      "slug": "silvio-erkens",
+      "name": "Silvio Erkens",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-silvio-erkens",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8193",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:sjoerd-sjoerdsma",
+      "slug": "sjoerd-sjoerdsma",
+      "name": "Sjoerd Sjoerdsma",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-sjoerd-sjoerdsma",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:sophie-hermans",
+      "slug": "sophie-hermans",
+      "name": "Sophie Hermans",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-sophie-hermans",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:stientje-van-veldhoven-van-der-meer",
+      "slug": "stientje-van-veldhoven-van-der-meer",
+      "name": "Stientje van Veldhoven-van der Meer",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-stientje-van-veldhoven",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:thierry-aartsen",
+      "slug": "thierry-aartsen",
+      "name": "Thierry Aartsen",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-thierry-aartsen",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:tom-berendsen",
+      "slug": "tom-berendsen",
+      "name": "Tom Berendsen",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-tom-berendsen",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:vincent-karremans",
+      "slug": "vincent-karremans",
+      "name": "Vincent Karremans",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-vincent-karremans",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8178",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:willemijn-aerdts",
+      "slug": "willemijn-aerdts",
+      "name": "Willemijn Aerdts",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-willemijn-aerdts",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:stcrt-2026-8191",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:willem-alexander",
+      "slug": "willem-alexander",
+      "name": "Willem-Alexander",
+      "aliases": [
+        "Koning Willem-Alexander",
+        "Zijne Majesteit de Koning"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:koninklijkhuis-koning",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:koninklijkhuis-leden",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:f-j-j-princen",
+      "slug": "f-j-j-princen",
+      "name": "F.J.J. Princen",
+      "aliases": [
+        "drs. F.J.J. Princen"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:stcrt-2026-8740",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:gert-jan-buitendijk",
+      "slug": "gert-jan-buitendijk",
+      "name": "Gert-Jan Buitendijk",
+      "aliases": [
+        "drs. G.J. (Gert-Jan) Buitendijk"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-az-secretaris-generaal",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:vincent-roozen",
+      "slug": "vincent-roozen",
+      "name": "Vincent Roozen",
+      "aliases": [
+        "V.J.M. (Vincent) Roozen"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-bzk-ambtelijke-leiding",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:christiaan-rebergen",
+      "slug": "christiaan-rebergen",
+      "name": "Christiaan Rebergen",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-bz-secretaris-generaal",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:maarten-schurink",
+      "slug": "maarten-schurink",
+      "name": "Maarten Schurink",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-def-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:sandor-gaastra",
+      "slug": "sandor-gaastra",
+      "name": "Sandor Gaastra",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-ezk-secretaris-generaal",
+          "retrieved": "2026-09-17",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:bas-van-den-dungen",
+      "slug": "bas-van-den-dungen",
+      "name": "Bas van den Dungen",
+      "aliases": [
+        "Drs. B.E. (Bas) van den Dungen"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:roald-lapperre",
+      "slug": "roald-lapperre",
+      "name": "Roald Lapperre",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-lvvn-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:loes-mulder",
+      "slug": "loes-mulder",
+      "name": "Loes Mulder",
+      "aliases": [
+        "L. (Loes) Mulder"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-ocw-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:marieke-van-wallenburg",
+      "slug": "marieke-van-wallenburg",
+      "name": "Marieke van Wallenburg",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-szw-secretaris-generaal",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:anita-van-den-ende",
+      "slug": "anita-van-den-ende",
+      "name": "Anita van den Ende",
+      "aliases": [
+        "drs. Anita van den Ende"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-vws-secretaris-generaal",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:ivar-nijhuis",
+      "slug": "ivar-nijhuis",
+      "name": "Ivar Nijhuis",
+      "aliases": [
+        "dhr. I. (Ivar) Nijhuis"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-az-secretaris-generaal",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:coen-van-de-louw",
+      "slug": "coen-van-de-louw",
+      "name": "Coen van de Louw",
+      "aliases": [
+        "C.H.L.M. van de Louw (Coen)"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:peter-smink",
+      "slug": "peter-smink",
+      "name": "Peter Smink",
+      "aliases": [
+        "P.H. Smink (Peter)"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:nanette-van-schelven",
+      "slug": "nanette-van-schelven",
+      "name": "Nanette van Schelven",
+      "aliases": [
+        "N. van Schelven (Nanette)"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:noor-sanders",
+      "slug": "noor-sanders",
+      "name": "Noor Sanders",
+      "aliases": [
+        "Drs. L.M. Sanders (Noor)"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:coen-hogendoorn",
+      "slug": "coen-hogendoorn",
+      "name": "Coen Hogendoorn",
+      "aliases": [
+        "Drs. A.C. Hogendoorn (Coen)"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:jasper-wesseling",
+      "slug": "jasper-wesseling",
+      "name": "Jasper Wesseling",
+      "aliases": [
+        "Drs. J.K. Wesseling (Jasper)"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:marije-beens",
+      "slug": "marije-beens",
+      "name": "Marije Beens",
+      "aliases": [
+        "Drs. M.C. Beens (Marije)"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "tenures": [
+    {
+      "id": "tenure:staatssecretaris-van-infrastructuur-en-waterstaat-annet-bertram",
+      "person": "person:annet-bertram",
+      "position": "pos:staatssecretaris-van-infrastructuur-en-waterstaat",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8189",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-asiel-en-migratie-bart-van-den-brink",
+      "person": "person:bart-van-den-brink",
+      "position": "pos:minister-van-asiel-en-migratie",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:staatssecretaris-van-justitie-en-veiligheid-claudia-van-bruggen",
+      "person": "person:claudia-van-bruggen",
+      "position": "pos:staatssecretaris-van-justitie-en-veiligheid",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8181",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-justitie-en-veiligheid-david-van-weel",
+      "person": "person:david-van-weel",
+      "position": "pos:minister-van-justitie-en-veiligheid",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:staatssecretaris-van-defensie-derk-boswijk",
+      "person": "person:derk-boswijk",
+      "position": "pos:staatssecretaris-van-defensie",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8187",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-defensie-dilan-yesilgoz-zegerius",
+      "person": "person:dilan-yesilgoz-zegerius",
+      "position": "pos:minister-van-defensie",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:staatssecretaris-van-financien-eelco-eerenberg",
+      "person": "person:eelco-eerenberg",
+      "position": "pos:staatssecretaris-van-financien",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8185",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-financien-eelco-heinen",
+      "person": "person:eelco-heinen",
+      "position": "pos:minister-van-financien",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-volkshuisvesting-en-ruimtelijke-ordening-elanor-boekholt-osullivan",
+      "person": "person:elanor-boekholt-osullivan",
+      "position": "pos:minister-van-volkshuisvesting-en-ruimtelijke-ordening",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:staatssecretaris-koninkrijksrelaties-en-slagvaardige-overheid-eric-van-der-burg",
+      "person": "person:eric-van-der-burg",
+      "position": "pos:staatssecretaris-koninkrijksrelaties-en-slagvaardige-overheid",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8182",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-sociale-zaken-en-werkgelegenheid-hans-vijlbrief",
+      "person": "person:hans-vijlbrief",
+      "position": "pos:minister-van-sociale-zaken-en-werkgelegenheid",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-economische-zaken-en-klimaat-heleen-herbert",
+      "person": "person:heleen-herbert",
+      "position": "pos:minister-van-economische-zaken-en-klimaat",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-landbouw-visserij-voedselzekerheid-en-natuur-jaimi-van-essen",
+      "person": "person:jaimi-van-essen",
+      "position": "pos:minister-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:staatssecretaris-van-klimaat-en-groene-groei-jo-annes-de-bat",
+      "person": "person:jo-annes-de-bat",
+      "position": "pos:staatssecretaris-van-klimaat-en-groene-groei",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8192",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:staatssecretaris-onderwijs-en-emancipatie-judith-tielen",
+      "person": "person:judith-tielen",
+      "position": "pos:staatssecretaris-onderwijs-en-emancipatie",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8184",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-langdurige-zorg-jeugd-en-sport-mirjam-sterk",
+      "person": "person:mirjam-sterk",
+      "position": "pos:minister-van-langdurige-zorg-jeugd-en-sport",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-binnenlandse-zaken-en-koninkrijksrelaties-pieter-heerma",
+      "person": "person:pieter-heerma",
+      "position": "pos:minister-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-onderwijs-cultuur-en-wetenschap-rianne-letschert",
+      "person": "person:rianne-letschert",
+      "position": "pos:minister-van-onderwijs-cultuur-en-wetenschap",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-president-rob-jetten",
+      "person": "person:rob-jetten",
+      "position": "pos:minister-president",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8174",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:staatssecretaris-herstel-toeslagen-sandra-palmen-schlangen",
+      "person": "person:sandra-palmen-schlangen",
+      "position": "pos:staatssecretaris-herstel-toeslagen",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8186",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:staatssecretaris-van-landbouw-visserij-voedselzekerheid-en-natuur-silvio-erkens",
+      "person": "person:silvio-erkens",
+      "position": "pos:staatssecretaris-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8193",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-buitenlandse-handel-en-ontwikkelingssamenwerking-sjoerd-sjoerdsma",
+      "person": "person:sjoerd-sjoerdsma",
+      "position": "pos:minister-van-buitenlandse-handel-en-ontwikkelingssamenwerking",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-volksgezondheid-welzijn-en-sport-sophie-hermans",
+      "person": "person:sophie-hermans",
+      "position": "pos:minister-van-volksgezondheid-welzijn-en-sport",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-klimaat-en-groene-groei-stientje-van-veldhoven-van-der-meer",
+      "person": "person:stientje-van-veldhoven-van-der-meer",
+      "position": "pos:minister-van-klimaat-en-groene-groei",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-werk-en-participatie-thierry-aartsen",
+      "person": "person:thierry-aartsen",
+      "position": "pos:minister-van-werk-en-participatie",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-buitenlandse-zaken-tom-berendsen",
+      "person": "person:tom-berendsen",
+      "position": "pos:minister-van-buitenlandse-zaken",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-van-infrastructuur-en-waterstaat-vincent-karremans",
+      "person": "person:vincent-karremans",
+      "position": "pos:minister-van-infrastructuur-en-waterstaat",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:staatssecretaris-digitale-economie-en-soevereiniteit-willemijn-aerdts",
+      "person": "person:willemijn-aerdts",
+      "position": "pos:staatssecretaris-digitale-economie-en-soevereiniteit",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8191",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:vice-minister-president-dilan-yesilgoz-zegerius",
+      "person": "person:dilan-yesilgoz-zegerius",
+      "position": "pos:vice-minister-president",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:vice-minister-president-bart-van-den-brink",
+      "person": "person:bart-van-den-brink",
+      "position": "pos:vice-minister-president",
+      "seat": null,
+      "start": "2026-02-23",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:koning-willem-alexander",
+      "person": "person:willem-alexander",
+      "position": "pos:koning",
+      "seat": null,
+      "start": "2013-04-30",
+      "end": null,
+      "acting": false,
+      "entryMode": "van-rechtswege",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:koninklijkhuis-koning",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:directeur-kabinet-van-de-koning-f-j-j-princen",
+      "person": "person:f-j-j-princen",
+      "position": "pos:directeur-kabinet-van-de-koning",
+      "seat": null,
+      "start": "2026-02-24",
+      "end": null,
+      "acting": true,
+      "entryMode": "waarnemend",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:stcrt-2026-8740",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:secretaris-generaal-buitenlandse-zaken-christiaan-rebergen",
+      "person": "person:christiaan-rebergen",
+      "position": "pos:secretaris-generaal-buitenlandse-zaken",
+      "seat": null,
+      "start": "2024-08-12",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rijksoverheid-bz-secretaris-generaal",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:secretaris-generaal-defensie-maarten-schurink",
+      "person": "person:maarten-schurink",
+      "position": "pos:secretaris-generaal-defensie",
+      "seat": null,
+      "start": "2023-08-21",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": "org:regering",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rijksoverheid-def-ambtelijke-leiding",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    }
+  ],
+  "memberships": [],
+  "relations": [
+    {
+      "id": "rel:office-staatssecretaris-van-infrastructuur-en-waterstaat",
+      "from": "pos:staatssecretaris-van-infrastructuur-en-waterstaat",
+      "to": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-annet-bertram",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-asiel-en-migratie",
+      "from": "pos:minister-van-asiel-en-migratie",
+      "to": "org:ministerie-van-justitie-en-veiligheid",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-bart-van-den-brink",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-staatssecretaris-van-justitie-en-veiligheid",
+      "from": "pos:staatssecretaris-van-justitie-en-veiligheid",
+      "to": "org:ministerie-van-justitie-en-veiligheid",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-claudia-van-bruggen",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-justitie-en-veiligheid",
+      "from": "pos:minister-van-justitie-en-veiligheid",
+      "to": "org:ministerie-van-justitie-en-veiligheid",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-david-van-weel",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-staatssecretaris-van-defensie",
+      "from": "pos:staatssecretaris-van-defensie",
+      "to": "org:ministerie-van-defensie",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-derk-boswijk",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-defensie",
+      "from": "pos:minister-van-defensie",
+      "to": "org:ministerie-van-defensie",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-dilan-yesilgoz-zegerius",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-staatssecretaris-van-financien",
+      "from": "pos:staatssecretaris-van-financien",
+      "to": "org:ministerie-van-financien",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-eelco-eerenberg",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-financien",
+      "from": "pos:minister-van-financien",
+      "to": "org:ministerie-van-financien",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-eelco-heinen",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-volkshuisvesting-en-ruimtelijke-ordening",
+      "from": "pos:minister-van-volkshuisvesting-en-ruimtelijke-ordening",
+      "to": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-elanor-boekholt-osullivan",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-staatssecretaris-koninkrijksrelaties-en-slagvaardige-overheid",
+      "from": "pos:staatssecretaris-koninkrijksrelaties-en-slagvaardige-overheid",
+      "to": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-eric-van-der-burg",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-sociale-zaken-en-werkgelegenheid",
+      "from": "pos:minister-van-sociale-zaken-en-werkgelegenheid",
+      "to": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-hans-vijlbrief",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-economische-zaken-en-klimaat",
+      "from": "pos:minister-van-economische-zaken-en-klimaat",
+      "to": "org:ministerie-van-economische-zaken-en-klimaat",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-heleen-herbert",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "from": "pos:minister-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-jaimi-van-essen",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-staatssecretaris-van-klimaat-en-groene-groei",
+      "from": "pos:staatssecretaris-van-klimaat-en-groene-groei",
+      "to": "org:ministerie-van-economische-zaken-en-klimaat",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-jo-annes-de-bat",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-staatssecretaris-onderwijs-en-emancipatie",
+      "from": "pos:staatssecretaris-onderwijs-en-emancipatie",
+      "to": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-judith-tielen",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-langdurige-zorg-jeugd-en-sport",
+      "from": "pos:minister-van-langdurige-zorg-jeugd-en-sport",
+      "to": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-mirjam-sterk",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "from": "pos:minister-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "to": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-pieter-heerma",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-onderwijs-cultuur-en-wetenschap",
+      "from": "pos:minister-van-onderwijs-cultuur-en-wetenschap",
+      "to": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-rianne-letschert",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-president",
+      "from": "pos:minister-president",
+      "to": "org:ministerie-van-algemene-zaken",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-rob-jetten",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-staatssecretaris-herstel-toeslagen",
+      "from": "pos:staatssecretaris-herstel-toeslagen",
+      "to": "org:ministerie-van-financien",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-sandra-palmen-schlangen",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-staatssecretaris-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "from": "pos:staatssecretaris-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-silvio-erkens",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-buitenlandse-handel-en-ontwikkelingssamenwerking",
+      "from": "pos:minister-van-buitenlandse-handel-en-ontwikkelingssamenwerking",
+      "to": "org:ministerie-van-buitenlandse-zaken",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-sjoerd-sjoerdsma",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-volksgezondheid-welzijn-en-sport",
+      "from": "pos:minister-van-volksgezondheid-welzijn-en-sport",
+      "to": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-sophie-hermans",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-klimaat-en-groene-groei",
+      "from": "pos:minister-van-klimaat-en-groene-groei",
+      "to": "org:ministerie-van-economische-zaken-en-klimaat",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-stientje-van-veldhoven",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-werk-en-participatie",
+      "from": "pos:minister-van-werk-en-participatie",
+      "to": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-thierry-aartsen",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-buitenlandse-zaken",
+      "from": "pos:minister-van-buitenlandse-zaken",
+      "to": "org:ministerie-van-buitenlandse-zaken",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-tom-berendsen",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-minister-van-infrastructuur-en-waterstaat",
+      "from": "pos:minister-van-infrastructuur-en-waterstaat",
+      "to": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-vincent-karremans",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-staatssecretaris-digitale-economie-en-soevereiniteit",
+      "from": "pos:staatssecretaris-digitale-economie-en-soevereiniteit",
+      "to": "org:ministerie-van-economische-zaken-en-klimaat",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-willemijn-aerdts",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-vice-minister-president",
+      "from": "pos:vice-minister-president",
+      "to": "org:regering",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2026-8178",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-koning",
+      "from": "pos:koning",
+      "to": "org:regering",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:koninklijkhuis-koning",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-directeur-kabinet-van-de-koning",
+      "from": "pos:directeur-kabinet-van-de-koning",
+      "to": "org:kabinet-van-de-koning",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2026-8740",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-secretaris-generaal-algemene-zaken",
+      "from": "pos:secretaris-generaal-algemene-zaken",
+      "to": "org:ministerie-van-algemene-zaken",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-az-secretaris-generaal",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-secretaris-generaal-binnenlandse-zaken-en-koninkrijksrelaties",
+      "from": "pos:secretaris-generaal-binnenlandse-zaken-en-koninkrijksrelaties",
+      "to": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-bzk-ambtelijke-leiding",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-secretaris-generaal-buitenlandse-zaken",
+      "from": "pos:secretaris-generaal-buitenlandse-zaken",
+      "to": "org:ministerie-van-buitenlandse-zaken",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-bz-secretaris-generaal",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-secretaris-generaal-defensie",
+      "from": "pos:secretaris-generaal-defensie",
+      "to": "org:ministerie-van-defensie",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-def-ambtelijke-leiding",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-secretaris-generaal-economische-zaken-en-klimaat",
+      "from": "pos:secretaris-generaal-economische-zaken-en-klimaat",
+      "to": "org:ministerie-van-economische-zaken-en-klimaat",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-ezk-secretaris-generaal",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-secretaris-generaal-financien",
+      "from": "pos:secretaris-generaal-financien",
+      "to": "org:ministerie-van-financien",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-secretaris-generaal-landbouw-visserij-voedselzekerheid-en-natuur",
+      "from": "pos:secretaris-generaal-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-lvvn-ambtelijke-leiding",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-secretaris-generaal-onderwijs-cultuur-en-wetenschap",
+      "from": "pos:secretaris-generaal-onderwijs-cultuur-en-wetenschap",
+      "to": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-ocw-ambtelijke-leiding",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-secretaris-generaal-sociale-zaken-en-werkgelegenheid",
+      "from": "pos:secretaris-generaal-sociale-zaken-en-werkgelegenheid",
+      "to": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-szw-secretaris-generaal",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-secretaris-generaal-volksgezondheid-welzijn-en-sport",
+      "from": "pos:secretaris-generaal-volksgezondheid-welzijn-en-sport",
+      "to": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-vws-secretaris-generaal",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-directeur-generaal-rijksvoorlichtingsdienst",
+      "from": "pos:directeur-generaal-rijksvoorlichtingsdienst",
+      "to": "org:ministerie-van-algemene-zaken",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-az-secretaris-generaal",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-directeur-generaal-toeslagen",
+      "from": "pos:directeur-generaal-toeslagen",
+      "to": "org:ministerie-van-financien",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-directeur-generaal-belastingdienst",
+      "from": "pos:directeur-generaal-belastingdienst",
+      "to": "org:ministerie-van-financien",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-directeur-generaal-douane",
+      "from": "pos:directeur-generaal-douane",
+      "to": "org:ministerie-van-financien",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-directeur-generaal-voor-fiscale-zaken",
+      "from": "pos:directeur-generaal-voor-fiscale-zaken",
+      "to": "org:ministerie-van-financien",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-directeur-generaal-rijksbegroting",
+      "from": "pos:directeur-generaal-rijksbegroting",
+      "to": "org:ministerie-van-financien",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-thesaurier-generaal",
+      "from": "pos:thesaurier-generaal",
+      "to": "org:ministerie-van-financien",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-programmadirecteur-generaal-herstel-toeslagen",
+      "from": "pos:programmadirecteur-generaal-herstel-toeslagen",
+      "to": "org:ministerie-van-financien",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rijksoverheid-fin-ambtelijke-leiding",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    }
+  ],
+  "topics": [],
+  "budgets": [],
+  "sources": [
+    {
+      "id": "src:grondwet",
+      "url": "https://wetten.overheid.nl/BWBR0001840",
+      "title": "Grondwet (BWBR0001840), in het bijzonder de artikelen 42 tot en met 47",
+      "publisher": "Overheid.nl",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministeries",
+      "url": "https://www.rijksoverheid.nl/ministeries",
+      "title": "Ministeries",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-bewindspersonen",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen",
+      "title": "Bewindspersonen",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-regering",
+      "url": "https://www.rijksoverheid.nl/regering",
+      "title": "Regering",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerraad",
+      "url": "https://www.rijksoverheid.nl/regering/ministerraad",
+      "title": "Ministerraad",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8174",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8174",
+      "title": "Staatscourant 2026, 8174: Besluit van 23 februari 2026, nr. 2026000401, houdende ontslag van drs. H.W.M. Schoof als Minister-President en als Minister van Algemene Zaken en benoeming van R.A.A. Jetten tot Minister-President en Minister van Algemene Zaken",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8175",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8175",
+      "title": "Staatscourant 2026, 8175: Besluit van 23 februari 2026, nr. 2026000402, houdende ontslag van negen ministers en van alle staatssecretarissen",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8176",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8176",
+      "title": "Staatscourant 2026, 8176: Besluit van 23 februari 2026, nr. 2026000403, houdende naamswijziging van het Ministerie van Economische Zaken",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8177",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8177",
+      "title": "Staatscourant 2026, 8177: Besluit van 23 februari 2026, nr. 2026000404, houdende herindeling aangelegenheden betreffende de Ministeries van Asiel en Migratie, van Volkshuisvesting en Ruimtelijke Ordening en van Klimaat en Groene Groei en opheffing van deze ministeries",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8178",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8178",
+      "title": "Staatscourant 2026, 8178: Besluit van 23 februari 2026, nr. 2026000405, houdende niet verlening van ontslag aan vier ministers alsmede benoeming van dertien nieuwe ministers en twee Vice-Minister-Presidenten",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8180",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8180",
+      "title": "Staatscourant 2026, 8180: Besluit van 23 februari 2026, nr. 2026000406, houdende departementale herindelingen met betrekking tot digitale zaken en circulaire economie",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8181",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8181",
+      "title": "Staatscourant 2026, 8181: Besluit van 23 februari 2026, nr. 2026000407, houdende benoeming van K.T. van Bruggen tot Staatssecretaris van Justitie en Veiligheid",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8182",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8182",
+      "title": "Staatscourant 2026, 8182: Besluit van 23 februari 2026, nr. 2026000408, houdende benoeming van E. van der Burg tot Staatssecretaris van Binnenlandse Zaken en Koninkrijksrelaties",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8184",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8184",
+      "title": "Staatscourant 2026, 8184: Besluit van 23 februari 2026, nr. 2026000409, houdende benoeming van J.Z.C.M. Tielen tot Staatssecretaris van Onderwijs, Cultuur en Wetenschap",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8185",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8185",
+      "title": "Staatscourant 2026, 8185: Besluit van 23 februari 2026, nr. 2026000410, houdende benoeming van E. Eerenberg tot Staatssecretaris van Financiën",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8186",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8186",
+      "title": "Staatscourant 2026, 8186: Besluit van 23 februari 2026, nr. 2026000411, houdende benoeming van S.Th.P.H. Palmen-Schlangen tot Staatssecretaris van Financiën",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8187",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8187",
+      "title": "Staatscourant 2026, 8187: Besluit van 23 februari 2026, nr. 2026000412, houdende benoeming van D.G. Boswijk tot Staatssecretaris van Defensie",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8189",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8189",
+      "title": "Staatscourant 2026, 8189: Besluit van 23 februari 2026, nr. 2026000413, houdende benoeming van A.W.H. Bertram tot Staatssecretaris van Infrastructuur en Waterstaat",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8191",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8191",
+      "title": "Staatscourant 2026, 8191: Besluit van 23 februari 2026, nr. 2026000414, houdende benoeming van W.J.M. Aerdts tot Staatssecretaris van Economische Zaken en Klimaat",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8192",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8192",
+      "title": "Staatscourant 2026, 8192: Besluit van 23 februari 2026, nr. 2026000415, houdende benoeming van J. de Bat tot Staatssecretaris van Economische Zaken en Klimaat",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8193",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8193",
+      "title": "Staatscourant 2026, 8193: Besluit van 23 februari 2026, nr. 2026000416, houdende benoeming van S.P.A. Erkens tot Staatssecretaris van Landbouw, Visserij, Voedselzekerheid en Natuur",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8194",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8194",
+      "title": "Staatscourant 2026, 8194: Besluit van 23 februari 2026, nr. 2026000417, houdende wijziging van de vervangingsregeling in geval van tijdelijke afwezigheid van een minister",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:stcrt-2026-8740",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8740",
+      "title": "Staatscourant 2026, 8740: Besluit van 23 februari 2026, nr. 2026000481, houdende eervol ontslag van mr. C. Jonker als directeur van het Kabinet van de Koning en benoeming van drs. F.J.J. Princen tot waarnemend directeur van het Kabinet van de Koning",
+      "publisher": "Overheid.nl (officielebekendmakingen.nl)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-algemene-zaken",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken",
+      "title": "Ministerie van Algemene Zaken",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-algemene-zaken-geschiedenis",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken/organisatie/geschiedenis",
+      "title": "Geschiedenis: Ministerie van Algemene Zaken",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-algemene-zaken-organogram",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken/organisatie/organogram",
+      "title": "Organogram: Ministerie van Algemene Zaken",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "title": "Ministerie van Binnenlandse Zaken en Koninkrijksrelaties",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties-organogram",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties/organisatie/organogram",
+      "title": "Organogram: Ministerie van Binnenlandse Zaken en Koninkrijksrelaties",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-buitenlandse-zaken",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-buitenlandse-zaken",
+      "title": "Ministerie van Buitenlandse Zaken",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-buitenlandse-zaken-geschiedenis",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-buitenlandse-zaken/organisatie/geschiedenis",
+      "title": "Geschiedenis: Ministerie van Buitenlandse Zaken",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-buitenlandse-zaken-organogram",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-buitenlandse-zaken/organisatie/organogram",
+      "title": "Organogram: Ministerie van Buitenlandse Zaken",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-defensie",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-defensie",
+      "title": "Ministerie van Defensie",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-defensie-organogram",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-defensie/organisatie/organogram",
+      "title": "Organogram: Ministerie van Defensie",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-economische-zaken-en-klimaat",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-economische-zaken-en-klimaat",
+      "title": "Ministerie van Economische Zaken en Klimaat",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-economische-zaken-en-klimaat-organogram",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-economische-zaken-en-klimaat/organisatie/organogram",
+      "title": "Organogram: Ministerie van Economische Zaken en Klimaat",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-financien",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-financien",
+      "title": "Ministerie van Financiën",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-financien-geschiedenis",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-financien/organisatie/geschiedenis",
+      "title": "Geschiedenis: Ministerie van Financiën",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-financien-organogram",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-financien/organisatie/organogram",
+      "title": "Organogram: Ministerie van Financiën",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-infrastructuur-en-waterstaat",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-infrastructuur-en-waterstaat",
+      "title": "Ministerie van Infrastructuur en Waterstaat",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-justitie-en-veiligheid",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-justitie-en-veiligheid",
+      "title": "Ministerie van Justitie en Veiligheid",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-justitie-en-veiligheid-organogram",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-justitie-en-veiligheid/organisatie/organogram",
+      "title": "Organogram: Ministerie van Justitie en Veiligheid",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "title": "Ministerie van Landbouw, Visserij, Voedselzekerheid en Natuur",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur-organogram",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur/organisatie/organogram",
+      "title": "Organogram: Ministerie van Landbouw, Visserij, Voedselzekerheid en Natuur",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "title": "Ministerie van Onderwijs, Cultuur en Wetenschap",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-onderwijs-cultuur-en-wetenschap-geschiedenis",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-onderwijs-cultuur-en-wetenschap/organisatie/geschiedenis",
+      "title": "Geschiedenis: Ministerie van Onderwijs, Cultuur en Wetenschap",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-onderwijs-cultuur-en-wetenschap-organogram",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-onderwijs-cultuur-en-wetenschap/organisatie/organogram",
+      "title": "Organogram: Ministerie van Onderwijs, Cultuur en Wetenschap",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "title": "Ministerie van Sociale Zaken en Werkgelegenheid",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-sociale-zaken-en-werkgelegenheid-organogram",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-sociale-zaken-en-werkgelegenheid/organisatie/organogram",
+      "title": "Organogram: Ministerie van Sociale Zaken en Werkgelegenheid",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-volksgezondheid-welzijn-en-sport",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-volksgezondheid-welzijn-en-sport",
+      "title": "Ministerie van Volksgezondheid, Welzijn en Sport",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-volksgezondheid-welzijn-en-sport-geschiedenis",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-volksgezondheid-welzijn-en-sport/organisatie/geschiedenis",
+      "title": "Geschiedenis: Ministerie van Volksgezondheid, Welzijn en Sport",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-volksgezondheid-welzijn-en-sport-organogram",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-volksgezondheid-welzijn-en-sport/organisatie/organogram",
+      "title": "Organogram: Ministerie van Volksgezondheid, Welzijn en Sport",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-infrastructuur-en-waterstaat-organogram",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-infrastructuur-en-waterstaat/organisatie-ienw/organogram",
+      "title": "Organogram ministerie van IenW",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ministerie-van-defensie-organisatie",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-defensie/organisatie",
+      "title": "Organisatie ministerie van Defensie",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-annet-bertram",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/annet-bertram",
+      "title": "Annet Bertram",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-bart-van-den-brink",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/bart-van-den-brink",
+      "title": "Bart van den Brink",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-claudia-van-bruggen",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/claudia-van-bruggen",
+      "title": "Claudia van Bruggen",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-david-van-weel",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/david-van-weel",
+      "title": "David van Weel",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-derk-boswijk",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/derk-boswijk",
+      "title": "Derk Boswijk",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-dilan-yesilgoz-zegerius",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/dilan-yesilgoz-zegerius",
+      "title": "Dilan Yeşilgöz-Zegerius",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-eelco-eerenberg",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/eelco-eerenberg",
+      "title": "Eelco Eerenberg",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-eelco-heinen",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/eelco-heinen",
+      "title": "Eelco Heinen",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-elanor-boekholt-osullivan",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/elanor-boekholt-osullivan",
+      "title": "Elanor Boekholt-O’Sullivan",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-eric-van-der-burg",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/eric-van-der-burg",
+      "title": "Eric van der Burg",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-hans-vijlbrief",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/hans-vijlbrief",
+      "title": "Hans Vijlbrief",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-heleen-herbert",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/heleen-herbert",
+      "title": "Heleen Herbert",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-jaimi-van-essen",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/jaimi-van-essen",
+      "title": "Jaimi van Essen",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-jo-annes-de-bat",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/jo-annes-de-bat",
+      "title": "Jo-Annes de Bat",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-judith-tielen",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/judith-tielen",
+      "title": "Judith Tielen",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-mirjam-sterk",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/mirjam-sterk",
+      "title": "Mirjam Sterk",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-pieter-heerma",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/pieter-heerma",
+      "title": "Pieter Heerma",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-rianne-letschert",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/rianne-letschert",
+      "title": "Rianne Letschert",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-rob-jetten",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/rob-jetten",
+      "title": "Rob Jetten",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-sandra-palmen-schlangen",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/sandra-palmen-schlangen",
+      "title": "Sandra Palmen-Schlangen",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-silvio-erkens",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/silvio-erkens",
+      "title": "Silvio Erkens",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-sjoerd-sjoerdsma",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/sjoerd-sjoerdsma",
+      "title": "Sjoerd Sjoerdsma",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-sophie-hermans",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/sophie-hermans",
+      "title": "Sophie Hermans",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-stientje-van-veldhoven",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/stientje-van-veldhoven",
+      "title": "stientje-van-veldhoven",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-thierry-aartsen",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/thierry-aartsen",
+      "title": "Thierry Aartsen",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-tom-berendsen",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/tom-berendsen",
+      "title": "Tom Berendsen",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-vincent-karremans",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/vincent-karremans",
+      "title": "Vincent Karremans",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-willemijn-aerdts",
+      "url": "https://www.rijksoverheid.nl/regering/bewindspersonen/willemijn-aerdts",
+      "title": "Willemijn Aerdts",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:koninklijkhuis-koning",
+      "url": "https://www.koninklijkhuis.nl/leden-koninklijk-huis/koning-willem-alexander",
+      "title": "Koning Willem-Alexander",
+      "publisher": "Het Koninklijk Huis",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:koninklijkhuis-leden",
+      "url": "https://www.koninklijkhuis.nl/leden-koninklijk-huis",
+      "title": "Leden Koninklijk Huis",
+      "publisher": "Het Koninklijk Huis",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:koninklijkhuis-staatshoofd",
+      "url": "https://www.koninklijkhuis.nl/onderwerpen/koninklijk-huis/rol-van-het-staatshoofd",
+      "title": "Rol van het staatshoofd",
+      "publisher": "Het Koninklijk Huis",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:koninklijkhuis-dienst",
+      "url": "https://www.koninklijkhuis.nl/onderwerpen/organisatie/dienst-koninklijk-huis",
+      "title": "Dienst van het Koninklijk Huis",
+      "publisher": "Het Koninklijk Huis",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:koninklijkhuis-kabinet",
+      "url": "https://www.koninklijkhuis.nl/onderwerpen/organisatie/kabinet-van-de-koning",
+      "title": "Kabinet van de Koning",
+      "publisher": "Het Koninklijk Huis",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:koninklijkhuis-onderscheidingen",
+      "url": "https://www.koninklijkhuis.nl/onderwerpen/koninklijk-huis/onderscheidingen",
+      "title": "Onderscheidingen",
+      "publisher": "Het Koninklijk Huis",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:koninklijkhuis-kanselarij",
+      "url": "https://www.koninklijkhuis.nl/onderwerpen/koninklijk-huis/onderscheidingen/kanselarij-der-nederlandse-orden",
+      "title": "Kanselarij der Nederlandse Orden",
+      "publisher": "Het Koninklijk Huis",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-az-secretaris-generaal",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken/organisatie/organogram/secretaris-generaal",
+      "title": "Secretaris-generaal: ministerie van Algemene Zaken",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-bzk-ambtelijke-leiding",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties/organisatie/organogram/ambtelijke-leiding",
+      "title": "Ambtelijke leiding: ministerie van Binnenlandse Zaken en Koninkrijksrelaties",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-bz-secretaris-generaal",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-buitenlandse-zaken/organisatie/organogram/secretaris-generaal-en-plaatsvervangend-sg",
+      "title": "Secretaris-generaal (SG) en plaatsvervangend SG (PSG): ministerie van Buitenlandse Zaken",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-def-ambtelijke-leiding",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-defensie/organisatie/organogram/ambtelijke-leiding",
+      "title": "Ambtelijke leiding: ministerie van Defensie",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ezk-secretaris-generaal",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-economische-zaken-en-klimaat/organisatie/organogram/secretaris-generaal",
+      "title": "Secretaris-generaal ministerie EZK",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-fin-ambtelijke-leiding",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-financien/organisatie/organogram/ambtelijke-leiding",
+      "title": "Ambtelijke leiding: ministerie van Financiën",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-lvvn-ambtelijke-leiding",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur/organisatie/organogram/ambtelijke-leiding",
+      "title": "Ambtelijke leiding ministerie LVVN",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-ocw-ambtelijke-leiding",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-onderwijs-cultuur-en-wetenschap/organisatie/organogram/ambtelijke-leiding-en-secretaris-generaal",
+      "title": "Ambtelijke leiding en secretaris-generaal: ministerie van Onderwijs, Cultuur en Wetenschap",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-szw-secretaris-generaal",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-sociale-zaken-en-werkgelegenheid/organisatie/organogram/secretaris-generaal",
+      "title": "Secretaris-generaal: ministerie van Sociale Zaken en Werkgelegenheid",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rijksoverheid-vws-secretaris-generaal",
+      "url": "https://www.rijksoverheid.nl/ministeries/ministerie-van-volksgezondheid-welzijn-en-sport/organisatie/organogram/sg",
+      "title": "Secretaris-generaal (SG) van het ministerie van VWS",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    }
+  ],
+  "media": [],
+  "gaps": [
+    {
+      "what": "Secretaris-generaal van het ministerie van Infrastructuur en Waterstaat",
+      "why": "De pagina op het verwachte pad gaf HTTP 404; het organogram noemt de functie maar niet de naam van de huidige houder.",
+      "endpoint": "https://www.rijksoverheid.nl/ministeries/ministerie-van-infrastructuur-en-waterstaat/organisatie-ienw/organogram",
+      "resume": "Zoek de pagina ambtelijke leiding of secretaris-generaal onder /organisatie-ienw, of de benoeming in de Staatscourant."
+    },
+    {
+      "what": "Secretaris-generaal van het ministerie van Justitie en Veiligheid",
+      "why": "De pagina sg-cluster beschrijft het cluster maar noemt de naam van de huidige SG niet.",
+      "endpoint": "https://www.rijksoverheid.nl/ministeries/ministerie-van-justitie-en-veiligheid/organisatie/organogram/sg-cluster",
+      "resume": "Zoek een aparte pagina secretaris-generaal of de benoeming in de Staatscourant."
+    },
+    {
+      "what": "Oprichtingsdata van zeven ministeries",
+      "why": "De geschiedenispagina's van BZK, Defensie, EZK, IenW, JenV, LVVN en SZW gaven HTTP 404; alleen AZ (3 juli 1937), BZ (1798), Financien (1798), OCW (naam sinds 2003) en VWS (geschiedenis vanaf 1800) zijn gedocumenteerd.",
+      "endpoint": "https://www.rijksoverheid.nl/ministeries/<slug>/organisatie/geschiedenis",
+      "resume": "Zoek de geschiedenispagina's op de huidige site of in de Staatsalmanak en noteer alleen een volledige ISO-datum."
+    },
+    {
+      "what": "Aanvangsdata van de lopende tenures van de meeste SG's en DG's",
+      "why": "De ambtelijke-leidingpagina's noemen de naam maar geen benoemingsdatum. Alleen BZ (12 augustus 2024) en Defensie (21 augustus 2023) vermelden een datum.",
+      "endpoint": "https://www.officielebekendmakingen.nl/",
+      "resume": "Zoek het benoemings-KB per functionaris in de Staatscourant."
+    },
+    {
+      "what": "Gestructureerde Staatsalmanak",
+      "why": "De huidige Staatsalmanak is niet als machineleesbare publicatie gevonden; de organogrammen op rijksoverheid.nl zijn per ministerie gefetcht.",
+      "endpoint": "https://www.officielebekendmakingen.nl/",
+      "resume": "Lokaliseer de jaarlijkse Staatsalmanak en noteer het formaat en de dekkingsgraad."
+    },
+    {
+      "what": "Huidige Kanselier der Nederlandse Orden",
+      "why": "De pagina noemt de functie maar niet de naam van de huidige houder.",
+      "endpoint": "https://www.koninklijkhuis.nl/onderwerpen/koninklijk-huis/onderscheidingen/kanselarij-der-nederlandse-orden",
+      "resume": "Zoek de benoeming van de Kanselier in de Staatscourant of op de site van de Kanselarij."
+    },
+    {
+      "what": "Wettelijke grondslag van het Kabinet van de Koning",
+      "why": "Het benoemings-KB verwijst naar artikel 2 van het Besluit van 18 december 2003, houdende bepalingen over het Kabinet van de Koning, maar het BWB-nummer en de geconsolideerde tekst zijn niet gefetcht.",
+      "endpoint": "https://wetten.overheid.nl/",
+      "resume": "Zoek het Besluit van 18 december 2003 op wetten.overheid.nl en noteer het BWB-nummer."
+    }
+  ]
+}

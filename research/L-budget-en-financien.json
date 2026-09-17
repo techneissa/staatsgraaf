@@ -1,0 +1,1942 @@
+{
+  "workstream": "L",
+  "generatedAt": "2026-09-18T00:00:00Z",
+  "endpointsUsed": [
+    {
+      "url": "https://www.rijksfinancien.nl/",
+      "retrieved": "2026-09-18",
+      "notes": "Landing page; links to open data, begroting pages and the current Miljoenennota 2027."
+    },
+    {
+      "url": "https://www.rijksfinancien.nl/open-data/overzicht-datasets",
+      "retrieved": "2026-09-18",
+      "notes": "Open data index; Begrotingsstaten 2013-2027 and Miljoenennota bijlagen."
+    },
+    {
+      "url": "https://www.rijksfinancien.nl/sites/default/files/bestanden/open_data/Begrotingsstaten_2013-2027.json",
+      "retrieved": "2026-09-18",
+      "notes": "Primary machine-readable per-chapter, per-article budget and realisation dataset (7.947 rows, 2013-2027)."
+    },
+    {
+      "url": "https://www.rijksfinancien.nl/sites/default/files/bestanden/open_data/Begrotingsstaten_2013-2027.csv",
+      "retrieved": "2026-09-18",
+      "notes": "CSV of the same dataset; header confirms the columns."
+    },
+    {
+      "url": "https://www.rijksfinancien.nl/sites/default/files/bestanden/open_data/MJN-2027_Bijlagen_2_Uitgaven_en_Niet_Belastingontvangsten.xlsx",
+      "retrieved": "2026-09-18",
+      "notes": "Miljoenennota 2027 bijlage 2, tabellen 2.2 and 2.3, used to cross-check 2026 and 2027 budget totals."
+    },
+    {
+      "url": "https://www.rijksfinancien.nl/open-data/api-documentatie",
+      "retrieved": "2026-09-18",
+      "notes": "API documentation; points to /swagger.json. API returns budgettaire_tabellen and financiele_instrumenten."
+    },
+    {
+      "url": "https://www.rijksfinancien.nl/swagger.json",
+      "retrieved": "2026-09-18",
+      "notes": "OpenAPI 3.1 spec for the open-data API."
+    },
+    {
+      "url": "https://www.rijksfinancien.nl/open-data/api/json/v2/financiele_instrumenten/hoofdstukken",
+      "retrieved": "2026-09-18",
+      "notes": "Per-chapter instrument totals in EUR for 2016-2025; covers only four chapters, used only as a unit cross-check (OCW 2025 = 54.986.484.000 EUR matches 54.986.484 x 1.000)."
+    },
+    {
+      "url": "https://www.rijksfinancien.nl/open-data/api/json/budgettaire_tabellen?year=2025",
+      "retrieved": "2026-09-18",
+      "notes": "Article-level budget table for 2025 (phases OWB/JV, 6.374 rows); verantwoordelijk_minister is null throughout, so not used for the mapping."
+    },
+    {
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8177",
+      "retrieved": "2026-09-18",
+      "notes": "KB of 23 February 2026 on the herindeling of Asiel en Migratie, VRO and Klimaat en Groene Groei."
+    }
+  ],
+  "organizations": [],
+  "positions": [],
+  "people": [],
+  "tenures": [],
+  "memberships": [],
+  "relations": [],
+  "topics": [],
+  "budgets": [
+    {
+      "organization": "org:ministerie-van-algemene-zaken",
+      "fiscalYear": 2025,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 117978,
+        "spendingActual": 118473,
+        "revenue": 13827,
+        "net": 104646,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 115134,
+        "spendingActual": 118111,
+        "revenue": 9083,
+        "net": 109028,
+        "nonprofit": null
+      },
+      "history": [
+        {
+          "fiscalYear": 2013,
+          "spendingActual": 59280,
+          "revenue": 9216
+        },
+        {
+          "fiscalYear": 2014,
+          "spendingActual": 59520,
+          "revenue": 6390
+        },
+        {
+          "fiscalYear": 2015,
+          "spendingActual": 60588,
+          "revenue": 6732
+        },
+        {
+          "fiscalYear": 2016,
+          "spendingActual": 59327,
+          "revenue": 6558
+        },
+        {
+          "fiscalYear": 2017,
+          "spendingActual": 61570,
+          "revenue": 6200
+        },
+        {
+          "fiscalYear": 2018,
+          "spendingActual": 64473,
+          "revenue": 6150
+        },
+        {
+          "fiscalYear": 2019,
+          "spendingActual": 66433,
+          "revenue": 6340
+        },
+        {
+          "fiscalYear": 2020,
+          "spendingActual": 75196,
+          "revenue": 6680
+        },
+        {
+          "fiscalYear": 2021,
+          "spendingActual": 82341,
+          "revenue": 7085
+        },
+        {
+          "fiscalYear": 2022,
+          "spendingActual": 83622,
+          "revenue": 9400
+        },
+        {
+          "fiscalYear": 2023,
+          "spendingActual": 92522,
+          "revenue": 8955
+        },
+        {
+          "fiscalYear": 2024,
+          "spendingActual": 118111,
+          "revenue": 9083
+        }
+      ],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-algemene-zaken",
+      "fiscalYear": 2026,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 117087,
+        "spendingActual": null,
+        "revenue": 10084,
+        "net": 107003,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 117978,
+        "spendingActual": 118473,
+        "revenue": 13827,
+        "net": 104646,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-algemene-zaken",
+      "fiscalYear": 2027,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 112663,
+        "spendingActual": null,
+        "revenue": 9511,
+        "net": 103152,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 117087,
+        "spendingActual": null,
+        "revenue": 10084,
+        "net": 107003,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "fiscalYear": 2025,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 14450301,
+        "spendingActual": 13449283,
+        "revenue": 2709250,
+        "net": 10740033,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 11770724,
+        "spendingActual": 11137469,
+        "revenue": 1320658,
+        "net": 9816811,
+        "nonprofit": null
+      },
+      "history": [
+        {
+          "fiscalYear": 2013,
+          "spendingActual": 1117216,
+          "revenue": 201725
+        },
+        {
+          "fiscalYear": 2014,
+          "spendingActual": 1415567,
+          "revenue": 594967
+        },
+        {
+          "fiscalYear": 2015,
+          "spendingActual": 1208268,
+          "revenue": 939931
+        },
+        {
+          "fiscalYear": 2016,
+          "spendingActual": 1199950,
+          "revenue": 263558
+        },
+        {
+          "fiscalYear": 2017,
+          "spendingActual": 1233661,
+          "revenue": 209145
+        },
+        {
+          "fiscalYear": 2018,
+          "spendingActual": 6576480,
+          "revenue": 1397284
+        },
+        {
+          "fiscalYear": 2019,
+          "spendingActual": 5813234,
+          "revenue": 808864
+        },
+        {
+          "fiscalYear": 2020,
+          "spendingActual": 7813270,
+          "revenue": 985719
+        },
+        {
+          "fiscalYear": 2021,
+          "spendingActual": 9460816,
+          "revenue": 1091484
+        },
+        {
+          "fiscalYear": 2022,
+          "spendingActual": 7650004,
+          "revenue": 875689
+        },
+        {
+          "fiscalYear": 2023,
+          "spendingActual": 9759944,
+          "revenue": 1148573
+        },
+        {
+          "fiscalYear": 2024,
+          "spendingActual": 11137469,
+          "revenue": 1320658
+        }
+      ],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "fiscalYear": 2026,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 14567828,
+        "spendingActual": null,
+        "revenue": 2903308,
+        "net": 11664520,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 14450301,
+        "spendingActual": 13449283,
+        "revenue": 2709250,
+        "net": 10740033,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "fiscalYear": 2027,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 15163420,
+        "spendingActual": null,
+        "revenue": 2333107,
+        "net": 12830313,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 14567828,
+        "spendingActual": null,
+        "revenue": 2903308,
+        "net": 11664520,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-buitenlandse-zaken",
+      "fiscalYear": 2025,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 16948865,
+        "spendingActual": 17005709,
+        "revenue": 2635699,
+        "net": 14370010,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 15411546,
+        "spendingActual": 15281254,
+        "revenue": 3785675,
+        "net": 11495579,
+        "nonprofit": null
+      },
+      "history": [
+        {
+          "fiscalYear": 2013,
+          "spendingActual": 11615400,
+          "revenue": 839053
+        },
+        {
+          "fiscalYear": 2014,
+          "spendingActual": 13326376,
+          "revenue": 876000
+        },
+        {
+          "fiscalYear": 2015,
+          "spendingActual": 13134196,
+          "revenue": 916071
+        },
+        {
+          "fiscalYear": 2016,
+          "spendingActual": 12991738,
+          "revenue": 1491953
+        },
+        {
+          "fiscalYear": 2017,
+          "spendingActual": 11185549,
+          "revenue": 3972313
+        },
+        {
+          "fiscalYear": 2018,
+          "spendingActual": 12245171,
+          "revenue": 1285313
+        },
+        {
+          "fiscalYear": 2019,
+          "spendingActual": 13599232,
+          "revenue": 864280
+        },
+        {
+          "fiscalYear": 2020,
+          "spendingActual": 14337057,
+          "revenue": 971570
+        },
+        {
+          "fiscalYear": 2021,
+          "spendingActual": 15314969,
+          "revenue": 1055653
+        },
+        {
+          "fiscalYear": 2022,
+          "spendingActual": 16558347,
+          "revenue": 1439490
+        },
+        {
+          "fiscalYear": 2023,
+          "spendingActual": 16049278,
+          "revenue": 1475364
+        },
+        {
+          "fiscalYear": 2024,
+          "spendingActual": 15281254,
+          "revenue": 3785675
+        }
+      ],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-buitenlandse-zaken",
+      "fiscalYear": 2026,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 20860245,
+        "spendingActual": null,
+        "revenue": 4727008,
+        "net": 16133237,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 16948865,
+        "spendingActual": 17005709,
+        "revenue": 2635699,
+        "net": 14370010,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-buitenlandse-zaken",
+      "fiscalYear": 2027,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 21659361,
+        "spendingActual": null,
+        "revenue": 1821283,
+        "net": 19838078,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 20860245,
+        "spendingActual": null,
+        "revenue": 4727008,
+        "net": 16133237,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-defensie",
+      "fiscalYear": 2025,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 15105978,
+        "spendingActual": 15669893,
+        "revenue": 527009,
+        "net": 15142884,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 21640246,
+        "spendingActual": 12466544,
+        "revenue": 314604,
+        "net": 12151940,
+        "nonprofit": null
+      },
+      "history": [
+        {
+          "fiscalYear": 2013,
+          "spendingActual": 7702087,
+          "revenue": 308490
+        },
+        {
+          "fiscalYear": 2014,
+          "spendingActual": 7787751,
+          "revenue": 291043
+        },
+        {
+          "fiscalYear": 2015,
+          "spendingActual": 7815843,
+          "revenue": 434967
+        },
+        {
+          "fiscalYear": 2016,
+          "spendingActual": 8242420,
+          "revenue": 372718
+        },
+        {
+          "fiscalYear": 2017,
+          "spendingActual": 8538885,
+          "revenue": 377589
+        },
+        {
+          "fiscalYear": 2018,
+          "spendingActual": 9416880,
+          "revenue": 664415
+        },
+        {
+          "fiscalYear": 2019,
+          "spendingActual": 10719463,
+          "revenue": 406409
+        },
+        {
+          "fiscalYear": 2020,
+          "spendingActual": 11190445,
+          "revenue": 308389
+        },
+        {
+          "fiscalYear": 2021,
+          "spendingActual": 12094796,
+          "revenue": 166529
+        },
+        {
+          "fiscalYear": 2022,
+          "spendingActual": 12845897,
+          "revenue": 180729
+        },
+        {
+          "fiscalYear": 2023,
+          "spendingActual": 15122235,
+          "revenue": 222910
+        },
+        {
+          "fiscalYear": 2024,
+          "spendingActual": 12466544,
+          "revenue": 314604
+        }
+      ],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-defensie",
+      "fiscalYear": 2026,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 23335562,
+        "spendingActual": null,
+        "revenue": 436549,
+        "net": 22899013,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 15105978,
+        "spendingActual": 15669893,
+        "revenue": 527009,
+        "net": 15142884,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-defensie",
+      "fiscalYear": 2027,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 14792147,
+        "spendingActual": null,
+        "revenue": 242531,
+        "net": 14549616,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 23335562,
+        "spendingActual": null,
+        "revenue": 436549,
+        "net": 22899013,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-economische-zaken-en-klimaat",
+      "fiscalYear": 2025,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 10485117,
+        "spendingActual": 9188801,
+        "revenue": 4735101,
+        "net": 4453700,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 11582294,
+        "spendingActual": 10009670,
+        "revenue": 6766483,
+        "net": 3243187,
+        "nonprofit": null
+      },
+      "history": [
+        {
+          "fiscalYear": 2013,
+          "spendingActual": 5014868,
+          "revenue": 17974573
+        },
+        {
+          "fiscalYear": 2014,
+          "spendingActual": 4935650,
+          "revenue": 11485655
+        },
+        {
+          "fiscalYear": 2015,
+          "spendingActual": 4807124,
+          "revenue": 7361085
+        },
+        {
+          "fiscalYear": 2016,
+          "spendingActual": 5055932,
+          "revenue": 3197153
+        },
+        {
+          "fiscalYear": 2017,
+          "spendingActual": 5067388,
+          "revenue": 3682386
+        },
+        {
+          "fiscalYear": 2018,
+          "spendingActual": 5355127,
+          "revenue": 3560362
+        },
+        {
+          "fiscalYear": 2019,
+          "spendingActual": 5337066,
+          "revenue": 3454550
+        },
+        {
+          "fiscalYear": 2020,
+          "spendingActual": 8937160,
+          "revenue": 5238214
+        },
+        {
+          "fiscalYear": 2021,
+          "spendingActual": 12322701,
+          "revenue": 5699567
+        },
+        {
+          "fiscalYear": 2022,
+          "spendingActual": 25908427,
+          "revenue": 11180983
+        },
+        {
+          "fiscalYear": 2023,
+          "spendingActual": 13651599,
+          "revenue": 7919806
+        },
+        {
+          "fiscalYear": 2024,
+          "spendingActual": 10009670,
+          "revenue": 6766483
+        }
+      ],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-economische-zaken-en-klimaat",
+      "fiscalYear": 2026,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 16450153,
+        "spendingActual": null,
+        "revenue": 3366677,
+        "net": 13083476,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 10485117,
+        "spendingActual": 9188801,
+        "revenue": 4735101,
+        "net": 4453700,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-economische-zaken-en-klimaat",
+      "fiscalYear": 2027,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 18367336,
+        "spendingActual": null,
+        "revenue": 9804259,
+        "net": 8563077,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 16450153,
+        "spendingActual": null,
+        "revenue": 3366677,
+        "net": 13083476,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-financien",
+      "fiscalYear": 2025,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 60772320,
+        "spendingActual": 57218643,
+        "revenue": 305077456,
+        "net": -247858813,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 76327739,
+        "spendingActual": 76758122,
+        "revenue": 312861939,
+        "net": -236103817,
+        "nonprofit": null
+      },
+      "history": [
+        {
+          "fiscalYear": 2013,
+          "spendingActual": 66503249,
+          "revenue": 65963873
+        },
+        {
+          "fiscalYear": 2014,
+          "spendingActual": 76453267,
+          "revenue": 65497204
+        },
+        {
+          "fiscalYear": 2015,
+          "spendingActual": 74916251,
+          "revenue": 73267649
+        },
+        {
+          "fiscalYear": 2016,
+          "spendingActual": 55316405,
+          "revenue": 58524978
+        },
+        {
+          "fiscalYear": 2017,
+          "spendingActual": 62551790,
+          "revenue": 50311039
+        },
+        {
+          "fiscalYear": 2018,
+          "spendingActual": 56518482,
+          "revenue": 46625214
+        },
+        {
+          "fiscalYear": 2019,
+          "spendingActual": 51456652,
+          "revenue": 37466516
+        },
+        {
+          "fiscalYear": 2020,
+          "spendingActual": 45406190,
+          "revenue": 92354201
+        },
+        {
+          "fiscalYear": 2021,
+          "spendingActual": 57529732,
+          "revenue": 81485461
+        },
+        {
+          "fiscalYear": 2022,
+          "spendingActual": 49580343,
+          "revenue": 83324660
+        },
+        {
+          "fiscalYear": 2023,
+          "spendingActual": 72324947,
+          "revenue": 293626950
+        },
+        {
+          "fiscalYear": 2024,
+          "spendingActual": 76758122,
+          "revenue": 312861939
+        }
+      ],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-financien",
+      "fiscalYear": 2026,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 57094502,
+        "spendingActual": null,
+        "revenue": 333442495,
+        "net": -276347993,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 60772320,
+        "spendingActual": 57218643,
+        "revenue": 305077456,
+        "net": -247858813,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-financien",
+      "fiscalYear": 2027,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 64823646,
+        "spendingActual": null,
+        "revenue": 354410884,
+        "net": -289587238,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 57094502,
+        "spendingActual": null,
+        "revenue": 333442495,
+        "net": -276347993,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "fiscalYear": 2025,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 14623828,
+        "spendingActual": 13905428,
+        "revenue": 117112,
+        "net": 13788316,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 14341451,
+        "spendingActual": 13918645,
+        "revenue": 66526,
+        "net": 13852119,
+        "nonprofit": null
+      },
+      "history": [
+        {
+          "fiscalYear": 2013,
+          "spendingActual": 9857324,
+          "revenue": 220579
+        },
+        {
+          "fiscalYear": 2014,
+          "spendingActual": 9899488,
+          "revenue": 214969
+        },
+        {
+          "fiscalYear": 2015,
+          "spendingActual": 8702566,
+          "revenue": 305710
+        },
+        {
+          "fiscalYear": 2016,
+          "spendingActual": 7890991,
+          "revenue": 210072
+        },
+        {
+          "fiscalYear": 2017,
+          "spendingActual": 7244986,
+          "revenue": 243161
+        },
+        {
+          "fiscalYear": 2018,
+          "spendingActual": 8198827,
+          "revenue": 29100
+        },
+        {
+          "fiscalYear": 2019,
+          "spendingActual": 8004956,
+          "revenue": 51906
+        },
+        {
+          "fiscalYear": 2020,
+          "spendingActual": 9460624,
+          "revenue": 28780
+        },
+        {
+          "fiscalYear": 2021,
+          "spendingActual": 11761312,
+          "revenue": 35449
+        },
+        {
+          "fiscalYear": 2022,
+          "spendingActual": 12078480,
+          "revenue": 64064
+        },
+        {
+          "fiscalYear": 2023,
+          "spendingActual": 12333414,
+          "revenue": 46750
+        },
+        {
+          "fiscalYear": 2024,
+          "spendingActual": 13918645,
+          "revenue": 66526
+        }
+      ],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "fiscalYear": 2026,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 4100475,
+        "spendingActual": null,
+        "revenue": 611638,
+        "net": 3488837,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 14623828,
+        "spendingActual": 13905428,
+        "revenue": 117112,
+        "net": 13788316,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "fiscalYear": 2027,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 4251379,
+        "spendingActual": null,
+        "revenue": 1155972,
+        "net": 3095407,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 4100475,
+        "spendingActual": null,
+        "revenue": 611638,
+        "net": 3488837,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-justitie-en-veiligheid",
+      "fiscalYear": 2025,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 27358183,
+        "spendingActual": 26482686,
+        "revenue": 2325516,
+        "net": 24157170,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 25864205,
+        "spendingActual": 25483438,
+        "revenue": 1853010,
+        "net": 23630428,
+        "nonprofit": null
+      },
+      "history": [
+        {
+          "fiscalYear": 2013,
+          "spendingActual": 12383259,
+          "revenue": 1465294
+        },
+        {
+          "fiscalYear": 2014,
+          "spendingActual": 12624891,
+          "revenue": 1444151
+        },
+        {
+          "fiscalYear": 2015,
+          "spendingActual": 12718106,
+          "revenue": 1377081
+        },
+        {
+          "fiscalYear": 2016,
+          "spendingActual": 13192070,
+          "revenue": 2375412
+        },
+        {
+          "fiscalYear": 2017,
+          "spendingActual": 13053113,
+          "revenue": 1953589
+        },
+        {
+          "fiscalYear": 2018,
+          "spendingActual": 12814046,
+          "revenue": 2278540
+        },
+        {
+          "fiscalYear": 2019,
+          "spendingActual": 13662272,
+          "revenue": 1645512
+        },
+        {
+          "fiscalYear": 2020,
+          "spendingActual": 14382228,
+          "revenue": 1243853
+        },
+        {
+          "fiscalYear": 2021,
+          "spendingActual": 14982700,
+          "revenue": 1992827
+        },
+        {
+          "fiscalYear": 2022,
+          "spendingActual": 18228641,
+          "revenue": 1363061
+        },
+        {
+          "fiscalYear": 2023,
+          "spendingActual": 22966529,
+          "revenue": 1614621
+        },
+        {
+          "fiscalYear": 2024,
+          "spendingActual": 25483438,
+          "revenue": 1853010
+        }
+      ],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-justitie-en-veiligheid",
+      "fiscalYear": 2026,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 27695414,
+        "spendingActual": null,
+        "revenue": 1897190,
+        "net": 25798224,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 27358183,
+        "spendingActual": 26482686,
+        "revenue": 2325516,
+        "net": 24157170,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-justitie-en-veiligheid",
+      "fiscalYear": 2027,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 28099742,
+        "spendingActual": null,
+        "revenue": 1607116,
+        "net": 26492626,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 27695414,
+        "spendingActual": null,
+        "revenue": 1897190,
+        "net": 25798224,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "fiscalYear": 2025,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 4246426,
+        "spendingActual": 3756876,
+        "revenue": 272881,
+        "net": 3483995,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 4229554,
+        "spendingActual": 4043955,
+        "revenue": 235067,
+        "net": 3808888,
+        "nonprofit": null
+      },
+      "history": [
+        {
+          "fiscalYear": 2019,
+          "spendingActual": 1534184,
+          "revenue": 124064
+        },
+        {
+          "fiscalYear": 2020,
+          "spendingActual": 1775996,
+          "revenue": 292164
+        },
+        {
+          "fiscalYear": 2021,
+          "spendingActual": 2013548,
+          "revenue": 641017
+        },
+        {
+          "fiscalYear": 2022,
+          "spendingActual": 2115458,
+          "revenue": 182406
+        },
+        {
+          "fiscalYear": 2023,
+          "spendingActual": 2277463,
+          "revenue": 170666
+        },
+        {
+          "fiscalYear": 2024,
+          "spendingActual": 4043955,
+          "revenue": 235067
+        }
+      ],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "fiscalYear": 2026,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 3351893,
+        "spendingActual": null,
+        "revenue": 230620,
+        "net": 3121273,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 4246426,
+        "spendingActual": 3756876,
+        "revenue": 272881,
+        "net": 3483995,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "fiscalYear": 2027,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 4308631,
+        "spendingActual": null,
+        "revenue": 83664,
+        "net": 4224967,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 3351893,
+        "spendingActual": null,
+        "revenue": 230620,
+        "net": 3121273,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "fiscalYear": 2025,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 59808440,
+        "spendingActual": 59531879,
+        "revenue": 3368378,
+        "net": 56163501,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 57110925,
+        "spendingActual": 56463783,
+        "revenue": 2382523,
+        "net": 54081260,
+        "nonprofit": null
+      },
+      "history": [
+        {
+          "fiscalYear": 2013,
+          "spendingActual": 35160655,
+          "revenue": 1256011
+        },
+        {
+          "fiscalYear": 2014,
+          "spendingActual": 35994893,
+          "revenue": 1254495
+        },
+        {
+          "fiscalYear": 2015,
+          "spendingActual": 36349739,
+          "revenue": 1301664
+        },
+        {
+          "fiscalYear": 2016,
+          "spendingActual": 38695779,
+          "revenue": 1318371
+        },
+        {
+          "fiscalYear": 2017,
+          "spendingActual": 38053289,
+          "revenue": 1339184
+        },
+        {
+          "fiscalYear": 2018,
+          "spendingActual": 42326880,
+          "revenue": 1368566
+        },
+        {
+          "fiscalYear": 2019,
+          "spendingActual": 43075430,
+          "revenue": 1397629
+        },
+        {
+          "fiscalYear": 2020,
+          "spendingActual": 44461515,
+          "revenue": 1519484
+        },
+        {
+          "fiscalYear": 2021,
+          "spendingActual": 49040989,
+          "revenue": 1620594
+        },
+        {
+          "fiscalYear": 2022,
+          "spendingActual": 53198561,
+          "revenue": 1790561
+        },
+        {
+          "fiscalYear": 2023,
+          "spendingActual": 55122878,
+          "revenue": 2024243
+        },
+        {
+          "fiscalYear": 2024,
+          "spendingActual": 56463783,
+          "revenue": 2382523
+        }
+      ],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "fiscalYear": 2026,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 60169270,
+        "spendingActual": null,
+        "revenue": 2515903,
+        "net": 57653367,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 59808440,
+        "spendingActual": 59531879,
+        "revenue": 3368378,
+        "net": 56163501,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "fiscalYear": 2027,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 60774324,
+        "spendingActual": null,
+        "revenue": 3344542,
+        "net": 57429782,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 60169270,
+        "spendingActual": null,
+        "revenue": 2515903,
+        "net": 57653367,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "fiscalYear": 2025,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 61094758,
+        "spendingActual": 60927099,
+        "revenue": 2589340,
+        "net": 58337759,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 63556186,
+        "spendingActual": 63328936,
+        "revenue": 2579277,
+        "net": 60749659,
+        "nonprofit": null
+      },
+      "history": [
+        {
+          "fiscalYear": 2013,
+          "spendingActual": 29290315,
+          "revenue": 2050946
+        },
+        {
+          "fiscalYear": 2014,
+          "spendingActual": 32625672,
+          "revenue": 1919500
+        },
+        {
+          "fiscalYear": 2015,
+          "spendingActual": 31329754,
+          "revenue": 1898957
+        },
+        {
+          "fiscalYear": 2016,
+          "spendingActual": 31664015,
+          "revenue": 1871965
+        },
+        {
+          "fiscalYear": 2017,
+          "spendingActual": 31816567,
+          "revenue": 1855848
+        },
+        {
+          "fiscalYear": 2018,
+          "spendingActual": 34412240,
+          "revenue": 1845340
+        },
+        {
+          "fiscalYear": 2019,
+          "spendingActual": 39075594,
+          "revenue": 1896181
+        },
+        {
+          "fiscalYear": 2020,
+          "spendingActual": 59902405,
+          "revenue": 1802827
+        },
+        {
+          "fiscalYear": 2021,
+          "spendingActual": 57702854,
+          "revenue": 3804362
+        },
+        {
+          "fiscalYear": 2022,
+          "spendingActual": 46013341,
+          "revenue": 6244477
+        },
+        {
+          "fiscalYear": 2023,
+          "spendingActual": 48323431,
+          "revenue": 3344595
+        },
+        {
+          "fiscalYear": 2024,
+          "spendingActual": 63328936,
+          "revenue": 2579277
+        }
+      ],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "fiscalYear": 2026,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 66431755,
+        "spendingActual": null,
+        "revenue": 2688680,
+        "net": 63743075,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 61094758,
+        "spendingActual": 60927099,
+        "revenue": 2589340,
+        "net": 58337759,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "fiscalYear": 2027,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 68335212,
+        "spendingActual": null,
+        "revenue": 2675555,
+        "net": 65659657,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 66431755,
+        "spendingActual": null,
+        "revenue": 2688680,
+        "net": 63743075,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+      "fiscalYear": 2025,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 35792565,
+        "spendingActual": 34830356,
+        "revenue": 1309173,
+        "net": 33521183,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 102325591,
+        "spendingActual": 38231080,
+        "revenue": 1129022,
+        "net": 37102058,
+        "nonprofit": null
+      },
+      "history": [
+        {
+          "fiscalYear": 2013,
+          "spendingActual": 16376203,
+          "revenue": 810235
+        },
+        {
+          "fiscalYear": 2014,
+          "spendingActual": 16066230,
+          "revenue": 1038083
+        },
+        {
+          "fiscalYear": 2015,
+          "spendingActual": 15328722,
+          "revenue": 1011248
+        },
+        {
+          "fiscalYear": 2016,
+          "spendingActual": 15192599,
+          "revenue": 1011279
+        },
+        {
+          "fiscalYear": 2017,
+          "spendingActual": 14992798,
+          "revenue": 867419
+        },
+        {
+          "fiscalYear": 2018,
+          "spendingActual": 15374412,
+          "revenue": 838072
+        },
+        {
+          "fiscalYear": 2019,
+          "spendingActual": 18014003,
+          "revenue": 749048
+        },
+        {
+          "fiscalYear": 2020,
+          "spendingActual": 27249823,
+          "revenue": 751308
+        },
+        {
+          "fiscalYear": 2021,
+          "spendingActual": 33112552,
+          "revenue": 784848
+        },
+        {
+          "fiscalYear": 2022,
+          "spendingActual": 31400528,
+          "revenue": 1257936
+        },
+        {
+          "fiscalYear": 2023,
+          "spendingActual": 47586476,
+          "revenue": 1349652
+        },
+        {
+          "fiscalYear": 2024,
+          "spendingActual": 38231080,
+          "revenue": 1129022
+        }
+      ],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+      "fiscalYear": 2026,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 38527780,
+        "spendingActual": null,
+        "revenue": 968501,
+        "net": 37559279,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 35792565,
+        "spendingActual": 34830356,
+        "revenue": 1309173,
+        "net": 33521183,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "organization": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+      "fiscalYear": 2027,
+      "unit": "EUR x 1,000",
+      "current": {
+        "spendingBudget": 40712140,
+        "spendingActual": null,
+        "revenue": 801428,
+        "net": 39910712,
+        "nonprofit": null
+      },
+      "previous": {
+        "spendingBudget": 38527780,
+        "spendingActual": null,
+        "revenue": 968501,
+        "net": 37559279,
+        "nonprofit": null
+      },
+      "history": [],
+      "sources": [
+        {
+          "source": "src:rijksfinancien-begrotingsstaten-2013-2027",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rijksfinancien-mjn-2027-bijlage-2",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "src:rijksfinancien-begrotingsstaten-2013-2027",
+      "url": "https://www.rijksfinancien.nl/sites/default/files/bestanden/open_data/Begrotingsstaten_2013-2027.json",
+      "title": "Begrotingsstaten 2013-2027 (uitgaven, verplichtingen en ontvangsten per artikel per begrotingsfase)",
+      "publisher": "Ministerie van Financien, rijksfinancien.nl",
+      "type": "api",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0",
+      "archiveUrl": null,
+      "notes": "Amounts in EUR x 1,000 (duizend euro). Per begrotingshoofdstuk and artikel, phases StandOWB, StandO1, StandSBS, StandO2 and Realisatie for V (verplichtingen), U (uitgaven) and O (ontvangsten)."
+    },
+    {
+      "id": "src:rijksfinancien-mjn-2027-bijlage-2",
+      "url": "https://www.rijksfinancien.nl/sites/default/files/bestanden/open_data/MJN-2027_Bijlagen_2_Uitgaven_en_Niet_Belastingontvangsten.xlsx",
+      "title": "Miljoenennota 2027, bijlage 2: Uitgaven en niet-belastingontvangsten per begrotingshoofdstuk 2026-2031",
+      "publisher": "Ministerie van Financien, rijksfinancien.nl",
+      "type": "page",
+      "published": "2026-09-14",
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0",
+      "archiveUrl": null,
+      "notes": "Tabel 2.2 uitgaven and tabel 2.3 niet-belastingontvangsten, in EUR x 1,000,000. Used to cross-check the 2026 and 2027 budget figures."
+    },
+    {
+      "id": "src:rijksfinancien-open-data-datasets",
+      "url": "https://www.rijksfinancien.nl/open-data/overzicht-datasets",
+      "title": "Open data: overzicht datasets",
+      "publisher": "Ministerie van Financien, rijksfinancien.nl",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0",
+      "archiveUrl": null,
+      "notes": "Index of the machine-readable begroting datasets; states the CC0 license."
+    },
+    {
+      "id": "src:stcrt-2026-8177",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8177",
+      "title": "Staatscourant 2026, 8177: Besluit van 23 februari 2026, nr. 2026000404, houdende herindeling aangelegenheden betreffende de Ministeries van Asiel en Migratie, van Volkshuisvesting en Ruimtelijke Ordening en van Klimaat en Groene Groei en opheffing van deze ministeries",
+      "publisher": "Ministerie van Binnenlandse Zaken en Koninkrijksrelaties",
+      "type": "wet",
+      "published": "2026-02-23",
+      "retrieved": "2026-09-18",
+      "license": "CC0 1.0",
+      "archiveUrl": null,
+      "notes": "Effective 23 February 2026: Asiel en Migratie to J&V, Volkshuisvesting en Ruimtelijke Ordening to BZK, Klimaat en Groene Groei to EZ en Klimaat. Basis for folding begrotingshoofdstukken XX, XXII and XXIII into those ministeries."
+    }
+  ],
+  "media": [],
+  "gaps": [
+    {
+      "what": "Begrotingen van de decentrale overheden (provincies, gemeenten, waterschappen) en hun verbonden partijen",
+      "why": "Buiten de scope van werkstream L; de opdracht deelt deze expliciet uit naar een latere fase.",
+      "endpoint": "https://opendata.cbs.nl/ODataApi/OData/86247NED",
+      "resume": "Een latere fase haalt per gemeente, provincie en waterschap de begroting en jaarrekening op uit CBS StatLine, het CBS-begrotingsonderzoek en de eigen begrotingsstukken."
+    },
+    {
+      "what": "Toewijzing van de aparte begrotingsfondsen (Mobiliteitsfonds, Deltafonds, Defensiematerieelbegrotingsfonds, Gemeentefonds, Provinciefonds, BES-fonds, Diergezondheidsfonds, Nationaal Groeifonds, Klimaatfonds) aan een ministerie",
+      "why": "Fondsen zijn eigen begrotingshoofdstukken zonder eigen ministerie; toewijzing zou dubbeltellen met de bijdragen die de ministeries aan de fondsen overmaken.",
+      "endpoint": "https://www.rijksfinancien.nl/open-data/overzicht-datasets",
+      "resume": "Bij het modelleren van fondsen als eigen organisaties de fondshoofdstukken los opnemen (Begrotingsstaten 2013-2027, kolom Hoofdstuknaam)."
+    },
+    {
+      "what": "Netto-uitgavenpresentatie van begrotingshoofdstuk IX (Financien en Nationale Schuld)",
+      "why": "De Begrotingsstaten bevatten de bruto begroting van hoofdstuk IX, inclusief financieringstransacties zoals 'Financiering staatsschuld' en 'Kasbeheer'. De Miljoenennota-bijlage 2 presenteert voor 9A/9B een netto transactiebasis. De bruto en netto cijfers verschillen daardoor sterk (2026: ca. 57,1 miljard tegen ca. 27,7 miljard).",
+      "endpoint": "https://www.rijksfinancien.nl/sites/default/files/bestanden/open_data/Begrotingsstaten_2013-2027.json",
+      "resume": "Leg vast welke presentatie het product toont en splits hoofdstuk IX in de artikelreeksen 'Financiering staatsschuld', 'Kasbeheer' en 'Financieringsactiviteiten publiek-private sector' af van de beleidsuitgaven."
+    },
+    {
+      "what": "Begroting van de opgeheven programmaministeries Asiel en Migratie, Volkshuisvesting en Ruimtelijke Ordening en Klimaat en Groene Groei als zelfstandige entiteit over 2025",
+      "why": "Deze ministeries bestonden in 2024-2025 en zijn per 23 februari 2026 opgeheven; werkstream A neemt ze niet als aparte organisaties op. Hun hoofdstukken zijn hier voor portefeuillecontinuiteit bij het moederministerie gevoegd.",
+      "endpoint": "https://www.officielebekendmakingen.nl/stcrt-2026-8177",
+      "resume": "Als het product de opgeheven ministeries als eigen organisatie met succeeded_by wil tonen, dan de hoofdstukken XX, XXII en XXIII voor 2025 alsnog los opnemen."
+    },
+    {
+      "what": "Landbouwbegroting voor 2013-2018 als zelfstandige reeks",
+      "why": "Tot en met 2018 viel Landbouw onder begrotingshoofdstuk XIII (Economische Zaken); er was geen zelfstandig LNV-hoofdstuk. De reeks LVVN begint daarom in 2019.",
+      "endpoint": "https://www.rijksfinancien.nl/sites/default/files/bestanden/open_data/Begrotingsstaten_2013-2027.json",
+      "resume": "Gebruik de begrotingsstaten 2013-2018 en de departementale herindelings-KB's om de landbouwuitgaven binnen hoofdstuk XIII te isoleren als een langere LNV-reeks nodig is."
+    }
+  ]
+}

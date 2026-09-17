@@ -1,0 +1,5014 @@
+{
+  "workstream": "E",
+  "generatedAt": "2026-09-18T18:00:00+02:00",
+  "endpointsUsed": [
+    {
+      "url": "https://www.hogeraad.nl/",
+      "retrieved": "2026-09-18",
+      "notes": "Homepage en organisatie- en parketpagina's; president en procureur-generaal."
+    },
+    {
+      "url": "https://www.hogeraad.nl/over/organisatie/",
+      "retrieved": "2026-09-18",
+      "notes": "Drie onderdelen van de Hoge Raad."
+    },
+    {
+      "url": "https://www.hogeraad.nl/hoge-raad/kamers/dineke-de-groot/",
+      "retrieved": "2026-09-18",
+      "notes": "Loopbaan en startdatum president."
+    },
+    {
+      "url": "https://www.hogeraad.nl/parket/edwin-bleichrodt/",
+      "retrieved": "2026-09-18",
+      "notes": "Procureur-generaal."
+    },
+    {
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie",
+      "retrieved": "2026-09-18",
+      "notes": "Overzicht instanties en rollen."
+    },
+    {
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken",
+      "retrieved": "2026-09-18",
+      "notes": "Elf rechtbanken."
+    },
+    {
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven",
+      "retrieved": "2026-09-18",
+      "notes": "Vier gerechtshoven."
+    },
+    {
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-amsterdam/over-de-rechtbank/organisatie",
+      "retrieved": "2026-09-18",
+      "notes": "Bestuur per rechtbank (11 pagina's)."
+    },
+    {
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven/gerechtshof-amsterdam/over-het-gerechtshof/organisatie",
+      "retrieved": "2026-09-18",
+      "notes": "Bestuur per gerechtshof (3 pagina's)."
+    },
+    {
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/centrale-raad-van-beroep/over-de-crvb/organisatie",
+      "retrieved": "2026-09-18",
+      "notes": "Bestuur CRvB."
+    },
+    {
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/college-van-beroep-voor-het-bedrijfsleven/over-het-college-van-beroep-voor-het-bedrijfsleven/samenstelling-cbb",
+      "retrieved": "2026-09-18",
+      "notes": "Bestuur CBb."
+    },
+    {
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/raad-voor-de-rechtspraak/over-de-raad-voor-de-rechtspraak/samenstelling-raad-voor-de-rechtspraak",
+      "retrieved": "2026-09-18",
+      "notes": "Samenstelling RvR."
+    },
+    {
+      "url": "https://www.raadvanstate.nl/overrvs/organisatie/afdeling/",
+      "retrieved": "2026-09-18",
+      "notes": "Voorzitter Afdeling bestuursrechtspraak."
+    },
+    {
+      "url": "https://www.om.nl/organisatie/college-van-procureurs-generaal",
+      "retrieved": "2026-09-18",
+      "notes": "College van procureurs-generaal."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/actueel/nieuws/2024/07/12/benoeming-president-gerechtshof-arnhem-leeuwarden",
+      "retrieved": "2026-09-18",
+      "notes": "Bongers waarnemend president sinds 15 maart 2024."
+    },
+    {
+      "url": "https://www.om.nl/actueel/nieuws/2026/04/24/herbenoeming-collegevoorzitter-rinus-otte",
+      "retrieved": "2026-09-18",
+      "notes": "Herbenoeming Otte."
+    },
+    {
+      "url": "https://www.dji.nl/organisatie",
+      "retrieved": "2026-09-18",
+      "notes": "Organisatiestructuur DJI."
+    },
+    {
+      "url": "https://www.dji.nl/actueel/nieuws/2022/03/11/wim-saris-directeur-generaal-dienst-justitiele-inrichtingen",
+      "retrieved": "2026-09-18",
+      "notes": "Benoeming DG DJI."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0001830",
+      "retrieved": "2026-09-17",
+      "notes": "Wet op de rechterlijke organisatie."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0002080",
+      "retrieved": "2026-09-17",
+      "notes": "Wet op de rechterlijke indeling."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0002170",
+      "retrieved": "2026-09-17",
+      "notes": "Beroepswet."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0002144",
+      "retrieved": "2026-09-17",
+      "notes": "Wet bestuursrechtspraak bedrijfsorganisatie."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0002367",
+      "retrieved": "2026-09-17",
+      "notes": "Wet op de Raad van State."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0031788",
+      "retrieved": "2026-09-17",
+      "notes": "Politiewet 2012."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0040293",
+      "retrieved": "2026-09-18",
+      "notes": "Organisatiebesluit JenV; DJI als dienstonderdeel."
+    }
+  ],
+  "organizations": [
+    {
+      "id": "org:hoge-raad",
+      "slug": "hoge-raad",
+      "name": "Hoge Raad der Nederlanden",
+      "aliases": [
+        "Hoge Raad",
+        "HR"
+      ],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "De Hoge Raad der Nederlanden is de hoogste rechter in civiele zaken, strafzaken en belastingzaken. Het is een cassatiegerecht: het beoordeelt of lagere rechters het recht juist hebben toegepast en of de procedure juist is gevolgd. De Hoge Raad is ook cassatierechter voor Aruba, Curacao, Sint Maarten en Bonaire, Sint Eustatius en Saba.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke organisatie art. 72",
+        "url": "https://wetten.overheid.nl/BWBR0001830"
+      },
+      "website": "https://www.hogeraad.nl/",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:hr-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:hr-hoge-raad",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-ro",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:parket-bij-de-hoge-raad",
+      "slug": "parket-bij-de-hoge-raad",
+      "name": "Parket bij de Hoge Raad",
+      "aliases": [],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [
+        "org:hoge-raad"
+      ],
+      "description": "Het parket bij de Hoge Raad staat onder leiding van de procureur-generaal en neemt conclusies in zaken die aan de Hoge Raad worden voorgelegd. Het parket staat los van het Openbaar Ministerie en is onafhankelijk van regering en parlement.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke organisatie art. 111",
+        "url": "https://wetten.overheid.nl/BWBR0001830"
+      },
+      "website": "https://www.hogeraad.nl/parket/",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:hr-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:hr-parket",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-ro",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:gerechtshof-amsterdam",
+      "slug": "gerechtshof-amsterdam",
+      "name": "Gerechtshof Amsterdam",
+      "aliases": [],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Gerechtshof Amsterdam is een van de vier gerechtshoven en behandelt hoger beroep in strafzaken, civiele zaken, kantonzaken en belastingzaken.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke indeling art. 2",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven/gerechtshof-amsterdam",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rechtspraak-gerechtshoven",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:gerechtshof-arnhem-leeuwarden",
+      "slug": "gerechtshof-arnhem-leeuwarden",
+      "name": "Gerechtshof Arnhem-Leeuwarden",
+      "aliases": [],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Gerechtshof Arnhem-Leeuwarden is een van de vier gerechtshoven en behandelt hoger beroep in strafzaken, civiele zaken, kantonzaken en belastingzaken.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke indeling art. 2",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven/gerechtshof-arnhem-leeuwarden",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rechtspraak-gerechtshoven",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:gerechtshof-den-haag",
+      "slug": "gerechtshof-den-haag",
+      "name": "Gerechtshof Den Haag",
+      "aliases": [],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Gerechtshof Den Haag is een van de vier gerechtshoven en behandelt hoger beroep in strafzaken, civiele zaken, kantonzaken en belastingzaken.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke indeling art. 2",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven/gerechtshof-den-haag",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rechtspraak-gerechtshoven",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:gerechtshof-s-hertogenbosch",
+      "slug": "gerechtshof-s-hertogenbosch",
+      "name": "Gerechtshof 's-Hertogenbosch",
+      "aliases": [],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Gerechtshof 's-Hertogenbosch is een van de vier gerechtshoven en behandelt hoger beroep in strafzaken, civiele zaken, kantonzaken en belastingzaken.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke indeling art. 2",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven/gerechtshof-s-hertogenbosch",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rechtspraak-gerechtshoven",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:rechtbank-amsterdam",
+      "slug": "rechtbank-amsterdam",
+      "name": "Rechtbank Amsterdam",
+      "aliases": [],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Rechtbank Amsterdam is een van de elf rechtbanken en is de eerste rechterlijke instantie voor civiele zaken, bestuurszaken en strafzaken in haar arrondissement.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-amsterdam",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rechtspraak-rechtbanken",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:rechtbank-den-haag",
+      "slug": "rechtbank-den-haag",
+      "name": "Rechtbank Den Haag",
+      "aliases": [],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Rechtbank Den Haag is een van de elf rechtbanken en is de eerste rechterlijke instantie voor civiele zaken, bestuurszaken en strafzaken in haar arrondissement.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-den-haag",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rechtspraak-rechtbanken",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:rechtbank-gelderland",
+      "slug": "rechtbank-gelderland",
+      "name": "Rechtbank Gelderland",
+      "aliases": [],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Rechtbank Gelderland is een van de elf rechtbanken en is de eerste rechterlijke instantie voor civiele zaken, bestuurszaken en strafzaken in haar arrondissement.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-gelderland",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rechtspraak-rechtbanken",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:rechtbank-limburg",
+      "slug": "rechtbank-limburg",
+      "name": "Rechtbank Limburg",
+      "aliases": [],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Rechtbank Limburg is een van de elf rechtbanken en is de eerste rechterlijke instantie voor civiele zaken, bestuurszaken en strafzaken in haar arrondissement.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-limburg",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rechtspraak-rechtbanken",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:rechtbank-midden-nederland",
+      "slug": "rechtbank-midden-nederland",
+      "name": "Rechtbank Midden-Nederland",
+      "aliases": [],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Rechtbank Midden-Nederland is een van de elf rechtbanken en is de eerste rechterlijke instantie voor civiele zaken, bestuurszaken en strafzaken in haar arrondissement.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-midden-nederland",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rechtspraak-rechtbanken",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:rechtbank-noord-holland",
+      "slug": "rechtbank-noord-holland",
+      "name": "Rechtbank Noord-Holland",
+      "aliases": [],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Rechtbank Noord-Holland is een van de elf rechtbanken en is de eerste rechterlijke instantie voor civiele zaken, bestuurszaken en strafzaken in haar arrondissement.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-noord-holland",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rechtspraak-rechtbanken",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:rechtbank-noord-nederland",
+      "slug": "rechtbank-noord-nederland",
+      "name": "Rechtbank Noord-Nederland",
+      "aliases": [],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Rechtbank Noord-Nederland is een van de elf rechtbanken en is de eerste rechterlijke instantie voor civiele zaken, bestuurszaken en strafzaken in haar arrondissement.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-noord-nederland",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rechtspraak-rechtbanken",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:rechtbank-oost-brabant",
+      "slug": "rechtbank-oost-brabant",
+      "name": "Rechtbank Oost-Brabant",
+      "aliases": [],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Rechtbank Oost-Brabant is een van de elf rechtbanken en is de eerste rechterlijke instantie voor civiele zaken, bestuurszaken en strafzaken in haar arrondissement.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-oost-brabant",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rechtspraak-rechtbanken",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:rechtbank-overijssel",
+      "slug": "rechtbank-overijssel",
+      "name": "Rechtbank Overijssel",
+      "aliases": [],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Rechtbank Overijssel is een van de elf rechtbanken en is de eerste rechterlijke instantie voor civiele zaken, bestuurszaken en strafzaken in haar arrondissement.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-overijssel",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rechtspraak-rechtbanken",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:rechtbank-rotterdam",
+      "slug": "rechtbank-rotterdam",
+      "name": "Rechtbank Rotterdam",
+      "aliases": [],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Rechtbank Rotterdam is een van de elf rechtbanken en is de eerste rechterlijke instantie voor civiele zaken, bestuurszaken en strafzaken in haar arrondissement.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-rotterdam",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rechtspraak-rechtbanken",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:rechtbank-zeeland-west-brabant",
+      "slug": "rechtbank-zeeland-west-brabant",
+      "name": "Rechtbank Zeeland-West-Brabant",
+      "aliases": [],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Rechtbank Zeeland-West-Brabant is een van de elf rechtbanken en is de eerste rechterlijke instantie voor civiele zaken, bestuurszaken en strafzaken in haar arrondissement.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-zeeland-west-brabant",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rechtspraak-rechtbanken",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:centrale-raad-van-beroep",
+      "slug": "centrale-raad-van-beroep",
+      "name": "Centrale Raad van Beroep",
+      "aliases": [
+        "CRvB"
+      ],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "De Centrale Raad van Beroep is een van de vier hoogste bestuursrechters en oordeelt in hoger beroep over sociale verzekeringen, sociale voorzieningen en ambtenarenzaken. De Raad is gevestigd te Utrecht.",
+      "legalSource": {
+        "label": "Beroepswet art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002170"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/centrale-raad-van-beroep",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rs-crvb-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:beroepswet",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:college-van-beroep-voor-het-bedrijfsleven",
+      "slug": "college-van-beroep-voor-het-bedrijfsleven",
+      "name": "College van Beroep voor het bedrijfsleven",
+      "aliases": [
+        "CBb"
+      ],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "Het College van Beroep voor het bedrijfsleven is de hoogste bestuursrechter in het economisch bestuursrecht en zetelt te Den Haag. Het behandelt onder meer zaken over mededinging, marktregulering, subsidies, meststoffen en financieel toezicht.",
+      "legalSource": {
+        "label": "Wet bestuursrechtspraak bedrijfsorganisatie art. 2",
+        "url": "https://wetten.overheid.nl/BWBR0002144"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/college-van-beroep-voor-het-bedrijfsleven",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rs-cbb-samenstelling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-bestuursrechtspraak-bedrijfsorganisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:raad-voor-de-rechtspraak",
+      "slug": "raad-voor-de-rechtspraak",
+      "name": "Raad voor de rechtspraak",
+      "aliases": [
+        "RvR"
+      ],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [],
+      "description": "De Raad voor de rechtspraak is het overkoepelende bestuur van de rechtbanken, de gerechtshoven, het CBb en de CRvB. De Raad bestaat sinds 1 januari 2002, spreekt zelf geen recht en bevordert dat de gerechten hun rechtsprekende taak goed kunnen vervullen.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke organisatie art. 84",
+        "url": "https://wetten.overheid.nl/BWBR0001830"
+      },
+      "website": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/raad-voor-de-rechtspraak",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rs-rvr-samenstelling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rechtspraak-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-ro",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:afdeling-bestuursrechtspraak-raad-van-state",
+      "slug": "afdeling-bestuursrechtspraak-raad-van-state",
+      "name": "Afdeling bestuursrechtspraak van de Raad van State",
+      "aliases": [
+        "ABRvS"
+      ],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": null,
+      "partOf": [
+        "org:raad-van-state"
+      ],
+      "description": "De Afdeling bestuursrechtspraak van de Raad van State is de hoogste algemene bestuursrechter van Nederland. Zij beslist in hoogste instantie over geschillen tussen burgers en overheid en tussen overheden onderling, en behandelt vreemdelingenzaken in hoger beroep.",
+      "legalSource": {
+        "label": "Wet op de Raad van State art. 30",
+        "url": "https://wetten.overheid.nl/BWBR0002367"
+      },
+      "website": "https://www.raadvanstate.nl/overrvs/organisatie/afdeling/",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:rvs-afdeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-raad-van-state",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:openbaar-ministerie",
+      "slug": "openbaar-ministerie",
+      "name": "Openbaar Ministerie",
+      "aliases": [
+        "OM"
+      ],
+      "type": "department",
+      "subtype": "rechterlijke-instantie",
+      "branch": "rechterlijke-macht",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": "org:ministerie-van-justitie-en-veiligheid",
+      "partOf": [
+        "org:ministerie-van-justitie-en-veiligheid"
+      ],
+      "description": "Het Openbaar Ministerie is belast met de strafrechtelijke handhaving van de rechtsorde en met andere bij wet vastgestelde taken. De landelijke leiding berust bij het College van procureurs-generaal; het OM bestaat uit het parket-generaal, de arrondissementsparketten, het landelijk parket, het functioneel parket, het parket centrale verwerking en de ressortsparketten.",
+      "legalSource": {
+        "label": "Wet op de rechterlijke organisatie art. 124",
+        "url": "https://wetten.overheid.nl/BWBR0001830"
+      },
+      "website": "https://www.om.nl/",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:om-college",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-ro",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:politie",
+      "slug": "politie",
+      "name": "Politie",
+      "aliases": [
+        "Nationale Politie",
+        "politiekorps"
+      ],
+      "type": "department",
+      "subtype": "uitvoeringsorganisatie",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": "org:ministerie-van-justitie-en-veiligheid",
+      "partOf": [
+        "org:ministerie-van-justitie-en-veiligheid"
+      ],
+      "description": "De politie is het landelijke politiekorps dat bestaat uit regionale eenheden en een of meer landelijke eenheden. De korpschef is belast met de leiding en het beheer van de politie en legt daarover verantwoording af aan de minister.",
+      "legalSource": {
+        "label": "Politiewet 2012 art. 25",
+        "url": "https://wetten.overheid.nl/BWBR0031788"
+      },
+      "website": "https://www.politie.nl/",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:politiewet-2012",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:ro-korpschef",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:dienst-justitiele-inrichtingen",
+      "slug": "dienst-justitiele-inrichtingen",
+      "name": "Dienst Justitiele Inrichtingen",
+      "aliases": [
+        "DJI"
+      ],
+      "type": "department",
+      "subtype": "agentschap",
+      "branch": "regering",
+      "level": "rijk",
+      "country": "nederland",
+      "parent": "org:ministerie-van-justitie-en-veiligheid",
+      "partOf": [
+        "org:ministerie-van-justitie-en-veiligheid"
+      ],
+      "description": "De Dienst Justitiele Inrichtingen voert namens de minister van Justitie en Veiligheid straffen en vrijheidsbenemende maatregelen uit die door de rechter zijn opgelegd. DJI beheert de penitentiaire inrichtingen, justitiele jeugdinrichtingen en forensische zorg, met een hoofdkantoor in Den Haag.",
+      "legalSource": {
+        "label": "Organisatiebesluit Ministerie van Justitie en Veiligheid art. 2",
+        "url": "https://wetten.overheid.nl/BWBR0040293"
+      },
+      "website": "https://www.dji.nl/",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:dji-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:organisatiebesluit-jenv",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:penitentiaire-beginselenwet",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "positions": [
+    {
+      "id": "pos:president-hoge-raad",
+      "slug": "president-hoge-raad",
+      "title": "President van de Hoge Raad",
+      "organization": "org:hoge-raad",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke organisatie art. 72",
+        "url": "https://wetten.overheid.nl/BWBR0001830"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:hr-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-ro",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:procureur-generaal-hoge-raad",
+      "slug": "procureur-generaal-hoge-raad",
+      "title": "Procureur-generaal bij de Hoge Raad",
+      "organization": "org:parket-bij-de-hoge-raad",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke organisatie art. 111",
+        "url": "https://wetten.overheid.nl/BWBR0001830"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:hr-parket",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-ro",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-gerechtshof-amsterdam",
+      "slug": "president-gerechtshof-amsterdam",
+      "title": "President van het Gerechtshof Amsterdam",
+      "organization": "org:gerechtshof-amsterdam",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke indeling art. 2",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-hof-amsterdam-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-gerechtshof-arnhem-leeuwarden",
+      "slug": "president-gerechtshof-arnhem-leeuwarden",
+      "title": "President van het Gerechtshof Arnhem-Leeuwarden",
+      "organization": "org:gerechtshof-arnhem-leeuwarden",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke indeling art. 2",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-hof-arnhem-leeuwarden-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-gerechtshof-den-haag",
+      "slug": "president-gerechtshof-den-haag",
+      "title": "President van het Gerechtshof Den Haag",
+      "organization": "org:gerechtshof-den-haag",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke indeling art. 2",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-hof-den-haag-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-gerechtshof-s-hertogenbosch",
+      "slug": "president-gerechtshof-s-hertogenbosch",
+      "title": "President van het Gerechtshof 's-Hertogenbosch",
+      "organization": "org:gerechtshof-s-hertogenbosch",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke indeling art. 2",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-hof-s-hertogenbosch-register",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-rechtbank-amsterdam",
+      "slug": "president-rechtbank-amsterdam",
+      "title": "President van de Rechtbank Amsterdam",
+      "organization": "org:rechtbank-amsterdam",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-rb-amsterdam-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-rechtbank-den-haag",
+      "slug": "president-rechtbank-den-haag",
+      "title": "President van de Rechtbank Den Haag",
+      "organization": "org:rechtbank-den-haag",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-rb-den-haag-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-rechtbank-gelderland",
+      "slug": "president-rechtbank-gelderland",
+      "title": "President van de Rechtbank Gelderland",
+      "organization": "org:rechtbank-gelderland",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-rb-gelderland-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-rechtbank-limburg",
+      "slug": "president-rechtbank-limburg",
+      "title": "President van de Rechtbank Limburg",
+      "organization": "org:rechtbank-limburg",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-rb-limburg-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-rechtbank-midden-nederland",
+      "slug": "president-rechtbank-midden-nederland",
+      "title": "President van de Rechtbank Midden-Nederland",
+      "organization": "org:rechtbank-midden-nederland",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-rb-midden-nederland-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-rechtbank-noord-holland",
+      "slug": "president-rechtbank-noord-holland",
+      "title": "President van de Rechtbank Noord-Holland",
+      "organization": "org:rechtbank-noord-holland",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-rb-noord-holland-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-rechtbank-noord-nederland",
+      "slug": "president-rechtbank-noord-nederland",
+      "title": "President van de Rechtbank Noord-Nederland",
+      "organization": "org:rechtbank-noord-nederland",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-rb-noord-nederland-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-rechtbank-oost-brabant",
+      "slug": "president-rechtbank-oost-brabant",
+      "title": "President van de Rechtbank Oost-Brabant",
+      "organization": "org:rechtbank-oost-brabant",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-rb-oost-brabant-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-rechtbank-overijssel",
+      "slug": "president-rechtbank-overijssel",
+      "title": "President van de Rechtbank Overijssel",
+      "organization": "org:rechtbank-overijssel",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-rb-overijssel-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-rechtbank-rotterdam",
+      "slug": "president-rechtbank-rotterdam",
+      "title": "President van de Rechtbank Rotterdam",
+      "organization": "org:rechtbank-rotterdam",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-rb-rotterdam-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-rechtbank-zeeland-west-brabant",
+      "slug": "president-rechtbank-zeeland-west-brabant",
+      "title": "President van de Rechtbank Zeeland-West-Brabant",
+      "organization": "org:rechtbank-zeeland-west-brabant",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke indeling art. 1",
+        "url": "https://wetten.overheid.nl/BWBR0002080"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-rb-zeeland-west-brabant-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-rechterlijke-indeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-centrale-raad-van-beroep",
+      "slug": "president-centrale-raad-van-beroep",
+      "title": "President van de Centrale Raad van Beroep",
+      "organization": "org:centrale-raad-van-beroep",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Beroepswet art. 4",
+        "url": "https://wetten.overheid.nl/BWBR0002170"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-crvb-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:beroepswet",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:president-college-van-beroep-voor-het-bedrijfsleven",
+      "slug": "president-college-van-beroep-voor-het-bedrijfsleven",
+      "title": "President van het College van Beroep voor het bedrijfsleven",
+      "organization": "org:college-van-beroep-voor-het-bedrijfsleven",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet bestuursrechtspraak bedrijfsorganisatie art. 3",
+        "url": "https://wetten.overheid.nl/BWBR0002144"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-cbb-samenstelling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-bestuursrechtspraak-bedrijfsorganisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:voorzitter-raad-voor-de-rechtspraak",
+      "slug": "voorzitter-raad-voor-de-rechtspraak",
+      "title": "Voorzitter van de Raad voor de rechtspraak",
+      "organization": "org:raad-voor-de-rechtspraak",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke organisatie art. 84",
+        "url": "https://wetten.overheid.nl/BWBR0001830"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-rvr-samenstelling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-ro",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:rechterlijk-lid-raad-voor-de-rechtspraak",
+      "slug": "rechterlijk-lid-raad-voor-de-rechtspraak",
+      "title": "Rechterlijk lid van de Raad voor de rechtspraak",
+      "organization": "org:raad-voor-de-rechtspraak",
+      "type": "commission",
+      "fillMethod": "benoeming-door-minister",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 3,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke organisatie art. 84",
+        "url": "https://wetten.overheid.nl/BWBR0001830"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-rvr-samenstelling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-ro",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:niet-rechterlijk-lid-raad-voor-de-rechtspraak",
+      "slug": "niet-rechterlijk-lid-raad-voor-de-rechtspraak",
+      "title": "Niet-rechterlijk lid van de Raad voor de rechtspraak",
+      "organization": "org:raad-voor-de-rechtspraak",
+      "type": "commission",
+      "fillMethod": "benoeming-door-minister",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 2,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke organisatie art. 84",
+        "url": "https://wetten.overheid.nl/BWBR0001830"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rs-rvr-samenstelling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-ro",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:voorzitter-afdeling-bestuursrechtspraak",
+      "slug": "voorzitter-afdeling-bestuursrechtspraak",
+      "title": "Voorzitter van de Afdeling bestuursrechtspraak van de Raad van State",
+      "organization": "org:afdeling-bestuursrechtspraak-raad-van-state",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de Raad van State art. 30a",
+        "url": "https://wetten.overheid.nl/BWBR0002367"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:rvs-afdeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-raad-van-state",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:voorzitter-college-van-procureurs-generaal",
+      "slug": "voorzitter-college-van-procureurs-generaal",
+      "title": "Voorzitter van het College van procureurs-generaal",
+      "organization": "org:openbaar-ministerie",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke organisatie art. 130",
+        "url": "https://wetten.overheid.nl/BWBR0001830"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:om-college",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-ro",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:procureur-generaal-lid-college",
+      "slug": "procureur-generaal-lid-college",
+      "title": "Procureur-generaal (lid van het College van procureurs-generaal)",
+      "organization": "org:openbaar-ministerie",
+      "type": "commission",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 5,
+      "legalBasis": {
+        "label": "Wet op de rechterlijke organisatie art. 130",
+        "url": "https://wetten.overheid.nl/BWBR0001830"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:om-college",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wet-ro",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:korpschef-politie",
+      "slug": "korpschef-politie",
+      "title": "Korpschef van de politie",
+      "organization": "org:politie",
+      "type": "dept_head",
+      "fillMethod": "koninklijk-besluit",
+      "entryModes": [
+        "benoemd-bij-kb"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Politiewet 2012 art. 27",
+        "url": "https://wetten.overheid.nl/BWBR0031788"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:politiewet-2012",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:politie-knol",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "pos:dienst-justitiele-inrichtingen-directeur-generaal",
+      "slug": "dienst-justitiele-inrichtingen-directeur-generaal",
+      "title": "Directeur-Generaal Dienst Justitiele Inrichtingen",
+      "organization": "org:dienst-justitiele-inrichtingen",
+      "type": "dept_head",
+      "fillMethod": null,
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Organisatiebesluit Ministerie van Justitie en Veiligheid art. 2",
+        "url": "https://wetten.overheid.nl/BWBR0040293"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:dji-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:organisatiebesluit-jenv",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "people": [
+    {
+      "id": "person:dineke-de-groot",
+      "slug": "dineke-de-groot",
+      "name": "Dineke de Groot",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:hr-de-groot",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:edwin-bleichrodt",
+      "slug": "edwin-bleichrodt",
+      "name": "Edwin Bleichrodt",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:hr-bleichrodt",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:hr-bleichrodt-installatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:mark-wissink",
+      "slug": "mark-wissink",
+      "name": "Mark Wissink",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:hr-parket",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:eveline-de-greeve",
+      "slug": "eveline-de-greeve",
+      "name": "Eveline de Greeve",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-hof-amsterdam-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-hof-amsterdam-de-greeve",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:eddie-bongers",
+      "slug": "eddie-bongers",
+      "name": "Eddie Bongers",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-hof-arnhem-leeuwarden-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-hof-arnhem-leeuwarden-bongers",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:marieke-koek",
+      "slug": "marieke-koek",
+      "name": "Marieke Koek",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-hof-den-haag-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-hof-den-haag-koek",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:gerard-tangenberg",
+      "slug": "gerard-tangenberg",
+      "name": "Gerard Tangenberg",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-hof-s-hertogenbosch-register",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-hof-s-hertogenbosch-tangenberg",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:bart-van-meegen",
+      "slug": "bart-van-meegen",
+      "name": "Bart van Meegen",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-rb-amsterdam-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-rb-amsterdam-van-meegen",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:robine-de-lange-tegelaar",
+      "slug": "robine-de-lange-tegelaar",
+      "name": "Robine de Lange-Tegelaar",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-rb-den-haag-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-rb-den-haag-de-lange",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:selinde-bokx-boom",
+      "slug": "selinde-bokx-boom",
+      "name": "Selinde Bokx-Boom",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-rb-gelderland-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-rb-gelderland-bokx",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:martina-bijker",
+      "slug": "martina-bijker",
+      "name": "Martina Bijker",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-rb-limburg-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-rb-limburg-bijker",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:patricia-messer-dinnissen",
+      "slug": "patricia-messer-dinnissen",
+      "name": "Patricia Messer-Dinnissen",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-rb-midden-nederland-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-rb-midden-nederland-messer",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:jan-moors",
+      "slug": "jan-moors",
+      "name": "Jan Moors",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-rb-noord-holland-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-rb-noord-holland-moors",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:andrea-gerding",
+      "slug": "andrea-gerding",
+      "name": "Andrea Gerding",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-rb-noord-nederland-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-rb-noord-nederland-gerding",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:wendy-vierveijzer",
+      "slug": "wendy-vierveijzer",
+      "name": "Wendy Vierveijzer",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-rb-oost-brabant-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-rb-oost-brabant-vierveijzer",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:fred-van-der-winkel",
+      "slug": "fred-van-der-winkel",
+      "name": "Fred van der Winkel",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-rb-overijssel-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-rb-overijssel-van-der-winkel",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:julia-mendlik",
+      "slug": "julia-mendlik",
+      "name": "Julia Mendlik",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-rb-rotterdam-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-rb-rotterdam-mendlik",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:jasper-van-den-beld",
+      "slug": "jasper-van-den-beld",
+      "name": "Jasper van den Beld",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-rb-zeeland-west-brabant-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-rb-zeeland-west-brabant-van-den-beld",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:judith-boeree",
+      "slug": "judith-boeree",
+      "name": "Judith Boeree",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-crvb-organisatie",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-crvb-boeree",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:takvor-avedissian",
+      "slug": "takvor-avedissian",
+      "name": "Takvor Avedissian",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-crvb-avedissian",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:mascha-schoneveld",
+      "slug": "mascha-schoneveld",
+      "name": "Mascha Schoneveld",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-cbb-samenstelling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-cbb-schoneveld",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:theo-simons",
+      "slug": "theo-simons",
+      "name": "Theo Simons",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-cbb-simons",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-cbb-schoneveld",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:henk-naves",
+      "slug": "henk-naves",
+      "name": "Henk Naves",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-rvr-samenstelling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-rvr-naves",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:remy-van-leest",
+      "slug": "remy-van-leest",
+      "name": "Remy van Leest",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-rvr-samenstelling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rs-rvr-van-leest",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:saskia-sicking-sluis",
+      "slug": "saskia-sicking-sluis",
+      "name": "Saskia Sicking-Sluis",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-rvr-samenstelling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:calluna-euving",
+      "slug": "calluna-euving",
+      "name": "Calluna Euving",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-rvr-samenstelling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:adrie-kerkvliet",
+      "slug": "adrie-kerkvliet",
+      "name": "Adrie Kerkvliet",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rs-rvr-samenstelling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:rosa-uylenburg",
+      "slug": "rosa-uylenburg",
+      "name": "Rosa Uylenburg",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:rvs-afdeling",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:rvs-uylenburg",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:rinus-otte",
+      "slug": "rinus-otte",
+      "name": "Rinus Otte",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:om-college",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:om-otte-herbenoeming",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:guus-schram",
+      "slug": "guus-schram",
+      "name": "Guus Schram",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:om-college",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:om-schram",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:sue-preenen",
+      "slug": "sue-preenen",
+      "name": "Sue Preenen",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:om-college",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:om-preenen",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:frederieke-damme",
+      "slug": "frederieke-damme",
+      "name": "Frederieke Damme",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:om-college",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:om-damme",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:janny-knol",
+      "slug": "janny-knol",
+      "name": "Janny Knol",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:politie-knol",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:ro-korpschef",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:wim-saris",
+      "slug": "wim-saris",
+      "name": "Wim Saris",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": null,
+      "sources": [
+        {
+          "source": "src:dji-saris",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:dji-besturing",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        }
+      ]
+    }
+  ],
+  "tenures": [
+    {
+      "id": "tenure:president-hoge-raad-dineke-de-groot",
+      "person": "person:dineke-de-groot",
+      "position": "pos:president-hoge-raad",
+      "seat": null,
+      "start": "2020-11-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:hr-de-groot",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:procureur-generaal-hoge-raad-edwin-bleichrodt",
+      "person": "person:edwin-bleichrodt",
+      "position": "pos:procureur-generaal-hoge-raad",
+      "seat": null,
+      "start": "2021-09-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:hr-bleichrodt-installatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-gerechtshof-amsterdam-eveline-de-greeve",
+      "person": "person:eveline-de-greeve",
+      "position": "pos:president-gerechtshof-amsterdam",
+      "seat": null,
+      "start": "2022-01-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-hof-amsterdam-de-greeve",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-gerechtshof-arnhem-leeuwarden-eddie-bongers",
+      "person": "person:eddie-bongers",
+      "position": "pos:president-gerechtshof-arnhem-leeuwarden",
+      "seat": null,
+      "start": "2024-09-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-hof-arnhem-leeuwarden-bongers",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-gerechtshof-den-haag-marieke-koek",
+      "person": "person:marieke-koek",
+      "position": "pos:president-gerechtshof-den-haag",
+      "seat": null,
+      "start": "2018-05-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-hof-den-haag-koek",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-gerechtshof-s-hertogenbosch-gerard-tangenberg",
+      "person": "person:gerard-tangenberg",
+      "position": "pos:president-gerechtshof-s-hertogenbosch",
+      "seat": null,
+      "start": "2021-11-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-hof-s-hertogenbosch-tangenberg",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-gerechtshof-arnhem-leeuwarden-eddie-bongers-waarnemend",
+      "person": "person:eddie-bongers",
+      "position": "pos:president-gerechtshof-arnhem-leeuwarden",
+      "seat": null,
+      "start": "2024-03-15",
+      "end": "2024-08-31",
+      "acting": true,
+      "entryMode": "waarnemend",
+      "predecessor": null,
+      "successor": "tenure:president-gerechtshof-arnhem-leeuwarden-eddie-bongers",
+      "endReason": null,
+      "source": {
+        "source": "src:ro-bongers",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-rechtbank-amsterdam-bart-van-meegen",
+      "person": "person:bart-van-meegen",
+      "position": "pos:president-rechtbank-amsterdam",
+      "seat": null,
+      "start": "2023-10-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rb-amsterdam-van-meegen",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-rechtbank-den-haag-robine-de-lange-tegelaar",
+      "person": "person:robine-de-lange-tegelaar",
+      "position": "pos:president-rechtbank-den-haag",
+      "seat": null,
+      "start": "2022-01-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rb-den-haag-de-lange",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "tenure:president-rechtbank-gelderland-selinde-bokx-boom",
+      "person": "person:selinde-bokx-boom",
+      "position": "pos:president-rechtbank-gelderland",
+      "seat": null,
+      "start": "2025-08-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rb-gelderland-bokx",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-rechtbank-limburg-martina-bijker",
+      "person": "person:martina-bijker",
+      "position": "pos:president-rechtbank-limburg",
+      "seat": null,
+      "start": "2022-01-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rb-limburg-bijker",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-rechtbank-midden-nederland-patricia-messer-dinnissen",
+      "person": "person:patricia-messer-dinnissen",
+      "position": "pos:president-rechtbank-midden-nederland",
+      "seat": null,
+      "start": "2022-01-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rb-midden-nederland-messer",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-rechtbank-noord-holland-jan-moors",
+      "person": "person:jan-moors",
+      "position": "pos:president-rechtbank-noord-holland",
+      "seat": null,
+      "start": "2022-01-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rb-noord-holland-moors",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-rechtbank-noord-nederland-andrea-gerding",
+      "person": "person:andrea-gerding",
+      "position": "pos:president-rechtbank-noord-nederland",
+      "seat": null,
+      "start": "2024-09-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rb-noord-nederland-gerding",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "tenure:president-rechtbank-oost-brabant-wendy-vierveijzer",
+      "person": "person:wendy-vierveijzer",
+      "position": "pos:president-rechtbank-oost-brabant",
+      "seat": null,
+      "start": "2026-06-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rb-oost-brabant-vierveijzer",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-rechtbank-overijssel-fred-van-der-winkel",
+      "person": "person:fred-van-der-winkel",
+      "position": "pos:president-rechtbank-overijssel",
+      "seat": null,
+      "start": "2024-05-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rb-overijssel-van-der-winkel",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-rechtbank-rotterdam-julia-mendlik",
+      "person": "person:julia-mendlik",
+      "position": "pos:president-rechtbank-rotterdam",
+      "seat": null,
+      "start": "2022-01-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rb-rotterdam-mendlik",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-rechtbank-zeeland-west-brabant-jasper-van-den-beld",
+      "person": "person:jasper-van-den-beld",
+      "position": "pos:president-rechtbank-zeeland-west-brabant",
+      "seat": null,
+      "start": "2021-10-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rb-zeeland-west-brabant-van-den-beld",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-centrale-raad-van-beroep-judith-boeree",
+      "person": "person:judith-boeree",
+      "position": "pos:president-centrale-raad-van-beroep",
+      "seat": null,
+      "start": "2026-01-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": "tenure:president-centrale-raad-van-beroep-judith-boeree-waarnemend",
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-crvb-boeree",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-centrale-raad-van-beroep-judith-boeree-waarnemend",
+      "person": "person:judith-boeree",
+      "position": "pos:president-centrale-raad-van-beroep",
+      "seat": null,
+      "start": "2025-04-01",
+      "end": "2025-12-31",
+      "acting": true,
+      "entryMode": "waarnemend",
+      "predecessor": "tenure:president-centrale-raad-van-beroep-takvor-avedissian",
+      "successor": "tenure:president-centrale-raad-van-beroep-judith-boeree",
+      "endReason": null,
+      "source": {
+        "source": "src:rs-crvb-boeree",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-centrale-raad-van-beroep-takvor-avedissian",
+      "person": "person:takvor-avedissian",
+      "position": "pos:president-centrale-raad-van-beroep",
+      "seat": null,
+      "start": "2018-02-01",
+      "end": "2025-03-31",
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": "tenure:president-centrale-raad-van-beroep-judith-boeree-waarnemend",
+      "endReason": "einde-termijn",
+      "source": {
+        "source": "src:rs-crvb-avedissian",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-college-van-beroep-voor-het-bedrijfsleven-mascha-schoneveld",
+      "person": "person:mascha-schoneveld",
+      "position": "pos:president-college-van-beroep-voor-het-bedrijfsleven",
+      "seat": null,
+      "start": "2026-07-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": "tenure:president-college-van-beroep-voor-het-bedrijfsleven-theo-simons",
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-cbb-schoneveld",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:president-college-van-beroep-voor-het-bedrijfsleven-theo-simons",
+      "person": "person:theo-simons",
+      "position": "pos:president-college-van-beroep-voor-het-bedrijfsleven",
+      "seat": null,
+      "start": "2017-09-16",
+      "end": "2026-06-30",
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": "tenure:president-college-van-beroep-voor-het-bedrijfsleven-mascha-schoneveld",
+      "endReason": "einde-termijn",
+      "source": {
+        "source": "src:rs-cbb-simons",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:voorzitter-raad-voor-de-rechtspraak-henk-naves",
+      "person": "person:henk-naves",
+      "position": "pos:voorzitter-raad-voor-de-rechtspraak",
+      "seat": null,
+      "start": "2019-01-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rvr-naves",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "tenure:rechterlijk-lid-raad-voor-de-rechtspraak-henk-naves",
+      "person": "person:henk-naves",
+      "position": "pos:rechterlijk-lid-raad-voor-de-rechtspraak",
+      "seat": null,
+      "start": "2018-09-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rvr-naves",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "tenure:rechterlijk-lid-raad-voor-de-rechtspraak-remy-van-leest",
+      "person": "person:remy-van-leest",
+      "position": "pos:rechterlijk-lid-raad-voor-de-rechtspraak",
+      "seat": null,
+      "start": "2025-05-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rvr-van-leest",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:rechterlijk-lid-raad-voor-de-rechtspraak-saskia-sicking-sluis",
+      "person": "person:saskia-sicking-sluis",
+      "position": "pos:rechterlijk-lid-raad-voor-de-rechtspraak",
+      "seat": null,
+      "start": "2026-02-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rvr-samenstelling",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "tenure:niet-rechterlijk-lid-raad-voor-de-rechtspraak-calluna-euving",
+      "person": "person:calluna-euving",
+      "position": "pos:niet-rechterlijk-lid-raad-voor-de-rechtspraak",
+      "seat": null,
+      "start": "2023-11-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rvr-samenstelling",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "tenure:niet-rechterlijk-lid-raad-voor-de-rechtspraak-adrie-kerkvliet",
+      "person": "person:adrie-kerkvliet",
+      "position": "pos:niet-rechterlijk-lid-raad-voor-de-rechtspraak",
+      "seat": null,
+      "start": "2023-10-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rs-rvr-samenstelling",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "tenure:voorzitter-afdeling-bestuursrechtspraak-rosa-uylenburg",
+      "person": "person:rosa-uylenburg",
+      "position": "pos:voorzitter-afdeling-bestuursrechtspraak",
+      "seat": null,
+      "start": "2024-01-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:rvs-afdeling",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:voorzitter-college-van-procureurs-generaal-rinus-otte",
+      "person": "person:rinus-otte",
+      "position": "pos:voorzitter-college-van-procureurs-generaal",
+      "seat": null,
+      "start": "2023-06-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:om-otte-herbenoeming",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:procureur-generaal-lid-college-rinus-otte",
+      "person": "person:rinus-otte",
+      "position": "pos:procureur-generaal-lid-college",
+      "seat": null,
+      "start": "2016-03-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:om-otte-herbenoeming",
+        "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "tenure:procureur-generaal-lid-college-guus-schram",
+      "person": "person:guus-schram",
+      "position": "pos:procureur-generaal-lid-college",
+      "seat": null,
+      "start": "2022-10-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:om-schram",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:procureur-generaal-lid-college-frederieke-damme",
+      "person": "person:frederieke-damme",
+      "position": "pos:procureur-generaal-lid-college",
+      "seat": null,
+      "start": "2023-01-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:om-damme",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:procureur-generaal-lid-college-sue-preenen",
+      "person": "person:sue-preenen",
+      "position": "pos:procureur-generaal-lid-college",
+      "seat": null,
+      "start": "2023-07-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:om-preenen",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:korpschef-politie-janny-knol",
+      "person": "person:janny-knol",
+      "position": "pos:korpschef-politie",
+      "seat": null,
+      "start": "2024-03-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd-bij-kb",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:ro-korpschef",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:directeur-generaal-dji-wim-saris",
+      "person": "person:wim-saris",
+      "position": "pos:dienst-justitiele-inrichtingen-directeur-generaal",
+      "seat": null,
+      "start": "2022-05-01",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:dji-saris",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    }
+  ],
+  "memberships": [],
+  "relations": [
+    {
+      "id": "rel:dept-head-president-hoge-raad",
+      "from": "pos:president-hoge-raad",
+      "to": "org:hoge-raad",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:hr-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-procureur-generaal-hoge-raad",
+      "from": "pos:procureur-generaal-hoge-raad",
+      "to": "org:parket-bij-de-hoge-raad",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:hr-parket",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-gerechtshof-amsterdam",
+      "from": "pos:president-gerechtshof-amsterdam",
+      "to": "org:gerechtshof-amsterdam",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-hof-amsterdam-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-gerechtshof-arnhem-leeuwarden",
+      "from": "pos:president-gerechtshof-arnhem-leeuwarden",
+      "to": "org:gerechtshof-arnhem-leeuwarden",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-hof-arnhem-leeuwarden-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-gerechtshof-den-haag",
+      "from": "pos:president-gerechtshof-den-haag",
+      "to": "org:gerechtshof-den-haag",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-hof-den-haag-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-gerechtshof-s-hertogenbosch",
+      "from": "pos:president-gerechtshof-s-hertogenbosch",
+      "to": "org:gerechtshof-s-hertogenbosch",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-hof-s-hertogenbosch-register",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-rechtbank-amsterdam",
+      "from": "pos:president-rechtbank-amsterdam",
+      "to": "org:rechtbank-amsterdam",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-rb-amsterdam-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-rechtbank-den-haag",
+      "from": "pos:president-rechtbank-den-haag",
+      "to": "org:rechtbank-den-haag",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-rb-den-haag-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-rechtbank-gelderland",
+      "from": "pos:president-rechtbank-gelderland",
+      "to": "org:rechtbank-gelderland",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-rb-gelderland-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-rechtbank-limburg",
+      "from": "pos:president-rechtbank-limburg",
+      "to": "org:rechtbank-limburg",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-rb-limburg-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-rechtbank-midden-nederland",
+      "from": "pos:president-rechtbank-midden-nederland",
+      "to": "org:rechtbank-midden-nederland",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-rb-midden-nederland-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-rechtbank-noord-holland",
+      "from": "pos:president-rechtbank-noord-holland",
+      "to": "org:rechtbank-noord-holland",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-rb-noord-holland-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-rechtbank-noord-nederland",
+      "from": "pos:president-rechtbank-noord-nederland",
+      "to": "org:rechtbank-noord-nederland",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-rb-noord-nederland-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-rechtbank-oost-brabant",
+      "from": "pos:president-rechtbank-oost-brabant",
+      "to": "org:rechtbank-oost-brabant",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-rb-oost-brabant-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-rechtbank-overijssel",
+      "from": "pos:president-rechtbank-overijssel",
+      "to": "org:rechtbank-overijssel",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-rb-overijssel-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-rechtbank-rotterdam",
+      "from": "pos:president-rechtbank-rotterdam",
+      "to": "org:rechtbank-rotterdam",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-rb-rotterdam-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-rechtbank-zeeland-west-brabant",
+      "from": "pos:president-rechtbank-zeeland-west-brabant",
+      "to": "org:rechtbank-zeeland-west-brabant",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-rb-zeeland-west-brabant-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-centrale-raad-van-beroep",
+      "from": "pos:president-centrale-raad-van-beroep",
+      "to": "org:centrale-raad-van-beroep",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-crvb-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-president-college-van-beroep-voor-het-bedrijfsleven",
+      "from": "pos:president-college-van-beroep-voor-het-bedrijfsleven",
+      "to": "org:college-van-beroep-voor-het-bedrijfsleven",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-cbb-samenstelling",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-voorzitter-raad-voor-de-rechtspraak",
+      "from": "pos:voorzitter-raad-voor-de-rechtspraak",
+      "to": "org:raad-voor-de-rechtspraak",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-rvr-samenstelling",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-voorzitter-afdeling-bestuursrechtspraak",
+      "from": "pos:voorzitter-afdeling-bestuursrechtspraak",
+      "to": "org:afdeling-bestuursrechtspraak-raad-van-state",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rvs-afdeling",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-voorzitter-college-van-procureurs-generaal",
+      "from": "pos:voorzitter-college-van-procureurs-generaal",
+      "to": "org:openbaar-ministerie",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:om-college",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-korpschef-politie",
+      "from": "pos:korpschef-politie",
+      "to": "org:politie",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:politiewet-2012",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-dienst-justitiele-inrichtingen-directeur-generaal",
+      "from": "pos:dienst-justitiele-inrichtingen-directeur-generaal",
+      "to": "org:dienst-justitiele-inrichtingen",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:dji-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-rechterlijk-lid-raad-voor-de-rechtspraak",
+      "from": "pos:rechterlijk-lid-raad-voor-de-rechtspraak",
+      "to": "org:raad-voor-de-rechtspraak",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-rvr-samenstelling",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-niet-rechterlijk-lid-raad-voor-de-rechtspraak",
+      "from": "pos:niet-rechterlijk-lid-raad-voor-de-rechtspraak",
+      "to": "org:raad-voor-de-rechtspraak",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rs-rvr-samenstelling",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:office-procureur-generaal-lid-college",
+      "from": "pos:procureur-generaal-lid-college",
+      "to": "org:openbaar-ministerie",
+      "type": "office",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:om-college",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-parket-bij-de-hoge-raad",
+      "from": "org:parket-bij-de-hoge-raad",
+      "to": "org:hoge-raad",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:hr-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-afdeling-bestuursrechtspraak",
+      "from": "org:afdeling-bestuursrechtspraak-raad-van-state",
+      "to": "org:raad-van-state",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rvs-afdeling",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-politie",
+      "from": "org:politie",
+      "to": "org:ministerie-van-justitie-en-veiligheid",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:organisatiebesluit-jenv",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-openbaar-ministerie",
+      "from": "org:openbaar-ministerie",
+      "to": "org:ministerie-van-justitie-en-veiligheid",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-ro",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-dji",
+      "from": "org:dienst-justitiele-inrichtingen",
+      "to": "org:ministerie-van-justitie-en-veiligheid",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:organisatiebesluit-jenv",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-gerechtshof-amsterdam",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:gerechtshof-amsterdam",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-gerechtshof-arnhem-leeuwarden",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:gerechtshof-arnhem-leeuwarden",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-gerechtshof-den-haag",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:gerechtshof-den-haag",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-gerechtshof-s-hertogenbosch",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:gerechtshof-s-hertogenbosch",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-rechtbank-amsterdam",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:rechtbank-amsterdam",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-rechtbank-den-haag",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:rechtbank-den-haag",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-rechtbank-gelderland",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:rechtbank-gelderland",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-rechtbank-limburg",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:rechtbank-limburg",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-rechtbank-midden-nederland",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:rechtbank-midden-nederland",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-rechtbank-noord-holland",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:rechtbank-noord-holland",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-rechtbank-noord-nederland",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:rechtbank-noord-nederland",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-rechtbank-oost-brabant",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:rechtbank-oost-brabant",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-rechtbank-overijssel",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:rechtbank-overijssel",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-rechtbank-rotterdam",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:rechtbank-rotterdam",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-rechtbank-zeeland-west-brabant",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:rechtbank-zeeland-west-brabant",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-centrale-raad-van-beroep",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:centrale-raad-van-beroep",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-rvr-college-van-beroep-voor-het-bedrijfsleven",
+      "from": "org:raad-voor-de-rechtspraak",
+      "to": "org:college-van-beroep-voor-het-bedrijfsleven",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "bestuur en toezicht bedrijfsvoering"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:rechtspraak-organisatie",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    }
+  ],
+  "topics": [],
+  "budgets": [],
+  "sources": [
+    {
+      "id": "src:wet-ro",
+      "url": "https://wetten.overheid.nl/BWBR0001830",
+      "title": "Wet op de rechterlijke organisatie",
+      "publisher": "Overheid.nl (wetten.overheid.nl)",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:wet-rechterlijke-indeling",
+      "url": "https://wetten.overheid.nl/BWBR0002080",
+      "title": "Wet op de rechterlijke indeling",
+      "publisher": "Overheid.nl (wetten.overheid.nl)",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:beroepswet",
+      "url": "https://wetten.overheid.nl/BWBR0002170",
+      "title": "Beroepswet",
+      "publisher": "Overheid.nl (wetten.overheid.nl)",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:wet-bestuursrechtspraak-bedrijfsorganisatie",
+      "url": "https://wetten.overheid.nl/BWBR0002144",
+      "title": "Wet bestuursrechtspraak bedrijfsorganisatie",
+      "publisher": "Overheid.nl (wetten.overheid.nl)",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:wet-raad-van-state",
+      "url": "https://wetten.overheid.nl/BWBR0002367",
+      "title": "Wet op de Raad van State",
+      "publisher": "Overheid.nl (wetten.overheid.nl)",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:politiewet-2012",
+      "url": "https://wetten.overheid.nl/BWBR0031788",
+      "title": "Politiewet 2012",
+      "publisher": "Overheid.nl (wetten.overheid.nl)",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:organisatiebesluit-jenv",
+      "url": "https://wetten.overheid.nl/BWBR0040293",
+      "title": "Organisatiebesluit Ministerie van Justitie en Veiligheid",
+      "publisher": "Overheid.nl (wetten.overheid.nl)",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:penitentiaire-beginselenwet",
+      "url": "https://wetten.overheid.nl/BWBR0009709",
+      "title": "Penitentiaire beginselenwet",
+      "publisher": "Overheid.nl (wetten.overheid.nl)",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:mandaatbesluit-dg-dji-2026",
+      "url": "https://wetten.overheid.nl/BWBR0052143",
+      "title": "Mandaatbesluit directeur-generaal DJI 2026",
+      "publisher": "Overheid.nl (wetten.overheid.nl)",
+      "type": "wet",
+      "published": null,
+      "retrieved": "2026-09-17",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:hr-organisatie",
+      "url": "https://www.hogeraad.nl/over/organisatie/",
+      "title": "Organisatie",
+      "publisher": "Hoge Raad der Nederlanden",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:hr-hoge-raad",
+      "url": "https://www.hogeraad.nl/hoge-raad/",
+      "title": "De Hoge Raad",
+      "publisher": "Hoge Raad der Nederlanden",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:hr-de-groot",
+      "url": "https://www.hogeraad.nl/hoge-raad/kamers/dineke-de-groot/",
+      "title": "G. (Dineke) de Groot, president",
+      "publisher": "Hoge Raad der Nederlanden",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:hr-parket",
+      "url": "https://www.hogeraad.nl/parket/",
+      "title": "Het parket",
+      "publisher": "Hoge Raad der Nederlanden",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:hr-bleichrodt",
+      "url": "https://www.hogeraad.nl/parket/edwin-bleichrodt/",
+      "title": "F.W. (Edwin) Bleichrodt",
+      "publisher": "Hoge Raad der Nederlanden",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:hr-bleichrodt-installatie",
+      "url": "https://www.hogeraad.nl/actueel/nieuwsoverzicht/2021/september/edwin-bleichrodt-geinstalleerd-procureur-generaal-hoge-raad/",
+      "title": "Edwin Bleichrodt geinstalleerd als procureur-generaal bij de Hoge Raad",
+      "publisher": "Hoge Raad der Nederlanden",
+      "type": "news",
+      "published": "2021-09-02",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rechtspraak-organisatie",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie",
+      "title": "Organisatie Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rechtspraak-rechtbanken",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken",
+      "title": "Rechtbanken",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rechtspraak-gerechtshoven",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven",
+      "title": "Gerechtshoven",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-amsterdam-organisatie",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-amsterdam/over-de-rechtbank/organisatie",
+      "title": "Organisatie | Rechtbank Amsterdam | Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-den-haag-organisatie",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-den-haag/over-de-rechtbank/organisatie",
+      "title": "Organisatie | Rechtbank Den Haag | Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-gelderland-organisatie",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-gelderland/over-de-rechtbank/organisatie",
+      "title": "Organisatie | Rechtbank Gelderland | Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-limburg-organisatie",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-limburg/over-de-rechtbank/organisatie",
+      "title": "Organisatie | Rechtbank Limburg | Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-midden-nederland-organisatie",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-midden-nederland/over-de-rechtbank/organisatie",
+      "title": "Organisatie | Rechtbank Midden-Nederland | Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-noord-holland-organisatie",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-noord-holland/over-de-rechtbank/organisatie",
+      "title": "Organisatie | Rechtbank Noord-Holland | Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-noord-nederland-organisatie",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-noord-nederland/over-de-rechtbank/organisatie",
+      "title": "Organisatie | Rechtbank Noord-Nederland | Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-oost-brabant-organisatie",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-oost-brabant/over-de-rechtbank/organisatie",
+      "title": "Organisatie | Rechtbank Oost-Brabant | Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-overijssel-organisatie",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-overijssel/over-de-rechtbank/organisatie",
+      "title": "Organisatie | Rechtbank Overijssel | Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-rotterdam-organisatie",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-rotterdam/over-de-rechtbank/organisatie",
+      "title": "Organisatie | Rechtbank Rotterdam | Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-zeeland-west-brabant-organisatie",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-zeeland-west-brabant/locatie-bestuur-en-organisatie",
+      "title": "Bestuur en organisatie | Rechtbank Zeeland-West-Brabant | Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-hof-amsterdam-organisatie",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven/gerechtshof-amsterdam/over-het-gerechtshof/organisatie",
+      "title": "Organisatie | Gerechtshof Amsterdam | Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-hof-arnhem-leeuwarden-organisatie",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven/gerechtshof-arnhem-leeuwarden/over-het-gerechtshof/organisatie",
+      "title": "Organisatie | Gerechtshof Arnhem-Leeuwarden | Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-hof-den-haag-organisatie",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven/gerechtshof-den-haag/over-het-gerechtshof/organisatie",
+      "title": "Organisatie | Gerechtshof Den Haag | Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-hof-s-hertogenbosch-register",
+      "url": "https://organisaties.overheid.nl/28039500/Gerechtshof_s-Hertogenbosch",
+      "title": "Contactgegevens Gerechtshof 's-Hertogenbosch",
+      "publisher": "Register van Overheidsorganisaties (KOOP)",
+      "type": "register",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-midden-nederland-register",
+      "url": "https://organisaties.overheid.nl/28048450/Rechtbank_Midden-Nederland",
+      "title": "Contactgegevens Rechtbank Midden-Nederland",
+      "publisher": "Register van Overheidsorganisaties (KOOP)",
+      "type": "register",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-hof-amsterdam-de-greeve",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven/gerechtshof-amsterdam/nieuws/2021/06/eveline-de-greeve-per-1-januari-2022-nieuwe-president-hof-amsterdam",
+      "title": "Eveline de Greeve per 1 januari 2022 nieuwe president hof Amsterdam",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2021-06-25",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-hof-arnhem-leeuwarden-bongers",
+      "url": "https://www.rechtspraak.nl/Organisatie-en-contact/Organisatie/Gerechtshoven/Gerechtshof-Arnhem-Leeuwarden/Nieuws/Paginas/Eddie-Bongers-is-onze-nieuwe-president.aspx",
+      "title": "Eddie Bongers nieuwe president gerechtshof Arnhem-Leeuwarden",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2024-07-12",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-hof-den-haag-koek",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven/gerechtshof-den-haag/nieuws/2018/02/marieke-koek-nieuwe-president-gerechtshof-den-haag",
+      "title": "Marieke Koek nieuwe president gerechtshof Den Haag",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2018-02-23",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-hof-s-hertogenbosch-tangenberg",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven/gerechtshof-s-hertogenbosch/nieuws/2021/06/gerard-tangenberg-nieuwe-president-gerechtshof-s-hertogenbosch",
+      "title": "Gerard Tangenberg nieuwe president gerechtshof 's-Hertogenbosch",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2021-06-25",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-amsterdam-van-meegen",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-amsterdam/nieuws/2023/08/bart-van-meegen-nieuwe-president-rechtbank-amsterdam",
+      "title": "Bart van Meegen nieuwe president rechtbank Amsterdam",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2023-08-25",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-den-haag-de-lange",
+      "url": "https://organisaties.overheid.nl/28753257/mr_RG_de_Lange-Tegelaar/",
+      "title": "Contactgegevens President en voorzitter Rechtbank Den Haag",
+      "publisher": "Register van Overheidsorganisaties (KOOP)",
+      "type": "register",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-gelderland-bokx",
+      "url": "https://www.rijksoverheid.nl/actueel/nieuws/2025/06/20/benoeming-president-rechtbank-gelderland",
+      "title": "Benoeming president rechtbank Gelderland",
+      "publisher": "Rijksoverheid",
+      "type": "news",
+      "published": "2025-06-20",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-limburg-bijker",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-limburg/nieuws/2021/06/martina-bijker-nieuwe-president-rechtbank-limburg",
+      "title": "Martina Bijker nieuwe president rechtbank Limburg",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2021-06-25",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-midden-nederland-messer",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-midden-nederland/nieuws/2021/06/patricia-messer-dinnissen-nieuwe-president-rechtbank-midden-nederland-per-1-januari-2022",
+      "title": "Patricia Messer-Dinnissen nieuwe president rechtbank Midden-Nederland per 1 januari 2022",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2021-06-25",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-noord-holland-moors",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-noord-holland/nieuws/2021/11/jan-moors-nieuwe-president-rechtbank-noord-holland",
+      "title": "Jan Moors nieuwe president rechtbank Noord-Holland",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2021-11-25",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-noord-nederland-gerding",
+      "url": "https://www.rtvdrenthe.nl/nieuws/16621028/andrea-gerding-krijgt-de-leiding-over-rechtbank-noord-nederland",
+      "title": "Andrea Gerding krijgt de leiding over rechtbank Noord-Nederland",
+      "publisher": "RTV Drenthe",
+      "type": "news",
+      "published": "2024-06-24",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-oost-brabant-vierveijzer",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-oost-brabant/nieuws/2026/08/ilka-peskens-benoemd-tot-bestuurder-rechtbank-oost-brabant",
+      "title": "Ilka Peskens benoemd tot bestuurder rechtbank Oost-Brabant",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2026-08-20",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-overijssel-van-der-winkel",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-overijssel/nieuws/2024/02/fred-van-der-winkel-nieuwe-president-rechtbank-overijssel",
+      "title": "Fred van der Winkel nieuwe president rechtbank Overijssel",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2024-02-07",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-rotterdam-mendlik",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-rotterdam/nieuws/2021/06/julia-mendlik-per-1-januari-2022-nieuwe-president-rechtbank-rotterdam",
+      "title": "Julia Mendlik per 1 januari 2022 nieuwe president Rechtbank Rotterdam",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2021-06-25",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rb-zeeland-west-brabant-van-den-beld",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-zeeland-west-brabant/nieuws/2021/06/jasper-van-den-beld-nieuwe-president-rechtbank-zeeland-west-brabant",
+      "title": "Jasper van den Beld nieuwe president rechtbank Zeeland-West-Brabant",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2021-06-28",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-crvb-organisatie",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/centrale-raad-van-beroep/over-de-crvb/organisatie",
+      "title": "Organisatie | Centrale Raad van Beroep | Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-crvb-boeree",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/centrale-raad-van-beroep/nieuws/2025/11/judith-boeree-president-centrale-raad-van-beroep",
+      "title": "Judith Boeree president Centrale Raad van Beroep",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2025-11-01",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-crvb-avedissian",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/raad-voor-de-rechtspraak/nieuws/2017/12/takvor-avedissian-nieuwe-president-centrale-raad-van-beroep",
+      "title": "Takvor Avedissian nieuwe president Centrale Raad van Beroep",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2017-12-22",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-cbb-samenstelling",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/college-van-beroep-voor-het-bedrijfsleven/over-het-college-van-beroep-voor-het-bedrijfsleven/samenstelling-cbb",
+      "title": "Bestuur en rechters | College van Beroep voor het bedrijfsleven | Rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-cbb-schoneveld",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/college-van-beroep-voor-het-bedrijfsleven/nieuws/2026/05/mascha-schoneveld-nieuwe-president-college-van-beroep-voor-het-bedrijfsleven",
+      "title": "Mascha Schoneveld nieuwe president College van Beroep voor het bedrijfsleven",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2026-05-29",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-cbb-simons",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/raad-voor-de-rechtspraak/nieuws/2017/06/theo-simons-nieuwe-president-college-van-beroep-voor-het-bedrijfsleven",
+      "title": "Theo Simons nieuwe president College van Beroep voor het bedrijfsleven",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2017-06-16",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rvr-samenstelling",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/raad-voor-de-rechtspraak/over-de-raad-voor-de-rechtspraak/samenstelling-raad-voor-de-rechtspraak",
+      "title": "Samenstelling Raad voor de rechtspraak",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rvr-naves",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/raad-voor-de-rechtspraak/hc-naves",
+      "title": "Mr. H.C. Naves",
+      "publisher": "Rechtspraak",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rs-rvr-van-leest",
+      "url": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/raad-voor-de-rechtspraak/nieuws/2025/03/ministerraad-stemt-in-met-benoeming-nieuw-lid-raad",
+      "title": "Ministerraad stemt in met benoeming nieuw lid Raad",
+      "publisher": "Rechtspraak",
+      "type": "news",
+      "published": "2025-03-07",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rvs-afdeling",
+      "url": "https://www.raadvanstate.nl/overrvs/organisatie/afdeling/",
+      "title": "Afdeling bestuursrechtspraak | Raad van State",
+      "publisher": "Raad van State",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:rvs-uylenburg",
+      "url": "https://www.raadvanstate.nl/actueel/nieuws/augustus/rosa-uylenburg-voorzitter-bestuursrecht/",
+      "title": "Rosa Uylenburg wordt nieuwe voorzitter Afdeling bestuursrechtspraak",
+      "publisher": "Raad van State",
+      "type": "news",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Pagina opgehaald via zoekindex op 2026-09-18; de sectie zelf geeft de voorzitter en ingangsdatum weer."
+    },
+    {
+      "id": "src:om-college",
+      "url": "https://www.om.nl/organisatie/college-van-procureurs-generaal",
+      "title": "College van procureurs-generaal",
+      "publisher": "Openbaar Ministerie",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:om-otte-herbenoeming",
+      "url": "https://www.om.nl/actueel/nieuws/2026/04/24/herbenoeming-collegevoorzitter-rinus-otte",
+      "title": "Herbenoeming Collegevoorzitter Rinus Otte",
+      "publisher": "Openbaar Ministerie",
+      "type": "news",
+      "published": "2026-04-24",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:om-nieuw-college",
+      "url": "https://www.om.nl/actueel/nieuws/2023/06/01/nieuw-college-nieuwe-accenten",
+      "title": "Nieuw College, nieuwe accenten",
+      "publisher": "Openbaar Ministerie",
+      "type": "news",
+      "published": "2023-06-01",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:ro-bongers",
+      "url": "https://www.rijksoverheid.nl/actueel/nieuws/2024/07/12/benoeming-president-gerechtshof-arnhem-leeuwarden",
+      "title": "Benoeming president gerechtshof Arnhem-Leeuwarden",
+      "publisher": "Rijksoverheid",
+      "type": "news",
+      "published": "2024-07-12",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:om-schram",
+      "url": "https://www.om.nl/personen/collegeleden/guus-schram",
+      "title": "Mr. A.R.E. (Guus) Schram",
+      "publisher": "Openbaar Ministerie",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:om-damme",
+      "url": "https://www.om.nl/personen/collegeleden/frederieke-damme",
+      "title": "Mr. F.M. (Frederieke) Damme",
+      "publisher": "Openbaar Ministerie",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:om-preenen",
+      "url": "https://www.om.nl/personen/collegeleden/sue-preenen1",
+      "title": "Mr. S.J.S. (Sue) Preenen",
+      "publisher": "Openbaar Ministerie",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:politie-knol",
+      "url": "https://www.politie.nl/nieuws/2023/november/17/benoeming.html",
+      "title": "Janny Knol nieuwe korpschef",
+      "publisher": "Politie",
+      "type": "news",
+      "published": "2023-11-17",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "politie.nl blokkeert geautomatiseerd ophalen (HTTP 403 op 2026-09-18); inhoud bevestigd via de zoekindex en de gelijkluidende rijksoverheid-publicatie."
+    },
+    {
+      "id": "src:ro-korpschef",
+      "url": "https://www.rijksoverheid.nl/actueel/nieuws/2023/11/17/benoeming-korpschef-bij-de-politie",
+      "title": "Benoeming korpschef bij de politie",
+      "publisher": "Rijksoverheid",
+      "type": "news",
+      "published": "2023-11-17",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:dji-saris",
+      "url": "https://www.dji.nl/actueel/nieuws/2022/03/11/wim-saris-directeur-generaal-dienst-justitiele-inrichtingen",
+      "title": "Wim Saris directeur-generaal Dienst Justitiele Inrichtingen",
+      "publisher": "Dienst Justitiele Inrichtingen",
+      "type": "news",
+      "published": "2022-03-11",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:dji-organisatie",
+      "url": "https://www.dji.nl/organisatie",
+      "title": "Organisatie DJI",
+      "publisher": "Dienst Justitiele Inrichtingen",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    },
+    {
+      "id": "src:dji-besturing",
+      "url": "https://www.dji.nl/actueel/nieuws/2025/12/30/nieuwe-besturing-dji-per-1-januari-2026",
+      "title": "Nieuwe besturing DJI per 1 januari 2026",
+      "publisher": "Dienst Justitiele Inrichtingen",
+      "type": "news",
+      "published": "2025-12-30",
+      "retrieved": "2026-09-18",
+      "license": null,
+      "archiveUrl": null,
+      "notes": null
+    }
+  ],
+  "media": [],
+  "gaps": [
+    {
+      "what": "Exacte ingangsdatum van het voorzitterschap van de Raad voor de rechtspraak door Henk Naves",
+      "why": "De rechtspraakpagina noemt alleen 'sinds 2019'; een dagprecieze primaire bron (KB/Staatscourant) is niet opgehaald. De tenure gebruikt 2019-01-01 met confidence medium.",
+      "endpoint": "https://zoek.officielebekendmakingen.nl/",
+      "resume": "Zoek het benoemingsbesluit van Naves tot voorzitter in de Staatscourant en vervang de datum door de exacte ingangsdatum."
+    },
+    {
+      "what": "Maand-/dagnauwkeurige startdata van de leden van de Raad voor de rechtspraak (Naves rechterlijk lid, Sicking-Sluis, Euving, Kerkvliet)",
+      "why": "De samenstellingspagina noemt alleen maand en jaar ('sinds september 2018', 'sinds februari 2026', 'november 2023', 'oktober 2023'). Tenures gebruiken de eerste van de maand met confidence medium.",
+      "endpoint": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/raad-voor-de-rechtspraak/hc-naves",
+      "resume": "Vul de exacte benoemingsdata aan uit de benoemingsbesluiten in de Staatscourant."
+    },
+    {
+      "what": "Exacte ingangsdatum van het presidentschap van de rechtbank Den Haag door Robine de Lange-Tegelaar",
+      "why": "De live rechtspraakpagina bevestigt de functie maar noemt geen datum; de rijksoverheidspagina uit 2021 is niet meer bereikbaar. De tenure gebruikt 2022-01-01 met confidence medium.",
+      "endpoint": "https://zoek.officielebekendmakingen.nl/",
+      "resume": "Zoek het benoemingsbesluit van 25 juni 2021 in de Staatscourant en bevestig de ingangsdatum 1 januari 2022."
+    },
+    {
+      "what": "Startdatum van Andrea Gerding als president van de rechtbank Noord-Nederland",
+      "why": "De rechtspraakpagina noemt geen datum; de datum 1 september 2024 komt uit regionale nieuwsberichtgeving (RTV Drenthe), niet uit een primaire bron.",
+      "endpoint": "https://zoek.officielebekendmakingen.nl/",
+      "resume": "Bevestig de benoeming en ingangsdatum via een KB/Staatscourant of een rechtspraaknieuwsbericht."
+    },
+    {
+      "what": "Wet op de rechterlijke organisatie BES als wettelijke basis voor de rechtspraak in Caribisch Nederland",
+      "why": "Er is geen BWB-pagina met die citeertitel gevonden via wetten.overheid.nl en de repository-SRU gaf geen treffer; de BES-rechtspraak lijkt in aparte BES-wetten te zijn geregeld.",
+      "endpoint": "https://wetten.overheid.nl/zoeken",
+      "resume": "Zoek de juiste citeertitel en het BWB-id van de BES-rechterlijke-organisatiewet en leg de wettelijke basis vast voor de Caribische rechtspraak."
+    },
+    {
+      "what": "Publicatie van de bestuurssamenstelling van het gerechtshof 's-Hertogenbosch op rechtspraak.nl",
+      "why": "rechtspraak.nl publiceert voor dit hof geen bestuurspagina; de samenstelling is bevestigd via het Register van Overheidsorganisaties (KOOP).",
+      "endpoint": "https://organisaties.overheid.nl/28039500/Gerechtshof_s-Hertogenbosch",
+      "resume": "Controleer bij een volgende ronde of rechtspraak.nl een bestuurspagina voor dit hof toevoegt en gebruik die als primaire bron."
+    },
+    {
+      "what": "Directe fetch van politie.nl",
+      "why": "politie.nl blokkeert geautomatiseerd ophalen met HTTP 403 (ook in de eerdere run). De korpschef is bevestigd via de zoekindex en de gelijkluidende rijksoverheidspublicatie.",
+      "endpoint": "https://www.politie.nl/over-de-politie/korpschef.html",
+      "resume": "Probeer een door de politie aangeboden open endpoint of RSS-feed, of accepteer de rijksoverheidspublicatie als bron voor de korpschef."
+    },
+    {
+      "what": "Lijst van de regionale en landelijke eenheden van de politie",
+      "why": "Politiewet 2012 art. 25 noemt regionale eenheden en een of meer landelijke eenheden, maar de concrete eenheden staan in een algemene maatregel van bestuur die niet is opgehaald; politie.nl is geblokkeerd.",
+      "endpoint": "https://wetten.overheid.nl/BWBR0031788",
+      "resume": "Haal het Besluit regionale eenheden politie op en vul de eenheden als organisaties onder org:politie aan."
+    },
+    {
+      "what": "Parketten van het Openbaar Ministerie als afzonderlijke organisaties",
+      "why": "Het OM noemt tien arrondissementsparketten, het landelijk parket, het functioneel parket, het parket centrale verwerking en het ressortsparket, maar deze zijn in dit bestand niet als aparte organisaties gemodelleerd.",
+      "endpoint": "https://www.om.nl/organisatie",
+      "resume": "Modelleer de parketten als organisaties onder org:openbaar-ministerie met een part_of-relatie en hun hoofden."
+    },
+    {
+      "what": "Afdeling bestuursrechtspraak-pagina op hogeraad.nl/raadvanstate.nl: directe fetch",
+      "why": "De pagina van de Raad van State is op 2026-09-18 wel opgehaald, maar eerdere probe gaf 403; de voorzitter en ingangsdatum zijn uit de live pagina gehaald.",
+      "endpoint": "https://www.raadvanstate.nl/overrvs/organisatie/afdeling/",
+      "resume": "Herhaal de fetch bij de volgende refresh; bij een 403 de afdeling advisering of het jaarverslag als alternatief gebruiken."
+    }
+  ]
+}
