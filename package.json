@@ -1,0 +1,17 @@
+{
+  "name": "nl-overheid-graph",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Public, source-backed, explorable graph of the Dutch state. Monorepo root: dataset, pipelines, shared contract, clients.",
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "research:check": "node scripts/validate.mjs --research",
+    "merge": "node pipelines/merge.mjs",
+    "diff": "node pipelines/diff.mjs",
+    "test": "node --test pipelines/"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -203,8 +203,9 @@ const srcIds = index("sources.json");
 function checkUniqueIds(file) {
   const seen = new Map();
   for (const item of byFile[file]) {
-    if (seen.has(item.id)) fail(`${file}`, `duplicate id ${item.id}`);
-    seen.set(item.id, true);
+    const key = file === "budgets.json" ? `${item.organization}|${item.fiscalYear}` : item.id;
+    if (seen.has(key)) fail(`${file}`, `duplicate id ${key}`);
+    seen.set(key, true);
   }
 }
 for (const [file] of DATA_MAP) if (file !== "governments.json") checkUniqueIds(file);
