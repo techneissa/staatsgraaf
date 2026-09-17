@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "position.schema.json",
+  "$ref": "#/$defs/position",
+  "$defs": {
+    "position": {
+      "type": "object",
+      "required": ["id", "slug", "title", "organization", "type", "sources"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^pos:[a-z0-9][a-z0-9-]*$" },
+        "slug": { "$ref": "common.schema.json#/$defs/slug" },
+        "title": { "type": "string", "minLength": 1 },
+        "organization": { "type": "string", "pattern": "^org:" },
+        "type": {
+          "type": "string",
+          "enum": ["department", "elected", "commission", "advisory", "dept_head", "constituency"]
+        },
+        "fillMethod": {
+          "type": ["string", "null"],
+          "enum": [
+            "verkiezing",
+            "koninklijk-besluit",
+            "benoeming-door-college",
+            "benoeming-door-minister",
+            "van-rechtswege",
+            "cooptatie",
+            null
+          ]
+        },
+        "entryModes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["benoemd", "benoemd-bij-kb", "gekozen", "waarnemend", "plaatsvervangend", "van-rechtswege"]
+          }
+        },
+        "termLengthMonths": { "$ref": "common.schema.json#/$defs/nonNegativeInteger" },
+        "seatsCount": { "$ref": "common.schema.json#/$defs/nonNegativeInteger" },
+        "legalBasis": { "$ref": "common.schema.json#/$defs/legalRef" },
+        "exOfficioOf": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^org:" }
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "common.schema.json#/$defs/sourceRef" }
+        }
+      }
+    }
+  }
+}

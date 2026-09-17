@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "person.schema.json",
+  "$ref": "#/$defs/person",
+  "$defs": {
+    "person": {
+      "type": "object",
+      "required": ["id", "slug", "name", "sources"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^person:[a-z0-9][a-z0-9-]*$" },
+        "slug": { "$ref": "common.schema.json#/$defs/slug" },
+        "name": { "type": "string", "minLength": 1 },
+        "aliases": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "portrait": { "$ref": "common.schema.json#/$defs/mediaRef" },
+        "birthDate": { "$ref": "common.schema.json#/$defs/isoDateOrNull" },
+        "party": { "type": ["string", "null"], "minLength": 1 },
+        "wikipedia": { "type": ["string", "null"], "pattern": "^https?://" },
+        "wikidata": { "type": ["string", "null"], "pattern": "^Q[0-9]+$" },
+        "description": { "type": ["string", "null"], "minLength": 1 },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "common.schema.json#/$defs/sourceRef" }
+        }
+      }
+    }
+  }
+}

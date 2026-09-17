@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "common.schema.json",
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$"
+    },
+    "isoDate": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "format": "date"
+    },
+    "isoDateOrNull": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "format": "date"
+    },
+    "isoDateTime": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T",
+      "format": "date-time"
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    },
+    "sourceRef": {
+      "type": "object",
+      "required": ["source", "retrieved", "confidence"],
+      "additionalProperties": false,
+      "properties": {
+        "source": { "type": "string", "pattern": "^src:" },
+        "retrieved": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "confidence": { "$ref": "common.schema.json#/$defs/confidence" }
+      }
+    },
+    "legalRef": {
+      "type": "object",
+      "required": ["label", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "label": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "pattern": "^https?://" }
+      }
+    },
+    "orgRef": {
+      "type": ["string", "null"],
+      "pattern": "^org:"
+    },
+    "posRef": {
+      "type": ["string", "null"],
+      "pattern": "^pos:"
+    },
+    "personRef": {
+      "type": ["string", "null"],
+      "pattern": "^person:"
+    },
+    "tenureRef": {
+      "type": ["string", "null"],
+      "pattern": "^tenure:"
+    },
+    "mediaRef": {
+      "type": ["string", "null"],
+      "pattern": "^media:"
+    },
+    "srcRef": {
+      "type": ["string", "null"],
+      "pattern": "^src:"
+    },
+    "nonNegativeInteger": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    }
+  }
+}

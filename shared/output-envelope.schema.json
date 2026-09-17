@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nl-overheid-graph.example/shared/output-envelope.schema.json",
+  "title": "Workstream output envelope",
+  "description": "Every research workstream writes exactly one JSON file matching this envelope. Entity arrays carry records shaped by the canonical schemas in schema/v1/ as named in x-validate-against. Facts without a source are dropped at merge; every non-trivial fact carries a source (URL, retrieval date, confidence) or is listed in gaps.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "workstream",
+    "generatedAt",
+    "endpointsUsed",
+    "organizations",
+    "positions",
+    "people",
+    "tenures",
+    "memberships",
+    "relations",
+    "topics",
+    "budgets",
+    "sources",
+    "media",
+    "gaps"
+  ],
+  "properties": {
+    "workstream": {
+      "type": "string",
+      "pattern": "^[A-O]$",
+      "description": "Single uppercase workstream letter from docs/05-research-workstreams.md"
+    },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "endpointsUsed": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["url", "retrieved"],
+        "properties": {
+          "url": { "type": "string", "format": "uri" },
+          "retrieved": { "type": "string", "format": "date" },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "organizations": {
+      "type": "array",
+      "x-validate-against": "schema/v1/organization.schema.json",
+      "items": { "type": "object" }
+    },
+    "positions": {
+      "type": "array",
+      "x-validate-against": "schema/v1/position.schema.json",
+      "items": { "type": "object" }
+    },
+    "people": {
+      "type": "array",
+      "x-validate-against": "schema/v1/person.schema.json",
+      "items": { "type": "object" }
+    },
+    "tenures": {
+      "type": "array",
+      "x-validate-against": "schema/v1/tenure.schema.json",
+      "items": { "type": "object" }
+    },
+    "memberships": {
+      "type": "array",
+      "x-validate-against": "schema/v1/membership.schema.json",
+      "items": { "type": "object" }
+    },
+    "relations": {
+      "type": "array",
+      "x-validate-against": "schema/v1/relation.schema.json",
+      "items": { "type": "object" }
+    },
+    "topics": {
+      "type": "array",
+      "x-validate-against": "schema/v1/topic.schema.json",
+      "items": { "type": "object" }
+    },
+    "budgets": {
+      "type": "array",
+      "x-validate-against": "schema/v1/budget.schema.json",
+      "items": { "type": "object" }
+    },
+    "sources": {
+      "type": "array",
+      "x-validate-against": "schema/v1/source.schema.json",
+      "items": { "type": "object" }
+    },
+    "media": {
+      "type": "array",
+      "x-validate-against": "schema/v1/media.schema.json",
+      "items": { "type": "object" }
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["what", "why", "endpoint", "resume"],
+        "properties": {
+          "what": { "type": "string", "description": "The missing fact or unfilled entity" },
+          "why": { "type": "string", "description": "Why it could not be confirmed (blocked, not published, ambiguous)" },
+          "endpoint": { "type": "string", "description": "The URL or register where the gap can be filled" },
+          "resume": { "type": "string", "description": "What a later run must do to fill it" }
+        }
+      }
+    }
+  }
+}

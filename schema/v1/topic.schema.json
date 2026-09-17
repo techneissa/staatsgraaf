@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "topic.schema.json",
+  "$ref": "#/$defs/topic",
+  "$defs": {
+    "topic": {
+      "type": "object",
+      "required": ["id", "slug", "name", "organizations"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^topic:[a-z0-9][a-z0-9-]*$" },
+        "slug": { "$ref": "common.schema.json#/$defs/slug" },
+        "name": { "type": "string", "minLength": 1 },
+        "description": { "type": ["string", "null"], "minLength": 1 },
+        "organizations": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^org:" }
+        },
+        "positions": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^pos:" }
+        },
+        "keywords": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "trending": { "type": "boolean" }
+      }
+    }
+  }
+}

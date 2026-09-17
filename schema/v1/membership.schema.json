@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "membership.schema.json",
+  "$ref": "#/$defs/membership",
+  "$defs": {
+    "membership": {
+      "type": "object",
+      "required": ["id", "organization", "person", "start", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^membership:[a-z0-9][a-z0-9-]*$" },
+        "organization": { "type": "string", "pattern": "^org:" },
+        "person": { "type": "string", "pattern": "^person:" },
+        "seatNumber": { "$ref": "common.schema.json#/$defs/nonNegativeInteger" },
+        "fractie": { "type": ["string", "null"], "minLength": 1 },
+        "start": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "end": { "$ref": "common.schema.json#/$defs/isoDateOrNull" },
+        "source": { "$ref": "common.schema.json#/$defs/sourceRef" }
+      }
+    }
+  }
+}

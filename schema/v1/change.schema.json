@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "change.schema.json",
+  "$ref": "#/$defs/change",
+  "$defs": {
+    "change": {
+      "type": "object",
+      "required": ["id", "date", "kind", "summary", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^change:[a-z0-9][a-z0-9-]*$" },
+        "date": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "kind": {
+          "type": "string",
+          "enum": ["tenure-between", "appointment", "departure", "structural", "vacancy", "rename", "move"]
+        },
+        "position": { "$ref": "common.schema.json#/$defs/posRef" },
+        "organization": { "$ref": "common.schema.json#/$defs/orgRef" },
+        "out": {
+          "type": "object",
+          "required": ["tenure", "person", "label"],
+          "additionalProperties": false,
+          "properties": {
+            "tenure": { "$ref": "common.schema.json#/$defs/tenureRef" },
+            "person": { "$ref": "common.schema.json#/$defs/personRef" },
+            "label": { "type": "string" }
+          }
+        },
+        "in": {
+          "type": "object",
+          "required": ["tenure", "person", "label"],
+          "additionalProperties": false,
+          "properties": {
+            "tenure": { "$ref": "common.schema.json#/$defs/tenureRef" },
+            "person": { "$ref": "common.schema.json#/$defs/personRef" },
+            "label": { "type": "string" }
+          }
+        },
+        "summary": { "type": "string", "minLength": 1 },
+        "source": { "$ref": "common.schema.json#/$defs/sourceRef" }
+      }
+    }
+  }
+}

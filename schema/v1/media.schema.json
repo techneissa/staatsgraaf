@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "media.schema.json",
+  "$ref": "#/$defs/media",
+  "$defs": {
+    "media": {
+      "type": "object",
+      "required": ["id", "url", "type", "license", "credit", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^media:[a-z0-9][a-z0-9-]*$" },
+        "url": { "type": "string", "pattern": "^https?://" },
+        "type": { "type": "string", "enum": ["portrait", "logo", "photo"] },
+        "license": { "type": "string", "minLength": 1 },
+        "credit": { "type": "string", "minLength": 1 },
+        "author": { "type": ["string", "null"], "minLength": 1 },
+        "width": { "$ref": "common.schema.json#/$defs/nonNegativeInteger" },
+        "height": { "$ref": "common.schema.json#/$defs/nonNegativeInteger" },
+        "source": { "type": "string", "pattern": "^src:" }
+      }
+    }
+  }
+}

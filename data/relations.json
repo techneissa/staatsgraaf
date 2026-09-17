@@ -1,0 +1,366 @@
+[
+  {
+    "id": "rel:office-staatssecretaris-van-infrastructuur-en-waterstaat",
+    "from": "pos:staatssecretaris-van-infrastructuur-en-waterstaat",
+    "to": "org:ministerie-van-infrastructuur-en-waterstaat",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-annet-bertram",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-asiel-en-migratie",
+    "from": "pos:minister-van-asiel-en-migratie",
+    "to": "org:ministerie-van-justitie-en-veiligheid",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-bart-van-den-brink",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-staatssecretaris-van-justitie-en-veiligheid",
+    "from": "pos:staatssecretaris-van-justitie-en-veiligheid",
+    "to": "org:ministerie-van-justitie-en-veiligheid",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-claudia-van-bruggen",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-justitie-en-veiligheid",
+    "from": "pos:minister-van-justitie-en-veiligheid",
+    "to": "org:ministerie-van-justitie-en-veiligheid",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-david-van-weel",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-staatssecretaris-van-defensie",
+    "from": "pos:staatssecretaris-van-defensie",
+    "to": "org:ministerie-van-defensie",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-derk-boswijk",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-defensie",
+    "from": "pos:minister-van-defensie",
+    "to": "org:ministerie-van-defensie",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-dilan-yesilgoz-zegerius",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-staatssecretaris-van-financien",
+    "from": "pos:staatssecretaris-van-financien",
+    "to": "org:ministerie-van-financien",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-eelco-eerenberg",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-financien",
+    "from": "pos:minister-van-financien",
+    "to": "org:ministerie-van-financien",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-eelco-heinen",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-volkshuisvesting-en-ruimtelijke-ordening",
+    "from": "pos:minister-van-volkshuisvesting-en-ruimtelijke-ordening",
+    "to": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-elanor-boekholt-osullivan",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-staatssecretaris-koninkrijksrelaties-en-slagvaardige-overheid",
+    "from": "pos:staatssecretaris-koninkrijksrelaties-en-slagvaardige-overheid",
+    "to": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-eric-van-der-burg",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-sociale-zaken-en-werkgelegenheid",
+    "from": "pos:minister-van-sociale-zaken-en-werkgelegenheid",
+    "to": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-hans-vijlbrief",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-economische-zaken-en-klimaat",
+    "from": "pos:minister-van-economische-zaken-en-klimaat",
+    "to": "org:ministerie-van-economische-zaken-en-klimaat",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-heleen-herbert",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-landbouw-visserij-voedselzekerheid-en-natuur",
+    "from": "pos:minister-van-landbouw-visserij-voedselzekerheid-en-natuur",
+    "to": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-jaimi-van-essen",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-staatssecretaris-van-klimaat-en-groene-groei",
+    "from": "pos:staatssecretaris-van-klimaat-en-groene-groei",
+    "to": "org:ministerie-van-economische-zaken-en-klimaat",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-jo-annes-de-bat",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-staatssecretaris-onderwijs-en-emancipatie",
+    "from": "pos:staatssecretaris-onderwijs-en-emancipatie",
+    "to": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-judith-tielen",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-langdurige-zorg-jeugd-en-sport",
+    "from": "pos:minister-van-langdurige-zorg-jeugd-en-sport",
+    "to": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-mirjam-sterk",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-binnenlandse-zaken-en-koninkrijksrelaties",
+    "from": "pos:minister-van-binnenlandse-zaken-en-koninkrijksrelaties",
+    "to": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-pieter-heerma",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-onderwijs-cultuur-en-wetenschap",
+    "from": "pos:minister-van-onderwijs-cultuur-en-wetenschap",
+    "to": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-rianne-letschert",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-president",
+    "from": "pos:minister-president",
+    "to": "org:ministerie-van-algemene-zaken",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-rob-jetten",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-staatssecretaris-herstel-toeslagen",
+    "from": "pos:staatssecretaris-herstel-toeslagen",
+    "to": "org:ministerie-van-financien",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-sandra-palmen-schlangen",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-staatssecretaris-van-landbouw-visserij-voedselzekerheid-en-natuur",
+    "from": "pos:staatssecretaris-van-landbouw-visserij-voedselzekerheid-en-natuur",
+    "to": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-silvio-erkens",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-buitenlandse-handel-en-ontwikkelingssamenwerking",
+    "from": "pos:minister-van-buitenlandse-handel-en-ontwikkelingssamenwerking",
+    "to": "org:ministerie-van-buitenlandse-zaken",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-sjoerd-sjoerdsma",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-volksgezondheid-welzijn-en-sport",
+    "from": "pos:minister-van-volksgezondheid-welzijn-en-sport",
+    "to": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-sophie-hermans",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-klimaat-en-groene-groei",
+    "from": "pos:minister-van-klimaat-en-groene-groei",
+    "to": "org:ministerie-van-economische-zaken-en-klimaat",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-stientje-van-veldhoven",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-werk-en-participatie",
+    "from": "pos:minister-van-werk-en-participatie",
+    "to": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-thierry-aartsen",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-buitenlandse-zaken",
+    "from": "pos:minister-van-buitenlandse-zaken",
+    "to": "org:ministerie-van-buitenlandse-zaken",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-tom-berendsen",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-minister-van-infrastructuur-en-waterstaat",
+    "from": "pos:minister-van-infrastructuur-en-waterstaat",
+    "to": "org:ministerie-van-infrastructuur-en-waterstaat",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-vincent-karremans",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-staatssecretaris-digitale-economie-en-soevereiniteit",
+    "from": "pos:staatssecretaris-digitale-economie-en-soevereiniteit",
+    "to": "org:ministerie-van-economische-zaken-en-klimaat",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:rijksoverheid-willemijn-aerdts",
+      "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  }
+]
