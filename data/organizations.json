@@ -1,0 +1,606 @@
+[
+  {
+    "id": "org:ministerie-van-algemene-zaken",
+    "slug": "ministerie-van-algemene-zaken",
+    "name": "Ministerie van Algemene Zaken",
+    "aliases": [],
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "regering",
+    "level": "rijk",
+    "country": "nederland",
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-ministeries",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+    "slug": "ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+    "name": "Ministerie van Binnenlandse Zaken en Koninkrijksrelaties",
+    "aliases": [],
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "regering",
+    "level": "rijk",
+    "country": "nederland",
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-ministeries",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-van-buitenlandse-zaken",
+    "slug": "ministerie-van-buitenlandse-zaken",
+    "name": "Ministerie van Buitenlandse Zaken",
+    "aliases": [],
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "regering",
+    "level": "rijk",
+    "country": "nederland",
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-buitenlandse-zaken",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-ministeries",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-van-defensie",
+    "slug": "ministerie-van-defensie",
+    "name": "Ministerie van Defensie",
+    "aliases": [],
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "regering",
+    "level": "rijk",
+    "country": "nederland",
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-defensie",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-ministeries",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-van-economische-zaken-en-klimaat",
+    "slug": "ministerie-van-economische-zaken-en-klimaat",
+    "name": "Ministerie van Economische Zaken en Klimaat",
+    "aliases": [],
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "regering",
+    "level": "rijk",
+    "country": "nederland",
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-economische-zaken-en-klimaat",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-ministeries",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-van-financien",
+    "slug": "ministerie-van-financien",
+    "name": "Ministerie van Financiën",
+    "aliases": [],
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "regering",
+    "level": "rijk",
+    "country": "nederland",
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-financien",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-ministeries",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-van-infrastructuur-en-waterstaat",
+    "slug": "ministerie-van-infrastructuur-en-waterstaat",
+    "name": "Ministerie van Infrastructuur en Waterstaat",
+    "aliases": [],
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "regering",
+    "level": "rijk",
+    "country": "nederland",
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-infrastructuur-en-waterstaat",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-ministeries",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-van-justitie-en-veiligheid",
+    "slug": "ministerie-van-justitie-en-veiligheid",
+    "name": "Ministerie van Justitie en Veiligheid",
+    "aliases": [],
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "regering",
+    "level": "rijk",
+    "country": "nederland",
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-justitie-en-veiligheid",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-ministeries",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+    "slug": "ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+    "name": "Ministerie van Landbouw, Visserij, Voedselzekerheid en Natuur",
+    "aliases": [],
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "regering",
+    "level": "rijk",
+    "country": "nederland",
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-ministeries",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+    "slug": "ministerie-van-onderwijs-cultuur-en-wetenschap",
+    "name": "Ministerie van Onderwijs, Cultuur en Wetenschap",
+    "aliases": [],
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "regering",
+    "level": "rijk",
+    "country": "nederland",
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-onderwijs-cultuur-en-wetenschap",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-ministeries",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+    "slug": "ministerie-van-sociale-zaken-en-werkgelegenheid",
+    "name": "Ministerie van Sociale Zaken en Werkgelegenheid",
+    "aliases": [],
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "regering",
+    "level": "rijk",
+    "country": "nederland",
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-sociale-zaken-en-werkgelegenheid",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-ministeries",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+    "slug": "ministerie-van-volksgezondheid-welzijn-en-sport",
+    "name": "Ministerie van Volksgezondheid, Welzijn en Sport",
+    "aliases": [],
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "regering",
+    "level": "rijk",
+    "country": "nederland",
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-volksgezondheid-welzijn-en-sport",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-ministeries",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:regering",
+    "slug": "regering",
+    "name": "Regering",
+    "aliases": [],
+    "type": "department",
+    "subtype": "land-regering",
+    "branch": "regering",
+    "level": "rijk",
+    "country": "nederland",
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "legalSource": {
+      "label": "Grondwet art. 42",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:rijksoverheid-bewindspersonen",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:tweede-kamer",
+    "slug": "tweede-kamer",
+    "name": "Tweede Kamer der Staten-Generaal",
+    "aliases": [
+      "Tweede Kamer"
+    ],
+    "type": "elected",
+    "subtype": "tweede-kamer",
+    "branch": "staten-generaal",
+    "level": "rijk",
+    "country": "nederland",
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "legalSource": {
+      "label": "Grondwet art. 51",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "website": "https://www.tweedekamer.nl",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": 150,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:tweede-kamer",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:tk-odata-fracties",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:eerste-kamer",
+    "slug": "eerste-kamer",
+    "name": "Eerste Kamer der Staten-Generaal",
+    "aliases": [
+      "Eerste Kamer"
+    ],
+    "type": "elected",
+    "subtype": "eerste-kamer",
+    "branch": "staten-generaal",
+    "level": "rijk",
+    "country": "nederland",
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "legalSource": {
+      "label": "Grondwet art. 51",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "website": "https://www.eerstekamer.nl",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": 75,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:eerstekamer-fracties",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:ek-alle-leden",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  }
+]

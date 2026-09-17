@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "government.schema.json",
+  "$ref": "#/$defs/government",
+  "$defs": {
+    "government": {
+      "type": "object",
+      "required": ["slug", "name", "type", "level", "country", "sources"],
+      "additionalProperties": false,
+      "properties": {
+        "slug": { "$ref": "common.schema.json#/$defs/slug" },
+        "name": { "type": "string", "minLength": 1 },
+        "type": { "type": "string", "enum": ["koninkrijk", "land", "scope"] },
+        "level": {
+          "type": "string",
+          "enum": ["rijk", "provinciaal", "regionaal", "lokaal", "caribisch", "koninkrijk"]
+        },
+        "country": { "type": "string", "pattern": "^[a-z][a-z-]*$" },
+        "parent": { "type": ["string", "null"], "pattern": "^[a-z0-9][a-z0-9-]*$" },
+        "description": { "type": ["string", "null"], "minLength": 1 },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "common.schema.json#/$defs/sourceRef" }
+        }
+      }
+    }
+  }
+}

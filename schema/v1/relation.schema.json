@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "relation.schema.json",
+  "$ref": "#/$defs/relation",
+  "$defs": {
+    "relation": {
+      "type": "object",
+      "required": ["id", "from", "to", "type", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^rel:[a-z0-9][a-z0-9-]*$" },
+        "from": { "type": "string", "pattern": "^(org|pos|person|tenure):" },
+        "to": { "type": "string", "pattern": "^(org|pos|person|tenure):" },
+        "type": {
+          "type": "string",
+          "enum": [
+            "elects",
+            "appoints",
+            "oversees",
+            "advises",
+            "office",
+            "dept_head",
+            "confirms",
+            "ex_officio",
+            "administers",
+            "subsidises",
+            "accountable_to",
+            "part_of",
+            "consists_of",
+            "succeeded_by",
+            "joint_arrangement_member"
+          ]
+        },
+        "metadata": { "type": "object" },
+        "seatsAppointed": { "$ref": "common.schema.json#/$defs/nonNegativeInteger" },
+        "source": { "$ref": "common.schema.json#/$defs/sourceRef" }
+      }
+    }
+  }
+}

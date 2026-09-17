@@ -1,0 +1,702 @@
+[
+  {
+    "id": "pos:staatssecretaris-van-infrastructuur-en-waterstaat",
+    "slug": "staatssecretaris-van-infrastructuur-en-waterstaat",
+    "title": "Staatssecretaris van Infrastructuur en Waterstaat",
+    "organization": "org:ministerie-van-infrastructuur-en-waterstaat",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-annet-bertram",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-asiel-en-migratie",
+    "slug": "minister-van-asiel-en-migratie",
+    "title": "Minister van Asiel en Migratie",
+    "organization": "org:ministerie-van-justitie-en-veiligheid",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-bart-van-den-brink",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:staatssecretaris-van-justitie-en-veiligheid",
+    "slug": "staatssecretaris-van-justitie-en-veiligheid",
+    "title": "Staatssecretaris van Justitie en Veiligheid",
+    "organization": "org:ministerie-van-justitie-en-veiligheid",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-claudia-van-bruggen",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-justitie-en-veiligheid",
+    "slug": "minister-van-justitie-en-veiligheid",
+    "title": "Minister van Justitie en Veiligheid",
+    "organization": "org:ministerie-van-justitie-en-veiligheid",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-david-van-weel",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:staatssecretaris-van-defensie",
+    "slug": "staatssecretaris-van-defensie",
+    "title": "Staatssecretaris van Defensie",
+    "organization": "org:ministerie-van-defensie",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-derk-boswijk",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-defensie",
+    "slug": "minister-van-defensie",
+    "title": "Minister van Defensie",
+    "organization": "org:ministerie-van-defensie",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-dilan-yesilgoz-zegerius",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:staatssecretaris-van-financien",
+    "slug": "staatssecretaris-van-financien",
+    "title": "Staatssecretaris van Financiën",
+    "organization": "org:ministerie-van-financien",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-eelco-eerenberg",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-financien",
+    "slug": "minister-van-financien",
+    "title": "Minister van Financiën",
+    "organization": "org:ministerie-van-financien",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-eelco-heinen",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-volkshuisvesting-en-ruimtelijke-ordening",
+    "slug": "minister-van-volkshuisvesting-en-ruimtelijke-ordening",
+    "title": "Minister van Volkshuisvesting en Ruimtelijke Ordening",
+    "organization": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-elanor-boekholt-osullivan",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:staatssecretaris-koninkrijksrelaties-en-slagvaardige-overheid",
+    "slug": "staatssecretaris-koninkrijksrelaties-en-slagvaardige-overheid",
+    "title": "Staatssecretaris Koninkrijksrelaties en Slagvaardige Overheid",
+    "organization": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-eric-van-der-burg",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-sociale-zaken-en-werkgelegenheid",
+    "slug": "minister-van-sociale-zaken-en-werkgelegenheid",
+    "title": "Minister van Sociale Zaken en Werkgelegenheid",
+    "organization": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-hans-vijlbrief",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-economische-zaken-en-klimaat",
+    "slug": "minister-van-economische-zaken-en-klimaat",
+    "title": "Minister van Economische Zaken en Klimaat",
+    "organization": "org:ministerie-van-economische-zaken-en-klimaat",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-heleen-herbert",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-landbouw-visserij-voedselzekerheid-en-natuur",
+    "slug": "minister-van-landbouw-visserij-voedselzekerheid-en-natuur",
+    "title": "Minister van Landbouw, Visserij, Voedselzekerheid en Natuur",
+    "organization": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-jaimi-van-essen",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:staatssecretaris-van-klimaat-en-groene-groei",
+    "slug": "staatssecretaris-van-klimaat-en-groene-groei",
+    "title": "Staatssecretaris van Klimaat en Groene Groei",
+    "organization": "org:ministerie-van-economische-zaken-en-klimaat",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-jo-annes-de-bat",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:staatssecretaris-onderwijs-en-emancipatie",
+    "slug": "staatssecretaris-onderwijs-en-emancipatie",
+    "title": "Staatssecretaris Onderwijs en Emancipatie",
+    "organization": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-judith-tielen",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-langdurige-zorg-jeugd-en-sport",
+    "slug": "minister-van-langdurige-zorg-jeugd-en-sport",
+    "title": "Minister van Langdurige Zorg, Jeugd en Sport",
+    "organization": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-mirjam-sterk",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-binnenlandse-zaken-en-koninkrijksrelaties",
+    "slug": "minister-van-binnenlandse-zaken-en-koninkrijksrelaties",
+    "title": "Minister van Binnenlandse Zaken en Koninkrijksrelaties",
+    "organization": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-pieter-heerma",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-onderwijs-cultuur-en-wetenschap",
+    "slug": "minister-van-onderwijs-cultuur-en-wetenschap",
+    "title": "Minister van Onderwijs, Cultuur en Wetenschap",
+    "organization": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-rianne-letschert",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-president",
+    "slug": "minister-president",
+    "title": "Minister-president",
+    "organization": "org:ministerie-van-algemene-zaken",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-rob-jetten",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:staatssecretaris-herstel-toeslagen",
+    "slug": "staatssecretaris-herstel-toeslagen",
+    "title": "Staatssecretaris Herstel Toeslagen",
+    "organization": "org:ministerie-van-financien",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-sandra-palmen-schlangen",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:staatssecretaris-van-landbouw-visserij-voedselzekerheid-en-natuur",
+    "slug": "staatssecretaris-van-landbouw-visserij-voedselzekerheid-en-natuur",
+    "title": "Staatssecretaris van Landbouw, Visserij, Voedselzekerheid en Natuur",
+    "organization": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-silvio-erkens",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-buitenlandse-handel-en-ontwikkelingssamenwerking",
+    "slug": "minister-van-buitenlandse-handel-en-ontwikkelingssamenwerking",
+    "title": "Minister van Buitenlandse Handel en Ontwikkelingssamenwerking",
+    "organization": "org:ministerie-van-buitenlandse-zaken",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-sjoerd-sjoerdsma",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-volksgezondheid-welzijn-en-sport",
+    "slug": "minister-van-volksgezondheid-welzijn-en-sport",
+    "title": "Minister van Volksgezondheid, Welzijn en Sport",
+    "organization": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-sophie-hermans",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-klimaat-en-groene-groei",
+    "slug": "minister-van-klimaat-en-groene-groei",
+    "title": "Minister van Klimaat en Groene Groei",
+    "organization": "org:ministerie-van-economische-zaken-en-klimaat",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-stientje-van-veldhoven",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-werk-en-participatie",
+    "slug": "minister-van-werk-en-participatie",
+    "title": "Minister van Werk en Participatie",
+    "organization": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-thierry-aartsen",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-buitenlandse-zaken",
+    "slug": "minister-van-buitenlandse-zaken",
+    "title": "Minister van Buitenlandse Zaken",
+    "organization": "org:ministerie-van-buitenlandse-zaken",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-tom-berendsen",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:minister-van-infrastructuur-en-waterstaat",
+    "slug": "minister-van-infrastructuur-en-waterstaat",
+    "title": "Minister van Infrastructuur en Waterstaat",
+    "organization": "org:ministerie-van-infrastructuur-en-waterstaat",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-vincent-karremans",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "pos:staatssecretaris-digitale-economie-en-soevereiniteit",
+    "slug": "staatssecretaris-digitale-economie-en-soevereiniteit",
+    "title": "Staatssecretaris Digitale Economie en Soevereiniteit",
+    "organization": "org:ministerie-van-economische-zaken-en-klimaat",
+    "type": "dept_head",
+    "fillMethod": "koninklijk-besluit",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "legalBasis": {
+      "label": "Grondwet art. 43",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:rijksoverheid-willemijn-aerdts",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  }
+]

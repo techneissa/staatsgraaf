@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "source.schema.json",
+  "$ref": "#/$defs/source",
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["id", "url", "title", "publisher", "type", "retrieved"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^src:[a-z0-9][a-z0-9-]*$" },
+        "url": { "type": "string", "pattern": "^https?://" },
+        "title": { "type": "string", "minLength": 1 },
+        "publisher": { "type": "string", "minLength": 1 },
+        "type": {
+          "type": "string",
+          "enum": ["wet", "kb", "api", "page", "news", "register"]
+        },
+        "published": { "$ref": "common.schema.json#/$defs/isoDateOrNull" },
+        "retrieved": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "license": { "type": ["string", "null"], "minLength": 1 },
+        "archiveUrl": { "type": ["string", "null"], "pattern": "^https?://" },
+        "notes": { "type": ["string", "null"], "minLength": 1 }
+      }
+    }
+  }
+}

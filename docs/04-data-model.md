@@ -1,0 +1,390 @@
+# Canonical data model
+
+This is the single schema the whole project agrees on. Research workstreams fill it, the merge phase validates it, the site reads it, and the pipelines diff it. Change it only through the process in section 9.
+
+The shapes below are illustrative JSON for documentation. They are not code. Do not copy them into a schema file and stop; the schema file, the loaders, and the validators all derive from this document.
+
+## 1. Principles
+
+1. **One normalized dataset, one file per entity type**, all validated against one schema.
+2. **Facts carry sources.** Every non-trivial value points to at least one source URL with a retrieval date and a confidence. A fact with no source does not ship.
+3. **Stable ids and slugs.** Ids never change once published. Slug changes get a redirect.
+4. **Time is explicit.** Every tenure has a start, and an end only when it has actually ended. No inferred current state.
+5. **Dutch meaning, English keys.** Values that are Dutch institutions keep their Dutch names. Field names are English.
+6. **The graph is derived, not stored twice.** Relations live once, as edges. Adjacency lists are computed at build time.
+
+## 2. Top-level layout
+
+A future `data/` directory holds one file per type:
+
+```
+data/
+  governments.json        the scopes, for example nl, nl-rijk, and later aruba
+  organizations.json      every body: ministeries, ZBO's, gemeenten, waterschappen, and so on
+  positions.json          every seat or role
+  people.json             every person in a public function
+  tenures.json            person fills position over a date range
+  relations.json          typed edges between entities
+  memberships.json        seat-level membership for large bodies
+  changes.json            the dated change stream
+  news.json               recent articles with entity links
+  topics.json            cross-cutting issue areas
+  budgets.json            spending and revenue per organization
+  media.json              image assets with license and credit
+  sources.json            every source URL, deduplicated, with retrieval metadata
+```
+
+The reference ships one big `nodes`/`edges` blob on every page. We keep normalized files for research and validation, then precompute one denormalized bundle per page at build time so the runtime is fast.
+
+## 3. Organization
+
+Every body is an organization. This includes the coarse reference types plus the Dutch subtypes.
+
+```json
+{
+  "id": "org:ministerie-van-financien",
+  "slug": "ministerie-van-financien",
+  "name": "Ministerie van Financiën",
+  "aliases": ["Financiën", "FIN", "het ministerie van Financien"],
+  "type": "department",
+  "subtype": "ministerie",
+  "branch": "regering",
+  "level": "rijk",
+  "country": "nederland",
+  "parent": "org:rijksoverheid",
+  "partOf": ["org:rijksoverheid"],
+  "description": "original 2-4 sentence summary in Dutch",
+  "legalSource": { "label": "Grondwet art. 44", "url": "https://wetten.overheid.nl/..." },
+  "website": "https://www.rijksfinancien.nl",
+  "established": "1798-01-01",
+  "dissolved": null,
+  "seatsCount": null,
+  "employeeCount": { "budgeted": null, "actual": null, "year": null },
+  "images": ["media:...", "media:..."],
+  "sources": [{ "source": "src:...", "retrieved": "2026-09-17", "confidence": "high" }]
+}
+```
+
+Field rules:
+
+- `type` is the reference vocabulary: `department`, `elected`, `commission`, `advisory`, `dept_head`, `constituency`, plus `person` is not an organization.
+- `subtype` is the Dutch meaning from `03-dutch-government-model.md` section 4.
+- `branch` is a Dutch branch label: `regering`, `staten-generaal`, `rechterlijke-macht`, `hoge-colleges`, `adviescolleges`, `decentraal-provinciaal`, `decentraal-lokaal`, `waterschap`, `caribisch-nederland`, `koninkrijk`, `zelfstandig`.
+- `level` is `rijk`, `provinciaal`, `regionaal`, `lokaal`, `caribisch`, `koninkrijk`.
+- `parent` and `partOf` are organization ids. `partOf` is a list because an organization can sit within more than one structure.
+- `legalSource` is a single primary link. More legal links live in `sources`.
+- `established` and `dissolved` are ISO dates or null.
+
+## 4. Position
+
+A position is a seat or role, not a person. A body can have several positions.
+
+```json
+{
+  "id": "pos:minister-van-financien",
+  "slug": "minister-van-financien",
+  "title": "Minister van Financiën",
+  "organization": "org:ministerie-van-financien",
+  "type": "dept_head",
+  "fillMethod": "koninklijk-besluit",
+  "entryModes": ["benoemd"],
+  "termLengthMonths": null,
+  "seatsCount": 1,
+  "legalBasis": { "label": "Grondwet art. 43", "url": "https://wetten.overheid.nl/..." },
+  "exOfficioOf": [],
+  "sources": []
+}
+```
+
+- `fillMethod` is one of `verkiezing`, `koninklijk-besluit`, `benoeming-door-college`, `benoeming-door-minister`, `van-rechtswege`, `cooptatie` where applicable.
+- `exOfficioOf` lists organization ids where the holder chairs or sits by operation of law.
+
+## 5. Person
+
+We give people their own file and, unlike the reference, their own pages.
+
+```json
+{
+  "id": "person:...",
+  "slug": "...",
+  "name": "...",
+  "aliases": [],
+  "portrait": "media:...",
+  "birthDate": null,
+  "party": "VVD",
+  "wikipedia": "https://nl.wikipedia.org/wiki/...",
+  "wikidata": "Q...",
+  "description": "original one to two sentence note when public and useful",
+  "sources": []
+}
+```
+
+Keep personal data to what the government publishes. `birthDate` is optional and only when officially published. No addresses, no contact details, no private family data.
+
+## 6. Tenure
+
+The join between a person and a position or a seat, over a date range. This is the heart of the model and the thing the reference does worst.
+
+```json
+{
+  "id": "tenure:...",
+  "person": "person:...",
+  "position": "pos:...",
+  "seat": null,
+  "start": "2026-02-23",
+  "end": null,
+  "acting": false,
+  "entryMode": "benoemd",
+  "appointedBy": "org:regering",
+  "predecessor": "tenure:...",
+  "successor": null,
+  "endReason": null,
+  "source": { "source": "src:...", "retrieved": "2026-09-17" }
+}
+```
+
+- `end: null` means current. Never infer an end from the appearance of a successor; store it only when a source states it.
+- `acting: true` marks a waarnemer.
+- `predecessor` and `successor` form the chain that lets the change feed show OUT and IN. They are tenure ids, not person ids.
+- `endReason` is `aftreden`, `ontslag`, `einde-termijn`, `overlijden`, `reorganisatie`, or null.
+
+## 7. Membership (seats in large bodies)
+
+For bodies with many seats, a separate membership record avoids one tenure per seat when only the seat number matters.
+
+```json
+{
+  "id": "membership:...",
+  "organization": "org:tweede-kamer",
+  "person": "person:...",
+  "seatNumber": 23,
+  "fractie": "VVD",
+  "start": "2023-12-06",
+  "end": "2024-07-02",
+  "source": { "source": "src:...", "retrieved": "2026-09-17" }
+}
+```
+
+Tweede Kamer, Eerste Kamer, Provinciale Staten, gemeenteraden, waterschapsbesturen, and eilandsraden all use this shape. A person can hold a membership in more than one body across time.
+
+## 8. Relation (the edges)
+
+One list of typed, directed edges. This drives the graph and the "Who's connected?" panels.
+
+```json
+{
+  "id": "rel:...",
+  "from": "org:ministerie-van-financien",
+  "to": "org:belastingdienst",
+  "type": "oversees",
+  "metadata": { "instrument": "eigenaarschap", "since": "2019-01-01" },
+  "seatsAppointed": 0,
+  "source": { "source": "src:...", "retrieved": "2026-09-17" }
+}
+```
+
+`type` uses the reference vocabulary plus the Dutch additions. The full allowed set:
+
+- `elects`: electorate to elected body.
+- `appoints`: body or person appoints a position or another body.
+- `oversees`: supervision.
+- `advises`: advisory mandate.
+- `office`: a position belongs to a body.
+- `dept_head`: a head position heads a body.
+- `confirms`: consent or voordracht.
+- `ex_officio`: chairs or sits by operation of law.
+- `administers`: executes for.
+- `subsidises`: funds.
+- `accountable_to`: the verantwoordingslijn.
+- `part_of`, `consists_of`: composition.
+- `succeeded_by`: reorganization history.
+- `joint_arrangement_member`: participant in a gemeenschappelijke regeling.
+
+## 9. Change
+
+The dated stream that makes the product feel alive. Each change is derived from a diff between two dataset snapshots, then linked to its source.
+
+```json
+{
+  "id": "change:20260916-...",
+  "date": "2026-09-16",
+  "kind": "tenure-between" | "appointment" | "departure" | "structural" | "vacancy" | "rename" | "move",
+  "position": "pos:...",
+  "organization": "org:...",
+  "out": { "tenure": null, "person": null, "label": "Geen voorganger bekend" },
+  "in": { "tenure": "tenure:...", "person": "person:...", "label": "..." },
+  "summary": "one line, Dutch, original",
+  "source": { "source": "src:...", "retrieved": "2026-09-17" }
+}
+```
+
+`stats` is computed, not stored: `vacantSeats`, `actingOfficials`, `lastChangeDate`, and per-window counts for 7, 30, and 90 days.
+
+## 10. NewsItem
+
+```json
+{
+  "id": "news:...",
+  "title": "...",
+  "url": "...",
+  "publisher": "NOS",
+  "published": "2026-09-16T07:12:00+02:00",
+  "summary": "een of twee originele zinnen",
+  "summaryMarkup": "De <entity id=\"org:...\">Belastingdienst</entity> ...",
+  "entities": ["org:...", "person:..."],
+  "topics": ["topic:..."],
+  "image": "media:...",
+  "sources": []
+}
+```
+
+The summary markup is our own, a plain tag with an entity id, so the frontend can render inline links without parsing the reference's `<gov_entities>` syntax.
+
+## 11. Topic
+
+```json
+{
+  "id": "topic:...",
+  "slug": "...",
+  "name": "Wonen",
+  "description": "original",
+  "organizations": ["org:...", "org:..."],
+  "positions": ["pos:..."],
+  "keywords": ["huur", "woningmarkt", "corporaties"],
+  "trending": true
+}
+```
+
+`keywords` feed the news linker. `organizations` is the "Wie is verantwoordelijk?" list.
+
+## 12. Budget
+
+Per organization, with history and a current breakdown. Dutch fiscal facts differ from the US, so keep the source's own year and label.
+
+```json
+{
+  "organization": "org:ministerie-van-financien",
+  "fiscalYear": 2026,
+  "current": { "spendingBudget": 0, "spendingActual": 0, "revenue": 0, "net": 0, "nonprofit": 0 },
+  "previous": { "spendingBudget": 0, "spendingActual": 0, "revenue": 0, "net": 0, "nonprofit": 0 },
+  "history": [ { "fiscalYear": 2017, "spendingActual": 0, "revenue": 0 } ],
+  "breakdown": [ { "category": "Salarissen", "amount": 0, "type": "spending" } ],
+  "rankings": { "spending": { "rank": 1, "total": 0 } },
+  "sources": []
+}
+```
+
+Use `rijksfinancien.nl` and the begrotingswet as the primary sources. Keep cent or euro precision exactly as the source reports it and store the unit.
+
+## 13. PowerMap
+
+Computed at build time from news mention counts and tenures, not hand-entered.
+
+```json
+{
+  "windowDays": 90,
+  "since": "2026-06-18",
+  "computedAt": "2026-09-17T06:00:00+02:00",
+  "articleCount": 0,
+  "sources": ["NOS", "NRC", "AD"],
+  "people": [
+    {
+      "person": "person:...",
+      "name": "...",
+      "job": "...",
+      "position": "pos:...",
+      "party": "...",
+      "node": "org:...",
+      "image": "media:...",
+      "rank": 1,
+      "total": 0,
+      "recent": 0,
+      "weeks": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+      "heat": 0,
+      "latest": { "date": null, "headline": null, "source": null, "url": null }
+    }
+  ]
+}
+```
+
+## 14. Source
+
+One deduplicated record per source URL. This closes the reference's biggest gap, where change items link to a 404.
+
+```json
+{
+  "id": "src:...",
+  "url": "...",
+  "title": "...",
+  "publisher": "...",
+  "type": "wet" | "kb" | "api" | "page" | "news" | "register",
+  "published": null,
+  "retrieved": "2026-09-17",
+  "license": "CC0",
+  "archiveUrl": null,
+  "notes": null
+}
+```
+
+Everything that cites a source uses the `src:` id. The UI renders a link and, where possible, an archived copy.
+
+## 15. Media
+
+```json
+{
+  "id": "media:...",
+  "url": "...",
+  "type": "portrait" | "logo" | "photo",
+  "license": "CC BY-SA 4.0",
+  "credit": "Wikimedia Commons",
+  "author": "...",
+  "width": 800,
+  "height": 1000,
+  "source": "src:..."
+}
+```
+
+## 16. Id and slug conventions
+
+- Ids are `type:stable-key` with a type prefix: `org:`, `pos:`, `person:`, `tenure:`, `membership:`, `rel:`, `change:`, `news:`, `topic:`, `media:`, `src:`.
+- Slugs are lowercase ASCII with hyphens. One slug namespace per type. Person slugs include a disambiguator only when needed.
+- Slugs, once published, never change. A rename adds an alias and, if the slug must change, a redirect record.
+
+## 17. Referential integrity rules (enforced in CI)
+
+1. Every `org.parent`, `org.partOf`, `pos.organization`, `tenure.person`, `tenure.position`, `membership.organization`, `membership.person`, and relation `from`/`to` resolves to an existing id.
+2. No two organizations, positions, or people share a slug.
+3. Every tenure and membership has a `start`.
+4. Every tenure end is after its start.
+5. Every provenance entry resolves to an existing `src:` id.
+6. No fact that ships lacks at least one source.
+7. `changes` entries reference existing positions and, where present, existing persons and tenures.
+8. `budget` and `powerMap` reference existing organizations and people.
+
+## 18. Changing the schema
+
+The schema follows the process below. This prevents workstreams from drifting and keeps the merge deterministic.
+
+1. A workstream that needs a new field or value writes a proposal note in its markdown file with the field, the reason, and a real example.
+2. The orchestrator accepts or rejects at the merge gate and records the decision in `research/merge-log.md`.
+3. An accepted change updates this document, the schema file, and the validators in one commit, before any consumer uses the new field.
+4. Rerun validation across all data so the change does not silently break older workstreams.
+
+## 19. Known modeling decisions and their reasons
+
+- **`department` stays a catch-all** for compatibility with the reference and because the graph engine only cares about type for styling. The real meaning lives in `subtype`.
+- **People are a first-class entity.** The reference buries them in nodes and has no person pages. Our product's promise is tenure history, so people must be first-class.
+- **Kingdoms and lands are scopes, not organizations.** They sit in `governments.json` so we can later ship an Aruba or Curaçao graph on the same schema.
+- **Elections are not entities at this stage.** We store the electorate as a constituency and the elected bodies as organizations. A future `elections` file can record uitslagen. Note it as a later phase.
+
+## 20. Dataset versioning and release cadence
+
+The dataset is a published product, so it is versioned and released like one.
+
+- **Schema version.** `v1` is the schema in this document. The version lives in `schema/` and in the contract published in `shared/`. A breaking schema change bumps the major version and follows section 18.
+- **Data version.** Every published snapshot has a timestamp and an id (for example `2026-09-17`). The site displays the snapshot date as the `Laatst bijgewerkt` stamp.
+- **Contract served to clients.** The JSON the web app and the Swift app read is served under `/data/v1/...` and `/api/v1/...`. A new schema ships as `/data/v2/...` alongside `v1` until clients migrate, so a shipped app never breaks on a data change.
+- **Deprecation.** A deprecated schema version gets a stated end date, is announced in the changelog, and is removed only after both clients have migrated. See `06-build-plan.md` section 9.5.
+- **Release cadence.** Data refreshes nightly. Schema releases are rare and deliberate, not a side effect of a data refresh.
+- **Changelog.** Every schema release and every data-model change is recorded with a reason and a date. The public correction log in `09-content-and-ai-policy.md` section 8 is separate: that one records factual corrections, this one records model changes.
+- **Compatibility check.** CI verifies that the published JSON still validates against the current contract before any deploy, so a silent shape change fails the build rather than a client.
