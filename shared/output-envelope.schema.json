@@ -104,6 +104,56 @@
           "resume": { "type": "string", "description": "What a later run must do to fill it" }
         }
       }
+    },
+    "legalMappings": {
+      "type": "array",
+      "description": "Workstream H. Legal-basis assignments applied at merge. target is an entity id (org:... applies legalSource; pos:... applies legalBasis) or the selector subtype:<subtype>, which matches every organization of that subtype.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["target", "legalSource", "sources"],
+        "properties": {
+          "target": { "type": "string" },
+          "legalSource": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["label", "url"],
+            "properties": {
+              "label": { "type": "string" },
+              "url": { "type": "string", "format": "uri" }
+            }
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["source", "retrieved", "confidence"],
+              "properties": {
+                "source": { "type": "string", "pattern": "^src:" },
+                "retrieved": { "type": "string", "format": "date" },
+                "confidence": { "enum": ["high", "medium", "low"] }
+              }
+            }
+          },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "aliases": {
+      "type": "array",
+      "description": "Workstream J. Alias gazetteer. target is an entity id; alias is the surface form found in news text. Applied to the entity's aliases array at merge.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["alias", "target"],
+        "properties": {
+          "alias": { "type": "string" },
+          "target": { "type": "string", "pattern": "^(org|pos|person|topic):" },
+          "confidence": { "enum": ["high", "medium", "low"] }
+        }
+      }
     }
   }
 }

@@ -1,11 +1,14 @@
 #!/usr/bin/env node
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const SCHEMA_DIR = join(ROOT, "schema", "v1");
+const SHARED_DIR = join(ROOT, "shared");
 const DATA_DIR = join(ROOT, "data");
+const RESEARCH_DIR = join(ROOT, "research");
+const RESEARCH_MODE = process.argv.includes("--research");
 
 const DATA_MAP = [
   ["governments.json", "government.schema.json", "government"],
@@ -26,6 +29,7 @@ const DATA_MAP = [
 const SUPPORTED = new Set([
   "$schema", "$id", "$ref", "$defs", "type", "required", "properties", "additionalProperties",
   "items", "enum", "pattern", "format", "minItems", "minimum", "maximum", "minLength", "maxLength",
+  "title", "description", "x-validate-against",
 ]);
 
 const failures = [];
@@ -36,7 +40,14 @@ function fail(where, message) {
 const schemaCache = new Map();
 function loadSchema(file) {
   if (!schemaCache.has(file)) {
-    schemaCache.set(file, JSON.parse(readFileSync(join(SCHEMA_DIR, file), "utf8")));
+    const candidates = [
+      join(SCHEMA_DIR, file),
+      join(SHARED_DIR, file),
+      join(ROOT, file),
+    ];
+    const full = candidates.find((c) => existsSync(c));
+    if (!full) throw new Error(`schema file not found: ${file}`);
+    schemaCache.set(file, JSON.parse(readFileSync(full, "utf8")));
   }
   return schemaCache.get(file);
 }
@@ -295,10 +306,100 @@ for (const gov of byFile["governments.json"]) {
   for (const s of gov.sources ?? []) refOk(w, s.source, srcIds, "source");
 }
 
+// ---------- research mode: validate workstream output files ----------
+const researchLines = [];
+if (RESEARCH_MODE) {
+  const ENVELOPE = "output-envelope.schema.json";
+  const ENTITY_DEFS = {
+    organizations: "organization",
+    positions: "position",
+    people: "person",
+    tenures: "tenure",
+    memberships: "membership",
+    relations: "relation",
+    topics: "topic",
+    budgets: "budget",
+    sources: "source",
+    media: "media",
+  };
+  const researchFiles = readdirSync(RESEARCH_DIR).filter((f) => f.endsWith(".json")).sort();
+  const parsedFiles = new Map();
+  for (const f of researchFiles) {
+    try {
+      parsedFiles.set(f, JSON.parse(readFileSync(join(RESEARCH_DIR, f), "utf8")));
+    } catch (e) {
+      fail(`research/${f}`, `invalid JSON: ${e.message}`);
+    }
+  }
+  const declaredSources = new Set(byFile["sources.json"].map((s) => s.id));
+  for (const [, env] of parsedFiles) {
+    for (const s of env.sources ?? []) if (s && s.id) declaredSources.add(s.id);
+  }
+  const sourceRefsOf = (record) => {
+    const refs = [];
+    for (const s of record.sources ?? []) if (s && typeof s.source === "string") refs.push(s.source);
+    if (record.source && typeof record.source.source === "string") refs.push(record.source.source);
+    return refs;
+  };
+  const lettersWithMd = new Set(
+    readdirSync(RESEARCH_DIR).filter((f) => f.endsWith(".md")).map((f) => f.split("-")[0])
+  );
+  for (const [f, env] of parsedFiles) {
+    const where = `research/${f}`;
+    validate(env, { $ref: ENVELOPE }, ENVELOPE, where);
+    const letter = f.split("-")[0];
+    if (env.workstream !== undefined && env.workstream !== letter) {
+      fail(where, `filename letter ${letter} does not match envelope.workstream ${env.workstream}`);
+    }
+    if (!lettersWithMd.has(letter)) fail(where, `no markdown report for workstream ${letter}`);
+    const counts = [];
+    for (const [key, defName] of Object.entries(ENTITY_DEFS)) {
+      const items = env[key] ?? [];
+      counts.push(`${key.slice(0, 4)}:${items.length}`);
+      items.forEach((item, i) => {
+        validate(item, { $ref: `schema/v1/${defName}.schema.json#/$defs/${defName}` }, ENVELOPE, `${where}:${key}[${i}]`);
+      });
+    }
+    const idsSeen = new Map();
+    for (const [key] of Object.entries(ENTITY_DEFS)) {
+      if (key === "governments") continue;
+      for (const item of env[key] ?? []) {
+        if (!item.id) continue;
+        if (idsSeen.has(item.id)) fail(where, `duplicate id ${item.id}`);
+        idsSeen.set(item.id, true);
+      }
+      for (const item of env[key] ?? []) {
+        for (const ref of sourceRefsOf(item)) {
+          if (!declaredSources.has(ref)) fail(where, `source ${ref} does not resolve to any declared source record`);
+        }
+      }
+    }
+    for (const mapping of env.legalMappings ?? []) {
+      for (const s of mapping.sources ?? []) {
+        if (s && !declaredSources.has(s.source)) {
+          fail(where, `legalMappings source ${s.source} does not resolve to any declared source record`);
+        }
+      }
+    }
+    for (const a of env.aliases ?? []) {
+      const target = (a.target ?? "").split(":")[0];
+      if (!["org", "pos", "person", "topic"].includes(target)) {
+        fail(where, `alias target ${a.target} has unknown prefix`);
+      }
+    }
+    researchLines.push(`  ${f.padEnd(36)} ${counts.join(" ")} gaps:${(env.gaps ?? []).length}`);
+  }
+}
+
 const total = Object.values(counts).reduce((a, b) => a + b, 0);
 console.log("Validated data files:");
 for (const [file] of DATA_MAP) console.log(`  ${file.padEnd(22)} ${String(counts[file]).padStart(5)}`);
 console.log(`  ${"total".padEnd(22)} ${String(total).padStart(5)}`);
+if (RESEARCH_MODE) {
+  console.log("\nValidated workstream files:");
+  if (researchLines.length === 0) console.log("  (none found)");
+  for (const line of researchLines) console.log(line);
+}
 if (failures.length === 0) {
   console.log("\nOK: schema and referential integrity pass.");
   process.exit(0);
