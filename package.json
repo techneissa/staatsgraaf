@@ -12,6 +12,7 @@
     "news": "bun pipelines/news.mjs",
     "changes": "bun pipelines/changes.mjs",
     "diff": "bun pipelines/diff.mjs",
+    "contract": "bun scripts/check-contract.mjs",
     "check-links": "bun scripts/check-links.mjs",
     "test": "bun test pipelines web/lib",
     "format-dates": "python3 scripts/format-dates.py"

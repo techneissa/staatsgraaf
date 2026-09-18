@@ -24,12 +24,12 @@ function sha256(buffer) {
   return createHash("sha256").update(buffer).digest("hex");
 }
 
-// The repository is private for now, so there is no URL to publish. The note
-// names the gap instead of inventing an address.
+// The repository is public: pipelines, raw sources, and the merge log live in
+// the open, so every published fact can be re-derived.
+const SOURCE_REPOSITORY_URL = "https://github.com/techneissa/staatsgraaf";
 const SOURCE_REPOSITORY_NOTE =
-  "De repository met de pipelines en de ruwe bronbestanden is nog niet openbaar, " +
-  "dus er is nog geen repository-URL. Elke bron met URL en ophaaldatum staat in " +
-  "sources.json; de creditregels per bron staan in ATTRIBUTION.md.";
+  "De repository met de pipelines en de ruwe bronbestanden is openbaar. Elke bron " +
+  "met URL en ophaaldatum staat in sources.json; de creditregels per bron staan in ATTRIBUTION.md.";
 
 mkdirSync(OUT_DIR, { recursive: true });
 
@@ -72,7 +72,7 @@ const manifest = {
   sourceCount: recordCounts["sources.json"] ?? 0,
   recordCounts,
   sourceRepository: {
-    url: null,
+    url: SOURCE_REPOSITORY_URL,
     note: SOURCE_REPOSITORY_NOTE,
   },
   files,

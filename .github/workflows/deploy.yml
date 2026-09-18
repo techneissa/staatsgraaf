@@ -74,6 +74,11 @@ jobs:
         env:
           NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL || 'https://staatsgraaf.pages.dev' }}
 
+      # The built /data/v1 artifact is the contract every client decodes. A break
+      # here fails the deploy before anything is published.
+      - name: Contract check on the built dataset
+        run: bun run contract web/out/data/v1
+
       - name: Deploy to Cloudflare Pages
         run: bunx wrangler pages deploy web/out --project-name=staatsgraaf --branch=main
         env:

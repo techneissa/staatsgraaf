@@ -1,0 +1,85 @@
+name: link-check
+
+# Weekly source health check (docs/10 section 7). The checker verifies every
+# internal href in the built export and every source URL in data/sources.json.
+# It never evades a block: allowlisted hosts are reported as WARN, not FAIL.
+# A FAIL means a source died or moved; the fetcher gets fixed, the fact keeps
+# its source or gets a replacement with a note.
+on:
+  schedule:
+    # Mondays 04:00 UTC, after the nightly refresh window.
+    - cron: "0 4 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: link-check
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: internal and external links
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: .bun-version
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Setup Bun packages
+        run: cd web && bun install --frozen-lockfile
+
+      - name: Build the web app
+        run: cd web && bun run build
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL || 'https://staatsgraaf.pages.dev' }}
+
+      # The report goes to the run artifacts. Failures that persist across runs
+      # get an ops issue through the report step below.
+      - name: Check links
+        id: check
+        run: |
+          bun run check-links --internal-only --report research/qa/link-check-internal.md
+          bun run check-links --external-only --report research/qa/link-check-external.md
+          cat research/qa/link-check-external.md | head -50
+
+      - name: Upload the reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-check-${{ github.run_id }}
+          path: research/qa/link-check-*.md
+
+      - name: Report link failures
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          marker="Linkcontrole mislukt"
+          title="[ops] ${marker}"
+          body="De wekelijkse linkcontrole heeft FAIL's gevonden.
+
+          Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          Rapporten in de run-artifacts (research/qa/link-check-*.md).
+
+          Een verplaatste bron betekent: de fetcher aanpassen, niet het feit laten vallen."
+          gh label create ops --force >/dev/null 2>&1 || true
+          existing="$(gh issue list --state open --search "${marker} in:title" --json number --jq '.[0].number // empty' 2>/dev/null || true)"
+          if [ -n "${existing}" ]; then
+            gh issue comment "${existing}" --body "${body}" || printf '%s\n' "${body}"
+          else
+            gh issue create --title "${title}" --label ops --body "${body}" || printf '%s\n' "${body}"
+          fi

@@ -37,6 +37,11 @@ jobs:
       - name: Validate the dataset
         run: bun run validate
 
+      # The committed /data/v1 artifact is the contract for every client. The
+      # dataset files here are byte-copies of data/, so the contract must hold.
+      - name: Contract check on the committed dataset
+        run: bun run contract web/public/data/v1
+
       # AGENTS.md rule 8: dates in documents are dd-MM-YYYY. Data and quoted values stay ISO.
       - name: Check date format in documents
         run: |

@@ -6,6 +6,9 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Added
 
+- Weekly link-check workflow, a dataset contract check in CI and every deploy workflow, and the public correction path on the method page.
+### Added
+
 - A bilingual interface. The top bar gains an NL/EN toggle (`web/components/language-toggle.tsx`); the stored choice re-renders the interface in English or Dutch after hydration (ADR 0008). Dictionaries are split per build area under `web/lib/i18n/`, and entity names stay Dutch in both languages.
 - A power map callout on the Who's in the news strip. Hovering or focusing a portrait reveals the name and a button that switches the right canvas to the machtskaart focused on that person's constellation, via the existing `staatsgraaf:focus` canvas event.
 - A budget section on the homepage: fiscal tiles with year-over-year indicators and an Explore budget entry linking to `/begroting/`.
