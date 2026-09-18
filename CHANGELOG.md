@@ -15,6 +15,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 - News sections on person and position pages. `web/components/news/news-panel.tsx` now renders under "In het nieuws" when the entity has linked articles.
 - Index routes for browsing: `/personen/` grouped by letter, `/posities/` grouped by type, and `/organisaties/` grouped by branch, all linked from the top bar and listed in the sitemap.
 - The graph layout is documented and guarded. `web/lib/graph-layout.md` specifies layout `nl-sectors-v3` and the machtskaart layout; `web/lib/graph.test.mjs` and `web/lib/power-map-layout.test.mjs` fail the build when glyphs, labels, or machtskaart cards overlap, when a glyph enters the hub, or when labels leave the viewBox. `pipelines/news.mjs` stores an article image only when the feed's `imageLicense` allows it and registers it in `data/media.json`; `pipelines/portraits.mjs` gained `--new-only`, `--max-new`, and `--prune` for cheap nightly runs.
+- A fast deploy path. `.github/workflows/deploy.yml` runs on every push to `main` and on demand: it validates the committed dataset, tests, builds, and deploys without refetching office holders or news, so a code or data change reaches production in about a minute instead of waiting for the nightly or six-hourly run. All deploy workflows now cache the Bun package store and the Next.js build directory (`.github/workflows/refresh.yml`, `news.yml`, `deploy.yml`), which shortens the build because Next invalidates only the pages whose inputs changed.
 
 ### Changed
 

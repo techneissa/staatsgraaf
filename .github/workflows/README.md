@@ -1,8 +1,12 @@
 # Workflow operator notes
 
-Three GitHub Actions workflows run the pipeline, the news cadence, and the gate. Host and deploy path are fixed in `docs/adr/0004-hosting-ci-and-analytics.md`: Cloudflare Pages, project `staatsgraaf`, production branch `main`, Wrangler deploy from GitHub Actions.
+Four GitHub Actions workflows run the pipeline, the news cadence, the push deploy, and the gate. Host and deploy path are fixed in `docs/adr/0004-hosting-ci-and-analytics.md`: Cloudflare Pages, project `staatsgraaf`, production branch `main`, Wrangler deploy from GitHub Actions.
 
 ## Workflows
+
+### `deploy.yml`
+
+Runs on every push to `main` and on demand. This is the fast path: it builds and deploys the committed dataset and does not refetch office holders or news. Steps: checkout, setup Bun, setup Node, restore the Bun and Next.js caches, `bun run validate`, `bun test pipelines web/lib`, the web build, and the Wrangler deploy. It shares the `nightly-refresh` concurrency group with the other deploy workflows, so two deployments never overlap. A push that changes only the site code or the committed data reaches production in about a minute instead of waiting for the nightly or six-hourly run.
 
 ### `refresh.yml`
 
@@ -11,15 +15,18 @@ Runs nightly at 03:00 UTC, and on demand with **Run workflow**. Steps run in thi
 1. checkout
 2. setup Bun (`oven-sh/setup-bun@v2`, version from `.bun-version`)
 3. setup Node 24 (`actions/setup-node@v4`, for Next.js and Wrangler only)
-4. `bun run refresh-official` (office holders from Rijksoverheid, Tweede Kamer, and Eerste Kamer; `docs/adr/0006-live-official-sources.md`)
-5. `bun run merge`
-6. `bun run news`
-7. `bun run changes`
-8. `bun run validate`
-9. `bun test pipelines web/lib`
-10. `cd web && bun install --frozen-lockfile && bun run build` (with `NEXT_PUBLIC_SITE_URL`)
-11. ensure the Pages project `staatsgraaf` exists with `bunx wrangler pages project list`, creating it with `bunx wrangler pages project create` if it is missing
-12. `bunx wrangler pages deploy web/out --project-name=staatsgraaf --branch=main`
+4. restore the Bun package cache and the Next.js build cache
+5. `bun run refresh-official` (office holders from Rijksoverheid, Tweede Kamer, and Eerste Kamer; `docs/adr/0006-live-official-sources.md`)
+6. `bun run merge`
+7. `bun run news`
+8. `bun run changes`
+9. `bun run validate`
+10. `bun test pipelines web/lib`
+11. `cd web && bun install --frozen-lockfile && bun run build` (with `NEXT_PUBLIC_SITE_URL`)
+12. ensure the Pages project `staatsgraaf` exists with `bunx wrangler pages project list`, creating it with `bunx wrangler pages project create` if it is missing
+13. `bunx wrangler pages deploy web/out --project-name=staatsgraaf --branch=main`
+
+Every deploy workflow caches `~/.bun/install/cache` (keyed on `web/bun.lock`) and `web/.next/cache` (keyed on `web/bun.lock` and the `data/` hash, with a data-independent restore key). The Next.js cache is safe to reuse across data changes: Next invalidates only the pages whose inputs actually changed, so a warm cache skips work that is still current and never serves a stale page.
 
 There is no root install step: the root package has no dependencies, so Bun runs the pipelines, the validator, and the tests straight from the checkout. `web/bun.lock` is the only lockfile, and `bun install --frozen-lockfile` in `web/` fails if it is out of date. The toolchain choice is recorded in `docs/adr/0005-bun-toolchain.md`.
 
@@ -27,7 +34,7 @@ Validation and tests gate the deploy: a failed step stops the run, so production
 
 ### `news.yml`
 
-Runs every six hours at 30 minutes past the hour, and on demand. It shares the `nightly-refresh` concurrency group, so it never overlaps the nightly run. Steps: checkout, setup Bun, setup Node, `bun run news`, `bun run validate`, `bun test pipelines web/lib`, the web build, and the Wrangler deploy. It does not refetch office holders or re-derive the change feed; that is the nightly run's job. To go hourly, change the cron to `0 * * * *`; the cost trade-off is in `docs/adr/0007-news-outlets-and-languages.md`. On failure it opens or comments on one `ops` issue titled "Nieuwsrun mislukt".
+Runs every six hours at 30 minutes past the hour, and on demand. It shares the `nightly-refresh` concurrency group, so it never overlaps the nightly run. Steps: checkout, setup Bun, setup Node, restore the Bun and Next.js caches, `bun run news`, `bun run validate`, `bun test pipelines web/lib`, the web build, and the Wrangler deploy. It does not refetch office holders or re-derive the change feed; that is the nightly run's job. To go hourly, change the cron to `0 * * * *`; the cost trade-off is in `docs/adr/0007-news-outlets-and-languages.md`. On failure it opens or comments on one `ops` issue titled "Nieuwsrun mislukt".
 
 ### `ci.yml`
 
@@ -64,6 +71,8 @@ Never echo a secret. The workflows pass Cloudflare credentials only as step-leve
 1. Go to **Actions > refresh**.
 2. Choose **Run workflow**, select `main`, and confirm.
 3. Watch the run. On green the site is redeployed; on red read the failure summary and the `ops` issue.
+
+To publish a code or data change without refetching, push to `main` (the `deploy` workflow runs) or use **Actions > deploy > Run workflow**. The `deploy` run skips the fetchers and takes about a minute with a warm cache.
 
 ## Roll back
 

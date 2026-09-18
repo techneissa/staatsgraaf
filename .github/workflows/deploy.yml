@@ -1,0 +1,104 @@
+name: deploy
+
+# A push to main builds and deploys the committed dataset. It does not refetch
+# office holders or news; that is the nightly refresh (refresh.yml) and the
+# six-hourly news run (news.yml). Use this workflow to publish a code or data
+# change without waiting for the schedule.
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+# Shares the deploy lock with the nightly and news runs, so two deployments never
+# overlap. A newer run waits; GitHub keeps only the newest pending run per group.
+concurrency:
+  group: nightly-refresh
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: build and deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Bun installs packages and runs the validator and the tests.
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: .bun-version
+
+      # Next.js and Wrangler still execute on Node.
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      # Warm the Bun package cache so `bun install` stays a few seconds.
+      - name: Cache Bun packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: bun-${{ runner.os }}-${{ hashFiles('web/bun.lock') }}
+          restore-keys: |
+            bun-${{ runner.os }}-
+
+      # Reuse Next.js build artifacts. Next invalidates cached pages whose inputs
+      # changed, so a warm cache only skips work that is still current.
+      - name: Cache the Next.js build
+        uses: actions/cache@v4
+        with:
+          path: web/.next/cache
+          key: next-${{ runner.os }}-${{ hashFiles('web/bun.lock') }}-${{ hashFiles('data/**') }}-${{ github.sha }}
+          restore-keys: |
+            next-${{ runner.os }}-${{ hashFiles('web/bun.lock') }}-${{ hashFiles('data/**') }}-
+            next-${{ runner.os }}-${{ hashFiles('web/bun.lock') }}-
+            next-${{ runner.os }}-
+
+      # The dataset is committed, so this run only gates on it.
+      - name: Validate the dataset
+        run: bun run validate
+
+      - name: Run tests
+        run: bun test pipelines web/lib
+
+      - name: Build the web app
+        run: cd web && bun install --frozen-lockfile && bun run build
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL || 'https://staatsgraaf.pages.dev' }}
+
+      - name: Deploy to Cloudflare Pages
+        run: bunx wrangler pages deploy web/out --project-name=staatsgraaf --branch=main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Report deploy failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          marker="Deploy mislukt"
+          title="[ops] ${marker}"
+          body="De deploy van een push naar main is mislukt.
+
+          Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          Ref: ${{ github.ref }}
+          Commit: ${{ github.sha }}
+
+          Productie blijft op de laatste goede deployment. Onderzoek de run en los de oorzaak op."
+          gh label create ops --force >/dev/null 2>&1 || true
+          existing="$(gh issue list --state open --search "${marker} in:title" --json number --jq '.[0].number // empty' 2>/dev/null || true)"
+          if [ -n "${existing}" ]; then
+            gh issue comment "${existing}" --body "${body}" || printf '%s\n' "${body}"
+          else
+            gh issue create --title "${title}" --label ops --body "${body}" || printf '%s\n' "${body}"
+          fi

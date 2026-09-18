@@ -36,6 +36,27 @@ jobs:
         with:
           node-version: "24"
 
+      # Warm the Bun package cache so `bun install` stays a few seconds.
+      - name: Cache Bun packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: bun-${{ runner.os }}-${{ hashFiles('web/bun.lock') }}
+          restore-keys: |
+            bun-${{ runner.os }}-
+
+      # Reuse Next.js build artifacts. The restore key ignores the data hash on
+      # purpose: a news run changes news data every time, and Next invalidates only
+      # the pages whose inputs actually changed.
+      - name: Cache the Next.js build
+        uses: actions/cache@v4
+        with:
+          path: web/.next/cache
+          key: next-${{ runner.os }}-${{ hashFiles('web/bun.lock') }}-${{ hashFiles('data/**') }}
+          restore-keys: |
+            next-${{ runner.os }}-${{ hashFiles('web/bun.lock') }}-
+            next-${{ runner.os }}-
+
       # Only the news feeds are refetched. Office holders and the change feed are the
       # nightly refresh's job, so this run stays short and cheap.
       - name: Refresh news
