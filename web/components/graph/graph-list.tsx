@@ -10,6 +10,7 @@ import {
   EDGE_TYPE_LABELS_I18N,
   ORG_SUBTYPE_LABELS_I18N,
 } from "@/lib/i18n/dict-graph";
+import { orgEnGloss } from "@/lib/name-gloss";
 
 type GraphListProps = {
   bundle: GraphBundle;
@@ -105,6 +106,7 @@ export function GraphList({ bundle, selectedId, onSelect, hiddenBranches }: Grap
               <ul className="space-y-0.5">
                 {group.nodes.map((node) => {
                   const relations = relationsByNode.get(node.id) ?? [];
+                  const gloss = locale === "en" ? orgEnGloss(node.name) : null;
                   return (
                     <li key={node.id}>
                       <button
@@ -119,6 +121,9 @@ export function GraphList({ bundle, selectedId, onSelect, hiddenBranches }: Grap
                       >
                         {node.name}
                         <span className="sr-only">, {localized(ORG_SUBTYPE_LABELS_I18N, node.subtype)}</span>
+                        {gloss ? (
+                          <span className="sr-only"> ({gloss})</span>
+                        ) : null}
                       </button>
                       {relations.length > 0 ? (
                         <ul

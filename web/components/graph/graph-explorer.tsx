@@ -21,6 +21,7 @@ import {
   ORG_SUBTYPE_LABELS_I18N,
   ORG_TYPE_LABELS_I18N,
 } from "@/lib/i18n/dict-graph";
+import { orgEnGloss } from "@/lib/name-gloss";
 import { hubBurstPath, glyphPath } from "./glyph";
 import { GraphList } from "./graph-list";
 import { sectorLabelArc, sectorWedge } from "./sector-wedge";
@@ -417,6 +418,10 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
 
   const branchLabel = (branch: string) => localizedLabel(locale, BRANCH_LABELS_I18N, branch);
 
+  /** English meaning of a Dutch org name, or null (NL locale or no gloss). */
+  const glossOf = (name: string): string | null =>
+    locale === "en" ? orgEnGloss(name) : null;
+
   return (
     <div className="relative flex h-full min-h-0 w-full flex-col">
       <p className="sr-only" aria-live="polite">
@@ -549,17 +554,30 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
                 .map((id) => {
                   const node = layout.byId.get(id);
                   if (!node) return null;
+                  const gloss = glossOf(node.name);
                   return (
-                    <text
-                      key={`neighbor-label-${id}`}
-                      x={node.x + node.glyphRadius + 4}
-                      y={node.y}
-                      dominantBaseline="central"
-                      fill="var(--color-ink-muted)"
-                      style={{ fontSize: 11 }}
-                    >
-                      {node.name}
-                    </text>
+                    <g key={`neighbor-label-${id}`}>
+                      <text
+                        x={node.x + node.glyphRadius + 4}
+                        y={node.y}
+                        dominantBaseline="central"
+                        fill="var(--color-ink-muted)"
+                        style={{ fontSize: 11 }}
+                      >
+                        {node.name}
+                      </text>
+                      {gloss ? (
+                        <text
+                          x={node.x + node.glyphRadius + 4}
+                          y={node.y + 10}
+                          dominantBaseline="central"
+                          fill="var(--color-ink-faint)"
+                          style={{ fontSize: 8.5 }}
+                        >
+                          ({gloss})
+                        </text>
+                      ) : null}
+                    </g>
                   );
                 })}
             </g>
@@ -604,6 +622,9 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
       {selectedHub && layout.hub ? (
         <SelectionPopover ariaLabel={t("selectionDetails")}>
           <p className="truncate text-sm font-medium text-ink">{layout.hub.name}</p>
+          {glossOf(layout.hub.name) ? (
+            <p className="text-[10px] text-ink-faint">({glossOf(layout.hub.name)})</p>
+          ) : null}
           <p className="mt-0.5 text-xs text-ink-faint">{connectionCountText(neighborSet.size)}</p>
           <a
             href={`/organisaties/${layout.hub.slug}/`}
@@ -615,6 +636,9 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
       ) : selectedNode ? (
         <SelectionPopover ariaLabel={t("selectionDetails")}>
           <p className="truncate text-sm font-medium text-ink">{selectedNode.name}</p>
+          {glossOf(selectedNode.name) ? (
+            <p className="text-[10px] text-ink-faint">({glossOf(selectedNode.name)})</p>
+          ) : null}
           <div className="mt-1 flex flex-wrap items-center justify-center gap-1">
             <span className="rounded-pill border border-line px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-ink-muted">
               {localizedLabel(locale, ORG_TYPE_LABELS_I18N, selectedNode.type)}
