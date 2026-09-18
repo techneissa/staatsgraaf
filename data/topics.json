@@ -43,6 +43,13 @@
       "personeelstekorten",
       "werkloosheid",
       "minimumloon"
+    ],
+    "sources": [
+      {
+        "source": "src:k-onderwerp-arbeidsmarkt",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
     ]
   },
   {
@@ -90,6 +97,13 @@
       "asielcrisis",
       "uitzetting",
       "mensenhandel"
+    ],
+    "sources": [
+      {
+        "source": "src:k-onderwerp-asiel-en-migratie",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
     ]
   },
   {
@@ -144,6 +158,13 @@
       "prorail",
       "rijkswaterstaat",
       "verkeersveiligheid"
+    ],
+    "sources": [
+      {
+        "source": "src:k-onderwerp-infrastructuur",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
     ]
   },
   {
@@ -189,6 +210,13 @@
       "kernenergie",
       "windenergie",
       "verduurzaming"
+    ],
+    "sources": [
+      {
+        "source": "src:k-onderwerp-klimaat-en-energie",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
     ]
   },
   {
@@ -232,6 +260,13 @@
       "rijksvertegenwoordiger",
       "eilandsraad",
       "gezaghebber"
+    ],
+    "sources": [
+      {
+        "source": "src:k-onderwerp-koninkrijksrelaties",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
     ]
   },
   {
@@ -278,6 +313,13 @@
       "leraar",
       "leraren",
       "studiefinanciering"
+    ],
+    "sources": [
+      {
+        "source": "src:k-onderwerp-onderwijs",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
     ]
   },
   {
@@ -336,6 +378,13 @@
       "gedeputeerde staten",
       "fractie",
       "zetels"
+    ],
+    "sources": [
+      {
+        "source": "src:k-onderwerp-openbaar-bestuur-en-democratie",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
     ]
   },
   {
@@ -388,6 +437,13 @@
       "bomen",
       "wolf",
       "ganzen"
+    ],
+    "sources": [
+      {
+        "source": "src:k-onderwerp-stikstof-en-landbouw",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
     ]
   },
   {
@@ -427,6 +483,13 @@
       "compensatie",
       "schuldhulp",
       "schulden"
+    ],
+    "sources": [
+      {
+        "source": "src:k-onderwerp-toeslagen",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
     ]
   },
   {
@@ -481,6 +544,13 @@
       "veiligheidsregio",
       "slachtoffer",
       "gevangenis"
+    ],
+    "sources": [
+      {
+        "source": "src:k-onderwerp-veiligheid",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
     ]
   },
   {
@@ -524,6 +594,13 @@
       "ruimtelijke ordening",
       "woningmarkt",
       "woningtekort"
+    ],
+    "sources": [
+      {
+        "source": "src:k-onderwerp-wonen",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
     ]
   },
   {
@@ -570,6 +647,13 @@
       "verpleegkundige",
       "wachtlijst",
       "thuiszorg"
+    ],
+    "sources": [
+      {
+        "source": "src:k-onderwerp-zorg",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
     ]
   }
 ]

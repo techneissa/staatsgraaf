@@ -309,6 +309,7 @@ function applyLegalMappings(envelopes, winners, stats) {
 function aliasHolder(target, winners) {
   if (target.startsWith("org:")) return winners.organizations.get(target);
   if (target.startsWith("person:")) return winners.people.get(target);
+  if (target.startsWith("pos:")) return winners.positions.get(target);
   return null;
 }
 

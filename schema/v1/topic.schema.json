@@ -21,6 +21,11 @@
           "items": { "type": "string", "pattern": "^pos:" }
         },
         "keywords": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "common.schema.json#/$defs/sourceRef" }
+        },
         "trending": { "type": "boolean" }
       }
     }

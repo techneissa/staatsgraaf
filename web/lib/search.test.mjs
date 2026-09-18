@@ -29,8 +29,8 @@ test("BZK resolves to the ministerie van Binnenlandse Zaken", () => {
   assert.equal(topId("BZK"), "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties");
 });
 
-test("kabinet resolves to the Regering, not to the Kabinet offices", () => {
-  assert.equal(topId("kabinet"), "org:regering");
+test("kabinet resolves to the distinct Kabinet, not to the Kabinet offices", () => {
+  assert.equal(topId("kabinet"), "org:kabinet");
 });
 
 test("Kamer resolves to the Tweede Kamer", () => {

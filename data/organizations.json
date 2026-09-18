@@ -25346,7 +25346,8 @@
     "level": "lokaal",
     "country": "nederland",
     "aliases": [
-      "Gemeente Groningen"
+      "Gemeente Groningen",
+      "Groningen"
     ],
     "parent": null,
     "partOf": [],
@@ -31972,6 +31973,7 @@
     "country": "nederland",
     "aliases": [
       "'s-Gravenhage",
+      "Den Haag",
       "Gemeente 's-Gravenhage"
     ],
     "parent": null,
@@ -33797,6 +33799,7 @@
     "level": "lokaal",
     "country": "nederland",
     "aliases": [
+      "Utrecht",
       "Gemeente Utrecht"
     ],
     "parent": null,
@@ -52974,6 +52977,54 @@
     }
   },
   {
+    "id": "org:kabinet",
+    "slug": "kabinet",
+    "name": "Kabinet",
+    "aliases": [
+      "het kabinet",
+      "de bewindspersonen"
+    ],
+    "type": "department",
+    "subtype": "land-regering",
+    "branch": "regering",
+    "level": "rijk",
+    "country": "nederland",
+    "parent": null,
+    "partOf": [],
+    "description": "Het kabinet bestaat uit de ministers en de staatssecretarissen. De ministers en de staatssecretarissen worden bij koninklijk besluit benoemd en ontslagen. Het huidige kabinet-Jetten is op 23 februari 2026 beëdigd en telt 18 ministers en 10 staatssecretarissen.",
+    "legalSource": {
+      "label": "Grondwet art. 43 en art. 46",
+      "url": "https://wetten.overheid.nl/BWBR0001840"
+    },
+    "website": "https://www.rijksoverheid.nl/regering/bewindspersonen",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:rijksoverheid-bewindspersonen",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:stcrt-2026-8174",
+        "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "org:kabinet-minister-president",
     "slug": "kabinet-minister-president",
     "name": "Kabinet Minister-President",
@@ -56915,7 +56966,6 @@
     "aliases": [
       "Koning en ministers",
       "de regering",
-      "het kabinet",
       "Regering"
     ],
     "type": "department",

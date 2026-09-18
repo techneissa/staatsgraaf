@@ -296,6 +296,7 @@ export type Topic = {
   organizations: string[];
   positions: string[];
   keywords: string[];
+  sources?: SourceRef[];
   trending?: boolean;
 };
 

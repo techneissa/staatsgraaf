@@ -34,9 +34,9 @@ function compareCodeUnit(a, b) {
   return 0;
 }
 
-// The gazetteer lives in the research files. Organizations and people carry
-// their aliases in data/, but the position schema has no aliases field, so the
-// 1454 position aliases can only be read here at index-build time.
+// The gazetteer lives in the research files. Organizations, people and
+// positions all carry their aliases in data/, but reading the research files
+// directly keeps the index independent of what merge has already applied.
 export function collectGazetteerAliases() {
   const byTarget = new Map();
   const visit = (value) => {

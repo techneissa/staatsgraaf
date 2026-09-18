@@ -11,6 +11,7 @@
         "id": { "type": "string", "pattern": "^pos:[a-z0-9][a-z0-9-]*$" },
         "slug": { "$ref": "common.schema.json#/$defs/slug" },
         "title": { "type": "string", "minLength": 1 },
+        "aliases": { "type": "array", "items": { "type": "string", "minLength": 1 } },
         "organization": { "type": "string", "pattern": "^org:" },
         "type": {
           "type": "string",
