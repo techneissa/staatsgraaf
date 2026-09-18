@@ -163,8 +163,8 @@ export const PAGES_DICT = {
     en: "A serious error gets a short notice on the affected page for a while.",
   },
   methodCorrectionsP3: {
-    nl: "De correctieprocedure staat beschreven, maar er is nog geen openbaar contactadres en nog geen publieke repository-URL vastgelegd. Daardoor is er nog geen concrete plek waar je een correctie kunt melden. Dat is een benoemde leemte. Zodra het adres en de repository bekend zijn, staat hier hoe je een correctie meldt.",
-    en: "The correction procedure is described, but no public contact address and no public repository URL have been recorded yet. There is therefore no concrete place yet where a correction can be reported. That is a named gap. As soon as the address and the repository are known, this page will describe how to report a correction.",
+    nl: "Correcties kun je melden via de issues in de openbare repository: https://github.com/techneissa/staatsgraaf/issues. Vermeld de pagina, het feit, de juiste waarde en de bron. Een correctie verandert de dataset met een nieuwe commit, een regel in dit logboek en, bij een ernstige fout, een korte melding op de betrokken pagina.",
+    en: "You can report corrections via the issues in the public repository: https://github.com/techneissa/staatsgraaf/issues. Name the page, the fact, the correct value and the source. A correction changes the dataset with a new commit, a line in this log and, for a serious error, a short notice on the affected page.",
   },
   methodLicensesTitle: { nl: "Licenties en hergebruik", en: "Licences and reuse" },
   methodLicensesP1: {
