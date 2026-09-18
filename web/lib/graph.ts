@@ -1,19 +1,31 @@
 import type { OrgBranch, OrgLevel, OrgSubtype, OrgType } from "./types";
+import { ORG_BRANCH_LABELS } from "./labels";
 
 export const GRAPH_SCHEMA = "nl-graph-bundle-v1";
-export const GRAPH_LAYOUT = "nl-sectors-v1";
+export const GRAPH_LAYOUT = "nl-sectors-v3";
 
 export const HUB_RADIUS = 96;
+export const HUB_CLEARANCE = 34;
 export const RING_GAP = 40;
-export const SUBRING_GAP = 26;
-export const MIN_SPACING = 7;
-export const MAX_PER_RING = 96;
+export const SUBRING_GAP = 30;
+export const GLYPH_GAP = 3;
+export const MAX_PER_RING = 160;
 export const MAX_DEPTH = 6;
-export const SECTOR_GUTTER = (4 * Math.PI) / 180;
-export const SUBSECTOR_GUTTER = (2 * Math.PI) / 180;
+export const SECTOR_GUTTER = (3 * Math.PI) / 180;
+export const SUBSECTOR_GUTTER = (1 * Math.PI) / 180;
 export const START_ANGLE = -Math.PI / 2;
-export const VIEW_PADDING = 120;
+export const LABEL_FONT_SIZE = 18;
+export const LABEL_CHAR_WIDTH = 11;
+export const LABEL_CLEARANCE = 14;
+export const LABEL_MARGIN = 32;
+export const MIN_SPAN_RADIUS = 900;
+export const MIN_SPAN_RADIUS_SMALL = 550;
+export const MIN_RING_STEP = 15;
+export const MAX_RING_STEP = 40;
+export const VIEW_PADDING = 200;
 export const BOW = 0.14;
+
+export const SELECTED_GROWTH = 1.5;
 
 export type GlyphClass =
   | "shield"
@@ -100,6 +112,9 @@ export type SectorInfo = {
   startAngle: number;
   endAngle: number;
   count: number;
+  labelRadius: number;
+  labelWidth: number;
+  labelHeight: number;
   subSectors: SubSectorInfo[];
 };
 
@@ -133,6 +148,7 @@ export type GraphLayout = {
   hub: LaidOutHub | null;
   sectors: SectorInfo[];
   maxRadius: number;
+  labelRadius: number;
   viewBox: { x: number; y: number; width: number; height: number };
 };
 
@@ -272,9 +288,54 @@ function groupBy<T, K extends string>(items: T[], key: (item: T) => K): Map<K, T
   return map;
 }
 
+function allocateSpans(weights: number[], minimums: number[], total: number): number[] {
+  const count = weights.length;
+  if (count === 0) return [];
+  const minimumTotal = minimums.reduce((sum, value) => sum + value, 0);
+  if (minimumTotal >= total) {
+    const scale = total / Math.max(1e-9, minimumTotal);
+    return minimums.map((value) => value * scale);
+  }
+  const weightTotal = Math.max(
+    1e-9,
+    weights.reduce((sum, value) => sum + value, 0),
+  );
+  let spans = weights.map((weight, index) =>
+    Math.max(minimums[index], (weight / weightTotal) * total),
+  );
+  for (let pass = 0; pass < count + 2; pass += 1) {
+    const excess = spans.reduce((sum, value) => sum + value, 0) - total;
+    if (excess <= 1e-9) break;
+    const headroomTotal = spans.reduce(
+      (sum, value, index) => sum + Math.max(0, value - minimums[index]),
+      0,
+    );
+    if (headroomTotal <= 1e-9) break;
+    spans = spans.map((value, index) => {
+      const headroom = Math.max(0, value - minimums[index]);
+      return Math.max(minimums[index], value - (excess * headroom) / headroomTotal);
+    });
+  }
+  return spans;
+}
+
 export function glyphRadiusForDegree(degree: number, selected = false): number {
-  const base = Math.min(11, Math.max(5, 5 + Math.sqrt(Math.max(0, degree)) * 1.1));
-  return selected ? base + 2 : base;
+  const base = Math.min(10, Math.max(5, 5 + Math.sqrt(Math.max(0, degree)) * 1.1));
+  return selected ? base + SELECTED_GROWTH : base;
+}
+
+export function glyphFootprint(node: Pick<BundleNode, "subtype" | "degree">): number {
+  const radius = glyphRadiusForDegree(node.degree, false);
+  switch (GLYPH_BY_SUBTYPE[node.subtype] ?? "dot") {
+    case "small-dot":
+      return radius * 0.68;
+    case "capsule":
+      return Math.hypot(radius, radius * 0.6);
+    case "seat":
+      return Math.hypot(radius, radius * 0.38);
+    default:
+      return radius;
+  }
 }
 
 export function edgePath(x1: number, y1: number, x2: number, y2: number): string {
@@ -291,6 +352,28 @@ export function edgePath(x1: number, y1: number, x2: number, y2: number): string
   const ctrlX = midX + nx * side * len * BOW;
   const ctrlY = midY + ny * side * len * BOW;
   return `M ${round(x1)} ${round(y1)} Q ${round(ctrlX)} ${round(ctrlY)} ${round(x2)} ${round(y2)}`;
+}
+
+type PlacedNode = { node: BundleNode; angle: number };
+
+function placeRing(
+  nodes: BundleNode[],
+  startIndex: number,
+  from: number,
+  to: number,
+  radius: number,
+): PlacedNode[] {
+  const placed: PlacedNode[] = [];
+  let cursor = from;
+  for (let index = startIndex; index < nodes.length; index += 1) {
+    if (placed.length >= MAX_PER_RING) break;
+    const halfLead = (glyphFootprint(nodes[index]) + GLYPH_GAP / 2) / radius;
+    const angle = cursor + halfLead;
+    if (angle + halfLead > to) break;
+    placed.push({ node: nodes[index], angle });
+    cursor = angle + halfLead;
+  }
+  return placed;
 }
 
 export function computeLayout(bundle: GraphBundle): GraphLayout {
@@ -332,9 +415,53 @@ export function computeLayout(bundle: GraphBundle): GraphLayout {
 
   const totalGutter = branchOrder.length * SECTOR_GUTTER + subSectorCount * SUBSECTOR_GUTTER;
   const usable = Math.PI * 2 - totalGutter;
-  const totalWeight = branchOrder.reduce(
-    (sum, branch) => sum + Math.sqrt(Math.max(1, branchCounts.get(branch) ?? 0)),
-    0,
+  const arcWeight = (node: BundleNode): number => glyphFootprint(node) + GLYPH_GAP;
+  const innerMinimum = (nodes: BundleNode[]): number => {
+    let ceiling = 0;
+    for (const node of nodes) ceiling = Math.max(ceiling, glyphFootprint(node));
+    const target = nodes.length <= 4 ? MIN_SPAN_RADIUS_SMALL : MIN_SPAN_RADIUS;
+    return (2 * ceiling + GLYPH_GAP) / target;
+  };
+  const ringStep = (nodes: BundleNode[]): number => {
+    let ceiling = 0;
+    for (const node of nodes) ceiling = Math.max(ceiling, glyphFootprint(node));
+    const needed = 2 * ceiling + GLYPH_GAP + 2 * SELECTED_GROWTH;
+    return Math.min(MAX_RING_STEP, Math.max(MIN_RING_STEP, Math.ceil(needed / 5) * 5));
+  };
+
+  const branchPlans = branchOrder.map((branch) => {
+    const branchNodes = byBranch.get(branch) ?? [];
+    const bySubtype = groupBy(branchNodes, (node) => node.subtype);
+    const subOrder = [
+      ...SUB_SECTOR_ORDER.filter((subtype) => bySubtype.has(subtype)),
+      ...[...bySubtype.keys()].filter((subtype) => !SUB_SECTOR_ORDER.includes(subtype)).sort(),
+    ];
+    const demands = subOrder.map((subtype) =>
+      Math.max(
+        1,
+        (bySubtype.get(subtype) ?? []).reduce((sum, node) => sum + arcWeight(node), 0),
+      ),
+    );
+    const weights = demands.map((demand) => Math.sqrt(demand));
+    const minimums = subOrder.map((subtype) => innerMinimum(bySubtype.get(subtype) ?? []));
+    return {
+      branch,
+      branchNodes,
+      bySubtype,
+      subOrder,
+      weights,
+      minimums,
+      floor:
+        subOrder.length * SUBSECTOR_GUTTER +
+        minimums.reduce((sum, value) => sum + value, 0),
+      weight: Math.sqrt(demands.reduce((sum, demand) => sum + demand, 0)),
+    };
+  });
+
+  const branchSpans = allocateSpans(
+    branchPlans.map((plan) => plan.weight),
+    branchPlans.map((plan) => plan.floor),
+    usable,
   );
 
   const laidOut = new Map<string, LaidOutNode>();
@@ -342,35 +469,30 @@ export function computeLayout(bundle: GraphBundle): GraphLayout {
   let maxRadius = HUB_RADIUS;
   let cursor = START_ANGLE;
 
-  for (const branch of branchOrder) {
-    const branchNodes = byBranch.get(branch) ?? [];
+  for (let planIndex = 0; planIndex < branchPlans.length; planIndex += 1) {
+    const { branch, branchNodes, bySubtype, subOrder, weights, minimums } =
+      branchPlans[planIndex];
     const count = branchCounts.get(branch) ?? branchNodes.length;
-    const span = usable * (Math.sqrt(Math.max(1, count)) / totalWeight);
+    const span = branchSpans[planIndex];
     const sectorStart = cursor;
 
-    const bySubtype = groupBy(branchNodes, (node) => node.subtype);
-    const subOrder = [
-      ...SUB_SECTOR_ORDER.filter((subtype) => bySubtype.has(subtype)),
-      ...[...bySubtype.keys()].filter((subtype) => !SUB_SECTOR_ORDER.includes(subtype)).sort(),
-    ];
     const subGutterTotal = subOrder.length * SUBSECTOR_GUTTER;
     const subUsable = Math.max(0, span - subGutterTotal);
-    const subWeightTotal = subOrder.reduce(
-      (sum, subtype) => sum + Math.sqrt(Math.max(1, bySubtype.get(subtype)?.length ?? 0)),
-      0,
-    );
+    const subInnerSpans = allocateSpans(weights, minimums, subUsable);
 
     const subSectors: SubSectorInfo[] = [];
     let subCursor = sectorStart;
     let sectorEnd = sectorStart;
 
-    for (const subtype of subOrder) {
+    for (let subIndex = 0; subIndex < subOrder.length; subIndex += 1) {
+      const subtype = subOrder[subIndex];
       const subNodes = bySubtype.get(subtype) ?? [];
-      const subSpan = subUsable * (Math.sqrt(Math.max(1, subNodes.length)) / subWeightTotal);
+      const innerSpan = subInnerSpans[subIndex];
+      const subSpan = innerSpan + SUBSECTOR_GUTTER;
       const subStart = subCursor;
       const gutter = SUBSECTOR_GUTTER;
       const innerStart = subStart + gutter / 2;
-      const innerSpan = Math.max(0, subSpan - gutter);
+      const innerEnd = innerStart + innerSpan;
 
       const sorted = [...subNodes].sort((a, b) => {
         const da = depths.get(a.id) ?? 0;
@@ -382,28 +504,24 @@ export function computeLayout(bundle: GraphBundle): GraphLayout {
       let minDepth = Infinity;
       for (const node of sorted) minDepth = Math.min(minDepth, depths.get(node.id) ?? 0);
       if (!Number.isFinite(minDepth)) minDepth = 0;
-      const baseRadius = HUB_RADIUS + minDepth * RING_GAP;
+      const baseRadius = HUB_RADIUS + HUB_CLEARANCE + minDepth * RING_GAP;
+      const step = ringStep(sorted);
 
       let index = 0;
-      let ringIndex = 0;
+      let ringRadius = baseRadius;
       while (index < sorted.length) {
-        const radius = baseRadius + ringIndex * SUBRING_GAP;
-        const capacity = Math.min(
-          MAX_PER_RING,
-          Math.max(1, Math.floor((innerSpan * radius) / MIN_SPACING)),
-        );
-        const take = Math.min(capacity, sorted.length - index);
-        for (let slot = 0; slot < take; slot += 1) {
-          const node = sorted[index + slot];
-          const angle = innerStart + ((slot + 0.5) / take) * innerSpan;
-          const x = Math.cos(angle) * radius;
-          const y = Math.sin(angle) * radius;
+        const placed = placeRing(sorted, index, innerStart, innerEnd, ringRadius);
+        if (placed.length === 0) {
+          ringRadius += step;
+          continue;
+        }
+        for (const { node, angle } of placed) {
           laidOut.set(node.id, {
             ...node,
-            x: round(x),
-            y: round(y),
+            x: round(Math.cos(angle) * ringRadius),
+            y: round(Math.sin(angle) * ringRadius),
             angle: round(angle),
-            radius: round(radius),
+            radius: round(ringRadius),
             depth: depths.get(node.id) ?? 0,
             glyph: GLYPH_BY_SUBTYPE[node.subtype] ?? "dot",
             glyphRadius: round(glyphRadiusForDegree(node.degree, false)),
@@ -411,13 +529,13 @@ export function computeLayout(bundle: GraphBundle): GraphLayout {
             subSector: subtype,
             satellite: false,
           });
-          maxRadius = Math.max(maxRadius, radius);
+          maxRadius = Math.max(maxRadius, ringRadius);
         }
-        index += take;
-        ringIndex += 1;
+        index += placed.length;
+        ringRadius += step;
       }
 
-      subCursor = subStart + subSpan + SUBSECTOR_GUTTER;
+      subCursor = subStart + subSpan;
       sectorEnd = subCursor;
       subSectors.push({
         subtype,
@@ -434,35 +552,71 @@ export function computeLayout(bundle: GraphBundle): GraphLayout {
       startAngle: round(sectorStart),
       endAngle: round(sectorEnd),
       count,
+      labelRadius: 0,
+      labelWidth: 0,
+      labelHeight: 0,
       subSectors,
     });
     cursor = sectorStart + span + SECTOR_GUTTER;
   }
 
-  const satelliteRadius = round(maxRadius + SUBRING_GAP);
   const satSorted = [...satNodes].sort((a, b) => {
     if (a.branch !== b.branch) return a.branch < b.branch ? -1 : 1;
     return compareNames(a.name, b.name, a.id, b.id);
   });
-  satSorted.forEach((node, index) => {
-    const angle = START_ANGLE + (index / Math.max(1, satSorted.length)) * Math.PI * 2;
-    const x = Math.cos(angle) * satelliteRadius;
-    const y = Math.sin(angle) * satelliteRadius;
-    laidOut.set(node.id, {
-      ...node,
-      x: round(x),
-      y: round(y),
-      angle: round(angle),
-      radius: satelliteRadius,
-      depth: depths.get(node.id) ?? 0,
-      glyph: GLYPH_BY_SUBTYPE[node.subtype] ?? "dot",
-      glyphRadius: round(glyphRadiusForDegree(node.degree, false)),
-      sector: node.branch,
-      subSector: node.subtype,
-      satellite: true,
-    });
-    maxRadius = Math.max(maxRadius, satelliteRadius);
-  });
+  let satIndex = 0;
+  let satRadius = maxRadius + SUBRING_GAP;
+  while (satIndex < satSorted.length) {
+    const placed = placeRing(satSorted, satIndex, START_ANGLE, START_ANGLE + Math.PI * 2, satRadius);
+    if (placed.length === 0) {
+      satRadius += SUBRING_GAP;
+      continue;
+    }
+    for (const { node, angle } of placed) {
+      laidOut.set(node.id, {
+        ...node,
+        x: round(Math.cos(angle) * satRadius),
+        y: round(Math.sin(angle) * satRadius),
+        angle: round(angle),
+        radius: round(satRadius),
+        depth: depths.get(node.id) ?? 0,
+        glyph: GLYPH_BY_SUBTYPE[node.subtype] ?? "dot",
+        glyphRadius: round(glyphRadiusForDegree(node.degree, false)),
+        sector: node.branch,
+        subSector: node.subtype,
+        satellite: true,
+      });
+      maxRadius = Math.max(maxRadius, satRadius);
+    }
+    satIndex += placed.length;
+    satRadius += SUBRING_GAP;
+  }
+
+  let maxReach = HUB_RADIUS;
+  for (const node of laidOut.values()) {
+    maxReach = Math.max(maxReach, node.radius + glyphFootprint(node));
+  }
+
+  for (const sector of sectors) {
+    const text = ORG_BRANCH_LABELS[sector.branch].toUpperCase();
+    sector.labelWidth = Math.round(text.length * LABEL_CHAR_WIDTH);
+    sector.labelHeight = LABEL_FONT_SIZE;
+    const mid = (sector.startAngle + sector.endAngle) / 2;
+    const support =
+      (sector.labelWidth / 2) * Math.abs(Math.cos(mid)) +
+      (sector.labelHeight / 2) * Math.abs(Math.sin(mid));
+    sector.labelRadius = round(maxReach + support + LABEL_CLEARANCE);
+  }
+
+  let labelReach = 0;
+  for (const sector of sectors) {
+    const mid = (sector.startAngle + sector.endAngle) / 2;
+    labelReach = Math.max(
+      labelReach,
+      Math.abs(Math.cos(mid)) * sector.labelRadius + sector.labelWidth / 2,
+      Math.abs(Math.sin(mid)) * sector.labelRadius + sector.labelHeight / 2,
+    );
+  }
 
   const ordered: LaidOutNode[] = [];
   for (const node of bundle.nodes) {
@@ -481,7 +635,7 @@ export function computeLayout(bundle: GraphBundle): GraphLayout {
       }
     : null;
 
-  const radius = maxRadius + VIEW_PADDING;
+  const radius = Math.max(maxReach + VIEW_PADDING, labelReach + LABEL_MARGIN);
   return {
     nodes: ordered,
     byId: laidOut,
@@ -490,6 +644,7 @@ export function computeLayout(bundle: GraphBundle): GraphLayout {
     hub,
     sectors,
     maxRadius,
+    labelRadius: round(sectors.reduce((max, sector) => Math.max(max, sector.labelRadius), maxReach)),
     viewBox: { x: -radius, y: -radius, width: radius * 2, height: radius * 2 },
   };
 }

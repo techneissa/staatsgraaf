@@ -2,12 +2,17 @@
 
 import { useMemo } from "react";
 import type { PowerMap, PowerMapPerson } from "@/lib/graph";
+import {
+  layoutPowerMap,
+  powerMapCountLabel,
+  powerMapMeta,
+  truncateForPowerMap,
+  POWER_MAX_NAME_CHARS,
+} from "@/lib/power-map-layout";
 
 type PowerMapViewProps = {
   powerMap: PowerMap;
 };
-
-const GOLDEN_ANGLE = 2.399963229728653;
 
 function initials(name: string): string {
   const parts = name
@@ -18,20 +23,13 @@ function initials(name: string): string {
   return `${first}${last}`.toUpperCase();
 }
 
-function positionFor(index: number): { x: number; y: number } {
-  if (index === 0) return { x: 0, y: 0 };
-  const angle = index * GOLDEN_ANGLE;
-  const radius = 40 + 26 * Math.sqrt(index);
-  return { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius };
-}
+const VIEW_MARGIN = 24;
+const VIEW_TOP_EXTRA = 56;
 
 export function PowerMapView({ powerMap }: PowerMapViewProps) {
   const people = powerMap.people;
 
-  const points = useMemo(
-    () => people.map((person, index) => ({ person, ...positionFor(index) })),
-    [people],
-  );
+  const { cards, bounds } = useMemo(() => layoutPowerMap(people), [people]);
 
   if (people.length === 0) {
     return (
@@ -53,7 +51,12 @@ export function PowerMapView({ powerMap }: PowerMapViewProps) {
     );
   }
 
-  const maxRadius = Math.max(...points.map((point) => Math.hypot(point.x, point.y)), 40) + 70;
+  const viewBox = [
+    Math.round(bounds.minX - VIEW_MARGIN),
+    Math.round(bounds.minY - VIEW_MARGIN - VIEW_TOP_EXTRA),
+    Math.round(bounds.maxX - bounds.minX + VIEW_MARGIN * 2),
+    Math.round(bounds.maxY - bounds.minY + VIEW_MARGIN * 2 + VIEW_TOP_EXTRA),
+  ].join(" ");
 
   return (
     <div className="relative h-full min-h-0 w-full">
@@ -62,14 +65,14 @@ export function PowerMapView({ powerMap }: PowerMapViewProps) {
           Machtskaart: wie is in het nieuws
         </p>
         <p className="mt-1 text-xs text-ink-faint">
-          De {people.length} mensen die het meest genoemd zijn in {powerMap.articleCount} artikelen
+          De {people.length} mensen die het meest genoemd zijn in {powerMapCountLabel(powerMap.articleCount)}
           {powerMap.sources.length > 0 ? ` uit ${powerMap.sources.length} bronnen` : ""} in de laatste{" "}
           {powerMap.windowDays} dagen.
         </p>
       </div>
 
       <svg
-        viewBox={`${-maxRadius} ${-maxRadius} ${maxRadius * 2} ${maxRadius * 2}`}
+        viewBox={viewBox}
         role="img"
         aria-label="Machtskaart met de meest genoemde personen in het nieuws."
         className="h-full w-full"
@@ -80,25 +83,30 @@ export function PowerMapView({ powerMap }: PowerMapViewProps) {
           </clipPath>
         </defs>
         <g aria-hidden="true">
-          {points.slice(1).map((point) => (
+          {cards.slice(1).map((card) => (
             <line
-              key={`link-${point.person.person}`}
+              key={`link-${card.person.person}`}
               x1={0}
               y1={0}
-              x2={point.x}
-              y2={point.y}
+              x2={card.x}
+              y2={card.y}
               stroke="var(--color-line-strong)"
               strokeWidth={0.75}
               opacity={0.25}
             />
           ))}
         </g>
-        {points.map((point) => (
-          <g key={point.person.person} transform={`translate(${point.x} ${point.y})`} aria-hidden="true">
+        {cards.map((card) => (
+          <g key={card.person.person} transform={`translate(${card.x} ${card.y})`} aria-hidden="true">
+            <title>
+              {card.person.name}
+              {card.person.party ? `, ${card.person.party}` : ""}
+              {card.person.job ? `, ${card.person.job}` : ""}. {powerMapCountLabel(card.person.total)}.
+            </title>
             <circle r={26} fill="var(--color-surface-raised)" stroke="var(--color-line)" strokeWidth={1} />
-            {point.person.image ? (
+            {card.person.image ? (
               <image
-                href={point.person.image}
+                href={card.person.image}
                 x={-22}
                 y={-22}
                 width={44}
@@ -113,7 +121,7 @@ export function PowerMapView({ powerMap }: PowerMapViewProps) {
                 fill="var(--color-ink-muted)"
                 style={{ fontSize: 14, fontWeight: 600 }}
               >
-                {initials(point.person.name)}
+                {initials(card.person.name)}
               </text>
             )}
             <text
@@ -122,13 +130,13 @@ export function PowerMapView({ powerMap }: PowerMapViewProps) {
               fill="var(--color-ink)"
               style={{ fontSize: 12, fontWeight: 600 }}
             >
-              {point.person.name}
+              {truncateForPowerMap(card.person.name, POWER_MAX_NAME_CHARS)}
             </text>
             <text y={55} textAnchor="middle" fill="var(--color-ink-faint)" style={{ fontSize: 10 }}>
-              {[point.person.party, point.person.job].filter(Boolean).join(" · ")}
+              {powerMapMeta(card.person)}
             </text>
             <text y={68} textAnchor="middle" fill="var(--color-ink-faint)" style={{ fontSize: 10 }}>
-              {point.person.total} artikelen
+              {powerMapCountLabel(card.person.total)}
             </text>
           </g>
         ))}
@@ -139,7 +147,7 @@ export function PowerMapView({ powerMap }: PowerMapViewProps) {
           <li key={person.person}>
             {person.rank}. {person.name}
             {person.party ? `, ${person.party}` : ""}
-            {person.job ? `, ${person.job}` : ""}. {person.total} artikelen.
+            {person.job ? `, ${person.job}` : ""}. {powerMapCountLabel(person.total)}.
             {person.latest.date ? ` Laatste bericht op ${person.latest.date}.` : ""}
           </li>
         ))}

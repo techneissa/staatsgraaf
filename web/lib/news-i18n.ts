@@ -45,6 +45,8 @@ export type NewsMessages = {
     sourceLabel: string;
     linkedOnLabel: string;
     opensNewTab: string;
+    /** Precedes the credit line of the preview image. */
+    imageCreditLabel: string;
   };
   backLabel: string;
   /** Sits between the start and end of an hour range, for example "09:00 tot 09:59". */
@@ -143,6 +145,7 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
       sourceLabel: "Bron:",
       linkedOnLabel: "Gekoppeld op:",
       opensNewTab: "(opent in een nieuw tabblad)",
+      imageCreditLabel: "Beeld:",
     },
     backLabel: "Terug naar nieuws",
     hourConnector: "tot",
@@ -239,6 +242,7 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
       sourceLabel: "Source:",
       linkedOnLabel: "Linked on:",
       opensNewTab: "(opens in a new tab)",
+      imageCreditLabel: "Image:",
     },
     backLabel: "Back to news",
     hourConnector: "to",

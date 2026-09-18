@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { mkdtemp, mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdtemp, mkdir, readFile, writeFile, readdir } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
@@ -334,4 +335,230 @@ test("runNewsPipeline carries language, publisherKind, keywords and feed license
   const proposed = JSON.parse(await readFile(join(cacheDir, "sources.json"), "utf8"));
   assert.equal(proposed.length, 2);
   for (const record of proposed) assert.equal(record.license, "test-license");
+});
+
+// A single-item feed with an <enclosure> image, used by the imageLicense tests below.
+const IMAGE_RSS = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Beeldfeed</title>
+    <item>
+      <title>Kabinet presenteert plan</title>
+      <link>https://example.org/nieuws/plan</link>
+      <description>Het kabinet licht het plan toe.</description>
+      <pubDate>Fri, 18 Sep 2026 08:00:00 +0200</pubDate>
+      <enclosure url="https://example.org/a.jpg" type="image/jpeg" />
+    </item>
+  </channel>
+</rss>`;
+
+// Rejects anything the media.schema.json shape does not allow, without pulling in an
+// ajv dependency the rest of the pipeline test suite does not use.
+function assertMatchesMediaSchema(record) {
+  const required = ["id", "url", "type", "license", "credit", "source"];
+  for (const key of required) assert.ok(key in record, `media record is missing "${key}"`);
+  const allowed = new Set([...required, "author", "width", "height"]);
+  for (const key of Object.keys(record)) assert.ok(allowed.has(key), `media record has unexpected property "${key}"`);
+  assert.match(record.id, /^media:[a-z0-9][a-z0-9-]*$/);
+  assert.match(record.url, /^(https?:\/\/|\/)/);
+  assert.ok(["portrait", "logo", "photo"].includes(record.type));
+  assert.ok(typeof record.license === "string" && record.license.length >= 1);
+  assert.ok(typeof record.credit === "string" && record.credit.length >= 1);
+  assert.match(record.source, /^src:/);
+}
+
+async function setupImageRun(feedOverrides = {}) {
+  const dir = await mkdtemp(join(tmpdir(), "nlgraph-news-image-"));
+  const cacheDir = join(dir, "cache");
+  const dataDir = join(dir, "data");
+  const mediaDir = join(dir, "media");
+  await mkdir(dataDir, { recursive: true });
+
+  const feedsPath = join(dir, "feeds.json");
+  await writeFile(
+    feedsPath,
+    JSON.stringify({
+      generatedAt: "2026-09-18T06:00:00.000Z",
+      feeds: [
+        {
+          url: "https://example.org/rss.xml",
+          publisher: "Voorbeeldkrant",
+          language: "nl",
+          publisherKind: "online",
+          license: "Koppen en deep links.",
+          imageLicense: null,
+          imageCredit: null,
+          enabled: true,
+          ...feedOverrides,
+        },
+      ],
+    }),
+    "utf8",
+  );
+  const aliasPath = join(dir, "aliases.json");
+  await writeFile(aliasPath, JSON.stringify({ aliases: [] }), "utf8");
+  const topicsPath = join(dir, "topics.json");
+  await writeFile(topicsPath, JSON.stringify({ topics: [] }), "utf8");
+
+  return { dir, cacheDir, dataDir, mediaDir, feedsPath, aliasPath, topicsPath };
+}
+
+test("runNewsPipeline never downloads or stores an image when imageLicense is null (rights gate)", async () => {
+  const { runNewsPipeline } = await import("./news.mjs");
+  const { cacheDir, dataDir, mediaDir, feedsPath, aliasPath, topicsPath } = await setupImageRun();
+
+  const fetchImpl = async (url) => {
+    if (url === "https://example.org/rss.xml") return new Response(IMAGE_RSS, { status: 200 });
+    throw new Error(`unexpected fetch of ${url}: an all-rights-reserved feed must never fetch its image`);
+  };
+
+  const result = await runNewsPipeline({
+    feedsPath,
+    aliasPath,
+    topicsPath,
+    cacheDir,
+    dataDir,
+    mediaDir,
+    userAgent: "test",
+    fetchImpl,
+    now: new Date("2026-09-18T09:00:00Z"),
+    log: () => {},
+  });
+
+  assert.equal(result.stats.keptItems, 1);
+  assert.equal(result.stats.imagesDownloaded, 0);
+  assert.equal(result.stats.imagesSkippedForRights, 1);
+  assert.equal(result.mediaRecords.length, 0);
+
+  const news = JSON.parse(await readFile(join(dataDir, "news.json"), "utf8"));
+  assert.equal(news[0].image, null);
+
+  assert.equal(existsSync(join(mediaDir, "nieuws")), false);
+
+  const media = JSON.parse(await readFile(join(dataDir, "media.json"), "utf8"));
+  assert.equal(media.filter((record) => record.id.startsWith("media:nieuws-")).length, 0);
+});
+
+test("runNewsPipeline downloads and registers an image when the feed carries a license", async () => {
+  const { runNewsPipeline } = await import("./news.mjs");
+  const { cacheDir, dataDir, mediaDir, feedsPath, aliasPath, topicsPath } = await setupImageRun({
+    imageLicense: "CC0-1.0",
+  });
+
+  const imageBytes = new Uint8Array([1, 2, 3, 4]);
+  const fetchImpl = async (url) => {
+    if (url === "https://example.org/rss.xml") return new Response(IMAGE_RSS, { status: 200 });
+    if (url === "https://example.org/a.jpg") {
+      return new Response(imageBytes, { status: 200, headers: { "content-type": "image/jpeg" } });
+    }
+    throw new Error(`unexpected fetch of ${url}`);
+  };
+
+  const result = await runNewsPipeline({
+    feedsPath,
+    aliasPath,
+    topicsPath,
+    cacheDir,
+    dataDir,
+    mediaDir,
+    userAgent: "test",
+    fetchImpl,
+    now: new Date("2026-09-18T09:00:00Z"),
+    log: () => {},
+  });
+
+  assert.equal(result.stats.imagesDownloaded, 1);
+  assert.equal(result.stats.imagesSkippedForRights, 0);
+  assert.equal(result.mediaRecords.length, 1);
+
+  const news = JSON.parse(await readFile(join(dataDir, "news.json"), "utf8"));
+  const [item] = news;
+  assert.ok(item.image);
+  assert.equal(item.image, result.mediaRecords[0].id);
+
+  const files = await readdir(join(mediaDir, "nieuws"));
+  assert.equal(files.length, 1);
+  assert.match(files[0], /\.jpg$/);
+
+  const [mediaRecord] = result.mediaRecords;
+  assertMatchesMediaSchema(mediaRecord);
+  assert.equal(mediaRecord.license, "CC0-1.0");
+  assert.equal(mediaRecord.credit, "Beeld: Voorbeeldkrant");
+  assert.equal(mediaRecord.url, `/media/nieuws/${files[0]}`);
+
+  const media = JSON.parse(await readFile(join(dataDir, "media.json"), "utf8"));
+  assert.deepEqual(media, [mediaRecord]);
+});
+
+test("runNewsPipeline skips an image whose response is not one of the accepted image content types", async () => {
+  const { runNewsPipeline } = await import("./news.mjs");
+  const { cacheDir, dataDir, mediaDir, feedsPath, aliasPath, topicsPath } = await setupImageRun({
+    imageLicense: "CC0-1.0",
+  });
+
+  const fetchImpl = async (url) => {
+    if (url === "https://example.org/rss.xml") return new Response(IMAGE_RSS, { status: 200 });
+    if (url === "https://example.org/a.jpg") {
+      return new Response("<html>not an image</html>", { status: 200, headers: { "content-type": "text/html" } });
+    }
+    throw new Error(`unexpected fetch of ${url}`);
+  };
+
+  const result = await runNewsPipeline({
+    feedsPath,
+    aliasPath,
+    topicsPath,
+    cacheDir,
+    dataDir,
+    mediaDir,
+    userAgent: "test",
+    fetchImpl,
+    now: new Date("2026-09-18T09:00:00Z"),
+    log: () => {},
+  });
+
+  assert.equal(result.stats.imagesDownloaded, 0);
+  assert.equal(result.stats.imagesSkippedForErrors, 1);
+  assert.equal(result.mediaRecords.length, 0);
+
+  const news = JSON.parse(await readFile(join(dataDir, "news.json"), "utf8"));
+  assert.equal(news[0].image, null);
+  assert.equal(existsSync(join(mediaDir, "nieuws")), false);
+});
+
+test("runNewsPipeline leaves pre-existing non-nieuws media records (e.g. Wikidata portraits) untouched", async () => {
+  const { runNewsPipeline } = await import("./news.mjs");
+  const { cacheDir, dataDir, mediaDir, feedsPath, aliasPath, topicsPath } = await setupImageRun();
+
+  const portrait = {
+    id: "media:persoon-rutte",
+    url: "https://upload.wikimedia.org/rutte.jpg",
+    type: "portrait",
+    license: "CC BY-SA 4.0",
+    credit: "Wikimedia Commons",
+    author: "Minister-president",
+    source: "src:wikidata-rutte",
+  };
+  await writeFile(join(dataDir, "media.json"), `${JSON.stringify([portrait], null, 2)}\n`, "utf8");
+
+  const fetchImpl = async (url) => {
+    if (url === "https://example.org/rss.xml") return new Response(IMAGE_RSS, { status: 200 });
+    throw new Error(`unexpected fetch of ${url}`);
+  };
+
+  await runNewsPipeline({
+    feedsPath,
+    aliasPath,
+    topicsPath,
+    cacheDir,
+    dataDir,
+    mediaDir,
+    userAgent: "test",
+    fetchImpl,
+    now: new Date("2026-09-18T09:00:00Z"),
+    log: () => {},
+  });
+
+  const media = JSON.parse(await readFile(join(dataDir, "media.json"), "utf8"));
+  assert.deepEqual(media, [portrait]);
 });

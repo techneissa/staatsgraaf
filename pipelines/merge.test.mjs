@@ -243,3 +243,54 @@ test("output arrays are sorted by id and empty research still yields valid array
   assert.equal(meta.sources.earliest, null);
   assert.ok(typeof meta.snapshotId === "string");
 });
+
+test("portrait enrichment on a data/ person survives a research record winning the id", async () => {
+  const { researchDir, dataDir, logPath } = await setup();
+  await writeEnvelope(researchDir, "D-parlement.json", envelope("D", {
+    people: [{ id: "person:p1", slug: "p1", name: "P. Een", sources: [{ source: "src:tk", retrieved: "2026-09-18", confidence: "high" }] }],
+    sources: [{ id: "src:tk", url: "https://example.org/tk", title: "TK", publisher: "TK", type: "page", retrieved: "2026-09-18" }],
+  }));
+  await writeData(dataDir, "people.json", [{
+    id: "person:p1",
+    slug: "p1",
+    name: "P. Een",
+    portrait: "media:portret-p1",
+    wikidata: "Q1",
+    wikipedia: "https://nl.wikipedia.org/wiki/P1",
+    sources: [
+      { source: "src:tk", retrieved: "2026-09-18", confidence: "high" },
+      { source: "src:wikidata-p1", retrieved: "2026-09-18", confidence: "medium" },
+      { source: "src:commons-abc", retrieved: "2026-09-18", confidence: "medium" },
+    ],
+  }]);
+  await writeData(dataDir, "media.json", [{ id: "media:portret-p1", url: "/media/portretten/p1.jpg", type: "portrait", license: "CC0-1.0", credit: "Foto: X", author: "X", source: "src:commons-abc" }]);
+  await writeData(dataDir, "sources.json", [
+    { id: "src:wikidata-p1", url: "https://www.wikidata.org/wiki/Q1", title: "Q1", publisher: "Wikidata", type: "page", retrieved: "2026-09-18" },
+    { id: "src:commons-abc", url: "https://commons.wikimedia.org/wiki/File:P1.jpg", title: "P1.jpg", publisher: "Wikimedia Commons", type: "page", retrieved: "2026-09-18" },
+  ]);
+
+  const result = await mergeDataset({ researchDir, dataDir, logPath });
+  const people = await readData(dataDir, "people.json");
+  assert.equal(people.length, 1);
+  assert.equal(people[0].portrait, "media:portret-p1");
+  assert.equal(people[0].wikidata, "Q1");
+  assert.equal(people[0].wikipedia, "https://nl.wikipedia.org/wiki/P1");
+  assert.deepEqual(people[0].sources.map((ref) => ref.source), ["src:tk", "src:wikidata-p1", "src:commons-abc"]);
+  assert.equal(result.stats.enrichmentCarried, 1);
+  const media = await readData(dataDir, "media.json");
+  assert.equal(media.length, 1);
+});
+
+test("a research record that sets its own portrait is not overwritten by the previous data/ value", async () => {
+  const { researchDir, dataDir, logPath } = await setup();
+  await writeEnvelope(researchDir, "D-parlement.json", envelope("D", {
+    people: [{ id: "person:p1", slug: "p1", name: "P. Een", portrait: "media:portret-official", sources: [{ source: "src:tk", retrieved: "2026-09-18", confidence: "high" }] }],
+    sources: [{ id: "src:tk", url: "https://example.org/tk", title: "TK", publisher: "TK", type: "page", retrieved: "2026-09-18" }],
+  }));
+  await writeData(dataDir, "people.json", [{ id: "person:p1", slug: "p1", name: "P. Een", portrait: "media:portret-p1", sources: [{ source: "src:tk", retrieved: "2026-09-18", confidence: "high" }] }]);
+
+  const result = await mergeDataset({ researchDir, dataDir, logPath });
+  const people = await readData(dataDir, "people.json");
+  assert.equal(people[0].portrait, "media:portret-official");
+  assert.equal(result.stats.enrichmentCarried, 0);
+});

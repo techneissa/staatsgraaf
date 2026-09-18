@@ -90,6 +90,36 @@ export default function MethodPage() {
           </p>
         </ContentSection>
 
+        <ContentSection id="onderhoud" title="Actualiteit en onderhoud">
+          <p>
+            Elke nacht haalt de verversingsstap de actuele bewindspersonen op Rijksoverheid, de
+            ledenlijst van de Eerste Kamer en de fractiezetels van de Tweede Kamer. Wie in de
+            officiële lijst staat en nog geen lopende aanstelling heeft, krijgt er een met de
+            lijstpagina als bron. Wie uit de lijst verdwijnt, krijgt een einddatum gelijk aan de
+            ophaaldag, opnieuw met de lijstpagina als bron. Zo lopen functies en lidmaatschappen
+            automatisch mee met benoemingen, vertrek en verkiezingen.
+          </p>
+          <p>
+            Een vangnet hoort bij die stap: zouden in één nacht meer dan vijf dienstverbanden
+            sluiten, dan stopt de hele verversing voordat er iets wordt geschreven. Zo&apos;n aantal
+            wijst meestal op een gewijzigde bronpagina in plaats van op echt vertrek. De productie
+            blijft dan op de laatste goede versie staan en de storing wordt gemeld.
+          </p>
+          <p>
+            Het nieuws wordt elke zes uur opnieuw opgehaald: kop, koppeling naar het artikel,
+            publicatietijd, uitgever en waar de licentie het toestaat de inleiding. De
+            wijzigingenfeed vergelijkt de nieuwe dataset met de vorige op id, zodat een
+            naamswijziging niet als vertrek plus aanstelling verschijnt. Een record zonder bron
+            komt niet in de feed.
+          </p>
+          <p>
+            De verversing dekt nu de regering en beide Kamers. Provincies, gemeenten,
+            waterschappen en Caribisch Nederland komen uit de onderzoekswerkstromen en hebben nog
+            geen live bron. Dat is een benoemde leemte; hun gegevens worden bij een volgende
+            onderzoeksronde bijgewerkt.
+          </p>
+        </ContentSection>
+
         <ContentSection id="ai" title="Taalmodellen en menselijke controle">
           <p>
             Voor het beschrijven en samenvatten staat het beleid het gebruik van taalmodellen toe.
@@ -156,7 +186,7 @@ export default function MethodPage() {
           <p>De dataset is nog niet compleet. De volgende grenzen zijn bekend en benoemd.</p>
           <ContentList>
             <li>
-              844 posities hebben nog geen dienstverband met een bron. Het gaat vooral om
+              843 posities hebben nog geen dienstverband met een bron. Het gaat vooral om
               zetelgebonden functies zoals raadslid, statenlid, wethouder en gedeputeerde, en om een
               aantal griffiers, secretarissen-generaal en diensthoofden.
             </li>
@@ -168,8 +198,13 @@ export default function MethodPage() {
               en Gevolmachtigde Ministers zijn nog niet gemodelleerd.
             </li>
             <li>
-              <code>media.json</code> is leeg. Er zijn dus nog geen portretten met een vastgelegde
-              licentie en credit.
+              Van 330 van de 867 personen is een gelicentieerd portret opgenomen, met credit en
+              licentie in <code>data/media.json</code>. De overige personen tonen initialen.
+            </li>
+            <li>
+              Nieuwskaarten tonen geen beeld uit het artikel zelf: geen van de nieuwsbronnen staat
+              een beeldlicentie toe. In plaats daarvan tonen ze het portret van een gekoppeld
+              persoon wanneer dat beschikbaar is, anders een monogram van de uitgever.
             </li>
             <li>
               Twee nieuwsbronnen weigeren verzoeken met een 403-status. Van die artikelen ontbreekt

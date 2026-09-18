@@ -78,6 +78,8 @@ export type NewsEntityRef = {
   href: string;
   label: string;
   kind: "organization" | "position" | "person" | "topic";
+  /** A licensed portrait for a person, with its credit line; null for every other kind. */
+  portrait: { url: string; caption: string } | null;
 };
 
 export type NewsOutlet = {

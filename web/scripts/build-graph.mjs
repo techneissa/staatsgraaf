@@ -1,6 +1,8 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
+import { GRAPH_LAYOUT, GRAPH_SCHEMA } from "../lib/graph.ts";
+
 const DATA_DIR = fileURLToPath(new URL("../../data/", import.meta.url));
 const OUT_DIR = fileURLToPath(new URL("../public/", import.meta.url));
 const OUT_FILE = fileURLToPath(new URL("../public/graph.json", import.meta.url));
@@ -184,10 +186,10 @@ function buildPowerMap() {
 }
 
 const bundle = {
-  schema: "nl-graph-bundle-v1",
+  schema: GRAPH_SCHEMA,
   scope: "nl-rijk",
   snapshot,
-  layout: "nl-sectors-v1",
+  layout: GRAPH_LAYOUT,
   hub: hubOrg ? { id: hubOrg.id, slug: hubOrg.slug, name: hubOrg.name } : null,
   nodes,
   edges,

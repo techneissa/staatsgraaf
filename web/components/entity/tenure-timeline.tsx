@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Timeline, type TimelineItem } from "@/components/timeline";
+import { PersonPortrait } from "./person-portrait";
 import { SourceLink } from "@/components/source-link";
 import { getOrganizationById, getPersonById, getPositionById, getSourceById } from "@/lib/data";
 import { END_REASON_LABELS, ENTRY_MODE_LABELS } from "@/lib/labels";
@@ -94,6 +95,8 @@ export function TenureTimeline({
           <Source tenure={tenure} />
         </span>
       ),
+      icon:
+        person && variant !== "person" ? <PersonPortrait person={person} size={32} /> : undefined,
       period: formatPeriod(tenure.start, tenure.end),
       current: tenure.end === null,
       badges,

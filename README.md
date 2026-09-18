@@ -26,7 +26,7 @@ Language models may compress, rewrite, and link facts that a source states. They
 - `research/` holds the per-workstream output, the raw fetched snapshots under `research/raw/`, the merge decisions in `research/merge-log.md`, the license determination in `research/O-licenses.md`, and the QA and validation reports.
 - `schema/v1/` is the frozen data contract as JSON Schema. `schema/README.md` explains the layout.
 
-Counts in the `2026-09-18` snapshot: 1573 organizations, 1430 positions, 870 people, 1236 tenures, 225 memberships, 2338 relations, 12 topics, 36 budgets, 2229 sources (2233 in the live deployment), 1269 changes, and 1532 news items. `data/media.json` is empty, so no portraits ship yet.
+Counts in the `2026-09-18` snapshot: 1571 organizations, 1428 positions, 867 people, 1235 tenures, 225 memberships, 2338 relations, 12 topics, 36 budgets, 3197 sources, 1268 changes, and 1556 news items. `data/media.json` holds 330 licensed portraits, so 330 of the 867 people show a photo.
 
 ## Repository layout
 
@@ -97,10 +97,10 @@ Staatsgraaf is an independent, open publication about the Dutch government. It i
 
 ## Known data limits
 
-- 844 positions have no tenure with a source yet. They are mostly seat-bound roles such as raadslid, statenlid, wethouder, and gedeputeerde, plus a number of griffiers, secretarissen-generaal, and diensthoofden.
+- 843 positions have no tenure with a source yet. They are mostly seat-bound roles such as raadslid, statenlid, wethouder, and gedeputeerde, plus a number of griffiers, secretarissen-generaal, and diensthoofden.
 - Umbrella bodies GGD'en and omgevingsdiensten are not modeled yet. The VNG, IPO, and Unie van Waterschappen are modeled.
 - The three Kingdom countries (Aruba, Curaçao, and Sint Maarten) and their gouverneurs and Gevolmachtigde Ministers are not modeled yet.
-- `data/media.json` is empty, so there are no portraits with a recorded license and credit.
+- 537 of the 867 people have no portrait. The 330 portraits that ship come from Wikimedia Commons with a recorded license and credit; the rest stay a named gap (`research/qa/portraits-18-09-2026.md`). News cards carry no article image because no outlet grants an image license; they fall back to a linked person's portrait or the outlet's monogram.
 - Some source hosts refuse automated checks with a 403 response, including `www.hogeraad.nl` and `www.raadvanstate.nl`. The live dataset carries a `web.archive.org` `archiveUrl` for nine of those sources; the remaining sources have `archiveUrl` null and no archive URL was guessed.
 - 52 people have neither a tenure nor a dated membership. Their start date is not published by the source, so they stay as named gaps.
 - Topic records carry no `sources` field in the v1 schema. Their provenance is in the research envelope and markdown, and a schema change is proposed for v1.1.

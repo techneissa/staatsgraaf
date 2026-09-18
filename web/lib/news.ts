@@ -6,7 +6,8 @@ import {
   getPositionById,
   getSourceById,
 } from "./data";
-import type { NewsItem, NewsLanguage, PublisherKind, Source } from "./types";
+import { getMediaItem, mediaCreditLine, personPortraitId } from "./entity";
+import type { NewsItem, NewsLanguage, Person, PublisherKind, Source } from "./types";
 
 import {
   NEWS_HOME_LIMIT,
@@ -276,6 +277,12 @@ export function getNewsOutlets(): NewsOutlet[] {
   return outlets(getAllNews(), itemLicenses);
 }
 
+function personPortrait(person: Person): NewsEntityRef["portrait"] {
+  const media = getMediaItem(personPortraitId(person));
+  if (media === null) return null;
+  return { url: media.url, caption: mediaCreditLine(media) };
+}
+
 export function resolveNewsEntities(item: NewsItem): NewsEntityRef[] {
   const refs: NewsEntityRef[] = [];
   const seen = new Set<string>();
@@ -291,6 +298,7 @@ export function resolveNewsEntities(item: NewsItem): NewsEntityRef[] {
           href: `/organisaties/${organization.slug}/`,
           label: organization.name,
           kind: "organization",
+          portrait: null,
         });
       }
       continue;
@@ -298,21 +306,27 @@ export function resolveNewsEntities(item: NewsItem): NewsEntityRef[] {
     if (id.startsWith("pos:")) {
       const position = getPositionById(id);
       if (position) {
-        refs.push({ id, href: `/posities/${position.slug}/`, label: position.title, kind: "position" });
+        refs.push({ id, href: `/posities/${position.slug}/`, label: position.title, kind: "position", portrait: null });
       }
       continue;
     }
     if (id.startsWith("person:")) {
       const person = getPersonById(id);
       if (person) {
-        refs.push({ id, href: `/personen/${person.slug}/`, label: person.name, kind: "person" });
+        refs.push({
+          id,
+          href: `/personen/${person.slug}/`,
+          label: person.name,
+          kind: "person",
+          portrait: personPortrait(person),
+        });
       }
       continue;
     }
     if (id.startsWith("topic:")) {
       const topic = topics.find((entry) => entry.id === id);
       if (topic) {
-        refs.push({ id, href: `/onderwerpen/${topic.slug}/`, label: topic.name, kind: "topic" });
+        refs.push({ id, href: `/onderwerpen/${topic.slug}/`, label: topic.name, kind: "topic", portrait: null });
       }
     }
   }
@@ -321,7 +335,7 @@ export function resolveNewsEntities(item: NewsItem): NewsEntityRef[] {
     seen.add(id);
     const topic = topics.find((entry) => entry.id === id);
     if (topic) {
-      refs.push({ id, href: `/onderwerpen/${topic.slug}/`, label: topic.name, kind: "topic" });
+      refs.push({ id, href: `/onderwerpen/${topic.slug}/`, label: topic.name, kind: "topic", portrait: null });
     }
   }
   return refs;
