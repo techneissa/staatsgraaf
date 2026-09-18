@@ -161,8 +161,7 @@ export default function MethodPage() {
               aantal griffiers, secretarissen-generaal en diensthoofden.
             </li>
             <li>
-              Koepelorganisaties zoals de VNG, het IPO, de Unie van Waterschappen, de GGD'en en de
-              omgevingsdiensten zijn nog niet gemodelleerd.
+              Koepelorganisaties als de GGD'en en de omgevingsdiensten zijn nog niet gemodelleerd.
             </li>
             <li>
               De drie landen van het Koninkrijk (Aruba, Curaçao en Sint Maarten) met hun gouverneurs

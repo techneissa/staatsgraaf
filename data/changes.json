@@ -615,7 +615,7 @@
     },
     "in": {
       "tenure": "tenure:burgemeester-schagen",
-      "person": "person:marjan-van-kampen-nouwen-schagen",
+      "person": "person:marjan-van-kampen-nouwen",
       "label": "Marjan van Kampen-Nouwen - Burgemeester van Schagen"
     },
     "id": "change:2013-10-01-appointment-burgemeester-schagen"
@@ -3987,8 +3987,8 @@
       "retrieved": "2026-09-18",
       "confidence": "high"
     },
-    "position": "pos:zbo-nederlandse-emissieautoriteit-directeur-bestuurder",
-    "organization": "org:zbo-nederlandse-emissieautoriteit",
+    "position": "pos:nederlandse-emissieautoriteit-directeur-bestuurder",
+    "organization": "org:nederlandse-emissieautoriteit",
     "out": {
       "tenure": null,
       "person": null,
@@ -3999,7 +3999,7 @@
       "person": "person:mark-bressers",
       "label": "Mark Bressers - Directeur-bestuurder Nederlandse Emissieautoriteit"
     },
-    "id": "change:2020-01-01-appointment-zbo-nederlandse-emissieautoriteit-directeur-bestuurder"
+    "id": "change:2020-01-01-appointment-nederlandse-emissieautoriteit-directeur-bestuurder"
   },
   {
     "date": "2020-01-06",
@@ -4088,7 +4088,7 @@
     },
     "in": {
       "tenure": "tenure:burgemeester-noordwijk",
-      "person": "person:wendy-verkleij-eimers-noordwijk",
+      "person": "person:wendy-verkleij-eimers",
       "label": "Wendy Verkleij-Eimers - Burgemeester van Noordwijk"
     },
     "id": "change:2020-01-27-appointment-burgemeester-noordwijk"
@@ -5081,29 +5081,6 @@
       "label": "Stan van Belkum - Algemeen secretaris/directeur Centrale Commissie Mensgebonden Onderzoek"
     },
     "id": "change:2021-01-01-appointment-zbo-centrale-commissie-mensgebonden-onderzoek-algemeen-secretaris-directeur"
-  },
-  {
-    "date": "2021-01-01",
-    "kind": "appointment",
-    "summary": "Benoeming: Wim Kuijken wordt Voorzitter Kiesraad.",
-    "source": {
-      "source": "src:roo-zbo-export-xml",
-      "retrieved": "2026-09-18",
-      "confidence": "high"
-    },
-    "position": "pos:zbo-kiesraad-voorzitter",
-    "organization": "org:zbo-kiesraad",
-    "out": {
-      "tenure": null,
-      "person": null,
-      "label": "Geen voorganger bekend"
-    },
-    "in": {
-      "tenure": "tenure:zbo-kiesraad-wim-kuijken-voorzitter",
-      "person": "person:wim-kuijken",
-      "label": "Wim Kuijken - Voorzitter Kiesraad"
-    },
-    "id": "change:2021-01-01-appointment-zbo-kiesraad-voorzitter"
   },
   {
     "date": "2021-01-20",
@@ -6587,7 +6564,7 @@
       "confidence": "high"
     },
     "position": "pos:zbo-kiesraad-lid",
-    "organization": "org:zbo-kiesraad",
+    "organization": "org:kiesraad",
     "out": {
       "tenure": null,
       "person": null,
@@ -7852,7 +7829,7 @@
       "confidence": "high"
     },
     "position": "pos:zbo-kiesraad-lid",
-    "organization": "org:zbo-kiesraad",
+    "organization": "org:kiesraad",
     "out": {
       "tenure": null,
       "person": null,
@@ -9370,7 +9347,7 @@
       "confidence": "high"
     },
     "position": "pos:zbo-kiesraad-lid",
-    "organization": "org:zbo-kiesraad",
+    "organization": "org:kiesraad",
     "out": {
       "tenure": null,
       "person": null,
@@ -9393,7 +9370,7 @@
       "confidence": "high"
     },
     "position": "pos:zbo-kiesraad-secretaris-directeur",
-    "organization": "org:zbo-kiesraad",
+    "organization": "org:kiesraad",
     "out": {
       "tenure": null,
       "person": null,
@@ -12429,7 +12406,7 @@
       "confidence": "high"
     },
     "position": "pos:zbo-kiesraad-lid",
-    "organization": "org:zbo-kiesraad",
+    "organization": "org:kiesraad",
     "out": {
       "tenure": null,
       "person": null,
@@ -12958,7 +12935,7 @@
       "confidence": "high"
     },
     "position": "pos:zbo-kiesraad-vicevoorzitter",
-    "organization": "org:zbo-kiesraad",
+    "organization": "org:kiesraad",
     "out": {
       "tenure": null,
       "person": null,
@@ -16094,7 +16071,7 @@
     },
     "in": {
       "tenure": "tenure:burgemeester-tiel",
-      "person": "person:jose-van-egmond-tiel",
+      "person": "person:jose-van-egmond",
       "label": "José van Egmond - Burgemeester van Tiel"
     },
     "id": "change:2025-05-12-appointment-burgemeester-tiel"

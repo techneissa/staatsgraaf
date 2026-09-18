@@ -10,8 +10,8 @@ Phases 0 to 4 are complete: recon and schema freeze, parallel research, the merg
 
 - The web app is built and produces a static export from `web/`.
 - The dataset snapshot is `2026-09-18` (`data/meta.json`).
-- The public site URL is not live yet. The domain and `NEXT_PUBLIC_SITE_URL` are pending, so canonical URLs are omitted rather than guessed.
-- The nightly refresh is planned. The workflow is not committed yet, so the cadence is not live.
+- The site is live at https://staatsgraaf.pages.dev. `NEXT_PUBLIC_SITE_URL` falls back to that URL, so canonical, `robots.txt`, and `sitemap.xml` carry absolute URLs.
+- The nightly refresh workflow is committed (`.github/workflows/refresh.yml`) and scheduled for 03:00 UTC. A green run from GitHub Actions is not yet confirmed.
 - The repository is not public yet. The public repository URL and correction address are pending and named as gaps.
 
 ## Every fact has a source
@@ -26,7 +26,7 @@ Language models may compress, rewrite, and link facts that a source states. They
 - `research/` holds the per-workstream output, the raw fetched snapshots under `research/raw/`, the merge decisions in `research/merge-log.md`, the license determination in `research/O-licenses.md`, and the QA and validation reports.
 - `schema/v1/` is the frozen data contract as JSON Schema. `schema/README.md` explains the layout.
 
-Counts in the `2026-09-18` snapshot: 1570 organizations, 1430 positions, 870 people, 1236 tenures, 225 memberships, 2338 relations, 12 topics, 36 budgets, 2226 sources, 1269 changes, and 1532 news items. `data/media.json` is empty, so no portraits ship yet.
+Counts in the `2026-09-18` snapshot: 1573 organizations, 1430 positions, 870 people, 1236 tenures, 225 memberships, 2338 relations, 12 topics, 36 budgets, 2229 sources (2233 in the live deployment), 1269 changes, and 1532 news items. `data/media.json` is empty, so no portraits ship yet.
 
 ## Repository layout
 
@@ -96,13 +96,13 @@ Staatsgraaf is an independent, open publication about the Dutch government. It i
 ## Known data limits
 
 - 844 positions have no tenure with a source yet. They are mostly seat-bound roles such as raadslid, statenlid, wethouder, and gedeputeerde, plus a number of griffiers, secretarissen-generaal, and diensthoofden.
-- Umbrella bodies are not modeled yet, including the VNG, IPO, Unie van Waterschappen, GGD'en, and omgevingsdiensten.
+- Umbrella bodies GGD'en and omgevingsdiensten are not modeled yet. The VNG, IPO, and Unie van Waterschappen are modeled.
 - The three Kingdom countries (Aruba, Curaçao, and Sint Maarten) and their gouverneurs and Gevolmachtigde Ministers are not modeled yet.
 - `data/media.json` is empty, so there are no portraits with a recorded license and credit.
-- Some source hosts refuse automated checks with a 403 response, including `www.hogeraad.nl` and `www.raadvanstate.nl`. `archiveUrl` is null on all sources; the archive lookups returned HTTP 429 and no archive URL was guessed.
+- Some source hosts refuse automated checks with a 403 response, including `www.hogeraad.nl` and `www.raadvanstate.nl`. The live dataset carries a `web.archive.org` `archiveUrl` for nine of those sources; the remaining sources have `archiveUrl` null and no archive URL was guessed.
 - 52 people have neither a tenure nor a dated membership. Their start date is not published by the source, so they stay as named gaps.
 - Topic records carry no `sources` field in the v1 schema. Their provenance is in the research envelope and markdown, and a schema change is proposed for v1.1.
-- Search disambiguation is incomplete: there is no `Den Haag` alias, and bare `Utrecht` and `Groningen` resolve to a single entity. Position aliases are not supported by the v1 position schema.
+- Search disambiguation depends on the curated overlay in `web/data/search-aliases.json`: `Den Haag`, `Utrecht`, and `Groningen` resolve there, but the merged organization records still lack the plain terms. Position aliases are not supported by the v1 position schema.
 - The change feed does not classify memberships of large colleges yet.
 
 These limits are named, not filled with an assumption. The full list, by phase, is in `research/merge-log.md` and `research/validation-report-phase4.md`.

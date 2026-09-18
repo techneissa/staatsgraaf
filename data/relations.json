@@ -25278,7 +25278,7 @@
   {
     "id": "rel:oversees-zbo-kiesraad",
     "from": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
-    "to": "org:zbo-kiesraad",
+    "to": "org:kiesraad",
     "type": "oversees",
     "metadata": {
       "instrument": "relatieMet ministerie",
@@ -25534,7 +25534,7 @@
   {
     "id": "rel:oversees-zbo-nederlandse-emissieautoriteit",
     "from": "org:ministerie-van-economische-zaken-en-klimaat",
-    "to": "org:zbo-nederlandse-emissieautoriteit",
+    "to": "org:nederlandse-emissieautoriteit",
     "type": "oversees",
     "metadata": {
       "instrument": "relatieMet ministerie",

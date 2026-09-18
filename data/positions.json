@@ -16603,6 +16603,11 @@
         "confidence": "high"
       },
       {
+        "source": "src:roo-zbo-export-xml",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
         "source": "src:wet-bwbr0020495",
         "retrieved": "2026-09-18",
         "confidence": "medium"
@@ -30497,6 +30502,11 @@
         "source": "src:kieswet",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:roo-zbo-export-xml",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
       }
     ]
   },
@@ -40309,7 +40319,7 @@
     "id": "pos:zbo-kiesraad-lid",
     "slug": "zbo-kiesraad-lid",
     "title": "Lid Kiesraad",
-    "organization": "org:zbo-kiesraad",
+    "organization": "org:kiesraad",
     "type": "commission",
     "fillMethod": null,
     "entryModes": [],
@@ -40332,7 +40342,7 @@
     "id": "pos:zbo-kiesraad-secretaris-directeur",
     "slug": "zbo-kiesraad-secretaris-directeur",
     "title": "Secretaris-directeur Kiesraad",
-    "organization": "org:zbo-kiesraad",
+    "organization": "org:kiesraad",
     "type": "dept_head",
     "fillMethod": null,
     "entryModes": [],
@@ -40355,30 +40365,7 @@
     "id": "pos:zbo-kiesraad-vicevoorzitter",
     "slug": "zbo-kiesraad-vicevoorzitter",
     "title": "Vicevoorzitter Kiesraad",
-    "organization": "org:zbo-kiesraad",
-    "type": "dept_head",
-    "fillMethod": null,
-    "entryModes": [],
-    "termLengthMonths": null,
-    "seatsCount": 1,
-    "legalBasis": {
-      "label": "Kaderwet zelfstandige bestuursorganen",
-      "url": "https://wetten.overheid.nl/BWBR0020495"
-    },
-    "exOfficioOf": [],
-    "sources": [
-      {
-        "source": "src:roo-zbo-export-xml",
-        "retrieved": "2026-09-18",
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "id": "pos:zbo-kiesraad-voorzitter",
-    "slug": "zbo-kiesraad-voorzitter",
-    "title": "Voorzitter Kiesraad",
-    "organization": "org:zbo-kiesraad",
+    "organization": "org:kiesraad",
     "type": "dept_head",
     "fillMethod": null,
     "entryModes": [],
@@ -40582,29 +40569,6 @@
       "label": "Wet Nationaal rapporteur mensenhandel en seksueel geweld tegen kinderen, artikel 1",
       "url": "https://wetten.overheid.nl/BWBR0034176#Artikel1"
     }
-  },
-  {
-    "id": "pos:zbo-nederlandse-emissieautoriteit-directeur-bestuurder",
-    "slug": "zbo-nederlandse-emissieautoriteit-directeur-bestuurder",
-    "title": "Directeur-bestuurder Nederlandse Emissieautoriteit",
-    "organization": "org:zbo-nederlandse-emissieautoriteit",
-    "type": "dept_head",
-    "fillMethod": null,
-    "entryModes": [],
-    "termLengthMonths": null,
-    "seatsCount": 1,
-    "legalBasis": {
-      "label": "Kaderwet zelfstandige bestuursorganen",
-      "url": "https://wetten.overheid.nl/BWBR0020495"
-    },
-    "exOfficioOf": [],
-    "sources": [
-      {
-        "source": "src:roo-zbo-export-xml",
-        "retrieved": "2026-09-18",
-        "confidence": "high"
-      }
-    ]
   },
   {
     "id": "pos:zbo-nuffic-directeur-bestuurder",

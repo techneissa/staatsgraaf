@@ -32,9 +32,34 @@ import {
   ORG_TYPE_LABELS,
 } from "@/lib/labels";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
-import type { Organization } from "@/lib/types";
+import type { Organization, Position } from "@/lib/types";
 
 export const dynamicParams = false;
+
+const ambiguousPositionTitles = (() => {
+  const counts = new Map<string, number>();
+  for (const item of getPositions()) {
+    counts.set(item.title, (counts.get(item.title) ?? 0) + 1);
+  }
+  return new Set(
+    [...counts.entries()].filter(([, count]) => count > 1).map(([title]) => title),
+  );
+})();
+
+function positionMetadataTitle(position: Position): string {
+  if (!ambiguousPositionTitles.has(position.title)) return position.title;
+  const organization = getOrganizationById(position.organization);
+  if (!organization) return position.title;
+  const parent =
+    position.type === "commission" && organization.parent
+      ? getOrganizationById(organization.parent)
+      : undefined;
+  const context = parent ?? organization;
+  const contextName =
+    context.subtype === "gemeente" ? context.name.replace(/^Gemeente\s+/, "") : context.name;
+  if (position.title.includes(contextName)) return position.title;
+  return `${position.title} van ${contextName}`;
+}
 
 export function generateStaticParams() {
   return getPositions().map((position) => ({ slug: position.slug }));
@@ -54,7 +79,7 @@ export async function generateMetadata({
       ? `${position.title} bij ${organization.name}: wettelijke basis en de reeks bekende functionarissen, met bron per gegeven.`
       : `${position.title}: wettelijke basis en de reeks bekende functionarissen, met bron per gegeven.`;
   return pageMetadata({
-    title: position.title,
+    title: positionMetadataTitle(position),
     description,
     path: `/posities/${position.slug}/`,
     snapshotDate: getDatasetDate(),
