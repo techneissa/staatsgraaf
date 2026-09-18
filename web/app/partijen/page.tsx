@@ -1,0 +1,84 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Breadcrumb } from "@/components/breadcrumb";
+import { JsonLd } from "@/components/json-ld";
+import { T } from "@/components/i18n/t";
+import { getDatasetDate } from "@/lib/data";
+import { PARTIES, partySlug } from "@/lib/parties";
+import { seatCountsByPartyKey } from "@/lib/parliament";
+import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
+
+const TK_ID = "org:tweede-kamer";
+const EK_ID = "org:eerste-kamer";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Partijen",
+  description:
+    "De politieke partijen uit de dataset met hun officiële naam, kleur en links, en de zetels die ze op dit snapshot in de Tweede en Eerste Kamer hebben, met een bron per gegeven.",
+  path: "/partijen/",
+  snapshotDate: getDatasetDate(),
+});
+
+export default function PartiesIndexPage() {
+  const tkCounts = seatCountsByPartyKey(TK_ID);
+  const ekCounts = seatCountsByPartyKey(EK_ID);
+  const pageUrl = absoluteUrl("/partijen/");
+
+  return (
+    <>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: `Partijen · ${SITE_NAME}`,
+          description:
+            "Politieke partijen in de dataset met kleur, links en huidige zetels in de Kamers.",
+          ...(pageUrl !== undefined ? { url: pageUrl } : {}),
+        }}
+      />
+
+      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Partijen" }]} />
+
+      <header className="mt-4">
+        <h1 className="text-3xl font-semibold tracking-tight text-ink">
+          <T area="pages" k="partiesTitle" />
+        </h1>
+        <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
+          <T area="pages" k="partiesIntro" />
+        </p>
+      </header>
+
+      <ul className="mt-6 grid list-none gap-3 p-0 sm:grid-cols-2 xl:grid-cols-3">
+        {PARTIES.map((party) => {
+          const tkSeats = tkCounts.get(party.key) ?? 0;
+          const ekSeats = ekCounts.get(party.key) ?? 0;
+          return (
+            <li key={party.key}>
+              <Link
+                href={`/partijen/${partySlug(party)}/`}
+                className="flex h-full items-center gap-3 rounded-md border border-line bg-surface p-3 transition-fast hover:border-line-strong"
+              >
+                <span
+                  aria-hidden="true"
+                  className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[11px] font-bold text-white ring-1 ring-line"
+                  style={{ backgroundColor: party.color ?? "var(--t-color-line-strong)" }}
+                >
+                  {party.abbrev.slice(0, 4)}
+                </span>
+                <span className="min-w-0">
+                  <span className="block truncate text-sm font-semibold text-ink">
+                    {party.name.nl}
+                  </span>
+                  <span className="mt-0.5 block text-xs tabular-nums text-ink-faint">
+                    <T area="pages" k="partiesSeatsTK" />: {tkSeats} ·{" "}
+                    <T area="pages" k="partiesSeatsEK" />: {ekSeats}
+                  </span>
+                </span>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    </>
+  );
+}

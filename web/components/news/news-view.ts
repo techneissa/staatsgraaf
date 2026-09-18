@@ -51,6 +51,11 @@ export type NewsItemView = {
   /** Full date and time in Nederland. */
   dateTime: string;
   summary: string | null;
+  /**
+   * The pipeline's entity-linked summary, kept as markup so the card can link
+   * the mentioned people. Null when the pipeline wrote none.
+   */
+  summaryMarkup: string | null;
   entities: NewsEntityRef[];
   keywords: string[];
   /**
@@ -102,13 +107,26 @@ function formatItemDateTime(iso: string, locale: NewsLanguage): string {
 /**
  * The pipeline writes a summary of the form `Publisher bericht: "title"` when it has
  * nothing beyond the headline. That repeats the headline, so it is not shown.
+ * A feed summary that starts with the headline and continues after a dash
+ * ("Title — the actual lede") is trimmed to the continuation; a very short
+ * remainder is dropped, because a fragment that short reads worse than nothing.
  */
 function usefulSummary(item: NewsItem): string | null {
   const summary = item.summary;
   if (summary === null || summary.trim().length === 0) return null;
   const trimmed = summary.trim();
-  if (trimmed === item.title.trim()) return null;
-  if (trimmed.includes(`"${item.title.trim()}"`)) return null;
+  const title = item.title.trim();
+  if (trimmed === title) return null;
+  if (trimmed.includes(`"${title}"`)) return null;
+  if (trimmed.startsWith(title)) {
+    const rest = trimmed
+      .slice(title.length)
+      .trim()
+      .replace(/^[—–•·:;,-]\s*/, "")
+      .trim();
+    if (rest.length < 24) return null;
+    return rest;
+  }
   return trimmed;
 }
 
@@ -133,6 +151,7 @@ export function toNewsItemView(item: NewsItem, locale: NewsLanguage = "nl"): New
     time: formatClockTime(item.published),
     dateTime: formatItemDateTime(item.published, locale),
     summary: usefulSummary(item),
+    summaryMarkup: item.summaryMarkup,
     entities,
     keywords: newsKeywords(item),
     image: image === null || image.remote ? null : { url: image.url, caption: image.caption },

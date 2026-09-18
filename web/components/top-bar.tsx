@@ -15,6 +15,7 @@ const NAV = [
   { href: "/begroting/", label: "navBudget" },
   { href: "/organisaties/", label: "navOrganizations" },
   { href: "/personen/", label: "navPeople" },
+  { href: "/partijen/", label: "navParties" },
 ] as const;
 
 export function TopBar() {

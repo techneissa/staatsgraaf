@@ -28,3 +28,14 @@ export function newsMonogram(publisher: string): string {
     .join("")
     .toUpperCase();
 }
+
+/**
+ * The credit line for a preview, or null when the tile is a monogram. Pure, so
+ * server pages and the client explorer can call it.
+ */
+export function newsPreviewCaption(preview: {
+  kind: string;
+  caption?: string | null;
+}): string | null {
+  return preview.kind === "monogram" ? null : preview.caption ?? null;
+}

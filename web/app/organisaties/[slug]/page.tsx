@@ -18,6 +18,7 @@ import { FactGroup } from "@/components/entity/fact-group";
 import { HistoryIcon, PeopleIcon, SeatIcon } from "@/components/entity/icons";
 import { MemberList } from "@/components/entity/member-list";
 import { SeatGrid } from "@/components/entity/seat-grid";
+import { SeatTally } from "@/components/entity/seat-tally";
 import { TenureTimeline } from "@/components/entity/tenure-timeline";
 import {
   getCurrentTenuresForOrganization,
@@ -41,6 +42,7 @@ import {
 } from "@/lib/entity";
 import { formatCount, formatDate } from "@/lib/format";
 import { ORG_BRANCH_LABELS, ORG_SUBTYPE_LABELS } from "@/lib/labels";
+import { seatTallyForOrganization } from "@/lib/parliament";
 import { LocaleLabel } from "@/components/i18n/locale-label";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 import type { Organization } from "@/lib/types";
@@ -111,6 +113,10 @@ export default async function OrganizationPage({
   const organizationTenures = getTenuresForOrganization(organization.id);
   const connections = getConnectionsForEntity(organization.id);
   const news = getNewsForEntity(organization.id);
+  const tally =
+    members.length > 0 && members.filter((entry) => entry.membership.fractie !== null).length * 2 >= members.length
+      ? seatTallyForOrganization(organization.id)
+      : null;
 
   const parentIds = [organizationParentId(organization), ...organizationPartOf(organization)].filter(
     (id): id is string => typeof id === "string",
@@ -288,6 +294,7 @@ export default async function OrganizationPage({
                   <T area="entity" k="membersCountLine" vars={{ n: formatCount(memberCount) }} />
                 </p>
               )}
+              {tally !== null ? <SeatTally tally={tally} /> : null}
               <div className="mt-3">
                 <SeatGrid members={members} limit={GRID_LIMIT} />
               </div>

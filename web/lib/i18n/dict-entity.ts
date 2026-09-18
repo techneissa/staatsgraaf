@@ -42,6 +42,26 @@ export const ENTITY_DICT = {
   // Organization page sections
   currentOfficials: { nl: "Huidige functionarissen", en: "Current office holders" },
   membersTitle: { nl: "Huidige leden", en: "Current members" },
+  seatTallyMajorityLine: {
+    nl: "Meerderheid bij {n} van {total} zetels.",
+    en: "Majority at {n} of {total} seats.",
+  },
+  seatTallyLabel: {
+    nl: "Zetelverdeling per fractie",
+    en: "Seats by faction",
+  },
+  seatTallyNoFractie: {
+    nl: "Zonder fractie",
+    en: "No faction",
+  },
+  seatTallySplinter: {
+    nl: "eenmansfractie",
+    en: "one-member faction",
+  },
+  seatTallyMajorityMarker: {
+    nl: "Meerderheidsgrens: {n} zetels",
+    en: "Majority threshold: {n} seats",
+  },
   membersCountLine: {
     nl: "{n} leden met een lopend lidmaatschap in de dataset.",
     en: "{n} members with a current membership in the dataset.",

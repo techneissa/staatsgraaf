@@ -1,7 +1,10 @@
 import { EntityChip } from "@/components/entity-chip";
 import { KindBadge } from "@/components/kind-badge";
+import { renderSummaryMarkupWithHrefs } from "@/lib/news-summary";
 import type { NewsMessages } from "@/lib/news-i18n";
-import { NewsPreviewTile, newsPreviewCaption } from "./news-preview";
+import { NewsPreviewTile } from "./news-preview";
+import { newsPreviewCaption } from "@/lib/news-preview";
+import { plainMarkupText, summaryRepeatsTitle } from "@/lib/news-text";
 import type { NewsItemView } from "./news-view";
 
 /**
@@ -23,6 +26,8 @@ export function NewsItemCard({
 }) {
   const keywordText = item.keywords.length > 0 ? item.keywords.join(", ") : null;
   const caption = newsPreviewCaption(item.preview);
+  const markupPlain = plainMarkupText(item.summaryMarkup);
+  const useMarkup = markupPlain !== null && !summaryRepeatsTitle(markupPlain, item.title);
 
   return (
     <article
@@ -62,7 +67,14 @@ export function NewsItemCard({
             ) : null}
             <KindBadge>{item.kindLabel}</KindBadge>
           </div>
-          {item.summary !== null ? (
+          {useMarkup ? (
+            <p
+              className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted"
+              lang={item.language}
+            >
+              {renderSummaryMarkupWithHrefs(item.summaryMarkup as string, (id) => item.entities.find((entry) => entry.id === id)?.href ?? null)}
+            </p>
+          ) : item.summary !== null ? (
             <p
               className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted"
               lang={item.language}
@@ -99,7 +111,7 @@ export function NewsItemCard({
             </ul>
           ) : null}
         </div>
-        <NewsPreviewTile preview={item.preview} size={88} rounded="lg" />
+        <NewsPreviewTile preview={item.preview} rounded="lg" responsive />
       </div>
       <p className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-xs text-ink-faint">
         <a

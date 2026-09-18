@@ -11,6 +11,7 @@ export const COMMON_DICT = {
   navBudget: { nl: "Begroting", en: "Budget" },
   navOrganizations: { nl: "Organisaties", en: "Organizations" },
   navPeople: { nl: "Personen", en: "People" },
+  navParties: { nl: "Partijen", en: "Parties" },
   navPositions: { nl: "Posities", en: "Positions" },
   navMain: { nl: "Hoofdnavigatie", en: "Main navigation" },
   breadcrumbAria: { nl: "Kruimelpad", en: "Breadcrumb" },

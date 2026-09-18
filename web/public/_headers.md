@@ -13,7 +13,7 @@ Content-Security-Policy:
   form-action 'self';
   script-src 'self' 'unsafe-inline';
   style-src 'self' 'unsafe-inline';
-  img-src 'self' data:;
+  img-src 'self' data: redactie.rtl.nl screenshots.rtl.nl static.binnenlandsbestuur.nl images.nrc.nl image.trouw.nl image.volkskrant.nl image.parool.nl images.fd.nl images.ad.nl images.nu.nl images.cdn.nos.nl;
   font-src 'self';
   connect-src 'self';
   manifest-src 'self';
@@ -97,6 +97,30 @@ To confirm the headers themselves, check the response:
 curl -sSI https://<host>/ | grep -iE "content-security-policy|strict-transport-security|x-content-type-options|referrer-policy|x-frame-options|permissions-policy"
 ```
 
+## News feed image hosts in `img-src`
+
+Since ADR 0010 the news cards render the feed-supplied article image directly from the outlet's server, so `img-src` must name every host those images come from. The list is derived from the `imageUrl` values in `data/news.json`, not a blanket `https:`, so the policy stays explicit about which third parties the reader's browser contacts.
+
+Current hosts (regenerate with the one-liner below whenever the feed registry in `pipelines/feeds.json` changes):
+
+```
+redactie.rtl.nl screenshots.rtl.nl static.binnenlandsbestuur.nl images.nrc.nl
+image.trouw.nl image.volkskrant.nl image.parool.nl images.fd.nl images.ad.nl
+images.nu.nl images.cdn.nos.nl
+```
+
+```sh
+node -e '
+const { URL } = require("url");
+const news = require("./data/news.json");
+const records = news.records ?? news;
+const hosts = new Set(records.filter((r) => r.imageUrl).map((r) => new URL(r.imageUrl).host));
+console.log([...hosts].sort().join("\n"));
+'
+```
+
+`web/lib/csp.test.mjs` fails the build when a feed image host is missing from this list, so the header cannot silently drift from the data.
+
 ## Note for later
 
-`img-src` is `'self' data:`. `data/media.json` is currently empty and `data/news.json` carries no images. When external portraits or article images ship, add every host they come from to `img-src`, derived from `media.json`, rather than widening to `https:`.
+`data/media.json` is currently empty. When licensed article images or external portraits ship there, add every host they come from to `img-src`, derived from `media.json`, rather than widening to `https:`.
