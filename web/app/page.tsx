@@ -10,6 +10,7 @@ import {
 } from "@/components/home/change-window-tabs";
 import { NewsBand } from "@/components/home/news-band";
 import { PeopleStrip } from "@/components/home/people-strip";
+import { BudgetTotals } from "@/components/budget/budget-totals";
 import { L, T } from "@/components/i18n/t";
 import { JsonLd } from "@/components/json-ld";
 import { getDatasetDate, getOrganizationCounts } from "@/lib/data";
@@ -21,6 +22,7 @@ import {
   getHomeNews,
   getSubOrganizationCount,
 } from "@/lib/home";
+import { getBudgetOverview } from "@/lib/budget";
 import { ORG_BRANCH_LABELS, ORG_TYPE_LABELS } from "@/lib/labels";
 import { absoluteUrl, pageMetadata, SCOPE_LABEL, SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 import type { OrgBranch, OrgType } from "@/lib/types";
@@ -49,6 +51,7 @@ export default function HomePage() {
   const stats = getChangeStats();
   const windows = getChangeWindows();
   const subOrganizations = getSubOrganizationCount();
+  const budget = getBudgetOverview();
 
   const panels: ChangeWindowPanel[] = windows.map((window) => ({
     value: window.key,
@@ -217,6 +220,29 @@ export default function HomePage() {
             <L nl="Over deze kaart" en="About this map" />
           </a>
         </p>
+      </section>
+
+      <section aria-labelledby="begroting-titel" className="border-b border-line py-6">
+        <div className="flex flex-wrap items-baseline justify-between gap-3">
+          <h2 id="begroting-titel" className="text-lg font-semibold tracking-tight text-ink">
+            <L nl="Begroting" en="Budget" />
+          </h2>
+          <Link
+            href="/begroting/"
+            className="rounded-sm border border-line bg-surface px-2.5 py-1 text-xs font-medium text-accent-text transition-fast hover:bg-surface-inset"
+          >
+            <L nl="Begroting verkennen" en="Explore the budget" />
+          </Link>
+        </div>
+        <p className="mt-1 text-sm text-ink-muted">
+          <L
+            nl="De begrote uitgaven, ontvangsten en het saldo van de ministeries, met het verschil tegen het voorgaande jaar."
+            en="Budgeted spending, revenue and the balance across the ministries, with the change against the previous year."
+          />
+        </p>
+        <div className="mt-4">
+          <BudgetTotals overview={budget} />
+        </div>
       </section>
 
       <section id="over" aria-labelledby="over-titel" className="py-6">

@@ -38,6 +38,7 @@ export const COMMON_DICT = {
   readMore: { nl: "Lees verder", en: "Read more" },
   whosInTheNews: { nl: "Wie in het nieuws", en: "Who is in the news" },
   goPowerMap: { nl: "Machtskaart", en: "Power map" },
+  powerMapCalloutLabel: { nl: "Toon in de machtskaart", en: "Show in the power map" },
   emptyTitle: { nl: "Nog geen gegevens", en: "No data yet" },
   partyIndependent: { nl: "partijloos", en: "independent" },
   drawerOpenOrg: { nl: "Open organisatiepagina", en: "Open organization page" },
