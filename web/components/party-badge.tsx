@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { partyByDataset } from "@/lib/parties";
+import Link from "next/link";
+import { partyByDataset, partySlug } from "@/lib/parties";
 
 type PartyBadgeProps = {
   party: string | null | undefined;
@@ -10,11 +11,13 @@ function shade(hex: string | null): string {
   return hex ?? "var(--t-color-line-strong)";
 }
 
-/** Coloured party dot plus the party abbreviation, linked to its official site or Wikipedia entry. */
+/**
+ * Coloured party dot plus the party abbreviation, linked to the party's page
+ * under /partijen/, which in turn carries the official site and Wikipedia.
+ */
 export function PartyBadge({ party, children }: PartyBadgeProps) {
   const record = partyByDataset(party);
   if (!record) return null;
-  const href = record.website ?? record.wiki;
   return (
     <span className="inline-flex items-center gap-1.5 text-xs font-medium text-ink-muted">
       <span
@@ -22,18 +25,12 @@ export function PartyBadge({ party, children }: PartyBadgeProps) {
         className="inline-block h-2.5 w-2.5 shrink-0 rounded-full ring-1 ring-line"
         style={{ backgroundColor: shade(record.color) }}
       />
-      {href ? (
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline-offset-2 hover:underline"
-        >
-          {children ?? record.abbrev}
-        </a>
-      ) : (
-        <span>{children ?? record.abbrev}</span>
-      )}
+      <Link
+        href={`/partijen/${partySlug(record)}/`}
+        className="underline-offset-2 hover:underline"
+      >
+        {children ?? record.abbrev}
+      </Link>
     </span>
   );
 }

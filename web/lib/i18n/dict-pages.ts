@@ -18,6 +18,34 @@ export const PAGES_DICT = {
   andWord: { nl: "en", en: "and" },
   crumbLabel: { nl: "Kruimelpad", en: "Breadcrumb" },
 
+  // Party pages (/partijen)
+  partiesTitle: { nl: "Partijen", en: "Parties" },
+  partiesIntro: {
+    nl: "De politieke partijen uit de dataset met hun officiële naam, kleur en links, en de zetels die ze op dit snapshot in de Kamers hebben. Elke kleur en elk lidmaatschap heeft een bron; de partijpagina's linken naar de officiële site en de Wikipedia-pagina.",
+    en: "The political parties in the dataset with their official name, colour and current seats in the Houses at this snapshot. Every colour and membership carries a source; each party page links to the official site and the Wikipedia entry.",
+  },
+  partiesSeatsTK: {
+    nl: "Zetels in de Tweede Kamer",
+    en: "Seats in the House of Representatives",
+  },
+  partiesSeatsEK: {
+    nl: "Zetels in de Eerste Kamer",
+    en: "Seats in the Senate",
+  },
+  partiesNoSeats: {
+    nl: "Op dit snapshot heeft deze partij geen zetels in de Kamers.",
+    en: "At this snapshot this party holds no seats in the Houses.",
+  },
+  partyMembersTitle: { nl: "Leden", en: "Members" },
+  partyColourLabel: { nl: "Kleur", en: "Colour" },
+  partyNoColour: {
+    nl: "Geen kleur met bron opgenomen; er wordt nooit een waarde verzonnen.",
+    en: "No sourced colour on record; a value is never invented.",
+  },
+  partyColourConfidence: { nl: "Zekerheid kleurbron", en: "Colour source confidence" },
+  partyColourRetrieved: { nl: "Kleur opgehaald", en: "Colour retrieved" },
+  partyOverviewLabel: { nl: "Alle partijen", en: "All parties" },
+
   notFoundTitle: { nl: "Pagina niet gevonden", en: "Page not found" },
   notFoundPre: {
     nl: "Deze pagina bestaat niet of is verplaatst. Ga terug naar de",

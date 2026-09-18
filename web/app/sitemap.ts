@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { getBudgetOrganizations } from "@/lib/budget";
 import { getDatasetDate, getOrganizations, getPeople, getPositions } from "@/lib/data";
 import { getNewsDays } from "@/lib/news";
+import { PARTIES, partySlug } from "@/lib/parties";
 import { SITE_URL } from "@/lib/site";
 import { getTopics } from "@/lib/topics";
 
@@ -33,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/organisaties/", 0.5),
     entry("/posities/", 0.4),
     entry("/personen/", 0.4),
+    entry("/partijen/", 0.6),
     entry("/methodiek/", 0.3),
     entry("/privacy/", 0.3),
     entry("/toegankelijkheid/", 0.3),
@@ -48,5 +50,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...getOrganizations().map((organization) => entry(`/organisaties/${organization.slug}/`, 0.6)),
     ...getPositions().map((position) => entry(`/posities/${position.slug}/`, 0.6)),
     ...getPeople().map((person) => entry(`/personen/${person.slug}/`, 0.5)),
+    ...PARTIES.map((party) => entry(`/partijen/${partySlug(party)}/`, 0.5)),
   ];
 }

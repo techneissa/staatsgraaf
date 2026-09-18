@@ -5,8 +5,10 @@ import { LabeledList } from "./news/labeled-list";
 import { SourceLink } from "./source-link";
 import { SourceRankLink } from "./news/source-rank-link";
 import { SourceArrow } from "./news/news-item-card";
-import { NewsPreviewTile, newsPreviewCaption } from "./news/news-preview";
+import { NewsPreviewTile } from "./news/news-preview";
+import { newsPreviewCaption } from "@/lib/news-preview";
 import { resolveNewsPreview, hostLabel } from "./news/news-view";
+import { plainMarkupText, summaryRepeatsTitle } from "@/lib/news-text";
 import { getSourceById } from "@/lib/data";
 import { getMediaItem, mediaCreditLine } from "@/lib/entity";
 import { renderSummaryMarkup } from "@/lib/markup";
@@ -66,6 +68,10 @@ export function NewsCard({
     publisherKind: newsKind(item),
   });
   const caption = newsPreviewCaption(preview);
+  const markupPlain = plainMarkupText(item.summaryMarkup);
+  const useMarkup = markupPlain !== null && !summaryRepeatsTitle(markupPlain, item.title);
+  const showPlainSummary =
+    !useMarkup && item.summary !== null && !summaryRepeatsTitle(item.summary, item.title);
 
   return (
     <Tag className="group rounded-md border border-line bg-surface p-4 transition-fast hover:border-line-strong">
@@ -93,11 +99,11 @@ export function NewsCard({
               </span>
             ) : null}
           </div>
-          {item.summaryMarkup !== null ? (
+          {useMarkup ? (
             <p className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted">
-              {renderSummaryMarkup(item.summaryMarkup)}
+              {renderSummaryMarkup(item.summaryMarkup as string)}
             </p>
-          ) : item.summary !== null ? (
+          ) : showPlainSummary ? (
             <p className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted">{item.summary}</p>
           ) : null}
           {entities.length > 0 ? (
@@ -128,7 +134,7 @@ export function NewsCard({
             </LabeledList>
           ) : null}
         </div>
-        <NewsPreviewTile preview={preview} size={72} rounded="lg" />
+        <NewsPreviewTile preview={preview} rounded="lg" responsive />
       </div>
       <p className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-xs text-ink-faint">
         <span className="flex items-center gap-2">

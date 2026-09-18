@@ -317,3 +317,18 @@ export function partyLinkFor(value: string | null | undefined): string | null {
   if (value === "partijloos" || SPLINTER_GROUPS[value] !== undefined) return null;
   return `https://nl.wikipedia.org/wiki/${encodeURIComponent(value.replaceAll(" ", "_"))}`;
 }
+
+/**
+ * The URL slug of a party page under /partijen/: the registry key lowercased
+ * with spaces as dashes ("50PLUS" -> "50plus", "Water Natuurlijk" ->
+ * "water-natuurlijk"). The keys are distinct, so the mapping is reversible.
+ */
+export function partySlug(party: PartyRecord): string {
+  return party.key.toLowerCase().replaceAll(" ", "-");
+}
+
+/** The party for a /partijen/ slug, or null for an unknown slug. */
+export function partyBySlug(slug: string): PartyRecord | null {
+  const party = PARTIES.find((candidate) => partySlug(candidate) === slug.toLowerCase());
+  return party ?? null;
+}
