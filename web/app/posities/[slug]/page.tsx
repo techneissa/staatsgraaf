@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumb, type BreadcrumbItem } from "@/components/breadcrumb";
-import { EmptyState } from "@/components/empty-state";
+import { EmptyStateT } from "@/components/change/empty-state-t";
 import { EntityChip } from "@/components/entity-chip";
 import { EntityTabs } from "@/components/entity-tabs";
 import { JsonLd } from "@/components/json-ld";
@@ -238,9 +238,11 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
                   </div>
                 ) : (
                   <div className="mt-3">
-                    <EmptyState
-                      title="Nog geen nieuws"
-                      description={`Er zijn nog geen nieuwsberichten met ${position.title} opgenomen in de dataset.`}
+                    <EmptyStateT
+                      area="entity"
+                      title="newsEmptyTitle"
+                      description="newsEmptyNote"
+                      descriptionVars={{ name: position.title }}
                     />
                   </div>
                 )}
@@ -299,20 +301,22 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
                 </ul>
               </>
             ) : (
-              <EmptyState
-                title="Geen lopende bekleder"
-                description="Voor deze positie is in de dataset geen benoeming zonder einddatum met bron opgenomen. Een positie zonder bekleder is een vacature zodra de dataset dat bijhoudt."
+              <EmptyStateT
+                area="entity"
+                title="vacancyTitle"
+                description="vacancyNote"
               />
             )}
           </FactGroup>
 
           <FactGroup icon={<HistoryIcon />} title={<T area="entity" k="tenureHistoryTitle" />} count={tenures.length > 0 ? tenures.length : undefined}>
             {tenures.length > 0 ? (
-              <TenureTimeline tenures={tenures} variant="position" label="Bekleders door de tijd" />
+              <TenureTimeline tenures={tenures} variant="position" labelKey="tenureHistoryTitle" />
             ) : (
-              <EmptyState
-                title="Geen bekleders bekend"
-                description="Voor deze positie is nog geen bekleder met bron opgenomen."
+              <EmptyStateT
+                area="entity"
+                title="noHoldersTitle"
+                description="noHoldersNote"
               />
             )}
           </FactGroup>
@@ -330,7 +334,9 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
                 {organization.name}
               </EntityChip>
             ) : (
-              <p className="text-sm text-ink-faint">Onbekende organisatie.</p>
+              <p className="text-sm text-ink-faint">
+                <T area="entity" k="unknownOrganization" />.
+              </p>
             )}
           </FactGroup>
 

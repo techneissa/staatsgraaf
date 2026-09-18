@@ -5,6 +5,7 @@ import { ChangeExplorer } from "@/components/change/change-explorer";
 import { ChangeStats } from "@/components/change/change-stats";
 import { ActingList } from "@/components/change/acting-list";
 import { VacancyList } from "@/components/change/vacancy-list";
+import { T } from "@/components/i18n/t";
 import { JsonLd } from "@/components/json-ld";
 import {
   CHANGE_WINDOWS,
@@ -65,17 +66,17 @@ export default function ChangesPage() {
       <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Wijzigingen" }]} />
 
       <header className="mt-4 border-b border-line pb-6">
-        <h1 className="text-2xl font-semibold tracking-tight text-ink">Wijzigingen</h1>
+        <h1 className="text-2xl font-semibold tracking-tight text-ink">
+          <T area="home" k="changesPageTitle" />
+        </h1>
         <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
-          Deze feed volgt benoemingen, vertrekken en vacatures in de rijksoverheid. Elke regel is
-          afgeleid uit de dataset en gekoppeld aan de bron die het feit vermeldt. Kies een periode en
-          filter op soort.
+          <T area="home" k="changesPageIntro" />
         </p>
       </header>
 
       <section aria-labelledby="cijfers-titel" className="border-b border-line py-6">
         <h2 id="cijfers-titel" className="sr-only">
-          Kerncijfers
+          <T area="home" k="keyFigures" />
         </h2>
         <ChangeStats
           vacantSeats={stats.vacantSeats}
@@ -87,7 +88,7 @@ export default function ChangesPage() {
 
       <section aria-labelledby="feed-titel" className="py-6">
         <h2 id="feed-titel" className="text-lg font-semibold tracking-tight text-ink">
-          Wijzigingenfeed
+          <T area="home" k="feedTitle" />
         </h2>
         <div className="mt-4">
           <ChangeExplorer

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { T } from "@/components/i18n/t";
 import { KindBadge } from "@/components/kind-badge";
-import { getS } from "@/lib/i18n/server-strings";
+import { LabeledList } from "@/components/news/labeled-list";
 import { branchColorVar } from "@/lib/branch-colors";
 import { formatCount } from "@/lib/format";
 import { getResponsibleOrganizations } from "@/lib/topics";
@@ -43,7 +43,10 @@ export function TopicCard({
         </p>
       ) : null}
       {chipOrganizations.length > 0 ? (
-        <ul className="mt-3 flex flex-wrap items-center gap-1.5" aria-label={getS("news", "responsibleHeading")}>
+        <LabeledList
+          labelKey="responsibleHeading"
+          className="mt-3 flex flex-wrap items-center gap-1.5"
+        >
           {chipOrganizations.map((organization) => (
             <li key={organization.id}>
               <Link
@@ -64,7 +67,7 @@ export function TopicCard({
               <T area="news" k="topicMoreOrganizations" vars={{ count: restCount }} />
             </li>
           ) : null}
-        </ul>
+        </LabeledList>
       ) : null}
       <p className="mt-3 text-xs text-ink-faint">
         {formatCount(organizationCount)}{" "}

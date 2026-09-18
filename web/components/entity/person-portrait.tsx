@@ -1,4 +1,5 @@
 import { getMediaItem, mediaCreditLine, personPortraitId } from "@/lib/entity";
+import { PortraitImg } from "./portrait-img";
 import type { Person } from "@/lib/types";
 
 function initials(name: string): string {
@@ -27,14 +28,7 @@ export function PersonPortrait({
       style={{ width: size, height: size }}
     >
       {media ? (
-        <img
-          src={media.url}
-          alt={`Portret van ${person.name}`}
-          width={size}
-          height={size}
-          loading="lazy"
-          className="h-full w-full object-cover"
-        />
+        <PortraitImg name={person.name} url={media.url} size={size} />
       ) : (
         <span
           aria-hidden="true"

@@ -10,7 +10,7 @@ import { countResponsibleOrganizations, getTopics } from "@/lib/topics";
 export const metadata: Metadata = pageMetadata({
   title: "Onderwerpen",
   description:
-    "Cross-cutting onderwerpen in de Nederlandse rijksoverheid, elk met de organisaties en posities die verantwoordelijk zijn en een bron per gegeven.",
+    "Onderwerpen die doorsnijden wat de Nederlandse rijksoverheid doet, elk met de organisaties en posities die verantwoordelijk zijn en een bron per gegeven.",
   path: "/onderwerpen/",
   snapshotDate: getDatasetDate(),
 });
@@ -31,7 +31,7 @@ export default function TopicsPage() {
           "@type": "CollectionPage",
           name: `Onderwerpen · ${SITE_NAME}`,
           description:
-            "Cross-cutting onderwerpen in de Nederlandse rijksoverheid met verantwoordelijke organisaties.",
+            "Onderwerpen die doorsnijden wat de Nederlandse rijksoverheid doet, met verantwoordelijke organisaties.",
           ...(pageUrl !== undefined ? { url: pageUrl } : {}),
         }}
       />

@@ -58,8 +58,9 @@ export function powerMapMeta(person: PowerMapPerson): string {
   );
 }
 
-export function powerMapCountLabel(total: number): string {
-  return total === 1 ? "1 artikel" : `${total} artikelen`;
+export function powerMapCountLabel(total: number, locale: "nl" | "en"): string {
+  if (total === 1) return locale === "en" ? "1 article" : "1 artikel";
+  return locale === "en" ? `${total} articles` : `${total} artikelen`;
 }
 
 export function powerMapPortraitRadius(rank: number): number {
@@ -79,11 +80,11 @@ type CardPlan = {
   labelBottom: number;
 };
 
-function planFor(person: PowerMapPerson): CardPlan {
+function planFor(person: PowerMapPerson, locale: "nl" | "en"): CardPlan {
   const radius = powerMapPortraitRadius(person.rank);
   const name = truncateForPowerMap(person.name, POWER_MAX_NAME_CHARS);
   const meta = powerMapMeta(person);
-  const count = powerMapCountLabel(person.total);
+  const count = powerMapCountLabel(person.total, locale);
   const halfWidth = Math.max(
     radius,
     (name.length * POWER_NAME_CHAR) / 2,
@@ -148,11 +149,14 @@ function includesHub(
   bounds.maxY = Math.max(bounds.maxY, POWER_HUB_RADIUS + POWER_HUB_CLEARANCE - 10);
 }
 
-export function layoutPowerMap(people: PowerMapPerson[]): {
+export function layoutPowerMap(
+  people: PowerMapPerson[],
+  locale: "nl" | "en" = "nl",
+): {
   cards: PowerMapCard[];
   bounds: { minX: number; minY: number; maxX: number; maxY: number };
 } {
-  const plans = people.map(planFor);
+  const plans = people.map((person) => planFor(person, locale));
 
   const cards: PowerMapCard[] = [];
   let cursor = POWER_HUB_RADIUS + POWER_HUB_CLEARANCE;

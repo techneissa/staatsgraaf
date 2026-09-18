@@ -1,3 +1,6 @@
+"use client";
+
+import { useT } from "@/components/i18n/use-t";
 import { formatDateShort } from "@/lib/format";
 import type { TimelineBucket } from "@/lib/changes";
 
@@ -10,6 +13,7 @@ export function ChangeHistogram({
   days: number;
   total: number;
 }) {
+  const t = useT("home");
   const max = Math.max(1, ...buckets.map((bucket) => bucket.count));
   const barWidth = 6;
   const gap = 1;
@@ -17,10 +21,10 @@ export function ChangeHistogram({
   const width = Math.max(1, buckets.length) * (barWidth + gap);
 
   const axisLabels = [
-    `${days}d geleden`,
+    t("timelineDaysAgo", { n: days }),
     `${Math.round((days * 2) / 3)}d`,
     `${Math.round(days / 3)}d`,
-    "vandaag",
+    t("timelineToday"),
   ];
 
   const nonEmpty = buckets.filter((bucket) => bucket.count > 0);
@@ -28,14 +32,22 @@ export function ChangeHistogram({
   return (
     <figure className="rounded-md border border-line bg-surface p-4">
       <figcaption className="flex flex-wrap items-baseline justify-between gap-2">
-        <span className="text-xs font-medium uppercase tracking-wider text-ink-faint">Tijdlijn</span>
+        <span className="text-xs font-medium uppercase tracking-wider text-ink-faint">
+          {t("timelineLabel")}
+        </span>
         <span className="text-sm text-ink-muted">
-          {total} {total === 1 ? "wijziging" : "wijzigingen"} in dit venster
+          {total === 1
+            ? t("changesInWindowOne")
+            : t("changesInWindow", { n: total })}
         </span>
       </figcaption>
       <svg
         role="img"
-        aria-label={`Tijdlijn met ${total} wijzigingen over de afgelopen ${days} dagen`}
+        aria-label={
+          total === 1
+            ? t("histogramAriaOne", { days })
+            : t("histogramAria", { n: total, days })
+        }
         viewBox={`0 0 ${width} ${height}`}
         className="mt-3 h-16 w-full"
         preserveAspectRatio="none"
@@ -64,7 +76,12 @@ export function ChangeHistogram({
       <ul className="sr-only">
         {nonEmpty.map((bucket) => (
           <li key={bucket.date}>
-            {formatDateShort(bucket.date)}: {bucket.count} {bucket.count === 1 ? "wijziging" : "wijzigingen"}
+            {bucket.count === 1
+              ? t("srChangesEntryOne", { date: formatDateShort(bucket.date) })
+              : t("srChangesEntry", {
+                  date: formatDateShort(bucket.date),
+                  n: bucket.count,
+                })}
           </li>
         ))}
       </ul>

@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { T } from "@/components/i18n/t";
-import { EmptyState } from "@/components/empty-state";
+import { DictEmptyState } from "@/components/budget/dict-empty-state";
 import { getOrganizationById } from "@/lib/data";
-import { getS } from "@/lib/i18n/server-strings";
 import { ORG_SUBTYPE_LABELS } from "@/lib/labels";
 import { branchColorVar } from "@/lib/branch-colors";
 import { formatCount } from "@/lib/format";
@@ -28,9 +27,9 @@ export function ResponsibleList({ topic }: { topic: Topic }) {
 
       {organizations.length === 0 && positions.length === 0 ? (
         <div className="mt-4">
-          <EmptyState
-            title={getS("news", "responsibleEmptyTitle")}
-            description={getS("news", "responsibleEmptyDescription")}
+          <DictEmptyState
+            titleKey="responsibleEmptyTitle"
+            descriptionKey="responsibleEmptyDescription"
           />
         </div>
       ) : null}

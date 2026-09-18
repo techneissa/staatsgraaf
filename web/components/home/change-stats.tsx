@@ -1,7 +1,8 @@
+import type { ReactNode } from "react";
 import { Card } from "@/components/card";
+import { T } from "@/components/i18n/t";
 import { getDatasetDate } from "@/lib/data";
 import { formatCount, formatDate } from "@/lib/format";
-import { getHomeString } from "@/lib/home";
 import { differenceInDays, type HomeChangeStats } from "@/lib/home";
 
 function StatTile({
@@ -9,9 +10,9 @@ function StatTile({
   value,
   sub,
 }: {
-  label: string;
-  value: string;
-  sub: string;
+  label: ReactNode;
+  value: ReactNode;
+  sub: ReactNode;
 }) {
   return (
     <Card as="div" className="flex flex-col gap-0.5">
@@ -28,18 +29,23 @@ function StatTile({
 
 export function ChangeStats({ stats }: { stats: HomeChangeStats }) {
   const datasetDate = getDatasetDate();
-  let lastChangeValue = "—";
-  let lastChangeSub = getHomeString("statLastChangeNone");
+  let lastChangeValue: ReactNode = "—";
+  let lastChangeSub: ReactNode = <T area="home" k="statLastChangeNone" />;
   if (stats.lastChangeDate !== null) {
     const age = datasetDate !== null ? differenceInDays(datasetDate, stats.lastChangeDate) : null;
     if (age !== null) {
-      lastChangeValue = age <= 0 ? getHomeString("statLastChangeToday") : `${age}d`;
+      lastChangeValue =
+        age <= 0 ? <T area="home" k="statLastChangeToday" /> : `${age}d`;
       lastChangeSub =
         age <= 0
           ? formatDate(stats.lastChangeDate)
-          : getHomeString("statLastChangeAgoSub", {
-              date: formatDate(stats.lastChangeDate),
-            });
+          : (
+              <T
+                area="home"
+                k="statLastChangeAgoSub"
+                vars={{ date: formatDate(stats.lastChangeDate) }}
+              />
+            );
     } else {
       lastChangeSub = formatDate(stats.lastChangeDate);
     }
@@ -48,20 +54,24 @@ export function ChangeStats({ stats }: { stats: HomeChangeStats }) {
   return (
     <dl className="mt-4 grid gap-2 sm:grid-cols-3">
       <StatTile
-        label={getHomeString("statVacantLabel")}
+        label={<T area="home" k="statVacantLabel" />}
         value={stats.vacantSeats !== null ? formatCount(stats.vacantSeats) : "—"}
         sub={
           stats.vacantSeats !== null
-            ? getHomeString("statVacantSub")
-            : getHomeString("statVacantUnknownSub")
+            ? <T area="home" k="statVacantSub" />
+            : <T area="home" k="statVacantUnknownSub" />
         }
       />
       <StatTile
-        label={getHomeString("statActingLabel")}
+        label={<T area="home" k="statActingLabel" />}
         value={formatCount(stats.actingOfficials)}
-        sub={getHomeString("statActingSub")}
+        sub={<T area="home" k="statActingSub" />}
       />
-      <StatTile label={getHomeString("statLastChangeLabel")} value={lastChangeValue} sub={lastChangeSub} />
+      <StatTile
+        label={<T area="home" k="statLastChangeLabel" />}
+        value={lastChangeValue}
+        sub={lastChangeSub}
+      />
     </dl>
   );
 }

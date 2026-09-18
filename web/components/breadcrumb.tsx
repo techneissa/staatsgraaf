@@ -1,18 +1,24 @@
+"use client";
+
 import Link from "next/link";
+import type { ReactNode } from "react";
+import { useT } from "./i18n/use-t";
 
 export type BreadcrumbItem = {
-  label: string;
+  label: ReactNode;
   href?: string;
 };
 
 export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
+  const t = useT("common");
+
   return (
-    <nav aria-label="Kruimelpad">
+    <nav aria-label={t("breadcrumbAria")}>
       <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-muted">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
           return (
-            <li key={`${item.label}-${index}`} className="flex items-center gap-x-2">
+            <li key={index} className="flex items-center gap-x-2">
               {item.href !== undefined && !isLast ? (
                 <Link
                   href={item.href}

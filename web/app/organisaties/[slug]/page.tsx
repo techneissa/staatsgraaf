@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { EmptyState } from "@/components/empty-state";
+import { EmptyStateT } from "@/components/change/empty-state-t";
 import { EntityChip } from "@/components/entity-chip";
 import { EntityTabs } from "@/components/entity-tabs";
 import { JsonLd } from "@/components/json-ld";
@@ -41,6 +41,7 @@ import {
 } from "@/lib/entity";
 import { formatCount, formatDate } from "@/lib/format";
 import { ORG_BRANCH_LABELS, ORG_SUBTYPE_LABELS } from "@/lib/labels";
+import { LocaleLabel } from "@/components/i18n/locale-label";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 import type { Organization } from "@/lib/types";
 
@@ -130,9 +131,9 @@ export default async function OrganizationPage({
   const parentOrganization = parentId !== null ? getOrganizationById(parentId) : undefined;
 
   const facts = [
-    { label: <T area="entity" k="factType" />, value: ORG_SUBTYPE_LABELS[organization.subtype] },
-    { label: <T area="entity" k="factBranch" />, value: ORG_BRANCH_LABELS[organization.branch] },
-    { label: <T area="entity" k="factLevel" />, value: ORG_LEVEL_LABELS[organization.level] },
+    { label: <T area="entity" k="factType" />, value: <LocaleLabel kind="subtype" value={organization.subtype} /> },
+    { label: <T area="entity" k="factBranch" />, value: <LocaleLabel kind="branch" value={organization.branch} /> },
+    { label: <T area="entity" k="factLevel" />, value: <LocaleLabel kind="level" value={organization.level} /> },
     {
       label: <T area="entity" k="factAliases" />,
       value: aliases.length > 0 ? aliases.join(", ") : null,
@@ -182,14 +183,16 @@ export default async function OrganizationPage({
       <Breadcrumb
         items={[
           { label: SITE_NAME, href: "/" },
-          { label: ORG_BRANCH_LABELS[organization.branch] },
+          { label: <LocaleLabel kind="branch" value={organization.branch} /> },
           { label: organization.name },
         ]}
       />
 
       <header className="mt-4">
         <div className="flex min-w-0 flex-wrap items-center gap-2">
-          <KindBadge tone="accent">{ORG_SUBTYPE_LABELS[organization.subtype]}</KindBadge>
+          <KindBadge tone="accent">
+            <LocaleLabel kind="subtype" value={organization.subtype} />
+          </KindBadge>
           <span className="inline-flex items-center gap-1.5 rounded-pill border border-line bg-surface px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-ink-muted">
             <EntityDot kind="organization" id={organization.id} />
             {ORG_BRANCH_LABELS[organization.branch]}
@@ -199,9 +202,7 @@ export default async function OrganizationPage({
           {organization.name}
         </h1>
         <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
-          {description !== null
-            ? description
-            : `Voor ${organization.name} is nog geen Nederlandse beschrijving met bron opgenomen in de dataset.`}
+          {description !== null ? description : <T area="entity" k="noDescriptionLabel" />}
         </p>
         <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
           {legalSource !== null ? (
@@ -243,9 +244,11 @@ export default async function OrganizationPage({
                   </ol>
                 ) : (
                   <div className="mt-3">
-                    <EmptyState
-                      title="Nog geen nieuws"
-                      description={`Er zijn nog geen nieuwsberichten met ${organization.name} opgenomen in de dataset.`}
+                    <EmptyStateT
+                      area="entity"
+                      title="newsEmptyTitle"
+                      description="newsEmptyNote"
+                      descriptionVars={{ name: organization.name }}
                     />
                   </div>
                 )}
@@ -315,7 +318,7 @@ export default async function OrganizationPage({
                 </p>
               ) : null}
               <p className="text-sm text-ink-faint">
-                {seatsCount !== null ? null : "Geen lopende leden met bron opgenomen in de dataset."}
+                {seatsCount !== null ? null : <T area="entity" k="membersNoneNote" />}
               </p>
             </FactGroup>
           )}
@@ -354,9 +357,11 @@ export default async function OrganizationPage({
             </FactGroup>
           ) : (
             <FactGroup title={<T area="entity" k="currentOfficials" />}>
-              <EmptyState
-                title="Geen lopende functies of lidmaatschappen"
-                description={`Voor ${organization.name} is in de dataset nog geen lopende benoeming of lidmaatschap met bron opgenomen.`}
+              <EmptyStateT
+                area="entity"
+                title="noOfficialsTitle"
+                description="noOfficialsNote"
+                descriptionVars={{ name: organization.name }}
               />
             </FactGroup>
           )}
@@ -366,12 +371,14 @@ export default async function OrganizationPage({
               <TenureTimeline
                 tenures={organizationTenures}
                 variant="organization"
-                label="Functiegeschiedenis"
+                labelKey="historyTitle"
               />
             ) : (
-              <EmptyState
-                title="Geen functiegeschiedenis"
-                description={`Voor ${organization.name} zijn in de dataset nog geen benoemingen met datum en bron opgenomen.`}
+              <EmptyStateT
+                area="entity"
+                title="historyNoneTitle"
+                description="historyNoneNote"
+                descriptionVars={{ name: organization.name }}
               />
             )}
           </FactGroup>

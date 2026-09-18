@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { EmptyState } from "@/components/empty-state";
+import { EmptyStateT } from "@/components/change/empty-state-t";
 import { EntityChip } from "@/components/entity-chip";
 import { EntityTabs } from "@/components/entity-tabs";
 import { JsonLd } from "@/components/json-ld";
@@ -11,7 +11,8 @@ import { SourceLink } from "@/components/source-link";
 import { SourceList } from "@/components/source-list";
 import { NewsPanel } from "@/components/news/news-panel";
 import { T } from "@/components/i18n/t";
-import { Timeline, type TimelineItem } from "@/components/timeline";
+import { type TimelineItem } from "@/components/timeline";
+import { TimelineT } from "@/components/entity/timeline-t";
 import { EntityConnections } from "@/components/entity/entity-connections";
 import { EntityDot } from "@/components/entity/entity-dot";
 import { EntityFacts } from "@/components/entity/entity-facts";
@@ -108,11 +109,13 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
           {organization.name}
         </Link>
       ) : (
-        "Onbekende organisatie"
+        <T area="entity" k="unknownOrganization" />
       ),
       meta: (
         <span className="inline-flex flex-wrap items-baseline gap-x-2">
-          <span>Lidmaatschap</span>
+          <span>
+            <T area="entity" k="membershipMeta" />
+          </span>
           {source ? (
             <SourceLink href={source.url} meta={source.publisher}>
               <T area="entity" k="sourceLabel" />
@@ -208,7 +211,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
             </div>
             {portrait !== null ? (
               <p className="mt-2 max-w-[96px] text-xs leading-snug text-ink-faint">
-                Beeld: {mediaCreditLine(portrait)}
+                <T area="entity" k="imageCredit" />: {mediaCreditLine(portrait)}
               </p>
             ) : null}
           </div>
@@ -227,9 +230,11 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
             </div>
             <h1 className="mt-2 text-3xl font-semibold tracking-tight text-ink">{person.name}</h1>
             <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
-              {description !== null
-                ? description
-                : `Functies en bronnen van ${person.name} op de kaart van de Nederlandse staat.`}
+              {description !== null ? (
+                description
+              ) : (
+                <T area="entity" k="personNoDescription" vars={{ name: person.name }} />
+              )}
             </p>
             {currentTitles.length > 0 ? (
               <p className="mt-2 flex flex-wrap gap-2 text-sm text-ink">
@@ -259,9 +264,11 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
                   </div>
                 ) : (
                   <div className="mt-3">
-                    <EmptyState
-                      title="Nog geen nieuws"
-                      description={`Er zijn nog geen nieuwsberichten met ${person.name} opgenomen in de dataset.`}
+                    <EmptyStateT
+                      area="entity"
+                      title="newsEmptyTitle"
+                      description="newsEmptyNote"
+                      descriptionVars={{ name: person.name }}
                     />
                   </div>
                 )}
@@ -284,21 +291,23 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
 
           {tenures.length > 0 ? (
             <FactGroup icon={<HistoryIcon />} title={<T area="entity" k="rolesTitle" />} count={tenures.length}>
-              <TenureTimeline tenures={tenures} variant="person" label="Functies" />
+              <TenureTimeline tenures={tenures} variant="person" labelKey="rolesTitle" />
             </FactGroup>
           ) : null}
 
           {memberships.length > 0 ? (
             <FactGroup icon={<SeatIcon />} title={<T area="entity" k="membershipsTitle" />} count={memberships.length}>
-              <Timeline items={membershipItems} label="Lidmaatschappen" />
+              <TimelineT items={membershipItems} labelKey="membershipsTitle" />
             </FactGroup>
           ) : null}
 
           {tenures.length === 0 && memberships.length === 0 ? (
             <FactGroup icon={<PeopleIcon />} title={<T area="entity" k="rolesTitle" />}>
-              <EmptyState
-                title="Geen gedateerde rol met bron"
-                description={`Voor ${person.name} is in de dataset geen functie of lidmaatschap met een startdatum en bron opgenomen.`}
+              <EmptyStateT
+                area="entity"
+                title="noRoleTitle"
+                description="noRoleNote"
+                descriptionVars={{ name: person.name }}
               />
             </FactGroup>
           ) : null}

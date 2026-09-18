@@ -1,19 +1,15 @@
 import Link from "next/link";
 import { Card } from "../card";
-import { EmptyState } from "../empty-state";
+import { EmptyStateT } from "./empty-state-t";
 import { SourceLink } from "../source-link";
+import { T } from "@/components/i18n/t";
 import { getSourceById } from "@/lib/data";
 import { formatCount } from "@/lib/format";
 import type { VacancySummary } from "@/lib/changes";
 
 export function VacancyList({ vacancies }: { vacancies: VacancySummary[] }) {
   if (vacancies.length === 0) {
-    return (
-      <EmptyState
-        title="Geen vacatures op dit moment"
-        description="Alle posities die de dataset volgt hebben een zittende functionaris. Posities zonder enige tenure worden hier niet als vacature geteld: ontbrekende gegevens zijn geen lege zetel."
-      />
-    );
+    return <EmptyStateT title="vacancyEmptyTitle" description="vacancyEmptyBody" />;
   }
 
   return (
@@ -33,8 +29,14 @@ export function VacancyList({ vacancies }: { vacancies: VacancySummary[] }) {
                   </Link>
                 </h3>
                 <span className="text-xs tabular-nums text-ink-faint">
-                  {formatCount(vacancy.vacant)} van {formatCount(vacancy.seats)}{" "}
-                  {vacancy.seats === 1 ? "zetel" : "zetels"} onvervuld
+                  <T
+                    area="home"
+                    k={vacancy.seats === 1 ? "vacancySeatsUnfilledOne" : "vacancySeatsUnfilled"}
+                    vars={{
+                      vacant: formatCount(vacancy.vacant),
+                      seats: formatCount(vacancy.seats),
+                    }}
+                  />
                 </span>
               </div>
               {vacancy.organization ? (

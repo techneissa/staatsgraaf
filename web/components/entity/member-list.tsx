@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { KindBadge } from "@/components/kind-badge";
+import { T } from "@/components/i18n/t";
 import { formatPeriod } from "@/lib/format";
 import type { MemberEntry } from "@/lib/entity";
 import { PersonPortrait, PersonPortraitCredit } from "./person-portrait";
@@ -23,14 +24,16 @@ export function MemberList({ members }: { members: MemberEntry[] }) {
                 {person.name}
               </Link>
               <span className="sr-only">
-                Beeld: <PersonPortraitCredit person={person} />
+                <T area="entity" k="imageCredit" />: <PersonPortraitCredit person={person} />
               </span>
             </span>
           </span>
           <span className="flex flex-wrap items-center gap-2">
             {membership.fractie !== null ? <KindBadge>{membership.fractie}</KindBadge> : null}
             {membership.seatNumber !== null ? (
-              <span className="text-xs text-ink-faint">Zetel {membership.seatNumber}</span>
+              <span className="text-xs text-ink-faint">
+                <T area="entity" k="seatNumber" vars={{ n: membership.seatNumber }} />
+              </span>
             ) : null}
             <span className="text-xs text-ink-faint">{formatPeriod(membership.start, membership.end)}</span>
           </span>

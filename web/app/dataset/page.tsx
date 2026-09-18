@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import type { ReactNode } from "react";
 import Link from "next/link";
-import { Breadcrumb } from "@/components/breadcrumb";
-import { ContentList, ContentSection } from "@/components/content/content-section";
+import { T } from "@/components/i18n/t";
 import { getDataset } from "@/lib/data";
 import { formatCount, formatDate } from "@/lib/format";
+import { getS } from "@/lib/i18n/server-strings";
 import { SITE_NAME, SITE_URL, canonical } from "@/lib/site";
 
+/**
+ * Build-time SEO stays Dutch by design: pageMetadata copy is build-time only.
+ */
 export const metadata: Metadata = {
-  title: "Dataset",
+  title: getS("pages", "datasetTitle"),
   description:
     "De volledige, bronvaste dataset van Staatsgraaf als statische JSON-bestanden: wat erin zit, onder welke licentie, hoe je hem noemt en waar je hem downloadt.",
   alternates: canonical("/dataset/"),
@@ -29,25 +33,48 @@ function readMeta(): DatasetMeta {
   };
 }
 
+function Section({
+  id,
+  titleKey,
+  children,
+}: {
+  id: string;
+  titleKey: string;
+  children: ReactNode;
+}) {
+  return (
+    <section aria-labelledby={`${id}-titel`} className="border-b border-line py-6 last:border-b-0">
+      <h2 id={`${id}-titel`} className="text-lg font-semibold tracking-tight text-ink">
+        <T area="pages" k={titleKey} />
+      </h2>
+      <div className="mt-2 space-y-3 text-sm leading-relaxed text-ink-muted">{children}</div>
+    </section>
+  );
+}
+
+function List({ children }: { children: ReactNode }) {
+  return <ul className="list-disc space-y-1.5 ps-5 marker:text-ink-faint">{children}</ul>;
+}
+
 export default function DatasetPage() {
   const dataset = getDataset();
   const meta = readMeta();
 
-  const files: { name: string; label: string; count: number | null }[] = [
-    { name: "organizations.json", label: "Organisaties", count: dataset.organizations.length },
-    { name: "positions.json", label: "Posities", count: dataset.positions.length },
-    { name: "people.json", label: "Personen", count: dataset.people.length },
-    { name: "tenures.json", label: "Dienstverbanden", count: dataset.tenures.length },
-    { name: "memberships.json", label: "Lidmaatschappen", count: dataset.memberships.length },
-    { name: "relations.json", label: "Relaties", count: dataset.relations.length },
-    { name: "sources.json", label: "Bronnen", count: dataset.sources.length },
-    { name: "topics.json", label: "Onderwerpen", count: dataset.topics.length },
-    { name: "budgets.json", label: "Begrotingen", count: dataset.budgets.length },
-    { name: "changes.json", label: "Wijzigingen", count: dataset.changes.length },
-    { name: "news.json", label: "Nieuwsberichten", count: dataset.news.length },
-    { name: "governments.json", label: "Regeringen", count: dataset.governments.length },
-    { name: "media.json", label: "Media", count: dataset.media.length },
-    { name: "meta.json", label: "Metadata", count: null },
+  const files: { name: string; labelKey: string; count: number | null }[] = [
+    { name: "organizations.json", labelKey: "fileOrganizations", count: dataset.organizations.length },
+    { name: "positions.json", labelKey: "filePositions", count: dataset.positions.length },
+    { name: "people.json", labelKey: "filePeople", count: dataset.people.length },
+    { name: "tenures.json", labelKey: "fileTenures", count: dataset.tenures.length },
+    { name: "memberships.json", labelKey: "fileMemberships", count: dataset.memberships.length },
+    { name: "relations.json", labelKey: "fileRelations", count: dataset.relations.length },
+    { name: "sources.json", labelKey: "fileSources", count: dataset.sources.length },
+    { name: "topics.json", labelKey: "fileTopics", count: dataset.topics.length },
+    { name: "budgets.json", labelKey: "fileBudgets", count: dataset.budgets.length },
+    { name: "changes.json", labelKey: "fileChanges", count: dataset.changes.length },
+    { name: "news.json", labelKey: "fileNews", count: dataset.news.length },
+    { name: "governments.json", labelKey: "fileGovernments", count: dataset.governments.length },
+    { name: "media.json", labelKey: "fileMedia", count: dataset.media.length },
+    { name: "meta.json", labelKey: "fileMeta", count: null },
   ];
 
   const version = meta.datasetVersion ?? "v1";
@@ -62,55 +89,79 @@ export default function DatasetPage() {
 
   return (
     <>
-      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Dataset" }]} />
-      <h1 className="mt-4 text-2xl font-semibold tracking-tight text-ink">Dataset</h1>
+      <nav aria-label="Kruimelpad">
+        <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-muted">
+          <li className="flex items-center gap-x-2">
+            <Link href="/" className="underline-offset-2 hover:text-ink hover:underline">
+              {SITE_NAME}
+            </Link>
+            <span aria-hidden="true" className="text-ink-faint">
+              /
+            </span>
+          </li>
+          <li className="flex items-center gap-x-2">
+            <span aria-current="page">
+              <T area="pages" k="datasetTitle" />
+            </span>
+          </li>
+        </ol>
+      </nav>
+      <h1 className="mt-4 text-2xl font-semibold tracking-tight text-ink">
+        <T area="pages" k="datasetTitle" />
+      </h1>
       <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
-        De hele dataset staat als losse JSON-bestanden op deze site. Elk feit heeft een bron met een
-        URL en een ophaaldatum. De bestanden zijn bedoeld voor hergebruik, onderzoek en de iOS-app
-        die op dezelfde gegevens werkt.
+        <T area="pages" k="datasetIntro" />
       </p>
 
       <div className="mt-4">
-        <ContentSection id="inhoud" title="Wat de dataset bevat">
+        <Section id="inhoud" titleKey="datasetContentsTitle">
           <p>
-            De momentopname van {snapshot ?? "deze versie"} bevat{" "}
-            {formatCount(dataset.organizations.length)} organisaties,{" "}
-            {formatCount(dataset.positions.length)} posities, {formatCount(dataset.people.length)}{" "}
-            personen, {formatCount(dataset.tenures.length)} dienstverbanden,{" "}
-            {formatCount(dataset.memberships.length)} lidmaatschappen en{" "}
-            {formatCount(dataset.relations.length)} relaties tussen organisaties. Daarnaast zijn er{" "}
-            {formatCount(dataset.sources.length)} bronnen, {formatCount(dataset.topics.length)}{" "}
-            onderwerpen, {formatCount(dataset.budgets.length)} begrotingen,{" "}
-            {formatCount(dataset.changes.length)} wijzigingen en {formatCount(dataset.news.length)}{" "}
-            nieuwsberichten.
+            <T
+              area="pages"
+              k="datasetContentsP1"
+              vars={{
+                snapshot: snapshot ?? getS("pages", "datasetSnapshotUnknown"),
+                organizations: formatCount(dataset.organizations.length),
+                positions: formatCount(dataset.positions.length),
+                people: formatCount(dataset.people.length),
+                tenures: formatCount(dataset.tenures.length),
+                memberships: formatCount(dataset.memberships.length),
+                relations: formatCount(dataset.relations.length),
+                sources: formatCount(dataset.sources.length),
+                topics: formatCount(dataset.topics.length),
+                budgets: formatCount(dataset.budgets.length),
+                changes: formatCount(dataset.changes.length),
+                news: formatCount(dataset.news.length),
+              }}
+            />
           </p>
           <p>
-            Elk bestand heeft een vaste naam en een vaste vorm. Verwijzingen tussen records lopen via
-            een id, nooit via een naam. De dataset is een momentopname en geen live feed: nieuwe
-            feiten komen pas in een volgende versie.
+            <T area="pages" k="datasetContentsP2" />
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="momentopname" title="Versie en momentopname">
+        <Section id="momentopname" titleKey="datasetVersionTitle">
           <p>
-            De huidige versie is <code>{version}</code> met momentopname{" "}
-            <time dateTime={meta.snapshotId ?? undefined}>{snapshot ?? "onbekende datum"}</time>. De
-            versie en de datum staan ook in het manifest, samen met de bestandsgroottes en een
-            sha256-controlesom per bestand. Zo kun je controleren of een download compleet en
-            ongewijzigd is.
+            <T area="pages" k="datasetVersionP1a" /> <code>{version}</code>{" "}
+            <T area="pages" k="datasetVersionP1b" />{" "}
+            <time dateTime={meta.snapshotId ?? undefined}>
+              {snapshot !== null ? (
+                snapshot
+              ) : (
+                <T area="pages" k="datasetUnknownDate" />
+              )}
+            </time>
+            <T area="pages" k="datasetVersionP1c" />
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="licentie" title="Licentie">
+        <Section id="licentie" titleKey="datasetLicenseTitle">
           <p>
-            De dataset, de beschrijvingen en de samenvattingen vallen onder CC BY 4.0. Dat betekent
-            dat hergebruik mag, ook commercieel, zolang je de bron noemt en de licentie vermeldt. De
-            code van deze site valt onder de MIT-licentie. De volledige licentieteksten staan bij de
-            downloads.
+            <T area="pages" k="datasetLicenseP1" />
           </p>
-          <ContentList>
+          <List>
             <li>
-              Dataset:{" "}
+              <T area="pages" k="datasetLicenseData" />{" "}
               <a
                 href="https://creativecommons.org/licenses/by/4.0/"
                 rel="noopener noreferrer"
@@ -118,7 +169,7 @@ export default function DatasetPage() {
               >
                 CC BY 4.0
               </a>
-              , zie ook{" "}
+              , <T area="pages" k="datasetLicenseSee" />{" "}
               <a
                 href="/data/v1/LICENSE-DATA.txt"
                 className="text-accent-text underline-offset-2 hover:underline"
@@ -128,7 +179,7 @@ export default function DatasetPage() {
               .
             </li>
             <li>
-              Code: MIT, zie{" "}
+              <T area="pages" k="datasetLicenseCode" />{" "}
               <a
                 href="/data/v1/LICENSE.txt"
                 className="text-accent-text underline-offset-2 hover:underline"
@@ -137,64 +188,62 @@ export default function DatasetPage() {
               </a>
               .
             </li>
-          </ContentList>
+          </List>
           <p>
-            Feiten zelf zijn niet auteursrechtelijk beschermd. De licentie geldt voor onze eigen
-            bijdrage: de selectie, de structuur, de samenstelling, de beschrijvingen en de
-            samenvattingen.
+            <T area="pages" k="datasetLicenseFacts" />
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="naamsvermelding" title="Hoe je de dataset noemt">
+        <Section id="naamsvermelding" titleKey="datasetAttributionTitle">
           <p>
-            Noem bij hergebruik {SITE_NAME} en de onderliggende bron. Houd bij elk feit de bron-URL en
-            de ophaaldatum die in de gegevens staan. Vermeld de licentie en link naar de
-            licentietekst.
+            <T area="pages" k="datasetAttributionP1" vars={{ site: SITE_NAME }} />
           </p>
           <p>
-            De volledige creditregels per bron staan in <code>ATTRIBUTION.md</code>. Dat bestand staat
-            in de repository, die nog niet openbaar is. Deze verwijzing is daarom voorlopig een
-            bestandsnaam zonder host en nog niet aanklikbaar in de browser. Dat is een benoemde
-            leemte. Dezelfde licentie- en broninformatie staat in <code>data/meta.json</code> en{" "}
-            <code>data/sources.json</code>.
+            <T area="pages" k="datasetAttributionP2a" /> <code>ATTRIBUTION.md</code>
+            <T area="pages" k="datasetAttributionP2b" /> <code>data/meta.json</code>{" "}
+            <T area="pages" k="andWord" /> <code>data/sources.json</code>.
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="citeren" title="Citeer de dataset">
-          <p>Gebruik bijvoorbeeld deze verwijzing:</p>
+        <Section id="citeren" titleKey="datasetCiteTitle">
+          <p>
+            <T area="pages" k="datasetCiteIntro" />
+          </p>
           <p className="rounded-md border border-line bg-surface-raised px-3 py-2 font-mono text-xs leading-relaxed text-ink">
             {citation}
           </p>
           <p>
-            Vul de raadpleegdatum in en, als je een vast adres gebruikt, de versie en de
-            momentopname. Het manifest noemt dezelfde versie en datum, zodat een lezer de juiste
-            momentopname kan terugvinden.
+            <T area="pages" k="datasetCiteNote" />
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="downloaden" title="Downloaden">
+        <Section id="downloaden" titleKey="datasetDownloadTitle">
           <p>
-            Het manifest beschrijft alle bestanden:{" "}
+            <T area="pages" k="datasetDownloadPre" />{" "}
             <a
               href="/data/v1/manifest.json"
               className="text-accent-text underline-offset-2 hover:underline"
             >
               /data/v1/manifest.json
             </a>
-            . Daaronder staat elk bestand apart.
+            <T area="pages" k="datasetDownloadPost" />
           </p>
-          <ContentList>
+          <List>
             {files.map((file) => (
               <li key={file.name}>
                 <a
                   href={`/data/v1/${file.name}`}
                   className="text-accent-text underline-offset-2 hover:underline"
                 >
-                  {file.label}
+                  <T area="pages" k={file.labelKey} />
                 </a>{" "}
                 <span className="text-ink-faint">
                   {file.name}
-                  {file.count !== null ? `, ${formatCount(file.count)} records` : ""}
+                  {file.count !== null ? (
+                    <>
+                      , <T area="pages" k="recordsCount" vars={{ n: formatCount(file.count) }} />
+                    </>
+                  ) : null}
                 </span>
               </li>
             ))}
@@ -203,7 +252,7 @@ export default function DatasetPage() {
                 href="/data/v1/LICENSE-DATA.txt"
                 className="text-accent-text underline-offset-2 hover:underline"
               >
-                Datumlicentie
+                <T area="pages" k="fileLicenseData" />
               </a>{" "}
               <span className="text-ink-faint">LICENSE-DATA.txt</span>
             </li>
@@ -212,31 +261,28 @@ export default function DatasetPage() {
                 href="/data/v1/LICENSE.txt"
                 className="text-accent-text underline-offset-2 hover:underline"
               >
-                Codelicentie
+                <T area="pages" k="fileLicenseCode" />
               </a>{" "}
               <span className="text-ink-faint">LICENSE.txt</span>
             </li>
-          </ContentList>
-        </ContentSection>
+          </List>
+        </Section>
 
-        <ContentSection id="onafhankelijk" title="Onafhankelijkheid">
+        <Section id="onafhankelijk" titleKey="datasetIndependenceTitle">
           <p>
-            {SITE_NAME} is een onafhankelijke publicatie en is niet verbonden aan de Nederlandse
-            overheid of aan enige overheidsinstantie. De gegevens komen uit openbare bronnen die per
-            feit worden vermeld. Aan de weergave kunnen geen rechten worden ontleend. Bij twijfel
-            raadpleeg je altijd de officiële bron.
+            <T area="pages" k="datasetIndependenceP1" vars={{ site: SITE_NAME }} />
           </p>
-        </ContentSection>
+        </Section>
       </div>
 
       <p className="py-6 text-xs text-ink-faint">
-        Zie ook{" "}
+        <T area="pages" k="seeAlso" />{" "}
         <Link href="/methodiek/" className="text-accent-text underline-offset-2 hover:underline">
-          Methodiek
+          <T area="pages" k="linkMethodology" />
         </Link>{" "}
-        en{" "}
+        <T area="pages" k="andWord" />{" "}
         <Link href="/privacy/" className="text-accent-text underline-offset-2 hover:underline">
-          Privacy
+          <T area="pages" k="linkPrivacy" />
         </Link>
         .
       </p>

@@ -4,15 +4,9 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import type { KeyboardEvent as ReactKeyboardEvent } from "react";
+import { useT } from "@/components/i18n/use-t";
 import { buildSearchIndex, rankSearch } from "@/lib/search";
 import type { SearchIndex, SearchKind, SearchRecord } from "@/lib/search";
-
-const KIND_LABELS: Record<SearchKind, string> = {
-  organization: "Organisatie",
-  position: "Positie",
-  person: "Persoon",
-  topic: "Onderwerp",
-};
 
 const MAX_RESULTS = 8;
 
@@ -34,6 +28,7 @@ function SearchIcon() {
 
 export function SearchOverlay() {
   const router = useRouter();
+  const t = useT("pages");
   const baseId = useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const inputId = `${baseId}-input`;
   const listboxId = `${baseId}-listbox`;
@@ -48,6 +43,13 @@ export function SearchOverlay() {
   const triggerRef = useRef<HTMLButtonElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const loadStarted = useRef(false);
+
+  const kindLabels: Record<SearchKind, string> = {
+    organization: t("kindOrganization"),
+    position: t("kindPosition"),
+    person: t("kindPerson"),
+    topic: t("kindTopic"),
+  };
 
   const loadIndex = useCallback(() => {
     if (loadStarted.current) return;
@@ -112,11 +114,13 @@ export function SearchOverlay() {
 
   const statusMessage =
     status === "loading"
-      ? "Zoekindex wordt geladen."
+      ? t("searchLoading")
       : status === "error"
-        ? "Zoeken is tijdelijk niet beschikbaar."
+        ? t("searchUnavailable")
         : query.trim() !== ""
-          ? `${results.length} ${results.length === 1 ? "resultaat" : "resultaten"}.`
+          ? results.length === 1
+            ? t("searchResultOne", { n: results.length })
+            : t("searchResultMany", { n: results.length })
           : "";
 
   function selectResult(href: string) {
@@ -152,14 +156,14 @@ export function SearchOverlay() {
       <button
         ref={triggerRef}
         type="button"
-        aria-label="Zoeken"
+        aria-label={t("searchTrigger")}
         aria-haspopup="dialog"
         aria-expanded={open}
         onClick={openOverlay}
         className="flex items-center gap-2 rounded-sm border border-line px-2.5 py-2 text-sm text-ink-muted transition-fast hover:border-line-strong hover:text-ink"
       >
         <SearchIcon />
-        <span className="hidden sm:inline">Zoeken</span>
+        <span className="hidden sm:inline">{t("searchTrigger")}</span>
       </button>
 
       {open ? (
@@ -172,7 +176,7 @@ export function SearchOverlay() {
           <div
             role="dialog"
             aria-modal="true"
-            aria-label="Zoeken"
+            aria-label={t("searchDialogLabel")}
             className="relative w-full max-w-xl rounded-md border border-line bg-surface shadow-2xl"
           >
             <div className="flex items-center gap-2 border-b border-line px-3 py-2.5">
@@ -180,7 +184,7 @@ export function SearchOverlay() {
                 <SearchIcon />
               </span>
               <label id={labelId} htmlFor={inputId} className="sr-only">
-                Zoeken
+                {t("searchInputLabel")}
               </label>
               <input
                 ref={inputRef}
@@ -193,7 +197,7 @@ export function SearchOverlay() {
                 aria-labelledby={labelId}
                 autoComplete="off"
                 spellCheck={false}
-                placeholder="Zoek op naam, alias of afkorting"
+                placeholder={t("searchPlaceholder")}
                 className="w-full bg-transparent text-base text-ink outline-none placeholder:text-ink-faint"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
@@ -201,7 +205,7 @@ export function SearchOverlay() {
               />
               <button
                 type="button"
-                aria-label="Zoeken sluiten"
+                aria-label={t("searchClose")}
                 onClick={() => closeOverlay()}
                 className="rounded-sm px-1.5 py-1 text-xs text-ink-faint hover:text-ink"
               >
@@ -214,22 +218,22 @@ export function SearchOverlay() {
             </p>
 
             {status === "loading" ? (
-              <p className="p-4 text-sm text-ink-faint">Zoekindex wordt geladen...</p>
+              <p className="p-4 text-sm text-ink-faint">{t("searchLoadingInline")}</p>
             ) : status === "error" ? (
               <p className="p-4 text-sm text-ink-faint">
-                Zoeken is tijdelijk niet beschikbaar.{" "}
+                {t("searchUnavailable")}{" "}
                 <Link href="/onderwerpen/" onClick={() => closeOverlay(false)} className="underline">
-                  Blader door onderwerpen
+                  {t("searchBrowseTopics")}
                 </Link>
                 .
               </p>
             ) : query.trim() === "" ? (
               <div className="p-4">
-                <p className="text-sm text-ink-faint">Typ een naam, alias of afkorting.</p>
+                <p className="text-sm text-ink-faint">{t("searchHint")}</p>
                 {suggestedTopics.length > 0 ? (
                   <div className="mt-3">
                     <p className="text-xs font-semibold uppercase tracking-wide text-ink-faint">
-                      Onderwerpen
+                      {t("searchTopicsHeader")}
                     </p>
                     <div className="mt-2 flex flex-wrap gap-2">
                       {suggestedTopics.map((topic) => (
@@ -247,7 +251,7 @@ export function SearchOverlay() {
                 ) : null}
               </div>
             ) : results.length === 0 ? (
-              <p className="p-4 text-sm text-ink-faint">Geen resultaten voor deze zoekterm.</p>
+              <p className="p-4 text-sm text-ink-faint">{t("searchNoResults")}</p>
             ) : (
               <div
                 id={listboxId}
@@ -284,7 +288,9 @@ export function SearchOverlay() {
                     {result.abbreviation ? (
                       <span className="shrink-0 text-xs text-ink-faint">{result.abbreviation}</span>
                     ) : null}
-                    <span className="shrink-0 text-xs text-ink-faint">{KIND_LABELS[result.kind]}</span>
+                    <span className="shrink-0 text-xs text-ink-faint">
+                      {kindLabels[result.kind]}
+                    </span>
                   </Link>
                 ))}
               </div>

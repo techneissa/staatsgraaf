@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { KindBadge } from "@/components/kind-badge";
+import { T } from "@/components/i18n/t";
 import { PersonPortrait, PersonPortraitCredit } from "./person-portrait";
 import type { MemberEntry } from "@/lib/entity";
 
@@ -27,7 +28,7 @@ export function SeatGrid({ members, limit }: { members: MemberEntry[]; limit?: n
             ) : null}
             {membership.seatNumber !== null ? (
               <span className="mt-1 block text-xs text-ink-faint">
-                Zetel {membership.seatNumber}
+                <T area="entity" k="seatNumber" vars={{ n: membership.seatNumber }} />
               </span>
             ) : null}
           </Link>

@@ -1,21 +1,17 @@
 import Link from "next/link";
 import { Card } from "../card";
-import { EmptyState } from "../empty-state";
+import { EmptyStateT } from "./empty-state-t";
 import { KindBadge } from "../kind-badge";
 import { PersonPortrait } from "../entity/person-portrait";
 import { SourceLink } from "../source-link";
+import { T } from "@/components/i18n/t";
 import { getSourceById } from "@/lib/data";
 import { formatPeriodShort } from "@/lib/format";
 import type { ActingOfficial } from "@/lib/changes";
 
 export function ActingList({ officials }: { officials: ActingOfficial[] }) {
   if (officials.length === 0) {
-    return (
-      <EmptyState
-        title="Geen waarnemende functionarissen"
-        description="Er zijn op dit moment geen lopende waarnemende aanstellingen in de dataset."
-      />
-    );
+    return <EmptyStateT title="actingEmptyTitle" description="actingEmptyBody" />;
   }
 
   return (
@@ -66,7 +62,9 @@ export function ActingList({ officials }: { officials: ActingOfficial[] }) {
                 </div>
               </div>
               <div className="flex shrink-0 items-center gap-2">
-                <KindBadge tone="accent">Waarnemend</KindBadge>
+                <KindBadge tone="accent">
+                  <T area="home" k="filterActing" />
+                </KindBadge>
                 <span className="text-xs text-ink-faint">
                   {formatPeriodShort(official.tenure.start, official.tenure.end)}
                 </span>

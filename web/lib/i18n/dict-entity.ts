@@ -48,8 +48,8 @@ export const ENTITY_DICT = {
   },
   noOfficialsTitle: { nl: "Geen lopende functies of lidmaatschappen", en: "No current tenures or memberships" },
   noOfficialsNote: {
-    nl: "Voor deze organisatie is in de dataset nog geen lopende benoeming of lidmaatschap met bron opgenomen.",
-    en: "No current appointment or membership with a source is in the dataset for this organization yet.",
+    nl: "Voor {name} is in de dataset nog geen lopende benoeming of lidmaatschap met bron opgenomen.",
+    en: "No current appointment or membership with a source is in the dataset for {name} yet.",
   },
   partOfTitle: { nl: "Onderdeel van", en: "Part of" },
   partOfNone: {
@@ -59,17 +59,30 @@ export const ENTITY_DICT = {
   historyTitle: { nl: "Functiegeschiedenis", en: "Office history" },
   historyNoneTitle: { nl: "Geen functiegeschiedenis", en: "No office history" },
   historyNoneNote: {
-    nl: "Voor deze organisatie zijn in de dataset nog geen benoemingen met datum en bron opgenomen.",
-    en: "No appointments with a date and source are in the dataset for this organization yet.",
+    nl: "Voor {name} zijn in de dataset nog geen benoemingen met datum en bron opgenomen.",
+    en: "No appointments with a date and source are in the dataset for {name} yet.",
+  },
+  membersNoneNote: {
+    nl: "Geen lopende leden met bron opgenomen in de dataset.",
+    en: "No current members with a source are in the dataset.",
+  },
+  newsEmptyNote: {
+    nl: "Er zijn nog geen nieuwsberichten met {name} opgenomen in de dataset.",
+    en: "No news items mentioning {name} are in the dataset yet.",
   },
 
   // Person page sections
   rolesTitle: { nl: "Functies", en: "Positions" },
+  personNoDescription: {
+    nl: "Functies en bronnen van {name} op de kaart van de Nederlandse staat.",
+    en: "Positions and sources for {name} on the map of the Dutch state.",
+  },
+  membershipMeta: { nl: "Lidmaatschap", en: "Membership" },
   membershipsTitle: { nl: "Lidmaatschappen", en: "Memberships" },
   noRoleTitle: { nl: "Geen gedateerde rol met bron", en: "No dated role with a source" },
   noRoleNote: {
-    nl: "Voor deze persoon is in de dataset geen functie of lidmaatschap met een startdatum en bron opgenomen.",
-    en: "No position or membership with a start date and source is in the dataset for this person.",
+    nl: "Voor {name} is in de dataset geen functie of lidmaatschap met een startdatum en bron opgenomen.",
+    en: "No position or membership with a start date and source is in the dataset for {name}.",
   },
   inTheNewsTitle: { nl: "In het nieuws", en: "In the news" },
   imageCredit: { nl: "Beeld", en: "Image" },
@@ -125,14 +138,42 @@ export const ENTITY_DICT = {
   newsEmptyTitle: { nl: "Nog geen nieuws", en: "No news yet" },
   vacancyTitle: { nl: "Geen lopende bekleder", en: "No current holder" },
   vacancyNote: {
-    nl: "Voor deze positie is in de dataset geen benoeming zonder einddatum met bron opgenomen.",
-    en: "No appointment without an end date with a source is in the dataset for this position.",
+    nl: "Voor deze positie is in de dataset geen benoeming zonder einddatum met bron opgenomen. Een positie zonder bekleder is een vacature zodra de dataset dat bijhoudt.",
+    en: "No appointment without an end date with a source is in the dataset for this position. A position without a holder counts as a vacancy once the dataset tracks that.",
   },
   noHoldersTitle: { nl: "Geen bekleders bekend", en: "No known holders" },
   noHoldersNote: {
     nl: "Voor deze positie is nog geen bekleder met bron opgenomen.",
     en: "No holder with a source is in the dataset for this position yet.",
   },
+
+  // Listing pages
+  orgIndexTitle: { nl: "Organisaties", en: "Organizations" },
+  orgIndexIntro: {
+    nl: "Alle {n} organisaties in de dataset, gegroepeerd naar staatsmacht. Elke organisatiepagina toont de positie in de staatsinrichting, de bijbehorende posities en de bronnen.",
+    en: "All {n} organizations in the dataset, grouped by branch of state power. Each organization page shows the position in the state structure, the related positions, and the sources.",
+  },
+  groupNavLabel: { nl: "Groepen", en: "Groups" },
+  peopleIndexTitle: { nl: "Personen", en: "People" },
+  peopleIndexIntro: {
+    nl: "Alle {n} personen in de dataset, alfabetisch. Van {withPortrait} personen is een gelicentieerd portret opgenomen; de overige tonen initialen. Elke functie op een persoonspagina heeft een bron.",
+    en: "All {n} people in the dataset, alphabetically. {withPortrait} people have a licensed portrait on record; the others show initials. Every position on a person page has a source.",
+  },
+  alphabetNavLabel: { nl: "Alfabet", en: "Alphabet" },
+  positionsIndexTitle: { nl: "Posities", en: "Positions" },
+  positionsIndexIntro: {
+    nl: "Alle {n} posities in de dataset, gegroepeerd naar type. Elke positiepagina toont de wettelijke basis, de vulwijze en de reeks bekleders met een bron.",
+    en: "All {n} positions in the dataset, grouped by type. Each position page shows the legal basis, the filling method, and the list of holders with a source.",
+  },
+
+  // Badges and fallback names
+  actingBadge: { nl: "Waarnemend", en: "Acting" },
+  employeesShort: { nl: "{n} medewerkers", en: "{n} employees" },
+  seatNumber: { nl: "Zetel {n}", en: "Seat {n}" },
+  unknownOrganization: { nl: "Onbekende organisatie", en: "Unknown organization" },
+  unknownPerson: { nl: "Onbekende persoon", en: "Unknown person" },
+  unknownPosition: { nl: "Onbekende positie", en: "Unknown position" },
+  personPortraitAlt: { nl: "Portret van {name}", en: "Portrait of {name}" },
 } as const satisfies Record<string, LocString>;
 
 export type EntityDictKey = keyof typeof ENTITY_DICT;

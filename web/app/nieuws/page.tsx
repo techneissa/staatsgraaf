@@ -4,10 +4,10 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { NewsExplorer } from "@/components/news/news-explorer";
 import { getDatasetDate } from "@/lib/data";
-import { formatCount, formatDate } from "@/lib/format";
+import { formatCount } from "@/lib/format";
 import { getNewsCount } from "@/lib/news";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
-import { buildNewsExplorerGroups } from "@/lib/news-page";
+import { buildNewsExplorerGroups, formatNewsDayLabel } from "@/lib/news-page";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -58,7 +58,7 @@ export default function NewsPage() {
         <p className="mt-2 text-xs text-ink-faint">
           {formatCount(total)}{" "}
           {total === 1 ? messages.itemsWordSingular : messages.itemsWordPlural}
-          {datasetDate !== null ? ` · bijgewerkt ${formatDate(datasetDate)}` : null}
+          {datasetDate !== null ? ` · bijgewerkt ${formatNewsDayLabel(datasetDate, "nl")}` : null}
         </p>
       </header>
 

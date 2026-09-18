@@ -1,6 +1,9 @@
 import { DateStamp } from "./date-stamp";
 import { EntityChip } from "./entity-chip";
+import { T } from "./i18n/t";
+import { LabeledList } from "./news/labeled-list";
 import { SourceLink } from "./source-link";
+import { SourceRankLink } from "./news/source-rank-link";
 import { SourceArrow } from "./news/news-item-card";
 import { NewsPreviewTile, newsPreviewCaption } from "./news/news-preview";
 import { resolveNewsPreview, hostLabel } from "./news/news-view";
@@ -67,7 +70,7 @@ export function NewsCard({
               className="text-ink decoration-accent decoration-2 underline-offset-2 transition-fast hover:text-accent-text hover:underline"
             >
               {item.title}
-              <span className="sr-only"> (opent in een nieuw tabblad)</span>
+              <span className="sr-only"> <T area="news" k="cardOpensNewTab" /></span>
             </a>
           </h3>
           <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
@@ -89,7 +92,7 @@ export function NewsCard({
             <p className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted">{item.summary}</p>
           ) : null}
           {entities.length > 0 ? (
-            <ul className="mt-3 flex flex-wrap gap-2" aria-label="Genoemd in dit bericht">
+            <LabeledList labelKey="cardMentionedLabel" className="mt-3 flex flex-wrap gap-2">
               {entities.map((entry) => (
                 <li key={entry.id}>
                   <EntityChip
@@ -113,19 +116,22 @@ export function NewsCard({
                   </EntityChip>
                 </li>
               ))}
-            </ul>
+            </LabeledList>
           ) : null}
         </div>
         <NewsPreviewTile preview={preview} size={72} rounded="lg" />
       </div>
       <p className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-xs text-ink-faint">
         <span className="flex items-center gap-2">
-          {rank !== undefined ? (
+          {rank !== undefined && primary !== undefined ? (
+            <SourceRankLink href={primary.source.url} rank={rank}>
+              [{rank}]
+            </SourceRankLink>
+          ) : rank !== undefined ? (
             <a
-              href={primary?.source.url ?? item.url}
+              href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Bron ${rank} voor dit bericht`}
               className="tabular-nums font-medium text-accent-text underline-offset-2 hover:underline"
             >
               [{rank}]
@@ -139,11 +145,13 @@ export function NewsCard({
           >
             {hostLabel(item.url)}
             <SourceArrow />
-            <span className="sr-only"> (opent in een nieuw tabblad)</span>
+            <span className="sr-only"> <T area="news" k="cardOpensNewTab" /></span>
           </a>
         </span>
         {caption !== null ? (
-          <span className="basis-full text-[10px] leading-tight">Beeld: {caption}</span>
+          <span className="basis-full text-[10px] leading-tight">
+            <T area="news" k="imageCreditLabel" /> {caption}
+          </span>
         ) : null}
       </p>
       {sources.length > 0 ? (

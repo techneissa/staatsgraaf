@@ -1,17 +1,12 @@
 import Link from "next/link";
-import { EmptyState } from "@/components/empty-state";
+import { EmptyStateT } from "@/components/change/empty-state-t";
 import { NewsCard } from "@/components/news-card";
-import { getS } from "@/lib/i18n/server-strings";
+import { T } from "@/components/i18n/t";
 import type { NewsItem } from "@/lib/types";
 
 export function NewsBand({ items }: { items: NewsItem[] }) {
   if (items.length === 0) {
-    return (
-      <EmptyState
-        title="Nog geen nieuws"
-        description="Zodra de nieuwsbronnen zijn ontsloten, verschijnen hier recente berichten met gekoppelde organisaties, personen en een bron per bericht."
-      />
-    );
+    return <EmptyStateT title="newsEmptyTitle" description="newsEmptyBody" />;
   }
 
   return (
@@ -28,7 +23,7 @@ export function NewsBand({ items }: { items: NewsItem[] }) {
           href="/nieuws/"
           className="inline-flex items-center gap-1 text-sm font-medium text-accent-text underline-offset-2 hover:underline"
         >
-          {getS("home", "newsReadMore")}
+          <T area="home" k="newsReadMore" />
           <span aria-hidden="true">&rsaquo;</span>
         </Link>
       </p>

@@ -26,6 +26,10 @@ export const POWER_DICT = {
   powerMapCenterLabel: { nl: "Kiesgerechtigden Nederland", en: "Dutch electorate" },
   powerMapEntityCentreLabel: { nl: "Wie is verbonden?", en: "Who is connected?" },
   powerMapOpenPerson: { nl: "Open personenpagina", en: "Open person page" },
+  powerMapOpenPersonName: {
+    nl: "Open de personenpagina van {name}",
+    en: "Open the person page of {name}",
+  },
   powerMapArticle1: { nl: "1 artikel", en: "1 article" },
   powerMapEmptyTitle: { nl: "Nog geen machtskaart", en: "No power map yet" },
   powerMapEmptyBody: {

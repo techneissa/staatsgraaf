@@ -4,10 +4,20 @@ import { DateStamp } from "./date-stamp";
 import { PersonPortrait } from "./entity/person-portrait";
 import { KindBadge } from "./kind-badge";
 import { SourceLink } from "./source-link";
+import { T } from "@/components/i18n/t";
 import { getOrganizationById, getPersonById, getPositionById, getSourceById } from "@/lib/data";
 import { formatDate } from "@/lib/format";
-import { CHANGE_KIND_LABELS } from "@/lib/labels";
-import type { Change, ChangeSide } from "@/lib/types";
+import type { Change, ChangeKind, ChangeSide } from "@/lib/types";
+
+const KIND_KEY: Record<ChangeKind, string> = {
+  appointment: "appointed",
+  departure: "departure",
+  vacancy: "vacancy",
+  structural: "structuralChange",
+  "tenure-between": "transfer",
+  rename: "renameLabel",
+  move: "moveLabel",
+};
 
 function Side({ label, side }: { label: string; side?: ChangeSide }) {
   if (!side) return null;
@@ -15,7 +25,7 @@ function Side({ label, side }: { label: string; side?: ChangeSide }) {
   return (
     <div className="flex items-center gap-3">
       <span className="w-6 shrink-0 text-xs font-medium uppercase tracking-wide text-ink-faint">
-        {label}
+        <T area="home" k={label} />
       </span>
       {person ? (
         <Link
@@ -42,7 +52,7 @@ export function ChangeRow({ change }: { change: Change }) {
     <Card as="article">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <KindBadge tone={change.kind === "appointment" ? "accent" : "neutral"}>
-          {CHANGE_KIND_LABELS[change.kind]}
+          <T area="common" k={KIND_KEY[change.kind]} />
         </KindBadge>
         {source ? (
           <SourceLink href={source.url} meta={source.publisher}>
@@ -77,11 +87,11 @@ export function ChangeRow({ change }: { change: Change }) {
       ) : null}
       <div className="mt-3 space-y-1.5 border-t border-line pt-3">
         {change.kind === "vacancy" ? (
-          <Side label="Zetels" side={change.in} />
+          <Side label="seatsLabel" side={change.in} />
         ) : (
           <>
-            <Side label="Uit" side={change.out} />
-            <Side label="In" side={change.in} />
+            <Side label="outLabel" side={change.out} />
+            <Side label="inLabel" side={change.in} />
           </>
         )}
       </div>

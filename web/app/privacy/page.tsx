@@ -1,118 +1,142 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
-import { Breadcrumb } from "@/components/breadcrumb";
-import { ContentList, ContentSection } from "@/components/content/content-section";
-import { canonical } from "@/lib/site";
+import { T } from "@/components/i18n/t";
+import { getS } from "@/lib/i18n/server-strings";
+import { canonical, SITE_NAME } from "@/lib/site";
 
+/**
+ * Build-time SEO stays Dutch by design: pageMetadata copy is build-time only.
+ */
 export const metadata: Metadata = {
-  title: "Privacy",
+  title: getS("pages", "privacyTitle"),
   description:
     "Privacyverklaring van Staatsgraaf: welke gegevens de site wel en niet verwerkt, op welke grondslag dat gebeurt, en hoe correctie of verwijdering werkt.",
   alternates: canonical("/privacy/"),
 };
 
+function Section({
+  id,
+  titleKey,
+  children,
+}: {
+  id: string;
+  titleKey: string;
+  children: ReactNode;
+}) {
+  return (
+    <section aria-labelledby={`${id}-titel`} className="border-b border-line py-6 last:border-b-0">
+      <h2 id={`${id}-titel`} className="text-lg font-semibold tracking-tight text-ink">
+        <T area="pages" k={titleKey} />
+      </h2>
+      <div className="mt-2 space-y-3 text-sm leading-relaxed text-ink-muted">{children}</div>
+    </section>
+  );
+}
+
+function List({ children }: { children: ReactNode }) {
+  return <ul className="list-disc space-y-1.5 ps-5 marker:text-ink-faint">{children}</ul>;
+}
+
 export default function PrivacyPage() {
   return (
     <>
-      <Breadcrumb items={[{ label: "Staatsgraaf", href: "/" }, { label: "Privacy" }]} />
-      <h1 className="mt-4 text-2xl font-semibold tracking-tight text-ink">Privacy</h1>
+      <nav aria-label="Kruimelpad">
+        <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-muted">
+          <li className="flex items-center gap-x-2">
+            <Link href="/" className="underline-offset-2 hover:text-ink hover:underline">
+              {SITE_NAME}
+            </Link>
+            <span aria-hidden="true" className="text-ink-faint">
+              /
+            </span>
+          </li>
+          <li className="flex items-center gap-x-2">
+            <span aria-current="page">
+              <T area="pages" k="privacyTitle" />
+            </span>
+          </li>
+        </ol>
+      </nav>
+      <h1 className="mt-4 text-2xl font-semibold tracking-tight text-ink">
+        <T area="pages" k="privacyTitle" />
+      </h1>
       <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
-        Staatsgraaf is een onafhankelijke publicatie over de Nederlandse overheid. De site is niet
-        verbonden aan de Nederlandse overheid of aan enige overheidsinstantie. Deze verklaring zegt
-        wat de site doet en wat de site niet doet.
+        <T area="pages" k="privacyIntro" />
       </p>
 
       <div className="mt-4">
-        <ContentSection id="niet" title="Wat de site niet doet">
-          <ContentList>
-            <li>De site plaatst geen cookies en gebruikt geen vergelijkbare volgtechniek.</li>
+        <Section id="niet" titleKey="privacyNotTitle">
+          <List>
             <li>
-              De site heeft geen bezoekersstatistiek en geen advertentie- of analysedienst. De code
-              bevat geen analytics.
+              <T area="pages" k="privacyNot1" />
             </li>
             <li>
-              De site laadt geen externe scripts, widgets of lettertypen van derden. Alles komt van
-              de site zelf. Het zoekveld haalt alleen een indexbestand van de site zelf op.
+              <T area="pages" k="privacyNot2" />
             </li>
-            <li>De site heeft geen accounts en geen formulieren die persoonsgegevens opslaan.</li>
-          </ContentList>
+            <li>
+              <T area="pages" k="privacyNot3" />
+            </li>
+            <li>
+              <T area="pages" k="privacyNot4" />
+            </li>
+          </List>
           <p>
-            De enige voorkeur die lokaal wordt bewaard, is het gekozen thema (licht of donker). Die
-            voorkeur staat in de opslag van je eigen browser, wordt niet naar een server verstuurd,
-            en verdwijnt wanneer je de opslag van de site wist.
+            <T area="pages" k="privacyThemeNote" />
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="dataset" title="Welke gegevens de dataset bevat">
+        <Section id="dataset" titleKey="privacyDatasetTitle">
           <p>
-            De dataset gaat over personen met een publieke functie. De gegevens komen uit bronnen
-            die de overheid zelf openbaar maakt, zoals wetten, benoemingsbesluiten, registers en de
-            websites van de organen.
+            <T area="pages" k="privacyDatasetP1" />
           </p>
           <p>
-            De grondslag is het algemeen belang bij een publiek overzicht van de overheid, in
-            combinatie met het feit dat de gegevens al openbaar zijn. De dataset bevat naam, functie,
-            organisatie en datums van aanstelling en vertrek, met per feit een bron.
+            <T area="pages" k="privacyDatasetP2" />
           </p>
           <p>
-            Er zijn geen contactgegevens, geen privéadressen, geen gezinsgegevens en geen
-            geboortedatums, tenzij de overheid die zelf openbaar heeft gemaakt en ze nodig zijn om de
-            structuur te begrijpen. Wat niet nodig is voor dat overzicht, wordt niet verzameld.
+            <T area="pages" k="privacyDatasetP3" />
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="logs" title="Serverlogbestanden">
+        <Section id="logs" titleKey="privacyLogsTitle">
           <p>
-            De site wordt als statische bestanden gehost. De hostingpartij kan technische
-            logbestanden bijhouden, zoals IP-adressen en opgevraagde bestanden. Welke partij dat is
-            en hoe lang die logbestanden worden bewaard, staat nog niet vast. Dat is een benoemde
-            leemte. Zodra de host bekend is, worden de termijn en de verwerking hier vermeld.
+            <T area="pages" k="privacyLogsP1" />
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="bewaren" title="Bewaartermijn">
+        <Section id="bewaren" titleKey="privacyRetentionTitle">
           <p>
-            De datasetgeschiedenis en de gedateerde ruwe momentopnames worden bewaard om eerdere
-            gepubliceerde versies te kunnen herleiden en om correcties te kunnen controleren. Er is
-            nog geen vaste bewaartermijn vastgelegd. Dat is een open punt.
+            <T area="pages" k="privacyRetentionP1" />
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="correctie" title="Correctie of verwijdering">
+        <Section id="correctie" titleKey="privacyCorrectionTitle">
           <p>
-            Een persoon kan een feitelijke fout laten corrigeren. De fout wordt hersteld en de
-            wijziging komt met datum en reden in het correctielogboek. Een verzoek om een gegeven
-            over een publieke functie te verwijderen, wordt beoordeeld tegen de grondslag van het
-            algemeen belang en het recht van bezwaar.
+            <T area="pages" k="privacyCorrectionP1" />
           </p>
           <p>
-            Er is nog geen openbaar contactadres en nog geen publieke repository-URL vastgelegd.
-            Daardoor is er nog geen concrete plek waar een verzoek kan worden ingediend. Dat is een
-            benoemde leemte. Zodra die gegevens er zijn, staat hier hoe je een correctie of
-            verwijdering aanvraagt.
+            <T area="pages" k="privacyCorrectionP2" />
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="verantwoordelijke" title="Verwerkingsverantwoordelijke">
+        <Section id="verantwoordelijke" titleKey="privacyControllerTitle">
           <p>
-            De verwerkingsverantwoordelijke is het onafhankelijke project Staatsgraaf. Er is geen
-            overheidsinstantie bij de verwerking betrokken en er is geen Functionaris
-            Gegevensbescherming aangesteld.
+            <T area="pages" k="privacyControllerP1" />
           </p>
-        </ContentSection>
+        </Section>
       </div>
 
       <p className="py-6 text-xs text-ink-faint">
-        Deze verklaring is opgesteld op 18 september 2026. Zie ook{" "}
+        <T area="pages" k="privacyFooterPre" />{" "}
         <Link href="/methodiek/" className="text-accent-text underline-offset-2 hover:underline">
-          Methodiek
+          <T area="pages" k="linkMethodology" />
         </Link>{" "}
-        en{" "}
+        <T area="pages" k="andWord" />{" "}
         <Link
           href="/toegankelijkheid/"
           className="text-accent-text underline-offset-2 hover:underline"
         >
-          Toegankelijkheid
+          <T area="pages" k="linkAccessibility" />
         </Link>
         .
       </p>
