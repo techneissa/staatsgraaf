@@ -37,8 +37,8 @@ export function CanvasFrame() {
         if (node) setSelectedId(node.id);
       }
     };
-    window.addEventListener("nl-overheid-graph:focus", handler);
-    return () => window.removeEventListener("nl-overheid-graph:focus", handler);
+    window.addEventListener("staatsgraaf:focus", handler);
+    return () => window.removeEventListener("staatsgraaf:focus", handler);
   }, [bundle]);
 
   const branches = useMemo(() => {

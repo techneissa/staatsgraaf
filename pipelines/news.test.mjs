@@ -7,6 +7,8 @@ import { join } from "node:path";
 import {
   buildSummary,
   dedupeItems,
+  feedConfigsFromEnvelope,
+  keywordsFromMatches,
   makeIdFactory,
   normalizeDate,
   normalizeUrl,
@@ -205,4 +207,131 @@ test("runNewsPipeline writes schema-shaped news and proposed sources from a fixt
   const proposed = JSON.parse(await readFile(join(cacheDir, "sources.json"), "utf8"));
   assert.equal(proposed.length, 2);
   assert.equal(proposed[0].type, "news");
+});
+
+test("feedConfigsFromEnvelope reads the registry, defaults language and kind, and skips disabled feeds", () => {
+  const envelope = {
+    generatedAt: "2026-09-18T06:00:00.000Z",
+    feeds: [
+      { url: "https://en.example/rss.xml", publisher: "EN Krant", language: "en", publisherKind: "krant", enabled: true },
+      { url: "https://off.example/rss.xml", publisher: "Uit", enabled: false },
+      { url: "https://nl.example/rss.xml", publisher: "NL Bron" },
+    ],
+  };
+  const configs = feedConfigsFromEnvelope(envelope);
+  assert.deepEqual(
+    configs.map((config) => config.url),
+    ["https://en.example/rss.xml", "https://nl.example/rss.xml"],
+  );
+  assert.equal(configs[0].language, "en");
+  assert.equal(configs[0].publisherKind, "krant");
+  assert.equal(configs[1].language, "nl");
+  assert.equal(configs[1].publisherKind, "online");
+});
+
+test("feedConfigsFromEnvelope falls back to the J endpointsUsed envelope as nl and online", () => {
+  const envelope = {
+    workstream: "J",
+    endpointsUsed: [{ url: "https://feeds.nos.nl/nosnieuwsalgemeen", retrieved: "2026-09-18" }],
+    aliases: [],
+  };
+  const configs = feedConfigsFromEnvelope(envelope);
+  assert.equal(configs.length, 1);
+  assert.equal(configs[0].publisher, "NOS");
+  assert.equal(configs[0].language, "nl");
+  assert.equal(configs[0].publisherKind, "online");
+  assert.equal(configs[0].license, null);
+});
+
+test("keywordsFromMatches keeps only high-confidence aliases, deduped, in order, capped at 8", () => {
+  const extra = Array.from({ length: 12 }, (_, index) => ({
+    alias: `Alias ${index}`,
+    target: `org:extra-${index}`,
+    confidence: "high",
+  }));
+  const matches = [
+    { alias: "NOS", target: "org:nos", confidence: "high" },
+    { alias: "NOS", target: "org:nos", confidence: "high" },
+    { alias: "kabinet", target: "org:regering", confidence: "low" },
+    { alias: "Amsterdam", target: "org:gemeente-amsterdam", confidence: "medium" },
+    { alias: "COA", target: "org:coa", confidence: "high" },
+    ...extra,
+  ];
+  const keywords = keywordsFromMatches(matches);
+  assert.equal(keywords.length, 8);
+  assert.deepEqual(keywords.slice(0, 2), ["NOS", "COA"]);
+  assert.equal(new Set(keywords).size, 8);
+  assert.ok(!keywords.includes("kabinet"));
+  assert.ok(!keywords.includes("Amsterdam"));
+});
+
+test("runNewsPipeline carries language, publisherKind, keywords and feed license from feeds.json", async () => {
+  const { runNewsPipeline } = await import("./news.mjs");
+  const dir = await mkdtemp(join(tmpdir(), "nlgraph-news-registry-"));
+  const cacheDir = join(dir, "cache");
+  const dataDir = join(dir, "data");
+  await mkdir(dataDir, { recursive: true });
+
+  const feedsPath = join(dir, "feeds.json");
+  await writeFile(
+    feedsPath,
+    JSON.stringify({
+      generatedAt: "2026-09-18T06:00:00.000Z",
+      notes: "test",
+      feeds: [
+        {
+          url: "https://example.nl/rss.xml",
+          publisher: "Testkrant",
+          language: "en",
+          publisherKind: "krant",
+          license: "test-license",
+          status: 200,
+          retrieved: "2026-09-18",
+          enabled: true,
+          notes: null,
+        },
+        {
+          url: "https://disabled.example.nl/rss.xml",
+          publisher: "Uit",
+          language: "nl",
+          publisherKind: "online",
+          enabled: false,
+        },
+      ],
+      gaps: [],
+    }),
+    "utf8",
+  );
+  const aliasPath = join(dir, "aliases.json");
+  await writeFile(aliasPath, JSON.stringify({ aliases: [] }), "utf8");
+  const topicsPath = join(dir, "topics.json");
+  await writeFile(
+    topicsPath,
+    JSON.stringify({ topics: [{ id: "topic:asiel-en-migratie", name: "Asiel en migratie", keywords: ["azc", "opvang"] }] }),
+    "utf8",
+  );
+
+  const result = await runNewsPipeline({
+    feedsPath,
+    aliasPath,
+    topicsPath,
+    cacheDir,
+    dataDir,
+    userAgent: "test",
+    fetchImpl: async () => new Response(RSS, { status: 200 }),
+    now: new Date("2026-09-18T06:00:00Z"),
+    log: () => {},
+  });
+
+  assert.equal(result.stats.feeds, 1);
+  assert.equal(result.stats.keptItems, 2);
+  const news = JSON.parse(await readFile(join(dataDir, "news.json"), "utf8"));
+  for (const item of news) {
+    assert.equal(item.language, "en");
+    assert.equal(item.publisherKind, "krant");
+    assert.ok(Array.isArray(item.keywords));
+  }
+  const proposed = JSON.parse(await readFile(join(cacheDir, "sources.json"), "utf8"));
+  assert.equal(proposed.length, 2);
+  for (const record of proposed) assert.equal(record.license, "test-license");
 });

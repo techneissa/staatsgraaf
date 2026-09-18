@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env bun
 import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -14,9 +14,13 @@ export const RETENTION_DAYS = 30;
 export const THROTTLE_MS = 1000;
 export const MAX_RETRIES = 2;
 export const MAX_SUMMARY_LENGTH = 320;
+export const DEFAULT_FEED_LANGUAGE = "nl";
+export const DEFAULT_PUBLISHER_KIND = "online";
+export const MAX_KEYWORDS = 8;
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_FEEDS = join(ROOT, "research", "J-nieuwsbronnen.json");
+const DEFAULT_FEEDS_REGISTRY = join(ROOT, "pipelines", "feeds.json");
 const DEFAULT_TOPICS = join(ROOT, "research", "K-topics.json");
 const DEFAULT_CACHE = join(ROOT, "pipelines", ".cache", "news");
 const DEFAULT_DATA = join(ROOT, "data");
@@ -267,6 +271,20 @@ export function makeIdFactory(prefix = "news") {
   };
 }
 
+export function keywordsFromMatches(matches, limit = MAX_KEYWORDS) {
+  const keywords = [];
+  const seen = new Set();
+  for (const match of matches ?? []) {
+    if (!match || match.confidence !== "high") continue;
+    const alias = match.alias;
+    if (typeof alias !== "string" || alias === "" || seen.has(alias)) continue;
+    seen.add(alias);
+    keywords.push(alias);
+    if (keywords.length >= limit) break;
+  }
+  return keywords;
+}
+
 async function fetchWithRetry(url, { userAgent = DEFAULT_USER_AGENT, retries = MAX_RETRIES, fetchImpl = fetch } = {}) {
   let attempt = 0;
   let lastError = null;
@@ -342,7 +360,8 @@ export async function fetchFeeds({
 }
 
 export async function runNewsPipeline({
-  feedsPath = DEFAULT_FEEDS,
+  feedsPath = DEFAULT_FEEDS_REGISTRY,
+  aliasPath = DEFAULT_FEEDS,
   topicsPath = DEFAULT_TOPICS,
   cacheDir = DEFAULT_CACHE,
   dataDir = DEFAULT_DATA,
@@ -353,19 +372,22 @@ export async function runNewsPipeline({
   fetchImpl = fetch,
   log = console.log,
 } = {}) {
-  const feedEnvelope = JSON.parse(await readFile(feedsPath, "utf8"));
-  const feedConfigs = (feedEnvelope.endpointsUsed ?? []).map((entry) => ({
-    url: entry.url,
-    publisher: feedEnvelopePublisher(feedEnvelope, entry.url),
-    retrieved: entry.retrieved ?? null,
-  }));
+  const loaded = existsSync(feedsPath) ? JSON.parse(await readFile(feedsPath, "utf8")) : null;
+  const usesRegistry = Array.isArray(loaded?.feeds);
+  const feedEnvelope = usesRegistry ? loaded : loaded ?? JSON.parse(await readFile(DEFAULT_FEEDS, "utf8"));
+  const feedConfigs = feedConfigsFromEnvelope(feedEnvelope);
+  const configByFeedUrl = new Map(feedConfigs.map((config) => [config.url, config]));
 
   const topicEnvelope = existsSync(topicsPath) ? JSON.parse(await readFile(topicsPath, "utf8")) : { topics: [] };
   const topicIndex = buildTopicIndex(topicEnvelope.topics ?? []);
   const topicsById = new Map((topicEnvelope.topics ?? []).map((topic) => [topic.id, topic]));
 
-  const gazetteerPath = feedsPath;
-  const gazetteer = buildGazetteer(JSON.parse(await readFile(gazetteerPath, "utf8")).aliases ?? []);
+  const aliasEnvelope = usesRegistry
+    ? existsSync(aliasPath)
+      ? JSON.parse(await readFile(aliasPath, "utf8"))
+      : { aliases: [] }
+    : feedEnvelope;
+  const gazetteer = buildGazetteer(aliasEnvelope.aliases ?? []);
 
   log(`Fetching ${feedConfigs.length} feed(s) with a ${THROTTLE_MS} ms throttle${offline ? " (offline/cache mode)" : ""}`);
   const feedResults = await fetchFeeds({ feedConfigs, cacheDir, userAgent, offline, fetchImpl, now, log });
@@ -380,7 +402,13 @@ export async function runNewsPipeline({
       error: result.error,
       itemCount: result.items.length,
     };
-    for (const item of result.items) allItems.push(item);
+    for (const item of result.items) {
+      allItems.push({
+        ...item,
+        language: result.language ?? DEFAULT_FEED_LANGUAGE,
+        publisherKind: result.publisherKind ?? DEFAULT_PUBLISHER_KIND,
+      });
+    }
     feedReport.push(report);
   }
 
@@ -417,7 +445,7 @@ export async function runNewsPipeline({
         type: "news",
         published: item.published ? item.published.slice(0, 10) : null,
         retrieved: now.toISOString().slice(0, 10),
-        license: null,
+        license: configByFeedUrl.get(item.feedUrl)?.license ?? null,
         archiveUrl: null,
         notes: `Kop en inleiding uit de RSS-feed van ${item.publisher}. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd.`,
       });
@@ -427,11 +455,14 @@ export async function runNewsPipeline({
       title: item.title,
       url: item.url,
       publisher: item.publisher,
+      language: item.language ?? DEFAULT_FEED_LANGUAGE,
+      publisherKind: item.publisherKind ?? DEFAULT_PUBLISHER_KIND,
       published: item.published,
       summary: buildSummary({ publisher: item.publisher, title: item.title, lede: item.lede, ledeUsed: true }),
       summaryMarkup: link.summaryMarkup,
       entities: link.entities,
       topics: link.topics,
+      keywords: keywordsFromMatches(link.matches),
       image: null,
       sources: [{ source: srcId, retrieved: now.toISOString().slice(0, 10), confidence: "high" }],
     });
@@ -554,6 +585,29 @@ export async function registerSourceRecords({ dataDir, sourceRecords, referenced
   return { added, updated, pruned, total: kept.length };
 }
 
+export function feedConfigsFromEnvelope(envelope) {
+  if (Array.isArray(envelope?.feeds)) {
+    return envelope.feeds
+      .filter((feed) => feed && feed.enabled !== false)
+      .map((feed) => ({
+        url: feed.url,
+        publisher: feed.publisher ?? feedEnvelopePublisher(envelope, feed.url),
+        language: feed.language ?? DEFAULT_FEED_LANGUAGE,
+        publisherKind: feed.publisherKind ?? DEFAULT_PUBLISHER_KIND,
+        retrieved: feed.retrieved ?? null,
+        license: feed.license ?? null,
+      }));
+  }
+  return (envelope?.endpointsUsed ?? []).map((entry) => ({
+    url: entry.url,
+    publisher: feedEnvelopePublisher(envelope, entry.url),
+    language: DEFAULT_FEED_LANGUAGE,
+    publisherKind: DEFAULT_PUBLISHER_KIND,
+    retrieved: entry.retrieved ?? null,
+    license: null,
+  }));
+}
+
 function feedEnvelopePublisher(envelope, url) {
   const publishers = {
     "feeds.nos.nl": "NOS",
@@ -577,7 +631,8 @@ function feedEnvelopePublisher(envelope, url) {
 
 function parseArgs(argv) {
   const options = {
-    feedsPath: DEFAULT_FEEDS,
+    feedsPath: DEFAULT_FEEDS_REGISTRY,
+    aliasPath: DEFAULT_FEEDS,
     topicsPath: DEFAULT_TOPICS,
     cacheDir: DEFAULT_CACHE,
     dataDir: DEFAULT_DATA,
@@ -585,6 +640,7 @@ function parseArgs(argv) {
   };
   for (let i = 0; i < argv.length; i += 1) {
     if (argv[i] === "--feeds") options.feedsPath = argv[(i += 1)];
+    else if (argv[i] === "--alias") options.aliasPath = argv[(i += 1)];
     else if (argv[i] === "--topics") options.topicsPath = argv[(i += 1)];
     else if (argv[i] === "--cache") options.cacheDir = argv[(i += 1)];
     else if (argv[i] === "--data") options.dataDir = argv[(i += 1)];

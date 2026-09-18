@@ -1,10 +1,10 @@
 # Attribution
 
-This file lists every source in `data/sources.json` with its URL, publisher, license, and the credit line that license requires. It is generated from `data/sources.json` by `pipelines/licenses.mjs` during `npm run merge`. Do not edit by hand.
+This file lists every source in `data/sources.json` with its URL, publisher, license, and the credit line that license requires. It is generated from `data/sources.json` by `pipelines/licenses.mjs` during `bun run merge`. Do not edit by hand.
 
 Licenses follow the per-source determination in `research/O-licenses.md`, which cites the terms page and retrieval date for each source. The dataset license is CC BY 4.0; see `LICENSE-DATA`. Facts are not copyrightable, and this dataset carries facts, codes, dates, and our own summaries, not source prose or images.
 
-## CC0-1.0 (484)
+## CC0-1.0 (485)
 
 | url | publisher | license | required credit line |
 | --- | --- | --- | --- |
@@ -15,6 +15,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetel | Tweede Kamer der Staten-Generaal | CC0-1.0 | - |
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetel?$select=Id,Gewicht,Fractie_Id | Tweede Kamer OData API | CC0-1.0 | - |
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon | Tweede Kamer der Staten-Generaal | CC0-1.0 | - |
+| https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$filter=TotEnMet eq null&$expand=Persoon,FractieZetel($expand=Fractie)&$format=json&$top=250 | Tweede Kamer OData API | CC0-1.0 | - |
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$filter=Verwijderd eq false and TotEnMet eq null | Tweede Kamer OData API | CC0-1.0 | - |
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Persoon | Tweede Kamer OData API | CC0-1.0 | - |
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Persoon | Tweede Kamer der Staten-Generaal | CC0-1.0 | - |

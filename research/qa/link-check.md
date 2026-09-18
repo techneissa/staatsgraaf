@@ -1,6 +1,6 @@
 # Link check: NL Overheid Graph Phase 4
 
-- Date: 2026-09-18
+- Date: 18-09-2026
 - Role: QA-link agent (Phase 4 link checker, find only, do not fix)
 - Dataset snapshot id: `2026-09-18` (from `data/meta.json`)
 - Checked at: 2026-09-18T01:08:57.221Z
@@ -54,23 +54,23 @@ Method: one HTTPS GET per distinct URL, browser User-Agent, redirects followed, 
 
 | status | source id | url | retrieval date | verification date | evidence |
 | --- | --- | --- | --- | --- | --- |
-| 404 | src:dji-organisatie | https://www.dji.nl/organisatie | 2026-09-18 | 2026-09-18 | dead HTTP 404 |
+| 404 | src:dji-organisatie | https://www.dji.nl/organisatie | 18-09-2026 | 18-09-2026 | dead HTTP 404 |
 
 ### WARN
 
 | status | source id | url | retrieval date | verification date | reason |
 | --- | --- | --- | --- | --- | --- |
-| 403 | src:hr-bleichrodt-installatie | https://www.hogeraad.nl/actueel/nieuwsoverzicht/2021/september/edwin-bleichrodt-geinstalleerd-procureur-generaal-hoge-raad/ | 2026-09-18 | 2026-09-18 | blocked HTTP 403 |
-| 403 | src:hr-hoge-raad | https://www.hogeraad.nl/hoge-raad/ | 2026-09-18 | 2026-09-18 | blocked HTTP 403 |
-| 403 | src:hr-de-groot | https://www.hogeraad.nl/hoge-raad/kamers/dineke-de-groot/ | 2026-09-18 | 2026-09-18 | blocked HTTP 403 |
-| 403 | src:hr-organisatie | https://www.hogeraad.nl/over/organisatie/ | 2026-09-18 | 2026-09-18 | blocked HTTP 403 |
-| 403 | src:hr-parket | https://www.hogeraad.nl/parket/ | 2026-09-18 | 2026-09-18 | blocked HTTP 403 |
-| 403 | src:hr-bleichrodt | https://www.hogeraad.nl/parket/edwin-bleichrodt/ | 2026-09-18 | 2026-09-18 | blocked HTTP 403 |
-| 403 | src:raad-van-state-website | https://www.raadvanstate.nl/ | 2026-09-18 | 2026-09-18 | blocked HTTP 403; allowlisted in research/00-endpoints.md (blocked 403, documented in research/00-endpoints.md) |
-| 403 | src:rvs-uylenburg | https://www.raadvanstate.nl/actueel/nieuws/augustus/rosa-uylenburg-voorzitter-bestuursrecht/ | 2026-09-18 | 2026-09-18 | blocked HTTP 403; allowlisted in research/00-endpoints.md (blocked 403, documented in research/00-endpoints.md) |
-| 403 | src:rvs-afdeling | https://www.raadvanstate.nl/overrvs/organisatie/afdeling/ | 2026-09-18 | 2026-09-18 | blocked HTTP 403; allowlisted in research/00-endpoints.md (blocked 403, documented in research/00-endpoints.md) |
+| 403 | src:hr-bleichrodt-installatie | https://www.hogeraad.nl/actueel/nieuwsoverzicht/2021/september/edwin-bleichrodt-geinstalleerd-procureur-generaal-hoge-raad/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403 |
+| 403 | src:hr-hoge-raad | https://www.hogeraad.nl/hoge-raad/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403 |
+| 403 | src:hr-de-groot | https://www.hogeraad.nl/hoge-raad/kamers/dineke-de-groot/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403 |
+| 403 | src:hr-organisatie | https://www.hogeraad.nl/over/organisatie/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403 |
+| 403 | src:hr-parket | https://www.hogeraad.nl/parket/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403 |
+| 403 | src:hr-bleichrodt | https://www.hogeraad.nl/parket/edwin-bleichrodt/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403 |
+| 403 | src:raad-van-state-website | https://www.raadvanstate.nl/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403; allowlisted in research/00-endpoints.md (blocked 403, documented in research/00-endpoints.md) |
+| 403 | src:rvs-uylenburg | https://www.raadvanstate.nl/actueel/nieuws/augustus/rosa-uylenburg-voorzitter-bestuursrecht/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403; allowlisted in research/00-endpoints.md (blocked 403, documented in research/00-endpoints.md) |
+| 403 | src:rvs-afdeling | https://www.raadvanstate.nl/overrvs/organisatie/afdeling/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403; allowlisted in research/00-endpoints.md (blocked 403, documented in research/00-endpoints.md) |
 
-#### Re-verification of the flagged URLs (2026-09-18)
+#### Re-verification of the flagged URLs (18-09-2026)
 
 Every URL in the FAIL and WARN tables was re-run after the full pass, both with
 the checker's own client (Node fetch, browser User-Agent, redirects followed)
@@ -178,7 +178,7 @@ was observed on this pass, so that allowlist entry was not needed.
 
 ## Appendix A. Every external source URL checked
 
-Status is the final HTTP status after redirects (0 means a network error; the error code is shown). Every URL below was verified on 2026-09-18, the run date in the header. The retrieval date column is the date the source was first fetched into the dataset, from `data/sources.json`.
+Status is the final HTTP status after redirects (0 means a network error; the error code is shown). Every URL below was verified on 18-09-2026, the run date in the header. The retrieval date column is the date the source was first fetched into the dataset, from `data/sources.json`.
 
 ```
 STATUS  RETRIEVED            URL

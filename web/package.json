@@ -1,17 +1,20 @@
 {
-  "name": "nl-overheid-graph-web",
+  "name": "staatsgraaf-web",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "tokens": "node scripts/build-tokens.mjs",
-    "build-dataset": "node scripts/build-dataset.mjs",
-    "predev": "npm run tokens && node scripts/build-graph.mjs && node scripts/build-search-index.mjs && node scripts/build-dataset.mjs",
+    "tokens": "bun scripts/build-tokens.mjs",
+    "build-graph": "bun scripts/build-graph.mjs",
+    "build-search-index": "bun scripts/build-search-index.mjs",
+    "build-dataset": "bun scripts/build-dataset.mjs",
+    "prepare-data": "bun run tokens && bun run build-graph && bun run build-search-index && bun run build-dataset",
+    "predev": "bun run prepare-data",
     "dev": "next dev",
-    "prebuild": "npm run tokens && node scripts/build-graph.mjs && node scripts/build-search-index.mjs && node scripts/build-dataset.mjs",
-    "build": "next build && node scripts/prune-export.mjs",
+    "prebuild": "bun run prepare-data",
+    "build": "next build && bun scripts/prune-export.mjs",
     "typecheck": "tsc --noEmit",
-    "check:contrast": "node scripts/check-contrast.mjs"
+    "check:contrast": "bun scripts/check-contrast.mjs"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.24",
@@ -27,5 +30,9 @@
     "@types/react-dom": "^19.3.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3"
+  },
+  "engines": {
+    "bun": ">=1.2",
+    "node": ">=20.9"
   }
 }

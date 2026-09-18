@@ -253,16 +253,35 @@ export type Change = {
   source: SourceRef;
 };
 
+export type NewsLanguage = "nl" | "en";
+
+export type PublisherKind =
+  | "publieke-omroep"
+  | "krant"
+  | "commerciele-omroep"
+  | "online"
+  | "video"
+  | "nieuwsbrief"
+  | "blog"
+  | "vakmedia"
+  | "overheid";
+
 export type NewsItem = {
   id: string;
   title: string;
   url: string;
   publisher: string;
   published: string;
+  /** Language of the title and summary as published. Absent means "nl". */
+  language?: NewsLanguage;
+  /** Kind of outlet. Absent means "online". */
+  publisherKind?: PublisherKind;
   summary: string | null;
   summaryMarkup: string | null;
   entities: string[];
   topics: string[];
+  /** Matched alias strings that produced the entity links. */
+  keywords?: string[];
   image: string | null;
   sources: SourceRef[];
 };

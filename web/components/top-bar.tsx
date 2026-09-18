@@ -6,6 +6,7 @@ import { ThemeToggle } from "./theme-toggle";
 
 const NAV = [
   { href: "/wijzigingen/", label: "Wijzigingen" },
+  { href: "/nieuws/", label: "Nieuws" },
   { href: "/onderwerpen/", label: "Onderwerpen" },
   { href: "/begroting/", label: "Begroting" },
 ];

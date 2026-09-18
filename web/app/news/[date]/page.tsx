@@ -1,0 +1,120 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { Breadcrumb } from "@/components/breadcrumb";
+import { EmptyState } from "@/components/empty-state";
+import { JsonLd } from "@/components/json-ld";
+import { NewsItemCard } from "@/components/news/news-item-card";
+import { getDatasetDate } from "@/lib/data";
+import { formatCount } from "@/lib/format";
+import { getNewsDays } from "@/lib/news";
+import { NEWS_MESSAGES } from "@/lib/news-i18n";
+import { buildNewsDayArchive, formatNewsDayLabel } from "@/lib/news-page";
+import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
+
+export const dynamic = "force-static";
+export const dynamicParams = false;
+
+const messages = NEWS_MESSAGES.en;
+
+export function generateStaticParams() {
+  return getNewsDays().map((day) => ({ date: day.date }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ date: string }>;
+}): Promise<Metadata> {
+  const { date } = await params;
+  if (!getNewsDays().some((day) => day.date === date)) return {};
+  const label = formatNewsDayLabel(date, "en");
+  const base = pageMetadata({
+    title: `${messages.dayHeadingPrefix} ${label}`,
+    description: `All news items about the Dutch national government from ${label}, by hour, with source and linked entities.`,
+    path: `/news/${date}/`,
+    snapshotDate: getDatasetDate(),
+  });
+  return { ...base, openGraph: { ...(base.openGraph ?? {}), locale: "en_GB" } };
+}
+
+export default async function NewsDayPage({ params }: { params: Promise<{ date: string }> }) {
+  const { date } = await params;
+  if (!getNewsDays().some((day) => day.date === date)) notFound();
+
+  const archive = buildNewsDayArchive(date, "en");
+  const label = formatNewsDayLabel(date, "en");
+  const total = archive.set.length;
+  const pageUrl = absoluteUrl(`/news/${date}/`);
+
+  return (
+    <div lang="en">
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: `${messages.dayHeadingPrefix} ${label} · ${SITE_NAME}`,
+          description: `News items about the Dutch national government from ${label}.`,
+          inLanguage: "en",
+          ...(pageUrl !== undefined ? { url: pageUrl } : {}),
+        }}
+      />
+
+      <Breadcrumb
+        items={[
+          { label: messages.breadcrumbHome, href: "/" },
+          { label: messages.heading, href: "/news/" },
+          { label },
+        ]}
+      />
+
+      <header className="mt-4 border-b border-line pb-6">
+        <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
+          <h1 className="text-2xl font-semibold tracking-tight text-ink">
+            {messages.dayHeadingPrefix} {label}
+          </h1>
+          <Link
+            href={messages.otherLanguageHref}
+            className="text-sm text-accent-text underline-offset-2 hover:underline"
+          >
+            {messages.otherLanguageLabel}
+          </Link>
+        </div>
+        <p className="mt-3 text-sm text-ink-muted">
+          {formatCount(total)}{" "}
+          {total === 1 ? messages.dayCountWordSingular : messages.dayCountWordPlural}
+        </p>
+        <p className="mt-2 text-sm">
+          <Link href="/news/" className="text-accent-text underline-offset-2 hover:underline">
+            {messages.backLabel}
+          </Link>
+        </p>
+      </header>
+
+      {archive.hours.length === 0 ? (
+        <section className="py-6">
+          <EmptyState title={messages.noItemsLabel} />
+        </section>
+      ) : (
+        archive.hours.map((hour) => (
+          <section
+            key={hour.hour}
+            aria-labelledby={`uur-${hour.hour}`}
+            className="border-b border-line py-6"
+          >
+            <h2 id={`uur-${hour.hour}`} className="text-lg font-semibold tracking-tight text-ink">
+              {hour.label}
+            </h2>
+            <ol className="mt-3 list-none space-y-3 p-0">
+              {hour.items.map((item) => (
+                <li key={item.id}>
+                  <NewsItemCard item={item} messages={messages} />
+                </li>
+              ))}
+            </ol>
+          </section>
+        ))
+      )}
+    </div>
+  );
+}

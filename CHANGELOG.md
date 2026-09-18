@@ -6,17 +6,25 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Added
 
+- Live official sources for office holders and the parliaments. `pipelines/refresh-official.mjs` refetches the Rijksoverheid bewindspersonen page, the Tweede Kamer OData gegevensmagazijn, and the Eerste Kamer leden page, and writes workstream P envelope `research/P-live-ambtsdragers.json`. Merge gives a P tenure or membership the live tier only when it changes a substantive field, so a nightly no-op does not churn the legal source on an unchanged tenure. An absent holder closes the open record with the retrieval date. `research/qa/refresh-official-18-09-2026.md` records the first run: 28 bewindspersonen, 150 Tweede Kamerleden, 75 Eerste Kamerleden, every id reused, 0 closures.
+- A news feed registry and a bilingual news section. `pipelines/feeds.json` lists fourteen outlets with kind, language, rights note, HTTP status, and date. Items now carry `language`, `publisherKind`, and `keywords`. The section ships Dutch routes `/nieuws/`, `/nieuws/[date]/`, `/nieuws/bronnen/` and English routes `/news/`, `/news/[date]/`, `/news/sources/`, with translated interface strings in `web/lib/news-i18n.ts` (ADR 0007).
 - Phase 5 launch preparation: `LICENSE` (MIT), `LICENSE-DATA` (CC BY 4.0), and `ATTRIBUTION.md`, generated from `data/sources.json` with all 2226 sources grouped by license. `data/meta.json` records the licenses.
 - The root governance files: `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`, and a rewritten `README.md`.
 
 ### Changed
 
-- The owner accepted code MIT and dataset CC BY 4.0 on 2026-09-18, recorded in `docs/adr/0001-licenses.md`.
+- The project, package, and storage names are Staatsgraaf everywhere: `package.json` names `staatsgraaf` and `staatsgraaf-web`, the theme key `staatsgraaf-theme`, the canvas event `staatsgraaf:focus`, the license credit lines, and the kickoff prompt `STAATSGRAAF-PROMPT.md`. Readers who chose a theme before this change see the default theme once and choose again.
+- Dates in documents are written as dd-MM-YYYY (AGENTS.md rule 8). The markdown under `docs/` and `research/` was converted with `scripts/format-dates.py`, and CI now fails a pull request that leaves an ISO date in checked prose. Data files, ids, URLs, and quoted data values keep ISO 8601. Generated `ATTRIBUTION.md` and the frozen snapshots under `research/raw/` are excluded on purpose: they quote data values.
+- The owner accepted code MIT and dataset CC BY 4.0 on 18-09-2026, recorded in `docs/adr/0001-licenses.md`.
 - The public name is Staatsgraaf, replacing the working name "NL Overheid Graph", recorded in `docs/adr/0003-project-name.md`.
+- The toolchain moved from npm and Node to Bun for packages, scripts, tests, and pipelines. Next.js is still built on Node. `web/bun.lock` is the only lockfile and the `package-lock.json` files are gone. Decided on 18-09-2026, recorded in `docs/adr/0005-bun-toolchain.md`.
 
-Still open for launch: the public URL and domain, the nightly refresh workflow, the public correction address, and the public repository URL. `archiveUrl` is null on all sources because the archive lookups returned HTTP 429.
+- The nightly and six-hourly refreshes are wired: `.github/workflows/refresh.yml` runs official refresh, merge, news, changes, validate, test, build, deploy; `.github/workflows/news.yml` runs the news half every six hours. Both were still named as open in the Phase 5 notes and are now present.
+- The regenerated dataset holds 1571 organisations, 1428 positions, 867 people, 1235 tenures, 225 memberships, 2338 relations, 12 topics, 36 budgets, 1268 changes, 1556 news items over a thirty-day window, and 2254 sources.
 
-## [Phase 4] - 2026-09-18
+Still open for launch: the public URL and domain, the public correction address, and the public repository URL. `archiveUrl` is null on all sources because the archive lookups returned HTTP 429.
+
+## [Phase 4] - 18-09-2026
 
 ### Added
 
@@ -32,7 +40,7 @@ Still open for launch: the public URL and domain, the nightly refresh workflow, 
 
 - The Phase 4 gate passed with a Wave 2 carry. The alias-aware search overlay and the dataset and license surface were scheduled to the launch wave, and the rebuilt export reached 3904 pages with 0 broken internal links.
 
-## [Phase 3] - 2026-09-18
+## [Phase 3] - 18-09-2026
 
 ### Added
 
@@ -44,7 +52,7 @@ Still open for launch: the public URL and domain, the nightly refresh workflow, 
 
 - 55 pipeline tests pass and the static export builds.
 
-## [Phase 2] - 2026-09-18
+## [Phase 2] - 18-09-2026
 
 ### Added
 
@@ -58,14 +66,14 @@ Still open for launch: the public URL and domain, the nightly refresh workflow, 
 - Budget records are keyed by organization and fiscal year, keeping all 36 records.
 - `docs/05-research-workstreams.md` was amended for the study workstreams and `docs/08-acceptance-and-qa.md` for the dated-role acceptance rule.
 
-## [Phase 1] - 2026-09-18
+## [Phase 1] - 18-09-2026
 
 ### Added
 
 - The 15 research workstreams A to O, each with a JSON file and a markdown report, covering the regering and ministeries, rijksdiensten, ZBO's en RWT's, parlement, rechterlijke macht, hoge colleges en adviescolleges, decentraal, legal mapping, personen, nieuws en koppeling, topics, begroting, and the design, reference, and license studies.
 - Raw snapshots under `research/raw/`.
 
-## [Phase 0] - 2026-09-17
+## [Phase 0] - 17-09-2026
 
 ### Added
 

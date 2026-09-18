@@ -130,6 +130,19 @@ export function getMediaItem(id: string | null | undefined): MediaItem | null {
   return getDataset().media.find((item) => item.id === id) ?? null;
 }
 
+/**
+ * Credit line for an image. The portrait pipeline writes the license into the
+ * credit itself ("Foto: auteur, licentie, via Wikimedia Commons"), so the
+ * license is appended only when the credit does not already name it.
+ */
+export function mediaCreditLine(media: Pick<MediaItem, "credit" | "license">): string {
+  const credit = typeof media.credit === "string" ? media.credit.trim() : "";
+  const license = typeof media.license === "string" ? media.license.trim() : "";
+  if (credit === "") return license;
+  if (license === "" || credit.toLowerCase().includes(license.toLowerCase())) return credit;
+  return `${credit} (${license})`;
+}
+
 export function organizationPartOf(organization: Organization): string[] {
   return safeStringList(organization.partOf);
 }

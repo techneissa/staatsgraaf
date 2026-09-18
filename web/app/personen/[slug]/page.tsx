@@ -23,6 +23,7 @@ import {
 } from "@/lib/data";
 import {
   getMediaItem,
+  mediaCreditLine,
   personBirthDate,
   personDescription,
   personParty,
@@ -188,7 +189,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
             <PersonPortrait person={person} size={96} />
             {portrait !== null ? (
               <p className="mt-2 max-w-[96px] text-xs leading-snug text-ink-faint">
-                Beeld: {portrait.credit} ({portrait.license})
+                Beeld: {mediaCreditLine(portrait)}
               </p>
             ) : null}
           </div>
