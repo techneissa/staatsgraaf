@@ -18,6 +18,8 @@ export function CanvasFrame() {
   const [view, setView] = useState<CanvasView>("graph");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hiddenBranches, setHiddenBranches] = useState<Set<string>>(new Set());
+  /** Person focused through the callout on the Who's in the news strip. */
+  const [focusPerson, setFocusPerson] = useState<{ id: string; title: string } | null>(null);
 
   useEffect(() => {
     if (!bundle || !pathname) return;
@@ -30,6 +32,7 @@ export function CanvasFrame() {
 
   /** Entity id behind the current page (org, person or position) for the entity power map. */
   const currentEntityId = useMemo<string | null>(() => {
+    if (focusPerson) return focusPerson.id;
     if (!bundle || !pathname) return null;
     const parts = pathname.split("/").filter(Boolean);
     if (parts.length < 2 || !parts[1]) return null;
@@ -45,7 +48,7 @@ export function CanvasFrame() {
     if (parts[0] === "personen") return bundle.personSlugs?.[parts[1]] ?? null;
     // Position ids are not in the bundle; the entity power map stays global there.
     return null;
-  }, [bundle, pathname]);
+  }, [bundle, pathname, focusPerson]);
 
   const entityPeople = useMemo(() => {
     if (!bundle || currentEntityId === null) return null;
@@ -56,8 +59,22 @@ export function CanvasFrame() {
   useEffect(() => {
     const handler = (event: Event) => {
       if (!bundle) return;
-      const detail = (event as CustomEvent<{ id?: string; slug?: string }>).detail;
+      const detail = (event as CustomEvent<{
+        id?: string;
+        slug?: string;
+        view?: CanvasView;
+        title?: string;
+      }>).detail;
       if (!detail) return;
+      if (detail.view === "power") setView("power");
+      if (detail.slug && bundle.personSlugs?.[detail.slug]) {
+        // A person slug is not a graph node; it focuses the entity power map.
+        setFocusPerson({
+          id: bundle.personSlugs[detail.slug],
+          title: detail.title ?? "",
+        });
+        return;
+      }
       if (detail.id && bundle.nodes.some((node) => node.id === detail.id)) {
         setSelectedId(detail.id);
       } else if (detail.slug) {
@@ -68,6 +85,11 @@ export function CanvasFrame() {
     window.addEventListener("staatsgraaf:focus", handler);
     return () => window.removeEventListener("staatsgraaf:focus", handler);
   }, [bundle]);
+
+  // Navigating away from the page that triggered the callout clears the focus.
+  useEffect(() => {
+    setFocusPerson(null);
+  }, [pathname]);
 
   const branches = useMemo(() => {
     if (!bundle) return [] as { branch: OrgBranch; count: number }[];
@@ -156,7 +178,11 @@ export function CanvasFrame() {
         ) : null}
 
         {status === "ready" && bundle && view === "power" ? (
-          <PowerMapView powerMap={bundle.powerMap} entityPeople={entityPeople ?? undefined} />
+          <PowerMapView
+            powerMap={bundle.powerMap}
+            entityPeople={entityPeople ?? undefined}
+            entityTitle={focusPerson?.title || undefined}
+          />
         ) : null}
       </div>
     </aside>
