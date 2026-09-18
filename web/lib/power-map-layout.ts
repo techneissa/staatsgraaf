@@ -1,4 +1,5 @@
 import type { PowerMapPerson } from "./graph";
+import { positionEn } from "./name-gloss";
 
 /**
  * Radial tree layout for the power map (Machtskaart).
@@ -51,9 +52,16 @@ export function truncateForPowerMap(text: string, max: number): string {
   return `${text.slice(0, max - 1).trimEnd()}…`;
 }
 
-export function powerMapMeta(person: PowerMapPerson): string {
+export function powerMapMeta(
+  person: PowerMapPerson,
+  locale: "nl" | "en" = "nl",
+): string {
+  // In English, swap the Dutch position title for its established English
+  // gloss when one exists; unknown titles keep the Dutch text (honest gap).
+  const job =
+    locale === "en" ? positionEn(person.job) ?? person.job : person.job;
   return truncateForPowerMap(
-    [person.party, person.job].filter(Boolean).join(" · "),
+    [person.party, job].filter(Boolean).join(" · "),
     POWER_MAX_META_CHARS,
   );
 }
@@ -83,7 +91,7 @@ type CardPlan = {
 function planFor(person: PowerMapPerson, locale: "nl" | "en"): CardPlan {
   const radius = powerMapPortraitRadius(person.rank);
   const name = truncateForPowerMap(person.name, POWER_MAX_NAME_CHARS);
-  const meta = powerMapMeta(person);
+  const meta = powerMapMeta(person, locale);
   const count = powerMapCountLabel(person.total, locale);
   const halfWidth = Math.max(
     radius,

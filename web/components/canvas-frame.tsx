@@ -19,7 +19,9 @@ export function CanvasFrame() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hiddenBranches, setHiddenBranches] = useState<Set<string>>(new Set());
   /** Person focused through the callout on the Who's in the news strip. */
-  const [focusPerson, setFocusPerson] = useState<{ id: string; title: string } | null>(null);
+  const [focusPerson, setFocusPerson] = useState<{ id: string; slug: string; title: string } | null>(
+    null,
+  );
 
   useEffect(() => {
     if (!bundle || !pathname) return;
@@ -71,6 +73,7 @@ export function CanvasFrame() {
         // A person slug is not a graph node; it focuses the entity power map.
         setFocusPerson({
           id: bundle.personSlugs[detail.slug],
+          slug: detail.slug,
           title: detail.title ?? "",
         });
         return;
@@ -182,6 +185,7 @@ export function CanvasFrame() {
             powerMap={bundle.powerMap}
             entityPeople={entityPeople ?? undefined}
             entityTitle={focusPerson?.title || undefined}
+            entityHref={focusPerson ? `/personen/${focusPerson.slug}/` : null}
           />
         ) : null}
       </div>

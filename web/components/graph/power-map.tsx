@@ -1,11 +1,13 @@
 "use client";
 
 import { useMemo } from "react";
-import type { ReactNode } from "react";
+import type { MouseEvent, ReactNode } from "react";
+import { useRouter } from "next/navigation";
 import type { EntityPowerPerson, PowerMap, PowerMapPerson } from "@/lib/graph";
 import { useT } from "@/components/i18n/use-t";
 import { useLocale } from "@/components/i18n/language-provider";
 import { partyByDataset } from "@/lib/parties";
+import { positionEn } from "@/lib/name-gloss";
 import {
   layoutPowerMap,
   powerMapLinkPath,
@@ -21,6 +23,8 @@ type PowerMapViewProps = {
   entityPeople?: EntityPowerPerson[];
   /** Optional heading for the entity centre card. */
   entityTitle?: string;
+  /** Link target for the centre hub (the entity's own page). */
+  entityHref?: string | null;
 };
 
 const VIEW_MARGIN = 24;
@@ -82,6 +86,12 @@ function initials(name: string): string {
   return `${first}${last}`.toUpperCase();
 }
 
+/** English position gloss when the locale is EN and one is established. */
+function jobFor(person: PowerMapPerson, locale: "nl" | "en"): string | null {
+  if (locale !== "en" || !person.job) return person.job ?? null;
+  return positionEn(person.job) ?? person.job;
+}
+
 function PersonLink({
   href,
   label,
@@ -91,17 +101,33 @@ function PersonLink({
   children: ReactNode;
   href: string | null;
 }) {
+  const router = useRouter();
   if (href === null) {
     return <g>{children}</g>;
   }
+  // SVG <a> taps can be swallowed on touch devices; the client-side push on
+  // plain left clicks makes the card reliable everywhere.
+  const handleClick = (event: MouseEvent) => {
+    if (
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey ||
+      event.button !== 0
+    ) {
+      return;
+    }
+    event.preventDefault();
+    router.push(href);
+  };
   return (
-    <a href={href} aria-label={label}>
+    <a href={href} aria-label={label} onClick={handleClick}>
       {children}
     </a>
   );
 }
 
-export function PowerMapView({ powerMap, entityPeople, entityTitle }: PowerMapViewProps) {
+export function PowerMapView({ powerMap, entityPeople, entityTitle, entityHref }: PowerMapViewProps) {
   const t = useT("power");
   const tc = useT("common");
   const locale = useLocale();
@@ -210,53 +236,60 @@ export function PowerMapView({ powerMap, entityPeople, entityTitle }: PowerMapVi
           ))}
         </g>
 
-        <g
-          fill="var(--t-color-surface-raised)"
-          stroke="var(--t-color-line-strong)"
-          strokeWidth={1}
+        <PersonLink
+          href={entityScoped ? entityHref ?? null : null}
+          label={entityTitle ? t("powerMapOpenPersonName", { name: entityTitle }) : t("powerMapTitle")}
         >
-          <circle r={POWER_HUB_RADIUS} />
-          <circle
-            r={POWER_HUB_RADIUS - 5}
-            fill="none"
-            stroke="var(--t-color-accent)"
-            strokeOpacity={0.55}
-            strokeWidth={2.5}
-            strokeDasharray="1.6 6.51"
-          />
-        </g>
-        <g aria-hidden="true">
-          {centreLines.map((line, index) => (
-            <text
-              key={line}
-              y={index * 12 - (centreLines.length - 1) * 6}
-              textAnchor="middle"
-              dominantBaseline="central"
-              fill="var(--t-color-ink)"
-              style={{ fontSize: 11, fontWeight: 600 }}
-            >
-              {line}
-            </text>
-          ))}
-          <text
-            y={POWER_HUB_RADIUS + 15}
-            textAnchor="middle"
-            fill="var(--t-color-ink-faint)"
-            style={{ fontSize: 10 }}
+          <g
+            fill="var(--t-color-surface-raised)"
+            stroke="var(--t-color-line-strong)"
+            strokeWidth={1}
+            className={entityScoped && entityHref ? "power-map-card" : undefined}
           >
-            {truncateForPowerMap(
-              entityScoped
-                ? t("powerMapEntityCentreSubtitle", { n: people.length })
-                : t("powerMapCentreSubtitle"),
-              20,
-            )}
-          </text>
-        </g>
+            <circle r={POWER_HUB_RADIUS} />
+            <circle
+              r={POWER_HUB_RADIUS - 5}
+              fill="none"
+              stroke="var(--t-color-accent)"
+              strokeOpacity={0.55}
+              strokeWidth={2.5}
+              strokeDasharray="1.6 6.51"
+            />
+          </g>
+          <g aria-hidden="true">
+            {centreLines.map((line, index) => (
+              <text
+                key={line}
+                y={index * 12 - (centreLines.length - 1) * 6}
+                textAnchor="middle"
+                dominantBaseline="central"
+                fill="var(--t-color-ink)"
+                style={{ fontSize: 11, fontWeight: 600 }}
+              >
+                {line}
+              </text>
+            ))}
+            <text
+              y={POWER_HUB_RADIUS + 15}
+              textAnchor="middle"
+              fill="var(--t-color-ink-faint)"
+              style={{ fontSize: 10 }}
+            >
+              {truncateForPowerMap(
+                entityScoped
+                  ? t("powerMapEntityCentreSubtitle", { n: people.length })
+                  : t("powerMapCentreSubtitle"),
+                20,
+              )}
+            </text>
+          </g>
+        </PersonLink>
 
         {cards.map((card) => {
           const person = card.person;
           const ring = partyByDataset(person.party)?.color ?? "var(--t-color-line-strong)";
           const when = recencyDays(person.latest.date ?? null, reference);
+          const job = jobFor(person, locale);
           const countLine =
             person.recent > 0 && when !== null
               ? tc("inTheNews", {
@@ -273,7 +306,7 @@ export function PowerMapView({ powerMap, entityPeople, entityTitle }: PowerMapVi
                   <title>
                     {person.name}
                     {person.party ? `, ${person.party}` : ""}
-                    {person.job ? `, ${person.job}` : ""}.{" "}
+                    {job ? `, ${job}` : ""}.{" "}
                     {person.total === 1
                       ? t("powerMapArticle1")
                       : tc("articlesCount", { n: person.total })}
@@ -319,7 +352,7 @@ export function PowerMapView({ powerMap, entityPeople, entityTitle }: PowerMapVi
                     fill="var(--t-color-ink-faint)"
                     style={{ fontSize: 10 }}
                   >
-                    {powerMapMeta(person)}
+                    {powerMapMeta(person, locale)}
                   </text>
                   <text
                     y={card.labelTop + 28}
@@ -337,15 +370,18 @@ export function PowerMapView({ powerMap, entityPeople, entityTitle }: PowerMapVi
       </svg>
 
       <ol aria-label={t("powerMapTitle")} className="sr-only">
-        {people.map((person: PowerMapPerson) => (
-          <li key={person.person}>
-            {person.rank}. {person.name}
-            {person.party ? `, ${person.party}` : ""}
-            {person.job ? `, ${person.job}` : ""}.{" "}
-            {person.total === 1 ? t("powerMapArticle1") : tc("articlesCount", { n: person.total })}.
-            {person.latest.date ? ` ${t("powerMapLastItem", { date: person.latest.date })}` : ""}
-          </li>
-        ))}
+        {people.map((person: PowerMapPerson) => {
+          const job = jobFor(person, locale);
+          return (
+            <li key={person.person}>
+              {person.rank}. {person.name}
+              {person.party ? `, ${person.party}` : ""}
+              {job ? `, ${job}` : ""}.{" "}
+              {person.total === 1 ? t("powerMapArticle1") : tc("articlesCount", { n: person.total })}.
+              {person.latest.date ? ` ${t("powerMapLastItem", { date: person.latest.date })}` : ""}
+            </li>
+          );
+        })}
       </ol>
     </div>
   );
