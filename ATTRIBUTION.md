@@ -31,14 +31,14 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://commons.wikimedia.org/wiki/File:RvanAsten.jpg | Wikimedia Commons | CC0-1.0 | - |
 | https://commons.wikimedia.org/wiki/File:Wim_Kuijken.jpg | Wikimedia Commons | CC0-1.0 | - |
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Commissie?$filter=Verwijderd eq false | Tweede Kamer OData API | CC0-1.0 | - |
-| https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/CommissieZetelVastPersoon?$filter=Verwijderd eq false and TotEnMet eq null&$expand=CommissieZetel($expand=Commissie) | Tweede Kamer OData API | CC0-1.0 | - |
+| https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/CommissieZetelVastPersoon?$filter=Verwijderd eq false and TotEnMet eq null&$expand=CommissieZetel($expand=Commissie),Persoon | Tweede Kamer OData API | CC0-1.0 | - |
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Fractie | Tweede Kamer der Staten-Generaal | CC0-1.0 | - |
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Fractie?$filter=DatumInactief eq null and AantalZetels ne null | Tweede Kamer OData API | CC0-1.0 | - |
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetel | Tweede Kamer der Staten-Generaal | CC0-1.0 | - |
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetel?$select=Id,Gewicht,Fractie_Id | Tweede Kamer OData API | CC0-1.0 | - |
-| https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon | Tweede Kamer der Staten-Generaal | CC0-1.0 | - |
+| https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$expand=Persoon | Tweede Kamer der Staten-Generaal | CC0-1.0 | - |
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$filter=TotEnMet eq null&$expand=Persoon,FractieZetel($expand=Fractie)&$format=json&$top=250 | Tweede Kamer OData API | CC0-1.0 | - |
-| https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$filter=Verwijderd eq false and TotEnMet eq null | Tweede Kamer OData API | CC0-1.0 | - |
+| https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$filter=Verwijderd eq false and TotEnMet eq null&$expand=Persoon | Tweede Kamer OData API | CC0-1.0 | - |
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Persoon | Tweede Kamer OData API | CC0-1.0 | - |
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Persoon | Tweede Kamer der Staten-Generaal | CC0-1.0 | - |
 | https://organisaties.overheid.nl/106676/CIBG | Register van Overheidsorganisaties | CC0-1.0 | - |
@@ -1166,7 +1166,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://commons.wikimedia.org/wiki/File:Willemijn_Aerdts%2C_May_2025.jpg | Wikimedia Commons | CC-BY-4.0 | - |
 | https://opendata.cbs.nl/ODataApi/OData/70072ned | CBS | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Provincies (CBS tabel 70072ned), geraadpleegd 2026-09-17. |
 | https://opendata.cbs.nl/ODataApi/OData/80445ned | CBS | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Waterschappen (CBS tabel 80445ned), geraadpleegd 2026-09-17. |
-| https://opendata.cbs.nl/ODataApi/OData/86247NED | CBS | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Gebieden in Nederland 2026 (CBS tabel 86247NED), geraadpleegd 2026-09-17. |
+| https://opendata.cbs.nl/ODataApi/OData/86247NED/RegioS | CBS | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Gebieden in Nederland 2026 (CBS tabel 86247NED, RegioS), geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/ | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/alle_leden | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/alle_leden, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/begrip/ambtelijke_organisatie | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/begrip/ambtelijke_organisatie, geraadpleegd 2026-09-18. |
