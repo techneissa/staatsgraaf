@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { KeyboardEvent as ReactKeyboardEvent, MouseEvent as ReactMouseEvent, PointerEvent as ReactPointerEvent } from "react";
+import { useRouter } from "next/navigation";
 import { ORG_BRANCH_LABELS, ORG_SUBTYPE_LABELS } from "@/lib/labels";
 import {
   computeFocusPath,
@@ -31,6 +32,7 @@ function edgeKey(a: string, b: string): string {
 
 export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: GraphExplorerProps) {
   const layout = useMemo(() => computeLayout(bundle), [bundle]);
+  const router = useRouter();
   const svgRef = useRef<SVGSVGElement | null>(null);
   const dragRef = useRef<{ pointerId: number; startX: number; startY: number; view: ViewTransform } | null>(null);
   const movedRef = useRef(false);
@@ -243,6 +245,11 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
         if (visibleNodes.length > 0) onSelect(visibleNodes[visibleNodes.length - 1].id);
         break;
       case "Enter":
+        if (selectedNode) {
+          event.preventDefault();
+          router.push(`/organisaties/${selectedNode.slug}/`);
+        }
+        break;
       case " ":
         if (selectedNode) {
           event.preventDefault();

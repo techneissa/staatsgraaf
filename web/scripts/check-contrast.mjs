@@ -30,6 +30,8 @@ const textPairs = [
   ["ink-muted", "surface"],
   ["ink-faint", "canvas"],
   ["ink-faint", "surface"],
+  ["ink-faint", "surface-inset"],
+  ["ink-faint", "accent-soft"],
   ["accent-text", "canvas"],
   ["accent-text", "surface"],
   ["accent-text", "surface-raised"],

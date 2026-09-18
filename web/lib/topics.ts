@@ -29,7 +29,9 @@ export function countResponsibleOrganizations(topic: Topic): number {
   return getResponsibleOrganizations(topic).length;
 }
 
-export function getTopicNews(topic: Topic): NewsItem[] {
+export const TOPIC_NEWS_LIMIT = 12;
+
+function matchingTopicNews(topic: Topic): NewsItem[] {
   const organizationIds = new Set(topic.organizations);
   return getDataset()
     .news.filter(
@@ -37,5 +39,13 @@ export function getTopicNews(topic: Topic): NewsItem[] {
         item.topics.includes(topic.id) ||
         item.entities.some((id) => organizationIds.has(id)),
     )
-    .sort((a, b) => b.published.localeCompare(a.published));
+    .sort((a, b) => b.published.localeCompare(a.published) || a.id.localeCompare(b.id));
+}
+
+export function getTopicNews(topic: Topic, limit: number = TOPIC_NEWS_LIMIT): NewsItem[] {
+  return matchingTopicNews(topic).slice(0, limit);
+}
+
+export function countTopicNews(topic: Topic): number {
+  return matchingTopicNews(topic).length;
 }

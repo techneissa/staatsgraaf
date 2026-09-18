@@ -10,7 +10,7 @@ import {
 import { NewsBand } from "@/components/home/news-band";
 import { PeopleStrip } from "@/components/home/people-strip";
 import { JsonLd } from "@/components/json-ld";
-import { getOrganizationCounts } from "@/lib/data";
+import { getDatasetDate, getOrganizationCounts } from "@/lib/data";
 import { formatCount } from "@/lib/format";
 import {
   getChangeStats,
@@ -20,16 +20,19 @@ import {
   getSubOrganizationCount,
 } from "@/lib/home";
 import { ORG_BRANCH_LABELS, ORG_TYPE_LABELS } from "@/lib/labels";
-import { SCOPE_LABEL, SITE_NAME, SITE_TAGLINE, canonical } from "@/lib/site";
+import { absoluteUrl, pageMetadata, SCOPE_LABEL, SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 import type { OrgBranch, OrgType } from "@/lib/types";
 
-export const metadata: Metadata = {
-  title: { absolute: `${SITE_NAME}: de Nederlandse rijksoverheid in kaart` },
+export const metadata: Metadata = pageMetadata({
+  title: `${SITE_NAME}: de Nederlandse rijksoverheid in kaart`,
   description: SITE_TAGLINE,
-  alternates: canonical("/"),
-};
+  path: "/",
+  absoluteTitle: true,
+  snapshotDate: getDatasetDate(),
+});
 
 export default function HomePage() {
+  const siteUrl = absoluteUrl("/");
   const counts = getOrganizationCounts();
   const news = getHomeNews(6);
   const people = getFocusPeople(10);
@@ -51,6 +54,16 @@ export default function HomePage() {
           "@type": "WebSite",
           name: SITE_NAME,
           description: SITE_TAGLINE,
+          inLanguage: "nl-NL",
+          ...(siteUrl !== undefined ? { url: siteUrl } : {}),
+          potentialAction: {
+            "@type": "SearchAction",
+            target: {
+              "@type": "EntryPoint",
+              urlTemplate: `${siteUrl ?? "/"}?q={search_term_string}`,
+            },
+            "query-input": "required name=search_term_string",
+          },
         }}
       />
 

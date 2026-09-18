@@ -9,20 +9,23 @@ import {
   getBudgetOverview,
   getBudgetOverviewSources,
 } from "@/lib/budget";
+import { getDatasetDate } from "@/lib/data";
 import { formatCount } from "@/lib/format";
-import { canonical, SITE_NAME } from "@/lib/site";
+import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Begroting",
   description:
     "De begrotingen van de twaalf ministeries: begrote uitgaven, ontvangsten en het verschil met het voorgaande jaar, met een bron per cijfer.",
-  alternates: canonical("/begroting/"),
-};
+  path: "/begroting/",
+  snapshotDate: getDatasetDate(),
+});
 
 export default function BudgetOverviewPage() {
   const overview = getBudgetOverview();
   const sources = getBudgetOverviewSources(overview);
   const unitLabel = budgetUnitLabel(overview.unit);
+  const pageUrl = absoluteUrl("/begroting/");
 
   return (
     <>
@@ -33,10 +36,11 @@ export default function BudgetOverviewPage() {
           name: `Begroting · ${SITE_NAME}`,
           description:
             "De begrotingen van de twaalf ministeries met bron per cijfer.",
+          ...(pageUrl !== undefined ? { url: pageUrl } : {}),
         }}
       />
 
-      <Breadcrumb items={[{ label: "NL Overheid Graph", href: "/" }, { label: "Begroting" }]} />
+      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Begroting" }]} />
 
       <header className="mt-4 border-b border-line pb-6">
         <h1 className="text-2xl font-semibold tracking-tight text-ink">Begroting</h1>

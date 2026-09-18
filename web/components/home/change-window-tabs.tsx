@@ -35,7 +35,7 @@ export function ChangeWindowTabs({
         <Tabs.Content
           key={panel.value}
           value={panel.value}
-          className="pt-4 focus-visible:outline-none"
+          className="pt-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
         >
           {panel.content}
         </Tabs.Content>

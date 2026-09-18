@@ -17,10 +17,16 @@ export function EntityTabs({ news, connections }: { news: ReactNode; connections
           Wie is verbonden?
         </Tabs.Trigger>
       </Tabs.List>
-      <Tabs.Content value="nieuws" className="pt-4 focus-visible:outline-none">
+      <Tabs.Content
+        value="nieuws"
+        className="pt-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+      >
         {news}
       </Tabs.Content>
-      <Tabs.Content value="verbindingen" className="pt-4 focus-visible:outline-none">
+      <Tabs.Content
+        value="verbindingen"
+        className="pt-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+      >
         {connections}
       </Tabs.Content>
     </Tabs.Root>

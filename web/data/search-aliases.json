@@ -1,0 +1,50 @@
+{
+  "note": "Curated search aids, not facts. These terms exist only to steer the alias-aware search matcher to the right page. They are not merged into data/ and must never be treated as source-backed statements about an entity. Every entry names the entity it should resolve to and why.",
+  "entries": [
+    {
+      "target": "org:dienst-uitvoering-onderwijs",
+      "terms": ["DUO"],
+      "reason": "DUO is the abbreviation the Dienst Uitvoering Onderwijs is known by and docs/08 requires an alias test for it. The gazetteer already links DUO at medium confidence; the overlay pins it as an exact match."
+    },
+    {
+      "target": "org:belastingdienst",
+      "terms": ["Belastingdienst"],
+      "reason": "docs/08 requires the Belastingdienst to resolve from its own name. The record carries the alias already; the overlay makes the expectation explicit."
+    },
+    {
+      "target": "org:vereniging-van-nederlandse-gemeenten",
+      "terms": ["VNG"],
+      "reason": "VNG is added by a parallel data task and is not present in the dataset yet. The builder skips an absent target and records the skip, so this entry activates as soon as the organization ships."
+    },
+    {
+      "target": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "terms": ["BZK"],
+      "reason": "docs/08 requires BZK to resolve to the ministerie. The gazetteer links BZK at medium confidence; the overlay allows an exact match rather than a name prefix."
+    },
+    {
+      "target": "org:regering",
+      "terms": ["kabinet"],
+      "reason": "In Dutch political usage the bare word kabinet means the government (Regering). Without the overlay it word-matches Kabinet van de Koning and Kabinet Minister-President, which are offices, not the cabinet."
+    },
+    {
+      "target": "org:tweede-kamer",
+      "terms": ["Kamer"],
+      "reason": "In political usage the bare word Kamer means the Tweede Kamer. Without the overlay it word-matches Kamer van Koophandel, Grondkamer and Rekenkamer entries."
+    },
+    {
+      "target": "org:gemeente-s-gravenhage",
+      "terms": ["Den Haag"],
+      "reason": "Den Haag is the common name of the municipality whose official name is 's-Gravenhage. Without the overlay it substrings Gerechtshof Den Haag and Rechtbank Den Haag, which are courts."
+    },
+    {
+      "target": "org:gemeente-utrecht",
+      "terms": ["Utrecht"],
+      "reason": "Bare Utrecht must resolve to the gemeente, not to Provincie Utrecht, the provinciale staten, the veiligheidsregio or Gemeente Utrechtse Heuvelrug, which all word-match."
+    },
+    {
+      "target": "org:gemeente-groningen",
+      "terms": ["Groningen"],
+      "reason": "Bare Groningen must resolve to the gemeente, not to Provincie Groningen, the provinciale staten, the veiligheidsregio or Gemeente Midden-Groningen, which all word-match."
+    }
+  ]
+}

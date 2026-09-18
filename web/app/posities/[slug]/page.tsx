@@ -11,6 +11,7 @@ import { SourceList } from "@/components/source-list";
 import { EntityFacts, type EntityFact } from "@/components/entity/entity-facts";
 import { TenureTimeline } from "@/components/entity/tenure-timeline";
 import {
+  getDatasetDate,
   getOrganizationById,
   getPersonById,
   getPositionBySlug,
@@ -30,7 +31,7 @@ import {
   FILL_METHOD_LABELS,
   ORG_TYPE_LABELS,
 } from "@/lib/labels";
-import { canonical } from "@/lib/site";
+import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 import type { Organization } from "@/lib/types";
 
 export const dynamicParams = false;
@@ -52,12 +53,12 @@ export async function generateMetadata({
     organization !== undefined
       ? `${position.title} bij ${organization.name}: wettelijke basis en de reeks bekende functionarissen, met bron per gegeven.`
       : `${position.title}: wettelijke basis en de reeks bekende functionarissen, met bron per gegeven.`;
-  return {
+  return pageMetadata({
     title: position.title,
     description,
-    alternates: canonical(`/posities/${position.slug}/`),
-    openGraph: { title: position.title, description },
-  };
+    path: `/posities/${position.slug}/`,
+    snapshotDate: getDatasetDate(),
+  });
 }
 
 export default async function PositionPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -104,11 +105,15 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
     { label: "Toetredingswijzen", value: entryModeLabel },
   ];
 
-  const breadcrumbItems: BreadcrumbItem[] = [{ label: "NL Overheid Graph", href: "/" }];
+  const breadcrumbItems: BreadcrumbItem[] = [{ label: SITE_NAME, href: "/" }];
   if (organization) {
     breadcrumbItems.push({ label: organization.name, href: `/organisaties/${organization.slug}/` });
   }
   breadcrumbItems.push({ label: position.title });
+
+  const organizationUrl = organization
+    ? absoluteUrl(`/organisaties/${organization.slug}/`)
+    : undefined;
 
   return (
     <>
@@ -117,7 +122,15 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
           "@context": "https://schema.org",
           "@type": "Occupation",
           name: position.title,
-          ...(organization ? { occupationLocation: { "@type": "GovernmentOrganization", name: organization.name } } : {}),
+          ...(organization
+            ? {
+                occupationLocation: {
+                  "@type": "GovernmentOrganization",
+                  name: organization.name,
+                  ...(organizationUrl !== undefined ? { url: organizationUrl } : {}),
+                },
+              }
+            : {}),
         }}
       />
 

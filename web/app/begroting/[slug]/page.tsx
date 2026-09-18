@@ -15,7 +15,8 @@ import {
   getBudgetByOrganizationSlug,
   getBudgetOrganizations,
 } from "@/lib/budget";
-import { canonical, SITE_NAME } from "@/lib/site";
+import { getDatasetDate } from "@/lib/data";
+import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 
 export const dynamicParams = false;
 
@@ -36,12 +37,12 @@ export async function generateMetadata({
     year !== undefined && year !== null
       ? `Begroting van ${view.organization.name} voor ${year}: uitgaven, ontvangsten, saldo en de reeks gerealiseerde bedragen, met een bron per cijfer.`
       : `Begroting van ${view.organization.name}: uitgaven, ontvangsten en saldo, met een bron per cijfer.`;
-  return {
+  return pageMetadata({
     title: `Begroting ${view.organization.name}`,
     description,
-    alternates: canonical(`/begroting/${view.organization.slug}/`),
-    openGraph: { title: `Begroting ${view.organization.name}`, description },
-  };
+    path: `/begroting/${view.organization.slug}/`,
+    snapshotDate: getDatasetDate(),
+  });
 }
 
 export default async function BudgetOrganizationPage({
@@ -61,6 +62,8 @@ export default async function BudgetOrganizationPage({
       ? budgetDelta(view.current.spendingBudget, view.previous.spendingBudget)
       : null;
 
+  const pageUrl = absoluteUrl(`/begroting/${view.organization.slug}/`);
+
   return (
     <>
       <JsonLd
@@ -69,12 +72,13 @@ export default async function BudgetOrganizationPage({
           "@type": "Dataset",
           name: `Begroting ${view.organization.name} · ${SITE_NAME}`,
           description: `Begrotingscijfers van ${view.organization.name}, met bron en ophaaldatum per cijfer.`,
+          ...(pageUrl !== undefined ? { url: pageUrl } : {}),
         }}
       />
 
       <Breadcrumb
         items={[
-          { label: "NL Overheid Graph", href: "/" },
+          { label: SITE_NAME, href: "/" },
           { label: "Begroting", href: "/begroting/" },
           { label: view.organization.name },
         ]}

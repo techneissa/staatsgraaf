@@ -30,6 +30,14 @@ export function SiteFooter({ datasetDate }: { datasetDate: string | null }) {
               Toegankelijkheid
             </Link>
           </li>
+          <li>
+            <Link
+              href="/dataset/"
+              className="text-ink-muted underline-offset-2 hover:text-ink hover:underline"
+            >
+              Dataset
+            </Link>
+          </li>
         </ul>
       </nav>
       <p className="mt-4 text-xs text-ink-faint">

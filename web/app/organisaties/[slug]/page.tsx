@@ -17,6 +17,7 @@ import { SeatGrid } from "@/components/entity/seat-grid";
 import { TenureTimeline } from "@/components/entity/tenure-timeline";
 import {
   getCurrentTenuresForOrganization,
+  getDatasetDate,
   getOrganizationById,
   getOrganizationBySlug,
   getOrganizations,
@@ -36,7 +37,7 @@ import {
 } from "@/lib/entity";
 import { formatCount, formatDate } from "@/lib/format";
 import { ORG_BRANCH_LABELS, ORG_SUBTYPE_LABELS } from "@/lib/labels";
-import { canonical } from "@/lib/site";
+import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 import type { Organization } from "@/lib/types";
 
 export const dynamicParams = false;
@@ -58,12 +59,12 @@ export async function generateMetadata({
   const description =
     organization.description ??
     `Overzicht van ${organization.name}: wettelijke grondslag, website en openbare functionarissen, met een bron per gegeven.`;
-  return {
+  return pageMetadata({
     title: organization.name,
     description,
-    alternates: canonical(`/organisaties/${organization.slug}/`),
-    openGraph: { title: organization.name, description },
-  };
+    path: `/organisaties/${organization.slug}/`,
+    snapshotDate: getDatasetDate(),
+  });
 }
 
 function positionRank(title: string): number {
@@ -119,6 +120,10 @@ export default async function OrganizationPage({
   const seatsCount = organization.seatsCount ?? null;
   const aliases = organizationAliases(organization);
 
+  const pageUrl = absoluteUrl(`/organisaties/${organization.slug}/`);
+  const parentId = organizationParentId(organization);
+  const parentOrganization = parentId !== null ? getOrganizationById(parentId) : undefined;
+
   const facts: EntityFact[] = [
     { label: "Type", value: ORG_SUBTYPE_LABELS[organization.subtype] },
     { label: "Branche", value: ORG_BRANCH_LABELS[organization.branch] },
@@ -149,14 +154,23 @@ export default async function OrganizationPage({
           "@context": "https://schema.org",
           "@type": "GovernmentOrganization",
           name: organization.name,
+          ...(pageUrl !== undefined ? { url: pageUrl } : {}),
           ...(description !== null ? { description } : {}),
-          ...(website !== null ? { url: website } : {}),
+          ...(website !== null ? { sameAs: website } : {}),
+          ...(parentOrganization !== undefined
+            ? {
+                parentOrganization: {
+                  "@type": "GovernmentOrganization",
+                  name: parentOrganization.name,
+                },
+              }
+            : {}),
         }}
       />
 
       <Breadcrumb
         items={[
-          { label: "NL Overheid Graph", href: "/" },
+          { label: SITE_NAME, href: "/" },
           { label: ORG_BRANCH_LABELS[organization.branch] },
           { label: organization.name },
         ]}

@@ -1,0 +1,46 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: validate, research, test, typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      # Requires a committed root package-lock.json; see .github/workflows/README.md.
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Validate the dataset
+        run: npm run validate
+
+      - name: Validate research
+        run: node scripts/validate.mjs --research
+
+      - name: Run tests
+        run: npm test
+
+      - name: Typecheck the web app
+        run: cd web && npm ci && npx tsc --noEmit

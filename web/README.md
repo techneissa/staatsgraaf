@@ -1,6 +1,6 @@
-# NL Overheid Graph: web app
+# Staatsgraaf: web app
 
-The Next.js App Router client for the NL Overheid Graph, built as a static export with TypeScript, Tailwind CSS, and Radix primitives. This is build area L: the app shell and the design system. The feature areas (canvas, search, change feed, news, topics, budgets) mount into it later.
+The Next.js App Router client for Staatsgraaf, built as a static export with TypeScript, Tailwind CSS, and Radix primitives. This is build area L: the app shell and the design system. The feature areas (canvas, search, change feed, news, topics, budgets) mount into it later.
 
 Read `../docs/06-build-plan.md` sections 3 to 5 for the stack and the ownership split, and `../docs/12-discovery-privacy-accessibility-security.md` for the accessibility and security requirements this app follows from the start.
 

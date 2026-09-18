@@ -16,20 +16,23 @@ import {
   getWindowedChanges,
   groupChangesByDay,
 } from "@/lib/changes";
-import { canonical, SITE_NAME } from "@/lib/site";
+import { getDatasetDate } from "@/lib/data";
+import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Wijzigingen",
   description:
     "Alle gedateerde aanstellingen, vertrekken en vacatures in de Nederlandse rijksoverheid, elk met een bron die aantoont waar het feit vandaan komt.",
-  alternates: canonical("/wijzigingen/"),
-};
+  path: "/wijzigingen/",
+  snapshotDate: getDatasetDate(),
+});
 
 export default function ChangesPage() {
   const reference = getChangeReferenceDate();
   const stats = getChangeStats(reference);
   const vacancies = getVacantSeats();
   const officials = getActingOfficials();
+  const pageUrl = absoluteUrl("/wijzigingen/");
 
   const panes = CHANGE_WINDOWS.map((days) => {
     const changes = getWindowedChanges(days, reference);
@@ -55,10 +58,11 @@ export default function ChangesPage() {
           name: `Wijzigingen · ${SITE_NAME}`,
           description:
             "Gedateerde aanstellingen, vertrekken en vacatures in de Nederlandse rijksoverheid, elk met bron.",
+          ...(pageUrl !== undefined ? { url: pageUrl } : {}),
         }}
       />
 
-      <Breadcrumb items={[{ label: "NL Overheid Graph", href: "/" }, { label: "Wijzigingen" }]} />
+      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Wijzigingen" }]} />
 
       <header className="mt-4 border-b border-line pb-6">
         <h1 className="text-2xl font-semibold tracking-tight text-ink">Wijzigingen</h1>

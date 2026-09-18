@@ -1,4 +1,6 @@
-export const SITE_NAME = "NL Overheid Graph";
+import type { Metadata } from "next";
+
+export const SITE_NAME = "Staatsgraaf";
 export const SCOPE_LABEL = "NL Rijk";
 export const SITE_TAGLINE =
   "Een open, bronvaste kaart van de Nederlandse rijksoverheid: organisaties, posities, personen en hun verbindingen.";
@@ -18,4 +20,43 @@ export function absoluteUrl(path: string): string | undefined {
 export function canonical(path: string): { canonical: string } | undefined {
   const url = absoluteUrl(path);
   return url ? { canonical: url } : undefined;
+}
+
+export type PageMetadataOptions = {
+  title: string;
+  description: string;
+  path: string;
+  absoluteTitle?: boolean;
+  snapshotDate?: string | null;
+};
+
+export function pageMetadata({
+  title,
+  description,
+  path,
+  absoluteTitle = false,
+  snapshotDate = null,
+}: PageMetadataOptions): Metadata {
+  const url = absoluteUrl(path);
+  return {
+    title: absoluteTitle ? { absolute: title } : title,
+    description,
+    alternates: canonical(path),
+    openGraph: {
+      type: "website",
+      locale: "nl_NL",
+      siteName: SITE_NAME,
+      title,
+      description,
+      ...(url !== undefined ? { url } : {}),
+    },
+    twitter: {
+      card: "summary",
+      title,
+      description,
+    },
+    ...(snapshotDate !== null && snapshotDate !== ""
+      ? { other: { "dcterms.modified": snapshotDate } }
+      : {}),
+  };
 }
