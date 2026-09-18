@@ -1277,6 +1277,7 @@
 {"kind":"record-conflict","id":"org:justis","keptFrom":"B-rijksdiensten-agentschappen-inspecties.json","droppedFrom":"data/organizations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"org:justitiele-ict-organisatie","keptFrom":"B-rijksdiensten-agentschappen-inspecties.json","droppedFrom":"data/organizations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"org:justitiele-informatiedienst","keptFrom":"B-rijksdiensten-agentschappen-inspecties.json","droppedFrom":"data/organizations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"org:kabinet","keptFrom":"A-regering-en-ministeries.json","droppedFrom":"data/organizations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"org:kabinet-minister-president","keptFrom":"B-rijksdiensten-agentschappen-inspecties.json","droppedFrom":"data/organizations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"org:kabinet-van-de-koning","keptFrom":"A-regering-en-ministeries.json","droppedFrom":"data/organizations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"org:kanselarij-der-nederlandse-orden","keptFrom":"A-regering-en-ministeries.json","droppedFrom":"data/organizations.json","note":"seed base record replaced by research"}

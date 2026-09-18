@@ -4,7 +4,7 @@ This file lists every source in `data/sources.json` with its URL, publisher, lic
 
 Licenses follow the per-source determination in `research/O-licenses.md`, which cites the terms page and retrieval date for each source. The dataset license is CC BY 4.0; see `LICENSE-DATA`. Facts are not copyrightable, and this dataset carries facts, codes, dates, and our own summaries, not source prose or images.
 
-## CC0-1.0 (1121)
+## CC0-1.0 (1133)
 
 | url | publisher | license | required credit line |
 | --- | --- | --- | --- |
@@ -500,10 +500,22 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.rijksoverheid.nl/service/contact/contactgids/r/raad-voor-het-openbaar-bestuur-rob | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/service/contact/contactgids/r/raad-voor-volksgezondheid-en-samenleving-rvs | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/service/contact/contactgids/s/sociaal-economische-raad-ser | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/themas/belastingen-uitkeringen-en-toeslagen | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/themas/bouwen-en-wonen | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/landbouw-en-tuinbouw | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/themas/migratie-en-reizen | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/themas/onderwijs | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/themas/overheid-en-democratie | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/themas/overheid-en-democratie/caribische-deel-van-het-koninkrijk | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/themas/overheid-en-democratie/provincies/commissaris-van-de-koning/overzicht/commissarissen-van-de-koning | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/themas/overheid-en-democratie/provincies/interbestuurlijk-toezicht | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/themas/overheid-en-democratie/rijksoverheid/agentschappen | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/veiligheidsregios-en-crisisbeheersing/veiligheidsregios | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/themas/verkeer-en-vervoer | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/themas/werk | Rijksoverheid | CC0-1.0 | - |
 | https://www.scp.nl/ | SCP | CC0-1.0 | - |
 | https://www.scp.nl/actueel/nieuws/2022/05/20/karen-van-oudenhoven-van-der-zee-vanaf-1-oktober-nieuwe-directeur-van-het-sociaal-en-cultureel-planbureau | SCP | CC0-1.0 | - |
 | https://www.scp.nl/over-het-scp | SCP | CC0-1.0 | - |

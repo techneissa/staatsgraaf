@@ -232,11 +232,11 @@
       "publisher": "Fixturekrant",
       "title": "Het kabinet vergadert in het Catshuis",
       "text": "De ministers overleggen.",
-      "kind": "negative",
-      "expectedEntities": [],
-      "expectedHigh": 0,
+      "kind": "positive",
+      "expectedEntities": ["org:kabinet"],
+      "expectedHigh": 1,
       "forbidden": ["org:kabinet-van-de-koning", "org:kabinet-minister-president"],
-      "note": "het kabinet is pinned at low confidence (GAP-5); it must not link a Kabinet entity."
+      "note": "het kabinet resolves to the distinct kabinet entity, never to a Kabinet van de Koning body."
     },
     {
       "id": "qa-news-22",

@@ -87,6 +87,7 @@ function buildSearchIndex({ organizations, positions, people, topics }) {
   }
   for (const position of positions) {
     add(position.title, position.id, "position");
+    for (const alias of position.aliases ?? []) add(alias, position.id, "position");
   }
   for (const topic of topics) {
     add(topic.name, topic.id, "topic");
@@ -157,7 +158,7 @@ const TARGETED_ALIAS_PROBES = [
   ["DUO", "org:dienst-uitvoering-onderwijs"],
   ["Belastingdienst", "org:belastingdienst"],
   ["BZK", "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties"],
-  ["kabinet", "org:regering"],
+  ["kabinet", "org:kabinet"],
   ["Kamer", "org:tweede-kamer"],
 ];
 
@@ -192,29 +193,28 @@ it("alias search GAP-3 resolved: VNG now resolves to the VNG koepel", async () =
   );
 });
 
-it("alias search WARN: bare Utrecht is ambiguous and currently ranks Utrechtse Heuvelrug first", async () => {
+it("alias search F-09: the gemeente owns the bare place name Utrecht", async () => {
   const index = buildSearchIndex(await dataset());
   const top = topResult("Utrecht", index);
-  assert.equal(top.target, "org:gemeente-utrechtse-heuvelrug");
+  assert.equal(top.target, "org:gemeente-utrecht");
 });
 
-it("alias search WARN: bare Den Haag does not resolve to Gemeente 's-Gravenhage", async () => {
+it("alias search F-08: bare Den Haag resolves to Gemeente 's-Gravenhage", async () => {
   const index = buildSearchIndex(await dataset());
   const top = topResult("Den Haag", index);
-  assert.notEqual(top.target, "org:gemeente-s-gravenhage");
-  assert.equal(top.target, "org:rechtbank-den-haag");
+  assert.equal(top.target, "org:gemeente-s-gravenhage");
 });
 
-it("alias search WARN: bare Groningen is ambiguous and currently resolves to the gemeente", async () => {
+it("alias search F-09: bare Groningen resolves to the gemeente", async () => {
   const index = buildSearchIndex(await dataset());
   const top = topResult("Groningen", index);
   assert.equal(top.target, "org:gemeente-groningen");
 });
 
-it("search index consumes merged aliases: positions carry no aliases because the merge skips pos: targets", async () => {
+it("search index consumes merged aliases: positions now carry aliases from pos: gazetteer targets", async () => {
   const { positions, topics } = await dataset();
   assert.ok(positions.length > 0);
-  assert.equal(positions.some((position) => Array.isArray(position.aliases)), false);
+  assert.equal(positions.some((position) => Array.isArray(position.aliases) && position.aliases.length > 0), true);
   assert.equal(topics.some((topic) => Array.isArray(topic.aliases)), false);
 });
 
@@ -227,7 +227,7 @@ it("counts match the Phase 0 snapshot", async () => {
   assert.equal(bySubtype("waterschap"), 21, "waterschappen");
   assert.equal(bySubtype("veiligheidsregio"), 25, "veiligheidsregio's");
   assert.equal(bySubtype("koepel"), 3, "koepels");
-  assert.equal(organizations.length, 1571, "organizations total");
+  assert.equal(organizations.length, 1572, "organizations total");
   assert.equal(memberships.filter((record) => record.organization === "org:tweede-kamer").length, 150, "Tweede Kamer");
   assert.equal(memberships.filter((record) => record.organization === "org:eerste-kamer").length, 75, "Eerste Kamer");
 });

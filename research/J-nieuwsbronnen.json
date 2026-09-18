@@ -8109,6 +8109,11 @@
       "confidence": "medium"
     },
     {
+      "alias": "Den Haag",
+      "target": "org:gemeente-s-gravenhage",
+      "confidence": "medium"
+    },
+    {
       "alias": "Den Helder",
       "target": "org:gemeente-den-helder",
       "confidence": "medium"
@@ -11862,6 +11867,11 @@
       "alias": "Gemeente Urk",
       "target": "org:gemeente-urk",
       "confidence": "high"
+    },
+    {
+      "alias": "Utrecht",
+      "target": "org:gemeente-utrecht",
+      "confidence": "medium"
     },
     {
       "alias": "Gemeente Utrecht",
@@ -15774,6 +15784,11 @@
       "confidence": "medium"
     },
     {
+      "alias": "Groningen",
+      "target": "org:gemeente-groningen",
+      "confidence": "medium"
+    },
+    {
       "alias": "Greet Buter",
       "target": "person:greet-buter",
       "confidence": "high"
@@ -16275,8 +16290,8 @@
     },
     {
       "alias": "het kabinet",
-      "target": "org:regering",
-      "confidence": "low"
+      "target": "org:kabinet",
+      "confidence": "medium"
     },
     {
       "alias": "Hetty Klavers",

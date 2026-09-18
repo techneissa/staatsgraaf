@@ -22,9 +22,14 @@
       "reason": "docs/08 requires BZK to resolve to the ministerie. The gazetteer links BZK at medium confidence; the overlay allows an exact match rather than a name prefix."
     },
     {
-      "target": "org:regering",
+      "target": "org:kabinet",
       "terms": ["kabinet"],
-      "reason": "In Dutch political usage the bare word kabinet means the government (Regering). Without the overlay it word-matches Kabinet van de Koning and Kabinet Minister-President, which are offices, not the cabinet."
+      "reason": "In Dutch political usage the bare word kabinet means the cabinet of ministers and staatssecretarissen (org:kabinet). Without the overlay it word-matches Kabinet van de Koning and Kabinet Minister-President, which are offices, not the cabinet."
+    },
+    {
+      "target": "org:regering",
+      "terms": ["regering"],
+      "reason": "The bare word regering must resolve to the Regering; other entries word-match it, so the exact tier is pinned here."
     },
     {
       "target": "org:tweede-kamer",

@@ -276,6 +276,13 @@
         "ruimtelijke ordening",
         "woningmarkt",
         "woningtekort"
+      ],
+      "sources": [
+        {
+          "source": "src:k-onderwerp-wonen",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
       ]
     },
     {
@@ -322,6 +329,13 @@
         "verpleegkundige",
         "wachtlijst",
         "thuiszorg"
+      ],
+      "sources": [
+        {
+          "source": "src:k-onderwerp-zorg",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
       ]
     },
     {
@@ -361,6 +375,13 @@
         "compensatie",
         "schuldhulp",
         "schulden"
+      ],
+      "sources": [
+        {
+          "source": "src:k-onderwerp-toeslagen",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
       ]
     },
     {
@@ -406,6 +427,13 @@
         "kernenergie",
         "windenergie",
         "verduurzaming"
+      ],
+      "sources": [
+        {
+          "source": "src:k-onderwerp-klimaat-en-energie",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
       ]
     },
     {
@@ -453,6 +481,13 @@
         "asielcrisis",
         "uitzetting",
         "mensenhandel"
+      ],
+      "sources": [
+        {
+          "source": "src:k-onderwerp-asiel-en-migratie",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
       ]
     },
     {
@@ -499,6 +534,13 @@
         "leraar",
         "leraren",
         "studiefinanciering"
+      ],
+      "sources": [
+        {
+          "source": "src:k-onderwerp-onderwijs",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
       ]
     },
     {
@@ -553,6 +595,13 @@
         "veiligheidsregio",
         "slachtoffer",
         "gevangenis"
+      ],
+      "sources": [
+        {
+          "source": "src:k-onderwerp-veiligheid",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
       ]
     },
     {
@@ -611,6 +660,13 @@
         "gedeputeerde staten",
         "fractie",
         "zetels"
+      ],
+      "sources": [
+        {
+          "source": "src:k-onderwerp-openbaar-bestuur-en-democratie",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
       ]
     },
     {
@@ -657,6 +713,13 @@
         "personeelstekorten",
         "werkloosheid",
         "minimumloon"
+      ],
+      "sources": [
+        {
+          "source": "src:k-onderwerp-arbeidsmarkt",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
       ]
     },
     {
@@ -709,6 +772,13 @@
         "bomen",
         "wolf",
         "ganzen"
+      ],
+      "sources": [
+        {
+          "source": "src:k-onderwerp-stikstof-en-landbouw",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
       ]
     },
     {
@@ -763,6 +833,13 @@
         "prorail",
         "rijkswaterstaat",
         "verkeersveiligheid"
+      ],
+      "sources": [
+        {
+          "source": "src:k-onderwerp-infrastructuur",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
       ]
     },
     {
@@ -806,6 +883,13 @@
         "rijksvertegenwoordiger",
         "eilandsraad",
         "gezaghebber"
+      ],
+      "sources": [
+        {
+          "source": "src:k-onderwerp-koninkrijksrelaties",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
       ]
     }
   ],
@@ -1326,6 +1410,150 @@
       "license": null,
       "archiveUrl": null,
       "notes": "Feed gebruikt uit research/raw/J/feeds voor de keyword-testset."
+    },
+    {
+      "id": "src:k-onderwerp-wonen",
+      "url": "https://www.rijksoverheid.nl/themas/bouwen-en-wonen",
+      "title": "Overheid en wonen",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Themapagina van de Rijksoverheid voor dit beleidsterrein; bron voor de topic-omschrijving en verantwoordelijke bewindspersonen."
+    },
+    {
+      "id": "src:k-onderwerp-zorg",
+      "url": "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid",
+      "title": "Gezondheidszorg en zorg",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Themapagina van de Rijksoverheid voor dit beleidsterrein; bron voor de topic-omschrijving en verantwoordelijke bewindspersonen."
+    },
+    {
+      "id": "src:k-onderwerp-toeslagen",
+      "url": "https://www.rijksoverheid.nl/themas/belastingen-uitkeringen-en-toeslagen",
+      "title": "Belastingen, uitkeringen en toeslagen",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Themapagina van de Rijksoverheid voor dit beleidsterrein; bron voor de topic-omschrijving en verantwoordelijke bewindspersonen."
+    },
+    {
+      "id": "src:k-onderwerp-klimaat-en-energie",
+      "url": "https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur",
+      "title": "Klimaat, milieu en natuur",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Themapagina van de Rijksoverheid voor dit beleidsterrein; bron voor de topic-omschrijving en verantwoordelijke bewindspersonen."
+    },
+    {
+      "id": "src:k-onderwerp-asiel-en-migratie",
+      "url": "https://www.rijksoverheid.nl/themas/migratie-en-reizen",
+      "title": "Migratie en reizen",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Themapagina van de Rijksoverheid voor dit beleidsterrein; bron voor de topic-omschrijving en verantwoordelijke bewindspersonen."
+    },
+    {
+      "id": "src:k-onderwerp-onderwijs",
+      "url": "https://www.rijksoverheid.nl/themas/onderwijs",
+      "title": "Onderwijs",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Themapagina van de Rijksoverheid voor dit beleidsterrein; bron voor de topic-omschrijving en verantwoordelijke bewindspersonen."
+    },
+    {
+      "id": "src:k-onderwerp-veiligheid",
+      "url": "https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie",
+      "title": "Recht, veiligheid en defensie",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Themapagina van de Rijksoverheid voor dit beleidsterrein; bron voor de topic-omschrijving en verantwoordelijke bewindspersonen."
+    },
+    {
+      "id": "src:k-onderwerp-openbaar-bestuur-en-democratie",
+      "url": "https://www.rijksoverheid.nl/themas/overheid-en-democratie",
+      "title": "Overheid en democratie",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Themapagina van de Rijksoverheid voor dit beleidsterrein; bron voor de topic-omschrijving en verantwoordelijke bewindspersonen."
+    },
+    {
+      "id": "src:k-onderwerp-arbeidsmarkt",
+      "url": "https://www.rijksoverheid.nl/themas/werk",
+      "title": "Werk",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Themapagina van de Rijksoverheid voor dit beleidsterrein; bron voor de topic-omschrijving en verantwoordelijke bewindspersonen."
+    },
+    {
+      "id": "src:k-onderwerp-stikstof-en-landbouw",
+      "url": "https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/landbouw-en-tuinbouw",
+      "title": "Landbouw en tuinbouw",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Themapagina van de Rijksoverheid voor dit beleidsterrein; bron voor de topic-omschrijving en verantwoordelijke bewindspersonen."
+    },
+    {
+      "id": "src:k-onderwerp-infrastructuur",
+      "url": "https://www.rijksoverheid.nl/themas/verkeer-en-vervoer",
+      "title": "Verkeer en vervoer",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Themapagina van de Rijksoverheid voor dit beleidsterrein; bron voor de topic-omschrijving en verantwoordelijke bewindspersonen."
+    },
+    {
+      "id": "src:k-onderwerp-koninkrijksrelaties",
+      "url": "https://www.rijksoverheid.nl/themas/overheid-en-democratie/caribische-deel-van-het-koninkrijk",
+      "title": "Caribische deel van het Koninkrijk",
+      "publisher": "Rijksoverheid",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": "CC0 1.0 Universal",
+      "archiveUrl": null,
+      "notes": "Themapagina van de Rijksoverheid voor dit beleidsterrein; bron voor de topic-omschrijving en verantwoordelijke bewindspersonen."
     }
   ],
   "media": [],

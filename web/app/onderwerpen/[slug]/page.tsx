@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { T } from "@/components/i18n/t";
+import { SourceList } from "@/components/source-list";
 import { ResponsibleList } from "@/components/topic/responsible-list";
 import { TopicNews } from "@/components/topic/topic-news";
 import { getDatasetDate } from "@/lib/data";
@@ -77,6 +78,10 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
       </header>
 
       <ResponsibleList topic={topic} />
+
+      {topic.sources !== undefined && topic.sources.length > 0 ? (
+        <SourceList sources={topic.sources} title="Bronnen" />
+      ) : null}
 
       <section aria-labelledby="nieuws-titel" className="py-6">
         <h2 id="nieuws-titel" className="text-lg font-semibold tracking-tight text-ink">

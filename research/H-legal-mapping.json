@@ -14573,17 +14573,17 @@
     {
       "target": "subtype:gemeenteraad",
       "legalSource": {
-        "label": "Gemeentewet art. 7",
-        "url": "https://wetten.overheid.nl/BWBR0005416#TiteldeelII_HoofdstukII_Artikel7"
+        "label": "Gemeentewet art. 7 en art. 8",
+        "url": "https://wetten.overheid.nl/BWBR0005416#TiteldeelII_HoofdstukII_Artikel8"
       },
       "sources": [
         {
           "source": "src:gemeentewet",
-          "retrieved": "2026-09-18",
+          "retrieved": "2026-09-19",
           "confidence": "high"
         }
       ],
-      "notes": "Hele klasse subtype:gemeenteraad."
+      "notes": "Hele klasse subtype:gemeenteraad. Art. 7: de raad vertegenwoordigt de bevolking; art. 8: de aantallen leden."
     },
     {
       "target": "subtype:kiesgerechtigden-nederland",

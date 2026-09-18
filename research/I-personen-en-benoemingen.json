@@ -1224,15 +1224,15 @@
   "sources": [
     {
       "id": "src:tk-odata-fractiezetelpersoon",
-      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon",
+      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$expand=Persoon",
       "title": "Tweede Kamer OData: FractieZetelPersoon",
       "publisher": "Tweede Kamer der Staten-Generaal",
       "type": "api",
       "published": null,
-      "retrieved": "2026-09-18",
+      "retrieved": "2026-09-19",
       "license": "CC0-1.0",
       "archiveUrl": null,
-      "notes": "Bevat per zetelhouder de functie (Lid/Fractievoorzitter), Van en TotEnMet. Paging via $top=250&$skip."
+      "notes": "Bevat per zetelhouder de functie (Lid/Fractievoorzitter), Van en TotEnMet, met de Persoon-navigatie meegeexpand zodat ook de naam uit dezelfde aanroep komt. Paging via $top=250&$skip."
     },
     {
       "id": "src:tk-odata-fractie",

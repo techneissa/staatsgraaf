@@ -24710,12 +24710,12 @@
     },
     {
       "id": "src:tk-odata-fractiezetelpersonen",
-      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$filter=Verwijderd eq false and TotEnMet eq null",
-      "title": "FractieZetelPersoon (huidig)",
+      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$filter=Verwijderd eq false and TotEnMet eq null&$expand=Persoon",
+      "title": "FractieZetelPersoon (huidig, met Persoon)",
       "publisher": "Tweede Kamer OData API",
       "type": "api",
       "published": null,
-      "retrieved": "2026-09-17",
+      "retrieved": "2026-09-19",
       "license": null,
       "archiveUrl": null,
       "notes": null
@@ -24746,12 +24746,12 @@
     },
     {
       "id": "src:tk-odata-commissiezetels",
-      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/CommissieZetelVastPersoon?$filter=Verwijderd eq false and TotEnMet eq null&$expand=CommissieZetel($expand=Commissie)",
-      "title": "CommissieZetelVastPersoon (huidig)",
+      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/CommissieZetelVastPersoon?$filter=Verwijderd eq false and TotEnMet eq null&$expand=CommissieZetel($expand=Commissie),Persoon",
+      "title": "CommissieZetelVastPersoon (huidig, met Commissie en Persoon)",
       "publisher": "Tweede Kamer OData API",
       "type": "api",
       "published": null,
-      "retrieved": "2026-09-17",
+      "retrieved": "2026-09-19",
       "license": null,
       "archiveUrl": null,
       "notes": null
