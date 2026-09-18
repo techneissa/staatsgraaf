@@ -432,6 +432,7 @@ test("runNewsPipeline never downloads or stores an image when imageLicense is nu
 
   const news = JSON.parse(await readFile(join(dataDir, "news.json"), "utf8"));
   assert.equal(news[0].image, null);
+  assert.equal(news[0].imageUrl, "https://example.org/a.jpg");
 
   assert.equal(existsSync(join(mediaDir, "nieuws")), false);
 
@@ -475,6 +476,7 @@ test("runNewsPipeline downloads and registers an image when the feed carries a l
   const [item] = news;
   assert.ok(item.image);
   assert.equal(item.image, result.mediaRecords[0].id);
+  assert.equal(item.imageUrl, "https://example.org/a.jpg");
 
   const files = await readdir(join(mediaDir, "nieuws"));
   assert.equal(files.length, 1);

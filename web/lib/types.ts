@@ -283,6 +283,8 @@ export type NewsItem = {
   /** Matched alias strings that produced the entity links. */
   keywords?: string[];
   image: string | null;
+  /** Feed-supplied preview image URL, shown as a remote preview. Absent or null means none. */
+  imageUrl?: string | null;
   sources: SourceRef[];
 };
 

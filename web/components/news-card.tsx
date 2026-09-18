@@ -28,9 +28,18 @@ export function getCardSources(item: NewsItem): NewsCardSource[] {
   return result;
 }
 
-function licensedImage(item: NewsItem): { url: string; caption: string } | null {
+/**
+ * The preview image of an item, shared shape with news-view: a licensed media
+ * record when the pipeline stored one, otherwise the feed-supplied image URL
+ * as a remote preview credited to the outlet (adr/0008).
+ */
+function previewImage(item: NewsItem): { url: string; caption: string; remote: boolean } | null {
   const media = getMediaItem(item.image);
-  return media === null ? null : { url: media.url, caption: mediaCreditLine(media) };
+  if (media !== null) return { url: media.url, caption: mediaCreditLine(media), remote: false };
+  if (typeof item.imageUrl === "string" && item.imageUrl !== "") {
+    return { url: item.imageUrl, caption: item.publisher, remote: true };
+  }
+  return null;
 }
 
 /**
@@ -51,7 +60,7 @@ export function NewsCard({
   const primary = sources[0];
   const entities = resolveNewsEntities(item);
   const preview = resolveNewsPreview({
-    image: licensedImage(item),
+    image: previewImage(item),
     entities,
     publisher: item.publisher,
     publisherKind: newsKind(item),

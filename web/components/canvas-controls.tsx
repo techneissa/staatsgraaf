@@ -5,7 +5,8 @@ import { useT } from "@/components/i18n/use-t";
 import { useLocale } from "@/components/i18n/language-provider";
 import { branchColorVar } from "@/lib/branch-colors";
 import type { GlyphClass } from "@/lib/graph";
-import { BRANCH_LABELS_I18N } from "@/lib/i18n/dict-graph";
+import { BRANCH_LABELS_I18N, EDGE_TYPE_LABELS_I18N } from "@/lib/i18n/dict-graph";
+import { edgeLine } from "./graph/edge-styles";
 import { glyphPath } from "./graph/glyph";
 import type { OrgBranch } from "@/lib/types";
 
@@ -30,6 +31,7 @@ type CanvasControlsProps = {
   view: CanvasView;
   onViewChange: (view: CanvasView) => void;
   branches: { branch: OrgBranch; count: number }[];
+  edgeTypes: { type: string; count: number }[];
   hiddenBranches: ReadonlySet<string>;
   onToggleBranch: (branch: OrgBranch, visible: boolean) => void;
   onShowAll: () => void;
@@ -41,10 +43,47 @@ function branchLabel(locale: "nl" | "en", branch: string): string {
   return locale === "en" ? entry.en : entry.nl;
 }
 
+function edgeTypeLabel(locale: "nl" | "en", type: string): string {
+  const entry = EDGE_TYPE_LABELS_I18N[type];
+  if (!entry) return type;
+  return locale === "en" ? entry.en : entry.nl;
+}
+
+/**
+ * One sample row of the relationships legend: a short line in the style the
+ * canvas draws for this type, ending in an arrowhead because every edge in
+ * the data runs from maker to receiver.
+ */
+function EdgeTypeSample({ type }: { type: string }) {
+  const line = edgeLine(type);
+  return (
+    <svg aria-hidden="true" viewBox="0 0 34 10" width={34} height={10} className="shrink-0">
+      <line
+        x1={0}
+        y1={5}
+        x2={25}
+        y2={5}
+        stroke={line.color}
+        strokeWidth={line.width * 1.4}
+        strokeDasharray={line.dash ?? undefined}
+      />
+      <path
+        d="M 26 1.8 L 33 5 L 26 8.2"
+        fill="none"
+        stroke={line.color}
+        strokeWidth={line.width * 1.4}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function CanvasControls({
   view,
   onViewChange,
   branches,
+  edgeTypes,
   hiddenBranches,
   onToggleBranch,
   onShowAll,
@@ -97,11 +136,11 @@ export function CanvasControls({
           </svg>
         </DropdownMenu.Trigger>
         <DropdownMenu.Portal>
-          <DropdownMenu.Content
-            align="end"
-            sideOffset={6}
-            className="z-50 max-h-80 w-64 overflow-y-auto rounded-md border border-line bg-surface p-1 shadow-xl"
-          >
+            <DropdownMenu.Content
+              align="end"
+              sideOffset={6}
+              className="z-50 max-h-[26rem] w-72 overflow-y-auto rounded-md border border-line bg-surface p-1 shadow-xl"
+            >
             <DropdownMenu.Label className="px-2 py-1.5 text-xs font-semibold uppercase tracking-wide text-ink-faint">
               {t("layerTitle")}
             </DropdownMenu.Label>
@@ -131,11 +170,11 @@ export function CanvasControls({
             </DropdownMenu.Item>
             <DropdownMenu.Separator className="my-1 h-px bg-line" />
             <DropdownMenu.Label className="px-2 py-1.5 text-xs font-semibold uppercase tracking-wide text-ink-faint">
-              {tg("shapeLegendTitle")}
+              {tg("entityLegendTitle")}
             </DropdownMenu.Label>
             <div
               role="list"
-              aria-label={tg("shapeLegendTitle")}
+              aria-label={tg("entityLegendTitle")}
               className="px-2 pb-1.5 pt-0.5"
             >
               {GLYPH_LEGEND.map(({ glyph, key }) => (
@@ -148,6 +187,27 @@ export function CanvasControls({
                     <path d={glyphPath(glyph, 9)} fill={glyph === "dot" || glyph === "small-dot" ? undefined : "currentColor"} stroke="currentColor" strokeWidth={glyph === "dot" || glyph === "small-dot" ? 2 : undefined} fillOpacity={0.95} />
                   </svg>
                   <span className="truncate">{tg(key)}</span>
+                </div>
+              ))}
+            </div>
+            <DropdownMenu.Separator className="my-1 h-px bg-line" />
+            <DropdownMenu.Label className="px-2 py-1.5 text-xs font-semibold uppercase tracking-wide text-ink-faint">
+              {tg("relationshipLegendTitle")}
+            </DropdownMenu.Label>
+            <div
+              role="list"
+              aria-label={tg("relationshipLegendTitle")}
+              className="px-2 pb-1.5 pt-0.5"
+            >
+              {edgeTypes.map(({ type, count }) => (
+                <div
+                  key={type}
+                  role="listitem"
+                  className="flex items-center gap-2 py-0.5 text-xs text-ink-muted"
+                >
+                  <EdgeTypeSample type={type} />
+                  <span className="truncate">{edgeTypeLabel(locale, type)}</span>
+                  <span className="ml-auto shrink-0 text-ink-faint">{count}</span>
                 </div>
               ))}
             </div>

@@ -12,6 +12,7 @@ import {
   type LaidOutNode,
 } from "@/lib/graph";
 import { branchColorVar } from "@/lib/branch-colors";
+import { edgeLine, edgeTypeOrderIndex } from "./edge-styles";
 import type { OrgBranch } from "@/lib/types";
 import { useT } from "@/components/i18n/use-t";
 import { useLocale } from "@/components/i18n/language-provider";
@@ -127,8 +128,8 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
 
     return {
       base: [...base.entries()]
-        .sort((a, b) => a[0].localeCompare(b[0]))
-        .map(([type, segments]) => segments.join(" ")),
+        .sort((a, b) => edgeTypeOrderIndex(a[0]) - edgeTypeOrderIndex(b[0]))
+        .map(([type, segments]) => ({ type, d: segments.join(" ") })),
       neighbor: neighbor.sort((a, b) => a.type.localeCompare(b.type) || a.key.localeCompare(b.key)),
       path,
     };
@@ -417,16 +418,20 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
           </g>
 
           <g aria-hidden="true" pointerEvents="none">
-            {categorized.base.map((segments, index) => (
-              <path
-                key={`base-${index}`}
-                d={segments}
-                fill="none"
-                stroke="var(--color-line-strong)"
-                strokeWidth={0.75}
-                opacity={0.35}
-              />
-            ))}
+            {categorized.base.map((group) => {
+              const line = edgeLine(group.type);
+              return (
+                <path
+                  key={`base-${group.type}`}
+                  d={group.d}
+                  fill="none"
+                  stroke={line.color}
+                  strokeWidth={line.width}
+                  strokeDasharray={line.dash ?? undefined}
+                  opacity={0.35}
+                />
+              );
+            })}
           </g>
 
           {selectedId ? (

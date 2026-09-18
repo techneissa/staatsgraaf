@@ -578,6 +578,7 @@ export async function runNewsPipeline({
       topics: link.topics,
       keywords: keywordsFromMatches(link.matches),
       image: imageId,
+      imageUrl: imageUrl ?? null,
       sources: [{ source: srcId, retrieved: now.toISOString().slice(0, 10), confidence: "high" }],
     });
   }
@@ -633,7 +634,7 @@ export async function runNewsPipeline({
   log(`Kept ${news.length} item(s) published on or after ${since.slice(0, 10)} (${RETENTION_DAYS}-day window).`);
   log(`Entity linker: ${entityHits} high-confidence hit(s) across ${highConfidenceItems} article(s).`);
   log(`Topic fallback: ${fallbackTopics} article(s) assigned a topic with no entity; ${stats.topicOnlyItems} article(s) end up topic-only.`);
-  log(`Images: ${imagesDownloaded} downloaded, ${imagesReused} reused, ${imagesSkippedForRights} skipped for rights, ${imagesSkippedForErrors} skipped for errors.`);
+  log(`Images: ${imagesDownloaded} downloaded, ${imagesReused} reused, ${imagesSkippedForRights} not downloaded (no image license on the feed), ${imagesSkippedForErrors} skipped for errors.`);
   log(`Wrote ${join(dataDir, "news.json")} and ${sourceRecords.length} article source record(s) to ${sourcesOutPath}`);
   if (registerSources) {
     log(`Registered ${registeredSources} new, refreshed ${updatedSources} and pruned ${prunedSources} article source record(s) in ${join(dataDir, "sources.json")} (per-article records keyed by url, existing catalog preserved).`);
