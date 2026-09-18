@@ -14,7 +14,10 @@
 {"kind":"source-conflict","id":"src:cbs-70072ned","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:cbs-80445ned","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
 {"kind":"source-conflict","id":"src:cbs-80445ned","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
+{"kind":"source-conflict","id":"src:cbs-86247ned","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept 2026-09-19, saw 2026-09-17","field":"retrieved"}
+{"kind":"source-conflict","id":"src:cbs-86247ned","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"title"}
 {"kind":"source-conflict","id":"src:cbs-86247ned","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:cbs-86247ned","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"url"}
 {"kind":"source-conflict","id":"src:cbs-86247ned","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:cpb-hasekamp","keptFrom":"F-hoge-colleges-en-adviescolleges.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:cpb-medewerkers","keptFrom":"F-hoge-colleges-en-adviescolleges.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
@@ -56,6 +59,18 @@
 {"kind":"source-conflict","id":"src:k-ministerie-onderwijs-cultuur-en-wetenschap","keptFrom":"K-topics.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
 {"kind":"source-conflict","id":"src:k-ministerie-sociale-zaken-en-werkgelegenheid","keptFrom":"K-topics.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
 {"kind":"source-conflict","id":"src:k-ministerie-volksgezondheid-welzijn-en-sport","keptFrom":"K-topics.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:k-onderwerp-arbeidsmarkt","keptFrom":"K-topics.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:k-onderwerp-asiel-en-migratie","keptFrom":"K-topics.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:k-onderwerp-infrastructuur","keptFrom":"K-topics.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:k-onderwerp-klimaat-en-energie","keptFrom":"K-topics.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:k-onderwerp-koninkrijksrelaties","keptFrom":"K-topics.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:k-onderwerp-onderwijs","keptFrom":"K-topics.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:k-onderwerp-openbaar-bestuur-en-democratie","keptFrom":"K-topics.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:k-onderwerp-stikstof-en-landbouw","keptFrom":"K-topics.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:k-onderwerp-toeslagen","keptFrom":"K-topics.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:k-onderwerp-veiligheid","keptFrom":"K-topics.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:k-onderwerp-wonen","keptFrom":"K-topics.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:k-onderwerp-zorg","keptFrom":"K-topics.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
 {"kind":"source-conflict","id":"src:koop-gemeenten","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
 {"kind":"source-conflict","id":"src:koop-provincies","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
 {"kind":"source-conflict","id":"src:koop-regionale-samenwerkingsorganen","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
@@ -115,6 +130,15 @@
 {"kind":"source-conflict","id":"src:ser-over","keptFrom":"F-hoge-colleges-en-adviescolleges.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:ser-voorzitters","keptFrom":"F-hoge-colleges-en-adviescolleges.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:stcrt-2026-8177","keptFrom":"A-regering-en-ministeries.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:tk-odata-commissiezetels","keptFrom":"D-parlement.json","droppedFrom":"data/sources.json","note":"kept 2026-09-19, saw 2026-09-17","field":"retrieved"}
+{"kind":"source-conflict","id":"src:tk-odata-commissiezetels","keptFrom":"D-parlement.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"title"}
+{"kind":"source-conflict","id":"src:tk-odata-commissiezetels","keptFrom":"D-parlement.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"url"}
+{"kind":"source-conflict","id":"src:tk-odata-fractiezetelpersonen","keptFrom":"D-parlement.json","droppedFrom":"data/sources.json","note":"kept 2026-09-19, saw 2026-09-17","field":"retrieved"}
+{"kind":"source-conflict","id":"src:tk-odata-fractiezetelpersonen","keptFrom":"D-parlement.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"title"}
+{"kind":"source-conflict","id":"src:tk-odata-fractiezetelpersonen","keptFrom":"D-parlement.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"url"}
+{"kind":"source-conflict","id":"src:tk-odata-fractiezetelpersoon","keptFrom":"I-personen-en-benoemingen.json","droppedFrom":"data/sources.json","note":"kept 2026-09-19, saw 2026-09-18","field":"retrieved"}
+{"kind":"source-conflict","id":"src:tk-odata-fractiezetelpersoon","keptFrom":"I-personen-en-benoemingen.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"url"}
+{"kind":"source-conflict","id":"src:tk-odata-fractiezetelpersoon","keptFrom":"I-personen-en-benoemingen.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:waterschapswet","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
 {"kind":"source-conflict","id":"src:wet-veiligheidsregios","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
 {"kind":"source-conflict","id":"src:wiki-burgemeesters","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
