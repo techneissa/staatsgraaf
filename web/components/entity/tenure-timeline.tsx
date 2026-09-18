@@ -1,7 +1,9 @@
 import Link from "next/link";
-import { Timeline, type TimelineItem } from "@/components/timeline";
+import { type TimelineItem } from "@/components/timeline";
 import { PersonPortrait } from "./person-portrait";
 import { SourceLink } from "@/components/source-link";
+import { T } from "@/components/i18n/t";
+import { TimelineT } from "./timeline-t";
 import { getOrganizationById, getPersonById, getPositionById, getSourceById } from "@/lib/data";
 import { END_REASON_LABELS, ENTRY_MODE_LABELS } from "@/lib/labels";
 import { tenureEndReason, tenureEntryMode } from "@/lib/entity";
@@ -19,7 +21,7 @@ function Source({ tenure }: { tenure: Tenure }) {
   if (!source) return null;
   return (
     <SourceLink href={source.url} meta={source.publisher}>
-      Bron
+      <T area="entity" k="sourceLabel" />
     </SourceLink>
   );
 }
@@ -27,11 +29,11 @@ function Source({ tenure }: { tenure: Tenure }) {
 export function TenureTimeline({
   tenures,
   variant,
-  label,
+  labelKey,
 }: {
   tenures: Tenure[];
   variant: TenureTimelineVariant;
-  label: string;
+  labelKey: string;
 }) {
   const items: TimelineItem[] = tenures.map((tenure) => {
     const position = getPositionById(tenure.position);
@@ -55,7 +57,7 @@ export function TenureTimeline({
           {person.name}
         </Link>
       ) : (
-        "Onbekende persoon"
+        <T area="entity" k="unknownPerson" />
       );
     } else {
       title = position ? (
@@ -63,7 +65,7 @@ export function TenureTimeline({
           {position.title}
         </Link>
       ) : (
-        "Onbekende positie"
+        <T area="entity" k="unknownPosition" />
       );
     }
 
@@ -74,7 +76,7 @@ export function TenureTimeline({
           {person.name}
         </Link>
       ) : (
-        "Onbekende persoon"
+        <T area="entity" k="unknownPerson" />
       );
     } else if (variant === "person") {
       meta = organization ? (
@@ -82,7 +84,7 @@ export function TenureTimeline({
           {organization.name}
         </Link>
       ) : (
-        "Onbekende organisatie"
+        <T area="entity" k="unknownOrganization" />
       );
     }
 
@@ -103,5 +105,5 @@ export function TenureTimeline({
     };
   });
 
-  return <Timeline items={items} label={label} />;
+  return <TimelineT items={items} labelKey={labelKey} />;
 }

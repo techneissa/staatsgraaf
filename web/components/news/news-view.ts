@@ -1,4 +1,4 @@
-import { formatClockTime, formatDateTimeLocal } from "@/lib/format";
+import { formatClockTime } from "@/lib/format";
 import { getMediaItem, mediaCreditLine } from "@/lib/entity";
 import { newsMonogram } from "@/lib/news-preview";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
@@ -70,6 +70,33 @@ export function hostLabel(url: string): string {
 }
 
 /**
+ * Full date and wall-clock time in Nederland, in the interface language: the
+ * /nieuws route shows Dutch month names, the /news route shows English ones.
+ */
+const itemDateTimeFormats: Record<NewsLanguage, Intl.DateTimeFormat> = {
+  nl: new Intl.DateTimeFormat("nl-NL", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Europe/Amsterdam",
+  }),
+  en: new Intl.DateTimeFormat("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Europe/Amsterdam",
+  }),
+};
+
+function formatItemDateTime(iso: string, locale: NewsLanguage): string {
+  return itemDateTimeFormats[locale].format(new Date(iso));
+}
+
+/**
  * The pipeline writes a summary of the form `Publisher bericht: "title"` when it has
  * nothing beyond the headline. That repeats the headline, so it is not shown.
  */
@@ -101,7 +128,7 @@ export function toNewsItemView(item: NewsItem, locale: NewsLanguage = "nl"): New
     published: item.published,
     day: newsDayKey(item.published),
     time: formatClockTime(item.published),
-    dateTime: formatDateTimeLocal(item.published),
+    dateTime: formatItemDateTime(item.published, locale),
     summary: usefulSummary(item),
     entities,
     keywords: newsKeywords(item),

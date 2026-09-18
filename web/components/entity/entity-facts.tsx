@@ -1,4 +1,7 @@
+"use client";
+
 import type { ReactNode } from "react";
+import { useT } from "@/components/i18n/use-t";
 
 export type EntityFact = {
   label: ReactNode;
@@ -11,20 +14,21 @@ export type EntityFact = {
  */
 export function EntityFacts({
   facts,
-  label = "Kenmerken",
+  labelKey = "factsLabel",
   className = "",
 }: {
   facts: EntityFact[];
-  label?: string;
+  labelKey?: string;
   className?: string;
 }) {
+  const t = useT("entity");
   const visible = facts.filter(
     (fact) => fact.value !== null && fact.value !== undefined && fact.value !== "",
   );
   if (visible.length === 0) return null;
   return (
     <dl
-      aria-label={label}
+      aria-label={t(labelKey)}
       className={`grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2 ${className}`.trim()}
     >
       {visible.map((fact, index) => (

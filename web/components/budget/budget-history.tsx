@@ -1,8 +1,11 @@
-import { EmptyState } from "@/components/empty-state";
+import { L } from "@/components/i18n/t";
+import { DictEmptyState } from "./dict-empty-state";
 import { T } from "@/components/i18n/t";
-import { SourceLink } from "@/components/source-link";
-import { getSourceById } from "@/lib/data";
+import { interpolate } from "@/lib/i18n/locales";
+import { NEWS_DICT } from "@/lib/i18n/dict-news";
 import { formatBudgetAmount, type BudgetHistoryRow } from "@/lib/budget";
+import { toSourceNoteItems } from "./source-note-data";
+import { SourceNote } from "./source-note";
 import type { SourceRef } from "@/lib/types";
 
 const HISTORY_START_YEAR = 2013;
@@ -18,9 +21,9 @@ export function BudgetHistory({
 }) {
   if (history.length === 0) {
     return (
-      <EmptyState
-        title="Geen reeks beschikbaar"
-        description="Voor deze organisatie bevat de bron geen reeks van gerealiseerde uitgaven per jaar."
+      <DictEmptyState
+        titleKey="budgetHistoryEmptyTitle"
+        descriptionKey="budgetHistoryEmptyDescription"
       />
     );
   }
@@ -31,12 +34,19 @@ export function BudgetHistory({
   );
   const earliest = history[0].fiscalYear;
 
+  const captionNl = interpolate(NEWS_DICT.budgetHistoryCaptionSr.nl, {
+    unit: unit ?? NEWS_DICT.budgetUnknownUnit.nl,
+  });
+  const captionEn = interpolate(NEWS_DICT.budgetHistoryCaptionSr.en, {
+    unit: unit ?? NEWS_DICT.budgetUnknownUnit.en,
+  });
+
   return (
     <div>
       <div className="overflow-x-auto">
         <table className="w-full min-w-[32rem] border-collapse text-sm">
           <caption className="sr-only">
-            Gerealiseerde uitgaven en ontvangsten per jaar, in {unit ?? "onbekende eenheid"}
+            <L nl={captionNl} en={captionEn} />
           </caption>
           <thead>
             <tr className="border-b border-line text-left">
@@ -50,7 +60,9 @@ export function BudgetHistory({
               <T area="news" k="budgetRevenueLabel" />
               </th>
               <th scope="col" className="w-24 py-2 text-xs uppercase tracking-wider font-medium text-ink-faint">
-                <span className="sr-only">Vergelijking</span>
+                <span className="sr-only">
+                  <T area="news" k="budgetTableComparison" />
+                </span>
               </th>
             </tr>
           </thead>
@@ -67,12 +79,16 @@ export function BudgetHistory({
                   </th>
                   <td className="py-2 pe-3 text-right tabular-nums text-ink">
                     {formatBudgetAmount(row.spendingActual, unit) ?? (
-                      <span className="text-ink-faint">Niet gerapporteerd</span>
+                      <span className="text-ink-faint">
+                        <T area="news" k="budgetNotReported" />
+                      </span>
                     )}
                   </td>
                   <td className="py-2 pe-3 text-right tabular-nums text-ink">
                     {formatBudgetAmount(row.revenue, unit) ?? (
-                      <span className="text-ink-faint">Niet gerapporteerd</span>
+                      <span className="text-ink-faint">
+                        <T area="news" k="budgetNotReported" />
+                      </span>
                     )}
                   </td>
                   <td className="py-2" aria-hidden="true">
@@ -96,24 +112,7 @@ export function BudgetHistory({
         </p>
       ) : null}
 
-      {sources.length > 0 ? (
-        <p className="mt-2 text-xs text-ink-faint">
-          Bron:{" "}
-          {sources.map((ref, index) => {
-            const source = getSourceById(ref.source);
-            return (
-              <span key={ref.source}>
-                {index > 0 ? ", " : null}
-                {source ? (
-                  <SourceLink href={source.url}>{source.title}</SourceLink>
-                ) : (
-                  <span>Onbekende bron ({ref.source})</span>
-                )}
-              </span>
-            );
-          })}
-        </p>
-      ) : null}
+      <SourceNote items={toSourceNoteItems(sources)} />
     </div>
   );
 }

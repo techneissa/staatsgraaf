@@ -1,5 +1,5 @@
 import type { DailyBucket } from "@/lib/home";
-import { getHomeString } from "@/lib/home";
+import { T } from "@/components/i18n/t";
 
 /**
  * Small timeline axis: a count dot on every day, with a count bubble above
@@ -27,7 +27,7 @@ export function TimelineHistogram({
   return (
     <figure className="mt-3">
       <figcaption className="sr-only">
-        {getHomeString("timelineCaption", { days: windowDays })}
+        <T area="home" k="timelineCaption" vars={{ days: windowDays }} />
       </figcaption>
       <div className="relative mx-2 h-16" aria-hidden="true">
         <div className="absolute inset-x-0 bottom-5 border-t border-line" />
@@ -66,7 +66,7 @@ export function TimelineHistogram({
             }`}
             style={{ left: `${pct(index)}%`, bottom: 0 }}
           >
-            {bucket.label}
+            {bucket.label === "vandaag" ? <T area="home" k="timelineToday" /> : bucket.label}
           </span>
         ))}
       </div>

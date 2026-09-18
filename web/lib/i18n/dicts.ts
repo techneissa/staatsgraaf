@@ -2,7 +2,7 @@ import type { Locale } from "./locales";
 
 export type DictTable = Record<string, { nl: string; en: string }>;
 
-export const DICT_AREAS = ["common", "graph", "power", "home", "news", "entity"] as const;
+export const DICT_AREAS = ["common", "graph", "power", "home", "news", "entity", "pages"] as const;
 export type DictArea = (typeof DICT_AREAS)[number];
 
 export type Dicts = Record<DictArea, DictTable>;

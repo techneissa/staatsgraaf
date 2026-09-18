@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
+import { T } from "@/components/i18n/t";
 import { branchColorVar } from "@/lib/branch-colors";
 import {
   getDatasetDate,
@@ -58,10 +59,15 @@ export default function PositionsIndexPage() {
       <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Posities" }]} />
 
       <header className="mt-4">
-        <h1 className="text-3xl font-semibold tracking-tight text-ink">Posities</h1>
+        <h1 className="text-3xl font-semibold tracking-tight text-ink">
+          <T area="entity" k="positionsIndexTitle" />
+        </h1>
         <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
-          Alle {formatCount(positions.length)} posities in de dataset, gegroepeerd naar type. Elke
-          positiepagina toont de wettelijke basis, de vulwijze en de reeks bekleders met een bron.
+          <T
+            area="entity"
+            k="positionsIndexIntro"
+            vars={{ n: formatCount(positions.length) }}
+          />
         </p>
       </header>
 
@@ -114,7 +120,11 @@ export default function PositionsIndexPage() {
                     ) : null}
                     {position.seatsCount !== null ? (
                       <p className="mt-auto pt-1.5 text-xs tabular-nums text-ink-faint">
-                        {formatCount(position.seatsCount)} zetels
+                        <T
+                          area="common"
+                          k="seatsOfLabel"
+                          vars={{ n: formatCount(position.seatsCount) }}
+                        />
                       </p>
                     ) : null}
                   </article>

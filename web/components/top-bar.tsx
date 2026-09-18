@@ -29,7 +29,7 @@ export function TopBar() {
             {t("menu")}
           </summary>
           <nav
-            aria-label="Hoofdnavigatie"
+            aria-label={t("navMain")}
             className="absolute left-0 top-full z-30 mt-2 flex min-w-44 flex-col gap-0.5 rounded-md border border-line bg-surface p-2 text-sm shadow-lg"
           >
             {NAV.map((item) => (
@@ -43,7 +43,7 @@ export function TopBar() {
             ))}
           </nav>
         </details>
-        <nav aria-label="Hoofdnavigatie" className="hidden items-center gap-1 text-sm md:flex">
+        <nav aria-label={t("navMain")} className="hidden items-center gap-1 text-sm md:flex">
           {NAV.map((item) => (
             <Link
               key={item.href}

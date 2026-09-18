@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { EntityCard } from "@/components/entity-card";
+import { T } from "@/components/i18n/t";
+import { LabelledNav } from "@/components/entity/labelled-nav";
 import { branchColorVar } from "@/lib/branch-colors";
 import { getDatasetDate, getOrganizations } from "@/lib/data";
 import { formatCount } from "@/lib/format";
@@ -57,15 +59,19 @@ export default function OrganizationsIndexPage() {
       <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Organisaties" }]} />
 
       <header className="mt-4">
-        <h1 className="text-3xl font-semibold tracking-tight text-ink">Organisaties</h1>
+        <h1 className="text-3xl font-semibold tracking-tight text-ink">
+          <T area="entity" k="orgIndexTitle" />
+        </h1>
         <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
-          Alle {formatCount(organizations.length)} organisaties in de dataset, gegroepeerd naar
-          staatsmacht. Elke organisatiepagina toont de positie in de staatsinrichting, de
-          bijbehorende posities en de bronnen.
+          <T
+            area="entity"
+            k="orgIndexIntro"
+            vars={{ n: formatCount(organizations.length) }}
+          />
         </p>
       </header>
 
-      <nav aria-label="Groepen" className="mt-6">
+      <LabelledNav area="entity" k="groupNavLabel" className="mt-6">
         <ul className="flex flex-wrap gap-2">
           {groups.map((group) => (
             <li key={group.branch}>
@@ -86,7 +92,7 @@ export default function OrganizationsIndexPage() {
             </li>
           ))}
         </ul>
-      </nav>
+      </LabelledNav>
 
       {groups.map((group) => (
         <section

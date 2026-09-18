@@ -4,6 +4,8 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { PersonPortrait } from "@/components/entity/person-portrait";
 import { PartyBadge } from "@/components/party-badge";
+import { T } from "@/components/i18n/t";
+import { LabelledNav } from "@/components/entity/labelled-nav";
 import {
   getDatasetDate,
   getPeople,
@@ -66,15 +68,22 @@ export default function PeopleIndexPage() {
       <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Personen" }]} />
 
       <header className="mt-4">
-        <h1 className="text-3xl font-semibold tracking-tight text-ink">Personen</h1>
+        <h1 className="text-3xl font-semibold tracking-tight text-ink">
+          <T area="entity" k="peopleIndexTitle" />
+        </h1>
         <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
-          Alle {formatCount(people.length)} personen in de dataset, alfabetisch. Van{" "}
-          {formatCount(withPortrait)} personen is een gelicentieerd portret opgenomen; de overige
-          tonen initialen. Elke functie op een persoonspagina heeft een bron.
+          <T
+            area="entity"
+            k="peopleIndexIntro"
+            vars={{
+              n: formatCount(people.length),
+              withPortrait: formatCount(withPortrait),
+            }}
+          />
         </p>
       </header>
 
-      <nav aria-label="Alfabet" className="mt-6">
+      <LabelledNav area="entity" k="alphabetNavLabel" className="mt-6">
         <ul className="flex flex-wrap gap-1.5">
           {groups.map((group) => (
             <li key={group.letter}>
@@ -90,7 +99,7 @@ export default function PeopleIndexPage() {
             </li>
           ))}
         </ul>
-      </nav>
+      </LabelledNav>
 
       {groups.map((group) => (
         <section key={group.letter} aria-labelledby={`letter-${group.letter}`} className="mt-8">

@@ -3,6 +3,7 @@
 import * as Tabs from "@radix-ui/react-tabs";
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
+import { useT } from "@/components/i18n/use-t";
 import { ChangeHistogram } from "./change-histogram";
 import type { ChangeKind } from "@/lib/types";
 
@@ -30,12 +31,12 @@ export type ChangePane = {
 
 type FilterValue = "all" | "appointment" | "departure" | "vacancy" | "acting";
 
-const FILTERS: { value: FilterValue; label: string }[] = [
-  { value: "all", label: "Alles" },
-  { value: "appointment", label: "Aanstellingen" },
-  { value: "departure", label: "Vertrekken" },
-  { value: "vacancy", label: "Vacatures" },
-  { value: "acting", label: "Waarnemend" },
+const FILTERS: { value: FilterValue; key: string }[] = [
+  { value: "all", key: "filterAll" },
+  { value: "appointment", key: "filterAppointments" },
+  { value: "departure", key: "filterDepartures" },
+  { value: "vacancy", key: "filterVacancies" },
+  { value: "acting", key: "filterActing" },
 ];
 
 const INITIAL_VISIBLE = 10;
@@ -83,6 +84,7 @@ export function ChangeExplorer({
   acting: ReactNode;
   actingCount: number;
 }) {
+  const t = useT("home");
   const [activeDays, setActiveDays] = useState(
     String(panes.find((pane) => pane.days === 30)?.days ?? panes[0]?.days ?? 30),
   );
@@ -93,10 +95,16 @@ export function ChangeExplorer({
     setExpanded(false);
   }, [activeDays, filter]);
 
+  const dayLabel = (label: string) => {
+    if (label === "Vandaag") return t("dayToday");
+    if (label === "Gisteren") return t("dayYesterday");
+    return label;
+  };
+
   return (
     <Tabs.Root value={activeDays} onValueChange={setActiveDays}>
       <Tabs.List
-        aria-label="Periode"
+        aria-label={t("periodTabsAria")}
         className="inline-flex gap-1 rounded-sm border border-line bg-surface-inset p-1"
       >
         {panes.map((pane) => (
@@ -122,7 +130,7 @@ export function ChangeExplorer({
           >
             <ChangeHistogram buckets={pane.histogram} days={pane.days} total={pane.total} />
 
-            <div role="group" aria-label="Filter op soort" className="mt-3 flex flex-wrap gap-2">
+            <div role="group" aria-label={t("filterGroupAria")} className="mt-3 flex flex-wrap gap-2">
               {FILTERS.map((option) => {
                 const active = filter === option.value;
                 let count: number | null = null;
@@ -143,7 +151,7 @@ export function ChangeExplorer({
                         : "border-line bg-surface-raised text-ink-muted hover:text-ink"
                     }`}
                   >
-                    {option.label}
+                    {t(option.key)}
                     {count !== null ? (
                       <span className="ml-1.5 tabular-nums text-ink-faint">{count}</span>
                     ) : null}
@@ -159,7 +167,7 @@ export function ChangeExplorer({
                 acting
               ) : visible.length === 0 ? (
                 <p className="rounded-md border border-dashed border-line bg-surface-inset p-5 text-center text-sm text-ink-faint">
-                  Geen wijzigingen van dit soort in dit venster.
+                  {t("kindFilteredEmpty")}
                 </p>
               ) : (
                 <div className="space-y-6">
@@ -167,7 +175,7 @@ export function ChangeExplorer({
                     <section key={group.date} aria-labelledby={`dag-${group.date}`}>
                       <div className="flex items-baseline justify-between gap-2">
                         <h3 id={`dag-${group.date}`} className="text-sm font-semibold text-ink">
-                          {group.label}
+                          {dayLabel(group.label)}
                         </h3>
                         <span className="text-xs tabular-nums text-ink-faint">{group.items.length}</span>
                       </div>
@@ -188,9 +196,7 @@ export function ChangeExplorer({
                     onClick={() => setExpanded((value) => !value)}
                     className="mt-4 rounded-sm border border-line bg-surface-raised px-3 py-2 text-sm font-medium text-ink transition-fast hover:border-line-strong"
                   >
-                    {expanded
-                      ? "Toon minder wijzigingen"
-                      : `Toon alle ${total} wijzigingen`}
+                    {expanded ? t("showFewer") : t("showAllChanges", { n: total })}
                   </button>
                 ) : null
               ) : null}

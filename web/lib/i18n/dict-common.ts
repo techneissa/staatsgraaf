@@ -13,6 +13,7 @@ export const COMMON_DICT = {
   navPeople: { nl: "Personen", en: "People" },
   navPositions: { nl: "Posities", en: "Positions" },
   navMain: { nl: "Hoofdnavigatie", en: "Main navigation" },
+  breadcrumbAria: { nl: "Kruimelpad", en: "Breadcrumb" },
   menu: { nl: "Menu", en: "Menu" },
   searchRequiresJs: {
     nl: "Zoeken vereist JavaScript, blader door onderwerpen",

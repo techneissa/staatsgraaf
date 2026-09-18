@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Card } from "./card";
 import { KindBadge } from "./kind-badge";
+import { L } from "@/components/i18n/t";
 
 export type TimelineItem = {
   id: string;
@@ -33,7 +34,11 @@ export function Timeline({ items, label }: { items: TimelineItem[]; label: strin
               </div>
             </div>
             <div className="flex shrink-0 items-center gap-2">
-              {item.current ? <KindBadge tone="accent">Huidig</KindBadge> : null}
+              {item.current ? (
+                <KindBadge tone="accent">
+                  <L nl="Huidig" en="Current" />
+                </KindBadge>
+              ) : null}
               <span className="text-xs text-ink-faint">{item.period}</span>
             </div>
           </Card>

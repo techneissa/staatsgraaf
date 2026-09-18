@@ -7,12 +7,14 @@ import { BudgetHistory } from "@/components/budget/budget-history";
 import { BudgetYearFigures } from "@/components/budget/budget-year-figures";
 import { ChangeIndicator } from "@/components/budget/change-indicator";
 import { T } from "@/components/i18n/t";
-import { EmptyState } from "@/components/empty-state";
+import { DictEmptyState } from "@/components/budget/dict-empty-state";
 import { JsonLd } from "@/components/json-ld";
 import { SourceList } from "@/components/source-list";
 import {
   budgetDelta,
   budgetUnitLabel,
+  formatBudgetAmount,
+  formatBudgetPercent,
   getBudgetByOrganizationSlug,
   getBudgetOrganizations,
 } from "@/lib/budget";
@@ -104,7 +106,11 @@ export default async function BudgetOrganizationPage({
         ) : null}
         {currentYear !== null && previousYear !== null ? (
           <p className="mt-1 text-xs text-ink-faint">
-            Vergelijking van {currentYear} met {previousYear}.
+            <T
+              area="news"
+              k="budgetComparisonNote"
+              vars={{ current: currentYear, previous: previousYear }}
+            />
           </p>
         ) : null}
       </header>
@@ -116,12 +122,24 @@ export default async function BudgetOrganizationPage({
           </h2>
           {currentYear !== null && previousYear !== null ? (
             delta !== null ? (
-              <ChangeIndicator
-                delta={delta}
-                unit={view.unit}
-                since={String(previousYear)}
-                label="de begrote uitgaven"
-              />
+              (() => {
+                const direction =
+                  delta.absolute > 0 ? "up" : delta.absolute < 0 ? "down" : "flat";
+                const sign = direction === "up" ? "+" : direction === "down" ? "−" : "";
+                return (
+                  <ChangeIndicator
+                    direction={direction}
+                    percent={
+                      delta.percent !== null
+                        ? `${sign}${formatBudgetPercent(delta.percent)}`
+                        : null
+                    }
+                    absolute={formatBudgetAmount(delta.absolute, view.unit)}
+                    since={String(previousYear)}
+                    labelKey="budgetChangeIndicatorLabel"
+                  />
+                );
+              })()
             ) : null
           ) : null}
           <div className="mt-3">
@@ -141,9 +159,9 @@ export default async function BudgetOrganizationPage({
               <T area="news" k="budgetFiguresHeading" />
           </h2>
           <div className="mt-3">
-            <EmptyState
-              title="Geen bedragen beschikbaar"
-              description="De bron bevat voor deze organisatie nog geen begrote uitgaven, ontvangsten of saldo."
+            <DictEmptyState
+              titleKey="budgetNoFiguresTitle"
+              descriptionKey="budgetNoFiguresDescription"
             />
           </div>
         </section>
@@ -154,7 +172,7 @@ export default async function BudgetOrganizationPage({
             <T area="news" k="budgetHistoryHeading" />
         </h2>
         <p className="mt-1 text-sm text-ink-muted">
-          De werkelijke uitgaven en ontvangsten per jaar zoals de begrotingsstaten die melden.
+          <T area="news" k="budgetHistoryCaption" />
         </p>
         <div className="mt-3">
           <BudgetHistory history={view.history} unit={view.unit} sources={view.sources} />

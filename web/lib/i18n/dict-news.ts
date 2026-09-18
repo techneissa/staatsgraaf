@@ -5,6 +5,19 @@ export const NEWS_DICT = {
   mediaTitle: { nl: "Media", en: "Media" },
   whosConnected: { nl: "Wie is verbonden?", en: "Who is connected?" },
 
+  // News list and news card (server-rendered cards with client-swapped chrome)
+  cardOpensNewTab: { nl: "(opent in een nieuw tabblad)", en: "(opens in a new tab)" },
+  cardMentionedLabel: { nl: "Genoemd in dit bericht", en: "Mentioned in this item" },
+  imageCreditLabel: { nl: "Beeld:", en: "Image:" },
+  sourceRankAria: { nl: "Bron {rank} voor dit bericht", en: "Source {rank} for this item" },
+  newsListEmptyTitle: { nl: "Nog geen nieuws", en: "No news yet" },
+  newsListEmptyDescription: {
+    nl: "Zodra de nieuwsbronnen zijn ontsloten, verschijnen hier berichten met gekoppelde organisaties, personen en een bron per bericht.",
+    en: "Once the news sources are unlocked, items appear here with linked organizations, people and one source per item.",
+  },
+  newsListShowMore: { nl: "Laad meer ({count})", en: "Show more ({count})" },
+  newsListShowLess: { nl: "Minder weergeven", en: "Show less" },
+
   // Topics: cards, responsible list, topic news
   topicsHeading: { nl: "Onderwerpen", en: "Topics" },
   topicsIntro: {
@@ -77,4 +90,68 @@ export const NEWS_DICT = {
   budgetTableAmount: { nl: "Bedrag", en: "Amount" },
   budgetTableCategory: { nl: "Categorie", en: "Category" },
   budgetTableShareAria: { nl: "Aandeel", en: "Share" },
+  budgetTableComparison: { nl: "Vergelijking", en: "Comparison" },
+
+  // Budget: table rows, captions, source notes, empty states
+  budgetNetFormula: { nl: "Saldo (ontvangsten min uitgaven)", en: "Net result (revenue minus spending)" },
+  budgetNotAvailable: { nl: "Niet beschikbaar", en: "Not available" },
+  budgetUnknownUnit: { nl: "onbekende eenheid", en: "unknown unit" },
+  budgetSourceLabel: { nl: "Bron:", en: "Source:" },
+  budgetUnknownSource: { nl: "Onbekende bron ({id})", en: "Unknown source ({id})" },
+  budgetYearFiguresCaption: {
+    nl: "Begrote en gerealiseerde bedragen per jaar, in {unit}.",
+    en: "Budgeted and realized amounts per year, in {unit}.",
+  },
+  budgetHistoryCaptionSr: {
+    nl: "Gerealiseerde uitgaven en ontvangsten per jaar, in {unit}.",
+    en: "Realized spending and revenue per year, in {unit}.",
+  },
+  budgetBreakdownCaption: {
+    nl: "{label} per categorie, in {unit}.",
+    en: "{label} by category, in {unit}.",
+  },
+  budgetBreakdownSpending: { nl: "Uitgaven", en: "Spending" },
+  budgetBreakdownRevenue: { nl: "Ontvangsten", en: "Revenue" },
+  budgetBreakdownEmptyTitle: { nl: "Geen uitsplitsing naar categorie beschikbaar", en: "No breakdown by category available" },
+  budgetBreakdownEmptyDescription: {
+    nl: "De bron voor deze begroting bevat nog geen categorieën met bedragen. Dit is een bekend gat: er wordt geen uitsplitsing getoond die niet in de bron staat.",
+    en: "The source for this budget contains no categories with amounts yet. This is a named gap: no breakdown is shown that is not in the source.",
+  },
+  budgetHistoryEmptyTitle: { nl: "Geen reeks beschikbaar", en: "No series available" },
+  budgetHistoryEmptyDescription: {
+    nl: "Voor deze organisatie bevat de bron geen reeks van gerealiseerde uitgaven per jaar.",
+    en: "For this organization the source contains no series of realized spending per year.",
+  },
+  budgetNoFiguresTitle: { nl: "Geen bedragen beschikbaar", en: "No amounts available" },
+  budgetNoFiguresDescription: {
+    nl: "De bron bevat voor deze organisatie nog geen begrote uitgaven, ontvangsten of saldo.",
+    en: "The source does not yet contain budgeted spending, revenue or net result for this organization.",
+  },
+  budgetComparisonNote: { nl: "Vergelijking van {current} met {previous}.", en: "Comparing {current} with {previous}." },
+  budgetTotalsNote: {
+    nl: "Deze totalen tellen de begrotingen van de afzonderlijke ministeries op zoals gerapporteerd en zijn niet gecorrigeerd voor overlappende stromen tussen begrotingen. Het saldo is het verschil tussen ontvangsten en uitgaven per begroting.",
+    en: "These totals sum the budgets of the individual ministries as reported and are not corrected for overlapping flows between budgets. The net result is revenue minus spending per budget.",
+  },
+  budgetTotalsPartialNote: {
+    nl: "Niet elke begroting heeft een volledig cijfer; het totaal is dan gedeeltelijk.",
+    en: "Not every budget has a complete figure; the total is partial in that case.",
+  },
+  budgetTotalsComparable: {
+    nl: "{counted} van {total} begrotingen hebben een vergelijkbaar cijfer voor {year}.",
+    en: "{counted} of {total} budgets have a comparable figure for {year}.",
+  },
+  budgetChangeIndicatorDefault: { nl: "de uitgaven", en: "spending" },
+  budgetChangeSrUp: {
+    nl: "{label} zijn gestegen met {amount} ten opzichte van {year}:",
+    en: "{label} rose by {amount} compared with {year}:",
+  },
+  budgetChangeSrDown: {
+    nl: "{label} zijn gedaald met {amount} ten opzichte van {year}:",
+    en: "{label} fell by {amount} compared with {year}:",
+  },
+  budgetChangeSrFlat: {
+    nl: "{label} zijn gelijk gebleven ten opzichte van {year}:",
+    en: "{label} stayed the same compared with {year}:",
+  },
+  budgetChangeUnknown: { nl: "onbekend", en: "unknown" },
 } as const satisfies Record<string, LocString>;

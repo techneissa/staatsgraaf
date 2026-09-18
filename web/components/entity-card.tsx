@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { branchColorClass } from "@/lib/branch-colors";
+import { T } from "@/components/i18n/t";
 import { formatCount } from "@/lib/format";
 import { ORG_BRANCH_LABELS, ORG_SUBTYPE_LABELS } from "@/lib/labels";
 import type { Organization } from "@/lib/types";
@@ -37,9 +38,11 @@ export function EntityCard({ organization }: { organization: Organization }) {
       ) : null}
       {seats !== null || employees !== null ? (
         <p className="mt-auto pt-2 text-xs tabular-nums text-ink-faint">
-          {seats !== null ? `${formatCount(seats)} zetels` : null}
+          {seats !== null ? <T area="common" k="seatsOfLabel" vars={{ n: formatCount(seats) }} /> : null}
           {seats !== null && employees !== null ? " · " : null}
-          {employees !== null ? `${formatCount(employees)} medewerkers` : null}
+          {employees !== null ? (
+            <T area="entity" k="employeesShort" vars={{ n: formatCount(employees) }} />
+          ) : null}
         </p>
       ) : null}
     </article>

@@ -2,12 +2,7 @@
 
 import * as Tabs from "@radix-ui/react-tabs";
 import type { ReactNode } from "react";
-import { useLocale } from "@/components/i18n/language-provider";
-
-const WINDOW_TABS_ARIA = {
-  nl: "Wijzigingsperiode",
-  en: "Change period",
-} as const;
+import { useT } from "@/components/i18n/use-t";
 
 export type ChangeWindowPanel = {
   value: string;
@@ -25,11 +20,11 @@ export function ChangeWindowTabs({
   panels: ChangeWindowPanel[];
   defaultValue: string;
 }) {
-  const locale = useLocale();
+  const t = useT("home");
   return (
     <Tabs.Root defaultValue={defaultValue}>
       <Tabs.List
-        aria-label={locale === "en" ? WINDOW_TABS_ARIA.en : WINDOW_TABS_ARIA.nl}
+        aria-label={t("windowTabsLabel")}
         className="inline-flex items-center gap-0.5 rounded-pill border border-line bg-surface-inset p-0.5"
       >
         {panels.map((panel) => (

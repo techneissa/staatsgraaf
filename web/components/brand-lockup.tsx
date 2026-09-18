@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { SCOPE_LABEL, SITE_NAME } from "@/lib/site";
+import { T } from "@/components/i18n/t";
+import { SITE_NAME } from "@/lib/site";
 
 export function BrandLockup() {
   return (
@@ -19,7 +20,7 @@ export function BrandLockup() {
       </svg>
       <span className="text-sm font-semibold tracking-tight text-ink">{SITE_NAME}</span>
       <span className="rounded-pill border border-line px-2 py-0.5 text-xs text-ink-muted">
-        {SCOPE_LABEL}
+        <T area="pages" k="scopeLabel" />
       </span>
     </Link>
   );

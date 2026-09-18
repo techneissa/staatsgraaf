@@ -1,14 +1,17 @@
-import { EmptyState } from "@/components/empty-state";
+import { L } from "@/components/i18n/t";
+import { DictEmptyState } from "./dict-empty-state";
 import { T } from "@/components/i18n/t";
-import { SourceLink } from "@/components/source-link";
-import { getSourceById } from "@/lib/data";
+import { interpolate } from "@/lib/i18n/locales";
+import { NEWS_DICT } from "@/lib/i18n/dict-news";
 import { formatBudgetAmount, type BudgetBreakdownRow } from "@/lib/budget";
+import { toSourceNoteItems } from "./source-note-data";
+import { SourceNote } from "./source-note";
 import type { SourceRef } from "@/lib/types";
 
-const TYPE_LABELS: Record<BudgetBreakdownRow["type"], string> = {
-  spending: "Uitgaven",
-  revenue: "Ontvangsten",
-};
+const TYPE_LABELS = {
+  spending: "budgetBreakdownSpending",
+  revenue: "budgetBreakdownRevenue",
+} as const;
 
 export function BudgetBreakdown({
   breakdown,
@@ -23,9 +26,9 @@ export function BudgetBreakdown({
 }) {
   if (breakdown.length === 0) {
     return (
-      <EmptyState
-        title="Geen uitsplitsing naar categorie beschikbaar"
-        description="De bron voor deze begroting bevat nog geen categorieën met bedragen. Dit is een bekend gat: er wordt geen uitsplitsing getoond die niet in de bron staat."
+      <DictEmptyState
+        titleKey="budgetBreakdownEmptyTitle"
+        descriptionKey="budgetBreakdownEmptyDescription"
       />
     );
   }
@@ -37,80 +40,88 @@ export function BudgetBreakdown({
   const groupMax = (rows: BudgetBreakdownRow[]) =>
     rows.reduce((value, row) => (row.amount !== null && row.amount > value ? row.amount : value), 0);
 
+  const caption = (type: keyof typeof TYPE_LABELS) => {
+    const label = {
+      nl: NEWS_DICT[TYPE_LABELS[type]].nl,
+      en: NEWS_DICT[TYPE_LABELS[type]].en,
+    };
+    return {
+      nl: interpolate(NEWS_DICT.budgetBreakdownCaption.nl, {
+        label: label.nl,
+        unit: unit ?? NEWS_DICT.budgetUnknownUnit.nl,
+      }),
+      en: interpolate(NEWS_DICT.budgetBreakdownCaption.en, {
+        label: label.en,
+        unit: unit ?? NEWS_DICT.budgetUnknownUnit.en,
+      }),
+    };
+  };
+
   return (
     <div>
-      {groups.map((group) => (
-        <div key={group.type} className="mb-5 last:mb-0">
-          <h3 className="text-xs font-medium uppercase tracking-wider text-ink-faint">
-            {TYPE_LABELS[group.type]}
-            {fiscalYear !== null ? ` ${fiscalYear}` : ""}
-          </h3>
-          <table className="mt-2 w-full border-collapse text-sm">
-            <caption className="sr-only">
-              {TYPE_LABELS[group.type]} per categorie, in {unit ?? "onbekende eenheid"}
-            </caption>
-            <thead>
-              <tr className="border-b border-line text-left">
-                <th scope="col" className="py-2 pe-3 text-xs uppercase tracking-wider font-medium text-ink-faint">
-                  <T area="news" k="budgetTableCategory" />
-                </th>
-                <th scope="col" className="py-2 text-right text-xs uppercase tracking-wider font-medium text-ink-faint">
-                  <T area="news" k="budgetTableAmount" />
-                </th>
-                <th scope="col" className="w-24 py-2 pl-3 font-medium text-ink-faint">
-                  <span className="sr-only">Aandeel</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {group.rows.map((row) => (
-                <tr key={`${group.type}-${row.category}`} className="border-b border-line last:border-b-0">
-                  <th scope="row" className="py-2 pe-3 text-left font-normal text-ink-muted">
-                    {row.category}
+      {groups.map((group) => {
+        const heading = TYPE_LABELS[group.type];
+        const captionText = caption(group.type);
+        return (
+          <div key={group.type} className="mb-5 last:mb-0">
+            <h3 className="text-xs font-medium uppercase tracking-wider text-ink-faint">
+              <T area="news" k={heading} />
+              {fiscalYear !== null ? ` ${fiscalYear}` : ""}
+            </h3>
+            <table className="mt-2 w-full border-collapse text-sm">
+              <caption className="sr-only">
+                <L nl={captionText.nl} en={captionText.en} />
+              </caption>
+              <thead>
+                <tr className="border-b border-line text-left">
+                  <th scope="col" className="py-2 pe-3 text-xs uppercase tracking-wider font-medium text-ink-faint">
+                    <T area="news" k="budgetTableCategory" />
                   </th>
-                  <td className="py-2 text-right tabular-nums text-ink">
-                    {formatBudgetAmount(row.amount, unit) ?? (
-                      <span className="text-ink-faint">Niet gerapporteerd</span>
-                    )}
-                  </td>
-                  <td className="w-24 py-2 pl-3" aria-hidden="true">
-                    <span className="block h-2 w-full rounded-pill bg-surface-inset">
-                      <span
-                        className="block h-2 rounded-pill bg-accent"
-                        style={{
-                          width:
-                            groupMax(group.rows) > 0 && row.amount !== null
-                              ? `${Math.max(2, Math.round((row.amount / groupMax(group.rows)) * 100))}%`
-                              : "0%",
-                        }}
-                      />
+                  <th scope="col" className="py-2 text-right text-xs uppercase tracking-wider font-medium text-ink-faint">
+                    <T area="news" k="budgetTableAmount" />
+                  </th>
+                  <th scope="col" className="w-24 py-2 pl-3 font-medium text-ink-faint">
+                    <span className="sr-only">
+                      <T area="news" k="budgetTableShareAria" />
                     </span>
-                  </td>
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ))}
+              </thead>
+              <tbody>
+                {group.rows.map((row) => (
+                  <tr key={`${group.type}-${row.category}`} className="border-b border-line last:border-b-0">
+                    <th scope="row" className="py-2 pe-3 text-left font-normal text-ink-muted">
+                      {row.category}
+                    </th>
+                    <td className="py-2 text-right tabular-nums text-ink">
+                      {formatBudgetAmount(row.amount, unit) ?? (
+                        <span className="text-ink-faint">
+                          <T area="news" k="budgetNotReported" />
+                        </span>
+                      )}
+                    </td>
+                    <td className="w-24 py-2 pl-3" aria-hidden="true">
+                      <span className="block h-2 w-full rounded-pill bg-surface-inset">
+                        <span
+                          className="block h-2 rounded-pill bg-accent"
+                          style={{
+                            width:
+                              groupMax(group.rows) > 0 && row.amount !== null
+                                ? `${Math.max(2, Math.round((row.amount / groupMax(group.rows)) * 100))}%`
+                                : "0%",
+                          }}
+                        />
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        );
+      })}
 
-      {sources.length > 0 ? (
-        <p className="mt-2 text-xs text-ink-faint">
-          Bron:{" "}
-          {sources.map((ref, index) => {
-            const source = getSourceById(ref.source);
-            return (
-              <span key={ref.source}>
-                {index > 0 ? ", " : null}
-                {source ? (
-                  <SourceLink href={source.url}>{source.title}</SourceLink>
-                ) : (
-                  <span>Onbekende bron ({ref.source})</span>
-                )}
-              </span>
-            );
-          })}
-        </p>
-      ) : null}
+      <SourceNote items={toSourceNoteItems(sources)} />
     </div>
   );
 }

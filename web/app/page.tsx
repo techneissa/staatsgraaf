@@ -10,7 +10,7 @@ import {
 } from "@/components/home/change-window-tabs";
 import { NewsBand } from "@/components/home/news-band";
 import { PeopleStrip } from "@/components/home/people-strip";
-import { L } from "@/components/i18n/t";
+import { L, T } from "@/components/i18n/t";
 import { JsonLd } from "@/components/json-ld";
 import { getDatasetDate, getOrganizationCounts } from "@/lib/data";
 import { formatCount } from "@/lib/format";
@@ -85,7 +85,9 @@ export default function HomePage() {
             en="The Dutch national government, mapped"
           />
         </h1>
-        <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">{SITE_TAGLINE}</p>
+        <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
+          <T area="common" k="brandTagline" />
+        </p>
       </section>
 
       <section aria-labelledby="nieuws-titel" className="border-b border-line py-6">

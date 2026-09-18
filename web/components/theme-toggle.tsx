@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useT } from "@/components/i18n/use-t";
 import { THEME_STORAGE_KEY } from "@/lib/site";
 
 export function ThemeToggle() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const t = useT("pages");
 
   useEffect(() => {
     const current = document.documentElement.getAttribute("data-theme");
@@ -12,7 +14,7 @@ export function ThemeToggle() {
   }, []);
 
   const isLight = theme === "light";
-  const nextLabel = isLight ? "Schakel naar donker thema" : "Schakel naar licht thema";
+  const nextLabel = isLight ? t("themeToDark") : t("themeToLight");
 
   function toggle() {
     const next = isLight ? "dark" : "light";

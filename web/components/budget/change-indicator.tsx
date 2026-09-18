@@ -1,6 +1,6 @@
-import { getS } from "@/lib/i18n/server-strings";
-import { formatBudgetAmount, formatBudgetPercent, type BudgetDelta } from "@/lib/budget";
-import { interpolate } from "@/lib/i18n/locales";
+"use client";
+
+import { useDict } from "@/components/i18n/use-t";
 
 /** Up and down share the branch tokens: leaf green for growth, deep red for decline. */
 const TONE: Record<"up" | "down" | "flat", string> = {
@@ -31,27 +31,28 @@ function TrendArrow({ direction }: { direction: "up" | "down" | "flat" }) {
 }
 
 export function ChangeIndicator({
-  delta,
-  unit,
+  direction,
+  percent,
+  absolute,
   since,
-  label = "de uitgaven",
+  labelKey = "budgetChangeIndicatorDefault",
 }: {
-  delta: BudgetDelta;
-  unit: string | null | undefined;
+  direction: "up" | "down" | "flat";
+  /** Signed percentage with sign, for example "+2,1%", or null when not computable. */
+  percent: string | null;
+  /** Formatted absolute change, or null when it could not be formatted. */
+  absolute: string | null;
   since: string;
-  label?: string;
+  labelKey?: "budgetChangeIndicatorDefault" | "budgetChangeIndicatorLabel" | "budgetTotalsChangeLabel";
 }) {
-  const direction = delta.absolute > 0 ? "up" : delta.absolute < 0 ? "down" : "flat";
-  const directionWord =
+  const t = useDict("news");
+  const amount = percent ?? (absolute !== null ? absolute : t("budgetChangeUnknown"));
+  const srKey =
     direction === "up"
-      ? getS("news", "budgetChangeUp")
+      ? "budgetChangeSrUp"
       : direction === "down"
-        ? getS("news", "budgetChangeDown")
-        : getS("news", "budgetChangeFlat");
-  const sign = direction === "up" ? "+" : direction === "down" ? "−" : "";
-  const percent =
-    delta.percent !== null ? `${sign}${formatBudgetPercent(delta.percent)}` : null;
-  const absolute = formatBudgetAmount(delta.absolute, unit) ?? "onbekend";
+        ? "budgetChangeSrDown"
+        : "budgetChangeSrFlat";
 
   return (
     <p
@@ -59,13 +60,11 @@ export function ChangeIndicator({
       style={{ color: TONE[direction] }}
     >
       <span className="sr-only">
-        {label} zijn {directionWord} met {percent ?? absolute} ten opzichte van {since}:
+        {t(srKey, { label: t(labelKey), amount, year: since })}
       </span>
       <TrendArrow direction={direction} />
-      <span className="font-medium tabular-nums">{percent ?? absolute}</span>
-      <span className="text-ink-faint">
-        {interpolate(getS("news", "budgetChangeSince"), { year: since })}
-      </span>
+      <span className="font-medium tabular-nums">{amount}</span>
+      <span className="text-ink-faint">{t("budgetChangeSince", { year: since })}</span>
     </p>
   );
 }

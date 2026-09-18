@@ -1,237 +1,209 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
-import { Breadcrumb } from "@/components/breadcrumb";
-import { ContentList, ContentSection } from "@/components/content/content-section";
-import { canonical } from "@/lib/site";
+import { T } from "@/components/i18n/t";
+import { getS } from "@/lib/i18n/server-strings";
+import { canonical, SITE_NAME } from "@/lib/site";
 
+/**
+ * Build-time SEO stays Dutch by design: pageMetadata copy is build-time only.
+ */
 export const metadata: Metadata = {
-  title: "Methodiek",
+  title: getS("pages", "methodTitle"),
   description:
     "Hoe Staatsgraaf de dataset opbouwt: bronnen, onderzoekswerkstromen, controles, de wijzigingenfeed, het gebruik van taalmodellen en de licentie.",
   alternates: canonical("/methodiek/"),
 };
 
+function Section({
+  id,
+  titleKey,
+  children,
+}: {
+  id: string;
+  titleKey: string;
+  children: ReactNode;
+}) {
+  return (
+    <section aria-labelledby={`${id}-titel`} className="border-b border-line py-6 last:border-b-0">
+      <h2 id={`${id}-titel`} className="text-lg font-semibold tracking-tight text-ink">
+        <T area="pages" k={titleKey} />
+      </h2>
+      <div className="mt-2 space-y-3 text-sm leading-relaxed text-ink-muted">{children}</div>
+    </section>
+  );
+}
+
+function List({ children }: { children: ReactNode }) {
+  return <ul className="list-disc space-y-1.5 ps-5 marker:text-ink-faint">{children}</ul>;
+}
+
 export default function MethodPage() {
   return (
     <>
-      <Breadcrumb items={[{ label: "Staatsgraaf", href: "/" }, { label: "Methodiek" }]} />
-      <h1 className="mt-4 text-2xl font-semibold tracking-tight text-ink">Methodiek</h1>
+      <nav aria-label="Kruimelpad">
+        <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-muted">
+          <li className="flex items-center gap-x-2">
+            <Link href="/" className="underline-offset-2 hover:text-ink hover:underline">
+              {SITE_NAME}
+            </Link>
+            <span aria-hidden="true" className="text-ink-faint">
+              /
+            </span>
+          </li>
+          <li className="flex items-center gap-x-2">
+            <span aria-current="page">
+              <T area="pages" k="methodTitle" />
+            </span>
+          </li>
+        </ol>
+      </nav>
+      <h1 className="mt-4 text-2xl font-semibold tracking-tight text-ink">
+        <T area="pages" k="methodTitle" />
+      </h1>
       <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
-        Staatsgraaf is een open, bronvaste kaart van de Nederlandse overheid. Deze pagina beschrijft
-        hoe de dataset tot stand komt, welke regels voor elke bewering gelden, hoe de
-        wijzigingenfeed werkt, waar taalmodellen wel en niet worden gebruikt, en welke grenzen de
-        data nu hebben.
+        <T area="pages" k="methodIntro" />
       </p>
 
       <div className="mt-4">
-        <ContentSection id="opbouw" title="Hoe de dataset tot stand komt">
+        <Section id="opbouw" titleKey="methodBuildTitle">
           <p>
-            De opbouw verloopt in fasen. Eerst legt een nulmeting de telbare uitgangspunten vast: de
-            samenstelling van het kabinet, de ministeries, de zetels in de Eerste en Tweede Kamer,
-            en de aantallen provincies, gemeenten en waterschappen. Elk gegeven krijgt een bron en
-            een datum.
+            <T area="pages" k="methodBuildP1" />
           </p>
           <p>
-            Daarna werken vijftien onderzoekswerkstromen parallel aan deelgebieden: de regering en
-            de ministeries, rijksdiensten, zelfstandige bestuursorganen en rechtspersonen met een
-            wettelijke taak, het parlement, de rechterlijke macht, hoge colleges en adviescolleges,
-            de decentrale overheid, de wettelijke grondslagen, personen en benoemingen, nieuws en
-            koppeling, onderwerpen, begroting, en de studies naar ontwerp, referentiemodel en
-            licentie.
+            <T area="pages" k="methodBuildP2" />
           </p>
           <p>
-            Elke werkstroom levert dezelfde vorm van uitvoer: een JSON-bestand en een
-            markdown-rapport. Bij elk feit staat een bron, een ophaaldatum en een
-            betrouwbaarheidsniveau (hoog, midden of laag).
+            <T area="pages" k="methodBuildP3" />
           </p>
           <p>
-            De merge-stap voegt de bestanden samen tot de dataset in de map <code>data/</code>.
-            Conflicten worden niet stil opgelost, maar vastgelegd in <code>research/merge-log.md</code>.
-            Daarna controleren validators de dataset tegen het schema en op verwijzingen tussen
-            records. De web-app leest de samengevoegde dataset op buildtijd en doet geen
-            runtime-verzoeken aan bronnen.
+            <T area="pages" k="methodBuildP4a" /> <code>data/</code>
+            <T area="pages" k="methodBuildP4b" /> <code>research/merge-log.md</code>
+            <T area="pages" k="methodBuildP4c" />
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="bronnen" title="Elke bewering heeft een bron">
+        <Section id="bronnen" titleKey="methodSourcesTitle">
           <p>
-            Elk niet-triviaal feit verwijst naar een bron met een URL, een ophaaldatum en een
-            betrouwbaarheidsniveau. De regel is: ophalen, nooit uit het geheugen. Een naam, datum of
-            aantal wordt niet opgeschreven zonder dat de bron is opgehaald.
+            <T area="pages" k="methodSourcesP1" />
           </p>
           <p>
-            Als een bron niet bereikbaar is, wordt er geen waarde ingevuld. In plaats daarvan staat
-            er een benoemde leemte met de reden en het adres waar het ontbrekende gegeven te vinden
-            is. Zo blijft zichtbaar wat wel en niet is onderzocht, ook wanneer een werkstroom niet
-            volledig is afgerond.
+            <T area="pages" k="methodSourcesP2" />
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="wijzigingen" title="De wijzigingenfeed">
+        <Section id="wijzigingen" titleKey="methodChangesTitle">
           <p>
-            De wijzigingenfeed vergelijkt de nieuwste dataset met de vorige. Records worden op id
-            gekoppeld, nooit op naam. Daardoor wordt een naamswijziging niet gelezen als een vertrek
-            plus een aanstelling.
+            <T area="pages" k="methodChangesP1" />
           </p>
           <p>
-            De vergelijking herkent zes soorten wijziging: een nieuw dienstverband (aanstelling), een
-            beëindigd dienstverband (vertrek), een vacature wanneer het aantal bezette zetels daalt,
-            een nieuwe organisatie, een naamswijziging en een verplaatsing.
+            <T area="pages" k="methodChangesP2" />
           </p>
           <p>
-            Elke wijziging draagt de datum van het onderliggende feit en de bron van het record dat
-            de wijziging veroorzaakt. Zonder bron wordt de wijziging niet gepubliceerd.
+            <T area="pages" k="methodChangesP3" />
           </p>
           <p>
-            Zolang er geen eerdere versie is, schrijft de vergelijking geen geschiedenis. De eerste
-            vulling komt uit een aparte, deterministische stap die alleen feiten met een datum of
-            een zetelaantal overneemt. Een leemte in de vorige versie blijft een leemte. De volledige
-            regels staan in <code>pipelines/diff-spec.md</code>.
+            <T area="pages" k="methodChangesP4a" /> <code>pipelines/diff-spec.md</code>.
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="onderhoud" title="Actualiteit en onderhoud">
+        <Section id="onderhoud" titleKey="methodMaintTitle">
           <p>
-            Elke nacht haalt de verversingsstap de actuele bewindspersonen op Rijksoverheid, de
-            ledenlijst van de Eerste Kamer en de fractiezetels van de Tweede Kamer. Wie in de
-            officiële lijst staat en nog geen lopende aanstelling heeft, krijgt er een met de
-            lijstpagina als bron. Wie uit de lijst verdwijnt, krijgt een einddatum gelijk aan de
-            ophaaldag, opnieuw met de lijstpagina als bron. Zo lopen functies en lidmaatschappen
-            automatisch mee met benoemingen, vertrek en verkiezingen.
+            <T area="pages" k="methodMaintP1" />
           </p>
           <p>
-            Een vangnet hoort bij die stap: zouden in één nacht meer dan vijf dienstverbanden
-            sluiten, dan stopt de hele verversing voordat er iets wordt geschreven. Zo&apos;n aantal
-            wijst meestal op een gewijzigde bronpagina in plaats van op echt vertrek. De productie
-            blijft dan op de laatste goede versie staan en de storing wordt gemeld.
+            <T area="pages" k="methodMaintP2" />
           </p>
           <p>
-            Het nieuws wordt elke zes uur opnieuw opgehaald: kop, koppeling naar het artikel,
-            publicatietijd, uitgever en waar de licentie het toestaat de inleiding. De
-            wijzigingenfeed vergelijkt de nieuwe dataset met de vorige op id, zodat een
-            naamswijziging niet als vertrek plus aanstelling verschijnt. Een record zonder bron
-            komt niet in de feed.
+            <T area="pages" k="methodMaintP3" />
           </p>
           <p>
-            De verversing dekt nu de regering en beide Kamers. Provincies, gemeenten,
-            waterschappen en Caribisch Nederland komen uit de onderzoekswerkstromen en hebben nog
-            geen live bron. Dat is een benoemde leemte; hun gegevens worden bij een volgende
-            onderzoeksronde bijgewerkt.
+            <T area="pages" k="methodMaintP4" />
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="ai" title="Taalmodellen en menselijke controle">
+        <Section id="ai" titleKey="methodAiTitle">
           <p>
-            Voor het beschrijven en samenvatten staat het beleid het gebruik van taalmodellen toe.
-            De hoofdregel is strikt: een model mag feiten die een bron noemt samenvatten,
-            herschrijven en van verwijzingen voorzien, maar mag nooit een feit toevoegen dat de bron
-            niet noemt. Twijfelt het model, dan wordt de uitvoer geschrapt of gemarkeerd, nooit
-            geraden.
+            <T area="pages" k="methodAiP1" />
           </p>
           <p>
-            De toegestane toepassingen zijn het opstellen van beschrijvingen bij organisaties en
-            posities, het samenvatten van nieuwsberichten, het koppelen van entiteiten in die
-            samenvattingen, het schrijven van een regel bij een wijziging, en het opstellen van een
-            onderwerpstekst. Elke toepassing heeft een vaste controle: beschrijvingen worden tegen
-            de aangehaalde bron gecontroleerd, nieuws mag alleen bevatten wat het artikel zelf zegt,
-            en koppelingen gaan via de aliassenlijst met een drempel en een handmatige
-            controlelijst.
+            <T area="pages" k="methodAiP2" />
           </p>
           <p>
-            Alles wat op de homepage verschijnt, krijgt voor publicatie een controle door een mens
-            of een gecontroleerde agent. Beschrijvingen worden bij de merge eenmalig tegen hun bron
-            bevestigd en daarna alleen herzien als de bron verandert. Modeluitvoer wordt nooit als
-            eigen verslaggeving gepresenteerd, en elke AI-ondersteunde tekst verwijst naar de
-            onderliggende bron.
+            <T area="pages" k="methodAiP3" />
           </p>
           <p>
-            In de huidige dataset komen nieuwssamenvattingen niet van een taalmodel. Ze worden met
-            een vaste tekst opgebouwd uit de titel en de inleiding van het artikel zelf. Welk model
-            in de toekomst wordt gebruikt voor de toegestane toepassingen, staat nog niet vast in de
-            repository. Dat is een open punt.
+            <T area="pages" k="methodAiP4" />
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="correcties" title="Correcties en het correctielogboek">
+        <Section id="correcties" titleKey="methodCorrectionsTitle">
           <p>
-            Een gepubliceerd feit wordt niet stil aangepast. Elke correctie wordt vastgelegd met de
-            oude waarde, de nieuwe waarde, de datum en de reden, in een openbaar logboek. Iemand die
-            de oude waarde heeft gezien, kan terugvinden wat er is veranderd en waarom.
+            <T area="pages" k="methodCorrectionsP1" />
           </p>
-          <p>Een ernstige fout krijgt tijdelijk een korte melding op de betrokken pagina.</p>
           <p>
-            De correctieprocedure staat beschreven, maar er is nog geen openbaar contactadres en nog
-            geen publieke repository-URL vastgelegd. Daardoor is er nog geen concrete plek waar je
-            een correctie kunt melden. Dat is een benoemde leemte. Zodra het adres en de repository
-            bekend zijn, staat hier hoe je een correctie meldt.
+            <T area="pages" k="methodCorrectionsP2" />
           </p>
-        </ContentSection>
+          <p>
+            <T area="pages" k="methodCorrectionsP3" />
+          </p>
+        </Section>
 
-        <ContentSection id="licenties" title="Licenties en hergebruik">
+        <Section id="licenties" titleKey="methodLicensesTitle">
           <p>
-            De code van Staatsgraaf valt onder de MIT-licentie. De dataset, de beschrijvingen en de
-            samenvattingen vallen onder CC BY 4.0. Hergebruik mag, ook commercieel, zolang de bron
-            wordt genoemd.
+            <T area="pages" k="methodLicensesP1" />
           </p>
           <p>
-            Naamsvermelding verwijst naar Staatsgraaf en naar de onderliggende bron, met de
-            bron-URL en de ophaaldatum. De volledige lijst per bron met licenties en creditregels
-            staat in <code>ATTRIBUTION.md</code>. De repository-URL is nog niet vastgelegd, dus deze
-            verwijzing is voorlopig een bestandsnaam zonder host en nog niet aanklikbaar in de
-            browser. Dat is een benoemde leemte. De licentiegegevens staan ook in <code>data/meta.json</code>.
+            <T area="pages" k="methodLicensesP2a" /> <code>ATTRIBUTION.md</code>
+            <T area="pages" k="methodLicensesP2b" /> <code>data/meta.json</code>.
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="grenzen" title="Grenzen van de data">
-          <p>De dataset is nog niet compleet. De volgende grenzen zijn bekend en benoemd.</p>
-          <ContentList>
+        <Section id="grenzen" titleKey="methodLimitsTitle">
+          <p>
+            <T area="pages" k="methodLimitsIntro" />
+          </p>
+          <List>
             <li>
-              843 posities hebben nog geen dienstverband met een bron. Het gaat vooral om
-              zetelgebonden functies zoals raadslid, statenlid, wethouder en gedeputeerde, en om een
-              aantal griffiers, secretarissen-generaal en diensthoofden.
+              <T area="pages" k="methodLimits1" />
             </li>
             <li>
-              Koepelorganisaties als de GGD'en en de omgevingsdiensten zijn nog niet gemodelleerd.
+              <T area="pages" k="methodLimits2" />
             </li>
             <li>
-              De drie landen van het Koninkrijk (Aruba, Curaçao en Sint Maarten) met hun gouverneurs
-              en Gevolmachtigde Ministers zijn nog niet gemodelleerd.
+              <T area="pages" k="methodLimits3" />
             </li>
             <li>
-              Van 330 van de 867 personen is een gelicentieerd portret opgenomen, met credit en
-              licentie in <code>data/media.json</code>. De overige personen tonen initialen.
+              <T area="pages" k="methodLimits4a" /> <code>data/media.json</code>
+              <T area="pages" k="methodLimits4b" />
             </li>
             <li>
-              Nieuwskaarten tonen geen beeld uit het artikel zelf: geen van de nieuwsbronnen staat
-              een beeldlicentie toe. In plaats daarvan tonen ze het portret van een gekoppeld
-              persoon wanneer dat beschikbaar is, anders een monogram van de uitgever.
+              <T area="pages" k="methodLimits5" />
             </li>
             <li>
-              Twee nieuwsbronnen weigeren verzoeken met een 403-status. Van die artikelen ontbreekt
-              een deel.
+              <T area="pages" k="methodLimits6" />
             </li>
             <li>
-              De wijzigingenfeed classificeert nog geen lidmaatschappen van grote colleges.
+              <T area="pages" k="methodLimits7" />
             </li>
-          </ContentList>
+          </List>
           <p>
-            Deze punten staan gepland voor een latere uitbreiding. Ze worden niet opgevuld met een
-            aanname.
+            <T area="pages" k="methodLimitsOutro" />
           </p>
-        </ContentSection>
+        </Section>
       </div>
 
       <p className="py-6 text-xs text-ink-faint">
-        Deze pagina is opgesteld op 18 september 2026. Zie ook{" "}
+        <T area="pages" k="methodFooterPre" />{" "}
         <Link href="/privacy/" className="text-accent-text underline-offset-2 hover:underline">
-          Privacy
+          <T area="pages" k="linkPrivacy" />
         </Link>{" "}
-        en{" "}
+        <T area="pages" k="andWord" />{" "}
         <Link
           href="/toegankelijkheid/"
           className="text-accent-text underline-offset-2 hover:underline"
         >
-          Toegankelijkheid
+          <T area="pages" k="linkAccessibility" />
         </Link>
         .
       </p>

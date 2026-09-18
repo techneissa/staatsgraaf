@@ -1,127 +1,147 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import Link from "next/link";
-import { Breadcrumb } from "@/components/breadcrumb";
-import { ContentList, ContentSection } from "@/components/content/content-section";
-import { canonical } from "@/lib/site";
+import { T } from "@/components/i18n/t";
+import { getS } from "@/lib/i18n/server-strings";
+import { canonical, SITE_NAME } from "@/lib/site";
 
+/**
+ * Build-time SEO stays Dutch by design: pageMetadata copy is build-time only.
+ */
 export const metadata: Metadata = {
-  title: "Toegankelijkheid",
+  title: getS("pages", "accessTitle"),
   description:
     "Toegankelijkheidsverklaring van Staatsgraaf: het nagestreefde niveau, wat al werkt, de bekende beperkingen en hoe je een probleem meldt.",
   alternates: canonical("/toegankelijkheid/"),
 };
 
+function Section({
+  id,
+  titleKey,
+  children,
+}: {
+  id: string;
+  titleKey: string;
+  children: ReactNode;
+}) {
+  return (
+    <section aria-labelledby={`${id}-titel`} className="border-b border-line py-6 last:border-b-0">
+      <h2 id={`${id}-titel`} className="text-lg font-semibold tracking-tight text-ink">
+        <T area="pages" k={titleKey} />
+      </h2>
+      <div className="mt-2 space-y-3 text-sm leading-relaxed text-ink-muted">{children}</div>
+    </section>
+  );
+}
+
+function List({ children }: { children: ReactNode }) {
+  return <ul className="list-disc space-y-1.5 ps-5 marker:text-ink-faint">{children}</ul>;
+}
+
 export default function AccessibilityPage() {
   return (
     <>
-      <Breadcrumb
-        items={[{ label: "Staatsgraaf", href: "/" }, { label: "Toegankelijkheid" }]}
-      />
-      <h1 className="mt-4 text-2xl font-semibold tracking-tight text-ink">Toegankelijkheid</h1>
+      <nav aria-label="Kruimelpad">
+        <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-muted">
+          <li className="flex items-center gap-x-2">
+            <Link href="/" className="underline-offset-2 hover:text-ink hover:underline">
+              {SITE_NAME}
+            </Link>
+            <span aria-hidden="true" className="text-ink-faint">
+              /
+            </span>
+          </li>
+          <li className="flex items-center gap-x-2">
+            <span aria-current="page">
+              <T area="pages" k="accessTitle" />
+            </span>
+          </li>
+        </ol>
+      </nav>
+      <h1 className="mt-4 text-2xl font-semibold tracking-tight text-ink">
+        <T area="pages" k="accessTitle" />
+      </h1>
       <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
-        Staatsgraaf wil voor iedereen leesbaar en bedienbaar zijn. Deze verklaring beschrijft het
-        nagestreefde niveau, wat al werkt, waar de site nog tekortschiet, en hoe je een probleem
-        meldt.
+        <T area="pages" k="accessIntro" />
       </p>
 
       <div className="mt-4">
-        <ContentSection id="doel" title="Doel">
+        <Section id="doel" titleKey="accessGoalTitle">
           <p>
-            De site streeft naar WCAG 2.2 niveau AA. Dat geldt voor de leesbare pagina's en voor de
-            interactieve onderdelen zoals de grafiek en het zoeken. De latere iOS- en iPadOS-app
-            volgt de toegankelijkheidsfuncties van het platform.
+            <T area="pages" k="accessGoalP1" />
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="werkt" title="Wat werkt">
-          <ContentList>
+        <Section id="werkt" titleKey="accessWorksTitle">
+          <List>
             <li>
-              Toetsenbord. Alle bediening is met het toetsenbord bereikbaar: eerst de bovenbalk, dan
-              de leeskolom en daarna de grafiek. De grafiek heeft eigen toetsenbordbediening.
-              Pijltjestoetsen verplaatsen de selectie, Enter opent de organisatie, Escape wist de
-              selectie, plus en min zoomen, en nul herstelt het beeld.
+              <T area="pages" k="accessWorks1" />
             </li>
             <li>
-              Zichtbare focus. Elk bedienbaar element heeft een zichtbare focusring. De ring
-              gebruikt de focuskleur uit de tokens en is in beide thema's zichtbaar.
+              <T area="pages" k="accessWorks2" />
             </li>
             <li>
-              Structuur. Elke pagina heeft één h1, oplopende koppen zonder overgeslagen niveaus, en
-              de landmarks header, nav, main, aside en footer.
+              <T area="pages" k="accessWorks3" />
             </li>
             <li>
-              Overslaan. Een skip-link met de tekst Naar de inhoud springt direct naar de
-              hoofdinhoud.
+              <T area="pages" k="accessWorks4" />
             </li>
             <li>
-              Contrast. De kleurparen die het controlescript in de repository toetst, halen in zowel
-              het lichte als het donkere thema de WCAG AA-minima. Het donkere thema is de standaard.
+              <T area="pages" k="accessWorks5" />
             </li>
             <li>
-              Beweging. De site respecteert de systeeminstelling voor minder beweging en schakelt
-              decoratieve overgangen uit.
+              <T area="pages" k="accessWorks6" />
             </li>
             <li>
-              De grafiek heeft een lijstalternatief. Naast de visuele grafiek staat een lijst van
-              organisaties per bestuurslaag. Bij een gekozen organisatie noemt de lijst ook de
-              verbindingen, met de richting en het soort relatie. Een schermlezer hoort de selectie
-              via een live melding.
+              <T area="pages" k="accessWorks7" />
             </li>
             <li>
-              Zoeken is een combobox. Het zoekveld heeft een label, een uitgeklapte status, een
-              resultatenlijst met opties en een live melding van het aantal resultaten.
+              <T area="pages" k="accessWorks8" />
             </li>
-          </ContentList>
-        </ContentSection>
+          </List>
+        </Section>
 
-        <ContentSection id="beperkingen" title="Bekende beperkingen">
-          <ContentList>
+        <Section id="beperkingen" titleKey="accessLimitsTitle">
+          <List>
             <li>
-              De grafiek is in de kern visueel. De positie van knooppunten en de vorm van het
-              netwerk worden niet aan een schermlezer beschreven. Dezelfde relaties staan in het
-              lijstalternatief en op de organisatiepagina's.
+              <T area="pages" k="accessLimits1" />
             </li>
             <li>
-              De labels in de grafiek gebruiken vaste pixelgroottes. Daardoor schalen ze niet mee
-              met tekstzoom in de browser. Bij een hoge tekstschaal kunnen de labels klein blijven.
+              <T area="pages" k="accessLimits2" />
             </li>
             <li>
-              De vaste tweekolomsindeling kan bij 200 procent tekstzoom krap worden. Dat is nog niet
-              in een echte browser getest.
+              <T area="pages" k="accessLimits3" />
             </li>
             <li>
-              Er is nog geen volledige handmatige controle met een schermlezer en een echte browser
-              afgerond. Een structurele scan en de contrastcontrole zijn wel uitgevoerd.
+              <T area="pages" k="accessLimits4" />
             </li>
-          </ContentList>
-          <p>Deze punten worden bijgehouden en in latere rondes opgelost.</p>
-        </ContentSection>
-
-        <ContentSection id="melden" title="Een probleem melden">
+          </List>
           <p>
-            Loop je tegen een toegankelijkheidsprobleem aan, dan kun je dat melden. Er is nog geen
-            openbaar contactadres en nog geen publieke repository-URL vastgelegd, dus er is nog geen
-            concrete plek voor een melding. Dat is een benoemde leemte. Zodra die gegevens er zijn,
-            staat hier hoe je meldt en binnen welke termijn je een reactie kunt verwachten.
+            <T area="pages" k="accessLimitsOutro" />
           </p>
-        </ContentSection>
+        </Section>
 
-        <ContentSection id="herziening" title="Herziening">
+        <Section id="melden" titleKey="accessReportTitle">
           <p>
-            Deze verklaring is opgesteld op 18 september 2026. De verklaring wordt herzien wanneer de
-            interface verandert of wanneer een nieuw onderzoek daartoe aanleiding geeft.
+            <T area="pages" k="accessReportP1" />
           </p>
-        </ContentSection>
+        </Section>
+
+        <Section id="herziening" titleKey="accessReviewTitle">
+          <p>
+            <T area="pages" k="accessReviewP1" />
+          </p>
+        </Section>
       </div>
 
       <p className="py-6 text-xs text-ink-faint">
-        Zie ook{" "}
+        <T area="pages" k="seeAlso" />{" "}
         <Link href="/methodiek/" className="text-accent-text underline-offset-2 hover:underline">
-          Methodiek
+          <T area="pages" k="linkMethodology" />
         </Link>{" "}
-        en{" "}
+        <T area="pages" k="andWord" />{" "}
         <Link href="/privacy/" className="text-accent-text underline-offset-2 hover:underline">
-          Privacy
+          <T area="pages" k="linkPrivacy" />
         </Link>
         .
       </p>

@@ -1,4 +1,4 @@
-import { EmptyState } from "@/components/empty-state";
+import { EmptyStateT } from "@/components/change/empty-state-t";
 import { SourceLink } from "@/components/source-link";
 import { L, T } from "@/components/i18n/t";
 import { getOrganizationById, getPositionById, getSourceById } from "@/lib/data";
@@ -233,9 +233,10 @@ function ConnectionGroupBlock({
 export function EntityConnections({ connections }: { connections: Connection[] }) {
   if (connections.length === 0) {
     return (
-      <EmptyState
-        title="Nog geen verbindingen"
-        description="In de dataset zijn voor dit onderdeel nog geen inkomende of uitgaande relaties met een bron opgenomen."
+      <EmptyStateT
+        area="entity"
+        title="noConnectionsTitle"
+        description="noConnectionsNote"
       />
     );
   }

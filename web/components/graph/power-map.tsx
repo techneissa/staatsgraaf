@@ -4,6 +4,7 @@ import { useMemo } from "react";
 import type { ReactNode } from "react";
 import type { EntityPowerPerson, PowerMap, PowerMapPerson } from "@/lib/graph";
 import { useT } from "@/components/i18n/use-t";
+import { useLocale } from "@/components/i18n/language-provider";
 import { partyByDataset } from "@/lib/parties";
 import {
   layoutPowerMap,
@@ -81,12 +82,20 @@ function initials(name: string): string {
   return `${first}${last}`.toUpperCase();
 }
 
-function PersonLink({ href, children }: { children: ReactNode; href: string | null }) {
+function PersonLink({
+  href,
+  label,
+  children,
+}: {
+  label: string;
+  children: ReactNode;
+  href: string | null;
+}) {
   if (href === null) {
     return <g>{children}</g>;
   }
   return (
-    <a href={href}>
+    <a href={href} aria-label={label}>
       {children}
     </a>
   );
@@ -95,6 +104,7 @@ function PersonLink({ href, children }: { children: ReactNode; href: string | nu
 export function PowerMapView({ powerMap, entityPeople, entityTitle }: PowerMapViewProps) {
   const t = useT("power");
   const tc = useT("common");
+  const locale = useLocale();
   const entityScoped = entityPeople !== undefined;
   const reference = powerMap.computedAt ?? null;
 
@@ -108,7 +118,7 @@ export function PowerMapView({ powerMap, entityPeople, entityTitle }: PowerMapVi
     [entityScoped, entityPeople, powerMap.people],
   );
 
-  const { cards, bounds } = useMemo(() => layoutPowerMap(people), [people]);
+  const { cards, bounds } = useMemo(() => layoutPowerMap(people, locale), [people, locale]);
 
   const articlesInWindow = powerMap.articleCount === 1
     ? t("powerMapArticle1")
@@ -169,7 +179,12 @@ export function PowerMapView({ powerMap, entityPeople, entityTitle }: PowerMapVi
         <p className="mt-1 text-xs text-ink-faint">{subtitle}</p>
       </div>
 
-      <svg viewBox={viewBox} className="h-full w-full">
+      <svg
+        viewBox={viewBox}
+        role="group"
+        aria-label={entityScoped ? t("powerMapAriaEntity") : t("powerMapAria")}
+        className="h-full w-full"
+      >
         <style>{`
           .power-map-card { transition: transform var(--t-duration-base) var(--t-ease-standard); }
           .power-map-card:hover { transform: translateY(-3px); }
@@ -253,7 +268,7 @@ export function PowerMapView({ powerMap, entityPeople, entityTitle }: PowerMapVi
           const href = person.slug ? `/personen/${person.slug}/` : null;
           return (
             <g key={person.person} transform={`translate(${card.x} ${card.y})`}>
-              <PersonLink href={href}>
+              <PersonLink href={href} label={t("powerMapOpenPersonName", { name: person.name })}>
                 <g className="power-map-card">
                   <title>
                     {person.name}
@@ -321,7 +336,7 @@ export function PowerMapView({ powerMap, entityPeople, entityTitle }: PowerMapVi
         })}
       </svg>
 
-      <ol className="sr-only">
+      <ol aria-label={t("powerMapTitle")} className="sr-only">
         {people.map((person: PowerMapPerson) => (
           <li key={person.person}>
             {person.rank}. {person.name}
