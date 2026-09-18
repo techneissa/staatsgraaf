@@ -126,6 +126,60 @@ test("a position that loses its last open tenure is a vacancy", async () => {
   assert.equal(vacancies[0].organization, "org:o");
 });
 
+test("a position with a growing seat deficit is a vacancy", async () => {
+  const { previousDir, currentDir, outPath } = await setup();
+  const position = positionRecord("pos:college", "Gedeputeerde", "org:o");
+  position.seatsCount = 5;
+  const openSeats = (count) =>
+    Array.from({ length: count }, (_, i) => tenureRecord(`tenure:t${i + 1}`, "person:x", "pos:college", "2026-01-01"));
+  await writeDataset(previousDir, {
+    "organizations.json": [orgRecord("org:o", "Org")],
+    "positions.json": [position],
+    "people.json": basePeople(),
+    "tenures.json": openSeats(4),
+    "meta.json": { snapshotId: "2026-01-01" },
+  });
+  const currentTenures = openSeats(4);
+  currentTenures[3] = tenureRecord("tenure:t4", "person:x", "pos:college", "2026-01-01", "2026-05-01");
+  await writeDataset(currentDir, {
+    "organizations.json": [orgRecord("org:o", "Org")],
+    "positions.json": [position],
+    "people.json": basePeople(),
+    "tenures.json": currentTenures,
+    "meta.json": { snapshotId: "2026-05-15" },
+  });
+
+  const result = await diffDatasets({ previousDir, currentDir, outPath });
+  const vacancies = result.changes.filter((c) => c.kind === "vacancy");
+  assert.equal(vacancies.length, 1);
+  assert.equal(vacancies[0].date, "2026-05-15");
+  assert.equal(vacancies[0].out.label, "3 van 5 zetels vervuld");
+  assert.equal(vacancies[0].in.label, "2 vacante zetels");
+});
+
+test("a position with no tenure in either snapshot is not called vacant", async () => {
+  const { previousDir, currentDir, outPath } = await setup();
+  const position = positionRecord("pos:empty", "Leeg college", "org:o");
+  position.seatsCount = 5;
+  await writeDataset(previousDir, {
+    "organizations.json": [orgRecord("org:o", "Org")],
+    "positions.json": [position],
+    "people.json": basePeople(),
+    "tenures.json": [],
+    "meta.json": { snapshotId: "2026-01-01" },
+  });
+  await writeDataset(currentDir, {
+    "organizations.json": [orgRecord("org:o", "Org")],
+    "positions.json": [position],
+    "people.json": basePeople(),
+    "tenures.json": [],
+    "meta.json": { snapshotId: "2026-05-15" },
+  });
+
+  const result = await diffDatasets({ previousDir, currentDir, outPath });
+  assert.equal(result.changes.filter((c) => c.kind === "vacancy").length, 0);
+});
+
 test("a new organization is structural, and renames and moves are classified", async () => {
   const { previousDir, currentDir, outPath } = await setup();
   await writeDataset(previousDir, {

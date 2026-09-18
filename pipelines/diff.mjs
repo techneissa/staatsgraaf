@@ -93,6 +93,22 @@ function openCounts(tenures) {
   return counts;
 }
 
+function tenureCounts(tenures) {
+  const counts = new Map();
+  for (const tenure of tenures.values()) {
+    counts.set(tenure.position, (counts.get(tenure.position) ?? 0) + 1);
+  }
+  return counts;
+}
+
+function seatCapacity(position, open) {
+  return typeof position.seatsCount === "number" ? position.seatsCount : open > 0 ? open : 1;
+}
+
+function seatDeficit(position, open) {
+  return Math.max(0, seatCapacity(position, open) - open);
+}
+
 export async function diffDatasets({ previousDir, currentDir, outPath, snapshotDate, now = new Date() }) {
   const today = now.toISOString().slice(0, 10);
   if (!previousDir) {
@@ -179,21 +195,32 @@ export async function diffDatasets({ previousDir, currentDir, outPath, snapshotD
 
   const prevOpen = openCounts(prevTenures);
   const currOpen = openCounts(currTenures);
+  const prevTenureCount = tenureCounts(prevTenures);
+  const currTenureCount = tenureCounts(currTenures);
   for (const position of currPositionsById.values()) {
-    if ((prevOpen.get(position.id) ?? 0) === 0) continue;
-    if ((currOpen.get(position.id) ?? 0) > 0) continue;
+    const tracked = (prevTenureCount.get(position.id) ?? 0) + (currTenureCount.get(position.id) ?? 0);
+    if (tracked === 0) continue;
+    const before = seatDeficit(position, prevOpen.get(position.id) ?? 0);
+    const after = seatDeficit(position, currOpen.get(position.id) ?? 0);
+    if (after <= before) continue;
     const source = pickSource(position);
     if (!source) continue;
     const organization = currOrgsById.get(position.organization);
+    const open = currOpen.get(position.id) ?? 0;
+    const seats = seatCapacity(position, open);
+    const name = organization?.name ?? position.organization;
     changes.push(
       asChange({
         date,
         kind: "vacancy",
         position: position.id,
         organization: position.organization,
-        out: { tenure: null, person: null, label: "Laatste zetel niet vervuld" },
-        in: { tenure: null, person: null, label: "Vacature" },
-        summary: `Vacature: ${position.title} bij ${organization?.name ?? position.organization}.`,
+        out: { tenure: null, person: null, label: `${open} van ${seats} zetels vervuld` },
+        in: { tenure: null, person: null, label: after === 1 ? "1 vacante zetel" : `${after} vacante zetels` },
+        summary:
+          after === 1
+            ? `Vacature: ${position.title} bij ${name} heeft één onvervulde zetel.`
+            : `Vacature: ${position.title} bij ${name} heeft ${after} onvervulde zetels.`,
         source,
       }),
     );

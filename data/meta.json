@@ -1,9 +1,14 @@
 {
   "datasetVersion": "v1",
   "snapshotId": "2026-09-18",
-  "generatedAt": "2026-09-17T23:47:18.884Z",
+  "generatedAt": "2026-09-18T02:41:42.700Z",
   "sources": {
     "earliest": "2026-09-17",
     "latest": "2026-09-18"
-  }
+  },
+  "licenses": {
+    "code": "MIT",
+    "data": "CC-BY-4.0"
+  },
+  "datasetLicenseUrl": "https://creativecommons.org/licenses/by/4.0/"
 }

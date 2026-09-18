@@ -5,6 +5,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 import { buildGazetteer, buildTopicIndex, linkArticle } from "./link.mjs";
+import { applyLicenses, applyNewsFactsNote } from "./licenses.mjs";
 
 export const DEFAULT_USER_AGENT =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36";
@@ -435,6 +436,9 @@ export async function runNewsPipeline({
       sources: [{ source: srcId, retrieved: now.toISOString().slice(0, 10), confidence: "high" }],
     });
   }
+
+  applyLicenses(sourceRecords);
+  for (const record of sourceRecords) applyNewsFactsNote(record);
 
   news.sort((a, b) => b.published.localeCompare(a.published) || a.id.localeCompare(b.id));
   sourceRecords.sort((a, b) => a.id.localeCompare(b.id));

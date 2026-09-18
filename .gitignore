@@ -14,3 +14,7 @@ research/raw/**/cbs-catalog.out
 
 # Re-fetchable news feed cache; never a data payload
 pipelines/.cache/
+
+# Derived at build time from data/ (web/scripts/build-dataset.mjs, build-search-index.mjs)
+web/public/data/v1/
+web/public/search-index.json

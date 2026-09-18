@@ -4,6 +4,10 @@ import { existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
+import { applyArchiveUrls, applyLicenses, licenseDistribution, writeAttribution } from "./licenses.mjs";
+
+const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
+
 export const ENTITY_FILES = [
   ["organizations", "organizations.json"],
   ["positions", "positions.json"],
@@ -307,7 +311,15 @@ async function writeJson(file, value) {
   await writeFile(file, `${JSON.stringify(value, null, 2)}\n`, "utf8");
 }
 
-export async function mergeDataset({ researchDir, dataDir, logPath, now = new Date() }) {
+export async function mergeDataset({
+  researchDir,
+  dataDir,
+  logPath,
+  now = new Date(),
+  archive = false,
+  archiveReportPath = null,
+  archiveLog = () => {},
+}) {
   const files = await listResearchFiles(researchDir);
   const envelopes = [];
   for (const [order, file] of files.entries()) {
@@ -376,6 +388,18 @@ export async function mergeDataset({ researchDir, dataDir, logPath, now = new Da
   applyLegalMappings(envelopes, winners, stats);
   applyAliases(envelopes, winners, logs, stats);
 
+  const sourceRecords = [...mergedSources.values()].map((entry) => entry.record);
+  applyLicenses(sourceRecords);
+
+  let archiveResult = { targets: 0, applied: 0, gaps: [] };
+  if (archive) {
+    archiveResult = await applyArchiveUrls({
+      sources: sourceRecords,
+      reportPath: archiveReportPath ?? join(REPO_ROOT, "research", "qa", "link-check.md"),
+      log: archiveLog,
+    });
+  }
+
   const counts = {};
   for (const [entity, file] of ENTITY_FILES) {
     const records = [...winners[entity].values()].map((entry) => entry.record);
@@ -396,23 +420,43 @@ export async function mergeDataset({ researchDir, dataDir, logPath, now = new Da
     snapshotId,
     generatedAt: now.toISOString(),
     sources: { earliest, latest },
+    licenses: { code: "MIT", data: "CC-BY-4.0" },
+    datasetLicenseUrl: "https://creativecommons.org/licenses/by/4.0/",
   };
   await writeJson(join(dataDir, "meta.json"), meta);
+  await writeAttribution(sourceRecords, join(dirname(dataDir), "ATTRIBUTION.md"));
 
   const logDir = dirname(logPath);
   if (!existsSync(logDir)) await mkdir(logDir, { recursive: true });
   await writeFile(logPath, logs.map((line) => JSON.stringify(line)).join("\n") + (logs.length ? "\n" : ""), "utf8");
 
-  return { counts, logs, meta, stats, files: files.length, snapshotId };
+  return {
+    counts,
+    logs,
+    meta,
+    stats,
+    files: files.length,
+    snapshotId,
+    licenses: licenseDistribution(sourceRecords),
+    archive: archiveResult,
+  };
 }
 
 function parseArgs(argv) {
   const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-  const options = { researchDir: join(root, "research"), dataDir: join(root, "data"), logPath: null };
+  const options = {
+    researchDir: join(root, "research"),
+    dataDir: join(root, "data"),
+    logPath: null,
+    archive: true,
+    archiveReportPath: join(root, "research", "qa", "link-check.md"),
+  };
   for (let i = 0; i < argv.length; i += 1) {
     if (argv[i] === "--research") options.researchDir = argv[(i += 1)];
     else if (argv[i] === "--data") options.dataDir = argv[(i += 1)];
     else if (argv[i] === "--log") options.logPath = argv[(i += 1)];
+    else if (argv[i] === "--archive-report") options.archiveReportPath = argv[(i += 1)];
+    else if (argv[i] === "--no-archive") options.archive = false;
   }
   if (!options.logPath) options.logPath = join(options.researchDir, "merge-log.entries.jsonl");
   return options;
@@ -435,6 +479,17 @@ async function main() {
   console.log(`  id-duplicate                            ${s.idDuplicate}`);
   console.log(`  unmatched legalMappings                 ${s.unmatchedMappings}`);
   console.log(`  aliases skipped (target has no aliases) ${s.skippedAliases}`);
+  console.log("\nLicenses:");
+  for (const [license, count] of Object.entries(result.licenses)) {
+    if (count > 0) console.log(`  ${license.padEnd(22)} ${String(count).padStart(6)}`);
+  }
+  if (options.archive) {
+    console.log(`\nArchive: ${result.archive.applied} source(s) given an archiveUrl, ${result.archive.targets} target(s) queried, ${result.archive.gaps.length} gap(s)`);
+    for (const gap of result.archive.gaps) {
+      console.log(`  gap  ${gap.url}`);
+      console.log(`       ${gap.reason}; endpoint: ${gap.endpoint}`);
+    }
+  }
   console.log(`\nSnapshot ${result.snapshotId}, conflict log written to ${options.logPath}`);
 }
 

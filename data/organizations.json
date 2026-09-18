@@ -17677,6 +17677,11 @@
         "source": "src:waterschapswet",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:koop-waterschappen",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
       }
     ]
   },
@@ -52769,6 +52774,40 @@
     }
   },
   {
+    "id": "org:ipo",
+    "slug": "ipo",
+    "name": "Interprovinciaal Overleg",
+    "type": "department",
+    "subtype": "koepel",
+    "branch": "decentraal-provinciaal",
+    "level": "provinciaal",
+    "country": "nederland",
+    "aliases": [
+      "IPO",
+      "Interprovinciaal Overleg"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "website": "https://www.ipo.nl",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-ipo",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "org:justis",
     "slug": "justis",
     "name": "Justis",
@@ -61718,6 +61757,40 @@
     }
   },
   {
+    "id": "org:unie-van-waterschappen",
+    "slug": "unie-van-waterschappen",
+    "name": "Unie van Waterschappen",
+    "type": "department",
+    "subtype": "koepel",
+    "branch": "waterschap",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "UvW",
+      "Unie van Waterschappen"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "website": "https://unievanwaterschappen.nl/",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-uvw",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "org:veiligheidsregio-amsterdam-amstelland",
     "slug": "veiligheidsregio-amsterdam-amstelland",
     "name": "Veiligheidsregio Amsterdam-Amstelland",
@@ -62882,6 +62955,40 @@
       },
       {
         "source": "src:wet-veiligheidsregios",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:vereniging-van-nederlandse-gemeenten",
+    "slug": "vereniging-van-nederlandse-gemeenten",
+    "name": "Vereniging van Nederlandse Gemeenten",
+    "type": "department",
+    "subtype": "koepel",
+    "branch": "decentraal-lokaal",
+    "level": "lokaal",
+    "country": "nederland",
+    "aliases": [
+      "VNG",
+      "Vereniging van Nederlandse Gemeenten"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": null,
+    "website": "https://vng.nl",
+    "established": "1912-02-28",
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-vng",
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
