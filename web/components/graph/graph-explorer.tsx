@@ -61,6 +61,14 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
   const locale = useLocale();
   const svgRef = useRef<SVGSVGElement | null>(null);
   const dragRef = useRef<{ pointerId: number; startX: number; startY: number; view: ViewTransform } | null>(null);
+  const pointersRef = useRef(new Map<number, { x: number; y: number }>());
+  const pinchRef = useRef<{
+    startDist: number;
+    startMidX: number;
+    startMidY: number;
+    startMidUser: { x: number; y: number };
+    startView: ViewTransform;
+  } | null>(null);
   const movedRef = useRef(false);
 
   const [view, setView] = useState<ViewTransform>({ k: 1, x: 0, y: 0 });
@@ -225,6 +233,24 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
 
   const onPointerDown = (event: ReactPointerEvent<SVGSVGElement>) => {
     if ((event.target as Element).closest("[data-node-id]")) return;
+    event.currentTarget.setPointerCapture(event.pointerId);
+    pointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    if (pointersRef.current.size === 2) {
+      const [a, b] = [...pointersRef.current.values()];
+      const startMidX = (a.x + b.x) / 2;
+      const startMidY = (a.y + b.y) / 2;
+      pinchRef.current = {
+        startDist: Math.hypot(b.x - a.x, b.y - a.y) || 1,
+        startMidX,
+        startMidY,
+        startMidUser: toUserPoint(startMidX, startMidY),
+        startView: view,
+      };
+      dragRef.current = null;
+      movedRef.current = true;
+      return;
+    }
+    if (pointersRef.current.size > 2) return;
     movedRef.current = false;
     dragRef.current = {
       pointerId: event.pointerId,
@@ -232,24 +258,59 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
       startY: event.clientY,
       view,
     };
-    event.currentTarget.setPointerCapture(event.pointerId);
   };
 
   const onPointerMove = (event: ReactPointerEvent<SVGSVGElement>) => {
-    const drag = dragRef.current;
-    if (!drag || drag.pointerId !== event.pointerId) return;
-    const dx = event.clientX - drag.startX;
-    const dy = event.clientY - drag.startY;
-    if (Math.abs(dx) + Math.abs(dy) > 3) movedRef.current = true;
     const svg = svgRef.current;
     if (!svg) return;
     const rect = svg.getBoundingClientRect();
     const vb = layout.viewBox;
     const scale = Math.min(rect.width / vb.width, rect.height / vb.height);
+
+    if (pointersRef.current.has(event.pointerId)) {
+      pointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
+    }
+
+    const pinch = pinchRef.current;
+    if (pinch && pointersRef.current.size >= 2) {
+      const [a, b] = [...pointersRef.current.values()];
+      const factor = Math.hypot(b.x - a.x, b.y - a.y) / pinch.startDist;
+      const k = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, pinch.startView.k * factor));
+      const ratio = k / pinch.startView.k;
+      const midX = (a.x + b.x) / 2;
+      const midY = (a.y + b.y) / 2;
+      setView({
+        k,
+        x:
+          pinch.startMidUser.x -
+          (pinch.startMidUser.x - pinch.startView.x) * ratio +
+          (midX - pinch.startMidX) / scale,
+        y:
+          pinch.startMidUser.y -
+          (pinch.startMidUser.y - pinch.startView.y) * ratio +
+          (midY - pinch.startMidY) / scale,
+      });
+      return;
+    }
+
+    const drag = dragRef.current;
+    if (!drag || drag.pointerId !== event.pointerId) return;
+    const dx = event.clientX - drag.startX;
+    const dy = event.clientY - drag.startY;
+    if (Math.abs(dx) + Math.abs(dy) > 3) movedRef.current = true;
     setView({ k: drag.view.k, x: drag.view.x + dx / scale, y: drag.view.y + dy / scale });
   };
 
   const onPointerUp = (event: ReactPointerEvent<SVGSVGElement>) => {
+    pointersRef.current.delete(event.pointerId);
+    if (pointersRef.current.size < 2) pinchRef.current = null;
+    if (pointersRef.current.size === 1) {
+      const [remaining] = pointersRef.current.entries();
+      if (remaining) {
+        const [pointerId, point] = remaining;
+        dragRef.current = { pointerId, startX: point.x, startY: point.y, view };
+      }
+    }
     const drag = dragRef.current;
     if (drag && drag.pointerId === event.pointerId) {
       dragRef.current = null;
