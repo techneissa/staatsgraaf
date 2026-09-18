@@ -72,3 +72,21 @@ The engine derives only mechanical facts: an id appeared, an id ended, a field c
 - No news, no topics, no budgets, no media diffs.
 - No partial field diffs. A change reports the fact, not every altered field inside the record.
 - No runtime scraping. The engine only reads two local snapshots.
+
+## 9. Single-snapshot derivation (changes.mjs)
+
+`pipelines/diff.mjs` is the nightly engine and needs two snapshots. `pipelines/changes.mjs` is the deterministic backfill that runs on the merged dataset alone, for the first build and whenever no previous snapshot exists. It reads the same four files (`organizations.json`, `positions.json`, `people.json`, `tenures.json`) plus `meta.json`, and writes the same `change.schema.json` shape.
+
+The rules are the section 3 rules with the previous snapshot dropped, applied to the records that carry a date or a capacity:
+
+| Rule | Detection in one snapshot | Kind | Date |
+| --- | --- | --- | --- |
+| Appointment | A tenure with a `start` | `appointment` | tenure `start` |
+| Departure | A tenure with an `end` | `departure` | tenure `end` |
+| Vacancy | A position with at least one tenure on record and fewer open tenures than `seatsCount` | `vacancy` | snapshot date |
+
+- **Vacancy is seat level.** The two-snapshot engine fires vacancy when the open-tenure count reaches zero. The single-snapshot engine has no "before", so it reports a seat deficit: when `seatsCount` is known, `open < seatsCount` is one or more vacancies; when `seatsCount` is unknown, only a position with zero open tenures is a vacancy. A position with no tenure at all is left alone, because absence of a holder in the dataset is not evidence that the seat is empty. That gap is named, not guessed.
+- **Source rule.** The section 5 rule applies unchanged. An appointment or departure without a tenure `source`, and a vacancy without a first `sources[]` entry, is dropped and counted.
+- **Rename, move, structural.** These need a previous snapshot and are not emitted by the single-snapshot derivation. `diff.mjs` classifies them when a previous snapshot is supplied, and `diff.mjs` remains the source of truth for those kinds.
+- **Out and in.** Appointment `out` is `predecessor` when the id resolves, otherwise `Geen voorganger bekend`. Departure `in` is `successor`, or a tenure that names the ended tenure as its `predecessor`, otherwise `Geen opvolger bekend`. Vacancy `out` and `in` are labels only, because no seat changes hands.
+- **Id and order.** Section 7 is unchanged. The entity key is the position id, so an appointment, a departure, and a vacancy for the same seat stay grouped.

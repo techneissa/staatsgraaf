@@ -3,19 +3,55 @@ import { EntityChip } from "./entity-chip";
 import { SourceLink } from "./source-link";
 import { entitySummary, getSourceById } from "@/lib/data";
 import { renderSummaryMarkup } from "@/lib/markup";
-import type { NewsItem } from "@/lib/types";
+import type { NewsItem, Source } from "@/lib/types";
 
-export function NewsCard({ item }: { item: NewsItem }) {
-  const first = item.sources[0];
-  const source = first !== undefined ? getSourceById(first.source) : undefined;
+export type NewsCardSource = {
+  index: number;
+  source: Source;
+};
+
+export function getCardSources(item: NewsItem): NewsCardSource[] {
+  const result: NewsCardSource[] = [];
+  item.sources.forEach((ref, index) => {
+    if (ref === undefined) return;
+    const source = getSourceById(ref.source);
+    if (source) result.push({ index: index + 1, source });
+  });
+  return result;
+}
+
+export function NewsCard({
+  item,
+  rank,
+  as: Tag = "article",
+}: {
+  item: NewsItem;
+  rank?: number;
+  as?: "article" | "li" | "div";
+}) {
+  const sources = getCardSources(item);
+  const primary = sources[0];
   const entityChips = item.entities
     .map((id) => entitySummary(id))
     .filter((entry): entry is { href: string; label: string } => entry !== null);
 
   return (
-    <article className="rounded-md border border-line bg-surface p-4">
+    <Tag className="rounded-md border border-line bg-surface p-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <span className="text-xs text-ink-faint">{item.publisher}</span>
+        <span className="flex items-center gap-2 text-xs text-ink-faint">
+          {rank !== undefined ? (
+            <a
+              href={primary?.source.url ?? item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Bron ${rank} voor dit bericht`}
+              className="tabular-nums font-medium text-accent-text underline-offset-2 hover:underline"
+            >
+              [{rank}]
+            </a>
+          ) : null}
+          <span>{item.publisher}</span>
+        </span>
         <DateStamp date={item.published} />
       </div>
       <h3 className="mt-1.5 text-sm font-semibold">
@@ -45,13 +81,18 @@ export function NewsCard({ item }: { item: NewsItem }) {
           ))}
         </ul>
       ) : null}
-      {source ? (
-        <p className="mt-3">
-          <SourceLink href={source.url} meta={source.publisher}>
-            {source.title}
-          </SourceLink>
-        </p>
+      {sources.length > 0 ? (
+        <ol className="mt-3 space-y-1">
+          {sources.map(({ index, source }) => (
+            <li key={source.id} className="text-xs">
+              <span className="mr-1 tabular-nums text-ink-faint">[{index}]</span>
+              <SourceLink href={source.url} meta={source.publisher}>
+                {source.title}
+              </SourceLink>
+            </li>
+          ))}
+        </ol>
       ) : null}
-    </article>
+    </Tag>
   );
 }

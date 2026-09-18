@@ -40,7 +40,7 @@ export function PersonCard({ person, positionTitle, startedAt, acting }: PersonC
         </h3>
         {positionTitle ? <p className="mt-0.5 text-sm text-ink-muted">{positionTitle}</p> : null}
         <div className="mt-1.5 flex flex-wrap items-center gap-2">
-          {person.party !== null ? <KindBadge>{person.party}</KindBadge> : null}
+          {person.party != null ? <KindBadge>{person.party}</KindBadge> : null}
           {acting ? <KindBadge tone="accent">Waarnemend</KindBadge> : null}
           {startedAt ? (
             <span className="text-xs text-ink-faint">{formatPeriodShort(startedAt, null)}</span>

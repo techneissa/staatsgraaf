@@ -5,18 +5,29 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { EmptyState } from "@/components/empty-state";
 import { JsonLd } from "@/components/json-ld";
 import { KindBadge } from "@/components/kind-badge";
+import { SourceLink } from "@/components/source-link";
 import { SourceList } from "@/components/source-list";
 import { Timeline, type TimelineItem } from "@/components/timeline";
+import { EntityFacts, type EntityFact } from "@/components/entity/entity-facts";
+import { PersonPortrait } from "@/components/entity/person-portrait";
+import { TenureTimeline } from "@/components/entity/tenure-timeline";
 import {
+  getMembershipsForPerson,
   getOrganizationById,
   getPeople,
   getPersonBySlug,
   getPositionById,
-  getMembershipsForPerson,
+  getSourceById,
   getTenuresForPerson,
 } from "@/lib/data";
-import { formatPeriod } from "@/lib/format";
-import { ENTRY_MODE_LABELS, END_REASON_LABELS } from "@/lib/labels";
+import {
+  getMediaItem,
+  personBirthDate,
+  personDescription,
+  personParty,
+  personPortraitId,
+} from "@/lib/entity";
+import { formatDate, formatPeriod } from "@/lib/format";
 import { canonical } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -58,46 +69,14 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
   const tenures = getTenuresForPerson(person.id);
   const memberships = getMembershipsForPerson(person.id);
 
-  const tenureItems: TimelineItem[] = tenures.map((tenure) => {
-    const position = getPositionById(tenure.position);
-    const organization = position ? getOrganizationById(position.organization) : undefined;
-    const badges: string[] = [];
-    if (tenure.acting) badges.push("Waarnemend");
-    if (tenure.entryMode !== null) {
-      const label = ENTRY_MODE_LABELS[tenure.entryMode];
-      if (label !== undefined && tenure.entryMode !== "benoemd") badges.push(label);
-    }
-    if (tenure.end !== null && tenure.endReason !== null) {
-      badges.push(END_REASON_LABELS[tenure.endReason]);
-    }
-    return {
-      id: tenure.id,
-      title: position ? (
-        <Link
-          href={`/posities/${position.slug}/`}
-          className="underline-offset-2 hover:text-accent-text hover:underline"
-        >
-          {position.title}
-        </Link>
-      ) : (
-        "Onbekende positie"
-      ),
-      meta: organization ? (
-        <Link
-          href={`/organisaties/${organization.slug}/`}
-          className="underline-offset-2 hover:underline"
-        >
-          {organization.name}
-        </Link>
-      ) : null,
-      period: formatPeriod(tenure.start, tenure.end),
-      current: tenure.end === null,
-      badges,
-    };
-  });
+  const party = personParty(person);
+  const birthDate = personBirthDate(person);
+  const description = personDescription(person);
+  const portrait = getMediaItem(personPortraitId(person));
 
   const membershipItems: TimelineItem[] = memberships.map((membership) => {
     const organization = getOrganizationById(membership.organization);
+    const source = getSourceById(membership.source.source);
     const badges: string[] = [];
     if (membership.fractie !== null) badges.push(membership.fractie);
     if (membership.seatNumber !== null) badges.push(`Zetel ${membership.seatNumber}`);
@@ -113,17 +92,49 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
       ) : (
         "Onbekende organisatie"
       ),
-      meta: "Lidmaatschap",
+      meta: (
+        <span className="inline-flex flex-wrap items-baseline gap-x-2">
+          <span>Lidmaatschap</span>
+          {source ? (
+            <SourceLink href={source.url} meta={source.publisher}>
+              Bron
+            </SourceLink>
+          ) : null}
+        </span>
+      ),
       period: formatPeriod(membership.start, membership.end),
       current: membership.end === null,
       badges,
     };
   });
 
-  const currentPositions = tenures
+  const currentTitles = tenures
     .filter((tenure) => tenure.end === null)
     .map((tenure) => getPositionById(tenure.position)?.title)
     .filter((title): title is string => title !== undefined);
+
+  const facts: EntityFact[] = [
+    { label: "Partij", value: party },
+    {
+      label: "Geboren",
+      value: birthDate !== null ? <time dateTime={birthDate}>{formatDate(birthDate)}</time> : null,
+    },
+    {
+      label: "Wikipedia",
+      value: person.wikipedia != null ? (
+        <SourceLink href={person.wikipedia}>Wikipedia</SourceLink>
+      ) : null,
+    },
+    {
+      label: "Wikidata",
+      value:
+        person.wikidata != null ? (
+          <SourceLink href={`https://www.wikidata.org/wiki/${person.wikidata}`}>
+            {person.wikidata}
+          </SourceLink>
+        ) : null,
+    },
+  ];
 
   return (
     <>
@@ -132,51 +143,75 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
           "@context": "https://schema.org",
           "@type": "Person",
           name: person.name,
-          ...(currentPositions.length > 0 ? { jobTitle: currentPositions } : {}),
+          ...(currentTitles.length > 0 ? { jobTitle: currentTitles } : {}),
+          ...(birthDate !== null ? { birthDate } : {}),
         }}
       />
 
       <Breadcrumb items={[{ label: "NL Overheid Graph", href: "/" }, { label: person.name }]} />
 
       <header className="mt-4 border-b border-line pb-6">
-        <h1 className="text-2xl font-semibold tracking-tight text-ink">{person.name}</h1>
-        {person.party !== null ? (
-          <div className="mt-2 flex flex-wrap items-center gap-2">
-            <KindBadge>{person.party}</KindBadge>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+          <div className="shrink-0">
+            <PersonPortrait person={person} size={96} />
+            {portrait !== null ? (
+              <p className="mt-2 max-w-[96px] text-xs leading-snug text-ink-faint">
+                Beeld: {portrait.credit} ({portrait.license})
+              </p>
+            ) : null}
           </div>
-        ) : null}
-        {person.description !== null ? (
-          <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
-            {person.description}
-          </p>
-        ) : null}
+          <div className="min-w-0 flex-1">
+            <h1 className="text-2xl font-semibold tracking-tight text-ink">{person.name}</h1>
+            {party !== null ? (
+              <div className="mt-2 flex flex-wrap items-center gap-2">
+                <KindBadge>{party}</KindBadge>
+              </div>
+            ) : null}
+            {description !== null ? (
+              <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
+                {description}
+              </p>
+            ) : null}
+            <EntityFacts facts={facts} />
+          </div>
+        </div>
       </header>
 
-      <section aria-labelledby="functies-titel" className="border-b border-line py-6">
-        <h2 id="functies-titel" className="text-lg font-semibold tracking-tight text-ink">
-          Functies
-        </h2>
-        {tenureItems.length > 0 ? (
+      {tenures.length > 0 ? (
+        <section aria-labelledby="functies-titel" className="border-b border-line py-6">
+          <h2 id="functies-titel" className="text-lg font-semibold tracking-tight text-ink">
+            Functies
+          </h2>
           <div className="mt-3">
-            <Timeline items={tenureItems} label="Functies" />
+            <TenureTimeline tenures={tenures} variant="person" label="Functies" />
           </div>
-        ) : (
-          <div className="mt-3">
-            <EmptyState
-              title="Geen functies bekend"
-              description="Voor deze persoon is nog geen functie met bron opgenomen."
-            />
-          </div>
-        )}
-      </section>
+        </section>
+      ) : null}
 
-      {membershipItems.length > 0 ? (
+      {memberships.length > 0 ? (
         <section aria-labelledby="lidmaatschappen-titel" className="border-b border-line py-6">
-          <h2 id="lidmaatschappen-titel" className="text-lg font-semibold tracking-tight text-ink">
+          <h2
+            id="lidmaatschappen-titel"
+            className="text-lg font-semibold tracking-tight text-ink"
+          >
             Lidmaatschappen
           </h2>
           <div className="mt-3">
             <Timeline items={membershipItems} label="Lidmaatschappen" />
+          </div>
+        </section>
+      ) : null}
+
+      {tenures.length === 0 && memberships.length === 0 ? (
+        <section aria-labelledby="geen-rol-titel" className="border-b border-line py-6">
+          <h2 id="geen-rol-titel" className="text-lg font-semibold tracking-tight text-ink">
+            Functies en lidmaatschappen
+          </h2>
+          <div className="mt-3">
+            <EmptyState
+              title="Geen gedateerde rol met bron"
+              description={`Voor ${person.name} is in de dataset geen functie of lidmaatschap met een startdatum en bron opgenomen.`}
+            />
           </div>
         </section>
       ) : null}
