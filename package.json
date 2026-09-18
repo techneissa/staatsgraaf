@@ -9,7 +9,7 @@
     "research:check": "node scripts/validate.mjs --research",
     "merge": "node pipelines/merge.mjs",
     "diff": "node pipelines/diff.mjs",
-    "test": "node --test pipelines/"
+    "test": "node --test pipelines/ web/lib/search.test.mjs"
   },
   "engines": {
     "node": ">=20"

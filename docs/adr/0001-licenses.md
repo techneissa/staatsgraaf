@@ -1,7 +1,7 @@
 # ADR 0001: Licenses for code and data
 
 Date: 2026-09-17
-Status: proposed (owner decision pending; input from workstream O)
+Status: accepted (owner decision 2026-09-18: code MIT, dataset CC BY 4.0)
 
 ## Context
 
@@ -18,8 +18,14 @@ Workstream O has now reported (`research/O-licenses.md`) and recommends a change
 
 Recommended: code MIT, dataset CC BY 4.0. Owner decision still pending.
 
+## Owner decision (2026-09-18)
+
+The owner accepts the recommendation. Code is MIT. The dataset, descriptions, and summaries are CC BY 4.0. Attribution to the project and to the underlying source is required on reuse.
+
+Applied per source in the Wave 2 pass (`pipelines/licenses.mjs`): every source gets an SPDX value from the `research/O-licenses.md` determination, with `unknown` for the O-declared gaps and `all-rights-reserved` for the news and site-prose hosts. Sources whose reuse right is a custom attribution right with no SPDX id (Eerste Kamer, rechtspraak.nl) are represented as `CC-BY-4.0`; the Eerste Kamer credit line is carried in the source notes. The full per-source list is `ATTRIBUTION.md`.
+
 No license files ship until the owner decides. Facts themselves are not copyrightable; the compiled dataset, descriptions, and summaries are the licensed work.
 
 ## Consequences
 
-Until decided, `LICENSE` and `LICENSE-DATA` do not exist and the README states that nothing is offered for reuse. Workstream O's table (`research/O-licenses.md`) informs the final choice; the owner records the decision here and drops the proposed status. Until the license is applied per source, the launch gate is blocked and 606 of 702 `data/sources.json` records keep `license: null`.
+Once decided, `LICENSE` and `LICENSE-DATA` ship and the README states the terms. Workstream O's table (`research/O-licenses.md`) informs the per-source application; the launch gate stays blocked until that application fills `data/sources.json` and 2129 `license: null` records are resolved.

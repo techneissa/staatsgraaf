@@ -1,0 +1,50 @@
+# Data license: CC BY 4.0
+
+The dataset in this repository, including the compiled data, the descriptions, and the summaries, is licensed under the Creative Commons Attribution 4.0 International license (CC BY 4.0).
+
+- License text: https://creativecommons.org/licenses/by/4.0/legalcode
+- Human-readable summary: https://creativecommons.org/licenses/by/4.0/
+- SPDX identifier: `CC-BY-4.0`
+
+The license covers our own contribution: the selection, structure, compilation, descriptions, and summaries. Facts themselves are not copyrightable. The code in this repository is licensed separately under MIT; see `LICENSE`.
+
+## Attribution requirement
+
+On reuse you must:
+
+1. credit the project as "NL Overheid Graph" and link to this repository;
+2. keep the source attribution with the facts it belongs to, including the source URL and the retrieval date; and
+3. state the license and link to it.
+
+Per-source credit lines are listed in `ATTRIBUTION.md`. A source may require a specific credit, a share-alike term, or may permit facts only. Those terms sit next to the source in `ATTRIBUTION.md` and in the `license` and `notes` fields of `data/sources.json`. Where a source is all rights reserved, only the facts, the headline, and the deep link are used, not the source's prose or images. Where a source's license is not established, the record is marked `unknown` and named as a gap with its endpoint.
+
+The project's own independence statement applies to every reuse:
+
+> NL Overheid Graph is een onafhankelijk, openbaar naslagwerk over de Nederlandse overheid. Dit project is niet verbonden aan, en wordt niet gesteund of gefinancierd door, de Nederlandse overheid of enige officiële instantie. Alle informatie is afkomstig uit openbare bronnen die per feit worden vermeld. Aan de weergave kunnen geen rechten worden ontleend. Bij twijfel raadpleegt u altijd de officiële bron.
+
+> NL Overheid Graph is an independent, public reference work about the Dutch government. This project is not affiliated with, and is not endorsed or funded by, the Dutch government or any official body. All information comes from public sources, cited per fact. No rights can be derived from this presentation. When in doubt, always consult the official source.
+
+## Nederlands
+
+De dataset in deze repository, met inbegrip van de samengestelde gegevens, de beschrijvingen en de samenvattingen, is beschikbaar onder de Creative Commons Naamsvermelding 4.0 International-licentie (CC BY 4.0).
+
+- Licentietekst: https://creativecommons.org/licenses/by/4.0/legalcode.nl
+- Samenvatting: https://creativecommons.org/licenses/by/4.0/deed.nl
+
+Bij hergebruik moet u:
+
+1. het project vermelden als "NL Overheid Graph" en naar deze repository linken;
+2. de bronvermelding bij de feiten laten staan, met de bron-URL en de raadpleegdatum; en
+3. de licentie vermelden en ernaar linken.
+
+De verplichte vermeldingen per bron staan in `ATTRIBUTION.md`. Een bron kan een specifieke vermelding, een share-alike-voorwaarde of alleen feitengebruik vereisen. Die voorwaarden staan bij de bron in `ATTRIBUTION.md` en in de velden `license` en `notes` van `data/sources.json`. Waar een bron alle rechten voorbehouden heeft, gebruiken we alleen de feiten, de kop en de deep link, niet de tekst of het beeld van de bron. Waar de licentie van een bron niet vaststaat, is het record gemarkeerd als `unknown` en als leemte met endpoint benoemd.
+
+De onafhankelijkheidsverklaring van het project geldt bij elk hergebruik, zie hierboven.
+
+## Scope and exceptions
+
+- Facts from `wetten.overheid.nl` and `officielebekendmakingen.nl` are reused under Article 11 of the Auteurswet and the CC0 dataset registration.
+- CBS, CPB, and PBL data carry the attribution the table above and `research/O-licenses.md` require.
+- The two Wikipedia-derived rows are CC BY-SA 4.0 and carry their share-alike term until they are re-sourced from the KB.
+- Wikimedia Commons portraits are licensed per file; an image without a recorded license and credit does not ship.
+- `data/sources.json` records the per-source license under which each source is used. `research/O-licenses.md` holds the evidence and retrieval dates.

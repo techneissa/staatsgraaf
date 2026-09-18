@@ -15550,29 +15550,6 @@
   {
     "date": "2025-03-01",
     "kind": "appointment",
-    "summary": "Benoeming: Pieter van de Stadt wordt Dijkgraaf van Hoogheemraadschap van Schieland en Krimpenerwaard.",
-    "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
-    },
-    "position": "pos:dijkgraaf-van-schieland-en-krimpenerwaard",
-    "organization": "org:waterschap-van-schieland-en-krimpenerwaard",
-    "out": {
-      "tenure": null,
-      "person": null,
-      "label": "Geen voorganger bekend"
-    },
-    "in": {
-      "tenure": "tenure:dijkgraaf-van-schieland-en-krimpenerwaard",
-      "person": "person:pieter-van-de-stadt",
-      "label": "Pieter van de Stadt - Dijkgraaf van Hoogheemraadschap van Schieland en Krimpenerwaard"
-    },
-    "id": "change:2025-03-01-appointment-dijkgraaf-van-schieland-en-krimpenerwaard"
-  },
-  {
-    "date": "2025-03-01",
-    "kind": "appointment",
     "summary": "Benoeming: Mirjam van Praag wordt Voorzitter Adviesraad voor wetenschap, technologie en innovatie.",
     "source": {
       "source": "src:awti-praag",
@@ -15592,6 +15569,29 @@
       "label": "Mirjam van Praag - Voorzitter Adviesraad voor wetenschap, technologie en innovatie"
     },
     "id": "change:2025-03-01-appointment-voorzitter-awti"
+  },
+  {
+    "date": "2025-03-03",
+    "kind": "appointment",
+    "summary": "Benoeming: Pieter van de Stadt wordt Dijkgraaf van Hoogheemraadschap van Schieland en Krimpenerwaard.",
+    "source": {
+      "source": "src:hhsk-van-de-stadt",
+      "retrieved": "2026-09-18",
+      "confidence": "high"
+    },
+    "position": "pos:dijkgraaf-van-schieland-en-krimpenerwaard",
+    "organization": "org:waterschap-van-schieland-en-krimpenerwaard",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:dijkgraaf-van-schieland-en-krimpenerwaard",
+      "person": "person:pieter-van-de-stadt",
+      "label": "Pieter van de Stadt - Dijkgraaf van Hoogheemraadschap van Schieland en Krimpenerwaard"
+    },
+    "id": "change:2025-03-03-appointment-dijkgraaf-van-schieland-en-krimpenerwaard"
   },
   {
     "date": "2025-03-10",

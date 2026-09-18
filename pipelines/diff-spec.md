@@ -26,7 +26,7 @@ Each change carries a date.
 | --- | --- | --- | --- |
 | A tenure appears | A tenure id is in the current snapshot and not in the previous one | `appointment` | tenure `start` |
 | A tenure ends | The id is in both, previous `end` is null, current `end` is set | `departure` | tenure `end` |
-| A position has no open tenure | The position has at least one open tenure (`end` null) in the previous snapshot and none in the current one | `vacancy` | snapshot date |
+| A position loses seats | The position has at least one tenure on record in either snapshot, and its seat deficit (open tenures below `seatsCount`) is larger in the current snapshot than in the previous one | `vacancy` | snapshot date |
 | A new organization | An organization id is in the current snapshot and not in the previous one | `structural` | snapshot date |
 | A rename | The same id has a different organization `name`, or a different position `title` | `rename` | snapshot date |
 | A move | The same organization id has a different `parent` or `partOf`, or the same position id has a different `organization` | `move` | snapshot date |
@@ -48,7 +48,7 @@ The `out` and `in` rows carry the outgoing and incoming tenure and person where 
 - **Simultaneous departure and vacancy.** When a tenure ends in the current snapshot, the position loses its last open tenure, so the same comparison can emit both `departure` and `vacancy`. That is intended: one says a person left, the other says the seat is now empty. The change consumer decides whether to show both.
 - **Successor chain gap.** When `successor` is null but another tenure names this tenure as its `predecessor`, the diff uses that tenure as the successor. It never infers a successor from a shared position alone.
 - **Removed position.** A position present only in the previous snapshot emits nothing. There is no reliable date for a removal in the data, and inventing one would break the source rule.
-- **Concurrent holders.** A position with more than one open tenure is allowed. Vacancy only fires when the count of open tenures for the position reaches zero.
+- **Concurrent holders.** A position with more than one open tenure is allowed. When `seatsCount` is known, a vacancy fires whenever the seat deficit grows, not only when the count of open tenures reaches zero. When `seatsCount` is unknown the fallback capacity equals the open count, so the deficit can only grow by reaching zero.
 - **Memberships.** Seat-level memberships are not classified in this version. They are large-body seats and need their own diff rules; that is a later change to this specification.
 
 ## 5. Source rule
@@ -85,7 +85,7 @@ The rules are the section 3 rules with the previous snapshot dropped, applied to
 | Departure | A tenure with an `end` | `departure` | tenure `end` |
 | Vacancy | A position with at least one tenure on record and fewer open tenures than `seatsCount` | `vacancy` | snapshot date |
 
-- **Vacancy is seat level.** The two-snapshot engine fires vacancy when the open-tenure count reaches zero. The single-snapshot engine has no "before", so it reports a seat deficit: when `seatsCount` is known, `open < seatsCount` is one or more vacancies; when `seatsCount` is unknown, only a position with zero open tenures is a vacancy. A position with no tenure at all is left alone, because absence of a holder in the dataset is not evidence that the seat is empty. That gap is named, not guessed.
+- **Vacancy is seat level.** Both engines compute the same seat deficit: `seatsCount` when it is a number, otherwise the open-tenure count, or 1 when that count is zero. The two-snapshot engine fires a vacancy when the deficit grows between snapshots; the single-snapshot engine reports the deficit that stands in the one snapshot. A position with no tenure in either snapshot is left alone, because absence of a holder in the dataset is not evidence that the seat is empty. That gap is named, not guessed. Because both engines phrase the same position with the same summary, `out`, `in`, and id, a vacancy is one record whether it comes from the nightly diff or the backfill.
 - **Source rule.** The section 5 rule applies unchanged. An appointment or departure without a tenure `source`, and a vacancy without a first `sources[]` entry, is dropped and counted.
 - **Rename, move, structural.** These need a previous snapshot and are not emitted by the single-snapshot derivation. `diff.mjs` classifies them when a previous snapshot is supplied, and `diff.mjs` remains the source of truth for those kinds.
 - **Out and in.** Appointment `out` is `predecessor` when the id resolves, otherwise `Geen voorganger bekend`. Departure `in` is `successor`, or a tenure that names the ended tenure as its `predecessor`, otherwise `Geen opvolger bekend`. Vacancy `out` and `in` are labels only, because no seat changes hands.
