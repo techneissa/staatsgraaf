@@ -3,14 +3,20 @@ import { notFound } from "next/navigation";
 import { Breadcrumb, type BreadcrumbItem } from "@/components/breadcrumb";
 import { EmptyState } from "@/components/empty-state";
 import { EntityChip } from "@/components/entity-chip";
+import { EntityTabs } from "@/components/entity-tabs";
 import { JsonLd } from "@/components/json-ld";
 import { KindBadge } from "@/components/kind-badge";
 import { PersonCard } from "@/components/person-card";
 import { SourceLink } from "@/components/source-link";
 import { SourceList } from "@/components/source-list";
-import { EntityFacts, type EntityFact } from "@/components/entity/entity-facts";
-import { TenureTimeline } from "@/components/entity/tenure-timeline";
 import { NewsPanel } from "@/components/news/news-panel";
+import { T } from "@/components/i18n/t";
+import { EntityConnections } from "@/components/entity/entity-connections";
+import { EntityDot } from "@/components/entity/entity-dot";
+import { EntityFacts } from "@/components/entity/entity-facts";
+import { FactGroup } from "@/components/entity/fact-group";
+import { ClipboardIcon, HistoryIcon, PeopleIcon, SeatIcon } from "@/components/entity/icons";
+import { TenureTimeline } from "@/components/entity/tenure-timeline";
 import {
   getDatasetDate,
   getOrganizationById,
@@ -22,6 +28,7 @@ import {
 } from "@/lib/data";
 import {
   formatTermLength,
+  getConnectionsForEntity,
   getCurrentHoldersForPosition,
   positionEntryModes,
   positionExOfficioOf,
@@ -35,6 +42,7 @@ import {
 } from "@/lib/labels";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 import type { Organization, Position } from "@/lib/types";
+import type { Connection } from "@/lib/entity";
 
 export const dynamicParams = false;
 
@@ -97,6 +105,7 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
   const currentHolders = getCurrentHoldersForPosition(position.id);
   const tenures = getTenuresForPosition(position.id);
   const news = getNewsForEntity(position.id);
+  const connections: Connection[] = getConnectionsForEntity(position.id);
 
   const legalBasis = position.legalBasis ?? null;
   const fillMethod = position.fillMethod ?? null;
@@ -116,21 +125,31 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
           .join(", ")
       : null;
 
-  const facts: EntityFact[] = [
+  const facts = [
     {
-      label: "Organisatie",
-      value: organization ? (
-        <EntityChip href={`/organisaties/${organization.slug}/`}>{organization.name}</EntityChip>
-      ) : null,
+      label: <T area="entity" k="factOrganization" />,
+      value: organization ? organization.name : null,
     },
-    { label: "Type", value: ORG_TYPE_LABELS[position.type] },
-    { label: "Vulwijze", value: fillMethod !== null ? FILL_METHOD_LABELS[fillMethod] : null },
     {
-      label: "Zittingstermijn",
+      label: <T area="entity" k="factType" />,
+      value: ORG_TYPE_LABELS[position.type],
+    },
+    {
+      label: <T area="entity" k="factFillMethod" />,
+      value: fillMethod !== null ? FILL_METHOD_LABELS[fillMethod] : null,
+    },
+    {
+      label: <T area="entity" k="factTermLength" />,
       value: termLength !== null ? formatTermLength(termLength) : null,
     },
-    { label: "Zetels", value: seatsCount !== null ? formatCount(seatsCount) : null },
-    { label: "Toetredingswijzen", value: entryModeLabel },
+    {
+      label: <T area="entity" k="factSeats" />,
+      value: seatsCount !== null ? formatCount(seatsCount) : null,
+    },
+    {
+      label: <T area="entity" k="factEntryModes" />,
+      value: entryModeLabel,
+    },
   ];
 
   const breadcrumbItems: BreadcrumbItem[] = [{ label: SITE_NAME, href: "/" }];
@@ -164,110 +183,178 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
 
       <Breadcrumb items={breadcrumbItems} />
 
-      <header className="mt-4 border-b border-line pb-6">
-        <h1 className="text-2xl font-semibold tracking-tight text-ink">{position.title}</h1>
-        <div className="mt-2 flex flex-wrap items-center gap-2">
+      <header className="mt-4">
+        <div className="flex min-w-0 flex-wrap items-center gap-2">
           <KindBadge tone="accent">{ORG_TYPE_LABELS[position.type]}</KindBadge>
           {fillMethod !== null ? (
-            <span className="text-xs text-ink-faint">{FILL_METHOD_LABELS[fillMethod]}</span>
+            <span className="inline-flex items-center rounded-pill border border-line bg-surface px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-ink-muted">
+              {FILL_METHOD_LABELS[fillMethod]}
+            </span>
           ) : null}
           {seatsCount !== null ? (
-            <span className="text-xs text-ink-faint">{formatCount(seatsCount)} zetel(s)</span>
+            <span className="inline-flex items-center gap-1.5 rounded-pill border border-line bg-surface px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-ink-muted">
+              <SeatIcon width={13} height={13} />
+              {formatCount(seatsCount)} <T area="entity" k="holderMeta" />
+            </span>
           ) : null}
         </div>
-        <div className="mt-4">
+        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-ink">{position.title}</h1>
+        {organization ? (
+          <p className="mt-2 flex items-center gap-2 text-sm text-ink-muted">
+            <EntityDot kind="position" id={position.id} />
+            <T area="entity" k="factOrganization" />:{" "}
+            <a
+              href={`/organisaties/${organization.slug}/`}
+              className="underline-offset-2 hover:text-accent-text hover:underline"
+            >
+              {organization.name}
+            </a>
+          </p>
+        ) : null}
+        <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
           {legalBasis !== null ? (
-            <SourceLink href={legalBasis.url}>Wettelijke basis: {legalBasis.label}</SourceLink>
+            <SourceLink href={legalBasis.url}>
+              <T area="entity" k="legalBasisLabel" />: {legalBasis.label}
+            </SourceLink>
           ) : (
-            <span className="text-xs text-ink-faint">Geen wettelijke basis opgenomen.</span>
+            <span className="text-xs text-ink-faint">
+              <T area="entity" k="noLegalBasisLabel" />
+            </span>
           )}
         </div>
-        <EntityFacts facts={facts} />
       </header>
 
-      <section aria-labelledby="bekleders-titel" className="border-b border-line py-6">
-        <h2 id="bekleders-titel" className="text-lg font-semibold tracking-tight text-ink">
-          Huidige bekleders
-        </h2>
-        {currentHolders.length > 0 ? (
-          <ul className="mt-3 space-y-3">
-            {currentHolders.map((tenure) => {
-              const person = getPersonById(tenure.person);
-              if (!person) return null;
-              const source = getSourceById(tenure.source.source);
-              return (
-                <li key={tenure.id}>
-                  <PersonCard
-                    person={person}
-                    positionTitle={organization?.name ?? null}
-                    startedAt={tenure.start}
-                    acting={tenure.acting}
-                  />
-                  {source ? (
-                    <p className="mt-1 pl-1">
-                      <SourceLink href={source.url} meta={source.publisher}>
-                        Bron
-                      </SourceLink>
-                    </p>
-                  ) : null}
-                </li>
-              );
-            })}
-          </ul>
-        ) : (
-          <div className="mt-3">
-            <EmptyState
-              title="Geen lopende bekleder"
-              description="Voor deze positie is in de dataset geen benoeming zonder einddatum met bron opgenomen. Een positie zonder bekleder is een vacature zodra de dataset dat bijhoudt."
-            />
-          </div>
-        )}
-      </section>
+      <div className="mt-6 grid grid-cols-1 items-start gap-4 lg:grid-cols-[minmax(0,1fr)_20rem]">
+        <div className="min-w-0 space-y-4">
+          <EntityTabs
+            news={
+              <div>
+                <h2 id="nieuws-paneel-titel" className="text-base font-semibold tracking-tight text-ink">
+                  <T area="entity" k="tabNews" />
+                </h2>
+                {news.length > 0 ? (
+                  <div className="mt-3">
+                    <NewsPanel scope="custom" items={news} initialLimit={4} />
+                  </div>
+                ) : (
+                  <div className="mt-3">
+                    <EmptyState
+                      title="Nog geen nieuws"
+                      description={`Er zijn nog geen nieuwsberichten met ${position.title} opgenomen in de dataset.`}
+                    />
+                  </div>
+                )}
+              </div>
+            }
+            connections={
+              <div>
+                <h2
+                  id="verbindingen-paneel-titel"
+                  className="text-base font-semibold tracking-tight text-ink"
+                >
+                  <T area="entity" k="whosConnected" />
+                </h2>
+                <div className="mt-3">
+                  <EntityConnections connections={connections} />
+                </div>
+              </div>
+            }
+          />
 
-      {exOfficio.length > 0 ? (
-        <section aria-labelledby="rechtswege-titel" className="border-b border-line py-6">
-          <h2 id="rechtswege-titel" className="text-lg font-semibold tracking-tight text-ink">
-            Van rechtswege
-          </h2>
-          <p className="mt-2 text-sm text-ink-muted">
-            De bekleder van deze positie zit of voorzit van rechtswege in de volgende organen.
-          </p>
-          <ul className="mt-3 flex flex-wrap gap-2">
-            {exOfficio.map((item) => (
-              <li key={item.id}>
-                <EntityChip href={`/organisaties/${item.slug}/`}>{item.name}</EntityChip>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ) : null}
+          <FactGroup icon={<PeopleIcon />} title={<T area="entity" k="currentOfficials" />} count={currentHolders.length > 0 ? currentHolders.length : undefined}>
+            {currentHolders.length > 0 ? (
+              <>
+                {seatsCount !== null ? (
+                  <p className="text-sm tabular-nums text-ink-muted">
+                    <T
+                      area="common"
+                      k="seatsCountLabel"
+                      vars={{ n: currentHolders.length, total: seatsCount }}
+                    />
+                  </p>
+                ) : null}
+                <ul className="mt-3 space-y-2">
+                  {currentHolders.map((tenure) => {
+                    const person = getPersonById(tenure.person);
+                    const source = getSourceById(tenure.source.source);
+                    if (!person) return null;
+                    return (
+                      <li key={tenure.id} className="space-y-1">
+                        <PersonCard
+                          person={person}
+                          positionTitle={organization?.name ?? null}
+                          startedAt={tenure.start}
+                          acting={tenure.acting}
+                        />
+                        {source ? (
+                          <p className="pl-1">
+                            <SourceLink href={source.url} meta={source.publisher}>
+                              <T area="entity" k="sourceLabel" />
+                            </SourceLink>
+                          </p>
+                        ) : null}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </>
+            ) : (
+              <EmptyState
+                title="Geen lopende bekleder"
+                description="Voor deze positie is in de dataset geen benoeming zonder einddatum met bron opgenomen. Een positie zonder bekleder is een vacature zodra de dataset dat bijhoudt."
+              />
+            )}
+          </FactGroup>
 
-      <section aria-labelledby="geschiedenis-titel" className="border-b border-line py-6">
-        <h2 id="geschiedenis-titel" className="text-lg font-semibold tracking-tight text-ink">
-          Bekleders door de tijd
-        </h2>
-        {tenures.length > 0 ? (
-          <div className="mt-3">
-            <TenureTimeline tenures={tenures} variant="position" label="Bekleders door de tijd" />
-          </div>
-        ) : (
-          <div className="mt-3">
-            <EmptyState
-              title="Geen bekleders bekend"
-              description="Voor deze positie is nog geen bekleder met bron opgenomen."
-            />
-          </div>
-        )}
-      </section>
+          <FactGroup icon={<HistoryIcon />} title={<T area="entity" k="tenureHistoryTitle" />} count={tenures.length > 0 ? tenures.length : undefined}>
+            {tenures.length > 0 ? (
+              <TenureTimeline tenures={tenures} variant="position" label="Bekleders door de tijd" />
+            ) : (
+              <EmptyState
+                title="Geen bekleders bekend"
+                description="Voor deze positie is nog geen bekleder met bron opgenomen."
+              />
+            )}
+          </FactGroup>
+        </div>
 
-      {news.length > 0 ? (
-        <section aria-labelledby="nieuws-titel" className="border-b border-line py-6">
-          <h2 id="nieuws-titel" className="text-lg font-semibold tracking-tight text-ink">
-            In het nieuws
-          </h2>
-          <NewsPanel scope="custom" items={news} initialLimit={4} />
-        </section>
-      ) : null}
+        <aside className="min-w-0 space-y-4">
+          <EntityFacts facts={facts} className="rounded-md border border-line bg-surface p-4" />
+
+          <FactGroup title={<T area="entity" k="factOrganization" />}>
+            {organization ? (
+              <EntityChip
+                href={`/organisaties/${organization.slug}/`}
+                dot={<EntityDot kind="organization" id={organization.id} />}
+              >
+                {organization.name}
+              </EntityChip>
+            ) : (
+              <p className="text-sm text-ink-faint">Onbekende organisatie.</p>
+            )}
+          </FactGroup>
+
+          {exOfficio.length > 0 ? (
+            <FactGroup icon={<SeatIcon />} title={<T area="entity" k="exOfficioTitle" />} count={exOfficio.length}>
+              <p className="text-sm text-ink-muted">
+                <T area="entity" k="exOfficioNote" />
+              </p>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {exOfficio.map((item) => (
+                  <li key={item.id}>
+                    <EntityChip
+                      href={`/organisaties/${item.slug}/`}
+                      dot={<EntityDot kind="organization" id={item.id} />}
+                    >
+                      {item.name}
+                    </EntityChip>
+                  </li>
+                ))}
+              </ul>
+            </FactGroup>
+          ) : null}
+        </aside>
+      </div>
 
       <SourceList sources={position.sources} />
     </>

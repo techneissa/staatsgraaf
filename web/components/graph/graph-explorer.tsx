@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { KeyboardEvent as ReactKeyboardEvent, MouseEvent as ReactMouseEvent, PointerEvent as ReactPointerEvent } from "react";
 import { useRouter } from "next/navigation";
-import { ORG_BRANCH_LABELS, ORG_SUBTYPE_LABELS } from "@/lib/labels";
 import {
   computeFocusPath,
   computeLayout,
@@ -12,8 +11,18 @@ import {
   type GraphBundle,
   type LaidOutNode,
 } from "@/lib/graph";
-import { glyphPath } from "./glyph";
+import { branchColorVar } from "@/lib/branch-colors";
+import type { OrgBranch } from "@/lib/types";
+import { useT } from "@/components/i18n/use-t";
+import { useLocale } from "@/components/i18n/language-provider";
+import {
+  BRANCH_LABELS_I18N,
+  ORG_SUBTYPE_LABELS_I18N,
+  ORG_TYPE_LABELS_I18N,
+} from "@/lib/i18n/dict-graph";
+import { hubBurstPath, glyphPath } from "./glyph";
 import { GraphList } from "./graph-list";
+import { sectorLabelArc, sectorWedge } from "./sector-wedge";
 
 type GraphExplorerProps = {
   bundle: GraphBundle;
@@ -26,14 +35,29 @@ type ViewTransform = { k: number; x: number; y: number };
 
 const MIN_ZOOM = 0.25;
 const MAX_ZOOM = 8;
+const SELECT_DIM_OPACITY = 0.22;
 
 function edgeKey(a: string, b: string): string {
   return a < b ? `${a}|${b}` : `${b}|${a}`;
 }
 
+function localizedLabel(
+  locale: "nl" | "en",
+  map: Record<string, { nl: string; en: string }>,
+  key: string | null | undefined,
+): string {
+  if (!key) return "";
+  const entry = map[key];
+  if (!entry) return key;
+  return locale === "en" ? entry.en : entry.nl;
+}
+
 export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: GraphExplorerProps) {
   const layout = useMemo(() => computeLayout(bundle), [bundle]);
   const router = useRouter();
+  const t = useT("graph");
+  const tCommon = useT("common");
+  const locale = useLocale();
   const svgRef = useRef<SVGSVGElement | null>(null);
   const dragRef = useRef<{ pointerId: number; startX: number; startY: number; view: ViewTransform } | null>(null);
   const movedRef = useRef(false);
@@ -80,15 +104,9 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
 
   const categorized = useMemo(() => {
     const base = new Map<string, string[]>();
-    const neighbor = new Map<string, string[]>();
+    const neighbor: { key: string; type: string; d: string }[] = [];
     const path: string[] = [];
     const nodes = layout.byId;
-
-    const push = (map: Map<string, string[]>, key: string, segment: string) => {
-      const list = map.get(key);
-      if (list) list.push(segment);
-      else map.set(key, [segment]);
-    };
 
     for (const edge of visibleEdges) {
       const from = nodes.get(edge.from);
@@ -99,20 +117,60 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
       if (pathEdgeKeys.has(key)) {
         path.push(segment);
       } else if (selectedId && (edge.from === selectedId || edge.to === selectedId)) {
-        push(neighbor, edge.type, segment);
+        neighbor.push({ key, type: edge.type, d: segment });
       } else {
-        push(base, edge.type, segment);
+        const list = base.get(edge.type);
+        if (list) list.push(segment);
+        else base.set(edge.type, [segment]);
       }
     }
 
     return {
-      base: [...base.entries()].sort((a, b) => a[0].localeCompare(b[0])),
-      neighbor: [...neighbor.entries()].sort((a, b) => a[0].localeCompare(b[0])),
+      base: [...base.entries()]
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .map(([type, segments]) => segments.join(" ")),
+      neighbor: neighbor.sort((a, b) => a.type.localeCompare(b.type) || a.key.localeCompare(b.key)),
       path,
     };
   }, [visibleEdges, layout, pathEdgeKeys, selectedId]);
 
+  const hubNodeId = layout.hub?.id ?? null;
   const selectedNode = selectedId ? layout.byId.get(selectedId) ?? null : null;
+  const selectedHub = layout.hub && selectedId && layout.hub.id === selectedId ? layout.hub : null;
+  const selectedBranch: OrgBranch | null | "hub" = selectedHub
+    ? "hub"
+    : selectedNode
+      ? selectedNode.branch
+      : null;
+
+  const wedges = useMemo(() => {
+    const inner = (layout.hub?.radius ?? 0) + 8;
+    return layout.sectors
+      .filter((sector) => !hiddenBranches.has(sector.branch))
+      .map((sector) => sectorWedge(sector, inner, layout.maxRadius + 26))
+      .filter((wedge) => wedge.d !== "");
+  }, [layout, hiddenBranches]);
+
+  const labelArcs = useMemo(
+    () =>
+      layout.sectors
+        .filter((sector) => !hiddenBranches.has(sector.branch))
+        .map((sector) => sectorLabelArc(sector))
+        .filter((arc): arc is { id: string; d: string } => arc !== null),
+    [layout, hiddenBranches],
+  );
+
+  const hubRadius = layout.hub?.radius ?? 0;
+  const hubSelected = selectedId !== null && layout.hub?.id === selectedId;
+  const hubActive = focusPath.length > 0 || hubSelected;
+  const statusText = selectedNode
+    ? `${selectedNode.name}, ${localizedLabel(locale, ORG_SUBTYPE_LABELS_I18N, selectedNode.subtype)}, ${localizedLabel(locale, BRANCH_LABELS_I18N, selectedNode.branch)}, ${t("connections", { n: neighborSet.size })}.`
+    : hubSelected && layout.hub
+      ? t("hubStatus", { name: layout.hub.name })
+      : t("noSelection");
+
+  const connectionCountText = (count: number) =>
+    count === 1 ? t("connectionsOne") : t("connections", { n: count });
 
   const toUserPoint = useCallback(
     (clientX: number, clientY: number) => {
@@ -213,6 +271,21 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
     if (id) onSelect(id);
   };
 
+  const onNodeDoubleClick = (event: ReactMouseEvent<SVGSVGElement>) => {
+    const target = (event.target as Element).closest("[data-node-id]");
+    const id = target?.getAttribute("data-node-id") ?? null;
+    if (!id) return;
+    const node = id === hubNodeId ? layout.hub : layout.byId.get(id);
+    if (node) {
+      event.preventDefault();
+      event.stopPropagation();
+      router.push(`/organisaties/${node.slug}/`);
+    } else {
+      event.preventDefault();
+      zoomByCenter(1.25);
+    }
+  };
+
   const moveSelection = (delta: number) => {
     if (visibleNodes.length === 0) return;
     const currentIndex = selectedId ? visibleNodes.findIndex((node) => node.id === selectedId) : -1;
@@ -280,14 +353,7 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
     }
   };
 
-  const hubRadius = layout.hub?.radius ?? 0;
-  const hubSelected = selectedId !== null && layout.hub?.id === selectedId;
-  const hubActive = focusPath.length > 0 || hubSelected;
-  const statusText = selectedNode
-    ? `${selectedNode.name}, ${ORG_SUBTYPE_LABELS[selectedNode.subtype]}, ${ORG_BRANCH_LABELS[selectedNode.branch]}, ${neighborSet.size} verbindingen.`
-    : hubSelected && layout.hub
-      ? `${layout.hub.name}, kiesgerechtigden.`
-      : "Geen organisatie geselecteerd.";
+  const branchLabel = (branch: string) => localizedLabel(locale, BRANCH_LABELS_I18N, branch);
 
   return (
     <div className="relative flex h-full min-h-0 w-full flex-col">
@@ -299,7 +365,7 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
         viewBox={`${layout.viewBox.x} ${layout.viewBox.y} ${layout.viewBox.width} ${layout.viewBox.height}`}
         role="group"
         tabIndex={0}
-        aria-label="Netwerk van Nederlandse overheidsorganisaties. Gebruik de pijltjestoetsen om te bladeren, Enter om te openen en Escape om te wissen."
+        aria-label={t("graphHint")}
         aria-describedby="grafiek-instructie"
         className="h-full w-full cursor-grab touch-none select-none active:cursor-grabbing"
         onPointerDown={onPointerDown}
@@ -308,69 +374,103 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
         onPointerCancel={onPointerUp}
         onKeyDown={onKeyDown}
         onClick={onBackgroundClick}
+        onDoubleClick={onNodeDoubleClick}
       >
+        <defs>
+          {labelArcs.map((arc) => (
+            <path key={arc.id} id={arc.id} d={arc.d} fill="none" />
+          ))}
+          <marker
+            id="grafiek-pijl"
+            viewBox="0 0 10 10"
+            refX={7}
+            refY={5}
+            markerWidth={7}
+            markerHeight={7}
+            markerUnits="userSpaceOnUse"
+            orient="auto-start-reverse"
+          >
+            <path
+              d="M 1 1.4 L 8.6 5 L 1 8.6"
+              fill="none"
+              stroke="var(--t-color-accent-text)"
+              strokeWidth={1.4}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </marker>
+        </defs>
+
         <g transform={`translate(${view.x} ${view.y}) scale(${view.k})`}>
-          <g aria-hidden="true">
-            {layout.sectors.map((sector) => (
-              <line
-                key={`spoke-${sector.branch}`}
-                x1={Math.cos(sector.startAngle) * hubRadius}
-                y1={Math.sin(sector.startAngle) * hubRadius}
-                x2={Math.cos(sector.startAngle) * layout.maxRadius}
-                y2={Math.sin(sector.startAngle) * layout.maxRadius}
-                stroke="var(--color-line)"
-                strokeWidth={1}
-                opacity={0.6}
+          <g aria-hidden="true" pointerEvents="none">
+            {wedges.map((wedge) => (
+              <path
+                key={`wedge-${wedge.branch}`}
+                d={wedge.d}
+                fill={wedge.color}
+                fillOpacity={selectedBranch === wedge.branch ? 0.14 : 0.07}
+                stroke={wedge.color}
+                strokeOpacity={selectedBranch === wedge.branch ? 0.32 : 0.12}
+                strokeWidth={0.6}
               />
             ))}
           </g>
 
-          <g aria-hidden="true">
-            {categorized.base.map(([type, segments]) => (
+          <g aria-hidden="true" pointerEvents="none">
+            {categorized.base.map((segments, index) => (
               <path
-                key={`base-${type}`}
-                d={segments.join(" ")}
+                key={`base-${index}`}
+                d={segments}
                 fill="none"
                 stroke="var(--color-line-strong)"
                 strokeWidth={0.75}
                 opacity={0.35}
               />
             ))}
-            {categorized.neighbor.map(([type, segments]) => (
-              <path
-                key={`neighbor-${type}`}
-                d={segments.join(" ")}
-                fill="none"
-                stroke="var(--color-accent-text)"
-                strokeWidth={1}
-                opacity={0.7}
-              />
-            ))}
-            {categorized.path.length > 0 ? (
-              <path
-                d={categorized.path.join(" ")}
-                fill="none"
-                stroke="var(--color-accent)"
-                strokeWidth={2}
-                strokeLinecap="round"
-                opacity={1}
-              />
-            ) : null}
           </g>
+
+          {selectedId ? (
+            <g aria-hidden="true" pointerEvents="none">
+              {categorized.neighbor.map((edge) => (
+                <path
+                  key={`neighbor-${edge.key}`}
+                  d={edge.d}
+                  fill="none"
+                  stroke="var(--color-accent-text)"
+                  strokeWidth={1}
+                  opacity={0.75}
+                  markerEnd="url(#grafiek-pijl)"
+                />
+              ))}
+              {categorized.path.length > 0 ? (
+                <path
+                  d={categorized.path.join(" ")}
+                  fill="none"
+                  stroke="var(--color-accent)"
+                  strokeWidth={2}
+                  strokeLinecap="round"
+                  opacity={1}
+                />
+              ) : null}
+            </g>
+          ) : null}
 
           <g onClick={onNodeClick}>
             {visibleNodes.map((node) => (
               <GraphGlyph
                 key={node.id}
                 node={node}
+                selected={node.id === selectedId}
                 state={
-                  focusSet.has(node.id)
-                    ? "path"
-                    : neighborSet.has(node.id)
-                      ? "neighbor"
-                      : selectedId
-                        ? "dim"
-                        : "base"
+                  node.id === selectedId
+                    ? "selected"
+                    : focusSet.has(node.id)
+                      ? "path"
+                      : neighborSet.has(node.id)
+                        ? "neighbor"
+                        : selectedId
+                          ? "dim"
+                          : "base"
                 }
               />
             ))}
@@ -400,71 +500,83 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
           ) : null}
 
           {layout.hub ? (
-            <g aria-hidden="true">
-              <circle
-                cx={0}
-                cy={0}
-                r={layout.hub.radius}
-                fill="var(--color-surface-inset)"
-                stroke={hubActive ? "var(--color-accent)" : "var(--color-line-strong)"}
-                strokeWidth={hubActive ? 2 : 1}
-              />
-              <path
-                d={glyphPath("dot", layout.hub.radius * 0.34)}
-                fill={hubActive ? "var(--color-accent)" : "var(--color-ink-muted)"}
-              />
-            </g>
+            <HubBurst
+              hub={layout.hub}
+              active={hubActive}
+              labelA={layout.hub.name.split(" ").slice(0, 1).join(" ")}
+              labelB={layout.hub.name.split(" ").slice(1).join(" ")}
+            />
           ) : null}
 
-          <g aria-hidden="true">
-            {layout.sectors.map((sector) => {
-              const angle = (sector.startAngle + sector.endAngle) / 2;
-              return (
-                <text
-                  key={`label-${sector.branch}`}
-                  x={Math.cos(angle) * sector.labelRadius}
-                  y={Math.sin(angle) * sector.labelRadius}
-                  textAnchor="middle"
-                  dominantBaseline="middle"
-                  fill="var(--color-ink-faint)"
-                  style={{ fontSize: 18, letterSpacing: "0.08em" }}
-                >
-                  {ORG_BRANCH_LABELS[sector.branch].toUpperCase()}
-                </text>
-              );
-            })}
+          <g aria-hidden="true" pointerEvents="none">
+            {layout.sectors
+              .filter((sector) => !hiddenBranches.has(sector.branch))
+              .map((sector) => {
+                const arc = sectorLabelArc(sector);
+                if (!arc) return null;
+                return (
+                  <text
+                    key={`label-${sector.branch}`}
+                    fill={branchColorVar(sector.branch)}
+                    fillOpacity={0.8}
+                    style={{ fontSize: 17, letterSpacing: "0.16em", fontWeight: 600 }}
+                  >
+                    <textPath href={`#${arc.id}`} startOffset="50%" textAnchor="middle">
+                      {branchLabel(sector.branch).toUpperCase()}
+                    </textPath>
+                  </text>
+                );
+              })}
           </g>
         </g>
       </svg>
 
       <p id="grafiek-instructie" className="sr-only">
-        De grafiek toont organisaties in sectoren per bestuurslaag. Pijltjestoetsen verplaatsen de
-        selectie, Enter opent de organisatie, Escape wist de selectie, de toetsen plus en min zoomen
-        en nul herstelt het beeld. Rechtsonder staan knoppen voor in- en uitzoomen.
+        {t("graphInstructions")}
       </p>
 
-      {selectedNode ? (
-        <div className="pointer-events-none absolute inset-x-3 bottom-3 flex justify-center">
-          <div className="pointer-events-auto max-w-full rounded-md border border-line bg-surface px-3 py-2 text-center shadow-lg">
-            <p className="truncate text-sm font-medium text-ink">{selectedNode.name}</p>
-            <p className="mt-0.5 text-xs text-ink-faint">
-              {ORG_SUBTYPE_LABELS[selectedNode.subtype]} · {ORG_BRANCH_LABELS[selectedNode.branch]}
-            </p>
-            <a
-              href={`/organisaties/${selectedNode.slug}/`}
-              className="mt-1 inline-block text-xs font-medium text-accent-text underline underline-offset-2"
+      {selectedHub && layout.hub ? (
+        <SelectionPopover ariaLabel={t("selectionDetails")}>
+          <p className="truncate text-sm font-medium text-ink">{layout.hub.name}</p>
+          <p className="mt-0.5 text-xs text-ink-faint">{connectionCountText(neighborSet.size)}</p>
+          <a
+            href={`/organisaties/${layout.hub.slug}/`}
+            className="mt-1 inline-block text-xs font-medium text-accent-text underline underline-offset-2"
+          >
+            {tCommon("openOrgPage")}
+          </a>
+        </SelectionPopover>
+      ) : selectedNode ? (
+        <SelectionPopover ariaLabel={t("selectionDetails")}>
+          <p className="truncate text-sm font-medium text-ink">{selectedNode.name}</p>
+          <div className="mt-1 flex flex-wrap items-center justify-center gap-1">
+            <span className="rounded-pill border border-line px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-ink-muted">
+              {localizedLabel(locale, ORG_TYPE_LABELS_I18N, selectedNode.type)}
+            </span>
+            <span
+              className="inline-flex items-center gap-1 rounded-pill border border-line px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-ink-muted"
             >
-              Open organisatiepagina
-            </a>
+              <svg aria-hidden="true" viewBox="-11 -11 22 22" width={10} height={10}>
+                <circle r={8} fill={branchColorVar(selectedNode.branch)} />
+              </svg>
+              {localizedLabel(locale, BRANCH_LABELS_I18N, selectedNode.branch)}
+            </span>
           </div>
-        </div>
+          <p className="mt-0.5 text-xs text-ink-faint">{connectionCountText(neighborSet.size)}</p>
+          <a
+            href={`/organisaties/${selectedNode.slug}/`}
+            className="mt-1 inline-block text-xs font-medium text-accent-text underline underline-offset-2"
+          >
+            {tCommon("openOrgPage")}
+          </a>
+        </SelectionPopover>
       ) : null}
 
-      <div className="absolute bottom-3 right-3 flex flex-col gap-1">
+      <div className="absolute bottom-3 left-3 flex flex-col gap-1">
         <button
           type="button"
           onClick={() => zoomByCenter(1.25)}
-          aria-label="Inzoomen"
+          aria-label={t("zoomIn")}
           className="flex h-8 w-8 items-center justify-center rounded-sm border border-line bg-surface text-sm text-ink-muted hover:text-ink"
         >
           +
@@ -472,7 +584,7 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
         <button
           type="button"
           onClick={() => zoomByCenter(0.8)}
-          aria-label="Uitzoomen"
+          aria-label={t("zoomOut")}
           className="flex h-8 w-8 items-center justify-center rounded-sm border border-line bg-surface text-sm text-ink-muted hover:text-ink"
         >
           -
@@ -480,7 +592,7 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
         <button
           type="button"
           onClick={() => setView({ k: 1, x: 0, y: 0 })}
-          aria-label="Beeld herstellen"
+          aria-label={t("zoomReset")}
           className="flex h-8 w-8 items-center justify-center rounded-sm border border-line bg-surface text-[10px] font-medium text-ink-muted hover:text-ink"
         >
           0
@@ -497,18 +609,93 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
   );
 }
 
-function GraphGlyph({ node, state }: { node: LaidOutNode; state: "base" | "dim" | "neighbor" | "path" }) {
-  const fill =
-    state === "path"
-      ? "var(--color-accent)"
-      : state === "neighbor"
-        ? "var(--color-accent-text)"
-        : "var(--color-ink-muted)";
-  const opacity = state === "dim" ? 0.35 : state === "base" ? 0.85 : 1;
-  const radius = state === "path" ? node.glyphRadius + SELECTED_GROWTH : node.glyphRadius;
+function SelectionPopover({
+  children,
+  ariaLabel,
+}: {
+  children: React.ReactNode;
+  ariaLabel: string;
+}) {
+  return (
+    <div className="pointer-events-none absolute inset-x-3 bottom-3 flex justify-center">
+      <div
+        aria-label={ariaLabel}
+        className="pointer-events-auto max-w-full rounded-md border border-line bg-surface px-3 py-2 text-center shadow-xl"
+      >
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function HubBurst({
+  hub,
+  active,
+  labelA,
+  labelB,
+}: {
+  hub: { id: string; slug: string; name: string; x: number; y: number; radius: number };
+  active: boolean;
+  labelA: string;
+  labelB: string;
+}) {
+  return (
+    <g data-node-id={hub.id} transform={`translate(${hub.x} ${hub.y})`}>
+      <a href={`/organisaties/${hub.slug}/`}>
+        <path
+          d={hubBurstPath(hub.radius)}
+          fill="var(--t-color-accent)"
+          stroke={active ? "var(--t-color-accent-text)" : "var(--t-color-accent)"}
+          strokeWidth={active ? 2 : 1}
+          opacity={active ? 1 : 0.9}
+        />
+        <text
+          textAnchor="middle"
+          fill="var(--t-color-accent-ink)"
+          style={{ fontSize: 15, fontWeight: 700 }}
+        >
+          <tspan x={0} dy={-6}>
+            {labelA}
+          </tspan>
+          <tspan x={0} dy={17}>
+            {labelB}
+          </tspan>
+        </text>
+      </a>
+    </g>
+  );
+}
+
+function GraphGlyph({
+  node,
+  state,
+  selected,
+}: {
+  node: LaidOutNode;
+  state: "base" | "dim" | "neighbor" | "path" | "selected";
+  selected: boolean;
+}) {
+  const color = branchColorVar(node.branch);
+  const radius = node.glyphRadius + (state === "selected" ? SELECTED_GROWTH : 0);
+  const fill = state === "selected" || state === "path" ? "var(--t-color-accent)" : color;
+  const opacity =
+    state === "dim"
+      ? SELECT_DIM_OPACITY
+      : state === "base"
+        ? 0.78
+        : 1;
   return (
     <g data-node-id={node.id} transform={`translate(${node.x} ${node.y})`} opacity={opacity}>
-      <circle r={11} fill="transparent" />
+      <circle r={12} fill="transparent" />
+      {selected ? (
+        <circle
+          r={radius + 6}
+          fill="none"
+          stroke="var(--t-color-accent)"
+          strokeWidth={1.5}
+          opacity={0.55}
+        />
+      ) : null}
       <path d={glyphPath(node.glyph, radius)} fill={fill} />
     </g>
   );

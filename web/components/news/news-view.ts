@@ -34,6 +34,8 @@ export type NewsItemView = {
   title: string;
   url: string;
   publisher: string;
+  /** The outlet host, for the source pill, for example "nos.nl". */
+  host: string;
   kind: PublisherKind;
   kindLabel: string;
   language: NewsLanguage;
@@ -57,6 +59,15 @@ export type NewsItemView = {
   image: { url: string; caption: string } | null;
   preview: NewsPreview;
 };
+
+/** The bare hostname of an outlet URL, without the leading `www.`. */
+export function hostLabel(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
+}
 
 /**
  * The pipeline writes a summary of the form `Publisher bericht: "title"` when it has
@@ -82,6 +93,7 @@ export function toNewsItemView(item: NewsItem, locale: NewsLanguage = "nl"): New
     title: item.title,
     url: item.url,
     publisher: item.publisher,
+    host: hostLabel(item.url),
     kind,
     kindLabel: messages.kindBadges[kind],
     language,

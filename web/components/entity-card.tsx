@@ -1,11 +1,23 @@
 import Link from "next/link";
-import { KindBadge } from "./kind-badge";
+import { branchColorClass } from "@/lib/branch-colors";
+import { formatCount } from "@/lib/format";
 import { ORG_BRANCH_LABELS, ORG_SUBTYPE_LABELS } from "@/lib/labels";
 import type { Organization } from "@/lib/types";
 
+/** Employee number used for the card count line, budgeted value as fallback. */
+export function employeeCountValue(organization: Organization): number | null {
+  return organization.employeeCount?.actual ?? organization.employeeCount?.budgeted ?? null;
+}
+
 export function EntityCard({ organization }: { organization: Organization }) {
+  const seats = organization.seatsCount;
+  const employees = employeeCountValue(organization);
   return (
-    <article className="rounded-md border border-line bg-surface p-4 transition-fast hover:border-line-strong">
+    <article className="relative flex h-full flex-col overflow-hidden rounded-md border border-line border-l-4 bg-surface p-3 pr-4 transition-fast hover:border-line-strong">
+      <span
+        aria-hidden="true"
+        className={`absolute inset-y-0 left-0 w-1 ${branchColorClass(organization.branch, "bg")}`}
+      />
       <h3 className="text-sm font-semibold">
         <Link
           href={`/organisaties/${organization.slug}/`}
@@ -14,12 +26,21 @@ export function EntityCard({ organization }: { organization: Organization }) {
           {organization.name}
         </Link>
       </h3>
-      <div className="mt-2 flex flex-wrap items-center gap-2">
-        <KindBadge tone="accent">{ORG_SUBTYPE_LABELS[organization.subtype]}</KindBadge>
+      <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1">
+        <span className="text-xs text-ink-muted">{ORG_SUBTYPE_LABELS[organization.subtype]}</span>
         <span className="text-xs text-ink-faint">{ORG_BRANCH_LABELS[organization.branch]}</span>
       </div>
       {organization.description !== null ? (
-        <p className="mt-2 text-sm leading-normal text-ink-muted">{organization.description}</p>
+        <p className="mt-1.5 line-clamp-2 text-sm leading-normal text-ink-muted">
+          {organization.description}
+        </p>
+      ) : null}
+      {seats !== null || employees !== null ? (
+        <p className="mt-auto pt-2 text-xs tabular-nums text-ink-faint">
+          {seats !== null ? `${formatCount(seats)} zetels` : null}
+          {seats !== null && employees !== null ? " · " : null}
+          {employees !== null ? `${formatCount(employees)} medewerkers` : null}
+        </p>
       ) : null}
     </article>
   );

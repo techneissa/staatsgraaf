@@ -287,6 +287,16 @@ export function groupConnections(connections: Connection[]): ConnectionGroup[] {
     .sort((a, b) => a.label.localeCompare(b.label, "nl"));
 }
 
+/**
+ * Look up one raw relation by id. Connection.id carries the relation id, so
+ * components can read metadata such as seatsAppointed without a second pass.
+ * Additive helper; existing exports are untouched.
+ */
+export function getRelationById(id: string): Relation | null {
+  const relation = getDataset().relations.find((item) => item.id === id);
+  return relation ?? null;
+}
+
 export function getNewsForEntity(id: string, limit = 10): NewsItem[] {
   return getDataset()
     .news.filter((item) => Array.isArray(item.entities) && item.entities.includes(id))

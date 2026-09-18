@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { T } from "@/components/i18n/t";
 import { EmptyState } from "@/components/empty-state";
-import { KindBadge } from "@/components/kind-badge";
 import { getOrganizationById } from "@/lib/data";
+import { getS } from "@/lib/i18n/server-strings";
+import { ORG_SUBTYPE_LABELS } from "@/lib/labels";
+import { branchColorVar } from "@/lib/branch-colors";
 import { formatCount } from "@/lib/format";
-import { ORG_BRANCH_LABELS, ORG_SUBTYPE_LABELS } from "@/lib/labels";
 import { getResponsibleOrganizations, getResponsiblePositions } from "@/lib/topics";
 import type { Topic } from "@/lib/types";
 
@@ -14,20 +16,21 @@ export function ResponsibleList({ topic }: { topic: Topic }) {
   return (
     <section aria-labelledby="verantwoordelijk-titel" className="border-b border-line py-6">
       <h2 id="verantwoordelijk-titel" className="text-lg font-semibold tracking-tight text-ink">
-        Wie is verantwoordelijk?
+        <T area="news" k="responsibleHeading" />
       </h2>
       <p className="mt-1 text-sm text-ink-muted">
         {formatCount(organizations.length)}{" "}
-        {organizations.length === 1 ? "organisatie" : "organisaties"} en{" "}
-        {formatCount(positions.length)} {positions.length === 1 ? "positie" : "posities"} zijn aan dit
-        onderwerp gekoppeld.
+        {organizations.length === 1 ? <T area="news" k="responsibleOrgSingular" /> : <T area="news" k="responsibleOrgPlural" />}{" "}
+        {formatCount(positions.length)}{" "}
+        {positions.length === 1 ? <T area="news" k="responsiblePositionSingular" /> : <T area="news" k="responsiblePositionPlural" />}{" "}
+        <T area="news" k="responsibleLinkedIntro" />
       </p>
 
       {organizations.length === 0 && positions.length === 0 ? (
         <div className="mt-4">
           <EmptyState
-            title="Nog geen verantwoordelijke organisaties"
-            description="Voor dit onderwerp zijn in de dataset nog geen organisaties of posities vastgelegd. Dit is een bekend gat en geen leeg onderwerp."
+            title={getS("news", "responsibleEmptyTitle")}
+            description={getS("news", "responsibleEmptyDescription")}
           />
         </div>
       ) : null}
@@ -35,28 +38,25 @@ export function ResponsibleList({ topic }: { topic: Topic }) {
       {organizations.length > 0 ? (
         <div className="mt-4">
           <h3 className="text-xs font-medium uppercase tracking-wider text-ink-faint">
-            Organisaties
+            <T area="news" k="responsibleOrganizationsLabel" />
           </h3>
-          <ul className="mt-2.5 space-y-2">
+          <ul className="mt-2.5 flex flex-wrap gap-2">
             {organizations.map((organization) => (
-              <li
-                key={organization.id}
-                className="rounded-md border border-line bg-surface p-3 transition-fast hover:border-line-strong"
-              >
+              <li key={organization.id}>
                 <Link
                   href={`/organisaties/${organization.slug}/`}
-                  className="text-sm font-semibold text-ink underline-offset-2 hover:text-accent-text hover:underline"
+                  className="inline-flex items-center gap-2 rounded-pill border border-line bg-surface py-1.5 pl-2.5 pr-3 text-sm text-ink transition-fast hover:border-line-strong hover:text-accent-text"
                 >
-                  {organization.name}
-                </Link>
-                <div className="mt-1.5 flex flex-wrap items-center gap-2">
-                  <KindBadge tone="accent">
-                    {ORG_SUBTYPE_LABELS[organization.subtype]}
-                  </KindBadge>
+                  <span
+                    aria-hidden="true"
+                    className="h-2 w-2 shrink-0 rounded-pill"
+                    style={{ backgroundColor: branchColorVar(organization.branch) }}
+                  />
+                  <span className="font-medium">{organization.name}</span>
                   <span className="text-xs text-ink-faint">
-                    {ORG_BRANCH_LABELS[organization.branch]}
+                    {ORG_SUBTYPE_LABELS[organization.subtype]}
                   </span>
-                </div>
+                </Link>
               </li>
             ))}
           </ul>
@@ -65,24 +65,23 @@ export function ResponsibleList({ topic }: { topic: Topic }) {
 
       {positions.length > 0 ? (
         <div className="mt-5">
-          <h3 className="text-xs font-medium uppercase tracking-wider text-ink-faint">Posities</h3>
-          <ul className="mt-2.5 space-y-2">
+          <h3 className="text-xs font-medium uppercase tracking-wider text-ink-faint">
+            <T area="news" k="responsiblePositionsLabel" />
+          </h3>
+          <ul className="mt-2.5 flex flex-wrap gap-2">
             {positions.map((position) => {
               const organization = getOrganizationById(position.organization);
               return (
-                <li
-                  key={position.id}
-                  className="rounded-md border border-line bg-surface p-3 transition-fast hover:border-line-strong"
-                >
+                <li key={position.id}>
                   <Link
                     href={`/posities/${position.slug}/`}
-                    className="text-sm font-semibold text-ink underline-offset-2 hover:text-accent-text hover:underline"
+                    className="inline-flex items-baseline gap-2 rounded-pill border border-line bg-surface py-1.5 px-3 text-sm text-ink transition-fast hover:border-line-strong hover:text-accent-text"
                   >
-                    {position.title}
+                    <span className="font-medium">{position.title}</span>
+                    {organization ? (
+                      <span className="text-xs text-ink-faint">{organization.name}</span>
+                    ) : null}
                   </Link>
-                  {organization ? (
-                    <p className="mt-0.5 text-xs text-ink-faint">{organization.name}</p>
-                  ) : null}
                 </li>
               );
             })}

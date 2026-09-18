@@ -1,4 +1,13 @@
+import { getS } from "@/lib/i18n/server-strings";
 import { formatBudgetAmount, formatBudgetPercent, type BudgetDelta } from "@/lib/budget";
+import { interpolate } from "@/lib/i18n/locales";
+
+/** Up and down share the branch tokens: leaf green for growth, deep red for decline. */
+const TONE: Record<"up" | "down" | "flat", string> = {
+  up: "var(--t-color-sector-adviescolleges)",
+  down: "var(--t-color-sector-staten-generaal)",
+  flat: "var(--t-color-ink-faint)",
+};
 
 function TrendArrow({ direction }: { direction: "up" | "down" | "flat" }) {
   const path =
@@ -33,21 +42,30 @@ export function ChangeIndicator({
   label?: string;
 }) {
   const direction = delta.absolute > 0 ? "up" : delta.absolute < 0 ? "down" : "flat";
-  const directionWord = direction === "up" ? "gestegen" : direction === "down" ? "gedaald" : "gelijk gebleven";
+  const directionWord =
+    direction === "up"
+      ? getS("news", "budgetChangeUp")
+      : direction === "down"
+        ? getS("news", "budgetChangeDown")
+        : getS("news", "budgetChangeFlat");
   const sign = direction === "up" ? "+" : direction === "down" ? "−" : "";
   const percent =
     delta.percent !== null ? `${sign}${formatBudgetPercent(delta.percent)}` : null;
   const absolute = formatBudgetAmount(delta.absolute, unit) ?? "onbekend";
-  const tone = direction === "up" ? "text-accent-text" : "text-ink-muted";
 
   return (
-    <p className={`mt-2 flex flex-wrap items-center gap-x-1.5 text-xs ${tone}`}>
+    <p
+      className="mt-2 flex flex-wrap items-center gap-x-1.5 text-xs"
+      style={{ color: TONE[direction] }}
+    >
       <span className="sr-only">
         {label} zijn {directionWord} met {percent ?? absolute} ten opzichte van {since}:
       </span>
       <TrendArrow direction={direction} />
       <span className="font-medium tabular-nums">{percent ?? absolute}</span>
-      <span className="text-ink-faint">t.o.v. {since}</span>
+      <span className="text-ink-faint">
+        {interpolate(getS("news", "budgetChangeSince"), { year: since })}
+      </span>
     </p>
   );
 }

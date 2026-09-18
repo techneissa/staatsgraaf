@@ -2,6 +2,12 @@
 
 import * as Tabs from "@radix-ui/react-tabs";
 import type { ReactNode } from "react";
+import { useLocale } from "@/components/i18n/language-provider";
+
+const WINDOW_TABS_ARIA = {
+  nl: "Wijzigingsperiode",
+  en: "Change period",
+} as const;
 
 export type ChangeWindowPanel = {
   value: string;
@@ -10,7 +16,7 @@ export type ChangeWindowPanel = {
 };
 
 const triggerClass =
-  "rounded-pill px-3 py-1 text-xs font-medium uppercase tracking-wide text-ink-muted data-[state=active]:bg-surface data-[state=active]:text-ink";
+  "rounded-pill px-3 py-1 text-xs font-medium uppercase tracking-wide text-ink-muted transition-fast hover:text-ink data-[state=active]:bg-surface data-[state=active]:text-ink data-[state=active]:shadow-sm";
 
 export function ChangeWindowTabs({
   panels,
@@ -19,10 +25,11 @@ export function ChangeWindowTabs({
   panels: ChangeWindowPanel[];
   defaultValue: string;
 }) {
+  const locale = useLocale();
   return (
     <Tabs.Root defaultValue={defaultValue}>
       <Tabs.List
-        aria-label="Wijzigingsperiode"
+        aria-label={locale === "en" ? WINDOW_TABS_ARIA.en : WINDOW_TABS_ARIA.nl}
         className="inline-flex items-center gap-0.5 rounded-pill border border-line bg-surface-inset p-0.5"
       >
         {panels.map((panel) => (

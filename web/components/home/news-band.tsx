@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { EmptyState } from "@/components/empty-state";
 import { NewsCard } from "@/components/news-card";
+import { getS } from "@/lib/i18n/server-strings";
 import type { NewsItem } from "@/lib/types";
 
 export function NewsBand({ items }: { items: NewsItem[] }) {
@@ -14,30 +15,23 @@ export function NewsBand({ items }: { items: NewsItem[] }) {
   }
 
   return (
-    <>
-      <ol className="mt-3 space-y-3">
+    <div>
+      <ol className="space-y-2.5">
         {items.map((item, index) => (
-          <li key={item.id} className="flex gap-3">
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Bron ${index + 1}: ${item.publisher}`}
-              className="mt-1 shrink-0 text-xs font-medium tabular-nums text-accent-text underline-offset-2 hover:underline"
-            >
-              [{index + 1}]
-            </a>
-            <div className="min-w-0 flex-1">
-              <NewsCard item={item} />
-            </div>
+          <li key={item.id}>
+            <NewsCard item={item} rank={index + 1} />
           </li>
         ))}
       </ol>
-      <p className="mt-3 text-sm">
-        <Link href="/nieuws/" className="text-accent-text underline-offset-2 hover:underline">
-          Alle nieuws
+      <p className="mt-4 text-sm">
+        <Link
+          href="/nieuws/"
+          className="inline-flex items-center gap-1 text-sm font-medium text-accent-text underline-offset-2 hover:underline"
+        >
+          {getS("home", "newsReadMore")}
+          <span aria-hidden="true">&rsaquo;</span>
         </Link>
       </p>
-    </>
+    </div>
   );
 }

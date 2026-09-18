@@ -1,38 +1,33 @@
 import Link from "next/link";
-import { KindBadge } from "@/components/kind-badge";
 import { PersonPortrait, PersonPortraitCredit } from "@/components/entity/person-portrait";
 import type { FocusPerson } from "@/lib/home";
 
-function PersonTile({ entry }: { entry: FocusPerson }) {
+function PersonBubble({ entry }: { entry: FocusPerson }) {
+  const title = [entry.person.name, entry.positionTitle].filter(Boolean).join(" · ");
   return (
     <Link
       href={`/personen/${entry.person.slug}/`}
-      className="group flex h-full w-40 shrink-0 snap-start flex-col rounded-md border border-line bg-surface p-3 transition-fast hover:border-line-strong"
+      title={title}
+      aria-label={title}
+      className="group relative block h-11 w-11 shrink-0 rounded-pill ring-2 ring-canvas transition-fast hover:z-20 hover:ring-accent"
     >
-      <PersonPortrait person={entry.person} size={80} />
-      <span className="mt-2 block text-sm font-semibold text-ink group-hover:text-accent-text">
-        {entry.person.name}
-      </span>
-      {entry.positionTitle !== null ? (
-        <span className="mt-0.5 block text-xs leading-snug text-ink-muted">
-          {entry.positionTitle}
-        </span>
-      ) : null}
-      <span className="mt-1.5 flex flex-wrap gap-1">
-        {entry.person.party !== null ? <KindBadge>{entry.person.party}</KindBadge> : null}
-        {entry.acting ? <KindBadge tone="accent">Waarnemend</KindBadge> : null}
-      </span>
+      <PersonPortrait person={entry.person} size={44} />
       <PersonPortraitCredit person={entry.person} className="sr-only" />
     </Link>
   );
 }
 
+/**
+ * CivLab-style avatar strip: overlapping rounded portraits with the name on
+ * hover via the title attribute; the first item carries no negative margin so
+ * the row stays aligned.
+ */
 export function PeopleStrip({ people }: { people: FocusPerson[] }) {
   return (
-    <ul className="-mx-1 flex snap-x gap-3 overflow-x-auto px-1 pb-2">
-      {people.map((entry) => (
-        <li key={entry.person.id}>
-          <PersonTile entry={entry} />
+    <ul className="flex flex-wrap items-center">
+      {people.map((entry, index) => (
+        <li key={entry.person.id} className={index > 0 ? "-ml-2.5" : undefined}>
+          <PersonBubble entry={entry} />
         </li>
       ))}
     </ul>

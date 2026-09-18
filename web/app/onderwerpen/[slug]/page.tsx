@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
+import { T } from "@/components/i18n/t";
 import { ResponsibleList } from "@/components/topic/responsible-list";
 import { TopicNews } from "@/components/topic/topic-news";
 import { getDatasetDate } from "@/lib/data";
@@ -70,7 +71,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
           </p>
         ) : (
           <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-faint">
-            Voor dit onderwerp is nog geen beschrijving opgenomen.
+            <T area="news" k="topicDescriptionMissing" />
           </p>
         )}
       </header>
@@ -79,7 +80,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
 
       <section aria-labelledby="nieuws-titel" className="py-6">
         <h2 id="nieuws-titel" className="text-lg font-semibold tracking-tight text-ink">
-          Nieuws
+          <T area="news" k="topicNewsHeading" />
         </h2>
         <TopicNews items={news} total={newsTotal} />
       </section>

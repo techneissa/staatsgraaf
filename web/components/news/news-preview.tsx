@@ -16,12 +16,15 @@ export function NewsPreviewTile({
   preview,
   size = 64,
   className = "",
+  rounded = "lg",
 }: {
   preview: NewsPreview;
   size?: number;
   className?: string;
+  rounded?: "sm" | "md" | "lg";
 }) {
-  const frame = `shrink-0 overflow-hidden rounded-sm border border-line ${className}`.trim();
+  const roundedClass = { sm: "rounded-sm", md: "rounded-md", lg: "rounded-lg" }[rounded];
+  const frame = `shrink-0 overflow-hidden ${roundedClass} border border-line ${className}`.trim();
   if (preview.kind === "image" || preview.kind === "portrait") {
     return (
       <span className={`${frame} bg-surface-raised`} style={{ width: size, height: size }}>

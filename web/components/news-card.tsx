@@ -1,8 +1,9 @@
 import { DateStamp } from "./date-stamp";
 import { EntityChip } from "./entity-chip";
 import { SourceLink } from "./source-link";
+import { SourceArrow } from "./news/news-item-card";
 import { NewsPreviewTile, newsPreviewCaption } from "./news/news-preview";
-import { resolveNewsPreview } from "./news/news-view";
+import { resolveNewsPreview, hostLabel } from "./news/news-view";
 import { getSourceById } from "@/lib/data";
 import { getMediaItem, mediaCreditLine } from "@/lib/entity";
 import { renderSummaryMarkup } from "@/lib/markup";
@@ -55,88 +56,107 @@ export function NewsCard({
   const caption = newsPreviewCaption(preview);
 
   return (
-    <Tag className="rounded-md border border-line bg-surface p-4">
-      <div className="flex gap-4">
-        <NewsPreviewTile preview={preview} size={56} className="mt-0.5" />
+    <Tag className="group rounded-md border border-line bg-surface p-4 transition-fast hover:border-line-strong">
+      <div className="flex items-start gap-4">
         <div className="min-w-0 flex-1">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <span className="flex items-center gap-2 text-xs text-ink-faint">
-              {rank !== undefined ? (
-                <a
-                  href={primary?.source.url ?? item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Bron ${rank} voor dit bericht`}
-                  className="tabular-nums font-medium text-accent-text underline-offset-2 hover:underline"
-                >
-                  [{rank}]
-                </a>
-              ) : null}
-              <span>{item.publisher}</span>
-            </span>
-            <DateStamp date={item.published} />
-          </div>
-          <h3 className="mt-1.5 text-sm font-semibold">
+          <h3 className="text-[15px] font-semibold leading-snug">
             <a
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-ink underline-offset-2 hover:text-accent-text hover:underline"
+              className="text-ink decoration-accent decoration-2 underline-offset-2 transition-fast hover:text-accent-text hover:underline"
             >
               {item.title}
               <span className="sr-only"> (opent in een nieuw tabblad)</span>
             </a>
           </h3>
+          <div className="mt-1 flex flex-wrap items-center gap-2 text-xs">
+            <DateStamp date={item.published} />
+            {item.language === "en" ? (
+              <span
+                lang="en"
+                className="rounded-pill border border-line px-1.5 text-[10px] font-medium uppercase tracking-wide text-ink-faint"
+              >
+                EN
+              </span>
+            ) : null}
+          </div>
           {item.summaryMarkup !== null ? (
-            <p className="mt-2 text-sm leading-normal text-ink-muted">
+            <p className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted">
               {renderSummaryMarkup(item.summaryMarkup)}
             </p>
           ) : item.summary !== null ? (
-            <p className="mt-2 text-sm leading-normal text-ink-muted">{item.summary}</p>
+            <p className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted">{item.summary}</p>
+          ) : null}
+          {entities.length > 0 ? (
+            <ul className="mt-3 flex flex-wrap gap-2" aria-label="Genoemd in dit bericht">
+              {entities.map((entry) => (
+                <li key={entry.id}>
+                  <EntityChip
+                    href={entry.href}
+                    icon={
+                      entry.portrait !== null ? (
+                        <img
+                          src={entry.portrait.url}
+                          alt=""
+                          title={entry.portrait.caption}
+                          width={24}
+                          height={24}
+                          loading="lazy"
+                          decoding="async"
+                          className="h-6 w-6 rounded-pill border border-line object-cover"
+                        />
+                      ) : undefined
+                    }
+                  >
+                    {entry.label}
+                  </EntityChip>
+                </li>
+              ))}
+            </ul>
           ) : null}
         </div>
+        <NewsPreviewTile preview={preview} size={72} rounded="lg" />
       </div>
-      {entities.length > 0 ? (
-        <ul className="mt-3 flex flex-wrap gap-2" aria-label="Genoemd in dit bericht">
-          {entities.map((entry) => (
-            <li key={entry.id}>
-              <EntityChip
-                href={entry.href}
-                icon={
-                  entry.portrait !== null ? (
-                    <img
-                      src={entry.portrait.url}
-                      alt=""
-                      title={entry.portrait.caption}
-                      width={24}
-                      height={24}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-6 w-6 rounded-pill border border-line object-cover"
-                    />
-                  ) : undefined
-                }
-              >
-                {entry.label}
-              </EntityChip>
-            </li>
-          ))}
-        </ul>
-      ) : null}
+      <p className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-xs text-ink-faint">
+        <span className="flex items-center gap-2">
+          {rank !== undefined ? (
+            <a
+              href={primary?.source.url ?? item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Bron ${rank} voor dit bericht`}
+              className="tabular-nums font-medium text-accent-text underline-offset-2 hover:underline"
+            >
+              [{rank}]
+            </a>
+          ) : null}
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 rounded-pill border border-line bg-surface-inset py-1 px-2.5 text-[11px] font-medium tracking-wide text-ink-muted transition-fast hover:border-line-strong hover:text-accent-text"
+          >
+            {hostLabel(item.url)}
+            <SourceArrow />
+            <span className="sr-only"> (opent in een nieuw tabblad)</span>
+          </a>
+        </span>
+        {caption !== null ? (
+          <span className="basis-full text-[10px] leading-tight">Beeld: {caption}</span>
+        ) : null}
+      </p>
       {sources.length > 0 ? (
-        <ol className="mt-3 space-y-1">
+        <ol className="mt-3 space-y-1 border-t border-line pt-2">
           {sources.map(({ index, source }) => (
-            <li key={source.id} className="text-xs">
+            <li key={source.id} className="text-xs leading-snug">
               <span className="mr-1 tabular-nums text-ink-faint">[{index}]</span>
-              <SourceLink href={source.url} meta={source.publisher}>
+              <SourceLink href={source.url} meta={source.publisher} className="text-xs">
                 {source.title}
               </SourceLink>
             </li>
           ))}
         </ol>
-      ) : null}
-      {caption !== null ? (
-        <p className="mt-2 text-[10px] leading-tight text-ink-faint">Beeld: {caption}</p>
       ) : null}
     </Tag>
   );

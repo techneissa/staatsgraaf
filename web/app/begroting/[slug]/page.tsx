@@ -6,6 +6,7 @@ import { BudgetBreakdown } from "@/components/budget/budget-breakdown";
 import { BudgetHistory } from "@/components/budget/budget-history";
 import { BudgetYearFigures } from "@/components/budget/budget-year-figures";
 import { ChangeIndicator } from "@/components/budget/change-indicator";
+import { T } from "@/components/i18n/t";
 import { EmptyState } from "@/components/empty-state";
 import { JsonLd } from "@/components/json-ld";
 import { SourceList } from "@/components/source-list";
@@ -85,21 +86,20 @@ export default async function BudgetOrganizationPage({
       />
 
       <header className="mt-4 border-b border-line pb-6">
-        <p className="text-xs font-medium uppercase tracking-wider text-accent-text">Begroting</p>
-        <h1 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
-          {view.organization.name}
+        <p className="text-xs font-medium uppercase tracking-wider text-accent-text"><T area="news" k="budgetHeading" /></p>
+        <h1 className="mt-1 text-2xl font-semibold tracking-tight text-ink">          {view.organization.name}
         </h1>
         <p className="mt-2 text-sm">
           <Link
             href={`/organisaties/${view.organization.slug}/`}
             className="text-accent-text underline-offset-2 hover:underline"
           >
-            Bekijk de organisatie
+              <T area="news" k="budgetOrgActionLink" />
           </Link>
         </p>
         {unitLabel !== null ? (
           <p className="mt-2 text-xs text-ink-faint">
-            Alle bedragen in {unitLabel}, tenzij anders vermeld.
+            <T area="news" k="budgetUnitNote" vars={{ unit: unitLabel }} />
           </p>
         ) : null}
         {currentYear !== null && previousYear !== null ? (
@@ -112,7 +112,7 @@ export default async function BudgetOrganizationPage({
       {view.current !== null ? (
         <section aria-labelledby="bedragen-titel" className="border-b border-line py-6">
           <h2 id="bedragen-titel" className="text-lg font-semibold tracking-tight text-ink">
-            Uitgaven, ontvangsten en saldo
+              <T area="news" k="budgetFiguresHeading" />
           </h2>
           {currentYear !== null && previousYear !== null ? (
             delta !== null ? (
@@ -138,7 +138,7 @@ export default async function BudgetOrganizationPage({
       ) : (
         <section aria-labelledby="bedragen-titel" className="border-b border-line py-6">
           <h2 id="bedragen-titel" className="text-lg font-semibold tracking-tight text-ink">
-            Uitgaven, ontvangsten en saldo
+              <T area="news" k="budgetFiguresHeading" />
           </h2>
           <div className="mt-3">
             <EmptyState
@@ -151,7 +151,7 @@ export default async function BudgetOrganizationPage({
 
       <section aria-labelledby="reeks-titel" className="border-b border-line py-6">
         <h2 id="reeks-titel" className="text-lg font-semibold tracking-tight text-ink">
-          Reeks gerealiseerde bedragen
+            <T area="news" k="budgetHistoryHeading" />
         </h2>
         <p className="mt-1 text-sm text-ink-muted">
           De werkelijke uitgaven en ontvangsten per jaar zoals de begrotingsstaten die melden.
@@ -163,7 +163,7 @@ export default async function BudgetOrganizationPage({
 
       <section aria-labelledby="uitsplitsing-titel" className="border-b border-line py-6">
         <h2 id="uitsplitsing-titel" className="text-lg font-semibold tracking-tight text-ink">
-          Uitsplitsing naar categorie
+            <T area="news" k="budgetBreakdownHeading" />
         </h2>
         <div className="mt-3">
           <BudgetBreakdown
