@@ -38,15 +38,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <SkipLink />
           <div className="flex min-h-dvh flex-col lg:h-dvh lg:min-h-0 lg:overflow-hidden">
             <TopBar />
-            <div className="grid min-h-0 flex-1 grid-cols-1 lg:grid-cols-[minmax(0,32rem)_minmax(0,1fr)]">
-              <div className="flex min-h-0 flex-col lg:overflow-y-auto">
-                <main id="inhoud" tabIndex={-1} className="flex-1 px-4 pb-10 pt-6 lg:px-8">
-                  {children}
-                </main>
-                <SiteFooter datasetDate={datasetDate} />
-              </div>
-              <CanvasFrame />
+          <div className="grid min-h-0 flex-1 grid-cols-1 lg:grid-cols-[minmax(0,32rem)_minmax(0,1fr)]">
+            <CanvasFrame />
+            <div className="flex min-h-0 flex-col lg:col-start-1 lg:row-start-1 lg:overflow-y-auto">
+              <main id="inhoud" tabIndex={-1} className="flex-1 px-4 pb-10 pt-6 lg:px-8">
+                {children}
+              </main>
+              <SiteFooter datasetDate={datasetDate} />
             </div>
+          </div>
           </div>
         </LanguageProvider>
       </body>
