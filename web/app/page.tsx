@@ -1,10 +1,24 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Card } from "@/components/card";
-import { EmptyState } from "@/components/empty-state";
-import { EntityCard } from "@/components/entity-card";
+import { ChangePanel } from "@/components/home/change-panel";
+import { ChangeStats } from "@/components/home/change-stats";
+import {
+  ChangeWindowTabs,
+  type ChangeWindowPanel,
+} from "@/components/home/change-window-tabs";
+import { NewsBand } from "@/components/home/news-band";
+import { PeopleStrip } from "@/components/home/people-strip";
 import { JsonLd } from "@/components/json-ld";
-import { getOrganizationCounts, getOrganizations } from "@/lib/data";
+import { getOrganizationCounts } from "@/lib/data";
 import { formatCount } from "@/lib/format";
+import {
+  getChangeStats,
+  getChangeWindows,
+  getFocusPeople,
+  getHomeNews,
+  getSubOrganizationCount,
+} from "@/lib/home";
 import { ORG_BRANCH_LABELS, ORG_TYPE_LABELS } from "@/lib/labels";
 import { SCOPE_LABEL, SITE_NAME, SITE_TAGLINE, canonical } from "@/lib/site";
 import type { OrgBranch, OrgType } from "@/lib/types";
@@ -17,8 +31,17 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   const counts = getOrganizationCounts();
-  const organizations = getOrganizations();
-  const ministries = counts.bySubtype.find((entry) => entry.key === "ministerie")?.count ?? 0;
+  const news = getHomeNews(6);
+  const people = getFocusPeople(10);
+  const stats = getChangeStats();
+  const windows = getChangeWindows();
+  const subOrganizations = getSubOrganizationCount();
+
+  const panels: ChangeWindowPanel[] = windows.map((window) => ({
+    value: window.key,
+    label: `${window.days}D`,
+    content: <ChangePanel window={window} />,
+  }));
 
   return (
     <>
@@ -32,7 +55,9 @@ export default function HomePage() {
       />
 
       <section className="border-b border-line pb-6">
-        <p className="text-xs font-medium uppercase tracking-wider text-accent-text">{SCOPE_LABEL}</p>
+        <p className="text-xs font-medium uppercase tracking-wider text-accent-text">
+          {SCOPE_LABEL}
+        </p>
         <h1 className="mt-2 text-2xl font-semibold tracking-tight text-ink">
           De Nederlandse rijksoverheid in kaart
         </h1>
@@ -43,31 +68,54 @@ export default function HomePage() {
         <h2 id="nieuws-titel" className="text-lg font-semibold tracking-tight text-ink">
           Laatste nieuws
         </h2>
-        <div className="mt-3">
-          <EmptyState
-            title="Nog geen nieuwsberichten"
-            description="Zodra de nieuwsbronnen zijn aangesloten, verschijnen hier recente berichten met bron en datum."
-          />
-        </div>
+        <NewsBand items={news} />
+      </section>
+
+      <section aria-labelledby="mensen-titel" className="border-b border-line py-6">
+        <h2 id="mensen-titel" className="text-lg font-semibold tracking-tight text-ink">
+          Wie in het nieuws
+        </h2>
+        {news.length > 0 ? (
+          <p className="mt-1 text-sm text-ink-muted">
+            De meest genoemde personen in de nieuwsberichten van de laatste periode.
+          </p>
+        ) : (
+          <p className="mt-1 text-sm text-ink-muted">
+            Nog geen nieuwsanalyse beschikbaar. Hieronder staan mensen met een lopende functie in de
+            dataset, op volgorde van functie.
+          </p>
+        )}
+        {people.length > 0 ? (
+          <div className="mt-3">
+            <PeopleStrip people={people} />
+          </div>
+        ) : (
+          <p className="mt-3 text-sm text-ink-faint">Nog geen personen met een lopende functie.</p>
+        )}
       </section>
 
       <section aria-labelledby="wijzigingen-titel" className="border-b border-line py-6">
-        <h2 id="wijzigingen-titel" className="text-lg font-semibold tracking-tight text-ink">
-          Laatste wijzigingen
-        </h2>
-        <div className="mt-3">
-          <EmptyState
-            title="Nog geen wijzigingen"
-            description="De wijzigingenfeed wordt gevuld door de dagelijkse vergelijking van de dataset met de vorige versie. Aanstellingen, vertrekken en structuurwijzigingen verschijnen hier zodra die vergelijking draait."
-          />
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h2 id="wijzigingen-titel" className="text-lg font-semibold tracking-tight text-ink">
+            Laatste wijzigingen
+          </h2>
+          <ChangeWindowTabs panels={panels} defaultValue="30d" />
         </div>
+        <p className="mt-2 text-sm text-ink-muted">
+          De wijzigingenfeed wordt gevuld door de dagelijkse vergelijking van de dataset met de
+          vorige versie. Aanstellingen, vertrekken en structuurwijzigingen verschijnen hier met een
+          bron per wijziging.
+        </p>
+        <ChangeStats stats={stats} />
       </section>
 
       <section aria-labelledby="overzicht-titel" className="border-b border-line py-6">
         <h2 id="overzicht-titel" className="text-lg font-semibold tracking-tight text-ink">
           Overzicht
         </h2>
-        <p className="mt-1 text-sm text-ink-muted">Tellingen op het hoogste niveau voor het Rijk.</p>
+        <p className="mt-1 text-sm text-ink-muted">
+          Tellingen op het hoogste niveau voor het Rijk.
+        </p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2">
           <Card>
             <h3 className="text-xs font-medium uppercase tracking-wider text-ink-faint">
@@ -101,21 +149,45 @@ export default function HomePage() {
           </Card>
         </div>
         <p className="mt-3 text-xs text-ink-faint">
-          {formatCount(counts.total)} organisaties in totaal, waarvan {formatCount(ministries)}{" "}
-          ministeries.
+          {formatCount(counts.total)} organisaties in totaal, waarvan {formatCount(subOrganizations)}{" "}
+          suborganisaties.{" "}
+          <a href="#over" className="text-accent-text underline-offset-2 hover:underline">
+            Over deze kaart
+          </a>
         </p>
       </section>
 
-      <section aria-labelledby="organisaties-titel" className="py-6">
-        <h2 id="organisaties-titel" className="text-lg font-semibold tracking-tight text-ink">
-          Organisaties
+      <section id="over" aria-labelledby="over-titel" className="py-6">
+        <h2 id="over-titel" className="text-lg font-semibold tracking-tight text-ink">
+          Over deze kaart
         </h2>
-        <ul className="mt-3 space-y-2">
-          {organizations.map((organization) => (
-            <li key={organization.id}>
-              <EntityCard organization={organization} />
-            </li>
-          ))}
+        <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
+          Deze kaart brengt de Nederlandse rijksoverheid in kaart als een open, bronvaste grafiek
+          van organisaties, posities, personen en hun onderlinge relaties. Elk gegeven verwijst naar
+          de bron waar het vandaan komt, met een ophaaldatum.
+        </p>
+        <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+          <li>
+            <Link
+              href="/methodiek/"
+              className="text-accent-text underline-offset-2 hover:underline"
+            >
+              Methodiek en verantwoording
+            </Link>
+          </li>
+          <li>
+            <Link href="/privacy/" className="text-accent-text underline-offset-2 hover:underline">
+              Privacy
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/toegankelijkheid/"
+              className="text-accent-text underline-offset-2 hover:underline"
+            >
+              Toegankelijkheid
+            </Link>
+          </li>
         </ul>
       </section>
     </>

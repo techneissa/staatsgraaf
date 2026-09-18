@@ -1,0 +1,207 @@
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+
+const DATA_DIR = fileURLToPath(new URL("../../data/", import.meta.url));
+const OUT_DIR = fileURLToPath(new URL("../public/", import.meta.url));
+const OUT_FILE = fileURLToPath(new URL("../public/graph.json", import.meta.url));
+
+const RELATION_TYPES = ["advises", "consists_of", "elects", "oversees", "part_of"];
+
+function readJson(name) {
+  return JSON.parse(readFileSync(`${DATA_DIR}${name}`, "utf8"));
+}
+
+function readArray(name) {
+  const value = readJson(name);
+  return Array.isArray(value) ? value : [];
+}
+
+function isOrgId(id) {
+  return typeof id === "string" && id.startsWith("org:");
+}
+
+function compareNames(a, b) {
+  if (a.id !== b.id) return a.id < b.id ? -1 : 1;
+  return 0;
+}
+
+function dayNumber(iso) {
+  if (!iso) return null;
+  const time = Date.parse(iso.length <= 10 ? `${iso}T00:00:00Z` : iso);
+  return Number.isNaN(time) ? null : Math.floor(time / 86400000);
+}
+
+const organizations = readArray("organizations.json");
+const people = readArray("people.json");
+const positions = readArray("positions.json");
+const tenures = readArray("tenures.json");
+const relations = readArray("relations.json");
+const news = readArray("news.json");
+const media = readArray("media.json");
+const meta = readJson("meta.json");
+
+const orgIds = new Set(organizations.map((org) => org.id));
+const peopleById = new Map(people.map((person) => [person.id, person]));
+const positionsById = new Map(positions.map((position) => [position.id, position]));
+const mediaById = new Map(media.map((item) => [item.id, item]));
+
+const degree = new Map();
+const edges = [];
+
+for (const relation of relations) {
+  if (!isOrgId(relation.from) || !isOrgId(relation.to)) continue;
+  if (!orgIds.has(relation.from) || !orgIds.has(relation.to)) continue;
+  if (!RELATION_TYPES.includes(relation.type)) continue;
+  edges.push({ from: relation.from, to: relation.to, type: relation.type });
+  degree.set(relation.from, (degree.get(relation.from) ?? 0) + 1);
+  degree.set(relation.to, (degree.get(relation.to) ?? 0) + 1);
+}
+
+edges.sort(compareNames);
+
+const nodes = organizations
+  .map((org) => ({
+    id: org.id,
+    slug: org.slug,
+    name: org.name,
+    type: org.type,
+    subtype: org.subtype,
+    branch: org.branch,
+    level: org.level,
+    degree: degree.get(org.id) ?? 0,
+    parent: org.parent ?? null,
+  }))
+  .sort(compareNames);
+
+const hubOrg =
+  organizations.find((org) => org.type === "constituency") ??
+  organizations.find((org) => org.id === "org:kiesgerechtigden-nederland") ??
+  null;
+
+const snapshot = typeof meta.snapshotId === "string" ? meta.snapshotId : null;
+const generatedAt = typeof meta.generatedAt === "string" ? meta.generatedAt : null;
+
+function buildPowerMap() {
+  const windowDays = 90;
+  const snapshotDay = dayNumber(snapshot);
+  const sinceDay = snapshotDay === null ? null : snapshotDay - windowDays;
+  const since = sinceDay === null ? null : new Date(sinceDay * 86400000).toISOString().slice(0, 10);
+
+  if (news.length === 0) {
+    return {
+      windowDays,
+      since,
+      computedAt: generatedAt,
+      articleCount: 0,
+      sources: [],
+      people: [],
+    };
+  }
+
+  const currentTenure = new Map();
+  for (const tenure of tenures) {
+    if (tenure.end !== null) continue;
+    if (!currentTenure.has(tenure.person)) currentTenure.set(tenure.person, tenure);
+  }
+
+  const counts = new Map();
+  const weeks = new Map();
+  const latest = new Map();
+  const publishers = new Set();
+  let articleCount = 0;
+
+  for (const item of news) {
+    const day = dayNumber(item.published);
+    if (day === null || sinceDay === null || day < sinceDay) continue;
+    if (snapshotDay !== null && day > snapshotDay) continue;
+    articleCount += 1;
+    if (item.publisher) publishers.add(item.publisher);
+    const week = Math.min(11, Math.max(0, Math.floor((day - sinceDay) / 7)));
+
+    for (const entity of item.entities ?? []) {
+      if (!isOrgId(entity) && !entity.startsWith("person:")) continue;
+      if (!entity.startsWith("person:")) continue;
+      counts.set(entity, (counts.get(entity) ?? 0) + 1);
+      const list = weeks.get(entity) ?? new Array(12).fill(0);
+      list[week] += 1;
+      weeks.set(entity, list);
+      const previous = latest.get(entity);
+      if (!previous || (item.published && item.published > previous.published)) {
+        latest.set(entity, {
+          published: item.published,
+          date: item.published ? item.published.slice(0, 10) : null,
+          headline: item.title ?? null,
+          source: item.publisher ?? null,
+          url: item.url ?? null,
+        });
+      }
+    }
+  }
+
+  const ranked = [...counts.entries()]
+    .map(([personId, total]) => {
+      const person = peopleById.get(personId);
+      if (!person) return null;
+      const tenure = currentTenure.get(personId) ?? null;
+      const position = tenure ? positionsById.get(tenure.position) ?? null : null;
+      const portraitId = person.portrait;
+      const imageItem = portraitId ? mediaById.get(portraitId) : null;
+      const weekList = weeks.get(personId) ?? new Array(12).fill(0);
+      const recent = weekList[10] + weekList[11];
+      const last = latest.get(personId) ?? null;
+      return {
+        person: personId,
+        slug: person.slug,
+        name: person.name,
+        job: position?.title ?? null,
+        position: position?.id ?? null,
+        party: person.party ?? null,
+        node: position?.organization ?? null,
+        image: imageItem?.url ?? null,
+        total,
+        recent,
+        weeks: weekList,
+        latest: {
+          date: last?.date ?? null,
+          headline: last?.headline ?? null,
+          source: last?.source ?? null,
+          url: last?.url ?? null,
+        },
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.total - a.total || b.recent - a.recent || (a.name < b.name ? -1 : 1))
+    .map((entry, index) => ({ ...entry, rank: index + 1, heat: entry.total + entry.recent }));
+
+  return {
+    windowDays,
+    since,
+    computedAt: generatedAt,
+    articleCount,
+    sources: [...publishers].sort(),
+    people: ranked,
+  };
+}
+
+const bundle = {
+  schema: "nl-graph-bundle-v1",
+  scope: "nl-rijk",
+  snapshot,
+  layout: "nl-sectors-v1",
+  hub: hubOrg ? { id: hubOrg.id, slug: hubOrg.slug, name: hubOrg.name } : null,
+  nodes,
+  edges,
+  powerMap: buildPowerMap(),
+};
+
+mkdirSync(OUT_DIR, { recursive: true });
+const json = JSON.stringify(bundle);
+writeFileSync(OUT_FILE, json);
+
+const bytes = Buffer.byteLength(json, "utf8");
+const sources = bundle.powerMap.sources.length;
+console.log(
+  `graph.json: ${nodes.length} nodes, ${edges.length} edges, ${bytes} bytes, ` +
+    `${(bytes / 1024).toFixed(1)} KiB, power-map people ${bundle.powerMap.people.length}, ` +
+    `sources ${sources}, articles ${bundle.powerMap.articleCount}`,
+);

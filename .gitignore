@@ -11,3 +11,6 @@ Thumbs.db
 
 # Large table-catalog dump, re-fetchable; not a data payload
 research/raw/**/cbs-catalog.out
+
+# Re-fetchable news feed cache; never a data payload
+pipelines/.cache/

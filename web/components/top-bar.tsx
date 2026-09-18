@@ -1,12 +1,30 @@
+import Link from "next/link";
 import { BrandLockup } from "./brand-lockup";
 import { HistoryControls } from "./history-controls";
 import { ThemeToggle } from "./theme-toggle";
+
+const NAV = [
+  { href: "/wijzigingen/", label: "Wijzigingen" },
+  { href: "/onderwerpen/", label: "Onderwerpen" },
+  { href: "/begroting/", label: "Begroting" },
+];
 
 export function TopBar() {
   return (
     <header className="z-20 shrink-0 border-b border-line bg-canvas">
       <div className="flex items-center gap-3 px-4 py-2.5">
         <BrandLockup />
+        <nav aria-label="Hoofdnavigatie" className="hidden items-center gap-1 text-sm md:flex">
+          {NAV.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="rounded-sm px-2 py-1 text-ink-muted underline-offset-2 hover:text-ink hover:underline"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
         <div className="ms-auto flex items-center gap-2">
           <div data-search-mount>
             <button

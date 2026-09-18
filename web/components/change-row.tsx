@@ -74,8 +74,14 @@ export function ChangeRow({ change }: { change: Change }) {
         </p>
       ) : null}
       <div className="mt-3 space-y-1.5 border-t border-line pt-3">
-        <Side label="Uit" side={change.out} />
-        <Side label="In" side={change.in} />
+        {change.kind === "vacancy" ? (
+          <Side label="Zetels" side={change.in} />
+        ) : (
+          <>
+            <Side label="Uit" side={change.out} />
+            <Side label="In" side={change.in} />
+          </>
+        )}
       </div>
     </Card>
   );
