@@ -66,7 +66,7 @@ function detectAbbreviation(terms) {
   return null;
 }
 
-function makeRecord(kind, id, label, aliasGroups) {
+function makeRecord(kind, id, label, aliasGroups, image = null) {
   const href = entityHref(id);
   // A missing href means the entity has no route yet; it is a named gap, not a fact.
   if (!href) return null;
@@ -81,6 +81,7 @@ function makeRecord(kind, id, label, aliasGroups) {
     label,
     href,
     abbreviation: kind === "organization" ? detectAbbreviation(list) : null,
+    image,
     terms: list,
   };
 }
@@ -108,7 +109,10 @@ export function buildIndex() {
   const people = readArray("people.json");
   const positions = readArray("positions.json");
   const topics = readArray("topics.json");
+  const media = readArray("media.json");
   const meta = readJson(join(DATA_DIR, "meta.json"));
+  // Portrait URLs come from media.json, the only place a licensed image lives.
+  const portraitUrl = new Map(media.filter((item) => item.type === "portrait").map((item) => [item.id, item.url]));
   const gazetteer = collectGazetteerAliases();
 
   const records = [];
@@ -116,7 +120,8 @@ export function buildIndex() {
     records.push(makeRecord("organization", org.id, org.name, [org.aliases, gazetteer.get(org.id)]));
   }
   for (const person of people) {
-    records.push(makeRecord("person", person.id, person.name, [person.aliases, gazetteer.get(person.id)]));
+    const image = typeof person.portrait === "string" ? (portraitUrl.get(person.portrait) ?? null) : null;
+    records.push(makeRecord("person", person.id, person.name, [person.aliases, gazetteer.get(person.id)], image));
   }
   for (const position of positions) {
     records.push(makeRecord("position", position.id, position.title, [gazetteer.get(position.id)]));

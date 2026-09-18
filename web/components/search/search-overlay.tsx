@@ -269,7 +269,18 @@ export function SearchOverlay() {
                       index === active ? "bg-surface-raised text-ink" : "text-ink-muted"
                     }`}
                   >
-                    <span className="min-w-0 truncate">{result.label}</span>
+                    {result.kind === "person" ? (
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center overflow-hidden rounded-pill border border-line bg-surface-raised">
+                        {result.image ? (
+                          <img src={result.image} alt="" width={24} height={24} loading="lazy" className="h-full w-full object-cover" />
+                        ) : (
+                          <span aria-hidden="true" className="text-[10px] font-medium text-ink-faint">
+                            {result.label.charAt(0)}
+                          </span>
+                        )}
+                      </span>
+                    ) : null}
+                    <span className="min-w-0 flex-1 truncate">{result.label}</span>
                     {result.abbreviation ? (
                       <span className="shrink-0 text-xs text-ink-faint">{result.abbreviation}</span>
                     ) : null}

@@ -1,6 +1,7 @@
 import { EntityChip } from "@/components/entity-chip";
 import { KindBadge } from "@/components/kind-badge";
 import type { NewsMessages } from "@/lib/news-i18n";
+import { NewsPreviewTile, newsPreviewCaption } from "./news-preview";
 import type { NewsItemView } from "./news-view";
 
 /**
@@ -18,42 +19,65 @@ export function NewsItemCard({
   showDate?: boolean;
 }) {
   const keywordText = item.keywords.length > 0 ? item.keywords.join(", ") : null;
+  const caption = newsPreviewCaption(item.preview);
 
   return (
     <article className="rounded-md border border-line bg-surface p-4" aria-labelledby={`${item.id}-kop`}>
-      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-        <span className="flex flex-wrap items-center gap-2 text-xs text-ink-muted">
-          <span className="font-medium text-ink">{item.publisher}</span>
-          <KindBadge>{item.kindLabel}</KindBadge>
-          {item.language !== messages.locale ? (
-            <KindBadge tone="accent">{messages.languageLabels[item.language]}</KindBadge>
+      <div className="flex gap-4">
+        <NewsPreviewTile preview={item.preview} size={64} className="mt-0.5" />
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+            <span className="flex flex-wrap items-center gap-2 text-xs text-ink-muted">
+              <span className="font-medium text-ink">{item.publisher}</span>
+              <KindBadge>{item.kindLabel}</KindBadge>
+              {item.language !== messages.locale ? (
+                <KindBadge tone="accent">{messages.languageLabels[item.language]}</KindBadge>
+              ) : null}
+            </span>
+            <time dateTime={item.published} className="text-xs tabular-nums text-ink-faint">
+              {showDate ? item.dateTime : item.time}
+            </time>
+          </div>
+          <h3 id={`${item.id}-kop`} className="mt-1.5 text-sm font-semibold leading-snug" lang={item.language}>
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-ink underline-offset-2 hover:text-accent-text hover:underline"
+            >
+              {item.title}
+              <span className="sr-only"> {messages.card.opensNewTab}</span>
+            </a>
+          </h3>
+          {item.summary !== null ? (
+            <p className="mt-2 text-sm leading-normal text-ink-muted" lang={item.language}>
+              {item.summary}
+            </p>
           ) : null}
-        </span>
-        <time dateTime={item.published} className="text-xs tabular-nums text-ink-faint">
-          {showDate ? item.dateTime : item.time}
-        </time>
+        </div>
       </div>
-      <h3 id={`${item.id}-kop`} className="mt-1.5 text-sm font-semibold leading-snug" lang={item.language}>
-        <a
-          href={item.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-ink underline-offset-2 hover:text-accent-text hover:underline"
-        >
-          {item.title}
-          <span className="sr-only"> {messages.card.opensNewTab}</span>
-        </a>
-      </h3>
-      {item.summary !== null ? (
-        <p className="mt-2 text-sm leading-normal text-ink-muted" lang={item.language}>
-          {item.summary}
-        </p>
-      ) : null}
       {item.entities.length > 0 ? (
         <ul className="mt-3 flex flex-wrap gap-2" aria-label={messages.card.mentionedInLabel}>
           {item.entities.map((entry) => (
             <li key={entry.id}>
-              <EntityChip href={entry.href} meta={messages.card.entityKindLabels[entry.kind]}>
+              <EntityChip
+                href={entry.href}
+                meta={messages.card.entityKindLabels[entry.kind]}
+                icon={
+                  entry.portrait !== null ? (
+                    <img
+                      src={entry.portrait.url}
+                      alt=""
+                      title={entry.portrait.caption}
+                      width={24}
+                      height={24}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-6 w-6 rounded-pill border border-line object-cover"
+                    />
+                  ) : undefined
+                }
+              >
                 {entry.label}
               </EntityChip>
             </li>
@@ -73,6 +97,11 @@ export function NewsItemCard({
         {keywordText !== null ? (
           <span title={`${messages.card.linkedOnLabel} ${keywordText}`}>
             {messages.card.linkedOnLabel} {keywordText}
+          </span>
+        ) : null}
+        {caption !== null ? (
+          <span className="basis-full text-[10px] leading-tight">
+            {messages.card.imageCreditLabel} {caption}
           </span>
         ) : null}
       </p>

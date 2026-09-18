@@ -9,6 +9,8 @@ const NAV = [
   { href: "/nieuws/", label: "Nieuws" },
   { href: "/onderwerpen/", label: "Onderwerpen" },
   { href: "/begroting/", label: "Begroting" },
+  { href: "/organisaties/", label: "Organisaties" },
+  { href: "/personen/", label: "Personen" },
 ];
 
 export function TopBar() {

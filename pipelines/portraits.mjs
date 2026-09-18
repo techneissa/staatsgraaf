@@ -635,6 +635,16 @@ export function renderPortraitReport({ stats, gaps, today, licenseCounts = {} })
   lines.push(`- Toegepaste portretten: ${stats.portraitsApplied}.`);
   lines.push(`- Afbeeldingen gedownload: ${stats.imagesDownloaded}; al aanwezig: ${stats.imagesPresent}.`);
   lines.push(`- Gaps: ${gaps.length}.`);
+  if (typeof stats.remaining === "number" && stats.remaining > 0) {
+    lines.push(`- --max-new bereikt: ${stats.remaining} personen resteren voor de volgende run.`);
+  }
+  if (typeof stats.orphanMedia === "number" && stats.orphanMedia > 0) {
+    lines.push(
+      stats.prunedMedia > 0
+        ? `- Orphan media (media:portret-* zonder verwijzende persoon): ${stats.orphanMedia} gevonden, ${stats.prunedMedia} verwijderd uit data/media.json.`
+        : `- Orphan media (media:portret-* zonder verwijzende persoon): ${stats.orphanMedia} gevonden, niet verwijderd (voeg --prune toe).`,
+    );
+  }
   lines.push("");
   lines.push("## Licenties van toegepaste portretten");
   lines.push("");
@@ -678,6 +688,16 @@ export async function runPortraits(options = {}) {
   const offline = options.offline ?? false;
   const only = options.only instanceof Set && options.only.size > 0 ? options.only : null;
   const limit = Number.isFinite(options.limit) && options.limit > 0 ? options.limit : null;
+  // --new-only: alleen personen zonder portret en zonder cachebestand. Iedereen die al
+  // eens is opgelost, portret of benoemde gap, blijft buiten de selectie zonder dat er
+  // een cachebestand wordt gelezen. Dat houdt een nachtelijke run goedkoop.
+  const newOnly = options.newOnly ?? false;
+  // --max-new: stop na n nieuw bevraagde personen; de rest wacht op de volgende run.
+  const maxNew = Number.isFinite(options.maxNew) && options.maxNew > 0 ? options.maxNew : null;
+  // --prune: verwijder media:portret-* records die geen enkele persoon meer aanwijst.
+  // Zonder de vlag wordt alleen geteld en gerapporteerd; bestandsverwijzingen op disk
+  // blijven altijd staan, een latere run kan er weer naar wijzen.
+  const prune = options.prune ?? false;
   const log = options.log ?? console.log;
   const io = { writeFile, mkdir, ...(options.io ?? {}) };
   const fetchImpl = options.fetchImpl ?? globalThis.fetch;
@@ -687,12 +707,17 @@ export async function runPortraits(options = {}) {
 
   const people = JSON.parse(await readFile(join(dataDir, "people.json"), "utf8"));
   const sources = JSON.parse(await readFile(join(dataDir, "sources.json"), "utf8"));
-  const media = JSON.parse(await readFile(join(dataDir, "media.json"), "utf8"));
+  let media = JSON.parse(await readFile(join(dataDir, "media.json"), "utf8"));
   const srcById = new Map(sources.map((record) => [record.id, record]));
   const mediaById = new Map(media.map((record) => [record.id, record]));
 
   let selected = people;
   if (only) selected = people.filter((person) => only.has(person.slug));
+  if (newOnly) {
+    selected = selected.filter(
+      (person) => !person.portrait && !existsSync(join(cacheDir, `${person.slug}.json`)),
+    );
+  }
   if (limit) selected = selected.slice(0, limit);
 
   await io.mkdir(cacheDir, { recursive: true });
@@ -706,6 +731,9 @@ export async function runPortraits(options = {}) {
     portraitsApplied: 0,
     imagesDownloaded: 0,
     imagesPresent: 0,
+    remaining: 0,
+    orphanMedia: 0,
+    prunedMedia: 0,
   };
   const gaps = [];
   const licenseCounts = {};
@@ -728,7 +756,15 @@ export async function runPortraits(options = {}) {
         resolution = null;
       }
     }
-    if (resolution && resolution.cacheVersion === CACHE_VERSION) {
+    const validCache = resolution && resolution.cacheVersion === CACHE_VERSION;
+    // De cap telt alleen nieuw bevraagde personen; wie al uit de cache komt kost geen
+    // netwerkverzoek en mag gewoon worden toegepast. Eenmaal bereikt stopt de run in
+    // plaats van verder te bevragen; de rest staat klaar voor de volgende run.
+    if (!validCache && maxNew !== null && stats.queried >= maxNew) {
+      stats.remaining = selected.length - index;
+      break;
+    }
+    if (validCache) {
       stats.fromCache += 1;
     } else if (offline) {
       gaps.push({ person: person.id, name: person.name, reason: "geen cache en offline modus staat aan" });
@@ -798,6 +834,20 @@ export async function runPortraits(options = {}) {
     licenseCounts[mediaRecord.license] = (licenseCounts[mediaRecord.license] ?? 0) + 1;
   }
 
+  // Een media:portret-* record dat geen enkele persoon meer aanwijst is een wees: de
+  // persoon is samengevoegd of hernoemd sinds het portret is toegepast. Altijd tellen,
+  // alleen verwijderen uit media.json met --prune. Het bestand op disk blijft staan.
+  const portraitIds = new Set(people.map((person) => person.portrait).filter(Boolean));
+  const orphanMedia = media.filter(
+    (record) => typeof record.id === "string" && record.id.startsWith("media:portret-") && !portraitIds.has(record.id),
+  );
+  stats.orphanMedia = orphanMedia.length;
+  if (prune && orphanMedia.length > 0) {
+    const orphanIds = new Set(orphanMedia.map((record) => record.id));
+    media = media.filter((record) => !orphanIds.has(record.id));
+    stats.prunedMedia = orphanMedia.length;
+  }
+
   sources.sort((a, b) => a.id.localeCompare(b.id));
   media.sort((a, b) => a.id.localeCompare(b.id));
 
@@ -811,7 +861,7 @@ export async function runPortraits(options = {}) {
   await io.writeFile(qaPath, renderPortraitReport({ stats, gaps, today, licenseCounts }), "utf8");
 
   log("");
-  log(`portretten: ${stats.scanned} bekeken, ${stats.queried} nieuw bevraagd, ${stats.entityMatches} persoonsmatches, ${stats.portraitsApplied} portretten, ${stats.imagesDownloaded} gedownload, ${gaps.length} gaps.`);
+  log(`portretten: ${stats.scanned} bekeken, ${stats.queried} nieuw bevraagd, ${stats.entityMatches} persoonsmatches, ${stats.portraitsApplied} portretten, ${stats.imagesDownloaded} gedownload, ${gaps.length} gaps, ${stats.remaining} resterend, ${stats.orphanMedia} orphan media (${stats.prunedMedia} verwijderd).`);
   log(`Wrote ${qaPath}`);
   return { stats, gaps, licenseCounts, qaPath };
 }
@@ -827,6 +877,9 @@ function parseArgs(argv) {
     else if (argv[i] === "--limit") options.limit = Number(argv[(i += 1)]);
     else if (argv[i] === "--only") options.only = new Set(argv[(i += 1)].split(",").map((value) => value.trim()).filter(Boolean));
     else if (argv[i] === "--offline") options.offline = true;
+    else if (argv[i] === "--new-only") options.newOnly = true;
+    else if (argv[i] === "--max-new") options.maxNew = Number(argv[(i += 1)]);
+    else if (argv[i] === "--prune") options.prune = true;
   }
   return options;
 }

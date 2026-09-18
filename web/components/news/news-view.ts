@@ -1,5 +1,6 @@
 import { formatClockTime, formatDateTimeLocal } from "@/lib/format";
 import { getMediaItem, mediaCreditLine } from "@/lib/entity";
+import { newsMonogram } from "@/lib/news-preview";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
 import {
   newsDayKey,
@@ -10,6 +11,19 @@ import {
   type NewsEntityRef,
 } from "@/lib/news";
 import type { NewsItem, NewsLanguage, PublisherKind } from "@/lib/types";
+
+/**
+ * What the card shows as its preview tile, in order of preference:
+ * a licensed image the pipeline stored for this item (none today, every feed
+ * is all rights reserved), the licensed portrait of the first person the item
+ * links to, or a monogram of the outlet drawn from our own tokens. Nothing is
+ * ever hotlinked from an outlet: that would republish its image and send the
+ * reader's request to a third party.
+ */
+export type NewsPreview =
+  | { kind: "image"; url: string; caption: string }
+  | { kind: "portrait"; url: string; caption: string; personLabel: string; href: string }
+  | { kind: "monogram"; monogram: string; publisher: string; publisherKind: PublisherKind };
 
 /**
  * A plain, serialisable projection of one news item with every link resolved.
@@ -41,6 +55,7 @@ export type NewsItemView = {
    * tile instead. The caption always names credit and license.
    */
   image: { url: string; caption: string } | null;
+  preview: NewsPreview;
 };
 
 /**
@@ -60,6 +75,8 @@ export function toNewsItemView(item: NewsItem, locale: NewsLanguage = "nl"): New
   const kind = newsKind(item);
   const language = newsLanguage(item);
   const messages = NEWS_MESSAGES[locale];
+  const entities = resolveNewsEntities(item);
+  const image = resolveNewsImage(item);
   return {
     id: item.id,
     title: item.title,
@@ -74,10 +91,36 @@ export function toNewsItemView(item: NewsItem, locale: NewsLanguage = "nl"): New
     time: formatClockTime(item.published),
     dateTime: formatDateTimeLocal(item.published),
     summary: usefulSummary(item),
-    entities: resolveNewsEntities(item),
+    entities,
     keywords: newsKeywords(item),
-    image: resolveNewsImage(item),
+    image,
+    preview: resolveNewsPreview({ image, entities, publisher: item.publisher, publisherKind: kind }),
   };
+}
+
+export function resolveNewsPreview({
+  image,
+  entities,
+  publisher,
+  publisherKind,
+}: {
+  image: { url: string; caption: string } | null;
+  entities: NewsEntityRef[];
+  publisher: string;
+  publisherKind: PublisherKind;
+}): NewsPreview {
+  if (image !== null) return { kind: "image", url: image.url, caption: image.caption };
+  const person = entities.find((entry) => entry.kind === "person" && entry.portrait !== null);
+  if (person && person.portrait !== null) {
+    return {
+      kind: "portrait",
+      url: person.portrait.url,
+      caption: person.portrait.caption,
+      personLabel: person.label,
+      href: person.href,
+    };
+  }
+  return { kind: "monogram", monogram: newsMonogram(publisher), publisher, publisherKind };
 }
 
 function resolveNewsImage(item: NewsItem): NewsItemView["image"] {

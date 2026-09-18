@@ -11,6 +11,7 @@ import { Timeline, type TimelineItem } from "@/components/timeline";
 import { EntityFacts, type EntityFact } from "@/components/entity/entity-facts";
 import { PersonPortrait } from "@/components/entity/person-portrait";
 import { TenureTimeline } from "@/components/entity/tenure-timeline";
+import { NewsPanel } from "@/components/news/news-panel";
 import {
   getMembershipsForPerson,
   getDatasetDate,
@@ -30,6 +31,7 @@ import {
   personPortraitId,
 } from "@/lib/entity";
 import { formatDate, formatPeriod } from "@/lib/format";
+import { getNewsForEntity } from "@/lib/news";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 import type { Organization } from "@/lib/types";
 
@@ -71,6 +73,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
 
   const tenures = getTenuresForPerson(person.id);
   const memberships = getMembershipsForPerson(person.id);
+  const news = getNewsForEntity(person.id);
 
   const party = personParty(person);
   const birthDate = personBirthDate(person);
@@ -246,6 +249,15 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
               description={`Voor ${person.name} is in de dataset geen functie of lidmaatschap met een startdatum en bron opgenomen.`}
             />
           </div>
+        </section>
+      ) : null}
+
+      {news.length > 0 ? (
+        <section aria-labelledby="nieuws-titel" className="border-b border-line py-6">
+          <h2 id="nieuws-titel" className="text-lg font-semibold tracking-tight text-ink">
+            In het nieuws
+          </h2>
+          <NewsPanel scope="custom" items={news} initialLimit={4} />
         </section>
       ) : null}
 

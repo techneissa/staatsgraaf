@@ -6,6 +6,8 @@ export type SearchRecord = {
   label: string;
   href: string;
   abbreviation?: string | null;
+  /** Site-relative URL of a licensed portrait, for person records that have one. */
+  image?: string | null;
   terms: string[];
 };
 
@@ -15,6 +17,7 @@ export type SearchEntry = {
   label: string;
   href: string;
   abbreviation: string | null;
+  image: string | null;
   terms: string[];
   normalizedTerms: string[];
 };
@@ -30,6 +33,7 @@ export type SearchResult = {
   label: string;
   href: string;
   abbreviation: string | null;
+  image: string | null;
   matchedTerm: string;
   matchedNormalized: string;
   tier: SearchMatchTier;
@@ -95,6 +99,7 @@ export function buildSearchIndex(records: readonly SearchRecord[]): SearchIndex 
       label: record.label,
       href: record.href,
       abbreviation: record.abbreviation ?? null,
+      image: record.image ?? null,
       terms: normalizedTerms.map((value) => pairs.get(value) ?? value),
       normalizedTerms,
     });
@@ -135,6 +140,7 @@ export function rankSearch(index: SearchIndex, query: string, limit = 8): Search
       label: entry.label,
       href: entry.href,
       abbreviation: entry.abbreviation,
+      image: entry.image,
       matchedTerm: bestTerm,
       matchedNormalized: bestNormalized,
       tier: bestTier,

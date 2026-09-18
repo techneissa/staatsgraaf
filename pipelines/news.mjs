@@ -17,6 +17,7 @@ export const MAX_SUMMARY_LENGTH = 320;
 export const DEFAULT_FEED_LANGUAGE = "nl";
 export const DEFAULT_PUBLISHER_KIND = "online";
 export const MAX_KEYWORDS = 8;
+export const MAX_IMAGE_BYTES = 2_500_000;
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_FEEDS = join(ROOT, "research", "J-nieuwsbronnen.json");
@@ -24,6 +25,13 @@ const DEFAULT_FEEDS_REGISTRY = join(ROOT, "pipelines", "feeds.json");
 const DEFAULT_TOPICS = join(ROOT, "research", "K-topics.json");
 const DEFAULT_CACHE = join(ROOT, "pipelines", ".cache", "news");
 const DEFAULT_DATA = join(ROOT, "data");
+const DEFAULT_MEDIA = join(ROOT, "web", "public", "media");
+
+const IMAGE_EXTENSIONS_BY_CONTENT_TYPE = {
+  "image/jpeg": "jpg",
+  "image/png": "png",
+  "image/webp": "webp",
+};
 
 export function decodeEntities(value) {
   if (typeof value !== "string") return "";
@@ -308,6 +316,66 @@ async function fetchWithRetry(url, { userAgent = DEFAULT_USER_AGENT, retries = M
   return { ok: false, status: 0, error: lastError ?? "unknown" };
 }
 
+function httpImageUrl(value) {
+  if (typeof value !== "string" || value === "") return null;
+  try {
+    const parsed = new URL(value);
+    if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return null;
+    return parsed.toString();
+  } catch {
+    return null;
+  }
+}
+
+async function downloadNewsImage(url, destinationDir, bareId, {
+  fetchImpl = fetch,
+  userAgent = DEFAULT_USER_AGENT,
+  maxBytes = MAX_IMAGE_BYTES,
+} = {}) {
+  const response = await fetchImpl(url, {
+    headers: { "User-Agent": userAgent, Accept: "image/jpeg, image/png, image/webp" },
+    redirect: "follow",
+  });
+  if (!response.ok) throw new Error(`HTTP ${response.status} bij het downloaden van de afbeelding`);
+  const contentType = (response.headers?.get?.("content-type") ?? "").split(";")[0].trim().toLowerCase();
+  const ext = IMAGE_EXTENSIONS_BY_CONTENT_TYPE[contentType];
+  if (!ext) throw new Error(`onverwacht content-type ${contentType || "(leeg)"}`);
+  const buffer = Buffer.from(await response.arrayBuffer());
+  if (buffer.length === 0) throw new Error("lege afbeelding");
+  if (buffer.length > maxBytes) throw new Error(`afbeelding groter dan ${maxBytes} bytes`);
+  await mkdir(destinationDir, { recursive: true });
+  await writeFile(join(destinationDir, `${bareId}.${ext}`), buffer);
+  return ext;
+}
+
+async function resolveNewsImage({
+  imageUrl,
+  bareId,
+  mediaDir,
+  offline,
+  fetchImpl,
+  userAgent,
+  throttleMs,
+  throttleState,
+}) {
+  const destinationDir = join(mediaDir, "nieuws");
+  if (offline) {
+    for (const ext of Object.values(IMAGE_EXTENSIONS_BY_CONTENT_TYPE)) {
+      const candidate = join(destinationDir, `${bareId}.${ext}`);
+      if (existsSync(candidate)) return { ok: true, reused: true, ext };
+    }
+    return { ok: false, error: "geen cache en offline modus staat aan" };
+  }
+  if (throttleState.count > 0) await new Promise((resolve) => setTimeout(resolve, throttleMs));
+  throttleState.count += 1;
+  try {
+    const ext = await downloadNewsImage(imageUrl, destinationDir, bareId, { fetchImpl, userAgent });
+    return { ok: true, reused: false, ext };
+  } catch (error) {
+    return { ok: false, error: error.message };
+  }
+}
+
 export async function fetchFeeds({
   feedConfigs,
   cacheDir = DEFAULT_CACHE,
@@ -365,10 +433,12 @@ export async function runNewsPipeline({
   topicsPath = DEFAULT_TOPICS,
   cacheDir = DEFAULT_CACHE,
   dataDir = DEFAULT_DATA,
+  mediaDir = DEFAULT_MEDIA,
   offline = false,
   registerSources = true,
   now = new Date(),
   userAgent = DEFAULT_USER_AGENT,
+  throttleMs = THROTTLE_MS,
   fetchImpl = fetch,
   log = console.log,
 } = {}) {
@@ -390,7 +460,7 @@ export async function runNewsPipeline({
   const gazetteer = buildGazetteer(aliasEnvelope.aliases ?? []);
 
   log(`Fetching ${feedConfigs.length} feed(s) with a ${THROTTLE_MS} ms throttle${offline ? " (offline/cache mode)" : ""}`);
-  const feedResults = await fetchFeeds({ feedConfigs, cacheDir, userAgent, offline, fetchImpl, now, log });
+  const feedResults = await fetchFeeds({ feedConfigs, cacheDir, userAgent, throttleMs, offline, fetchImpl, now, log });
 
   const allItems = [];
   const feedReport = [];
@@ -421,11 +491,17 @@ export async function runNewsPipeline({
   const idFor = makeIdFactory();
   const news = [];
   const sourceRecords = [];
+  const mediaRecords = [];
   const seenSources = new Set();
   const knownSourceByUrl = await sourceIdsByUrl(dataDir);
   let highConfidenceItems = 0;
   let entityHits = 0;
   let fallbackTopics = 0;
+  let imagesDownloaded = 0;
+  let imagesReused = 0;
+  let imagesSkippedForRights = 0;
+  let imagesSkippedForErrors = 0;
+  const imageThrottleState = { count: 0 };
 
   for (const item of kept) {
     const link = linkArticle({ title: item.title, text: item.lede ?? "", gazetteer, topicIndex });
@@ -450,8 +526,46 @@ export async function runNewsPipeline({
         notes: `Kop en inleiding uit de RSS-feed van ${item.publisher}. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd.`,
       });
     }
+
+    const newsId = idFor(item.url);
+    const feedConfig = configByFeedUrl.get(item.feedUrl);
+    const imageLicense = feedConfig?.imageLicense ?? null;
+    const imageUrl = httpImageUrl(item.image);
+    let imageId = null;
+    if (imageUrl && imageLicense) {
+      const bareId = newsId.slice("news:".length);
+      const outcome = await resolveNewsImage({
+        imageUrl,
+        bareId,
+        mediaDir,
+        offline,
+        fetchImpl,
+        userAgent,
+        throttleMs,
+        throttleState: imageThrottleState,
+      });
+      if (outcome.ok) {
+        if (outcome.reused) imagesReused += 1;
+        else imagesDownloaded += 1;
+        imageId = `media:nieuws-${bareId}`;
+        mediaRecords.push({
+          id: imageId,
+          url: `/media/nieuws/${bareId}.${outcome.ext}`,
+          type: "photo",
+          license: imageLicense,
+          credit: feedConfig?.imageCredit ?? `Beeld: ${item.publisher}`,
+          author: null,
+          source: srcId,
+        });
+      } else {
+        imagesSkippedForErrors += 1;
+      }
+    } else if (imageUrl && !imageLicense) {
+      imagesSkippedForRights += 1;
+    }
+
     news.push({
-      id: idFor(item.url),
+      id: newsId,
       title: item.title,
       url: item.url,
       publisher: item.publisher,
@@ -463,7 +577,7 @@ export async function runNewsPipeline({
       entities: link.entities,
       topics: link.topics,
       keywords: keywordsFromMatches(link.matches),
-      image: null,
+      image: imageId,
       sources: [{ source: srcId, retrieved: now.toISOString().slice(0, 10), confidence: "high" }],
     });
   }
@@ -473,6 +587,7 @@ export async function runNewsPipeline({
 
   news.sort((a, b) => b.published.localeCompare(a.published) || a.id.localeCompare(b.id));
   sourceRecords.sort((a, b) => a.id.localeCompare(b.id));
+  mediaRecords.sort((a, b) => a.id.localeCompare(b.id));
 
   const sourcesOutPath = join(cacheDir, "sources.json");
   await writeFile(sourcesOutPath, `${JSON.stringify(sourceRecords, null, 2)}\n`, "utf8");
@@ -487,6 +602,7 @@ export async function runNewsPipeline({
     registeredSources = handled.added;
     updatedSources = handled.updated;
     prunedSources = handled.pruned;
+    await registerMediaRecords({ dataDir, mediaRecords });
   }
 
   const stats = {
@@ -504,6 +620,11 @@ export async function runNewsPipeline({
     registeredSources,
     updatedSources,
     prunedSources,
+    mediaRecords: mediaRecords.length,
+    imagesDownloaded,
+    imagesReused,
+    imagesSkippedForRights,
+    imagesSkippedForErrors,
     since,
     latest,
   };
@@ -512,14 +633,16 @@ export async function runNewsPipeline({
   log(`Kept ${news.length} item(s) published on or after ${since.slice(0, 10)} (${RETENTION_DAYS}-day window).`);
   log(`Entity linker: ${entityHits} high-confidence hit(s) across ${highConfidenceItems} article(s).`);
   log(`Topic fallback: ${fallbackTopics} article(s) assigned a topic with no entity; ${stats.topicOnlyItems} article(s) end up topic-only.`);
+  log(`Images: ${imagesDownloaded} downloaded, ${imagesReused} reused, ${imagesSkippedForRights} skipped for rights, ${imagesSkippedForErrors} skipped for errors.`);
   log(`Wrote ${join(dataDir, "news.json")} and ${sourceRecords.length} article source record(s) to ${sourcesOutPath}`);
   if (registerSources) {
     log(`Registered ${registeredSources} new, refreshed ${updatedSources} and pruned ${prunedSources} article source record(s) in ${join(dataDir, "sources.json")} (per-article records keyed by url, existing catalog preserved).`);
+    log(`Wrote ${mediaRecords.length} nieuws media record(s) to ${join(dataDir, "media.json")}.`);
   } else {
     log("Source registration is off; run the merge with the emitted sources file before validating news.json.");
   }
 
-  return { news, sourceRecords, feedReport, stats, since, latest, sourcesOutPath, topicsById };
+  return { news, sourceRecords, mediaRecords, feedReport, stats, since, latest, sourcesOutPath, topicsById };
 }
 
 async function readJsonArray(file) {
@@ -585,6 +708,16 @@ export async function registerSourceRecords({ dataDir, sourceRecords, referenced
   return { added, updated, pruned, total: kept.length };
 }
 
+export async function registerMediaRecords({ dataDir, mediaRecords }) {
+  const file = join(dataDir, "media.json");
+  const existing = await readJsonArray(file);
+  const kept = existing.filter((record) => !record.id.startsWith("media:nieuws-"));
+  kept.push(...mediaRecords);
+  kept.sort((a, b) => a.id.localeCompare(b.id));
+  await writeFile(file, `${JSON.stringify(kept, null, 2)}\n`, "utf8");
+  return { total: kept.length };
+}
+
 export function feedConfigsFromEnvelope(envelope) {
   if (Array.isArray(envelope?.feeds)) {
     return envelope.feeds
@@ -596,6 +729,8 @@ export function feedConfigsFromEnvelope(envelope) {
         publisherKind: feed.publisherKind ?? DEFAULT_PUBLISHER_KIND,
         retrieved: feed.retrieved ?? null,
         license: feed.license ?? null,
+        imageLicense: feed.imageLicense ?? null,
+        imageCredit: feed.imageCredit ?? null,
       }));
   }
   return (envelope?.endpointsUsed ?? []).map((entry) => ({
@@ -605,6 +740,8 @@ export function feedConfigsFromEnvelope(envelope) {
     publisherKind: DEFAULT_PUBLISHER_KIND,
     retrieved: entry.retrieved ?? null,
     license: null,
+    imageLicense: null,
+    imageCredit: null,
   }));
 }
 
@@ -636,6 +773,7 @@ function parseArgs(argv) {
     topicsPath: DEFAULT_TOPICS,
     cacheDir: DEFAULT_CACHE,
     dataDir: DEFAULT_DATA,
+    mediaDir: DEFAULT_MEDIA,
     offline: false,
   };
   for (let i = 0; i < argv.length; i += 1) {
@@ -644,6 +782,7 @@ function parseArgs(argv) {
     else if (argv[i] === "--topics") options.topicsPath = argv[(i += 1)];
     else if (argv[i] === "--cache") options.cacheDir = argv[(i += 1)];
     else if (argv[i] === "--data") options.dataDir = argv[(i += 1)];
+    else if (argv[i] === "--media") options.mediaDir = argv[(i += 1)];
     else if (argv[i] === "--offline") options.offline = true;
   }
   return options;

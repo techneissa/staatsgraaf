@@ -129,6 +129,41 @@ function candidateTier(entity, candidate, sourceById, group) {
   return changes || others.length === 0 ? TIER.live : TIER.base;
 }
 
+// Enrichment written into data/ by a pipeline that runs after the merge
+// (pipelines/portraits.mjs). Research envelopes never carry these fields, so a
+// research record that wins the id would silently drop them on the next run.
+// Carry them forward from the previous data/ record unless the winner sets
+// them itself, together with the source refs that back them.
+const ENRICHMENT_FIELDS = {
+  people: ["portrait", "wikidata", "wikipedia"],
+};
+const ENRICHMENT_SOURCE_PREFIXES = ["src:wikidata-", "src:commons-"];
+
+function carryForwardEnrichment(entity, winners, base, stats) {
+  const fields = ENRICHMENT_FIELDS[entity];
+  if (!fields) return;
+  const previous = new Map((base ?? []).filter((rec) => rec && rec.id).map((rec) => [rec.id, rec]));
+  for (const [key, entry] of winners) {
+    const before = previous.get(key);
+    if (!before || entry.from.startsWith("data/")) continue;
+    const record = entry.record;
+    let carried = false;
+    for (const field of fields) {
+      if (record[field] != null || before[field] == null) continue;
+      record[field] = structuredClone(before[field]);
+      carried = true;
+    }
+    if (!carried) continue;
+    stats.enrichmentCarried += 1;
+    appendSourceRefs(
+      record,
+      (before.sources ?? []).filter(
+        (ref) => ref && typeof ref.source === "string" && ENRICHMENT_SOURCE_PREFIXES.some((prefix) => ref.source.startsWith(prefix)),
+      ),
+    );
+  }
+}
+
 function recordKey(entity, record) {
   return entity === "budgets" ? `${record.organization}|${record.fiscalYear}` : record.id;
 }
@@ -367,6 +402,7 @@ export async function mergeDataset({
     baseOverrides: 0,
     unmatchedMappings: 0,
     skippedAliases: 0,
+    enrichmentCarried: 0,
   };
 
   const sourceCandidates = [];
@@ -409,6 +445,7 @@ export async function mergeDataset({
 
   applyLegalMappings(envelopes, winners, stats);
   applyAliases(envelopes, winners, logs, stats);
+  for (const [entity] of ENTITY_FILES) carryForwardEnrichment(entity, winners[entity], base[entity], stats);
 
   const sourceRecords = [...mergedSources.values()].map((entry) => entry.record);
   applyLicenses(sourceRecords);
@@ -501,6 +538,7 @@ async function main() {
   console.log(`  id-duplicate                            ${s.idDuplicate}`);
   console.log(`  unmatched legalMappings                 ${s.unmatchedMappings}`);
   console.log(`  aliases skipped (target has no aliases) ${s.skippedAliases}`);
+  console.log(`  enrichment carried forward (portraits)  ${s.enrichmentCarried}`);
   console.log("\nLicenses:");
   for (const [license, count] of Object.entries(result.licenses)) {
     if (count > 0) console.log(`  ${license.padEnd(22)} ${String(count).padStart(6)}`);

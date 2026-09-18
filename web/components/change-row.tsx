@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Card } from "./card";
 import { DateStamp } from "./date-stamp";
+import { PersonPortrait } from "./entity/person-portrait";
 import { KindBadge } from "./kind-badge";
 import { SourceLink } from "./source-link";
 import { getOrganizationById, getPersonById, getPositionById, getSourceById } from "@/lib/data";
@@ -12,15 +13,16 @@ function Side({ label, side }: { label: string; side?: ChangeSide }) {
   if (!side) return null;
   const person = side.person !== null ? getPersonById(side.person) : undefined;
   return (
-    <div className="flex items-baseline gap-3">
+    <div className="flex items-center gap-3">
       <span className="w-6 shrink-0 text-xs font-medium uppercase tracking-wide text-ink-faint">
         {label}
       </span>
       {person ? (
         <Link
           href={`/personen/${person.slug}/`}
-          className="text-sm text-accent-text underline-offset-2 hover:underline"
+          className="inline-flex items-center gap-2 text-sm text-accent-text underline-offset-2 hover:underline"
         >
+          <PersonPortrait person={person} size={24} />
           {person.name}
         </Link>
       ) : (

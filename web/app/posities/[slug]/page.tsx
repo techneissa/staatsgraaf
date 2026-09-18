@@ -10,6 +10,7 @@ import { SourceLink } from "@/components/source-link";
 import { SourceList } from "@/components/source-list";
 import { EntityFacts, type EntityFact } from "@/components/entity/entity-facts";
 import { TenureTimeline } from "@/components/entity/tenure-timeline";
+import { NewsPanel } from "@/components/news/news-panel";
 import {
   getDatasetDate,
   getOrganizationById,
@@ -26,6 +27,7 @@ import {
   positionExOfficioOf,
 } from "@/lib/entity";
 import { formatCount } from "@/lib/format";
+import { getNewsForEntity } from "@/lib/news";
 import {
   ENTRY_MODE_LABELS,
   FILL_METHOD_LABELS,
@@ -94,6 +96,7 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
   const organization = getOrganizationById(position.organization);
   const currentHolders = getCurrentHoldersForPosition(position.id);
   const tenures = getTenuresForPosition(position.id);
+  const news = getNewsForEntity(position.id);
 
   const legalBasis = position.legalBasis ?? null;
   const fillMethod = position.fillMethod ?? null;
@@ -256,6 +259,15 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
           </div>
         )}
       </section>
+
+      {news.length > 0 ? (
+        <section aria-labelledby="nieuws-titel" className="border-b border-line py-6">
+          <h2 id="nieuws-titel" className="text-lg font-semibold tracking-tight text-ink">
+            In het nieuws
+          </h2>
+          <NewsPanel scope="custom" items={news} initialLimit={4} />
+        </section>
+      ) : null}
 
       <SourceList sources={position.sources} />
     </>

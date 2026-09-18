@@ -8,6 +8,7 @@ import {
   computeFocusPath,
   computeLayout,
   edgePath,
+  SELECTED_GROWTH,
   type GraphBundle,
   type LaidOutNode,
 } from "@/lib/graph";
@@ -280,7 +281,6 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
   };
 
   const hubRadius = layout.hub?.radius ?? 0;
-  const labelRadius = layout.maxRadius + 26;
   const hubSelected = selectedId !== null && layout.hub?.id === selectedId;
   const hubActive = focusPath.length > 0 || hubSelected;
   const statusText = selectedNode
@@ -422,8 +422,8 @@ export function GraphExplorer({ bundle, selectedId, onSelect, hiddenBranches }: 
               return (
                 <text
                   key={`label-${sector.branch}`}
-                  x={Math.cos(angle) * labelRadius}
-                  y={Math.sin(angle) * labelRadius}
+                  x={Math.cos(angle) * sector.labelRadius}
+                  y={Math.sin(angle) * sector.labelRadius}
                   textAnchor="middle"
                   dominantBaseline="middle"
                   fill="var(--color-ink-faint)"
@@ -505,7 +505,7 @@ function GraphGlyph({ node, state }: { node: LaidOutNode; state: "base" | "dim" 
         ? "var(--color-accent-text)"
         : "var(--color-ink-muted)";
   const opacity = state === "dim" ? 0.35 : state === "base" ? 0.85 : 1;
-  const radius = state === "path" ? node.glyphRadius + 2 : node.glyphRadius;
+  const radius = state === "path" ? node.glyphRadius + SELECTED_GROWTH : node.glyphRadius;
   return (
     <g data-node-id={node.id} transform={`translate(${node.x} ${node.y})`} opacity={opacity}>
       <circle r={11} fill="transparent" />
