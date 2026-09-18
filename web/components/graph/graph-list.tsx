@@ -1,23 +1,21 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ORG_BRANCH_LABELS, ORG_SUBTYPE_LABELS } from "@/lib/labels";
 import { SECTOR_ORDER, type GraphBundle } from "@/lib/graph";
 import type { OrgBranch } from "@/lib/types";
+import { useT } from "@/components/i18n/use-t";
+import { useLocale } from "@/components/i18n/language-provider";
+import {
+  BRANCH_LABELS_I18N,
+  EDGE_TYPE_LABELS_I18N,
+  ORG_SUBTYPE_LABELS_I18N,
+} from "@/lib/i18n/dict-graph";
 
 type GraphListProps = {
   bundle: GraphBundle;
   selectedId: string | null;
   onSelect: (id: string | null) => void;
   hiddenBranches: ReadonlySet<string>;
-};
-
-const EDGE_TYPE_LABELS: Record<string, string> = {
-  advises: "adviseert",
-  elects: "kiest",
-  consists_of: "bestaat uit",
-  oversees: "houdt toezicht op",
-  part_of: "maakt deel uit van",
 };
 
 type Relation = {
@@ -29,6 +27,15 @@ type Relation = {
 
 export function GraphList({ bundle, selectedId, onSelect, hiddenBranches }: GraphListProps) {
   const [open, setOpen] = useState(false);
+  const t = useT("graph");
+  const locale = useLocale();
+
+  const localized = (map: Record<string, { nl: string; en: string }>, key: string | null | undefined) => {
+    if (!key) return "";
+    const entry = map[key];
+    if (!entry) return key;
+    return locale === "en" ? entry.en : entry.nl;
+  };
 
   const groups = useMemo(() => {
     const visible = bundle.nodes.filter((node) => !hiddenBranches.has(node.branch));
@@ -67,7 +74,8 @@ export function GraphList({ bundle, selectedId, onSelect, hiddenBranches }: Grap
       const from = byId.get(edge.from);
       const to = byId.get(edge.to);
       if (!from || !to) continue;
-      const verb = EDGE_TYPE_LABELS[edge.type] ?? edge.type;
+      const entry = EDGE_TYPE_LABELS_I18N[edge.type];
+      const verb = entry ? (locale === "en" ? entry.en : entry.nl) : edge.type;
       push(edge.from, { key: `${edge.from}>${edge.to}:${edge.type}`, outgoing: true, verb, neighbour: to.name });
       push(edge.to, { key: `${edge.from}>${edge.to}:${edge.type}`, outgoing: false, verb, neighbour: from.name });
     }
@@ -77,7 +85,7 @@ export function GraphList({ bundle, selectedId, onSelect, hiddenBranches }: Grap
       );
     }
     return map;
-  }, [bundle, hiddenBranches]);
+  }, [bundle, hiddenBranches, locale]);
 
   return (
     <details
@@ -85,14 +93,14 @@ export function GraphList({ bundle, selectedId, onSelect, hiddenBranches }: Grap
       onToggle={(event) => setOpen((event.currentTarget as HTMLDetailsElement).open)}
     >
       <summary className="cursor-pointer px-3 py-2 text-xs font-medium uppercase tracking-wide text-ink-muted">
-        Lijst van organisaties
+        {t("listTitle")}
       </summary>
       {open ? (
         <div className="max-h-72 overflow-y-auto border-t border-line px-3 py-2">
           {groups.map((group) => (
             <section key={group.branch} className="mb-3 last:mb-0">
               <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-ink-faint">
-                {ORG_BRANCH_LABELS[group.branch]} ({group.nodes.length})
+                {localized(BRANCH_LABELS_I18N, group.branch)} ({group.nodes.length})
               </h3>
               <ul className="space-y-0.5">
                 {group.nodes.map((node) => {
@@ -110,11 +118,11 @@ export function GraphList({ bundle, selectedId, onSelect, hiddenBranches }: Grap
                         }`}
                       >
                         {node.name}
-                        <span className="sr-only">, {ORG_SUBTYPE_LABELS[node.subtype]}</span>
+                        <span className="sr-only">, {localized(ORG_SUBTYPE_LABELS_I18N, node.subtype)}</span>
                       </button>
                       {relations.length > 0 ? (
                         <ul
-                          aria-label={`Verbindingen van ${node.name}`}
+                          aria-label={t("connectionAria", { name: node.name })}
                           className="mb-1 ps-3 pt-0.5"
                         >
                           {relations.map((relation, index) => (
@@ -123,8 +131,8 @@ export function GraphList({ bundle, selectedId, onSelect, hiddenBranches }: Grap
                               className="text-xs leading-snug text-ink-faint"
                             >
                               {relation.outgoing
-                                ? `${relation.verb} ${relation.neighbour}`
-                                : `${relation.neighbour} ${relation.verb} dit orgaan`}
+                                ? t("edgeOut", { verb: relation.verb, neighbour: relation.neighbour })
+                                : t("edgeIn", { verb: relation.verb, neighbour: relation.neighbour })}
                             </li>
                           ))}
                         </ul>

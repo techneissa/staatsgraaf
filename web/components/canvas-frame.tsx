@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { SECTOR_ORDER } from "@/lib/graph";
 import type { OrgBranch } from "@/lib/types";
+import { useT } from "@/components/i18n/use-t";
 import { CanvasControls, type CanvasView } from "./canvas-controls";
 import { GraphExplorer } from "./graph/graph-explorer";
 import { PowerMapView } from "./graph/power-map";
@@ -12,6 +13,7 @@ import { useGraphBundle } from "./graph/use-graph-bundle";
 export function CanvasFrame() {
   const pathname = usePathname();
   const { bundle, status } = useGraphBundle();
+  const t = useT("common");
   const [view, setView] = useState<CanvasView>("graph");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hiddenBranches, setHiddenBranches] = useState<Set<string>>(new Set());
@@ -24,6 +26,31 @@ export function CanvasFrame() {
       if (node) setSelectedId(node.id);
     }
   }, [bundle, pathname]);
+
+  /** Entity id behind the current page (org, person or position) for the entity power map. */
+  const currentEntityId = useMemo<string | null>(() => {
+    if (!bundle || !pathname) return null;
+    const parts = pathname.split("/").filter(Boolean);
+    if (parts.length < 2 || !parts[1]) return null;
+
+    const resolveNodeIdBySlug = (nodeIdPrefix: string, slug: string): string | null => {
+      for (const node of bundle.nodes) {
+        if (node.slug === slug && node.id.startsWith(nodeIdPrefix)) return node.id;
+      }
+      return null;
+    };
+
+    if (parts[0] === "organisaties") return resolveNodeIdBySlug("org:", parts[1]);
+    if (parts[0] === "personen") return bundle.personSlugs?.[parts[1]] ?? null;
+    // Position ids are not in the bundle; the entity power map stays global there.
+    return null;
+  }, [bundle, pathname]);
+
+  const entityPeople = useMemo(() => {
+    if (!bundle || currentEntityId === null) return null;
+    const people = bundle.entityPowerMap?.[currentEntityId];
+    return Array.isArray(people) && people.length > 0 ? people : null;
+  }, [bundle, currentEntityId]);
 
   useEffect(() => {
     const handler = (event: Event) => {
@@ -73,7 +100,7 @@ export function CanvasFrame() {
           id="grafiek-titel"
           className="text-xs font-medium uppercase tracking-wider text-ink-muted"
         >
-          {view === "power" ? "Machtskaart" : "Grafiek"}
+          {view === "power" ? t("powerTitle") : t("graphTitle")}
         </h2>
         <CanvasControls
           view={view}
@@ -88,18 +115,15 @@ export function CanvasFrame() {
       <div className="relative min-h-0 flex-1">
         {status === "loading" ? (
           <div className="flex h-full items-center justify-center p-6">
-            <p className="text-sm text-ink-muted">De grafiek wordt geladen.</p>
+            <p className="text-sm text-ink-muted">{t("graphLoading")}</p>
           </div>
         ) : null}
 
         {status === "error" ? (
           <div className="flex h-full items-center justify-center p-6">
             <div className="max-w-sm text-center">
-              <p className="text-sm text-ink-muted">De grafiek kon niet worden geladen.</p>
-              <p className="mt-2 text-xs text-ink-faint">
-                Alle gegevens op deze pagina zijn ook zonder de grafiek te lezen, met een bron per
-                gegeven.
-              </p>
+              <p className="text-sm text-ink-muted">{t("graphErrorTitle")}</p>
+              <p className="mt-2 text-xs text-ink-faint">{t("graphErrorNote")}</p>
             </div>
           </div>
         ) : null}
@@ -114,7 +138,7 @@ export function CanvasFrame() {
         ) : null}
 
         {status === "ready" && bundle && view === "power" ? (
-          <PowerMapView powerMap={bundle.powerMap} />
+          <PowerMapView powerMap={bundle.powerMap} entityPeople={entityPeople ?? undefined} />
         ) : null}
       </div>
     </aside>

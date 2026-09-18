@@ -1,4 +1,5 @@
 import { EmptyState } from "@/components/empty-state";
+import { T } from "@/components/i18n/t";
 import { SourceLink } from "@/components/source-link";
 import { getSourceById } from "@/lib/data";
 import { formatBudgetAmount, type BudgetBreakdownRow } from "@/lib/budget";
@@ -33,6 +34,9 @@ export function BudgetBreakdown({
     .map((type) => ({ type, rows: breakdown.filter((row) => row.type === type) }))
     .filter((group) => group.rows.length > 0);
 
+  const groupMax = (rows: BudgetBreakdownRow[]) =>
+    rows.reduce((value, row) => (row.amount !== null && row.amount > value ? row.amount : value), 0);
+
   return (
     <div>
       {groups.map((group) => (
@@ -47,11 +51,14 @@ export function BudgetBreakdown({
             </caption>
             <thead>
               <tr className="border-b border-line text-left">
-                <th scope="col" className="py-2 pe-3 font-medium text-ink-faint">
-                  Categorie
+                <th scope="col" className="py-2 pe-3 text-xs uppercase tracking-wider font-medium text-ink-faint">
+                  <T area="news" k="budgetTableCategory" />
                 </th>
-                <th scope="col" className="py-2 text-right font-medium text-ink-faint">
-                  Bedrag
+                <th scope="col" className="py-2 text-right text-xs uppercase tracking-wider font-medium text-ink-faint">
+                  <T area="news" k="budgetTableAmount" />
+                </th>
+                <th scope="col" className="w-24 py-2 pl-3 font-medium text-ink-faint">
+                  <span className="sr-only">Aandeel</span>
                 </th>
               </tr>
             </thead>
@@ -65,6 +72,19 @@ export function BudgetBreakdown({
                     {formatBudgetAmount(row.amount, unit) ?? (
                       <span className="text-ink-faint">Niet gerapporteerd</span>
                     )}
+                  </td>
+                  <td className="w-24 py-2 pl-3" aria-hidden="true">
+                    <span className="block h-2 w-full rounded-pill bg-surface-inset">
+                      <span
+                        className="block h-2 rounded-pill bg-accent"
+                        style={{
+                          width:
+                            groupMax(group.rows) > 0 && row.amount !== null
+                              ? `${Math.max(2, Math.round((row.amount / groupMax(group.rows)) * 100))}%`
+                              : "0%",
+                        }}
+                      />
+                    </span>
                   </td>
                 </tr>
               ))}

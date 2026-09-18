@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { BudgetTile } from "@/components/budget/budget-tile";
 import { BudgetTotals } from "@/components/budget/budget-totals";
+import { T } from "@/components/i18n/t";
 import { JsonLd } from "@/components/json-ld";
 import { SourceList } from "@/components/source-list";
 import {
@@ -10,7 +11,6 @@ import {
   getBudgetOverviewSources,
 } from "@/lib/budget";
 import { getDatasetDate } from "@/lib/data";
-import { formatCount } from "@/lib/format";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -43,22 +43,30 @@ export default function BudgetOverviewPage() {
       <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Begroting" }]} />
 
       <header className="mt-4 border-b border-line pb-6">
-        <h1 className="text-2xl font-semibold tracking-tight text-ink">Begroting</h1>
+        <h1 className="text-2xl font-semibold tracking-tight text-ink">
+          <T area="news" k="budgetHeading" />
+        </h1>
         <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
-          De begrotingen van de {formatCount(overview.totals.expected)} ministeries voor{" "}
-          {overview.fiscalYear}, met het verschil ten opzichte van {overview.previousFiscalYear}. Elk
-          bedrag komt uit de begrotingsstaten en is per organisatie na te lopen.
+          <T
+            area="news"
+            k="budgetIntro"
+            vars={{
+              count: overview.totals.expected,
+              year: overview.fiscalYear,
+              previous: overview.previousFiscalYear,
+            }}
+          />
         </p>
         {unitLabel !== null ? (
           <p className="mt-2 text-xs text-ink-faint">
-            Alle bedragen in {unitLabel}, tenzij anders vermeld.
+            <T area="news" k="budgetUnitNote" vars={{ unit: unitLabel }} />
           </p>
         ) : null}
       </header>
 
       <section aria-labelledby="totalen-titel" className="border-b border-line py-6">
         <h2 id="totalen-titel" className="text-lg font-semibold tracking-tight text-ink">
-          Totalen
+          <T area="news" k="budgetTotalsHeading" />
         </h2>
         <div className="mt-4">
           <BudgetTotals overview={overview} />
@@ -67,11 +75,14 @@ export default function BudgetOverviewPage() {
 
       <section aria-labelledby="ministeries-titel" className="py-6">
         <h2 id="ministeries-titel" className="text-lg font-semibold tracking-tight text-ink">
-          Ministeries
+          <T area="news" k="budgetMinistriesHeading" />
         </h2>
         <p className="mt-1 text-sm text-ink-muted">
-          {formatCount(overview.items.length)} begrotingen, gesorteerd op begrote uitgaven in{" "}
-          {overview.fiscalYear}.
+          <T
+            area="news"
+            k="budgetMinistriesCaption"
+            vars={{ count: overview.items.length, year: overview.fiscalYear }}
+          />
         </p>
         <ul className="mt-4 grid gap-3 sm:grid-cols-2">
           {overview.items.map((item) => (

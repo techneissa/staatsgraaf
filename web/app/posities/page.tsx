@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
+import { branchColorVar } from "@/lib/branch-colors";
 import {
   getDatasetDate,
   getOrganizationById,
@@ -56,9 +57,9 @@ export default function PositionsIndexPage() {
 
       <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Posities" }]} />
 
-      <header className="mt-4 border-b border-line pb-6">
-        <h1 className="text-2xl font-semibold tracking-tight text-ink">Posities</h1>
-        <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
+      <header className="mt-4">
+        <h1 className="text-3xl font-semibold tracking-tight text-ink">Posities</h1>
+        <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
           Alle {formatCount(positions.length)} posities in de dataset, gegroepeerd naar type. Elke
           positiepagina toont de wettelijke basis, de vulwijze en de reeks bekleders met een bron.
         </p>
@@ -68,23 +69,31 @@ export default function PositionsIndexPage() {
         <section
           key={group.type}
           aria-labelledby={`type-${group.type}`}
-          className="border-b border-line py-6 last:border-b-0"
+          className="mt-8"
         >
           <h2
             id={`type-${group.type}`}
-            className="text-lg font-semibold tracking-tight text-ink"
+            className="scroll-mt-20 border-b border-line pb-2 text-lg font-semibold tracking-tight text-ink"
           >
             {ORG_TYPE_LABELS[group.type] ?? group.type}
-            <span className="ms-2 text-sm font-normal text-ink-faint">
+            <span className="ms-2 text-sm font-normal tabular-nums text-ink-faint">
               {formatCount(group.positions.length)}
             </span>
           </h2>
           <ul className="mt-3 grid list-none gap-2 p-0 sm:grid-cols-2 xl:grid-cols-3">
             {group.positions.map((position) => {
               const organization = getOrganizationById(position.organization);
+              const accent = organization ? branchColorVar(organization.branch) : null;
               return (
                 <li key={position.id}>
-                  <article className="rounded-md border border-line bg-surface p-3 transition-fast hover:border-line-strong">
+                  <article className="relative flex h-full flex-col overflow-hidden rounded-md border border-line bg-surface p-3 pl-4 transition-fast hover:border-line-strong">
+                    {accent !== null ? (
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-y-0 left-0 w-1"
+                        style={{ backgroundColor: accent }}
+                      />
+                    ) : null}
                     <h3 className="text-sm font-medium">
                       <Link
                         href={`/posities/${position.slug}/`}
@@ -94,13 +103,18 @@ export default function PositionsIndexPage() {
                       </Link>
                     </h3>
                     {organization ? (
-                      <p className="mt-0.5 text-xs text-ink-muted">
+                      <p className="mt-0.5 truncate text-xs text-ink-muted">
                         <Link
                           href={`/organisaties/${organization.slug}/`}
                           className="underline-offset-2 hover:text-ink hover:underline"
                         >
                           {organization.name}
                         </Link>
+                      </p>
+                    ) : null}
+                    {position.seatsCount !== null ? (
+                      <p className="mt-auto pt-1.5 text-xs tabular-nums text-ink-faint">
+                        {formatCount(position.seatsCount)} zetels
                       </p>
                     ) : null}
                   </article>

@@ -1,17 +1,19 @@
-import { Card } from "@/components/card";
 import { ChangeIndicator } from "./change-indicator";
+import { getS } from "@/lib/i18n/server-strings";
 import {
   budgetUnitLabel,
   formatBudgetAmount,
   type BudgetOverview,
   type BudgetTotals,
 } from "@/lib/budget";
+import { interpolate } from "@/lib/i18n/locales";
 
-function TotalRow({ label, value }: { label: string; value: string }) {
+function StatTile({ label, value, caption }: { label: string; value: string; caption: string }) {
   return (
-    <div className="flex items-baseline justify-between gap-4 py-1.5 text-sm">
-      <dt className="text-ink-muted">{label}</dt>
-      <dd className="tabular-nums text-ink">{value}</dd>
+    <div className="rounded-md border border-line bg-surface p-4">
+      <h4 className="text-[10px] font-medium uppercase tracking-widest text-ink-faint">{label}</h4>
+      <p className="mt-1.5 text-xl font-semibold tabular-nums tracking-tight text-ink">{value}</p>
+      <p className="mt-1 text-xs text-ink-faint">{caption}</p>
     </div>
   );
 }
@@ -21,45 +23,55 @@ function totalValue(
   key: "spendingBudget" | "revenue" | "net" | "spendingActual",
   unit: string | null,
 ): string {
-  return formatBudgetAmount(totals[key], unit) ?? "Niet gerapporteerd";
+  return formatBudgetAmount(totals[key], unit) ?? getS("news", "budgetNotReported");
 }
 
 export function BudgetTotals({ overview }: { overview: BudgetOverview }) {
   const { totals, previousTotals, spendingDelta, unit, fiscalYear, previousFiscalYear } = overview;
   const partial = totals.spendingBudgetCounted < totals.expected;
+  const unitLabel = budgetUnitLabel(unit);
 
   return (
-    <Card>
+    <div>
       <h3 className="text-xs font-medium uppercase tracking-wider text-ink-faint">
-        Rijk, opgeteld over de {totals.expected} begrotingen
+        {interpolate(getS("news", "budgetTotalsCaption"), { count: totals.expected })}
       </h3>
-      <dl className="mt-2.5 divide-y divide-line">
-        <TotalRow
-          label={`Uitgaven begroot ${fiscalYear}`}
+      <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <StatTile
+          label={getS("news", "budgetSpendingLabel")}
           value={totalValue(totals, "spendingBudget", unit)}
+          caption={String(fiscalYear)}
         />
-        <TotalRow
-          label={`Uitgaven realisatie ${previousFiscalYear}`}
+        <StatTile
+          label={getS("news", "budgetSpendingActualLabel")}
           value={totalValue(previousTotals, "spendingActual", unit)}
+          caption={String(previousFiscalYear)}
         />
-        <TotalRow
-          label={`Ontvangsten ${fiscalYear}`}
+        <StatTile
+          label={getS("news", "budgetRevenueLabel")}
           value={totalValue(totals, "revenue", unit)}
+          caption={String(fiscalYear)}
         />
-        <TotalRow label={`Saldo ${fiscalYear}`} value={totalValue(totals, "net", unit)} />
-      </dl>
+        <StatTile
+          label={getS("news", "budgetNetLabel")}
+          value={totalValue(totals, "net", unit)}
+          caption={String(fiscalYear)}
+        />
+      </div>
 
       {spendingDelta !== null ? (
         <ChangeIndicator
           delta={spendingDelta}
           unit={unit}
           since={String(previousFiscalYear)}
-          label="de totale begrote uitgaven"
+          label={getS("news", "budgetTotalsChangeLabel")}
         />
       ) : null}
 
       <p className="mt-3 text-xs leading-relaxed text-ink-faint">
-        {unit !== null ? `Bedragen in ${budgetUnitLabel(unit)}. ` : null}
+        {unitLabel !== null
+          ? `${interpolate(getS("news", "budgetUnitNote"), { unit: unitLabel })} `
+          : null}
         Deze totalen tellen de begrotingen van de afzonderlijke ministeries op zoals gerapporteerd en
         zijn niet gecorrigeerd voor overlappende stromen tussen begrotingen. Het saldo is het verschil
         tussen ontvangsten en uitgaven per begroting.
@@ -69,6 +81,6 @@ export function BudgetTotals({ overview }: { overview: BudgetOverview }) {
         {previousTotals.expected} van {totals.expected} begrotingen hebben een vergelijkbaar cijfer
         voor {previousFiscalYear}.
       </p>
-    </Card>
+    </div>
   );
 }

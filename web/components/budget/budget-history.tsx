@@ -1,4 +1,5 @@
 import { EmptyState } from "@/components/empty-state";
+import { T } from "@/components/i18n/t";
 import { SourceLink } from "@/components/source-link";
 import { getSourceById } from "@/lib/data";
 import { formatBudgetAmount, type BudgetHistoryRow } from "@/lib/budget";
@@ -39,16 +40,16 @@ export function BudgetHistory({
           </caption>
           <thead>
             <tr className="border-b border-line text-left">
-              <th scope="col" className="py-2 pe-3 font-medium text-ink-faint">
-                Jaar
+              <th scope="col" className="py-2 pe-3 text-xs uppercase tracking-wider font-medium text-ink-faint">
+                <T area="news" k="budgetTableYear" />
               </th>
-              <th scope="col" className="py-2 pe-3 text-right font-medium text-ink-faint">
-                Uitgaven (realisatie)
+              <th scope="col" className="py-2 pe-3 text-right text-xs uppercase tracking-wider font-medium text-ink-faint">
+                <T area="news" k="budgetSpendingActualLabel" />
               </th>
-              <th scope="col" className="py-2 pe-3 text-right font-medium text-ink-faint">
-                Ontvangsten
+              <th scope="col" className="py-2 pe-3 text-right text-xs uppercase tracking-wider font-medium text-ink-faint">
+              <T area="news" k="budgetRevenueLabel" />
               </th>
-              <th scope="col" className="w-24 py-2 font-medium text-ink-faint">
+              <th scope="col" className="w-24 py-2 text-xs uppercase tracking-wider font-medium text-ink-faint">
                 <span className="sr-only">Vergelijking</span>
               </th>
             </tr>
@@ -91,7 +92,7 @@ export function BudgetHistory({
 
       {earliest > HISTORY_START_YEAR ? (
         <p className="mt-2 text-xs text-ink-faint">
-          De reeks begint in {earliest}; de bron bevat geen eerdere jaren voor deze organisatie.
+          <T area="news" k="budgetHistoryStartNote" vars={{ year: earliest }} />
         </p>
       ) : null}
 

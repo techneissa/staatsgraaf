@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PersonPortrait, PersonPortraitCredit } from "./entity/person-portrait";
 import { KindBadge } from "./kind-badge";
+import { PartyBadge } from "./party-badge";
 import { formatPeriodShort } from "@/lib/format";
 import type { Person } from "@/lib/types";
 
@@ -13,9 +14,9 @@ type PersonCardProps = {
 
 export function PersonCard({ person, positionTitle, startedAt, acting }: PersonCardProps) {
   return (
-    <article className="flex items-start gap-3 rounded-md border border-line bg-surface p-4">
+    <article className="flex items-start gap-3 rounded-md border border-line bg-surface p-3 transition-fast hover:border-line-strong">
       <PersonPortrait person={person} size={44} className="mt-0.5" />
-      <div className="min-w-0">
+      <div className="min-w-0 flex-1">
         <h3 className="text-sm font-semibold">
           <Link
             href={`/personen/${person.slug}/`}
@@ -26,7 +27,7 @@ export function PersonCard({ person, positionTitle, startedAt, acting }: PersonC
         </h3>
         {positionTitle ? <p className="mt-0.5 text-sm text-ink-muted">{positionTitle}</p> : null}
         <div className="mt-1.5 flex flex-wrap items-center gap-2">
-          {person.party != null ? <KindBadge>{person.party}</KindBadge> : null}
+          {person.party != null ? <PartyBadge party={person.party} /> : null}
           {acting ? <KindBadge tone="accent">Waarnemend</KindBadge> : null}
           {startedAt ? (
             <span className="text-xs text-ink-faint">{formatPeriodShort(startedAt, null)}</span>

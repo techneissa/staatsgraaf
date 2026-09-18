@@ -6,8 +6,19 @@ import {
   getPositionById,
   getTenuresForPerson,
 } from "./data";
+import { pick } from "./i18n/dicts";
+import { DICTS } from "./i18n/dict-registry";
+import { DEFAULT_LOCALE } from "./i18n/locales";
 import { formatDate } from "./format";
 import type { Change, NewsItem, Person, Position, Tenure } from "./types";
+
+/** Server-side home string in the default (Dutch) locale, with {vars} support. */
+export function getHomeString(
+  key: string,
+  vars?: Record<string, string | number>,
+): string {
+  return pick(DICTS.home, key, DEFAULT_LOCALE, vars);
+}
 
 export type Portrait = {
   url: string;

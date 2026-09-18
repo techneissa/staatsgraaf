@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { PersonPortrait } from "@/components/entity/person-portrait";
+import { PartyBadge } from "@/components/party-badge";
 import {
   getDatasetDate,
   getPeople,
@@ -64,24 +65,27 @@ export default function PeopleIndexPage() {
 
       <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Personen" }]} />
 
-      <header className="mt-4 border-b border-line pb-6">
-        <h1 className="text-2xl font-semibold tracking-tight text-ink">Personen</h1>
-        <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
+      <header className="mt-4">
+        <h1 className="text-3xl font-semibold tracking-tight text-ink">Personen</h1>
+        <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
           Alle {formatCount(people.length)} personen in de dataset, alfabetisch. Van{" "}
           {formatCount(withPortrait)} personen is een gelicentieerd portret opgenomen; de overige
           tonen initialen. Elke functie op een persoonspagina heeft een bron.
         </p>
       </header>
 
-      <nav aria-label="Alfabet" className="border-b border-line py-4">
+      <nav aria-label="Alfabet" className="mt-6">
         <ul className="flex flex-wrap gap-1.5">
           {groups.map((group) => (
             <li key={group.letter}>
               <a
                 href={`#letter-${group.letter}`}
-                className="inline-flex h-7 min-w-7 items-center justify-center rounded-sm border border-line bg-surface px-1.5 text-xs font-medium text-ink-muted transition-fast hover:border-line-strong hover:text-ink"
+                className="inline-flex h-7 min-w-7 items-center justify-center rounded-pill border border-line bg-surface px-2 text-xs font-medium text-ink-muted transition-fast hover:border-line-strong hover:text-ink"
               >
                 {group.letter}
+                <span className="ms-1 tabular-nums text-ink-faint">
+                  {group.people.length}
+                </span>
               </a>
             </li>
           ))}
@@ -89,13 +93,13 @@ export default function PeopleIndexPage() {
       </nav>
 
       {groups.map((group) => (
-        <section key={group.letter} aria-labelledby={`letter-${group.letter}`} className="py-6">
+        <section key={group.letter} aria-labelledby={`letter-${group.letter}`} className="mt-8">
           <h2
             id={`letter-${group.letter}`}
-            className="scroll-mt-20 text-lg font-semibold tracking-tight text-ink"
+            className="scroll-mt-20 border-b border-line pb-2 text-lg font-semibold tracking-tight text-ink"
           >
             {group.letter}
-            <span className="ms-2 text-sm font-normal text-ink-faint">
+            <span className="ms-2 text-sm font-normal tabular-nums text-ink-faint">
               {formatCount(group.people.length)}
             </span>
           </h2>
@@ -120,8 +124,8 @@ export default function PeopleIndexPage() {
                       ) : null}
                     </div>
                     {person.party !== null ? (
-                      <span className="shrink-0 text-xs font-medium uppercase tracking-wide text-ink-faint">
-                        {person.party}
+                      <span className="shrink-0">
+                        <PartyBadge party={person.party} />
                       </span>
                     ) : null}
                   </article>

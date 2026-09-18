@@ -46,3 +46,21 @@ export function glyphPath(glyph: GlyphClass, radius: number): string {
       return capsule(r, r * 0.38);
   }
 }
+
+/**
+ * Jagged sun-burst for the graph hub, in the spirit of the reference product's
+ * hub mark. Alternate long and short spikes so the shape does not read as a
+ * plain star.
+ */
+export function hubBurstPath(radius: number, spikes = 14): string {
+  const inner = radius * 0.82;
+  const steps = spikes * 2;
+  const points: string[] = [];
+  for (let i = 0; i < steps; i += 1) {
+    const angle = (i / steps) * Math.PI * 2 - Math.PI / 2;
+    const peak = i % 4 === 0 ? radius : radius * 0.88;
+    const r = i % 2 === 0 ? peak : inner;
+    points.push(`${n(Math.cos(angle) * r)} ${n(Math.sin(angle) * r)}`);
+  }
+  return `M ${points[0]} L ${points.slice(1).join(" L ")} Z`;
+}

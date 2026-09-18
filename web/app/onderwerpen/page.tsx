@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
+import { T } from "@/components/i18n/t";
 import { TopicCard } from "@/components/topic/topic-card";
 import { getDatasetDate } from "@/lib/data";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
@@ -36,22 +37,21 @@ export default function TopicsPage() {
       />
 
       <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Onderwerpen" }]} />
-
       <header className="mt-4 border-b border-line pb-6">
-        <h1 className="text-2xl font-semibold tracking-tight text-ink">Onderwerpen</h1>
+        <h1 className="text-2xl font-semibold tracking-tight text-ink">
+          <T area="news" k="topicsHeading" />
+        </h1>
         <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
-          Onderwerpen doorsnijden de begrotingen en organisaties. Elk onderwerp toont wie er
-          verantwoordelijk is: de ministeries, uitvoeringsorganisaties, adviesorganen en posities die
-          de dataset aan het onderwerp koppelt.
+          <T area="news" k="topicsIntro" />
         </p>
       </header>
 
       <section aria-labelledby="onderwerpen-titel" className="py-6">
         <h2 id="onderwerpen-titel" className="text-lg font-semibold tracking-tight text-ink">
-          Alle onderwerpen
+          <T area="news" k="topicsAllHeading" />
         </h2>
         <p className="mt-1 text-sm text-ink-muted">
-          {topics.length} onderwerpen met elk het aantal verantwoordelijke organisaties.
+          {topics.length} <T area="news" k="topicsAllCaption" />
         </p>
         {cards.length > 0 ? (
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
@@ -62,7 +62,9 @@ export default function TopicsPage() {
             ))}
           </ul>
         ) : (
-          <p className="mt-4 text-sm text-ink-faint">Nog geen onderwerpen in de dataset.</p>
+          <p className="mt-4 text-sm text-ink-faint">
+            <T area="news" k="topicsEmpty" />
+          </p>
         )}
       </section>
     </>

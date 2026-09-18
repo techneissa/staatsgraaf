@@ -135,6 +135,7 @@ export function NewsExplorer({
                         key={option}
                         type="button"
                         aria-pressed={active}
+                        aria-current={active ? "true" : undefined}
                         onClick={() => setKind(option)}
                         className={`rounded-pill border px-3 py-1 text-sm font-medium transition-fast ${
                           active
@@ -180,8 +181,8 @@ export function NewsExplorer({
                     const headingId = `groep-${lang}-${group.key}`;
                     return (
                       <section key={group.key} aria-labelledby={headingId}>
-                        <div className="flex items-baseline justify-between gap-2 border-b border-line pb-2">
-                          <h3 id={headingId} className="text-base font-semibold text-ink">
+                        <div className="sticky top-0 z-10 -mx-4 flex items-baseline justify-between gap-2 border-b border-line bg-canvas px-4 py-2">
+                          <h3 id={headingId} className="text-sm font-semibold uppercase tracking-wider text-ink-faint">
                             {messages.groupLabels[group.key]}
                           </h3>
                           <span className="text-xs tabular-nums text-ink-faint">
@@ -223,7 +224,7 @@ export function NewsExplorer({
                           </p>
                         ) : (
                           <>
-                            <ol className="mt-3 list-none space-y-3 p-0">
+                            <ol className="mt-3 list-none space-y-2 p-0">
                               {visible.map((item) => (
                                 <li key={item.id}>
                                   <NewsItemCard item={item} messages={messages} />
@@ -232,7 +233,7 @@ export function NewsExplorer({
                             </ol>
                             {hidden.length > 0 ? (
                               <details className="group mt-3">
-                                <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-sm border border-line bg-surface-raised px-3 py-2 text-sm font-medium text-ink transition-fast hover:border-line-strong [&::-webkit-details-marker]:hidden">
+                                <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-pill border border-line bg-surface-raised px-4 py-2 text-sm font-medium text-ink transition-fast hover:border-accent/40 hover:bg-accent-soft hover:text-accent-text [&::-webkit-details-marker]:hidden">
                                   <span className="group-open:hidden">
                                     {messages.showMoreLabel} ({formatCount(hidden.length)})
                                   </span>
@@ -240,7 +241,7 @@ export function NewsExplorer({
                                     {messages.showLessLabel}
                                   </span>
                                 </summary>
-                                <ol className="mt-3 list-none space-y-3 p-0">
+                                <ol className="mt-3 list-none space-y-2 p-0">
                                   {hidden.map((item) => (
                                     <li key={item.id}>
                                       <NewsItemCard item={item} messages={messages} />

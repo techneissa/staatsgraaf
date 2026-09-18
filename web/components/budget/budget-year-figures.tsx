@@ -1,4 +1,5 @@
 import { SourceLink } from "@/components/source-link";
+import { T } from "@/components/i18n/t";
 import { getSourceById } from "@/lib/data";
 import { formatBudgetAmount } from "@/lib/budget";
 import type { AmountSet, SourceRef } from "@/lib/types";
@@ -50,13 +51,13 @@ export function BudgetYearFigures({
           </caption>
           <thead>
             <tr className="border-b border-line text-left">
-              <th scope="col" className="py-2 pe-3 font-medium text-ink-faint">
-                Bedrag
+              <th scope="col" className="py-2 pe-3 text-xs uppercase tracking-wider font-medium text-ink-faint">
+                  <T area="news" k="budgetTableAmount" />
               </th>
-              <th scope="col" className="py-2 pe-3 text-right font-medium text-ink-faint">
+              <th scope="col" className="py-2 pe-3 text-right text-xs uppercase tracking-wider font-medium text-ink-faint">
                 {currentYear}
               </th>
-              <th scope="col" className="py-2 text-right font-medium text-ink-faint">
+              <th scope="col" className="py-2 text-right text-xs uppercase tracking-wider font-medium text-ink-faint">
                 {previousYear}
               </th>
             </tr>
