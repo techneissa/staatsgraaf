@@ -2,6 +2,7 @@ import Link from "next/link";
 import { KindBadge } from "@/components/kind-badge";
 import { formatPeriod } from "@/lib/format";
 import type { MemberEntry } from "@/lib/entity";
+import { PersonPortrait, PersonPortraitCredit } from "./person-portrait";
 
 export function MemberList({ members }: { members: MemberEntry[] }) {
   if (members.length === 0) return null;
@@ -12,12 +13,20 @@ export function MemberList({ members }: { members: MemberEntry[] }) {
           key={membership.id}
           className="flex flex-wrap items-center justify-between gap-2 rounded-md border border-line bg-surface px-3 py-2"
         >
-          <Link
-            href={`/personen/${person.slug}/`}
-            className="text-sm font-medium text-ink underline-offset-2 hover:text-accent-text hover:underline"
-          >
-            {person.name}
-          </Link>
+          <span className="flex min-w-0 items-center gap-3">
+            <PersonPortrait person={person} size={36} />
+            <span className="min-w-0">
+              <Link
+                href={`/personen/${person.slug}/`}
+                className="text-sm font-medium text-ink underline-offset-2 hover:text-accent-text hover:underline"
+              >
+                {person.name}
+              </Link>
+              <span className="sr-only">
+                Beeld: <PersonPortraitCredit person={person} />
+              </span>
+            </span>
+          </span>
           <span className="flex flex-wrap items-center gap-2">
             {membership.fractie !== null ? <KindBadge>{membership.fractie}</KindBadge> : null}
             {membership.seatNumber !== null ? (

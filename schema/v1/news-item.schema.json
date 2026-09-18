@@ -5,29 +5,103 @@
   "$defs": {
     "newsItem": {
       "type": "object",
-      "required": ["id", "title", "url", "publisher", "published", "sources"],
+      "required": [
+        "id",
+        "title",
+        "url",
+        "publisher",
+        "published",
+        "sources"
+      ],
       "additionalProperties": false,
       "properties": {
-        "id": { "type": "string", "pattern": "^news:[a-z0-9][a-z0-9-]*$" },
-        "title": { "type": "string", "minLength": 1 },
-        "url": { "type": "string", "pattern": "^https?://" },
-        "publisher": { "type": "string", "minLength": 1 },
-        "published": { "$ref": "common.schema.json#/$defs/isoDateTime" },
-        "summary": { "type": ["string", "null"], "minLength": 1 },
-        "summaryMarkup": { "type": ["string", "null"], "minLength": 1 },
+        "id": {
+          "type": "string",
+          "pattern": "^news:[a-z0-9][a-z0-9-]*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https?://"
+        },
+        "publisher": {
+          "type": "string",
+          "minLength": 1
+        },
+        "published": {
+          "$ref": "common.schema.json#/$defs/isoDateTime"
+        },
+        "language": {
+          "type": "string",
+          "enum": [
+            "nl",
+            "en"
+          ],
+          "description": "Language of the title and summary as published by the outlet. Absent means nl."
+        },
+        "publisherKind": {
+          "type": "string",
+          "enum": [
+            "publieke-omroep",
+            "krant",
+            "commerciele-omroep",
+            "online",
+            "video",
+            "nieuwsbrief",
+            "blog",
+            "vakmedia",
+            "overheid"
+          ],
+          "description": "Kind of outlet. Absent means online."
+        },
+        "summary": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "summaryMarkup": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
         "entities": {
           "type": "array",
-          "items": { "type": "string", "pattern": "^(org|pos|person|topic):" }
+          "items": {
+            "type": "string",
+            "pattern": "^(org|pos|person|topic):"
+          }
         },
         "topics": {
           "type": "array",
-          "items": { "type": "string", "pattern": "^topic:" }
+          "items": {
+            "type": "string",
+            "pattern": "^topic:"
+          }
         },
-        "image": { "$ref": "common.schema.json#/$defs/mediaRef" },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Matched alias strings that produced the entity links, in the order matched."
+        },
+        "image": {
+          "$ref": "common.schema.json#/$defs/mediaRef"
+        },
         "sources": {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "common.schema.json#/$defs/sourceRef" }
+          "items": {
+            "$ref": "common.schema.json#/$defs/sourceRef"
+          }
         }
       }
     }

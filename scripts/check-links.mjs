@@ -1,5 +1,5 @@
-#!/usr/bin/env node
-// Deterministic link checker for the NL Overheid Graph.
+#!/usr/bin/env bun
+// Deterministic link checker for Staatsgraaf.
 //
 // Two jobs:
 //   1. internal: scan every href/src in the built static export web/out and
@@ -109,7 +109,7 @@ function parseArgs(argv) {
   return opts;
 }
 
-const HELP = `Link checker for the NL Overheid Graph.
+const HELP = `Link checker for Staatsgraaf.
 
 Usage: node scripts/check-links.mjs [options]
 
@@ -539,7 +539,7 @@ function renderReport({ internal, external, opts, startedAt }) {
     : "node scripts/check-links.mjs --help\nnode scripts/check-links.mjs --internal-only\nnode scripts/check-links.mjs --external-only --limit 40\nnode scripts/check-links.mjs --report research/qa/link-check.md";
 
   const lines = [];
-  lines.push("# Link check: NL Overheid Graph Phase 4");
+  lines.push("# Link check: Staatsgraaf Phase 4");
   lines.push("");
   lines.push(`- Date: ${dateOnly(startedAt)}`);
   lines.push("- Role: QA-link agent (Phase 4 link checker, find only, do not fix)");

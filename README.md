@@ -46,25 +46,27 @@ Counts in the `2026-09-18` snapshot: 1573 organizations, 1430 positions, 870 peo
 
 ## How to run the pipelines and the web app
 
-The root package has no runtime dependencies and runs on Node.js 20 or newer.
+The toolchain is Bun 1.2 or newer; `.bun-version` pins 1.4.2. Bun installs packages, runs scripts and tests, and executes the pipelines, the validator, and the web build scripts. The root package has no dependencies, so it has no lockfile and no install step.
 
 ```sh
-npm run merge      # merge the research files into data/ and regenerate ATTRIBUTION.md
-npm run validate   # validate data/ against schema/v1/ and check referential integrity
-npm test           # run the pipeline tests
+bun run merge      # merge the research files into data/ and regenerate ATTRIBUTION.md
+bun run validate   # validate data/ against schema/v1/ and check referential integrity
+bun test           # run the pipeline tests
 ```
 
-`npm run diff` derives the change feed, and `npm run research:check` runs the validator over the workstream envelopes. The link checker is `scripts/check-links.mjs`.
+`bun run diff` derives the change feed, and `bun run research:check` runs the validator over the workstream envelopes. The link checker is `bun run check-links`. Any pipeline also runs directly, for example `bun pipelines/news.mjs` or `bun scripts/validate.mjs --research`.
 
-The web app is a separate package with its own lockfile:
+The web app is a separate package with the only lockfile, `web/bun.lock`:
 
 ```sh
 cd web
-npm install
-npm run build      # static export in web/out
+bun install
+bun run build      # static export in web/out
 ```
 
-For local development, `cd web && npm run dev` serves the site at http://localhost:3000. See `web/README.md` for the routes, the design tokens, and the environment settings.
+Next.js, tsc, and Wrangler still execute on Node.js 20.9 or newer; Bun starts them through their node shebang. So Node is required for `bun run build`, `bun run dev`, `bun run typecheck`, and the deploy step, but not for the pipelines or the tests.
+
+For local development, `cd web && bun run dev` serves the site at http://localhost:3000. See `web/README.md` for the routes, the design tokens, and the environment settings. The toolchain decision is recorded in `docs/adr/0005-bun-toolchain.md`.
 
 ## Licenses
 
@@ -78,8 +80,8 @@ The CC BY 4.0 grant covers our own contribution: the selection, structure, compi
 
 Cite the dataset version and the snapshot date, and cite the per-fact source with its retrieval date. Suggested shape, following `research/O-licenses.md` section 3.2:
 
-- English: "Staatsgraaf, dataset version v1, snapshot 2026-09-18. Source: {source-url}, retrieved {YYYY-MM-DD}. Available under CC BY 4.0."
-- Dutch: "Staatsgraaf, datasetversie v1, peildatum 2026-09-18. Bron: {bron-url}, geraadpleegd {YYYY-MM-DD}. Beschikbaar onder CC BY 4.0."
+- English: "Staatsgraaf, dataset version v1, snapshot 18-09-2026. Source: {source-url}, retrieved {YYYY-MM-DD}. Available under CC BY 4.0."
+- Dutch: "Staatsgraaf, datasetversie v1, peildatum 18-09-2026. Bron: {bron-url}, geraadpleegd {YYYY-MM-DD}. Beschikbaar onder CC BY 4.0."
 
 The repository URL and a permanent link are pending while the repository is private.
 

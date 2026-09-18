@@ -2,13 +2,13 @@
 
 Every conflict, schema addition, and count decision from the Phase 0 seed and the Phase 2 merge is recorded here, with the rule applied and the alternative that was not taken. Format: date, item, decision, rationale.
 
-## 2026-09-17: seed build (orchestrator)
+## 17-09-2026: seed build (orchestrator)
 
 1. **Schema addition: subtype `uitvoeringsorganisatie`.** Needed by workstream B for uitvoeringsorganisaties that are not agentschappen. Added to `schema/v1/organization.schema.json` per the docs/04 section 18 process; to be confirmed at merge.
 2. **Schema addition: subtype `veiligheidsregio`.** Needed by workstream G for the 25 veiligheidsregio's, which are neither provincies nor gemeenten. Added to `schema/v1/organization.schema.json` per the docs/04 section 18 process; to be confirmed at merge.
 3. **Governments keyed by slug, no id prefix.** `governments.json` rows use `slug` as the key with no `id` field, unlike the other entity files. Convention documented in `schema/README.md`.
 4. **Person slug derivation.** `translit()` applied to the display name: NFD deaccent, ş→s, ğ→g, ı→i, ø→o, æ→ae, œ→oe, ß→ss, apostrophes stripped, lowercase, non-alphanumeric to hyphen. Collisions get `-2`, `-3`. Official page slugs are kept in source URLs and are not required to equal our slug.
-5. **EK membership start dates derived.** Start = retrieval date (2026-09-17) minus the "Anciënniteit: N dagen" value on each EK member card. Marked confidence medium in the seed. Workstream D confirms exact dates; if it cannot, the derivation stays and is documented on the site.
+5. **EK membership start dates derived.** Start = retrieval date (17-09-2026) minus the "Anciënniteit: N dagen" value on each EK member card. Marked confidence medium in the seed. Workstream D confirms exact dates; if it cannot, the derivation stays and is documented on the site.
 6. **TK seatNumber left null.** The OData FractieZetel.Gewicht semantics are unverified; guessing a seat number would be an invented fact. Workstream D verifies or leaves the gap.
 7. **Source typo normalized.** The Heerma page writes "Koninkrijkrelaties"; the dataset stores "Koninkrijksrelaties". Source text stays readable at the source URL.
 8. **Jetten portfolio collapsed to one position.** Seed stores position "Minister-president" at Algemene Zaken. His full portfolio ("minister-president en minister van Algemene Zaken") and the viceminister-president roles are not modeled in the seed; workstreams A and I model them from the kabinet decision.
@@ -18,7 +18,7 @@ Every conflict, schema addition, and count decision from the Phase 0 seed and th
 12. **Dilan Yeşilgöz-Zegerius title corrected during seed build.** An early parse classified her as "Minister-president" because her meta description contains the substring "viceminister-president". The parser was fixed to strip " en viceminister-president" and to anchor the MP match; she is Minister van Defensie. Recorded here because it is exactly the class of error the merge gate exists to catch.
 13. **EK fractie parse corrected during seed build.** An early parse stored "Anciënniteit: N dagen" as the fractie for 75 memberships. Fixed to read the party div; the 20 EK fracties now match the EK fracties page exactly.
 
-## Phase 2 merge (2026-09-18, orchestrator)
+## Phase 2 merge (18-09-2026, orchestrator)
 
 Inputs: the 15 workstream files `research/A-..O-` plus the Phase 0 seed. Merge run by `pipelines/merge.mjs`; machine conflict list in `research/merge-log.entries.jsonl`. Merge rule: source-tier preference (primary legal text > official register > government site > secondary > news), then alphabetical workstream filename; the seed sits behind all research.
 
@@ -37,7 +37,7 @@ Inputs: the 15 workstream files `research/A-..O-` plus the Phase 0 seed. Merge r
 
 **Gate: pass.** Validator clean, all Phase 0 headline counts match, zero unresolved conflicts, gazetteer built, counts recorded above.
 
-## Phase 2 validator findings (2026-09-18, independent validator)
+## Phase 2 validator findings (18-09-2026, independent validator)
 
 The independent validator (`research/validation-report.md`) reports 0 FAIL, 4 WARN, 6 GAP. Disposition of each item the orchestrator owns:
 
@@ -51,9 +51,9 @@ The independent validator (`research/validation-report.md`) reports 0 FAIL, 4 WA
 
 **Gate remains pass: zero open FAIL.**
 
-## Phase 4 acceptance (2026-09-18, orchestrator)
+## Phase 4 acceptance (18-09-2026, orchestrator)
 
-Five QA areas ran in `research/qa/`: `link-check.md`, `fixtures-and-aliases.md`, `accessibility.md`, `data-audit-30.md`, `performance-and-provenance.md`. The independent validator wrote `research/validation-report-phase4.md` (snapshot 2026-09-18) with 8 open FAIL, 25 WARN, 24 open GAP. Disposition of every item the orchestrator owns.
+Five QA areas ran in `research/qa/`: `link-check.md`, `fixtures-and-aliases.md`, `accessibility.md`, `data-audit-30.md`, `performance-and-provenance.md`. The independent validator wrote `research/validation-report-phase4.md` (snapshot 18-09-2026) with 8 open FAIL, 25 WARN, 24 open GAP. Disposition of every item the orchestrator owns.
 
 32. **FAIL L-01 resolved before the report.** `src:dji-organisatie` now points at `https://www.dji.nl/over-dji` (HTTP 200). Confirmed live by the validator.
 33. **FAILs D-01 to D-03 resolved before the report.** Scheldestromen now cites `src:koop-waterschappen` (CSV names it); the Van de Stadt tenure start is `2025-03-03` on `src:hhsk-van-de-stadt` (page states "Op 3 maart 2025"); all 342 province-to-gemeente `oversees` relations cite `src:rijksoverheid-ibt` (200). Confirmed live by the validator.
@@ -70,9 +70,9 @@ Five QA areas ran in `research/qa/`: `link-check.md`, `fixtures-and-aliases.md`,
 
 **Phase 4 gate: pass with Wave 2 carry.** No FAIL remains inside Phase 4 scope. A-01 and P-03 are launch-blocking and scheduled to Wave 2; the Wave 2 gate re-runs the validator before launch.
 
-## Phase 5 license application (2026-09-18, orchestrator + area K)
+## Phase 5 license application (18-09-2026, orchestrator + area K)
 
-Owner decision (ADR 0001, accepted 2026-09-18): code MIT, dataset CC BY 4.0. `pipelines/licenses.mjs` maps every source to an SPDX value from `research/O-licenses.md` by exact id then host, and `merge.mjs` and `news.mjs` apply it.
+Owner decision (ADR 0001, accepted 18-09-2026): code MIT, dataset CC BY 4.0. `pipelines/licenses.mjs` maps every source to an SPDX value from `research/O-licenses.md` by exact id then host, and `merge.mjs` and `news.mjs` apply it.
 
 44. **License distribution.** 2226 sources, 0 null: CC0-1.0 481, CC-BY-4.0 157, CC-BY-3.0-NL 4, CC-BY-SA-4.0 2, all-rights-reserved 1546 (the 1532 news articles plus site-prose-only hosts), unknown 36. The 36 unknown are the O-declared gaps and each carries `Licentie niet vastgesteld; endpoint: <url>` in `notes`.
 45. **Representation choice for custom attribution rights.** Eerste Kamer and `rechtspraak.nl` grant a custom attribution right with no dedicated SPDX id; both are recorded as `CC-BY-4.0`. The Eerste Kamer records also carry the O section 3.3 credit line. `rechtspraak.nl` carries no extra line because O section 3.3 names none.
@@ -82,7 +82,7 @@ Owner decision (ADR 0001, accepted 2026-09-18): code MIT, dataset CC BY 4.0. `pi
 49. **`archiveUrl` remains null on all 2226 sources.** The nine WARN/FAIL targets (6 `www.hogeraad.nl`, 3 `www.raadvanstate.nl`) were queried once each at the Wayback availability API and every request returned HTTP 429. The block was respected, the gaps are named with the endpoint, and no archive URL was guessed. L-11, L-12, L-13 stay open as named gaps.
 50. **License documents shipped.** `LICENSE` (MIT), `LICENSE-DATA` (CC BY 4.0, Dutch and English), and a generated `ATTRIBUTION.md` (2226 rows grouped by license). `data/meta.json` now carries `licenses: {code: MIT, data: CC-BY-4.0}` and `datasetLicenseUrl`.
 
-## Phase 5 launch gate (2026-09-18, independent validator + orchestrator)
+## Phase 5 launch gate (18-09-2026, independent validator + orchestrator)
 
 The independent validator wrote `research/validation-report-phase5.md` against the live site. Verdict at report time: FAIL with one open FAIL (`V5-01`, non-unique titles from duplicate records), pipelines green (`npm test` 110, both validators clean), launch blockers A-01 and P-03 confirmed shipped, security headers, `robots.txt`, `sitemap.xml`, metadata, JSON-LD, and three live provenance chains verified. Disposition of each finding the orchestrator owns.
 

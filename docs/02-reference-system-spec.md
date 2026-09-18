@@ -8,7 +8,7 @@ The reference is three live sites maintained by CivLab:
 - https://sfgov.civlab.org/sf, the San Francisco city graph. This is the newest version (v3) and the richest in features.
 - https://v2.sfgov.civlab.org, an earlier graph-first version.
 
-Everything below was observed directly on 2026-09-17 by fetching the sites and driving the live UI. Where a value is a count or a label, it is quoted from what the site rendered that day.
+Everything below was observed directly on 17-09-2026 by fetching the sites and driving the live UI. Where a value is a count or a label, it is quoted from what the site rendered that day.
 
 ## 1. What the product is
 
@@ -230,7 +230,7 @@ items: [ {
 } ]
 ```
 
-US values on the day observed: `vacantSeats` 6, `actingOfficials` 86, `lastChangeDate` 2026-09-16. The homepage copy claims three change kinds: appointment, departure, and structural change, but the observed items are all `kind: "personnel"`.
+US values on the day observed: `vacantSeats` 6, `actingOfficials` 86, `lastChangeDate` 16-09-2026. The homepage copy claims three change kinds: appointment, departure, and structural change, but the observed items are all `kind: "personnel"`.
 
 ### 4.6 `overview`
 

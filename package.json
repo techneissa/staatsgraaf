@@ -1,17 +1,22 @@
 {
-  "name": "nl-overheid-graph",
+  "name": "staatsgraaf",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "description": "Public, source-backed, explorable graph of the Dutch state. Monorepo root: dataset, pipelines, shared contract, clients.",
   "scripts": {
-    "validate": "node scripts/validate.mjs",
-    "research:check": "node scripts/validate.mjs --research",
-    "merge": "node pipelines/merge.mjs",
-    "diff": "node pipelines/diff.mjs",
-    "test": "node --test 'pipelines/**/*.test.mjs' 'web/lib/**/*.test.mjs'"
+    "validate": "bun scripts/validate.mjs",
+    "research:check": "bun scripts/validate.mjs --research",
+    "refresh-official": "bun pipelines/refresh-official.mjs",
+    "merge": "bun pipelines/merge.mjs",
+    "news": "bun pipelines/news.mjs",
+    "changes": "bun pipelines/changes.mjs",
+    "diff": "bun pipelines/diff.mjs",
+    "check-links": "bun scripts/check-links.mjs",
+    "test": "bun test pipelines web/lib",
+    "format-dates": "python3 scripts/format-dates.py"
   },
   "engines": {
-    "node": ">=20"
+    "bun": ">=1.2"
   }
 }

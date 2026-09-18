@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://nl-overheid-graph.example/shared/output-envelope.schema.json",
+  "$id": "https://staatsgraaf.pages.dev/shared/output-envelope.schema.json",
   "title": "Workstream output envelope",
   "description": "Every research workstream writes exactly one JSON file matching this envelope. Entity arrays carry records shaped by the canonical schemas in schema/v1/ as named in x-validate-against. Facts without a source are dropped at merge; every non-trivial fact carries a source (URL, retrieval date, confidence) or is listed in gaps.",
   "type": "object",
@@ -24,8 +24,8 @@
   "properties": {
     "workstream": {
       "type": "string",
-      "pattern": "^[A-O]$",
-      "description": "Single uppercase workstream letter from docs/05-research-workstreams.md"
+      "pattern": "^[A-P]$",
+      "description": "Single uppercase workstream letter from docs/05-research-workstreams.md; P is the live official-source refresh (ADR 0006)"
     },
     "generatedAt": { "type": "string", "format": "date-time" },
     "endpointsUsed": {

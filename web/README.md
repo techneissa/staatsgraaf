@@ -6,11 +6,11 @@ Read `../docs/06-build-plan.md` sections 3 to 5 for the stack and the ownership 
 
 ## Run
 
-Requires Node 20.9 or newer.
+Requires Bun 1.2 or newer (the repo pins 1.4.2 in `../.bun-version`) and Node 20.9 or newer. Bun installs packages and runs the scripts; Node is only needed because Next.js and tsc execute on it.
 
 ```sh
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
 The dev server runs at http://localhost:3000.
@@ -18,18 +18,18 @@ The dev server runs at http://localhost:3000.
 ## Build
 
 ```sh
-npm run build
-npm run typecheck
-npm run check:contrast
+bun run build
+bun run typecheck
+bun run check:contrast
 ```
 
-`npm run build` produces a fully static site in `out/`. Serve it with any static file server, for example:
+`bun run build` produces a fully static site in `out/`. Serve it with any static file server, for example:
 
 ```sh
-npx serve out
+bunx serve out
 ```
 
-`npm run tokens` regenerates the Tailwind theme from `../shared/tokens.json`. It runs automatically before `dev` and `build`.
+`bun run tokens` regenerates the Tailwind theme from `../shared/tokens.json`. `bun run prepare-data` runs it together with the graph bundle, the search index, and the dataset build; it runs automatically before `dev` and `build`.
 
 ## Data
 
@@ -37,7 +37,7 @@ Every page is generated at build time from the JSON dataset in `../data`. There 
 
 ## Design tokens
 
-`../shared/tokens.json` is the single source of truth for colour, type, spacing, radius, border weight, and motion. `scripts/build-tokens.mjs` generates `app/generated/tokens.css` (raw custom properties plus the Tailwind `@theme` mapping). Do not hand-write token values in components. `npm run check:contrast` verifies the WCAG AA pairs for both themes.
+`../shared/tokens.json` is the single source of truth for colour, type, spacing, radius, border weight, and motion. `scripts/build-tokens.mjs` generates `app/generated/tokens.css` (raw custom properties plus the Tailwind `@theme` mapping). Do not hand-write token values in components. `bun run check:contrast` verifies the WCAG AA pairs for both themes.
 
 The accent is Rijkshuisstijl oranje `#E17000`, with separate text and focus variants per theme so links, badges, and focus rings keep their contrast. The default theme is dark; the theme toggle sets `data-theme` on the root element and persists the choice in `localStorage`.
 

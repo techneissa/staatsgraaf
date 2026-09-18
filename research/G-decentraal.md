@@ -35,42 +35,42 @@ Fetched or reused by this workstream:
 
 | Source | URL | Retrieved | Yield |
 | --- | --- | --- | --- |
-| CBS, Gebieden in Nederland 2026 (86247NED) | https://opendata.cbs.nl/ODataApi/OData/86247NED | 2026-09-17 | 342 gemeenten, GM keys (cached) |
-| CBS, Provincies (70072ned) | https://opendata.cbs.nl/ODataApi/OData/70072ned | 2026-09-17 | 12 provincies, PV20 to PV31 (cached) |
-| CBS, Waterschappen (80445ned) | https://opendata.cbs.nl/ODataApi/OData/80445ned | 2026-09-17 | 21 current waterschappen, WS02 to WS32 (cached) |
-| Kiesraad, Provinciale Staten | https://www.kiesraad.nl/verkiezingen/provinciale-staten | 2026-09-17 | Statenzetels per provincie, 2023 (cached) |
-| Kiesraad, Waterschappen | https://www.kiesraad.nl/verkiezingen/waterschappen | 2026-09-17 | 21 waterschappen, AB 18 to 30 leden (cached) |
-| Kiesraad, Eilandsraden | https://www.kiesraad.nl/verkiezingen/eilandsraden | 2026-09-17 | Eilandsraadzetels 9, 5, 5 (cached) |
-| KOOP, Register van Overheidsorganisaties, gemeenten (CSV) | https://organisaties.overheid.nl/export/Gemeenten.csv | 2026-09-18 | 342 gemeenten, website, raadszetels, organisatiecode gm#### |
-| KOOP, Register van Overheidsorganisaties, provincies (CSV) | https://organisaties.overheid.nl/export/Provincies.csv | 2026-09-18 | 12 provincies met website |
-| KOOP, Register van Overheidsorganisaties, waterschappen (CSV) | https://organisaties.overheid.nl/export/Waterschappen.csv | 2026-09-18 | 21 waterschappen met website |
-| Rijksoverheid, Overzicht commissarissen van de Koning | https://www.rijksoverheid.nl/themas/overheid-en-democratie/provincies/commissaris-van-de-koning/overzicht/commissarissen-van-de-koning | 2026-09-18 | 12 CvdK met partij, benoemingsdatum en geboortedatum |
-| Provincie Fryslân, CvdK | https://www.fryslan.frl/commissaris-van-de-koning | 2026-09-17 | Arno Brok (cached) |
-| Provincie Groningen, CvdK | cached onder research/raw/G/, canonieke URL niet vastgelegd | 2026-09-17 | René Paas, begonnen 18 april 2016 |
-| Provincie Drenthe, CvdK | https://www.provincie.drenthe.nl/organisatie-bestuur/gedeputeerde-staten/commissaris-koning/ | 2026-09-17 | Agnes Mulder (cached) |
-| Provincie Overijssel, CvdK | https://www.overijssel.nl/bestuur/commissaris-van-de-koning | 2026-09-17 | Andries Heidema (cached) |
-| Provincie Flevoland, CvdK | cached onder research/raw/G/ | 2026-09-17 | Arjen Gerritsen, sinds 1 november 2023 |
-| Provincie Gelderland, CvdK | cached onder research/raw/G/ | 2026-09-17 | Daniël Wigboldus, sinds 19 maart 2025 |
-| Provincie Utrecht, CvdK | cached onder research/raw/G/ | 2026-09-17 | Hans Oosters, sinds 1 februari 2019 |
-| Provincie Noord-Holland, CvdK | https://www.noord-holland.nl/Bestuur/Commissaris_van_de_Koning | 2026-09-18 | Arthur van Dijk, sinds 7 januari 2019 (via zoekresultaat, fetch geblokkeerd) |
-| Provincie Zuid-Holland, CvdK | https://www.zuid-holland.nl/politiek-bestuur/commissaris-van-de-koning/ | 2026-09-17 | Wouter Kolff (cached) |
-| Provincie Zeeland, CvdK | https://www.zeeland.nl/gedeputeerde-staten/commissaris-van-de-koning | 2026-09-17 | Hugo de Jonge (cached) |
-| Provincie Noord-Brabant, CvdK | https://www.brabant.nl/bestuur/commissaris-koning/ | 2026-09-17 | Ina Adema (cached) |
-| Provincie Limburg, CvdK | https://www.limburg.nl/bestuur/commissaris-koning/ | 2026-09-17 | Emile Roemer, sinds 1 december 2021 (cached) |
-| Wikipedia, Lijst van burgemeesters 2025-2029 | https://nl.wikipedia.org/wiki/Lijst_van_burgemeesters_van_gemeenten_in_Nederland_in_de_periode_2025-2029 | 2026-09-18 | Bulk: 340 zittende burgemeesters met benoemingsdatum |
-| Wikipedia, Dijkgraaf (waterschap) | https://nl.wikipedia.org/wiki/Dijkgraaf_(waterschap) | 2026-09-18 | Bulk: 21 dijkgraven met maand van indiensttreding |
-| Rijksdienst Caribisch Nederland, Rijksvertegenwoordiger | https://www.rijksdienstcn.com/over-de-rijksdienst-caribisch-nederland/de-rijksvertegenwoordiger | 2026-09-18 | Jan Helmond, waarnemend sinds 1 januari 2018 |
-| Rijksdienst Caribisch Nederland, Actueel | https://www.rijksdienstcn.com/actueel | 2026-09-18 | Gezaghebberbenoemingen 2026 (Saba, waarneming Bonaire) |
-| Rijksoverheid, John Soliano gezaghebber Bonaire | https://www.rijksoverheid.nl/actueel/nieuws/2024/06/14/john-soliano-nieuwe-gezaghebber-van-bonaire | 2026-09-18 | Benoeming per 1 augustus 2024 |
-| Rijksdienst Caribisch Nederland, Alida Francis gezaghebber Sint Eustatius | https://www.rijksdienstcn.com/actueel/nieuws/2024/april/10/alida-francis-beedigd-als-gezaghebber-van-sint-eustatius | 2026-09-18 | Beëdigd 10 april 2024 |
-| Provinciewet | https://wetten.overheid.nl/BWBR0005645 | 2026-09-17 | Rechtsgrond provincie en organen (cached) |
-| Gemeentewet | https://wetten.overheid.nl/BWBR0005416 | 2026-09-17 | Rechtsgrond gemeente en organen (cached) |
-| Waterschapswet | https://wetten.overheid.nl/BWBR0005108 | 2026-09-17 | Rechtsgrond waterschap en organen (cached) |
-| Wet openbare lichamen Bonaire, Sint Eustatius en Saba | https://wetten.overheid.nl/BWBR0028142 | 2026-09-17 | Rechtsgrond BES en Rijksvertegenwoordiger (cached) |
-| Rijksoverheid, Overzicht veiligheidsregio's | https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/veiligheidsregios-en-crisisbeheersing/veiligheidsregios | 2026-09-17 | 25 veiligheidsregio's met naam en link naar de eigen website (cached in research/raw/00) |
-| KOOP, Register van Overheidsorganisaties, regionale samenwerkingsorganen | https://organisaties.overheid.nl/Regionale_samenwerkingsorganen/ | 2026-09-18 | 25 veiligheidsregio's als regionaal samenwerkingsorgaan met officiële naam en afkorting |
-| KOOP, detailpagina Veiligheidsregio Groningen | https://organisaties.overheid.nl/23862472/Veiligheidsregio_Groningen | 2026-09-18 | Steekproef: website en adres bevestigd, geen voorzitter of leden gepubliceerd |
-| Wet veiligheidsregio's | https://wetten.overheid.nl/BWBR0027466 | 2026-09-18 | Rechtsgrond veiligheidsregio, art. 8; HTTP 200 |
+| CBS, Gebieden in Nederland 2026 (86247NED) | https://opendata.cbs.nl/ODataApi/OData/86247NED | 17-09-2026 | 342 gemeenten, GM keys (cached) |
+| CBS, Provincies (70072ned) | https://opendata.cbs.nl/ODataApi/OData/70072ned | 17-09-2026 | 12 provincies, PV20 to PV31 (cached) |
+| CBS, Waterschappen (80445ned) | https://opendata.cbs.nl/ODataApi/OData/80445ned | 17-09-2026 | 21 current waterschappen, WS02 to WS32 (cached) |
+| Kiesraad, Provinciale Staten | https://www.kiesraad.nl/verkiezingen/provinciale-staten | 17-09-2026 | Statenzetels per provincie, 2023 (cached) |
+| Kiesraad, Waterschappen | https://www.kiesraad.nl/verkiezingen/waterschappen | 17-09-2026 | 21 waterschappen, AB 18 to 30 leden (cached) |
+| Kiesraad, Eilandsraden | https://www.kiesraad.nl/verkiezingen/eilandsraden | 17-09-2026 | Eilandsraadzetels 9, 5, 5 (cached) |
+| KOOP, Register van Overheidsorganisaties, gemeenten (CSV) | https://organisaties.overheid.nl/export/Gemeenten.csv | 18-09-2026 | 342 gemeenten, website, raadszetels, organisatiecode gm#### |
+| KOOP, Register van Overheidsorganisaties, provincies (CSV) | https://organisaties.overheid.nl/export/Provincies.csv | 18-09-2026 | 12 provincies met website |
+| KOOP, Register van Overheidsorganisaties, waterschappen (CSV) | https://organisaties.overheid.nl/export/Waterschappen.csv | 18-09-2026 | 21 waterschappen met website |
+| Rijksoverheid, Overzicht commissarissen van de Koning | https://www.rijksoverheid.nl/themas/overheid-en-democratie/provincies/commissaris-van-de-koning/overzicht/commissarissen-van-de-koning | 18-09-2026 | 12 CvdK met partij, benoemingsdatum en geboortedatum |
+| Provincie Fryslân, CvdK | https://www.fryslan.frl/commissaris-van-de-koning | 17-09-2026 | Arno Brok (cached) |
+| Provincie Groningen, CvdK | cached onder research/raw/G/, canonieke URL niet vastgelegd | 17-09-2026 | René Paas, begonnen 18 april 2016 |
+| Provincie Drenthe, CvdK | https://www.provincie.drenthe.nl/organisatie-bestuur/gedeputeerde-staten/commissaris-koning/ | 17-09-2026 | Agnes Mulder (cached) |
+| Provincie Overijssel, CvdK | https://www.overijssel.nl/bestuur/commissaris-van-de-koning | 17-09-2026 | Andries Heidema (cached) |
+| Provincie Flevoland, CvdK | cached onder research/raw/G/ | 17-09-2026 | Arjen Gerritsen, sinds 1 november 2023 |
+| Provincie Gelderland, CvdK | cached onder research/raw/G/ | 17-09-2026 | Daniël Wigboldus, sinds 19 maart 2025 |
+| Provincie Utrecht, CvdK | cached onder research/raw/G/ | 17-09-2026 | Hans Oosters, sinds 1 februari 2019 |
+| Provincie Noord-Holland, CvdK | https://www.noord-holland.nl/Bestuur/Commissaris_van_de_Koning | 18-09-2026 | Arthur van Dijk, sinds 7 januari 2019 (via zoekresultaat, fetch geblokkeerd) |
+| Provincie Zuid-Holland, CvdK | https://www.zuid-holland.nl/politiek-bestuur/commissaris-van-de-koning/ | 17-09-2026 | Wouter Kolff (cached) |
+| Provincie Zeeland, CvdK | https://www.zeeland.nl/gedeputeerde-staten/commissaris-van-de-koning | 17-09-2026 | Hugo de Jonge (cached) |
+| Provincie Noord-Brabant, CvdK | https://www.brabant.nl/bestuur/commissaris-koning/ | 17-09-2026 | Ina Adema (cached) |
+| Provincie Limburg, CvdK | https://www.limburg.nl/bestuur/commissaris-koning/ | 17-09-2026 | Emile Roemer, sinds 1 december 2021 (cached) |
+| Wikipedia, Lijst van burgemeesters 2025-2029 | https://nl.wikipedia.org/wiki/Lijst_van_burgemeesters_van_gemeenten_in_Nederland_in_de_periode_2025-2029 | 18-09-2026 | Bulk: 340 zittende burgemeesters met benoemingsdatum |
+| Wikipedia, Dijkgraaf (waterschap) | https://nl.wikipedia.org/wiki/Dijkgraaf_(waterschap) | 18-09-2026 | Bulk: 21 dijkgraven met maand van indiensttreding |
+| Rijksdienst Caribisch Nederland, Rijksvertegenwoordiger | https://www.rijksdienstcn.com/over-de-rijksdienst-caribisch-nederland/de-rijksvertegenwoordiger | 18-09-2026 | Jan Helmond, waarnemend sinds 1 januari 2018 |
+| Rijksdienst Caribisch Nederland, Actueel | https://www.rijksdienstcn.com/actueel | 18-09-2026 | Gezaghebberbenoemingen 2026 (Saba, waarneming Bonaire) |
+| Rijksoverheid, John Soliano gezaghebber Bonaire | https://www.rijksoverheid.nl/actueel/nieuws/2024/06/14/john-soliano-nieuwe-gezaghebber-van-bonaire | 18-09-2026 | Benoeming per 1 augustus 2024 |
+| Rijksdienst Caribisch Nederland, Alida Francis gezaghebber Sint Eustatius | https://www.rijksdienstcn.com/actueel/nieuws/2024/april/10/alida-francis-beedigd-als-gezaghebber-van-sint-eustatius | 18-09-2026 | Beëdigd 10 april 2024 |
+| Provinciewet | https://wetten.overheid.nl/BWBR0005645 | 17-09-2026 | Rechtsgrond provincie en organen (cached) |
+| Gemeentewet | https://wetten.overheid.nl/BWBR0005416 | 17-09-2026 | Rechtsgrond gemeente en organen (cached) |
+| Waterschapswet | https://wetten.overheid.nl/BWBR0005108 | 17-09-2026 | Rechtsgrond waterschap en organen (cached) |
+| Wet openbare lichamen Bonaire, Sint Eustatius en Saba | https://wetten.overheid.nl/BWBR0028142 | 17-09-2026 | Rechtsgrond BES en Rijksvertegenwoordiger (cached) |
+| Rijksoverheid, Overzicht veiligheidsregio's | https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/veiligheidsregios-en-crisisbeheersing/veiligheidsregios | 17-09-2026 | 25 veiligheidsregio's met naam en link naar de eigen website (cached in research/raw/00) |
+| KOOP, Register van Overheidsorganisaties, regionale samenwerkingsorganen | https://organisaties.overheid.nl/Regionale_samenwerkingsorganen/ | 18-09-2026 | 25 veiligheidsregio's als regionaal samenwerkingsorgaan met officiële naam en afkorting |
+| KOOP, detailpagina Veiligheidsregio Groningen | https://organisaties.overheid.nl/23862472/Veiligheidsregio_Groningen | 18-09-2026 | Steekproef: website en adres bevestigd, geen voorzitter of leden gepubliceerd |
+| Wet veiligheidsregio's | https://wetten.overheid.nl/BWBR0027466 | 18-09-2026 | Rechtsgrond veiligheidsregio, art. 8; HTTP 200 |
 
 Crawl discipline: no individual gemeente site was fetched. The gemeente list, raad seats and websites come from CBS plus the KOOP register, so the crawl stayed under 30 requests against a cap of a few hundred. All new requests used one GET, a browser-like user agent, no cookies, and respected blocks (noord-holland.nl refused the automated fetch; its CvdK is recorded from the official page content seen via search and marked medium where needed).
 
@@ -91,7 +91,7 @@ Crawl discipline: no individual gemeente site was fetched. The gemeente list, ra
 - Veiligheidsregio's are `type: department`, `subtype: samenwerkingsverband`, `level: regionaal`, following `docs/03` section 2.6, which treats samenwerkingsverbanden as department-type bodies at regionaal level. The schema also carries a dedicated `veiligheidsregio` subtype; this pass keeps `samenwerkingsverband` as instructed and flags the choice as an open question.
 - Veiligheidsregio branch is `decentraal-lokaal`, not `zelfstandig`. A veiligheidsregio is a gemeenschappelijke regeling whose deelnemers are gemeenten (and provincies); its authority derives from the decentrale kolom, not from the Rijk. `zelfstandig` is reserved for independent bodies with their own statutory task such as ZBO's and RWT's.
 - Veiligheidsregio `name` is `Veiligheidsregio <label>` on the Rijksoverheid overview and `website` is the link that page publishes for the regio, so the website is sourced to the Rijksoverheid overview at high confidence. No per-regio site was crawled, so no per-regio source record was added. The KOOP register confirms each as a regionaal samenwerkingsorgaan and supplies the abbreviation used in `aliases`.
-- Veiligheidsregio `legalSource` is `Wet veiligheidsregio's art. 8` at https://wetten.overheid.nl/BWBR0027466. Verified HTTP 200 on 2026-09-18. It is the consolidated law page, not a standalone article permalink; article 8 is reachable at the in-page anchor `#Paragraaf3_Artikel8`. The label is kept as instructed. The wet is also declared as a source and referenced from each regio.
+- Veiligheidsregio `legalSource` is `Wet veiligheidsregio's art. 8` at https://wetten.overheid.nl/BWBR0027466. Verified HTTP 200 on 18-09-2026. It is the consolidated law page, not a standalone article permalink; article 8 is reachable at the in-page anchor `#Paragraaf3_Artikel8`. The label is kept as instructed. The wet is also declared as a source and referenced from each regio.
 - The veiligheidsregio pass is append-only: no existing organization, source or gap record was edited. No heads, seats or member municipalities were invented, and no `joint_arrangement_member` or `part_of` edges were drawn, because those facts are not in the fetched sources.
 
 ## Gaps

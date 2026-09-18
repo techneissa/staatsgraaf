@@ -31,7 +31,7 @@ Niet gedekt: de decentrale overheden en de aparte begrotingsfondsen. Beide staan
 
 ## Sources fetched with dates
 
-Alles opgehaald op 2026-09-18. Ruwe snapshots staan onder `research/raw/L/`.
+Alles opgehaald op 18-09-2026. Ruwe snapshots staan onder `research/raw/L/`.
 
 - Ministerie van Financien, rijksfinancien.nl, https://www.rijksfinancien.nl/. Landingspagina met de actuele Miljoenennota 2027 en de begrotingshoofdstukken.
 - Ministerie van Financien, Open data overzicht datasets, https://www.rijksfinancien.nl/open-data/overzicht-datasets. Index van de machineleesbare begroting; noemt de CC0-licentie.

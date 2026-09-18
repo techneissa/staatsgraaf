@@ -1,4 +1,4 @@
-import { getMediaItem, personPortraitId } from "@/lib/entity";
+import { getMediaItem, mediaCreditLine, personPortraitId } from "@/lib/entity";
 import type { Person } from "@/lib/types";
 
 function initials(name: string): string {
@@ -46,4 +46,20 @@ export function PersonPortrait({
       )}
     </span>
   );
+}
+
+/**
+ * Credit and license for a portrait, ready to place under the image. Renders
+ * nothing when the person has no portrait, so callers do not need a check.
+ */
+export function PersonPortraitCredit({
+  person,
+  className = "",
+}: {
+  person: Person;
+  className?: string;
+}) {
+  const media = getMediaItem(personPortraitId(person));
+  if (media === null) return null;
+  return <span className={className.trim()}>{mediaCreditLine(media)}</span>;
 }

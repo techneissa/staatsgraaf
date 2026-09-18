@@ -15,16 +15,16 @@ Boundary against neighbouring workstreams: agentschappen, inspecties and rijksdi
 
 ## Sources fetched with dates
 
-- KOOP / Overheid.nl, Register van Overheidsorganisaties, zbo-register listing, https://organisaties.overheid.nl/Zelfstandige_bestuursorganen/, retrieved 2026-09-17 (cached by the previous run). 179 organisation links; used as the register count and the id set.
-- KOOP / Overheid.nl, ROO category export Zelfstandige bestuursorganen, https://organisaties.overheid.nl/archive/exportOO_zelfstandige_bestuursorganen.xml, retrieved 2026-09-18. Board functions and function holders with start dates.
-- KOOP / Overheid.nl, ROO organisatiegegevens Zelfstandige bestuursorganen (CSV), https://organisaties.overheid.nl/export/Zelfstandige_bestuursorganen.csv, retrieved 2026-09-18. One row per zbo: wettelijke grondslagen, relatie met ministerie, rechtsvorm, taken, fte, websites, TOOI.
-- KOOP / Overheid.nl, ROO medewerkergegevens Zelfstandige bestuursorganen (CSV), https://organisaties.overheid.nl/export-medewerkers/Zelfstandige_bestuursorganen.csv, retrieved 2026-09-18. Published function holders, used to corroborate roles.
-- KOOP / Overheid.nl, ROO volledige export, https://organisaties.overheid.nl/archive/exportOO.xml, retrieved 2026-09-17 (cached by the previous run). Re-parsed for legal grondslagen and board functions of rwt bodies that are not zbo's.
-- Overheid.nl / KOOP, help bij het Register van Overheidsorganisaties, https://www.overheid.nl/help/overheidsorganisaties, retrieved 2026-09-18. Locates the daily `exportOO` XML and per-category CSV downloads.
-- Algemene Rekenkamer, Rechtspersonen met een wettelijke taak (rwt), https://www.rekenkamer.nl/onderwerpen/i/instellingen-op-afstand-van-het-rijk/rechtspersonen-met-een-wettelijke-taak, retrieved 2026-09-17 (cached by the previous run). The rwt overview, last updated 14 March 2023, grouped per ministerie.
-- wetten.overheid.nl, Kaderwet zelfstandige bestuursorganen, https://wetten.overheid.nl/BWBR0020495, retrieved 2026-09-18. Art. 1 defines zbo; the legal basis for the board positions of Kaderwet zbo's.
-- wetten.overheid.nl, Comptabiliteitswet 2016, https://wetten.overheid.nl/BWBR0039429, retrieved 2026-09-18. Art. 1.1 defines rechtspersoon met een wettelijke taak.
-- wetten.overheid.nl, Koninklijk Besluit van 16 juli 1859, https://wetten.overheid.nl/BWBR0034165, retrieved 2026-09-18. The ROO's own legal basis.
+- KOOP / Overheid.nl, Register van Overheidsorganisaties, zbo-register listing, https://organisaties.overheid.nl/Zelfstandige_bestuursorganen/, retrieved 17-09-2026 (cached by the previous run). 179 organisation links; used as the register count and the id set.
+- KOOP / Overheid.nl, ROO category export Zelfstandige bestuursorganen, https://organisaties.overheid.nl/archive/exportOO_zelfstandige_bestuursorganen.xml, retrieved 18-09-2026. Board functions and function holders with start dates.
+- KOOP / Overheid.nl, ROO organisatiegegevens Zelfstandige bestuursorganen (CSV), https://organisaties.overheid.nl/export/Zelfstandige_bestuursorganen.csv, retrieved 18-09-2026. One row per zbo: wettelijke grondslagen, relatie met ministerie, rechtsvorm, taken, fte, websites, TOOI.
+- KOOP / Overheid.nl, ROO medewerkergegevens Zelfstandige bestuursorganen (CSV), https://organisaties.overheid.nl/export-medewerkers/Zelfstandige_bestuursorganen.csv, retrieved 18-09-2026. Published function holders, used to corroborate roles.
+- KOOP / Overheid.nl, ROO volledige export, https://organisaties.overheid.nl/archive/exportOO.xml, retrieved 17-09-2026 (cached by the previous run). Re-parsed for legal grondslagen and board functions of rwt bodies that are not zbo's.
+- Overheid.nl / KOOP, help bij het Register van Overheidsorganisaties, https://www.overheid.nl/help/overheidsorganisaties, retrieved 18-09-2026. Locates the daily `exportOO` XML and per-category CSV downloads.
+- Algemene Rekenkamer, Rechtspersonen met een wettelijke taak (rwt), https://www.rekenkamer.nl/onderwerpen/i/instellingen-op-afstand-van-het-rijk/rechtspersonen-met-een-wettelijke-taak, retrieved 17-09-2026 (cached by the previous run). The rwt overview, last updated 14 March 2023, grouped per ministerie.
+- wetten.overheid.nl, Kaderwet zelfstandige bestuursorganen, https://wetten.overheid.nl/BWBR0020495, retrieved 18-09-2026. Art. 1 defines zbo; the legal basis for the board positions of Kaderwet zbo's.
+- wetten.overheid.nl, Comptabiliteitswet 2016, https://wetten.overheid.nl/BWBR0039429, retrieved 18-09-2026. Art. 1.1 defines rechtspersoon met een wettelijke taak.
+- wetten.overheid.nl, Koninklijk Besluit van 16 juli 1859, https://wetten.overheid.nl/BWBR0034165, retrieved 18-09-2026. The ROO's own legal basis.
 
 Raw snapshots are under `research/raw/C/` (`zbo-register-export.xml`, `zbo-register-organisaties.csv`, `zbo-register-medewerkers.csv`, `zbo-register-parsed.json`, `roo-grondslagen.json`, `wetten-BWBR0020495.html`, `wetten-BWBR0039429.html`, `wetten-BWBR0034165.html`).
 

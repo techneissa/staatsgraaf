@@ -1,6 +1,6 @@
 # ADR 0003: Project name
 
-Date: 2026-09-18
+Date: 18-09-2026
 Status: accepted
 
 ## Context

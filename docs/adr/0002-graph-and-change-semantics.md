@@ -1,6 +1,6 @@
 # ADR 0002: Graph bundle, change feed and vacancy semantics
 
-Date: 2026-09-18
+Date: 18-09-2026
 Status: accepted (orchestrator, Phase 3 build)
 
 ## Context
@@ -13,9 +13,9 @@ Phase 3 built the graph explorer, the change feed, the news linker and the topic
 2. **Edges drawn in the graph are the structural relation types** `consists_of`, `oversees`, `part_of`, `advises` and `elects`. Position-anchored relations stay in the data and appear on entity pages, not as graph edges.
 3. **The power map is computed, never hand-entered, per docs/04.** With no news data it shows an explicit Dutch empty state and emits no ranks; it does not invent a ranking.
 4. **A vacancy is a position that has at least one tenure on record and cannot fill its seats** (`open tenures < seatsCount`), dated at the snapshot date. A position with no tenure at all is not called vacant, because that would be a guess about a legal office the sources do not confirm is filled. 844 such positions remain a named data-depth gap (mostly committee seats, municipal councils and the TK/EK seats, which are represented by memberships, not tenures).
-5. **The two change engines agree on seat level.** Amended in Phase 4 (2026-09-18). `changes.mjs` reports the standing seat deficit in one snapshot. `diff.mjs` computes the same deficit (`seatsCount` when known, otherwise the open-tenure count, or 1 when that count is zero) and fires a vacancy when the deficit grows between snapshots. Both keep the rule that a position with no tenure in either snapshot is never called vacant, and both phrase a vacancy with the same summary, `out`, `in` and id, so a seat change is one record whichever engine derives it. The rules are written in `pipelines/diff-spec.md` sections 3 and 9.
+5. **The two change engines agree on seat level.** Amended in Phase 4 (18-09-2026). `changes.mjs` reports the standing seat deficit in one snapshot. `diff.mjs` computes the same deficit (`seatsCount` when known, otherwise the open-tenure count, or 1 when that count is zero) and fires a vacancy when the deficit grows between snapshots. Both keep the rule that a position with no tenure in either snapshot is never called vacant, and both phrase a vacancy with the same summary, `out`, `in` and id, so a seat change is one record whichever engine derives it. The rules are written in `pipelines/diff-spec.md` sections 3 and 9.
 6. **News sources are per-article records.** `pipelines/news.mjs` registers one `src:news-<hash>` record per article in `data/sources.json` keyed by URL, because a feed-level source would point every card at the feed instead of the article. Re-running merge does not know about these records, so the nightly order must be merge first, news second. This is a Phase 6 operations constraint.
-7. **The canvas persists across routes.** `CanvasFrame` is mounted in `web/app/layout.tsx`. Route-driven highlight resolves organisation slugs; person and position pages dispatch the `nl-overheid-graph:focus` event with an entity id.
+7. **The canvas persists across routes.** `CanvasFrame` is mounted in `web/app/layout.tsx`. Route-driven highlight resolves organisation slugs; person and position pages dispatch the `staatsgraaf:focus` event with an entity id.
 
 ## Consequences
 

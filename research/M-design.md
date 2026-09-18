@@ -23,7 +23,7 @@ Out of scope: the graph layout algorithm (that is build area O and `shared/graph
 
 ## Sources fetched with dates
 
-All fetched on 2026-09-18. Raw snapshots are in `research/raw/M/`. Prose and code were read, not copied.
+All fetched on 18-09-2026. Raw snapshots are in `research/raw/M/`. Prose and code were read, not copied.
 
 | Source | What it gave | Snapshot |
 | --- | --- | --- |

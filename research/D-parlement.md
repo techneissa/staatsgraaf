@@ -19,7 +19,7 @@ Boundary against neighbouring workstreams: workstream I owns predecessor chains 
 
 ## Sources fetched with dates
 
-Tweede Kamer, gegevensmagazijn OData, retrieved 2026-09-17:
+Tweede Kamer, gegevensmagazijn OData, retrieved 17-09-2026:
 
 - https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0, base, paging notes.
 - `.../Fractie?$filter=DatumInactief eq null and AantalZetels ne null`, 17 active fracties, 150 zetels.
@@ -29,7 +29,7 @@ Tweede Kamer, gegevensmagazijn OData, retrieved 2026-09-17:
 - `.../Commissie?$filter=Verwijderd eq false`, committee register.
 - `.../CommissieZetelVastPersoon?$filter=Verwijderd eq false and TotEnMet eq null&$expand=CommissieZetel($expand=Commissie)`, 818 current committee seats, 595 in vaste commissies.
 
-Tweede Kamer website, retrieved 2026-09-18:
+Tweede Kamer website, retrieved 18-09-2026:
 
 - https://www.tweedekamer.nl/kamerleden_en_commissies/commissies, overzicht commissies.
 - https://www.tweedekamer.nl/kamerleden-en-commissies/voorzitter, Thom van Campen gekozen op 18 november 2025.
@@ -37,19 +37,19 @@ Tweede Kamer website, retrieved 2026-09-18:
 - https://www.tweedekamer.nl/ambtelijke-ondersteuning/organogram/griffier-van-de-tweede-kamer-der-staten-generaal, Griffier Peter Oskam, beeindigd 19 december 2023.
 - https://www.tweedekamer.nl/ambtelijke-ondersteuning/organogram/over-de-diensten, diensten onder de Griffier.
 
-Eerste Kamer, retrieved 2026-09-17:
+Eerste Kamer, retrieved 17-09-2026:
 
 - https://www.eerstekamer.nl/alle_leden, 75 leden, fractie en ancienniteit.
 - https://www.eerstekamer.nl/fracties, 20 fracties en zetelaantallen.
 - 75 persoonspagina's onder https://www.eerstekamer.nl/persoon/<slug>, loopbaanperiodes met exacte data en de rol Voorzitter of Ondervoorzitter.
 
-Eerste Kamer, retrieved 2026-09-18:
+Eerste Kamer, retrieved 18-09-2026:
 
 - https://www.eerstekamer.nl/commissies, 16 commissies.
 - https://www.eerstekamer.nl/commissies/<slug>, per commissie de voorzitter, ondervoorzitter, griffier en ledenlijst.
 - https://www.eerstekamer.nl/begrip/ambtelijke_organisatie, griffie, managementteam en Griffier Remco Nehmelman.
 
-Kiesraad, retrieved 2026-09-18:
+Kiesraad, retrieved 18-09-2026:
 
 - https://www.verkiezingsuitslagen.nl/, recente uitslagen: Tweede Kamer 29 oktober 2025, opkomst 78,3 procent, en Eerste Kamer 30 mei 2023, opkomst 100 procent.
 - https://www.kiesraad.nl/verkiezingen/tweede-kamer, kiesstelsel en laatste verkiezingsdatum.
@@ -59,7 +59,7 @@ Reused cache from the cancelled run and Phase 0: the 75 EK persoonspagina's, `ek
 
 ## Decisions
 
-1. **Eerste Kamer start dates corrected.** The Phase 0 seed derived each start date as 2026-09-17 minus the ancienniteit in days, at medium confidence. That derivation is wrong for members who had a break, because the Eerste Kamer counts ancienniteit cumulatively over all periods. This run reads the loopbaan line on each persoonspagina, rebuilds the contiguous chain of periods that ends at the current period, and takes the earliest start of that chain. Six dates changed, each with a source: A.J.M. van Kesteren 2023-12-12 (was 2017-09-26), Bgen (b.d.) drs. A.J.A. Beukering 2025-11-18 (was 2021-11-16), drs. M.C.T. Fiers 2021-10-12 (was 2020-08-04), drs. M.J. van Rooijen 2019-06-11 (was 2017-08-28), mr. C.A.H. van de Sanden LL.M. 2024-09-24 (was 2024-06-09), drs. P.V.A. Walenkamp MA 2025-09-23 (was 2025-02-02). A fractie switch creates a new loopbaanperiode but not a break; the chain merge keeps the original membership start for those members, which is why dr. M.L. Vos keeps 2019-06-11 even though the page shows a period from 9 september 2026. All 75 memberships now carry a person-page source at high confidence. The derived dates are dropped.
+1. **Eerste Kamer start dates corrected.** The Phase 0 seed derived each start date as 17-09-2026 minus the ancienniteit in days, at medium confidence. That derivation is wrong for members who had a break, because the Eerste Kamer counts ancienniteit cumulatively over all periods. This run reads the loopbaan line on each persoonspagina, rebuilds the contiguous chain of periods that ends at the current period, and takes the earliest start of that chain. Six dates changed, each with a source: A.J.M. van Kesteren 12-12-2023 (was 26-09-2017), Bgen (b.d.) drs. A.J.A. Beukering 18-11-2025 (was 16-11-2021), drs. M.C.T. Fiers 12-10-2021 (was 04-08-2020), drs. M.J. van Rooijen 11-06-2019 (was 28-08-2017), mr. C.A.H. van de Sanden LL.M. 24-09-2024 (was 09-06-2024), drs. P.V.A. Walenkamp MA 23-09-2025 (was 02-02-2025). A fractie switch creates a new loopbaanperiode but not a break; the chain merge keeps the original membership start for those members, which is why dr. M.L. Vos keeps 11-06-2019 even though the page shows a period from 9 september 2026. All 75 memberships now carry a person-page source at high confidence. The derived dates are dropped.
 
 2. **Fracties are not organizations.** The schema has no `fractie` or `partij` subtype, and the reference product itself carries the party as a string on the person, not as a node. Every fractie is represented through `memberships[].fractie` and through a `pos:fractievoorzitter-<fractie>` seat, of which there are 17 in the Tweede Kamer. The alternative, inventing `org:fractie-*` records under a wrong subtype, was rejected. The schema addition is proposed as a gap.
 

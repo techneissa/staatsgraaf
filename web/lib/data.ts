@@ -1,5 +1,5 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
+import { existsSync, readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
 import type {
   Budget,
   Change,
@@ -16,7 +16,29 @@ import type {
   Topic,
 } from "./types";
 
-const DATA_DIR = join(process.cwd(), "..", "data");
+/**
+ * The dataset always lives in <repo-root>/data. The web app may run from its own
+ * package directory (web/) or from the repo root (for example while running tests
+ * with `bun test pipelines web/lib`), so walk up from the current directory and
+ * take the outermost ancestor that holds both a package.json and a data directory.
+ * The outermost match is the monorepo root; web/ itself also has a package.json
+ * and a data directory (search-aliases.json), which must not be mistaken for it.
+ */
+function findRepoRoot(): string {
+  let dir = process.cwd();
+  let candidate: string | null = null;
+  while (true) {
+    if (existsSync(join(dir, "package.json")) && existsSync(join(dir, "data"))) {
+      candidate = dir;
+    }
+    const parent = dirname(dir);
+    if (parent === dir) break;
+    dir = parent;
+  }
+  return candidate ?? process.cwd();
+}
+
+const DATA_DIR = join(findRepoRoot(), "data");
 
 function readArray<T>(file: string): T[] {
   const fullPath = join(DATA_DIR, file);

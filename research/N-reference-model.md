@@ -2,28 +2,28 @@
 
 Scope: workstream N of `docs/05-research-workstreams.md`. This file confirms the reference data shapes that `docs/02-reference-system-spec.md` still marked uncertain, and gives one complete worked example each of a node, an edge, a person entry, a change item, and a power-map person. It answers or closes every open question in `docs/02-reference-system-spec.md` section 9.
 
-Every claim below comes from a payload fetched live on 2026-09-18 and saved under `research/raw/N/`. Field names and short values are quoted as evidence; longer reference prose is truncated, not copied.
+Every claim below comes from a payload fetched live on 18-09-2026 and saved under `research/raw/N/`. Field names and short values are quoted as evidence; longer reference prose is truncated, not copied.
 
 ## 1. Sources fetched
 
 | Artifact | URL | Retrieval | HTTP | Raw size | Saved as |
 | --- | --- | --- | --- | --- | --- |
-| US homepage payload | https://graph.civlab.org/us | 2026-09-18 | 200 | 2,095,500 B HTML, 2,032,958 B `__NEXT_DATA__` | `us.html.gz`, `us.nextdata.json` |
-| US power-map slice | same payload | 2026-09-18 | 200 | 19,902 B | `us-powermap.json` |
-| SF homepage payload | https://sfgov.civlab.org/sf, followed to https://graph.civlab.org/sf (308) | 2026-09-18 | 200 | 840,955 B HTML, 799,230 B `__NEXT_DATA__` | `sf.html.gz`, `sf.nextdata.json` |
-| SF topic payload | https://graph.civlab.org/sf/topics/housing | 2026-09-18 | 200 | 946,290 B HTML, 893,424 B `__NEXT_DATA__` | `sf-topic-housing.html.gz`, `sf-topic-housing.nextdata.json` |
-| SF entity payload | https://graph.civlab.org/sf/elected/ccsf-board-of-supervisors | 2026-09-18 | 200 | 985,083 B HTML, 913,563 B `__NEXT_DATA__` | `sf-entity-bos.html.gz`, `sf-entity-bos.nextdata.json` |
-| Request page payload | https://graph.civlab.org/request | 2026-09-18 | 200 | 11,304 B HTML, 152 B `__NEXT_DATA__` | `request.html.gz`, `request.nextdata.json` |
-| Request client chunk | https://graph.civlab.org/_next/static/chunks/pages/request-fe58c3443bb27f9b.js | 2026-09-18 | 200 | 359,235 B | `chunk-request-fe58c3443bb27f9b.js.gz` |
-| App chunk (graph, sourceUrl, layout) | https://graph.civlab.org/_next/static/chunks/pages/_app-15c4c67b2b59cdac.js | 2026-09-18 | 200 | 616,006 B | `chunk-_app-15c4c67b2b59cdac.js.gz` |
-| Shared component chunk | https://graph.civlab.org/_next/static/chunks/546-dc4533b299746cb7.js | 2026-09-18 | 200 | 22,561 B | `chunk-546-dc4533b299746cb7.js.gz` |
-| Main runtime chunk | https://graph.civlab.org/_next/static/chunks/main-78ad880ae70b67c7.js | 2026-09-18 | 200 | 373,181 B | `chunk-main-78ad880ae70b67c7.js.gz` |
-| Build manifest | https://graph.civlab.org/_next/static/ewX7JnOwVSdX8fCOR0b_K/_buildManifest.js | 2026-09-18 | 200 | 1,536 B | `_buildManifest.js.gz` |
-| v2 SF page (Nuxt) | https://v2.sfgov.civlab.org/ | 2026-09-18 | 200 | 636,174 B HTML, 483 KB `__NUXT_DATA__` | `v2sf-root.html.gz`, `v2sf.nuxt-data.json` |
+| US homepage payload | https://graph.civlab.org/us | 18-09-2026 | 200 | 2,095,500 B HTML, 2,032,958 B `__NEXT_DATA__` | `us.html.gz`, `us.nextdata.json` |
+| US power-map slice | same payload | 18-09-2026 | 200 | 19,902 B | `us-powermap.json` |
+| SF homepage payload | https://sfgov.civlab.org/sf, followed to https://graph.civlab.org/sf (308) | 18-09-2026 | 200 | 840,955 B HTML, 799,230 B `__NEXT_DATA__` | `sf.html.gz`, `sf.nextdata.json` |
+| SF topic payload | https://graph.civlab.org/sf/topics/housing | 18-09-2026 | 200 | 946,290 B HTML, 893,424 B `__NEXT_DATA__` | `sf-topic-housing.html.gz`, `sf-topic-housing.nextdata.json` |
+| SF entity payload | https://graph.civlab.org/sf/elected/ccsf-board-of-supervisors | 18-09-2026 | 200 | 985,083 B HTML, 913,563 B `__NEXT_DATA__` | `sf-entity-bos.html.gz`, `sf-entity-bos.nextdata.json` |
+| Request page payload | https://graph.civlab.org/request | 18-09-2026 | 200 | 11,304 B HTML, 152 B `__NEXT_DATA__` | `request.html.gz`, `request.nextdata.json` |
+| Request client chunk | https://graph.civlab.org/_next/static/chunks/pages/request-fe58c3443bb27f9b.js | 18-09-2026 | 200 | 359,235 B | `chunk-request-fe58c3443bb27f9b.js.gz` |
+| App chunk (graph, sourceUrl, layout) | https://graph.civlab.org/_next/static/chunks/pages/_app-15c4c67b2b59cdac.js | 18-09-2026 | 200 | 616,006 B | `chunk-_app-15c4c67b2b59cdac.js.gz` |
+| Shared component chunk | https://graph.civlab.org/_next/static/chunks/546-dc4533b299746cb7.js | 18-09-2026 | 200 | 22,561 B | `chunk-546-dc4533b299746cb7.js.gz` |
+| Main runtime chunk | https://graph.civlab.org/_next/static/chunks/main-78ad880ae70b67c7.js | 18-09-2026 | 200 | 373,181 B | `chunk-main-78ad880ae70b67c7.js.gz` |
+| Build manifest | https://graph.civlab.org/_next/static/ewX7JnOwVSdX8fCOR0b_K/_buildManifest.js | 18-09-2026 | 200 | 1,536 B | `_buildManifest.js.gz` |
+| v2 SF page (Nuxt) | https://v2.sfgov.civlab.org/ | 18-09-2026 | 200 | 636,174 B HTML, 483 KB `__NUXT_DATA__` | `v2sf-root.html.gz`, `v2sf.nuxt-data.json` |
 
 Also fetched for evidence, saved as gzipped chunks: `chunk-[gov]-67711936acf13613.js.gz`, `chunk-477-ec74ea5ca7388335.js.gz`, `chunk-webpack-d5e0105a4700f154.js.gz`.
 
-Retrieval note: all fetches ran from the local machine on 2026-09-18. The server `Date` header on the first request was 2026-09-17T23:23:41Z, and the US payload carries `changes.generatedAt: "2026-09-17"` and `powerMap.computedAt: "2026-09-17T17:33:40.271Z"`. The reference build id is `ewX7JnOwVSdX8fCOR0b_K` for every page fetched. `sfgov.civlab.org/sf` now returns HTTP 308 to `graph.civlab.org/sf`; the earlier host is a redirect.
+Retrieval note: all fetches ran from the local machine on 18-09-2026. The server `Date` header on the first request was 2026-09-17T23:23:41Z, and the US payload carries `changes.generatedAt: "2026-09-17"` and `powerMap.computedAt: "2026-09-17T17:33:40.271Z"`. The reference build id is `ewX7JnOwVSdX8fCOR0b_K` for every page fetched. `sfgov.civlab.org/sf` now returns HTTP 308 to `graph.civlab.org/sf`; the earlier host is a redirect.
 
 Extraction and fetch method: one `curl` GET per URL with a browser-like User-Agent, no cookies, 2 to 3 second gaps between requests, no retry against a block. The embedded `__NEXT_DATA__` script is parsed with a regular expression and re-saved as JSON. The v2 page has no `__NEXT_DATA__`; its `__NUXT_DATA__` script is saved as-is.
 
@@ -45,7 +45,7 @@ Data top-level keys:
 - US: `nodes`, `edges`, `constituency`, `elected`, `commissions`, `advisories`, `departments`, `deptHeads`, `topics` (empty dict), `budget`, `satellites`, `layout`, `powerMap`.
 - SF: `nodes`, `edges`, `constituency`, `elected`, `commissions`, `advisories`, `departments`, `deptHeads`, `topics`, `budget`. No `satellites`, `layout`, or `powerMap`.
 
-Observed counts on 2026-09-18:
+Observed counts on 18-09-2026:
 
 | Metric | US | SF |
 | --- | --- | --- |
@@ -129,7 +129,7 @@ id, type, fromId, toId, metadata, seatsAppointed
 
 `id` is 8 lowercase hex characters. `metadata` is an object, sometimes `{}` or `null`. `seatsAppointed` is an integer and ranges from 0 to 435 in the US graph.
 
-Edge types observed on 2026-09-18:
+Edge types observed on 18-09-2026:
 
 | Type | US | SF |
 | --- | --- | --- |
@@ -143,7 +143,7 @@ Edge types observed on 2026-09-18:
 | `oversees` | 12 | 54 |
 | `administers` | 4 | 0 |
 
-These match `docs/02` section 4.4, except the SF `appoints` count there was 590 on 2026-09-17 and is still 590, and this fetch records `dept_head` 457 (US) and 55 (SF).
+These match `docs/02` section 4.4, except the SF `appoints` count there was 590 on 17-09-2026 and is still 590, and this fetch records `dept_head` 457 (US) and 55 (SF).
 
 `metadata` key unions are much wider than `docs/02` section 4.4 records.
 
@@ -240,7 +240,7 @@ There is no end date anywhere in a person entry, which matches `docs/02` section
 
 ## 6. Change item (confirmed)
 
-`changes` has `generatedAt`, `stats`, and `items`. US values on 2026-09-18: `generatedAt: "2026-09-17"`, `stats: { "vacantSeats": 6, "actingOfficials": 86, "lastChangeDate": "2026-09-16" }`, 70 items. Two item shapes exist. `docs/02` section 4.5 documents only the personnel shape and notes all items were `kind: "personnel"`; the entity shape is also present, 1 of 70.
+`changes` has `generatedAt`, `stats`, and `items`. US values on 18-09-2026: `generatedAt: "2026-09-17"`, `stats: { "vacantSeats": 6, "actingOfficials": 86, "lastChangeDate": "2026-09-16" }`, 70 items. Two item shapes exist. `docs/02` section 4.5 documents only the personnel shape and notes all items were `kind: "personnel"`; the entity shape is also present, 1 of 70.
 
 Personnel item fields: `kind`, `id`, `date`, `personName`, `positionId`, `positionName`, `groupId`, `entryMode`, `departure`, `predecessorName`, `sourceUrl`.
 Entity item fields: `kind`, `id`, `date`, `eventType`, `description`, `predecessors` (list of `{id, name}`), `successors` (list of `{id, name}`), `legalSourceName`, `legalSourceUrl`.
@@ -376,7 +376,7 @@ Question: how does the reference resolve a `sourceUrl` id like `20260916_uscirf_
 
 Answer: it does not. There is no registry and no route. The app chunk assigns the id straight to the anchor, `x = "personnel" === c.kind ? c.sourceUrl : c.legalSourceUrl`, and renders `<a href={x} target="_blank" rel="noopener noreferrer" title="Source">`. The rendered HTML on the US homepage confirms `href="20260916_uscirf_399"`, a relative URL. The id never appears as a key anywhere in the payload; the only `sources` array in the payload is `powerMap.sources`, the list of publication names.
 
-Live checks on 2026-09-18, all HTTP 404: `https://graph.civlab.org/20260916_uscirf_399`, `https://graph.civlab.org/20260916_acting_sweep_396`, `https://graph.civlab.org/us/20260916_uscirf_399`, `https://graph.civlab.org/source/20260916_uscirf_399`. The build manifest has no source route. The change item's source link is broken, exactly as `docs/02` section 3.5 and section 7 state. There is nothing to reverse-engineer; the fix for our product is the `src:` registry in `docs/04` section 14.
+Live checks on 18-09-2026, all HTTP 404: `https://graph.civlab.org/20260916_uscirf_399`, `https://graph.civlab.org/20260916_acting_sweep_396`, `https://graph.civlab.org/us/20260916_uscirf_399`, `https://graph.civlab.org/source/20260916_uscirf_399`. The build manifest has no source route. The change item's source link is broken, exactly as `docs/02` section 3.5 and section 7 state. There is nothing to reverse-engineer; the fix for our product is the `src:` registry in `docs/04` section 14.
 
 ## 12. Open question: /request form fields
 
@@ -421,7 +421,7 @@ There is no message, organization, or notes field. The page title is `CivLab · 
 
 ## 17. Corrections to docs/02 to carry through
 
-| docs/02 claim | Observed on 2026-09-18 |
+| docs/02 claim | Observed on 18-09-2026 |
 | --- | --- |
 | Node fields list has 17 entries | 18 base fields; US adds `subtype`, `sector`, `children`, `parent`, `level` |
 | Person `type: "elected" | "appointed" | "acting"` | `type` is `elected` or `appointed`; `acting` is a separate boolean; a third placeholder shape has only `id`, `name`, `type` |

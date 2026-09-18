@@ -1,7 +1,7 @@
 # ADR 0001: Licenses for code and data
 
-Date: 2026-09-17
-Status: accepted (owner decision 2026-09-18: code MIT, dataset CC BY 4.0)
+Date: 17-09-2026
+Status: accepted (owner decision 18-09-2026: code MIT, dataset CC BY 4.0)
 
 ## Context
 
@@ -18,7 +18,7 @@ Workstream O has now reported (`research/O-licenses.md`) and recommends a change
 
 Recommended: code MIT, dataset CC BY 4.0. Owner decision still pending.
 
-## Owner decision (2026-09-18)
+## Owner decision (18-09-2026)
 
 The owner accepts the recommendation. Code is MIT. The dataset, descriptions, and summaries are CC BY 4.0. Attribution to the project and to the underlying source is required on reuse.
 

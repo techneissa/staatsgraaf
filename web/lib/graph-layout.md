@@ -1,6 +1,6 @@
 # Graph layout specification (nl-sectors-v1)
 
-This is the reproducible layout for the NL Overheid Graph canvas. It is written before the implementation so the web client and the later Swift client can reproduce the same positions from the same input. The implementation lives in `web/lib/graph.ts`. The precomputed input lives in `web/public/graph.json`, built by `web/scripts/build-graph.mjs`.
+This is the reproducible layout for the Staatsgraaf canvas. It is written before the implementation so the web client and the later Swift client can reproduce the same positions from the same input. The implementation lives in `web/lib/graph.ts`. The precomputed input lives in `web/public/graph.json`, built by `web/scripts/build-graph.mjs`.
 
 The layout is deterministic. The same dataset always produces the same angle and radius for the same node. There is no physics simulation, no randomness, and no time-dependent seed. Sorting never depends on object key order: ties break on `name`, then `id`.
 
@@ -179,7 +179,7 @@ The target is a few thousand nodes on a mid-range laptop without jank at the top
 - Edges are merged into a small number of `<path>` elements, one per edge state per edge type, so 1500 edges do not become 1500 DOM nodes. Target under 40 merged paths.
 - Nodes render as `<g>` marks with one delegated click handler on the container. No per-node React event handler.
 - The accessible list alternative renders its items only when opened, so a closed `<details>` costs nothing.
-- `graph.json` budget: under 640 KB uncompressed, under 96 KB gzip. The build script prints the measured node count, edge count, and byte size on every run. The measured bundle for the 2026-09-18 snapshot is 1570 nodes, 1420 edges, 521.7 KiB uncompressed, and 47.0 KiB gzip. Values are recorded in the build script output when the bundle changes.
+- `graph.json` budget: under 640 KB uncompressed, under 96 KB gzip. The build script prints the measured node count, edge count, and byte size on every run. The measured bundle for the 18-09-2026 snapshot is 1570 nodes, 1420 edges, 521.7 KiB uncompressed, and 47.0 KiB gzip. Values are recorded in the build script output when the bundle changes.
 - Added client JavaScript budget for area O: under 30 KB gzip.
 
 ## 12. Reproducibility checklist

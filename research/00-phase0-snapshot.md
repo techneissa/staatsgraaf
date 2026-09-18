@@ -1,6 +1,6 @@
 # Phase 0 snapshot: current state of the Dutch state
 
-Recorded 2026-09-17 by the orchestrator as the frozen reference for Phase 2 count checks. Every fact below was fetched live on 2026-09-17; raw responses live under `research/raw/00/`. Where a fact is derived rather than printed by the source, the derivation is named.
+Recorded 17-09-2026 by the orchestrator as the frozen reference for Phase 2 count checks. Every fact below was fetched live on 17-09-2026; raw responses live under `research/raw/00/`. Where a fact is derived rather than printed by the source, the derivation is named.
 
 ## 1. Kabinet
 
@@ -10,34 +10,34 @@ Sources: https://www.rijksoverheid.nl/regering/bewindspersonen (overview, raw `b
 
 | Bewindspersoon | Functie | Ministerie | Start |
 | --- | --- | --- | --- |
-| Rob Jetten | Minister-president | Algemene Zaken | 2026-02-23 |
-| Dilan Yeşilgöz-Zegerius | Minister van Defensie (tevens viceminister-president) | Defensie | 2026-02-23 |
-| Bart van den Brink | Minister van Asiel en Migratie (2e viceminister-president) | Justitie en Veiligheid | 2026-02-23 |
-| Tom Berendsen | Minister van Buitenlandse Zaken | Buitenlandse Zaken | 2026-02-23 |
-| Sjoerd Sjoerdsma | Minister van Buitenlandse Handel en Ontwikkelingssamenwerking | Buitenlandse Zaken | 2026-02-23 |
-| David van Weel | Minister van Justitie en Veiligheid | Justitie en Veiligheid | 2026-02-23 |
-| Pieter Heerma | Minister van Binnenlandse Zaken en Koninkrijksrelaties | Binnenlandse Zaken en Koninkrijksrelaties | 2026-02-23 |
-| Elanor Boekholt-O'Sullivan | Minister van Volkshuisvesting en Ruimtelijke Ordening | Binnenlandse Zaken en Koninkrijksrelaties | 2026-02-23 |
-| Rianne Letschert | Minister van Onderwijs, Cultuur en Wetenschap | Onderwijs, Cultuur en Wetenschap | 2026-02-23 |
-| Eelco Heinen | Minister van Financiën | Financiën | 2026-02-23 |
-| Vincent Karremans | Minister van Infrastructuur en Waterstaat | Infrastructuur en Waterstaat | 2026-02-23 |
-| Heleen Herbert | Minister van Economische Zaken en Klimaat | Economische Zaken en Klimaat | 2026-02-23 |
-| Stientje van Veldhoven-van der Meer | Minister van Klimaat en Groene Groei | Economische Zaken en Klimaat | 2026-02-23 |
-| Jaimi van Essen | Minister van Landbouw, Visserij, Voedselzekerheid en Natuur | Landbouw, Visserij, Voedselzekerheid en Natuur | 2026-02-23 |
-| Hans Vijlbrief | Minister van Sociale Zaken en Werkgelegenheid | Sociale Zaken en Werkgelegenheid | 2026-02-23 |
-| Thierry Aartsen | Minister van Werk en Participatie | Sociale Zaken en Werkgelegenheid | 2026-02-23 |
-| Sophie Hermans | Minister van Volksgezondheid, Welzijn en Sport | Volksgezondheid, Welzijn en Sport | 2026-02-23 |
-| Mirjam Sterk | Minister van Langdurige Zorg, Jeugd en Sport | Volksgezondheid, Welzijn en Sport | 2026-02-23 |
-| Claudia van Bruggen | Staatssecretaris van Justitie en Veiligheid | Justitie en Veiligheid | 2026-02-23 |
-| Eric van der Burg | Staatssecretaris Koninkrijksrelaties en Slagvaardige Overheid | Binnenlandse Zaken en Koninkrijksrelaties | 2026-02-23 |
-| Judith Tielen | Staatssecretaris Onderwijs en Emancipatie | Onderwijs, Cultuur en Wetenschap | 2026-02-23 |
-| Eelco Eerenberg | Staatssecretaris van Financiën | Financiën | 2026-02-23 |
-| Sandra Palmen-Schlangen | Staatssecretaris Herstel Toeslagen | Financiën | 2026-02-23 |
-| Derk Boswijk | Staatssecretaris van Defensie | Defensie | 2026-02-23 |
-| Annet Bertram | Staatssecretaris van Infrastructuur en Waterstaat | Infrastructuur en Waterstaat | 2026-02-23 |
-| Willemijn Aerdts | Staatssecretaris Digitale Economie en Soevereiniteit | Economische Zaken en Klimaat | 2026-02-23 |
-| Jo-Annes de Bat | Staatssecretaris van Klimaat en Groene Groei | Economische Zaken en Klimaat | 2026-02-23 |
-| Silvio Erkens | Staatssecretaris van Landbouw, Visserij, Voedselzekerheid en Natuur | Landbouw, Visserij, Voedselzekerheid en Natuur | 2026-02-23 |
+| Rob Jetten | Minister-president | Algemene Zaken | 23-02-2026 |
+| Dilan Yeşilgöz-Zegerius | Minister van Defensie (tevens viceminister-president) | Defensie | 23-02-2026 |
+| Bart van den Brink | Minister van Asiel en Migratie (2e viceminister-president) | Justitie en Veiligheid | 23-02-2026 |
+| Tom Berendsen | Minister van Buitenlandse Zaken | Buitenlandse Zaken | 23-02-2026 |
+| Sjoerd Sjoerdsma | Minister van Buitenlandse Handel en Ontwikkelingssamenwerking | Buitenlandse Zaken | 23-02-2026 |
+| David van Weel | Minister van Justitie en Veiligheid | Justitie en Veiligheid | 23-02-2026 |
+| Pieter Heerma | Minister van Binnenlandse Zaken en Koninkrijksrelaties | Binnenlandse Zaken en Koninkrijksrelaties | 23-02-2026 |
+| Elanor Boekholt-O'Sullivan | Minister van Volkshuisvesting en Ruimtelijke Ordening | Binnenlandse Zaken en Koninkrijksrelaties | 23-02-2026 |
+| Rianne Letschert | Minister van Onderwijs, Cultuur en Wetenschap | Onderwijs, Cultuur en Wetenschap | 23-02-2026 |
+| Eelco Heinen | Minister van Financiën | Financiën | 23-02-2026 |
+| Vincent Karremans | Minister van Infrastructuur en Waterstaat | Infrastructuur en Waterstaat | 23-02-2026 |
+| Heleen Herbert | Minister van Economische Zaken en Klimaat | Economische Zaken en Klimaat | 23-02-2026 |
+| Stientje van Veldhoven-van der Meer | Minister van Klimaat en Groene Groei | Economische Zaken en Klimaat | 23-02-2026 |
+| Jaimi van Essen | Minister van Landbouw, Visserij, Voedselzekerheid en Natuur | Landbouw, Visserij, Voedselzekerheid en Natuur | 23-02-2026 |
+| Hans Vijlbrief | Minister van Sociale Zaken en Werkgelegenheid | Sociale Zaken en Werkgelegenheid | 23-02-2026 |
+| Thierry Aartsen | Minister van Werk en Participatie | Sociale Zaken en Werkgelegenheid | 23-02-2026 |
+| Sophie Hermans | Minister van Volksgezondheid, Welzijn en Sport | Volksgezondheid, Welzijn en Sport | 23-02-2026 |
+| Mirjam Sterk | Minister van Langdurige Zorg, Jeugd en Sport | Volksgezondheid, Welzijn en Sport | 23-02-2026 |
+| Claudia van Bruggen | Staatssecretaris van Justitie en Veiligheid | Justitie en Veiligheid | 23-02-2026 |
+| Eric van der Burg | Staatssecretaris Koninkrijksrelaties en Slagvaardige Overheid | Binnenlandse Zaken en Koninkrijksrelaties | 23-02-2026 |
+| Judith Tielen | Staatssecretaris Onderwijs en Emancipatie | Onderwijs, Cultuur en Wetenschap | 23-02-2026 |
+| Eelco Eerenberg | Staatssecretaris van Financiën | Financiën | 23-02-2026 |
+| Sandra Palmen-Schlangen | Staatssecretaris Herstel Toeslagen | Financiën | 23-02-2026 |
+| Derk Boswijk | Staatssecretaris van Defensie | Defensie | 23-02-2026 |
+| Annet Bertram | Staatssecretaris van Infrastructuur en Waterstaat | Infrastructuur en Waterstaat | 23-02-2026 |
+| Willemijn Aerdts | Staatssecretaris Digitale Economie en Soevereiniteit | Economische Zaken en Klimaat | 23-02-2026 |
+| Jo-Annes de Bat | Staatssecretaris van Klimaat en Groene Groei | Economische Zaken en Klimaat | 23-02-2026 |
+| Silvio Erkens | Staatssecretaris van Landbouw, Visserij, Voedselzekerheid en Natuur | Landbouw, Visserij, Voedselzekerheid en Natuur | 23-02-2026 |
 
 Named gaps: viceminister-president roles are recorded here but not modeled as positions in the seed; workstreams A and I model the full portfolios. Tom Berendsen's page lists both Buitenlandse Zaken and Buitenlandse Handel; the seed places his position at Buitenlandse Zaken per the page's first ministerie link.
 
@@ -74,7 +74,7 @@ Membership records built from FractieZetelPersoon joined to FractieZetel and Fra
 
 Fracties: PRO 14, BBB 11, VVD 9, D66 7, CDA 6, PVV 4, SP 3, FVD 3, ChristenUnie 3, JA21 2, Volt 2, PvdD 2, SGP 2, 50PLUS 1, OPNL 1, Fractie-Visseren-Hamakers 1, Fractie-Beukering 1, Fractie-Walenkamp 1, Fractie-Van de Sanden 1, Fractie-Van Gasteren 1. Sum 75.
 
-Derived fact: start dates are computed as 2026-09-17 minus the "Anciënniteit: N dagen" value shown on each member's card. This is a derivation, marked medium confidence in the seed; workstream D confirms exact dates from a primary source.
+Derived fact: start dates are computed as 17-09-2026 minus the "Anciënniteit: N dagen" value shown on each member's card. This is a derivation, marked medium confidence in the seed; workstream D confirms exact dates from a primary source.
 
 ## 5. Gemeenten
 

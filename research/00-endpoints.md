@@ -1,6 +1,6 @@
 # Endpoint verification (Phase 0)
 
-All URLs probed live on 2026-09-17. Raw probe output: `research/raw/00/endpoint-probe-results.txt` and the per-source `.out`/`.json` snapshots under `research/raw/00/`. Status is the HTTP status seen by curl/fetch on that date. Where a source blocked us, an alternative is named. Workstreams must cite the working URL they actually fetched, not this page.
+All URLs probed live on 17-09-2026. Raw probe output: `research/raw/00/endpoint-probe-results.txt` and the per-source `.out`/`.json` snapshots under `research/raw/00/`. Status is the HTTP status seen by curl/fetch on that date. Where a source blocked us, an alternative is named. Workstreams must cite the working URL they actually fetched, not this page.
 
 ## 1. Legal sources
 
@@ -87,7 +87,7 @@ All URLs probed live on 2026-09-17. Raw probe output: `research/raw/00/endpoint-
 
 ## 8. Nieuws (RSS)
 
-Working feeds, probed 2026-09-17:
+Working feeds, probed 17-09-2026:
 
 | Feed | URL | Status |
 | --- | --- | --- |
@@ -104,4 +104,4 @@ raadvanstate.nl (403), uvw.nl (403), waterschappen.nl (403), waarstaatjegemeente
 
 ## Probe method
 
-Plain HTTPS GET with a browser-like User-Agent, no cookies, single request per URL, 2026-09-17. Paywalls and blocks were respected; no probe attempted to bypass any protection.
+Plain HTTPS GET with a browser-like User-Agent, no cookies, single request per URL, 17-09-2026. Paywalls and blocks were respected; no probe attempted to bypass any protection.

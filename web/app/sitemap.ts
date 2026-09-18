@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getBudgetOrganizations } from "@/lib/budget";
 import { getDatasetDate, getOrganizations, getPeople, getPositions } from "@/lib/data";
+import { getNewsDays } from "@/lib/news";
 import { SITE_URL } from "@/lib/site";
 import { getTopics } from "@/lib/topics";
 
@@ -23,12 +24,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     entry("/", 1),
     entry("/wijzigingen/", 0.9),
+    entry("/nieuws/", 0.8),
+    entry("/news/", 0.7),
+    entry("/nieuws/bronnen/", 0.4),
+    entry("/news/sources/", 0.3),
     entry("/onderwerpen/", 0.8),
     entry("/begroting/", 0.8),
     entry("/methodiek/", 0.3),
     entry("/privacy/", 0.3),
     entry("/toegankelijkheid/", 0.3),
     entry("/dataset/", 0.3),
+    ...getNewsDays().flatMap((day) => [
+      entry(`/nieuws/${day.date}/`, 0.4),
+      entry(`/news/${day.date}/`, 0.3),
+    ]),
     ...getTopics().map((topic) => entry(`/onderwerpen/${topic.slug}/`, 0.7)),
     ...getBudgetOrganizations().map((organization) =>
       entry(`/begroting/${organization.slug}/`, 0.6),

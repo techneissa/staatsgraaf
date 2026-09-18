@@ -7,7 +7,7 @@ export const SITE_TAGLINE =
 
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "").replace(/\/+$/, "");
 
-export const THEME_STORAGE_KEY = "nl-overheid-graph-theme";
+export const THEME_STORAGE_KEY = "staatsgraaf-theme";
 
 export const THEME_INIT_SCRIPT = `(function(){try{var t=localStorage.getItem(${JSON.stringify(
   THEME_STORAGE_KEY,

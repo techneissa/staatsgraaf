@@ -38,20 +38,20 @@ The raw A to I counts are 1546 organizations, 879 people, and 1431 positions. Th
 
 ## Sources fetched with dates
 
-Feeds were fetched on 2026-09-18 with a browser-like User-Agent, one request per URL, no cookies, and a one-second pause between requests. Raw bodies are under `research/raw/J/feeds/`.
+Feeds were fetched on 18-09-2026 with a browser-like User-Agent, one request per URL, no cookies, and a one-second pause between requests. Raw bodies are under `research/raw/J/feeds/`.
 
 | Publisher | Working URL | Status | Raw snapshot | Retrieval |
 | --- | --- | --- | --- | --- |
-| NOS | https://feeds.nos.nl/nosnieuwsalgemeen | 200 | `feeds/nos.xml` | 2026-09-18 |
-| NU.nl | https://www.nu.nl/rss/Algemeen | 200 | `feeds/nu.xml` | 2026-09-18 |
-| NRC | https://www.nrc.nl/rss/ | 200 | `feeds/nrc.xml` | 2026-09-18 |
-| AD | https://www.ad.nl/rss.xml | 200 | `feeds/ad.xml` | 2026-09-18 |
-| de Volkskrant | https://www.volkskrant.nl/rss.xml | 200 | `feeds/volkskrant.xml` | 2026-09-18 |
-| Trouw | https://www.trouw.nl/rss.xml | 200 | `feeds/trouw.xml` | 2026-09-18 |
-| Het Parool | https://www.parool.nl/rss.xml | 200 | `feeds/parool.xml` | 2026-09-18 |
-| FD | https://fd.nl/?rss | 200 | `feeds/fd.xml` | 2026-09-18 |
-| RTL Nieuws | https://www.rtlnieuws.nl/rss.xml | 200 | `feeds/rtl.xml` | 2026-09-18 |
-| Binnenlands Bestuur | https://www.binnenlandsbestuur.nl/feeds/articles.rss | 200 | `feeds/binnenlandsbestuur.xml` | 2026-09-18 |
+| NOS | https://feeds.nos.nl/nosnieuwsalgemeen | 200 | `feeds/nos.xml` | 18-09-2026 |
+| NU.nl | https://www.nu.nl/rss/Algemeen | 200 | `feeds/nu.xml` | 18-09-2026 |
+| NRC | https://www.nrc.nl/rss/ | 200 | `feeds/nrc.xml` | 18-09-2026 |
+| AD | https://www.ad.nl/rss.xml | 200 | `feeds/ad.xml` | 18-09-2026 |
+| de Volkskrant | https://www.volkskrant.nl/rss.xml | 200 | `feeds/volkskrant.xml` | 18-09-2026 |
+| Trouw | https://www.trouw.nl/rss.xml | 200 | `feeds/trouw.xml` | 18-09-2026 |
+| Het Parool | https://www.parool.nl/rss.xml | 200 | `feeds/parool.xml` | 18-09-2026 |
+| FD | https://fd.nl/?rss | 200 | `feeds/fd.xml` | 18-09-2026 |
+| RTL Nieuws | https://www.rtlnieuws.nl/rss.xml | 200 | `feeds/rtl.xml` | 18-09-2026 |
+| Binnenlands Bestuur | https://www.binnenlandsbestuur.nl/feeds/articles.rss | 200 | `feeds/binnenlandsbestuur.xml` | 18-09-2026 |
 
 Correct paths found for the feeds that failed on the Phase 0 probe:
 
@@ -69,7 +69,7 @@ Entity data for the gazetteer came from the workstream files that already exist.
 | Source | File | Note |
 | --- | --- | --- |
 | Organizations, positions, people | `research/A-...json` through `research/I-...json` | Retrieval dates are those recorded by each workstream |
-| Feed URL list and failed paths | `research/00-endpoints.md` section 8 | Probed 2026-09-17, re-verified 2026-09-18 |
+| Feed URL list and failed paths | `research/00-endpoints.md` section 8 | Probed 17-09-2026, re-verified 18-09-2026 |
 | Envelope contract | `shared/output-envelope.schema.json` | `aliases[]` extension, field names |
 | Alias application | `pipelines/merge.mjs` (`applyAliases`) | Confirms `alias` and `target` field names |
 | Linker rules location | `docs/06-build-plan.md` section 6 item 5 | Gazetteer match, threshold, ambiguity, topic fallback |
@@ -138,7 +138,7 @@ Summary markup keeps the matched surface text and wraps it once per high-confide
 
 The frozen `shared/output-envelope.schema.json` sets `additionalProperties: false` and has no `news[]` array; `pipelines/merge.mjs` does not read news from envelopes. The 12 fetched NewsItems are therefore recorded as `src:j-news-01` through `src:j-news-12` in the envelope `sources[]` (type `news`, with publisher, published, and retrieved) and reproduced in full below. Build area Q owns the eventual `data/news.json`. This deviation from the brief is recorded as a gap.
 
-Verification sample (12 real articles, one to two per publisher, all fetched 2026-09-18, ISO `published` normalized from the feed). `entities[]` lists high-confidence matches only; `topics[]` is empty because workstream K owns topics.
+Verification sample (12 real articles, one to two per publisher, all fetched 18-09-2026, ISO `published` normalized from the feed). `entities[]` lists high-confidence matches only; `topics[]` is empty because workstream K owns topics.
 
 | id | Publisher | Title | entities |
 | --- | --- | --- | --- |

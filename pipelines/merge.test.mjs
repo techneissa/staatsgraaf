@@ -169,6 +169,58 @@ test("aliases append without overwriting and collisions are logged", async () =>
   assert.equal(logs.filter((line) => line.kind === "alias-collision").length, 1);
 });
 
+function tenure(id, position, sourceId) {
+  return { id, person: "person:p", position, start: "2026-01-01", end: null, sources: [{ source: sourceId, retrieved: "2026-01-01", confidence: "high" }] };
+}
+
+test("live official P record wins a tenure only when it changes a substantive field", async () => {
+  const { researchDir, dataDir, logPath } = await setup();
+  await writeEnvelope(researchDir, "A-tenures.json", envelope("A", {
+    tenures: [tenure("tenu:t1", "pos:a", "src:wet")],
+    sources: [{ id: "src:wet", url: "https://wetten.overheid.nl/BWBR", title: "Wet", publisher: "Overheid.nl", type: "wet", retrieved: "2026-01-01" }],
+  }));
+  await writeEnvelope(researchDir, "P-live.json", envelope("P", {
+    tenures: [tenure("tenu:t1", "pos:b", "src:ro")],
+    sources: [{ id: "src:ro", url: "https://www.rijksoverheid.nl/x", title: "Rijksoverheid", publisher: "Rijksoverheid", type: "page", retrieved: "2026-01-02" }],
+  }));
+
+  await mergeDataset({ researchDir, dataDir, logPath });
+  const tenures = await readData(dataDir, "tenures.json");
+  assert.equal(tenures.find((t) => t.id === "tenu:t1").position, "pos:b");
+  const logs = await readLog(logPath);
+  assert.equal(logs.filter((line) => line.kind === "record-conflict").length, 1);
+});
+
+test("identical live official P record defers to the primary record", async () => {
+  const { researchDir, dataDir, logPath } = await setup();
+  await writeEnvelope(researchDir, "A-tenures.json", envelope("A", {
+    tenures: [tenure("tenu:t1", "pos:a", "src:wet")],
+    sources: [{ id: "src:wet", url: "https://wetten.overheid.nl/BWBR", title: "Wet", publisher: "Overheid.nl", type: "wet", retrieved: "2026-01-01" }],
+  }));
+  await writeEnvelope(researchDir, "P-live.json", envelope("P", {
+    tenures: [tenure("tenu:t1", "pos:a", "src:ro")],
+    sources: [{ id: "src:ro", url: "https://www.rijksoverheid.nl/x", title: "Rijksoverheid", publisher: "Rijksoverheid", type: "page", retrieved: "2026-01-02" }],
+  }));
+
+  await mergeDataset({ researchDir, dataDir, logPath });
+  const tenures = await readData(dataDir, "tenures.json");
+  assert.equal(tenures.length, 1);
+  assert.equal(tenures[0].sources[0].source, "src:wet");
+});
+
+test("live official P record is kept when it is the only candidate", async () => {
+  const { researchDir, dataDir, logPath } = await setup();
+  await writeEnvelope(researchDir, "P-live.json", envelope("P", {
+    tenures: [tenure("tenu:t1", "pos:a", "src:ro")],
+    sources: [{ id: "src:ro", url: "https://www.rijksoverheid.nl/x", title: "Rijksoverheid", publisher: "Rijksoverheid", type: "page", retrieved: "2026-01-02" }],
+  }));
+
+  await mergeDataset({ researchDir, dataDir, logPath });
+  const tenures = await readData(dataDir, "tenures.json");
+  assert.equal(tenures.length, 1);
+  assert.equal(tenures[0].id, "tenu:t1");
+});
+
 test("output arrays are sorted by id and empty research still yields valid arrays and meta", async () => {
   const { researchDir, dataDir, logPath } = await setup();
   await writeEnvelope(researchDir, "A-sort.json", envelope("A", {

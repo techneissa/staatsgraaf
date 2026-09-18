@@ -5,7 +5,7 @@ This is the map of the project documentation. Read in order for a full picture, 
 | File | What it is | Read it when |
 | --- | --- | --- |
 | `../AGENTS.md` | Operating law and router | Always, first |
-| `../NL-OVERHEID-GRAPH-PROMPT.md` | The kickoff prompt that starts the project | Starting the whole project |
+| `../STAATSGRAAF-PROMPT.md` | The kickoff prompt that starts the project | Starting the whole project |
 | `../NEXT-SESSION-PROMPT.md` | The paste-ready prompt that launches a session of parallel agents | Running the work with parallel subagents |
 | `01-vision-and-goals.md` | Why we build this, what done looks like, principles | Need direction or a tie-breaker |
 | `02-reference-system-spec.md` | The reference product: pages, look, interactions, data model, stack | Building anything that must match the reference |
@@ -19,6 +19,7 @@ This is the map of the project documentation. Read in order for a full picture, 
 | `10-operations-runbook.md` | Environments, pipelines, the nightly refresh, monitoring, rollback, incidents | Running or maintaining the live product |
 | `11-delivery-and-collaboration.md` | Git conventions, root files, work tracking, milestones, roles, ADRs | Organizing work, opening a PR, starting a milestone |
 | `12-discovery-privacy-accessibility-security.md` | SEO, analytics and privacy, accessibility target, security, browser support | Building any public-facing surface |
+| `adr/` | Architecture decision records: licenses, graph and change semantics, the name, hosting and CI, the Bun toolchain, live official sources, news outlets and languages | Checking why something is the way it is, or recording an owner decision |
 
 ## How the files relate
 

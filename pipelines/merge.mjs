@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env bun
 import { readFile, writeFile, readdir, mkdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -21,8 +21,9 @@ export const ENTITY_FILES = [
   ["media", "media.json"],
 ];
 
-const TIER = { primary: 0, register: 1, government: 2, secondary: 3, news: 4, base: 99 };
+const TIER = { live: -1, primary: 0, register: 1, government: 2, secondary: 3, news: 4, base: 99 };
 const TIER_LABEL = {
+  [TIER.live]: "live official source",
   [TIER.primary]: "primary legal text",
   [TIER.register]: "official register",
   [TIER.government]: "government site",
@@ -107,6 +108,27 @@ function recordTier(record, sourceById) {
   return best === null ? TIER.secondary : best;
 }
 
+const SUBSTANTIVE_FIELDS = {
+  tenures: ["person", "position", "start", "end", "seat", "acting", "entryMode", "appointedBy", "predecessor", "successor", "endReason"],
+  memberships: ["organization", "person", "seatNumber", "fractie", "start", "end"],
+};
+
+function substantiveDiff(entity, a, b) {
+  const fields = SUBSTANTIVE_FIELDS[entity];
+  if (!fields) return false;
+  const norm = (value) => (value == null ? null : value);
+  return fields.some((field) => norm(a?.[field]) !== norm(b?.[field]));
+}
+
+function candidateTier(entity, candidate, sourceById, group) {
+  if (candidate.isBase) return TIER.base;
+  const isLive = (entity === "tenures" || entity === "memberships") && candidate.from.startsWith("P-");
+  if (!isLive) return recordTier(candidate.rec, sourceById);
+  const others = group.filter((entry) => entry !== candidate && !entry.isBase);
+  const changes = others.some((entry) => substantiveDiff(entity, entry.rec, candidate.rec));
+  return changes || others.length === 0 ? TIER.live : TIER.base;
+}
+
 function recordKey(entity, record) {
   return entity === "budgets" ? `${record.organization}|${record.fiscalYear}` : record.id;
 }
@@ -174,7 +196,7 @@ function selectWinners(entity, candidates, sourceById, logs, stats) {
   for (const key of [...groups.keys()].sort()) {
     const ranked = groups.get(key).map((candidate) => ({
       ...candidate,
-      tier: candidate.isBase ? TIER.base : recordTier(candidate.rec, sourceById),
+      tier: candidateTier(entity, candidate, sourceById, groups.get(key)),
     }));
     ranked.sort((x, y) => x.tier - y.tier || x.order - y.order);
     const winner = ranked[0];
@@ -302,7 +324,7 @@ async function listResearchFiles(researchDir) {
   } catch {
     return [];
   }
-  return entries.filter((name) => /^[A-O]-.*\.json$/.test(name)).sort();
+  return entries.filter((name) => /^[A-P]-.*\.json$/.test(name)).sort();
 }
 
 async function writeJson(file, value) {

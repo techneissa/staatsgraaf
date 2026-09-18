@@ -1,6 +1,6 @@
 # ADR 0004: hosting, delivery, and analytics
 
-- Date: 2026-09-18
+- Date: 18-09-2026
 - Status: accepted
 - Supersedes: none
 
@@ -8,7 +8,7 @@
 
 The web client is a Next.js App Router static export in `web/out`. `docs/12` requires HTTPS and HSTS, a strict Content-Security-Policy, a `robots.txt` and a `sitemap.xml`, and leaves cookieless analytics as an owner choice. `docs/10` requires a scheduled refresh that refetches, normalizes, diffs, validates, and deploys, with an alert on failure and the last good release left in place. `docs/06` budgets the graph bundle and expects the host to negotiate a compressed encoding.
 
-The owner chose the delivery target and the analytics posture on 2026-09-18.
+The owner chose the delivery target and the analytics posture on 18-09-2026.
 
 ## Decision
 

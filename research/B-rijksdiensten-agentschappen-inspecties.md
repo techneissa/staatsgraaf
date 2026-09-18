@@ -30,37 +30,37 @@ Every cached ministry pagina is walked, including the organogram and diensten en
 
 ## Sources fetched with dates
 
-All ministry pages and register pages below were cached by the earlier run on 2026-09-17 and reused; the wetten pages were fetched on 2026-09-18.
+All ministry pages and register pages below were cached by the earlier run on 17-09-2026 and reused; the wetten pages were fetched on 18-09-2026.
 
 | Publisher | URL | Retrieved | Yield |
 | --- | --- | --- | --- |
-| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken/organisatie/organogram | 2026-09-17 | AZ dienstonderdelen, DPC, KMP, RVD |
-| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties/organisatie/organogram | 2026-09-17 | BZK dienstonderdelen, RVB, SSO's, AIVD, ABD |
-| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties/organisatie/organogram/shared-service-organisaties | 2026-09-17 | FMH, RvIHH, SSC-ICT, ODI, O&P Rijk, RIS, RBL, OBF |
-| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-defensie/organisatie/organogram/bijzondere-organisatie-eenheden | 2026-09-17 | IGK, IMG, IVD, MLA, COID, MIVD, DGV, MHK |
-| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-economische-zaken-en-klimaat/organisatie/diensten-en-instellingen | 2026-09-17 | DICTU, NEa, RDI, RVO, SodM, NFIA |
-| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-financien/organisatie/organogram/diensten-en-instellingen | 2026-09-17 | Belastingdienst, Douane, Toeslagen, DSTA, DRZ, Rijksacademie, ADR, DFEI |
-| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-infrastructuur-en-waterstaat/organisatie-ienw/organogram | 2026-09-17 | RWS, ILT, KNMI |
-| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-justitie-en-veiligheid/organisatie/organogram/diensten-en-baten-lastenagentschappen | 2026-09-17 | DTenV, Justid, RvdK, CJIB, Justis, DJI, IND, NFI, SGM, WODC, NOO, NCSC, DISA, JIO |
-| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur/organisatie/organogram/diensten-en-instellingen | 2026-09-17 | NVWA |
-| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-onderwijs-cultuur-en-wetenschap/organisatie/organogram/inspecties | 2026-09-17 | IOE, Inspectie van het Onderwijs |
-| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-onderwijs-cultuur-en-wetenschap/organisatie/organogram/rijksdiensten | 2026-09-17 | RCE |
-| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-onderwijs-cultuur-en-wetenschap/organisatie/organogram/agentschappen | 2026-09-17 | DUO, Nationaal Archief |
-| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-sociale-zaken-en-werkgelegenheid/organisatie/organogram/inspecteur-generaal | 2026-09-17 | Nederlandse Arbeidsinspectie, R.G. de Boer |
-| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-volksgezondheid-welzijn-en-sport/organisatie/organogram/agentschappen | 2026-09-17 | aCBG, CIBG, RIVM |
-| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-volksgezondheid-welzijn-en-sport/organisatie/organogram/inspectie-gezondheidszorg-en-jeugd | 2026-09-17 | IGJ |
-| Rijksoverheid | https://www.rijksoverheid.nl/themas/overheid-en-democratie/rijksoverheid/agentschappen | 2026-09-17 | kader agentschappen, Regeling agentschappen 2024 |
-| Register van Overheidsorganisaties | https://organisaties.overheid.nl/export/Agentschappen.csv | 2026-09-17 | de 30 agentschappen met onderdeel van, relatie met ministerie, website |
-| Register van Overheidsorganisaties | 30 register-detailpagina's, bijvoorbeeld https://organisaties.overheid.nl/71857/Dienst_Uitvoering_Onderwijs | 2026-09-17 | huidige functionarissen per organisatie |
-| wetten.overheid.nl | https://wetten.overheid.nl/BWBR0050264 | 2026-09-18 | Regeling agentschappen 2024 |
-| wetten.overheid.nl | https://wetten.overheid.nl/BWBR0020495 | 2026-09-18 | Kaderwet zelfstandige bestuursorganen |
-| wetten.overheid.nl | https://wetten.overheid.nl/BWBR0003245 | 2026-09-18 | Wet milieubeheer |
-| wetten.overheid.nl | https://wetten.overheid.nl/BWBR0031558 | 2026-09-18 | Regeling taken NFI |
-| wetten.overheid.nl | https://wetten.overheid.nl/BWBR0043237 | 2026-09-18 | Organisatie- en ondermandaatbesluit RCE 2017 |
+| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken/organisatie/organogram | 17-09-2026 | AZ dienstonderdelen, DPC, KMP, RVD |
+| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties/organisatie/organogram | 17-09-2026 | BZK dienstonderdelen, RVB, SSO's, AIVD, ABD |
+| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties/organisatie/organogram/shared-service-organisaties | 17-09-2026 | FMH, RvIHH, SSC-ICT, ODI, O&P Rijk, RIS, RBL, OBF |
+| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-defensie/organisatie/organogram/bijzondere-organisatie-eenheden | 17-09-2026 | IGK, IMG, IVD, MLA, COID, MIVD, DGV, MHK |
+| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-economische-zaken-en-klimaat/organisatie/diensten-en-instellingen | 17-09-2026 | DICTU, NEa, RDI, RVO, SodM, NFIA |
+| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-financien/organisatie/organogram/diensten-en-instellingen | 17-09-2026 | Belastingdienst, Douane, Toeslagen, DSTA, DRZ, Rijksacademie, ADR, DFEI |
+| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-infrastructuur-en-waterstaat/organisatie-ienw/organogram | 17-09-2026 | RWS, ILT, KNMI |
+| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-justitie-en-veiligheid/organisatie/organogram/diensten-en-baten-lastenagentschappen | 17-09-2026 | DTenV, Justid, RvdK, CJIB, Justis, DJI, IND, NFI, SGM, WODC, NOO, NCSC, DISA, JIO |
+| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur/organisatie/organogram/diensten-en-instellingen | 17-09-2026 | NVWA |
+| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-onderwijs-cultuur-en-wetenschap/organisatie/organogram/inspecties | 17-09-2026 | IOE, Inspectie van het Onderwijs |
+| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-onderwijs-cultuur-en-wetenschap/organisatie/organogram/rijksdiensten | 17-09-2026 | RCE |
+| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-onderwijs-cultuur-en-wetenschap/organisatie/organogram/agentschappen | 17-09-2026 | DUO, Nationaal Archief |
+| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-sociale-zaken-en-werkgelegenheid/organisatie/organogram/inspecteur-generaal | 17-09-2026 | Nederlandse Arbeidsinspectie, R.G. de Boer |
+| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-volksgezondheid-welzijn-en-sport/organisatie/organogram/agentschappen | 17-09-2026 | aCBG, CIBG, RIVM |
+| Rijksoverheid | https://www.rijksoverheid.nl/ministeries/ministerie-van-volksgezondheid-welzijn-en-sport/organisatie/organogram/inspectie-gezondheidszorg-en-jeugd | 17-09-2026 | IGJ |
+| Rijksoverheid | https://www.rijksoverheid.nl/themas/overheid-en-democratie/rijksoverheid/agentschappen | 17-09-2026 | kader agentschappen, Regeling agentschappen 2024 |
+| Register van Overheidsorganisaties | https://organisaties.overheid.nl/export/Agentschappen.csv | 17-09-2026 | de 30 agentschappen met onderdeel van, relatie met ministerie, website |
+| Register van Overheidsorganisaties | 30 register-detailpagina's, bijvoorbeeld https://organisaties.overheid.nl/71857/Dienst_Uitvoering_Onderwijs | 17-09-2026 | huidige functionarissen per organisatie |
+| wetten.overheid.nl | https://wetten.overheid.nl/BWBR0050264 | 18-09-2026 | Regeling agentschappen 2024 |
+| wetten.overheid.nl | https://wetten.overheid.nl/BWBR0020495 | 18-09-2026 | Kaderwet zelfstandige bestuursorganen |
+| wetten.overheid.nl | https://wetten.overheid.nl/BWBR0003245 | 18-09-2026 | Wet milieubeheer |
+| wetten.overheid.nl | https://wetten.overheid.nl/BWBR0031558 | 18-09-2026 | Regeling taken NFI |
+| wetten.overheid.nl | https://wetten.overheid.nl/BWBR0043237 | 18-09-2026 | Organisatie- en ondermandaatbesluit RCE 2017 |
 
 ### Coverage sample, checked link by link
 
-Ten entities with every non-trivial fact traced to a working URL. All URLs returned HTTP 200 on 2026-09-18.
+Ten entities with every non-trivial fact traced to a working URL. All URLs returned HTTP 200 on 18-09-2026.
 
 | Entity | Fact checked | Working source URL |
 | --- | --- | --- |

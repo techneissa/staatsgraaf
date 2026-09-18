@@ -1,6 +1,6 @@
 # Workflow operator notes
 
-Two GitHub Actions workflows run the pipeline and the gate. Host and deploy path are fixed in `docs/adr/0004-hosting-ci-and-analytics.md`: Cloudflare Pages, project `staatsgraaf`, production branch `main`, Wrangler deploy from GitHub Actions.
+Three GitHub Actions workflows run the pipeline, the news cadence, and the gate. Host and deploy path are fixed in `docs/adr/0004-hosting-ci-and-analytics.md`: Cloudflare Pages, project `staatsgraaf`, production branch `main`, Wrangler deploy from GitHub Actions.
 
 ## Workflows
 
@@ -9,29 +9,38 @@ Two GitHub Actions workflows run the pipeline and the gate. Host and deploy path
 Runs nightly at 03:00 UTC, and on demand with **Run workflow**. Steps run in this fixed order:
 
 1. checkout
-2. setup Node
-3. `npm ci`
-4. `npm run merge`
-5. `node pipelines/news.mjs`
-6. `node pipelines/changes.mjs`
-7. `npm run validate`
-8. `npm test`
-9. `cd web && npm ci && npm run build` (with `NEXT_PUBLIC_SITE_URL`)
-10. `npx wrangler pages deploy web/out --project-name=staatsgraaf --branch=main`
+2. setup Bun (`oven-sh/setup-bun@v2`, version from `.bun-version`)
+3. setup Node 24 (`actions/setup-node@v4`, for Next.js and Wrangler only)
+4. `bun run refresh-official` (office holders from Rijksoverheid, Tweede Kamer, and Eerste Kamer; `docs/adr/0006-live-official-sources.md`)
+5. `bun run merge`
+6. `bun run news`
+7. `bun run changes`
+8. `bun run validate`
+9. `bun test pipelines web/lib`
+10. `cd web && bun install --frozen-lockfile && bun run build` (with `NEXT_PUBLIC_SITE_URL`)
+11. ensure the Pages project `staatsgraaf` exists with `bunx wrangler pages project list`, creating it with `bunx wrangler pages project create` if it is missing
+12. `bunx wrangler pages deploy web/out --project-name=staatsgraaf --branch=main`
+
+There is no root install step: the root package has no dependencies, so Bun runs the pipelines, the validator, and the tests straight from the checkout. `web/bun.lock` is the only lockfile, and `bun install --frozen-lockfile` in `web/` fails if it is out of date. The toolchain choice is recorded in `docs/adr/0005-bun-toolchain.md`.
 
 Validation and tests gate the deploy: a failed step stops the run, so production stays on the last good deployment. The job has `timeout-minutes: 60`, and the `nightly-refresh` concurrency group prevents two runs from overlapping (a new run waits; it does not cancel an active one). On any failure the job opens or comments on one `ops` issue; if the issue API is unreachable it prints the same summary in the log.
+
+### `news.yml`
+
+Runs every six hours at 30 minutes past the hour, and on demand. It shares the `nightly-refresh` concurrency group, so it never overlaps the nightly run. Steps: checkout, setup Bun, setup Node, `bun run news`, `bun run validate`, `bun test pipelines web/lib`, the web build, and the Wrangler deploy. It does not refetch office holders or re-derive the change feed; that is the nightly run's job. To go hourly, change the cron to `0 * * * *`; the cost trade-off is in `docs/adr/0007-news-outlets-and-languages.md`. On failure it opens or comments on one `ops` issue titled "Nieuwsrun mislukt".
 
 ### `ci.yml`
 
 Runs on every pull request and on pushes to `main`. Steps:
 
 1. checkout
-2. setup Node
-3. `npm ci`
-4. `npm run validate`
-5. `node scripts/validate.mjs --research`
-6. `npm test`
-7. `cd web && npm ci && npx tsc --noEmit`
+2. setup Bun (`oven-sh/setup-bun@v2`, version from `.bun-version`)
+3. setup Node 24 (`actions/setup-node@v4`, for Next.js and tsc only)
+4. `bun run validate`
+5. `python3 scripts/format-dates.py --check` over every markdown file outside `research/raw/` and `ATTRIBUTION.md` (AGENTS.md rule 8: dates in documents are dd-MM-YYYY)
+6. `bun run research:check`
+7. `bun test pipelines web/lib`
+8. `cd web && bun install --frozen-lockfile && bun run typecheck`
 
 No deploy. This is the required status check to protect `main`.
 
@@ -67,5 +76,3 @@ Cloudflare Pages keeps every deployment as an immutable artifact. Two paths:
 
 1. **No confirmed green workflow run.** The workflows are committed and the scripts they call pass locally, but a green `ci` or `refresh` run in GitHub Actions is not yet confirmed.
 2. **Repository secrets and variables are not verifiable from the checkout.** The Cloudflare account and the Pages project `staatsgraaf` exist and the site is live at https://staatsgraaf.pages.dev, but this checkout cannot confirm that `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, and `NEXT_PUBLIC_SITE_URL` are set in the repository.
-
-A root `package-lock.json` now exists, so the root `npm ci` step in both workflows has a committed lockfile.

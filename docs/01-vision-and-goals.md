@@ -80,7 +80,7 @@ When two options are close, pick the one that keeps facts sourced, keeps time ex
 
 The project needs a name before launch. The reference reads "CivLab / US Gov" in the top-left lockup, with the scope ("US Gov", "SF Gov") as a switchable label. Ours follows the same pattern: a brand line and a scope label.
 
-- Working name: "NL Overheid Graph". Use it in the docs until the owner decides `(decide)`.
+- Name: Staatsgraaf, decided on 18-09-2026 in `docs/adr/0003-project-name.md`. "NL Overheid Graph" was the working name.
 - Domain: not chosen `(decide)`. Pick a name that is clearly independent and clearly not a government service.
 - Scope label: "NL Rijk" for the central tier, to be joined later by "NL Decentraal", "Caribisch Nederland", and the Kingdom countries.
 - Lockup: brand line plus scope label, mirroring the reference's structure but with original art.

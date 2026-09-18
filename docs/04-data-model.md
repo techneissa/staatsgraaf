@@ -229,14 +229,19 @@ The dated stream that makes the product feel alive. Each change is derived from 
   "url": "...",
   "publisher": "NOS",
   "published": "2026-09-16T07:12:00+02:00",
+  "language": "nl",
+  "publisherKind": "publieke-omroep",
   "summary": "een of twee originele zinnen",
   "summaryMarkup": "De <entity id=\"org:...\">Belastingdienst</entity> ...",
   "entities": ["org:...", "person:..."],
   "topics": ["topic:..."],
+  "keywords": ["Belastingdienst", "Heinen"],
   "image": "media:...",
   "sources": []
 }
 ```
+
+`language` is the language the outlet published in, `nl` or `en`; absent means `nl`. Nothing is machine-translated. `publisherKind` is the kind of outlet from the feed registry `pipelines/feeds.json`: `publieke-omroep`, `krant`, `commerciele-omroep`, `online`, `video`, `nieuwsbrief`, `blog`, `vakmedia`, or `overheid`; absent means `online`. `keywords` are the alias strings the linker matched, in match order, so a reader can see why an entity was linked. All three were added on 18-09-2026 as optional fields under section 18; older records without them stay valid.
 
 The summary markup is our own, a plain tag with an entity id, so the frontend can render inline links without parsing the reference's `<gov_entities>` syntax.
 
@@ -343,6 +348,8 @@ Everything that cites a source uses the `src:` id. The UI renders a link and, wh
   "source": "src:..."
 }
 ```
+
+`url` is either an absolute URL or a site-relative path under `/media/`. The content security policy allows images from the own origin only, so an external image is not hotlinked: the pipeline downloads it into `web/public/media/` and the record points at the local copy. Every media record carries a license and a credit line in `credit`, and `author` names the maker where the source states one. An image without a license or without a credit does not ship (`research/O-licenses.md`). The interface shows the credit and the license next to the image it belongs to.
 
 ## 16. Id and slug conventions
 

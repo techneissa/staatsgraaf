@@ -1,0 +1,167 @@
+{
+  "generatedAt": "2026-09-18T06:00:00.000Z",
+  "notes": "Registry of news feeds for the Staatsgraaf news layer; only feeds fetched and parsed as RSS or Atom in this pass are enabled.",
+  "feeds": [
+    {
+      "url": "https://feeds.nos.nl/nosnieuwsalgemeen",
+      "publisher": "NOS",
+      "language": "nl",
+      "publisherKind": "publieke-omroep",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "status": 200,
+      "retrieved": "2026-09-18",
+      "enabled": true,
+      "notes": null
+    },
+    {
+      "url": "https://www.nu.nl/rss/Algemeen",
+      "publisher": "NU.nl",
+      "language": "nl",
+      "publisherKind": "online",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "status": 200,
+      "retrieved": "2026-09-18",
+      "enabled": true,
+      "notes": null
+    },
+    {
+      "url": "https://www.nrc.nl/rss/",
+      "publisher": "NRC",
+      "language": "nl",
+      "publisherKind": "krant",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "status": 200,
+      "retrieved": "2026-09-18",
+      "enabled": true,
+      "notes": null
+    },
+    {
+      "url": "https://www.ad.nl/rss.xml",
+      "publisher": "AD",
+      "language": "nl",
+      "publisherKind": "krant",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "status": 200,
+      "retrieved": "2026-09-18",
+      "enabled": true,
+      "notes": null
+    },
+    {
+      "url": "https://www.volkskrant.nl/rss.xml",
+      "publisher": "de Volkskrant",
+      "language": "nl",
+      "publisherKind": "krant",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "status": 200,
+      "retrieved": "2026-09-18",
+      "enabled": true,
+      "notes": null
+    },
+    {
+      "url": "https://www.trouw.nl/rss.xml",
+      "publisher": "Trouw",
+      "language": "nl",
+      "publisherKind": "krant",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "status": 200,
+      "retrieved": "2026-09-18",
+      "enabled": true,
+      "notes": null
+    },
+    {
+      "url": "https://www.parool.nl/rss.xml",
+      "publisher": "Het Parool",
+      "language": "nl",
+      "publisherKind": "krant",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "status": 200,
+      "retrieved": "2026-09-18",
+      "enabled": true,
+      "notes": null
+    },
+    {
+      "url": "https://fd.nl/?rss",
+      "publisher": "FD",
+      "language": "nl",
+      "publisherKind": "krant",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "status": 200,
+      "retrieved": "2026-09-18",
+      "enabled": true,
+      "notes": null
+    },
+    {
+      "url": "https://www.rtlnieuws.nl/rss.xml",
+      "publisher": "RTL Nieuws",
+      "language": "nl",
+      "publisherKind": "commerciele-omroep",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "status": 200,
+      "retrieved": "2026-09-18",
+      "enabled": true,
+      "notes": null
+    },
+    {
+      "url": "https://www.binnenlandsbestuur.nl/feeds/articles.rss",
+      "publisher": "Binnenlands Bestuur",
+      "language": "nl",
+      "publisherKind": "vakmedia",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "status": 200,
+      "retrieved": "2026-09-18",
+      "enabled": true,
+      "notes": null
+    },
+    {
+      "url": "https://www.dutchnews.nl/feed/",
+      "publisher": "DutchNews.nl",
+      "language": "en",
+      "publisherKind": "online",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "status": 200,
+      "retrieved": "2026-09-18",
+      "enabled": true,
+      "notes": "Engelstalige berichtgeving over Nederland."
+    },
+    {
+      "url": "https://nltimes.nl/rss",
+      "publisher": "NL Times",
+      "language": "en",
+      "publisherKind": "online",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "status": 200,
+      "retrieved": "2026-09-18",
+      "enabled": true,
+      "notes": "Engelstalige berichtgeving over Nederland."
+    },
+    {
+      "url": "https://www.sargasso.nl/feed/",
+      "publisher": "Sargasso",
+      "language": "nl",
+      "publisherKind": "blog",
+      "license": null,
+      "status": 200,
+      "retrieved": "2026-09-18",
+      "enabled": true,
+      "notes": "Licentie niet vastgesteld; alleen kop en deep link, feiten uit het bericht."
+    },
+    {
+      "url": "https://stemvee.substack.com/feed",
+      "publisher": "Stemvee",
+      "language": "nl",
+      "publisherKind": "nieuwsbrief",
+      "license": null,
+      "status": 200,
+      "retrieved": "2026-09-18",
+      "enabled": true,
+      "notes": "Nieuwsbrief over de Nederlandse politiek; licentie niet vastgesteld."
+    }
+  ],
+  "gaps": [
+    {
+      "url": "https://www.youtube.com/@NOS",
+      "why": "Geen videofeed geverifieerd: het YouTube-kanaal-RSS-endpoint https://www.youtube.com/feeds/videos.xml?channel_id=<ID> gaf op 18-09-2026 een HTTP 404, ook voor een bekend kanaal-id (MrBeast, UCX6OQ3DkcsbYNE6H8uQQuVA), dus het endpoint is vanuit deze omgeving niet bruikbaar. Het @NOS-kanaal werd wel geladen en de pagina noemt het kanaal-id UC5xziMuoFAOpX9mwUVhe2Jw, maar dat id is niet via de feed bevestigd.",
+      "resume": "Probeer het kanaal-RSS-endpoint vanaf een netwerk waar het 200 geeft en bevestig daarna het echte kanaal-id van NOS, of gebruik de YouTube Data API (met sleutel) en leg het werkende endpoint en de status vast."
+    }
+  ]
+}

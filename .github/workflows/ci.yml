@@ -22,25 +22,33 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Bun installs packages and runs the pipelines, the validator, and the tests.
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: .bun-version
+
+      # Next.js and tsc still execute on Node; Bun's script runner honours their node shebang.
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "24"
-          cache: npm
-          cache-dependency-path: web/package-lock.json
-
-      # Requires a committed root package-lock.json; see .github/workflows/README.md.
-      - name: Install root dependencies
-        run: npm ci
 
       - name: Validate the dataset
-        run: npm run validate
+        run: bun run validate
+
+      # AGENTS.md rule 8: dates in documents are dd-MM-YYYY. Data and quoted values stay ISO.
+      - name: Check date format in documents
+        run: |
+          find . -name "*.md" -not -path "./node_modules/*" -not -path "./web/node_modules/*" \
+            -not -path "./web/out/*" -not -path "./web/.next/*" -not -path "./research/raw/*" \
+            -not -name "ATTRIBUTION.md" -print0 | xargs -0 python3 scripts/format-dates.py --check
 
       - name: Validate research
-        run: node scripts/validate.mjs --research
+        run: bun run research:check
 
       - name: Run tests
-        run: npm test
+        run: bun test pipelines web/lib
 
       - name: Typecheck the web app
-        run: cd web && npm ci && npx tsc --noEmit
+        run: cd web && bun install --frozen-lockfile && bun run typecheck

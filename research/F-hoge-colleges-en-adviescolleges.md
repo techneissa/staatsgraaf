@@ -14,38 +14,38 @@ Two names in the scope list turned out to be one body: the Adviescommissie voor 
 
 ## Sources fetched with dates
 
-All fetches below were done on 2026-09-18, fresh, unless a date says otherwise. Legal texts were fetched from wetten.overheid.nl on the same date. Raw snapshots are under `research/raw/F/` with `-2026-09-18` names. The cancelled run left `aiv-*` and `am-*` snapshots from 2026-09-17; those were superseded by fresh fetches on 2026-09-18 and are kept only as raw history.
+All fetches below were done on 18-09-2026, fresh, unless a date says otherwise. Legal texts were fetched from wetten.overheid.nl on the same date. Raw snapshots are under `research/raw/F/` with `-2026-09-18` names. The cancelled run left `aiv-*` and `am-*` snapshots from 17-09-2026; those were superseded by fresh fetches on 18-09-2026 and are kept only as raw history.
 
 Hoge Colleges:
 
-- Rijksoverheid, benoeming vice-president Raad van State, https://www.rijksoverheid.nl/actueel/nieuws/2026/04/17/benoeming-vice-president-raad-van-state, 2026-09-18. Sybrand van Haersma Buma per 1 juli 2026.
-- Algemene Rekenkamer, https://www.rekenkamer.nl/ en https://www.rekenkamer.nl/over-de-algemene-rekenkamer/organisatie/college/pieter-duisenberg, 2026-09-18. President sinds 1 september 2023.
-- Nationale ombudsman, https://www.nationaleombudsman.nl/wie-is-de-nationale-ombudsman, 2026-09-18. Reinier van Zutphen.
-- raadvanstate.nl, https://www.raadvanstate.nl/, 2026-09-18. HTTP 403 voor fetch; alleen als website-URL gebruikt.
+- Rijksoverheid, benoeming vice-president Raad van State, https://www.rijksoverheid.nl/actueel/nieuws/2026/04/17/benoeming-vice-president-raad-van-state, 18-09-2026. Sybrand van Haersma Buma per 1 juli 2026.
+- Algemene Rekenkamer, https://www.rekenkamer.nl/ en https://www.rekenkamer.nl/over-de-algemene-rekenkamer/organisatie/college/pieter-duisenberg, 18-09-2026. President sinds 1 september 2023.
+- Nationale ombudsman, https://www.nationaleombudsman.nl/wie-is-de-nationale-ombudsman, 18-09-2026. Reinier van Zutphen.
+- raadvanstate.nl, https://www.raadvanstate.nl/, 18-09-2026. HTTP 403 voor fetch; alleen als website-URL gebruikt.
 
 Adviescolleges en Kiesraad:
 
-- Kiesraad, https://www.kiesraad.nl/over-ons/leden-kiesraad, https://www.kiesraad.nl/personen/leden-kiesraad/wim-kuijken, https://www.kiesraad.nl/actueel/nieuws/2020/10/02/nieuwe-voorzitter-kiesraad en https://www.kiesraad.nl/actueel/nieuws/2024/09/26/carolien-van-ham-nieuw-lid-kiesraad-en-herbenoeming-voorzitter-wim-kuijken, 2026-09-18. Zeven leden; Wim Kuijken voorzitter sinds 1 januari 2021.
-- SER, https://www.ser.nl/nl/ser/over-ser, https://www.ser.nl/nl/ser/raad/voorzitters en https://www.ser.nl/nl/ser/raad/raadsleden, 2026-09-18. Kim Putters vanaf 16 september 2022.
-- WRR, https://www.wrr.nl/over-de-wrr/raad-en-adviserende-leden, https://www.wrr.nl/personen/raad-en-adviserende-leden/corien-prins en https://www.wrr.nl/actueel/nieuws/2026/06/24/voorzitter-corien-prins-verlaat-de-wrr, 2026-09-18. Corien Prins voorzitter sinds 2017.
-- Rli, https://www.rli.nl/over-de-raad en https://www.rli.nl/raadsleden, 2026-09-18, plus Rijksoverheid, https://www.rijksoverheid.nl/actueel/nieuws/2024/02/16/benoeming-voorzitter-raad-voor-de-leefomgeving-en-infrastructuur. Jan Jacob van Dijk per 1 augustus 2024.
-- ROB, https://www.raadopenbaarbestuur.nl/over-de-rob en https://www.raadopenbaarbestuur.nl/personen/raad/mariette-hamer, 2026-09-18. Mariëtte Hamer, termijn 1 november 2025 tot 31 oktober 2029.
-- Onderwijsraad, https://www.onderwijsraad.nl/over-ons en https://www.onderwijsraad.nl/actueel/nieuws/2024/06/14/louise-elffers-vanaf-1-september-voorzitter-onderwijsraad, 2026-09-18. Louise Elffers per 1 september 2024.
-- Gezondheidsraad, https://www.gezondheidsraad.nl/over-ons/organisatie/raad en https://www.gezondheidsraad.nl/over-ons/organisatie/raad/voorzitter-prof.-dr.-k.-stronks, 2026-09-18. Karien Stronks sinds 1 januari 2025.
-- RVS, https://www.raadrvs.nl/over-de-rvs/de-raad en https://www.raadrvs.nl/personen/raad/prof.-dr.-m.-jet-bussemaker, 2026-09-18. Jet Bussemaker sinds 1 juni 2019.
-- AIV, https://www.adviesraadinternationalevraagstukken.nl/over-de-aiv, https://www.adviesraadinternationalevraagstukken.nl/over-de-aiv/organisatie/adviesraad en https://www.adviesraadinternationalevraagstukken.nl/personen/adviesraad/bert-koenders, 2026-09-18. Bert Koenders voorzitter.
-- Adviesraad Migratie, https://www.adviesraadmigratie.nl/over-de-adviesraad-migratie, https://www.adviesraadmigratie.nl/25-jaar-adviesraad-migratie en https://www.adviesraadmigratie.nl/personen/monique-kremer, 2026-09-18. Monique Kremer voorzitter. Register: https://organisaties.overheid.nl/115625/Adviesraad_Migratie.
-- AWTI, https://www.awti.nl/over-ons, https://www.awti.nl/over-ons/raadsleden, https://www.awti.nl/personen/raadsleden/mirjam-van-praag en https://www.awti.nl/actueel/nieuws/2026/09/11/mirjam-van-praag-stopt-op-1-januari-als-voorzitter-van-de-awti, 2026-09-18. Mirjam van Praag sinds 1 maart 2025, vertrek per 1 januari 2027.
+- Kiesraad, https://www.kiesraad.nl/over-ons/leden-kiesraad, https://www.kiesraad.nl/personen/leden-kiesraad/wim-kuijken, https://www.kiesraad.nl/actueel/nieuws/2020/10/02/nieuwe-voorzitter-kiesraad en https://www.kiesraad.nl/actueel/nieuws/2024/09/26/carolien-van-ham-nieuw-lid-kiesraad-en-herbenoeming-voorzitter-wim-kuijken, 18-09-2026. Zeven leden; Wim Kuijken voorzitter sinds 1 januari 2021.
+- SER, https://www.ser.nl/nl/ser/over-ser, https://www.ser.nl/nl/ser/raad/voorzitters en https://www.ser.nl/nl/ser/raad/raadsleden, 18-09-2026. Kim Putters vanaf 16 september 2022.
+- WRR, https://www.wrr.nl/over-de-wrr/raad-en-adviserende-leden, https://www.wrr.nl/personen/raad-en-adviserende-leden/corien-prins en https://www.wrr.nl/actueel/nieuws/2026/06/24/voorzitter-corien-prins-verlaat-de-wrr, 18-09-2026. Corien Prins voorzitter sinds 2017.
+- Rli, https://www.rli.nl/over-de-raad en https://www.rli.nl/raadsleden, 18-09-2026, plus Rijksoverheid, https://www.rijksoverheid.nl/actueel/nieuws/2024/02/16/benoeming-voorzitter-raad-voor-de-leefomgeving-en-infrastructuur. Jan Jacob van Dijk per 1 augustus 2024.
+- ROB, https://www.raadopenbaarbestuur.nl/over-de-rob en https://www.raadopenbaarbestuur.nl/personen/raad/mariette-hamer, 18-09-2026. Mariëtte Hamer, termijn 1 november 2025 tot 31 oktober 2029.
+- Onderwijsraad, https://www.onderwijsraad.nl/over-ons en https://www.onderwijsraad.nl/actueel/nieuws/2024/06/14/louise-elffers-vanaf-1-september-voorzitter-onderwijsraad, 18-09-2026. Louise Elffers per 1 september 2024.
+- Gezondheidsraad, https://www.gezondheidsraad.nl/over-ons/organisatie/raad en https://www.gezondheidsraad.nl/over-ons/organisatie/raad/voorzitter-prof.-dr.-k.-stronks, 18-09-2026. Karien Stronks sinds 1 januari 2025.
+- RVS, https://www.raadrvs.nl/over-de-rvs/de-raad en https://www.raadrvs.nl/personen/raad/prof.-dr.-m.-jet-bussemaker, 18-09-2026. Jet Bussemaker sinds 1 juni 2019.
+- AIV, https://www.adviesraadinternationalevraagstukken.nl/over-de-aiv, https://www.adviesraadinternationalevraagstukken.nl/over-de-aiv/organisatie/adviesraad en https://www.adviesraadinternationalevraagstukken.nl/personen/adviesraad/bert-koenders, 18-09-2026. Bert Koenders voorzitter.
+- Adviesraad Migratie, https://www.adviesraadmigratie.nl/over-de-adviesraad-migratie, https://www.adviesraadmigratie.nl/25-jaar-adviesraad-migratie en https://www.adviesraadmigratie.nl/personen/monique-kremer, 18-09-2026. Monique Kremer voorzitter. Register: https://organisaties.overheid.nl/115625/Adviesraad_Migratie.
+- AWTI, https://www.awti.nl/over-ons, https://www.awti.nl/over-ons/raadsleden, https://www.awti.nl/personen/raadsleden/mirjam-van-praag en https://www.awti.nl/actueel/nieuws/2026/09/11/mirjam-van-praag-stopt-op-1-januari-als-voorzitter-van-de-awti, 18-09-2026. Mirjam van Praag sinds 1 maart 2025, vertrek per 1 januari 2027.
 
 Planbureaus:
 
-- CPB, https://www.cpb.nl/over-het-cpb, https://www.cpb.nl/medewerkers en https://www.cpb.nl/medewerkers/pieter-hasekamp, 2026-09-18. Pieter Hasekamp sinds 1 maart 2020.
-- PBL, https://www.pbl.nl/over-het-pbl en https://www.pbl.nl/over-het-pbl/directie, 2026-09-18, plus Algemene Bestuursdienst, https://www.algemenebestuursdienst.nl/actueel/nieuws/2022/10/07/marko-hekkert-directeur-planbureau-voor-de-leefomgeving. Marko Hekkert per 1 januari 2023.
-- SCP, https://www.scp.nl/over-het-scp/zo-werken-wij en https://www.scp.nl/actueel/nieuws/2022/05/20/karen-van-oudenhoven-van-der-zee-vanaf-1-oktober-nieuwe-directeur-van-het-sociaal-en-cultureel-planbureau, 2026-09-18. Karen van Oudenhoven-van der Zee sinds 1 oktober 2022.
+- CPB, https://www.cpb.nl/over-het-cpb, https://www.cpb.nl/medewerkers en https://www.cpb.nl/medewerkers/pieter-hasekamp, 18-09-2026. Pieter Hasekamp sinds 1 maart 2020.
+- PBL, https://www.pbl.nl/over-het-pbl en https://www.pbl.nl/over-het-pbl/directie, 18-09-2026, plus Algemene Bestuursdienst, https://www.algemenebestuursdienst.nl/actueel/nieuws/2022/10/07/marko-hekkert-directeur-planbureau-voor-de-leefomgeving. Marko Hekkert per 1 januari 2023.
+- SCP, https://www.scp.nl/over-het-scp/zo-werken-wij en https://www.scp.nl/actueel/nieuws/2022/05/20/karen-van-oudenhoven-van-der-zee-vanaf-1-oktober-nieuwe-directeur-van-het-sociaal-en-cultureel-planbureau, 18-09-2026. Karen van Oudenhoven-van der Zee sinds 1 oktober 2022.
 
-Rijksoverheid contactgids, all 2026-09-18, used for the coordinating ministry per body: SER, Onderwijsraad, Gezondheidsraad, RVS, AWTI, CPB, PBL, Algemene Rekenkamer, Nationale ombudsman, Kiesraad en ROB.
+Rijksoverheid contactgids, all 18-09-2026, used for the coordinating ministry per body: SER, Onderwijsraad, Gezondheidsraad, RVS, AWTI, CPB, PBL, Algemene Rekenkamer, Nationale ombudsman, Kiesraad en ROB.
 
-Legal sources, all wetten.overheid.nl, all 2026-09-18: BWBR0002367 (Wet op de Raad van State), BWBR0001840 (Grondwet), BWBR0039429 (Comptabiliteitswet 2016), BWBR0003372 (Wet Nationale ombudsman), BWBR0004627 (Kieswet), BWBR0002058 (Wet op de SER), BWBR0003043 (Instellingswet W.R.R.), BWBR0031263 (Wet Rli), BWBR0008419 (Wet op de ROB), BWBR0008683 (Wet op de Onderwijsraad), BWBR0002202 (Gezondheidswet), BWBR0035852 (Wet op de RVS), BWBR0009474 (Wet op de AIV), BWBR0011823 (Vreemdelingenwet 2000), BWBR0008159 (Kaderwet adviescolleges), BWBR0035175 (Wet AWTI) en BWBR0031972 (Aanwijzingen voor de Planbureaus).
+Legal sources, all wetten.overheid.nl, all 18-09-2026: BWBR0002367 (Wet op de Raad van State), BWBR0001840 (Grondwet), BWBR0039429 (Comptabiliteitswet 2016), BWBR0003372 (Wet Nationale ombudsman), BWBR0004627 (Kieswet), BWBR0002058 (Wet op de SER), BWBR0003043 (Instellingswet W.R.R.), BWBR0031263 (Wet Rli), BWBR0008419 (Wet op de ROB), BWBR0008683 (Wet op de Onderwijsraad), BWBR0002202 (Gezondheidswet), BWBR0035852 (Wet op de RVS), BWBR0009474 (Wet op de AIV), BWBR0011823 (Vreemdelingenwet 2000), BWBR0008159 (Kaderwet adviescolleges), BWBR0035175 (Wet AWTI) en BWBR0031972 (Aanwijzingen voor de Planbureaus).
 
 ## Decisions
 

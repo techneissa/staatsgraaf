@@ -1,5 +1,5 @@
-#!/usr/bin/env node
-// Per-source license and provenance application for the NL Overheid Graph.
+#!/usr/bin/env bun
+// Per-source license and provenance application for Staatsgraaf.
 //
 // Everything here is derived from research/O-licenses.md (sections 1, 3.3 and 7).
 // The mapping is deterministic: an exact source id first (where O singles one
@@ -383,7 +383,7 @@ export function buildAttribution(sources) {
   lines.push("# Attribution");
   lines.push("");
   lines.push(
-    "This file lists every source in `data/sources.json` with its URL, publisher, license, and the credit line that license requires. It is generated from `data/sources.json` by `pipelines/licenses.mjs` during `npm run merge`. Do not edit by hand.",
+    "This file lists every source in `data/sources.json` with its URL, publisher, license, and the credit line that license requires. It is generated from `data/sources.json` by `pipelines/licenses.mjs` during `bun run merge`. Do not edit by hand.",
   );
   lines.push("");
   lines.push(

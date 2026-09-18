@@ -20,7 +20,7 @@ The 17 organizations are the 12 ministeries, `org:regering`, `org:ministerraad`,
 
 ### Coverage sample: 10 entities checked link by link
 
-Every URL below was requested on 2026-09-18 and returned HTTP 200. The KB-URLs on `officielebekendmakingen.nl` resolve via a 302 to `zoek.officielebekendmakingen.nl`; both are named.
+Every URL below was requested on 18-09-2026 and returned HTTP 200. The KB-URLs on `officielebekendmakingen.nl` resolve via a 302 to `zoek.officielebekendmakingen.nl`; both are named.
 
 1. `org:ministerie-van-algemene-zaken`. Beschrijving en website: https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken. Oprichting 3 juli 1937: https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken/organisatie/geschiedenis. Wettelijke grondslag: https://wetten.overheid.nl/BWBR0001840 (art. 44).
 2. `org:ministerie-van-financien`. Bestaan sinds 1798: https://www.rijksoverheid.nl/ministeries/ministerie-van-financien/organisatie/geschiedenis. Beleidsterrein en website: https://www.rijksoverheid.nl/ministeries/ministerie-van-financien. SG en DG's: https://www.rijksoverheid.nl/ministeries/ministerie-van-financien/organisatie/organogram/ambtelijke-leiding.
@@ -39,7 +39,7 @@ Extra, outside the ten: `person:f-j-j-princen`, waarnemend directeur van het Kab
 
 All pages were fetched with a browser User-Agent, at most about one request per second per host. The kilobytes below are the cached copies under `research/raw/A/`.
 
-Retrieved 2026-09-17 (reused cache from the earlier run):
+Retrieved 17-09-2026 (reused cache from the earlier run):
 
 - Overheid.nl, Grondwet BWBR0001840, artikel 42 tot en met 47, https://wetten.overheid.nl/BWBR0001840, `wetten/grondwet-art42-47.txt` and `wetten/grondwet-bwbr0001840.html`. Yields the regering, de ministerraad, de benoeming van ministers en staatssecretarissen en de ministeriele verantwoordelijkheid.
 - Rijksoverheid, Ministeries, https://www.rijksoverheid.nl/ministeries, `rijksoverheid-ministeries.html`. Yields de 12-ministerieslijst.
@@ -52,7 +52,7 @@ Retrieved 2026-09-17 (reused cache from the earlier run):
 - Officiele bekendmakingen, Staatscourant 2026, 8174 tot en met 8194 en 8740, https://www.officielebekendmakingen.nl/stcrt-2026-8174 en volgende, onder `obk/`. Yields de benoemings- en herindelings-KB's van het kabinet-Jetten, inclusief de twee vice-minister-presidenten (8178), de naamswijziging van EZ (8176), de herindelingen (8177, 8180), de vervangingsregeling (8194) en de benoeming van de waarnemend directeur van het Kabinet van de Koning (8740).
 - Het Koninklijk Huis, Koning Willem-Alexander, leden, rol van het staatshoofd, organisatie, Dienst van het Koninklijk Huis, Kabinet van de Koning en onderscheidingen, https://www.koninklijkhuis.nl, onder `koninklijkhuis/`. Yields de troonsaanvaarding op 30 april 2013, de rol van het staatshoofd en de taakomschrijving van de hofdiensten.
 
-Retrieved 2026-09-18 (fetched this run because no cached copy existed):
+Retrieved 18-09-2026 (fetched this run because no cached copy existed):
 
 - Rijksoverheid, secretaris-generaal van AZ, BZ, Defensie, Financien, LVVN, OCW, SZW en VWS, onder `ministeries/az-sg.html`, `bz-sg.html`, `def-ambtelijke-leiding.html`, `fin-ambtelijke-leiding.html`, `lvvn-ambtelijke-leiding.html`, `ocw-ambtelijke-leiding.html`, `szw-sg.html`, `vws-sg.html`. Yields de huidige naam van de ambtelijke leiding per ministerie.
 - Het Koninklijk Huis, Kanselarij der Nederlandse Orden, https://www.koninklijkhuis.nl/onderwerpen/koninklijk-huis/onderscheidingen/kanselarij-der-nederlandse-orden, `ministeries/kh-kanselarij.html`. Yields taken, geschiedenis en omvang van de Kanselarij.
@@ -71,7 +71,7 @@ Every divergence from the Phase 0 seed, with the alternative that was not taken.
 8. **Oprichtingsdatum alleen bij een volledige datum.** Alleen AZ heeft een gedocumenteerde volledige datum (1937-07-03) in `established`. Voor BZ en Financien is het jaar 1798, en voor OCW 2003 en VWS vanaf 1800, in de beschrijving gezet, niet in `established`, om geen dag te verzinnen. De seed had overal `established: null`.
 9. **Aliassen toegevoegd aan de ministeries.** De seed had lege aliassen. Nu staan de gangbare afkortingen en namen erin (AZ, BZK, BZ, Defensie, EZK, Financien, IenW, JenV, LVVN, OCW, SZW, VWS). Workstream J blijft eigenaar van de volledige gazetteer.
 10. **Portfolio-varianten van Aerdts en Heerma.** De pagina van Aerdts noemt "Digitale Economie en Soevereiniteit", haar loopbaanregel noemt "Digitale Zaken en Soevereiniteit" en KB 8191 benoemt haar als staatssecretaris van Economische Zaken en Klimaat. De seed-titel en slug zijn gehandhaafd en alle drie de bronnen zijn geciteerd. De pagina van Heerma schrijft "Koninkrijkrelaties"; de dataset houdt "Koninkrijksrelaties", zoals de merge-log al vastlegde.
-11. **Aanvullende bronnen per entiteit.** Waar de seed alleen de pagina of alleen de Grondwet citeerde, citeert deze workstream nu ook het benoemings-KB, de herindelings-KB's en de ambtelijke-leidingpagina. De seed-bron-ids zijn hergebruikt (31 van de 98); er zijn 67 nieuwe bronrecords toegevoegd, waarvan 9 met retrieved 2026-09-18.
+11. **Aanvullende bronnen per entiteit.** Waar de seed alleen de pagina of alleen de Grondwet citeerde, citeert deze workstream nu ook het benoemings-KB, de herindelings-KB's en de ambtelijke-leidingpagina. De seed-bron-ids zijn hergebruikt (31 van de 98); er zijn 67 nieuwe bronrecords toegevoegd, waarvan 9 met retrieved 18-09-2026.
 12. **Relatietypes gelijk aan de seed.** Staatssecretarissen krijgen `office` van positie naar ministerie, ministers en SG's `dept_head`. De nieuwe SG/DG-posities gebruiken `office`, behalve de SG's, die `dept_head` krijgen.
 
 ## Gaps
@@ -91,5 +91,5 @@ Mirrors the `gaps` array in the JSON.
 1. **Schemavoorstel subtype `directoraat-generaal` (en `hofdienst`).** Nodig om directoraten-generaal en hofdiensten als organisatie te kunnen opnemen in plaats van als losse posities. Voorstel voor de orchestrator per `docs/04-data-model.md` sectie 18. Wie: orchestrator.
 2. **Formele nummering van de viceminister-presidenten.** Bestaat er een wettelijke eerste en tweede viceminister-president, of is de volgorde alleen praktisch? Wie: workstream I, met de Staatsalmanak of een KB.
 3. **Het kabinet als entiteit.** Moet het kabinet-Jetten een eigen organisatie of scope krijgen naast de regering, of blijft het een tijdsgebonden set posities? Wie: orchestrator.
-4. **De Koning in het tenuremodel.** Is een tenure met start 2013-04-30 de juiste weergave van een erfelijke functie, of hoort het koningschap als `van-rechtswege`-positie zonder gewone tenure te worden gemodelleerd? Wie: orchestrator en workstream I.
+4. **De Koning in het tenuremodel.** Is een tenure met start 30-04-2013 de juiste weergave van een erfelijke functie, of hoort het koningschap als `van-rechtswege`-positie zonder gewone tenure te worden gemodelleerd? Wie: orchestrator en workstream I.
 5. **Precieze wettelijke grondslag per ministerie.** Deze workstream citeert Grondwet art. 44 als grondslag voor alle ministeries. Workstream H hoort de artikel- en instellingsgrondslag per departement te bevestigen. Wie: workstream H.

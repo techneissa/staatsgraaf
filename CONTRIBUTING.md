@@ -55,9 +55,9 @@ Examples: `data: add all 342 gemeenten organisations`, `schema: add ex_officio r
 ## 7. How to add or change data
 
 1. Edit the workstream or entity file that states the fact. Add the source record and the provenance entry.
-2. Run `npm run merge` and `npm run validate`. The merge collects sources into `data/sources.json`, maps each source to a license, and regenerates `ATTRIBUTION.md`.
+2. Run `bun run merge` and `bun run validate`. The merge collects sources into `data/sources.json`, maps each source to a license, and regenerates `ATTRIBUTION.md`.
 3. Check the license against `research/O-licenses.md`. A source whose reuse right is not established keeps `unknown` and carries a named gap with its endpoint. Do not guess a license.
-4. Run `npm test`.
+4. Run `bun test`.
 5. Open a data pull request that links each source and states the counts that changed.
 
 ## 8. How to add a source
@@ -69,23 +69,25 @@ Examples: `data: add all 342 gemeenten organisations`, `schema: add ex_officio r
 
 ## 9. Run the checks
 
-From the repository root:
+The toolchain is Bun 1.2 or newer (`.bun-version` pins 1.4.2). The root package has no dependencies and no install step. From the repository root:
 
 ```sh
-npm run merge      # merge research files into data/ and regenerate ATTRIBUTION.md
-npm run validate   # schema and referential integrity across data/
-npm test           # pipeline tests
+bun run merge      # merge research files into data/ and regenerate ATTRIBUTION.md
+bun run validate   # schema and referential integrity across data/
+bun test           # pipeline tests
 ```
 
-For the web app:
+For the web app, which holds the only lockfile, `web/bun.lock`:
 
 ```sh
 cd web
-npm install
-npm run typecheck
-npm run check:contrast
-npm run build
+bun install
+bun run typecheck
+bun run check:contrast
+bun run build
 ```
+
+Next.js and tsc still run on Node.js 20.9 or newer, so `bun run typecheck` and `bun run build` need Node installed. The pipelines and tests do not. See `docs/adr/0005-bun-toolchain.md`.
 
 A pull request does not merge while any check fails. The CI order and the link check are in `docs/10-operations-runbook.md` section 2.
 

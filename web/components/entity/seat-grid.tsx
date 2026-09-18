@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { KindBadge } from "@/components/kind-badge";
-import { PersonPortrait } from "./person-portrait";
+import { PersonPortrait, PersonPortraitCredit } from "./person-portrait";
 import type { MemberEntry } from "@/lib/entity";
 
 export function SeatGrid({ members, limit }: { members: MemberEntry[]; limit?: number }) {
@@ -16,6 +16,10 @@ export function SeatGrid({ members, limit }: { members: MemberEntry[]; limit?: n
           >
             <PersonPortrait person={person} size={56} />
             <span className="mt-2 block text-sm font-semibold text-ink">{person.name}</span>
+            <PersonPortraitCredit
+              person={person}
+              className="mt-1 block max-w-[12rem] text-[10px] leading-tight text-ink-faint"
+            />
             {membership.fractie !== null ? (
               <span className="mt-1.5 block">
                 <KindBadge>{membership.fractie}</KindBadge>

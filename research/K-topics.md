@@ -30,24 +30,24 @@ Counts produced:
 
 ## Sources fetched with dates
 
-All pages below were fetched live on 2026-09-18 and snapshotted under `research/raw/K/`. The bewindspersonen pages state each bewindspersoon's portfolio, which is the primary evidence for the topic-to-organization mapping. The ministerie pages do the same at ministry level. The feeds were fetched by workstream J on 2026-09-18 and are reused here only to test keywords.
+All pages below were fetched live on 18-09-2026 and snapshotted under `research/raw/K/`. The bewindspersonen pages state each bewindspersoon's portfolio, which is the primary evidence for the topic-to-organization mapping. The ministerie pages do the same at ministry level. The feeds were fetched by workstream J on 18-09-2026 and are reused here only to test keywords.
 
 | Source | URL | Retrieved | Yield |
 | --- | --- | --- | --- |
-| Rijksoverheid, bewindspersonenoverzicht | https://www.rijksoverheid.nl/regering/bewindspersonen | 2026-09-18 | 28 bewindspersonen van het kabinet-Jetten |
-| Rijksoverheid, ministerieoverzicht | https://www.rijksoverheid.nl/ministeries | 2026-09-18 | 12 ministeries |
-| Rijksoverheid, 21 bewindspersonenpagina's | https://www.rijksoverheid.nl/regering/bewindspersonen/&lt;slug&gt; | 2026-09-18 | Portefeuilletaken per bewindspersoon; 21 pagina's onder `research/raw/K/bewindspersonen/` |
-| Rijksoverheid, 12 ministeriepagina's | https://www.rijksoverheid.nl/ministeries/ministerie-van-&lt;slug&gt; | 2026-09-18 | Onderwerpen en taken per ministerie; 12 pagina's onder `research/raw/K/ministeries/` |
-| NOS feed | https://feeds.nos.nl/nosnieuwsalgemeen | 2026-09-18 | 20 artikelen voor de keyword-testset |
-| NU.nl feed | https://www.nu.nl/rss/Algemeen | 2026-09-18 | 30 artikelen |
-| NRC feed | https://www.nrc.nl/rss/ | 2026-09-18 | 157 artikelen |
-| AD feed | https://www.ad.nl/rss.xml | 2026-09-18 | 30 artikelen |
-| de Volkskrant feed | https://www.volkskrant.nl/rss.xml | 2026-09-18 | 79 artikelen |
-| Trouw feed | https://www.trouw.nl/rss.xml | 2026-09-18 | 103 artikelen |
-| Het Parool feed | https://www.parool.nl/rss.xml | 2026-09-18 | 127 artikelen |
-| FD feed | https://fd.nl/?rss | 2026-09-18 | 38 artikelen |
-| RTL Nieuws feed | https://www.rtlnieuws.nl/rss.xml | 2026-09-18 | 845 artikelen |
-| Binnenlands Bestuur feed | https://www.binnenlandsbestuur.nl/feeds/articles.rss | 2026-09-18 | 150 artikelen |
+| Rijksoverheid, bewindspersonenoverzicht | https://www.rijksoverheid.nl/regering/bewindspersonen | 18-09-2026 | 28 bewindspersonen van het kabinet-Jetten |
+| Rijksoverheid, ministerieoverzicht | https://www.rijksoverheid.nl/ministeries | 18-09-2026 | 12 ministeries |
+| Rijksoverheid, 21 bewindspersonenpagina's | https://www.rijksoverheid.nl/regering/bewindspersonen/&lt;slug&gt; | 18-09-2026 | Portefeuilletaken per bewindspersoon; 21 pagina's onder `research/raw/K/bewindspersonen/` |
+| Rijksoverheid, 12 ministeriepagina's | https://www.rijksoverheid.nl/ministeries/ministerie-van-&lt;slug&gt; | 18-09-2026 | Onderwerpen en taken per ministerie; 12 pagina's onder `research/raw/K/ministeries/` |
+| NOS feed | https://feeds.nos.nl/nosnieuwsalgemeen | 18-09-2026 | 20 artikelen voor de keyword-testset |
+| NU.nl feed | https://www.nu.nl/rss/Algemeen | 18-09-2026 | 30 artikelen |
+| NRC feed | https://www.nrc.nl/rss/ | 18-09-2026 | 157 artikelen |
+| AD feed | https://www.ad.nl/rss.xml | 18-09-2026 | 30 artikelen |
+| de Volkskrant feed | https://www.volkskrant.nl/rss.xml | 18-09-2026 | 79 artikelen |
+| Trouw feed | https://www.trouw.nl/rss.xml | 18-09-2026 | 103 artikelen |
+| Het Parool feed | https://www.parool.nl/rss.xml | 18-09-2026 | 127 artikelen |
+| FD feed | https://fd.nl/?rss | 18-09-2026 | 38 artikelen |
+| RTL Nieuws feed | https://www.rtlnieuws.nl/rss.xml | 18-09-2026 | 845 artikelen |
+| Binnenlands Bestuur feed | https://www.binnenlandsbestuur.nl/feeds/articles.rss | 18-09-2026 | 150 artikelen |
 
 Per-topic primary source (the page that states the portfolio). Positions link to the same page as the org unless noted.
 
@@ -68,7 +68,7 @@ Per-topic primary source (the page that states the portfolio). Positions link to
 
 ### Keyword test set
 
-Every topic's keyword list was run against the 1579 feed items in `research/raw/J/feeds/`. The table gives real matching articles. A title matches when at least one keyword of the topic appears as a whole word in title or teaser. Query date 2026-09-18.
+Every topic's keyword list was run against the 1579 feed items in `research/raw/J/feeds/`. The table gives real matching articles. A title matches when at least one keyword of the topic appears as a whole word in title or teaser. Query date 18-09-2026.
 
 | Topic | Matching article URL | Keyword(s) that matched |
 | --- | --- | --- |
@@ -142,7 +142,7 @@ Mirrors the `gaps[]` array in the JSON.
 4. **Rijksdienst Caribisch Nederland ontbreekt als organisatie.** Endpoint: https://www.rijksdienstcn.com/. Resume: het record toevoegen en aan `topic:koninkrijksrelaties` koppelen.
 5. **Veiligheidsregio's ontbreken als organisaties.** Workstream G modelleert de 25 veiligheidsregio's niet, terwijl ze onder veiligheid vallen. Endpoint: https://www.rijksoverheid.nl/themas/recht-veiligheid-en-defensie/veiligheidsregios-en-crisisbeheersing/veiligheidsregios. Resume: de regio's modelleren en aan `topic:veiligheid` koppelen.
 6. **Koepels VNG, IPO en Unie van Waterschappen ontbreken.** Endpoint: https://vng.nl/. Resume: koepelorganisaties modelleren in een latere fase.
-7. **De nieuwssteekproef dekt koninkrijksrelaties en toeslagen maar dun.** De feeds van 2026-09-18 bevatten vrijwel geen artikelen over het Koninkrijk en weinig over toeslagen. Endpoint: https://www.rijksoverheid.nl/onderwerpen/koninkrijksrelaties. Resume: meer feeds of een langere periode toevoegen en de testset opnieuw draaien.
+7. **De nieuwssteekproef dekt koninkrijksrelaties en toeslagen maar dun.** De feeds van 18-09-2026 bevatten vrijwel geen artikelen over het Koninkrijk en weinig over toeslagen. Endpoint: https://www.rijksoverheid.nl/onderwerpen/koninkrijksrelaties. Resume: meer feeds of een langere periode toevoegen en de testset opnieuw draaien.
 8. **Algemene keywords geven valse positieven.** Woorden als `koninkrijk`, `terugkeer`, `bouw` en `auto` komen ook buiten het beleidsterrein voor, bijvoorbeeld `Verenigd Koninkrijk` en sport. Endpoint: `research/raw/J/feeds/`. Resume: de nieuwslinker moet context of een langere term gebruiken en algemene keywords laag wegen.
 
 ## Open questions

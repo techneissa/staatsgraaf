@@ -9,7 +9,7 @@
       "additionalProperties": false,
       "properties": {
         "id": { "type": "string", "pattern": "^media:[a-z0-9][a-z0-9-]*$" },
-        "url": { "type": "string", "pattern": "^https?://" },
+        "url": { "type": "string", "pattern": "^(https?://|/)" },
         "type": { "type": "string", "enum": ["portrait", "logo", "photo"] },
         "license": { "type": "string", "minLength": 1 },
         "credit": { "type": "string", "minLength": 1 },
