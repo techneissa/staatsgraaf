@@ -15,13 +15,15 @@ import type { NewsItem, NewsLanguage, PublisherKind } from "@/lib/types";
 /**
  * What the card shows as its preview tile, in order of preference:
  * a licensed image the pipeline stored for this item (none today, every feed
- * is all rights reserved), the licensed portrait of the first person the item
- * links to, or a monogram of the outlet drawn from our own tokens. Nothing is
- * ever hotlinked from an outlet: that would republish its image and send the
- * reader's request to a third party.
+ * is all rights reserved), a feed-supplied preview image loaded from the
+ * outlet's own servers (adr/0008: shown remotely, credited to the outlet, no
+ * license claimed), the licensed portrait of the first person the item links
+ * to, or a monogram of the outlet drawn from our own tokens. Nothing is
+ * copied into our dataset and no license is invented: the reader sees the
+ * image as the outlet publishes it, with the outlet named.
  */
 export type NewsPreview =
-  | { kind: "image"; url: string; caption: string }
+  | { kind: "image"; url: string; caption: string; remote: boolean }
   | { kind: "portrait"; url: string; caption: string; personLabel: string; href: string }
   | { kind: "monogram"; monogram: string; publisher: string; publisherKind: PublisherKind };
 
@@ -52,9 +54,10 @@ export type NewsItemView = {
   entities: NewsEntityRef[];
   keywords: string[];
   /**
-   * A licensed preview image, when the item carries one. All current feeds are
-   * all rights reserved, so this stays null today and the card draws its own
-   * tile instead. The caption always names credit and license.
+   * A licensed preview image stored by the pipeline, when the item carries
+   * one. All current feeds are all rights reserved, so this stays null today
+   * and the preview falls back to the feed-supplied image URL. The caption
+   * always names credit and license.
    */
   image: { url: string; caption: string } | null;
   preview: NewsPreview;
@@ -132,7 +135,7 @@ export function toNewsItemView(item: NewsItem, locale: NewsLanguage = "nl"): New
     summary: usefulSummary(item),
     entities,
     keywords: newsKeywords(item),
-    image,
+    image: image === null || image.remote ? null : { url: image.url, caption: image.caption },
     preview: resolveNewsPreview({ image, entities, publisher: item.publisher, publisherKind: kind }),
   };
 }
@@ -143,12 +146,14 @@ export function resolveNewsPreview({
   publisher,
   publisherKind,
 }: {
-  image: { url: string; caption: string } | null;
+  image: { url: string; caption: string; remote: boolean } | null;
   entities: NewsEntityRef[];
   publisher: string;
   publisherKind: PublisherKind;
 }): NewsPreview {
-  if (image !== null) return { kind: "image", url: image.url, caption: image.caption };
+  if (image !== null) {
+    return { kind: "image", url: image.url, caption: image.caption, remote: image.remote };
+  }
   const person = entities.find((entry) => entry.kind === "person" && entry.portrait !== null);
   if (person && person.portrait !== null) {
     return {
@@ -162,9 +167,23 @@ export function resolveNewsPreview({
   return { kind: "monogram", monogram: newsMonogram(publisher), publisher, publisherKind };
 }
 
-function resolveNewsImage(item: NewsItem): NewsItemView["image"] {
-  if (typeof item.image !== "string" || item.image === "") return null;
-  const media = getMediaItem(item.image);
-  if (media === null) return null;
-  return { url: media.url, caption: mediaCreditLine(media) };
+/**
+ * The preview image of an item: a licensed media record the pipeline stored,
+ * or the feed-supplied image URL as a remote preview credited to the outlet
+ * (adr/0008). The remote flag records which one it is, so the interface can
+ * treat a local licensed copy differently from a hotlinked feed image.
+ */
+function resolveNewsImage(item: NewsItem): {
+  url: string;
+  caption: string;
+  remote: boolean;
+} | null {
+  if (typeof item.image === "string" && item.image !== "") {
+    const media = getMediaItem(item.image);
+    if (media !== null) return { url: media.url, caption: mediaCreditLine(media), remote: false };
+  }
+  if (typeof item.imageUrl === "string" && item.imageUrl !== "") {
+    return { url: item.imageUrl, caption: item.publisher, remote: true };
+  }
+  return null;
 }

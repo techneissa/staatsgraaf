@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-09-18T06:00:00.000Z",
-  "notes": "Registry of news feeds for the Staatsgraaf news layer; only feeds fetched and parsed as RSS or Atom in this pass are enabled. Images are only taken from a feed whose imageLicense names a license; imageLicense null means no image may be stored or shown for that feed.",
+  "notes": "Registry of news feeds for the Staatsgraaf news layer; only feeds fetched and parsed as RSS or Atom in this pass are enabled. Images are only downloaded and stored from a feed whose imageLicense names a license; imageLicense null means no image is downloaded or stored, while the feed-supplied image URL is still shown as a remote preview credited to the outlet (ADR 0010).",
   "feeds": [
     {
       "url": "https://feeds.nos.nl/nosnieuwsalgemeen",

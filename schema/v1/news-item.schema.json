@@ -96,6 +96,14 @@
         "image": {
           "$ref": "common.schema.json#/$defs/mediaRef"
         },
+        "imageUrl": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^https?://",
+          "description": "Preview image URL exactly as supplied by the feed (enclosure, media:content or similar), normalized to https where possible. Shown as a remote preview credited to the outlet; a licensed local copy is the upgrade path and lives in image."
+        },
         "sources": {
           "type": "array",
           "minItems": 1,

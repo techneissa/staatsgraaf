@@ -51,9 +51,13 @@ export const GRAPH_DICT = {
     nl: "Sectoren",
     en: "Sectors",
   },
-  shapeLegendTitle: {
-    nl: "Vormen",
-    en: "Shapes",
+  entityLegendTitle: {
+    nl: "Entiteiten",
+    en: "Entities",
+  },
+  relationshipLegendTitle: {
+    nl: "Relaties",
+    en: "Relationships",
   },
   shapeShield: {
     nl: "Ministerie en defensieonderdeel",

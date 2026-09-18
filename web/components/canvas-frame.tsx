@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { SECTOR_ORDER } from "@/lib/graph";
 import type { OrgBranch } from "@/lib/types";
+import { edgeTypeOrderIndex } from "./graph/edge-styles";
 import { useT } from "@/components/i18n/use-t";
 import { CanvasControls, type CanvasView } from "./canvas-controls";
 import { GraphExplorer } from "./graph/graph-explorer";
@@ -81,6 +82,22 @@ export function CanvasFrame() {
     return order.map((branch) => ({ branch, count: counts.get(branch) ?? 0 }));
   }, [bundle]);
 
+  const edgeTypes = useMemo(() => {
+    if (!bundle) return [] as { type: string; count: number }[];
+    const counts = new Map<string, number>();
+    for (const edge of bundle.edges) {
+      counts.set(edge.type, (counts.get(edge.type) ?? 0) + 1);
+    }
+    return [...counts.entries()]
+      .sort(
+        (a, b) =>
+          edgeTypeOrderIndex(a[0]) - edgeTypeOrderIndex(b[0]) ||
+          b[1] - a[1] ||
+          a[0].localeCompare(b[0]),
+      )
+      .map(([type, count]) => ({ type, count }));
+  }, [bundle]);
+
   const toggleBranch = (branch: OrgBranch, visible: boolean) => {
     setHiddenBranches((current) => {
       const next = new Set(current);
@@ -106,6 +123,7 @@ export function CanvasFrame() {
           view={view}
           onViewChange={setView}
           branches={branches}
+          edgeTypes={edgeTypes}
           hiddenBranches={hiddenBranches}
           onToggleBranch={toggleBranch}
           onShowAll={() => setHiddenBranches(new Set())}
