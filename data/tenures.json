@@ -3815,7 +3815,7 @@
   },
   {
     "id": "tenure:burgemeester-noordwijk",
-    "person": "person:wendy-verkleij-eimers-noordwijk",
+    "person": "person:wendy-verkleij-eimers",
     "position": "pos:burgemeester-noordwijk",
     "seat": null,
     "start": "2020-01-27",
@@ -4670,7 +4670,7 @@
   },
   {
     "id": "tenure:burgemeester-schagen",
-    "person": "person:marjan-van-kampen-nouwen-schagen",
+    "person": "person:marjan-van-kampen-nouwen",
     "position": "pos:burgemeester-schagen",
     "seat": null,
     "start": "2013-10-01",
@@ -5183,7 +5183,7 @@
   },
   {
     "id": "tenure:burgemeester-tiel",
-    "person": "person:jose-van-egmond-tiel",
+    "person": "person:jose-van-egmond",
     "position": "pos:burgemeester-tiel",
     "seat": null,
     "start": "2025-05-12",
@@ -22203,25 +22203,6 @@
     }
   },
   {
-    "id": "tenure:zbo-kiesraad-wim-kuijken-voorzitter",
-    "person": "person:wim-kuijken",
-    "position": "pos:zbo-kiesraad-voorzitter",
-    "seat": null,
-    "start": "2021-01-01",
-    "end": null,
-    "acting": false,
-    "entryMode": "benoemd",
-    "appointedBy": null,
-    "predecessor": null,
-    "successor": null,
-    "endReason": null,
-    "source": {
-      "source": "src:roo-zbo-export-xml",
-      "retrieved": "2026-09-18",
-      "confidence": "high"
-    }
-  },
-  {
     "id": "tenure:zbo-koninklijke-nederlandse-akademie-van-wetenschappen-brenda-penninx-vicepresident",
     "person": "person:brenda-penninx",
     "position": "pos:zbo-koninklijke-nederlandse-akademie-van-wetenschappen-vicepresident",
@@ -22433,7 +22414,7 @@
   {
     "id": "tenure:zbo-nederlandse-emissieautoriteit-mark-bressers-directeur-bestuurder",
     "person": "person:mark-bressers",
-    "position": "pos:zbo-nederlandse-emissieautoriteit-directeur-bestuurder",
+    "position": "pos:nederlandse-emissieautoriteit-directeur-bestuurder",
     "seat": null,
     "start": "2020-01-01",
     "end": null,

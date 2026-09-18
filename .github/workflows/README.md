@@ -46,7 +46,7 @@ Set these in **Settings > Secrets and variables > Actions**.
 | `NEXT_PUBLIC_SITE_URL` | repository variable | Absolute base URL for canonical, `robots.txt`, and `sitemap.xml`. |
 | `GITHUB_TOKEN` | automatic | Used by the failure step to open or comment on the `ops` issue. Do not set it yourself. |
 
-`NEXT_PUBLIC_SITE_URL` is optional: if the variable is unset, the workflow falls back to `https://staatsgraaf.pages.dev`. **This is the pending value**, because the production URL is not chosen yet. Set the variable once the domain is fixed.
+`NEXT_PUBLIC_SITE_URL` is optional: if the variable is unset, the workflow falls back to `https://staatsgraaf.pages.dev`, which is the live production URL. Set the repository variable to that URL, or rely on the fallback, so canonical, `robots.txt`, and `sitemap.xml` use absolute URLs.
 
 Never echo a secret. The workflows pass Cloudflare credentials only as step-level environment variables, and no step prints them.
 
@@ -65,5 +65,7 @@ Cloudflare Pages keeps every deployment as an immutable artifact. Two paths:
 
 ## Named gaps
 
-1. **Cloudflare account and project do not exist yet.** The owner must create the Cloudflare account, create the Pages project named `staatsgraaf`, and add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` before the first deploy. Until then the `refresh` deploy step cannot succeed.
-2. **No root `package-lock.json`.** The repo currently commits only `web/package-lock.json`. Both workflows run `npm ci` at the root, which fails without a committed lockfile. Add a root `package-lock.json` (build area K owns `package.json`) before either workflow can pass.
+1. **No confirmed green workflow run.** The workflows are committed and the scripts they call pass locally, but a green `ci` or `refresh` run in GitHub Actions is not yet confirmed.
+2. **Repository secrets and variables are not verifiable from the checkout.** The Cloudflare account and the Pages project `staatsgraaf` exist and the site is live at https://staatsgraaf.pages.dev, but this checkout cannot confirm that `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, and `NEXT_PUBLIC_SITE_URL` are set in the repository.
+
+A root `package-lock.json` now exists, so the root `npm ci` step in both workflows has a committed lockfile.

@@ -8875,7 +8875,7 @@
     },
     {
       "alias": "Directeur-bestuurder Nederlandse Emissieautoriteit van Nederlandse Emissieautoriteit",
-      "target": "pos:zbo-nederlandse-emissieautoriteit-directeur-bestuurder",
+      "target": "pos:nederlandse-emissieautoriteit-directeur-bestuurder",
       "confidence": "low"
     },
     {
@@ -17345,7 +17345,7 @@
     },
     {
       "alias": "José van Egmond (egmond tiel)",
-      "target": "person:jose-van-egmond-tiel",
+      "target": "person:jose-van-egmond",
       "confidence": "low"
     },
     {
@@ -17700,7 +17700,7 @@
     },
     {
       "alias": "Kiesraad (zbo)",
-      "target": "org:zbo-kiesraad",
+      "target": "org:kiesraad",
       "confidence": "low"
     },
     {
@@ -20840,7 +20840,7 @@
     },
     {
       "alias": "Marjan van Kampen-Nouwen (nouwen schagen)",
-      "target": "person:marjan-van-kampen-nouwen-schagen",
+      "target": "person:marjan-van-kampen-nouwen",
       "confidence": "low"
     },
     {
@@ -22125,7 +22125,7 @@
     },
     {
       "alias": "Nederlandse Emissieautoriteit (zbo)",
-      "target": "org:zbo-nederlandse-emissieautoriteit",
+      "target": "org:nederlandse-emissieautoriteit",
       "confidence": "low"
     },
     {
@@ -26260,7 +26260,7 @@
     },
     {
       "alias": "Voorzitter Kiesraad van Kiesraad",
-      "target": "pos:zbo-kiesraad-voorzitter",
+      "target": "pos:voorzitter-kiesraad",
       "confidence": "low"
     },
     {
@@ -26620,7 +26620,7 @@
     },
     {
       "alias": "Wendy Verkleij-Eimers (eimers noordwijk)",
-      "target": "person:wendy-verkleij-eimers-noordwijk",
+      "target": "person:wendy-verkleij-eimers",
       "confidence": "low"
     },
     {

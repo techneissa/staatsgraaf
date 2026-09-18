@@ -425,16 +425,20 @@
       "branch": "adviescolleges",
       "level": "rijk",
       "country": "nederland",
-      "description": "Centraal stembureau bij verkiezingen en adviesorgaan en informatiecentrum over kiesrecht, referenda en verkiezingen.",
+      "description": "De Kiesraad is verantwoordelijk voor de verkiezingen in Nederland en ziet erop toe dat deze eerlijk en transparant verlopen.\n\nWettelijke taak: De Kiesraad heeft de volgende taken:* het adviseren van de regering en de beide Kamers der Staten-Generaal over uitvoeringstechnische aangelegenheden die het kiesrecht of de verkiezingen betreffen (artikel A2 Kieswet);* het als centraal stembureau optreden voor de verkiezingen van de leden van:<br />a. de Tweede Kamer (artikel E II, tweede lid, Kieswet); <br />b. de Eerste Kamer (artikel S I, eerste lid, Kieswet); <br />c. het Europees Parlement (artikel Y9, eerste lid, Kieswet);* het adviseren van overheden, politieke partijen, media en burgers in verkiezingstijd en het optreden als deskundig adviseur in rechtsgedingen.",
       "legalSource": {
-        "label": "Kieswet",
-        "url": "https://wetten.overheid.nl/BWBR0004627"
+        "label": "Kieswet, artikel A 2",
+        "url": "https://wetten.overheid.nl/BWBR0004627/2025-08-01#AfdelingI_HoofdstukA_Paragraaf2_ArtikelA2"
       },
       "website": "https://www.kiesraad.nl",
-      "established": null,
+      "established": "1917-12-14",
       "dissolved": null,
       "seatsCount": 7,
+      "images": [],
       "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "partOf": [
+        "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties"
+      ],
       "sources": [
         {
           "source": "src:kieswet",
@@ -455,6 +459,16 @@
           "source": "src:kiesraad-contactgids",
           "retrieved": "2026-09-18",
           "confidence": "medium"
+        },
+        {
+          "source": "src:roo-zbo-csv-organisaties",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:roo-zbo-export-xml",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
         }
       ]
     },
@@ -1096,6 +1110,11 @@
         },
         {
           "source": "src:kieswet",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:roo-zbo-export-xml",
           "retrieved": "2026-09-18",
           "confidence": "high"
         }

@@ -18,6 +18,7 @@ export function SourceList({ sources, title = "Bronnen" }: { sources: SourceRef[
               {source ? (
                 <SourceLink
                   href={source.url}
+                  archiveHref={source.archiveUrl}
                   meta={
                     <>
                       {source.publisher}, {formatDate(source.retrieved)}

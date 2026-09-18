@@ -53140,23 +53140,28 @@
     "slug": "kiesraad",
     "name": "Kiesraad",
     "aliases": [
-      "Kiesraad"
+      "Kiesraad",
+      "Kiesraad (zbo)"
     ],
     "type": "advisory",
     "subtype": "kiesraad",
     "branch": "adviescolleges",
     "level": "rijk",
     "country": "nederland",
-    "description": "Centraal stembureau bij verkiezingen en adviesorgaan en informatiecentrum over kiesrecht, referenda en verkiezingen.",
+    "description": "De Kiesraad is verantwoordelijk voor de verkiezingen in Nederland en ziet erop toe dat deze eerlijk en transparant verlopen.\n\nWettelijke taak: De Kiesraad heeft de volgende taken:* het adviseren van de regering en de beide Kamers der Staten-Generaal over uitvoeringstechnische aangelegenheden die het kiesrecht of de verkiezingen betreffen (artikel A2 Kieswet);* het als centraal stembureau optreden voor de verkiezingen van de leden van:<br />a. de Tweede Kamer (artikel E II, tweede lid, Kieswet); <br />b. de Eerste Kamer (artikel S I, eerste lid, Kieswet); <br />c. het Europees Parlement (artikel Y9, eerste lid, Kieswet);* het adviseren van overheden, politieke partijen, media en burgers in verkiezingstijd en het optreden als deskundig adviseur in rechtsgedingen.",
     "legalSource": {
-      "label": "Kieswet",
-      "url": "https://wetten.overheid.nl/BWBR0004627"
+      "label": "Kieswet, artikel A 2",
+      "url": "https://wetten.overheid.nl/BWBR0004627#AfdelingI_HoofdstukA_Paragraaf2_ArtikelA2"
     },
     "website": "https://www.kiesraad.nl",
-    "established": null,
+    "established": "1917-12-14",
     "dissolved": null,
     "seatsCount": 7,
+    "images": [],
     "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+    "partOf": [
+      "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties"
+    ],
     "sources": [
       {
         "source": "src:kieswet",
@@ -53177,6 +53182,16 @@
         "source": "src:kiesraad-contactgids",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:roo-zbo-csv-organisaties",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:roo-zbo-export-xml",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
       }
     ]
   },
@@ -54415,21 +54430,28 @@
     "name": "Nederlandse Emissieautoriteit",
     "aliases": [
       "NEa",
-      "Nederlandse Emissieautoriteit"
+      "Nederlandse Emissieautoriteit",
+      "Nederlandse Emissieautoriteit (zbo)"
     ],
     "type": "department",
-    "subtype": "inspectie",
-    "branch": "regering",
+    "subtype": "zbo",
+    "branch": "zelfstandig",
     "level": "rijk",
     "country": "nederland",
-    "parent": "org:ministerie-van-economische-zaken-en-klimaat",
-    "partOf": [],
-    "description": null,
+    "description": "De Nederlandse Emissieautoriteit (NEa) is de onafhankelijke nationale autoriteit voor uitvoering van en toezicht op marktinstrumenten die bijdragen aan een klimaatneutrale samenleving. De NEa is een zogenaamd klein zelfstandig bestuursorgaan (zbo). Dat betekent dat het bestuur een zbo is, terwijl de werkorganisatie een agentschap van het Ministerie van Economische Zaken en Klimaat (EZK) is. De belangrijkste opdrachtgevers van de organisatie zijn de ministeries van EZK, Infrastructuur en Waterstaat (IenW) en Financiën (MinFin). De NEa is gevestigd in Den Haag en telt ruim 140 medewerkers.\n\nWettelijke taak: Ondersteunt de uitvoering van de emissiehandel (broeikasgassen) en toetst als onafhankelijk toezichthouder de naleving van de regels omtrent broeikasgassen.",
+    "legalSource": {
+      "label": "Wet milieubeheer, artikel 2.1",
+      "url": "https://wetten.overheid.nl/BWBR0003245#Hoofdstuk2_Paragraaf2.1_Artikel2.1"
+    },
     "website": "https://www.emissieautoriteit.nl",
     "established": "2012-01-01",
     "dissolved": null,
     "seatsCount": null,
     "images": [],
+    "parent": "org:ministerie-van-economische-zaken-en-klimaat",
+    "partOf": [
+      "org:ministerie-van-economische-zaken-en-klimaat"
+    ],
     "sources": [
       {
         "source": "src:ro-ezk-organogram",
@@ -54460,12 +54482,18 @@
         "source": "src:wet-bwbr0003245",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:roo-zbo-csv-organisaties",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:roo-zbo-export-xml",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
       }
-    ],
-    "legalSource": {
-      "label": "Kaderwet zelfstandige bestuursorganen",
-      "url": "https://wetten.overheid.nl/BWBR0020495"
-    }
+    ]
   },
   {
     "id": "org:nederlandse-voedsel-en-warenautoriteit",
@@ -68080,50 +68108,6 @@
     ]
   },
   {
-    "id": "org:zbo-kiesraad",
-    "slug": "zbo-kiesraad",
-    "name": "Kiesraad",
-    "aliases": [
-      "Kiesraad (zbo)"
-    ],
-    "type": "department",
-    "subtype": "zbo",
-    "branch": "zelfstandig",
-    "level": "rijk",
-    "country": "nederland",
-    "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
-    "partOf": [
-      "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties"
-    ],
-    "description": "De Kiesraad is verantwoordelijk voor de verkiezingen in Nederland en ziet erop toe dat deze eerlijk en transparant verlopen.\n\nWettelijke taak: De Kiesraad heeft de volgende taken:* het adviseren van de regering en de beide Kamers der Staten-Generaal over uitvoeringstechnische aangelegenheden die het kiesrecht of de verkiezingen betreffen (artikel A2 Kieswet);* het als centraal stembureau optreden voor de verkiezingen van de leden van:<br />a. de Tweede Kamer (artikel E II, tweede lid, Kieswet); <br />b. de Eerste Kamer (artikel S I, eerste lid, Kieswet); <br />c. het Europees Parlement (artikel Y9, eerste lid, Kieswet);* het adviseren van overheden, politieke partijen, media en burgers in verkiezingstijd en het optreden als deskundig adviseur in rechtsgedingen.",
-    "legalSource": {
-      "label": "Kieswet, artikel A 2",
-      "url": "https://wetten.overheid.nl/BWBR0004627#AfdelingI_HoofdstukA_Paragraaf2_ArtikelA2"
-    },
-    "website": "https://www.kiesraad.nl",
-    "established": "1917-12-14",
-    "dissolved": null,
-    "seatsCount": null,
-    "images": [],
-    "sources": [
-      {
-        "source": "src:roo-zbo-csv-organisaties",
-        "retrieved": "2026-09-18",
-        "confidence": "high"
-      },
-      {
-        "source": "src:roo-zbo-export-xml",
-        "retrieved": "2026-09-18",
-        "confidence": "high"
-      },
-      {
-        "source": "src:kieswet",
-        "retrieved": "2026-09-18",
-        "confidence": "high"
-      }
-    ]
-  },
-  {
     "id": "org:zbo-klassenbureaus-scheepvaart",
     "slug": "zbo-klassenbureaus-scheepvaart",
     "name": "Klassenbureaus Scheepvaart",
@@ -68792,51 +68776,6 @@
       },
       {
         "source": "src:wet-bwbr0005682",
-        "retrieved": "2026-09-18",
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "id": "org:zbo-nederlandse-emissieautoriteit",
-    "slug": "zbo-nederlandse-emissieautoriteit",
-    "name": "Nederlandse Emissieautoriteit",
-    "aliases": [
-      "NEa",
-      "Nederlandse Emissieautoriteit (zbo)"
-    ],
-    "type": "department",
-    "subtype": "zbo",
-    "branch": "zelfstandig",
-    "level": "rijk",
-    "country": "nederland",
-    "parent": "org:ministerie-van-economische-zaken-en-klimaat",
-    "partOf": [
-      "org:ministerie-van-economische-zaken-en-klimaat"
-    ],
-    "description": "De Nederlandse Emissieautoriteit (NEa) is de onafhankelijke nationale autoriteit voor uitvoering van en toezicht op marktinstrumenten die bijdragen aan een klimaatneutrale samenleving. De NEa is een zogenaamd klein zelfstandig bestuursorgaan (zbo). Dat betekent dat het bestuur een zbo is, terwijl de werkorganisatie een agentschap van het Ministerie van Economische Zaken en Klimaat (EZK) is. De belangrijkste opdrachtgevers van de organisatie zijn de ministeries van EZK, Infrastructuur en Waterstaat (IenW) en Financiën (MinFin). De NEa is gevestigd in Den Haag en telt ruim 140 medewerkers.\n\nWettelijke taak: Ondersteunt de uitvoering van de emissiehandel (broeikasgassen) en toetst als onafhankelijk toezichthouder de naleving van de regels omtrent broeikasgassen.",
-    "legalSource": {
-      "label": "Wet milieubeheer, artikel 2.1",
-      "url": "https://wetten.overheid.nl/BWBR0003245#Hoofdstuk2_Paragraaf2.1_Artikel2.1"
-    },
-    "website": "https://www.emissieautoriteit.nl",
-    "established": "2012-01-01",
-    "dissolved": null,
-    "seatsCount": null,
-    "images": [],
-    "sources": [
-      {
-        "source": "src:roo-zbo-csv-organisaties",
-        "retrieved": "2026-09-18",
-        "confidence": "high"
-      },
-      {
-        "source": "src:roo-zbo-export-xml",
-        "retrieved": "2026-09-18",
-        "confidence": "high"
-      },
-      {
-        "source": "src:wet-bwbr0003245",
         "retrieved": "2026-09-18",
         "confidence": "high"
       }

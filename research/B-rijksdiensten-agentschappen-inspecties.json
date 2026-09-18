@@ -1444,18 +1444,24 @@
         "NEa"
       ],
       "type": "department",
-      "subtype": "inspectie",
-      "branch": "regering",
+      "subtype": "zbo",
+      "branch": "zelfstandig",
       "level": "rijk",
       "country": "nederland",
-      "parent": "org:ministerie-van-economische-zaken-en-klimaat",
-      "partOf": [],
-      "description": null,
+      "description": "De Nederlandse Emissieautoriteit (NEa) is de onafhankelijke nationale autoriteit voor uitvoering van en toezicht op marktinstrumenten die bijdragen aan een klimaatneutrale samenleving. De NEa is een zogenaamd klein zelfstandig bestuursorgaan (zbo). Dat betekent dat het bestuur een zbo is, terwijl de werkorganisatie een agentschap van het Ministerie van Economische Zaken en Klimaat (EZK) is. De belangrijkste opdrachtgevers van de organisatie zijn de ministeries van EZK, Infrastructuur en Waterstaat (IenW) en Financiën (MinFin). De NEa is gevestigd in Den Haag en telt ruim 140 medewerkers.\n\nWettelijke taak: Ondersteunt de uitvoering van de emissiehandel (broeikasgassen) en toetst als onafhankelijk toezichthouder de naleving van de regels omtrent broeikasgassen.",
+      "legalSource": {
+        "label": "Wet milieubeheer, artikel 2.1",
+        "url": "https://wetten.overheid.nl/BWBR0003245/2026-06-20#Hoofdstuk2_Paragraaf2.1_Artikel2.1"
+      },
       "website": "https://www.emissieautoriteit.nl",
       "established": "2012-01-01",
       "dissolved": null,
       "seatsCount": null,
       "images": [],
+      "parent": "org:ministerie-van-economische-zaken-en-klimaat",
+      "partOf": [
+        "org:ministerie-van-economische-zaken-en-klimaat"
+      ],
       "sources": [
         {
           "source": "src:ro-ezk-organogram",
@@ -1486,12 +1492,18 @@
           "source": "src:wet-bwbr0003245",
           "retrieved": "2026-09-18",
           "confidence": "high"
+        },
+        {
+          "source": "src:roo-zbo-csv-organisaties",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
+        },
+        {
+          "source": "src:roo-zbo-export-xml",
+          "retrieved": "2026-09-18",
+          "confidence": "high"
         }
-      ],
-      "legalSource": {
-        "label": "Kaderwet zelfstandige bestuursorganen",
-        "url": "https://wetten.overheid.nl/BWBR0020495"
-      }
+      ]
     },
     {
       "id": "org:rijksinspectie-digitale-infrastructuur",
@@ -3589,6 +3601,11 @@
         {
           "source": "src:register-28251525",
           "retrieved": "2026-09-17",
+          "confidence": "high"
+        },
+        {
+          "source": "src:roo-zbo-export-xml",
+          "retrieved": "2026-09-18",
           "confidence": "high"
         }
       ]

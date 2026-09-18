@@ -3528,43 +3528,6 @@
       ]
     },
     {
-      "id": "org:zbo-kiesraad",
-      "slug": "zbo-kiesraad",
-      "name": "Kiesraad",
-      "aliases": [],
-      "type": "department",
-      "subtype": "zbo",
-      "branch": "zelfstandig",
-      "level": "rijk",
-      "country": "nederland",
-      "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
-      "partOf": [
-        "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties"
-      ],
-      "description": "De Kiesraad is verantwoordelijk voor de verkiezingen in Nederland en ziet erop toe dat deze eerlijk en transparant verlopen.\n\nWettelijke taak: De Kiesraad heeft de volgende taken:* het adviseren van de regering en de beide Kamers der Staten-Generaal over uitvoeringstechnische aangelegenheden die het kiesrecht of de verkiezingen betreffen (artikel A2 Kieswet);* het als centraal stembureau optreden voor de verkiezingen van de leden van:<br />a. de Tweede Kamer (artikel E II, tweede lid, Kieswet); <br />b. de Eerste Kamer (artikel S I, eerste lid, Kieswet); <br />c. het Europees Parlement (artikel Y9, eerste lid, Kieswet);* het adviseren van overheden, politieke partijen, media en burgers in verkiezingstijd en het optreden als deskundig adviseur in rechtsgedingen.",
-      "legalSource": {
-        "label": "Kieswet, artikel A 2",
-        "url": "https://wetten.overheid.nl/BWBR0004627/2025-08-01#AfdelingI_HoofdstukA_Paragraaf2_ArtikelA2"
-      },
-      "website": "https://www.kiesraad.nl",
-      "established": "1917-12-14",
-      "dissolved": null,
-      "seatsCount": null,
-      "images": [],
-      "sources": [
-        {
-          "source": "src:roo-zbo-csv-organisaties",
-          "retrieved": "2026-09-18",
-          "confidence": "high"
-        },
-        {
-          "source": "src:roo-zbo-export-xml",
-          "retrieved": "2026-09-18",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
       "id": "org:zbo-klassenbureaus-scheepvaart",
       "slug": "zbo-klassenbureaus-scheepvaart",
       "name": "Klassenbureaus Scheepvaart",
@@ -4323,45 +4286,6 @@
       },
       "website": "https://www.naktuinbouw.nl/",
       "established": "1966-01-01",
-      "dissolved": null,
-      "seatsCount": null,
-      "images": [],
-      "sources": [
-        {
-          "source": "src:roo-zbo-csv-organisaties",
-          "retrieved": "2026-09-18",
-          "confidence": "high"
-        },
-        {
-          "source": "src:roo-zbo-export-xml",
-          "retrieved": "2026-09-18",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "id": "org:zbo-nederlandse-emissieautoriteit",
-      "slug": "zbo-nederlandse-emissieautoriteit",
-      "name": "Nederlandse Emissieautoriteit",
-      "aliases": [
-        "NEa"
-      ],
-      "type": "department",
-      "subtype": "zbo",
-      "branch": "zelfstandig",
-      "level": "rijk",
-      "country": "nederland",
-      "parent": "org:ministerie-van-economische-zaken-en-klimaat",
-      "partOf": [
-        "org:ministerie-van-economische-zaken-en-klimaat"
-      ],
-      "description": "De Nederlandse Emissieautoriteit (NEa) is de onafhankelijke nationale autoriteit voor uitvoering van en toezicht op marktinstrumenten die bijdragen aan een klimaatneutrale samenleving. De NEa is een zogenaamd klein zelfstandig bestuursorgaan (zbo). Dat betekent dat het bestuur een zbo is, terwijl de werkorganisatie een agentschap van het Ministerie van Economische Zaken en Klimaat (EZK) is. De belangrijkste opdrachtgevers van de organisatie zijn de ministeries van EZK, Infrastructuur en Waterstaat (IenW) en Financiën (MinFin). De NEa is gevestigd in Den Haag en telt ruim 140 medewerkers.\n\nWettelijke taak: Ondersteunt de uitvoering van de emissiehandel (broeikasgassen) en toetst als onafhankelijk toezichthouder de naleving van de regels omtrent broeikasgassen.",
-      "legalSource": {
-        "label": "Wet milieubeheer, artikel 2.1",
-        "url": "https://wetten.overheid.nl/BWBR0003245/2026-06-20#Hoofdstuk2_Paragraaf2.1_Artikel2.1"
-      },
-      "website": "https://www.emissieautoriteit.nl",
-      "established": "2012-01-01",
       "dissolved": null,
       "seatsCount": null,
       "images": [],
@@ -10019,33 +9943,10 @@
       ]
     },
     {
-      "id": "pos:zbo-kiesraad-voorzitter",
-      "slug": "zbo-kiesraad-voorzitter",
-      "title": "Voorzitter Kiesraad",
-      "organization": "org:zbo-kiesraad",
-      "type": "dept_head",
-      "fillMethod": null,
-      "entryModes": [],
-      "termLengthMonths": null,
-      "seatsCount": 1,
-      "legalBasis": {
-        "label": "Kaderwet zelfstandige bestuursorganen",
-        "url": "https://wetten.overheid.nl/BWBR0020495"
-      },
-      "exOfficioOf": [],
-      "sources": [
-        {
-          "source": "src:roo-zbo-export-xml",
-          "retrieved": "2026-09-18",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
       "id": "pos:zbo-kiesraad-vicevoorzitter",
       "slug": "zbo-kiesraad-vicevoorzitter",
       "title": "Vicevoorzitter Kiesraad",
-      "organization": "org:zbo-kiesraad",
+      "organization": "org:kiesraad",
       "type": "dept_head",
       "fillMethod": null,
       "entryModes": [],
@@ -10068,7 +9969,7 @@
       "id": "pos:zbo-kiesraad-secretaris-directeur",
       "slug": "zbo-kiesraad-secretaris-directeur",
       "title": "Secretaris-directeur Kiesraad",
-      "organization": "org:zbo-kiesraad",
+      "organization": "org:kiesraad",
       "type": "dept_head",
       "fillMethod": null,
       "entryModes": [],
@@ -10091,7 +9992,7 @@
       "id": "pos:zbo-kiesraad-lid",
       "slug": "zbo-kiesraad-lid",
       "title": "Lid Kiesraad",
-      "organization": "org:zbo-kiesraad",
+      "organization": "org:kiesraad",
       "type": "commission",
       "fillMethod": null,
       "entryModes": [],
@@ -10261,29 +10162,6 @@
       "entryModes": [],
       "termLengthMonths": null,
       "seatsCount": 2,
-      "exOfficioOf": [],
-      "sources": [
-        {
-          "source": "src:roo-zbo-export-xml",
-          "retrieved": "2026-09-18",
-          "confidence": "high"
-        }
-      ]
-    },
-    {
-      "id": "pos:zbo-nederlandse-emissieautoriteit-directeur-bestuurder",
-      "slug": "zbo-nederlandse-emissieautoriteit-directeur-bestuurder",
-      "title": "Directeur-bestuurder Nederlandse Emissieautoriteit",
-      "organization": "org:zbo-nederlandse-emissieautoriteit",
-      "type": "dept_head",
-      "fillMethod": null,
-      "entryModes": [],
-      "termLengthMonths": null,
-      "seatsCount": 1,
-      "legalBasis": {
-        "label": "Kaderwet zelfstandige bestuursorganen",
-        "url": "https://wetten.overheid.nl/BWBR0020495"
-      },
       "exOfficioOf": [],
       "sources": [
         {
@@ -14698,25 +14576,6 @@
       }
     },
     {
-      "id": "tenure:zbo-kiesraad-wim-kuijken-voorzitter",
-      "person": "person:wim-kuijken",
-      "position": "pos:zbo-kiesraad-voorzitter",
-      "seat": null,
-      "start": "2021-01-01",
-      "end": null,
-      "acting": false,
-      "entryMode": "benoemd",
-      "appointedBy": null,
-      "predecessor": null,
-      "successor": null,
-      "endReason": null,
-      "source": {
-        "source": "src:roo-zbo-export-xml",
-        "retrieved": "2026-09-18",
-        "confidence": "high"
-      }
-    },
-    {
       "id": "tenure:zbo-kiesraad-hestia-reukema-gevers-vicevoorzitter",
       "person": "person:hestia-reukema-gevers",
       "position": "pos:zbo-kiesraad-vicevoorzitter",
@@ -15080,7 +14939,7 @@
     {
       "id": "tenure:zbo-nederlandse-emissieautoriteit-mark-bressers-directeur-bestuurder",
       "person": "person:mark-bressers",
-      "position": "pos:zbo-nederlandse-emissieautoriteit-directeur-bestuurder",
+      "position": "pos:nederlandse-emissieautoriteit-directeur-bestuurder",
       "seat": null,
       "start": "2020-01-01",
       "end": null,
@@ -17397,7 +17256,7 @@
     {
       "id": "rel:oversees-zbo-kiesraad",
       "from": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
-      "to": "org:zbo-kiesraad",
+      "to": "org:kiesraad",
       "type": "oversees",
       "metadata": {
         "instrument": "relatieMet ministerie",
@@ -17733,7 +17592,7 @@
     {
       "id": "rel:oversees-zbo-nederlandse-emissieautoriteit",
       "from": "org:ministerie-van-economische-zaken-en-klimaat",
-      "to": "org:zbo-nederlandse-emissieautoriteit",
+      "to": "org:nederlandse-emissieautoriteit",
       "type": "oversees",
       "metadata": {
         "instrument": "relatieMet ministerie",
