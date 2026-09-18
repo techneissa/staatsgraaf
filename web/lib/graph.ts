@@ -87,6 +87,21 @@ export type PowerMap = {
   people: PowerMapPerson[];
 };
 
+export type EntityPowerPerson = {
+  person: string;
+  slug: string;
+  name: string;
+  job: string | null;
+  party: string | null;
+  image: string | null;
+  total: number;
+  recent: number;
+  latest: { date: string | null; headline: string | null; source: string | null };
+};
+
+/** Per-entity lists of people in the news, ranked by mentions within the window. */
+export type EntityPowerMap = Record<string, EntityPowerPerson[]>;
+
 export type GraphBundle = {
   schema: string;
   scope: string;
@@ -96,6 +111,10 @@ export type GraphBundle = {
   nodes: BundleNode[];
   edges: BundleEdge[];
   powerMap: PowerMap;
+  /** Maps entity ids (org:, person:, pos:) to their people-in-the-news ranking. */
+  entityPowerMap: EntityPowerMap;
+  /** Maps person slugs to person ids so entity pages can resolve their id. */
+  personSlugs: Record<string, string>;
 };
 
 export type SubSectorInfo = {

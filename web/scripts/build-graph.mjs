@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { GRAPH_LAYOUT, GRAPH_SCHEMA } from "../lib/graph.ts";
 
 const DATA_DIR = fileURLToPath(new URL("../../data/", import.meta.url));
+const WINDOW_DAYS = 90;
 const OUT_DIR = fileURLToPath(new URL("../public/", import.meta.url));
 const OUT_FILE = fileURLToPath(new URL("../public/graph.json", import.meta.url));
 
@@ -185,6 +186,90 @@ function buildPowerMap() {
   };
 }
 
+function buildEntityPowerMap(entityLimit = 8) {
+  const snapshotDay = dayNumber(snapshot);
+  const sinceDay = snapshotDay === null ? null : snapshotDay - WINDOW_DAYS;
+  if (news.length === 0 || sinceDay === null) return { map: {}, personSlugs: {} };
+
+  const currentTenure = new Map();
+  for (const tenure of tenures) {
+    if (tenure.end !== null) continue;
+    if (!currentTenure.has(tenure.person)) currentTenure.set(tenure.person, tenure);
+  }
+
+  const perEntity = new Map();
+  const personSlugs = {};
+  for (const item of news) {
+    const day = dayNumber(item.published);
+    if (day === null || day < sinceDay) continue;
+    if (snapshotDay !== null && day > snapshotDay) continue;
+    const entities = Array.isArray(item.entities) ? item.entities : [];
+    const personIds = entities.filter(
+      (entity) => typeof entity === "string" && entity.startsWith("person:") && peopleById.has(entity),
+    );
+    if (personIds.length === 0) continue;
+    for (const entity of entities) {
+      if (typeof entity !== "string") continue;
+      if (!isOrgId(entity) && !entity.startsWith("person:") && !entity.startsWith("pos:")) continue;
+      let tally = perEntity.get(entity);
+      if (!tally) {
+        tally = { counts: new Map(), latest: new Map(), weeks: new Map() };
+        perEntity.set(entity, tally);
+      }
+      for (const personId of personIds) {
+        tally.counts.set(personId, (tally.counts.get(personId) ?? 0) + 1);
+        const previous = tally.latest.get(personId);
+        if (!previous || (item.published && item.published > previous.published)) {
+          tally.latest.set(personId, item.published ?? null);
+        }
+        const list = tally.weeks.get(personId) ?? new Array(2).fill(0);
+        const week = Math.min(1, Math.max(0, Math.floor((day - (snapshotDay - 14)) / 7)));
+        list[week] += 1;
+        tally.weeks.set(personId, list);
+      }
+    }
+  }
+
+  const map = {};
+  for (const [entity, tally] of perEntity) {
+    const ranked = [...tally.counts.entries()]
+      .map(([personId, total]) => {
+        const person = peopleById.get(personId);
+        if (!person) return null;
+        const slug = person.slug;
+        personSlugs[slug] = personId;
+        const tenure = currentTenure.get(personId) ?? null;
+        const position = tenure ? positionsById.get(tenure.position) ?? null : null;
+        const portraitId = person.portrait;
+        const imageItem = portraitId ? mediaById.get(portraitId) : null;
+        const weekList = tally.weeks.get(personId) ?? [0, 0];
+        const latest = tally.latest.get(personId) ?? null;
+        return {
+          person: personId,
+          slug,
+          name: person.name,
+          job: position?.title ?? null,
+          party: person.party ?? null,
+          image: imageItem?.url ?? null,
+          total,
+          recent: weekList[1] ?? 0,
+          latest: {
+            date: latest ? latest.slice(0, 10) : null,
+            headline: null,
+            source: null,
+          },
+        };
+      })
+      .filter(Boolean)
+      .sort((a, b) => b.total - a.total || b.recent - a.recent || (a.name < b.name ? -1 : 1))
+      .slice(0, entityLimit);
+    if (ranked.length > 0) map[entity] = ranked;
+  }
+  return { map, personSlugs };
+}
+
+const { map: entityPowerMap, personSlugs } = buildEntityPowerMap();
+
 const bundle = {
   schema: GRAPH_SCHEMA,
   scope: "nl-rijk",
@@ -194,6 +279,8 @@ const bundle = {
   nodes,
   edges,
   powerMap: buildPowerMap(),
+  entityPowerMap,
+  personSlugs,
 };
 
 mkdirSync(OUT_DIR, { recursive: true });
@@ -205,5 +292,6 @@ const sources = bundle.powerMap.sources.length;
 console.log(
   `graph.json: ${nodes.length} nodes, ${edges.length} edges, ${bytes} bytes, ` +
     `${(bytes / 1024).toFixed(1)} KiB, power-map people ${bundle.powerMap.people.length}, ` +
+    `entity power maps ${Object.keys(entityPowerMap).length}, ` +
     `sources ${sources}, articles ${bundle.powerMap.articleCount}`,
 );
