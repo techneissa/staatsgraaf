@@ -2,11 +2,13 @@
   "name": "nl-overheid-graph-web",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "tokens": "node scripts/build-tokens.mjs",
-    "predev": "npm run tokens && node scripts/build-graph.mjs",
+    "build-dataset": "node scripts/build-dataset.mjs",
+    "predev": "npm run tokens && node scripts/build-graph.mjs && node scripts/build-search-index.mjs && node scripts/build-dataset.mjs",
     "dev": "next dev",
-    "prebuild": "npm run tokens && node scripts/build-graph.mjs",
+    "prebuild": "npm run tokens && node scripts/build-graph.mjs && node scripts/build-search-index.mjs && node scripts/build-dataset.mjs",
     "build": "next build",
     "typecheck": "tsc --noEmit",
     "check:contrast": "node scripts/check-contrast.mjs"

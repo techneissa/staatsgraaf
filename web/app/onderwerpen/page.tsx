@@ -2,15 +2,17 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { TopicCard } from "@/components/topic/topic-card";
-import { canonical, SITE_NAME } from "@/lib/site";
+import { getDatasetDate } from "@/lib/data";
+import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 import { countResponsibleOrganizations, getTopics } from "@/lib/topics";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Onderwerpen",
   description:
     "Cross-cutting onderwerpen in de Nederlandse rijksoverheid, elk met de organisaties en posities die verantwoordelijk zijn en een bron per gegeven.",
-  alternates: canonical("/onderwerpen/"),
-};
+  path: "/onderwerpen/",
+  snapshotDate: getDatasetDate(),
+});
 
 export default function TopicsPage() {
   const topics = getTopics();
@@ -18,6 +20,7 @@ export default function TopicsPage() {
     topic,
     organizationCount: countResponsibleOrganizations(topic),
   }));
+  const pageUrl = absoluteUrl("/onderwerpen/");
 
   return (
     <>
@@ -28,10 +31,11 @@ export default function TopicsPage() {
           name: `Onderwerpen · ${SITE_NAME}`,
           description:
             "Cross-cutting onderwerpen in de Nederlandse rijksoverheid met verantwoordelijke organisaties.",
+          ...(pageUrl !== undefined ? { url: pageUrl } : {}),
         }}
       />
 
-      <Breadcrumb items={[{ label: "NL Overheid Graph", href: "/" }, { label: "Onderwerpen" }]} />
+      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Onderwerpen" }]} />
 
       <header className="mt-4 border-b border-line pb-6">
         <h1 className="text-2xl font-semibold tracking-tight text-ink">Onderwerpen</h1>

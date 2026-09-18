@@ -118,7 +118,7 @@ export function ChangeExplorer({
           <Tabs.Content
             key={pane.days}
             value={String(pane.days)}
-            className="mt-4 focus-visible:outline-none"
+            className="mt-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
           >
             <ChangeHistogram buckets={pane.histogram} days={pane.days} total={pane.total} />
 

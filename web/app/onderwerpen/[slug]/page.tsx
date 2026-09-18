@@ -4,8 +4,9 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { ResponsibleList } from "@/components/topic/responsible-list";
 import { TopicNews } from "@/components/topic/topic-news";
-import { canonical, SITE_NAME } from "@/lib/site";
-import { getTopicBySlug, getTopicNews, getTopics } from "@/lib/topics";
+import { getDatasetDate } from "@/lib/data";
+import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
+import { countTopicNews, getTopicBySlug, getTopicNews, getTopics } from "@/lib/topics";
 
 export const dynamicParams = false;
 
@@ -24,12 +25,12 @@ export async function generateMetadata({
   const description =
     topic.description ??
     `Wie is verantwoordelijk voor ${topic.name}? Organisaties en posities uit de Nederlandse rijksoverheid, met een bron per gegeven.`;
-  return {
+  return pageMetadata({
     title: topic.name,
     description,
-    alternates: canonical(`/onderwerpen/${topic.slug}/`),
-    openGraph: { title: topic.name, description },
-  };
+    path: `/onderwerpen/${topic.slug}/`,
+    snapshotDate: getDatasetDate(),
+  });
 }
 
 export default async function TopicPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -38,6 +39,8 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
   if (!topic) notFound();
 
   const news = getTopicNews(topic);
+  const newsTotal = countTopicNews(topic);
+  const pageUrl = absoluteUrl(`/onderwerpen/${topic.slug}/`);
 
   return (
     <>
@@ -47,12 +50,13 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
           "@type": "CollectionPage",
           name: `${topic.name} · ${SITE_NAME}`,
           ...(topic.description !== null ? { description: topic.description } : {}),
+          ...(pageUrl !== undefined ? { url: pageUrl } : {}),
         }}
       />
 
       <Breadcrumb
         items={[
-          { label: "NL Overheid Graph", href: "/" },
+          { label: SITE_NAME, href: "/" },
           { label: "Onderwerpen", href: "/onderwerpen/" },
           { label: topic.name },
         ]}
@@ -77,7 +81,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
         <h2 id="nieuws-titel" className="text-lg font-semibold tracking-tight text-ink">
           Nieuws
         </h2>
-        <TopicNews items={news} />
+        <TopicNews items={news} total={newsTotal} />
       </section>
     </>
   );

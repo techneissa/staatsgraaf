@@ -8,6 +8,6 @@ Aan de gegevens kunnen fouten zitten. Elke bewering hoort een bron te hebben; wa
 
 The data may contain errors. Every claim is meant to carry a source; where a source is missing, it is named as a gap. Always verify facts against the official source before relying on them.
 
-Correcties zijn welkom. Zie `CONTRIBUTING.md` zodra dat bestaat, of open een issue in de repository.
+Correcties zijn welkom. De procedure staat in `CONTRIBUTING.md`. Een openbaar contactadres en de publieke repository-URL zijn nog niet vastgelegd; dat is een benoemde leemte.
 
-Corrections are welcome. See `CONTRIBUTING.md` once it exists, or open an issue in the repository.
+Corrections are welcome. The process is in `CONTRIBUTING.md`. A public contact address and the public repository URL are not published yet; that is a named gap.

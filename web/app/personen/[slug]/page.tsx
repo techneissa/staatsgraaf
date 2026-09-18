@@ -13,6 +13,7 @@ import { PersonPortrait } from "@/components/entity/person-portrait";
 import { TenureTimeline } from "@/components/entity/tenure-timeline";
 import {
   getMembershipsForPerson,
+  getDatasetDate,
   getOrganizationById,
   getPeople,
   getPersonBySlug,
@@ -28,7 +29,8 @@ import {
   personPortraitId,
 } from "@/lib/entity";
 import { formatDate, formatPeriod } from "@/lib/format";
-import { canonical } from "@/lib/site";
+import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
+import type { Organization } from "@/lib/types";
 
 export const dynamicParams = false;
 
@@ -53,12 +55,12 @@ export async function generateMetadata({
     (role !== null
       ? `${person.name} is ${role.charAt(0).toLowerCase()}${role.slice(1)}. Bekijk de functies, lidmaatschappen en bronnen.`
       : `Functies, lidmaatschappen en bronnen van ${person.name}.`);
-  return {
+  return pageMetadata({
     title: person.name,
     description,
-    alternates: canonical(`/personen/${person.slug}/`),
-    openGraph: { title: person.name, description },
-  };
+    path: `/personen/${person.slug}/`,
+    snapshotDate: getDatasetDate(),
+  });
 }
 
 export default async function PersonPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -113,6 +115,26 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
     .map((tenure) => getPositionById(tenure.position)?.title)
     .filter((title): title is string => title !== undefined);
 
+  const currentOrganizationIds = new Set<string>();
+  for (const tenure of tenures) {
+    if (tenure.end !== null) continue;
+    const position = getPositionById(tenure.position);
+    if (position !== undefined) currentOrganizationIds.add(position.organization);
+  }
+  for (const membership of memberships) {
+    if (membership.end !== null) continue;
+    currentOrganizationIds.add(membership.organization);
+  }
+  const currentOrganizations: Organization[] = [...currentOrganizationIds]
+    .map((id) => getOrganizationById(id))
+    .filter((item): item is Organization => item !== undefined);
+
+  const pageUrl = absoluteUrl(`/personen/${person.slug}/`);
+  const sameAs = [
+    person.wikipedia,
+    person.wikidata !== null ? `https://www.wikidata.org/wiki/${person.wikidata}` : null,
+  ].filter((value): value is string => value !== null);
+
   const facts: EntityFact[] = [
     { label: "Partij", value: party },
     {
@@ -143,12 +165,22 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
           "@context": "https://schema.org",
           "@type": "Person",
           name: person.name,
+          ...(pageUrl !== undefined ? { url: pageUrl } : {}),
           ...(currentTitles.length > 0 ? { jobTitle: currentTitles } : {}),
           ...(birthDate !== null ? { birthDate } : {}),
+          ...(currentOrganizations.length > 0
+            ? {
+                worksFor: currentOrganizations.map((organization) => ({
+                  "@type": "GovernmentOrganization",
+                  name: organization.name,
+                })),
+              }
+            : {}),
+          ...(sameAs.length > 0 ? { sameAs } : {}),
         }}
       />
 
-      <Breadcrumb items={[{ label: "NL Overheid Graph", href: "/" }, { label: person.name }]} />
+      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: person.name }]} />
 
       <header className="mt-4 border-b border-line pb-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start">

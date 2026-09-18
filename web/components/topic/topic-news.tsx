@@ -2,7 +2,7 @@ import { EmptyState } from "@/components/empty-state";
 import { NewsCard } from "@/components/news-card";
 import type { NewsItem } from "@/lib/types";
 
-export function TopicNews({ items }: { items: NewsItem[] }) {
+export function TopicNews({ items, total }: { items: NewsItem[]; total?: number }) {
   if (items.length === 0) {
     return (
       <EmptyState
@@ -12,13 +12,22 @@ export function TopicNews({ items }: { items: NewsItem[] }) {
     );
   }
 
+  const count = total ?? items.length;
+
   return (
-    <ol className="mt-3 space-y-3">
-      {items.map((item) => (
-        <li key={item.id}>
-          <NewsCard item={item} />
-        </li>
-      ))}
-    </ol>
+    <>
+      {count > items.length ? (
+        <p className="mt-3 text-xs tabular-nums text-ink-faint">
+          {items.length} van {count} berichten weergegeven, de meest recente eerst.
+        </p>
+      ) : null}
+      <ol className="mt-3 space-y-3">
+        {items.map((item) => (
+          <li key={item.id}>
+            <NewsCard item={item} />
+          </li>
+        ))}
+      </ol>
+    </>
   );
 }
