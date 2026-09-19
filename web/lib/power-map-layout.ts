@@ -12,9 +12,9 @@ import { positionEn } from "./name-gloss";
  * card to the hub.
  *
  * The layout is deterministic and guarantees that no two card boxes overlap:
- * within a row the slot pitch always exceeds the sum of the two neighbouring
- * half widths plus a slot gap, and rows are stacked with a vertical gap that
- * accounts for the tallest card in each row.
+ * within a row the cards spread axis-outward with a slot gap between
+ * neighbouring cards, sized by each card's own half width, and rows are
+ * stacked with a vertical gap that accounts for the tallest card in each row.
  */
 
 export const POWER_HUB_RADIUS = 36;
@@ -26,8 +26,6 @@ export const POWER_MIN_PORTRAIT_RADIUS = 19;
 export const POWER_BOX_TOP_PAD = 3;
 export const POWER_NAME_CHAR = 6.9;
 export const POWER_META_CHAR = 5.7;
-export const POWER_MAX_NAME_CHARS = 20;
-export const POWER_MAX_META_CHARS = 24;
 export const POWER_LINK_BOW = 0.14;
 
 export type PowerMapCard = {
@@ -47,23 +45,16 @@ export type PowerMapCard = {
   slot: number;
 };
 
-export function truncateForPowerMap(text: string, max: number): string {
-  if (text.length <= max) return text;
-  return `${text.slice(0, max - 1).trimEnd()}…`;
-}
-
 export function powerMapMeta(
   person: PowerMapPerson,
   locale: "nl" | "en" = "nl",
 ): string {
   // In English, swap the Dutch position title for its established English
   // gloss when one exists; unknown titles keep the Dutch text (honest gap).
+  // Titles are never truncated: the card boxes grow to fit the full text.
   const job =
     locale === "en" ? positionEn(person.job) ?? person.job : person.job;
-  return truncateForPowerMap(
-    [person.party, job].filter(Boolean).join(" · "),
-    POWER_MAX_META_CHARS,
-  );
+  return [person.party, job].filter(Boolean).join(" · ");
 }
 
 export function powerMapCountLabel(total: number, locale: "nl" | "en"): string {
@@ -90,7 +81,7 @@ type CardPlan = {
 
 function planFor(person: PowerMapPerson, locale: "nl" | "en"): CardPlan {
   const radius = powerMapPortraitRadius(person.rank);
-  const name = truncateForPowerMap(person.name, POWER_MAX_NAME_CHARS);
+  const name = person.name;
   const meta = powerMapMeta(person, locale);
   const count = powerMapCountLabel(person.total, locale);
   const halfWidth = Math.max(
@@ -174,8 +165,6 @@ export function layoutPowerMap(
     const members = plans.slice(start, start + capacity);
     if (members.length === 0) break;
     const maxRadius = Math.max(...members.map((plan) => plan.radius));
-    const maxHalfWidth = Math.max(...members.map((plan) => plan.halfWidth));
-    const pitch = maxHalfWidth * 2 + POWER_SLOT_GAP;
 
     let rowY: number;
     if (row === 0) {
@@ -185,19 +174,33 @@ export function layoutPowerMap(
       cursor = rowY + Math.max(...members.map((plan) => plan.labelBottom)) + POWER_ROW_GAP;
     }
 
+    // Full titles change every card's width, so each side of the row places
+    // its cards axis-outward with a slot gap between neighbours instead of a
+    // fixed pitch sized by the widest card.
+    const positions: number[] = new Array(members.length);
+    if (members.length === 1) {
+      positions[0] = 0;
+    } else {
+      for (const side of [-1, 1]) {
+        for (let slot = side === -1 ? 0 : 1; slot < members.length; slot += 2) {
+          const width = members[slot].halfWidth;
+          positions[slot] =
+            slot <= 1
+              ? side * (width + POWER_SLOT_GAP / 2)
+              : side * (Math.abs(positions[slot - 2]) + members[slot - 2].halfWidth + POWER_SLOT_GAP + width);
+        }
+      }
+    }
+
     for (let slot = 0; slot < members.length; slot += 1) {
-      const side = slot % 2 === 0 ? -1 : 1;
-      const level = Math.floor(slot / 2) + 0.5;
-      const x = members.length === 1 ? 0 : side * level * pitch;
-      const plan = members[slot];
       cards.push({
         person: people[start + slot],
-        x,
+        x: members.length === 1 ? 0 : positions[slot],
         y: rowY,
-        radius: plan.radius,
-        halfWidth: plan.halfWidth,
-        labelTop: plan.labelTop,
-        labelBottom: plan.labelBottom,
+        radius: members[slot].radius,
+        halfWidth: members[slot].halfWidth,
+        labelTop: members[slot].labelTop,
+        labelBottom: members[slot].labelBottom,
         row,
         slot,
       });

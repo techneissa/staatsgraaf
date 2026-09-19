@@ -12,9 +12,7 @@ import {
   layoutPowerMap,
   powerMapLinkPath,
   powerMapMeta,
-  truncateForPowerMap,
   POWER_HUB_RADIUS,
-  POWER_MAX_NAME_CHARS,
 } from "@/lib/power-map-layout";
 
 type PowerMapViewProps = {
@@ -275,12 +273,9 @@ export function PowerMapView({ powerMap, entityPeople, entityTitle, entityHref }
               fill="var(--t-color-ink-faint)"
               style={{ fontSize: 10 }}
             >
-              {truncateForPowerMap(
-                entityScoped
-                  ? t("powerMapEntityCentreSubtitle", { n: people.length })
-                  : t("powerMapCentreSubtitle"),
-                20,
-              )}
+              {entityScoped
+                ? t("powerMapEntityCentreSubtitle", { n: people.length })
+                : t("powerMapCentreSubtitle")}
             </text>
           </g>
         </PersonLink>
@@ -344,7 +339,7 @@ export function PowerMapView({ powerMap, entityPeople, entityTitle, entityHref }
                     fill="var(--t-color-ink)"
                     style={{ fontSize: 12, fontWeight: 600 }}
                   >
-                    {truncateForPowerMap(person.name, POWER_MAX_NAME_CHARS)}
+                    {person.name}
                   </text>
                   <text
                     y={card.labelTop + 14}
