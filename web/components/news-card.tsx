@@ -6,9 +6,8 @@ import { SourceLink } from "./source-link";
 import { SourceRankLink } from "./news/source-rank-link";
 import { SourceArrow } from "./news/news-item-card";
 import { NewsPreviewTile } from "./news/news-preview";
-import { newsPreviewCaption } from "@/lib/news-preview";
 import { resolveNewsPreview, hostLabel } from "./news/news-view";
-import { plainMarkupText, summaryRepeatsTitle } from "@/lib/news-text";
+import { stripPublisherPrefix, stripTitleFromMarkup, summaryIsPublisherEcho } from "@/lib/news-text";
 import { getSourceById } from "@/lib/data";
 import { getMediaItem, mediaCreditLine } from "@/lib/entity";
 import { renderSummaryMarkup } from "@/lib/markup";
@@ -67,11 +66,10 @@ export function NewsCard({
     publisher: item.publisher,
     publisherKind: newsKind(item),
   });
-  const caption = newsPreviewCaption(preview);
-  const markupPlain = plainMarkupText(item.summaryMarkup);
-  const useMarkup = markupPlain !== null && !summaryRepeatsTitle(markupPlain, item.title);
-  const showPlainSummary =
-    !useMarkup && item.summary !== null && !summaryRepeatsTitle(item.summary, item.title);
+  const summaryMarkup = stripTitleFromMarkup(item.summaryMarkup, item.title);
+  const useMarkup = summaryMarkup !== null;
+  const plainSummary = stripPublisherPrefix(item.summary, item.title);
+  const showPlainSummary = !useMarkup && plainSummary !== "";
 
   return (
     <Tag className="group rounded-md border border-line bg-surface p-4 transition-fast hover:border-line-strong">
@@ -101,10 +99,10 @@ export function NewsCard({
           </div>
           {useMarkup ? (
             <p className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted">
-              {renderSummaryMarkup(item.summaryMarkup as string)}
+              {renderSummaryMarkup(summaryMarkup as string)}
             </p>
           ) : showPlainSummary ? (
-            <p className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted">{item.summary}</p>
+            <p className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted">{plainSummary}</p>
           ) : null}
           {entities.length > 0 ? (
             <LabeledList labelKey="cardMentionedLabel" className="mt-3 flex flex-wrap gap-2">
@@ -163,11 +161,6 @@ export function NewsCard({
             <span className="sr-only"> <T area="news" k="cardOpensNewTab" /></span>
           </a>
         </span>
-        {caption !== null ? (
-          <span className="basis-full text-[10px] leading-tight">
-            <T area="news" k="imageCreditLabel" /> {caption}
-          </span>
-        ) : null}
       </p>
       {sources.length > 0 ? (
         <ol className="mt-3 space-y-1 border-t border-line pt-2">

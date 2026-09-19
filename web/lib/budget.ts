@@ -26,6 +26,12 @@ export type BudgetOverviewItem = {
   current: AmountSet;
   previous: AmountSet | null;
   spendingDelta: BudgetDelta | null;
+  /** Share of the summed spending budget across all items, in percent, or null when not computable. */
+  sharePercent: number | null;
+  /** 1-based footnote numbers of the sources backing this record, in the order of the page source list. */
+  footnotes: number[];
+  /** First sentence of the organization description: a factual one-line summary, sourced with the organization. */
+  description: string | null;
 };
 
 export type BudgetTotals = {
@@ -45,6 +51,8 @@ export type BudgetOverview = {
   totals: BudgetTotals;
   previousTotals: BudgetTotals;
   spendingDelta: BudgetDelta | null;
+  /** Deduplicated sources for the page, in first-appearance order: the footnote list order. */
+  sources: SourceRef[];
 };
 
 export type BudgetHistoryRow = {
@@ -122,6 +130,30 @@ export function budgetDelta(
   return { absolute, percent };
 }
 
+/** The first sentence of a description: everything up to and including the first sentence-ending mark. */
+export function firstSentence(text: string | null | undefined): string | null {
+  if (!text) return null;
+  const match = text.match(/^[^.!?]*[.!?]/);
+  const sentence = match?.[0] ?? text;
+  return sentence.trim() || null;
+}
+
+/**
+ * The footnote numbers a record earns on the page: the 1-based position of each
+ * cited source in the deduplicated page source list, in list order.
+ */
+export function budgetFootnoteNumbers(
+  recordSources: SourceRef[],
+  pageSources: SourceRef[],
+): number[] {
+  const cited = new Set(recordSources.map((ref) => ref.source));
+  const numbers: number[] = [];
+  pageSources.forEach((ref, index) => {
+    if (cited.has(ref.source)) numbers.push(index + 1);
+  });
+  return numbers;
+}
+
 function sumAmounts(amounts: AmountSet[]): BudgetTotals {
   let spendingBudget: number | null = null;
   let spendingActual: number | null = null;
@@ -191,6 +223,9 @@ export function getBudgetOverview(): BudgetOverview {
       current,
       previous,
       spendingDelta: budgetDelta(current.spendingBudget, previous?.spendingBudget),
+      sharePercent: null,
+      footnotes: [],
+      description: firstSentence(organization.description),
     });
   }
 
@@ -207,20 +242,35 @@ export function getBudgetOverview(): BudgetOverview {
     .map((item) => item.previous)
     .filter((amount): amount is AmountSet => amount !== null);
   const previousTotals = sumAmounts(previousSets);
+  const sources = dedupeSources(items.map((item) => item.record));
+  const totalSpendingBudget = totals.spendingBudget;
+
+  const enriched = items.map((item) => ({
+    ...item,
+    sharePercent:
+      item.current.spendingBudget !== null &&
+      totalSpendingBudget !== null &&
+      totalSpendingBudget !== 0
+        ? (item.current.spendingBudget / totalSpendingBudget) * 100
+        : null,
+    footnotes: budgetFootnoteNumbers(item.record.sources, sources),
+    description: firstSentence(item.organization.description),
+  }));
 
   return {
     fiscalYear,
     previousFiscalYear,
     unit,
-    items,
+    items: enriched,
     totals,
     previousTotals,
     spendingDelta: budgetDelta(totals.spendingBudget, previousTotals.spendingBudget),
+    sources,
   };
 }
 
 export function getBudgetOverviewSources(overview: BudgetOverview): SourceRef[] {
-  return dedupeSources(overview.items.map((item) => item.record));
+  return overview.sources;
 }
 
 export function getBudgetOrganizations(): Organization[] {

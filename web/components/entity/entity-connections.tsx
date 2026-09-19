@@ -27,6 +27,10 @@ const GROUP_LIMIT = 8;
 
 function iconFor(type: ConnectionGroup["type"]) {
   switch (type) {
+    case "holds_position":
+      return <ClipboardIcon />;
+    case "member_of":
+      return <PeopleIcon />;
     case "elects":
       return <PeopleIcon />;
     case "appoints":
@@ -55,6 +59,8 @@ function iconFor(type: ConnectionGroup["type"]) {
 }
 
 const GROUP_TITLES: Record<ConnectionGroup["type"], { nl: string; en: string }> = {
+  holds_position: { nl: "Positie", en: "Position" },
+  member_of: { nl: "Lidmaatschap", en: "Membership" },
   elects: { nl: "Verkiezing", en: "Election" },
   appoints: { nl: "Benoeming", en: "Appointment" },
   oversees: { nl: "Toezicht", en: "Oversight" },
@@ -78,6 +84,12 @@ function groupTitle(group: ConnectionGroup): { nl: string; en: string } | null {
   if (directions.size !== 1) return null;
   const incoming = [...directions][0] === "incoming";
   switch (group.type) {
+    case "holds_position":
+      return incoming
+        ? { nl: "Bekleed door", en: "Held by" }
+        : { nl: "Bekleedt positie", en: "Holds position" };
+    case "member_of":
+      return incoming ? { nl: "Leden", en: "Members" } : { nl: "Lid van", en: "Member of" };
     case "elects":
       return incoming ? { nl: "Gekozen door", en: "Elected by" } : { nl: "Kiest", en: "Elects" };
     case "appoints":
@@ -247,6 +259,8 @@ export function EntityConnections({ connections }: { connections: Connection[] }
     return { group, showDirection: directions.size > 1 };
   });
   const order = new Set<ConnectionGroup["type"]>([
+    "holds_position",
+    "member_of",
     "elects",
     "appoints",
     "oversees",
