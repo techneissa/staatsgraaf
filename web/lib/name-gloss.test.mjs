@@ -175,8 +175,10 @@ describe("gloss coverage", () => {
       if (positionEn(record.title) !== null) hit += 1;
     }
     // At least 90% of current titles must be covered; the remainder are honest
-    // gaps rather than machine-translated guesses.
-    expect(hit / records.length).toBeGreaterThan(0.9);
+    // gaps rather than machine-translated guesses. 33 kingdom positions
+    // (statenlid, voorzitter, minister-president, landen-ministers) lack an
+    // established English gloss, so the threshold sits below their share.
+    expect(hit / records.length).toBeGreaterThan(0.85);
   });
 
   test("glosses most organisation names without inventing names", () => {
@@ -188,6 +190,9 @@ describe("gloss coverage", () => {
     for (const record of records) {
       if (orgEnGloss(record.name) !== null) hit += 1;
     }
-    expect(hit / records.length).toBeGreaterThan(0.8);
+    // 27 kingdom orgs (3 landstaten + 24 landen-ministeries) have no
+    // established English name; machine translation is deferred pending its
+    // own ADR, so the threshold sits below their share.
+    expect(hit / records.length).toBeGreaterThan(0.75);
   });
 });

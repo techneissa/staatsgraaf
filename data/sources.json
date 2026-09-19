@@ -5757,6 +5757,17 @@
     "notes": "Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/w_t_van_ballekom_vvd, geraadpleegd 2026-09-17."
   },
   {
+    "id": "src:electorale-raad-curacao",
+    "url": "https://kse.cw/verkiezingen",
+    "title": "Verkiezingen - Consejo Electoral (Electorale Raad van Curaçao)",
+    "publisher": "kse.cw",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "Search excerpt only: De Staten bestaat uit 21 leden; verkiezing van 21-03-2025. Licentie niet vastgesteld; endpoint: https://kse.cw/verkiezingen",
+    "archiveUrl": null
+  },
+  {
     "id": "src:gemeentewet",
     "url": "https://wetten.overheid.nl/BWBR0005416",
     "title": "Gemeentewet",
@@ -5826,6 +5837,61 @@
     "license": "CC0-1.0",
     "archiveUrl": null,
     "notes": "Gezondheidsraad is geregeld in de Gezondheidswet."
+  },
+  {
+    "id": "src:gobierno-aw-0103-ministers",
+    "url": "https://www.gobierno.aw/nl/0103-ministers",
+    "title": "Ministers - Gobierno di Aruba (rechtsgrond ministeries)",
+    "publisher": "gobierno.aw",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18), wijzigingen 2016 no. 76 en 2018 no. 22; PDF: https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/0103ab22.018.pdf Licentie niet vastgesteld; endpoint: https://www.gobierno.aw/nl/0103-ministers",
+    "archiveUrl": null
+  },
+  {
+    "id": "src:gobierno-aw-ministeries",
+    "url": "https://www.gobierno.aw/nl/ministeries",
+    "title": "Ministeries - Gobierno di Aruba",
+    "publisher": "gobierno.aw",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "Noemt 8 ministeries van Aruba; menu-slugs zijn verouderd ten opzichte van de genoemde namen. Licentie niet vastgesteld; endpoint: https://www.gobierno.aw/nl/ministeries",
+    "archiveUrl": null
+  },
+  {
+    "id": "src:gobierno-aw-regering",
+    "url": "https://www.gobierno.aw/nl/samenstelling-0",
+    "title": "Samenstelling regering - Gobierno di Aruba",
+    "publisher": "gobierno.aw",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "Kabinet AVP-Futuro met ingang van 28-03-2025; ministers worden benoemd door de Staten voor de zittingsduur van de Staten; maximaal negen ministers per Staatsregeling. Licentie niet vastgesteld; endpoint: https://www.gobierno.aw/nl/samenstelling-0",
+    "archiveUrl": null
+  },
+  {
+    "id": "src:gobierno-aw-staten",
+    "url": "https://www.gobierno.aw/nl/staten",
+    "title": "Staten - Gobierno di Aruba",
+    "publisher": "gobierno.aw",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "Staten is hoogste orgaan en volksvertegenwoordiging; leden gekozen voor 4 jaar; zittingsjaar begint op de tweede dinsdag van september. Licentie niet vastgesteld; endpoint: https://www.gobierno.aw/nl/staten",
+    "archiveUrl": null
+  },
+  {
+    "id": "src:gobiernu-ministeries",
+    "url": "https://gobiernu.cw/nl/ministeries/",
+    "title": "Ministeries - Gobiernu di Kòrsou",
+    "publisher": "gobiernu.cw",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "Noemt 9 ministeries van Curaçao. Licentie niet vastgesteld; endpoint: https://gobiernu.cw/nl/ministeries/",
+    "archiveUrl": null
   },
   {
     "id": "src:gouverneur-aruba",
@@ -9853,6 +9919,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd."
   },
   {
+    "id": "src:news-2c64784b",
+    "url": "https://www.parool.nl/ps/het-amsterdam-van-volt-fractievoorzitter-juliet-broersen-bij-snackbar-marja-hebben-ze-me-in-alle-staten-gezien-na-werk-verregend-brak~ba4286c0",
+    "title": "Het Amsterdam van Volt-fractievoorzitter Juliet Broersen: ‘Bij snackbar Marja hebben ze me in alle staten gezien: na werk, verregend, brak’",
+    "publisher": "Het Parool",
+    "type": "news",
+    "published": "2026-09-19",
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-2cfdc4af",
     "url": "https://www.ad.nl/buitenland/trump-weert-cnn-politico-en-msnbc-uit-het-witte-huis-na-beschuldigingen-van-nepnieuws~ae67dd9c",
     "title": "Trump weert CNN, Politico en MSNBC uit het Witte Huis na beschuldigingen van ‘nepnieuws’",
@@ -10453,6 +10531,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd."
   },
   {
+    "id": "src:news-34260db6",
+    "url": "https://www.ad.nl/show/tom-cruise-krijgt-les-van-taylor-swift-over-american-football-ze-heeft-er-verstand-van~a743c623b",
+    "title": "Tom Cruise krijgt les van Taylor Swift over American football: ‘Ze heeft er verstand van’",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-09-19",
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-3428ff57",
     "url": "https://www.rtl.nl/nieuws/binnenland/artikel/5651620/stichting-wil-gesprek-met-massadonor-simon-overweegt-rechtsgang",
     "title": "Stichting Donorkind wil afspraken met massadonor Simon, anders naar de rechter",
@@ -10823,6 +10913,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-3b09ebd9",
+    "url": "https://www.parool.nl/wereld/trump-meldt-akkoord-over-amerikaanse-controle-over-veiligheid-groenland~b26befe2",
+    "title": "Trump meldt akkoord over Amerikaanse controle over veiligheid Groenland",
+    "publisher": "Het Parool",
+    "type": "news",
+    "published": "2026-09-19",
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-3b13390",
@@ -12457,6 +12559,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd."
   },
   {
+    "id": "src:news-4e62a87c",
+    "url": "https://www.parool.nl/misdaad/bolle-jos-is-te-heet-geworden-ook-de-kartels-twijfelen-inmiddels-aan-zijn-vermogen-om-geld-voor-ze-te-verdienen~b58ee22d",
+    "title": "Bolle Jos is ‘te heet’ geworden: ook de kartels twijfelen inmiddels aan zijn vermogen om geld voor ze te verdienen",
+    "publisher": "Het Parool",
+    "type": "news",
+    "published": "2026-09-19",
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-4e8d7925",
     "url": "https://www.trouw.nl/onderwijs/vapen-en-midden-in-de-nacht-dronken-op-de-fatbike-hoe-ga-je-als-ouders-om-met-dwarse-pubers~b6316102",
     "title": "Vapen en midden in de nacht dronken op de fatbike: hoe ga je als ouders om met dwarse pubers?",
@@ -13513,30 +13627,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd."
   },
   {
-    "id": "src:news-5d0a6ba",
-    "url": "https://nos.nl/l/2631534",
-    "title": "Macron wil kritieke infrastructuur beter beschermen tegen Russische aanvallen",
-    "publisher": "NOS",
-    "type": "news",
-    "published": "2026-09-18",
-    "retrieved": "2026-09-18",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NOS. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-5d0a6bc",
-    "url": "https://nos.nl/l/2631536",
-    "title": "Niet drie maar acht dagen voedsel nodig in huis, waarschuwen onderzoekers",
-    "publisher": "NOS",
-    "type": "news",
-    "published": "2026-09-18",
-    "retrieved": "2026-09-18",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NOS. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-5d0a6be",
     "url": "https://nos.nl/l/2631538",
     "title": "Genoeg huurwoningen komen er voorlopig ook van grote investeerders niet",
@@ -13747,6 +13837,30 @@
     "publisher": "NOS",
     "type": "news",
     "published": "2026-09-18",
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NOS. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-5d0a77c",
+    "url": "https://nos.nl/l/2631590",
+    "title": "Russen naar stembus voor de Doema, maar kiezers hebben weinig te kiezen",
+    "publisher": "NOS",
+    "type": "news",
+    "published": "2026-09-19",
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NOS. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-5d0a77d",
+    "url": "https://nos.nl/l/2631591",
+    "title": "Verdachte van autobrand aangereden op A2 bij Maastricht",
+    "publisher": "NOS",
+    "type": "news",
+    "published": "2026-09-19",
     "retrieved": "2026-09-19",
     "license": "all-rights-reserved",
     "archiveUrl": null,
@@ -14027,6 +14141,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd."
+  },
+  {
+    "id": "src:news-60c36f30",
+    "url": "https://www.ad.nl/buitenland/luchtalarm-en-explosies-in-saoedische-hoofdstad-riyad-terwijl-conflict-met-houthis-escaleert~ac528ac3",
+    "title": "Luchtalarm en explosies in Saoedische hoofdstad Riyad, terwijl conflict met Houthi’s escaleert",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-09-19",
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-60c80770",
@@ -15047,18 +15173,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-6ce6d8af",
-    "url": "https://www.parool.nl/wereld/trump-weert-cnn-politico-en-msnow-uit-het-witte-huis~b29af9e0",
-    "title": "Trump weert CNN, Politico en MSNOW uit het Witte Huis",
-    "publisher": "Het Parool",
-    "type": "news",
-    "published": "2026-09-18",
-    "retrieved": "2026-09-18",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-6d124102",
@@ -16513,18 +16627,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-7f0fe3c8",
-    "url": "https://www.parool.nl/amsterdam/aanhoudingen-voor-mensenhandel-en-mensensmokkel-bij-indiase-restaurantketens-die-ook-in-amsterdam-zitten~b72dcfc4",
-    "title": "Aanhoudingen voor mensenhandel en mensensmokkel bij Indiase restaurantketens die ook in Amsterdam zitten",
-    "publisher": "Het Parool",
-    "type": "news",
-    "published": "2026-09-18",
-    "retrieved": "2026-09-18",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-7f54679",
     "url": "https://sargasso.nl/jurja-steenmeijer-autonome-professionals-zijn-betere-professionals",
     "title": "Jurja Steenmeijer: autonome professionals zijn betere professionals",
@@ -17593,18 +17695,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd."
   },
   {
-    "id": "src:news-8d114446",
-    "url": "https://www.ad.nl/wielrennen/pepijn-reinderink-volgende-nederlandse-ritwinnaar-in-de-ronde-van-luxemburg~a6e15fbc",
-    "title": "Pepijn Reinderink volgende Nederlandse ritwinnaar in de Ronde van Luxemburg",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-09-18",
-    "retrieved": "2026-09-18",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-8d434ee2",
     "url": "https://www.nu.nl/misdaad/6410207/doelwit-jan-g-van-aanval-in-overasselt-opgepakt-voor-cocainesmokkel.html",
     "title": "Doelwit Jan G. van aanval in Overasselt opgepakt voor cocaïnesmokkel",
@@ -17807,6 +17897,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-910ea7d0",
+    "url": "https://www.parool.nl/ps/journalist-malou-25-wil-zich-na-voorval-minder-onveilig-voelen-en-volgt-zelfverdedigingsles-de-man-in-het-joggingpak-bleef-maar-opduiken-op-dat-verlaten-bedrijventerrein-bij-sloterdijk~b53b0a8e",
+    "title": "Journalist Malou (25) wil zich na voorval minder onveilig voelen en volgt zelfverdedigingsles: ‘De man in het joggingpak bleef maar opduiken op dat verlaten bedrijventerrein bij Sloterdijk’",
+    "publisher": "Het Parool",
+    "type": "news",
+    "published": "2026-09-19",
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-9114cae9",
@@ -18083,18 +18185,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd."
-  },
-  {
-    "id": "src:news-94ae2eb1",
-    "url": "https://www.ad.nl/voetbal/tyrell-malacia-27-tekent-contract-bij-fc-cincinnati-in-de-mls~ad62a25a",
-    "title": "Tyrell Malacia (27) tekent contract bij FC Cincinnati in de MLS",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-09-18",
-    "retrieved": "2026-09-18",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-94bd5ad1",
@@ -20017,18 +20107,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd."
   },
   {
-    "id": "src:news-adfac5c8",
-    "url": "https://www.parool.nl/amsterdam/voor-het-laatst-de-batavia-vaart-dit-weekend-dwars-door-amsterdam-om-opgeknapt-te-worden~bc41e7cd",
-    "title": "Voor het laatst: de Batavia vaart dit weekend dwars door Amsterdam om opgeknapt te worden",
-    "publisher": "Het Parool",
-    "type": "news",
-    "published": "2026-09-18",
-    "retrieved": "2026-09-18",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-ae18be1a",
     "url": "https://www.rtl.nl/boulevard/artikel/5651277/harry-mens-emotioneel-business-class-na-video-over-pim-fortuyn",
     "title": "Harry Mens schiet vol in Business Class bij oude beelden met Pim Fortuyn",
@@ -20915,18 +20993,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd."
-  },
-  {
-    "id": "src:news-b91acb57",
-    "url": "https://www.parool.nl/kunst-media/jorgen-tjon-a-fong-verruilt-amsterdamse-kunstraad-voor-raad-van-cultuur~bbdea9a5",
-    "title": "Jörgen Tjon A Fong verruilt Amsterdamse Kunstraad voor Raad van Cultuur",
-    "publisher": "Het Parool",
-    "type": "news",
-    "published": "2026-09-18",
-    "retrieved": "2026-09-18",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-b98f078e",
@@ -22067,18 +22133,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd."
-  },
-  {
-    "id": "src:news-c5a9c8a9",
-    "url": "https://www.parool.nl/misdaad/amsterdamse-ambtenaar-jim-b-leverde-adressen-voor-95-geweldsincidenten-van-36-bomaanslagen-tot-twee-moordpogingen~b2507748",
-    "title": "Amsterdamse ambtenaar Jim B. leverde adressen voor 95 geweldsincidenten: van 36 bomaanslagen tot twee moordpogingen",
-    "publisher": "Het Parool",
-    "type": "news",
-    "published": "2026-09-18",
-    "retrieved": "2026-09-18",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-c5cee643",
@@ -23495,18 +23549,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd."
-  },
-  {
-    "id": "src:news-d9285d7d",
-    "url": "https://www.ad.nl/voorne-aan-zee/opeens-wonen-hans-60-en-ineke-59-langs-een-racebaan-door-suurhoffbrug-problemen-dit-kan-echt-niet~a4f12edb",
-    "title": "Opeens wonen Hans (60) en Ineke (59) langs een racebaan door Suurhoffbrug-problemen: ‘Dit kan écht niet’",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-09-18",
-    "retrieved": "2026-09-18",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-d92c2124",
@@ -25129,6 +25171,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd."
   },
   {
+    "id": "src:news-ef5001b4",
+    "url": "https://www.trouw.nl/buitenland/live-oorlog-midden-oosten-luchtalarm-en-explosies-in-saoedische-hoofdstad-riyad~b4cda6da",
+    "title": "Luchtalarm en explosies in Saoedische hoofdstad Riyad",
+    "publisher": "Trouw",
+    "type": "news",
+    "published": "2026-09-19",
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-ef666c27",
     "url": "https://www.rtl.nl/boulevard/artikel/5651690/michael-en-jeffrey-beginnen-het-roer-om-opnieuw-na-jaren-schuldsanering",
     "title": "Michael en Jeffrey beginnen in Het Roer Om opnieuw na jaren schuldsanering: 'Hebben het met minder moeten doen'",
@@ -25957,6 +26011,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd."
   },
   {
+    "id": "src:news-fbecd7ee",
+    "url": "https://www.parool.nl/ps/bo-het-eenvoudige-zusje-van-sterrenzaak-bougainville-is-lang-niet-zo-betaalbaar-als-het-belooft-6~b6156a54",
+    "title": "Bo, het eenvoudige zusje van sterrenzaak Bougainville, is lang niet zo betaalbaar als het belooft (6)",
+    "publisher": "Het Parool",
+    "type": "news",
+    "published": "2026-09-19",
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-fc02672b",
     "url": "https://www.rtl.nl/nieuws/binnenland/artikel/5652027/illegaal-vuurwerk-onderschept-verdachten-opgepakt",
     "title": "Transporten met duizenden kilo's illegaal vuurwerk onderschept, 8 verdachten opgepakt",
@@ -26039,6 +26105,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-fcdde26b",
+    "url": "https://www.ad.nl/voetbal/inter-legende-sandro-mazzola-83-overleden-hij-wilde-herinnerd-worden-als-een-goede-man~a568d827",
+    "title": "Inter-legende Sandro Mazzola (83) overleden: ‘Hij wilde herinnerd worden als een goede man’",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-09-19",
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-fd0d7684",
@@ -26471,6 +26549,39 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Locates the daily exportOO XML files and the per-category CSV downloads used by this workstream."
+  },
+  {
+    "id": "src:parlamento-aruba",
+    "url": "https://www.parlamento.aw/",
+    "title": "Parlamento di Aruba",
+    "publisher": "parlamento.aw",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "Officiele site van het parlement van Aruba; leden en fracties via iBabs. Licentie niet vastgesteld; endpoint: https://www.parlamento.aw/",
+    "archiveUrl": null
+  },
+  {
+    "id": "src:parlamento-curacao",
+    "url": "https://www.parlamento.cw/",
+    "title": "Parlamento di Kòrsou",
+    "publisher": "parlamento.cw",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "Officiele site: 21 gekozen leden; presidente Fergino Brownbill; de Staten controleren en vragen verantwoording van de regering (kontrolá i eksigí responsabilidat for di Gobièrnu). Licentie niet vastgesteld; endpoint: https://www.parlamento.cw/",
+    "archiveUrl": null
+  },
+  {
+    "id": "src:parlamento-curacao-nombramentu",
+    "url": "https://www.parlamento.cw/nombramentu-di-presidente",
+    "title": "Nombramentu di Presidente - Parlamento di Kòrsou",
+    "publisher": "parlamento.cw",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "Procedurepagina voorzitterschap; geen naam of datum van de huidige president vermeld. Licentie niet vastgesteld; endpoint: https://www.parlamento.cw/nombramentu-di-presidente",
+    "archiveUrl": null
   },
   {
     "id": "src:pbl-directie",
@@ -29635,6 +29746,39 @@
     "archiveUrl": null
   },
   {
+    "id": "src:sintmaartengov-ministries",
+    "url": "https://www.sintmaartengov.org/Ministries/Pages/Ministries.aspx",
+    "title": "Ministries - Government of Sint Maarten",
+    "publisher": "sintmaartengov.org",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "Noemt 7 ministeries met officiële Engelse namen; geen namen van zittende ministers op deze pagina. Licentie niet vastgesteld; endpoint: https://www.sintmaartengov.org/Ministries/Pages/Ministries.aspx",
+    "archiveUrl": null
+  },
+  {
+    "id": "src:statenvanaruba-ibabs",
+    "url": "https://statenvanaruba.ibabs.org/People/Profiles/10d696c2-9000-4334-8aba-f74c36540a83",
+    "title": "Staten van Aruba iBabs: leden en fracties",
+    "publisher": "statenvanaruba.ibabs.org",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "Zeteltelling per fractie: AVP 9 (42,9%), MEP 8 (38,1%), FUTURO Aruba 3 (14,3%), PPA 1 (4,8%). Totaal 21 zetels. Licentie niet vastgesteld; endpoint: https://statenvanaruba.ibabs.org/People/Profiles/10d696c2-9000-4334-8aba-f74c36540a83",
+    "archiveUrl": null
+  },
+  {
+    "id": "src:statenvanaruba-ibabs-voorzitter",
+    "url": "https://statenvanaruba.ibabs.org/People/Profiles/c607b22a-41f8-4d3e-a6e6-5c0712658602",
+    "title": "Staten van Aruba iBabs: profiel voorzitter",
+    "publisher": "statenvanaruba.ibabs.org",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "Sneek, Alfred M., Presidente di Parlamento / Voorzitter der Staten, genoemd onder de AVP. Licentie niet vastgesteld; endpoint: https://statenvanaruba.ibabs.org/People/Profiles/c607b22a-41f8-4d3e-a6e6-5c0712658602",
+    "archiveUrl": null
+  },
+  {
     "id": "src:statuut",
     "url": "https://wetten.overheid.nl/BWBR0002154",
     "title": "Statuut voor het Koninkrijk",
@@ -29860,6 +30004,39 @@
     "license": "CC0-1.0",
     "archiveUrl": null,
     "notes": null
+  },
+  {
+    "id": "src:sxmparliament",
+    "url": "https://sxmparliament.org/",
+    "title": "Parliament of Sint Maarten",
+    "publisher": "sxmparliament.org",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "Officiele site van het parlement van Sint Maarten; verwijst naar parlamento.aw en parlamento.cw. Licentie niet vastgesteld; endpoint: https://sxmparliament.org/",
+    "archiveUrl": null
+  },
+  {
+    "id": "src:sxmparliament-about",
+    "url": "https://sxmparliament.org/about/",
+    "title": "About - Parliament of Sint Maarten",
+    "publisher": "sxmparliament.org",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "15 gekozen leden (MPs); opgericht 10-10-2010; Parliament exercises oversight of the Government. Licentie niet vastgesteld; endpoint: https://sxmparliament.org/about/",
+    "archiveUrl": null
+  },
+  {
+    "id": "src:sxmparliament-presidium",
+    "url": "https://sxmparliament.org/presidium/",
+    "title": "Presidium - Parliament of Sint Maarten",
+    "publisher": "sxmparliament.org",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "President Sarah A. Wescot-Williams; vice-presidenten Christopher L. Wever en Ludmilla N.L. de Weever. Licentie niet vastgesteld; endpoint: https://sxmparliament.org/presidium/",
+    "archiveUrl": null
   },
   {
     "id": "src:tk-griffier",
@@ -38902,6 +39079,61 @@
     "license": "CC0-1.0",
     "archiveUrl": null,
     "notes": "Wikidata-entiteit Q2535053 voor Yvonne van Mastrigt; gebruikt voor persoonsidentificatie en het portret."
+  },
+  {
+    "id": "src:wikipedia-estates-curacao",
+    "url": "https://en.wikipedia.org/wiki/Estates_of_Cura%C3%A7ao",
+    "title": "Estates of Curaçao - Wikipedia",
+    "publisher": "en.wikipedia.org",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "Search excerpt only: Fergino Brownbill voorzitter sinds 11-05-2025; parlement geïnstalleerd 11-05-2025 na verkiezing 21-03-2025. Licentie niet vastgesteld; endpoint: https://en.wikipedia.org/wiki/Estates_of_Cura%C3%A7ao",
+    "archiveUrl": null
+  },
+  {
+    "id": "src:wikipedia-kabinetten-curacao",
+    "url": "https://nl.wikipedia.org/wiki/Kabinetten_Cura%C3%A7ao",
+    "title": "Kabinetten Curaçao - Wikipedia",
+    "publisher": "nl.wikipedia.org",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "notes": "Search excerpt only: kabinet-Pisas III treedt aan op 09-06-2025; MFK 13 zetels. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Kabinetten_Cura%C3%A7ao, geraadpleegd 2026-09-19, CC BY-SA 4.0.",
+    "archiveUrl": null
+  },
+  {
+    "id": "src:wikipedia-parlamento-aruba",
+    "url": "https://en.wikipedia.org/wiki/Parliament_of_Aruba",
+    "title": "Parliament of Aruba - Wikipedia",
+    "publisher": "en.wikipedia.org",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "Search excerpt only: voorzitter Marlon Sneek sinds 27-03-2025; 21 zetels. Licentie niet vastgesteld; endpoint: https://en.wikipedia.org/wiki/Parliament_of_Aruba",
+    "archiveUrl": null
+  },
+  {
+    "id": "src:wikipedia-staten-curacao",
+    "url": "https://nl.wikipedia.org/wiki/Staten_van_Cura%C3%A7ao",
+    "title": "Staten van Curaçao - Wikipedia",
+    "publisher": "nl.wikipedia.org",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "notes": "Search excerpt only: voorzitter Fergino Brownbill (MFK) sinds 11-05-2025; samenstelling MFK 13, PNP 4, PAR 2, MAN 2. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Staten_van_Cura%C3%A7ao, geraadpleegd 2026-09-19, CC BY-SA 4.0.",
+    "archiveUrl": null
+  },
+  {
+    "id": "src:wikipedia-staten-sint-maarten",
+    "url": "https://en.wikipedia.org/wiki/Estates_of_Sint_Maarten",
+    "title": "Estates of Sint Maarten - Wikipedia",
+    "publisher": "en.wikipedia.org",
+    "type": "page",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "notes": "Search excerpt only: President of Parliament Sarah A. Wescot-Williams (DP) sinds 10-02-2024; samenstelling URSM 3, DP 3, NA 3, PFP 2, SAM 1. Licentie niet vastgesteld; endpoint: https://en.wikipedia.org/wiki/Estates_of_Sint_Maarten",
+    "archiveUrl": null
   },
   {
     "id": "src:wolbes",

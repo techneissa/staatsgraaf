@@ -221,19 +221,21 @@ it("search index consumes merged aliases: positions now carry aliases from pos: 
 it("counts match the Phase 0 snapshot", async () => {
   const { organizations, memberships } = await dataset();
   const bySubtype = (subtype) => organizations.filter((record) => record.subtype === subtype).length;
-  assert.equal(bySubtype("ministerie"), 12, "ministeries");
+  // 24 ministeries van de drie landen toegevoegd 19-09-2026 (M-kingdom breadth), 12 NL.
+  assert.equal(bySubtype("ministerie"), 36, "ministeries");
   assert.equal(bySubtype("provincie"), 12, "provincies");
   assert.equal(bySubtype("gemeente"), 342, "gemeenten");
   assert.equal(bySubtype("waterschap"), 21, "waterschappen");
   assert.equal(bySubtype("veiligheidsregio"), 25, "veiligheidsregio's");
   assert.equal(bySubtype("koepel"), 3, "koepels");
   assert.equal(bySubtype("samenwerkingsverband"), 39, "regionale samenwerkingsorganen");
-  assert.equal(organizations.length, 1614, "organizations total");
+  // +3 landstaten en 24 landen-ministeries (M-kingdom breadth, 19-09-2026).
+  assert.equal(organizations.length, 1641, "organizations total");
   assert.equal(memberships.filter((record) => record.organization === "org:tweede-kamer").length, 150, "Tweede Kamer");
   assert.equal(memberships.filter((record) => record.organization === "org:eerste-kamer").length, 75, "Eerste Kamer");
 });
 
-it("derived snapshot count: 28 bewindspersonen hold an open tenure", async () => {
+it("derived snapshot count: 30 bewindspersonen hold an open tenure", async () => {
   const { positions, tenures } = await dataset();
   const positionById = new Map(positions.map((position) => [position.id, position]));
   const open = tenures.filter((tenure) => {
@@ -241,5 +243,6 @@ it("derived snapshot count: 28 bewindspersonen hold an open tenure", async () =>
     const title = positionById.get(tenure.position)?.title ?? "";
     return /^(minister|staatssecretaris)/i.test(title);
   });
-  assert.equal(new Set(open.map((tenure) => tenure.person)).size, 28);
+  // +2 minister-presidenten (Eman, Pisas) via de kingdom-breadth-extensie van 19-09-2026.
+  assert.equal(new Set(open.map((tenure) => tenure.person)).size, 30);
 });

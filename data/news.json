@@ -1,5 +1,276 @@
 [
   {
+    "id": "news:ef5001b4",
+    "title": "Luchtalarm en explosies in Saoedische hoofdstad Riyad",
+    "url": "https://www.trouw.nl/buitenland/live-oorlog-midden-oosten-luchtalarm-en-explosies-in-saoedische-hoofdstad-riyad~b4cda6da",
+    "publisher": "Trouw",
+    "language": "nl",
+    "publisherKind": "krant",
+    "published": "2026-09-19T01:54:00.000Z",
+    "summary": "Trouw bericht: \"Luchtalarm en explosies in Saoedische hoofdstad Riyad\"",
+    "summaryMarkup": "Luchtalarm en explosies in Saoedische hoofdstad Riyad",
+    "entities": [],
+    "topics": [],
+    "keywords": [],
+    "image": null,
+    "imageUrl": "https://image.trouw.nl/277925343/roi/320/320/1849.1200000000001/1145.04/houthi-aanhangers-protesteren-tegen-de-saoedische-interventie",
+    "sources": [
+      {
+        "source": "src:news-ef5001b4",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "news:60c36f30",
+    "title": "Luchtalarm en explosies in Saoedische hoofdstad Riyad, terwijl conflict met Houthi’s escaleert",
+    "url": "https://www.ad.nl/buitenland/luchtalarm-en-explosies-in-saoedische-hoofdstad-riyad-terwijl-conflict-met-houthis-escaleert~ac528ac3",
+    "publisher": "AD",
+    "language": "nl",
+    "publisherKind": "krant",
+    "published": "2026-09-19T01:37:00.000Z",
+    "summary": "AD bericht: \"Luchtalarm en explosies in Saoedische hoofdstad Riyad, terwijl conflict met Houthi’s escaleert\" Volgens de inleiding gaat het onder meer om artilleriesystemen, antidronesystemen en Midden-Oosten.",
+    "summaryMarkup": "Luchtalarm en explosies in Saoedische hoofdstad Riyad, terwijl conflict met Houthi’s escaleert — In de Saoedische hoofdstad Riyad klonken in de nacht van vrijdag op zaterdag hevige explosies. Dat meldden journalisten van het Franse persbureau AFP, nadat het luchtalarm in de stad was afgegaan. Pakistan stuurt meer militaire hulp naar Saoedi-Arabië nu het conflict in Jemen escaleert. Dat zeggen bronnen in de Pakistaanse hoofdstad Islamabad tegen persbureau DPA. Er gaan nu ook artilleriesystemen, drones en antidronesystemen naar Saoedi-Arabië. Volg alle ontwikkelingen over het Midden-Oosten in ons liveblog.",
+    "entities": [],
+    "topics": [],
+    "keywords": [],
+    "image": null,
+    "imageUrl": "https://images.ad.nl/MjU4MmNhYTljMzNjN2Q0OGMyNjgvZGlvLzI3NzkyNDc4Mi9maXQtd2lkdGgvNDAw/supporters-of-the-houthi-authorities-brandish-their-weapons-and-hold-placards-showing-the-kaaba-and-reading-for-it-we-willingly-offer-our-souls-during-a-protest-against-the-saudi-intervention-in-yemen-and-against-saudi-arabia-s-recent-accusation-that-the-houthis-fired-at-the-holy-city-of-mecca-in-sanaa-on-september-18-2026-houthi-forces-this-week-reported-fresh-saudi-airstrikes-as-riyadh-accused-the-group-of-launching-a-cowardly-attack-targeting-islam-s-holy-city-of-mecca-prompting-a-wave-of-outrage-from-around-the-muslim-world-photo-by-mohammed-huwais-afp",
+    "sources": [
+      {
+        "source": "src:news-60c36f30",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "news:5d0a77d",
+    "title": "Verdachte van autobrand aangereden op A2 bij Maastricht",
+    "url": "https://nos.nl/l/2631591",
+    "publisher": "NOS",
+    "language": "nl",
+    "publisherKind": "publieke-omroep",
+    "published": "2026-09-19T01:23:27.000Z",
+    "summary": "NOS bericht: \"Verdachte van autobrand aangereden op A2 bij Maastricht\" Volgens de inleiding gaat het onder meer om politieonderzoek, Hillenraadweg en brandstichting.",
+    "summaryMarkup": "Verdachte van autobrand aangereden op A2 bij <entity id=\"org:gemeente-maastricht\">Maastricht</entity> — Vannacht is een persoon aangereden op de A2 bij Maastricht. Diegene wordt ervan verdacht kort daarvoor een auto in brand te hebben gestoken. De <entity id=\"org:politie\">politie</entity> kreeg rond 01.00 uur een melding van een voertuigbrand op de Kasteel Hillenraadweg in Maastricht. Agenten troffen daar een auto aan die nog in brand stond. Getuigen en omwonenden vertelden de politie dat de verdachten na de brandstichting te voet waren gevlucht in de richting van de A2. Kort daarna vond op de snelweg een aanrijding plaats. Een personenauto botste daar op een overstekende voetganger. Later bleek dat deze voetganger betrokken zou zijn geweest bij de brandstichting. De man was aanspreekbaar en is naar een ziekenhuis overgebracht, meldt de politie. De politie is nog op zoek naar twee andere personen die worden verdacht van betrokkenheid bij de brandstichting. De A2-tunnel richting het zuiden is afgesloten voor politieonderzoek.",
+    "entities": [
+      "org:gemeente-maastricht",
+      "org:politie"
+    ],
+    "topics": [
+      "topic:infrastructuur",
+      "topic:veiligheid",
+      "topic:zorg"
+    ],
+    "keywords": [
+      "Maastricht",
+      "Politie"
+    ],
+    "image": null,
+    "imageUrl": "https://images.cdn.nos.nl/5/E/F/N/D/F/AtstKe5qKaN3yNNeFniGEEFgmSyPGdBtf94MYDq/0x0x640x360-640x360.webp",
+    "sources": [
+      {
+        "source": "src:news-5d0a77d",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "news:3b09ebd9",
+    "title": "Trump meldt akkoord over Amerikaanse controle over veiligheid Groenland",
+    "url": "https://www.parool.nl/wereld/trump-meldt-akkoord-over-amerikaanse-controle-over-veiligheid-groenland~b26befe2",
+    "publisher": "Het Parool",
+    "language": "nl",
+    "publisherKind": "krant",
+    "published": "2026-09-19T01:22:31.000Z",
+    "summary": "Het Parool bericht: \"Trump meldt akkoord over Amerikaanse controle over veiligheid Groenland\"",
+    "summaryMarkup": "Trump meldt akkoord over Amerikaanse controle over veiligheid Groenland",
+    "entities": [],
+    "topics": [
+      "topic:veiligheid"
+    ],
+    "keywords": [],
+    "image": null,
+    "imageUrl": "https://image.parool.nl/277932488/feature-crop/320/320/afbeelding",
+    "sources": [
+      {
+        "source": "src:news-3b09ebd9",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "news:4e62a87c",
+    "title": "Bolle Jos is ‘te heet’ geworden: ook de kartels twijfelen inmiddels aan zijn vermogen om geld voor ze te verdienen",
+    "url": "https://www.parool.nl/misdaad/bolle-jos-is-te-heet-geworden-ook-de-kartels-twijfelen-inmiddels-aan-zijn-vermogen-om-geld-voor-ze-te-verdienen~b58ee22d",
+    "publisher": "Het Parool",
+    "language": "nl",
+    "publisherKind": "krant",
+    "published": "2026-09-19T01:00:32.000Z",
+    "summary": "Het Parool bericht: \"Bolle Jos is ‘te heet’ geworden: ook de kartels twijfelen inmiddels aan zijn vermogen om geld voor ze te verdienen\"",
+    "summaryMarkup": "Bolle Jos is ‘te heet’ geworden: ook de kartels twijfelen inmiddels aan zijn vermogen om geld voor ze te verdienen",
+    "entities": [],
+    "topics": [],
+    "keywords": [],
+    "image": null,
+    "imageUrl": "https://image.parool.nl/274404435/roi/320/320/3006.9900000000002/648.85/jos-leijdekkers-bolle-jos-bij-de-nieuwjaarsmis-in-tihun-sierra",
+    "sources": [
+      {
+        "source": "src:news-4e62a87c",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "news:2c64784b",
+    "title": "Het Amsterdam van Volt-fractievoorzitter Juliet Broersen: ‘Bij snackbar Marja hebben ze me in alle staten gezien: na werk, verregend, brak’",
+    "url": "https://www.parool.nl/ps/het-amsterdam-van-volt-fractievoorzitter-juliet-broersen-bij-snackbar-marja-hebben-ze-me-in-alle-staten-gezien-na-werk-verregend-brak~ba4286c0",
+    "publisher": "Het Parool",
+    "language": "nl",
+    "publisherKind": "krant",
+    "published": "2026-09-19T01:00:30.000Z",
+    "summary": "Het Parool bericht: \"Het Amsterdam van Volt-fractievoorzitter Juliet Broersen: ‘Bij snackbar Marja hebben ze me in alle staten gezien: na werk, verregend, brak’\"",
+    "summaryMarkup": "Het <entity id=\"org:gemeente-amsterdam\">Amsterdam</entity> van Volt-fractievoorzitter Juliet Broersen: ‘Bij snackbar Marja hebben ze me in alle staten gezien: na werk, verregend, brak’",
+    "entities": [
+      "org:gemeente-amsterdam"
+    ],
+    "topics": [],
+    "keywords": [
+      "Amsterdam"
+    ],
+    "image": null,
+    "imageUrl": "https://image.parool.nl/277652462/roi/320/320/1552/1080/radio-radio-buiten",
+    "sources": [
+      {
+        "source": "src:news-2c64784b",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "news:fbecd7ee",
+    "title": "Bo, het eenvoudige zusje van sterrenzaak Bougainville, is lang niet zo betaalbaar als het belooft (6)",
+    "url": "https://www.parool.nl/ps/bo-het-eenvoudige-zusje-van-sterrenzaak-bougainville-is-lang-niet-zo-betaalbaar-als-het-belooft-6~b6156a54",
+    "publisher": "Het Parool",
+    "language": "nl",
+    "publisherKind": "krant",
+    "published": "2026-09-19T01:00:30.000Z",
+    "summary": "Het Parool bericht: \"Bo, het eenvoudige zusje van sterrenzaak Bougainville, is lang niet zo betaalbaar als het belooft (6)\"",
+    "summaryMarkup": "Bo, het eenvoudige zusje van sterrenzaak Bougainville, is lang niet zo betaalbaar als het belooft (6)",
+    "entities": [],
+    "topics": [],
+    "keywords": [],
+    "image": null,
+    "imageUrl": "https://image.parool.nl/277677884/feature-crop/320/320/afbeelding",
+    "sources": [
+      {
+        "source": "src:news-fbecd7ee",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "news:910ea7d0",
+    "title": "Journalist Malou (25) wil zich na voorval minder onveilig voelen en volgt zelfverdedigingsles: ‘De man in het joggingpak bleef maar opduiken op dat verlaten bedrijventerrein bij Sloterdijk’",
+    "url": "https://www.parool.nl/ps/journalist-malou-25-wil-zich-na-voorval-minder-onveilig-voelen-en-volgt-zelfverdedigingsles-de-man-in-het-joggingpak-bleef-maar-opduiken-op-dat-verlaten-bedrijventerrein-bij-sloterdijk~b53b0a8e",
+    "publisher": "Het Parool",
+    "language": "nl",
+    "publisherKind": "krant",
+    "published": "2026-09-19T01:00:00.000Z",
+    "summary": "Het Parool bericht: \"Journalist Malou (25) wil zich na voorval minder onveilig voelen en volgt zelfverdedigingsles: ‘De man in het joggingpak bleef maar opduiken op dat verlaten bedrijventerrein bij Sloterdijk’\"",
+    "summaryMarkup": "Journalist Malou (25) wil zich na voorval minder onveilig voelen en volgt zelfverdedigingsles: ‘De man in het joggingpak bleef maar opduiken op dat verlaten bedrijventerrein bij Sloterdijk’",
+    "entities": [],
+    "topics": [],
+    "keywords": [],
+    "image": null,
+    "imageUrl": "https://image.parool.nl/277567991/feature-crop/320/320/afbeelding",
+    "sources": [
+      {
+        "source": "src:news-910ea7d0",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "news:34260db6",
+    "title": "Tom Cruise krijgt les van Taylor Swift over American football: ‘Ze heeft er verstand van’",
+    "url": "https://www.ad.nl/show/tom-cruise-krijgt-les-van-taylor-swift-over-american-football-ze-heeft-er-verstand-van~a743c623b",
+    "publisher": "AD",
+    "language": "nl",
+    "publisherKind": "krant",
+    "published": "2026-09-19T00:49:26.000Z",
+    "summary": "AD bericht: \"Tom Cruise krijgt les van Taylor Swift over American football: ‘Ze heeft er verstand van’\" Volgens de inleiding gaat het onder meer om Amerikaanse, 36-jarige en avondshow.",
+    "summaryMarkup": "Tom Cruise krijgt les van Taylor Swift over American football: ‘Ze heeft er verstand van’ — Tom Cruise heeft les gekregen over American football van Taylor Swift. De Amerikaanse acteur werd maandag gespot met Swift op de tribune van de Kansas City Chiefs, waar de man van de 36-jarige zangeres voor speelt. „Ze heeft er verstand van”, zei Cruise tijdens de avondshow van Jimmy Fallon, waar hij gevraagd werd naar het gesprek met Swift.",
+    "entities": [],
+    "topics": [],
+    "keywords": [],
+    "image": null,
+    "imageUrl": "https://images.ad.nl/NjM2NGJhMDZlMDhkYmJjOGE3YWUvZGlvLzI3NzgwNTkyNS9maXQtd2lkdGgvNDAw/kansas-city-missouri-september-14-l-r-donna-kelce-singer-taylor-swift-and-actor-tom-cruise-attend-the-game-between-the-kansas-city-chiefs-and-the-denver-broncos-at-arrowhead-stadium-on-september-14-2026-in-kansas-city-missouri-jamie-squire-getty-images-afp-photo-by-jamie-squire-getty-images-north-america-getty-images-via-afp",
+    "sources": [
+      {
+        "source": "src:news-34260db6",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "news:5d0a77c",
+    "title": "Russen naar stembus voor de Doema, maar kiezers hebben weinig te kiezen",
+    "url": "https://nos.nl/l/2631590",
+    "publisher": "NOS",
+    "language": "nl",
+    "publisherKind": "publieke-omroep",
+    "published": "2026-09-19T00:37:43.000Z",
+    "summary": "NOS bericht: \"Russen naar stembus voor de Doema, maar kiezers hebben weinig te kiezen\" Volgens de inleiding gaat het onder meer om presidentsverkiezingen, Jabloko-oprichter en olieraffinaderijen.",
+    "summaryMarkup": "Russen naar stembus voor de Doema, maar kiezers hebben weinig te kiezen — Sinds gisterochtend kunnen Russische kiezers naar de stembus om een nieuw Lagerhuis te kiezen, de Staatsdoema. Voor het eerst doen ook de door Rusland geannexeerde gebiedsdelen van Oekraïne mee aan deze verkiezingen. De stemming is uitgesmeerd over drie dagen. President Vladimir Poetin maande in zijn traditionele televisietoespraak aan de vooravond van de verkiezingen de burgers vooral te gaan stemmen. \"Ik ben ervan overtuigd, dat met uw steun en vertrouwen de allerbeste kandidaten zullen winnen. Echte patriotten van Rusland,\" aldus Poetin. Poetin rekent op een klinkende overwinning voor de Kremlinpartij Verenigd Rusland, die moet aantonen dat de Russische bevolking zijn 'speciale militaire operatie' in Oekraïne volmondig blijft steunen. De cijfers moeten uitstijgen boven het resultaat van vijf jaar geleden. Toen behaalde de partij volgens de officiële uitslag iets minder dan de helft van de stemmen. Maar net als in voorgaande decennia was bij die verkiezingen sprake van aantoonbaar grootschalige fraude. Onafhankelijk toezicht op de verkiezingen is vrijwel afwezig. De Staatsdoema telt 450 zetels, waarvan er momenteel 324 in handen zijn van Verenigd Rusland. De overige zetels zijn verdeeld over vier andere partijen, waaronder de Communistische Partij. Formeel zijn die partijen in oppositie tegen de regeringspartij, maar in werkelijkheid staan zij schouder aan schouder in hun steun voor de Kremlinpolitiek. Veel wetsontwerpen worden unaniem aangenomen, zonder een enkele tegenstem. Snakken naar vrede In de aanloop naar de verkiezingen blijkt uit opiniepeilingen dat steeds meer Russen snakken naar vrede. Een kwart tot een derde van de ondervraagden vindt dat het land op de verkeerde weg is. De voortdurende Oekraïense droneaanvallen op doelen ver in Rusland, zoals olieraffinaderijen en magazijnen van Russische internetwinkels, hebben hun uitwerking niet gemist. Vele tienduizenden Russische reizigers hebben last ondervonden van de aanvallen, doordat vliegvelden werden stilgelegd en vluchten afgelast of omgeleid. Ook is er groeiende onrust over een mogelijke op handen zijnde mobilisatie na de verkiezingen. Een 'gedeeltelijke mobilisatie' werd al eens afgekondigd in het najaar van 2022, wat toen leidde tot grote onrust in de samenleving en een exodus van honderdduizenden mannen. De verkiezingen van 2026 zijn vanaf de eerste dag gekenmerkt door opmerkelijke incidenten. Meermalen kwamen kandidaten voor live uitgezonden televisiedebatten helemaal niet opdagen, wat bizarre beelden opleverde. Maar veruit het grootste schandaal was de uitsluiting van deelname van de links-liberale oppositiepartij Jabloko, die zich profileerde als de enige partij die zich verzette tegen het militaire optreden in Oekraïne. Jabloko werd op 29 juli door de kiescommissie geregistreerd en kreeg op het stembiljet nummer twee. Maar nog geen twee weken later trok het Russische hooggerechtshof de registratie weer in, na een klacht van een nationalistische partij. Volgens Jabloko was dat een reactie op de snel groeiende populariteit van de partij. Het programma van Jabloko telt slechts 43 woorden, waarin wordt opgeroepen tot een staakt-het-vuren en een eind aan censuur, internetblokkades, angst en repressie. Kandidaten gedwarsboomd Individuele kandidaten van Jabloko doen nog wel mee aan de verkiezingen, maar zij worden op alle mogelijke manieren gedwarsboomd. Sommigen zijn aangehouden, of kregen een oproep voor het leger. Jabloko is een van Ruslands oudste partijen, maar al meer dan twintig jaar niet meer vertegenwoordigd in het parlement. Verschillende peilingen sinds de zomer laten zien dat het aantal Russen dat op Jabloko wil stemmen fors is toegenomen en dat de partij voor het eerst in decennia de kiesdrempel van 5 procent met gemak zou halen. Volgens Jabloko-oprichter Grigori Javlinski zou de partij zelfs kunnen rekenen op 25 procent en daarmee de tweede partij zijn na Verenigd Rusland. Javlinski zag de doemaverkiezingen eerst en vooral als een referendum. \"We wilden de burgers vragen wat ze denken over vrijheid, over leven zonder angst, over een staakt-het-vuren,\" zei Javlinski afgelopen week op een bijeenkomst met zijn achterban. Dat Jabloko al snel uit de race werd gehaald komt volgens hem omdat het Kremlin danig was geschrokken van de jongste peilingen. \"Ze zagen plotseling dat we de steun hadden van tientallen miljoenen mensen.\" Net als bij de presidentsverkiezingen van 2024 hebben vertegenwoordigers van de Russische oppositie hun aanhangers opgeroepen op om morgenmiddag precies om twaalf uur naar het stembureau te gaan, ongeacht van wat ze met hun stembiljet zullen doen. Dat zal leiden tot lange rijen, die aanschouwelijk moeten maken dat veel Russen ondanks propaganda en repressie het niet eens zijn met de koers van het Kremlin.",
+    "entities": [],
+    "topics": [
+      "topic:openbaar-bestuur-en-democratie"
+    ],
+    "keywords": [],
+    "image": null,
+    "imageUrl": "https://images.cdn.nos.nl/3/A/L/4/7/2/FfTw8xZDYkb6AfQL7tXmak96MN8LJCU5rD6VbuX/8x138x3984x2241-1024x576.webp",
+    "sources": [
+      {
+        "source": "src:news-5d0a77c",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "news:fcdde26b",
+    "title": "Inter-legende Sandro Mazzola (83) overleden: ‘Hij wilde herinnerd worden als een goede man’",
+    "url": "https://www.ad.nl/voetbal/inter-legende-sandro-mazzola-83-overleden-hij-wilde-herinnerd-worden-als-een-goede-man~a568d827",
+    "publisher": "AD",
+    "language": "nl",
+    "publisherKind": "krant",
+    "published": "2026-09-19T00:25:00.000Z",
+    "summary": "AD bericht: \"Inter-legende Sandro Mazzola (83) overleden: ‘Hij wilde herinnerd worden als een goede man’\" Volgens de inleiding gaat het onder meer om voetballegende, Gianluca en 83-jarige.",
+    "summaryMarkup": "Inter-legende Sandro Mazzola (83) overleden: ‘Hij wilde herinnerd worden als een goede man’ — Italië is na Gianluca Vialli, Gigi Riva en Franco Baresi opnieuw een voetballegende kwijt, want Sandro Mazzola is vrijdag op 83-jarige leeftijd overleden.",
+    "entities": [],
+    "topics": [],
+    "keywords": [],
+    "image": null,
+    "imageUrl": "https://images.ad.nl/MzZkY2Q4ZmNhMWU2ZWQxNWQxYmMvZGlvLzI3NzkzNDE5NS9maXQtd2lkdGgvNDAw/italy-1972-sandro-mazzola-of-inter-and-gianni-rivera-of-milan-photo-by-image-photo-agency-getty-images",
+    "sources": [
+      {
+        "source": "src:news-fcdde26b",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "news:6cd9fd91",
     "title": "Trump zet strijd tegen de pers voort: CNN, MS Now en Politico geweerd uit Witte Huis",
     "url": "https://www.trouw.nl/buitenland/trump-zet-strijd-tegen-de-pers-voort-cnn-ms-now-en-politico-geweerd-uit-witte-huis~bd8d8d1b",
@@ -307,7 +578,7 @@
     "publisherKind": "publieke-omroep",
     "published": "2026-09-18T23:19:07.000Z",
     "summary": "NOS bericht: \"Trump: akkoord over uitbreiding Amerikaanse militaire aanwezigheid in Groenland\" Volgens de inleiding gaat het onder meer om NAVO-bondgenoot, gedemonstreerd en Grondstoffen.",
-    "summaryMarkup": "Trump: akkoord over uitbreiding Amerikaanse militaire aanwezigheid in Groenland — President Donald Trump zegt dat hij een akkoord heeft gesloten met Denemarken en Groenland over het versterken van de Amerikaanse militaire aanwezigheid in Groenland. Trump maakte het akkoord bekend in een bericht op zijn platform Truth Social . Volgens Trump geeft de overeenkomst de Verenigde Staten \"permanente controle over de veiligheid in Groenland\". Hij spreekt van een overeenkomst met een oneindige looptijd. \"Er komt geen einde aan!\", schrijft de president. Hij voegde eraan toe dat zijn <entity id=\"org:regering\">regering</entity> dankzij het akkoord \"onmiddellijk\" zou beginnen met het proces om een grotere militaire aanwezigheid op het Deense grondgebied te ontwikkelen. Goedkeuring De Deense premier Mette Frederiksen heeft inmiddels bevestigd dat er een akkoord ligt. De overeenkomst moet tijdens de komende Algemene Vergadering van de Verenigde Naties worden ondertekend en vervolgens nog worden goedgekeurd door de parlementen van Denemarken en Groenland. Volgens Frederiksen respecteert het akkoord de soevereiniteit en territoriale integriteit van Denemarken en Groenland. Maandenlang had Trump gedreigd het eiland met geweld in te nemen, ook al is Denemarken een NAVO-bondgenoot van de Verenigde Staten. Hij wilde dit naar eigen zeggen om ervoor te zorgen dat het Deense eiland niet in handen valt van Rusland of China. Trump benadrukte daarbij steeds dat Groenland van cruciaal belang is voor de Amerikaanse veiligheid. Grondstoffen Deskundigen denken echter dat Trump andere drijfveren heeft. Groenland is namelijk rijk aan zeldzame grondstoffen en heeft een strategische ligging. Begin dit jaar gingen in Denemarken duizenden mensen de straat op uit solidariteit met Groenland. Ook in Groenland werd er gedemonstreerd. Eerder maakte correspondent Rolien Créton een reportage over Trumps plannen met in Groenland:",
+    "summaryMarkup": "Trump: akkoord over uitbreiding Amerikaanse militaire aanwezigheid in Groenland — President Donald Trump zegt dat hij een akkoord heeft gesloten met Denemarken en Groenland over het versterken van de Amerikaanse militaire aanwezigheid in Groenland. Trump maakte het akkoord bekend in een bericht op zijn platform Truth Social . Volgens Trump geeft de overeenkomst de Verenigde Staten \"permanente controle over de veiligheid in Groenland\". Hij spreekt van een overeenkomst met een oneindige looptijd. \"Er komt geen einde aan!\", schrijft de president. Hij voegde eraan toe dat zijn <entity id=\"org:regering\">regering</entity> dankzij het akkoord \"onmiddellijk\" zou beginnen met het proces om een grotere militaire aanwezigheid op het Deense grondgebied te ontwikkelen. Goedkeuring De Deense premier Mette Frederiksen heeft inmiddels bevestigd dat er een akkoord ligt. De overeenkomst moet tijdens de komende Algemene Vergadering van de Verenigde Naties worden ondertekend en vervolgens nog worden goedgekeurd door de parlementen van Denemarken en Groenland. Volgens Frederiksen respecteert het akkoord de soevereiniteit en territoriale integriteit van Denemarken en Groenland. Maandenlang had Trump gedreigd het eiland met geweld in te nemen, ook al is Denemarken een NAVO-bondgenoot van de Verenigde Staten. De president wilde dit naar eigen zeggen doen om ervoor te zorgen dat het Deense eiland niet in handen valt van Rusland of China. Trump benadrukte daarbij steeds dat Groenland van cruciaal belang is voor de Amerikaanse veiligheid. Grondstoffen Deskundigen denken echter dat Trump andere drijfveren heeft. Groenland is namelijk rijk aan zeldzame grondstoffen en heeft een strategische ligging. Begin dit jaar gingen in Denemarken duizenden mensen de straat op uit solidariteit met Groenland. Ook in Groenland werd er gedemonstreerd. Eerder maakte correspondent Rolien Créton een reportage over Trumps plannen met in Groenland:",
     "entities": [
       "org:regering"
     ],
@@ -1128,29 +1399,6 @@
     ]
   },
   {
-    "id": "news:6ce6d8af",
-    "title": "Trump weert CNN, Politico en MSNOW uit het Witte Huis",
-    "url": "https://www.parool.nl/wereld/trump-weert-cnn-politico-en-msnow-uit-het-witte-huis~b29af9e0",
-    "publisher": "Het Parool",
-    "language": "nl",
-    "publisherKind": "krant",
-    "published": "2026-09-18T20:09:00.000Z",
-    "summary": "Het Parool bericht: \"Trump weert CNN, Politico en MSNOW uit het Witte Huis\"",
-    "summaryMarkup": "Trump weert CNN, Politico en MSNOW uit het Witte Huis",
-    "entities": [],
-    "topics": [],
-    "keywords": [],
-    "image": null,
-    "imageUrl": "https://image.parool.nl/277929558/feature-crop/320/320/afbeelding",
-    "sources": [
-      {
-        "source": "src:news-6ce6d8af",
-        "retrieved": "2026-09-19",
-        "confidence": "high"
-      }
-    ]
-  },
-  {
     "id": "news:2439d0eb",
     "title": "Klaas en Stijn brengen Karen Damen terug naar K3-tijd in Got Talent",
     "url": "https://www.rtl.nl/boulevard/video/393002a0-e0d3-46cd-9e02-3a6af9288d0b/klaas-en-stijn-brengen-karen-damen-terug-naar",
@@ -1664,7 +1912,7 @@
     "topics": [],
     "keywords": [],
     "image": null,
-    "imageUrl": "https://image.volkskrant.nl/277899535/feature-crop/320/320/de-grafsteen-van-een-amerikaanse-militair-die-omkwam-bij-een",
+    "imageUrl": "https://image.volkskrant.nl/277899535/feature-crop/320/320/the-tombstone-for-u-s-soldier-sgt-angel-s-rampersad-who-was",
     "sources": [
       {
         "source": "src:news-8c367269",
@@ -1737,29 +1985,6 @@
     "sources": [
       {
         "source": "src:news-5afceb49",
-        "retrieved": "2026-09-19",
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "id": "news:b91acb57",
-    "title": "Jörgen Tjon A Fong verruilt Amsterdamse Kunstraad voor Raad van Cultuur",
-    "url": "https://www.parool.nl/kunst-media/jorgen-tjon-a-fong-verruilt-amsterdamse-kunstraad-voor-raad-van-cultuur~bbdea9a5",
-    "publisher": "Het Parool",
-    "language": "nl",
-    "publisherKind": "krant",
-    "published": "2026-09-18T19:31:00.000Z",
-    "summary": "Het Parool bericht: \"Jörgen Tjon A Fong verruilt Amsterdamse Kunstraad voor Raad van Cultuur\"",
-    "summaryMarkup": "Jörgen Tjon A Fong verruilt Amsterdamse Kunstraad voor Raad van Cultuur",
-    "entities": [],
-    "topics": [],
-    "keywords": [],
-    "image": null,
-    "imageUrl": "https://image.parool.nl/277927877/feature-crop/320/320/afbeelding",
-    "sources": [
-      {
-        "source": "src:news-b91acb57",
         "retrieved": "2026-09-19",
         "confidence": "high"
       }
@@ -2677,63 +2902,6 @@
     "sources": [
       {
         "source": "src:news-4519f9a6",
-        "retrieved": "2026-09-19",
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "id": "news:7f0fe3c8",
-    "title": "Aanhoudingen voor mensenhandel en mensensmokkel bij Indiase restaurantketens die ook in Amsterdam zitten",
-    "url": "https://www.parool.nl/amsterdam/aanhoudingen-voor-mensenhandel-en-mensensmokkel-bij-indiase-restaurantketens-die-ook-in-amsterdam-zitten~b72dcfc4",
-    "publisher": "Het Parool",
-    "language": "nl",
-    "publisherKind": "krant",
-    "published": "2026-09-18T18:04:00.000Z",
-    "summary": "Het Parool bericht: \"Aanhoudingen voor mensenhandel en mensensmokkel bij Indiase restaurantketens die ook in Amsterdam zitten\"",
-    "summaryMarkup": "Aanhoudingen voor mensenhandel en mensensmokkel bij Indiase restaurantketens die ook in <entity id=\"org:gemeente-amsterdam\">Amsterdam</entity> zitten",
-    "entities": [
-      "org:gemeente-amsterdam"
-    ],
-    "topics": [
-      "topic:asiel-en-migratie",
-      "topic:veiligheid"
-    ],
-    "keywords": [
-      "Amsterdam"
-    ],
-    "image": null,
-    "imageUrl": "https://image.parool.nl/209929198/feature-crop/320/320/afbeelding",
-    "sources": [
-      {
-        "source": "src:news-7f0fe3c8",
-        "retrieved": "2026-09-19",
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "id": "news:adfac5c8",
-    "title": "Voor het laatst: de Batavia vaart dit weekend dwars door Amsterdam om opgeknapt te worden",
-    "url": "https://www.parool.nl/amsterdam/voor-het-laatst-de-batavia-vaart-dit-weekend-dwars-door-amsterdam-om-opgeknapt-te-worden~bc41e7cd",
-    "publisher": "Het Parool",
-    "language": "nl",
-    "publisherKind": "krant",
-    "published": "2026-09-18T18:00:54.000Z",
-    "summary": "Het Parool bericht: \"Voor het laatst: de Batavia vaart dit weekend dwars door Amsterdam om opgeknapt te worden\"",
-    "summaryMarkup": "Voor het laatst: de Batavia vaart dit weekend dwars door <entity id=\"org:gemeente-amsterdam\">Amsterdam</entity> om opgeknapt te worden",
-    "entities": [
-      "org:gemeente-amsterdam"
-    ],
-    "topics": [],
-    "keywords": [
-      "Amsterdam"
-    ],
-    "image": null,
-    "imageUrl": "https://image.parool.nl/277654679/roi/320/320/1156.52/900/historic-17th-century-voc-sailing-ship-batavia-reconstructed",
-    "sources": [
-      {
-        "source": "src:news-adfac5c8",
         "retrieved": "2026-09-19",
         "confidence": "high"
       }
@@ -3769,33 +3937,6 @@
     ]
   },
   {
-    "id": "news:94ae2eb1",
-    "title": "Tyrell Malacia (27) tekent contract bij FC Cincinnati in de MLS",
-    "url": "https://www.ad.nl/voetbal/tyrell-malacia-27-tekent-contract-bij-fc-cincinnati-in-de-mls~ad62a25a",
-    "publisher": "AD",
-    "language": "nl",
-    "publisherKind": "krant",
-    "published": "2026-09-18T17:00:00.000Z",
-    "summary": "AD bericht: \"Tyrell Malacia (27) tekent contract bij FC Cincinnati in de MLS\" Volgens de inleiding gaat het onder meer om gepresenteerd, Manchester en transfervrij.",
-    "summaryMarkup": "Tyrell Malacia (27) tekent contract bij FC Cincinnati in de MLS — Tyrell Malacia is vrijdag gepresenteerd bij FC Cincinnati. De 27-jarige linksback uit <entity id=\"org:gemeente-rotterdam\">Rotterdam</entity> is na zijn vertrek bij Manchester United transfervrij.",
-    "entities": [
-      "org:gemeente-rotterdam"
-    ],
-    "topics": [],
-    "keywords": [
-      "Rotterdam"
-    ],
-    "image": null,
-    "imageUrl": "https://images.ad.nl/NzUxYzlhZjk3OTY1MWE5ZWZlODUvZGlvLzI3Nzg1MzM0Ni9maXQtd2lkdGgvNDAw/tyrell-malacia",
-    "sources": [
-      {
-        "source": "src:news-94ae2eb1",
-        "retrieved": "2026-09-19",
-        "confidence": "high"
-      }
-    ]
-  },
-  {
     "id": "news:bdee6ca9",
     "title": "Discriminatie door de politie? ‘Witte Nederlanders hebben geen idee wat we meemaken’",
     "url": "https://www.nrc.nl/nieuws/2026/09/18/discriminatie-door-de-politie-witte-nederlanders-hebben-geen-idee-wat-we-meemaken-a4936948",
@@ -3844,54 +3985,6 @@
     "sources": [
       {
         "source": "src:news-c91a1104",
-        "retrieved": "2026-09-19",
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "id": "news:d9285d7d",
-    "title": "Opeens wonen Hans (60) en Ineke (59) langs een racebaan door Suurhoffbrug-problemen: ‘Dit kan écht niet’",
-    "url": "https://www.ad.nl/voorne-aan-zee/opeens-wonen-hans-60-en-ineke-59-langs-een-racebaan-door-suurhoffbrug-problemen-dit-kan-echt-niet~a4f12edb",
-    "publisher": "AD",
-    "language": "nl",
-    "publisherKind": "krant",
-    "published": "2026-09-18T17:00:00.000Z",
-    "summary": "AD bericht: \"Opeens wonen Hans (60) en Ineke (59) langs een racebaan door Suurhoffbrug-problemen: ‘Dit kan écht niet’\" Volgens de inleiding gaat het onder meer om Suurhoffbrug, Maasvlakte en afsluiting.",
-    "summaryMarkup": "Opeens wonen Hans (60) en Ineke (59) langs een racebaan door Suurhoffbrug-problemen: ‘Dit kan écht niet’ — Sinds de problemen met de Suurhoffbrug komen Hans en Ineke soms hun erf niet meer af. Het zware verkeer van en naar de Maasvlakte rijdt door de afsluiting pal langs hun huis. De herrie? Die is enorm. „Het lijkt opeens wel of we langs de snelweg wonen.",
-    "entities": [],
-    "topics": [
-      "topic:infrastructuur"
-    ],
-    "keywords": [],
-    "image": null,
-    "imageUrl": "https://images.ad.nl/YWE1YTA0OTU0YzE3ODg1ZmM1Y2YvZGlvLzI3NzkxODUwMC9maXQtd2lkdGgvNDAw/rotterdam-verkeer-rijdt-over-de-vluchtstrook-van-de-suurhoffbrug-op-de-brug-richting-de-maasvlakte-zijn-scheuren-geconstateerd-waarop-er-twee-rijstroken-zijn-afgesloten-bedrijven-in-de-haven-van-rotterdam-verwachten-flinke-hinder-van-de-beperkingen-robin-utrecht-anp-oostvoorne-18-september-2026-sinds-de-suurhoffbrug-eruit-ligt-zeggen-hans-van-duijn-en-zijn-buren-gek-te-worden-van-het-vele-verkeer-voor-hun-neus-ze-komen-hun-erf-nog-amper-af-ar20260917-1239-foto-peter-de-jong2026",
-    "sources": [
-      {
-        "source": "src:news-d9285d7d",
-        "retrieved": "2026-09-19",
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "id": "news:8d114446",
-    "title": "Pepijn Reinderink volgende Nederlandse ritwinnaar in de Ronde van Luxemburg",
-    "url": "https://www.ad.nl/wielrennen/pepijn-reinderink-volgende-nederlandse-ritwinnaar-in-de-ronde-van-luxemburg~a6e15fbc",
-    "publisher": "AD",
-    "language": "nl",
-    "publisherKind": "krant",
-    "published": "2026-09-18T16:59:00.000Z",
-    "summary": "AD bericht: \"Pepijn Reinderink volgende Nederlandse ritwinnaar in de Ronde van Luxemburg\" Volgens de inleiding gaat het onder meer om Nederlander, Quick-Step en Diekirch.",
-    "summaryMarkup": "Pepijn Reinderink volgende Nederlandse ritwinnaar in de Ronde van Luxemburg — Pepijn Reinderink heeft voor het volgende Nederlandse dagsucces gezorgd in de Ronde van Luxemburg. De 24-jarige Nederlander van Soudal Quick-Step was de snelste in de derde etappe, een rit over 179,6 kilometer van Wiltz naar Diekirch. Reinderink won na een solo van 7 kilometer.",
-    "entities": [],
-    "topics": [],
-    "keywords": [],
-    "image": null,
-    "imageUrl": "https://images.ad.nl/NzBkOWI0OGZhMTdhMjc1MmUzOTQvZGlvLzI3NzkyNDk3Ny9maXQtd2lkdGgvNDAw/tour-de-luxembourg-2026-86th-edition-3rd-stage-wiltz-diekirch-179-6-km-18-09-2026-pepijn-reinderink-ned-soudal-quick-step-photo-tim-van-wichelen-sprintcyclingagency2026-cor-vos-2026",
-    "sources": [
-      {
-        "source": "src:news-8d114446",
         "retrieved": "2026-09-19",
         "confidence": "high"
       }
@@ -4403,29 +4496,6 @@
     "sources": [
       {
         "source": "src:news-db3388c0",
-        "retrieved": "2026-09-19",
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "id": "news:c5a9c8a9",
-    "title": "Amsterdamse ambtenaar Jim B. leverde adressen voor 95 geweldsincidenten: van 36 bomaanslagen tot twee moordpogingen",
-    "url": "https://www.parool.nl/misdaad/amsterdamse-ambtenaar-jim-b-leverde-adressen-voor-95-geweldsincidenten-van-36-bomaanslagen-tot-twee-moordpogingen~b2507748",
-    "publisher": "Het Parool",
-    "language": "nl",
-    "publisherKind": "krant",
-    "published": "2026-09-18T16:02:22.000Z",
-    "summary": "Het Parool bericht: \"Amsterdamse ambtenaar Jim B. leverde adressen voor 95 geweldsincidenten: van 36 bomaanslagen tot twee moordpogingen\"",
-    "summaryMarkup": "Amsterdamse ambtenaar Jim B. leverde adressen voor 95 geweldsincidenten: van 36 bomaanslagen tot twee moordpogingen",
-    "entities": [],
-    "topics": [],
-    "keywords": [],
-    "image": null,
-    "imageUrl": "https://image.parool.nl/241904224/feature-crop/320/320/afbeelding",
-    "sources": [
-      {
-        "source": "src:news-c5a9c8a9",
         "retrieved": "2026-09-19",
         "confidence": "high"
       }
@@ -5053,39 +5123,6 @@
     ]
   },
   {
-    "id": "news:5d0a6bc",
-    "title": "Niet drie maar acht dagen voedsel nodig in huis, waarschuwen onderzoekers",
-    "url": "https://nos.nl/l/2631536",
-    "publisher": "NOS",
-    "language": "nl",
-    "publisherKind": "publieke-omroep",
-    "published": "2026-09-18T15:04:36.000Z",
-    "summary": "NOS bericht: \"Niet drie maar acht dagen voedsel nodig in huis, waarschuwen onderzoekers\" Volgens de inleiding gaat het onder meer om landbouwexporteurs, Staatssecretaris en voedselvoorziening.",
-    "summaryMarkup": "Niet drie maar acht dagen voedsel nodig in huis, waarschuwen onderzoekers — Nederlanders zouden een grotere noodvoorraad eten moeten aanleggen dan nu geadviseerd wordt: voor acht dagen in plaats van drie. Dat stellen onderzoekers van het Clingendael Instituut en de Erasmus Universiteit die in opdracht van het ministerie van Landbouw hebben gekeken naar de voedselzekerheid in ons land. Onze supermarkten en toeleveranciers werken nu zo efficiënt dat er nauwelijks voorraden zijn voor noodsituaties, luidt hun waarschuwing. Er kunnen binnen twee à drie dagen lege schappen ontstaan als er bijvoorbeeld een cyberaanval plaatsvindt in het logistieke systeem van supermarkten. Ook bij ernstig noodweer of zelfs oorlog kan de voedselvoorziening stokken. De overheid adviseerde daarom eerder voor drie dagen eten in huis te hebben, maar acht dagen zou beter zijn. Het gaat dan vooral om lang houdbare, calorierijke en bij voorkeur direct te eten producten, zoals bijvoorbeeld blikken bonen, omdat bij grote stroomstoringen de bereiding van warme maaltijden lastig kan worden. Buffer bij supermarkten \"Nu gaan we ervan uit dat na een paar dagen de supermarkten wel weer kunnen worden voorzien van voedsel\", legt onderzoeker Pieter Zwaan uit, \"maar bij hevige regenval kan een gebied langer afgesloten zijn, waardoor het langer kan duren\". Het rapport raadt <entity id=\"org:kabinet\">het kabinet</entity> aan ook afspraken te maken met supermarkten en toeleveranciers om altijd een minimale noodhoeveelheid aan te houden in hun bestaande magazijnen. Supermarkten en leveranciers hebben vaak zo min mogelijk spullen in hun magazijnen liggen om kosten te besparen. Dat betekent dat er bij grote opstoppingen al snel lege schappen ontstaan. De overheid zelf enorme bergen graan te laten opslaan is niet nodig, die zouden namelijk kunnen bederven. In plaats daarvan adviseren de onderzoekers om supermarkten een dynamische noodvoorraad aan te laten houden. Dan werkt het als een buffer die meegaat in de normale verkoop en dus niet bederft. Afhankelijk Nederland is een van de grootste landbouwexporteurs ter wereld. Toch zijn we voor veel basisproducten afhankelijk van het buitenland. Zo importeren we grote hoeveelheden veevoer zoals soja, maar ook kunstmest en brandstof. Vooral de pluimveehouders en varkenshouders moeten waarschijnlijk snel afbouwen bij een langdurige crisis. Volgens de onderzoekers is er niet meteen sprake van hongersnood, \"maar wel van acute schaarste aan specifieke producten, flinke prijsstijgingen en maatschappelijke onrust\". De overheid zou bedrijven voor zo'n noodbuffer een vergoeding moeten betalen, adviseren de onderzoekers. In ruil daarvoor krijgt de overheid het recht om in noodsituaties te bepalen waar het voedsel naartoe gaat. Staatssecretaris Erkens van Voedselzekerheid wil komende maanden in gesprek gaan met supermarkten en leveranciers om te kijken wat er echt nodig is om op voorraad te hebben en wie het gaat betalen. Hij kan nog niet zeggen wat het de overheid zou gaan kosten. Preppen Bij een supermarkt in <entity id=\"org:gemeente-nijmegen\">Nijmegen</entity> reageren klanten gelaten op de boodschap. \"We kunnen nu wel even vooruit,\" vertelt een man die net met een volle boodschappenkar naar buiten komt rollen. \"Ik denk wel anderhalve week. Ik weet niet of dit een noodvoorraad is hoor. Meestal heb ik verse groente, dus blikken bonen heb ik nog niet in huis.\" Hij is niet de enige. Een andere vrouw schat in dat ze het wel een maand kan uithouden: \"Dat is ooit begonnen omdat ik ziek werd en geen boodschappen kon doen. Toen moest ik mijn netwerk inschakelen en dat was superonhandig, dus toen ben ik het anders gaan doen.\" Maar dat geldt niet voor iedereen. Een vrouw die nog boodschappen moet gaan doen geeft toe dat ze \"helemaal niks\" in huis heeft. \"Het is eigenlijk wel heel verstandig om te doen. Je gaat er meestal van uit dat het niet nodig is, daarom heb ik het nog niet gedaan.\"",
-    "entities": [
-      "org:kabinet",
-      "org:gemeente-nijmegen"
-    ],
-    "topics": [
-      "topic:openbaar-bestuur-en-democratie",
-      "topic:stikstof-en-landbouw",
-      "topic:onderwijs"
-    ],
-    "keywords": [
-      "het kabinet",
-      "Nijmegen"
-    ],
-    "image": null,
-    "imageUrl": "https://images.cdn.nos.nl/3/G/m/E/V/h/yuPAmFD2V8mEMo5pKe6sLfKZqa5zsat7x4DD3L5/550x696x3120x1755-1024x576.webp",
-    "sources": [
-      {
-        "source": "src:news-5d0a6bc",
-        "retrieved": "2026-09-19",
-        "confidence": "high"
-      }
-    ]
-  },
-  {
     "id": "news:4ed92a66",
     "title": "Het kabinet haalt geen Palestijnse kinderen naar Nederland en kiest voor opvang in de regio",
     "url": "https://www.trouw.nl/politiek/het-kabinet-haalt-geen-palestijnse-kinderen-naar-nederland-en-kiest-voor-opvang-in-de-regio~b73f28ec",
@@ -5343,37 +5380,6 @@
     "sources": [
       {
         "source": "src:news-93e5e649",
-        "retrieved": "2026-09-19",
-        "confidence": "high"
-      }
-    ]
-  },
-  {
-    "id": "news:5d0a6ba",
-    "title": "Macron wil kritieke infrastructuur beter beschermen tegen Russische aanvallen",
-    "url": "https://nos.nl/l/2631534",
-    "publisher": "NOS",
-    "language": "nl",
-    "publisherKind": "publieke-omroep",
-    "published": "2026-09-18T14:45:01.000Z",
-    "summary": "NOS bericht: \"Macron wil kritieke infrastructuur beter beschermen tegen Russische aanvallen\" Volgens de inleiding gaat het onder meer om desinformatiecampagnes, overheidsorganisatie en presidentskandidaten.",
-    "summaryMarkup": "Macron wil kritieke infrastructuur beter beschermen tegen Russische aanvallen — President Macron heeft de Franse <entity id=\"org:regering\">regering</entity> opdracht gegeven om een plan te maken om kritieke infrastructuur en defensielocaties beter te beschermen. Volgens Macron is de dreiging van hybride aanvallen door Rusland op Frankrijk en Europa de afgelopen weken toegenomen. Hij zei dat ook Frankrijk de afgelopen weken doelwit is geweest van Russische hybride aanvallen. Dat zijn aanvallen waarbij traditionele militaire middelen gecombineerd worden met niet-militaire middelen, zoals cyberaanvallen en verspreiding van desinformatie. Macron voegde daaraan toe dat de aanvallen niet \"onbeantwoord\" zullen blijven. De Franse president zei dat hij wil voorkomen dat infrastructuur, zoals het spoor of het elektriciteitsnet, wordt aangevallen. Ook de \"kwetsbaarste\" faciliteiten in de defensie-industrie en technologiesector moeten beter worden beschermd, aldus Macron. \"Het doel is om ons te intimideren en onze inspanningen om Oekraïne te steunen te ondermijnen\", zei Macron. \"Het resultaat zal precies het tegenovergestelde zijn. Wij laten ons niet intimideren, omdat we weten dat onze veiligheid van vandaag en morgen in Oekraïne op het spel staat.\" Toename hybride aanvallen Daarmee sluit de Franse president zich aan bij een groeiend aantal Europese leiders die recent hun zorgen uitten over verdere Russische escalatie. Zo verklaarde de Poolse premier Tusk dat zijn land overgaat tot 'een zeer verhoogde staat van paraatheid'. Hij bracht vandaag een bezoek aan Oekraïne. Begin deze maand wees de Duitse regering Rusland aan als verantwoordelijke voor een drone met explosieven die was aangetroffen in de buurt van een Oekraïens vrachtvliegtuig op het vliegveld van Leipzig. Eind augustus schakelden gevechtsvliegtuigen in Roemenië een zeedrone vol explosieven uit. Frankrijk-correspondent Saskia Houttuin: \"De toespraak van Macron sluit aan op de boodschap van de Poolse premier Tusk gisteren en die van de Duitse bondskanselier Merz eind vorige maand. Macron zegt vandaag dat er iets veranderd is in de aard van de Russische dreiging. De Franse president verwees naar de aangevallen passagierstrein tussen Kyiv en Warschau vlak bij de Poolse grens en de aangetroffen drones op het vliegveld van het Duitse Leipzig. Van een aanval op Franse spoorlijnen of vliegvelden is - voor zover we weten - geen sprake geweest. Maar online is er wel van alles aan de hand: afgelopen zomer waren er meerdere desinformatiecampagnes, bedoeld om Franse presidentskandidaten in diskrediet te brengen. Frankrijk heeft een speciale overheidsorganisatie tegen buitenlandse digitale inmenging; volgens die dienst zaten daar Russische netwerken achter. Met de opdracht om kritieke infrastructuur beter te beschermen onderstreept Macron de urgentie. Wat er momenteel in Europa gebeurt, ziet de Franse regering als een heel serieuze waarschuwing.\"",
-    "entities": [
-      "org:regering"
-    ],
-    "topics": [
-      "topic:infrastructuur",
-      "topic:openbaar-bestuur-en-democratie",
-      "topic:veiligheid"
-    ],
-    "keywords": [
-      "Regering"
-    ],
-    "image": null,
-    "imageUrl": "https://images.cdn.nos.nl/6/2/S/D/D/q/N3udknzNnH1c1oe7oNrQ6z1wWeBHsbD7zKubwpD/0x45x4000x2250-1024x576.webp",
-    "sources": [
-      {
-        "source": "src:news-5d0a6ba",
         "retrieved": "2026-09-19",
         "confidence": "high"
       }

@@ -7038,6 +7038,30 @@
     ]
   },
   {
+    "id": "person:fergino-brownbill",
+    "slug": "fergino-brownbill",
+    "name": "Fergino Brownbill",
+    "aliases": [],
+    "portrait": null,
+    "birthDate": null,
+    "party": "MFK",
+    "wikipedia": null,
+    "wikidata": null,
+    "description": "Voorzitter van de Staten van Curaçao sinds 11-05-2025; Statenlid voor de MFK.",
+    "sources": [
+      {
+        "source": "src:parlamento-curacao",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:wikipedia-staten-curacao",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
+      }
+    ]
+  },
+  {
     "id": "person:fleur-graper",
     "slug": "fleur-graper",
     "name": "Fleur Gräper",
@@ -8123,6 +8147,25 @@
       {
         "source": "src:commons-bc65aeb1",
         "retrieved": "2026-09-18",
+        "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "id": "person:gilmar-pisas",
+    "slug": "gilmar-pisas",
+    "name": "Gilmar Pisas",
+    "aliases": [],
+    "portrait": null,
+    "birthDate": null,
+    "party": "MFK",
+    "wikipedia": null,
+    "wikidata": null,
+    "description": "Minister-President van Curaçao, aan het hoofd van kabinet-Pisas III, dat op 09-06-2025 aantreedt.",
+    "sources": [
+      {
+        "source": "src:wikipedia-kabinetten-curacao",
+        "retrieved": "2026-09-19",
         "confidence": "medium"
       }
     ]
@@ -15969,6 +16012,32 @@
     ]
   },
   {
+    "id": "person:marlon-sneek",
+    "slug": "marlon-sneek",
+    "name": "Alfred M. Sneek",
+    "aliases": [
+      "Marlon Sneek"
+    ],
+    "portrait": null,
+    "birthDate": null,
+    "party": "AVP",
+    "wikipedia": null,
+    "wikidata": null,
+    "description": "Voorzitter van de Staten van Aruba sinds 27-03-2025; Statenlid voor de AVP.",
+    "sources": [
+      {
+        "source": "src:statenvanaruba-ibabs-voorzitter",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:wikipedia-parlamento-aruba",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
+      }
+    ]
+  },
+  {
     "id": "person:marnix-bakermans",
     "slug": "marnix-bakermans",
     "name": "Marnix Bakermans",
@@ -16831,6 +16900,27 @@
       {
         "source": "src:commons-aa4373a2",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:mike-eman",
+    "slug": "mike-eman",
+    "name": "Michiel Godfried Eman",
+    "aliases": [
+      "Mike Eman"
+    ],
+    "portrait": null,
+    "birthDate": null,
+    "party": null,
+    "wikipedia": null,
+    "wikidata": null,
+    "description": "Minister-President van Aruba en minister van Algemene Zaken, Cultuur, Milieu en Natuur in het kabinet AVP-Futuro, met ingang van 28-03-2025.",
+    "sources": [
+      {
+        "source": "src:gobierno-aw-regering",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -21439,6 +21529,32 @@
         "source": "src:commons-28540c20",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:sarah-wescot-williams",
+    "slug": "sarah-wescot-williams",
+    "name": "Sarah A. Wescot-Williams",
+    "aliases": [
+      "Sarah Wescot-Williams"
+    ],
+    "portrait": null,
+    "birthDate": null,
+    "party": "DP",
+    "wikipedia": null,
+    "wikidata": null,
+    "description": "Voorzitter van de Staten van Sint Maarten sinds 10-02-2024; politica van de Democratische Partij (DP).",
+    "sources": [
+      {
+        "source": "src:sxmparliament-presidium",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:wikipedia-staten-sint-maarten",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
       }
     ]
   },

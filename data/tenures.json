@@ -19385,6 +19385,44 @@
     }
   },
   {
+    "id": "tenure:minister-president-aruba-eman-2025",
+    "person": "person:mike-eman",
+    "position": "pos:minister-president-aruba",
+    "seat": null,
+    "start": "2025-03-28",
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:gobierno-aw-regering",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:minister-president-curacao-pisas-2025",
+    "person": "person:gilmar-pisas",
+    "position": "pos:minister-president-curacao",
+    "seat": null,
+    "start": "2025-06-09",
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:wikipedia-kabinetten-curacao",
+      "retrieved": "2026-09-19",
+      "confidence": "medium"
+    }
+  },
+  {
     "id": "tenure:minister-president-h-w-m-schoof-20240702",
     "person": "person:h-w-m-schoof",
     "position": "pos:minister-president",
@@ -21059,6 +21097,63 @@
     "source": {
       "source": "src:rs-rvr-naves",
       "retrieved": "2026-09-18",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "tenure:voorzitter-staten-aruba-sneek-2025",
+    "person": "person:marlon-sneek",
+    "position": "pos:voorzitter-staten-aruba",
+    "seat": null,
+    "start": "2025-03-27",
+    "end": null,
+    "acting": false,
+    "entryMode": "gekozen",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:wikipedia-parlamento-aruba",
+      "retrieved": "2026-09-19",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "tenure:voorzitter-staten-curacao-brownbill-2025",
+    "person": "person:fergino-brownbill",
+    "position": "pos:voorzitter-staten-curacao",
+    "seat": null,
+    "start": "2025-05-11",
+    "end": null,
+    "acting": false,
+    "entryMode": "gekozen",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:wikipedia-staten-curacao",
+      "retrieved": "2026-09-19",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "tenure:voorzitter-staten-sint-maarten-wescot-williams-2024",
+    "person": "person:sarah-wescot-williams",
+    "position": "pos:voorzitter-staten-sint-maarten",
+    "seat": null,
+    "start": "2024-02-10",
+    "end": null,
+    "acting": false,
+    "entryMode": "gekozen",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:wikipedia-staten-sint-maarten",
+      "retrieved": "2026-09-19",
       "confidence": "medium"
     }
   },
