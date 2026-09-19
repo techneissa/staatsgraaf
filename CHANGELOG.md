@@ -6,7 +6,14 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Added
 
+- A rebuilt budget overview at `/begroting/`. Each ministry tile gains a factual one-line description taken from the sourced organization record, last year's budgeted spending in small type beneath the current figure, the colour-coded percentage change against that year, the ministry's share of the total budgeted spending, and `^1`-style footnote markers that link to a numbered source list at the bottom of the page (`web/components/budget/footnote-marker.tsx`, `web/components/budget/source-footnotes.tsx`, `web/lib/budget.ts`).
 - Weekly link-check workflow, a dataset contract check in CI and every deploy workflow, and the public correction path on the method page.
+
+### Fixed
+
+- News card summaries no longer repeat their own headline. The linked summaries stored as "Kop — inleiding" are cut to the article text before rendering (`stripTitleFromMarkup`), and fallback summaries that hold nothing beyond the publisher echo ("Trouw bericht: \"Kop\"") are suppressed or reduced to their article text (`stripPublisherPrefix` in `web/lib/news-text.ts`). Image credit lines are removed from the news cards; photo attribution stays in the accessible portrait labels.
+- The "Wie is verbonden?" tab on person, position and organization pages now lists connections again. Because no relation touches a person directly, the tab derives positions from tenures and memberships from `data/tenures.json` and `data/memberships.json` and shows them as the new groups "Bekleedt positie"/"Positie" and "Lid van"/"Lidmaatschap" (`web/lib/entity.ts`, `web/components/entity/entity-connections.tsx`).
+
 ### Added
 
 - A bilingual interface. The top bar gains an NL/EN toggle (`web/components/language-toggle.tsx`); the stored choice re-renders the interface in English or Dutch after hydration (ADR 0008). Dictionaries are split per build area under `web/lib/i18n/`, and entity names stay Dutch in both languages.

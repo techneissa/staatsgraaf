@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { FootnoteMarkers } from "@/components/budget/footnote-marker";
 import { BudgetTile } from "@/components/budget/budget-tile";
 import { BudgetTotals } from "@/components/budget/budget-totals";
+import { SourceFootnotes } from "@/components/budget/source-footnotes";
 import { T } from "@/components/i18n/t";
 import { JsonLd } from "@/components/json-ld";
-import { SourceList } from "@/components/source-list";
 import {
   budgetUnitLabel,
   getBudgetOverview,
-  getBudgetOverviewSources,
 } from "@/lib/budget";
 import { getDatasetDate } from "@/lib/data";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
@@ -23,9 +23,10 @@ export const metadata: Metadata = pageMetadata({
 
 export default function BudgetOverviewPage() {
   const overview = getBudgetOverview();
-  const sources = getBudgetOverviewSources(overview);
+  const sources = overview.sources;
   const unitLabel = budgetUnitLabel(overview.unit);
   const pageUrl = absoluteUrl("/begroting/");
+  const allFootnotes = sources.map((_, index) => index + 1);
 
   return (
     <>
@@ -67,6 +68,7 @@ export default function BudgetOverviewPage() {
       <section aria-labelledby="totalen-titel" className="border-b border-line py-6">
         <h2 id="totalen-titel" className="text-lg font-semibold tracking-tight text-ink">
           <T area="news" k="budgetTotalsHeading" />
+          <FootnoteMarkers numbers={allFootnotes} />
         </h2>
         <div className="mt-4">
           <BudgetTotals overview={overview} />
@@ -84,6 +86,9 @@ export default function BudgetOverviewPage() {
             vars={{ count: overview.items.length, year: overview.fiscalYear }}
           />
         </p>
+        <p className="mt-2 text-xs leading-relaxed text-ink-faint">
+          <T area="news" k="budgetFootnoteIntro" />
+        </p>
         <ul className="mt-4 grid gap-3 sm:grid-cols-2">
           {overview.items.map((item) => (
             <li key={item.organization.id}>
@@ -93,7 +98,7 @@ export default function BudgetOverviewPage() {
         </ul>
       </section>
 
-      <SourceList sources={sources} title="Bronnen" />
+      <SourceFootnotes sources={sources} />
     </>
   );
 }

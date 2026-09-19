@@ -3,8 +3,7 @@ import { KindBadge } from "@/components/kind-badge";
 import { renderSummaryMarkupWithHrefs } from "@/lib/news-summary";
 import type { NewsMessages } from "@/lib/news-i18n";
 import { NewsPreviewTile } from "./news-preview";
-import { newsPreviewCaption } from "@/lib/news-preview";
-import { plainMarkupText, summaryRepeatsTitle } from "@/lib/news-text";
+import { stripPublisherPrefix, stripTitleFromMarkup } from "@/lib/news-text";
 import type { NewsItemView } from "./news-view";
 
 /**
@@ -25,9 +24,9 @@ export function NewsItemCard({
   showDate?: boolean;
 }) {
   const keywordText = item.keywords.length > 0 ? item.keywords.join(", ") : null;
-  const caption = newsPreviewCaption(item.preview);
-  const markupPlain = plainMarkupText(item.summaryMarkup);
-  const useMarkup = markupPlain !== null && !summaryRepeatsTitle(markupPlain, item.title);
+  const summaryMarkup = stripTitleFromMarkup(item.summaryMarkup, item.title);
+  const useMarkup = summaryMarkup !== null;
+  const plainSummary = stripPublisherPrefix(item.summary, item.title);
 
   return (
     <article
@@ -72,14 +71,14 @@ export function NewsItemCard({
               className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted"
               lang={item.language}
             >
-              {renderSummaryMarkupWithHrefs(item.summaryMarkup as string, (id) => item.entities.find((entry) => entry.id === id)?.href ?? null)}
+              {renderSummaryMarkupWithHrefs(summaryMarkup as string, (id) => item.entities.find((entry) => entry.id === id)?.href ?? null)}
             </p>
-          ) : item.summary !== null ? (
+          ) : plainSummary !== "" ? (
             <p
               className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted"
               lang={item.language}
             >
-              {item.summary}
+              {plainSummary}
             </p>
           ) : null}
           {item.entities.length > 0 ? (
@@ -127,11 +126,6 @@ export function NewsItemCard({
         {keywordText !== null ? (
           <span title={`${messages.card.linkedOnLabel} ${keywordText}`}>
             {messages.card.linkedOnLabel} {keywordText}
-          </span>
-        ) : null}
-        {caption !== null ? (
-          <span className="basis-full text-[10px] leading-tight">
-          {messages.card.imageCreditLabel} {caption}
           </span>
         ) : null}
       </p>

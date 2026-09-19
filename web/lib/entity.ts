@@ -1,8 +1,10 @@
 import {
   getDataset,
+  getMembershipsForPerson,
   getOrganizationById,
   getPersonById,
   getPositionById,
+  getTenuresForPerson,
   getTenuresForPosition,
 } from "./data";
 import type {
@@ -38,16 +40,26 @@ export type MemberEntry = {
 
 export type ConnectionDirection = "incoming" | "outgoing";
 
+/**
+ * Connection types the graph derives from the structural records themselves:
+ * a tenure means a person holds a position, a membership means a person belongs
+ * to an organization. They are not in relations.json, so they carry their own
+ * labels everywhere the raw relation types do.
+ */
+export type DerivedConnectionType = "holds_position" | "member_of";
+
+export type ConnectionType = RelationType | DerivedConnectionType;
+
 export type Connection = {
   id: string;
-  type: RelationType;
+  type: ConnectionType;
   direction: ConnectionDirection;
   source: SourceRef;
   other: EntityRef;
 };
 
 export type ConnectionGroup = {
-  type: RelationType;
+  type: ConnectionType;
   label: string;
   connections: Connection[];
 };
@@ -77,6 +89,11 @@ export const RELATION_TYPE_LABELS: Record<RelationType, string> = {
   consists_of: "Samenstelling",
   succeeded_by: "Opvolging",
   joint_arrangement_member: "Gemeenschappelijke regeling",
+};
+
+const DERIVED_TYPE_LABELS: Record<DerivedConnectionType, string> = {
+  holds_position: "Positie",
+  member_of: "Lidmaatschap",
 };
 
 export function entityRefById(id: string): EntityRef | null {
@@ -243,11 +260,18 @@ export function getMembersForOrganization(
 
 export function getConnectionsForEntity(id: string): Connection[] {
   const connections: Connection[] = [];
+  const seen = new Set<string>();
+  const push = (connection: Connection) => {
+    if (seen.has(connection.id)) return;
+    seen.add(connection.id);
+    connections.push(connection);
+  };
+
   for (const relation of getDataset().relations) {
     if (relation.from === id) {
       const other = entityRefById(relation.to);
       if (other) {
-        connections.push({
+        push({
           id: relation.id,
           type: relation.type,
           direction: "outgoing",
@@ -258,7 +282,7 @@ export function getConnectionsForEntity(id: string): Connection[] {
     } else if (relation.to === id) {
       const other = entityRefById(relation.from);
       if (other) {
-        connections.push({
+        push({
           id: relation.id,
           type: relation.type,
           direction: "incoming",
@@ -268,11 +292,82 @@ export function getConnectionsForEntity(id: string): Connection[] {
       }
     }
   }
+
+  // Derived connections: the graph records hold every link an entity needs,
+  // they are just not written into relations.json. A tenure is a person in a
+  // position; a membership is a person in an organization.
+  if (id.startsWith("person:")) {
+    if (getPersonById(id)) {
+      for (const tenure of getTenuresForPerson(id)) {
+        const other = entityRefById(tenure.position);
+        if (other) {
+          push({
+            id: `derived:${tenure.id}`,
+            type: "holds_position",
+            direction: "outgoing",
+            source: tenure.source,
+            other,
+          });
+        }
+      }
+      for (const membership of getMembershipsForPerson(id)) {
+        const other = entityRefById(membership.organization);
+        if (other) {
+          push({
+            id: `derived:${membership.id}`,
+            type: "member_of",
+            direction: "outgoing",
+            source: membership.source,
+            other,
+          });
+        }
+      }
+    }
+  } else if (id.startsWith("pos:")) {
+    for (const tenure of getTenuresForPosition(id)) {
+      const other = entityRefById(tenure.person);
+      if (other) {
+        push({
+          id: `derived:${tenure.id}`,
+          type: "holds_position",
+          direction: "incoming",
+          source: tenure.source,
+          other,
+        });
+      }
+    }
+  } else if (id.startsWith("org:")) {
+    for (const tenure of getTenuresForOrganization(id)) {
+      const other = entityRefById(tenure.person);
+      if (other) {
+        push({
+          id: `derived:${tenure.id}`,
+          type: "holds_position",
+          direction: "incoming",
+          source: tenure.source,
+          other,
+        });
+      }
+    }
+    for (const entry of getMembersForOrganization(id, false)) {
+      const other = entityRefById(entry.membership.person);
+      if (other) {
+        push({
+          id: `derived:${entry.membership.id}`,
+          type: "member_of",
+          direction: "incoming",
+          source: entry.membership.source,
+          other,
+        });
+      }
+    }
+  }
+
   return connections;
 }
 
 export function groupConnections(connections: Connection[]): ConnectionGroup[] {
-  const groups = new Map<RelationType, Connection[]>();
+  const groups = new Map<ConnectionType, Connection[]>();
   for (const connection of connections) {
     const list = groups.get(connection.type);
     if (list) list.push(connection);
@@ -281,7 +376,9 @@ export function groupConnections(connections: Connection[]): ConnectionGroup[] {
   return [...groups.entries()]
     .map(([type, list]) => ({
       type,
-      label: RELATION_TYPE_LABELS[type],
+      label: type in RELATION_TYPE_LABELS
+        ? RELATION_TYPE_LABELS[type as RelationType]
+        : DERIVED_TYPE_LABELS[type as DerivedConnectionType],
       connections: [...list].sort((a, b) => a.other.name.localeCompare(b.other.name, "nl")),
     }))
     .sort((a, b) => a.label.localeCompare(b.label, "nl"));
