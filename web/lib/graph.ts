@@ -417,16 +417,18 @@ export function computeLayout(bundle: GraphBundle): GraphLayout {
     else packedNodes.push(node);
   }
 
-  const byBranch = groupBy(packedNodes, (node) => node.branch);
-  const branchOrder = [
-    ...SECTOR_ORDER.filter((branch) => byBranch.has(branch)),
-    ...[...byBranch.keys()].filter((branch) => !SECTOR_ORDER.includes(branch)).sort(),
-  ];
-
   const branchCounts = new Map<OrgBranch, number>();
   for (const node of sectorNodes) {
     branchCounts.set(node.branch, (branchCounts.get(node.branch) ?? 0) + 1);
   }
+
+  const byBranch = groupBy(packedNodes, (node) => node.branch);
+  const branchOrder = [
+    ...SECTOR_ORDER.filter((branch) => branchCounts.has(branch)),
+    ...[...branchCounts.keys()]
+      .filter((branch) => !SECTOR_ORDER.includes(branch))
+      .sort(),
+  ];
 
   const subSectorCount = branchOrder.reduce((sum, branch) => {
     return sum + new Set(byBranch.get(branch)?.map((node) => node.subtype) ?? []).size;
@@ -470,9 +472,11 @@ export function computeLayout(bundle: GraphBundle): GraphLayout {
       subOrder,
       weights,
       minimums,
-      floor:
+      floor: Math.max(
+        SUBSECTOR_GUTTER,
         subOrder.length * SUBSECTOR_GUTTER +
-        minimums.reduce((sum, value) => sum + value, 0),
+          minimums.reduce((sum, value) => sum + value, 0),
+      ),
       weight: Math.sqrt(demands.reduce((sum, demand) => sum + demand, 0)),
     };
   });
@@ -564,6 +568,8 @@ export function computeLayout(bundle: GraphBundle): GraphLayout {
         count: subNodes.length,
       });
     }
+
+    if (subOrder.length === 0) sectorEnd = sectorStart + span;
 
     sectors.push({
       branch,
