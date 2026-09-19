@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed
+
+- The graph keeps every body in its place. Selecting one no longer summons its relations onto a halo or pushes the outer rings back, and the canvas no longer turns; the selection, its path to the electorate and its direct relations light up where they are, collapsed children appear beside their body, and the view zooms to hold them and the core. Names are now drawn upright at one size on screen (12 px) for the selection, its relations and the mark under the pointer, placed each frame so they never overlap each other or a mark (`web/lib/label-placement.ts`, ADR 0015 amendment 2).
+
 ### Added
 
 - The graph rebuild plan (`docs/13-graph-rebuild-plan.md`) and ADR 0015: the canvas moves from the reference's single ring system to constitutional poles around the electorate, gains a motion model (turn, gather, step back), a build-time layout, dated relations, election and coalition data, and a Tweede Kamer hemicycle. Geometry variants are compared on rendered SVGs before the layout is chosen; pending owner decisions are listed in the plan. Phase 0 shipped the schema (dated relations, elections, coalitions) and phase 1 the variant renders in `research/graph-variants/` (polder and tier layouts, computed overlap and edge criteria). The owner chose the concentric tier layout on 19-09-2026 (ADR 0015 amendment); the B2 renders build it with a curated ring table, ring-gap edge routing, collapsed local triads and the ∩ arch seat chart.
