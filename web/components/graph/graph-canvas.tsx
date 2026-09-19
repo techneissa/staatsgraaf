@@ -21,6 +21,7 @@ import {
   type LaidOutNode,
   type SectorInfo,
 } from "@/lib/graph";
+import type { OrgBranch as OrgBranchName } from "@/lib/types";
 import {
   SPRING_FIRM,
   SPRING_SOFT,
@@ -43,7 +44,7 @@ import {
   TIER_LABELS_I18N,
 } from "@/lib/i18n/dict-graph";
 import { orgEnGloss } from "@/lib/name-gloss";
-import { glyphPath } from "./glyph";
+import { glyphPath, glyphPathAt, orbitDotsAt } from "./glyph";
 import { GraphList } from "./graph-list";
 import { layoutArch } from "./arch";
 import { ringPath, sectorLabelArc, sectorWedge, tierLabelArc } from "./tier-chrome";
@@ -144,6 +145,9 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   const movedRef = useRef(new Set<string>());
   const cancelFrameRef = useRef<(() => void) | null>(null);
   const lastTimeRef = useRef(0);
+  const frameCountRef = useRef(0);
+  /** The last drawn path of the edges that only ride the step back. */
+  const warmEdgesRef = useRef("");
   /**
    * What the animation frame draws. It lives in a ref, not in the frame's
    * closure: a loop started before the reader clicked would otherwise keep
@@ -205,10 +209,16 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     return set;
   }, [focusPath]);
 
-  /** Edges whose endpoints move while the pose is open are redrawn per frame. */
+  /**
+   * Edges whose endpoints move while the pose is open are redrawn per frame.
+   * `hot` edges touch the focus or a summoned mark and move visibly; the rest
+   * only ride the small uniform step back and are refreshed every few frames,
+   * which is what keeps a focus on a well-connected body under the frame budget.
+   */
   const liveEdges = useMemo(() => {
     const moving = expansion?.target;
-    const list: { from: string; to: string; state: "base" | "neighbour" | "path" }[] = [];
+    const halo = new Set((expansion?.halo ?? []).map((member) => member.id));
+    const list: { from: string; to: string; state: "base" | "neighbour" | "path"; hot: boolean }[] = [];
     if (!moving && !selectedId) return list;
     for (const edge of drawnEdges) {
       if (!visibleIds.has(edge.from) || !visibleIds.has(edge.to)) continue;
@@ -217,7 +227,8 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       const isPath = pathEdgeKeys.has(key);
       const isNeighbour = selectedId !== null && (edge.from === selectedId || edge.to === selectedId);
       if (!touched && !isPath && !isNeighbour) continue;
-      list.push({ from: edge.from, to: edge.to, state: isPath ? "path" : isNeighbour ? "neighbour" : "base" });
+      const hot = isPath || isNeighbour || halo.has(edge.from) || halo.has(edge.to) || edge.from === expansion?.focusId || edge.to === expansion?.focusId;
+      list.push({ from: edge.from, to: edge.to, state: isPath ? "path" : isNeighbour ? "neighbour" : "base", hot });
     }
     return list;
   }, [layout, drawnEdges, expansion, visibleIds, pathEdgeKeys, selectedId]);
@@ -250,6 +261,45 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   }, [layout, drawnEdges, visibleIds, liveEdgeKeys]);
 
   const haloIds = useMemo(() => new Set((expansion?.halo ?? []).map((member) => member.id)), [expansion]);
+
+  /**
+   * Marks that need an element of their own: the selection and its path and
+   * neighbours, and everything the current pose moves. Every other mark is
+   * drawn into one merged path per sector and glyph (below), which is what
+   * keeps a turn of the whole canvas inside the frame budget: rasterising
+   * forty paths is cheap, rasterising 1600 is not.
+   */
+  const dynamicIds = useMemo(() => {
+    const set = new Set<string>();
+    if (selectedId) set.add(selectedId);
+    for (const id of focusSet) set.add(id);
+    for (const id of neighborSet) set.add(id);
+    for (const id of expansion?.target.keys() ?? []) set.add(id);
+    return set;
+  }, [selectedId, focusSet, neighborSet, expansion]);
+
+  const dynamicNodes = useMemo(
+    () => drawnNodes.filter((node) => dynamicIds.has(node.id) || (node.hidden && dynamicIds.has(node.id))),
+    [drawnNodes, dynamicIds],
+  );
+
+  const staticMarkGroups = useMemo(() => {
+    const groups = new Map<string, { sector: string; branch: string; d: string[] }>();
+    for (const node of drawnNodes) {
+      if (node.hidden || dynamicIds.has(node.id)) continue;
+      const key = `${node.sector}|${node.glyph}`;
+      const group = groups.get(key) ?? { sector: node.sector, branch: node.branch, d: [] };
+      group.d.push(glyphPathAt(node.glyph, node.glyphRadius, node.x, node.y));
+      if (node.orbit > 0) group.d.push(orbitDotsAt(node.orbit, node.glyphRadius, node.x, node.y, Math.atan2(node.y, node.x)));
+      groups.set(key, group);
+    }
+    return [...groups.entries()].map(([key, group]) => ({ key, sector: group.sector, branch: group.branch, d: group.d.join(" ") }));
+  }, [drawnNodes, dynamicIds]);
+
+  const staticHitMarks = useMemo(
+    () => drawnNodes.filter((node) => !node.hidden && !dynamicIds.has(node.id)),
+    [drawnNodes, dynamicIds],
+  );
   const ghosts = useMemo(
     () => (expansion?.halo ?? []).filter((member) => !member.fromHidden && member.travel > TETHER_MIN_TRAVEL),
     [expansion],
@@ -292,6 +342,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
 
   useLayoutEffect(() => {
     frameDataRef.current = { layout, expansion, liveEdges, ghosts };
+    warmEdgesRef.current = "";
   }, [layout, expansion, liveEdges, ghosts]);
 
   const kick = useCallback(() => {
@@ -366,18 +417,28 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       movedRef.current = stillMoving;
 
       const pointOf = (id: string) => positions.get(id) ?? frame.layout.byId.get(id) ?? null;
+      const settling =
+        settled(open.current) && settled(rot.current);
+      frameCountRef.current += 1;
+      const refreshWarm = settling || frameCountRef.current % 6 === 0 || warmEdgesRef.current === "";
       const segments: Record<"base" | "neighbour" | "path", string[]> = { base: [], neighbour: [], path: [] };
+      const warm: string[] = [];
       for (const edge of frame.liveEdges) {
+        if (!edge.hot && !refreshWarm) continue;
         const a = pointOf(edge.from);
         const b = pointOf(edge.to);
         if (!a || !b) continue;
         const from = frame.layout.byId.get(edge.from);
         const to = frame.layout.byId.get(edge.to);
-        const routed = from && to && from.sector !== to.sector && openValue < 0.5;
-        segments[edge.state].push(
-          routed ? routedEdgePath(a, b, frame.layout.channels) : edgePath(a.x, a.y, b.x, b.y),
-        );
+        // A summoned mark sits outside its sector's rings, so its edges are drawn
+        // as plain curves; edges that stay in their sectors keep the routed shape.
+        const routed = from && to && from.sector !== to.sector && !edge.hot;
+        const d = routed ? routedEdgePath(a, b, frame.layout.channels) : edgePath(a.x, a.y, b.x, b.y);
+        if (edge.hot) segments[edge.state].push(d);
+        else warm.push(d);
       }
+      if (refreshWarm) warmEdgesRef.current = warm.join(" ");
+      segments.base.push(warmEdgesRef.current);
       for (const state of ["base", "neighbour", "path"] as const) {
         liveEdgeRefs.current[state]?.setAttribute("d", segments[state].join(" "));
       }
@@ -991,9 +1052,42 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
               })}
             </g>
 
-            {/* The marks. */}
+            {/* Marks at rest: one path per sector and glyph, then a cheap hit circle each. */}
+            <g aria-hidden="true" pointerEvents="none">
+              {staticMarkGroups.map((group) => (
+                <path
+                  key={group.key}
+                  d={group.d}
+                  fill={branchColorVar(group.branch as OrgBranchName)}
+                  opacity={
+                    activeSector
+                      ? group.sector === activeSector
+                        ? 0.82
+                        : DIM_OPACITY
+                      : selectedId
+                        ? DIM_OPACITY
+                        : 0.82
+                  }
+                />
+              ))}
+            </g>
             <g onClick={onNodeClick}>
-              {drawnNodes.map((node) => {
+              {staticHitMarks.map((node) => (
+                <circle
+                  key={node.id}
+                  data-node-id={node.id}
+                  cx={node.x}
+                  cy={node.y}
+                  r={Math.max(10, node.glyphRadius + 4)}
+                  fill="transparent"
+                  className="cursor-pointer"
+                />
+              ))}
+            </g>
+
+            {/* Marks that are selected, highlighted or moving: one element each. */}
+            <g onClick={onNodeClick}>
+              {dynamicNodes.map((node) => {
                 const state =
                   node.id === selectedId
                     ? "selected"

@@ -172,9 +172,10 @@ Edges whose ends move while a pose is open are redrawn every frame in three merg
 ## 12. Performance budget
 
 - The layout is computed once, at build time: 7 ms for 1641 nodes and 1447 edges on the 19-09-2026 snapshot. The client hydrates it in a `useMemo` and ships no packer code (`graph-layout.ts` is absent from the client chunks; the build checks this by grepping them).
-- 882 marks are drawn at rest; 756 are collapsed onto their body.
-- Static edges are merged into one path per relation type. Live edges are three paths.
+- 882 marks are drawn at rest; 756 are collapsed onto their body. At rest the marks are merged into one path per sector and glyph (16 paths on the 19-09-2026 snapshot) with one transparent hit circle each; a mark gets an element of its own only while it is selected, highlighted or moved by a pose, and folds back into the merged path when the pose closes.
+- Static edges are merged into one path per relation type. Live edges are three paths; edges that only ride the step back are refreshed every sixth frame and once more when the springs settle.
 - Only the marks in the current pose are written per frame, which is at most one tier's worth plus the halo.
+- Measured on 19-09-2026 in headless Chrome at 1280 x 900 with software rasterisation (no GPU), sampling `requestAnimationFrame` intervals: idle and wheel zoom 16.7 ms per frame; focusing a ministry (18 summoned marks, 811 stepping back) 17 to 19 ms average, p95 30 to 33 ms; a full turn of the canvas to a far sector 23 to 24 ms average, p95 34 ms, about 8 frames over 33 ms in a 900 ms turn. The turn cost is the rasterisation of the whole rotated scene and did not move with the element count (merging the marks and hiding the edge layer changed it by under 1 ms), so on a machine with GPU rasterisation it is expected to be well inside the budget; that measurement is still to be taken.
 - `graph.json` budget: under 800 KiB uncompressed and under 100 KiB gzip. Measured for 19-09-2026: 748 KiB, 83 KiB gzip. The coordinates cost about 36 KiB gzip over the packer-free bundle of the previous layout; that is the price of one file every client can draw, and it replaces the packer code the client used to ship.
 - `power-map.json`: 31 KiB, 4.6 KiB gzip, loaded only on demand.
 - The build script prints both sizes on every run.
