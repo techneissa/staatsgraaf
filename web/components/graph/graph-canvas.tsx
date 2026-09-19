@@ -13,6 +13,7 @@ import {
   SELECTED_GROWTH,
   alignRotation,
   computeFocusPath,
+  edgeAlive,
   edgePath,
   hydrateLayout,
   routedEdgePath,
@@ -52,6 +53,8 @@ type GraphCanvasProps = {
   selectedId: string | null;
   onSelect: (id: string | null) => void;
   hiddenBranches: ReadonlySet<string>;
+  /** Draw the relations as they were on this ISO date; null is today. */
+  asOf?: string | null;
 };
 
 /**
@@ -110,8 +113,9 @@ function localized(
  * interrupted at any moment: each is one spring chasing a target, and the
  * target is a pure function of the current focus.
  */
-export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches }: GraphCanvasProps) {
+export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf = null }: GraphCanvasProps) {
   const layout = useMemo(() => hydrateLayout(bundle), [bundle]);
+  const drawnEdges = useMemo(() => layout.edges.filter((edge) => edgeAlive(edge, asOf)), [layout, asOf]);
   const router = useRouter();
   const t = useT("graph");
   const tCommon = useT("common");
@@ -206,7 +210,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches }: Gr
     const moving = expansion?.target;
     const list: { from: string; to: string; state: "base" | "neighbour" | "path" }[] = [];
     if (!moving && !selectedId) return list;
-    for (const edge of layout.edges) {
+    for (const edge of drawnEdges) {
       if (!visibleIds.has(edge.from) || !visibleIds.has(edge.to)) continue;
       const touched = moving ? moving.has(edge.from) || moving.has(edge.to) : false;
       const key = edgeKey(edge.from, edge.to);
@@ -216,7 +220,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches }: Gr
       list.push({ from: edge.from, to: edge.to, state: isPath ? "path" : isNeighbour ? "neighbour" : "base" });
     }
     return list;
-  }, [layout, expansion, visibleIds, pathEdgeKeys, selectedId]);
+  }, [layout, drawnEdges, expansion, visibleIds, pathEdgeKeys, selectedId]);
 
   const liveEdgeKeys = useMemo(
     () => new Set(liveEdges.map((edge) => edgeKey(edge.from, edge.to))),
@@ -226,7 +230,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches }: Gr
   /** Everything else is merged into one path per relation type and never moves. */
   const staticEdges = useMemo(() => {
     const byType = new Map<string, string[]>();
-    for (const edge of layout.edges) {
+    for (const edge of drawnEdges) {
       if (!visibleIds.has(edge.from) || !visibleIds.has(edge.to)) continue;
       if (liveEdgeKeys.has(edgeKey(edge.from, edge.to))) continue;
       const from = layout.byId.get(edge.from);
@@ -243,7 +247,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches }: Gr
     return [...byType.entries()]
       .sort((a, b) => edgeTypeOrderIndex(a[0]) - edgeTypeOrderIndex(b[0]))
       .map(([type, segments]) => ({ type, d: segments.join(" ") }));
-  }, [layout, visibleIds, liveEdgeKeys]);
+  }, [layout, drawnEdges, visibleIds, liveEdgeKeys]);
 
   const haloIds = useMemo(() => new Set((expansion?.halo ?? []).map((member) => member.id)), [expansion]);
   const ghosts = useMemo(
@@ -382,11 +386,20 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches }: Gr
         const point = positions.get(member.id);
         const label = labelRefs.current.get(member.id);
         if (point && label) {
-          label.setAttribute(
-            "transform",
-            `translate(${point.x.toFixed(2)} ${point.y.toFixed(2)}) rotate(${(-degrees).toFixed(3)})`,
-          );
+          // Halo labels run along the radius, reading outward from the mark, so
+          // neighbours on the arc never stack. On the left half of the screen
+          // the label is flipped and anchored at its end so it stays upright.
+          const local = Math.atan2(point.y, point.x);
+          const onScreen = local + rot.current.value;
+          const flipped = Math.cos(onScreen) < 0;
+          const deg = ((local + (flipped ? Math.PI : 0)) * 180) / Math.PI;
+          label.setAttribute("transform", `translate(${point.x.toFixed(2)} ${point.y.toFixed(2)}) rotate(${deg.toFixed(3)})`);
           label.setAttribute("opacity", openValue > 0.55 ? ((openValue - 0.55) / 0.45).toFixed(3) : "0");
+          const offset = Number(label.dataset.offset ?? "8");
+          for (const text of label.querySelectorAll("text")) {
+            text.setAttribute("text-anchor", flipped ? "end" : "start");
+            text.setAttribute("x", (flipped ? -offset : offset).toFixed(1));
+          }
         }
       }
       for (const ghost of frame.ghosts) {
@@ -1048,28 +1061,18 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches }: Gr
                       if (element) labelRefs.current.set(member.id, element);
                       else labelRefs.current.delete(member.id);
                     }}
+                    data-offset={(node.glyphRadius + 5).toFixed(1)}
                     opacity={0}
                   >
                     <text
-                      x={node.glyphRadius + 4}
+                      x={node.glyphRadius + 5}
                       y={0}
                       dominantBaseline="central"
                       fill="var(--color-ink-muted)"
-                      style={{ fontSize: 9 }}
+                      style={{ fontSize: 8, paintOrder: "stroke", stroke: "var(--t-color-canvas)", strokeWidth: 2.5 }}
                     >
-                      {node.name}
+                      {gloss ? `${node.name} (${gloss})` : node.name}
                     </text>
-                    {gloss ? (
-                      <text
-                        x={node.glyphRadius + 4}
-                        y={8}
-                        dominantBaseline="central"
-                        fill="var(--color-ink-faint)"
-                        style={{ fontSize: 7 }}
-                      >
-                        ({gloss})
-                      </text>
-                    ) : null}
                   </g>
                 );
               })}

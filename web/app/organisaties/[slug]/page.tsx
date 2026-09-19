@@ -20,6 +20,7 @@ import { MemberList } from "@/components/entity/member-list";
 import { SeatGrid } from "@/components/entity/seat-grid";
 import { SeatTally } from "@/components/entity/seat-tally";
 import { ArchChart } from "@/components/parliament/arch-chart";
+import { ElectionHistory } from "@/components/parliament/election-history";
 import { TenureTimeline } from "@/components/entity/tenure-timeline";
 import {
   getCurrentTenuresForOrganization,
@@ -233,7 +234,7 @@ export default async function OrganizationPage({
         </div>
       </header>
 
-      <div className="mt-6 grid grid-cols-1 items-start gap-4 lg:grid-cols-[minmax(0,1fr)_20rem]">
+      <div className="mt-6 grid grid-cols-1 items-start gap-4">
         <div className="min-w-0 space-y-4">
           <EntityTabs
             news={
@@ -297,6 +298,7 @@ export default async function OrganizationPage({
               )}
               {tally !== null ? <ArchChart tally={tally} /> : null}
               {tally !== null ? <SeatTally tally={tally} /> : null}
+              {tally !== null ? <ElectionHistory organizationId={organization.id} /> : null}
               <div className="mt-3">
                 <SeatGrid members={members} limit={GRID_LIMIT} />
               </div>
@@ -393,7 +395,7 @@ export default async function OrganizationPage({
           </FactGroup>
         </div>
 
-        <aside className="min-w-0 space-y-4">
+        <aside className="order-first min-w-0 space-y-4">
           <EntityFacts
             facts={facts}
             className="rounded-md border border-line bg-surface p-4"

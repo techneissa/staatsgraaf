@@ -224,7 +224,7 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
         </div>
       </header>
 
-      <div className="mt-6 grid grid-cols-1 items-start gap-4 lg:grid-cols-[minmax(0,1fr)_20rem]">
+      <div className="mt-6 grid grid-cols-1 items-start gap-4">
         <div className="min-w-0 space-y-4">
           <EntityTabs
             news={
@@ -322,7 +322,7 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
           </FactGroup>
         </div>
 
-        <aside className="min-w-0 space-y-4">
+        <aside className="order-first min-w-0 space-y-4">
           <EntityFacts facts={facts} className="rounded-md border border-line bg-surface p-4" />
 
           <FactGroup title={<T area="entity" k="factOrganization" />}>

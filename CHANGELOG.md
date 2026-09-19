@@ -17,6 +17,9 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 - Fifty-eight ministry relations dated from the Staatscourant besluiten of the 2010, 2017, 2024 and 2026 departmental reorganisations (workstream T), the first `validFrom` values in the dataset.
 - Workstream S established that neither chamber publishes a seat number per member; recorded as a named gap, so the seat charts keep the fractie-block order and say so.
 
+- Seat history. The Tweede Kamer and Eerste Kamer pages list every election in the dataset as a stacked seat bar, newest first, with the majority marked, turnout where the source has it, and the Kiesraad, CBS or PDC source linked per result (`web/components/parliament/election-history.tsx`). Party pages show a sparkline of the party's seats per chamber across elections with the numbers in a table beneath it (`web/components/parliament/seat-sparkline.tsx`).
+- An "as of" date on the canvas draws the dated relations as they stood on that date (`edgeAlive` in `web/lib/graph.ts`); undated relations are the current state and stay.
+
 ### Changed
 
 - The graph layout is computed once at build time and shipped in `graph.json` (schema `nl-graph-bundle-v2`); the client hydrates it and no longer ships the packer, so the web app and the later Swift app draw the same picture from the same file. The machtskaart moved to its own `power-map.json`, loaded only when it is shown. Every organization-to-organization relation type is emitted with its `validFrom` and `validTo` where the data has them.
@@ -27,6 +30,8 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 ### Fixed
 
 - The home column and news page no longer cut text mid-sentence: summaries are clamped at a sentence boundary in code (`clampSentences`, `clampMarkupSentences` in `web/lib/news-text.ts`) instead of a CSS line clamp, so a card ends on a full stop or, when a sentence has to break, at a word with an ellipsis. Source rows keep their number in a fixed column so a long title wraps under itself; the timeline's first and last labels and count bubbles anchor to the card edge instead of spilling past it; the "zetels" label on a vacancy card no longer runs into its value; change cards show dates in the project format.
+- Organization, person and position pages no longer squeeze their news and connections into a 12rem strip beside the facts rail: the facts block sits first at full width and the tabs follow, because the content column is 32rem wide and never had room for two columns.
+- Halo labels on the canvas run along the radius, reading outward and flipped upright on the left half, so twenty summoned bodies no longer stack their names on top of each other.
 - On phones the page no longer scrolls sideways: the canvas header controls wrap, the grid columns may shrink below their content, the scope pill and the history arrows hide below the small breakpoint, and the hover callouts of the people strip open toward the middle so a hidden callout never widens the page.
 
 - News card summaries no longer repeat their own headline. The linked summaries stored as "Kop — inleiding" are cut to the article text before rendering (`stripTitleFromMarkup`), and fallback summaries that hold nothing beyond the publisher echo ("Trouw bericht: \"Kop\"") are suppressed or reduced to their article text (`stripPublisherPrefix` in `web/lib/news-text.ts`). Image credit lines are removed from the news cards; photo attribution stays in the accessible portrait labels.

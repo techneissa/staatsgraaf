@@ -74,6 +74,34 @@ export const ENTITY_DICT = {
     nl: "{label}: {n} van {total} zetels",
     en: "{label}: {n} of {total} seats",
   },
+  electionHistoryLabel: {
+    nl: "Zetelverdeling per verkiezing",
+    en: "Seats by election",
+  },
+  electionHistoryNote: {
+    nl: "Definitieve zetelverdeling per lijst volgens de Kiesraad en het CBS; voor oudere Eerste Kamerverkiezingen volgens het Parlementair Documentatie Centrum. Lijstverbindingen zijn niet weergegeven.",
+    en: "Final seat allocation per list according to the Kiesraad and Statistics Netherlands; for older Senate elections according to the Parliamentary Documentation Centre. List combinations are not shown.",
+  },
+  electionEarly: {
+    nl: "vervroegd",
+    en: "early election",
+  },
+  electionSeatsLine: {
+    nl: "{total} zetels, meerderheid bij {majority}",
+    en: "{total} seats, majority at {majority}",
+  },
+  electionTurnout: {
+    nl: "opkomst {pct}%",
+    en: "turnout {pct}%",
+  },
+  seatSparklineLabel: {
+    nl: "Zetels per verkiezing, {from} tot {to} ({n} verkiezingen)",
+    en: "Seats per election, {from} to {to} ({n} elections)",
+  },
+  seatSparklineTable: {
+    nl: "Toon de cijfers",
+    en: "Show the numbers",
+  },
   seatTallyMajorityMarker: {
     nl: "Meerderheidsgrens: {n} zetels",
     en: "Majority threshold: {n} seats",

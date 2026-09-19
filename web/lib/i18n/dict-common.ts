@@ -31,6 +31,14 @@ export const COMMON_DICT = {
   },
   viewGraph: { nl: "Grafiek", en: "Graph" },
   viewPower: { nl: "Machtskaart", en: "Power map" },
+  asOfLabel: {
+    nl: "Zoals op",
+    en: "As of",
+  },
+  asOfClear: {
+    nl: "Nu",
+    en: "Now",
+  },
   legendLabel: { nl: "Legenda", en: "Legend" },
   legendAndFilters: { nl: "Legenda en filters", en: "Legend and filters" },
   showAllLayers: { nl: "Alle lagen tonen", en: "Show all branches" },

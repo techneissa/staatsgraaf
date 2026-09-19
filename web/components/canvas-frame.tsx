@@ -18,6 +18,9 @@ export function CanvasFrame() {
   const [view, setView] = useState<CanvasView>("graph");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hiddenBranches, setHiddenBranches] = useState<Set<string>>(new Set());
+  /** The date the relations are drawn for; null is today. Only the dated relations change. */
+  const [asOf, setAsOf] = useState<string | null>(null);
+  const datedEdges = useMemo(() => bundle?.edges.some((edge) => Boolean(edge.validFrom || edge.validTo)) ?? false, [bundle]);
   /** Person focused through the callout on the Who's in the news strip. */
   const [focusPerson, setFocusPerson] = useState<{ slug: string; title: string } | null>(null);
 
@@ -156,6 +159,9 @@ export function CanvasFrame() {
           hiddenBranches={hiddenBranches}
           onToggleBranch={toggleBranch}
           onShowAll={() => setHiddenBranches(new Set())}
+          asOf={asOf}
+          onAsOfChange={setAsOf}
+          datedEdges={datedEdges}
         />
       </div>
 
@@ -181,6 +187,7 @@ export function CanvasFrame() {
             selectedId={selectedId}
             onSelect={setSelectedId}
             hiddenBranches={hiddenBranches}
+            asOf={asOf}
           />
         ) : null}
 

@@ -250,7 +250,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
         </div>
       </header>
 
-      <div className="mt-6 grid grid-cols-1 items-start gap-4 lg:grid-cols-[minmax(0,1fr)_20rem]">
+      <div className="mt-6 grid grid-cols-1 items-start gap-4">
         <div className="min-w-0 space-y-4">
           <EntityTabs
             news={
@@ -313,7 +313,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
           ) : null}
         </div>
 
-        <aside className="min-w-0 space-y-4">
+        <aside className="order-first min-w-0 space-y-4">
           <EntityFacts facts={facts} className="rounded-md border border-line bg-surface p-4" />
 
           {currentOrganizations.length > 0 ? (
