@@ -20249,6 +20249,76 @@
     ]
   },
   {
+    "id": "org:gemeenschappelijke-gezondheidsdienst-zaanstreek-waterland",
+    "slug": "gemeenschappelijke-gezondheidsdienst-zaanstreek-waterland",
+    "name": "Gemeenschappelijke Gezondheidsdienst Zaanstreek-Waterland",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Regionale gezondheidsdienst ingesteld door de colleges van burgemeester en wethouders van de gemeenten in de regio via een gemeenschappelijke regeling; openbaar lichaam met de aanduiding gemeentelijke gezondheidsdienst (Wet publieke gezondheid art. 14).",
+    "legalSource": {
+      "label": "Wet publieke gezondheid art. 14",
+      "url": "https://wetten.overheid.nl/BWBR0024705#HoofdstukIV_Artikel14"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-gemeenschappelijke-gezondheidsdienst-zaanstreek-waterland",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:gemeenschappelijke-gezondheidsdienst-zeeland",
+    "slug": "gemeenschappelijke-gezondheidsdienst-zeeland",
+    "name": "Gemeenschappelijke Gezondheidsdienst Zeeland",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Regionale gezondheidsdienst ingesteld door de colleges van burgemeester en wethouders van de gemeenten in de regio via een gemeenschappelijke regeling; openbaar lichaam met de aanduiding gemeentelijke gezondheidsdienst (Wet publieke gezondheid art. 14).",
+    "legalSource": {
+      "label": "Wet publieke gezondheid art. 14",
+      "url": "https://wetten.overheid.nl/BWBR0024705#HoofdstukIV_Artikel14"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-gemeenschappelijke-gezondheidsdienst-zeeland",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "org:gemeente-aa-en-hunze",
     "slug": "gemeente-aa-en-hunze",
     "name": "Gemeente Aa en Hunze",
@@ -36670,6 +36740,261 @@
     ]
   },
   {
+    "id": "org:gemeentelijke-gezondheidsdienst-en-veilig-thuis-haaglanden",
+    "slug": "gemeentelijke-gezondheidsdienst-en-veilig-thuis-haaglanden",
+    "name": "Gemeentelijke Gezondheidsdienst en Veilig Thuis Haaglanden (GR GGD en VT Haaglanden)",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Regionale gezondheidsdienst ingesteld door de colleges van burgemeester en wethouders van de gemeenten in de regio via een gemeenschappelijke regeling; openbaar lichaam met de aanduiding gemeentelijke gezondheidsdienst (Wet publieke gezondheid art. 14).",
+    "legalSource": {
+      "label": "Wet publieke gezondheid art. 14",
+      "url": "https://wetten.overheid.nl/BWBR0024705#HoofdstukIV_Artikel14"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-gemeentelijke-gezondheidsdienst-en-veilig-thuis-haaglanden",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:gemeentelijke-gezondheidsdienst-flevoland",
+    "slug": "gemeentelijke-gezondheidsdienst-flevoland",
+    "name": "Gemeentelijke Gezondheidsdienst Flevoland",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "GGD Flevoland"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Regionale gezondheidsdienst ingesteld door de colleges van burgemeester en wethouders van de gemeenten in de regio via een gemeenschappelijke regeling; openbaar lichaam met de aanduiding gemeentelijke gezondheidsdienst (Wet publieke gezondheid art. 14).",
+    "legalSource": {
+      "label": "Wet publieke gezondheid art. 14",
+      "url": "https://wetten.overheid.nl/BWBR0024705#HoofdstukIV_Artikel14"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-gemeentelijke-gezondheidsdienst-flevoland",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:gemeentelijke-gezondheidsdienst-gelderland-zuid",
+    "slug": "gemeentelijke-gezondheidsdienst-gelderland-zuid",
+    "name": "Gemeentelijke Gezondheidsdienst Gelderland-Zuid",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "GGD Gelderland-Zuid"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Regionale gezondheidsdienst ingesteld door de colleges van burgemeester en wethouders van de gemeenten in de regio via een gemeenschappelijke regeling; openbaar lichaam met de aanduiding gemeentelijke gezondheidsdienst (Wet publieke gezondheid art. 14).",
+    "legalSource": {
+      "label": "Wet publieke gezondheid art. 14",
+      "url": "https://wetten.overheid.nl/BWBR0024705#HoofdstukIV_Artikel14"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-gemeentelijke-gezondheidsdienst-gelderland-zuid",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:gemeentelijke-gezondheidsdienst-hollands-noorden",
+    "slug": "gemeentelijke-gezondheidsdienst-hollands-noorden",
+    "name": "Gemeentelijke Gezondheidsdienst Hollands Noorden",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "GGD HN"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Regionale gezondheidsdienst ingesteld door de colleges van burgemeester en wethouders van de gemeenten in de regio via een gemeenschappelijke regeling; openbaar lichaam met de aanduiding gemeentelijke gezondheidsdienst (Wet publieke gezondheid art. 14).",
+    "legalSource": {
+      "label": "Wet publieke gezondheid art. 14",
+      "url": "https://wetten.overheid.nl/BWBR0024705#HoofdstukIV_Artikel14"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-gemeentelijke-gezondheidsdienst-hollands-noorden",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:gemeentelijke-gezondheidsdienst-noord-en-oost-gelderland",
+    "slug": "gemeentelijke-gezondheidsdienst-noord-en-oost-gelderland",
+    "name": "Gemeentelijke Gezondheidsdienst Noord- en Oost-Gelderland",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "GGD NOG"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Regionale gezondheidsdienst ingesteld door de colleges van burgemeester en wethouders van de gemeenten in de regio via een gemeenschappelijke regeling; openbaar lichaam met de aanduiding gemeentelijke gezondheidsdienst (Wet publieke gezondheid art. 14).",
+    "legalSource": {
+      "label": "Wet publieke gezondheid art. 14",
+      "url": "https://wetten.overheid.nl/BWBR0024705#HoofdstukIV_Artikel14"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-gemeentelijke-gezondheidsdienst-noord-en-oost-gelderland",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:gemeentelijke-gezondheidsdienst-regio-utrecht",
+    "slug": "gemeentelijke-gezondheidsdienst-regio-utrecht",
+    "name": "Gemeentelijke Gezondheidsdienst Regio Utrecht",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Regionale gezondheidsdienst ingesteld door de colleges van burgemeester en wethouders van de gemeenten in de regio via een gemeenschappelijke regeling; openbaar lichaam met de aanduiding gemeentelijke gezondheidsdienst (Wet publieke gezondheid art. 14).",
+    "legalSource": {
+      "label": "Wet publieke gezondheid art. 14",
+      "url": "https://wetten.overheid.nl/BWBR0024705#HoofdstukIV_Artikel14"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-gemeentelijke-gezondheidsdienst-regio-utrecht",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:gemeentelijke-gezondheidsdienst-rotterdam-rijnmond",
+    "slug": "gemeentelijke-gezondheidsdienst-rotterdam-rijnmond",
+    "name": "Gemeentelijke Gezondheidsdienst Rotterdam-Rijnmond",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "GGD-RR"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Regionale gezondheidsdienst ingesteld door de colleges van burgemeester en wethouders van de gemeenten in de regio via een gemeenschappelijke regeling; openbaar lichaam met de aanduiding gemeentelijke gezondheidsdienst (Wet publieke gezondheid art. 14).",
+    "legalSource": {
+      "label": "Wet publieke gezondheid art. 14",
+      "url": "https://wetten.overheid.nl/BWBR0024705#HoofdstukIV_Artikel14"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-gemeentelijke-gezondheidsdienst-rotterdam-rijnmond",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "org:gemeenteraad-aa-en-hunze",
     "slug": "gemeenteraad-aa-en-hunze",
     "name": "Gemeenteraad van Aa en Hunze",
@@ -52062,6 +52387,43 @@
     ]
   },
   {
+    "id": "org:geneeskundige-gezondheidsdienst-zuid-limburg",
+    "slug": "geneeskundige-gezondheidsdienst-zuid-limburg",
+    "name": "Geneeskundige Gezondheidsdienst Zuid-Limburg",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "GGD ZL"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Regionale gezondheidsdienst ingesteld door de colleges van burgemeester en wethouders van de gemeenten in de regio via een gemeenschappelijke regeling; openbaar lichaam met de aanduiding gemeentelijke gezondheidsdienst (Wet publieke gezondheid art. 14).",
+    "legalSource": {
+      "label": "Wet publieke gezondheid art. 14",
+      "url": "https://wetten.overheid.nl/BWBR0024705#HoofdstukIV_Artikel14"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-geneeskundige-gezondheidsdienst-zuid-limburg",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "org:gerechtshof-amsterdam",
     "slug": "gerechtshof-amsterdam",
     "name": "Gerechtshof Amsterdam",
@@ -52265,6 +52627,181 @@
         "source": "src:contactgids-gezondheidsraad",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "id": "org:ggd-brabant-zuidoost",
+    "slug": "ggd-brabant-zuidoost",
+    "name": "GGD Brabant-Zuidoost",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Regionale gezondheidsdienst ingesteld door de colleges van burgemeester en wethouders van de gemeenten in de regio via een gemeenschappelijke regeling; openbaar lichaam met de aanduiding gemeentelijke gezondheidsdienst (Wet publieke gezondheid art. 14).",
+    "legalSource": {
+      "label": "Wet publieke gezondheid art. 14",
+      "url": "https://wetten.overheid.nl/BWBR0024705#HoofdstukIV_Artikel14"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-ggd-brabant-zuidoost",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ggd-groningen",
+    "slug": "ggd-groningen",
+    "name": "GGD Groningen",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Regionale gezondheidsdienst ingesteld door de colleges van burgemeester en wethouders van de gemeenten in de regio via een gemeenschappelijke regeling; openbaar lichaam met de aanduiding gemeentelijke gezondheidsdienst (Wet publieke gezondheid art. 14).",
+    "legalSource": {
+      "label": "Wet publieke gezondheid art. 14",
+      "url": "https://wetten.overheid.nl/BWBR0024705#HoofdstukIV_Artikel14"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-ggd-groningen",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ggd-hart-voor-brabant",
+    "slug": "ggd-hart-voor-brabant",
+    "name": "GGD Hart voor Brabant",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Regionale gezondheidsdienst ingesteld door de colleges van burgemeester en wethouders van de gemeenten in de regio via een gemeenschappelijke regeling; openbaar lichaam met de aanduiding gemeentelijke gezondheidsdienst (Wet publieke gezondheid art. 14).",
+    "legalSource": {
+      "label": "Wet publieke gezondheid art. 14",
+      "url": "https://wetten.overheid.nl/BWBR0024705#HoofdstukIV_Artikel14"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-ggd-hart-voor-brabant",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ggd-ijsselland",
+    "slug": "ggd-ijsselland",
+    "name": "GGD IJsselland",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Regionale gezondheidsdienst ingesteld door de colleges van burgemeester en wethouders van de gemeenten in de regio via een gemeenschappelijke regeling; openbaar lichaam met de aanduiding gemeentelijke gezondheidsdienst (Wet publieke gezondheid art. 14).",
+    "legalSource": {
+      "label": "Wet publieke gezondheid art. 14",
+      "url": "https://wetten.overheid.nl/BWBR0024705#HoofdstukIV_Artikel14"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-ggd-ijsselland",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ggd-west-brabant",
+    "slug": "ggd-west-brabant",
+    "name": "GGD West-Brabant",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Regionale gezondheidsdienst ingesteld door de colleges van burgemeester en wethouders van de gemeenten in de regio via een gemeenschappelijke regeling; openbaar lichaam met de aanduiding gemeentelijke gezondheidsdienst (Wet publieke gezondheid art. 14).",
+    "legalSource": {
+      "label": "Wet publieke gezondheid art. 14",
+      "url": "https://wetten.overheid.nl/BWBR0024705#HoofdstukIV_Artikel14"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-ggd-west-brabant",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -54648,6 +55185,886 @@
     }
   },
   {
+    "id": "org:omgevingsdienst-achterhoek",
+    "slug": "omgevingsdienst-achterhoek",
+    "name": "Omgevingsdienst Achterhoek",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "ODA"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-achterhoek",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-brabant-noord",
+    "slug": "omgevingsdienst-brabant-noord",
+    "name": "Omgevingsdienst Brabant Noord",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "ODBN"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-brabant-noord",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-de-vallei",
+    "slug": "omgevingsdienst-de-vallei",
+    "name": "Omgevingsdienst de Vallei",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "OddV"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-de-vallei",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-drenthe",
+    "slug": "omgevingsdienst-drenthe",
+    "name": "Omgevingsdienst Drenthe",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-drenthe",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-flevoland-en-gooi-en-vechtstreek",
+    "slug": "omgevingsdienst-flevoland-en-gooi-en-vechtstreek",
+    "name": "Omgevingsdienst Flevoland & Gooi en Vechtstreek",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "OFGV"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-flevoland-en-gooi-en-vechtstreek",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-groene-metropool",
+    "slug": "omgevingsdienst-groene-metropool",
+    "name": "Omgevingsdienst Groene Metropool",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "ODGM"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-groene-metropool",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-groningen",
+    "slug": "omgevingsdienst-groningen",
+    "name": "Omgevingsdienst Groningen",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "ODG"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-groningen",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-haaglanden",
+    "slug": "omgevingsdienst-haaglanden",
+    "name": "Omgevingsdienst Haaglanden",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "ODH"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-haaglanden",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-ijmond",
+    "slug": "omgevingsdienst-ijmond",
+    "name": "Omgevingsdienst IJmond",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "ODIJ"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-ijmond",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-ijsselland",
+    "slug": "omgevingsdienst-ijsselland",
+    "name": "Omgevingsdienst IJsselland",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-ijsselland",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-midden-en-west-brabant",
+    "slug": "omgevingsdienst-midden-en-west-brabant",
+    "name": "Omgevingsdienst Midden- en West-Brabant",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-midden-en-west-brabant",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-midden-holland",
+    "slug": "omgevingsdienst-midden-holland",
+    "name": "Omgevingsdienst Midden-Holland",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "ODMH"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-midden-holland",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-noord-en-midden-limburg",
+    "slug": "omgevingsdienst-noord-en-midden-limburg",
+    "name": "Omgevingsdienst Noord- en Midden-Limburg",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "ODNML"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-noord-en-midden-limburg",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-noord-holland-noord",
+    "slug": "omgevingsdienst-noord-holland-noord",
+    "name": "Omgevingsdienst Noord-Holland Noord",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "OD NHN"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-noord-holland-noord",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-noordzeekanaalgebied",
+    "slug": "omgevingsdienst-noordzeekanaalgebied",
+    "name": "Omgevingsdienst Noordzeekanaalgebied",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "OD NZKG"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-noordzeekanaalgebied",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-regio-utrecht",
+    "slug": "omgevingsdienst-regio-utrecht",
+    "name": "Omgevingsdienst regio Utrecht",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "ODRU"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-regio-utrecht",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-rivierenland",
+    "slug": "omgevingsdienst-rivierenland",
+    "name": "Omgevingsdienst Rivierenland",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "ODR"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-rivierenland",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-twente",
+    "slug": "omgevingsdienst-twente",
+    "name": "Omgevingsdienst Twente",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "ODT"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-twente",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-utrecht",
+    "slug": "omgevingsdienst-utrecht",
+    "name": "Omgevingsdienst Utrecht",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-utrecht",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-veluwe",
+    "slug": "omgevingsdienst-veluwe",
+    "name": "Omgevingsdienst Veluwe",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "ODVeluwe"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-veluwe",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-west-holland",
+    "slug": "omgevingsdienst-west-holland",
+    "name": "Omgevingsdienst West-Holland",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "ODWH"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-west-holland",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-zuid-holland-zuid",
+    "slug": "omgevingsdienst-zuid-holland-zuid",
+    "name": "Omgevingsdienst Zuid-Holland Zuid",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "OZHZ"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-zuid-holland-zuid",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-zuid-limburg",
+    "slug": "omgevingsdienst-zuid-limburg",
+    "name": "Omgevingsdienst Zuid-Limburg",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "ODZL"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-zuid-limburg",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:omgevingsdienst-zuidoost-brabant",
+    "slug": "omgevingsdienst-zuidoost-brabant",
+    "name": "Omgevingsdienst Zuidoost-Brabant",
+    "type": "department",
+    "subtype": "samenwerkingsverband",
+    "branch": "decentraal-lokaal",
+    "level": "regionaal",
+    "country": "nederland",
+    "aliases": [
+      "ODZOB"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Omgevingsdienst ingesteld door gedeputeerde staten en de colleges van burgemeester en wethouders in de regio als openbaar lichaam onder de Wet gemeenschappelijke regelingen (Omgevingswet art. 18.21).",
+    "legalSource": {
+      "label": "Omgevingswet art. 18.21",
+      "url": "https://wetten.overheid.nl/BWBR0037885"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:koop-omgevingsdienst-zuidoost-brabant",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "org:onderwijsraad",
     "slug": "onderwijsraad",
     "name": "Onderwijsraad",
@@ -57009,6 +58426,111 @@
       {
         "source": "src:stcrt-2026-8174",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:regering-aruba",
+    "slug": "regering-aruba",
+    "name": "Regering van Aruba",
+    "type": "department",
+    "subtype": "land-regering",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "aruba",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Regering van het land Aruba. Het Koninkrijk omvat de landen Nederland, Aruba, Curaçao en Sint Maarten (Statuut voor het Koninkrijk art. 1).",
+    "legalSource": {
+      "label": "Statuut voor het Koninkrijk art. 1",
+      "url": "https://wetten.overheid.nl/BWBR0002154"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:statuut",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:regering-curacao",
+    "slug": "regering-curacao",
+    "name": "Regering van Curaçao",
+    "type": "department",
+    "subtype": "land-regering",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "curacao",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Regering van het land Curaçao. Het Koninkrijk omvat de landen Nederland, Aruba, Curaçao en Sint Maarten (Statuut voor het Koninkrijk art. 1).",
+    "legalSource": {
+      "label": "Statuut voor het Koninkrijk art. 1",
+      "url": "https://wetten.overheid.nl/BWBR0002154"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:statuut",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:regering-sint-maarten",
+    "slug": "regering-sint-maarten",
+    "name": "Regering van Sint Maarten",
+    "type": "department",
+    "subtype": "land-regering",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "sint-maarten",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Regering van het land Sint Maarten. Het Koninkrijk omvat de landen Nederland, Aruba, Curaçao en Sint Maarten (Statuut voor het Koninkrijk art. 1).",
+    "legalSource": {
+      "label": "Statuut voor het Koninkrijk art. 1",
+      "url": "https://wetten.overheid.nl/BWBR0002154"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:statuut",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -62158,7 +63680,8 @@
     "level": "regionaal",
     "country": "nederland",
     "aliases": [
-      "VGGM"
+      "VGGM",
+      "Veiligheids- en Gezondheidsregio Gelderland-Midden"
     ],
     "parent": null,
     "partOf": [],
@@ -62532,7 +64055,8 @@
     "level": "regionaal",
     "country": "nederland",
     "aliases": [
-      "VRLN"
+      "VRLN",
+      "Veiligheidsregio en Gemeentelijke Gezondheidsdienst Limburg-Noord"
     ],
     "parent": null,
     "partOf": [],

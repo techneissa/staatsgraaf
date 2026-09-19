@@ -1106,13 +1106,32 @@
     "acting": false,
     "entryMode": "benoemd-bij-kb",
     "appointedBy": null,
-    "predecessor": null,
+    "predecessor": "tenure:burgemeester-culemborg-2025-renkema",
     "successor": null,
     "endReason": null,
     "source": {
       "source": "src:wiki-burgemeesters",
       "retrieved": "2026-09-18",
       "confidence": "medium"
+    }
+  },
+  {
+    "id": "tenure:burgemeester-culemborg-2025-renkema",
+    "person": "person:gerard-renkema",
+    "position": "pos:burgemeester-culemborg",
+    "seat": null,
+    "start": "2025-05-01",
+    "end": "2025-12-03",
+    "acting": true,
+    "entryMode": "waarnemend",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": "tenure:burgemeester-culemborg",
+    "endReason": null,
+    "source": {
+      "source": "src:rijksoverheid-culemborg",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
     }
   },
   {
@@ -7940,6 +7959,63 @@
     }
   },
   {
+    "id": "tenure:gevolmachtigde-minister-aruba-schwengle",
+    "person": "person:mildred-schwengle",
+    "position": "pos:gevolmachtigde-minister-aruba",
+    "seat": null,
+    "start": "2026-03-04",
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:kabinetaruba-schwengle",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:gevolmachtigde-minister-curacao-justiana",
+    "person": "person:sidney-justiana",
+    "position": "pos:gevolmachtigde-minister-curacao",
+    "seat": null,
+    "start": "2026-07-01",
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:kabinetaruba-justiana",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:gevolmachtigde-minister-sint-maarten-arrindell",
+    "person": "person:gracita-arrindell",
+    "position": "pos:gevolmachtigde-minister-sint-maarten",
+    "seat": null,
+    "start": "2024-11-26",
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:sintmaartengov-arrindell",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
     "id": "tenure:gezaghebber-bonaire",
     "person": "person:john-soliano",
     "position": "pos:gezaghebber-bonaire",
@@ -7993,6 +8069,101 @@
     "source": {
       "source": "src:rijksdienstcn-francis",
       "retrieved": "2026-09-18",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:gouverneur-aruba-boekhoudt-2017",
+    "person": "person:alfonso-boekhoudt",
+    "position": "pos:gouverneur-aruba",
+    "seat": null,
+    "start": "2017-01-01",
+    "end": "2022-12-31",
+    "acting": true,
+    "entryMode": "benoemd-bij-kb",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:gouverneur-aruba",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:gouverneur-aruba-boekhoudt-2023",
+    "person": "person:alfonso-boekhoudt",
+    "position": "pos:gouverneur-aruba",
+    "seat": null,
+    "start": "2023-01-01",
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd-bij-kb",
+    "appointedBy": null,
+    "predecessor": "tenure:gouverneur-aruba-boekhoudt-2017",
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:gouverneur-aruba",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:gouverneur-curacao-de-kort",
+    "person": "person:mauritsz-de-kort",
+    "position": "pos:gouverneur-curacao",
+    "seat": null,
+    "start": "2025-11-04",
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd-bij-kb",
+    "appointedBy": null,
+    "predecessor": "tenure:gouverneur-curacao-george-wout",
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:rijksoverheid-gouverneur-curacao",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:gouverneur-curacao-george-wout",
+    "person": "person:lucille-george-wout",
+    "position": "pos:gouverneur-curacao",
+    "seat": null,
+    "start": "2013-11-04",
+    "end": "2025-11-04",
+    "acting": false,
+    "entryMode": "benoemd-bij-kb",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:rijksoverheid-gouverneur-curacao",
+      "retrieved": "2026-09-19",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "tenure:gouverneur-sint-maarten-baly",
+    "person": "person:ajamu-baly",
+    "position": "pos:gouverneur-sint-maarten",
+    "seat": null,
+    "start": "2022-10-10",
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd-bij-kb",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koninklijkhuis-gouverneur-sint-maarten",
+      "retrieved": "2026-09-19",
       "confidence": "high"
     }
   },

@@ -667,6 +667,29 @@
     "id": "change:2013-10-01-appointment-dijkgraaf-zuiderzeeland"
   },
   {
+    "date": "2013-11-04",
+    "kind": "appointment",
+    "summary": "Benoeming: Lucille George-Wout wordt Gouverneur van Curaçao.",
+    "source": {
+      "source": "src:rijksoverheid-gouverneur-curacao",
+      "retrieved": "2026-09-19",
+      "confidence": "medium"
+    },
+    "position": "pos:gouverneur-curacao",
+    "organization": "org:regering-curacao",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:gouverneur-curacao-george-wout",
+      "person": "person:lucille-george-wout",
+      "label": "Lucille George-Wout - Gouverneur van Curaçao"
+    },
+    "id": "change:2013-11-04-appointment-gouverneur-curacao"
+  },
+  {
     "date": "2013-11-28",
     "kind": "appointment",
     "summary": "Benoeming: Rob Metz wordt Burgemeester van Soest.",
@@ -1378,6 +1401,29 @@
       "label": "Lieke Sievers - Burgemeester van Edam-Volendam"
     },
     "id": "change:2016-12-19-appointment-burgemeester-edam-volendam"
+  },
+  {
+    "date": "2017-01-01",
+    "kind": "appointment",
+    "summary": "Waarnemend benoemd: Alfonso Boekhoudt als Gouverneur van Aruba.",
+    "source": {
+      "source": "src:gouverneur-aruba",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    },
+    "position": "pos:gouverneur-aruba",
+    "organization": "org:regering-aruba",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:gouverneur-aruba-boekhoudt-2017",
+      "person": "person:alfonso-boekhoudt",
+      "label": "Alfonso Boekhoudt - Gouverneur van Aruba"
+    },
+    "id": "change:2017-01-01-appointment-gouverneur-aruba"
   },
   {
     "date": "2017-01-01",
@@ -8119,6 +8165,29 @@
     "id": "change:2022-10-01-appointment-procureur-generaal-lid-college"
   },
   {
+    "date": "2022-10-10",
+    "kind": "appointment",
+    "summary": "Benoeming: Ajamu Baly wordt Gouverneur van Sint Maarten.",
+    "source": {
+      "source": "src:koninklijkhuis-gouverneur-sint-maarten",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    },
+    "position": "pos:gouverneur-sint-maarten",
+    "organization": "org:regering-sint-maarten",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:gouverneur-sint-maarten-baly",
+      "person": "person:ajamu-baly",
+      "label": "Ajamu Baly - Gouverneur van Sint Maarten"
+    },
+    "id": "change:2022-10-10-appointment-gouverneur-sint-maarten"
+  },
+  {
     "date": "2022-11-01",
     "kind": "appointment",
     "summary": "Benoeming: Joyce Sylvester wordt Dijkgraaf van Waterschap Amstel, Gooi en Vecht.",
@@ -8349,6 +8418,29 @@
     "id": "change:2022-12-21-appointment-burgemeester-drimmelen"
   },
   {
+    "date": "2022-12-31",
+    "kind": "departure",
+    "summary": "Alfonso Boekhoudt vertrekt als Gouverneur van Aruba.",
+    "source": {
+      "source": "src:gouverneur-aruba",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    },
+    "position": "pos:gouverneur-aruba",
+    "organization": "org:regering-aruba",
+    "out": {
+      "tenure": "tenure:gouverneur-aruba-boekhoudt-2017",
+      "person": "person:alfonso-boekhoudt",
+      "label": "Alfonso Boekhoudt - Gouverneur van Aruba"
+    },
+    "in": {
+      "tenure": "tenure:gouverneur-aruba-boekhoudt-2023",
+      "person": "person:alfonso-boekhoudt",
+      "label": "Alfonso Boekhoudt - Gouverneur van Aruba"
+    },
+    "id": "change:2022-12-31-departure-gouverneur-aruba"
+  },
+  {
     "date": "2023-01-01",
     "kind": "appointment",
     "summary": "Benoeming: Marko Hekkert wordt Directeur Planbureau voor de Leefomgeving.",
@@ -8370,6 +8462,29 @@
       "label": "Marko Hekkert - Directeur Planbureau voor de Leefomgeving"
     },
     "id": "change:2023-01-01-appointment-directeur-pbl"
+  },
+  {
+    "date": "2023-01-01",
+    "kind": "appointment",
+    "summary": "Benoeming: Alfonso Boekhoudt wordt Gouverneur van Aruba.",
+    "source": {
+      "source": "src:gouverneur-aruba",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    },
+    "position": "pos:gouverneur-aruba",
+    "organization": "org:regering-aruba",
+    "out": {
+      "tenure": "tenure:gouverneur-aruba-boekhoudt-2017",
+      "person": "person:alfonso-boekhoudt",
+      "label": "Alfonso Boekhoudt - Gouverneur van Aruba"
+    },
+    "in": {
+      "tenure": "tenure:gouverneur-aruba-boekhoudt-2023",
+      "person": "person:alfonso-boekhoudt",
+      "label": "Alfonso Boekhoudt - Gouverneur van Aruba"
+    },
+    "id": "change:2023-01-01-appointment-gouverneur-aruba"
   },
   {
     "date": "2023-01-01",
@@ -15134,6 +15249,29 @@
     "id": "change:2024-11-24-appointment-zbo-stichting-groene-erkenningen-bestuurslid"
   },
   {
+    "date": "2024-11-26",
+    "kind": "appointment",
+    "summary": "Benoeming: Gracita Arrindell wordt Gevolmachtigde minister van Sint Maarten.",
+    "source": {
+      "source": "src:sintmaartengov-arrindell",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    },
+    "position": "pos:gevolmachtigde-minister-sint-maarten",
+    "organization": "org:regering-sint-maarten",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:gevolmachtigde-minister-sint-maarten-arrindell",
+      "person": "person:gracita-arrindell",
+      "label": "Gracita Arrindell - Gevolmachtigde minister van Sint Maarten"
+    },
+    "id": "change:2024-11-26-appointment-gevolmachtigde-minister-sint-maarten"
+  },
+  {
     "date": "2024-12-02",
     "kind": "appointment",
     "summary": "Benoeming: Lianne van der Aa wordt Burgemeester van Laarbeek.",
@@ -15960,6 +16098,29 @@
       "label": "Pieter van Maaren - Burgemeester van Koggenland"
     },
     "id": "change:2025-04-18-appointment-burgemeester-koggenland"
+  },
+  {
+    "date": "2025-05-01",
+    "kind": "appointment",
+    "summary": "Waarnemend benoemd: Gerard Renkema als Burgemeester van Culemborg.",
+    "source": {
+      "source": "src:rijksoverheid-culemborg",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    },
+    "position": "pos:burgemeester-culemborg",
+    "organization": "org:gemeente-culemborg",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-culemborg-2025-renkema",
+      "person": "person:gerard-renkema",
+      "label": "Gerard Renkema - Burgemeester van Culemborg"
+    },
+    "id": "change:2025-05-01-appointment-burgemeester-culemborg"
   },
   {
     "date": "2025-05-01",
@@ -16926,6 +17087,52 @@
       "label": "Jesse Feras Klaver - Fractievoorzitter Progressief Nederland"
     },
     "id": "change:2025-11-03-appointment-fractievoorzitter-pro"
+  },
+  {
+    "date": "2025-11-04",
+    "kind": "appointment",
+    "summary": "Benoeming: Mauritsz de Kort wordt Gouverneur van Curaçao.",
+    "source": {
+      "source": "src:rijksoverheid-gouverneur-curacao",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    },
+    "position": "pos:gouverneur-curacao",
+    "organization": "org:regering-curacao",
+    "out": {
+      "tenure": "tenure:gouverneur-curacao-george-wout",
+      "person": "person:lucille-george-wout",
+      "label": "Lucille George-Wout - Gouverneur van Curaçao"
+    },
+    "in": {
+      "tenure": "tenure:gouverneur-curacao-de-kort",
+      "person": "person:mauritsz-de-kort",
+      "label": "Mauritsz de Kort - Gouverneur van Curaçao"
+    },
+    "id": "change:2025-11-04-appointment-gouverneur-curacao"
+  },
+  {
+    "date": "2025-11-04",
+    "kind": "departure",
+    "summary": "Lucille George-Wout vertrekt als Gouverneur van Curaçao.",
+    "source": {
+      "source": "src:rijksoverheid-gouverneur-curacao",
+      "retrieved": "2026-09-19",
+      "confidence": "medium"
+    },
+    "position": "pos:gouverneur-curacao",
+    "organization": "org:regering-curacao",
+    "out": {
+      "tenure": "tenure:gouverneur-curacao-george-wout",
+      "person": "person:lucille-george-wout",
+      "label": "Lucille George-Wout - Gouverneur van Curaçao"
+    },
+    "in": {
+      "tenure": "tenure:gouverneur-curacao-de-kort",
+      "person": "person:mauritsz-de-kort",
+      "label": "Mauritsz de Kort - Gouverneur van Curaçao"
+    },
+    "id": "change:2025-11-04-departure-gouverneur-curacao"
   },
   {
     "date": "2025-11-12",
@@ -23862,9 +24069,9 @@
     "position": "pos:burgemeester-culemborg",
     "organization": "org:gemeente-culemborg",
     "out": {
-      "tenure": null,
-      "person": null,
-      "label": "Geen voorganger bekend"
+      "tenure": "tenure:burgemeester-culemborg-2025-renkema",
+      "person": "person:gerard-renkema",
+      "label": "Gerard Renkema - Burgemeester van Culemborg"
     },
     "in": {
       "tenure": "tenure:burgemeester-culemborg",
@@ -23872,6 +24079,29 @@
       "label": "Marinka Mulder - Burgemeester van Culemborg"
     },
     "id": "change:2025-12-03-appointment-burgemeester-culemborg"
+  },
+  {
+    "date": "2025-12-03",
+    "kind": "departure",
+    "summary": "Gerard Renkema vertrekt als Burgemeester van Culemborg.",
+    "source": {
+      "source": "src:rijksoverheid-culemborg",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    },
+    "position": "pos:burgemeester-culemborg",
+    "organization": "org:gemeente-culemborg",
+    "out": {
+      "tenure": "tenure:burgemeester-culemborg-2025-renkema",
+      "person": "person:gerard-renkema",
+      "label": "Gerard Renkema - Burgemeester van Culemborg"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-culemborg",
+      "person": "person:marinka-mulder",
+      "label": "Marinka Mulder - Burgemeester van Culemborg"
+    },
+    "id": "change:2025-12-03-departure-burgemeester-culemborg"
   },
   {
     "date": "2025-12-11",
@@ -27232,6 +27462,29 @@
     "id": "change:2026-03-03-appointment-lid-tweede-kamer-commissie-vws"
   },
   {
+    "date": "2026-03-04",
+    "kind": "appointment",
+    "summary": "Benoeming: Mildred Schwengle wordt Gevolmachtigde minister van Aruba.",
+    "source": {
+      "source": "src:kabinetaruba-schwengle",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    },
+    "position": "pos:gevolmachtigde-minister-aruba",
+    "organization": "org:regering-aruba",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:gevolmachtigde-minister-aruba-schwengle",
+      "person": "person:mildred-schwengle",
+      "label": "Mildred Schwengle - Gevolmachtigde minister van Aruba"
+    },
+    "id": "change:2026-03-04-appointment-gevolmachtigde-minister-aruba"
+  },
+  {
     "date": "2026-03-05",
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Harm-Jan van Schaik als Burgemeester van Elburg.",
@@ -28610,6 +28863,29 @@
       "label": "Foort van Oosten - Burgemeester van Leeuwarden"
     },
     "id": "change:2026-07-01-appointment-burgemeester-leeuwarden"
+  },
+  {
+    "date": "2026-07-01",
+    "kind": "appointment",
+    "summary": "Benoeming: Sidney Justiana wordt Gevolmachtigde minister van Curaçao.",
+    "source": {
+      "source": "src:kabinetaruba-justiana",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    },
+    "position": "pos:gevolmachtigde-minister-curacao",
+    "organization": "org:regering-curacao",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:gevolmachtigde-minister-curacao-justiana",
+      "person": "person:sidney-justiana",
+      "label": "Sidney Justiana - Gevolmachtigde minister van Curaçao"
+    },
+    "id": "change:2026-07-01-appointment-gevolmachtigde-minister-curacao"
   },
   {
     "date": "2026-07-01",

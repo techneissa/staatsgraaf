@@ -389,6 +389,27 @@
     ]
   },
   {
+    "id": "person:ajamu-baly",
+    "slug": "ajamu-baly",
+    "name": "Ajamu Baly",
+    "aliases": [
+      "Ajamu G. Baly"
+    ],
+    "portrait": null,
+    "birthDate": null,
+    "party": null,
+    "wikipedia": null,
+    "wikidata": null,
+    "description": "Gouverneur van Sint Maarten sinds 10-10-2022.",
+    "sources": [
+      {
+        "source": "src:gouverneur-sint-maarten",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "person:alain-krijnen",
     "slug": "alain-krijnen",
     "name": "Alain Krijnen",
@@ -500,6 +521,27 @@
         "source": "src:commons-f5eb3c9d",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "id": "person:alfonso-boekhoudt",
+    "slug": "alfonso-boekhoudt",
+    "name": "Alfonso Boekhoudt",
+    "aliases": [
+      "J.A. (Alfonso) Boekhoudt"
+    ],
+    "portrait": null,
+    "birthDate": null,
+    "party": null,
+    "wikipedia": null,
+    "wikidata": null,
+    "description": "Gouverneur van Aruba sinds 01-01-2017, in 2022 herbenoemd voor een tweede termijn die op 01-01-2023 inging.",
+    "sources": [
+      {
+        "source": "src:gouverneur-aruba",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -7626,6 +7668,27 @@
     ]
   },
   {
+    "id": "person:gerard-renkema",
+    "slug": "gerard-renkema",
+    "name": "Gerard Renkema",
+    "aliases": [
+      "G.F. Renkema"
+    ],
+    "portrait": null,
+    "birthDate": null,
+    "party": "CDA",
+    "wikipedia": null,
+    "wikidata": null,
+    "description": "Waarnemend burgemeester van Culemborg van 01-05-2025 tot 03-12-2025.",
+    "sources": [
+      {
+        "source": "src:rijksoverheid-culemborg",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "person:gerard-tangenberg",
     "slug": "gerard-tangenberg",
     "name": "Gerard Tangenberg",
@@ -8061,6 +8124,27 @@
         "source": "src:commons-bc65aeb1",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "id": "person:gracita-arrindell",
+    "slug": "gracita-arrindell",
+    "name": "Gracita Arrindell",
+    "aliases": [
+      "Gracita R. Arrindell"
+    ],
+    "portrait": null,
+    "birthDate": null,
+    "party": null,
+    "wikipedia": null,
+    "wikidata": null,
+    "description": "Gevolmachtigde minister van Sint Maarten in Nederland sinds 26-11-2024.",
+    "sources": [
+      {
+        "source": "src:sintmaartengov-arrindell",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -13679,6 +13763,27 @@
     ]
   },
   {
+    "id": "person:lucille-george-wout",
+    "slug": "lucille-george-wout",
+    "name": "Lucille George-Wout",
+    "aliases": [
+      "L.A. George-Wout"
+    ],
+    "portrait": null,
+    "birthDate": null,
+    "party": null,
+    "wikipedia": null,
+    "wikidata": null,
+    "description": "Gouverneur van Curaçao van 2013 tot 2025 (twee termijnen); tweede termijn liep tot 04-11-2025.",
+    "sources": [
+      {
+        "source": "src:rijksoverheid-gouverneur-curacao",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
+      }
+    ]
+  },
+  {
     "id": "person:luzette-kroon",
     "slug": "luzette-kroon",
     "name": "Luzette Kroon",
@@ -16312,6 +16417,27 @@
     ]
   },
   {
+    "id": "person:mauritsz-de-kort",
+    "slug": "mauritsz-de-kort",
+    "name": "Mauritsz de Kort",
+    "aliases": [
+      "M.J. de Kort"
+    ],
+    "portrait": null,
+    "birthDate": null,
+    "party": null,
+    "wikipedia": null,
+    "wikidata": null,
+    "description": "Gouverneur van Curaçao sinds 04-11-2025; beëdigd op 29-10-2025.",
+    "sources": [
+      {
+        "source": "src:rijksoverheid-gouverneur-curacao",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "person:michael-rauner",
     "slug": "michael-rauner",
     "name": "Michael Rauner",
@@ -16732,6 +16858,27 @@
       {
         "source": "src:wikidata-milan-schenk",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:mildred-schwengle",
+    "slug": "mildred-schwengle",
+    "name": "Mildred Schwengle",
+    "aliases": [
+      "Milly Schwengle"
+    ],
+    "portrait": null,
+    "birthDate": null,
+    "party": null,
+    "wikipedia": null,
+    "wikidata": null,
+    "description": "Gevolmachtigde minister van Aruba in Nederland sinds 04-03-2026.",
+    "sources": [
+      {
+        "source": "src:kabinetaruba-schwengle",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -21523,6 +21670,25 @@
         "source": "src:commons-147411a0",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "id": "person:sidney-justiana",
+    "slug": "sidney-justiana",
+    "name": "Sidney Justiana",
+    "aliases": [],
+    "portrait": null,
+    "birthDate": null,
+    "party": null,
+    "wikipedia": null,
+    "wikidata": null,
+    "description": "Gevolmachtigde minister van Curaçao in Nederland sinds 01-07-2026.",
+    "sources": [
+      {
+        "source": "src:kabinetaruba-justiana",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },

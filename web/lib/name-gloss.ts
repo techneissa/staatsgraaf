@@ -368,6 +368,14 @@ export function orgEnGloss(name: string | null | undefined): string | null {
 
   let   match = /^Gemeente (.+)$/u.exec(trimmed);
   if (match) return `Municipality of ${match[1]}`;
+  match = /^Regering van (.+)$/u.exec(trimmed);
+  if (match) return `Government of ${match[1]}`;
+  match = /^GGD (.+)$/u.exec(trimmed);
+  if (match) return `Municipal Health Service ${match[1]}`;
+  match = /^Gemeentelijke [gG]ezondheidsdienst (.+)$/u.exec(trimmed);
+  if (match) return `Municipal Health Service ${match[1]}`;
+  match = /^Gemeenschappelijke Gezondheidsdienst (.+)$/u.exec(trimmed);
+  if (match) return `Municipal Health Service ${match[1]}`;
   match = /^Gemeenteraad van (.+)$/u.exec(trimmed);
   if (match) return `Municipal council of ${match[1]}`;
   match = /^College van burgemeester en wethouders van (.+)$/u.exec(trimmed);

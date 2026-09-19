@@ -4,7 +4,7 @@ This file lists every source in `data/sources.json` with its URL, publisher, lic
 
 Licenses follow the per-source determination in `research/O-licenses.md`, which cites the terms page and retrieval date for each source. The dataset license is CC BY 4.0; see `LICENSE-DATA`. Facts are not copyrightable, and this dataset carries facts, codes, dates, and our own summaries, not source prose or images.
 
-## CC0-1.0 (1133)
+## CC0-1.0 (1180)
 
 | url | publisher | license | required credit line |
 | --- | --- | --- | --- |
@@ -54,19 +54,58 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://organisaties.overheid.nl/13251/Nederlands_Forensisch_Instituut | Register van Overheidsorganisaties | CC0-1.0 | - |
 | https://organisaties.overheid.nl/15956/Interprovinciaal_Overleg | KOOP / Overheid.nl | CC0-1.0 | - |
 | https://organisaties.overheid.nl/21209/Unie_van_Waterschappen | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/23055759/GGD_IJsselland | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/23681912/Omgevingsdienst_Zuid-Limburg | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/24943450/Gemeentelijke_Gezondheidsdienst_Flevoland | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/24961956/Omgevingsdienst_Zuidoost-Brabant | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/24962530/Gemeentelijke_Gezondheidsdienst_en_Veilig_Thuis_Haaglanden | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/24962817/Omgevingsdienst_Midden-_en_West-Brabant | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/24965640/Gemeentelijke_Gezondheidsdienst_Rotterdam-Rijnmond | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/25195973/Omgevingsdienst_Achterhoek | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/25213722/Omgevingsdienst_IJmond | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/25250057/Omgevingsdienst_Drenthe | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/25250114/GGD_Brabant-Zuidoost | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/27831574/Omgevingsdienst_Noord-_en_Midden-Limburg | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28018889/Omgevingsdienst_Noord-Holland_Noord | KOOP / Overheid.nl | CC0-1.0 | - |
 | https://organisaties.overheid.nl/28039500/Gerechtshof_s-Hertogenbosch | Register van Overheidsorganisaties (KOOP) | CC0-1.0 | - |
 | https://organisaties.overheid.nl/28048450/Rechtbank_Midden-Nederland | Register van Overheidsorganisaties (KOOP) | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28070458/GGD_Groningen | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28093502/Omgevingsdienst_Zuid-Holland_Zuid | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28107449/Omgevingsdienst_Brabant_Noord | KOOP / Overheid.nl | CC0-1.0 | - |
 | https://organisaties.overheid.nl/28110850/Vereniging_van_Nederlandse_Gemeenten | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28147764/Omgevingsdienst_Midden-Holland | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28156708/Gemeenschappelijke_Gezondheidsdienst_Zeeland | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28163212/Omgevingsdienst_West-Holland | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28167351/Gemeenschappelijke_Gezondheidsdienst_Zaanstreek-Waterland | KOOP / Overheid.nl | CC0-1.0 | - |
 | https://organisaties.overheid.nl/28175219/Nederlandse_Voedsel-_en_Warenautoriteit | Register van Overheidsorganisaties | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28175296/Omgevingsdienst_Flevoland__Gooi_en_Vechtstreek | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28186089/GGD_West-Brabant | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28190818/Omgevingsdienst_de_Vallei | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28197626/Omgevingsdienst_Rivierenland | KOOP / Overheid.nl | CC0-1.0 | - |
 | https://organisaties.overheid.nl/28251525/Nederlandse_Emissieautoriteit | Register van Overheidsorganisaties | CC0-1.0 | - |
 | https://organisaties.overheid.nl/28321601/Rijksinspectie_Digitale_Infrastructuur | Register van Overheidsorganisaties | CC0-1.0 | - |
 | https://organisaties.overheid.nl/28324953/Dienst_ICT_Uitvoering | Register van Overheidsorganisaties | CC0-1.0 | - |
 | https://organisaties.overheid.nl/28325614/Paresto | Register van Overheidsorganisaties | CC0-1.0 | - |
 | https://organisaties.overheid.nl/28325623/Rijksdienst_voor_Ondernemend_Nederland | Register van Overheidsorganisaties | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28339424/Gemeentelijke_Gezondheidsdienst_Noord-_en_Oost-Gelderland | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28356722/Gemeentelijke_Gezondheidsdienst_Hollands_Noorden | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28402094/Gemeentelijke_Gezondheidsdienst_Gelderland-Zuid | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28470870/Omgevingsdienst_IJsselland | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28515244/Omgevingsdienst_Groningen | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28539513/Omgevingsdienst_Haaglanden | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28567750/Geneeskundige_Gezondheidsdienst_Zuid-Limburg | KOOP / Overheid.nl | CC0-1.0 | - |
 | https://organisaties.overheid.nl/28585304/Justitiele_ICT_Organisatie | Register van Overheidsorganisaties | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28594315/GGD_Hart_voor_Brabant | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28597010/Omgevingsdienst_Twente | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28600321/Omgevingsdienst_Noordzeekanaalgebied | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28651948/Omgevingsdienst_regio_Utrecht | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/28671968/Gemeentelijke_Gezondheidsdienst_Regio_Utrecht | KOOP / Overheid.nl | CC0-1.0 | - |
 | https://organisaties.overheid.nl/28753257/mr_RG_de_Lange-Tegelaar/ | Register van Overheidsorganisaties (KOOP) | CC0-1.0 | - |
 | https://organisaties.overheid.nl/28977374/Rijksorganisatie_Beveiliging_en_Logistiek | Register van Overheidsorganisaties | CC0-1.0 | - |
 | https://organisaties.overheid.nl/29216564/Rijksorganisatie_voor_Ontwikkeling_Digitalisering_en_Innovatie | Register van Overheidsorganisaties | CC0-1.0 | - |
+| https://organisaties.overheid.nl/29847749/Omgevingsdienst_Veluwe | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/30432195/Omgevingsdienst_Utrecht | KOOP / Overheid.nl | CC0-1.0 | - |
+| https://organisaties.overheid.nl/30478823/Omgevingsdienst_Groene_Metropool | KOOP / Overheid.nl | CC0-1.0 | - |
 | https://organisaties.overheid.nl/63254/Organisatie_en_Personeel_Rijk | Register van Overheidsorganisaties | CC0-1.0 | - |
 | https://organisaties.overheid.nl/66101/Rijksinstituut_voor_Volksgezondheid_en_Milieu | Register van Overheidsorganisaties | CC0-1.0 | - |
 | https://organisaties.overheid.nl/66156/agentschap_College_ter_Beoordeling_van_Geneesmiddelen | Register van Overheidsorganisaties | CC0-1.0 | - |
@@ -98,6 +137,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://wetten.overheid.nl/BWBR0002060 | wetten.overheid.nl | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0002080 | Overheid.nl (wetten.overheid.nl) | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0002144 | Overheid.nl (wetten.overheid.nl) | CC0-1.0 | - |
+| https://wetten.overheid.nl/BWBR0002154 | wetten.overheid.nl | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0002170 | Overheid.nl (wetten.overheid.nl) | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0002180 | wetten.overheid.nl | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0002202 | Overheid.nl | CC0-1.0 | - |
@@ -118,6 +158,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://wetten.overheid.nl/BWBR0003386 | wetten.overheid.nl | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0003420 | wetten.overheid.nl | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0003642 | wetten.overheid.nl | CC0-1.0 | - |
+| https://wetten.overheid.nl/BWBR0003900 | wetten.overheid.nl | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0003906 | wetten.overheid.nl | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0004189 | wetten.overheid.nl | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0004191 | wetten.overheid.nl | CC0-1.0 | - |
@@ -200,6 +241,8 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://wetten.overheid.nl/BWBR0027466 | wetten.overheid.nl | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0027466 | Rijksoverheid (wetten.overheid.nl) | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0027660 | wetten.overheid.nl | CC0-1.0 | - |
+| https://wetten.overheid.nl/BWBR0028096 | wetten.overheid.nl | CC0-1.0 | - |
+| https://wetten.overheid.nl/BWBR0028105 | wetten.overheid.nl | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0028142 | Overheid.nl | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0028238 | wetten.overheid.nl | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0028868 | wetten.overheid.nl | CC0-1.0 | - |
@@ -276,6 +319,8 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.kiesraad.nl/verkiezingen/provinciale-staten | Kiesraad | CC0-1.0 | - |
 | https://www.kiesraad.nl/verkiezingen/tweede-kamer | Kiesraad | CC0-1.0 | - |
 | https://www.kiesraad.nl/verkiezingen/waterschappen | Kiesraad | CC0-1.0 | - |
+| https://www.koninklijkhuis.nl/actueel/nieuws/2022/10/04/koning-ontvangt-gouverneur-sint-maarten-ter-beediging | Koninklijk Huis | CC0-1.0 | - |
+| https://www.koninklijkhuis.nl/actueel/nieuws/2025/10/29/koning-ontvangt-nieuwe-gouverneur-curacao-ter-beediging | Koninklijk Huis | CC0-1.0 | - |
 | https://www.koninklijkhuis.nl/leden-koninklijk-huis | Het Koninklijk Huis | CC0-1.0 | - |
 | https://www.koninklijkhuis.nl/leden-koninklijk-huis/koning-willem-alexander | Het Koninklijk Huis | CC0-1.0 | - |
 | https://www.koninklijkhuis.nl/onderwerpen/koninklijk-huis/onderscheidingen | Het Koninklijk Huis | CC0-1.0 | - |
@@ -333,6 +378,8 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.rijksoverheid.nl/actueel/nieuws/2024/06/14/john-soliano-nieuwe-gezaghebber-van-bonaire | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/actueel/nieuws/2024/07/12/benoeming-president-gerechtshof-arnhem-leeuwarden | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/actueel/nieuws/2025/06/20/benoeming-president-rechtbank-gelderland | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/actueel/nieuws/2025/06/30/benoeming-gouverneur-van-curacao | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/actueel/nieuws/2025/11/13/nieuwe-burgemeester-in-culemborg | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/actueel/nieuws/2026/04/17/benoeming-vice-president-raad-van-state | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/actueel/nieuws/2026/09/04/benoeming-vijf-nieuwe-leden-onderwijsraad | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/ministeries | Rijksoverheid | CC0-1.0 | - |
@@ -1477,46 +1524,47 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://nl.wikipedia.org/wiki/Dijkgraaf_(waterschap) | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Dijkgraaf_(waterschap), geraadpleegd 2026-09-18, CC BY-SA 4.0. |
 | https://nl.wikipedia.org/wiki/Lijst_van_burgemeesters_van_gemeenten_in_Nederland_in_de_periode_2025-2029 | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Lijst_van_burgemeesters_van_gemeenten_in_Nederland_in_de_periode_2025-2029, geraadpleegd 2026-09-18, CC BY-SA 4.0. |
 
-## all-rights-reserved (1565)
+## all-rights-reserved (1572)
 
 | url | publisher | license | required credit line |
 | --- | --- | --- | --- |
 | https://fd.nl/?rss | FD | all-rights-reserved | - |
-| https://fd.nl/bedrijfsleven/1611813/energiebedrijven-zetten-zich-schrap-tegen-aanvallen-op-fysieke-infrastructuur | FD | all-rights-reserved | - |
+| https://fd.nl/bedrijfsleven/1611814/wanneer-valt-de-stroom-uit-door-een-aanval-voorkomen-gaat-niet-meer | FD | all-rights-reserved | - |
 | https://fd.nl/bedrijfsleven/1612215/suiker-suiker-suiker-dat-is-het-geheim-van-mentos-snoep-uit-breda | FD | all-rights-reserved | - |
-| https://fd.nl/bedrijfsleven/1612522/ali-niknam-de-miljardair-die-met-slechts-een-assistent-zijn-verjaardag-viert | FD | all-rights-reserved | - |
+| https://fd.nl/bedrijfsleven/1612394/hoe-synthetische-concurrentie-de-antwerpse-diamantindustrie-ruw-uit-haar-slaap-wekte | FD | all-rights-reserved | - |
 | https://fd.nl/bedrijfsleven/1612593/bedrijven-spelen-traag-in-op-de-onrust-in-de-wereld | FD | all-rights-reserved | - |
 | https://fd.nl/bedrijfsleven/1612598/warren-buffett-draagt-voorzitterschap-berkshire-hathaway-over-aan-zijn-zoon | FD | all-rights-reserved | - |
+| https://fd.nl/bedrijfsleven/1612599/personalia-zaterdag-19-september | FD | all-rights-reserved | - |
 | https://fd.nl/economie/1612439/atradius-handelsbescherming-leidt-tot-13-hogere-staalprijs-in-europa | FD | all-rights-reserved | - |
 | https://fd.nl/economie/1612538/stijgende-rente-raakt-trump-waar-het-pijn-doet | FD | all-rights-reserved | - |
 | https://fd.nl/economie/1612555/honderden-jonge-werknemers-minder-bij-deloitte-door-ai | FD | all-rights-reserved | - |
 | https://fd.nl/economie/1612581/bank-of-japan-verhoogt-de-rente-naar-hoogste-niveau-in-31-jaar | FD | all-rights-reserved | - |
 | https://fd.nl/financiele-markten/1612338/pryme-one-deel-twee | FD | all-rights-reserved | - |
-| https://fd.nl/financiele-markten/1612542/aandelen-herstellen-na-fed-besluit-nvidia-ceo-huang-blijft-optimistisch-over-groei-ai | FD | all-rights-reserved | - |
-| https://fd.nl/financiele-markten/1612580/live-bank-of-japan-verhoogt-de-rente-beurzen-in-azie-op-winst | FD | all-rights-reserved | - |
 | https://fd.nl/financiele-markten/1612586/de-renteverhoging-van-de-fed-neemt-de-spanning-op-de-obligatiemarkt-niet-weg | FD | all-rights-reserved | - |
 | https://fd.nl/financiele-markten/1612591/yen-zakt-weg-ondanks-renteverhoging-bank-of-japan | FD | all-rights-reserved | - |
 | https://fd.nl/financiele-markten/1612592/ai-heeft-beleggers-deze-week-nog-niet-uitgeroeid | FD | all-rights-reserved | - |
 | https://fd.nl/financiele-markten/1612635/kwakkelend-nike-dreigt-plek-in-dow-jones-te-verliezen | FD | all-rights-reserved | - |
-| https://fd.nl/opinie/1612224/relevante-lessen-uit-de-hete-herfst-van-1983-voor-wat-dit-kabinet-wil-met-de-sociale-zekerheid | FD | all-rights-reserved | - |
+| https://fd.nl/opinie/1612168/naar-het-nieuwe-duitsland | FD | all-rights-reserved | - |
 | https://fd.nl/opinie/1612345/elektrificatie-maakt-europa-ook-kwetsbaarder | FD | all-rights-reserved | - |
 | https://fd.nl/opinie/1612356/kabinet-jetten-moet-naar-school | FD | all-rights-reserved | - |
 | https://fd.nl/opinie/1612442/de-man-van-2-9 | FD | all-rights-reserved | - |
 | https://fd.nl/opinie/1612589/snelle-invulling-canadees-eulidmaatschap-light-wenselijk | FD | all-rights-reserved | - |
-| https://fd.nl/politiek/1612397/als-je-naar-italie-en-slovenie-kijkt-heeft-europa-nog-altijd-harde-grenzen | FD | all-rights-reserved | - |
 | https://fd.nl/politiek/1612437/plots-zat-canada-tot-zijn-verrassing-in-de-europese-wachtkamer | FD | all-rights-reserved | - |
 | https://fd.nl/politiek/1612511/eelco-heinen-de-box-3-discussie-sleept-veel-te-lang-nu-is-het-een-keer-klaar | FD | all-rights-reserved | - |
 | https://fd.nl/politiek/1612569/steun-aan-motie-van-wantrouwen-kost-bbb-uitnodiging-van-jetten | FD | all-rights-reserved | - |
 | https://fd.nl/politiek/1612570/oekraine-slaat-tactische-slag-in-donbas-met-operatie-vivaldi | FD | all-rights-reserved | - |
 | https://fd.nl/politiek/1612573/angst-voor-ai-verbindt-democraten-en-republikeinen | FD | all-rights-reserved | - |
 | https://fd.nl/politiek/1612585/voor-pro-is-macht-geen-vies-woord-maar-hoeveel-mag-invloed-kosten | FD | all-rights-reserved | - |
+| https://fd.nl/politiek/1612588/nederland-is-een-lappendeken-van-uitblinkers-inhalers-en-afhakers | FD | all-rights-reserved | - |
+| https://fd.nl/politiek/1612683/advies-leg-voedselvoorraden-aan-om-tekorten-bij-rampen-te-voorkomen | FD | all-rights-reserved | - |
 | https://fd.nl/samenleving/1610230/de-helende-kracht-van-alleen-zijn | FD | all-rights-reserved | - |
 | https://fd.nl/samenleving/1611371/wat-mag-migraine-de-samenleving-kosten-de-ziekte-raakt-vooral-mensen-in-de-productiefste-fase-van-hun-leven | FD | all-rights-reserved | - |
 | https://fd.nl/samenleving/1611397/help-een-tuchtklacht-aan-je-broek-aan-de-klagers-werd-geen-enkele-kritische-vraag-gesteld | FD | all-rights-reserved | - |
 | https://fd.nl/samenleving/1612120/het-antisemitisme-neemt-weer-toe-hoe-moet-het-bestreden-worden | FD | all-rights-reserved | - |
 | https://fd.nl/samenleving/1612132/de-indonesische-klassieker-rendang-roer-en-relax | FD | all-rights-reserved | - |
+| https://fd.nl/samenleving/1612220/sigmar-polke-en-de-hogere-kunst-van-het-fouten-maken | FD | all-rights-reserved | - |
 | https://fd.nl/samenleving/1612346/alle-van-goghs-van-het-kroller-muller-bij-elkaar-een-unieke-kans | FD | all-rights-reserved | - |
-| https://fd.nl/samenleving/1612418/verkeersboetes-leveren-de-staat-bijna-een-half-miljard-op | FD | all-rights-reserved | - |
+| https://fd.nl/samenleving/1612526/met-managers-kijken-naar-docu-de-manager-het-systeem-moet-op-de-schop-hoezo | FD | all-rights-reserved | - |
 | https://fd.nl/samenleving/1612590/rechtbank-geeft-om-toestemming-geheime-strafbeschikking-van-70-mln-met-fd-te-delen | FD | all-rights-reserved | - |
 | https://fd.nl/tech-en-innovatie/1612109/mensen-met-dementie-kunnen-nu-zelf-bepalen-of-ze-luisteren-naar-bach-of-metallica | FD | all-rights-reserved | - |
 | https://fd.nl/tech-en-innovatie/1612364/activistische-acteur-mark-ruffalo-heeft-het-aan-de-stok-met-studiobazen | FD | all-rights-reserved | - |
@@ -1525,9 +1573,6 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://feeds.nos.nl/nosnieuwsalgemeen | NOS | all-rights-reserved | - |
 | https://nos.nl/l/2631426 | NOS | all-rights-reserved | - |
 | https://nos.nl/l/2631449 | NOS | all-rights-reserved | - |
-| https://nos.nl/l/2631528 | NOS | all-rights-reserved | - |
-| https://nos.nl/l/2631529 | NOS | all-rights-reserved | - |
-| https://nos.nl/l/2631531 | NOS | all-rights-reserved | - |
 | https://nos.nl/l/2631534 | NOS | all-rights-reserved | - |
 | https://nos.nl/l/2631536 | NOS | all-rights-reserved | - |
 | https://nos.nl/l/2631538 | NOS | all-rights-reserved | - |
@@ -1545,6 +1590,9 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://nos.nl/l/2631566 | NOS | all-rights-reserved | - |
 | https://nos.nl/l/2631573 | NOS | all-rights-reserved | - |
 | https://nos.nl/l/2631574 | NOS | all-rights-reserved | - |
+| https://nos.nl/l/2631580 | NOS | all-rights-reserved | - |
+| https://nos.nl/l/2631581 | NOS | all-rights-reserved | - |
+| https://nos.nl/l/2631589 | NOS | all-rights-reserved | - |
 | https://sargasso.nl/ai-voor-winst-mag-de-mensheid-wijken | Sargasso | all-rights-reserved | - |
 | https://sargasso.nl/algemene-politieke-beschouwingen-zonder-traditionele-aftrap-van-wantrouwen | Sargasso | all-rights-reserved | - |
 | https://sargasso.nl/closing-time-beasts-of-bourbon | Sargasso | all-rights-reserved | - |
@@ -1565,7 +1613,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://sargasso.nl/werken-moet-lonen-behalve-voor-werkenden | Sargasso | all-rights-reserved | - |
 | https://sargasso.nl/witwassen-bij-de-bank | Sargasso | all-rights-reserved | - |
 | https://sargasso.nl/wvdd/trump-hoe-koop-je-een-democratie | Sargasso | all-rights-reserved | - |
-| https://www.ad.nl/andere-sporten/tallon-griekspoor-wint-overtuigend-nadat-botic-van-de-zandschulp-afgang-voorkomt-in-davis-cup~a9789786 | AD | all-rights-reserved | - |
+| https://www.ad.nl/andere-sporten/britse-topatlete-wint-in-opvallende-outfit-een-combinatie-van-mode-snelheid-en-wetenschap~a3b75a5c | AD | all-rights-reserved | - |
 | https://www.ad.nl/binnenland/bijna-zestig-aanhoudingen-rond-tegendemonstratie-van-israel-manifestatie-op-de-dam~a0743720/ | AD | all-rights-reserved | - |
 | https://www.ad.nl/binnenland/boerenprotesten-op-een-glijdende-schaal-het-is-niet-voor-niets-dat-de-aivd-nu-meekijkt~a7fccafb | AD | all-rights-reserved | - |
 | https://www.ad.nl/binnenland/burgemeester-overasselt-roept-kabinet-op-zware-criminaliteit-harder-aan-te-pakken-na-massaal-geweld~a50bc6cb/ | AD | all-rights-reserved | - |
@@ -1574,27 +1622,27 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.ad.nl/binnenland/dieselprijs-in-nederland-stijgt-zaterdag-naar-record-duitsland-pakt-hoge-brandstofprijzen-aan~ad953185 | AD | all-rights-reserved | - |
 | https://www.ad.nl/binnenland/na-drie-maanden-tussen-hoop-en-vrees-in-italiaans-ziekenhuis-zijn-paul-en-marleen-eindelijk-thuis-met-kleine-isa~a08a1257 | AD | all-rights-reserved | - |
 | https://www.ad.nl/binnenland/suriname-vraagt-interpol-om-internationaal-opsporingsbevel-voor-ryan-t-in-zaak-leysner~ae9d5943 | AD | all-rights-reserved | - |
-| https://www.ad.nl/buitenland/pakistan-stuurt-meer-militaire-hulp-naar-saoedi-arabie-nu-conflict-met-houthis-escaleert-italiaanse-straaljager-verwoest~ac528ac3 | AD | all-rights-reserved | - |
+| https://www.ad.nl/buitenland/ai-rapport-van-amerikaans-leger-leidde-bijna-tot-oorlog-door-fout-over-chinees-schip~aa24222e | AD | all-rights-reserved | - |
 | https://www.ad.nl/buitenland/rechtbank-veroordeelt-man-tot-15-jaar-cel-na-steekpartij-op-drie-5-jarige-kinderen-in-zurich~a59dcebb | AD | all-rights-reserved | - |
 | https://www.ad.nl/buitenland/trump-weert-cnn-politico-en-msnbc-uit-het-witte-huis-na-beschuldigingen-van-nepnieuws~ae67dd9c | AD | all-rights-reserved | - |
+| https://www.ad.nl/buitenland/trump-zegt-akkoord-te-hebben-over-amerikaanse-controle-op-veiligheid-groenland~ad5399ab | AD | all-rights-reserved | - |
 | https://www.ad.nl/buitenland/vermoedelijke-seriemoordenaar-opgepakt-in-brazilie-verdachte-droeg-vrouwenkleren-en-had-een-baby-bij-zich~a227dff1 | AD | all-rights-reserved | - |
+| https://www.ad.nl/buitenland/vier-nederlanders-aangehouden-na-vondst-groot-drugslaboratorium-in-belgisch-bree~aed6e554 | AD | all-rights-reserved | - |
 | https://www.ad.nl/commentaar/nieuwe-verkiezingen-lossen-niets-op-wanneer-niemand-water-bij-de-wijn-wil-doen~a74dc262 | AD | all-rights-reserved | - |
-| https://www.ad.nl/darts/wessel-nijman-geniet-van-zege-voor-thuisfans-in-amsterdam-voor-mij-is-dit-heel-speciaal~a92e749b | AD | all-rights-reserved | - |
+| https://www.ad.nl/darts/luke-littler-hekelt-nederlandse-dartsfans-na-winst-op-danny-noppert-moest-ze-van-repliek-dienen~a92e749b | AD | all-rights-reserved | - |
 | https://www.ad.nl/den-haag/mauritshuis-geeft-geroofd-schilderij-terug-aan-erfgenamen-joodse-kunsthandelaar~a6362274 | AD | all-rights-reserved | - |
-| https://www.ad.nl/mezza/hoe-kankerdiagnose-het-leven-van-actrice-maike-meijer-veranderde-wat-nou-hangtieten-rimpels-overgang~acf83cfa | AD | all-rights-reserved | - |
 | https://www.ad.nl/quiz/alleen-de-echte-nieuwsjunk-maakt-deze-wekelijkse-quiz-foutloos~a8b00b92 | AD | all-rights-reserved | - |
 | https://www.ad.nl/rotterdam/ex-gedetineerde-l-i-keert-terug-naar-de-schie-voor-concert-van-pearl-jozefzoon-vandaag-ging-ik-naar-binnen-voor-iets-positiefs~a84ad34f | AD | all-rights-reserved | - |
 | https://www.ad.nl/rss.xml | AD | all-rights-reserved | - |
 | https://www.ad.nl/show/edwin-evers-staat-stil-bij-overlijden-bartina-koeman-ze-heeft-gestreden-en-geleden-maar-vooral-geleefd~a1ba13ef | AD | all-rights-reserved | - |
 | https://www.ad.nl/show/gordon-maakt-zijn-debuut-als-babs-en-kirsten-viert-de-liefde-met-nick~a7bae403 | AD | all-rights-reserved | - |
+| https://www.ad.nl/show/koor-zonder-stembanden-maakt-indruk-in-got-talent-jullie-hebben-mij-gigantisch-geraakt~a5891581 | AD | all-rights-reserved | - |
 | https://www.ad.nl/tech/nooit-in-koffer-en-niet-te-veel-vermogen-dit-moet-je-weten-voordat-je-powerbank-in-vliegtuig-gaat~adb0634d | AD | all-rights-reserved | - |
-| https://www.ad.nl/voetbal/bayern-munchen-dankzij-kane-saibari-en-olise-op-weg-naar-monsterzege~a6b308d2 | AD | all-rights-reserved | - |
-| https://www.ad.nl/voetbal/duitse-voetbalbond-wil-zonder-twijfel-fifa-baas-infantino-weg~a2544497 | AD | all-rights-reserved | - |
-| https://www.ad.nl/voetbal/fakkel-op-het-veld-dan-kan-straks-het-hele-stadion-naar-huis-clubs-vrezen-de-collectieve-straf~ab9005e8 | AD | all-rights-reserved | - |
+| https://www.ad.nl/voetbal/column-sjoerd-mossou-het-nut-is-overduidelijk-dit-is-met-afstand-de-beste-spelregelaanpassing-in-jaren~a6090584 | AD | all-rights-reserved | - |
 | https://www.ad.nl/voetbal/fc-groningen-boekt-ruime-zege-op-matig-pec-zwolle-fans-brengen-eerbetoon-aan-bartina-koeman~aa73f748 | AD | all-rights-reserved | - |
 | https://www.ad.nl/voetbal/genegeerde-wout-weghorst-zag-de-bui-al-hangen-ik-heb-er-de-afgelopen-weken-nog-alles-aan-gedaan~a6f6adaf | AD | all-rights-reserved | - |
-| https://www.ad.nl/voetbal/het-nut-is-overduidelijk-dit-is-met-afstand-de-beste-spelregelaanpassing-in-jaren~a6090584 | AD | all-rights-reserved | - |
 | https://www.ad.nl/voetbal/jesse-van-der-haar-knuffelt-vader-hans-op-de-tribune-pijnlijke-nederlaag-voor-fc-volendam-bij-jong-az~a66babfc | AD | all-rights-reserved | - |
+| https://www.ad.nl/voetbal/saibari-scoort-bij-monsterzege-bayern-munchen-chelsea-hard-onderuit-bij-brentford~a6b308d2 | AD | all-rights-reserved | - |
 | https://www.ad.nl/voetbal/tyrell-malacia-27-tekent-contract-bij-fc-cincinnati-in-de-mls~ad62a25a | AD | all-rights-reserved | - |
 | https://www.ad.nl/voorne-aan-zee/opeens-wonen-hans-60-en-ineke-59-langs-een-racebaan-door-suurhoffbrug-problemen-dit-kan-echt-niet~a4f12edb | AD | all-rights-reserved | - |
 | https://www.ad.nl/wielrennen/pepijn-reinderink-volgende-nederlandse-ritwinnaar-in-de-ronde-van-luxemburg~a6e15fbc | AD | all-rights-reserved | - |
@@ -1764,6 +1812,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.nrc.nl/nieuws/2026/09/10/the-glory-of-the-corporate-training-video-a4935912 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/11/een-bende-met-betekenis-door-de-spullen-kun-je-zien-wie-is-deze-persoon-a4935354 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/11/een-van-ons-is-de-biologische-vader-maar-we-weten-niet-wie-a4936211 | NRC | all-rights-reserved | - |
+| https://www.nrc.nl/nieuws/2026/09/11/pijnlijk-eerlijk-vertelt-dit-kinderboek-hoe-het-is-als-je-ouders-gaan-scheiden-a4936408 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/11/the-truth-and-the-lies-about-islam-in-europe-a4936392 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/12/facing-global-crises-europe-rearranges-the-diplomatic-deckchairs-a4936393 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/12/waar-is-het-klimaat-gebleven-in-de-politiek-a4936485 | NRC | all-rights-reserved | - |
@@ -1775,7 +1824,6 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.nrc.nl/nieuws/2026/09/14/geweldige-tiki-taka-zinnen-in-mariken-heitmans-wormmaan-a4936606 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/14/na-een-reeks-moorden-op-vrouwen-klinkt-in-kameroen-de-roep-om-een-strengere-wet-nog-harder-de-mentaliteit-is-om-vrouwen-en-meisjes-de-schuld-te-geven-a4935624 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/14/op-prinsjesdag-zijn-er-petitfourtjes-bij-de-pvv-a4936602 | NRC | all-rights-reserved | - |
-| https://www.nrc.nl/nieuws/2026/09/14/puberproblemen-a4936528 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/14/tara-singh-varma-eerste-vrouw-met-een-migratieachtergrond-in-de-kamer-op-78-jarige-leeftijd-overleden-a4936604 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/14/wat-stond-in-de-begroting-van-eelco-heinen-die-tot-een-kabinetscrisis-leidde-a4936537 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/15/als-de-liefde-niet-bestond-a4936696 | NRC | all-rights-reserved | - |
@@ -1791,6 +1839,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.nrc.nl/nieuws/2026/09/16/bijstandsjongeren-willen-heus-iets-van-hun-leven-maken-geef-ze-vertrouwen-a4936304 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/16/de-wonderbaarlijke-waardestijging-van-23-boswoningen-hoe-een-zorginstelling-miljoenen-aan-inkomsten-misliep-a4936125 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/16/ed-sheeran-vrijwel-iedereen-in-de-muziekindustrie-houdt-zich-politiek-op-de-vlakte-a4936833 | NRC | all-rights-reserved | - |
+| https://www.nrc.nl/nieuws/2026/09/16/een-vergeten-vrijdenkster-die-vastberaden-was-om-nooit-een-verknoeide-mensenziel-te-worden-a4935055 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/16/gedrocht-a4936843 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/16/geen-liefde-maar-harde-machtspolitiek-canada-past-perfect-bij-de-nieuwe-strategie-van-ursula-von-der-leyen-2-a4936610 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/16/groter-afrika-a4936719 | NRC | all-rights-reserved | - |
@@ -1814,7 +1863,6 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.nrc.nl/nieuws/2026/09/17/belgische-vicepremier-wil-een-verenigd-en-harder-europa-ik-heb-de-amerikaanse-ambassadeur-gevraagd-om-voortaan-stil-te-blijven-a4936837 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/17/carney-gebruikt-andere-term-voor-nauwe-samenwerking-met-eu-vanwege-de-gevoeligheden-a4936922 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/17/de-boodschap-achter-poetins-glimlach-wees-loyaal-aan-de-leider-de-rest-is-slechts-bonus-of-luxe-a4936790 | NRC | all-rights-reserved | - |
-| https://www.nrc.nl/nieuws/2026/09/17/de-handtas-van-koningin-elizabeth-als-symbool-van-monarchie-en-democratie-a4935417 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/17/de-strijd-in-oekraine-is-een-ruimtevaartoorlog-geworden-frontsoldaten-staat-bijna-live-in-verbinding-met-satellieten-a4936262 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/17/deze-drie-verkeersmythes-moeten-nodig-ontzenuwd-worden-a4936336 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/17/drie-weken-na-de-ramp-is-de-hoop-op-overlevenden-in-de-nepalese-modder-verdwenen-a4936890 | NRC | all-rights-reserved | - |
@@ -1827,14 +1875,12 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.nrc.nl/nieuws/2026/09/17/iedereen-wil-dat-premier-jetten-kiest-maar-daar-heeft-hij-de-politieke-ruimte-niet-voor-a4936980 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/17/immigratiedienst-ind-laat-tweehonderd-medewerkers-met-ai-werken-zonder-dat-te-melden-a4936653 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/17/jetten-gigantische-beweging-gemaakt-wat-betreft-bezuinigingen-op-sociale-vangnet-a4936964 | NRC | all-rights-reserved | - |
-| https://www.nrc.nl/nieuws/2026/09/17/juist-in-fusselmans-luchtige-observaties-zit-zoveel-verdriet-a4936523 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/17/kamer-betaal-tata-geen-twee-miljard-om-zich-aan-de-wet-te-houden-a4936583 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/17/klimt-pollock-rothko-van-gogh-ultrarijken-bieden-bij-kunstveilingen-steeds-meer-tegen-elkaar-op-a4936929 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/17/na-een-zomer-die-erin-hakte-is-de-stilte-over-het-klimaat-oorverdovend-a4936647 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/17/prinsjesdag-2026-nederland-is-een-nepobaby-die-teert-op-een-erfenis-a4936879 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/17/regisseur-patricio-guzman-stond-altijd-in-de-frontlinie-van-het-nieuws-a4936907 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/17/tegelijk-met-de-moderne-wereld-ontstond-ook-het-racisme-en-het-verzet-daartegen-a4936522 | NRC | all-rights-reserved | - |
-| https://www.nrc.nl/nieuws/2026/09/17/terug-naar-de-overgang-in-teuge-waar-metalen-buizen-op-het-spoor-lagen-hoe-kunnen-we-onze-stem-nog-laten-horen-a4936937 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/17/tijdens-de-apb-kruipen-rare-gedachten-in-mijn-hoofd-a4936888 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/17/tijdens-de-welvaartsexplosie-van-de-17de-eeuw-kochten-steeds-meer-mensen-een-lapje-grond-a4936215 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/17/virtuele-wereld-a4936850 | NRC | all-rights-reserved | - |
@@ -1883,24 +1929,25 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.nrc.nl/nieuws/2026/09/18/the-week-after-in-ai-hoofdstad-san-francisco-a4936981 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/18/van-bedrijven-ontzien-wordt-nederland-niet-productiever-a4937020 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/18/verdachte-aangehouden-voor-aanrandingen-en-mishandelingen-delft-a4937006 | NRC | all-rights-reserved | - |
+| https://www.nrc.nl/nieuws/2026/09/18/vs-en-denemarken-sluiten-akkoord-over-amerikaanse-controle-groenland-a4937079 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/18/waar-komen-al-die-burn-outs-vandaan-het-heet-werk-privebalans-ik-noem-het-werk-privekeuzes-a4935806 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/18/waarom-scoren-britten-zo-slecht-op-het-songfestival-het-britse-parlement-stelt-een-onderzoek-in-credible-artiesten-kijken-wel-uit-a4937000 | NRC | all-rights-reserved | - |
+| https://www.nrc.nl/nieuws/2026/09/18/wat-zijn-eigenlijk-die-europese-waarden-a4937040 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/18/why-europes-populists-forget-to-bash-china-a4937008 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/nieuws/2026/09/18/zanger-harry-van-der-kamp-1947-2026-wilde-de-klank-van-de-renaissance-vereeuwigen-a4936569 | NRC | all-rights-reserved | - |
-| https://www.nrc.nl/puzzels/aan-zet/2026/09/18 | NRC | all-rights-reserved | - |
-| https://www.nrc.nl/puzzels/briljant/2026/09/18 | NRC | all-rights-reserved | - |
-| https://www.nrc.nl/puzzels/cijferblok/2026/09/18 | NRC | all-rights-reserved | - |
-| https://www.nrc.nl/puzzels/cinco/2026/09/18 | NRC | all-rights-reserved | - |
-| https://www.nrc.nl/puzzels/koprol/2026/09/18 | NRC | all-rights-reserved | - |
-| https://www.nrc.nl/puzzels/precies-vier/2026/09/18 | NRC | all-rights-reserved | - |
-| https://www.nrc.nl/puzzels/sudoku/2026/09/18 | NRC | all-rights-reserved | - |
-| https://www.nrc.nl/puzzels/vorto/2026/09/18 | NRC | all-rights-reserved | - |
-| https://www.nrc.nl/puzzels/woordzoeker/2026/09/18 | NRC | all-rights-reserved | - |
+| https://www.nrc.nl/nieuws/2026/09/19/draagmoeder-a4937061 | NRC | all-rights-reserved | - |
+| https://www.nrc.nl/puzzels/aan-zet/2026/09/19 | NRC | all-rights-reserved | - |
+| https://www.nrc.nl/puzzels/briljant/2026/09/19 | NRC | all-rights-reserved | - |
+| https://www.nrc.nl/puzzels/cijferblok/2026/09/19 | NRC | all-rights-reserved | - |
+| https://www.nrc.nl/puzzels/cinco/2026/09/19 | NRC | all-rights-reserved | - |
+| https://www.nrc.nl/puzzels/koprol/2026/09/19 | NRC | all-rights-reserved | - |
+| https://www.nrc.nl/puzzels/precies-vier/2026/09/19 | NRC | all-rights-reserved | - |
+| https://www.nrc.nl/puzzels/scrypto/2026/09/19 | NRC | all-rights-reserved | - |
+| https://www.nrc.nl/puzzels/vorto/2026/09/19 | NRC | all-rights-reserved | - |
+| https://www.nrc.nl/puzzels/woordzoeker/2026/09/19 | NRC | all-rights-reserved | - |
 | https://www.nrc.nl/rss/ | NRC | all-rights-reserved | - |
 | https://www.nu.nl/330417/video/rijen-bij-winkels-wereldwijd-op-eerste-verkoopdag-nieuwe-iphone.html | NU.nl | all-rights-reserved | - |
 | https://www.nu.nl/algemeen/6410226/vvd-is-doodsbang-dat-deal-begroting-naar-pro-gaat.html | NU.nl | all-rights-reserved | - |
-| https://www.nu.nl/binnenland/6410184/temperatuur-gaat-volgende-week-flink-stijgen-kans-op-wel-25-graden.html | NU.nl | all-rights-reserved | - |
-| https://www.nu.nl/binnenland/6410192/man-die-omkwam-bij-arrestatie-reed-te-hard-op-fatbike-en-had-drugs-op-zak.html | NU.nl | all-rights-reserved | - |
 | https://www.nu.nl/binnenland/6410195/verdachte-15-van-moord-op-ouders-in-meerstad-handelde-alleen.html | NU.nl | all-rights-reserved | - |
 | https://www.nu.nl/binnenland/6410199/veertien-arrestaties-bij-azc-protest-opheusden-flinke-schade-aan-gemeentehuis.html | NU.nl | all-rights-reserved | - |
 | https://www.nu.nl/binnenland/6410202/student-in-eindhoven-van-campus-geweerd-na-nazigroet-en-racistische-uitspraken.html | NU.nl | all-rights-reserved | - |
@@ -1908,8 +1955,11 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.nu.nl/binnenland/6410225/militaire-parachutist-zit-ruim-een-uur-vast-in-boom-na-sprong-in-gelderland.html | NU.nl | all-rights-reserved | - |
 | https://www.nu.nl/binnenland/6410249/vrouwelijke-gedetineerden-mogen-bij-wijze-van-proef-dildo-of-satisfyer-kopen.html | NU.nl | all-rights-reserved | - |
 | https://www.nu.nl/binnenland/6410265/twee-arrestaties-vanwege-mogelijke-uitbuiting-bij-indiase-restaurantketens.html | NU.nl | all-rights-reserved | - |
+| https://www.nu.nl/binnenland/6410273/nederlanders-moeten-voor-acht-dagen-eten-in-huis-hebben-in-plaats-van-drie.html | NU.nl | all-rights-reserved | - |
 | https://www.nu.nl/buitenland/6410242/politieactie-ceuta-om-migranten-van-strand-naar-opvang-te-brengen-deels-mislukt.html | NU.nl | all-rights-reserved | - |
 | https://www.nu.nl/buitenland/6410253/wapenresten-in-wrakken-uit-eerste-en-tweede-wereldoorlog-vervuilen-noordzee.html | NU.nl | all-rights-reserved | - |
+| https://www.nu.nl/buitenland/6410274/vs-en-denemarken-koersen-af-op-overeenkomst-over-groenland.html | NU.nl | all-rights-reserved | - |
+| https://www.nu.nl/darts/6410272/getergde-littler-daagt-vijandig-publiek-in-amsterdam-uit-tijdens-zege-op-noppert.html | NU.nl | all-rights-reserved | - |
 | https://www.nu.nl/economie/6410198/abn-amro-en-vakbonden-ruzien-over-verplichte-kantoordagen-en-lonen.html | NU.nl | all-rights-reserved | - |
 | https://www.nu.nl/economie/6410201/ecb-voorzitter-lagarde-zet-deur-op-een-kier-voor-vroegtijdig-vertrek.html | NU.nl | all-rights-reserved | - |
 | https://www.nu.nl/economie/6410263/toch-excuses-van-topman-ryanair-omdat-hij-concurrenten-verkrachters-noemde.html | NU.nl | all-rights-reserved | - |
@@ -1927,7 +1977,6 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.nu.nl/songfestival/6410222/britse-politici-doen-onderzoek-naar-falen-verenigd-koninkrijk-op-songfestival.html | NU.nl | all-rights-reserved | - |
 | https://www.nu.nl/spanningen-oekraine/6410208/drones-in-lucht-vliegvelden-dicht-moskou-zet-bondgenoten-oekraine-onder-druk.html | NU.nl | all-rights-reserved | - |
 | https://www.nu.nl/tech/6410246/lab-dat-vorig-jaar-werd-gehackt-mag-weer-bijdragen-aan-bevolkingsonderzoek.html | NU.nl | all-rights-reserved | - |
-| https://www.nu.nl/voetbal/6410189/xavi-passeert-memphis-voor-eerste-oranjeselectie-wel-van-dijk-en-van-bommel.html | NU.nl | all-rights-reserved | - |
 | https://www.nu.nl/voetbal/6410211/lof-voor-van-bommel-en-zechiel-na-eerste-oranjeoproep-afvaller-til-hoorde-niks.html | NU.nl | all-rights-reserved | - |
 | https://www.nu.nl/wetenschap/6410234/winnaars-nobelprijs-krijgen-dit-jaar-bijna-90000-euro-meer-prijzengeld.html | NU.nl | all-rights-reserved | - |
 | https://www.overheid.nl/help/overheidsorganisaties | Overheid.nl / KOOP | all-rights-reserved | - |
@@ -2024,9 +2073,6 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.rtl.nl/boulevard/artikel/5650639/deze-bekende-relaties-zijn-gestrand-de-zomer | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/artikel/5650641/olcay-gulsen-eelko-van-kooten-bruiloft-liefdesverhaal | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/artikel/5650642/patty-brard-pattys-posse-terugkeer | RTL Nieuws | all-rights-reserved | - |
-| https://www.rtl.nl/boulevard/artikel/5650715/got-talent-deelnemer-adam-heeft-drie-partners | RTL Nieuws | all-rights-reserved | - |
-| https://www.rtl.nl/boulevard/artikel/5650791/raven-van-dorst-verjaardag-foto | RTL Nieuws | all-rights-reserved | - |
-| https://www.rtl.nl/boulevard/artikel/5650792/canadese-oud-premier-justin-trudeau-lanceert-mediabedrijf | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/artikel/5650848/lady-gaga-voor-het-eerst-moeder-geworden | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/artikel/5650873/stage-gehandicaptenzorg-greep-nicolaas-veul-aan | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/artikel/5650874/ruim-vijftig-bioscopen-eren-cees-geel-met-vertoning-film-simon | RTL Nieuws | all-rights-reserved | - |
@@ -2270,6 +2316,9 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.rtl.nl/boulevard/artikel/5653435/lily-collins-neemt-afscheid-van-emily-paris-personage | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/artikel/5653442/kankerdiagnose-veranderde-blik-maike-meijer-op-ouder-worden | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/artikel/5653464/zanger-lenny-kravitz-krijgt-als-tweede-man-eigen-ken-pop | RTL Nieuws | all-rights-reserved | - |
+| https://www.rtl.nl/boulevard/artikel/5653471/charles-spencer-claimt-gebrek-aan-zorg-harry-na-uitvaart-diana | RTL Nieuws | all-rights-reserved | - |
+| https://www.rtl.nl/boulevard/artikel/5653479/douwe-bob-werkt-aan-terugkeer-de-beste-singer-songwriter | RTL Nieuws | all-rights-reserved | - |
+| https://www.rtl.nl/boulevard/artikel/5653510/tom-cruise-krijgt-les-van-taylor-swift-over-american-football | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/entertainment/artikel/5532786/bartina-koeman-65-jarige-leeftijd-overleden-ronald-koeman | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/entertainment/artikel/5651254/van-vollenhoven-grapt-over-strop-bij-monumentendag | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/entertainment/artikel/5652045/koninklijk-gezelschap-komt-aan-bij-schouwburg-voor | RTL Nieuws | all-rights-reserved | - |
@@ -2325,6 +2374,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.rtl.nl/boulevard/video/5872e97d-3f34-454e-8bc5-f793afe6a725/remi-krijgt-chantal-janzen-aan-het-dansen-got | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/video/5b77098b-ac78-4fb1-a668-af92cbfedb9b/boeken-over-prinses-diana-vlak-voor-lancering | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/video/5b9db1db-b7b9-47a3-b807-abefff4706d7/dit-het-sportkoppel-dat-je-de-gaten-wilt | RTL Nieuws | all-rights-reserved | - |
+| https://www.rtl.nl/boulevard/video/5c962ab7-5c99-4aee-92c1-2fc3418da4fa/douwe-bob-komt-terug-met-de-beste-singer | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/video/5d960941-ce22-4da4-a163-49d1164a70ce/paniek-bij-sjorleone-en-gijsje-race-across | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/video/5e346042-fc6b-472d-85c7-e0f3beb6243f/gordon-ziet-parijs-warmlopen-voor-celine-dion | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/video/60df2c9b-33e0-4153-be46-a6fb5688b956/van-podium-naar-trouwzaal-gordon-slaat-nieuwe | RTL Nieuws | all-rights-reserved | - |
@@ -2518,7 +2568,6 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.rtl.nl/nieuws/binnenland/video/e188f2f7-f40c-4ab2-9edf-bbae5e464ea8/crooswijk-van-achterstandswijk-naar | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/binnenland/video/e8298d0a-f320-40a5-a7a1-501ec38219f3/verstappen-start-als-laatste-maar | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/buitenland/artikel/5650284/incident-hoe-de-ai-race-stevig-uit-de-hand-dreigt-te-lopen | RTL Nieuws | all-rights-reserved | - |
-| https://www.rtl.nl/nieuws/buitenland/artikel/5650798/nederlander-44-maakt-val-van-dertig-meter-oostenrijk | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/buitenland/artikel/5650894/saoedi-arabie-sluit-belangrijke-pijplijn-na-aanvallen-met-drones | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/buitenland/artikel/5650933/franse-politie-denkt-aan-opzet-bij-ontsporing-trein-44-gewonden | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/buitenland/artikel/5650971/eva-75-uit-oostenrijk-na-15-jaar-gijzeling-door-jihadisten | RTL Nieuws | all-rights-reserved | - |
@@ -2578,7 +2627,9 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.rtl.nl/nieuws/buitenland/artikel/5653101/franse-agent-opgepakt-voorbereiden-terreuraanslag-extreemrechtse | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/buitenland/artikel/5653165/waarom-organiseert-poetin-uberhaupt-verkiezingen-rusland-stemmen | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/buitenland/artikel/5653339/lindsay-clancy-moord-kinderen-rechtszaak-jury-nietig-verklaard | RTL Nieuws | all-rights-reserved | - |
+| https://www.rtl.nl/nieuws/buitenland/artikel/5653439/verdachte-seriemoordenaar-vermomd-vrouw-brazilie | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/buitenland/artikel/5653443/uber-taxi-verenigde-staten-dodelijk-ongeluk | RTL Nieuws | all-rights-reserved | - |
+| https://www.rtl.nl/nieuws/buitenland/artikel/5653495/trump-akkoord-amerikaanse-controle-veiligheid-groenland | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/buitenland/video/07daf68e-7f56-40fe-be0b-86a38acee9ec/van-het-dak-tot-het-schap-deze | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/buitenland/video/14b9bd4f-d0d5-4645-a046-f0d5474bec57/woede-om-dure-brandstof-straatarm | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/buitenland/video/1aab4b8b-8531-41da-b290-a82a88d438f4/zuid-afrika-shock-reeks-vrouwenmoorden | RTL Nieuws | all-rights-reserved | - |
@@ -2590,6 +2641,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.rtl.nl/nieuws/buitenland/video/592905e3-3f7b-418b-9620-c3acd13a0904/f-16-stort-neer-michigan-piloot-weet | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/buitenland/video/6404d3a0-9fed-4a29-b38d-cbdfd63fabdb/ik-zag-geen-parachute-neergeschoten | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/buitenland/video/6f395078-222c-4ab9-b38a-110a3507ca9f/tournee-van-ed-sheeran-staat-op-losse | RTL Nieuws | all-rights-reserved | - |
+| https://www.rtl.nl/nieuws/buitenland/video/7496db56-87fb-4691-b400-0baac7f2a30f/deze-amerikanen-stemmen-alvast-voor-de | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/buitenland/video/797f840d-f94e-4b3a-87fa-d5974b09f23d/deze-satelliet-ziet-vanuit-de-ruimte | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/buitenland/video/837ded91-037e-488d-977e-96a9ea884cef/instorting-flat-gaza-kost-21-mensen | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/buitenland/video/87f8b27e-704e-4c33-9711-8d82fa201c12/twee-tweelingen-trouwen-belgie-soms | RTL Nieuws | all-rights-reserved | - |
@@ -2710,7 +2762,6 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.rtl.nl/nieuws/politiek/video/e864e434-5269-4526-98dc-20eb68c818fb/voorbereiding-prinsjesdag-twinkeling-de | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/politiek/video/f69044c3-46f9-40e5-b31e-e39cc51ce1ac/demonstranten-extinction-rebellion | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/rtl-nieuwspanel/artikel/5653348/nederlanders-vrezen-snelle-opmars-ai-meerderheid-denkt | RTL Nieuws | all-rights-reserved | - |
-| https://www.rtl.nl/nieuws/sport/artikel/5650784/az-lijdt-tegen-willem-ii-eerste-puntenverlies-eredivisie | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/sport/artikel/5650823/zverev-plaatst-zich-op-us-open-voor-derde-grandslamfinale-op-rij | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/sport/artikel/5650859/shelton-klopt-landgenoot-tiafoe-en-treft-zverev-finale-us-open | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/sport/artikel/5650961/supporterscollectief-baalt-van-knvb-maatregelen-tegen-vuurwerk | RTL Nieuws | all-rights-reserved | - |
@@ -2845,6 +2896,8 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.rtl.nl/nieuws/sport/artikel/5653438/darter-nijman-ronde-verder-bij-world-series-finals | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/sport/artikel/5653460/fc-groningen-boekt-tegen-pec-zwolle-eerste-zege-na-een-maand | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/sport/artikel/5653463/koploper-heracles-almelo-lijdt-bij-almere-city-eerste-nederlaag | RTL Nieuws | all-rights-reserved | - |
+| https://www.rtl.nl/nieuws/sport/artikel/5653472/bayern-munchen-haalt-uit-tegen-union-berlin-saibari-scoort | RTL Nieuws | all-rights-reserved | - |
+| https://www.rtl.nl/nieuws/sport/artikel/5653480/monaco-na-late-zege-op-lens-bovenaan-frankrijk | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/sport/video/0ce952f7-1a00-47bf-879d-42271ef3b7a8/sabbatical-voor-jutta-leerdam-ook-deze | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/tech/artikel/5652858/hoe-werkt-de-nieuwe-eu-wet-social-media-verbod-kids-act-vijf-vragen | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/nieuws/video/video/067e7246-7e28-484b-a674-bf9333d5e804/eerste-passagiers-na-fataal-busongeluk-op | RTL Nieuws | all-rights-reserved | - |
@@ -2876,11 +2929,12 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.trouw.nl/binnenland/den-haag-zet-zich-schrap-voor-een-cluster-van-demonstraties~b2342c73 | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/binnenland/machines-gaan-de-mens-overheersen-waarschuwde-een-schapenhoeder-al-in-1863~ba769da4 | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/binnenland/onderzoek-voedt-zorgen-over-milieubewustzijn-maar-deze-utrechtse-klas-kan-prima-uit-de-voeten-met-klimaatvraagstukken~b2ab7ce8 | Trouw | all-rights-reserved | - |
-| https://www.trouw.nl/binnenland/plegers-van-intieme-terreur-pakken-ex-aan-via-de-advocaat-mijn-clienten-zijn-al-heel-kwetsbaar~b35646c5 | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/binnenland/strengere-regels-voor-sociale-media-de-eu-laat-echt-even-de-tanden-zien~bfebc314 | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/buitenland/in-deze-betoverende-bergen-in-turkije-werd-lang-gestreden-nu-er-vrede-is-komen-de-toeristen~b2e18897 | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/buitenland/in-een-duits-dorp-vol-neonazi-s-houdt-een-progressief-stel-moedig-stand-voor-deze-mensen-is-de-afd-nog-te-mild~beeac1ad | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/buitenland/israelische-politici-wakkeren-agressie-aan-tegen-makers-van-documentaire-naza~bf8e3615 | Trouw | all-rights-reserved | - |
+| https://www.trouw.nl/buitenland/live-oorlog-oekraine-zelensky-bedankt-trump-en-congres-voor-grootste-sanctiepakket-tegen-rusland-sinds-trump-ii~ba2815bb | Trouw | all-rights-reserved | - |
+| https://www.trouw.nl/buitenland/trump-meldt-akkoord-over-amerikaanse-controle-over-veiligheid-groenland~b26befe2 | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/buitenland/von-der-leyen-stapt-in-machtsvacuum-dat-trump-achterlaat~bb792526 | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/cartoons/tjeerd-royaards~bfbd9e2c | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/cartoons/verhoudingen~bf325d65 | Trouw | all-rights-reserved | - |
@@ -2898,7 +2952,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.trouw.nl/cultuur-media/warm-en-koud-blazen-over-jettens-snollebollekespolitiek~b68af021 | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/duurzaamheid-economie/heel-geemancipeerd-dat-roodborstje-zowel-het-mannetje-als-het-vrouwtje-gedraagt-zich-territoriaal~be8ab9ac | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/duurzaamheid-economie/op-vinted-blijf-je-doorscrollen-alsof-het-instagram-is~b9c3a296 | Trouw | all-rights-reserved | - |
-| https://www.trouw.nl/duurzaamheid-economie/wat-is-er-over-van-die-weelderige-groene-tuinen-in-engeland~b2a88494 | Trouw | all-rights-reserved | - |
+| https://www.trouw.nl/duurzaamheid-economie/wat-is-er-na-deze-hete-zomer-over-van-de-beroemde-tuinen-in-engeland~b2a88494 | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/duurzaamheid-economie/we-eten-ons-nu-al-misselijk-aan-de-ontelbare-gedaantes-van-de-pepernoot~b907a3d1 | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/duurzame-100/bij-een-zoop-kan-de-natuur-pas-echt-volwaardig-meepraten-en-beslissen~bd3a4da5 | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/gezondheid/artsen-willen-groene-recepten-voorschrijven-maar-het-systeem-werkt-niet-mee~b795ed7a | Trouw | all-rights-reserved | - |
@@ -2971,14 +3025,15 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.volkskrant.nl/binnenland/na-de-dood-van-alfredo-goeloe-groeit-het-wantrouwen-tegen-de-politie-in-charlois-ik-denk-dan-toch-dat-zijn-kleur-meespeelt~b83f5d64 | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/binnenland/ook-welwillende-loosdrechters-verloren-het-vertrouwen-in-de-gemeente-als-je-het-dan-toch-doet-doe-het-dan-goed~b9e9830e | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/binnenland/powerbanks-die-ontvlammen-in-een-vliegtuig-waarom-gebeurt-het-en-hoe-gevaarlijk-is-het~b2a9c56d | de Volkskrant | all-rights-reserved | - |
-| https://www.volkskrant.nl/binnenland/veertien-aanhoudingen-in-gelderse-opheusden-na-nieuw-gewelddadig-azc-protest~b5f49eb4 | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/binnenland/we-offeren-de-vier-doeleinden-van-het-leven-op-aan-economische-groei~bd2f9c10 | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/buitenland/alarm-in-vele-hoofdsteden-rusland-flirt-openlijk-met-het-gebruik-van-geweld-tegen-europese-landen~bc049f05 | de Volkskrant | all-rights-reserved | - |
+| https://www.volkskrant.nl/buitenland/cnn-politico-en-ms-now-volgens-trump-per-direct-uit-witte-huis-verbannen-maar-gevolgen-nog-onduidelijk~bc835998 | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/buitenland/democraten-en-republikeinen-keren-zich-zeldzaam-eensgezind-tegen-trump-reguleer-de-ai-industrie~b3833f1a | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/buitenland/foto-s-van-amerikaanse-militairen-tonen-grote-schade-op-militaire-bases-door-iraanse-aanvallen~b2970a3d | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/buitenland/liveblog-nieuws-middenoosten-iran-israel-hormuz~bb0b7bc3 | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/buitenland/oekraine-schakelt-twee-fregatten-in-zwarte-zee-uit-in-strijd-tegen-gevaar-van-russische-kruisraketten~b07dd4e5 | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/buitenland/tijdens-deze-woeste-storm-staat-premier-carney-open-voor-het-idee-van-canada-als-buitengewoon-eu-lid~b6c7798b | de Volkskrant | all-rights-reserved | - |
+| https://www.volkskrant.nl/buitenland/trump-meldt-akkoord-over-amerikaanse-controle-over-veiligheid-groenland~b26befe2 | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/buitenland/zara-larssons-midnight-sun-misbruikt-voor-deportatievideo-ice-zweedse-zangeres-woest-op-witte-huis~b2f84a8d | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/columns-opinie/de-betrouwbare-mannetjes-hebben-de-notulen-de-voorzitter-vraagt-of-mevrouw-yesilgoz-hem-beticht-van-lekken~b84d401c | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/columns-opinie/het-experiment-jetten-biedt-kansen-mits-de-regeringspartijen-het-eens-worden-over-hun-koers~b0b7d7e54 | de Volkskrant | all-rights-reserved | - |
@@ -3004,7 +3059,6 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.volkskrant.nl/cultuur-media/monty-don-in-zijn-dandy-snoeit-de-heg-kleren-stopt-als-presentator-van-gardeners-world-een-schok-voor-zijn-miljoenen-kijkers~bc8fe844 | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/economie/de-digitale-euro-gaat-er-komen-maar-wat-heeft-de-consument-daaraan~bbd677803 | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/economie/het-duitse-ai-wonderkind-leopold-aschenbrenner-was-met-zijn-hoofd-in-de-sterren-maar-is-weer-helemaal-terug-op-aarde~b2a6f0de | de Volkskrant | all-rights-reserved | - |
-| https://www.volkskrant.nl/economie/nexperia-gaat-een-deel-van-zijn-chips-laten-produceren-door-het-indiase-tata-electronics~b4838447 | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/films/met-hun-film-over-het-israelische-leger-werden-deze-filmmakers-een-paria-het-land-kan-ons-niet-laten-vermoorden-voor-palestijnen-ligt-dat-anders~b0fec098 | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/mensen/ik-kom-uit-een-tijd-van-niks-en-leef-in-een-tijd-van-veel~bf943160 | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/mensen/ik-vind-absoluut-niet-dat-gen-z-zich-aanstelt-of-nergens-meer-tegen-kan~b9c74207 | de Volkskrant | all-rights-reserved | - |
@@ -3047,18 +3101,22 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.volkskrant.nl/wetenschap/nieuwe-duinen-voor-de-scheveningse-betonwoestijn-iedereen-wordt-er-beter-van~bbe478b6 | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/wetenschap/vondst-van-de-eeuw-boliviaanse-bioloog-ontdekt-nieuwe-kattensoort~b6101816 | de Volkskrant | all-rights-reserved | - |
 
-## unknown (36)
+## unknown (41)
 
 | url | publisher | license | required credit line |
 | --- | --- | --- | --- |
 | https://www.brabant.nl/bestuur/commissaris-koning/ | Provincie Noord-Brabant | unknown | Licentie niet vastgesteld; endpoint: https://www.brabant.nl/bestuur/commissaris-koning/ |
 | https://www.fryslan.frl/commissaris-van-de-koning | Provincie Fryslân | unknown | Licentie niet vastgesteld; endpoint: https://www.fryslan.frl/commissaris-van-de-koning |
+| https://www.gouverneuraruba.com/gouverneur/gouverneur-boekhoudt | Gouverneur van Aruba | unknown | Licentie niet vastgesteld; endpoint: https://www.gouverneuraruba.com/gouverneur/gouverneur-boekhoudt |
 | https://www.hogeraad.nl/actueel/nieuwsoverzicht/2021/september/edwin-bleichrodt-geinstalleerd-procureur-generaal-hoge-raad/ | Hoge Raad der Nederlanden | unknown | Licentie niet vastgesteld; endpoint: https://www.hogeraad.nl/actueel/nieuwsoverzicht/2021/september/edwin-bleichrodt-geinstalleerd-procureur-generaal-hoge-raad/ |
 | https://www.hogeraad.nl/hoge-raad/ | Hoge Raad der Nederlanden | unknown | Licentie niet vastgesteld; endpoint: https://www.hogeraad.nl/hoge-raad/ |
 | https://www.hogeraad.nl/hoge-raad/kamers/dineke-de-groot/ | Hoge Raad der Nederlanden | unknown | Licentie niet vastgesteld; endpoint: https://www.hogeraad.nl/hoge-raad/kamers/dineke-de-groot/ |
 | https://www.hogeraad.nl/over/organisatie/ | Hoge Raad der Nederlanden | unknown | Licentie niet vastgesteld; endpoint: https://www.hogeraad.nl/over/organisatie/ |
 | https://www.hogeraad.nl/parket/ | Hoge Raad der Nederlanden | unknown | Licentie niet vastgesteld; endpoint: https://www.hogeraad.nl/parket/ |
 | https://www.hogeraad.nl/parket/edwin-bleichrodt/ | Hoge Raad der Nederlanden | unknown | Licentie niet vastgesteld; endpoint: https://www.hogeraad.nl/parket/edwin-bleichrodt/ |
+| https://www.kabgsxm.com/about-the-governor.aspx?language=NL | Kabinet van de Gouverneur van Sint Maarten | unknown | Licentie niet vastgesteld; endpoint: https://www.kabgsxm.com/about-the-governor.aspx?language=NL |
+| https://www.kabinetaruba.nl/nieuws/05/03/2026/mildred-milly-schwengle-benoemd-als-gevolmachtigde-minister-in-nederland | Kabinet van Aruba | unknown | Licentie niet vastgesteld; endpoint: https://www.kabinetaruba.nl/nieuws/05/03/2026/mildred-milly-schwengle-benoemd-als-gevolmachtigde-minister-in-nederland |
+| https://www.kabinetaruba.nl/nieuws/18/08/2026/gevolmachtigde-minister-van-curacao-op-bezoek-bij-minister-schwengle | Kabinet van Aruba | unknown | Licentie niet vastgesteld; endpoint: https://www.kabinetaruba.nl/nieuws/18/08/2026/gevolmachtigde-minister-van-curacao-op-bezoek-bij-minister-schwengle |
 | https://www.limburg.nl/bestuur/commissaris-koning/ | Provincie Limburg | unknown | Licentie niet vastgesteld; endpoint: https://www.limburg.nl/bestuur/commissaris-koning/ |
 | https://www.nationaleombudsman.nl/ | Nationale ombudsman | unknown | Licentie niet vastgesteld; endpoint: https://www.nationaleombudsman.nl/ |
 | https://www.nationaleombudsman.nl/over-de-nationale-ombudsman | Nationale ombudsman | unknown | Licentie niet vastgesteld; endpoint: https://www.nationaleombudsman.nl/over-de-nationale-ombudsman |
@@ -3077,6 +3135,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.ser.nl/nl/ser/over-ser | SER | unknown | Licentie niet vastgesteld; endpoint: https://www.ser.nl/nl/ser/over-ser |
 | https://www.ser.nl/nl/ser/raad/raadsleden | SER | unknown | Licentie niet vastgesteld; endpoint: https://www.ser.nl/nl/ser/raad/raadsleden |
 | https://www.ser.nl/nl/ser/raad/voorzitters | SER | unknown | Licentie niet vastgesteld; endpoint: https://www.ser.nl/nl/ser/raad/voorzitters |
+| https://www.sintmaartengov.org/news/pages/Minister-Plenipotentiary-2025-Marked-a-Pivotal-Moment-in-Shaping-the-Future-Direction-of-the-Cabinet.aspx | Government of Sint Maarten | unknown | Licentie niet vastgesteld; endpoint: https://www.sintmaartengov.org/news/pages/Minister-Plenipotentiary-2025-Marked-a-Pivotal-Moment-in-Shaping-the-Future-Direction-of-the-Cabinet.aspx |
 | https://www.tweedekamer.nl/ | Tweede Kamer | unknown | Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/ |
 | https://www.tweedekamer.nl/ | Tweede Kamer | unknown | Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/ |
 | https://www.tweedekamer.nl/ambtelijke-ondersteuning/organogram/griffier-van-de-tweede-kamer-der-staten-generaal | Tweede Kamer | unknown | Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/ambtelijke-ondersteuning/organogram/griffier-van-de-tweede-kamer-der-staten-generaal |
