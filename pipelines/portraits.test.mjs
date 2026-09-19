@@ -187,7 +187,7 @@ test("mapLicense maps known Commons values and refuses the rest", () => {
   assert.equal(mapLicense({ licenseRaw: "CC BY 4.0" }), "CC-BY-4.0");
   assert.equal(mapLicense({ licenseRaw: "CC BY-SA 4.0" }), "CC-BY-SA-4.0");
   assert.equal(mapLicense({ licenseRaw: "Public domain" }), "publiek-domein");
-  assert.equal(mapLicense({ licenseRaw: "Attribution" }), null);
+  assert.equal(mapLicense({ licenseRaw: "Attribution" }), "Attribution");
   assert.equal(mapLicense({}), null);
 });
 
