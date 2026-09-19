@@ -1,4 +1,7 @@
 import type { OrgBranch, OrgLevel, OrgSubtype, OrgType } from "./types";
+import { BENCH_CLEARANCE, type Bench } from "./bench";
+
+export type { Bench } from "./bench";
 
 /** Re-exported for the packer, which lives in graph-layout.ts. */
 export type OrgBranchLike = OrgBranch;
@@ -27,7 +30,7 @@ export type OrgBranchLike = OrgBranch;
  */
 
 export const GRAPH_SCHEMA = "nl-graph-bundle-v2";
-export const GRAPH_LAYOUT = "nl-tiers-v4";
+export const GRAPH_LAYOUT = "nl-tiers-v5";
 
 /** The Grondwet disc at the core. */
 export const CORE_RADIUS = 62;
@@ -66,29 +69,14 @@ export type ClusterKind = "children" | "oversight" | "subtype";
 /** Cluster grid: dot spacing and dot radius, in canvas units. */
 export const CLUSTER_DOT_PITCH = 3.4;
 export const CLUSTER_DOT_RADIUS = 1.2;
-/** Radial room between an arch block and the first ring packed outside it. */
-export const ARCH_BLOCK_CLEARANCE = 8;
-
-/** The inner radius a sector packs its rings from. Items pack beside an arch block, so the tier's inner radius. */
-export function packInnerOf(sector: Pick<SectorInfo, "innerRadius" | "block">): number {
-  return sector.innerRadius;
-}
-
-export type Arc = { start: number; end: number };
-
-/** Half the angle an arch block takes out of its sector at the sector's inner radius, with a gap on each side. */
-export function blockHalfAngle(sector: Pick<SectorInfo, "innerRadius" | "block">): number {
-  return sector.block ? (sector.block.width / 2 + GLYPH_GAP) / sector.innerRadius : 0;
-}
-
-/** The arcs a sector packs its items into: one, or the two beside its arch block. */
-export function sectorArcs(sector: Pick<SectorInfo, "startAngle" | "endAngle" | "midAngle" | "innerRadius" | "block">): Arc[] {
-  if (!sector.block) return [{ start: sector.startAngle, end: sector.endAngle }];
-  const half = blockHalfAngle(sector);
-  return [
-    { start: sector.startAngle, end: sector.midAngle - half },
-    { start: sector.midAngle + half, end: sector.endAngle },
-  ];
+/**
+ * The inner radius a sector packs its rings from: past its benches when it
+ * seats a chamber, so the commissies of the Kamers ring their own chamber.
+ */
+export function packInnerOf(sector: Pick<SectorInfo, "innerRadius" | "benches">): number {
+  let inner = sector.innerRadius;
+  for (const bench of sector.benches) inner = Math.max(inner, bench.outerRadius + BENCH_CLEARANCE);
+  return inner;
 }
 export const MAX_DEPTH = 6;
 export const BOW = 0.14;
@@ -271,8 +259,6 @@ export type PowerMapBundle = {
 
 export type TierId = "kern" | "politiek" | "ministeries" | "uitvoering" | "decentraal" | "koninkrijk";
 
-export type ArchBlock = { angle: number; radius: number; width: number; height: number };
-
 export type SectorInfo = {
   id: string;
   tier: TierId;
@@ -284,8 +270,8 @@ export type SectorInfo = {
   count: number;
   innerRadius: number;
   outerRadius: number;
-  /** The ∩ arch block of the Staten-Generaal sector, or null. */
-  block: ArchBlock | null;
+  /** Seats of the chambers this sector holds, drawn on its own rings. */
+  benches: Bench[];
   /** Node and cluster ids in packing order; the client re-packs from this when a cluster opens. */
   items: string[];
 };

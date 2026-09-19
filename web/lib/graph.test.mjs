@@ -18,7 +18,6 @@ import {
   archParams,
   archSeats,
   clusterHalfSize,
-  sectorArcs,
   edgeAlive,
   glyphFootprint,
   hydrateLayout,
@@ -196,9 +195,10 @@ function ringItemsOf(sector) {
   return items;
 }
 
-test("every sector spreads its items evenly over each of its arcs", () => {
+test("every sector spreads its items evenly over its arc", () => {
   for (const sector of layout.sectors) {
-    for (const arc of sectorArcs(sector)) {
+    {
+      const arc = { start: sector.startAngle, end: sector.endAngle };
     const byRing = new Map();
     for (const item of ringItemsOf(sector)) {
       if (item.angle < arc.start - 1e-9 || item.angle > arc.end + 1e-9) continue;

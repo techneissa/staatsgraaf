@@ -317,7 +317,8 @@ const hub = hubOrg ? { id: hubOrg.id, slug: hubOrg.slug, name: hubOrg.name } : n
 
 // The layout is computed here, once, and shipped. The client hydrates it and
 // never runs the packer (docs/13-graph-rebuild-plan.md, phase 2).
-const layout = computeLayout({ hub, nodes, edges });
+const chambers = buildChambers();
+const layout = computeLayout({ hub, nodes, edges, chambers });
 const hubNode = hub ? nodes.find((node) => node.id === hub.id) : null;
 const laidOutNodes = layout.nodes.map(toWireNode);
 if (hubNode) {
@@ -355,7 +356,7 @@ const bundle = {
     rows: cluster.rows,
     cols: cluster.cols,
   })),
-  chambers: buildChambers(),
+  chambers,
   tiers: layout.tiers,
   channels: layout.channels,
   coreRadius: layout.coreRadius,

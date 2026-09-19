@@ -1,4 +1,4 @@
-import type { SectorInfo, TierInfo } from "@/lib/graph";
+import type { Bench, SectorInfo, TierInfo } from "@/lib/graph";
 import { branchColorVar } from "@/lib/branch-colors";
 
 function n(value: number): number {
@@ -97,4 +97,25 @@ export function sectorLabelSpan(sector: SectorInfo): { from: number; to: number 
   if (span < 0.23) return null;
   const pad = 0.01;
   return { from: sector.startAngle + pad, to: sector.endAngle - pad };
+}
+
+/**
+ * Hidden arc for a chamber's name, just outside its seats. Reversed on the
+ * lower half of the canvas so the name reads upright whichever way the canvas
+ * is turned.
+ */
+export function benchLabelArc(bench: Bench, inset = 5): { id: string; d: string; radius: number } {
+  const radius = bench.outerRadius + inset;
+  const reversed = Math.sin(bench.midAngle) > 0;
+  const pad = bench.columnAngle / 2;
+  const from = bench.startAngle + pad;
+  const to = bench.endAngle - pad;
+  const s = polar(radius, reversed ? to : from);
+  const e = polar(radius, reversed ? from : to);
+  const large = to - from > Math.PI ? 1 : 0;
+  return {
+    id: `bench-arc-${bench.id.replace(/[^a-z0-9]+/gi, "-")}`,
+    d: `M ${s.x} ${s.y} A ${n(radius)} ${n(radius)} 0 ${large} ${reversed ? 0 : 1} ${e.x} ${e.y}`,
+    radius,
+  };
 }
