@@ -178,6 +178,7 @@ One list of typed, directed edges. This drives the graph and the "Who's connecte
   "to": "org:belastingdienst",
   "type": "oversees",
   "metadata": { "instrument": "eigenaarschap", "since": "2019-01-01" },
+  "until": null,
   "seatsAppointed": 0,
   "source": { "source": "src:...", "retrieved": "2026-09-17" }
 }
@@ -199,6 +200,8 @@ One list of typed, directed edges. This drives the graph and the "Who's connecte
 - `part_of`, `consists_of`: composition.
 - `succeeded_by`: reorganization history.
 - `joint_arrangement_member`: participant in a gemeenschappelijke regeling.
+
+Relations are dated like tenures, because Dutch portfolios move between ministeries with each kabinet. `metadata.since` opens the relation and `until` closes it; `until: null` means the relation is current. Never infer a relation's end from the appearance of a replacement; store `until` only when a source states it. A closed relation stays in the dataset so history renders, and the diff engine records the move as a change.
 
 ## 9. Change
 

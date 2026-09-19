@@ -151,6 +151,14 @@ This is the checklist the research phase must fill. Counts are current best esti
 
 Fetch machine-readable sources first. Only scrape HTML when no endpoint exists. Every URL is `(verify)` until a research workstream has fetched it successfully and recorded the retrieval date.
 
+### Registries and catalogs
+
+- The Register van Overheidsorganisaties (ROO) by KOOP on `overheid.nl`: the machine-readable catalog of government organizations, from ministeries and their dienstonderdelen to ZBO's, gemeenten, and waterschappen, with official identifiers (OIN) and regular exports `(verify endpoint, format, and export schedule)`. Treat this as the primary source for the institutional layer before any scraping.
+- `data.overheid.nl`: the national open data portal, for dataset discovery and per-dataset license lookups.
+- The Algoritmeregister: official register of algorithms used by public bodies. Optional metadata layer, likely outside the core scope `(verify)`.
+- A lobby transparency register, if one is maintained and structured `(verify whether one exists, its status, format, and license)`. Optional metadata layer, likely outside the core scope.
+- Open State Foundation datasets such as OpenKamer and open spending APIs: cross-check sources only, never primary `(verify licenses)`.
+
 ### Legal and legislative
 
 - `wetten.overheid.nl`: the consolidated law texts, per article. Look for the Basiswettenbestand (BWB) XML.
@@ -211,6 +219,7 @@ Fetch machine-readable sources first. Only scrape HTML when no endpoint exists. 
 - `parlement.com` and news images are not reusable. Use them only to verify facts.
 - Portraits come from Commons or official government sources with a recorded license and credit line.
 - Scope personal data to people in a public function, and only for facts the government itself publishes. Keep birth dates, party, and portraits where officially public. Do not collect contact details or private addresses.
+- **The person scope has a hard floor.** Map individuals only down to the political tier and the top executive tier: ministers, staatssecretarissen, Kamerleden, burgemeesters, wethouders, CdK's, dijkgraven, gezaghebbers, and SG's, DG's, and board members of larger bodies where officially published. Names of mid-level and lower ambtenaren are out of scope, even when an endpoint exposes them: under the Wet open overheid they are routinely redacted to protect the persoonlijke levenssfeer, and intimidation of civil servants is a live concern. Organizational structure below the top executive tier is fine; individual names below it are not.
 - Ship a clear disclaimer: this project is not affiliated with the Dutch government or any official body.
 
 ## 9. Naming, slugs, and language
