@@ -201,6 +201,9 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   const hoverCardRef = useRef<((hover: Hover | null) => void) | null>(null);
   const hoverMarkRef = useRef<SVGGElement | null>(null);
   const hoverPathRef = useRef<SVGPathElement | null>(null);
+  /** The hit block behind each chamber's arch, tinted on hover. */
+  const archRefs = useRef(new Map<string, SVGRectElement>());
+  const seatGroupRefs = useRef(new Map<string, SVGGElement>());
   /** The cluster the reader wants open, and the one the pose is built for. */
   const [openCluster, setOpenCluster] = useState<string | null>(null);
   const [activeCluster, setActiveCluster] = useState<string | null>(null);
@@ -641,6 +644,11 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       );
       const degrees = (rot.current.value * 180) / Math.PI;
       rotGroupRef.current?.setAttribute("transform", `rotate(${degrees.toFixed(3)})`);
+      // Seats are decoration until the reader zooms in on them.
+      const seatOpacity = viewK.current.value >= 2 ? "1" : "0.7";
+      for (const group of seatGroupRefs.current.values()) {
+        if (group.getAttribute("opacity") !== seatOpacity) group.setAttribute("opacity", seatOpacity);
+      }
 
       // The moving sector: marks slide along their rings, the open grid's dots
       // grow into marks, and the other grids shift as blocks.
@@ -1010,6 +1018,13 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       rect?.setAttribute("fill-opacity", "0.06");
       rect?.setAttribute("stroke-opacity", "0.25");
     }
+    if (previous?.kind === "node" && previous.id !== target?.id) {
+      const arch = archRefs.current.get(previous.id);
+      if (arch && previous.id !== selectedId) {
+        arch.setAttribute("fill-opacity", "0.05");
+        arch.setAttribute("stroke-opacity", "0.25");
+      }
+    }
     hoverRef.current = target;
     const mark = hoverMarkRef.current;
     const path = hoverPathRef.current;
@@ -1029,6 +1044,11 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       const rect = clusterRefs.current.get(target.id)?.querySelector("rect");
       rect?.setAttribute("fill-opacity", "0.22");
       rect?.setAttribute("stroke-opacity", "0.7");
+    }
+    if (target?.kind === "node" && target.id !== selectedId) {
+      const arch = archRefs.current.get(target.id);
+      arch?.setAttribute("fill-opacity", "0.18");
+      arch?.setAttribute("stroke-opacity", "0.7");
     }
     hoverCardRef.current?.(target);
     placeOverlays();
@@ -1470,33 +1490,65 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
                 onPointerOver={onMarkOver}
                 onPointerOut={onMarkOut}
               >
-                {arches.map((arch) => (
-                  <g key={arch.id} data-node-id={arch.id} transform={`translate(${arch.offset} 0)`} className="cursor-pointer">
-                    <title>{layout.byId.get(arch.id)?.name ?? arch.id}</title>
-                    {arch.layout.marks.map((mark, index) => (
-                      <circle
-                        key={index}
-                        cx={mark.x.toFixed(2)}
-                        cy={mark.y.toFixed(2)}
-                        r={arch.layout.seatRadius}
-                        fill={mark.color ?? "var(--t-color-line-strong)"}
-                        opacity={selectedId && selectedId !== arch.id ? 0.55 : 1}
+                {arches.map((arch) => {
+                  const box = arch.layout.box;
+                  const pad = 3;
+                  const isSelected = selectedId === arch.id;
+                  const color = branchColorVar(statenSector.branch);
+                  return (
+                    <g key={arch.id} data-node-id={arch.id} transform={`translate(${arch.offset} 0)`} className="cursor-pointer">
+                      <title>{layout.byId.get(arch.id)?.name ?? arch.id}</title>
+                      {/* One target the size of the whole arch: a click anywhere on the chamber selects it. */}
+                      <rect
+                        ref={(element) => {
+                          if (element) archRefs.current.set(arch.id, element);
+                          else archRefs.current.delete(arch.id);
+                        }}
+                        x={(box.minX - pad).toFixed(2)}
+                        y={(box.minY - pad).toFixed(2)}
+                        width={(box.maxX - box.minX + 2 * pad).toFixed(2)}
+                        height={(box.maxY - box.minY + 2 * pad).toFixed(2)}
+                        rx={3}
+                        fill={isSelected ? "var(--t-color-accent)" : color}
+                        fillOpacity={isSelected ? 0.18 : 0.05}
+                        stroke={isSelected ? "var(--t-color-accent)" : color}
+                        strokeOpacity={isSelected ? 0.8 : 0.25}
+                        strokeWidth={isSelected ? 1.2 : 0.6}
                       />
-                    ))}
-                    {arch.layout.majority ? (
-                      <line
-                        x1={arch.layout.majority.x1.toFixed(2)}
-                        y1={arch.layout.majority.y1.toFixed(2)}
-                        x2={arch.layout.majority.x2.toFixed(2)}
-                        y2={arch.layout.majority.y2.toFixed(2)}
-                        stroke="var(--t-color-ink)"
-                        strokeWidth={arch.layout.seatRadius * 0.5}
-                        strokeDasharray={`${arch.layout.seatRadius} ${arch.layout.seatRadius * 0.6}`}
-                        opacity={0.8}
-                      />
-                    ) : null}
-                  </g>
-                ))}
+                      <g
+                        ref={(element) => {
+                          if (element) seatGroupRefs.current.set(arch.id, element);
+                          else seatGroupRefs.current.delete(arch.id);
+                        }}
+                        pointerEvents="none"
+                        opacity={0.7}
+                      >
+                        {arch.layout.marks.map((mark, index) => (
+                          <circle
+                            key={index}
+                            cx={mark.x.toFixed(2)}
+                            cy={mark.y.toFixed(2)}
+                            r={arch.layout.seatRadius}
+                            fill={mark.color ?? "var(--t-color-line-strong)"}
+                            opacity={selectedId && selectedId !== arch.id ? 0.55 : 1}
+                          />
+                        ))}
+                        {arch.layout.majority ? (
+                          <line
+                            x1={arch.layout.majority.x1.toFixed(2)}
+                            y1={arch.layout.majority.y1.toFixed(2)}
+                            x2={arch.layout.majority.x2.toFixed(2)}
+                            y2={arch.layout.majority.y2.toFixed(2)}
+                            stroke="var(--t-color-ink)"
+                            strokeWidth={arch.layout.seatRadius * 0.5}
+                            strokeDasharray={`${arch.layout.seatRadius} ${arch.layout.seatRadius * 0.6}`}
+                            opacity={0.8}
+                          />
+                        ) : null}
+                      </g>
+                    </g>
+                  );
+                })}
               </g>
             ) : null}
 
@@ -1607,6 +1659,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
         t={t}
         glossOf={glossOf}
         clusterLabel={clusterLabel}
+        chambers={chambers}
         openClusterId={activeClusterInfo?.id ?? null}
         tooltipRef={tooltipRef}
         register={(set) => {
@@ -1754,6 +1807,7 @@ function HoverCard({
   t,
   glossOf,
   clusterLabel,
+  chambers,
   openClusterId,
   tooltipRef,
   register,
@@ -1763,6 +1817,7 @@ function HoverCard({
   t: (key: string, vars?: Record<string, string | number>) => string;
   glossOf: (name: string) => string | null;
   clusterLabel: (cluster: ClusterInfo) => string;
+  chambers: GraphBundle["chambers"];
   openClusterId: string | null;
   tooltipRef: { current: HTMLDivElement | null };
   register: (set: (hover: Hover | null) => void) => void;
@@ -1778,6 +1833,7 @@ function HoverCard({
   const branch = node?.branch ?? (cluster ? layout.sectors.find((sector) => sector.id === cluster.sector)?.branch ?? null : null);
   const parent = node?.parent ? layout.byId.get(node.parent) ?? null : null;
   const connections = node ? (layout.adjacency.get(node.id) ?? []).length : 0;
+  const chamber = node ? chambers[node.id] ?? null : null;
   const clusterSubtype = (entry: ClusterInfo) => {
     const counts = new Map<string, number>();
     for (const id of entry.members) {
@@ -1811,6 +1867,7 @@ function HoverCard({
             </span>
           </div>
           {parent ? <p className="mt-1 text-[11px] text-ink-muted">{t("parentOf", { parent: parent.name })}</p> : null}
+          {chamber ? <p className="mt-1 text-[11px] text-ink-muted">{t("chamberSeats", { total: chamber.total, majority: chamber.majority })}</p> : null}
           <p className="mt-0.5 text-[11px] text-ink-faint">{connections === 1 ? t("connectionsOne") : t("connections", { n: connections })}</p>
         </>
       ) : cluster ? (

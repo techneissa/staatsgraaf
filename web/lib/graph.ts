@@ -27,7 +27,7 @@ export type OrgBranchLike = OrgBranch;
  */
 
 export const GRAPH_SCHEMA = "nl-graph-bundle-v2";
-export const GRAPH_LAYOUT = "nl-tiers-v2";
+export const GRAPH_LAYOUT = "nl-tiers-v3";
 
 /** The Grondwet disc at the core. */
 export const CORE_RADIUS = 62;
@@ -81,8 +81,8 @@ export const HUB_RADIUS = CORE_RADIUS;
 /** Seat pitch of the two arches drawn inside the canvas, and their offsets. */
 export const ARCH_PITCH_TK = 4.2;
 export const ARCH_PITCH_EK = 3.2;
-export const ARCH_TK_OFFSET = -22;
-export const ARCH_EK_OFFSET = 30;
+export const ARCH_TK_OFFSET = -26;
+export const ARCH_EK_OFFSET = 34;
 
 export type GlyphClass =
   | "shield"
