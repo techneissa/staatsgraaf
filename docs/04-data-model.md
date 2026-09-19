@@ -177,8 +177,10 @@ One list of typed, directed edges. This drives the graph and the "Who's connecte
   "from": "org:ministerie-van-financien",
   "to": "org:belastingdienst",
   "type": "oversees",
-  "metadata": { "instrument": "eigenaarschap", "since": "2019-01-01" },
-  "until": null,
+  "metadata": { "instrument": "eigenaarschap" },
+  "validFrom": "2019-01-01",
+  "validTo": null,
+  "supersededBy": null,
   "seatsAppointed": 0,
   "source": { "source": "src:...", "retrieved": "2026-09-17" }
 }
@@ -201,7 +203,7 @@ One list of typed, directed edges. This drives the graph and the "Who's connecte
 - `succeeded_by`: reorganization history.
 - `joint_arrangement_member`: participant in a gemeenschappelijke regeling.
 
-Relations are dated like tenures, because Dutch portfolios move between ministeries with each kabinet. `metadata.since` opens the relation and `until` closes it; `until: null` means the relation is current. Never infer a relation's end from the appearance of a replacement; store `until` only when a source states it. A closed relation stays in the dataset so history renders, and the diff engine records the move as a change.
+Relations are dated like tenures, because Dutch portfolios move between ministeries with each kabinet. `validFrom` opens the relation and `validTo` closes it; both are null when no source dates the relation, and `validTo: null` means the relation is current. `supersededBy` names the relation that replaced a closed one. Never infer a relation's end from the appearance of a replacement; store `validTo` only when a source states it. A closed relation stays in the dataset so history renders, and the diff engine records the move as a change. (Until 19-09-2026 the fields were documented as `metadata.since` and `until`; no record used them, so the rename has no data migration.)
 
 ## 9. Change
 
@@ -370,6 +372,9 @@ Everything that cites a source uses the `src:` id. The UI renders a link and, wh
 6. No fact that ships lacks at least one source.
 7. `changes` entries reference existing positions and, where present, existing persons and tenures.
 8. `budget` and `powerMap` reference existing organizations and people.
+9. Relation `validTo` is after `validFrom`, `supersededBy` resolves, and no two open relations share `from`, `to` and `type`.
+10. Election seats sum to `seatsTotal`, no party is listed twice, the body resolves, and every party key exists in `web/lib/parties.ts`.
+11. Coalition `end` is after `start`; `government`, `primeMinister` and `agreement` resolve; every party key exists in `web/lib/parties.ts`.
 
 ## 18. Changing the schema
 
@@ -385,7 +390,7 @@ The schema follows the process below. This prevents workstreams from drifting an
 - **`department` stays a catch-all** for compatibility with the reference and because the graph engine only cares about type for styling. The real meaning lives in `subtype`.
 - **People are a first-class entity.** The reference buries them in nodes and has no person pages. Our product's promise is tenure history, so people must be first-class.
 - **Kingdoms and lands are scopes, not organizations.** They sit in `governments.json` so we can later ship an Aruba or Curaçao graph on the same schema.
-- **Elections are not entities at this stage.** We store the electorate as a constituency and the elected bodies as organizations. A future `elections` file can record uitslagen. Note it as a later phase.
+- **Elections and coalitions are entities since 19-09-2026** (sections 21 and 22, added by the graph rebuild plan in `13-graph-rebuild-plan.md`). The electorate stays a constituency and the elected bodies stay organizations; an election records a zetelverdeling for one body on one date, a coalition records one kabinet. Neither becomes a graph node.
 
 ## 20. Dataset versioning and release cadence
 
@@ -398,3 +403,52 @@ The dataset is a published product, so it is versioned and released like one.
 - **Release cadence.** Data refreshes nightly. Schema releases are rare and deliberate, not a side effect of a data refresh.
 - **Changelog.** Every schema release and every data-model change is recorded with a reason and a date. The public correction log in `09-content-and-ai-policy.md` section 8 is separate: that one records factual corrections, this one records model changes.
 - **Compatibility check.** CI verifies that the published JSON still validates against the current contract before any deploy, so a silent shape change fails the build rather than a client.
+
+## 21. Election
+
+One zetelverdeling for one elected body on one election date. Drives the seat chart history and the party pages. Sources are the Kiesraad for the Tweede Kamer, Eerste Kamer, Provinciale Staten and Europees Parlement; older results may cite `verkiezingsuitslagen.nl` (Kiesraad-backed) at `medium` confidence.
+
+```json
+{
+  "id": "election:tk-2025-10-29",
+  "body": "org:tweede-kamer",
+  "date": "2025-10-29",
+  "kind": "vervroegd",
+  "seatsTotal": 150,
+  "turnout": 0.78,
+  "validVotes": null,
+  "seats": [{ "party": "PVV", "seats": 26, "votes": null, "share": null }],
+  "notes": null,
+  "source": { "source": "src:kiesraad-tk-2025", "retrieved": "2026-09-19", "confidence": "high" }
+}
+```
+
+- `seats` sums to `seatsTotal`; the validator enforces it.
+- `party` uses the keys of `web/lib/parties.ts`, the same keys as `membership.fractie`. A historical party that no longer exists is added to that table with its sourced colour, or with no colour and a note.
+- Lijstverbindingen and restzetels are not modelled; the seat count is the final allocation as published.
+- Values in the example are placeholders for shape only.
+
+## 22. Coalition
+
+One kabinet: the parties that formed it, when it was sworn in, when it ended, and the agreement it rests on. Drives the coalition outline and the majority statement on the seat chart.
+
+```json
+{
+  "id": "coalition:kabinet-schoof",
+  "government": "org:regering",
+  "name": "Kabinet-Schoof",
+  "parties": ["PVV", "VVD", "NSC", "BBB"],
+  "start": "2024-07-02",
+  "end": null,
+  "demissionairSince": null,
+  "primeMinister": "person:dick-schoof",
+  "agreement": "src:hoofdlijnenakkoord-2024",
+  "kind": "meerderheid",
+  "notes": null,
+  "source": { "source": "src:rijksoverheid-kabinet-schoof", "retrieved": "2026-09-19", "confidence": "high" }
+}
+```
+
+- `end: null` means sitting. A demissionair kabinet stays open with `demissionairSince` set; `end` is the day the successor is sworn in.
+- A party leaving the coalition mid-term closes the record and opens a new one (a rompkabinet) with `kind: "rompkabinet"`, so the chart shows the majority as it was on each date.
+- Values in the example are placeholders for shape only.

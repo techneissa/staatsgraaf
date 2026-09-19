@@ -20,6 +20,8 @@ The frozen data contract, derived from `docs/04-data-model.md` and the vocabular
 | `budget.schema.json` | `data/budgets.json` | array |
 | `source.schema.json` | `data/sources.json` | array |
 | `media.schema.json` | `data/media.json` | array |
+| `election.schema.json` | `data/elections.json` | array |
+| `coalition.schema.json` | `data/coalitions.json` | array |
 
 Every `data/*.json` file is a plain JSON array. The published contract under `/data/v1/...` and `/api/v1/...` is generated from these arrays at build time.
 
@@ -35,6 +37,9 @@ Every `data/*.json` file is a plain JSON array. The published contract under `/d
 6. every organization, position, person, tenure, membership, relation, change, news item, budget, media item, and government carries at least one source
 7. changes reference existing positions and, where present, existing persons and tenures
 8. budgets reference existing organizations
+9. relation `validTo` is after `validFrom`, `supersededBy` resolves, and no two open relations share `from`, `to` and `type`
+10. election seats sum to `seatsTotal`, no party is listed twice, the body resolves, and party keys exist in `web/lib/parties.ts`
+11. coalition `end` is after `start`, `government`, `primeMinister` and `agreement` resolve, and party keys exist in `web/lib/parties.ts`
 
 ## Notes on the freeze
 

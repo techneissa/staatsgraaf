@@ -196,7 +196,51 @@ export type Relation = {
   to: string;
   type: RelationType;
   metadata: Record<string, unknown>;
+  /** Date the relation came into force; null when unknown or undated. */
+  validFrom?: string | null;
+  /** Date the relation ended; null while current. */
+  validTo?: string | null;
+  /** The relation that replaced this one, for example after a portfolio move. */
+  supersededBy?: string | null;
   seatsAppointed: number | null;
+  source: SourceRef;
+};
+
+export type SeatResult = {
+  /** Party key as used in parties.ts and memberships.fractie. */
+  party: string;
+  seats: number;
+  votes?: number | null;
+  share?: number | null;
+};
+
+export type Election = {
+  id: string;
+  body: string;
+  date: string;
+  kind?: "regulier" | "vervroegd" | null;
+  seatsTotal: number;
+  turnout?: number | null;
+  validVotes?: number | null;
+  seats: SeatResult[];
+  notes?: string | null;
+  source: SourceRef;
+};
+
+export type CoalitionKind = "meerderheid" | "minderheid" | "rompkabinet" | "zakenkabinet";
+
+export type Coalition = {
+  id: string;
+  government: string;
+  name: string;
+  parties: string[];
+  start: string;
+  end: string | null;
+  demissionairSince?: string | null;
+  primeMinister?: string | null;
+  agreement?: string | null;
+  kind?: CoalitionKind | null;
+  notes?: string | null;
   source: SourceRef;
 };
 

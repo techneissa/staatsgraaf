@@ -3,6 +3,8 @@ import { dirname, join } from "node:path";
 import type {
   Budget,
   Change,
+  Coalition,
+  Election,
   Government,
   MediaItem,
   Membership,
@@ -75,6 +77,8 @@ export type Dataset = {
   topics: Topic[];
   budgets: Budget[];
   media: MediaItem[];
+  elections: Election[];
+  coalitions: Coalition[];
   organizationsById: Map<string, Organization>;
   organizationsBySlug: Map<string, Organization>;
   positionsById: Map<string, Position>;
@@ -148,6 +152,8 @@ export function getDataset(): Dataset {
   const topics = readArray<Topic>("topics.json");
   const budgets = readArray<Budget>("budgets.json");
   const media = readArray<MediaItem>("media.json");
+  const elections = readArray<Election>("elections.json");
+  const coalitions = readArray<Coalition>("coalitions.json");
 
   dataset = {
     organizations,
@@ -163,6 +169,8 @@ export function getDataset(): Dataset {
     topics,
     budgets,
     media,
+    elections,
+    coalitions,
     organizationsById: indexById(organizations),
     organizationsBySlug: new Map(organizations.map((org) => [org.slug, org])),
     positionsById: indexById(positions),
