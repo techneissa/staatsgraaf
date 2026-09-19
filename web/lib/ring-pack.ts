@@ -13,7 +13,7 @@
  * the open state is as deterministic as the rest state in `graph.json`.
  */
 
-import { GLYPH_GAP, MAX_RING_STEP, MIN_RING_STEP, SELECTED_GROWTH } from "./graph";
+import { GLYPH_GAP, MAX_RING_STEP, MIN_RING_STEP, SELECTED_GROWTH, type Arc } from "./graph";
 
 export type RingItem = {
   id: string;
@@ -117,4 +117,107 @@ export function packRing(
     }
   }
   return { placed, outerRadius };
+}
+
+/**
+ * Pack items into the arcs of a sector. With one arc this is `packRing`. With
+ * two (beside an arch block) the first half of the items goes left and the
+ * rest right, each half packed on its own, so an item never crosses the block
+ * and the same split holds when a cluster on one side opens.
+ */
+export function packSectorArcs(
+  items: readonly RingItem[],
+  arcs: readonly Arc[],
+  innerRadius: number,
+  gap = GLYPH_GAP,
+  splitAt: number | null = null,
+): { placed: RingPlacement[]; outerRadius: number } {
+  if (arcs.length <= 1) {
+    const arc = arcs[0] ?? { start: 0, end: 0 };
+    return packRing(items, arc.start, arc.end, innerRadius, gap);
+  }
+  const split = splitAt ?? Math.ceil(items.length / 2);
+  const left = packRing(items.slice(0, split), arcs[0].start, arcs[0].end, innerRadius, gap);
+  const right = packRing(items.slice(split), arcs[1].start, arcs[1].end, innerRadius, gap);
+  return { placed: [...left.placed, ...right.placed], outerRadius: Math.max(left.outerRadius, right.outerRadius) };
+}
+
+/** An item as it rests: its ring and angle, and its extents. */
+export type RestItem = RingItem & { angle: number; radius: number };
+
+/**
+ * Open one item in place. The members take the ring the item rests on,
+ * centred where it was, and only the neighbours on that ring move: each is
+ * pushed just far enough along the ring to clear the next, out to the ends of
+ * the arc. Nothing on another ring moves and nothing moves that does not have
+ * to. Returns null when the ring's arc cannot hold everything, in which case
+ * the caller packs the sector again from scratch.
+ */
+export function pushPack(
+  rest: readonly RestItem[],
+  openId: string,
+  members: readonly RingItem[],
+  arcs: readonly Arc[],
+  gap = GLYPH_GAP,
+): RingPlacement[] | null {
+  const open = rest.find((item) => item.id === openId);
+  if (!open) return null;
+  const arc = arcs.find((entry) => open.angle >= entry.start - 1e-9 && open.angle <= entry.end + 1e-9) ?? arcs[0];
+  if (!arc) return null;
+  const radius = open.radius;
+  const onRing = rest
+    .filter((item) => Math.abs(item.radius - radius) < 0.5 && item.angle >= arc.start - 1e-9 && item.angle <= arc.end + 1e-9)
+    .sort((a, b) => a.angle - b.angle);
+
+  // Desired centres in arc length: rest for the neighbours, the members laid
+  // side by side around the open item's centre.
+  type Slot = { id: string; centre: number; halfWidth: number; halfHeight: number };
+  const slots: Slot[] = [];
+  for (const item of onRing) {
+    if (item.id !== openId) {
+      slots.push({ id: item.id, centre: item.angle * radius, halfWidth: item.halfWidth, halfHeight: item.halfHeight });
+      continue;
+    }
+    const total = members.reduce((sum, member) => sum + 2 * member.halfWidth, 0) + gap * Math.max(0, members.length - 1);
+    let cursor = open.angle * radius - total / 2;
+    for (const member of members) {
+      slots.push({ id: member.id, centre: cursor + member.halfWidth, halfWidth: member.halfWidth, halfHeight: member.halfHeight });
+      cursor += 2 * member.halfWidth + gap;
+    }
+  }
+
+  const lo = arc.start * radius;
+  const hi = arc.end * radius;
+  const widths = slots.reduce((sum, slot) => sum + 2 * slot.halfWidth, 0) + gap * Math.max(0, slots.length - 1);
+  if (widths > hi - lo + 1e-9) return null;
+
+  // Push right where slots overlap, then push back left from the far wall,
+  // then check the near wall: two sweeps settle a line of intervals.
+  const centres = slots.map((slot) => slot.centre);
+  for (let i = 0; i < slots.length; i += 1) {
+    const min = i === 0 ? lo + slots[i].halfWidth : centres[i - 1] + slots[i - 1].halfWidth + gap + slots[i].halfWidth;
+    if (centres[i] < min) centres[i] = min;
+  }
+  for (let i = slots.length - 1; i >= 0; i -= 1) {
+    const max = i === slots.length - 1 ? hi - slots[i].halfWidth : centres[i + 1] - slots[i + 1].halfWidth - gap - slots[i].halfWidth;
+    if (centres[i] > max) centres[i] = max;
+  }
+  for (let i = 0; i < slots.length; i += 1) {
+    const min = i === 0 ? lo + slots[i].halfWidth : centres[i - 1] + slots[i - 1].halfWidth + gap + slots[i].halfWidth;
+    if (centres[i] < min - 1e-6) return null;
+  }
+
+  const moved = new Map(slots.map((slot, index) => [slot.id, centres[index] / radius]));
+  const placed: RingPlacement[] = [];
+  for (const item of rest) {
+    if (item.id === openId) continue;
+    const angle = moved.get(item.id);
+    placed.push({ id: item.id, angle: angle ?? item.angle, radius: item.radius });
+  }
+  for (const member of members) {
+    const angle = moved.get(member.id);
+    if (angle === undefined) return null;
+    placed.push({ id: member.id, angle, radius });
+  }
+  return placed;
 }

@@ -27,7 +27,7 @@ export type OrgBranchLike = OrgBranch;
  */
 
 export const GRAPH_SCHEMA = "nl-graph-bundle-v2";
-export const GRAPH_LAYOUT = "nl-tiers-v3";
+export const GRAPH_LAYOUT = "nl-tiers-v4";
 
 /** The Grondwet disc at the core. */
 export const CORE_RADIUS = 62;
@@ -52,7 +52,7 @@ export const FRAME_MARGIN = 46;
  * Radial room reserved in the viewBox for the step back of an open focus, so
  * an expanded neighbourhood never leaves the canvas at zoom 1.
  */
-export const PUSH_RESERVE = 96;
+export const PUSH_RESERVE = 0;
 /** The first sector of every tier starts straight up, so tiers read as one dial. */
 export const START_ANGLE = -Math.PI / 2;
 /** Extra glyph radius for the focused mark. */
@@ -64,14 +64,31 @@ export const CLUSTER_SECTOR_MIN = 40;
 /** How a cluster's members belong together. */
 export type ClusterKind = "children" | "oversight" | "subtype";
 /** Cluster grid: dot spacing and dot radius, in canvas units. */
-export const CLUSTER_DOT_PITCH = 3;
-export const CLUSTER_DOT_RADIUS = 1;
+export const CLUSTER_DOT_PITCH = 3.4;
+export const CLUSTER_DOT_RADIUS = 1.2;
 /** Radial room between an arch block and the first ring packed outside it. */
 export const ARCH_BLOCK_CLEARANCE = 8;
 
-/** The inner radius a sector packs its rings from: past the arch block when it carries one. */
+/** The inner radius a sector packs its rings from. Items pack beside an arch block, so the tier's inner radius. */
 export function packInnerOf(sector: Pick<SectorInfo, "innerRadius" | "block">): number {
-  return sector.block ? sector.innerRadius + sector.block.height + ARCH_BLOCK_CLEARANCE : sector.innerRadius;
+  return sector.innerRadius;
+}
+
+export type Arc = { start: number; end: number };
+
+/** Half the angle an arch block takes out of its sector at the sector's inner radius, with a gap on each side. */
+export function blockHalfAngle(sector: Pick<SectorInfo, "innerRadius" | "block">): number {
+  return sector.block ? (sector.block.width / 2 + GLYPH_GAP) / sector.innerRadius : 0;
+}
+
+/** The arcs a sector packs its items into: one, or the two beside its arch block. */
+export function sectorArcs(sector: Pick<SectorInfo, "startAngle" | "endAngle" | "midAngle" | "innerRadius" | "block">): Arc[] {
+  if (!sector.block) return [{ start: sector.startAngle, end: sector.endAngle }];
+  const half = blockHalfAngle(sector);
+  return [
+    { start: sector.startAngle, end: sector.midAngle - half },
+    { start: sector.midAngle + half, end: sector.endAngle },
+  ];
 }
 export const MAX_DEPTH = 6;
 export const BOW = 0.14;
@@ -411,7 +428,7 @@ function round(value: number): number {
 }
 
 export function glyphRadiusForDegree(degree: number, selected = false): number {
-  const base = Math.min(10, Math.max(5, 5 + Math.sqrt(Math.max(0, degree)) * 1.1));
+  const base = Math.min(11, Math.max(6, 6 + Math.sqrt(Math.max(0, degree)) * 1.1));
   return selected ? base + SELECTED_GROWTH : base;
 }
 

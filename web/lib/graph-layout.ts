@@ -17,7 +17,7 @@ import {
   ARCH_PITCH_EK,
   ARCH_PITCH_TK,
   ARCH_TK,
-  ARCH_BLOCK_CLEARANCE,
+  sectorArcs,
   ARCH_TK_OFFSET,
   CLUSTER_MIN,
   CLUSTER_SECTOR_MIN,
@@ -52,7 +52,7 @@ import {
   type TierId,
   type TierInfo,
 } from "./graph";
-import { packRing, type RingItem } from "./ring-pack";
+import { packSectorArcs, type RingItem } from "./ring-pack";
 
 export { compareNames };
 
@@ -448,8 +448,10 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
       for (const item of items) widest = Math.max(widest, 2 * ringItemFor(item).halfWidth + GLYPH_GAP);
       // Room for three of its widest marks side by side on the inner ring, or
       // for the arch block when the sector carries one.
+      // Room for three of its widest marks side by side on the inner ring; a
+      // sector with an arch block needs the block plus a mark on each side.
       let minimum = (3 * widest) / (tierInner + widest);
-      if (sector.archAnchor) minimum = Math.max(minimum, blockWidth / (tierInner + blockHeight / 2) + 0.05);
+      if (sector.archAnchor) minimum = Math.max(minimum, (blockWidth + 2 * GLYPH_GAP + 2 * widest) / tierInner + 0.05);
       minimums.push(Math.min(usable / live.length, minimum));
     }
     const spans = allocateSpans(weights, minimums, usable);
@@ -463,7 +465,7 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
       const end = start + spans[index];
       const mid = (start + end) / 2;
       const members = membersBySector.get(sector.id) ?? [];
-      let packInner = tierInner;
+      const packInner = tierInner;
       let block: ArchBlock | null = null;
       let rest = members;
 
@@ -496,13 +498,13 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
               cluster: null,
             });
           }
-          packInner = tierInner + blockHeight + ARCH_BLOCK_CLEARANCE;
           rest = members.filter((node) => !sector.archAnchor?.(node));
         }
       }
 
       const items = itemsBySector.get(sector.id) ?? [];
-      const { placed, outerRadius } = packRing(items.map(ringItemFor), start, end, packInner);
+      const arcs = sectorArcs({ startAngle: start, endAngle: end, midAngle: mid, innerRadius: tierInner, block });
+      const { placed, outerRadius } = packSectorArcs(items.map(ringItemFor), arcs, packInner);
       const placedById = new Map(placed.map((entry) => [entry.id, entry]));
       const nodeAt = (node: BundleNode, angle: number, radius: number, cluster: string | null): LaidOutNode => ({
         ...node,
@@ -555,10 +557,18 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
       // single open cluster reaches, so the client can unpack any one of them
       // without entering the next tier.
       let reserved = outerRadius;
+      const split = arcs.length > 1 ? Math.ceil(items.length / 2) : null;
       for (const item of items) {
         if (item.kind !== "cluster") continue;
-        const open = packRing(itemsWithOpen(items, item.id).map(ringItemFor), start, end, packInner);
+        const index = items.indexOf(item);
+        const openSplit = split === null ? null : index < split ? split + item.members.length - 1 : split;
+        const open = packSectorArcs(itemsWithOpen(items, item.id).map(ringItemFor), arcs, packInner, GLYPH_GAP, openSplit);
         reserved = Math.max(reserved, open.outerRadius);
+        // Opened in place, the members sit on the grid's own ring and reach a member's footprint past it.
+        let foot = 0;
+        for (const member of item.members) foot = Math.max(foot, glyphFootprint(member));
+        const at = placedById.get(item.id);
+        if (at) reserved = Math.max(reserved, at.radius + foot);
       }
 
       const sectorOuter = Math.max(reserved, block ? tierInner + blockHeight : tierInner);

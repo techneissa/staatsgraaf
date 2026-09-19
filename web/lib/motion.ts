@@ -13,6 +13,8 @@ export type SpringConfig = { stiffness: number; damping: number };
 
 /** Firm: settles in about 700 ms. */
 export const SPRING_FIRM: SpringConfig = { stiffness: 120, damping: 22 };
+/** Unpacking and folding: quick, settles in about 350 ms, so a run of clicks feels immediate. */
+export const SPRING_SNAPPY: SpringConfig = { stiffness: 380, damping: 39 };
 /** The turn of the canvas: unhurried, settles in about 1.1 s, still critically damped. */
 export const SPRING_TURN: SpringConfig = { stiffness: 55, damping: 15 };
 /** Zoom and pan: softer, so the ground moves slower than the figures on it. */

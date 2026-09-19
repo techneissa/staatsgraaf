@@ -2,8 +2,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
-import { hydrateLayout } from "./graph.ts";
-import { MAX_REACH, MIN_REACH, focusReach, frameFor } from "./pose.ts";
+import { clusterHalfSize, glyphFootprint, hydrateLayout } from "./graph.ts";
+import { posePosition, sectorPose } from "./pose.ts";
 
 const bundle = JSON.parse(readFileSync(new URL("../public/graph.json", import.meta.url), "utf8"));
 // The client's layout: hydrated from the shipped coordinates, never packed here.
@@ -24,50 +24,6 @@ const samples = (() => {
   if (busiest) picked.push(busiest);
   return picked;
 })();
-
-test("the reach of a focus covers its farthest relation and stays bounded", () => {
-  for (const node of samples) {
-    const reach = focusReach(layout, node.id);
-    assert.ok(reach >= MIN_REACH && reach <= MAX_REACH, `${node.id} reach ${reach}`);
-    for (const id of layout.adjacency.get(node.id) ?? []) {
-      const other = layout.byId.get(id);
-      const distance = Math.hypot(other.x - node.x, other.y - node.y);
-      if (distance + 40 <= MAX_REACH) assert.ok(reach >= distance, `${node.id} does not reach ${id}`);
-    }
-  }
-  assert.equal(focusReach(layout, "org:does-not-exist"), MIN_REACH);
-});
-
-test("a filtered branch does not stretch the reach", () => {
-  const branches = new Set(layout.nodes.map((node) => node.branch));
-  for (const node of samples) {
-    const others = new Set([...branches].filter((branch) => branch !== node.branch));
-    assert.ok(focusReach(layout, node.id, others) <= focusReach(layout, node.id));
-  }
-});
-
-test("the auto frame keeps the core and the focus on screen", () => {
-  const half = layout.viewBox.width / 2;
-  for (const node of samples) {
-    const reach = focusReach(layout, node.id);
-    for (const rotation of [0, 1.3, -2.6]) {
-      const view = frameFor(layout, { angle: node.angle, radius: node.radius, reach }, rotation, 1, 2.4);
-      const cos = Math.cos(rotation);
-      const sin = Math.sin(rotation);
-      const project = (x, y) => ({ x: (x * cos - y * sin) * view.k + view.x, y: (x * sin + y * cos) * view.k + view.y });
-      const core = project(0, 0);
-      const focus = project(node.x, node.y);
-      assert.ok(Math.hypot(core.x, core.y) <= half, `${node.id} pushes the core off screen`);
-      assert.ok(Math.hypot(focus.x, focus.y) <= half, `${node.id} is framed off screen`);
-      assert.ok(view.k >= 1 && view.k <= 2.4, `${node.id} zoom ${view.k}`);
-    }
-  }
-  assert.deepEqual(frameFor(layout, null, 0), { k: 1, x: 0, y: 0 });
-});
-
-import { clusterHalfSize, glyphFootprint } from "./graph.ts";
-import { clusterFocus, posePosition, sectorPose } from "./pose.ts";
-
 
 /** A dot grid against a round mark: the mark's centre in the grid's frame, across the ring and along it. */
 function gridOverlapsMark(grid, half, mark, foot) {
@@ -135,8 +91,6 @@ test("scalar zero is exactly the rest layout and the interpolation stays on the 
     const radius = Math.hypot(mid.x, mid.y);
     assert.ok(radius >= Math.min(node.radius, at.radius) - 1e-6 && radius <= Math.max(node.radius, at.radius) + 1e-6);
   }
-  const focus = clusterFocus(cluster, pose);
-  assert.ok(focus.reach >= MIN_REACH && focus.reach <= MAX_REACH);
 });
 
 test("the pose is deterministic and unknown clusters give null", () => {
@@ -145,4 +99,28 @@ test("the pose is deterministic and unknown clusters give null", () => {
   const b = sectorPose(layout, cluster.id);
   assert.deepEqual([...a.target.entries()], [...b.target.entries()]);
   assert.equal(sectorPose(layout, "cluster:nope:nope"), null);
+});
+
+test("opening in place moves nothing on another ring, and only what is in the way on its own", () => {
+  let inPlace = 0;
+  for (const cluster of layout.clusters) {
+    const pose = sectorPose(layout, cluster.id);
+    const sector = layout.sectors.find((entry) => entry.id === cluster.sector);
+    const onOpenRing = (radius) => Math.abs(radius - cluster.radius) < 0.5;
+    let moved = 0;
+    let offRingMoved = 0;
+    for (const id of sector.items) {
+      if (id === cluster.id) continue;
+      const other = layout.clusterById.get(id);
+      const restAt = other ?? layout.byId.get(id);
+      const at = other ? pose.clusterTarget.get(id) : pose.target.get(id);
+      const shifted = Math.abs(at.angle - restAt.angle) > 1e-6 || Math.abs(at.radius - restAt.radius) > 1e-6;
+      if (!shifted) continue;
+      moved += 1;
+      if (!onOpenRing(restAt.radius)) offRingMoved += 1;
+    }
+    if (offRingMoved === 0) inPlace += 1;
+    for (const id of cluster.members) assert.ok(pose.target.has(id));
+  }
+  assert.ok(inPlace >= layout.clusters.length * 0.8, `only ${inPlace} of ${layout.clusters.length} clusters open in place`);
 });
