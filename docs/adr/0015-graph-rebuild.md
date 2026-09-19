@@ -1,7 +1,7 @@
 # ADR 0015: Graph rebuild, layout model, renderer and motion
 
 Date: 19-09-2026
-Status: proposed, amended 19-09-2026 (accepted once P2, P3, P6 and P7 in `docs/13-graph-rebuild-plan.md` are decided)
+Status: accepted 19-09-2026 (amended the same day; every owner decision except P4 is recorded in `docs/13-graph-rebuild-plan.md` section 5.2)
 
 ## Context
 
@@ -32,7 +32,9 @@ After the phase 1 renders the owner chose the concentric tier layout (variant B,
 - **Edges never cross the centre.** Cross-sector edges are routed radially to the channel between the two tiers, along the channel, and radially in. With straight chords 191 of 611 cross-sector edges would pass through the centre; routed, none do.
 - **Collapsed local triads** (decision P6) are part of the layout: a gemeente, provincie, waterschap or openbaar lichaam is one mark with orbit dots for its raad and commissie, which open on focus.
 - **The ∩ arch.** The chambers are drawn as arches with straight legs, the shape of the plenary hall, never as semicircles. The arch parameters are asserted to give exactly 150 and 75 seats.
-- **Open:** the electorate at the centre or as the outer frame with the Grondwet at the core (P7), arch orientation (P2), seat order (P3).
+- **The electorate is the frame, the Grondwet is the core** (P7, decided 19-09-2026). This supersedes decision 2 above: the core disc carries the Grondwet and the Statuut, the outer ring is the electorate, and `elects` edges run inward from it.
+- **The arch opens toward the core** (P2, decided 19-09-2026): the dome faces outward, so a chamber turned to the top reads as a parliament.
+- **Fractie blocks, largest first from the left** (P3, decided 19-09-2026) until the zaalindeling is sourced; the chart states which order it uses.
 
 The layout id becomes `nl-tiers-v1`. The motion model (decision 8) is unchanged: turn, gather and step back work on one centre and a radius, which the tier model has.
 

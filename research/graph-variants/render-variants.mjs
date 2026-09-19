@@ -33,7 +33,6 @@ import {
   computeLayout,
   glyphFootprint,
   glyphRadiusForDegree,
-  placeRing,
 } from "../../web/lib/graph.ts";
 import { glyphPath, hubBurstPath } from "../../web/components/graph/glyph.ts";
 import { ORG_BRANCH_LABELS } from "../../web/lib/labels.ts";
@@ -111,6 +110,25 @@ const EDGE_COLOR = {
 
 function round(value) {
   return Math.round(value * 100) / 100;
+}
+
+/**
+ * Arc-reservation packer, the one the sector layout used when these variants
+ * were rendered on 19-09-2026. It lives here so this phase-1 record keeps
+ * producing the same SVGs after web/lib/graph.ts moved to the tier layout.
+ */
+function placeRing(nodes, startIndex, from, to, radius) {
+  const placed = [];
+  let cursor = from;
+  for (let index = startIndex; index < nodes.length; index += 1) {
+    if (placed.length >= 160) break;
+    const halfLead = (glyphFootprint(nodes[index]) + GLYPH_GAP / 2) / radius;
+    const angle = cursor + halfLead;
+    if (angle + halfLead > to) break;
+    placed.push({ node: nodes[index], angle });
+    cursor = angle + halfLead;
+  }
+  return placed;
 }
 
 function sortByDepthName(list) {
@@ -1050,16 +1068,17 @@ const LABEL_ANCHOR = (node) =>
 // C: the current layout.
 {
   const layout = computeLayout(bundle);
-  const placed = new Map(layout.nodes.map((node) => [node.id, { node, x: node.x, y: node.y, pole: node.sector }]));
+  const placed = new Map(
+    layout.nodes.filter((node) => !node.hidden).map((node) => [node.id, { node, x: node.x, y: node.y, pole: node.sector }]),
+  );
   const chrome = layout.sectors
     .map((sector) => {
-      const mid = (sector.startAngle + sector.endAngle) / 2;
-      const x = Math.cos(mid) * sector.labelRadius;
-      const y = Math.sin(mid) * sector.labelRadius;
-      return `<text x="${round(x)}" y="${round(y)}" font-size="18" font-weight="600" letter-spacing="0.12em" text-anchor="middle" dominant-baseline="middle" fill="${branchColor(sector.branch)}">${escape(ORG_BRANCH_LABELS[sector.branch].toUpperCase())}</text>`;
+      const x = Math.cos(sector.midAngle) * (sector.outerRadius + 26);
+      const y = Math.sin(sector.midAngle) * (sector.outerRadius + 26);
+      return `<text x="${round(x)}" y="${round(y)}" font-size="16" font-weight="600" letter-spacing="0.12em" text-anchor="middle" dominant-baseline="middle" fill="${branchColor(sector.branch)}">${escape(ORG_BRANCH_LABELS[sector.branch].toUpperCase())}</text>`;
     })
     .join("\n");
-  const reach = layout.labelRadius + 60;
+  const reach = layout.frameRadius + 60;
   const metrics = record("C", "Variant C: sectors v3 (current layout, control)", placed, (e) => e.pole, reach);
   writeFileSync(
     `${OUT}C.svg`,

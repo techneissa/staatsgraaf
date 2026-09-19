@@ -12,8 +12,32 @@ export const GRAPH_DICT = {
     en: "Network of Dutch government organizations. Use the arrow keys to browse, Enter to open and Escape to clear.",
   },
   graphInstructions: {
-    nl: "De grafiek toont organisaties in gekleurde sectoren per tak van de staat. Pijltjestoetsen verplaatsen de selectie, Enter opent de organisatie, Escape wist de selectie, de toetsen plus en min zoomen en nul herstelt het beeld. Linksonder staan knoppen voor in- en uitzoomen en dubbelklikken zoomt in op een punt.",
-    en: "The graph shows organizations in colour-coded sectors per branch of the state. Arrow keys move the selection, Enter opens the organization, Escape clears the selection, the plus and minus keys zoom and zero resets the view. Zoom buttons are at the bottom left and double-clicking zooms in on a point.",
+    nl: "De grafiek toont de staat als ringen rond de Grondwet: hoe verder naar buiten, hoe zelfstandiger het orgaan. De buitenste cirkel zijn de kiesgerechtigden. Klik een orgaan om de kaart te draaien tot het bovenaan staat en zijn verbindingen uit te klappen; klik een ring of sector om die te selecteren. Pijltjestoetsen verplaatsen de selectie, spatie klapt verbindingen uit of in, Enter opent de organisatie, Escape klapt in en wist daarna de selectie. De blokhaken draaien de kaart, plus en min zoomen, nul herstelt het beeld. Slepen buiten de buitenste ring draait de kaart als een knop.",
+    en: "The graph shows the state as rings around the constitution: the farther out, the more autonomous the body. The outer circle is the electorate. Click a body to turn the map until it sits at the top and to expand its connections; click a ring or sector to select it. Arrow keys move the selection, space expands or collapses connections, Enter opens the organization, Escape collapses and then clears the selection. The bracket keys turn the map, plus and minus zoom, zero resets the view. Dragging outside the outer ring turns the map like a dial.",
+  },
+  coreTitle: {
+    nl: "Grondwet",
+    en: "Constitution",
+  },
+  coreSubtitle: {
+    nl: "en Statuut",
+    en: "and Charter",
+  },
+  haloShow: {
+    nl: "Toon {n} verbonden organen",
+    en: "Show {n} connected bodies",
+  },
+  haloHide: {
+    nl: "Verberg verbonden organen",
+    en: "Hide connected bodies",
+  },
+  haloStatus: {
+    nl: "{n} verbonden organen uitgeklapt rond {name}.",
+    en: "{n} connected bodies expanded around {name}.",
+  },
+  sectorStatus: {
+    nl: "{name} geselecteerd, {n} organen.",
+    en: "{name} selected, {n} bodies.",
   },
   noSelection: {
     nl: "Geen organisatie geselecteerd.",
@@ -131,6 +155,34 @@ export const BRANCH_LABELS_I18N: Record<string, LocString> = {
 };
 
 /** Bilingual labels for the six organisation types. */
+/** The six concentric tiers of the layout, by statutory function. */
+export const TIER_LABELS_I18N: Record<string, LocString> = {
+  kern: { nl: "Grondwettelijke kern", en: "Constitutional core" },
+  politiek: { nl: "Politieke kern", en: "Political core" },
+  ministeries: { nl: "Ministeries", en: "Ministries" },
+  uitvoering: { nl: "Uitvoering, toezicht en advies", en: "Execution, supervision and advice" },
+  decentraal: { nl: "Decentrale overheden", en: "Decentralised authorities" },
+  koninkrijk: { nl: "Koninkrijk", en: "Kingdom" },
+};
+
+/** Sectors inside the tiers. A sector the table misses falls back to its branch label. */
+export const SECTOR_LABELS_I18N: Record<string, LocString> = {
+  "hoge-colleges": { nl: "Hoge Colleges van Staat", en: "High Councils of State" },
+  "rechterlijke-macht": { nl: "Rechterlijke macht", en: "Judiciary" },
+  "staten-generaal": { nl: "Staten-Generaal", en: "States General" },
+  regering: { nl: "Regering en kabinet", en: "Government and cabinet" },
+  ministeries: { nl: "Ministeries", en: "Ministries" },
+  uitvoering: { nl: "Uitvoering", en: "Execution" },
+  inspecties: { nl: "Inspecties", en: "Inspectorates" },
+  zelfstandig: { nl: "Op afstand (zbo en rwt)", en: "At arm's length (zbo and rwt)" },
+  advies: { nl: "Advies en planbureaus", en: "Advisory councils and planning bureaus" },
+  provincies: { nl: "Provincies", en: "Provinces" },
+  gemeenten: { nl: "Gemeenten", en: "Municipalities" },
+  waterschappen: { nl: "Waterschappen", en: "Water boards" },
+  caribisch: { nl: "Caribisch Nederland", en: "Caribbean Netherlands" },
+  koninkrijk: { nl: "Landen van het Koninkrijk", en: "Countries of the Kingdom" },
+};
+
 export const ORG_TYPE_LABELS_I18N: Record<string, LocString> = {
   department: { nl: "Departementen en organen", en: "Departmental bodies" },
   elected: { nl: "Gekozen organen", en: "Elected bodies" },

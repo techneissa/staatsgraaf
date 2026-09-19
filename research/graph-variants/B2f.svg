@@ -2,7 +2,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-695.6058182306455 -755.6058182306455 1391.211636461291 1451.211636461291" width="1391" height="1451" font-family="system-ui, sans-serif">
 <rect x="-695.6058182306455" y="-755.6058182306455" width="1391.211636461291" height="1451.211636461291" fill="#FBFAF7"/>
 <text x="-675.6058182306455" y="-725.6058182306455" font-size="26" font-weight="700" fill="#1F2330">Variant B2f: concentric tiers, Grondwet at the centre, electorate as the outer frame</text>
-<text x="-675.6058182306455" y="-703.6058182306455" font-size="13" fill="#5B6070">nodes 884 (756 collapsed), overlaps 0, cross-sector edges 611 routed along the ring gaps (0 through the centre by construction; 284 would cross it as straight lines), longest edge 792, reach 606</text>
+<text x="-675.6058182306455" y="-703.6058182306455" font-size="13" fill="#5B6070">nodes 884 (756 collapsed), overlaps 0, cross-sector edges 611 routed along the ring gaps (0 through the centre by construction; 176 would cross it as straight lines), longest edge 792, reach 606</text>
 <circle r="72" fill="none" stroke="#1F2330" stroke-opacity="0.16" stroke-width="0.8"/>
 <text x="0" y="-68" text-anchor="middle" font-size="13" letter-spacing="0.14em" fill="#1F2330" opacity="0.65">GRONDWETTELIJKE KERN (25)</text>
 <path d="M 1.99 -75.97 L 2.58 -98.52 A 98.56 98.56 0 0 1 98.37 6.06 L 75.86 4.67 A 76 76 0 0 0 1.99 -75.97 Z" fill="#8B7BD8" fill-opacity="0.07" stroke="#8B7BD8" stroke-opacity="0.3" stroke-width="0.6"/>

@@ -7,7 +7,7 @@ import type { OrgBranch } from "@/lib/types";
 import { edgeTypeOrderIndex } from "./graph/edge-styles";
 import { useT } from "@/components/i18n/use-t";
 import { CanvasControls, type CanvasView } from "./canvas-controls";
-import { GraphExplorer } from "./graph/graph-explorer";
+import { GraphCanvas } from "./graph/graph-canvas";
 import { PowerMapView } from "./graph/power-map";
 import { useGraphBundle } from "./graph/use-graph-bundle";
 
@@ -172,7 +172,7 @@ export function CanvasFrame() {
         ) : null}
 
         {status === "ready" && bundle && view === "graph" ? (
-          <GraphExplorer
+          <GraphCanvas
             bundle={bundle}
             selectedId={selectedId}
             onSelect={setSelectedId}
