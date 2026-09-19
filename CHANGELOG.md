@@ -6,6 +6,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Added
 
+- The graph rebuild plan (`docs/13-graph-rebuild-plan.md`) and ADR 0015: the canvas moves from the reference's single ring system to constitutional poles around the electorate, gains a motion model (turn, gather, step back), a build-time layout, dated relations, election and coalition data, and a Tweede Kamer hemicycle. Geometry variants are compared on rendered SVGs before the layout is chosen; pending owner decisions are listed in the plan.
 - A rebuilt budget overview at `/begroting/`. Each ministry tile gains a factual one-line description taken from the sourced organization record, last year's budgeted spending in small type beneath the current figure, the colour-coded percentage change against that year, the ministry's share of the total budgeted spending, and `^1`-style footnote markers that link to a numbered source list at the bottom of the page (`web/components/budget/footnote-marker.tsx`, `web/components/budget/source-footnotes.tsx`, `web/lib/budget.ts`).
 - Weekly link-check workflow, a dataset contract check in CI and every deploy workflow, and the public correction path on the method page.
 
