@@ -9,7 +9,7 @@ import { useT } from "@/components/i18n/use-t";
 import { CanvasControls, type CanvasView } from "./canvas-controls";
 import { GraphCanvas } from "./graph/graph-canvas";
 import { PowerMapView } from "./graph/power-map";
-import { useGraphBundle } from "./graph/use-graph-bundle";
+import { useGraphBundle, usePowerMapBundle } from "./graph/use-graph-bundle";
 
 export function CanvasFrame() {
   const pathname = usePathname();
@@ -19,9 +19,13 @@ export function CanvasFrame() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hiddenBranches, setHiddenBranches] = useState<Set<string>>(new Set());
   /** Person focused through the callout on the Who's in the news strip. */
-  const [focusPerson, setFocusPerson] = useState<{ id: string; slug: string; title: string } | null>(
-    null,
-  );
+  const [focusPerson, setFocusPerson] = useState<{ slug: string; title: string } | null>(null);
+
+  // The machtskaart bundle is loaded only by the views that show it.
+  const wantsPower =
+    view === "power" || focusPerson !== null || (pathname?.startsWith("/personen/") ?? false);
+  const power = usePowerMapBundle(wantsPower);
+  const personSlugs = power.bundle?.personSlugs ?? null;
 
   useEffect(() => {
     if (!bundle || !pathname) return;
@@ -34,7 +38,7 @@ export function CanvasFrame() {
 
   /** Entity id behind the current page (org, person or position) for the entity power map. */
   const currentEntityId = useMemo<string | null>(() => {
-    if (focusPerson) return focusPerson.id;
+    if (focusPerson) return personSlugs?.[focusPerson.slug] ?? null;
     if (!bundle || !pathname) return null;
     const parts = pathname.split("/").filter(Boolean);
     if (parts.length < 2 || !parts[1]) return null;
@@ -47,16 +51,16 @@ export function CanvasFrame() {
     };
 
     if (parts[0] === "organisaties") return resolveNodeIdBySlug("org:", parts[1]);
-    if (parts[0] === "personen") return bundle.personSlugs?.[parts[1]] ?? null;
+    if (parts[0] === "personen") return personSlugs?.[parts[1]] ?? null;
     // Position ids are not in the bundle; the entity power map stays global there.
     return null;
-  }, [bundle, pathname, focusPerson]);
+  }, [bundle, pathname, focusPerson, personSlugs]);
 
   const entityPeople = useMemo(() => {
-    if (!bundle || currentEntityId === null) return null;
-    const people = bundle.entityPowerMap?.[currentEntityId];
+    if (!power.bundle || currentEntityId === null) return null;
+    const people = power.bundle.entityPowerMap?.[currentEntityId];
     return Array.isArray(people) && people.length > 0 ? people : null;
-  }, [bundle, currentEntityId]);
+  }, [power.bundle, currentEntityId]);
 
   useEffect(() => {
     const handler = (event: Event) => {
@@ -69,20 +73,20 @@ export function CanvasFrame() {
       }>).detail;
       if (!detail) return;
       if (detail.view === "power") setView("power");
-      if (detail.slug && bundle.personSlugs?.[detail.slug]) {
-        // A person slug is not a graph node; it focuses the entity power map.
-        setFocusPerson({
-          id: bundle.personSlugs[detail.slug],
-          slug: detail.slug,
-          title: detail.title ?? "",
-        });
-        return;
-      }
       if (detail.id && bundle.nodes.some((node) => node.id === detail.id)) {
         setSelectedId(detail.id);
-      } else if (detail.slug) {
+        return;
+      }
+      if (detail.slug) {
         const node = bundle.nodes.find((candidate) => candidate.slug === detail.slug);
-        if (node) setSelectedId(node.id);
+        if (node) {
+          setSelectedId(node.id);
+          return;
+        }
+        // Not a graph node, so a person: it focuses the entity power map. The
+        // id resolves once the machtskaart bundle has loaded.
+        setFocusPerson({ slug: detail.slug, title: detail.title ?? "" });
+        setView("power");
       }
     };
     window.addEventListener("staatsgraaf:focus", handler);
@@ -180,9 +184,17 @@ export function CanvasFrame() {
           />
         ) : null}
 
-        {status === "ready" && bundle && view === "power" ? (
+        {view === "power" && power.status !== "ready" ? (
+          <div className="flex h-full items-center justify-center p-6">
+            <p className="text-sm text-ink-muted">
+              {power.status === "error" ? t("graphErrorTitle") : t("graphLoading")}
+            </p>
+          </div>
+        ) : null}
+
+        {view === "power" && power.status === "ready" && power.bundle ? (
           <PowerMapView
-            powerMap={bundle.powerMap}
+            powerMap={power.bundle.powerMap}
             entityPeople={entityPeople ?? undefined}
             entityTitle={focusPerson?.title || undefined}
             entityHref={focusPerson ? `/personen/${focusPerson.slug}/` : null}

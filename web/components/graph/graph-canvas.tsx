@@ -13,8 +13,8 @@ import {
   SELECTED_GROWTH,
   alignRotation,
   computeFocusPath,
-  computeLayout,
   edgePath,
+  hydrateLayout,
   routedEdgePath,
   type GraphBundle,
   type LaidOutNode,
@@ -111,7 +111,7 @@ function localized(
  * target is a pure function of the current focus.
  */
 export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches }: GraphCanvasProps) {
-  const layout = useMemo(() => computeLayout(bundle), [bundle]);
+  const layout = useMemo(() => hydrateLayout(bundle), [bundle]);
   const router = useRouter();
   const t = useT("graph");
   const tCommon = useT("common");
@@ -265,7 +265,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches }: Gr
     [locale],
   );
 
-  const chambers = bundle.chambers ?? {};
+  const chambers = bundle.chambers;
   const statenSector = layout.sectors.find((sector) => sector.id === "staten-generaal") ?? null;
 
   const arches = useMemo(() => {

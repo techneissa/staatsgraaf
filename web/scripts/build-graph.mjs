@@ -1,15 +1,15 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
-import { GRAPH_LAYOUT, GRAPH_SCHEMA } from "../lib/graph.ts";
+import { GRAPH_LAYOUT, GRAPH_SCHEMA, toWireNode } from "../lib/graph.ts";
+import { computeLayout } from "../lib/graph-layout.ts";
 import { isSplinterGroup, partyByDataset } from "../lib/parties.ts";
 
 const DATA_DIR = fileURLToPath(new URL("../../data/", import.meta.url));
 const WINDOW_DAYS = 90;
 const OUT_DIR = fileURLToPath(new URL("../public/", import.meta.url));
 const OUT_FILE = fileURLToPath(new URL("../public/graph.json", import.meta.url));
-
-const RELATION_TYPES = ["advises", "consists_of", "elects", "oversees", "part_of"];
+const POWER_FILE = fileURLToPath(new URL("../public/power-map.json", import.meta.url));
 
 function readJson(name) {
   return JSON.parse(readFileSync(`${DATA_DIR}${name}`, "utf8"));
@@ -56,8 +56,12 @@ const edges = [];
 for (const relation of relations) {
   if (!isOrgId(relation.from) || !isOrgId(relation.to)) continue;
   if (!orgIds.has(relation.from) || !orgIds.has(relation.to)) continue;
-  if (!RELATION_TYPES.includes(relation.type)) continue;
-  edges.push({ from: relation.from, to: relation.to, type: relation.type });
+  // Every organization-to-organization relation type is emitted; the legend
+  // decides what is drawn. Dates travel with the edge only when the data has them.
+  const edge = { from: relation.from, to: relation.to, type: relation.type };
+  if (relation.validFrom) edge.validFrom = relation.validFrom;
+  if (relation.validTo) edge.validTo = relation.validTo;
+  edges.push(edge);
   degree.set(relation.from, (degree.get(relation.from) ?? 0) + 1);
   degree.set(relation.to, (degree.get(relation.to) ?? 0) + 1);
 }
@@ -309,29 +313,68 @@ function buildChambers() {
   return chambers;
 }
 
+const hub = hubOrg ? { id: hubOrg.id, slug: hubOrg.slug, name: hubOrg.name } : null;
+
+// The layout is computed here, once, and shipped. The client hydrates it and
+// never runs the packer (docs/13-graph-rebuild-plan.md, phase 2).
+const layout = computeLayout({ hub, nodes, edges });
+const hubNode = hub ? nodes.find((node) => node.id === hub.id) : null;
+const laidOutNodes = layout.nodes.map(toWireNode);
+if (hubNode) {
+  // The electorate is the frame, not a mark. It stays in the node list with a
+  // placeholder position so lists and slug lookups still find it.
+  laidOutNodes.push({
+    ...hubNode,
+    x: 0,
+    y: 0,
+    angle: 0,
+    radius: layout.frameRadius,
+    tier: "kern",
+    sector: "frame",
+    hidden: true,
+  });
+}
+laidOutNodes.sort(compareNames);
+
 const bundle = {
   schema: GRAPH_SCHEMA,
   scope: "nl-rijk",
   snapshot,
   layout: GRAPH_LAYOUT,
-  hub: hubOrg ? { id: hubOrg.id, slug: hubOrg.slug, name: hubOrg.name } : null,
-  nodes,
+  hub,
+  nodes: laidOutNodes,
   edges,
+  chambers: buildChambers(),
+  tiers: layout.tiers,
+  channels: layout.channels,
+  coreRadius: layout.coreRadius,
+  frameRadius: layout.frameRadius,
+  maxRadius: layout.maxRadius,
+  viewBox: layout.viewBox,
+};
+
+const powerBundle = {
+  schema: GRAPH_SCHEMA,
+  snapshot,
   powerMap: buildPowerMap(),
   entityPowerMap,
   personSlugs,
-  chambers: buildChambers(),
 };
 
 mkdirSync(OUT_DIR, { recursive: true });
 const json = JSON.stringify(bundle);
 writeFileSync(OUT_FILE, json);
+const powerJson = JSON.stringify(powerBundle);
+writeFileSync(POWER_FILE, powerJson);
 
 const bytes = Buffer.byteLength(json, "utf8");
-const sources = bundle.powerMap.sources.length;
+const powerBytes = Buffer.byteLength(powerJson, "utf8");
 console.log(
-  `graph.json: ${nodes.length} nodes, ${edges.length} edges, ${bytes} bytes, ` +
-    `${(bytes / 1024).toFixed(1)} KiB, power-map people ${bundle.powerMap.people.length}, ` +
-    `entity power maps ${Object.keys(entityPowerMap).length}, ` +
-    `sources ${sources}, articles ${bundle.powerMap.articleCount}`,
+  `graph.json: ${laidOutNodes.length} nodes, ${edges.length} edges, ${layout.tiers.length} tiers, ` +
+    `${bytes} bytes, ${(bytes / 1024).toFixed(1)} KiB`,
+);
+console.log(
+  `power-map.json: ${powerBytes} bytes, ${(powerBytes / 1024).toFixed(1)} KiB, ` +
+    `people ${powerBundle.powerMap.people.length}, entity power maps ${Object.keys(entityPowerMap).length}, ` +
+    `sources ${powerBundle.powerMap.sources.length}, articles ${powerBundle.powerMap.articleCount}`,
 );
