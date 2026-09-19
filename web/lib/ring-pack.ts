@@ -13,7 +13,7 @@
  * the open state is as deterministic as the rest state in `graph.json`.
  */
 
-import { GLYPH_GAP, MAX_RING_STEP, MIN_RING_STEP, SELECTED_GROWTH, type Arc } from "./graph";
+import { GLYPH_GAP, MAX_RING_STEP, MIN_RING_STEP, SELECTED_GROWTH } from "./graph";
 
 export type RingItem = {
   id: string;
@@ -119,29 +119,6 @@ export function packRing(
   return { placed, outerRadius };
 }
 
-/**
- * Pack items into the arcs of a sector. With one arc this is `packRing`. With
- * two (beside an arch block) the first half of the items goes left and the
- * rest right, each half packed on its own, so an item never crosses the block
- * and the same split holds when a cluster on one side opens.
- */
-export function packSectorArcs(
-  items: readonly RingItem[],
-  arcs: readonly Arc[],
-  innerRadius: number,
-  gap = GLYPH_GAP,
-  splitAt: number | null = null,
-): { placed: RingPlacement[]; outerRadius: number } {
-  if (arcs.length <= 1) {
-    const arc = arcs[0] ?? { start: 0, end: 0 };
-    return packRing(items, arc.start, arc.end, innerRadius, gap);
-  }
-  const split = splitAt ?? Math.ceil(items.length / 2);
-  const left = packRing(items.slice(0, split), arcs[0].start, arcs[0].end, innerRadius, gap);
-  const right = packRing(items.slice(split), arcs[1].start, arcs[1].end, innerRadius, gap);
-  return { placed: [...left.placed, ...right.placed], outerRadius: Math.max(left.outerRadius, right.outerRadius) };
-}
-
 /** An item as it rests: its ring and angle, and its extents. */
 export type RestItem = RingItem & { angle: number; radius: number };
 
@@ -157,12 +134,11 @@ export function pushPack(
   rest: readonly RestItem[],
   openId: string,
   members: readonly RingItem[],
-  arcs: readonly Arc[],
+  arc: { start: number; end: number },
   gap = GLYPH_GAP,
 ): RingPlacement[] | null {
   const open = rest.find((item) => item.id === openId);
   if (!open) return null;
-  const arc = arcs.find((entry) => open.angle >= entry.start - 1e-9 && open.angle <= entry.end + 1e-9) ?? arcs[0];
   if (!arc) return null;
   const radius = open.radius;
   const onRing = rest

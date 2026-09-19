@@ -16,13 +16,12 @@ import {
   clusterHalfSize,
   glyphFootprint,
   packInnerOf,
-  sectorArcs,
   wrapPi,
   type ClusterInfo,
   type GraphLayout,
   type LaidOutNode,
 } from "./graph";
-import { packSectorArcs, pushPack, type RestItem, type RingItem, type RingPlacement } from "./ring-pack";
+import { packRing, pushPack, type RestItem, type RingItem, type RingPlacement } from "./ring-pack";
 
 export type PolarTarget = { angle: number; radius: number };
 
@@ -50,19 +49,15 @@ function memberItems(layout: GraphLayout, cluster: ClusterInfo): RingItem[] {
 }
 
 /** The sector's items as they rest, and as ring items with one cluster unpacked. */
-function sectorRest(layout: GraphLayout, sector: { items: string[] }, openId: string): { rest: RestItem[]; open: RingItem[]; index: number; count: number } {
+function sectorRest(layout: GraphLayout, sector: { items: string[] }, openId: string): { rest: RestItem[]; open: RingItem[] } {
   const rest: RestItem[] = [];
   const open: RingItem[] = [];
-  let index = -1;
-  let count = 0;
   for (const id of sector.items) {
     const cluster = layout.clusterById.get(id);
     if (cluster) {
       const half = clusterHalfSize(cluster.members.length);
       rest.push({ id, angle: cluster.angle, radius: cluster.radius, ...half });
       if (cluster.id === openId) {
-        index = rest.length - 1;
-        count = cluster.members.length;
         open.push(...memberItems(layout, cluster));
       } else {
         open.push({ id, ...half });
@@ -75,7 +70,7 @@ function sectorRest(layout: GraphLayout, sector: { items: string[] }, openId: st
     rest.push({ id: node.id, angle: node.angle, radius: node.radius, halfWidth: foot, halfHeight: foot });
     open.push({ id: node.id, halfWidth: foot, halfHeight: foot });
   }
-  return { rest, open, index, count };
+  return { rest, open };
 }
 
 /**
@@ -91,9 +86,9 @@ export function sectorPose(layout: GraphLayout, openId: string): SectorPose | nu
   const sector = layout.sectors.find((entry) => entry.id === cluster.sector);
   if (!sector || sector.items.length === 0) return null;
 
-  const arcs = sectorArcs(sector);
-  const { rest, open, index, count } = sectorRest(layout, sector, openId);
-  let placed: RingPlacement[] | null = pushPack(rest, openId, memberItems(layout, cluster), arcs);
+  const arc = { start: sector.startAngle, end: sector.endAngle };
+  const { rest, open } = sectorRest(layout, sector, openId);
+  let placed: RingPlacement[] | null = pushPack(rest, openId, memberItems(layout, cluster), arc);
   let outerRadius = 0;
   if (placed) {
     for (const entry of placed) {
@@ -101,9 +96,7 @@ export function sectorPose(layout: GraphLayout, openId: string): SectorPose | nu
       outerRadius = Math.max(outerRadius, entry.radius + (item?.halfHeight ?? 0));
     }
   } else {
-    const split = arcs.length > 1 ? Math.ceil(rest.length / 2) : null;
-    const openSplit = split === null ? null : index < split ? split + count - 1 : split;
-    const packed = packSectorArcs(open, arcs, packInnerOf(sector), undefined, openSplit);
+    const packed = packRing(open, arc.start, arc.end, packInnerOf(sector));
     placed = packed.placed;
     outerRadius = packed.outerRadius;
   }

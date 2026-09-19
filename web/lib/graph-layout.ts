@@ -12,13 +12,6 @@
  */
 
 import {
-  ARCH_EK,
-  ARCH_EK_OFFSET,
-  ARCH_PITCH_EK,
-  ARCH_PITCH_TK,
-  ARCH_TK,
-  sectorArcs,
-  ARCH_TK_OFFSET,
   CLUSTER_MIN,
   CLUSTER_SECTOR_MIN,
   CORE_CLEARANCE,
@@ -32,16 +25,16 @@ import {
   SECTOR_GUTTER,
   START_ANGLE,
   TIER_GAP,
-  archSize,
   clusterDotPosition,
   clusterGrid,
   clusterHalfSize,
   compareNames,
   glyphFootprint,
   glyphRadiusForDegree,
-  type ArchBlock,
   type BundleEdge,
   type BundleNode,
+  type Bench,
+  type ChamberSeats,
   type ClusterInfo,
   type ClusterKind,
   type GraphLayout,
@@ -52,7 +45,8 @@ import {
   type TierId,
   type TierInfo,
 } from "./graph";
-import { packSectorArcs, type RingItem } from "./ring-pack";
+import { packRing, type RingItem } from "./ring-pack";
+import { BENCH_CLEARANCE, benchDemand, benchPlans, layoutBenches, type BenchPlan } from "./bench";
 
 export { compareNames };
 
@@ -61,6 +55,8 @@ export type LayoutInput = {
   hub: HubNode | null;
   nodes: BundleNode[];
   edges: BundleEdge[];
+  /** Seats per chamber, for the sectors that seat one. Without them a chamber is packed as a plain mark. */
+  chambers?: Record<string, ChamberSeats>;
 };
 
 // ---------------------------------------------------------------------------
@@ -341,7 +337,24 @@ export function itemsWithOpen(items: readonly SectorItem[], openId: string | nul
   return result;
 }
 
+/** Bench angles carry more digits than a position: a column angle is multiplied by up to ninety. */
+function round5(value: number): number {
+  return Math.round(value * 10000000) / 10000000;
+}
+
 export function computeLayout(bundle: LayoutInput): GraphLayout {
+  /** The chambers a sector seats, largest first; empty when the seats are unknown. */
+  const benchPlansFor = (sector: SectorDef, members: BundleNode[]): BenchPlan[] => {
+    if (!sector.archAnchor || !bundle.chambers) return [];
+    const seated: { id: string; entries: ChamberSeats["entries"]; total: number }[] = [];
+    for (const node of members) {
+      if (!sector.archAnchor(node)) continue;
+      const chamber = bundle.chambers[node.id];
+      if (chamber) seated.push({ id: node.id, entries: chamber.entries, total: chamber.total });
+    }
+    return seated.length > 0 ? benchPlans(seated) : [];
+  };
+
   const frameId = bundle.hub?.id ?? null;
   const byBundleId = new Map(bundle.nodes.map((node) => [node.id, node]));
   const depths = computeDepths(bundle.nodes);
@@ -393,14 +406,6 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
     membersBySector.set(id, sortNodes(leftover.get(branch) ?? []));
   }
 
-  const archTk = archSize(ARCH_TK, ARCH_PITCH_TK);
-  const archEk = archSize(ARCH_EK, ARCH_PITCH_EK);
-  const blockWidth =
-    Math.max(ARCH_EK_OFFSET + archEk.width / 2, ARCH_TK_OFFSET + archTk.width / 2) -
-    Math.min(ARCH_TK_OFFSET - archTk.width / 2, ARCH_EK_OFFSET - archEk.width / 2) +
-    8;
-  const blockHeight = Math.max(archTk.height, archEk.height) + 8;
-
   const laidOut = new Map<string, LaidOutNode>();
   const clusters: ClusterInfo[] = [];
   const standingIds = new Set(standing.map((node) => node.id));
@@ -429,11 +434,13 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
     const weights: number[] = [];
     const minimums: number[] = [];
     const itemsBySector = new Map<string, SectorItem[]>();
+    const plansBySector = new Map<string, BenchPlan[]>();
     for (const sector of live) {
       const members = membersBySector.get(sector.id) ?? [];
-      const packable = sector.archAnchor ? members.filter((node) => !sector.archAnchor?.(node)) : members;
+      const packable = benchPlansFor(sector, members).length > 0 ? members.filter((node) => !sector.archAnchor?.(node)) : members;
       const items = sectorItems(sector.id, packable, standingIds, byBundleId, (parentId) => laidOut.get(parentId)?.angle ?? null, overseerOf);
       itemsBySector.set(sector.id, items);
+      plansBySector.set(sector.id, benchPlansFor(sector, members));
       // Arc demand, square-rooted: a sector of a thousand marks stays larger
       // than a sector of ten without swallowing the ring. The demand is what
       // the sector packs at rest or with its largest cluster open, whichever
@@ -446,12 +453,11 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
       weights.push(Math.sqrt(Math.max(1, demand)));
       let widest = 0;
       for (const item of items) widest = Math.max(widest, 2 * ringItemFor(item).halfWidth + GLYPH_GAP);
-      // Room for three of its widest marks side by side on the inner ring, or
-      // for the arch block when the sector carries one.
       // Room for three of its widest marks side by side on the inner ring; a
-      // sector with an arch block needs the block plus a mark on each side.
+      // sector that seats a chamber needs the arc its benches ask for.
       let minimum = (3 * widest) / (tierInner + widest);
-      if (sector.archAnchor) minimum = Math.max(minimum, (blockWidth + 2 * GLYPH_GAP + 2 * widest) / tierInner + 0.05);
+      const plans = plansBySector.get(sector.id) ?? [];
+      if (plans.length > 0) minimum = Math.max(minimum, benchDemand(plans, tierInner));
       minimums.push(Math.min(usable / live.length, minimum));
     }
     const spans = allocateSpans(weights, minimums, usable);
@@ -465,46 +471,51 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
       const end = start + spans[index];
       const mid = (start + end) / 2;
       const members = membersBySector.get(sector.id) ?? [];
-      const packInner = tierInner;
-      let block: ArchBlock | null = null;
-      let rest = members;
 
-      if (sector.archAnchor) {
-        const anchors = members.filter((node) => sector.archAnchor?.(node));
-        if (anchors.length > 0) {
-          block = {
-            angle: round(mid),
-            radius: round(tierInner + blockHeight / 2),
-            width: round(blockWidth),
-            height: round(blockHeight),
-          };
-          for (const node of anchors) {
-            laidOut.set(node.id, {
-              ...node,
-              x: round(Math.cos(block.angle) * block.radius),
-              y: round(Math.sin(block.angle) * block.radius),
-              angle: block.angle,
-              radius: block.radius,
-              depth: depths.get(node.id) ?? 0,
-              glyph: GLYPH_BY_SUBTYPE[node.subtype] ?? "dot",
-              glyphRadius: round(glyphRadiusForDegree(node.degree, false)),
-              tier: tierDef.id,
-              sector: sector.id,
-              subSector: node.subtype,
-              hidden: true,
-              arch: true,
-              orbit: 0,
-              collapsedInto: null,
-              cluster: null,
-            });
-          }
-          rest = members.filter((node) => !sector.archAnchor?.(node));
-        }
+      // A chamber is its seats: the sector's own arc carries them, and the
+      // chamber's mark sits at the middle of its bench so its relations have
+      // somewhere to land.
+      const plans = plansBySector.get(sector.id) ?? [];
+      const benches: Bench[] = layoutBenches(plans, start, end, tierInner).map((bench) => ({
+        ...bench,
+        startAngle: round5(bench.startAngle),
+        endAngle: round5(bench.endAngle),
+        midAngle: round5(bench.midAngle),
+        innerRadius: round(bench.innerRadius),
+        outerRadius: round(bench.outerRadius),
+        columnAngle: round5(bench.columnAngle),
+        rowStep: round(bench.rowStep),
+        seatRadius: round(bench.seatRadius),
+      }));
+      for (const bench of benches) {
+        const node = byBundleId.get(bench.id);
+        if (!node) continue;
+        const radius = round((bench.innerRadius + bench.outerRadius) / 2);
+        laidOut.set(node.id, {
+          ...node,
+          x: round(Math.cos(bench.midAngle) * radius),
+          y: round(Math.sin(bench.midAngle) * radius),
+          angle: bench.midAngle,
+          radius,
+          depth: depths.get(node.id) ?? 0,
+          glyph: GLYPH_BY_SUBTYPE[node.subtype] ?? "dot",
+          glyphRadius: round(glyphRadiusForDegree(node.degree, false)),
+          tier: tierDef.id,
+          sector: sector.id,
+          subSector: node.subtype,
+          hidden: true,
+          arch: true,
+          orbit: 0,
+          collapsedInto: null,
+          cluster: null,
+        });
       }
+      let benchOuter = tierInner;
+      for (const bench of benches) benchOuter = Math.max(benchOuter, bench.outerRadius);
+      const packInner = benches.length > 0 ? benchOuter + BENCH_CLEARANCE : tierInner;
 
       const items = itemsBySector.get(sector.id) ?? [];
-      const arcs = sectorArcs({ startAngle: start, endAngle: end, midAngle: mid, innerRadius: tierInner, block });
-      const { placed, outerRadius } = packSectorArcs(items.map(ringItemFor), arcs, packInner);
+      const { placed, outerRadius } = packRing(items.map(ringItemFor), start, end, packInner);
       const placedById = new Map(placed.map((entry) => [entry.id, entry]));
       const nodeAt = (node: BundleNode, angle: number, radius: number, cluster: string | null): LaidOutNode => ({
         ...node,
@@ -556,13 +567,10 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
       // Room for the open state: the sector's outer radius is the farthest any
       // single open cluster reaches, so the client can unpack any one of them
       // without entering the next tier.
-      let reserved = outerRadius;
-      const split = arcs.length > 1 ? Math.ceil(items.length / 2) : null;
+      let reserved = Math.max(outerRadius, benchOuter);
       for (const item of items) {
         if (item.kind !== "cluster") continue;
-        const index = items.indexOf(item);
-        const openSplit = split === null ? null : index < split ? split + item.members.length - 1 : split;
-        const open = packSectorArcs(itemsWithOpen(items, item.id).map(ringItemFor), arcs, packInner, GLYPH_GAP, openSplit);
+        const open = packRing(itemsWithOpen(items, item.id).map(ringItemFor), start, end, packInner);
         reserved = Math.max(reserved, open.outerRadius);
         // Opened in place, the members sit on the grid's own ring and reach a member's footprint past it.
         let foot = 0;
@@ -571,7 +579,7 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
         if (at) reserved = Math.max(reserved, at.radius + foot);
       }
 
-      const sectorOuter = Math.max(reserved, block ? tierInner + blockHeight : tierInner);
+      const sectorOuter = Math.max(reserved, tierInner);
       tierOuter = Math.max(tierOuter, sectorOuter);
       const info: SectorInfo = {
         id: sector.id,
@@ -583,7 +591,7 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
         count: members.length,
         innerRadius: round(tierInner),
         outerRadius: round(sectorOuter),
-        block,
+        benches,
         // Only a sector with a cluster is ever re-packed on the client.
         items: items.some((item) => item.kind === "cluster") ? items.map((item) => item.id) : [],
       };
