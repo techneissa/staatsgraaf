@@ -2,8 +2,7 @@
  * The one motion primitive the canvas uses.
  *
  * Every animated quantity on the graph canvas is a scalar chasing a target
- * with the same critically damped spring: the frame rotation, the expansion
- * scalar, the zoom, the pan. Springs are used instead of timed tweens because
+ * with a critically damped spring: the frame rotation, the zoom, the pan. Springs are used instead of timed tweens because
  * a spring has no schedule to cancel. Retargeting mid-flight is the normal
  * case here, and a spring handles it by carrying on from the current value and
  * velocity, which is why a reader can click through five bodies in a second
@@ -12,8 +11,10 @@
 
 export type SpringConfig = { stiffness: number; damping: number };
 
-/** Frame rotation and expansion: firm, settles in about 700 ms. */
+/** Firm: settles in about 700 ms. */
 export const SPRING_FIRM: SpringConfig = { stiffness: 120, damping: 22 };
+/** The turn of the canvas: unhurried, settles in about 1.1 s, still critically damped. */
+export const SPRING_TURN: SpringConfig = { stiffness: 55, damping: 15 };
 /** Zoom and pan: softer, so the ground moves slower than the figures on it. */
 export const SPRING_SOFT: SpringConfig = { stiffness: 80, damping: 18 };
 
