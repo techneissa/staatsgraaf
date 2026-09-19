@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "election.schema.json",
+  "$ref": "#/$defs/election",
+  "$defs": {
+    "seatResult": {
+      "type": "object",
+      "required": ["party", "seats"],
+      "additionalProperties": false,
+      "properties": {
+        "party": { "type": "string", "minLength": 1, "description": "Party key as used in web/lib/parties.ts and memberships.fractie." },
+        "seats": { "type": "integer", "minimum": 0 },
+        "votes": { "type": ["integer", "null"], "minimum": 0 },
+        "share": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+      }
+    },
+    "election": {
+      "type": "object",
+      "required": ["id", "body", "date", "seatsTotal", "seats", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^election:[a-z0-9][a-z0-9-]*$" },
+        "body": { "type": "string", "pattern": "^org:" },
+        "date": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "kind": {
+          "type": ["string", "null"],
+          "enum": ["regulier", "vervroegd", null]
+        },
+        "seatsTotal": { "type": "integer", "minimum": 1 },
+        "turnout": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "validVotes": { "type": ["integer", "null"], "minimum": 0 },
+        "seats": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/seatResult" }
+        },
+        "notes": { "type": ["string", "null"] },
+        "source": { "$ref": "common.schema.json#/$defs/sourceRef" }
+      }
+    }
+  }
+}

@@ -19,6 +19,8 @@ export const ENTITY_FILES = [
   ["budgets", "budgets.json"],
   ["sources", "sources.json"],
   ["media", "media.json"],
+  ["elections", "elections.json"],
+  ["coalitions", "coalitions.json"],
 ];
 
 const TIER = { live: -1, primary: 0, register: 1, government: 2, secondary: 3, news: 4, base: 99 };

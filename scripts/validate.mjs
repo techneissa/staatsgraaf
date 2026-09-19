@@ -24,6 +24,8 @@ const DATA_MAP = [
   ["budgets.json", "budget.schema.json", "budget"],
   ["sources.json", "source.schema.json", "source"],
   ["media.json", "media.schema.json", "media"],
+  ["elections.json", "election.schema.json", "election"],
+  ["coalitions.json", "coalition.schema.json", "coalition"],
 ];
 
 const SUPPORTED = new Set([
@@ -199,6 +201,19 @@ const changeIds = index("changes.json");
 const topicIds = index("topics.json");
 const mediaIds = index("media.json");
 const srcIds = index("sources.json");
+const relationIds = index("relations.json");
+
+// Party keys come from the sourced party table; the import is optional so the
+// validator still runs when the web package is absent.
+let partyKeyForDataset = null;
+try {
+  ({ partyKeyForDataset } = await import("../web/lib/parties.ts"));
+} catch {
+  console.warn("warning: web/lib/parties.ts not importable, party keys are not checked");
+}
+function partyOk(where, value) {
+  if (partyKeyForDataset && partyKeyForDataset(value) === null) fail(where, `party ${value} is not in web/lib/parties.ts`);
+}
 
 function checkUniqueIds(file) {
   const seen = new Map();
@@ -269,6 +284,45 @@ for (const rel of byFile["relations.json"]) {
   refOk(w, rel.from, tables[(rel.from ?? "").split(":")[0]], "from");
   refOk(w, rel.to, tables[(rel.to ?? "").split(":")[0]], "to");
   refOk(w, rel.source?.source, srcIds, "source");
+  refOk(w, rel.supersededBy, relationIds, "supersededBy");
+  if (rel.validFrom && rel.validTo && rel.validTo <= rel.validFrom) {
+    fail(w, `validTo ${rel.validTo} is not after validFrom ${rel.validFrom}`);
+  }
+}
+{
+  // Two open relations of the same type between the same pair would be the same fact twice.
+  const open = new Map();
+  for (const rel of byFile["relations.json"]) {
+    if (rel.validTo) continue;
+    const key = `${rel.from}|${rel.to}|${rel.type}`;
+    if (open.has(key)) fail(`relations.json#${rel.id}`, `duplicates open relation ${open.get(key)}`);
+    open.set(key, rel.id);
+  }
+}
+for (const election of byFile["elections.json"]) {
+  const w = `elections.json#${election.id}`;
+  refOk(w, election.body, orgIds, "body");
+  refOk(w, election.source?.source, srcIds, "source");
+  const sum = (election.seats ?? []).reduce((total, row) => total + (row.seats ?? 0), 0);
+  if (sum !== election.seatsTotal) fail(w, `seats sum to ${sum}, seatsTotal is ${election.seatsTotal}`);
+  const parties = new Set();
+  for (const row of election.seats ?? []) {
+    if (parties.has(row.party)) fail(w, `party ${row.party} listed twice`);
+    parties.add(row.party);
+    partyOk(w, row.party);
+  }
+}
+for (const coalition of byFile["coalitions.json"]) {
+  const w = `coalitions.json#${coalition.id}`;
+  refOk(w, coalition.government, orgIds, "government");
+  refOk(w, coalition.primeMinister, personIds, "primeMinister");
+  refOk(w, coalition.agreement, srcIds, "agreement");
+  refOk(w, coalition.source?.source, srcIds, "source");
+  if (coalition.end && coalition.end <= coalition.start) fail(w, `end ${coalition.end} is not after start ${coalition.start}`);
+  if (coalition.demissionairSince && coalition.demissionairSince < coalition.start) {
+    fail(w, `demissionairSince ${coalition.demissionairSince} is before start ${coalition.start}`);
+  }
+  for (const party of coalition.parties ?? []) partyOk(w, party);
 }
 for (const change of byFile["changes.json"]) {
   const w = `changes.json#${change.id}`;
@@ -322,6 +376,8 @@ if (RESEARCH_MODE) {
     budgets: "budget",
     sources: "source",
     media: "media",
+    elections: "election",
+    coalitions: "coalition",
   };
   const researchFiles = readdirSync(RESEARCH_DIR).filter((f) => f.endsWith(".json")).sort();
   const parsedFiles = new Map();
