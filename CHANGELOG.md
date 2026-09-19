@@ -10,6 +10,13 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 - A rebuilt budget overview at `/begroting/`. Each ministry tile gains a factual one-line description taken from the sourced organization record, last year's budgeted spending in small type beneath the current figure, the colour-coded percentage change against that year, the ministry's share of the total budgeted spending, and `^1`-style footnote markers that link to a numbered source list at the bottom of the page (`web/components/budget/footnote-marker.tsx`, `web/components/budget/source-footnotes.tsx`, `web/lib/budget.ts`).
 - Weekly link-check workflow, a dataset contract check in CI and every deploy workflow, and the public correction path on the method page.
 
+### Added
+
+- Election results and kabinetten as data. `data/elections.json` holds the zetelverdeling of every Tweede Kamer election since 1946 (25) and every Eerste Kamer election since 1983 (12), from the Kiesraad and CBS StatLine, with parlement.com at medium confidence where no official table exists (workstream Q). `data/coalitions.json` holds every kabinet since Schermerhorn-Drees, rompkabinetten included, from Rijksoverheid and parlement.com (workstream R); per that source the sitting kabinet is Kabinet-Jetten since 23-02-2026. Twenty-eight dissolved or unlisted parties they refer to are registered in `web/lib/parties.ts` without colours and without pages.
+- The mandate and accountability edges of the constitution: `elects` from the electorate to every provinciale staten, gemeenteraad, algemeen bestuur of a waterschap and eilandsraad, `elects` from the provinciale staten to the Eerste Kamer, and `accountable_to` from the regering and the ministerraad to the Kamers, each with the article quoted in its source (workstream U, 393 relations). The canvas now draws the four direct mandates inward from the electorate frame.
+- Fifty-eight ministry relations dated from the Staatscourant besluiten of the 2010, 2017, 2024 and 2026 departmental reorganisations (workstream T), the first `validFrom` values in the dataset.
+- Workstream S established that neither chamber publishes a seat number per member; recorded as a named gap, so the seat charts keep the fractie-block order and say so.
+
 ### Changed
 
 - The graph layout is computed once at build time and shipped in `graph.json` (schema `nl-graph-bundle-v2`); the client hydrates it and no longer ships the packer, so the web app and the later Swift app draw the same picture from the same file. The machtskaart moved to its own `power-map.json`, loaded only when it is shown. Every organization-to-organization relation type is emitted with its `validFrom` and `validTo` where the data has them.

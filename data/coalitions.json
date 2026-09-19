@@ -1,1 +1,797 @@
-[]
+[
+  {
+    "id": "coalition:kabinet-balkenende-i",
+    "government": "org:regering",
+    "name": "Kabinet-Balkenende I",
+    "parties": [
+      "CDA",
+      "LPF",
+      "VVD"
+    ],
+    "start": "2002-07-22",
+    "end": "2003-05-27",
+    "demissionairSince": "2002-10-16",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "93 van 150 zetels (62%) volgens src:pdc-kabinet-balkenende-i-2002-2003. Partijvolgorde volgens src:pdc-kabinet-balkenende-i-2002-2003 (CDA, LPF, VVD). Minister-president J.P. Balkenende (CDA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-balkenende-i",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-balkenende-ii",
+    "government": "org:regering",
+    "name": "Kabinet-Balkenende II",
+    "parties": [
+      "CDA",
+      "VVD",
+      "D66"
+    ],
+    "start": "2003-05-27",
+    "end": "2006-07-07",
+    "demissionairSince": "2006-06-30",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "78 van 150 zetels (52%) volgens src:pdc-kabinet-balkenende-ii-2003-2006. Op 30-06-2006 boden de D66-bewindspersonen hun ontslag aan; de overige leden stelden hun portefeuilles ter beschikking. Opgevolgd door het apart beëdigde kabinet-Balkenende III (07-07-2006). Hoofdlijnenakkoord 'Meedoen, meer werk en minder regels' van 16-05-2003 (src:pdc-kabinet-balkenende-ii-2003-2006) niet als document op rijksoverheid.nl gevonden. Minister-president J.P. Balkenende (CDA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-balkenende-ii",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-balkenende-iii",
+    "government": "org:regering",
+    "name": "Kabinet-Balkenende III",
+    "parties": [
+      "CDA",
+      "VVD"
+    ],
+    "start": "2006-07-07",
+    "end": "2007-02-22",
+    "demissionairSince": "2006-11-22",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "minderheid",
+    "notes": "Missionair overgangskabinet van CDA en VVD, gevormd na het vertrek van D66 uit het kabinet-Balkenende II; apart beëdigd op 07-07-2006. Minderheidskabinet: 71 van 150 zetels (47,3%) volgens src:pdc-kabinet-balkenende-iii-2006-2007. Geen nieuw regeerakkoord (src:pdc-kabinet-balkenende-iii-2006-2007). Ontslagaanvraag 22-11-2006 volgens src:pdc-kabinet-balkenende-iii-2006-2007 (Rijksoverheid noemt geen datum). Minister-president J.P. Balkenende (CDA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-balkenende-iii",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-balkenende-iv",
+    "government": "org:regering",
+    "name": "Kabinet-Balkenende IV",
+    "parties": [
+      "CDA",
+      "PvdA",
+      "CU"
+    ],
+    "start": "2007-02-22",
+    "end": "2010-02-23",
+    "demissionairSince": "2010-02-20",
+    "primeMinister": null,
+    "agreement": "src:rijksoverheid-coalitieakkoord-2007",
+    "kind": "meerderheid",
+    "notes": "Partijvolgorde volgens het coalitieakkoord 'Samen werken, samen leven' (CDA, PvdA, ChristenUnie). Op 20-02-2010 bood minister-president Balkenende het ontslag van de PvdA-bewindspersonen aan (Rijksoverheid); zij traden af op 23-02-2010. 80 van 150 zetels (53,3%) volgens src:pdc-kabinet-balkenende-iv-2007-2010. Minister-president J.P. Balkenende (CDA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-balkenende-iv",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-balkenende-iv-romp",
+    "government": "org:regering",
+    "name": "Kabinet-Balkenende IV (rompkabinet CDA-ChristenUnie)",
+    "parties": [
+      "CDA",
+      "CU"
+    ],
+    "start": "2010-02-23",
+    "end": "2010-10-14",
+    "demissionairSince": "2010-02-23",
+    "primeMinister": null,
+    "agreement": "src:rijksoverheid-coalitieakkoord-2007",
+    "kind": "rompkabinet",
+    "notes": "Rompkabinet nadat de PvdA-bewindspersonen op 23-02-2010 aftraden; demissionair vanaf de eerste dag (src:pdc-kabinet-balkenende-iv-2007-2010: 'Na 23 februari 2010 maakte de PvdA geen deel meer uit van het kabinet en was het kabinet demissionair'). 47 van 150 zetels (31,3%) volgens src:pdc-kabinet-balkenende-iv-2007-2010. Minister-president J.P. Balkenende (CDA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-balkenende-iv",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-beel-i",
+    "government": "org:regering",
+    "name": "Kabinet-Beel I",
+    "parties": [
+      "KVP",
+      "PvdA"
+    ],
+    "start": "1946-07-03",
+    "end": "1948-08-07",
+    "demissionairSince": "1948-07-07",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "61 van 100 zetels volgens src:pdc-kabinet-beel-i-1946-1948; daarnaast drie partijloze bewindspersonen. Ontslagaanvraag 07-07-1948 volgens src:pdc-kabinet-beel-i-1946-1948. Minister-president L.J.M. Beel (KVP) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-beel-i",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-beel-ii",
+    "government": "org:regering",
+    "name": "Kabinet-Beel II",
+    "parties": [
+      "KVP",
+      "ARP",
+      "CHU"
+    ],
+    "start": "1958-12-22",
+    "end": "1959-05-19",
+    "demissionairSince": "1959-03-12",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": null,
+    "notes": "Overgangskabinet (interimkabinet) van KVP, ARP en CHU volgens src:pdc-kabinet-beel-ii-1958-1959, gevormd na het vertrek van de PvdA-ministers uit het kabinet-Drees III; 77 van 150 zetels (51,3%). Geen waarde in de kind-enum voor een overgangskabinet, daarom null. Demissionair vanaf de verkiezingsdag 12-03-1959 volgens src:pdc-kabinet-beel-ii-1958-1959. Minister-president L.J.M. Beel (KVP) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-beel-ii",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-biesheuvel-i",
+    "government": "org:regering",
+    "name": "Kabinet-Biesheuvel I",
+    "parties": [
+      "KVP",
+      "VVD",
+      "ARP",
+      "CHU",
+      "DS70"
+    ],
+    "start": "1971-07-06",
+    "end": "1972-07-21",
+    "demissionairSince": "1972-07-18",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "82 van 150 zetels (54,7%) volgens src:pdc-kabinet-biesheuvel-i-en-ii-1971-1973. Partijvolgorde volgens src:pdc-kabinet-biesheuvel-i-en-ii-1971-1973. Ontslagaanvraag kabinet 18-07-1972 (Rijksoverheid; src:pdc-kabinet-biesheuvel-i-en-ii-1971-1973 noemt 22-07-1972). Gesloten op 21-07-1972, de dag waarop DS70 geen deel meer uitmaakte van het kabinet. De Rijksoverheid noemt één kabinet-Biesheuvel; de naam Biesheuvel I volgt src:pdc-kabinet-biesheuvel-i-en-ii-1971-1973. Minister-president B.W. Biesheuvel (ARP) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-biesheuvel",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-biesheuvel-ii",
+    "government": "org:regering",
+    "name": "Kabinet-Biesheuvel II",
+    "parties": [
+      "KVP",
+      "VVD",
+      "ARP",
+      "CHU"
+    ],
+    "start": "1972-07-21",
+    "end": "1973-05-11",
+    "demissionairSince": "1972-11-29",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "rompkabinet",
+    "notes": "Rompkabinet na het vertrek van DS70 (geen deel meer van het kabinet vanaf 21-07-1972 volgens src:pdc-kabinet-biesheuvel-i-en-ii-1971-1973; Rijksoverheid: Udink volgde Drees op 21-07-1972). De ontslagaanvraag van 18-07-1972 werd op 09-08-1972 ingetrokken; daarna missionair minderheidskabinet (74 zetels, 49,3%, src:pdc-kabinet-biesheuvel-i-en-ii-1971-1973) dat vervroegde verkiezingen uitschreef. Demissionair vanaf de verkiezingsdag 29-11-1972 volgens src:pdc-kabinet-biesheuvel-i-en-ii-1971-1973. De Rijksoverheid noemt één kabinet-Biesheuvel; de naam Biesheuvel II volgt src:pdc-kabinet-biesheuvel-i-en-ii-1971-1973. Minister-president B.W. Biesheuvel (ARP) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-biesheuvel",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-cals",
+    "government": "org:regering",
+    "name": "Kabinet-Cals",
+    "parties": [
+      "KVP",
+      "PvdA",
+      "ARP"
+    ],
+    "start": "1965-04-14",
+    "end": "1966-11-22",
+    "demissionairSince": "1966-10-14",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "106 van 150 zetels (70,7%) volgens src:pdc-kabinet-cals-1965-1966. Gevallen in de Nacht van Schmelzer, ontslagaanvraag 14-10-1966 (Rijksoverheid; src:pdc-kabinet-cals-1965-1966 noemt 15-10-1966). Minister-president J.M.L.Th. Cals (KVP) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-cals",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-de-jong",
+    "government": "org:regering",
+    "name": "Kabinet-De Jong",
+    "parties": [
+      "KVP",
+      "ARP",
+      "CHU",
+      "VVD"
+    ],
+    "start": "1967-04-05",
+    "end": "1971-07-06",
+    "demissionairSince": "1971-04-28",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "86 van 150 zetels (57,3%) volgens src:pdc-kabinet-de-jong-1967-1971. Partijvolgorde volgens src:pdc-kabinet-de-jong-1967-1971. Ontslagaanvraag 28-04-1971 volgens src:pdc-kabinet-de-jong-1967-1971. Minister-president P.J.S. de Jong (KVP) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-de-jong",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-de-quay",
+    "government": "org:regering",
+    "name": "Kabinet-De Quay",
+    "parties": [
+      "KVP",
+      "ARP",
+      "CHU",
+      "VVD"
+    ],
+    "start": "1959-05-19",
+    "end": "1963-07-24",
+    "demissionairSince": "1963-05-15",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "94 van 150 zetels (62,6%) volgens src:pdc-kabinet-de-quay-1959-1963. Ontslagaanvraag 23-12-1960 (woningwetcrisis) ingetrokken op 02-01-1961. Ontslagaanvraag 15-05-1963 volgens src:pdc-kabinet-de-quay-1959-1963. Minister-president J.E. de Quay (KVP) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-de-quay",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-den-uyl",
+    "government": "org:regering",
+    "name": "Kabinet-Den Uyl",
+    "parties": [
+      "PvdA",
+      "D66",
+      "PPR",
+      "KVP",
+      "ARP"
+    ],
+    "start": "1973-05-11",
+    "end": "1977-12-19",
+    "demissionairSince": "1977-03-22",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "97 van 150 zetels (64,7%) volgens src:pdc-kabinet-den-uyl-1973-1977. Partijvolgorde volgens src:pdc-kabinet-den-uyl-1973-1977. Geen formeel regeerakkoord (src:pdc-kabinet-den-uyl-1973-1977); PvdA en D66 zagen het als parlementair kabinet, KVP, ARP en PPR als extraparlementair. Grondpolitiek-crisis: de KVP- en ARP-ministers boden op 22-03-1977 ontslag aan; op 28-03-1977 besloot het kabinet als geheel demissionair aan te blijven, er is dus geen rompkabinet. Minister-president J.M. den Uyl (PvdA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-den-uyl",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-drees-i",
+    "government": "org:regering",
+    "name": "Kabinet-Drees I",
+    "parties": [
+      "PvdA",
+      "KVP",
+      "CHU",
+      "VVD"
+    ],
+    "start": "1951-03-15",
+    "end": "1952-09-02",
+    "demissionairSince": "1952-06-25",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "Nummering volgens de Rijksoverheid; src:pdc-kabinet-drees-ii-1951-1952 noemt dit kabinet Drees II. 76 van 100 zetels volgens src:pdc-kabinet-drees-ii-1951-1952. Ontslagaanvraag 25-06-1952 volgens src:pdc-kabinet-drees-ii-1951-1952. Minister-president W. Drees (PvdA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-drees-i",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-drees-ii",
+    "government": "org:regering",
+    "name": "Kabinet-Drees II",
+    "parties": [
+      "PvdA",
+      "KVP",
+      "ARP",
+      "CHU"
+    ],
+    "start": "1952-09-02",
+    "end": "1956-10-13",
+    "demissionairSince": "1956-06-13",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "Nummering volgens de Rijksoverheid; src:pdc-kabinet-drees-iii-1952-1956 noemt dit kabinet Drees III. 81 van 100 zetels volgens src:pdc-kabinet-drees-iii-1952-1956. Ontslagaanvraag 17-05-1955 (huurcrisis) ingetrokken op 02-06-1955. Ontslagaanvraag 13-06-1956 volgens src:pdc-kabinet-drees-iii-1952-1956. Minister-president W. Drees (PvdA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-drees-ii",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-drees-iii",
+    "government": "org:regering",
+    "name": "Kabinet-Drees III",
+    "parties": [
+      "PvdA",
+      "KVP",
+      "ARP",
+      "CHU"
+    ],
+    "start": "1956-10-13",
+    "end": "1958-12-22",
+    "demissionairSince": "1958-12-12",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "Nummering volgens de Rijksoverheid; src:pdc-kabinet-drees-iv-1956-1958 noemt dit kabinet Drees IV. 85 van 100 zetels bij aantreden, 127 van 150 vanaf 06-11-1956 volgens src:pdc-kabinet-drees-iv-1956-1958. Ontslagaanvraag 12-12-1958 (Rijksoverheid; src:pdc-kabinet-drees-iv-1956-1958 noemt 11-12-1958). Minister-president W. Drees (PvdA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-drees-iii",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-drees-van-schaik",
+    "government": "org:regering",
+    "name": "Kabinet-Drees-Van Schaik",
+    "parties": [
+      "KVP",
+      "PvdA",
+      "CHU",
+      "VVD"
+    ],
+    "start": "1948-08-07",
+    "end": "1951-03-15",
+    "demissionairSince": "1951-01-25",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "Nummering volgens de Rijksoverheid; src:pdc-kabinet-drees-i-1948-1951 noemt dit kabinet Drees I. Extraparlementair kabinet op brede basis met twee partijloze ministers (src:pdc-kabinet-drees-i-1948-1951); 76 van 100 zetels. Ontslagaanvraag 25-01-1951 (Rijksoverheid; src:pdc-kabinet-drees-i-1948-1951 noemt 24-01-1951). Minister-president W. Drees (PvdA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-drees-van-schaijk",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-jetten",
+    "government": "org:regering",
+    "name": "Kabinet-Jetten",
+    "parties": [
+      "D66",
+      "VVD",
+      "CDA"
+    ],
+    "start": "2026-02-23",
+    "end": null,
+    "demissionairSince": null,
+    "primeMinister": "person:rob-jetten",
+    "agreement": "src:rijksoverheid-regeerakkoord-2026-aan-de-slag",
+    "kind": "minderheid",
+    "notes": "Minderheidskabinet: 66 van 150 zetels (44%) in de Tweede Kamer bij aantreden volgens src:pdc-kabinet-jetten-2026-heden. Partijvolgorde volgens de titel van het regeerakkoord 'Regeerakkoord tussen D66, VVD en CDA'. Geen ontslagaanvraag vermeld op de Rijksoverheid-pagina op 19-09-2026.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-jetten",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-kok-i",
+    "government": "org:regering",
+    "name": "Kabinet-Kok I",
+    "parties": [
+      "PvdA",
+      "VVD",
+      "D66"
+    ],
+    "start": "1994-08-22",
+    "end": "1998-08-03",
+    "demissionairSince": "1998-05-06",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "92 van 150 zetels (61,3%) volgens src:pdc-kabinet-kok-i-1994-1998. Ontslagaanvraag 06-05-1998 (einde parlementaire periode) volgens src:pdc-kabinet-kok-i-1994-1998. Minister-president W. Kok (PvdA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-kok-i",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-kok-ii",
+    "government": "org:regering",
+    "name": "Kabinet-Kok II",
+    "parties": [
+      "PvdA",
+      "VVD",
+      "D66"
+    ],
+    "start": "1998-08-03",
+    "end": "2002-07-22",
+    "demissionairSince": "2002-04-16",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "97 van 150 zetels (64,7%) volgens src:pdc-kabinet-kok-ii-1998-2002. Ontslagaanvraag 19-05-1999 (referendumcrisis) ingetrokken op 08-06-1999. Minister-president W. Kok (PvdA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-kok-ii",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-lubbers-i",
+    "government": "org:regering",
+    "name": "Kabinet-Lubbers I",
+    "parties": [
+      "CDA",
+      "VVD"
+    ],
+    "start": "1982-11-04",
+    "end": "1986-07-14",
+    "demissionairSince": "1986-05-24",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "81 van 150 zetels (54%) volgens src:pdc-kabinet-lubbers-i-1982-1986. Ontslagaanvraag 24-05-1986 volgens src:pdc-kabinet-lubbers-i-1982-1986. Minister-president R.F.M. Lubbers (CDA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-lubbers-i",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-lubbers-ii",
+    "government": "org:regering",
+    "name": "Kabinet-Lubbers II",
+    "parties": [
+      "CDA",
+      "VVD"
+    ],
+    "start": "1986-07-14",
+    "end": "1989-11-07",
+    "demissionairSince": "1989-05-03",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "81 van 150 zetels (54%) volgens src:pdc-kabinet-lubbers-ii-1986-1989. Minister-president R.F.M. Lubbers (CDA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-lubbers-ii",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-lubbers-iii",
+    "government": "org:regering",
+    "name": "Kabinet-Lubbers III",
+    "parties": [
+      "CDA",
+      "PvdA"
+    ],
+    "start": "1989-11-07",
+    "end": "1994-08-22",
+    "demissionairSince": "1994-05-03",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "103 van 150 zetels (68,7%) volgens src:pdc-kabinet-lubbers-iii-1989-1994. Ontslagaanvraag 03-05-1994 volgens src:pdc-kabinet-lubbers-iii-1989-1994. Minister-president R.F.M. Lubbers (CDA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-lubbers-iii",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-marijnen",
+    "government": "org:regering",
+    "name": "Kabinet-Marijnen",
+    "parties": [
+      "KVP",
+      "ARP",
+      "CHU",
+      "VVD"
+    ],
+    "start": "1963-07-24",
+    "end": "1965-04-14",
+    "demissionairSince": "1965-02-28",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "92 van 150 zetels (61,3%) volgens src:pdc-kabinet-marijnen-1963-1965. Ontslagaanvraag 28-02-1965 (Rijksoverheid; src:pdc-kabinet-marijnen-1963-1965 noemt 27-02-1965). Minister-president V.G.M. Marijnen (KVP) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-marijnen",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-rutte-asscher",
+    "government": "org:regering",
+    "name": "Kabinet-Rutte-Asscher",
+    "parties": [
+      "VVD",
+      "PvdA"
+    ],
+    "start": "2012-11-05",
+    "end": "2017-10-26",
+    "demissionairSince": "2017-03-14",
+    "primeMinister": "person:mark-rutte",
+    "agreement": "src:rijksoverheid-regeerakkoord-2012",
+    "kind": "meerderheid",
+    "notes": "Ook bekend als kabinet-Rutte II (src:pdc-kabinet-rutte-ii-2012-2017). Ontslag aangeboden 14-03-2017 in verband met de periodieke verkiezingen van 15-03-2017 (Rijksoverheid; src:pdc-kabinet-rutte-ii-2012-2017 noemt 15-03-2017). 79 van 150 zetels (52,7%) volgens src:pdc-kabinet-rutte-ii-2012-2017.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-rutte-asscher",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-rutte-iii",
+    "government": "org:regering",
+    "name": "Kabinet-Rutte III",
+    "parties": [
+      "VVD",
+      "CDA",
+      "D66",
+      "CU"
+    ],
+    "start": "2017-10-26",
+    "end": "2022-01-10",
+    "demissionairSince": "2021-01-15",
+    "primeMinister": "person:mark-rutte",
+    "agreement": "src:rijksoverheid-regeerakkoord-2017",
+    "kind": "meerderheid",
+    "notes": "Partijvolgorde volgens het regeerakkoord 'Vertrouwen in de toekomst' (VVD, CDA, D66, ChristenUnie). 76 van 150 zetels (50,6%) bij aantreden volgens src:pdc-kabinet-rutte-iii-2017-2022.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-rutte-iii",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-rutte-iv",
+    "government": "org:regering",
+    "name": "Kabinet-Rutte IV",
+    "parties": [
+      "VVD",
+      "D66",
+      "CDA",
+      "CU"
+    ],
+    "start": "2022-01-10",
+    "end": "2024-07-02",
+    "demissionairSince": "2023-07-07",
+    "primeMinister": "person:mark-rutte",
+    "agreement": "src:rijksoverheid-coalitieakkoord-2022",
+    "kind": "meerderheid",
+    "notes": "Partijvolgorde volgens het coalitieakkoord (VVD, D66, CDA, ChristenUnie). 77 van 150 zetels (51,3%) volgens src:pdc-kabinet-rutte-iv-2022-2024. Einde: beëdiging kabinet-Schoof 02-07-2024.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-rutte-iv",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-rutte-verhagen",
+    "government": "org:regering",
+    "name": "Kabinet-Rutte-Verhagen",
+    "parties": [
+      "VVD",
+      "CDA"
+    ],
+    "start": "2010-10-14",
+    "end": "2012-11-05",
+    "demissionairSince": "2012-04-23",
+    "primeMinister": "person:mark-rutte",
+    "agreement": "src:rijksoverheid-regeerakkoord-2010",
+    "kind": "minderheid",
+    "notes": "Ook bekend als kabinet-Rutte I (src:pdc-kabinet-rutte-i-2010-2012). Minderheidskabinet van VVD en CDA (76 zetels, 50,7%, inclusief gedoogsteun; src:pdc-kabinet-rutte-i-2010-2012) met gedoogakkoord met de PVV, die geen deel uitmaakte van het kabinet. Gevallen 23-04-2012 nadat de PVV het gedoogakkoord opzegde.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-rutte-verhagen",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-schermerhorn-drees",
+    "government": "org:regering",
+    "name": "Kabinet-Schermerhorn-Drees",
+    "parties": [
+      "SDAP",
+      "RKSP",
+      "CHU"
+    ],
+    "start": "1945-06-24",
+    "end": "1946-07-03",
+    "demissionairSince": "1946-05-16",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": null,
+    "notes": "Koninklijk kabinet ('noodkabinet') zonder coalitieakkoord; partijbasis SDAP, RKSP en CHU plus vijf partijloze ministers en de Nederlandse Volksbeweging (NVB) volgens src:pdc-kabinet-schermerhorndrees-1945-1946; de Rijksoverheid-pagina labelt de ministers als NVB/PvdA, RKSP/KVP, SDAP/PvdA, ARP en Lib. Beëdiging 24-06-1945 (Rijksoverheid; src:pdc-kabinet-schermerhorndrees-1945-1946 noemt 25-06-1945). Ontslagaanvraag 16-05-1946 volgens src:pdc-kabinet-schermerhorndrees-1945-1946. Geen waarde in de kind-enum, daarom null. Minister-president W. Schermerhorn (NVB, later PvdA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-schermerhorn-drees",
+      "retrieved": "2026-09-19",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "coalition:kabinet-schoof",
+    "government": "org:regering",
+    "name": "Kabinet-Schoof",
+    "parties": [
+      "PVV",
+      "VVD",
+      "NSC",
+      "BBB"
+    ],
+    "start": "2024-07-02",
+    "end": "2025-06-03",
+    "demissionairSince": "2025-06-03",
+    "primeMinister": "person:h-w-m-schoof",
+    "agreement": "src:pdc-hoofdlijnenakkoord-2024",
+    "kind": "meerderheid",
+    "notes": "Beëdiging 02-07-2024 (Rijksoverheid; src:pdc-kabinet-schoof-2024-2026 noemt in de datumtabel 4 juli 2024 maar in de tekst 2 juli 2024). Gevallen 03-06-2025 toen de PVV het kabinet verliet. Partijvolgorde volgens het hoofdlijnenakkoord. 88 van 150 zetels volgens src:pdc-kabinet-schoof-2024-2026. Minister-president partijloos.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-schoof",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-schoof-romp-i",
+    "government": "org:regering",
+    "name": "Kabinet-Schoof (rompkabinet VVD-NSC-BBB)",
+    "parties": [
+      "VVD",
+      "NSC",
+      "BBB"
+    ],
+    "start": "2025-06-03",
+    "end": "2025-08-22",
+    "demissionairSince": "2025-06-03",
+    "primeMinister": "person:h-w-m-schoof",
+    "agreement": "src:pdc-hoofdlijnenakkoord-2024",
+    "kind": "rompkabinet",
+    "notes": "Rompkabinet na het vertrek van de PVV-bewindspersonen op 03-06-2025; de minister-president en de overige bewindspersonen stelden hun functie ter beschikking, het kabinet was demissionair vanaf de eerste dag. Gesloten op 22-08-2025 toen ook NSC het kabinet verliet. Zetels volgens src:pdc-kabinet-schoof-2024-2026: 51.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-schoof",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-schoof-romp-ii",
+    "government": "org:regering",
+    "name": "Kabinet-Schoof (rompkabinet VVD-BBB)",
+    "parties": [
+      "VVD",
+      "BBB"
+    ],
+    "start": "2025-08-22",
+    "end": "2026-02-23",
+    "demissionairSince": "2025-08-22",
+    "primeMinister": "person:h-w-m-schoof",
+    "agreement": "src:pdc-hoofdlijnenakkoord-2024",
+    "kind": "rompkabinet",
+    "notes": "Tweede rompkabinet na het vertrek van de NSC-bewindspersonen op 22-08-2025; demissionair vanaf de eerste dag (het kabinet was al demissionair sinds 03-06-2025). Opengevallen posten vanaf 05-09-2025 ingevuld door VVD en BBB. Einde: beëdiging kabinet-Jetten 23-02-2026. Zetels volgens src:pdc-kabinet-schoof-2024-2026: 32 (vanaf 23-08-2025), 26 (vanaf 12-11-2025).",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-schoof",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-van-agt-i",
+    "government": "org:regering",
+    "name": "Kabinet-Van Agt I",
+    "parties": [
+      "CDA",
+      "VVD"
+    ],
+    "start": "1977-12-19",
+    "end": "1981-09-11",
+    "demissionairSince": "1981-05-26",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "77 van 150 zetels (51,3%) volgens src:pdc-kabinet-van-agt-i-1977-1981. Ontslagaanvraag 26-05-1981 volgens src:pdc-kabinet-van-agt-i-1977-1981. Het CDA was in 1977 nog een federatie van KVP, ARP en CHU; de Rijksoverheid-pagina gebruikt CDA. Minister-president A.A.M. van Agt (CDA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-van-agt-i",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-van-agt-ii",
+    "government": "org:regering",
+    "name": "Kabinet-Van Agt II",
+    "parties": [
+      "CDA",
+      "PvdA",
+      "D66"
+    ],
+    "start": "1981-09-11",
+    "end": "1982-05-29",
+    "demissionairSince": "1982-05-13",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "meerderheid",
+    "notes": "109 van 150 zetels (72,2%) volgens src:pdc-kabinet-van-agt-ii-1981-1982. Ontslagaanvraag 16-10-1981 (banenplan-crisis) geweigerd op 04-11-1981. Gevallen 13-05-1982 toen de PvdA-ministers een bezuinigingsbesluit niet steunden; opgevolgd door het apart beëdigde kabinet-Van Agt III. Minister-president A.A.M. van Agt (CDA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-van-agt-ii",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-van-agt-iii",
+    "government": "org:regering",
+    "name": "Kabinet-Van Agt III",
+    "parties": [
+      "CDA",
+      "D66"
+    ],
+    "start": "1982-05-29",
+    "end": "1982-11-04",
+    "demissionairSince": "1982-09-08",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": "minderheid",
+    "notes": "Minderheidskabinet van CDA en D66 na het vertrek van de PvdA uit het kabinet-Van Agt II, apart beëdigd op 29-05-1982; 65 van 150 zetels (43,3%) volgens src:pdc-kabinet-van-agt-iii-1982. Demissionair vanaf de verkiezingen van 08-09-1982 volgens src:pdc-kabinet-van-agt-iii-1982. Minister-president A.A.M. van Agt (CDA) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-van-agt-iii",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "coalition:kabinet-zijlstra",
+    "government": "org:regering",
+    "name": "Kabinet-Zijlstra",
+    "parties": [
+      "KVP",
+      "ARP"
+    ],
+    "start": "1966-11-22",
+    "end": "1967-04-05",
+    "demissionairSince": "1967-02-15",
+    "primeMinister": null,
+    "agreement": null,
+    "kind": null,
+    "notes": "Overgangskabinet (interimkabinet) van KVP en ARP volgens src:pdc-kabinet-zijlstra-1966-1967; 63 van 150 zetels (42%). Geen waarde in de kind-enum voor een overgangskabinet, daarom null. Ontslagaanvraag 15-02-1967 volgens src:pdc-kabinet-zijlstra-1966-1967. Minister-president J. Zijlstra (ARP) staat niet in people.json.",
+    "source": {
+      "source": "src:rijksoverheid-kabinet-zijlstra",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  }
+]

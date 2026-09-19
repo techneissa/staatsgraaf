@@ -150,7 +150,7 @@ export function ArchChart({
           ) : null;
           const title = <title>{`${entry.label}: ${entry.seats}`}</title>;
           // An SVG anchor, not next/link: the link lives inside the drawing.
-          return entry.party !== null ? (
+          return entry.party !== null && !entry.party.unlisted ? (
             <a key={entry.label} href={`/partijen/${partySlug(entry.party)}/`} className="cursor-pointer">
               {title}
               {seats}
