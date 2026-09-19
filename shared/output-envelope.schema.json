@@ -24,8 +24,8 @@
   "properties": {
     "workstream": {
       "type": "string",
-      "pattern": "^[A-P]$",
-      "description": "Single uppercase workstream letter from docs/05-research-workstreams.md; P is the live official-source refresh (ADR 0006)"
+      "pattern": "^[A-Z]$",
+      "description": "Single uppercase workstream letter from docs/05-research-workstreams.md; P is the live official-source refresh (ADR 0006); Q to U are the graph rebuild workstreams of docs/13-graph-rebuild-plan.md phase 3"
     },
     "generatedAt": { "type": "string", "format": "date-time" },
     "endpointsUsed": {
@@ -89,6 +89,16 @@
     "media": {
       "type": "array",
       "x-validate-against": "schema/v1/media.schema.json",
+      "items": { "type": "object" }
+    },
+    "elections": {
+      "type": "array",
+      "x-validate-against": "schema/v1/election.schema.json",
+      "items": { "type": "object" }
+    },
+    "coalitions": {
+      "type": "array",
+      "x-validate-against": "schema/v1/coalition.schema.json",
       "items": { "type": "object" }
     },
     "gaps": {

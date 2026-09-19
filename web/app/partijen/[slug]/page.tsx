@@ -9,7 +9,8 @@ import { T } from "@/components/i18n/t";
 import { MemberList } from "@/components/entity/member-list";
 import { getDatasetDate, getPersonById } from "@/lib/data";
 import type { MemberEntry } from "@/lib/entity";
-import { currentMembershipsForPartyKey, seatCountsByPartyKey } from "@/lib/parliament";
+import { currentMembershipsForPartyKey, seatCountsByPartyKey, seatTallyForOrganization } from "@/lib/parliament";
+import { ArchChart } from "@/components/parliament/arch-chart";
 import { PARTIES, partyBySlug, partySlug } from "@/lib/parties";
 import { formatDate } from "@/lib/format";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
@@ -54,6 +55,8 @@ export default async function PartyPage({
   const ekMembers = partyMembers(party.key, EK_ID);
   const tkSeats = seatCountsByPartyKey(TK_ID).get(party.key) ?? 0;
   const ekSeats = seatCountsByPartyKey(EK_ID).get(party.key) ?? 0;
+  const tkTally = seatTallyForOrganization(TK_ID);
+  const ekTally = seatTallyForOrganization(EK_ID);
   const memberSourceRefs: SourceRef[] = [];
   for (const entry of [...tkMembers, ...ekMembers]) {
     const ref = entry.membership.source;
@@ -168,6 +171,7 @@ export default async function PartyPage({
         </h2>
         {tkMembers.length > 0 ? (
           <div className="mt-3">
+            {tkTally !== null ? <ArchChart tally={tkTally} highlightKey={party.key} compact /> : null}
             <MemberList members={tkMembers} />
           </div>
         ) : (
@@ -184,6 +188,7 @@ export default async function PartyPage({
             <span className="ms-2 text-sm font-normal tabular-nums text-ink-faint">{ekMembers.length}</span>
           </h2>
           <div className="mt-3">
+            {ekTally !== null ? <ArchChart tally={ekTally} highlightKey={party.key} compact /> : null}
             <MemberList members={ekMembers} />
           </div>
         </section>
