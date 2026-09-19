@@ -11,6 +11,7 @@ import { getDatasetDate, getPersonById } from "@/lib/data";
 import type { MemberEntry } from "@/lib/entity";
 import { currentMembershipsForPartyKey, seatCountsByPartyKey, seatTallyForOrganization } from "@/lib/parliament";
 import { ArchChart } from "@/components/parliament/arch-chart";
+import { SeatSparkline } from "@/components/parliament/seat-sparkline";
 import { PARTIES, partyBySlug, partySlug } from "@/lib/parties";
 import { formatDate } from "@/lib/format";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
@@ -172,6 +173,7 @@ export default async function PartyPage({
         {tkMembers.length > 0 ? (
           <div className="mt-3">
             {tkTally !== null ? <ArchChart tally={tkTally} highlightKey={party.key} compact /> : null}
+            <SeatSparkline partyKey={party.key} organizationId={TK_ID} color={party.color} />
             <MemberList members={tkMembers} />
           </div>
         ) : (
@@ -189,6 +191,7 @@ export default async function PartyPage({
           </h2>
           <div className="mt-3">
             {ekTally !== null ? <ArchChart tally={ekTally} highlightKey={party.key} compact /> : null}
+            <SeatSparkline partyKey={party.key} organizationId={EK_ID} color={party.color} />
             <MemberList members={ekMembers} />
           </div>
         </section>

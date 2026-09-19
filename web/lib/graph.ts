@@ -385,6 +385,18 @@ export function edgePath(x1: number, y1: number, x2: number, y2: number): string
   return `M ${round(x1)} ${round(y1)} Q ${round(ctrlX)} ${round(ctrlY)} ${round(x2)} ${round(y2)}`;
 }
 
+/**
+ * Whether an edge is in force on a date. An edge without dates is the current
+ * state and is always drawn: the dataset knows when a dated relation started,
+ * not that an undated one did not exist. `asOf` null means today.
+ */
+export function edgeAlive(edge: Pick<BundleEdge, "validFrom" | "validTo">, asOf: string | null): boolean {
+  if (asOf === null) return true;
+  if (edge.validFrom && edge.validFrom > asOf) return false;
+  if (edge.validTo && edge.validTo <= asOf) return false;
+  return true;
+}
+
 /** Signed angle in (-pi, pi]. */
 export function wrapPi(angle: number): number {
   const turn = 2 * Math.PI;

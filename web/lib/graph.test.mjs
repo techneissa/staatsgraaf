@@ -16,6 +16,7 @@ import {
   alignRotation,
   archParams,
   archSeats,
+  edgeAlive,
   glyphFootprint,
   hydrateLayout,
   routedEdgePath,
@@ -315,4 +316,16 @@ test("the layout is deterministic", () => {
   }
   assert.deepEqual(again.channels, layout.channels);
   assert.equal(again.frameRadius, layout.frameRadius);
+});
+
+test("an edge is drawn on a date only while it is in force; undated edges always are", () => {
+  assert.equal(edgeAlive({}, "1990-01-01"), true);
+  assert.equal(edgeAlive({ validFrom: "2010-10-14" }, "2010-10-13"), false);
+  assert.equal(edgeAlive({ validFrom: "2010-10-14" }, "2010-10-14"), true);
+  assert.equal(edgeAlive({ validFrom: "2010-10-14", validTo: "2017-10-26" }, "2017-10-26"), false);
+  assert.equal(edgeAlive({ validFrom: "2010-10-14", validTo: "2017-10-26" }, "2017-10-25"), true);
+  assert.equal(edgeAlive({ validFrom: "2010-10-14" }, null), true);
+  const dated = bundle.edges.filter((edge) => edge.validFrom);
+  assert.ok(dated.length >= 58, `dated edges in the bundle: ${dated.length}`);
+  assert.ok(dated.every((edge) => !edgeAlive(edge, "2009-01-01")), "before the first besluit no dated edge is in force");
 });

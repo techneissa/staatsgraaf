@@ -34,6 +34,10 @@ type CanvasControlsProps = {
   edgeTypes: { type: string; count: number }[];
   hiddenBranches: ReadonlySet<string>;
   onToggleBranch: (branch: OrgBranch, visible: boolean) => void;
+  /** Shown only when the bundle carries dated relations. */
+  asOf?: string | null;
+  onAsOfChange?: (date: string | null) => void;
+  datedEdges?: boolean;
   onShowAll: () => void;
 };
 
@@ -87,6 +91,9 @@ export function CanvasControls({
   hiddenBranches,
   onToggleBranch,
   onShowAll,
+  asOf = null,
+  onAsOfChange,
+  datedEdges = false,
 }: CanvasControlsProps) {
   const t = useT("common");
   const tg = useT("graph");
@@ -116,6 +123,30 @@ export function CanvasControls({
           {t("viewPower")}
         </button>
       </div>
+
+      {datedEdges && onAsOfChange ? (
+        <label className="flex items-center gap-1.5 text-xs text-ink-muted">
+          <span>{t("asOfLabel")}</span>
+          <input
+            type="date"
+            value={asOf ?? ""}
+            min="1945-01-01"
+            onChange={(event) => onAsOfChange(event.target.value === "" ? null : event.target.value)}
+            disabled={view !== "graph"}
+            aria-label={t("asOfLabel")}
+            className="rounded-sm border border-line bg-surface px-1.5 py-0.5 text-xs text-ink disabled:opacity-60"
+          />
+          {asOf !== null ? (
+            <button
+              type="button"
+              onClick={() => onAsOfChange(null)}
+              className="rounded-sm border border-line px-1.5 py-0.5 text-[11px] text-ink-muted hover:text-ink"
+            >
+              {t("asOfClear")}
+            </button>
+          ) : null}
+        </label>
+      ) : null}
 
       <DropdownMenu.Root>
         <DropdownMenu.Trigger
