@@ -19,6 +19,7 @@ import { HistoryIcon, PeopleIcon, SeatIcon } from "@/components/entity/icons";
 import { MemberList } from "@/components/entity/member-list";
 import { SeatGrid } from "@/components/entity/seat-grid";
 import { SeatTally } from "@/components/entity/seat-tally";
+import { ArchChart } from "@/components/parliament/arch-chart";
 import { TenureTimeline } from "@/components/entity/tenure-timeline";
 import {
   getCurrentTenuresForOrganization,
@@ -294,6 +295,7 @@ export default async function OrganizationPage({
                   <T area="entity" k="membersCountLine" vars={{ n: formatCount(memberCount) }} />
                 </p>
               )}
+              {tally !== null ? <ArchChart tally={tally} /> : null}
               {tally !== null ? <SeatTally tally={tally} /> : null}
               <div className="mt-3">
                 <SeatGrid members={members} limit={GRID_LIMIT} />

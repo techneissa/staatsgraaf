@@ -58,6 +58,22 @@ export const ENTITY_DICT = {
     nl: "eenmansfractie",
     en: "one-member faction",
   },
+  seatChartLabel: {
+    nl: "Zetels in de plenaire zaal",
+    en: "Seats in the plenary hall",
+  },
+  seatChartOrderNote: {
+    nl: "Volgorde: fracties op grootte, van links naar rechts. De officiële zaalindeling volgt zodra die als bron is opgenomen.",
+    en: "Order: factions by size, left to right. The official seating plan follows once it is sourced.",
+  },
+  seatChartMajorityLine: {
+    nl: "{total} zetels, meerderheid bij {n}",
+    en: "{total} seats, majority at {n}",
+  },
+  seatChartHighlight: {
+    nl: "{label}: {n} van {total} zetels",
+    en: "{label}: {n} of {total} seats",
+  },
   seatTallyMajorityMarker: {
     nl: "Meerderheidsgrens: {n} zetels",
     en: "Majority threshold: {n} seats",

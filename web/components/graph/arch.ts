@@ -24,6 +24,9 @@ export type ArchMark = {
   splinter: boolean;
   /** Index in the fractie's own block, for the accessible label. */
   index: number;
+  /** On the dome (true) or on a leg (false); `t` is 0 left to 1 right along the dome. */
+  arc: boolean;
+  t: number;
 };
 
 export type ArchLayout = {
@@ -55,7 +58,7 @@ export function layoutArch(
     for (let i = 0; i < entry.seats && cursor < seats.length; i += 1) {
       const seat = seats[cursor];
       const { x, y } = seatPosition(seat);
-      marks.push({ x, y, color: entry.color, label: entry.label, splinter: entry.splinter, index: i });
+      marks.push({ x, y, color: entry.color, label: entry.label, splinter: entry.splinter, index: i, arc: seat.arc, t: seat.t });
       cursor += 1;
     }
   }

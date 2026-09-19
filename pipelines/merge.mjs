@@ -362,7 +362,7 @@ async function listResearchFiles(researchDir) {
   } catch {
     return [];
   }
-  return entries.filter((name) => /^[A-P]-.*\.json$/.test(name)).sort();
+  return entries.filter((name) => /^[A-Z]-.*\.json$/.test(name)).sort();
 }
 
 async function writeJson(file, value) {
