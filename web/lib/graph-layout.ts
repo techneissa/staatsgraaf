@@ -17,7 +17,9 @@ import {
   ARCH_PITCH_EK,
   ARCH_PITCH_TK,
   ARCH_TK,
+  ARCH_BLOCK_CLEARANCE,
   ARCH_TK_OFFSET,
+  CLUSTER_MIN,
   CORE_CLEARANCE,
   CORE_RADIUS,
   FRAME_CLEARANCE,
@@ -25,19 +27,21 @@ import {
   GLYPH_BY_SUBTYPE,
   GLYPH_GAP,
   MAX_DEPTH,
-  MAX_RING_STEP,
-  MIN_RING_STEP,
   PUSH_RESERVE,
   SECTOR_GUTTER,
-  SELECTED_GROWTH,
   START_ANGLE,
   TIER_GAP,
   archSize,
+  clusterDotPosition,
+  clusterGrid,
+  clusterHalfSize,
+  compareNames,
   glyphFootprint,
   glyphRadiusForDegree,
   type ArchBlock,
   type BundleEdge,
   type BundleNode,
+  type ClusterInfo,
   type GraphLayout,
   type HubNode,
   type LaidOutNode,
@@ -46,6 +50,9 @@ import {
   type TierId,
   type TierInfo,
 } from "./graph";
+import { packRing, type RingItem } from "./ring-pack";
+
+export { compareNames };
 
 /** What the packer needs: the plain nodes, the edges, and the electorate. */
 export type LayoutInput = {
@@ -148,12 +155,6 @@ export const COLLAPSE_PARENT: ReadonlySet<string> = new Set([
 // Helpers
 // ---------------------------------------------------------------------------
 
-export function compareNames(a: string, b: string, aId: string, bId: string): number {
-  if (a !== b) return a < b ? -1 : 1;
-  if (aId !== bId) return aId < bId ? -1 : 1;
-  return 0;
-}
-
 export function computeDepths(nodes: BundleNode[]): Map<string, number> {
   const byId = new Map(nodes.map((node) => [node.id, node]));
   const memo = new Map<string, number>();
@@ -230,88 +231,86 @@ export function allocateSpans(weights: number[], minimums: number[], total: numb
 // Layout
 // ---------------------------------------------------------------------------
 
-function ringStepFor(nodes: BundleNode[]): number {
-  let ceiling = 0;
-  for (const node of nodes) ceiling = Math.max(ceiling, glyphFootprint(node));
-  const needed = 2 * ceiling + GLYPH_GAP + 2 * SELECTED_GROWTH;
-  return Math.min(MAX_RING_STEP, Math.max(MIN_RING_STEP, Math.ceil(needed / 5) * 5));
+/**
+ * One thing to pack on a ring: a standing mark, or a cluster of the standing
+ * children of one parent in this sector.
+ */
+export type SectorItem =
+  | { kind: "node"; id: string; node: BundleNode }
+  | { kind: "cluster"; id: string; parent: BundleNode; members: BundleNode[] };
+
+export function clusterId(sectorId: string, parentId: string): string {
+  return `cluster:${sectorId}:${parentId}`;
 }
 
-export type Placement = { node: BundleNode; angle: number; radius: number };
-
 /**
- * Fill a sector with evenly spread rings.
- *
- * Rings are opened outward until they hold every node, then the nodes are
- * distributed over the rings in proportion to each ring's capacity and spread
- * evenly across the sector's whole arc. This is what keeps a ring from packing
- * its marks against one edge of the sector and leaving the rest of the arc
- * empty: the gap between two neighbours on a ring is the same everywhere, and
- * every ring of the sector is filled to the same fraction of its capacity.
+ * Group a sector's members into items. A parent with `CLUSTER_MIN` or more
+ * standing children here gets one cluster; everything else stays a mark. The
+ * items are ordered by the angle of the parent when the parent is already laid
+ * out on an inner tier, so a ministry's bodies sit near the ministry, then by
+ * name, so the order is the same on every run.
  */
-export function packSector(
-  nodes: BundleNode[],
-  start: number,
-  end: number,
-  innerRadius: number,
-): { placed: Placement[]; outerRadius: number } {
-  const span = end - start;
-  if (nodes.length === 0 || span <= 0.001) return { placed: [], outerRadius: innerRadius };
-
-  let maxFoot = 0;
-  for (const node of nodes) maxFoot = Math.max(maxFoot, glyphFootprint(node));
-  const pitch = 2 * maxFoot + GLYPH_GAP;
-  const step = ringStepFor(nodes);
-
-  const rings: { radius: number; capacity: number }[] = [];
-  let radius = innerRadius + maxFoot;
-  let capacityTotal = 0;
-  for (let guard = 0; guard < 500 && capacityTotal < nodes.length; guard += 1) {
-    const capacity = Math.floor((span * radius) / pitch);
-    if (capacity >= 1) {
-      rings.push({ radius, capacity });
-      capacityTotal += capacity;
-    }
-    radius += step;
+export function sectorItems(
+  sectorId: string,
+  members: BundleNode[],
+  standingIds: ReadonlySet<string>,
+  byId: ReadonlyMap<string, BundleNode>,
+  parentAngle: (parentId: string) => number | null,
+): SectorItem[] {
+  const byParent = new Map<string, BundleNode[]>();
+  for (const node of members) {
+    if (!node.parent || !standingIds.has(node.parent) || !byId.has(node.parent)) continue;
+    const list = byParent.get(node.parent) ?? [];
+    list.push(node);
+    byParent.set(node.parent, list);
   }
-  if (rings.length === 0) return { placed: [], outerRadius: innerRadius };
-
-  // Largest-remainder distribution over the rings: deterministic, and it keeps
-  // every ring at the same fill fraction so the sector reads as one block.
-  const shares = rings.map((ring) => (nodes.length * ring.capacity) / capacityTotal);
-  const counts = shares.map((share) => Math.floor(share));
-  let left = nodes.length - counts.reduce((sum, value) => sum + value, 0);
-  const byRemainder = shares
-    .map((share, index) => ({ index, remainder: share - Math.floor(share) }))
-    .sort((a, b) => b.remainder - a.remainder || a.index - b.index);
-  for (const entry of byRemainder) {
-    if (left <= 0) break;
-    if (counts[entry.index] < rings[entry.index].capacity) {
-      counts[entry.index] += 1;
-      left -= 1;
-    }
+  const clustered = new Set<string>();
+  const items: SectorItem[] = [];
+  for (const [parentId, list] of byParent) {
+    if (list.length < CLUSTER_MIN) continue;
+    const parent = byId.get(parentId) as BundleNode;
+    const sorted = [...list].sort((a, b) => compareNames(a.name, b.name, a.id, b.id));
+    for (const node of sorted) clustered.add(node.id);
+    items.push({ kind: "cluster", id: clusterId(sectorId, parentId), parent, members: sorted });
   }
-  for (let index = 0; left > 0; index = (index + 1) % rings.length) {
-    if (counts[index] < rings[index].capacity) {
-      counts[index] += 1;
-      left -= 1;
-    }
+  for (const node of members) {
+    if (!clustered.has(node.id)) items.push({ kind: "node", id: node.id, node });
   }
-
-  const placed: Placement[] = [];
-  let cursor = 0;
-  let outerRadius = innerRadius;
-  rings.forEach((ring, index) => {
-    const count = counts[index];
-    for (let i = 0; i < count; i += 1) {
-      const node = nodes[cursor + i];
-      const angle = start + (span * (i + 0.5)) / count;
-      placed.push({ node, angle, radius: ring.radius });
-      outerRadius = Math.max(outerRadius, ring.radius + glyphFootprint(node));
-    }
-    cursor += count;
+  const key = (item: SectorItem) => {
+    const parentId = item.kind === "cluster" ? item.parent.id : item.node.parent;
+    const angle = parentId ? parentAngle(parentId) : null;
+    const name = item.kind === "cluster" ? item.parent.name : item.node.name;
+    return { angle: angle ?? Number.POSITIVE_INFINITY, name, id: item.id };
+  };
+  return items.sort((a, b) => {
+    const ka = key(a);
+    const kb = key(b);
+    if (ka.angle !== kb.angle) return ka.angle - kb.angle;
+    return compareNames(ka.name, kb.name, ka.id, kb.id);
   });
-  return { placed, outerRadius };
+}
+
+/** The ring footprint of an item: a mark is square, a cluster is its dot grid. */
+export function ringItemFor(item: SectorItem): RingItem {
+  if (item.kind === "node") {
+    const foot = glyphFootprint(item.node);
+    return { id: item.id, halfWidth: foot, halfHeight: foot };
+  }
+  return { id: item.id, ...clusterHalfSize(item.members.length) };
+}
+
+/** The item list with one cluster unpacked into its members, in place. */
+export function itemsWithOpen(items: readonly SectorItem[], openId: string | null): SectorItem[] {
+  if (!openId) return [...items];
+  const result: SectorItem[] = [];
+  for (const item of items) {
+    if (item.kind === "cluster" && item.id === openId) {
+      for (const node of item.members) result.push({ kind: "node", id: node.id, node });
+    } else {
+      result.push(item);
+    }
+  }
+  return result;
 }
 
 export function computeLayout(bundle: LayoutInput): GraphLayout {
@@ -375,6 +374,8 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
   const blockHeight = Math.max(archTk.height, archEk.height) + 8;
 
   const laidOut = new Map<string, LaidOutNode>();
+  const clusters: ClusterInfo[] = [];
+  const standingIds = new Set(standing.map((node) => node.id));
   const tiers: TierInfo[] = [];
   const sectors: SectorInfo[] = [];
   const channels: number[] = [];
@@ -393,14 +394,24 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
     const usable = 2 * Math.PI - live.length * SECTOR_GUTTER;
     const weights: number[] = [];
     const minimums: number[] = [];
+    const itemsBySector = new Map<string, SectorItem[]>();
     for (const sector of live) {
       const members = membersBySector.get(sector.id) ?? [];
+      const packable = sector.archAnchor ? members.filter((node) => !sector.archAnchor?.(node)) : members;
+      const items = sectorItems(sector.id, packable, standingIds, byBundleId, (parentId) => laidOut.get(parentId)?.angle ?? null);
+      itemsBySector.set(sector.id, items);
       // Arc demand, square-rooted: a sector of a thousand marks stays larger
-      // than a sector of ten without swallowing the ring.
-      const demand = members.reduce((sum, node) => sum + 2 * glyphFootprint(node) + GLYPH_GAP, 0);
+      // than a sector of ten without swallowing the ring. The demand is what
+      // the sector packs at rest or with its largest cluster open, whichever
+      // is wider, so an open cluster has an arc to unpack onto.
+      const arcOf = (list: SectorItem[]) => list.reduce((sum, item) => sum + 2 * ringItemFor(item).halfWidth + GLYPH_GAP, 0);
+      let demand = arcOf(items);
+      for (const item of items) {
+        if (item.kind === "cluster") demand = Math.max(demand, arcOf(itemsWithOpen(items, item.id)));
+      }
       weights.push(Math.sqrt(Math.max(1, demand)));
       let widest = 0;
-      for (const node of members) widest = Math.max(widest, 2 * glyphFootprint(node) + GLYPH_GAP);
+      for (const item of items) widest = Math.max(widest, 2 * ringItemFor(item).halfWidth + GLYPH_GAP);
       // Room for three of its widest marks side by side on the inner ring, or
       // for the arch block when the sector carries one.
       let minimum = (3 * widest) / (tierInner + widest);
@@ -448,35 +459,73 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
               arch: true,
               orbit: 0,
               collapsedInto: null,
+              cluster: null,
             });
           }
-          packInner = tierInner + blockHeight + 8;
+          packInner = tierInner + blockHeight + ARCH_BLOCK_CLEARANCE;
           rest = members.filter((node) => !sector.archAnchor?.(node));
         }
       }
 
-      const { placed, outerRadius } = packSector(rest, start, end, packInner);
-      for (const { node, angle, radius } of placed) {
-        laidOut.set(node.id, {
-          ...node,
-          x: round(Math.cos(angle) * radius),
-          y: round(Math.sin(angle) * radius),
-          angle: round(angle),
-          radius: round(radius),
-          depth: depths.get(node.id) ?? 0,
-          glyph: GLYPH_BY_SUBTYPE[node.subtype] ?? "dot",
-          glyphRadius: round(glyphRadiusForDegree(node.degree, false)),
-          tier: tierDef.id,
+      const items = itemsBySector.get(sector.id) ?? [];
+      const { placed, outerRadius } = packRing(items.map(ringItemFor), start, end, packInner);
+      const placedById = new Map(placed.map((entry) => [entry.id, entry]));
+      const nodeAt = (node: BundleNode, angle: number, radius: number, cluster: string | null): LaidOutNode => ({
+        ...node,
+        x: round(Math.cos(angle) * radius),
+        y: round(Math.sin(angle) * radius),
+        angle: round(angle),
+        radius: round(radius),
+        depth: depths.get(node.id) ?? 0,
+        glyph: GLYPH_BY_SUBTYPE[node.subtype] ?? "dot",
+        glyphRadius: round(glyphRadiusForDegree(node.degree, false)),
+        tier: tierDef.id,
+        sector: sector.id,
+        subSector: node.subtype,
+        hidden: cluster !== null,
+        arch: false,
+        orbit: orbitCount.get(node.id) ?? 0,
+        collapsedInto: null,
+        cluster,
+      });
+      for (const item of items) {
+        const at = placedById.get(item.id);
+        if (!at) continue;
+        if (item.kind === "node") {
+          laidOut.set(item.node.id, nodeAt(item.node, at.angle, at.radius, null));
+          continue;
+        }
+        const { rows, cols } = clusterGrid(item.members.length);
+        clusters.push({
+          id: item.id,
           sector: sector.id,
-          subSector: node.subtype,
-          hidden: false,
-          arch: false,
-          orbit: orbitCount.get(node.id) ?? 0,
-          collapsedInto: null,
+          parent: item.parent.id,
+          members: item.members.map((node) => node.id),
+          angle: round(at.angle),
+          radius: round(at.radius),
+          // From the rounded polar pair, exactly as the client derives it.
+          x: round(Math.cos(round(at.angle)) * round(at.radius)),
+          y: round(Math.sin(round(at.angle)) * round(at.radius)),
+          rows,
+          cols,
+        });
+        item.members.forEach((node, index) => {
+          const dot = clusterDotPosition(at.angle, at.radius, index, rows, cols);
+          laidOut.set(node.id, nodeAt(node, dot.angle, dot.radius, item.id));
         });
       }
 
-      const sectorOuter = Math.max(outerRadius, block ? tierInner + blockHeight : tierInner);
+      // Room for the open state: the sector's outer radius is the farthest any
+      // single open cluster reaches, so the client can unpack any one of them
+      // without entering the next tier.
+      let reserved = outerRadius;
+      for (const item of items) {
+        if (item.kind !== "cluster") continue;
+        const open = packRing(itemsWithOpen(items, item.id).map(ringItemFor), start, end, packInner);
+        reserved = Math.max(reserved, open.outerRadius);
+      }
+
+      const sectorOuter = Math.max(reserved, block ? tierInner + blockHeight : tierInner);
       tierOuter = Math.max(tierOuter, sectorOuter);
       const info: SectorInfo = {
         id: sector.id,
@@ -489,6 +538,8 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
         innerRadius: round(tierInner),
         outerRadius: round(sectorOuter),
         block,
+        // Only a sector with a cluster is ever re-packed on the client.
+        items: items.some((item) => item.kind === "cluster") ? items.map((item) => item.id) : [],
       };
       tierSectors.push(info);
       sectors.push(info);
@@ -543,6 +594,7 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
       arch: false,
       orbit: 0,
       collapsedInto: parentId,
+      cluster: null,
     });
   }
 
@@ -563,6 +615,8 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
     byId: laidOut,
     edges: bundle.edges.filter((edge) => byBundleId.has(edge.from) && byBundleId.has(edge.to)),
     adjacency,
+    clusters,
+    clusterById: new Map(clusters.map((cluster) => [cluster.id, cluster])),
     frame,
     tiers,
     sectors,

@@ -10,19 +10,23 @@ import {
   ARCH_PITCH_TK,
   ARCH_TK,
   ARCH_TK_OFFSET,
+  CLUSTER_DOT_RADIUS,
   SELECTED_GROWTH,
   alignRotation,
+  clusterHalfSize,
   computeFocusPath,
   edgeAlive,
   edgePath,
   hydrateLayout,
   routedEdgePath,
+  type ClusterInfo,
   type GraphBundle,
   type LaidOutNode,
   type SectorInfo,
 } from "@/lib/graph";
 import type { OrgBranch as OrgBranchName } from "@/lib/types";
 import {
+  SPRING_FIRM,
   SPRING_SOFT,
   SPRING_TURN,
   prefersReducedMotion,
@@ -31,7 +35,7 @@ import {
   spring,
   stepSpring,
 } from "@/lib/motion";
-import { focusReach, frameFor } from "@/lib/pose";
+import { clusterFocus, focusReach, frameFor, posePosition, sectorPose } from "@/lib/pose";
 import { placeLabels, type LabelItem } from "@/lib/label-placement";
 import { branchColorVar } from "@/lib/branch-colors";
 import { edgeLine, edgeTypeOrderIndex } from "./edge-styles";
@@ -96,10 +100,15 @@ const LABEL_PX = 12;
 const LABEL_PX_SELECTED = 13.5;
 /** The width labels are measured at; a text's width scales with its font size. */
 const MEASURE_PX = 12;
+/** The reader's choice whether the canvas turns to the selection. */
+const TURN_STORAGE_KEY = "staatsgraaf.graph.turn";
 
-type LabelState = "selected" | "path" | "neighbor" | "hover";
+type LabelState = "selected" | "path" | "neighbor" | "member";
+const LABEL_PRIORITY: Record<LabelState, number> = { selected: 3, path: 2, neighbor: 1, member: 0.5 };
 
-const LABEL_PRIORITY: Record<LabelState, number> = { hover: 4, selected: 3, path: 2, neighbor: 1 };
+type MarkState = "base" | "dim" | "neighbor" | "path" | "selected" | "hover" | "member";
+
+type Hover = { kind: "node"; id: string } | { kind: "cluster"; id: string };
 
 function edgeKey(a: string, b: string): string {
   return a < b ? `${a}|${b}` : `${b}|${a}`;
@@ -116,18 +125,30 @@ function localized(
   return locale === "en" ? entry.en : entry.nl;
 }
 
+function dotsPath(layout: ReturnType<typeof hydrateLayout>, cluster: ClusterInfo): string {
+  const parts: string[] = [];
+  for (const id of cluster.members) {
+    const node = layout.byId.get(id);
+    if (node) parts.push(glyphPathAt("dot", CLUSTER_DOT_RADIUS, node.x, node.y));
+  }
+  return parts.join(" ");
+}
+
 /**
  * The tier canvas: a deterministic concentric layout drawn once by React, and
- * an imperative motion layer that owns the camera afterwards.
+ * an imperative motion layer that owns the camera and the one thing that
+ * moves afterwards.
  *
- * A body never leaves its place. Selecting one highlights it, its path to the
- * electorate and its direct relations where they are, and the camera eases to
- * a view that holds them and the core, turning the canvas so the selection
- * sits straight above the core. React renders the structure; the
- * animation frame writes the view transform and the label positions straight
- * to the DOM through refs, so panning 1600 marks does not reconcile 1600 React
+ * A body keeps its place. Selecting one turns the canvas so it sits straight
+ * above the core, highlights it, its path to the electorate and its direct
+ * relations where they are, and eases the view to hold them. The standing
+ * children of one parent in a sector are drawn as a grid of dots; opening the
+ * grid packs that sector again with the dots unpacked into marks, and only
+ * that sector moves. React renders the structure; the animation frame writes
+ * the view transform, the moving marks and the label positions straight to
+ * the DOM through refs, so a pan of 1600 marks does not reconcile 1600 React
  * elements, and every move can be interrupted: each is one spring chasing a
- * target that is a pure function of the current selection.
+ * target that is a pure function of the selection and the open cluster.
  */
 export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf = null }: GraphCanvasProps) {
   const layout = useMemo(() => hydrateLayout(bundle), [bundle]);
@@ -137,21 +158,31 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   const tCommon = useT("common");
   const locale = useLocale();
 
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const svgRef = useRef<SVGSVGElement | null>(null);
   const viewGroupRef = useRef<SVGGElement | null>(null);
   const rotGroupRef = useRef<SVGGElement | null>(null);
+  const tooltipRef = useRef<HTMLDivElement | null>(null);
   const labelRefs = useRef(new Map<string, SVGTextElement>());
   /** Text widths at `MEASURE_PX`, measured once per label element. */
   const labelWidths = useRef(new Map<string, number>());
-  /** CSS pixels per viewBox unit, refreshed when the svg is resized. */
-  const clientScaleRef = useRef(1);
+  const markRefs = useRef(new Map<string, SVGGElement>());
+  const clusterRefs = useRef(new Map<string, SVGGElement>());
+  const liveEdgeRefs = useRef<Record<"base" | "neighbour" | "path", SVGPathElement | null>>({ base: null, neighbour: null, path: null });
+  /** CSS pixels per viewBox unit and the svg's box, refreshed when the svg is resized. */
+  const screenRef = useRef({ scale: 1, offsetX: 0, offsetY: 0, width: 0, height: 0 });
+  /** Where every moving mark is this frame; anything absent is at rest. */
+  const positionsRef = useRef(new Map<string, { x: number; y: number }>());
 
   const rot = useRef(spring(0));
+  const open = useRef(spring(0));
   const viewK = useRef(spring(1));
   const viewX = useRef(spring(0));
   const viewY = useRef(spring(0));
   const cancelFrameRef = useRef<(() => void) | null>(null);
   const lastTimeRef = useRef(0);
+  const frameCountRef = useRef(0);
+  const warmEdgesRef = useRef("");
 
   const dragRef = useRef<{ pointerId: number; startX: number; startY: number; x: number; y: number } | null>(null);
   const dialRef = useRef<{ pointerId: number; angle: number } | null>(null);
@@ -160,9 +191,46 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   const pointerMovedRef = useRef(false);
 
   const [activeSector, setActiveSector] = useState<string | null>(null);
-  const [hoverId, setHoverId] = useState<string | null>(null);
+  const [hover, setHover] = useState<Hover | null>(null);
+  /** The cluster the reader wants open, and the one the pose is built for. */
+  const [openCluster, setOpenCluster] = useState<string | null>(null);
+  const [activeCluster, setActiveCluster] = useState<string | null>(null);
+  const [turnEnabled, setTurnEnabled] = useState(true);
+
+  useEffect(() => {
+    try {
+      if (window.localStorage.getItem(TURN_STORAGE_KEY) === "off") setTurnEnabled(false);
+    } catch {
+      // Storage can be unavailable; the default stands.
+    }
+  }, []);
+
+  const toggleTurn = () => {
+    setTurnEnabled((value) => {
+      try {
+        window.localStorage.setItem(TURN_STORAGE_KEY, value ? "off" : "on");
+      } catch {
+        // Storage can be unavailable; the choice lasts for the session.
+      }
+      return !value;
+    });
+  };
 
   const selectedNode = selectedId ? layout.byId.get(selectedId) ?? null : null;
+
+  const pose = useMemo(() => (activeCluster ? sectorPose(layout, activeCluster) : null), [layout, activeCluster]);
+  const activeClusterInfo = activeCluster ? layout.clusterById.get(activeCluster) ?? null : null;
+
+  /** Members of the open cluster and the singles of its sector: marks that move. */
+  const poseMarkIds = useMemo(() => {
+    const set = new Set<string>();
+    if (!pose) return set;
+    for (const id of pose.target.keys()) {
+      const node = layout.byId.get(id);
+      if (node && (!node.cluster || node.cluster === pose.openId)) set.add(id);
+    }
+    return set;
+  }, [layout, pose]);
 
   const visibleNodes = useMemo(
     () => layout.nodes.filter((node) => !hiddenBranches.has(node.branch)),
@@ -170,10 +238,14 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   );
   const drawnNodes = useMemo(() => visibleNodes.filter((node) => !node.arch), [visibleNodes]);
   const visibleIds = useMemo(() => new Set(visibleNodes.map((node) => node.id)), [visibleNodes]);
+  const visibleClusters = useMemo(
+    () => layout.clusters.filter((cluster) => visibleIds.has(cluster.parent) || cluster.members.some((id) => visibleIds.has(id))),
+    [layout, visibleIds],
+  );
 
-  /** Marks the reader can step through with the arrow keys: no hidden marks. */
+  /** Marks the reader can step through with the arrow keys: no collapsed children. */
   const walkNodes = useMemo(
-    () => visibleNodes.filter((node) => !node.hidden || node.arch),
+    () => visibleNodes.filter((node) => !node.hidden || node.arch || node.cluster),
     [visibleNodes],
   );
 
@@ -195,18 +267,51 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   const revealedIds = useMemo(() => {
     const set = new Set<string>();
     if (!selectedNode) return set;
-    if (selectedNode.hidden && !selectedNode.arch) set.add(selectedNode.id);
+    if (selectedNode.hidden && !selectedNode.arch && !selectedNode.cluster) set.add(selectedNode.id);
     for (const node of layout.nodes) {
       if (node.collapsedInto === selectedNode.id && !hiddenBranches.has(node.branch)) set.add(node.id);
     }
     return set;
   }, [layout, selectedNode, hiddenBranches]);
 
+  /** A mark is drawn as a full glyph when it is not hidden, or hidden but shown for this state. */
+  const shown = useCallback(
+    (node: LaidOutNode) => !node.hidden || revealedIds.has(node.id) || poseMarkIds.has(node.id),
+    [revealedIds, poseMarkIds],
+  );
+
   const pathEdgeKeys = useMemo(() => {
     const set = new Set<string>();
     for (let i = 0; i < focusPath.length - 1; i += 1) set.add(edgeKey(focusPath[i], focusPath[i + 1]));
     return set;
   }, [focusPath]);
+
+  const edgeShape = useCallback(
+    (from: LaidOutNode, to: LaidOutNode, a: { x: number; y: number }, b: { x: number; y: number }) =>
+      from.sector === to.sector ? edgePath(a.x, a.y, b.x, b.y) : routedEdgePath(a, b, layout.channels),
+    [layout],
+  );
+
+  /**
+   * Edges with an end in the moving sector are redrawn per frame. The ones
+   * that touch the selection move visibly and are hot; the rest are refreshed
+   * every few frames, which keeps a large sector under the frame budget.
+   */
+  const liveEdges = useMemo(() => {
+    const list: { from: string; to: string; state: "base" | "neighbour" | "path"; hot: boolean }[] = [];
+    if (!pose) return list;
+    for (const edge of drawnEdges) {
+      if (!visibleIds.has(edge.from) || !visibleIds.has(edge.to)) continue;
+      if (!pose.target.has(edge.from) && !pose.target.has(edge.to)) continue;
+      const key = edgeKey(edge.from, edge.to);
+      const isPath = pathEdgeKeys.has(key);
+      const isNeighbour = selectedId !== null && (edge.from === selectedId || edge.to === selectedId);
+      const touchesOpen = poseMarkIds.has(edge.from) || poseMarkIds.has(edge.to);
+      list.push({ from: edge.from, to: edge.to, state: isPath ? "path" : isNeighbour ? "neighbour" : "base", hot: isPath || isNeighbour || touchesOpen });
+    }
+    return list;
+  }, [drawnEdges, visibleIds, pose, poseMarkIds, pathEdgeKeys, selectedId]);
+  const liveEdgeKeys = useMemo(() => new Set(liveEdges.map((edge) => edgeKey(edge.from, edge.to))), [liveEdges]);
 
   /**
    * The edges the selection lights up, merged into one path per state. They
@@ -222,44 +327,42 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       const isPath = pathEdgeKeys.has(key);
       const isNeighbour = edge.from === selectedId || edge.to === selectedId;
       if (!isPath && !isNeighbour) continue;
+      keys.add(key);
+      if (liveEdgeKeys.has(key)) continue;
       const from = layout.byId.get(edge.from);
       const to = layout.byId.get(edge.to);
       if (!from || !to) continue;
-      const d = from.sector === to.sector ? edgePath(from.x, from.y, to.x, to.y) : routedEdgePath(from, to, layout.channels);
-      segments[isPath ? "path" : "neighbour"].push(d);
-      keys.add(key);
+      segments[isPath ? "path" : "neighbour"].push(edgeShape(from, to, from, to));
     }
     return { segments: { neighbour: segments.neighbour.join(" "), path: segments.path.join(" ") }, keys };
-  }, [layout, drawnEdges, visibleIds, pathEdgeKeys, selectedId]);
+  }, [layout, drawnEdges, visibleIds, pathEdgeKeys, selectedId, liveEdgeKeys, edgeShape]);
 
   /** Everything else is merged into one path per relation type and never moves. */
   const staticEdges = useMemo(() => {
     const byType = new Map<string, string[]>();
     for (const edge of drawnEdges) {
       if (!visibleIds.has(edge.from) || !visibleIds.has(edge.to)) continue;
-      if (highlightEdges.keys.has(edgeKey(edge.from, edge.to))) continue;
+      const key = edgeKey(edge.from, edge.to);
+      if (highlightEdges.keys.has(key) || liveEdgeKeys.has(key)) continue;
       const from = layout.byId.get(edge.from);
       const to = layout.byId.get(edge.to);
       if (!from || !to) continue;
-      const segment =
-        from.sector === to.sector
-          ? edgePath(from.x, from.y, to.x, to.y)
-          : routedEdgePath(from, to, layout.channels);
       const list = byType.get(edge.type);
+      const segment = edgeShape(from, to, from, to);
       if (list) list.push(segment);
       else byType.set(edge.type, [segment]);
     }
     return [...byType.entries()]
       .sort((a, b) => edgeTypeOrderIndex(a[0]) - edgeTypeOrderIndex(b[0]))
       .map(([type, segments]) => ({ type, d: segments.join(" ") }));
-  }, [layout, drawnEdges, visibleIds, highlightEdges]);
+  }, [layout, drawnEdges, visibleIds, highlightEdges, liveEdgeKeys, edgeShape]);
 
   /**
    * Marks that need an element of their own: the selection, its path, its
-   * neighbours and the marks revealed for it. Every other mark is drawn into
-   * one merged path per sector and glyph (below), which is what keeps a pan of
-   * the whole canvas inside the frame budget: rasterising forty paths is
-   * cheap, rasterising 1600 is not.
+   * neighbours, the marks revealed for it, and everything in the moving
+   * sector. Every other mark is drawn into one merged path per sector and
+   * glyph (below), which is what keeps a pan of the whole canvas inside the
+   * frame budget: rasterising forty paths is cheap, rasterising 1600 is not.
    */
   const dynamicIds = useMemo(() => {
     const set = new Set<string>();
@@ -267,12 +370,13 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     for (const id of focusSet) set.add(id);
     for (const id of neighborSet) set.add(id);
     for (const id of revealedIds) set.add(id);
+    for (const id of poseMarkIds) set.add(id);
     return set;
-  }, [selectedId, focusSet, neighborSet, revealedIds]);
+  }, [selectedId, focusSet, neighborSet, revealedIds, poseMarkIds]);
 
   const dynamicNodes = useMemo(
-    () => drawnNodes.filter((node) => dynamicIds.has(node.id) && (!node.hidden || revealedIds.has(node.id))),
-    [drawnNodes, dynamicIds, revealedIds],
+    () => drawnNodes.filter((node) => dynamicIds.has(node.id) && shown(node)),
+    [drawnNodes, dynamicIds, shown],
   );
 
   const staticMarkGroups = useMemo(() => {
@@ -293,6 +397,11 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     [drawnNodes, dynamicIds],
   );
 
+  const clusterDots = useMemo(
+    () => visibleClusters.map((cluster) => ({ cluster, d: dotsPath(layout, cluster), half: clusterHalfSize(cluster.members.length) })),
+    [layout, visibleClusters],
+  );
+
   const visibleSectors = useMemo(
     () => layout.sectors.filter((sector) => !hiddenBranches.has(sector.branch)),
     [layout, hiddenBranches],
@@ -311,9 +420,9 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
 
   /**
    * The names on the canvas: the selection, its path, its direct relations and
-   * the mark under the pointer. Nothing else carries a name, because 900
-   * names at once are a texture, not a map. The placement per frame decides
-   * which of these actually fit.
+   * the unpacked members of the open cluster. Nothing else carries a name,
+   * because 900 names at once are a texture, not a map. The placement per
+   * frame decides which of these actually fit.
    */
   const labelled = useMemo(() => {
     const list: { node: LaidOutNode; state: LabelState; text: string }[] = [];
@@ -323,23 +432,27 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     };
     const seen = new Set<string>();
     const push = (node: LaidOutNode | undefined, state: LabelState) => {
-      if (!node || seen.has(node.id) || !visibleIds.has(node.id)) return;
-      if (node.hidden && !revealedIds.has(node.id)) return;
+      if (!node || seen.has(node.id) || !visibleIds.has(node.id) || !shown(node)) return;
       seen.add(node.id);
       list.push({ node, state, text: textOf(node) });
     };
-    if (hoverId && hoverId !== selectedId) push(layout.byId.get(hoverId), "hover");
     if (selectedNode) push(selectedNode, "selected");
     for (const id of focusPath) push(layout.byId.get(id), "path");
+    const byName = (a: LaidOutNode, b: LaidOutNode) => (a.name < b.name ? -1 : a.name > b.name ? 1 : a.id < b.id ? -1 : 1);
     const neighbours: LaidOutNode[] = [];
     for (const id of [...neighborSet, ...revealedIds]) {
       const node = layout.byId.get(id);
       if (node && !seen.has(node.id)) neighbours.push(node);
     }
-    neighbours.sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : a.id < b.id ? -1 : 1));
+    neighbours.sort(byName);
     for (const node of neighbours.slice(0, MAX_LABELS)) push(node, "neighbor");
+    if (activeClusterInfo) {
+      const members = activeClusterInfo.members.map((id) => layout.byId.get(id)).filter((node): node is LaidOutNode => node !== undefined);
+      members.sort(byName);
+      for (const node of members.slice(0, MAX_LABELS)) push(node, "member");
+    }
     return list;
-  }, [layout, hoverId, selectedId, selectedNode, focusPath, neighborSet, revealedIds, visibleIds, glossOf]);
+  }, [layout, selectedNode, focusPath, neighborSet, revealedIds, activeClusterInfo, visibleIds, shown, glossOf]);
 
   const chambers = bundle.chambers;
   const statenSector = layout.sectors.find((sector) => sector.id === "staten-generaal") ?? null;
@@ -363,75 +476,121 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   // ---------------------------------------------------------------------------
 
   /**
-   * What the label pass draws. It lives in a ref, not in the frame's closure:
-   * a loop started before the reader clicked would otherwise keep placing the
-   * previous selection's labels until it settled.
+   * What the animation frame draws. It lives in a ref, not in the frame's
+   * closure: a loop started before the reader clicked would otherwise keep
+   * drawing the previous state until it settled.
    */
-  const labelDataRef = useRef(labelled);
+  const frameDataRef = useRef({ layout, pose, liveEdges, labelled, hover });
   useLayoutEffect(() => {
-    labelDataRef.current = labelled;
-  }, [labelled]);
+    frameDataRef.current = { layout, pose, liveEdges, labelled, hover };
+    warmEdgesRef.current = "";
+  }, [layout, pose, liveEdges, labelled, hover]);
 
-  const measureScale = useCallback(() => {
+  const measureScreen = useCallback(() => {
     const svg = svgRef.current;
-    if (!svg) return 1;
+    if (!svg) return;
     const rect = svg.getBoundingClientRect();
     const vb = layout.viewBox;
     const scale = Math.min(rect.width / vb.width, rect.height / vb.height);
-    return scale > 0 ? scale : 1;
+    screenRef.current = {
+      scale: scale > 0 ? scale : 1,
+      offsetX: (rect.width - vb.width * scale) / 2,
+      offsetY: (rect.height - vb.height * scale) / 2,
+      width: rect.width,
+      height: rect.height,
+    };
   }, [layout.viewBox]);
 
-  /**
-   * Place the labels for the current view. Labels live outside the view and
-   * rotation groups, so they stay upright and keep one size on screen: each
-   * mark's position is projected through the view, and the font is sized in
-   * viewBox units so it comes out at `LABEL_PX` CSS pixels.
-   */
-  const placeLabelsNow = useCallback(() => {
-    const data = labelDataRef.current;
-    if (data.length === 0) return;
+  /** A canvas point through the view: where it is in viewBox units on screen. */
+  const project = useCallback((x: number, y: number) => {
     const k = viewK.current.value;
-    const tx = viewX.current.value;
-    const ty = viewY.current.value;
     const cos = Math.cos(rot.current.value);
     const sin = Math.sin(rot.current.value);
-    const unit = 1 / clientScaleRef.current;
-    const items: LabelItem[] = [];
-    const fonts = new Map<string, number>();
-    for (const entry of data) {
-      const px = entry.state === "selected" ? LABEL_PX_SELECTED : LABEL_PX;
-      const font = px * unit;
-      const widthAtMeasure = labelWidths.current.get(entry.node.id) ?? entry.text.length * MEASURE_PX * 0.55;
-      const growth = entry.state === "selected" ? SELECTED_GROWTH + 6 : 0;
-      fonts.set(entry.node.id, font);
-      items.push({
-        id: entry.node.id,
-        x: tx + k * (cos * entry.node.x - sin * entry.node.y),
-        y: ty + k * (sin * entry.node.x + cos * entry.node.y),
-        r: k * (entry.node.glyphRadius + growth),
-        width: (widthAtMeasure / MEASURE_PX) * font,
-        height: font * 1.2,
-        priority: LABEL_PRIORITY[entry.state],
-      });
-    }
-    const slots = placeLabels(items, 3 * unit);
-    for (const entry of data) {
-      const element = labelRefs.current.get(entry.node.id);
-      if (!element) continue;
-      const slot = slots.get(entry.node.id);
-      if (!slot) {
-        element.setAttribute("opacity", "0");
-        continue;
-      }
-      const font = fonts.get(entry.node.id) ?? LABEL_PX * unit;
-      element.setAttribute("x", slot.x.toFixed(2));
-      element.setAttribute("y", slot.y.toFixed(2));
-      element.setAttribute("text-anchor", slot.anchor);
-      element.setAttribute("font-size", font.toFixed(2));
-      element.setAttribute("stroke-width", (font * 0.28).toFixed(2));
-      element.setAttribute("opacity", "1");
-    }
+    return { x: viewX.current.value + k * (cos * x - sin * y), y: viewY.current.value + k * (sin * x + cos * y) };
   }, []);
+
+  /**
+   * Place the labels and the tooltip for the current view. Labels live
+   * outside the view and rotation groups, so they stay upright and keep one
+   * size on screen: each mark's position is projected through the view, and
+   * the font is sized in viewBox units so it comes out at `LABEL_PX` pixels.
+   */
+  const placeOverlays = useCallback(() => {
+    const data = frameDataRef.current;
+    const unit = 1 / screenRef.current.scale;
+    const positionOf = (node: LaidOutNode) => positionsRef.current.get(node.id) ?? node;
+    if (data.labelled.length > 0) {
+      const k = viewK.current.value;
+      const items: LabelItem[] = [];
+      const fonts = new Map<string, number>();
+      for (const entry of data.labelled) {
+        const px = entry.state === "selected" ? LABEL_PX_SELECTED : LABEL_PX;
+        const font = px * unit;
+        const widthAtMeasure = labelWidths.current.get(entry.node.id) ?? entry.text.length * MEASURE_PX * 0.55;
+        const growth = entry.state === "selected" ? SELECTED_GROWTH + 6 : 0;
+        const at = project(positionOf(entry.node).x, positionOf(entry.node).y);
+        fonts.set(entry.node.id, font);
+        items.push({
+          id: entry.node.id,
+          x: at.x,
+          y: at.y,
+          r: k * (entry.node.glyphRadius + growth),
+          width: (widthAtMeasure / MEASURE_PX) * font,
+          height: font * 1.2,
+          priority: LABEL_PRIORITY[entry.state],
+        });
+      }
+      const slots = placeLabels(items, 3 * unit);
+      for (const entry of data.labelled) {
+        const element = labelRefs.current.get(entry.node.id);
+        if (!element) continue;
+        const slot = slots.get(entry.node.id);
+        if (!slot) {
+          element.setAttribute("opacity", "0");
+          continue;
+        }
+        const font = fonts.get(entry.node.id) ?? LABEL_PX * unit;
+        element.setAttribute("x", slot.x.toFixed(2));
+        element.setAttribute("y", slot.y.toFixed(2));
+        element.setAttribute("text-anchor", slot.anchor);
+        element.setAttribute("font-size", font.toFixed(2));
+        element.setAttribute("stroke-width", (font * 0.28).toFixed(2));
+        element.setAttribute("opacity", "1");
+      }
+    }
+
+    const tooltip = tooltipRef.current;
+    if (tooltip && data.hover) {
+      const screen = screenRef.current;
+      let anchor: { x: number; y: number; r: number } | null = null;
+      if (data.hover.kind === "node") {
+        const node = data.layout.byId.get(data.hover.id);
+        if (node) {
+          const at = positionOf(node);
+          anchor = { ...project(at.x, at.y), r: viewK.current.value * (node.glyphRadius + 4) };
+        }
+      } else {
+        const cluster = data.layout.clusterById.get(data.hover.id);
+        if (cluster) {
+          const at = positionsRef.current.get(cluster.id) ?? cluster;
+          const half = clusterHalfSize(cluster.members.length);
+          anchor = { ...project(at.x, at.y), r: viewK.current.value * Math.hypot(half.halfWidth, half.halfHeight) };
+        }
+      }
+      if (anchor) {
+        const px = (anchor.x - data.layout.viewBox.x) * screen.scale + screen.offsetX;
+        const py = (anchor.y - data.layout.viewBox.y) * screen.scale + screen.offsetY;
+        const gap = anchor.r * screen.scale + 10;
+        const width = tooltip.offsetWidth;
+        const height = tooltip.offsetHeight;
+        // Above the mark when there is room, below it otherwise; never off the side.
+        const above = py - gap - height >= 4;
+        const left = Math.min(Math.max(4, px - width / 2), Math.max(4, screen.width - width - 4));
+        const top = above ? py - gap - height : py + gap;
+        tooltip.style.transform = `translate(${left.toFixed(0)}px, ${top.toFixed(0)}px)`;
+      }
+    }
+  }, [project]);
 
   const kick = useCallback(() => {
     if (cancelFrameRef.current !== null) return;
@@ -443,11 +602,13 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
 
       if (prefersReducedMotion()) {
         snap(rot.current);
+        snap(open.current);
         snap(viewK.current);
         snap(viewX.current);
         snap(viewY.current);
       } else {
         stepSpring(rot.current, dt, SPRING_TURN);
+        stepSpring(open.current, dt, SPRING_FIRM);
         stepSpring(viewK.current, dt, SPRING_SOFT);
         stepSpring(viewX.current, dt, SPRING_SOFT);
         stepSpring(viewY.current, dt, SPRING_SOFT);
@@ -459,14 +620,66 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       );
       const degrees = (rot.current.value * 180) / Math.PI;
       rotGroupRef.current?.setAttribute("transform", `rotate(${degrees.toFixed(3)})`);
-      placeLabelsNow();
+
+      // The moving sector: marks slide along their rings, the open grid's dots
+      // grow into marks, and the other grids shift as blocks.
+      const frame = frameDataRef.current;
+      const openValue = open.current.value < 0.001 ? 0 : open.current.value;
+      const positions = new Map<string, { x: number; y: number }>();
+      if (frame.pose) {
+        for (const [id, target] of frame.pose.target) {
+          const node = frame.layout.byId.get(id);
+          if (!node) continue;
+          const point = posePosition(node, target, openValue);
+          positions.set(id, point);
+          const element = markRefs.current.get(id);
+          if (!element) continue;
+          const scale = node.cluster === frame.pose.openId ? CLUSTER_DOT_RADIUS / node.glyphRadius + (1 - CLUSTER_DOT_RADIUS / node.glyphRadius) * openValue : 1;
+          element.setAttribute("transform", `translate(${point.x.toFixed(2)} ${point.y.toFixed(2)}) scale(${scale.toFixed(3)})`);
+        }
+        for (const [id, target] of frame.pose.clusterTarget) {
+          const cluster = frame.layout.clusterById.get(id);
+          const element = clusterRefs.current.get(id);
+          if (!cluster) continue;
+          const point = posePosition(cluster, target, openValue);
+          positions.set(id, point);
+          if (!element) continue;
+          const turn = ((Math.atan2(point.y, point.x) - cluster.angle) * 180) / Math.PI;
+          element.setAttribute("transform", `translate(${point.x.toFixed(2)} ${point.y.toFixed(2)}) rotate(${turn.toFixed(3)}) translate(${(-cluster.x).toFixed(2)} ${(-cluster.y).toFixed(2)})`);
+        }
+      }
+      positionsRef.current = positions;
+
+      if (frame.liveEdges.length > 0) {
+        const settling = settled(open.current);
+        frameCountRef.current += 1;
+        const refreshWarm = settling || frameCountRef.current % 6 === 0 || warmEdgesRef.current === "";
+        const segments: Record<"base" | "neighbour" | "path", string[]> = { base: [], neighbour: [], path: [] };
+        const warm: string[] = [];
+        for (const edge of frame.liveEdges) {
+          if (!edge.hot && !refreshWarm) continue;
+          const from = frame.layout.byId.get(edge.from);
+          const to = frame.layout.byId.get(edge.to);
+          if (!from || !to) continue;
+          const d = edgeShape(from, to, positions.get(edge.from) ?? from, positions.get(edge.to) ?? to);
+          if (edge.hot) segments[edge.state].push(d);
+          else warm.push(d);
+        }
+        if (refreshWarm) warmEdgesRef.current = warm.join(" ");
+        segments.base.push(warmEdgesRef.current);
+        for (const state of ["base", "neighbour", "path"] as const) {
+          liveEdgeRefs.current[state]?.setAttribute("d", segments[state].join(" "));
+        }
+      }
+
+      placeOverlays();
 
       const done =
-        settled(rot.current) && settled(viewK.current) && settled(viewX.current) && settled(viewY.current);
+        settled(rot.current) && settled(open.current) && settled(viewK.current) && settled(viewX.current) && settled(viewY.current);
       if (!done) cancelFrameRef.current = scheduleFrame(tick);
     };
     cancelFrameRef.current = scheduleFrame(tick);
-  }, [placeLabelsNow]);
+  }, [placeOverlays, edgeShape]);
 
   // Clearing the handle matters: React remounts effects in development, and a
   // cancelled frame left in the ref would make every later kick a no-op.
@@ -495,42 +708,90 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   useLayoutEffect(() => {
     const svg = svgRef.current;
     if (!svg) return;
-    clientScaleRef.current = measureScale();
-    placeLabelsNow();
+    measureScreen();
+    placeOverlays();
     if (typeof ResizeObserver === "undefined") return;
     const observer = new ResizeObserver(() => {
-      clientScaleRef.current = measureScale();
-      placeLabelsNow();
+      measureScreen();
+      placeOverlays();
     });
     observer.observe(svg);
     return () => observer.disconnect();
-  }, [measureScale, placeLabelsNow]);
+  }, [measureScreen, placeOverlays]);
 
-  /** A new set of labels is placed at once, before the reader sees it unplaced. */
+  /** A new set of labels or a new tooltip is placed at once, before the reader sees it unplaced. */
   useLayoutEffect(() => {
-    placeLabelsNow();
-  }, [labelled, placeLabelsNow]);
+    placeOverlays();
+  }, [labelled, hover, placeOverlays]);
+
+  /** When the moving sector stops moving, its marks go back to their rest transforms. */
+  useLayoutEffect(() => {
+    if (pose) return;
+    for (const [id, element] of markRefs.current) {
+      const node = layout.byId.get(id);
+      if (node) element.setAttribute("transform", `translate(${node.x} ${node.y})`);
+    }
+    for (const element of clusterRefs.current.values()) element.removeAttribute("transform");
+    for (const state of ["base", "neighbour", "path"] as const) liveEdgeRefs.current[state]?.setAttribute("d", "");
+    positionsRef.current = new Map();
+  }, [pose, layout]);
+
+  /** Selecting a dot of a cluster opens that cluster; selecting anything else folds it. */
+  useEffect(() => {
+    if (!selectedNode) return;
+    setOpenCluster(selectedNode.cluster);
+  }, [selectedNode]);
+
+  /** Fold, then swap, then unpack: the pose changes only once the previous one has closed. */
+  useEffect(() => {
+    if (activeCluster === openCluster) return;
+    if (open.current.value < 0.02 || !activeCluster) {
+      setActiveCluster(openCluster);
+      return;
+    }
+    open.current.target = 0;
+    kick();
+    const timer = window.setInterval(() => {
+      if (open.current.value < 0.02) {
+        window.clearInterval(timer);
+        setActiveCluster(openCluster);
+      }
+    }, 40);
+    return () => window.clearInterval(timer);
+  }, [activeCluster, openCluster, kick]);
+
+  useEffect(() => {
+    open.current.target = pose && activeCluster === openCluster ? 1 : 0;
+    kick();
+  }, [pose, activeCluster, openCluster, kick]);
 
   /**
    * Turn the canvas so the selection reads straight above the core, and ease
    * the view to hold it, its relations and the core. The turn is one rigid
-   * rotation of the whole frame: every body keeps its neighbours.
+   * rotation of the whole frame: every body keeps its neighbours. The reader
+   * can switch the turn off; the view still frames the selection.
    */
   useEffect(() => {
     const sector = activeSector ? layout.sectors.find((entry) => entry.id === activeSector) ?? null : null;
-    const angle = selectedNode ? selectedNode.angle : sector ? sector.midAngle : null;
-    rot.current.target = alignRotation(angle, rot.current.target);
-    const focus = selectedNode
-      ? { angle: selectedNode.angle, radius: selectedNode.radius, reach: focusReach(layout, selectedNode.id, hiddenBranches) }
-      : sector
-        ? { angle: sector.midAngle, radius: (sector.innerRadius + sector.outerRadius) / 2, reach: (sector.outerRadius - sector.innerRadius) / 2 + 40 }
-        : null;
+    let focus: { angle: number; radius: number; reach: number } | null = null;
+    if (selectedNode) {
+      const at = pose?.target.get(selectedNode.id) ?? selectedNode;
+      focus = { angle: at.angle, radius: at.radius, reach: focusReach(layout, selectedNode.id, hiddenBranches) };
+      if (activeClusterInfo && pose && selectedNode.cluster === activeClusterInfo.id) {
+        focus.reach = Math.max(focus.reach, clusterFocus(activeClusterInfo, pose).reach);
+      }
+    } else if (activeClusterInfo && pose) {
+      focus = clusterFocus(activeClusterInfo, pose);
+    } else if (sector) {
+      focus = { angle: sector.midAngle, radius: (sector.innerRadius + sector.outerRadius) / 2, reach: (sector.outerRadius - sector.innerRadius) / 2 + 40 };
+    }
+    if (turnEnabled) rot.current.target = alignRotation(focus ? focus.angle : null, rot.current.target);
     const view = frameFor(layout, focus, rot.current.target, 1, selectedNode ? 2.4 : 1.8);
     viewK.current.target = view.k;
     viewX.current.target = view.x;
     viewY.current.target = view.y;
     kick();
-  }, [layout, selectedNode, activeSector, hiddenBranches, kick]);
+  }, [layout, selectedNode, activeSector, activeClusterInfo, pose, hiddenBranches, turnEnabled, kick]);
 
   // ---------------------------------------------------------------------------
   // Pointer and keyboard
@@ -541,13 +802,10 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       const svg = svgRef.current;
       if (!svg) return { x: 0, y: 0 };
       const rect = svg.getBoundingClientRect();
-      const vb = layout.viewBox;
-      const scale = Math.min(rect.width / vb.width, rect.height / vb.height);
-      const offsetX = (rect.width - vb.width * scale) / 2;
-      const offsetY = (rect.height - vb.height * scale) / 2;
+      const screen = screenRef.current;
       return {
-        x: (clientX - rect.left - offsetX) / scale + vb.x,
-        y: (clientY - rect.top - offsetY) / scale + vb.y,
+        x: (clientX - rect.left - screen.offsetX) / screen.scale + layout.viewBox.x,
+        y: (clientY - rect.top - screen.offsetY) / screen.scale + layout.viewBox.y,
       };
     },
     [layout.viewBox],
@@ -579,7 +837,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   }, [toUserPoint, zoomAt]);
 
   const onPointerDown = (event: ReactPointerEvent<SVGSVGElement>) => {
-    if ((event.target as Element).closest("[data-node-id]")) return;
+    if ((event.target as Element).closest("[data-node-id],[data-cluster-id]")) return;
     event.currentTarget.setPointerCapture(event.pointerId);
     pointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
     pointerMovedRef.current = false;
@@ -624,7 +882,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     if (pointersRef.current.has(event.pointerId)) {
       pointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
     }
-    const scale = clientScaleRef.current;
+    const scale = screenRef.current.scale;
 
     const pinch = pinchRef.current;
     if (pinch && pointersRef.current.size >= 2) {
@@ -691,28 +949,46 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       return;
     }
     setActiveSector(null);
+    setOpenCluster(null);
     onSelect(null);
   };
 
-  const nodeIdAt = (event: { target: EventTarget }) =>
-    (event.target as Element).closest("[data-node-id]")?.getAttribute("data-node-id") ?? null;
+  const targetAt = (event: { target: EventTarget }): Hover | null => {
+    const element = (event.target as Element).closest("[data-node-id],[data-cluster-id]");
+    if (!element) return null;
+    const nodeId = element.getAttribute("data-node-id");
+    if (nodeId) return { kind: "node", id: nodeId };
+    const clusterId = element.getAttribute("data-cluster-id");
+    return clusterId ? { kind: "cluster", id: clusterId } : null;
+  };
 
-  const onNodeClick = (event: ReactMouseEvent<SVGGElement>) => {
-    const id = nodeIdAt(event);
-    if (!id) return;
+  const onMarkClick = (event: ReactMouseEvent<SVGGElement>) => {
+    const target = targetAt(event);
+    if (!target) return;
     event.stopPropagation();
     setActiveSector(null);
-    onSelect(id === selectedId ? null : id);
+    if (target.kind === "cluster") {
+      onSelect(null);
+      setOpenCluster((current) => (current === target.id ? null : target.id));
+      return;
+    }
+    if (target.id === selectedId) {
+      onSelect(null);
+      return;
+    }
+    const node = layout.byId.get(target.id);
+    setOpenCluster(node?.cluster ?? null);
+    onSelect(target.id);
   };
 
-  const onNodeOver = (event: ReactPointerEvent<SVGGElement>) => {
-    const id = nodeIdAt(event);
-    if (id) setHoverId(id);
+  const onMarkOver = (event: ReactPointerEvent<SVGGElement>) => {
+    const target = targetAt(event);
+    if (target) setHover(target);
   };
 
-  const onNodeOut = (event: ReactPointerEvent<SVGGElement>) => {
-    const id = nodeIdAt(event);
-    if (id) setHoverId((current) => (current === id ? null : current));
+  const onMarkOut = (event: ReactPointerEvent<SVGGElement>) => {
+    const target = targetAt(event);
+    if (target) setHover((current) => (current && current.id === target.id ? null : current));
   };
 
   const onSectorClick = (event: ReactMouseEvent<SVGGElement>) => {
@@ -721,12 +997,13 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     if (!id) return;
     event.stopPropagation();
     onSelect(null);
+    setOpenCluster(null);
     setActiveSector((current) => (current === id ? null : id));
   };
 
   const onDoubleClick = (event: ReactMouseEvent<SVGSVGElement>) => {
-    const id = nodeIdAt(event);
-    const node = id ? layout.byId.get(id) : null;
+    const target = targetAt(event);
+    const node = target?.kind === "node" ? layout.byId.get(target.id) : null;
     if (node) {
       event.preventDefault();
       event.stopPropagation();
@@ -775,8 +1052,9 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
         break;
       case "Escape":
         event.preventDefault();
-        setActiveSector(null);
-        onSelect(null);
+        if (selectedId) onSelect(null);
+        else if (openCluster) setOpenCluster(null);
+        else setActiveSector(null);
         break;
       case "[":
         event.preventDefault();
@@ -828,19 +1106,56 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     [],
   );
 
-  const statusText = selectedNode
-    ? `${selectedNode.name}, ${localized(locale, ORG_SUBTYPE_LABELS_I18N, selectedNode.subtype)}, ${localized(locale, TIER_LABELS_I18N, selectedNode.tier)}. ${t("connections", { n: neighborSet.size })}`
-    : activeSector
-      ? t("sectorStatus", {
-          name: sectorLabel(layout.sectors.find((sector) => sector.id === activeSector) as SectorInfo),
-          n: layout.sectors.find((sector) => sector.id === activeSector)?.count ?? 0,
-        })
-      : t("noSelection");
+  const setMarkRef = useCallback(
+    (node: LaidOutNode) => (element: SVGGElement | null) => {
+      if (element) {
+        markRefs.current.set(node.id, element);
+        const at = positionsRef.current.get(node.id);
+        if (at) element.setAttribute("transform", `translate(${at.x.toFixed(2)} ${at.y.toFixed(2)})`);
+      } else {
+        markRefs.current.delete(node.id);
+      }
+    },
+    [],
+  );
+
+  const setClusterRef = useCallback(
+    (id: string) => (element: SVGGElement | null) => {
+      if (element) clusterRefs.current.set(id, element);
+      else clusterRefs.current.delete(id);
+    },
+    [],
+  );
 
   const connectionCountText = (count: number) => (count === 1 ? t("connectionsOne") : t("connections", { n: count }));
 
+  const statusText = selectedNode
+    ? `${selectedNode.name}, ${localized(locale, ORG_SUBTYPE_LABELS_I18N, selectedNode.subtype)}, ${localized(locale, TIER_LABELS_I18N, selectedNode.tier)}. ${t("connections", { n: neighborSet.size })}`
+    : activeClusterInfo
+      ? t("clusterStatus", { n: activeClusterInfo.members.length, parent: layout.byId.get(activeClusterInfo.parent)?.name ?? "" })
+      : activeSector
+        ? t("sectorStatus", {
+            name: sectorLabel(layout.sectors.find((sector) => sector.id === activeSector) as SectorInfo),
+            n: layout.sectors.find((sector) => sector.id === activeSector)?.count ?? 0,
+          })
+        : t("noSelection");
+
+  const hoverNode = hover?.kind === "node" ? layout.byId.get(hover.id) ?? null : null;
+  const hoverCluster = hover?.kind === "cluster" ? layout.clusterById.get(hover.id) ?? null : null;
+  const hoverBranch = hoverNode?.branch ?? (hoverCluster ? layout.byId.get(hoverCluster.parent)?.branch ?? null : null);
+  const hoverParent = hoverNode?.parent ? layout.byId.get(hoverNode.parent) ?? null : null;
+  const clusterSubtypeLabel = (cluster: ClusterInfo) => {
+    const counts = new Map<string, number>();
+    for (const id of cluster.members) {
+      const subtype = layout.byId.get(id)?.subtype;
+      if (subtype) counts.set(subtype, (counts.get(subtype) ?? 0) + 1);
+    }
+    const top = [...counts.entries()].sort((a, b) => b[1] - a[1])[0];
+    return top ? localized(locale, ORG_SUBTYPE_LABELS_I18N, top[0]) : "";
+  };
+
   return (
-    <div className="relative flex h-full min-h-0 w-full flex-col">
+    <div ref={containerRef} className="relative flex h-full min-h-0 w-full flex-col">
       <p className="sr-only" aria-live="polite">
         {statusText}
       </p>
@@ -912,7 +1227,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
               <g onClick={onSectorClick}>
                 {visibleSectors.map((sector) => {
                   const wedge = sectorWedge(sector);
-                  const active = activeSector === sector.id || selectedNode?.sector === sector.id;
+                  const active = activeSector === sector.id || selectedNode?.sector === sector.id || activeClusterInfo?.sector === sector.id;
                   return (
                     <path
                       key={`wedge-${sector.id}`}
@@ -961,26 +1276,62 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
               <path d={highlightEdges.segments.path} fill="none" stroke="var(--color-accent)" strokeWidth={2} strokeLinecap="round" />
             </g>
 
-            {/* Marks at rest: one path per sector and glyph, then a cheap hit circle each. */}
+            {/* Edges with an end in the moving sector, redrawn every frame. */}
+            <g aria-hidden="true" pointerEvents="none">
+              <path
+                ref={(element) => {
+                  liveEdgeRefs.current.base = element;
+                }}
+                fill="none"
+                stroke="var(--t-color-line-strong)"
+                strokeWidth={0.75}
+                opacity={0.35}
+              />
+              <path
+                ref={(element) => {
+                  liveEdgeRefs.current.neighbour = element;
+                }}
+                fill="none"
+                stroke="var(--color-accent-text)"
+                strokeWidth={1}
+                opacity={0.75}
+                markerEnd="url(#grafiek-pijl)"
+              />
+              <path
+                ref={(element) => {
+                  liveEdgeRefs.current.path = element;
+                }}
+                fill="none"
+                stroke="var(--color-accent)"
+                strokeWidth={2}
+                strokeLinecap="round"
+              />
+            </g>
+
+            {/* Marks at rest: one outlined path per sector and glyph, then a cheap hit circle each. */}
             <g aria-hidden="true" pointerEvents="none">
               {staticMarkGroups.map((group) => (
                 <path
                   key={group.key}
                   d={group.d}
                   fill={branchColorVar(group.branch as OrgBranchName)}
+                  fillOpacity={0.22}
+                  stroke={branchColorVar(group.branch as OrgBranchName)}
+                  strokeWidth={0.9}
+                  strokeLinejoin="round"
                   opacity={
                     activeSector
                       ? group.sector === activeSector
-                        ? 0.82
+                        ? 0.9
                         : DIM_OPACITY
-                      : selectedId
+                      : selectedId || activeClusterInfo
                         ? DIM_OPACITY
-                        : 0.82
+                        : 0.9
                   }
                 />
               ))}
             </g>
-            <g onClick={onNodeClick} onPointerOver={onNodeOver} onPointerOut={onNodeOut}>
+            <g onClick={onMarkClick} onPointerOver={onMarkOver} onPointerOut={onMarkOut}>
               {staticHitMarks.map((node) => (
                 <circle
                   key={node.id}
@@ -994,32 +1345,70 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
               ))}
             </g>
 
-            {/* Marks that are selected, on the path, related or revealed: one element each. */}
-            <g onClick={onNodeClick} onPointerOver={onNodeOver} onPointerOut={onNodeOut}>
+            {/* Clusters: the standing children of one parent as a grid of dots, one hit block each. */}
+            <g onClick={onMarkClick} onPointerOver={onMarkOver} onPointerOut={onMarkOut}>
+              {clusterDots.map(({ cluster, d, half }) => {
+                const parent = layout.byId.get(cluster.parent);
+                const color = branchColorVar((parent?.branch ?? "regering") as OrgBranchName);
+                const isOpen = activeClusterInfo?.id === cluster.id;
+                const isHover = hover?.kind === "cluster" && hover.id === cluster.id;
+                const dim = (selectedId || activeClusterInfo) && !isOpen && !(selectedNode && selectedNode.parent === cluster.parent);
+                return (
+                  <g key={cluster.id} ref={setClusterRef(cluster.id)} data-cluster-id={cluster.id} className="cursor-pointer" opacity={isOpen ? 0 : dim ? DIM_OPACITY : 1}>
+                    <rect
+                      x={-half.halfHeight - 2.5}
+                      y={-half.halfWidth - 2.5}
+                      width={2 * half.halfHeight + 5}
+                      height={2 * half.halfWidth + 5}
+                      rx={2}
+                      transform={`translate(${cluster.x} ${cluster.y}) rotate(${((cluster.angle * 180) / Math.PI).toFixed(2)})`}
+                      fill={color}
+                      fillOpacity={isHover ? 0.22 : 0.06}
+                      stroke={color}
+                      strokeOpacity={isHover ? 0.7 : 0.25}
+                      strokeWidth={0.6}
+                    />
+                    <path d={d} fill={color} fillOpacity={0.85} pointerEvents="none" />
+                  </g>
+                );
+              })}
+            </g>
+
+            {/* Marks that are selected, on the path, related, revealed or moving: one element each. */}
+            <g onClick={onMarkClick} onPointerOver={onMarkOver} onPointerOut={onMarkOut}>
               {dynamicNodes.map((node) => {
-                const state =
+                const state: MarkState =
                   node.id === selectedId
                     ? "selected"
                     : focusSet.has(node.id)
                       ? "path"
                       : neighborSet.has(node.id) || revealedIds.has(node.id)
                         ? "neighbor"
-                        : selectedId || activeSector
-                          ? activeSector && node.sector === activeSector
-                            ? "base"
-                            : "dim"
-                          : "base";
-                return <Mark key={node.id} node={node} state={state} />;
+                        : poseMarkIds.has(node.id)
+                          ? node.cluster
+                            ? "member"
+                            : selectedId
+                              ? "dim"
+                              : "base"
+                          : selectedId || activeSector || activeClusterInfo
+                            ? activeSector && node.sector === activeSector
+                              ? "base"
+                              : "dim"
+                            : "base";
+                return <Mark key={node.id} node={node} state={state} setRef={setMarkRef(node)} />;
               })}
+              {hoverNode && shown(hoverNode) && !hoverNode.arch && hoverNode.id !== selectedId ? (
+                <Mark key={`hover-${hoverNode.id}`} node={hoverNode} state="hover" setRef={setMarkRef(hoverNode)} />
+              ) : null}
             </g>
 
             {/* The two chambers, drawn as ∩ arches. */}
             {statenSector?.block && arches.length > 0 ? (
               <g
                 transform={`translate(${(Math.cos(statenSector.block.angle) * statenSector.block.radius).toFixed(2)} ${(Math.sin(statenSector.block.angle) * statenSector.block.radius).toFixed(2)}) rotate(${(((statenSector.block.angle + Math.PI / 2) * 180) / Math.PI).toFixed(2)})`}
-                onClick={onNodeClick}
-                onPointerOver={onNodeOver}
-                onPointerOut={onNodeOut}
+                onClick={onMarkClick}
+                onPointerOver={onMarkOver}
+                onPointerOut={onMarkOut}
               >
                 {arches.map((arch) => (
                   <g key={arch.id} data-node-id={arch.id} transform={`translate(${arch.offset} 0)`} className="cursor-pointer">
@@ -1099,7 +1488,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
 
             {/* The electorate: the frame everything sits inside. */}
             {layout.frame ? (
-              <g onPointerOver={onNodeOver} onPointerOut={onNodeOut}>
+              <g onPointerOver={onMarkOver} onPointerOut={onMarkOut}>
                 <circle
                   r={layout.frameRadius}
                   fill="none"
@@ -1108,7 +1497,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
                   opacity={0.9}
                   data-node-id={layout.frame.id}
                   className="cursor-pointer"
-                  onClick={onNodeClick}
+                  onClick={onMarkClick}
                 />
                 <text
                   y={-layout.frameRadius - 12}
@@ -1136,8 +1525,8 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
               ref={setLabelRef(entry.node.id)}
               opacity={0}
               dominantBaseline="central"
-              fill={entry.state === "selected" ? "var(--t-color-accent-text)" : "var(--t-color-ink)"}
-              fontWeight={entry.state === "selected" ? 700 : entry.state === "hover" ? 600 : 500}
+              fill={entry.state === "selected" ? "var(--t-color-accent-text)" : entry.state === "member" ? "var(--t-color-ink-muted)" : "var(--t-color-ink)"}
+              fontWeight={entry.state === "selected" ? 700 : 500}
               stroke="var(--t-color-canvas)"
               strokeLinejoin="round"
               style={{ paintOrder: "stroke" }}
@@ -1151,6 +1540,51 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       <p id="grafiek-instructie" className="sr-only">
         {t("graphInstructions")}
       </p>
+
+      {/* What the pointer is over: the name, what kind of body it is, where it belongs. */}
+      {hoverNode || hoverCluster ? (
+        <div
+          ref={tooltipRef}
+          role="tooltip"
+          className="pointer-events-none absolute left-0 top-0 z-10 max-w-[18rem] rounded-md border border-line bg-surface px-2.5 py-2 text-left shadow-lg"
+          style={{ borderLeftWidth: 3, borderLeftColor: hoverBranch ? branchColorVar(hoverBranch) : undefined }}
+        >
+          {hoverNode ? (
+            <>
+              <p className="text-sm font-semibold leading-tight text-ink">{hoverNode.name}</p>
+              {glossOf(hoverNode.name) ? <p className="text-[11px] text-ink-faint">({glossOf(hoverNode.name)})</p> : null}
+              <div className="mt-1.5 flex flex-wrap items-center gap-1">
+                <span
+                  className="rounded-pill border px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide"
+                  style={{ borderColor: branchColorVar(hoverNode.branch), color: branchColorVar(hoverNode.branch) }}
+                >
+                  {localized(locale, ORG_SUBTYPE_LABELS_I18N, hoverNode.subtype)}
+                </span>
+                <span className="rounded-pill border border-line px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-ink-muted">
+                  {localized(locale, TIER_LABELS_I18N, hoverNode.tier)}
+                </span>
+              </div>
+              {hoverParent ? <p className="mt-1 text-[11px] text-ink-muted">{t("parentOf", { parent: hoverParent.name })}</p> : null}
+              <p className="mt-0.5 text-[11px] text-ink-faint">{connectionCountText((layout.adjacency.get(hoverNode.id) ?? []).length)}</p>
+            </>
+          ) : hoverCluster ? (
+            <>
+              <p className="text-sm font-semibold leading-tight text-ink">
+                {t("clusterTip", { n: hoverCluster.members.length, parent: layout.byId.get(hoverCluster.parent)?.name ?? "" })}
+              </p>
+              <div className="mt-1.5 flex flex-wrap items-center gap-1">
+                <span
+                  className="rounded-pill border px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide"
+                  style={{ borderColor: hoverBranch ? branchColorVar(hoverBranch) : undefined, color: hoverBranch ? branchColorVar(hoverBranch) : undefined }}
+                >
+                  {clusterSubtypeLabel(hoverCluster)}
+                </span>
+              </div>
+              <p className="mt-1 text-[11px] text-ink-faint">{activeClusterInfo?.id === hoverCluster.id ? t("clusterCloseHint") : t("clusterOpenHint")}</p>
+            </>
+          ) : null}
+        </div>
+      ) : null}
 
       {selectedNode ? (
         <div className="pointer-events-none absolute inset-x-3 bottom-3 flex justify-center">
@@ -1217,6 +1651,18 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
         >
           0
         </button>
+        <button
+          type="button"
+          onClick={toggleTurn}
+          aria-pressed={turnEnabled}
+          aria-label={t("turnToggle")}
+          title={t("turnToggle")}
+          className={`flex h-8 w-8 items-center justify-center rounded-sm border bg-surface text-sm ${
+            turnEnabled ? "border-accent text-accent-text" : "border-line text-ink-faint hover:text-ink"
+          }`}
+        >
+          ↻
+        </button>
       </div>
 
       <GraphList bundle={bundle} selectedId={selectedId} onSelect={onSelect} hiddenBranches={hiddenBranches} />
@@ -1224,14 +1670,22 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   );
 }
 
-function Mark({ node, state }: { node: LaidOutNode; state: "base" | "dim" | "neighbor" | "path" | "selected" }) {
+/**
+ * One mark: an outline in the branch colour with a translucent fill, so the
+ * rings and edges behind it stay visible. The fill deepens as the mark matters
+ * more: under the pointer, as a relation, on the path, as the selection.
+ */
+function Mark({ node, state, setRef }: { node: LaidOutNode; state: MarkState; setRef: (element: SVGGElement | null) => void }) {
   const color = branchColorVar(node.branch);
   const radius = node.glyphRadius + (state === "selected" ? SELECTED_GROWTH : 0);
-  const fill = state === "selected" || state === "path" ? "var(--t-color-accent)" : color;
-  const opacity = state === "dim" ? DIM_OPACITY : state === "base" ? 0.82 : 1;
+  const accent = state === "selected" || state === "path";
+  const stroke = accent ? "var(--t-color-accent)" : color;
+  const fillOpacity =
+    state === "selected" ? 0.75 : state === "path" ? 0.5 : state === "hover" ? 0.55 : state === "neighbor" ? 0.4 : state === "member" ? 0.3 : 0.22;
+  const opacity = state === "dim" ? DIM_OPACITY : state === "base" || state === "member" ? 0.9 : 1;
 
   return (
-    <g data-node-id={node.id} transform={`translate(${node.x} ${node.y})`} opacity={opacity} className="cursor-pointer">
+    <g ref={setRef} data-node-id={node.id} transform={`translate(${node.x} ${node.y})`} opacity={opacity} className="cursor-pointer">
       <circle r={Math.max(10, radius + 4)} fill="transparent" />
       {state === "selected" ? (
         <circle r={radius + 6} fill="none" stroke="var(--t-color-accent)" strokeWidth={1.5} opacity={0.55} />
@@ -1239,7 +1693,7 @@ function Mark({ node, state }: { node: LaidOutNode; state: "base" | "dim" | "nei
       {state === "neighbor" ? (
         <circle r={radius + 3} fill="none" stroke="var(--t-color-accent-text)" strokeWidth={0.8} opacity={0.7} />
       ) : null}
-      <path d={glyphPath(node.glyph, radius)} fill={fill} />
+      <path d={glyphPath(node.glyph, radius)} fill={stroke} fillOpacity={fillOpacity} stroke={stroke} strokeWidth={state === "hover" ? 1.3 : 1} strokeLinejoin="round" />
       {node.orbit > 0
         ? Array.from({ length: node.orbit }, (_, index) => {
             const fan = (36 * Math.PI) / 180;
