@@ -1,6 +1,6 @@
 # Graph layout specification (nl-tiers-v1)
 
-This is the reproducible layout for the Staatsgraaf canvas. It is written so the web client and the later Swift client can produce identical positions from the same input. The implementation lives in `web/lib/graph.ts`, the interaction layer in `web/lib/pose.ts` and `web/lib/motion.ts`, the renderer in `web/components/graph/graph-canvas.tsx`. The input bundle is built by `web/scripts/build-graph.mjs` into `web/public/graph.json`.
+This is the reproducible layout for the Staatsgraaf canvas. It is written so the web client and the later Swift client draw identical positions from the same file. The packer lives in `web/lib/graph-layout.ts` and runs once at build time in `web/scripts/build-graph.mjs`, which writes the coordinates into `web/public/graph.json`; the client module `web/lib/graph.ts` hydrates that file and never packs. The interaction layer is `web/lib/pose.ts` and `web/lib/motion.ts`, the renderer `web/components/graph/graph-canvas.tsx`. The machtskaart ships separately as `web/public/power-map.json` and is loaded only by the views that show it.
 
 The layout is deterministic. The same dataset always produces the same angle and radius for the same body. There is no physics, no randomness, no time-dependent seed. Sorting never depends on object key order: ties break on `name`, then `id`.
 
@@ -16,14 +16,17 @@ Version `nl-tiers-v1` replaces `nl-sectors-v3`, which copied the reference produ
 
 ## 2. Input and output
 
-Input is a graph bundle with:
+The packer's input (`LayoutInput` in `graph-layout.ts`) is:
 
 - `nodes`: every organization, each with `id`, `slug`, `name`, `type`, `subtype`, `branch`, `level`, `degree`, `parent`.
-- `edges`: every organization-to-organization relation, each with `from`, `to`, `type`.
+- `edges`: every organization-to-organization relation, each with `from`, `to`, `type`, and `validFrom` and `validTo` when the data states them.
 - `hub`: the constituency organization drawn as the frame (`org:kiesgerechtigden-nederland`).
-- `chambers`: seat blocks per elected chamber, for the arches (section 8).
 
-Output is a laid-out graph: every node has `angle` (radians), `radius`, `x`, `y`, `tier`, `sector`, `glyph`, `glyphRadius`, `hidden`, `arch`, `orbit`, `collapsedInto`. The layout also carries `tiers`, `sectors`, `channels`, `coreRadius`, `frameRadius`, `maxRadius` and the fixed `viewBox`.
+The packer's output is a laid-out graph: every node has `angle` (radians), `radius`, `x`, `y`, `tier`, `sector`, `glyph`, `glyphRadius`, `hidden`, `arch`, `orbit`, `collapsedInto`. The layout also carries `tiers` (each with its `sectors`), `channels`, `coreRadius`, `frameRadius`, `maxRadius` and the fixed `viewBox`.
+
+`graph.json` (schema `nl-graph-bundle-v2`) carries that output on the wire in a compact form: each node ships its plain fields plus `x`, `y`, `angle`, `radius`, `tier`, `sector`, and `hidden`, `arch`, `orbit`, `collapsedInto` only when they are set; `glyph` and `glyphRadius` are derived on the client from `subtype` and `degree`. The bundle also carries `tiers`, `channels`, `coreRadius`, `frameRadius`, `maxRadius`, `viewBox` and `chambers` (section 8). `hydrateLayout` in `graph.ts` turns it back into the layout above without packing anything; `web/lib/graph.test.mjs` proves the hydrated layout equals the packer's output field by field.
+
+`power-map.json` carries `powerMap`, `entityPowerMap` and `personSlugs`, and is fetched only when the machtskaart is shown or a person is in focus.
 
 Canvas units are abstract. The renderer maps them to pixels with pan and zoom.
 
@@ -37,7 +40,7 @@ Canvas units are abstract. The renderer maps them to pixels with pan and zoom.
 
 ## 4. The tier table
 
-`TIER_TABLE` in `graph.ts` is the whole assignment rule. Every branch and subtype has exactly one place; a branch the table misses becomes its own sector in the outermost tier rather than being dropped.
+`TIER_TABLE` in `graph-layout.ts` is the whole assignment rule. Every branch and subtype has exactly one place; a branch the table misses becomes its own sector in the outermost tier rather than being dropped.
 
 | Tier | Sectors | Members |
 | --- | --- | --- |
@@ -168,11 +171,13 @@ Edges whose ends move while a pose is open are redrawn every frame in three merg
 
 ## 12. Performance budget
 
-- Layout is computed once per bundle with `useMemo`: 7 ms for 1641 nodes and 1447 edges on the 19-09-2026 snapshot.
+- The layout is computed once, at build time: 7 ms for 1641 nodes and 1447 edges on the 19-09-2026 snapshot. The client hydrates it in a `useMemo` and ships no packer code (`graph-layout.ts` is absent from the client chunks; the build checks this by grepping them).
 - 882 marks are drawn at rest; 756 are collapsed onto their body.
 - Static edges are merged into one path per relation type. Live edges are three paths.
 - Only the marks in the current pose are written per frame, which is at most one tier's worth plus the halo.
-- `graph.json` budget: under 700 KB uncompressed. The measured bundle for 19-09-2026 is 1641 nodes, 1447 edges, 576 KiB, and the build script prints it on every run.
+- `graph.json` budget: under 800 KiB uncompressed and under 100 KiB gzip. Measured for 19-09-2026: 748 KiB, 83 KiB gzip. The coordinates cost about 36 KiB gzip over the packer-free bundle of the previous layout; that is the price of one file every client can draw, and it replaces the packer code the client used to ship.
+- `power-map.json`: 31 KiB, 4.6 KiB gzip, loaded only on demand.
+- The build script prints both sizes on every run.
 
 ## 13. Reproducibility checklist
 

@@ -2,11 +2,12 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
-import { CORE_RADIUS, computeLayout, glyphFootprint } from "./graph.ts";
+import { CORE_RADIUS, glyphFootprint, hydrateLayout } from "./graph.ts";
 import { MAX_HALO, expansionFor, framePose, frameFor, posePosition } from "./pose.ts";
 
 const bundle = JSON.parse(readFileSync(new URL("../public/graph.json", import.meta.url), "utf8"));
-const layout = computeLayout(bundle);
+// The client's layout: hydrated from the shipped coordinates, never packed here.
+const layout = hydrateLayout(bundle);
 
 /** A spread of focus nodes: one per sector, plus the busiest node overall. */
 const samples = (() => {

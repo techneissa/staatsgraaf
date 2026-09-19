@@ -10,25 +10,51 @@ import {
   CORE_RADIUS,
   GLYPH_GAP,
   GRAPH_LAYOUT,
+  GRAPH_SCHEMA,
   SECTOR_GUTTER,
   START_ANGLE,
   alignRotation,
   archParams,
   archSeats,
-  computeLayout,
   glyphFootprint,
+  hydrateLayout,
   routedEdgePath,
   wrapPi,
 } from "./graph.ts";
+import { computeLayout } from "./graph-layout.ts";
 
 const bundle = JSON.parse(readFileSync(new URL("../public/graph.json", import.meta.url), "utf8"));
+/** The packer's output, recomputed here so the shipped coordinates can be checked against it. */
 const layout = computeLayout(bundle);
 
 /** Marks actually drawn at rest: not a collapsed child, not a chamber behind an arch. */
 const drawn = layout.nodes.filter((node) => !node.hidden);
 
-test("the shipped bundle is built with the current layout version", () => {
+test("the shipped bundle is built with the current schema and layout version", () => {
+  assert.equal(bundle.schema, GRAPH_SCHEMA);
   assert.equal(bundle.layout, GRAPH_LAYOUT);
+});
+
+test("hydrating the shipped bundle gives exactly the packer's layout", () => {
+  // Build time is the truth: the client hydrates the file and never packs.
+  const hydrated = hydrateLayout(bundle);
+  assert.equal(hydrated.nodes.length, layout.nodes.length);
+  for (const node of layout.nodes) {
+    const same = hydrated.byId.get(node.id);
+    assert.ok(same, `${node.id} missing from the bundle`);
+    for (const key of ["x", "y", "angle", "radius", "tier", "sector", "hidden", "arch", "orbit", "collapsedInto", "glyph", "glyphRadius"]) {
+      assert.deepEqual(same[key], node[key], `${node.id}.${key}`);
+    }
+  }
+  assert.deepEqual(hydrated.tiers, layout.tiers);
+  assert.deepEqual(hydrated.sectors, layout.sectors);
+  assert.deepEqual(hydrated.channels, layout.channels);
+  assert.equal(hydrated.frame?.radius, layout.frameRadius);
+  assert.deepEqual(hydrated.viewBox, layout.viewBox);
+  assert.deepEqual([...hydrated.adjacency.get(layout.nodes[0].id)], [...layout.adjacency.get(layout.nodes[0].id)]);
+  // Rest-state defaults are not shipped.
+  const shipped = bundle.nodes.find((node) => !node.hidden && !node.orbit);
+  assert.ok(shipped && !("glyph" in shipped) && !("collapsedInto" in shipped) && !("arch" in shipped), "wire nodes carry only what the client cannot derive");
 });
 
 test("every node outside the frame is laid out exactly once", () => {

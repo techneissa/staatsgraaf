@@ -5,7 +5,7 @@ import { readFileSync } from "node:fs";
 import { layoutPowerMap, powerMapCardBox, powerMapLinkPath } from "./power-map-layout.ts";
 
 const bundle = JSON.parse(
-  readFileSync(new URL("../public/graph.json", import.meta.url), "utf8"),
+  readFileSync(new URL("../public/power-map.json", import.meta.url), "utf8"),
 );
 
 const people = bundle.powerMap.people;

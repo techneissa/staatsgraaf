@@ -28,12 +28,10 @@ import {
   GLYPH_GAP,
   HUB_RADIUS,
   SECTOR_ORDER,
-  compareNames,
-  computeDepths,
-  computeLayout,
   glyphFootprint,
   glyphRadiusForDegree,
 } from "../../web/lib/graph.ts";
+import { compareNames, computeDepths, computeLayout } from "../../web/lib/graph-layout.ts";
 import { glyphPath, hubBurstPath } from "../../web/components/graph/glyph.ts";
 import { ORG_BRANCH_LABELS } from "../../web/lib/labels.ts";
 import { isSplinterGroup, partyByDataset } from "../../web/lib/parties.ts";
