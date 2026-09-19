@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-380 -340 760 480" width="760" height="480" font-family="system-ui, sans-serif">
 <rect x="-380" y="-340" width="760" height="480" fill="#FBFAF7"/>
-<text x="-364" y="-316" font-size="18" font-weight="700" fill="#1F2330">Tweede Kamer: 150 zetels, meerderheid 76 (H3 rows, H6 order)</text>
+<text x="-364" y="-316" font-size="18" font-weight="700" fill="#1F2330">Tweede Kamer, semicircle (for comparison only)</text>
 <text x="-364" y="-298" font-size="10" fill="#5B6070">Coalition outline: pending data/coalitions.json (phase 3). Seat order: fractie blocks, largest first from the left (H6); real zaalindeling (H5) pending seatNumber sourcing.</text>
 <circle cx="-120" cy="0" r="12" fill="#00AE41"><title>D66</title></circle>
 <circle cx="-154" cy="0" r="12" fill="#00AE41"><title>D66</title></circle>

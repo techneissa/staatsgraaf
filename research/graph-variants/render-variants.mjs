@@ -482,6 +482,191 @@ function layoutShells() {
 }
 
 // ---------------------------------------------------------------------------
+// Shells with sectors (variant B2): the owner's concentric tier layout with a
+// curated ring for every branch and subtype, sectors inside each ring, and
+// the electorate either at the centre (hub) or as the outer frame.
+// ---------------------------------------------------------------------------
+
+const RING_TABLE = [
+  {
+    label: "Grondwettelijke kern",
+    sectors: [
+      { id: "hoge-colleges", label: "Hoge Colleges van Staat", member: (n) => n.branch === "hoge-colleges" },
+      { id: "rechterlijke-macht", label: "Rechterlijke macht", member: (n) => n.branch === "rechterlijke-macht" },
+    ],
+  },
+  {
+    label: "Politieke kern",
+    sectors: [
+      { id: "staten-generaal", label: "Staten-Generaal", member: (n) => n.branch === "staten-generaal", anchor: (n) => n.subtype === "tweede-kamer" || n.subtype === "eerste-kamer" },
+      { id: "regering", label: "Regering en kabinet", member: (n) => n.branch === "regering" && (n.subtype === "land-regering" || n.subtype === "commissie") },
+    ],
+  },
+  {
+    label: "Ministeries",
+    sectors: [{ id: "ministeries", label: "Ministeries", member: (n) => n.branch === "regering" && n.subtype === "ministerie" }],
+  },
+  {
+    label: "Uitvoering, toezicht en advies",
+    sectors: [
+      { id: "uitvoering", label: "Uitvoering", member: (n) => n.branch === "regering" && (n.subtype === "agentschap" || n.subtype === "uitvoeringsorganisatie") },
+      { id: "inspecties", label: "Inspecties", member: (n) => n.branch === "regering" && n.subtype === "inspectie" },
+      { id: "zelfstandig", label: "Op afstand (zbo, rwt)", member: (n) => n.branch === "zelfstandig" },
+      { id: "advies", label: "Advies en planbureaus", member: (n) => n.branch === "adviescolleges" },
+    ],
+  },
+  {
+    label: "Decentrale overheden",
+    sectors: [
+      { id: "provincies", label: "Provincies", member: (n) => n.branch === "decentraal-provinciaal" },
+      { id: "gemeenten", label: "Gemeenten", member: (n) => n.branch === "decentraal-lokaal" },
+      { id: "waterschappen", label: "Waterschappen", member: (n) => n.branch === "waterschap" },
+      { id: "caribisch", label: "Caribisch Nederland", member: (n) => n.branch === "caribisch-nederland" },
+    ],
+  },
+  {
+    label: "Koninkrijk",
+    sectors: [{ id: "koninkrijk", label: "Landen van het Koninkrijk", member: (n) => n.branch === "koninkrijk" }],
+  },
+];
+const RING_GAP_B2 = 30;
+const SECTOR_GUTTER_B2 = 3 * DEG;
+
+function sectorColor(sector) {
+  const map = { "hoge-colleges": "hoge-colleges", "rechterlijke-macht": "rechterlijke-macht", "staten-generaal": "staten-generaal", regering: "regering", ministeries: "regering", uitvoering: "regering", inspecties: "regering", zelfstandig: "zelfstandig", advies: "adviescolleges", provincies: "decentraal-provinciaal", gemeenten: "decentraal-lokaal", waterschappen: "waterschap", caribisch: "caribisch-nederland", koninkrijk: "koninkrijk" };
+  return branchColor(map[sector.id] ?? "zelfstandig");
+}
+
+function layoutShells2(options = {}) {
+  const placed = new Map();
+  const assigned = new Set();
+  const rings = [];
+  let radius = options.hub === "frame" ? 84 : HUB_RADIUS + 40;
+  RING_TABLE.forEach((ring, ringIndex) => {
+    const sectors = ring.sectors.map((sector) => {
+      const members = nodes.filter((node) => !assigned.has(node.id) && sector.member(node));
+      for (const node of members) assigned.add(node.id);
+      const demand = members.reduce((sum, node) => sum + glyphFootprint(node) * 2 + GLYPH_GAP, 0);
+      return { ...sector, members, weight: Math.sqrt(Math.max(1, demand)) };
+    });
+    const live = sectors.filter((sector) => sector.members.length > 0);
+    const usable = TAU - live.length * SECTOR_GUTTER_B2;
+    const weightTotal = live.reduce((sum, sector) => sum + sector.weight, 0);
+    // A sector's arc must at least hold its widest members side by side on the inner radius.
+    const minimums = live.map((sector) => Math.min(usable / live.length, (2 * Math.max(...sector.members.map(glyphFootprint)) + GLYPH_GAP) * 3 / radius));
+    let spans = live.map((sector, i) => Math.max(minimums[i], (sector.weight / weightTotal) * usable));
+    const excess = spans.reduce((sum, v) => sum + v, 0) - usable;
+    if (excess > 0) {
+      const flexible = spans.reduce((sum, v, i) => sum + Math.max(0, v - minimums[i]), 0);
+      spans = spans.map((v, i) => Math.max(minimums[i], v - (excess * Math.max(0, v - minimums[i])) / flexible));
+    }
+    let cursor = -Math.PI / 2;
+    let outer = radius;
+    const laid = [];
+    live.forEach((sector, i) => {
+      const start = cursor + SECTOR_GUTTER_B2 / 2;
+      const end = start + spans[i];
+      let inner = radius;
+      let block = null;
+      if (options.hemicycle && sector.id === "staten-generaal") {
+        // The chambers are drawn as ∩ arches at the sector's inner edge; the
+        // commissies pack beyond them. Anchors hide at the block centre.
+        const mid = (start + end) / 2;
+        const h = options.hemicycle.height;
+        block = { mid, radius: radius + h / 2 };
+        for (const node of sector.members.filter((n) => sector.anchor?.(n))) {
+          placed.set(node.id, { node, x: round(Math.cos(mid) * block.radius), y: round(Math.sin(mid) * block.radius), hidden: true, group: sector.id });
+        }
+        inner = radius + h + 10;
+      }
+      const rest = sortByDepthName(sector.members.filter((n) => !placed.has(n.id)));
+      const sectorOuter = rest.length > 0 ? packRings(rest, 0, 0, inner, ringStepFor(rest), start, end, placed) : inner;
+      for (const node of sector.members) {
+        const entry = placed.get(node.id);
+        if (entry) entry.group = sector.id;
+      }
+      laid.push({ ...sector, start, end, mid: (start + end) / 2, outer: sectorOuter, block });
+      outer = Math.max(outer, sectorOuter);
+      cursor = end + SECTOR_GUTTER_B2 / 2;
+    });
+    rings.push({ label: ring.label, index: ringIndex, inner: radius, outer, sectors: laid, count: live.reduce((s, x) => s + x.members.length, 0) });
+    radius = outer + RING_GAP_B2;
+  });
+  const leftover = nodes.filter((node) => !assigned.has(node.id));
+  if (leftover.length > 0) {
+    radius = packRings(sortByDepthName(leftover), 0, 0, radius, ringStepFor(leftover), -Math.PI / 2, -Math.PI / 2 + TAU, placed);
+    for (const node of leftover) {
+      const entry = placed.get(node.id);
+      if (entry) entry.group = "band";
+    }
+  }
+  return { placed, rings, outerReach: radius, leftover };
+}
+
+function shells2Chrome(result, options) {
+  const parts = [];
+  for (const ring of result.rings) {
+    parts.push(`<circle r="${round(ring.inner - 12)}" fill="none" stroke="#1F2330" stroke-opacity="0.16" stroke-width="0.8"/>`);
+    parts.push(`<text x="0" y="${round(-(ring.inner - 16))}" text-anchor="middle" font-size="13" letter-spacing="0.14em" fill="#1F2330" opacity="0.65">${escape(ring.label.toUpperCase())} (${ring.count})</text>`);
+    for (const sector of ring.sectors) {
+      const p = (r, a) => `${round(Math.cos(a) * r)} ${round(Math.sin(a) * r)}`;
+      const r0 = ring.inner - 8;
+      const r1 = sector.outer + 8;
+      const large = sector.end - sector.start > Math.PI ? 1 : 0;
+      parts.push(`<path d="M ${p(r0, sector.start)} L ${p(r1, sector.start)} A ${round(r1)} ${round(r1)} 0 ${large} 1 ${p(r1, sector.end)} L ${p(r0, sector.end)} A ${round(r0)} ${round(r0)} 0 ${large} 0 ${p(r0, sector.start)} Z" fill="${sectorColor(sector)}" fill-opacity="0.07" stroke="${sectorColor(sector)}" stroke-opacity="0.3" stroke-width="0.6"/>`);
+      if (sector.members.length >= 3 && sector.end - sector.start > 12 * DEG) {
+        parts.push(`<text x="${round(Math.cos(sector.mid) * (sector.outer + 2))}" y="${round(Math.sin(sector.mid) * (sector.outer + 2))}" font-size="8" text-anchor="middle" fill="${sectorColor(sector)}">${escape(sector.label)}</text>`);
+      }
+    }
+  }
+  if (options.hub === "frame") {
+    parts.push(`<circle r="70" fill="#FFFFFF" stroke="#1F2330" stroke-opacity="0.5" stroke-width="1.2"/><text text-anchor="middle" font-size="12" letter-spacing="0.16em" fill="#1F2330"><tspan x="0" dy="-4">GRONDWET</tspan><tspan x="0" dy="14" font-size="9" letter-spacing="0.1em">EN STATUUT</tspan></text>`);
+    const R = result.outerReach + 36;
+    parts.push(`<circle r="${round(R)}" fill="none" stroke="#D97A26" stroke-width="2.2" stroke-opacity="0.9"/><text x="0" y="${round(-R - 10)}" text-anchor="middle" font-size="16" font-weight="700" letter-spacing="0.18em" fill="#D97A26">KIESGERECHTIGDEN NEDERLAND</text>`);
+    result.outerReach = R;
+  }
+  return parts.join("\n");
+}
+
+function renderShells2(id, title, options) {
+  setCollapse(options.collapse === true);
+  const result = layoutShells2(options);
+  const groupOf = (entry) => entry.group;
+  let extra = "";
+  if (options.hemicycle) {
+    const sector = result.rings[1].sectors.find((s) => s.id === "staten-generaal");
+    const rot = sector.block.mid + Math.PI / 2; // local up = outward
+    const step = 4.2;
+    // Side by side along the ring: the Tweede Kamer arch, then the smaller Eerste Kamer arch.
+    const tk = hemicycleSvg("org:tweede-kamer", TK_ROWS, 0, step, 1.5, options.hemicycle.flip, -20, 0, false, TK_ARCH);
+    const ek = hemicycleSvg("org:eerste-kamer", EK_ROWS, 0, 3.2, 1.1, options.hemicycle.flip, 28, 0, false, EK_ARCH);
+    const cx = Math.cos(sector.block.mid) * sector.block.radius;
+    const cy = Math.sin(sector.block.mid) * sector.block.radius;
+    extra = `<g transform="translate(${round(cx)} ${round(cy)}) rotate(${round(rot / DEG)})">${tk.svg}${ek.svg}</g>`;
+  }
+  const chrome = shells2Chrome(result, options);
+  const hub = options.hub === "frame" ? "" : hubSvg();
+  const channels = result.rings.map((r) => r.inner - RING_GAP_B2 / 2);
+  const metrics = record(id, title, result.placed, groupOf, result.outerReach + 50, {
+    shells: result.rings.map((r) => `${r.label}:${r.count}/${Math.round(r.inner)}-${Math.round(r.outer)}`).join(" "),
+    band: result.leftover.length,
+    collapsed: options.collapse ? collapsedInto.size : 0,
+    routed: true,
+  });
+  const body = [chrome, edgesSvg(result.placed, groupOf, { channels, frameRadius: options.hub === "frame" ? result.outerReach : null }), nodesSvg(result.placed), extra, hub, anchorLabels(result.placed, LABEL_ANCHOR)].join("\n");
+  writeFileSync(`${OUT}${id}.svg`, wrapSvg(body, result.outerReach + 50, title, `nodes ${metrics.nodes}${options.collapse ? ` (${collapsedInto.size} collapsed)` : ""}, overlaps ${metrics.overlaps}, cross-sector edges ${metrics.crossGroup} routed along the ring gaps (0 through the centre by construction; ${metrics.crossHub} would cross it as straight lines), longest edge ${metrics.longest}, reach ${metrics.reach}`));
+  if (options.hemicycle) {
+    const sector = result.rings[1].sectors.find((s) => s.id === "staten-generaal");
+    const cx = Math.cos(sector.block.mid) * sector.block.radius;
+    const cy = Math.sin(sector.block.mid) * sector.block.radius;
+    const r = 90;
+    writeFileSync(`${OUT}${id}-detail.svg`, `<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" viewBox="${round(cx - r)} ${round(cy - r)} ${round(2 * r)} ${round(2 * r)}" width="900" height="900" font-family="system-ui, sans-serif"><rect x="${round(cx - r)}" y="${round(cy - r)}" width="${round(2 * r)}" height="${round(2 * r)}" fill="#FBFAF7"/>${body}</svg>\n`);
+  }
+  setCollapse(false);
+  return result;
+}
+
+// ---------------------------------------------------------------------------
 // Hemicycle
 // ---------------------------------------------------------------------------
 
@@ -509,6 +694,48 @@ function hemicycleSeats(rows, r0, step, flip = false) {
   return seats;
 }
 
+/**
+ * Seats of a ∩ arch: `rows` concentric arcs over the top (angle pi to 0) that
+ * continue as straight vertical legs of `legRows` seats on each side, the
+ * shape of the Tweede Kamer plenary hall. Seat pitch equals `step` along the
+ * arc and down the legs so every seat has the same neighbour distance. Seats
+ * come back sorted along the path (left leg bottom, up, over the arch, down
+ * the right leg), so a consecutive fill gives contiguous blocks per fractie.
+ * The arch opens downward; `flip` opens it upward.
+ */
+function archSeats(rows, r0, step, legRows, flip = false) {
+  const seats = [];
+  const sign = flip ? -1 : 1;
+  for (let row = 0; row < rows; row += 1) {
+    const radius = r0 + row * step;
+    const count = Math.max(1, Math.round((Math.PI * radius) / step));
+    for (let seat = 0; seat < count; seat += 1) {
+      const t = count === 1 ? 0.5 : seat / (count - 1);
+      const angle = Math.PI + t * Math.PI;
+      // path position: legs use 0..1 (left) and 2..3 (right), the arc 1..2
+      seats.push({ x: Math.cos(angle) * radius, y: sign * Math.sin(angle) * radius, row, path: 1 + t, arc: true, t });
+    }
+    for (let k = 1; k <= legRows; k += 1) {
+      const y = sign * k * step;
+      seats.push({ x: -radius, y, row, path: 1 - k / (legRows + 1), arc: false, k });
+      seats.push({ x: radius, y, row, path: 2 + k / (legRows + 1), arc: false, k });
+    }
+  }
+  seats.sort((a, b) => a.path - b.path || a.row - b.row);
+  return seats;
+}
+
+/** Arch parameters that give exactly `total` seats; asserted, never guessed. */
+function archParams(total, rows, r0Steps) {
+  let arc = 0;
+  for (let row = 0; row < rows; row += 1) arc += Math.max(1, Math.round(Math.PI * (r0Steps + row)));
+  const legRows = (total - arc) / (2 * rows);
+  if (!Number.isInteger(legRows) || legRows < 1) throw new Error(`arch(${total}, rows ${rows}, r0 ${r0Steps}) leaves ${total - arc} leg seats, not divisible by ${2 * rows}`);
+  return { rows, r0Steps, legRows, arc };
+}
+const TK_ARCH = archParams(150, 5, 2.5); // 70 arc seats + 2 legs of 5 x 8
+const EK_ARCH = archParams(75, 3, 2.5); // 33 arc seats + 2 legs of 3 x 7
+
 function tallyFor(orgId) {
   const current = memberships.filter((m) => m.organization === orgId && m.end === null);
   const grouped = new Map();
@@ -530,9 +757,11 @@ function tallyFor(orgId) {
   return { total: current.length, majority: Math.floor(current.length / 2) + 1, entries };
 }
 
-function hemicycleSvg(orgId, rows, r0, step, seatRadius, flip, offsetX = 0, offsetY = 0, showLabels = true) {
+function hemicycleSvg(orgId, rows, r0, step, seatRadius, flip, offsetX = 0, offsetY = 0, showLabels = true, arch = null) {
   const tally = tallyFor(orgId);
-  const seats = hemicycleSeats(rows, r0, step, flip);
+  const seats = arch ? archSeats(arch.rows, arch.r0Steps * step, step, arch.legRows, flip) : hemicycleSeats(rows, r0, step, flip);
+  const rowCount = arch ? arch.rows : rows.length;
+  const rowBase = arch ? arch.r0Steps * step : r0;
   const parts = [];
   let cursor = 0;
   const labels = [];
@@ -545,10 +774,18 @@ function hemicycleSvg(orgId, rows, r0, step, seatRadius, flip, offsetX = 0, offs
     }
     if (showLabels && block.length >= 9) {
       const mid = block[Math.floor(block.length / 2)];
-      const labelRadius = r0 + rows.length * step + 6;
-      const angle = Math.PI + mid.angle * Math.PI;
-      const lx = offsetX + Math.cos(angle) * labelRadius;
-      const ly = offsetY + (flip ? -1 : 1) * Math.sin(angle) * labelRadius;
+      const labelRadius = rowBase + rowCount * step + 6;
+      let lx;
+      let ly;
+      if (arch && !mid.arc) {
+        // leg label: outside the outer column, at the block's middle height
+        lx = offsetX + Math.sign(mid.x) * (labelRadius + 30);
+        ly = offsetY + mid.y;
+      } else {
+        const angle = Math.PI + (arch ? mid.t : mid.angle) * Math.PI;
+        lx = offsetX + Math.cos(angle) * labelRadius;
+        ly = offsetY + (flip ? -1 : 1) * Math.sin(angle) * labelRadius;
+      }
       labels.push(`<text x="${round(lx)}" y="${round(ly)}" font-size="${seatRadius * 2.2}" text-anchor="middle" fill="#2B2F3A">${escape(entry.label)} ${entry.seats}</text>`);
     }
     cursor += entry.seats;
@@ -556,17 +793,26 @@ function hemicycleSvg(orgId, rows, r0, step, seatRadius, flip, offsetX = 0, offs
   // Majority marker at the boundary before seat `majority` (1-based).
   const boundary = seats[tally.majority - 1];
   const before = seats[tally.majority - 2];
-  const t = before ? (boundary.angle + before.angle) / 2 : boundary.angle;
-  const angle = Math.PI + t * Math.PI;
   const sign = flip ? -1 : 1;
-  const rIn = r0 - step * 0.9;
-  const rOut = r0 + rows.length * step - step * 0.1;
-  parts.push(
-    `<line x1="${round(offsetX + Math.cos(angle) * rIn)}" y1="${round(offsetY + sign * Math.sin(angle) * rIn)}" x2="${round(offsetX + Math.cos(angle) * rOut)}" y2="${round(offsetY + sign * Math.sin(angle) * rOut)}" stroke="#1F2330" stroke-width="${seatRadius * 0.5}" stroke-dasharray="${seatRadius} ${seatRadius * 0.6}"/>`,
-  );
+  const rIn = rowBase - step * 0.9;
+  const rOut = rowBase + rowCount * step - step * 0.1;
+  const dash = `stroke="#1F2330" stroke-width="${seatRadius * 0.5}" stroke-dasharray="${seatRadius} ${seatRadius * 0.6}"`;
+  if (arch && !boundary.arc && before && !before.arc) {
+    // boundary inside a leg: a horizontal line across the columns
+    const y = offsetY + (boundary.y + before.y) / 2;
+    const xs = Math.sign(boundary.x);
+    parts.push(`<line x1="${round(offsetX + xs * rIn)}" y1="${round(y)}" x2="${round(offsetX + xs * rOut)}" y2="${round(y)}" ${dash}/>`);
+  } else {
+    const tA = arch ? (boundary.arc ? boundary.t : before.t) : boundary.angle;
+    const tB = before ? (arch ? (before.arc ? before.t : boundary.t) : before.angle) : tA;
+    const angle = Math.PI + ((tA + tB) / 2) * Math.PI;
+    parts.push(
+      `<line x1="${round(offsetX + Math.cos(angle) * rIn)}" y1="${round(offsetY + sign * Math.sin(angle) * rIn)}" x2="${round(offsetX + Math.cos(angle) * rOut)}" y2="${round(offsetY + sign * Math.sin(angle) * rOut)}" ${dash}/>`,
+    );
+  }
   if (showLabels) {
-    parts.push(`<text x="${round(offsetX)}" y="${round(offsetY + (flip ? 1 : -1) * (r0 * 0.45))}" font-size="${seatRadius * 1.6}" text-anchor="middle" fill="#1F2330" font-weight="600">${tally.total} zetels</text>`);
-    parts.push(`<text x="${round(offsetX)}" y="${round(offsetY + (flip ? 1 : -1) * (r0 * 0.45) + seatRadius * 2)}" font-size="${seatRadius * 1.2}" text-anchor="middle" fill="#5B6070">meerderheid ${tally.majority}</text>`);
+    parts.push(`<text x="${round(offsetX)}" y="${round(offsetY + (flip ? 1 : -1) * (rowBase * 0.45))}" font-size="${seatRadius * 1.6}" text-anchor="middle" fill="#1F2330" font-weight="600">${tally.total} zetels</text>`);
+    parts.push(`<text x="${round(offsetX)}" y="${round(offsetY + (flip ? 1 : -1) * (rowBase * 0.45) + seatRadius * 2)}" font-size="${seatRadius * 1.2}" text-anchor="middle" fill="#5B6070">meerderheid ${tally.majority}</text>`);
   }
   if (showLabels) {
     const small = tally.entries.filter((entry) => entry.seats < 9);
@@ -574,12 +820,13 @@ function hemicycleSvg(orgId, rows, r0, step, seatRadius, flip, offsetX = 0, offs
       const col = index % 4;
       const row = Math.floor(index / 4);
       const lx = offsetX - 1.5 * 100 + col * 100;
-      const ly = offsetY + 26 + row * 16;
+      const ly = offsetY + (arch ? (flip ? -1 : 1) * (arch.legRows + 1.5) * step : 0) + 26 + row * 16;
       labels.push(`<circle cx="${round(lx)}" cy="${round(ly)}" r="5" fill="${entry.color}"/><text x="${round(lx + 9)}" y="${round(ly + 4)}" font-size="11" fill="#2B2F3A">${escape(entry.label)} ${entry.seats}</text>`);
     });
   }
-  const outer = r0 + (rows.length - 1) * step + seatRadius;
-  return { svg: parts.join("\n") + "\n" + labels.join("\n"), tally, outer };
+  const outer = rowBase + (rowCount - 1) * step + seatRadius;
+  const legDepth = arch ? arch.legRows * step + seatRadius : 0;
+  return { svg: parts.join("\n") + "\n" + labels.join("\n"), tally, outer, legDepth };
 }
 
 // ---------------------------------------------------------------------------
@@ -674,7 +921,32 @@ function nodesSvg(placed) {
   return parts.join("\n");
 }
 
-function edgesSvg(placed, groupOf) {
+/**
+ * Ring-routed edge for the shell model: out (or in) along the radius to the
+ * channel between the two rings, along the channel to the other angle, then
+ * radially to the target. Nothing ever crosses the centre, and edges bundle
+ * in the gaps between rings the way the reference mockup shows them.
+ */
+function routedPath(a, b, channels) {
+  const ra = Math.hypot(a.x, a.y);
+  const rb = Math.hypot(b.x, b.y);
+  const ta = Math.atan2(a.y, a.x);
+  const tb = Math.atan2(b.y, b.x);
+  const inner = Math.min(ra, rb);
+  const outer = Math.max(ra, rb);
+  // The channel is the ring gap between the two radii, or the gap just inside the shared ring.
+  let rc = channels.find((c) => c > inner && c < outer);
+  if (rc === undefined) rc = [...channels].reverse().find((c) => c < inner) ?? inner - 14;
+  let delta = tb - ta;
+  while (delta > Math.PI) delta -= TAU;
+  while (delta < -Math.PI) delta += TAU;
+  const sweep = delta > 0 ? 1 : 0;
+  const large = Math.abs(delta) > Math.PI ? 1 : 0;
+  const p = (r, t) => `${round(Math.cos(t) * r)} ${round(Math.sin(t) * r)}`;
+  return `M ${round(a.x)} ${round(a.y)} L ${p(rc, ta)} A ${round(rc)} ${round(rc)} 0 ${large} ${sweep} ${p(rc, tb)} L ${round(b.x)} ${round(b.y)}`;
+}
+
+function edgesSvg(placed, groupOf, options = {}) {
   const parts = [];
   for (const edge of edges) {
     if (edge.from === hubId || edge.to === hubId) continue;
@@ -683,15 +955,25 @@ function edgesSvg(placed, groupOf) {
     if (!a || !b) continue;
     const cross = groupOf(a) !== groupOf(b);
     const color = cross ? EDGE_COLOR[edge.type] ?? "#8A8FA3" : "#8A8FA3";
-    parts.push(`<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="${color}" stroke-width="${cross ? 0.9 : 0.5}" opacity="${cross ? 0.55 : 0.22}"/>`);
+    if (options.channels && cross) {
+      parts.push(`<path d="${routedPath(a, b, options.channels)}" fill="none" stroke="${color}" stroke-width="0.7" opacity="0.3"/>`);
+    } else {
+      parts.push(`<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" stroke="${color}" stroke-width="${cross ? 0.9 : 0.5}" opacity="${cross ? 0.55 : 0.22}"/>`);
+    }
   }
-  // Hub edges: drawn from the hub to the target.
+  // Hub edges: from the hub at the centre, or from the electorate frame ring at the target's angle.
   for (const edge of edges) {
     const other = edge.from === hubId ? edge.to : edge.to === hubId ? edge.from : null;
     if (!other) continue;
     const b = placed.get(other);
     if (!b) continue;
-    parts.push(`<line x1="0" y1="0" x2="${b.x}" y2="${b.y}" stroke="${EDGE_COLOR[edge.type] ?? "#8A8FA3"}" stroke-width="1.4" opacity="0.8"/>`);
+    const color = EDGE_COLOR[edge.type] ?? "#8A8FA3";
+    if (options.frameRadius) {
+      const t = Math.atan2(b.y, b.x);
+      parts.push(`<line x1="${round(Math.cos(t) * options.frameRadius)}" y1="${round(Math.sin(t) * options.frameRadius)}" x2="${b.x}" y2="${b.y}" stroke="${color}" stroke-width="1.6" opacity="0.85"/>`);
+    } else {
+      parts.push(`<line x1="0" y1="0" x2="${b.x}" y2="${b.y}" stroke="${color}" stroke-width="1.4" opacity="0.8"/>`);
+    }
   }
   return parts.join("\n");
 }
@@ -897,30 +1179,40 @@ renderPoles("A2-H2", "Variant A2-H2: Staten-Generaal pole as hemicycles opening 
   );
 }
 
+// B2: the owner's concentric tier layout, curated rings, sectors, collapse.
+renderShells2("B2", "Variant B2: concentric tiers, electorate at the centre, collapsed triads", { hub: "centre", collapse: true });
+renderShells2("B2f", "Variant B2f: concentric tiers, Grondwet at the centre, electorate as the outer frame", { hub: "frame", collapse: true });
+renderShells2("B2-full", "Variant B2-full: concentric tiers without collapsing (every raad and commissie drawn)", { hub: "centre", collapse: false });
+renderShells2("B2-H2", "Variant B2-H2: concentric tiers with the Kamers as ∩ arches opening away from the centre", { hub: "centre", collapse: true, hemicycle: { height: 64, flip: false } });
+renderShells2("B2-H1", "Variant B2-H1: concentric tiers with the Kamers as ∩ arches opening toward the centre", { hub: "centre", collapse: true, hemicycle: { height: 64, flip: true } });
+
 // Standalone hemicycles for the entity page (H3 rows, H6 fractie blocks).
-function standaloneHemicycle(file, orgId, rows, title) {
-  const chart = hemicycleSvg(orgId, rows, 120, 34, 12, false, 0, 0, true);
+function standaloneHemicycle(file, orgId, rows, title, arch = null) {
+  const chart = hemicycleSvg(orgId, rows, 120, 34, 12, false, 0, 0, true, arch);
   const coalitionNote =
     coalitions.length === 0
       ? "Coalition outline: pending data/coalitions.json (phase 3). Seat order: fractie blocks, largest first from the left (H6); real zaalindeling (H5) pending seatNumber sourcing."
       : "Coalition outline from data/coalitions.json.";
   const w = 760;
+  const h = 480 + (arch ? chart.legDepth : 0);
   writeFileSync(
     `${OUT}${file}`,
     `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="${-w / 2} -340 ${w} 480" width="${w}" height="480" font-family="system-ui, sans-serif">
-<rect x="${-w / 2}" y="-340" width="${w}" height="480" fill="#FBFAF7"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="${-w / 2} -340 ${w} ${h}" width="${w}" height="${h}" font-family="system-ui, sans-serif">
+<rect x="${-w / 2}" y="-340" width="${w}" height="${h}" fill="#FBFAF7"/>
 <text x="${-w / 2 + 16}" y="-316" font-size="18" font-weight="700" fill="#1F2330">${escape(title)}</text>
 <text x="${-w / 2 + 16}" y="-298" font-size="10" fill="#5B6070">${escape(coalitionNote)}</text>
 ${chart.svg}
-<text x="0" y="120" font-size="11" text-anchor="middle" fill="#5B6070">Rows ${rows.join(", ")} (H3). Colours: web/lib/parties.ts (ADR 0009); grey = no sourced colour. Data: current memberships, ${escape(orgId)}.</text>
+<text x="0" y="${120 + (arch ? chart.legDepth : 0)}" font-size="11" text-anchor="middle" fill="#5B6070">${arch ? `Arch: ${arch.rows} rows, ${arch.arc} arc seats, legs ${arch.rows} x ${arch.legRows} per side` : `Rows ${rows.join(", ")} (H3)`}. Colours: web/lib/parties.ts (ADR 0009); grey = no sourced colour. Data: current memberships, ${escape(orgId)}.</text>
 </svg>
 `,
   );
   return chart.tally;
 }
-const tkTally = standaloneHemicycle("hemicycle-tk.svg", "org:tweede-kamer", TK_ROWS, "Tweede Kamer: 150 zetels, meerderheid 76 (H3 rows, H6 order)");
-const ekTally = standaloneHemicycle("hemicycle-ek.svg", "org:eerste-kamer", EK_ROWS, "Eerste Kamer: 75 zetels, meerderheid 38 (H3 rows, H6 order)");
+const tkTally = standaloneHemicycle("hemicycle-tk.svg", "org:tweede-kamer", TK_ROWS, "Tweede Kamer, semicircle (for comparison only)");
+const ekTally = standaloneHemicycle("hemicycle-ek.svg", "org:eerste-kamer", EK_ROWS, "Eerste Kamer, semicircle (for comparison only)");
+standaloneHemicycle("arch-tk.svg", "org:tweede-kamer", TK_ROWS, "Tweede Kamer: 150 zetels, meerderheid 76 (∩ arch, H6 order)", TK_ARCH);
+standaloneHemicycle("arch-ek.svg", "org:eerste-kamer", EK_ROWS, "Eerste Kamer: 75 zetels, meerderheid 38 (∩ arch, H6 order)", EK_ARCH);
 
 // ---------------------------------------------------------------------------
 // Report
@@ -939,7 +1231,7 @@ lines.push("");
 lines.push("| Variant | Nodes placed | Collapsed | Missing | Glyph overlaps | Edges through hub | Cross-group edges | Longest edge | Reach | Detail |");
 lines.push("| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |");
 for (const m of report) {
-  lines.push(`| ${m.id} | ${m.nodes} | ${m.collapsed ?? 0} | ${m.missing} | ${m.overlaps} | ${m.crossHub} | ${m.crossGroup} | ${m.longest} | ${m.reach} | ${m.poles ?? m.shells ?? ""}${m.band ? ` band:${m.band}` : ""} |`);
+  lines.push(`| ${m.id} | ${m.nodes} | ${m.collapsed ?? 0} | ${m.missing} | ${m.overlaps} | ${m.routed ? `0 routed (${m.crossHub} as chords)` : m.crossHub} | ${m.crossGroup} | ${m.longest} | ${m.reach} | ${m.poles ?? m.shells ?? ""}${m.band ? ` band:${m.band}` : ""} |`);
 }
 lines.push("");
 lines.push("Pole detail reads `pole:members/radius`; shell detail reads `shell:members/inner-outer`. Reach is the half-size of the viewBox in canvas units.");
@@ -960,4 +1252,4 @@ lines.push("");
 writeFileSync(`${OUT}report.md`, lines.join("\n"));
 
 console.log(lines.slice(6, 8 + report.length).join("\n"));
-console.log(`\nWrote ${report.length} layout SVGs and 2 hemicycle SVGs to ${OUT}`);
+console.log(`\nWrote ${report.length} layout SVGs and 4 seat-chart SVGs to ${OUT}`);

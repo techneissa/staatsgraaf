@@ -1,7 +1,7 @@
 # ADR 0015: Graph rebuild, layout model, renderer and motion
 
 Date: 19-09-2026
-Status: proposed (accepted once P1 to P3 in `docs/13-graph-rebuild-plan.md` are decided)
+Status: proposed, amended 19-09-2026 (accepted once P2, P3, P6 and P7 in `docs/13-graph-rebuild-plan.md` are decided)
 
 ## Context
 
@@ -23,9 +23,22 @@ Two conclusions drove this record. First, the reference's geometry misreads the 
 10. **The Tweede Kamer is a hemicycle.** The Staten-Generaal pole draws the Tweede Kamer as a ∩ of 150 seats and the Eerste Kamer as a ∩ of 75 nested inside it; the same component serves the chamber and party pages. Orientation and seat order are pending decisions (P2, P3), compared on rendered variants.
 11. **Sources for this work** are primary legal texts, the Kiesraad, the two Kamers, Rijksoverheid, CBS, then PDC's parlement.com at medium confidence, then Wikipedia at low confidence and never for a majority-deciding number. Diagrams shared as inspiration are not sources.
 
+## Amendment of 19-09-2026: the owner chose the concentric tier layout
+
+After the phase 1 renders the owner chose the concentric tier layout (variant B, "Thorbecke shells") over the polder poles. Decisions 3 and 5 above are superseded as follows:
+
+- **Tiers, not poles.** Six concentric rings by statutory function: grondwettelijke kern (Hoge Colleges van Staat, rechterlijke macht), politieke kern (Staten-Generaal, regering en kabinet), ministeries, uitvoering en toezicht en advies (agentschappen, uitvoeringsorganisaties, inspecties, zbo's and rwt's, adviescolleges and planbureaus), decentrale overheden (provincies, gemeenten, waterschappen, Caribisch Nederland), Koninkrijk. Sectors inside each ring keep groups together. Every branch and subtype has a curated place; nothing falls to a leftover band.
+- **The known weakness is answered, not ignored.** Outer tiers read as lesser; the tier labels name statutory function, not rank, and the decentrale overheden keep their own `elects` edges to the electorate (once the mandate research lands) so their mandate is visible.
+- **Edges never cross the centre.** Cross-sector edges are routed radially to the channel between the two tiers, along the channel, and radially in. With straight chords 191 of 611 cross-sector edges would pass through the centre; routed, none do.
+- **Collapsed local triads** (decision P6) are part of the layout: a gemeente, provincie, waterschap or openbaar lichaam is one mark with orbit dots for its raad and commissie, which open on focus.
+- **The ∩ arch.** The chambers are drawn as arches with straight legs, the shape of the plenary hall, never as semicircles. The arch parameters are asserted to give exactly 150 and 75 seats.
+- **Open:** the electorate at the centre or as the outer frame with the Grondwet at the core (P7), arch orientation (P2), seat order (P3).
+
+The layout id becomes `nl-tiers-v1`. The motion model (decision 8) is unchanged: turn, gather and step back work on one centre and a radius, which the tier model has.
+
 ## Consequences
 
-- A new layout id (`nl-polder-v1` or the chosen variant's id), a rewritten `web/lib/graph-layout.md`, a replaced `graph-explorer.tsx`, and new invariant tests (poles disjoint, node in one pole, hemicycle exact).
+- A new layout id (`nl-tiers-v1`), a rewritten `web/lib/graph-layout.md`, a replaced `graph-explorer.tsx`, and new invariant tests (node in one tier and sector, sectors disjoint, routed edges clear of the centre, arch seat counts exact).
 - `graph.json` grows by four numbers per node and by the nine relation types now emitted; `power-map.json` is split off. Client JavaScript for the canvas shrinks by the layout code.
 - Three research workstreams (elections, coalitions, zaalindeling) and one data pass (relation dates) precede the seat chart and the temporal view.
 - `AGENTS.md` rule 6 is stale and is proposed for replacement (P4).
