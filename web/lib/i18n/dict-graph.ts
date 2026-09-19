@@ -31,6 +31,26 @@ export const GRAPH_DICT = {
     nl: "{n} organen onder {parent}",
     en: "{n} bodies under {parent}",
   },
+  clusterOversightTip: {
+    nl: "{n} gemeenten onder toezicht van {parent}",
+    en: "{n} municipalities overseen by {parent}",
+  },
+  clusterSubtypeTip: {
+    nl: "{n} {plural}",
+    en: "{n} {plural}",
+  },
+  pluralVeiligheidsregio: {
+    nl: "veiligheidsregio's",
+    en: "safety regions",
+  },
+  pluralSamenwerkingsverband: {
+    nl: "samenwerkingsverbanden",
+    en: "partnerships",
+  },
+  pluralOther: {
+    nl: "organen",
+    en: "bodies",
+  },
   clusterOpenHint: {
     nl: "Klik om uit te klappen",
     en: "Click to unpack",
@@ -40,8 +60,8 @@ export const GRAPH_DICT = {
     en: "Click to fold",
   },
   clusterStatus: {
-    nl: "{n} organen onder {parent} uitgeklapt.",
-    en: "{n} bodies under {parent} unpacked.",
+    nl: "{label} uitgeklapt.",
+    en: "{label} unpacked.",
   },
   parentOf: {
     nl: "onder {parent}",

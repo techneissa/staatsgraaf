@@ -164,6 +164,23 @@ test("tiers are ordered outward and never overlap", () => {
   }
 });
 
+
+/** A dot grid against a round mark: the mark's centre in the grid's frame, across the ring and along it. */
+function gridOverlapsMark(grid, half, mark, foot) {
+  const cos = Math.cos(grid.angle);
+  const sin = Math.sin(grid.angle);
+  const across = mark.x * cos + mark.y * sin - grid.radius;
+  const along = -mark.x * sin + mark.y * cos;
+  return Math.abs(across) < half.halfHeight + foot - 0.01 && Math.abs(along) < half.halfWidth + foot - 0.01;
+}
+
+/** Two dot grids: on one ring they need their widths, on different rings their heights. */
+function gridOverlapsGrid(a, halfA, b, halfB) {
+  const across = Math.abs(a.radius - b.radius);
+  const along = Math.abs(((b.angle - a.angle + 3 * Math.PI) % (2 * Math.PI)) - Math.PI) * Math.min(a.radius, b.radius);
+  return across < halfA.halfHeight + halfB.halfHeight - 0.01 && along < halfA.halfWidth + halfB.halfWidth - 0.01;
+}
+
 /** The items of a sector as packed: marks and cluster grids, with their half widths along the ring. */
 function ringItemsOf(sector) {
   const items = [];
@@ -230,21 +247,32 @@ test("rings of a sector are filled to a comparable fraction of their capacity", 
 
 test("clusters hold every standing child of their parent in the sector, and hydrate exactly", () => {
   assert.ok(layout.clusters.length > 0);
+  // The gemeenten are grouped by the provincie that oversees them, never by an invented parent.
+  const gemeenteClusters = layout.clusters.filter((cluster) => cluster.sector === "gemeenten");
+  assert.ok(gemeenteClusters.some((cluster) => cluster.kind === "oversight"));
+  assert.ok(gemeenteClusters.every((cluster) => cluster.kind !== "children"));
   const hydrated = hydrateLayout(bundle);
   for (const cluster of layout.clusters) {
     assert.ok(cluster.members.length >= CLUSTER_MIN, cluster.id);
     for (const id of cluster.members) {
       const node = layout.byId.get(id);
-      assert.equal(node.parent, cluster.parent);
+      if (cluster.kind === "children") assert.equal(node.parent, cluster.parent);
+      if (cluster.kind === "oversight") {
+        assert.equal(node.parent, null);
+        assert.ok(layout.edges.some((edge) => edge.type === "oversees" && edge.from === cluster.parent && edge.to === id), `${id} is not overseen by ${cluster.parent}`);
+      }
+      if (cluster.kind === "subtype") assert.equal(node.subtype, cluster.subtype);
       assert.equal(node.sector, cluster.sector);
       assert.equal(node.cluster, cluster.id);
       assert.ok(node.hidden);
     }
-    const sameParent = layout.nodes.filter((node) => node.parent === cluster.parent && node.sector === cluster.sector && node.collapsedInto === null && !node.arch);
-    assert.equal(sameParent.length, cluster.members.length, `${cluster.id} misses children`);
+    if (cluster.kind === "children") {
+      const sameParent = layout.nodes.filter((node) => node.parent === cluster.parent && node.sector === cluster.sector && node.collapsedInto === null && !node.arch);
+      assert.equal(sameParent.length, cluster.members.length, `${cluster.id} misses children`);
+    }
     const twin = hydrated.clusterById.get(cluster.id);
     assert.ok(twin, `${cluster.id} not on the wire`);
-    for (const key of ["sector", "parent", "angle", "radius", "rows", "cols", "x", "y"]) {
+    for (const key of ["sector", "kind", "parent", "subtype", "angle", "radius", "rows", "cols", "x", "y"]) {
       assert.ok(Math.abs(Number(twin[key]) - Number(cluster[key])) < 1e-9 || twin[key] === cluster[key], `${cluster.id} ${key}`);
     }
     assert.deepEqual(twin.members, cluster.members);
@@ -252,15 +280,14 @@ test("clusters hold every standing child of their parent in the sector, and hydr
     assert.ok(sector.items.includes(cluster.id));
   }
   // A cluster grid never overlaps a drawn mark or another grid.
-  const grids = layout.clusters.map((cluster) => ({ ...cluster, reach: Math.hypot(clusterHalfSize(cluster.members.length).halfWidth, clusterHalfSize(cluster.members.length).halfHeight) }));
-  for (const grid of grids) {
+  for (const grid of layout.clusters) {
+    const half = clusterHalfSize(grid.members.length);
     for (const node of drawn) {
-      const distance = Math.hypot(node.x - grid.x, node.y - grid.y);
-      assert.ok(distance >= grid.reach + glyphFootprint(node) - 0.01, `${grid.id} overlaps ${node.id}`);
+      assert.ok(!gridOverlapsMark(grid, half, node, glyphFootprint(node)), `${grid.id} overlaps ${node.id}`);
     }
-    for (const other of grids) {
+    for (const other of layout.clusters) {
       if (other.id <= grid.id) continue;
-      assert.ok(Math.hypot(other.x - grid.x, other.y - grid.y) >= grid.reach + other.reach - 0.01, `${grid.id} overlaps ${other.id}`);
+      assert.ok(!gridOverlapsGrid(grid, half, other, clusterHalfSize(other.members.length)), `${grid.id} overlaps ${other.id}`);
     }
   }
 });

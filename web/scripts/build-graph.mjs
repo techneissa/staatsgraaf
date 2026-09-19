@@ -347,7 +347,9 @@ const bundle = {
   clusters: layout.clusters.map((cluster) => ({
     id: cluster.id,
     sector: cluster.sector,
+    kind: cluster.kind,
     parent: cluster.parent,
+    ...(cluster.subtype ? { subtype: cluster.subtype } : {}),
     angle: cluster.angle,
     radius: cluster.radius,
     rows: cluster.rows,

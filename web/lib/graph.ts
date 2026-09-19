@@ -59,6 +59,10 @@ export const START_ANGLE = -Math.PI / 2;
 export const SELECTED_GROWTH = 1.5;
 /** A parent with this many standing children in one sector gets a cluster instead of marks. */
 export const CLUSTER_MIN = 3;
+/** A sector with this many standing members also clusters the members that have no parent. */
+export const CLUSTER_SECTOR_MIN = 40;
+/** How a cluster's members belong together. */
+export type ClusterKind = "children" | "oversight" | "subtype";
 /** Cluster grid: dot spacing and dot radius, in canvas units. */
 export const CLUSTER_DOT_PITCH = 3;
 export const CLUSTER_DOT_RADIUS = 1;
@@ -199,7 +203,11 @@ export type WireNode = BundleNode & {
 export type WireCluster = {
   id: string;
   sector: string;
-  parent: string;
+  kind: ClusterKind;
+  /** The body the members hang under: their parent, or the body that oversees them; null for a subtype group. */
+  parent: string | null;
+  /** Subtype of the members, for a subtype group. */
+  subtype?: string;
   angle: number;
   radius: number;
   rows: number;
@@ -305,7 +313,9 @@ export type LaidOutNode = BundleNode & {
 export type ClusterInfo = {
   id: string;
   sector: string;
-  parent: string;
+  kind: ClusterKind;
+  parent: string | null;
+  subtype: string | null;
   /** Member ids in grid order, which is name order. */
   members: string[];
   angle: number;
@@ -639,6 +649,7 @@ export function hydrateLayout(bundle: GraphBundle): GraphLayout {
   }
   const clusters: ClusterInfo[] = (bundle.clusters ?? []).map((cluster) => ({
     ...cluster,
+    subtype: cluster.subtype ?? null,
     x: round(Math.cos(cluster.angle) * cluster.radius),
     y: round(Math.sin(cluster.angle) * cluster.radius),
     members: (membersByCluster.get(cluster.id) ?? [])

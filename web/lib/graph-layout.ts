@@ -20,6 +20,7 @@ import {
   ARCH_BLOCK_CLEARANCE,
   ARCH_TK_OFFSET,
   CLUSTER_MIN,
+  CLUSTER_SECTOR_MIN,
   CORE_CLEARANCE,
   CORE_RADIUS,
   FRAME_CLEARANCE,
@@ -42,6 +43,7 @@ import {
   type BundleEdge,
   type BundleNode,
   type ClusterInfo,
+  type ClusterKind,
   type GraphLayout,
   type HubNode,
   type LaidOutNode,
@@ -237,18 +239,24 @@ export function allocateSpans(weights: number[], minimums: number[], total: numb
  */
 export type SectorItem =
   | { kind: "node"; id: string; node: BundleNode }
-  | { kind: "cluster"; id: string; parent: BundleNode; members: BundleNode[] };
+  | { kind: "cluster"; id: string; clusterKind: ClusterKind; parent: BundleNode | null; subtype: string | null; members: BundleNode[] };
 
-export function clusterId(sectorId: string, parentId: string): string {
-  return `cluster:${sectorId}:${parentId}`;
+export function clusterId(sectorId: string, key: string): string {
+  return `cluster:${sectorId}:${key}`;
 }
 
 /**
- * Group a sector's members into items. A parent with `CLUSTER_MIN` or more
- * standing children here gets one cluster; everything else stays a mark. The
- * items are ordered by the angle of the parent when the parent is already laid
- * out on an inner tier, so a ministry's bodies sit near the ministry, then by
- * name, so the order is the same on every run.
+ * Group a sector's members into items.
+ *
+ * A parent with `CLUSTER_MIN` or more standing children here gets one cluster
+ * (kind `children`). In a sector of `CLUSTER_SECTOR_MIN` or more members, the
+ * members without a parent are grouped too: by the standing body that
+ * `oversees` them when the data has that relation (kind `oversight`: the
+ * gemeenten under the interbestuurlijk toezicht of their provincie), else by
+ * subtype (kind `subtype`: the veiligheidsregio's, the samenwerkingsverbanden).
+ * Everything else stays a mark. Items are ordered by the angle of the body
+ * they hang under when it is already laid out on an inner tier, then by name,
+ * so the order is the same on every run.
  */
 export function sectorItems(
   sectorId: string,
@@ -256,30 +264,50 @@ export function sectorItems(
   standingIds: ReadonlySet<string>,
   byId: ReadonlyMap<string, BundleNode>,
   parentAngle: (parentId: string) => number | null,
+  overseerOf: (nodeId: string) => string | null = () => null,
 ): SectorItem[] {
-  const byParent = new Map<string, BundleNode[]>();
+  const groups = new Map<string, { kind: ClusterKind; parent: BundleNode | null; subtype: string | null; list: BundleNode[] }>();
+  const large = members.length >= CLUSTER_SECTOR_MIN;
   for (const node of members) {
-    if (!node.parent || !standingIds.has(node.parent) || !byId.has(node.parent)) continue;
-    const list = byParent.get(node.parent) ?? [];
-    list.push(node);
-    byParent.set(node.parent, list);
+    let key: string | null = null;
+    let kind: ClusterKind = "children";
+    let parent: BundleNode | null = null;
+    let subtype: string | null = null;
+    if (node.parent && standingIds.has(node.parent) && byId.has(node.parent)) {
+      key = node.parent;
+      parent = byId.get(node.parent) as BundleNode;
+    } else if (large) {
+      const overseer = overseerOf(node.id);
+      if (overseer && standingIds.has(overseer) && byId.has(overseer)) {
+        key = `oversight:${overseer}`;
+        kind = "oversight";
+        parent = byId.get(overseer) as BundleNode;
+      } else {
+        key = `subtype:${node.subtype}`;
+        kind = "subtype";
+        subtype = node.subtype;
+      }
+    }
+    if (!key) continue;
+    const group = groups.get(key) ?? { kind, parent, subtype, list: [] };
+    group.list.push(node);
+    groups.set(key, group);
   }
   const clustered = new Set<string>();
   const items: SectorItem[] = [];
-  for (const [parentId, list] of byParent) {
-    if (list.length < CLUSTER_MIN) continue;
-    const parent = byId.get(parentId) as BundleNode;
-    const sorted = [...list].sort((a, b) => compareNames(a.name, b.name, a.id, b.id));
+  for (const [key, group] of groups) {
+    if (group.list.length < CLUSTER_MIN) continue;
+    const sorted = [...group.list].sort((a, b) => compareNames(a.name, b.name, a.id, b.id));
     for (const node of sorted) clustered.add(node.id);
-    items.push({ kind: "cluster", id: clusterId(sectorId, parentId), parent, members: sorted });
+    items.push({ kind: "cluster", id: clusterId(sectorId, key), clusterKind: group.kind, parent: group.parent, subtype: group.subtype, members: sorted });
   }
   for (const node of members) {
     if (!clustered.has(node.id)) items.push({ kind: "node", id: node.id, node });
   }
   const key = (item: SectorItem) => {
-    const parentId = item.kind === "cluster" ? item.parent.id : item.node.parent;
+    const parentId = item.kind === "cluster" ? item.parent?.id ?? null : item.node.parent;
     const angle = parentId ? parentAngle(parentId) : null;
-    const name = item.kind === "cluster" ? item.parent.name : item.node.name;
+    const name = item.kind === "cluster" ? item.parent?.name ?? `~${item.subtype ?? ""}` : item.node.name;
     return { angle: angle ?? Number.POSITIVE_INFINITY, name, id: item.id };
   };
   return items.sort((a, b) => {
@@ -376,6 +404,12 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
   const laidOut = new Map<string, LaidOutNode>();
   const clusters: ClusterInfo[] = [];
   const standingIds = new Set(standing.map((node) => node.id));
+  // The body that oversees a node, from the data's `oversees` relation; the first by id when there are several.
+  const overseerById = new Map<string, string>();
+  for (const edge of [...bundle.edges].sort((a, b) => (a.from < b.from ? -1 : a.from > b.from ? 1 : 0))) {
+    if (edge.type === "oversees" && !overseerById.has(edge.to)) overseerById.set(edge.to, edge.from);
+  }
+  const overseerOf = (nodeId: string) => overseerById.get(nodeId) ?? null;
   const tiers: TierInfo[] = [];
   const sectors: SectorInfo[] = [];
   const channels: number[] = [];
@@ -398,7 +432,7 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
     for (const sector of live) {
       const members = membersBySector.get(sector.id) ?? [];
       const packable = sector.archAnchor ? members.filter((node) => !sector.archAnchor?.(node)) : members;
-      const items = sectorItems(sector.id, packable, standingIds, byBundleId, (parentId) => laidOut.get(parentId)?.angle ?? null);
+      const items = sectorItems(sector.id, packable, standingIds, byBundleId, (parentId) => laidOut.get(parentId)?.angle ?? null, overseerOf);
       itemsBySector.set(sector.id, items);
       // Arc demand, square-rooted: a sector of a thousand marks stays larger
       // than a sector of ten without swallowing the ring. The demand is what
@@ -499,7 +533,9 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
         clusters.push({
           id: item.id,
           sector: sector.id,
-          parent: item.parent.id,
+          kind: item.clusterKind,
+          parent: item.parent?.id ?? null,
+          subtype: item.subtype,
           members: item.members.map((node) => node.id),
           angle: round(at.angle),
           radius: round(at.radius),
