@@ -68,6 +68,23 @@ test("the auto frame keeps the core and the focus on screen", () => {
 import { clusterHalfSize, glyphFootprint } from "./graph.ts";
 import { clusterFocus, posePosition, sectorPose } from "./pose.ts";
 
+
+/** A dot grid against a round mark: the mark's centre in the grid's frame, across the ring and along it. */
+function gridOverlapsMark(grid, half, mark, foot) {
+  const cos = Math.cos(grid.angle);
+  const sin = Math.sin(grid.angle);
+  const across = mark.x * cos + mark.y * sin - grid.radius;
+  const along = -mark.x * sin + mark.y * cos;
+  return Math.abs(across) < half.halfHeight + foot - 0.01 && Math.abs(along) < half.halfWidth + foot - 0.01;
+}
+
+/** Two dot grids: on one ring they need their widths, on different rings their heights. */
+function gridOverlapsGrid(a, halfA, b, halfB) {
+  const across = Math.abs(a.radius - b.radius);
+  const along = Math.abs(((b.angle - a.angle + 3 * Math.PI) % (2 * Math.PI)) - Math.PI) * Math.min(a.radius, b.radius);
+  return across < halfA.halfHeight + halfB.halfHeight - 0.01 && along < halfA.halfWidth + halfB.halfWidth - 0.01;
+}
+
 test("an open cluster unpacks into marks that overlap nothing and stay inside the reserved sector", () => {
   assert.ok(layout.clusters.length > 0);
   for (const cluster of layout.clusters) {
@@ -89,14 +106,14 @@ test("an open cluster unpacks into marks that overlap nothing and stay inside th
         assert.ok(distance >= full[i].foot + full[j].foot - 0.01, `${cluster.id}: ${full[i].id} overlaps ${full[j].id}`);
       }
     }
-    for (const [otherId, at] of pose.clusterTarget) {
-      const other = layout.clusterById.get(otherId);
-      const half = clusterHalfSize(other.members.length);
-      const reach = Math.hypot(half.halfWidth, half.halfHeight);
-      const x = Math.cos(at.angle) * at.radius;
-      const y = Math.sin(at.angle) * at.radius;
+    const grids = [...pose.clusterTarget.entries()].map(([otherId, at]) => ({ id: otherId, ...at, half: clusterHalfSize(layout.clusterById.get(otherId).members.length) }));
+    for (const grid of grids) {
       for (const mark of full) {
-        assert.ok(Math.hypot(mark.x - x, mark.y - y) >= reach + mark.foot - 0.01, `${cluster.id}: grid ${otherId} overlaps ${mark.id}`);
+        assert.ok(!gridOverlapsMark(grid, grid.half, mark, mark.foot), `${cluster.id}: grid ${grid.id} overlaps ${mark.id}`);
+      }
+      for (const other of grids) {
+        if (other.id <= grid.id) continue;
+        assert.ok(!gridOverlapsGrid(grid, grid.half, other, other.half), `${cluster.id}: grid ${grid.id} overlaps grid ${other.id}`);
       }
     }
     // Members keep their name order along the ring.

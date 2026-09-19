@@ -191,7 +191,16 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   const pointerMovedRef = useRef(false);
 
   const [activeSector, setActiveSector] = useState<string | null>(null);
-  const [hover, setHover] = useState<Hover | null>(null);
+  /**
+   * What the pointer is over. It is not React state on purpose: the pointer
+   * crosses hundreds of hit targets per second, and a state change here would
+   * reconcile the whole canvas each time. The tooltip is its own component
+   * with its own state, and the hover tint is written straight to the DOM.
+   */
+  const hoverRef = useRef<Hover | null>(null);
+  const hoverCardRef = useRef<((hover: Hover | null) => void) | null>(null);
+  const hoverMarkRef = useRef<SVGGElement | null>(null);
+  const hoverPathRef = useRef<SVGPathElement | null>(null);
   /** The cluster the reader wants open, and the one the pose is built for. */
   const [openCluster, setOpenCluster] = useState<string | null>(null);
   const [activeCluster, setActiveCluster] = useState<string | null>(null);
@@ -239,8 +248,12 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   const drawnNodes = useMemo(() => visibleNodes.filter((node) => !node.arch), [visibleNodes]);
   const visibleIds = useMemo(() => new Set(visibleNodes.map((node) => node.id)), [visibleNodes]);
   const visibleClusters = useMemo(
-    () => layout.clusters.filter((cluster) => visibleIds.has(cluster.parent) || cluster.members.some((id) => visibleIds.has(id))),
+    () => layout.clusters.filter((cluster) => cluster.members.some((id) => visibleIds.has(id))),
     [layout, visibleIds],
+  );
+  const sectorBranch = useCallback(
+    (sectorId: string) => (layout.sectors.find((sector) => sector.id === sectorId)?.branch ?? "regering") as OrgBranchName,
+    [layout],
   );
 
   /** Marks the reader can step through with the arrow keys: no collapsed children. */
@@ -480,11 +493,11 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
    * closure: a loop started before the reader clicked would otherwise keep
    * drawing the previous state until it settled.
    */
-  const frameDataRef = useRef({ layout, pose, liveEdges, labelled, hover });
+  const frameDataRef = useRef({ layout, pose, liveEdges, labelled });
   useLayoutEffect(() => {
-    frameDataRef.current = { layout, pose, liveEdges, labelled, hover };
+    frameDataRef.current = { layout, pose, liveEdges, labelled };
     warmEdgesRef.current = "";
-  }, [layout, pose, liveEdges, labelled, hover]);
+  }, [layout, pose, liveEdges, labelled]);
 
   const measureScreen = useCallback(() => {
     const svg = svgRef.current;
@@ -560,17 +573,25 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     }
 
     const tooltip = tooltipRef.current;
-    if (tooltip && data.hover) {
+    const hover = hoverRef.current;
+    if (hover?.kind === "node" && hoverMarkRef.current) {
+      const node = data.layout.byId.get(hover.id);
+      if (node) {
+        const at = positionOf(node);
+        hoverMarkRef.current.setAttribute("transform", `translate(${at.x.toFixed(2)} ${at.y.toFixed(2)})`);
+      }
+    }
+    if (tooltip && hover) {
       const screen = screenRef.current;
       let anchor: { x: number; y: number; r: number } | null = null;
-      if (data.hover.kind === "node") {
-        const node = data.layout.byId.get(data.hover.id);
+      if (hover.kind === "node") {
+        const node = data.layout.byId.get(hover.id);
         if (node) {
           const at = positionOf(node);
           anchor = { ...project(at.x, at.y), r: viewK.current.value * (node.glyphRadius + 4) };
         }
       } else {
-        const cluster = data.layout.clusterById.get(data.hover.id);
+        const cluster = data.layout.clusterById.get(hover.id);
         if (cluster) {
           const at = positionsRef.current.get(cluster.id) ?? cluster;
           const half = clusterHalfSize(cluster.members.length);
@@ -719,10 +740,10 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     return () => observer.disconnect();
   }, [measureScreen, placeOverlays]);
 
-  /** A new set of labels or a new tooltip is placed at once, before the reader sees it unplaced. */
+  /** A new set of labels is placed at once, before the reader sees it unplaced. */
   useLayoutEffect(() => {
     placeOverlays();
-  }, [labelled, hover, placeOverlays]);
+  }, [labelled, placeOverlays]);
 
   /** When the moving sector stops moving, its marks go back to their rest transforms. */
   useLayoutEffect(() => {
@@ -981,14 +1002,46 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     onSelect(target.id);
   };
 
+  /** Write the hover tint to the DOM and tell the tooltip; no React render of the canvas. */
+  const applyHover = (target: Hover | null) => {
+    const previous = hoverRef.current;
+    if (previous?.kind === "cluster" && previous.id !== target?.id) {
+      const rect = clusterRefs.current.get(previous.id)?.querySelector("rect");
+      rect?.setAttribute("fill-opacity", "0.06");
+      rect?.setAttribute("stroke-opacity", "0.25");
+    }
+    hoverRef.current = target;
+    const mark = hoverMarkRef.current;
+    const path = hoverPathRef.current;
+    if (mark && path) {
+      const node = target?.kind === "node" ? layout.byId.get(target.id) : null;
+      if (node && shown(node) && !node.arch && node.id !== selectedId) {
+        const color = branchColorVar(node.branch);
+        path.setAttribute("d", glyphPath(node.glyph, node.glyphRadius));
+        path.setAttribute("fill", color);
+        path.setAttribute("stroke", color);
+        mark.setAttribute("opacity", "1");
+      } else {
+        mark.setAttribute("opacity", "0");
+      }
+    }
+    if (target?.kind === "cluster") {
+      const rect = clusterRefs.current.get(target.id)?.querySelector("rect");
+      rect?.setAttribute("fill-opacity", "0.22");
+      rect?.setAttribute("stroke-opacity", "0.7");
+    }
+    hoverCardRef.current?.(target);
+    placeOverlays();
+  };
+
   const onMarkOver = (event: ReactPointerEvent<SVGGElement>) => {
     const target = targetAt(event);
-    if (target) setHover(target);
+    if (target && target.id !== hoverRef.current?.id) applyHover(target);
   };
 
   const onMarkOut = (event: ReactPointerEvent<SVGGElement>) => {
     const target = targetAt(event);
-    if (target) setHover((current) => (current && current.id === target.id ? null : current));
+    if (target && hoverRef.current?.id === target.id) applyHover(null);
   };
 
   const onSectorClick = (event: ReactMouseEvent<SVGGElement>) => {
@@ -1129,30 +1182,36 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
 
   const connectionCountText = (count: number) => (count === 1 ? t("connectionsOne") : t("connections", { n: count }));
 
+  /** What a cluster is, in words: whose children, whose oversight, or which kind of body. */
+  const clusterLabel = useCallback(
+    (cluster: ClusterInfo) => {
+      const n = cluster.members.length;
+      const parent = cluster.parent ? layout.byId.get(cluster.parent)?.name ?? "" : "";
+      if (cluster.kind === "oversight") return t("clusterOversightTip", { n, parent });
+      if (cluster.kind === "subtype") {
+        const plural =
+          cluster.subtype === "veiligheidsregio"
+            ? t("pluralVeiligheidsregio")
+            : cluster.subtype === "samenwerkingsverband"
+              ? t("pluralSamenwerkingsverband")
+              : t("pluralOther");
+        return t("clusterSubtypeTip", { n, plural });
+      }
+      return t("clusterTip", { n, parent });
+    },
+    [layout, t],
+  );
+
   const statusText = selectedNode
     ? `${selectedNode.name}, ${localized(locale, ORG_SUBTYPE_LABELS_I18N, selectedNode.subtype)}, ${localized(locale, TIER_LABELS_I18N, selectedNode.tier)}. ${t("connections", { n: neighborSet.size })}`
     : activeClusterInfo
-      ? t("clusterStatus", { n: activeClusterInfo.members.length, parent: layout.byId.get(activeClusterInfo.parent)?.name ?? "" })
+      ? t("clusterStatus", { label: clusterLabel(activeClusterInfo) })
       : activeSector
         ? t("sectorStatus", {
             name: sectorLabel(layout.sectors.find((sector) => sector.id === activeSector) as SectorInfo),
             n: layout.sectors.find((sector) => sector.id === activeSector)?.count ?? 0,
           })
         : t("noSelection");
-
-  const hoverNode = hover?.kind === "node" ? layout.byId.get(hover.id) ?? null : null;
-  const hoverCluster = hover?.kind === "cluster" ? layout.clusterById.get(hover.id) ?? null : null;
-  const hoverBranch = hoverNode?.branch ?? (hoverCluster ? layout.byId.get(hoverCluster.parent)?.branch ?? null : null);
-  const hoverParent = hoverNode?.parent ? layout.byId.get(hoverNode.parent) ?? null : null;
-  const clusterSubtypeLabel = (cluster: ClusterInfo) => {
-    const counts = new Map<string, number>();
-    for (const id of cluster.members) {
-      const subtype = layout.byId.get(id)?.subtype;
-      if (subtype) counts.set(subtype, (counts.get(subtype) ?? 0) + 1);
-    }
-    const top = [...counts.entries()].sort((a, b) => b[1] - a[1])[0];
-    return top ? localized(locale, ORG_SUBTYPE_LABELS_I18N, top[0]) : "";
-  };
 
   return (
     <div ref={containerRef} className="relative flex h-full min-h-0 w-full flex-col">
@@ -1348,11 +1407,10 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
             {/* Clusters: the standing children of one parent as a grid of dots, one hit block each. */}
             <g onClick={onMarkClick} onPointerOver={onMarkOver} onPointerOut={onMarkOut}>
               {clusterDots.map(({ cluster, d, half }) => {
-                const parent = layout.byId.get(cluster.parent);
-                const color = branchColorVar((parent?.branch ?? "regering") as OrgBranchName);
+                const color = branchColorVar(sectorBranch(cluster.sector));
                 const isOpen = activeClusterInfo?.id === cluster.id;
-                const isHover = hover?.kind === "cluster" && hover.id === cluster.id;
-                const dim = (selectedId || activeClusterInfo) && !isOpen && !(selectedNode && selectedNode.parent === cluster.parent);
+                const dim =
+                  (selectedId || activeClusterInfo) && !isOpen && !(selectedNode && cluster.parent !== null && selectedNode.parent === cluster.parent);
                 return (
                   <g key={cluster.id} ref={setClusterRef(cluster.id)} data-cluster-id={cluster.id} className="cursor-pointer" opacity={isOpen ? 0 : dim ? DIM_OPACITY : 1}>
                     <rect
@@ -1363,9 +1421,9 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
                       rx={2}
                       transform={`translate(${cluster.x} ${cluster.y}) rotate(${((cluster.angle * 180) / Math.PI).toFixed(2)})`}
                       fill={color}
-                      fillOpacity={isHover ? 0.22 : 0.06}
+                      fillOpacity={0.06}
                       stroke={color}
-                      strokeOpacity={isHover ? 0.7 : 0.25}
+                      strokeOpacity={0.25}
                       strokeWidth={0.6}
                     />
                     <path d={d} fill={color} fillOpacity={0.85} pointerEvents="none" />
@@ -1397,9 +1455,11 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
                             : "base";
                 return <Mark key={node.id} node={node} state={state} setRef={setMarkRef(node)} />;
               })}
-              {hoverNode && shown(hoverNode) && !hoverNode.arch && hoverNode.id !== selectedId ? (
-                <Mark key={`hover-${hoverNode.id}`} node={hoverNode} state="hover" setRef={setMarkRef(hoverNode)} />
-              ) : null}
+            </g>
+
+            {/* The hover tint: one element, written by the pointer handlers, never reconciled. */}
+            <g ref={hoverMarkRef} aria-hidden="true" pointerEvents="none" opacity={0}>
+              <path ref={hoverPathRef} fillOpacity={0.55} strokeWidth={1.3} strokeLinejoin="round" />
             </g>
 
             {/* The two chambers, drawn as ∩ arches. */}
@@ -1541,50 +1601,18 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
         {t("graphInstructions")}
       </p>
 
-      {/* What the pointer is over: the name, what kind of body it is, where it belongs. */}
-      {hoverNode || hoverCluster ? (
-        <div
-          ref={tooltipRef}
-          role="tooltip"
-          className="pointer-events-none absolute left-0 top-0 z-10 max-w-[18rem] rounded-md border border-line bg-surface px-2.5 py-2 text-left shadow-lg"
-          style={{ borderLeftWidth: 3, borderLeftColor: hoverBranch ? branchColorVar(hoverBranch) : undefined }}
-        >
-          {hoverNode ? (
-            <>
-              <p className="text-sm font-semibold leading-tight text-ink">{hoverNode.name}</p>
-              {glossOf(hoverNode.name) ? <p className="text-[11px] text-ink-faint">({glossOf(hoverNode.name)})</p> : null}
-              <div className="mt-1.5 flex flex-wrap items-center gap-1">
-                <span
-                  className="rounded-pill border px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide"
-                  style={{ borderColor: branchColorVar(hoverNode.branch), color: branchColorVar(hoverNode.branch) }}
-                >
-                  {localized(locale, ORG_SUBTYPE_LABELS_I18N, hoverNode.subtype)}
-                </span>
-                <span className="rounded-pill border border-line px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-ink-muted">
-                  {localized(locale, TIER_LABELS_I18N, hoverNode.tier)}
-                </span>
-              </div>
-              {hoverParent ? <p className="mt-1 text-[11px] text-ink-muted">{t("parentOf", { parent: hoverParent.name })}</p> : null}
-              <p className="mt-0.5 text-[11px] text-ink-faint">{connectionCountText((layout.adjacency.get(hoverNode.id) ?? []).length)}</p>
-            </>
-          ) : hoverCluster ? (
-            <>
-              <p className="text-sm font-semibold leading-tight text-ink">
-                {t("clusterTip", { n: hoverCluster.members.length, parent: layout.byId.get(hoverCluster.parent)?.name ?? "" })}
-              </p>
-              <div className="mt-1.5 flex flex-wrap items-center gap-1">
-                <span
-                  className="rounded-pill border px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide"
-                  style={{ borderColor: hoverBranch ? branchColorVar(hoverBranch) : undefined, color: hoverBranch ? branchColorVar(hoverBranch) : undefined }}
-                >
-                  {clusterSubtypeLabel(hoverCluster)}
-                </span>
-              </div>
-              <p className="mt-1 text-[11px] text-ink-faint">{activeClusterInfo?.id === hoverCluster.id ? t("clusterCloseHint") : t("clusterOpenHint")}</p>
-            </>
-          ) : null}
-        </div>
-      ) : null}
+      <HoverCard
+        layout={layout}
+        locale={locale}
+        t={t}
+        glossOf={glossOf}
+        clusterLabel={clusterLabel}
+        openClusterId={activeClusterInfo?.id ?? null}
+        tooltipRef={tooltipRef}
+        register={(set) => {
+          hoverCardRef.current = set;
+        }}
+      />
 
       {selectedNode ? (
         <div className="pointer-events-none absolute inset-x-3 bottom-3 flex justify-center">
@@ -1712,5 +1740,93 @@ function Mark({ node, state, setRef }: { node: LaidOutNode; state: MarkState; se
           })
         : null}
     </g>
+  );
+}
+
+/**
+ * What the pointer is over: the name, what kind of body it is, where it
+ * belongs. Its state lives here, not in the canvas, so a hover re-renders a
+ * small card and never the 1600 elements behind it.
+ */
+function HoverCard({
+  layout,
+  locale,
+  t,
+  glossOf,
+  clusterLabel,
+  openClusterId,
+  tooltipRef,
+  register,
+}: {
+  layout: ReturnType<typeof hydrateLayout>;
+  locale: "nl" | "en";
+  t: (key: string, vars?: Record<string, string | number>) => string;
+  glossOf: (name: string) => string | null;
+  clusterLabel: (cluster: ClusterInfo) => string;
+  openClusterId: string | null;
+  tooltipRef: { current: HTMLDivElement | null };
+  register: (set: (hover: Hover | null) => void) => void;
+}) {
+  const [hover, setHover] = useState<Hover | null>(null);
+  useEffect(() => {
+    register(setHover);
+  }, [register]);
+
+  const node = hover?.kind === "node" ? layout.byId.get(hover.id) ?? null : null;
+  const cluster = hover?.kind === "cluster" ? layout.clusterById.get(hover.id) ?? null : null;
+  if (!node && !cluster) return null;
+  const branch = node?.branch ?? (cluster ? layout.sectors.find((sector) => sector.id === cluster.sector)?.branch ?? null : null);
+  const parent = node?.parent ? layout.byId.get(node.parent) ?? null : null;
+  const connections = node ? (layout.adjacency.get(node.id) ?? []).length : 0;
+  const clusterSubtype = (entry: ClusterInfo) => {
+    const counts = new Map<string, number>();
+    for (const id of entry.members) {
+      const subtype = layout.byId.get(id)?.subtype;
+      if (subtype) counts.set(subtype, (counts.get(subtype) ?? 0) + 1);
+    }
+    const top = [...counts.entries()].sort((a, b) => b[1] - a[1])[0];
+    return top ? localized(locale, ORG_SUBTYPE_LABELS_I18N, top[0]) : "";
+  };
+
+  return (
+    <div
+      ref={tooltipRef}
+      role="tooltip"
+      className="pointer-events-none absolute left-0 top-0 z-10 max-w-[18rem] rounded-md border border-line bg-surface px-2.5 py-2 text-left shadow-lg"
+      style={{ borderLeftWidth: 3, borderLeftColor: branch ? branchColorVar(branch) : undefined }}
+    >
+      {node ? (
+        <>
+          <p className="text-sm font-semibold leading-tight text-ink">{node.name}</p>
+          {glossOf(node.name) ? <p className="text-[11px] text-ink-faint">({glossOf(node.name)})</p> : null}
+          <div className="mt-1.5 flex flex-wrap items-center gap-1">
+            <span
+              className="rounded-pill border px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide"
+              style={{ borderColor: branchColorVar(node.branch), color: branchColorVar(node.branch) }}
+            >
+              {localized(locale, ORG_SUBTYPE_LABELS_I18N, node.subtype)}
+            </span>
+            <span className="rounded-pill border border-line px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-ink-muted">
+              {localized(locale, TIER_LABELS_I18N, node.tier)}
+            </span>
+          </div>
+          {parent ? <p className="mt-1 text-[11px] text-ink-muted">{t("parentOf", { parent: parent.name })}</p> : null}
+          <p className="mt-0.5 text-[11px] text-ink-faint">{connections === 1 ? t("connectionsOne") : t("connections", { n: connections })}</p>
+        </>
+      ) : cluster ? (
+        <>
+          <p className="text-sm font-semibold leading-tight text-ink">{clusterLabel(cluster)}</p>
+          <div className="mt-1.5 flex flex-wrap items-center gap-1">
+            <span
+              className="rounded-pill border px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide"
+              style={{ borderColor: branch ? branchColorVar(branch) : undefined, color: branch ? branchColorVar(branch) : undefined }}
+            >
+              {clusterSubtype(cluster)}
+            </span>
+          </div>
+          <p className="mt-1 text-[11px] text-ink-faint">{openClusterId === cluster.id ? t("clusterCloseHint") : t("clusterOpenHint")}</p>
+        </>
+      ) : null}
+    </div>
   );
 }
