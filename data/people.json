@@ -28,7 +28,7 @@
     "aliases": [
       "A.J.M. van Kesteren"
     ],
-    "portrait": null,
+    "portrait": "media:portret-a-j-m-van-kesteren",
     "birthDate": "1954-08-26",
     "party": "PVV",
     "wikipedia": "https://nl.wikipedia.org/wiki/Ton_van_Kesteren",
@@ -49,6 +49,11 @@
         "source": "src:wikidata-a-j-m-van-kesteren",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-a-j-m-van-kesteren",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -59,7 +64,7 @@
     "aliases": [
       "A. Kanis"
     ],
-    "portrait": null,
+    "portrait": "media:portret-a-kanis",
     "birthDate": "1990-01-19",
     "party": "D66",
     "wikipedia": null,
@@ -75,6 +80,11 @@
         "source": "src:ek-persoon-a-kanis-d66",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-a-kanis",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -85,7 +95,7 @@
     "aliases": [
       "A.P.M. van Wijk"
     ],
-    "portrait": null,
+    "portrait": "media:portret-a-p-m-van-wijk",
     "birthDate": "1962-08-23",
     "party": "BBB",
     "wikipedia": "https://nl.wikipedia.org/wiki/Elly_van_Wijk",
@@ -106,6 +116,11 @@
         "source": "src:wikidata-a-p-m-van-wijk",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-a-p-m-van-wijk",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -116,7 +131,7 @@
     "aliases": [
       "A.W.J.A. van Hattem"
     ],
-    "portrait": null,
+    "portrait": "media:portret-a-w-j-a-van-hattem",
     "birthDate": "1983-06-06",
     "party": "PVV",
     "wikipedia": "https://nl.wikipedia.org/wiki/Alexander_van_Hattem",
@@ -136,6 +151,11 @@
       {
         "source": "src:wikidata-a-w-j-a-van-hattem",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-a-w-j-a-van-hattem",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -2638,7 +2658,7 @@
     "aliases": [
       "Bgen (b.d.) drs. A.J.A. Beukering"
     ],
-    "portrait": null,
+    "portrait": "media:portret-bgen-b-d-drs-a-j-a-beukering",
     "birthDate": "1958-11-28",
     "party": "Fractie-Beukering",
     "wikipedia": null,
@@ -2653,6 +2673,11 @@
       {
         "source": "src:ek-persoon-bgen-b-d-drs-a-j-a-beukering",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-bgen-b-d-drs-a-j-a-beukering",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -4739,11 +4764,11 @@
     "aliases": [
       "dr. D.M.G. Roovers"
     ],
-    "portrait": null,
+    "portrait": "media:portret-dr-d-m-g-roovers",
     "birthDate": "1970-06-23",
     "party": "PRO",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Daan_Roovers",
+    "wikidata": "Q62565594",
     "description": null,
     "sources": [
       {
@@ -4755,6 +4780,16 @@
         "source": "src:ek-persoon-dr-d-m-g-roovers-pro",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-dr-d-m-g-roovers",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-52f27df9",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -4765,11 +4800,11 @@
     "aliases": [
       "dr. M.J. Kaljouw"
     ],
-    "portrait": null,
+    "portrait": "media:portret-dr-m-j-kaljouw",
     "birthDate": "1956-06-17",
     "party": "VVD",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Marian_Kaljouw",
+    "wikidata": "Q106595879",
     "description": null,
     "sources": [
       {
@@ -4781,6 +4816,16 @@
         "source": "src:ek-persoon-dr-m-j-kaljouw-vvd",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-dr-m-j-kaljouw",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-dr-m-j-kaljouw",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -4791,7 +4836,7 @@
     "aliases": [
       "dr. M.L. Vos"
     ],
-    "portrait": null,
+    "portrait": "media:portret-dr-m-l-vos",
     "birthDate": "1970-03-31",
     "party": "PRO",
     "wikipedia": null,
@@ -4807,6 +4852,11 @@
         "source": "src:ek-persoon-dr-m-l-vos-pro",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-dr-m-l-vos",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -4817,11 +4867,11 @@
     "aliases": [
       "dr. M.M. van Toorenburg"
     ],
-    "portrait": null,
+    "portrait": "media:portret-dr-m-m-van-toorenburg",
     "birthDate": "1968-05-10",
     "party": "CDA",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Madeleine_van_Toorenburg",
+    "wikidata": "Q2779827",
     "description": null,
     "sources": [
       {
@@ -4833,6 +4883,16 @@
         "source": "src:ek-persoon-dr-m-m-van-toorenburg-cda",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-dr-m-m-van-toorenburg",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-d06436e7",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -4843,11 +4903,11 @@
     "aliases": [
       "dr. mr. J. Bakker-Klein"
     ],
-    "portrait": null,
+    "portrait": "media:portret-dr-mr-j-bakker-klein",
     "birthDate": "1960-01-06",
     "party": "CDA",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Janny_Bakker",
+    "wikidata": "Q117233242",
     "description": null,
     "sources": [
       {
@@ -4859,6 +4919,16 @@
         "source": "src:ek-persoon-dr-mr-j-bakker-klein-cda",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-dr-mr-j-bakker-klein",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-dr-mr-j-bakker-klein",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -4869,11 +4939,11 @@
     "aliases": [
       "dr. N.C. Thijssen"
     ],
-    "portrait": null,
+    "portrait": "media:portret-dr-n-c-thijssen",
     "birthDate": "1983-09-20",
     "party": "PRO",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Noortje_Thijssen",
+    "wikidata": "Q106162833",
     "description": null,
     "sources": [
       {
@@ -4885,6 +4955,16 @@
         "source": "src:ek-persoon-dr-n-c-thijssen-pro",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-dr-n-c-thijssen",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-45b01a48",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -4895,11 +4975,11 @@
     "aliases": [
       "dr. R. Baumgarten"
     ],
-    "portrait": null,
+    "portrait": "media:portret-dr-r-baumgarten",
     "birthDate": "1969-05-07",
     "party": "JA21",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Ruben_Baumgarten",
+    "wikidata": "Q117233644",
     "description": null,
     "sources": [
       {
@@ -4911,6 +4991,16 @@
         "source": "src:ek-persoon-dr-r-baumgarten-ja21",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-dr-r-baumgarten",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-dr-r-baumgarten",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -4921,7 +5011,7 @@
     "aliases": [
       "drs. A. Griffioen"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-a-griffioen",
     "birthDate": "1953-09-26",
     "party": "D66",
     "wikipedia": null,
@@ -4937,6 +5027,11 @@
         "source": "src:ek-persoon-drs-a-griffioen-d66",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-a-griffioen",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -4947,7 +5042,7 @@
     "aliases": [
       "drs. A.Sj. van der Goot"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-a-sj-van-der-goot",
     "birthDate": "1952-01-29",
     "party": "OPNL",
     "wikipedia": null,
@@ -4963,6 +5058,11 @@
         "source": "src:ek-persoon-drs-a-sj-van-der-goot-opnl",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-a-sj-van-der-goot",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -4973,11 +5073,11 @@
     "aliases": [
       "drs. A. van Langen-Visbeek"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-a-van-langen-visbeek",
     "birthDate": "1968-03-05",
     "party": "BBB",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Andrea_van_Langen",
+    "wikidata": "Q110533646",
     "description": null,
     "sources": [
       {
@@ -4989,6 +5089,16 @@
         "source": "src:ek-persoon-drs-a-van-langen-visbeek-bbb",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-drs-a-van-langen-visbeek",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-75c50112",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -4999,7 +5109,7 @@
     "aliases": [
       "drs. E. Kemperman MBA"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-e-kemperman-mba",
     "birthDate": "1964-10-23",
     "party": "FVD",
     "wikipedia": null,
@@ -5015,6 +5125,11 @@
         "source": "src:ek-persoon-drs-e-kemperman-mba-fvd",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-e-kemperman-mba",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5025,11 +5140,11 @@
     "aliases": [
       "drs. F.J.M. Crone"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-f-j-m-crone",
     "birthDate": "1954-07-19",
     "party": "PRO",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Ferd_Crone",
+    "wikidata": "Q2264234",
     "description": null,
     "sources": [
       {
@@ -5041,6 +5156,16 @@
         "source": "src:ek-persoon-drs-f-j-m-crone-pro",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-drs-f-j-m-crone",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-87983a4a",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5051,7 +5176,7 @@
     "aliases": [
       "drs. F.W.J. Holterhues"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-f-w-j-holterhues",
     "birthDate": "1972-05-16",
     "party": "ChristenUnie",
     "wikipedia": null,
@@ -5067,6 +5192,11 @@
         "source": "src:ek-persoon-drs-f-w-j-holterhues-christenunie",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-f-w-j-holterhues",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5077,7 +5207,7 @@
     "aliases": [
       "drs. H.A.M. Janssen-van Helvoort"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-h-a-m-janssen-van-helvoort",
     "birthDate": "1954-01-01",
     "party": "PRO",
     "wikipedia": null,
@@ -5093,6 +5223,11 @@
         "source": "src:ek-persoon-drs-h-a-m-janssen-van-helvoort-pro",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-h-a-m-janssen-van-helvoort",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5103,7 +5238,7 @@
     "aliases": [
       "drs. H.J. Meijer"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-h-j-meijer",
     "birthDate": "1951-08-05",
     "party": "VVD",
     "wikipedia": null,
@@ -5119,6 +5254,11 @@
         "source": "src:ek-persoon-drs-h-j-meijer-vvd",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-h-j-meijer",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5129,7 +5269,7 @@
     "aliases": [
       "drs. ing. B. Kroon"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-ing-b-kroon",
     "birthDate": "1968-06-01",
     "party": "BBB",
     "wikipedia": null,
@@ -5145,6 +5285,11 @@
         "source": "src:ek-persoon-drs-ing-b-kroon-bbb",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-ing-b-kroon",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5155,11 +5300,11 @@
     "aliases": [
       "drs. ing. T. Panman"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-ing-t-panman",
     "birthDate": "1968-07-17",
     "party": "BBB",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Tekke_Panman",
+    "wikidata": "Q117228753",
     "description": null,
     "sources": [
       {
@@ -5171,6 +5316,16 @@
         "source": "src:ek-persoon-drs-ing-t-panman-bbb",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-drs-ing-t-panman",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-ing-t-panman",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5181,7 +5336,7 @@
     "aliases": [
       "drs. K.C.J. Straus"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-k-c-j-straus",
     "birthDate": "1971-04-06",
     "party": "VVD",
     "wikipedia": null,
@@ -5197,6 +5352,11 @@
         "source": "src:ek-persoon-drs-k-c-j-straus-vvd",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-k-c-j-straus",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5207,7 +5367,7 @@
     "aliases": [
       "drs. K. Petersen"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-k-petersen",
     "birthDate": "1968-09-18",
     "party": "VVD",
     "wikipedia": null,
@@ -5223,6 +5383,11 @@
         "source": "src:ek-persoon-drs-k-petersen-vvd",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-k-petersen",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5233,7 +5398,7 @@
     "aliases": [
       "drs. M.C.T. Fiers"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-m-c-t-fiers",
     "birthDate": "1968-10-05",
     "party": "PRO",
     "wikipedia": null,
@@ -5249,6 +5414,11 @@
         "source": "src:ek-persoon-drs-m-c-t-fiers-pro",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-m-c-t-fiers",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5259,11 +5429,11 @@
     "aliases": [
       "drs. M.J. van Rooijen"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-m-j-van-rooijen",
     "birthDate": "1942-07-31",
     "party": "50PLUS",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Martin_van_Rooijen",
+    "wikidata": "Q2801440",
     "description": null,
     "sources": [
       {
@@ -5275,6 +5445,16 @@
         "source": "src:ek-persoon-drs-m-j-van-rooijen-50plus",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-drs-m-j-van-rooijen",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-51d6845a",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5285,7 +5465,7 @@
     "aliases": [
       "drs. N.K. Koffeman"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-n-k-koffeman",
     "birthDate": "1958-05-12",
     "party": "PvdD",
     "wikipedia": null,
@@ -5301,6 +5481,11 @@
         "source": "src:ek-persoon-drs-n-k-koffeman-pvdd",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-n-k-koffeman",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5311,11 +5496,11 @@
     "aliases": [
       "drs. P.H. van Meenen"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-p-h-van-meenen",
     "birthDate": "1956-01-29",
     "party": "D66",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Paul_van_Meenen",
+    "wikidata": "Q7154615",
     "description": null,
     "sources": [
       {
@@ -5327,6 +5512,16 @@
         "source": "src:ek-persoon-drs-p-h-van-meenen-d66",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-drs-p-h-van-meenen",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-9ed27a08",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5337,11 +5532,11 @@
     "aliases": [
       "drs. P.V.A. Walenkamp MA"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-p-v-a-walenkamp-ma",
     "birthDate": "1974-05-02",
     "party": "Fractie-Walenkamp",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Pim_Walenkamp",
+    "wikidata": "Q117210282",
     "description": null,
     "sources": [
       {
@@ -5353,6 +5548,16 @@
         "source": "src:ek-persoon-drs-p-v-a-walenkamp-ma-fractie",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-drs-p-v-a-walenkamp-ma",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-p-v-a-walenkamp-ma",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5363,7 +5568,7 @@
     "aliases": [
       "drs. R. van Gurp"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-r-van-gurp",
     "birthDate": "1956-09-22",
     "party": "PRO",
     "wikipedia": null,
@@ -5379,6 +5584,11 @@
         "source": "src:ek-persoon-drs-r-van-gurp-pro",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-r-van-gurp",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5389,7 +5599,7 @@
     "aliases": [
       "drs. S.M. Kluit"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-s-m-kluit",
     "birthDate": "1973-05-26",
     "party": "PRO",
     "wikipedia": null,
@@ -5405,6 +5615,11 @@
         "source": "src:ek-persoon-drs-s-m-kluit-pro",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-s-m-kluit",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5415,11 +5630,11 @@
     "aliases": [
       "drs. T.J.F.M. Bovens"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-t-j-f-m-bovens",
     "birthDate": "1959-10-01",
     "party": "CDA",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Theo_Bovens",
+    "wikidata": "Q1986811",
     "description": null,
     "sources": [
       {
@@ -5431,6 +5646,16 @@
         "source": "src:ek-persoon-drs-t-j-f-m-bovens-cda",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-drs-t-j-f-m-bovens",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-aba1b7b",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5441,7 +5666,7 @@
     "aliases": [
       "drs. T. Klip-Martin"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-t-klip-martin",
     "birthDate": "1954-03-30",
     "party": "VVD",
     "wikipedia": null,
@@ -5457,6 +5682,11 @@
         "source": "src:ek-persoon-drs-t-klip-martin-vvd",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-t-klip-martin",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5467,7 +5697,7 @@
     "aliases": [
       "drs. Th.W. Rietkerk"
     ],
-    "portrait": null,
+    "portrait": "media:portret-drs-th-w-rietkerk",
     "birthDate": "1962-10-18",
     "party": "CDA",
     "wikipedia": null,
@@ -5483,6 +5713,11 @@
         "source": "src:ek-persoon-drs-th-w-rietkerk-cda",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-drs-th-w-rietkerk",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -5493,7 +5728,7 @@
     "aliases": [
       "E.W. Hartog"
     ],
-    "portrait": null,
+    "portrait": "media:portret-e-w-hartog",
     "birthDate": "1962-09-17",
     "party": "Volt",
     "wikipedia": "https://nl.wikipedia.org/wiki/Eddy_Hartog",
@@ -5513,6 +5748,11 @@
       {
         "source": "src:wikidata-e-w-hartog",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-e-w-hartog",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -5981,11 +6221,11 @@
     "aliases": [
       "em. prof. dr. F. van Knapen"
     ],
-    "portrait": null,
+    "portrait": "media:portret-em-prof-dr-f-van-knapen",
     "birthDate": "1948-12-15",
     "party": "BBB",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Frans_van_Knapen",
+    "wikidata": "Q2125309",
     "description": null,
     "sources": [
       {
@@ -5996,6 +6236,16 @@
       {
         "source": "src:ek-persoon-em-prof-dr-f-van-knapen-bbb",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-em-prof-dr-f-van-knapen",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-em-prof-dr-f-van-knapen",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -6992,7 +7242,7 @@
       "F.M. Wiersma",
       "Femke Marije Wiersma"
     ],
-    "portrait": null,
+    "portrait": "media:portret-femke-marije-wiersma",
     "birthDate": "1984-12-29",
     "party": "BBB",
     "wikipedia": "https://nl.wikipedia.org/wiki/Femke_Wiersma",
@@ -7007,6 +7257,11 @@
       {
         "source": "src:wikidata-femke-marije-wiersma",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-75929d85",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -7565,11 +7820,11 @@
     "aliases": [
       "G.K. Perin-Gopie MSc"
     ],
-    "portrait": null,
+    "portrait": "media:portret-g-k-perin-gopie-msc",
     "birthDate": "1986-10-29",
     "party": "Volt",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Gaby_Perin-Gopie",
+    "wikidata": "Q117233708",
     "description": null,
     "sources": [
       {
@@ -7580,6 +7835,16 @@
       {
         "source": "src:ek-persoon-g-k-perin-gopie-msc-volt",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-g-k-perin-gopie-msc",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-g-k-perin-gopie-msc",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -9716,7 +9981,7 @@
     "aliases": [
       "I.M. Lagas MDR"
     ],
-    "portrait": null,
+    "portrait": "media:portret-i-m-lagas-mdr",
     "birthDate": "1956-01-31",
     "party": "BBB",
     "wikipedia": null,
@@ -9731,6 +9996,11 @@
       {
         "source": "src:ek-persoon-i-m-lagas-mdr-bbb",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-i-m-lagas-mdr",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -10010,11 +10280,11 @@
     "aliases": [
       "ing. M.J.L. Goossen"
     ],
-    "portrait": null,
+    "portrait": "media:portret-ing-m-j-l-goossen",
     "birthDate": "1954-08-05",
     "party": "BBB",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Math_Goossen",
+    "wikidata": "Q119514112",
     "description": null,
     "sources": [
       {
@@ -10025,6 +10295,16 @@
       {
         "source": "src:ek-persoon-ing-m-j-l-goossen-bbb",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-ing-m-j-l-goossen",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-ing-m-j-l-goossen",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -10184,7 +10464,7 @@
     "aliases": [
       "ir. drs. G.A. van Strien"
     ],
-    "portrait": null,
+    "portrait": "media:portret-ir-drs-g-a-van-strien",
     "birthDate": "1951-06-10",
     "party": "PVV",
     "wikipedia": null,
@@ -10200,6 +10480,11 @@
         "source": "src:ek-persoon-ir-drs-g-a-van-strien-pvv",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-ir-drs-g-a-van-strien",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -10210,11 +10495,11 @@
     "aliases": [
       "Ir. ing. C.P.M. Moonen"
     ],
-    "portrait": null,
+    "portrait": "media:portret-ir-ing-c-p-m-moonen",
     "birthDate": "1963-04-05",
     "party": "D66",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Carla_Moonen",
+    "wikidata": "Q64847392",
     "description": null,
     "sources": [
       {
@@ -10225,6 +10510,16 @@
       {
         "source": "src:ek-persoon-ir-ing-c-p-m-moonen-d66",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-ir-ing-c-p-m-moonen",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-eff60e5d",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -10339,7 +10634,7 @@
     "aliases": [
       "J.C. Huizinga-Heringa"
     ],
-    "portrait": null,
+    "portrait": "media:portret-j-c-huizinga-heringa",
     "birthDate": "1960-02-16",
     "party": "ChristenUnie",
     "wikipedia": null,
@@ -10355,6 +10650,11 @@
         "source": "src:ek-persoon-j-c-huizinga-heringa-christenunie",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-j-c-huizinga-heringa",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -10365,7 +10665,7 @@
     "aliases": [
       "J.C.M. van den Oetelaar"
     ],
-    "portrait": null,
+    "portrait": "media:portret-j-c-m-van-den-oetelaar",
     "birthDate": null,
     "party": "FVD",
     "wikipedia": "https://nl.wikipedia.org/wiki/Joris_van_den_Oetelaar",
@@ -10386,6 +10686,11 @@
         "source": "src:wikidata-j-c-m-van-den-oetelaar",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:portret-officieel-j-c-m-van-den-oetelaar",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -13864,7 +14169,7 @@
     "aliases": [
       "M. Karaaslan MMC"
     ],
-    "portrait": null,
+    "portrait": "media:portret-m-karaaslan-mmc",
     "birthDate": "1971-09-12",
     "party": "D66",
     "wikipedia": null,
@@ -13879,6 +14184,11 @@
       {
         "source": "src:ek-persoon-m-karaaslan-mmc-d66",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-m-karaaslan-mmc",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -16703,7 +17013,7 @@
       "M.P. Hoogeveen",
       "Michiel Pieter Hoogeveen"
     ],
-    "portrait": null,
+    "portrait": "media:portret-michiel-pieter-hoogeveen",
     "birthDate": "1989-07-06",
     "party": "JA21",
     "wikipedia": "https://nl.wikipedia.org/wiki/Michiel_Hoogeveen",
@@ -16718,6 +17028,11 @@
       {
         "source": "src:wikidata-michiel-pieter-hoogeveen",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-1928e788",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -17334,11 +17649,11 @@
     "aliases": [
       "mr. B.O. Dittrich"
     ],
-    "portrait": null,
+    "portrait": "media:portret-mr-b-o-dittrich",
     "birthDate": "1955-07-21",
     "party": "D66",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Boris_Dittrich",
+    "wikidata": "Q442061",
     "description": null,
     "sources": [
       {
@@ -17350,6 +17665,16 @@
         "source": "src:ek-persoon-mr-b-o-dittrich-d66",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-mr-b-o-dittrich",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-1c3b0b24",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -17360,7 +17685,7 @@
     "aliases": [
       "mr. C.A.H. van de Sanden LL.M."
     ],
-    "portrait": null,
+    "portrait": "media:portret-mr-c-a-h-van-de-sanden-ll-m",
     "birthDate": "1962-12-11",
     "party": "Fractie-Van de Sanden",
     "wikipedia": null,
@@ -17375,6 +17700,11 @@
       {
         "source": "src:ek-persoon-mr-c-a-h-van-de-sanden-ll-m",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-mr-c-a-h-van-de-sanden-ll-m",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -17412,11 +17742,11 @@
     "aliases": [
       "mr. drs. H. Doornhof"
     ],
-    "portrait": null,
+    "portrait": "media:portret-mr-drs-h-doornhof",
     "birthDate": "1978-02-18",
     "party": "CDA",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Hugo_Doornhof",
+    "wikidata": "Q64706397",
     "description": null,
     "sources": [
       {
@@ -17428,6 +17758,16 @@
         "source": "src:ek-persoon-mr-drs-h-doornhof-cda",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-mr-drs-h-doornhof",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-mr-drs-h-doornhof",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -17438,7 +17778,7 @@
     "aliases": [
       "mr. drs. J.P.M. Steenkamp"
     ],
-    "portrait": null,
+    "portrait": "media:portret-mr-drs-j-p-m-steenkamp",
     "birthDate": "1992-01-03",
     "party": "CDA",
     "wikipedia": null,
@@ -17454,6 +17794,11 @@
         "source": "src:ek-persoon-mr-drs-j-p-m-steenkamp-cda",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-mr-drs-j-p-m-steenkamp",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -17464,7 +17809,7 @@
     "aliases": [
       "mr. G.V.M. Veldhoen"
     ],
-    "portrait": null,
+    "portrait": "media:portret-mr-g-v-m-veldhoen",
     "birthDate": "1971-03-25",
     "party": "PRO",
     "wikipedia": null,
@@ -17480,6 +17825,11 @@
         "source": "src:ek-persoon-mr-g-v-m-veldhoen-pro",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-mr-g-v-m-veldhoen",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -17490,11 +17840,11 @@
     "aliases": [
       "mr. H.A. Marquart Scholtz"
     ],
-    "portrait": null,
+    "portrait": "media:portret-mr-h-a-marquart-scholtz",
     "birthDate": "1946-01-25",
     "party": "BBB",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Henk_Marquart_Scholtz",
+    "wikidata": "Q117193211",
     "description": null,
     "sources": [
       {
@@ -17505,6 +17855,16 @@
       {
         "source": "src:ek-persoon-mr-h-a-marquart-scholtz-bbb",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-mr-h-a-marquart-scholtz",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-mr-h-a-marquart-scholtz",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -17542,11 +17902,11 @@
     "aliases": [
       "mr. H.W. Vogels"
     ],
-    "portrait": null,
+    "portrait": "media:portret-mr-h-w-vogels",
     "birthDate": "1970-02-24",
     "party": "VVD",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Rian_Vogels",
+    "wikidata": "Q117228919",
     "description": null,
     "sources": [
       {
@@ -17558,6 +17918,16 @@
         "source": "src:ek-persoon-mr-h-w-vogels-vvd",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-mr-h-w-vogels",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-mr-h-w-vogels",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -17568,11 +17938,11 @@
     "aliases": [
       "mr. I.A. Bezaan"
     ],
-    "portrait": null,
+    "portrait": "media:portret-mr-i-a-bezaan",
     "birthDate": "1968-01-01",
     "party": "PVV",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Ilse_Bezaan",
+    "wikidata": "Q28861881",
     "description": null,
     "sources": [
       {
@@ -17584,6 +17954,16 @@
         "source": "src:ek-persoon-mr-i-a-bezaan-pvv",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-mr-i-a-bezaan",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-mr-i-a-bezaan",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -17594,11 +17974,11 @@
     "aliases": [
       "mr. J. Recourt"
     ],
-    "portrait": null,
+    "portrait": "media:portret-mr-j-recourt",
     "birthDate": "1970-07-04",
     "party": "PRO",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Jeroen_Recourt",
+    "wikidata": "Q2106896",
     "description": null,
     "sources": [
       {
@@ -17610,6 +17990,16 @@
         "source": "src:ek-persoon-mr-j-recourt-pro",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-mr-j-recourt",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-279cbf55",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -17620,11 +18010,11 @@
     "aliases": [
       "mr. K. van Bijsterveld"
     ],
-    "portrait": null,
+    "portrait": "media:portret-mr-k-van-bijsterveld",
     "birthDate": "1970-03-08",
     "party": "JA21",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Karin_van_Bijsterveld",
+    "wikidata": "Q1832437",
     "description": null,
     "sources": [
       {
@@ -17636,6 +18026,16 @@
         "source": "src:ek-persoon-mr-k-van-bijsterveld-ja21",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-mr-k-van-bijsterveld",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-mr-k-van-bijsterveld",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -17646,7 +18046,7 @@
     "aliases": [
       "mr. M.N.J. van der Linden"
     ],
-    "portrait": null,
+    "portrait": "media:portret-mr-m-n-j-van-der-linden",
     "birthDate": "1963-10-11",
     "party": "VVD",
     "wikipedia": null,
@@ -17662,6 +18062,11 @@
         "source": "src:ek-persoon-mr-m-n-j-van-der-linden-vvd",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-mr-m-n-j-van-der-linden",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -17672,11 +18077,11 @@
     "aliases": [
       "mr. R.A. Janssen"
     ],
-    "portrait": null,
+    "portrait": "media:portret-mr-r-a-janssen",
     "birthDate": "1957-12-30",
     "party": "SP",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Rik_Janssen",
+    "wikidata": "Q2016880",
     "description": null,
     "sources": [
       {
@@ -17688,6 +18093,16 @@
         "source": "src:ek-persoon-mr-r-a-janssen-sp",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-mr-r-a-janssen",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-a0568d5a",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -17698,7 +18113,7 @@
     "aliases": [
       "mr. R.M.J. van Gasteren LLM"
     ],
-    "portrait": null,
+    "portrait": "media:portret-mr-r-m-j-van-gasteren-llm",
     "birthDate": "1959-01-07",
     "party": "Fractie-Van Gasteren",
     "wikipedia": null,
@@ -17714,6 +18129,11 @@
         "source": "src:ek-persoon-mr-r-m-j-van-gasteren-llm-fractie",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-mr-r-m-j-van-gasteren-llm",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -17724,11 +18144,11 @@
     "aliases": [
       "mr. R.S. Croll"
     ],
-    "portrait": null,
+    "portrait": "media:portret-mr-r-s-croll",
     "birthDate": "1954-12-09",
     "party": "D66",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Robert_Croll",
+    "wikidata": "Q117193203",
     "description": null,
     "sources": [
       {
@@ -17739,6 +18159,16 @@
       {
         "source": "src:ek-persoon-mr-r-s-croll-d66",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-mr-r-s-croll",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-mr-r-s-croll",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -18153,7 +18583,7 @@
     "aliases": [
       "P. Schalk"
     ],
-    "portrait": null,
+    "portrait": "media:portret-p-schalk",
     "birthDate": "1961-06-07",
     "party": "SGP",
     "wikipedia": null,
@@ -18168,6 +18598,11 @@
       {
         "source": "src:ek-persoon-p-schalk-sgp",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-p-schalk",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -19062,11 +19497,11 @@
     "aliases": [
       "prof. dr. E.B. van Apeldoorn"
     ],
-    "portrait": null,
+    "portrait": "media:portret-prof-dr-e-b-van-apeldoorn",
     "birthDate": "1970-03-22",
     "party": "SP",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Bastiaan_van_Apeldoorn",
+    "wikidata": "Q11960335",
     "description": null,
     "sources": [
       {
@@ -19078,6 +19513,16 @@
         "source": "src:ek-persoon-prof-dr-e-b-van-apeldoorn-sp",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-prof-dr-e-b-van-apeldoorn",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-prof-dr-e-b-van-apeldoorn",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -19088,7 +19533,7 @@
     "aliases": [
       "prof. dr. I.J. Visseren-Hamakers"
     ],
-    "portrait": null,
+    "portrait": "media:portret-prof-dr-i-j-visseren-hamakers",
     "birthDate": "1970-02-03",
     "party": "Fractie-Visseren-Hamakers",
     "wikipedia": null,
@@ -19104,6 +19549,11 @@
         "source": "src:ek-persoon-prof-dr-i-j-visseren-hamakers",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-prof-dr-i-j-visseren-hamakers",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -19114,11 +19564,11 @@
     "aliases": [
       "prof.dr. M.J. de Vries"
     ],
-    "portrait": null,
+    "portrait": "media:portret-prof-dr-m-j-de-vries",
     "birthDate": "1958-05-20",
     "party": "SGP",
-    "wikipedia": null,
-    "wikidata": null,
+    "wikipedia": "https://nl.wikipedia.org/wiki/Marc_de_Vries",
+    "wikidata": "Q2461231",
     "description": null,
     "sources": [
       {
@@ -19129,6 +19579,16 @@
       {
         "source": "src:ek-persoon-prof-dr-m-j-de-vries-sgp",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:wikidata-prof-dr-m-j-de-vries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-1664ad52",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -19141,7 +19601,7 @@
       "prof. mr. P. Nicolai",
       "prof. mr. P. Nicolaï"
     ],
-    "portrait": null,
+    "portrait": "media:portret-prof-mr-p-nicolai",
     "birthDate": "1947-06-28",
     "party": "PvdD",
     "wikipedia": null,
@@ -19156,6 +19616,11 @@
       {
         "source": "src:ek-persoon-prof-mr-p-nicolai-pvdd",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-prof-mr-p-nicolai",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -19195,7 +19660,7 @@
     "aliases": [
       "R. Lievense"
     ],
-    "portrait": null,
+    "portrait": "media:portret-r-lievense",
     "birthDate": "1983-08-04",
     "party": "BBB",
     "wikipedia": "https://nl.wikipedia.org/wiki/Robbert_Lievense",
@@ -19216,6 +19681,11 @@
         "source": "src:wikidata-r-lievense",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-r-lievense",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
       }
     ]
   },
@@ -19226,7 +19696,7 @@
     "aliases": [
       "R.O. Martens MSc"
     ],
-    "portrait": null,
+    "portrait": "media:portret-r-o-martens-msc",
     "birthDate": "1987-12-13",
     "party": "PRO",
     "wikipedia": null,
@@ -19241,6 +19711,11 @@
       {
         "source": "src:ek-persoon-r-o-martens-msc-pro",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-r-o-martens-msc",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -20187,7 +20662,7 @@
     "aliases": [
       "Rob Jetten"
     ],
-    "portrait": null,
+    "portrait": "media:portret-rob-jetten",
     "birthDate": null,
     "party": null,
     "wikipedia": "https://nl.wikipedia.org/wiki/Rob_Jetten",
@@ -20208,6 +20683,11 @@
         "source": "src:wikidata-rob-jetten",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:commons-b5808005",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
       }
     ]
   },
@@ -22903,7 +23383,7 @@
       "Thomas Sebastiaan Matthias Stoteler",
       "Thomas Sebastiaan Matthias Stöteler"
     ],
-    "portrait": null,
+    "portrait": "media:portret-thomas-sebastiaan-matthias-stoteler",
     "birthDate": "1983-11-18",
     "party": "PVV",
     "wikipedia": "https://nl.wikipedia.org/wiki/Sebastiaan_St%C3%B6teler",
@@ -22918,6 +23398,11 @@
       {
         "source": "src:wikidata-thomas-sebastiaan-matthias-stoteler",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-7d397e92",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -23417,7 +23902,7 @@
       "V. Maeijer",
       "Vicky Maeijer"
     ],
-    "portrait": null,
+    "portrait": "media:portret-vicky-maeijer",
     "birthDate": "1986-09-07",
     "party": "PVV",
     "wikipedia": "https://nl.wikipedia.org/wiki/Vicky_Maeijer",
@@ -23432,6 +23917,11 @@
       {
         "source": "src:wikidata-vicky-maeijer",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:commons-9c7393bf",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]
@@ -23580,7 +24070,7 @@
     "aliases": [
       "W.C.P.H. Jaspers"
     ],
-    "portrait": null,
+    "portrait": "media:portret-w-c-p-h-jaspers",
     "birthDate": "1961-04-27",
     "party": "BBB",
     "wikipedia": "https://nl.wikipedia.org/wiki/Wim_Jaspers",
@@ -23600,6 +24090,11 @@
       {
         "source": "src:wikidata-w-c-p-h-jaspers",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:portret-officieel-w-c-p-h-jaspers",
+        "retrieved": "2026-09-19",
         "confidence": "high"
       }
     ]

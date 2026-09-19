@@ -31,6 +31,8 @@ export const THUMB_WIDTH = 320;
 export const MAX_IMAGE_BYTES = 2_500_000;
 export const WIKIDATA_API = "https://www.wikidata.org/w/api.php";
 export const COMMONS_API = "https://commons.wikimedia.org/w/api.php";
+export const NLWIKI_API = "https://nl.wikipedia.org/w/api.php";
+export const ENWIKI_API = "https://en.wikipedia.org/w/api.php";
 export const HUMAN_QID = "Q5";
 // Ophogen zodra de resolutielogica verandert: oudere cachebestanden worden
 // dan opnieuw bevraagd in plaats van stil te blijven staan.
@@ -41,8 +43,10 @@ export const CACHE_VERSION = 2;
 export const NL_CITIZENSHIP = Object.freeze(["Q55", "Q29999", "Q252"]);
 
 // Licenties die Wikimedia Commons noemt en die herleidbaar zijn tot een vaste
-// SPDX-achtige waarde. "Attribution" alleen is dat niet: dat is geen licentie
-// zonder de voorwaarden erbij, dus zo'n bestand wordt een gap.
+// SPDX-achtige waarde. "Attribution" alleen (korte naam van Commons wanneer de
+// versie niet vaststaat, maar het gebruik met naamsvermelding vrij is) is per
+// ADR 0014 toegestaan en wordt verbatim opgeschreven; het resteert een gap
+// wanneer het bestand garantslechte of onherkenbare metadata heeft.
 export const LICENSE_PATTERNS = Object.freeze([
   [/^cc0/, "CC0-1.0"],
   [/^cc[ -]?by[ -]?sa[ -]?4/, "CC-BY-SA-4.0"],
@@ -51,6 +55,7 @@ export const LICENSE_PATTERNS = Object.freeze([
   [/^cc[ -]?by[ -]?4/, "CC-BY-4.0"],
   [/^cc[ -]?by[ -]?3/, "CC-BY-3.0"],
   [/^cc[ -]?by[ -]?2/, "CC-BY-2.0"],
+  [/^attribution$/, "Attribution"],
   [/^(public domain|publiek domein|pd)$/, "publiek-domein"],
 ]);
 
@@ -185,6 +190,7 @@ export function candidateProfile(entity) {
     parties: claimIds(entity, "P102"),
     positions: claimIds(entity, "P39"),
     sitelinkTitle: entity.sitelinks?.nlwiki?.title ?? null,
+    enwikiTitle: entity.sitelinks?.enwiki?.title ?? null,
     wikipedia: wikipediaUrl(entity.sitelinks?.nlwiki?.title ?? null),
   };
 }
@@ -328,7 +334,7 @@ export function buildMediaRecord({ person, image, sourceId }) {
     url: `/media/portretten/${person.slug}${imageExtension(image.thumbUrl)}`,
     type: "portrait",
     license: image.license,
-    credit: buildCredit(image),
+    credit: image.creditLine ?? buildCredit(image),
     author: image.author ?? image.credit ?? null,
     source: sourceId,
   };
@@ -355,6 +361,7 @@ export function buildWikidataSource(person, resolution, today) {
 
 export function buildCommonsSource(person, resolution, today) {
   const image = resolution.image;
+  const wikidataPart = resolution.chosen ? ` (Wikidata ${resolution.chosen.id})` : "";
   return {
     id: commonsSourceId(image.filename),
     url: image.filePage,
@@ -365,7 +372,23 @@ export function buildCommonsSource(person, resolution, today) {
     retrieved: today,
     license: image.license,
     archiveUrl: null,
-    notes: `Bestandspagina van het portret van ${person.name} (Wikidata ${resolution.chosen.id}); gedownload als thumbnail van ${THUMB_WIDTH} px.`,
+    notes: `Bestandspagina van het portret van ${person.name}${wikidataPart}; gedownload als thumbnail van ${THUMB_WIDTH} px.`,
+  };
+}
+
+export function buildOfficialSource(person, resolution, today) {
+  const image = resolution.image;
+  return {
+    id: `src:portret-officieel-${person.slug}`,
+    url: image.filePage ?? image.thumbUrl,
+    title: `Officieel portret van ${person.name}`,
+    publisher: image.publisher ?? "officiële bron",
+    type: "page",
+    published: null,
+    retrieved: today,
+    license: image.license,
+    archiveUrl: null,
+    notes: `Officieel portret van ${person.name}, rechtstreeks van de officiële website (${image.source ?? "onbekend"}); gedownload zoals aangeboden.`,
   };
 }
 
@@ -439,9 +462,63 @@ export async function fetchCommonsImage(filename, {
   };
 }
 
+export function officialImage(hint) {
+  return {
+    kind: "official",
+    filePage: hint.pageUrl ?? null,
+    thumbUrl: hint.imageUrl,
+    license: hint.license ?? "CC-BY-4.0",
+    licenseRaw: hint.licenseRaw ?? "CC BY 4.0",
+    author: hint.credit ?? null,
+    credit: hint.credit ?? null,
+    publisher: hint.publisher ?? null,
+    source: hint.sourceLabel ?? null,
+    creditLine: `Foto: ${hint.credit ?? hint.publisher ?? "officiële bron"}, ${hint.licenseRaw ?? "licentie op de bronpagina"}, ${hint.pageUrl ?? "bronpagina"}`,
+  };
+}
+
+/**
+ * Wikipedia-paginabezame als fallback (ADR 0014): het vrije paginabezame van het
+ * Nederlandstalige artikel, via de Commons-bestandspagina geverifieerd. Levert
+ * dezelfde vorm als fetchCommonsImage of ok:false.
+ */
+export async function fetchWikipediaImage(title, {
+  fetchImpl = globalThis.fetch,
+  userAgent = USER_AGENT,
+  endpoint = NLWIKI_API,
+} = {}) {
+  if (typeof title !== "string" || title.trim() === "") {
+    return { ok: false, reason: "geen Wikipedia-titel" };
+  }
+  const cleaned = decodeURIComponent(title.trim().replace(/ /g, "_"));
+  let body;
+  try {
+    body = await apiGet(fetchImpl, NLWIKI_API, {
+      action: "query",
+      titles: cleaned,
+      prop: "pageimages",
+      piprop: "name",
+      pilicense: "free",
+      redirects: 1,
+      format: "json",
+    }, { userAgent });
+  } catch (error) {
+    return { ok: false, reason: `Wikipedia-verzoek mislukt: ${error.message}` };
+  }
+  const entry = Object.values(body?.query?.pages ?? {}).find((page) => page?.pageimage);
+  const filename = entry?.pageimage;
+  if (!filename) return { ok: false, reason: "geen vrije paginabezame op Wikipedia" };
+  const commons = await fetchCommonsImage(filename, { fetchImpl, userAgent });
+  if (!commons.ok) return commons;
+  return { ...commons, filename };
+}
+
 /**
  * Zoek en beoordeel voor een persoon. Levert een cachebaar resultaat: de
- * gekozen entiteit, de beeldinformatie en per afwijzing de reden.
+ * gekozen entiteit, de beeldinformatie en per afwijzing de reden. Een hint
+ * (officiële portret-URL, zoals de og:image van een EK-pagina) en een volledige
+ * naam uit die officiële bron versterken de zoekopdracht en dienen als
+ * laatste val (ADR 0014).
  */
 export async function resolvePerson(person, {
   fetchImpl = globalThis.fetch,
@@ -450,8 +527,12 @@ export async function resolvePerson(person, {
   sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
   nowIso = new Date().toISOString(),
   log = () => {},
+  hint = null,
 } = {}) {
-  const forms = nameForms(person);
+  const effective = hint?.fullName
+    ? { ...person, aliases: [hint.fullName, ...(Array.isArray(person.aliases) ? person.aliases : [])] }
+    : person;
+  const forms = nameForms(effective);
   const base = {
     personId: person.id,
     slug: person.slug,
@@ -487,7 +568,12 @@ export async function resolvePerson(person, {
   } catch (error) {
     return { ...base, reason: `Wikidata-zoekopdracht mislukt: ${error.message}` };
   }
-  if (candidateIds.size === 0) return { ...base, reason: "geen Wikidata-treffer voor de naamvarianten" };
+  if (candidateIds.size === 0) {
+    if (hint?.imageUrl) {
+      return { ...base, image: officialImage(hint) };
+    }
+    return { ...base, reason: "geen Wikidata-treffer voor de naamvarianten" };
+  }
 
   let entities;
   try {
@@ -496,7 +582,7 @@ export async function resolvePerson(person, {
       ids: [...candidateIds.keys()].join("|"),
       props: "claims|labels|aliases|descriptions|sitelinks",
       languages: "nl|en",
-      sitefilter: "nlwiki",
+      sitefilter: "nlwiki|enwiki",
       format: "json",
     }, { userAgent });
   } catch (error) {
@@ -547,13 +633,19 @@ export async function resolvePerson(person, {
       }
     }
   }
-  if (!selection.profile) return { ...base, candidates, reason: selection.reason };
+  if (!selection.profile) {
+    if (hint?.imageUrl) return { ...base, candidates, image: officialImage(hint) };
+    return { ...base, candidates, reason: selection.reason };
+  }
 
   const chosen = {
     id: selection.profile.id,
     label: selection.profile.labels[0] ?? person.name,
     wikidataUrl: `https://www.wikidata.org/wiki/${selection.profile.id}`,
     wikipedia: selection.profile.wikipedia,
+    enwiki: selection.profile.enwikiTitle
+      ? `https://en.wikipedia.org/wiki/${encodeURIComponent(selection.profile.enwikiTitle.replace(/ /g, "_"))}`
+      : null,
     birthDate: selection.profile.birthDate,
     matchedName: selection.matchedName,
     score: selection.score,
@@ -561,38 +653,80 @@ export async function resolvePerson(person, {
   };
 
   let image = null;
-  if (selection.profile.images.length === 0) {
-    return { ...base, candidates, chosen, gaps: [{ what: "portret", reason: "geen P18-afbeelding op Wikidata" }] };
-  }
   const attempts = [];
-  for (const filename of selection.profile.images) {
-    const commons = await fetchCommonsImage(filename, { fetchImpl, userAgent });
-    if (!commons.ok) {
-      attempts.push(`${filename}: ${commons.reason}`);
-      continue;
+  if (selection.profile.images.length > 0) {
+    for (const filename of selection.profile.images) {
+      const commons = await fetchCommonsImage(filename, { fetchImpl, userAgent });
+      if (!commons.ok) {
+        attempts.push(`${filename}: ${commons.reason}`);
+        continue;
+      }
+      const license = mapLicense(commons);
+      if (!license) {
+        attempts.push(`${filename}: licentie niet herkend (${commons.licenseRaw ?? "geen licentie vermeld"})`);
+        continue;
+      }
+      image = {
+        kind: "commons",
+        filename,
+        filePage: commons.page,
+        thumbUrl: commons.thumbUrl,
+        width: commons.width,
+        height: commons.height,
+        license,
+        licenseRaw: commons.licenseRaw,
+        licenseUrl: commons.licenseUrl,
+        author: commons.author,
+        credit: commons.credit,
+        description: commons.description,
+      };
+      break;
     }
-    const license = mapLicense(commons);
-    if (!license) {
-      attempts.push(`${filename}: licentie niet herkend (${commons.licenseRaw ?? "geen licentie vermeld"})`);
-      continue;
-    }
-    image = {
-      filename,
-      filePage: commons.page,
-      thumbUrl: commons.thumbUrl,
-      width: commons.width,
-      height: commons.height,
-      license,
-      licenseRaw: commons.licenseRaw,
-      licenseUrl: commons.licenseUrl,
-      author: commons.author,
-      credit: commons.credit,
-      description: commons.description,
-    };
-    break;
   }
-  if (!image) return { ...base, candidates, chosen, gaps: [{ what: "portret", reason: attempts.join("; ") }] };
-  return { ...base, candidates, chosen, image };
+  if (!image && hint?.imageUrl) {
+    image = officialImage(hint);
+  }
+  if (!image && chosen.wikipedia) {
+    const nlTitle = String(chosen.wikipedia).split("/wiki/")[1] ?? null;
+    const enTitle = chosen.enwiki ? String(chosen.enwiki).split("/wiki/")[1] : null;
+    for (const [index, title] of [nlTitle, enTitle].filter(Boolean).entries()) {
+      const wikiImage = await fetchWikipediaImage(title, {
+        fetchImpl,
+        userAgent,
+        endpoint: index === 0 ? NLWIKI_API : ENWIKI_API,
+      });
+      if (!wikiImage?.ok) {
+        attempts.push(`Wikipedia-fallback (${title}): ${wikiImage?.reason ?? "onbekend"}`);
+        continue;
+      }
+      const license = mapLicense(wikiImage);
+      if (!license) {
+        attempts.push(`Wikipedia-paginabezame ${wikiImage.filename}: licentie niet herkend (${wikiImage.licenseRaw ?? "geen licentie vermeld"})`);
+        continue;
+      }
+      image = {
+        kind: "commons",
+        filename: wikiImage.filename,
+        filePage: wikiImage.page,
+        thumbUrl: wikiImage.thumbUrl,
+        width: wikiImage.width,
+        height: wikiImage.height,
+        license,
+        licenseRaw: wikiImage.licenseRaw,
+        licenseUrl: wikiImage.licenseUrl,
+        author: wikiImage.author,
+        credit: wikiImage.credit,
+        description: wikiImage.description,
+        fallback: "wikipedia",
+      };
+      break;
+    }
+  }
+  if (image) return { ...base, candidates, chosen, image };
+  if (attempts.length === 0 && selection.profile.images.length === 0 && !hint?.imageUrl && !chosen.wikipedia) {
+    attempts.push("geen P18-afbeelding op Wikidata en geen fallback beschikbaar");
+  }
+  return { ...base, candidates, chosen, gaps: [{ what: "portret", reason: attempts.join("; ") || "geen bruikbaar portret" }] };
 }
 
 async function downloadImage(url, destination, {
@@ -671,8 +805,9 @@ export function renderPortraitReport({ stats, gaps, today, licenseCounts = {} })
   lines.push("");
   lines.push("## Toelichting");
   lines.push("");
-  lines.push("- Alleen Wikimedia Commons-bestanden met een herkenbare licentie (CC0, CC BY, CC BY-SA of publiek domein) zijn toegepast; de creditline staat in `data/media.json`.");
-  lines.push("- Een ontbrekende of onherkenbare licentie, een ontbrekende P18 of een dubbele kandidaat is een gap. Er is niets geschat.");
+  lines.push("- Alleen Wikimedia Commons-bestanden met een herkenbare licentie (CC0, CC BY, CC BY-SA, publiek domein of, per ADR 0014, de korte naam \"Attribution\") zijn toegepast; de creditline staat in `data/media.json`.");
+  lines.push("- Zonder bruikbaar Commons-portret valt de resolver eerst terug op het officiële portret van de eigen website (EK-pagina, CC BY 4.0, hoog betrouwbaar) en daarna op het vrije paginabezame van het Nederlandstalige Wikipedia-artikel (ADR 0014).");
+  lines.push("- Een ontbrekende of onherkenbare licentie, een ontbrekende P18 en een dubbele kandidaat zonder officiële fallback zijn gaps. Er is niets geschat.");
   lines.push(`- De thumbnails van ${THUMB_WIDTH} px staan onder \`web/public/media/portretten/\` en worden van de eigen origin geserveerd.`);
   lines.push("");
   return `${lines.join("\n")}\n`;
@@ -698,6 +833,7 @@ export async function runPortraits(options = {}) {
   // Zonder de vlag wordt alleen geteld en gerapporteerd; bestandsverwijzingen op disk
   // blijven altijd staan, een latere run kan er weer naar wijzen.
   const prune = options.prune ?? false;
+  const hints = options.hints ?? null;
   const log = options.log ?? console.log;
   const io = { writeFile, mkdir, ...(options.io ?? {}) };
   const fetchImpl = options.fetchImpl ?? globalThis.fetch;
@@ -729,6 +865,8 @@ export async function runPortraits(options = {}) {
     queried: 0,
     entityMatches: 0,
     portraitsApplied: 0,
+    officialApplied: 0,
+    wikiFallbackApplied: 0,
     imagesDownloaded: 0,
     imagesPresent: 0,
     remaining: 0,
@@ -772,29 +910,39 @@ export async function runPortraits(options = {}) {
     } else {
       resolution = null;
       try {
-        resolution = await resolvePerson(person, { fetchImpl, userAgent, throttleMs, sleep, log });
+        resolution = await resolvePerson(person, {
+          fetchImpl,
+          userAgent,
+          throttleMs,
+          sleep,
+          log,
+          hint: hints?.[person.slug] ?? null,
+        });
       } catch (error) {
         gaps.push({ person: person.id, name: person.name, reason: `onverwachte fout: ${error.message}` });
         continue;
       }
       await io.writeFile(cacheFile, `${JSON.stringify(resolution, null, 2)}\n`, "utf8");
       stats.queried += 1;
-      log(`  [${index + 1}/${selected.length}] ${person.name} -> ${resolution.chosen ? resolution.chosen.id : resolution.reason}`);
+      log(`  [${index + 1}/${selected.length}] ${person.name} -> ${resolution.chosen ? resolution.chosen.id : resolution.image ? resolution.image.kind : resolution.reason}`);
     }
 
-    if (!resolution.chosen) {
+    if (!resolution.chosen && !resolution.image) {
       gaps.push({ person: person.id, name: person.name, reason: resolution.reason ?? "geen resolutie" });
       continue;
     }
-    stats.entityMatches += 1;
-    const wikidataSource = upsertSource(buildWikidataSource(person, resolution, today));
-    person.wikidata = resolution.chosen.id;
-    if (resolution.chosen.wikipedia) person.wikipedia = resolution.chosen.wikipedia;
-    addSourceRef(person, {
-      source: wikidataSource.id,
-      retrieved: today,
-      confidence: resolution.chosen.confidence ?? "medium",
-    });
+    let confidence = resolution.chosen?.confidence ?? "medium";
+    if (resolution.chosen) {
+      stats.entityMatches += 1;
+      const wikidataSource = upsertSource(buildWikidataSource(person, resolution, today));
+      person.wikidata = resolution.chosen.id;
+      if (resolution.chosen.wikipedia) person.wikipedia = resolution.chosen.wikipedia;
+      addSourceRef(person, {
+        source: wikidataSource.id,
+        retrieved: today,
+        confidence: resolution.chosen.confidence ?? "medium",
+      });
+    }
 
     if (!resolution.image) {
       gaps.push({
@@ -804,8 +952,14 @@ export async function runPortraits(options = {}) {
       });
       continue;
     }
-    const commonsSource = upsertSource(buildCommonsSource(person, resolution, today));
-    const mediaRecord = buildMediaRecord({ person, image: resolution.image, sourceId: commonsSource.id });
+    // ADR 0014: een officiële portret van de eigen website is een hogere
+    // betrouwbaarheid dan de gematchte Wikidata-entiteit.
+    const official = resolution.image.kind === "official";
+    if (official) confidence = "high";
+    const imageSource = official
+      ? upsertSource(buildOfficialSource(person, resolution, today))
+      : upsertSource(buildCommonsSource(person, resolution, today));
+    const mediaRecord = buildMediaRecord({ person, image: resolution.image, sourceId: imageSource.id });
     const existing = mediaById.get(mediaRecord.id);
     if (existing) Object.assign(existing, mediaRecord);
     else {
@@ -826,11 +980,13 @@ export async function runPortraits(options = {}) {
     }
     person.portrait = mediaRecord.id;
     addSourceRef(person, {
-      source: commonsSource.id,
+      source: imageSource.id,
       retrieved: today,
-      confidence: resolution.chosen.confidence ?? "medium",
+      confidence,
     });
     stats.portraitsApplied += 1;
+    if (official) stats.officialApplied += 1;
+    else if (resolution.image.fallback === "wikipedia") stats.wikiFallbackApplied += 1;
     licenseCounts[mediaRecord.license] = (licenseCounts[mediaRecord.license] ?? 0) + 1;
   }
 
@@ -861,7 +1017,7 @@ export async function runPortraits(options = {}) {
   await io.writeFile(qaPath, renderPortraitReport({ stats, gaps, today, licenseCounts }), "utf8");
 
   log("");
-  log(`portretten: ${stats.scanned} bekeken, ${stats.queried} nieuw bevraagd, ${stats.entityMatches} persoonsmatches, ${stats.portraitsApplied} portretten, ${stats.imagesDownloaded} gedownload, ${gaps.length} gaps, ${stats.remaining} resterend, ${stats.orphanMedia} orphan media (${stats.prunedMedia} verwijderd).`);
+  log(`portretten: ${stats.scanned} bekeken, ${stats.queried} nieuw bevraagd, ${stats.entityMatches} persoonsmatches, ${stats.portraitsApplied} portretten (waarvan ${stats.officialApplied} officieel, ${stats.wikiFallbackApplied} via Wikipedia), ${stats.imagesDownloaded} gedownload, ${gaps.length} gaps, ${stats.remaining} resterend, ${stats.orphanMedia} orphan media (${stats.prunedMedia} verwijderd).`);
   log(`Wrote ${qaPath}`);
   return { stats, gaps, licenseCounts, qaPath };
 }
@@ -880,12 +1036,16 @@ function parseArgs(argv) {
     else if (argv[i] === "--new-only") options.newOnly = true;
     else if (argv[i] === "--max-new") options.maxNew = Number(argv[(i += 1)]);
     else if (argv[i] === "--prune") options.prune = true;
+    else if (argv[i] === "--hints") options.hintsPath = argv[(i += 1)];
   }
   return options;
 }
 
 async function main() {
   const options = parseArgs(process.argv.slice(2));
+  if (options.hintsPath) {
+    options.hints = JSON.parse(await readFile(options.hintsPath, "utf8"));
+  }
   await runPortraits(options);
 }
 
