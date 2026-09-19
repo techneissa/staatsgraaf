@@ -2,21 +2,81 @@
   "workstream": "M",
   "generatedAt": "2026-09-19",
   "endpointsUsed": [
-    "https://organisaties.overheid.nl/Regionale_samenwerkingsorganen/A-Z/1",
-    "https://wetten.overheid.nl/BWBR0024705",
-    "https://wetten.overheid.nl/BWBR0037885",
-    "https://wetten.overheid.nl/BWBR0002154",
-    "https://wetten.overheid.nl/BWBR0003900",
-    "https://wetten.overheid.nl/BWBR0028105",
-    "https://wetten.overheid.nl/BWBR0028096",
-    "https://www.gouverneuraruba.com/gouverneur/gouverneur-boekhoudt",
-    "https://www.rijksoverheid.nl/actueel/nieuws/2025/06/30/benoeming-gouverneur-van-curacao",
-    "https://www.koninklijkhuis.nl/actueel/nieuws/2025/10/29/koning-ontvangt-nieuwe-gouverneur-curacao-ter-beediging",
-    "https://www.kabgsxm.com/about-the-governor.aspx?language=NL",
-    "https://www.koninklijkhuis.nl/actueel/nieuws/2022/10/04/koning-ontvangt-gouverneur-sint-maarten-ter-beediging",
-    "https://www.kabinetaruba.nl/nieuws/05/03/2026/mildred-milly-schwengle-benoemd-als-gevolmachtigde-minister-in-nederland",
-    "https://www.kabinetaruba.nl/nieuws/18/08/2026/gevolmachtigde-minister-van-curacao-op-bezoek-bij-minister-schwengle",
-    "https://www.sintmaartengov.org/news/pages/Minister-Plenipotentiary-2025-Marked-a-Pivotal-Moment-in-Shaping-the-Future-Direction-of-the-Cabinet.aspx"
+    {
+      "url": "https://organisaties.overheid.nl/Regionale_samenwerkingsorganen/A-Z/1",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched and cached during wave 1 research."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0024705",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched and cached during wave 1 research."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0037885",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched and cached during wave 1 research."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0002154",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched and cached during wave 1 research."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0003900",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched and cached during wave 1 research."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0028105",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched and cached during wave 1 research."
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0028096",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched and cached during wave 1 research."
+    },
+    {
+      "url": "https://www.gouverneuraruba.com/gouverneur/gouverneur-boekhoudt",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched and cached during wave 1 research."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/actueel/nieuws/2025/06/30/benoeming-gouverneur-van-curacao",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched and cached during wave 1 research."
+    },
+    {
+      "url": "https://www.koninklijkhuis.nl/actueel/nieuws/2025/10/29/koning-ontvangt-nieuwe-gouverneur-curacao-ter-beediging",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched and cached during wave 1 research."
+    },
+    {
+      "url": "https://www.kabgsxm.com/about-the-governor.aspx?language=NL",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched and cached during wave 1 research."
+    },
+    {
+      "url": "https://www.koninklijkhuis.nl/actueel/nieuws/2022/10/04/koning-ontvangt-gouverneur-sint-maarten-ter-beediging",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched and cached during wave 1 research."
+    },
+    {
+      "url": "https://www.kabinetaruba.nl/nieuws/05/03/2026/mildred-milly-schwengle-benoemd-als-gevolmachtigde-minister-in-nederland",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched and cached during wave 1 research."
+    },
+    {
+      "url": "https://www.kabinetaruba.nl/nieuws/18/08/2026/gevolmachtigde-minister-van-curacao-op-bezoek-bij-minister-schwengle",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched and cached during wave 1 research."
+    },
+    {
+      "url": "https://www.sintmaartengov.org/news/pages/Minister-Plenipotentiary-2025-Marked-a-Pivotal-Moment-in-Shaping-the-Future-Direction-of-the-Cabinet.aspx",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched and cached during wave 1 research."
+    }
   ],
   "organizations": [
     {
