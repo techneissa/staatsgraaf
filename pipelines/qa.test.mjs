@@ -227,7 +227,8 @@ it("counts match the Phase 0 snapshot", async () => {
   assert.equal(bySubtype("waterschap"), 21, "waterschappen");
   assert.equal(bySubtype("veiligheidsregio"), 25, "veiligheidsregio's");
   assert.equal(bySubtype("koepel"), 3, "koepels");
-  assert.equal(organizations.length, 1572, "organizations total");
+  assert.equal(bySubtype("samenwerkingsverband"), 39, "regionale samenwerkingsorganen");
+  assert.equal(organizations.length, 1614, "organizations total");
   assert.equal(memberships.filter((record) => record.organization === "org:tweede-kamer").length, 150, "Tweede Kamer");
   assert.equal(memberships.filter((record) => record.organization === "org:eerste-kamer").length, 75, "Eerste Kamer");
 });
