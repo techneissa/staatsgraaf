@@ -2,6 +2,7 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
 import { GRAPH_LAYOUT, GRAPH_SCHEMA } from "../lib/graph.ts";
+import { isSplinterGroup, partyByDataset } from "../lib/parties.ts";
 
 const DATA_DIR = fileURLToPath(new URL("../../data/", import.meta.url));
 const WINDOW_DAYS = 90;
@@ -35,6 +36,7 @@ function dayNumber(iso) {
 }
 
 const organizations = readArray("organizations.json");
+const memberships = readArray("memberships.json");
 const people = readArray("people.json");
 const positions = readArray("positions.json");
 const tenures = readArray("tenures.json");
@@ -270,6 +272,43 @@ function buildEntityPowerMap(entityLimit = 8) {
 
 const { map: entityPowerMap, personSlugs } = buildEntityPowerMap();
 
+/**
+ * Seat blocks per chamber from current memberships and the sourced party
+ * registry, so the canvas can draw the ∩ arches without loading the dataset.
+ * Blocks are sorted largest first, then by label, which is the H6 seat order.
+ */
+function buildChambers() {
+  const chambers = {};
+  const byOrg = new Map();
+  for (const membership of memberships) {
+    if (membership.end !== null) continue;
+    if (!isOrgId(membership.organization) || !orgIds.has(membership.organization)) continue;
+    const list = byOrg.get(membership.organization) ?? [];
+    list.push(membership);
+    byOrg.set(membership.organization, list);
+  }
+  for (const [orgId, list] of byOrg) {
+    const grouped = new Map();
+    for (const membership of list) {
+      const fractie = typeof membership.fractie === "string" ? membership.fractie : null;
+      const party = fractie !== null ? partyByDataset(fractie) : null;
+      const key = party?.key ?? fractie ?? "__none__";
+      const entry = grouped.get(key) ?? {
+        key: party?.key ?? null,
+        label: party?.abbrev ?? fractie ?? "",
+        color: party?.color ?? null,
+        splinter: fractie !== null && isSplinterGroup(fractie),
+        seats: 0,
+      };
+      entry.seats += 1;
+      grouped.set(key, entry);
+    }
+    const entries = [...grouped.values()].sort((a, b) => b.seats - a.seats || (a.label < b.label ? -1 : a.label > b.label ? 1 : 0));
+    chambers[orgId] = { total: list.length, majority: Math.floor(list.length / 2) + 1, entries };
+  }
+  return chambers;
+}
+
 const bundle = {
   schema: GRAPH_SCHEMA,
   scope: "nl-rijk",
@@ -281,6 +320,7 @@ const bundle = {
   powerMap: buildPowerMap(),
   entityPowerMap,
   personSlugs,
+  chambers: buildChambers(),
 };
 
 mkdirSync(OUT_DIR, { recursive: true });
