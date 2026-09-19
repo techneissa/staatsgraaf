@@ -26,6 +26,9 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Fixed
 
+- The home column and news page no longer cut text mid-sentence: summaries are clamped at a sentence boundary in code (`clampSentences`, `clampMarkupSentences` in `web/lib/news-text.ts`) instead of a CSS line clamp, so a card ends on a full stop or, when a sentence has to break, at a word with an ellipsis. Source rows keep their number in a fixed column so a long title wraps under itself; the timeline's first and last labels and count bubbles anchor to the card edge instead of spilling past it; the "zetels" label on a vacancy card no longer runs into its value; change cards show dates in the project format.
+- On phones the page no longer scrolls sideways: the canvas header controls wrap, the grid columns may shrink below their content, the scope pill and the history arrows hide below the small breakpoint, and the hover callouts of the people strip open toward the middle so a hidden callout never widens the page.
+
 - News card summaries no longer repeat their own headline. The linked summaries stored as "Kop — inleiding" are cut to the article text before rendering (`stripTitleFromMarkup`), and fallback summaries that hold nothing beyond the publisher echo ("Trouw bericht: \"Kop\"") are suppressed or reduced to their article text (`stripPublisherPrefix` in `web/lib/news-text.ts`). Image credit lines are removed from the news cards; photo attribution stays in the accessible portrait labels.
 - The "Wie is verbonden?" tab on person, position and organization pages now lists connections again. Because no relation touches a person directly, the tab derives positions from tenures and memberships from `data/tenures.json` and `data/memberships.json` and shows them as the new groups "Bekleedt positie"/"Positie" and "Lid van"/"Lidmaatschap" (`web/lib/entity.ts`, `web/components/entity/entity-connections.tsx`).
 

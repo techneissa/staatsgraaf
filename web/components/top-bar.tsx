@@ -23,7 +23,7 @@ export function TopBar() {
 
   return (
     <header className="z-20 shrink-0 border-b border-line bg-canvas">
-      <div className="flex items-center gap-3 px-4 py-2.5">
+      <div className="flex items-center gap-2 px-3 py-2.5 sm:gap-3 sm:px-4">
         <BrandLockup />
         <details className="relative md:hidden">
           <summary className="flex cursor-pointer list-none items-center rounded-sm border border-line px-2.5 py-2 text-sm text-ink-muted [&::-webkit-details-marker]:hidden">
@@ -55,7 +55,7 @@ export function TopBar() {
             </Link>
           ))}
         </nav>
-        <div className="ms-auto flex items-center gap-2">
+        <div className="ms-auto flex shrink-0 items-center gap-2">
           <LanguageToggle />
           <div data-search-mount className="flex items-center">
             <SearchOverlay />

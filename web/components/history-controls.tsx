@@ -8,7 +8,7 @@ export function HistoryControls() {
   const t = useT("common");
 
   return (
-    <div className="flex items-center gap-1">
+    <div className="hidden items-center gap-1 sm:flex">
       <button
         type="button"
         onClick={() => router.back()}

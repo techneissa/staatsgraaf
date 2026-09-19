@@ -139,7 +139,7 @@ export function CanvasFrame() {
   return (
     <aside
       aria-labelledby="grafiek-titel"
-      className="flex h-[70dvh] flex-col border-b border-line bg-surface-inset lg:col-start-2 lg:row-start-1 lg:h-auto lg:min-h-0 lg:border-b-0 lg:border-s lg:border-t-0"
+      className="flex h-[70dvh] min-w-0 flex-col border-b border-line bg-surface-inset lg:col-start-2 lg:row-start-1 lg:h-auto lg:min-h-0 lg:border-b-0 lg:border-s lg:border-t-0"
     >
       <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line px-4 py-2.5">
         <h2
