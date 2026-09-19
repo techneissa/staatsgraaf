@@ -136,13 +136,15 @@ Seat pitch is the same along the arc and down the legs. Seats are returned sorte
 
 Blocks are filled largest fractie first from the left (order H6 of the plan) until the real zaalindeling is sourced; `memberships.seatNumber` is the field that will replace it, and the chart always states which order it is using. Colours come from the sourced party registry (`web/lib/parties.ts`, ADR 0009) through `bundle.chambers`; a fractie with no sourced colour renders neutral and never gets an invented one. A dashed line marks the majority: seat 76 of 150, seat 38 of 75.
 
-## 9. Interaction: select, highlight, frame
+## 9. Interaction: turn, highlight, frame
 
-The interaction layer is `web/lib/pose.ts` and `web/lib/label-placement.ts`. A body never leaves its place: the layout decides where it lives and the canvas keeps it there. Selecting a body highlights it, its path to the electorate and its direct relations where they are, and moves the camera; nothing else moves. This replaced the gather and step back of the first rebuild on 19-09-2026 (ADR 0015, amendment 2): summoning relations onto a halo read as marks piling on top of each other, and a body that had moved could no longer be found where the reader had seen it.
+The interaction layer is `web/lib/pose.ts` and `web/lib/label-placement.ts`. A body never leaves its place: the layout decides where it lives and the canvas keeps it there. Selecting a body turns the canvas, highlights it, its path to the electorate and its direct relations where they are, and moves the camera; nothing else moves. This replaced the gather and step back of the first rebuild on 19-09-2026 (ADR 0015, amendment 2): summoning relations onto a halo read as marks piling on top of each other, and a body that had moved could no longer be found where the reader had seen it.
+
+**Turn.** `alignRotation(angle, previous)` returns the frame rotation that brings a focused body or a selected sector to `START_ANGLE`, straight above the core, expressed as the value nearest `previous` so the canvas always turns the short way and never unwinds a whole circle. A turn under 0.05 rad is not made at all, so selecting a neighbour does not nudge the canvas. One rotation applies to the whole frame, so nothing inside it can collide by turning. The rotation rides `SPRING_TURN` (about 1.1 s to settle), slower than the zoom and pan, so the turn reads as deliberate rather than rushed.
 
 **Highlight.** The selected mark grows by `SELECTED_GROWTH` and gets a ring; its path to the electorate is drawn in the accent colour; each direct relation gets a thin ring; every other mark dims. A collapsed child (section 5) is revealed at its fanned position when its body is selected, or when it is selected itself from the list or the keyboard.
 
-**Frame.** `focusReach(layout, id, hiddenBranches)` is the distance from the focus to its farthest visible relation plus a margin, clamped to `[MIN_REACH, MAX_REACH]`. `frameFor(layout, focus, rotation)` returns the view transform that holds the core and that neighbourhood on screen at once, never more than 2.4x. The canvas does not turn on selection; the reader turns it with the dial or the bracket keys.
+**Frame.** `focusReach(layout, id, hiddenBranches)` is the distance from the focus to its farthest visible relation plus a margin, clamped to `[MIN_REACH, MAX_REACH]`. `frameFor(layout, focus, rotation)` returns the view transform that holds the core and that neighbourhood on screen at once, never more than 2.4x. The dial and the bracket keys turn the canvas by hand as well.
 
 **Names.** Only the selection, its path, its direct relations (at most `MAX_LABELS = 80`) and the mark under the pointer carry a name. Labels sit outside the view and rotation groups, so they stay upright and keep one size on the reader's screen (12 CSS pixels, 13.5 for the selection) at any zoom. `placeLabels` runs every frame in screen coordinates: labels are placed in priority order (hover, selection, path, relations) into the first free slot of right, left, above, below, keeping clear of every labelled mark and every label placed before; a name that fits nowhere is hidden rather than drawn over another.
 
@@ -163,7 +165,7 @@ The relations of the selection and its path are merged into one path each, in th
 
 - The SVG has a fixed `viewBox`; one group carries `translate(tx ty) scale(s)` and one inner group carries `rotate(deg)`.
 - Wheel zooms around the pointer, clamped to `[0.25, 8]`. Dragging inside the outermost tier pans. Dragging outside it turns the canvas like a dial.
-- Selecting a body also frames it: the zoom and pan ease to a view that holds the core, the body and its direct relations at once, never more than 2.4x. The rotation is left as the reader set it.
+- Selecting a body also frames it: the zoom and pan ease to a view that holds the core, the body and its direct relations at once, never more than 2.4x.
 - Keyboard: arrows move the selection, `Home` and `End` jump to the ends, `Enter` opens the organization page, `Escape` clears the selection, `[` and `]` turn the canvas, `+` `-` `0` zoom and reset.
 - The transform is written by one animation frame straight to the DOM through refs. React renders the structure once; it does not reconcile 1600 elements per pointer move.
 
