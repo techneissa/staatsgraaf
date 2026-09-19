@@ -1,0 +1,255 @@
+{
+  "workstream": "S",
+  "generatedAt": "2026-09-19T07:20:19.000Z",
+  "endpointsUsed": [
+    {
+      "url": "https://www.tweedekamer.nl/kamerleden_en_commissies/alle_kamerleden",
+      "retrieved": "2026-09-19",
+      "notes": "200. Ledenoverzicht; bevat geen zetelnummers en geen link naar een plattegrond (0 treffers op 'zetel' en 'plattegrond' in de HTML)."
+    },
+    {
+      "url": "https://www.tweedekamer.nl/zoeken?qry=plattegrond+plenaire+zaal",
+      "retrieved": "2026-09-19",
+      "notes": "200. 8 resultaten: de persinformatiepagina Opnamerichtlijnen voor journalisten, vier Kamerstukken (ventilatieonderzoek 2020, projectbeschrijving 2009, integriteitsrapport 2014, brief renovatie Binnenhof 2018) en twee plenaire verslagen. Geen zetelnummers."
+    },
+    {
+      "url": "https://www.tweedekamer.nl/zoeken?qry=zetelindeling",
+      "retrieved": "2026-09-19",
+      "notes": "200. 0 resultaten."
+    },
+    {
+      "url": "https://www.tweedekamer.nl/zoeken?qry=zetelnummer",
+      "retrieved": "2026-09-19",
+      "notes": "200. 0 resultaten."
+    },
+    {
+      "url": "https://www.tweedekamer.nl/zoeken?qry=zaalindeling",
+      "retrieved": "2026-09-19",
+      "notes": "200. 6 resultaten: vier Kamerstukken en twee plenaire verslagen, geen daarvan een zaalindeling van de plenaire zaal."
+    },
+    {
+      "url": "https://www.tweedekamer.nl/zoeken?qry=wie+zit+waar",
+      "retrieved": "2026-09-19",
+      "notes": "200. 15 resultaten, alleen Kamerstukken en plenaire verslagen; de pagina Wie zit waar? zelf staat er niet tussen."
+    },
+    {
+      "url": "https://www.tweedekamer.nl/zoeken?qry=zetelverdeling+plenaire+zaal",
+      "retrieved": "2026-09-19",
+      "notes": "200. 14 resultaten, waaronder de pagina /kamerleden-en-commissies/wie-zit-waar."
+    },
+    {
+      "url": "https://www.tweedekamer.nl/zoeken?qry=zitplaats+kamerleden",
+      "retrieved": "2026-09-19",
+      "notes": "200. 15 resultaten over commissiezalen en Kamerstukken, geen zetelnummers."
+    },
+    {
+      "url": "https://www.tweedekamer.nl/kamerleden-en-commissies/wie-zit-waar",
+      "retrieved": "2026-09-19",
+      "notes": "200. Pagina Wie zit waar?: een zin ('Welke fractie zit waar in de plenaire zaal') en een link naar de pdf Zetelverdeling plenaire zaal. Geen zetelnummers per lid."
+    },
+    {
+      "url": "https://www.tweedekamer.nl/sites/default/files/2026-06/zetelverdeling%20Juni%202026%20NL.pdf",
+      "retrieved": "2026-09-19",
+      "notes": "200, application/pdf, 1 pagina, titel 'Zetelverdeling plenaire zaal, juni 2026', pdf-titel 'factsheet zetelverdeling Maart 2026 .indd'. Tekstlaag bevat per fractie een blok met zeteltal (D66 26, VVD 22, PRO 20, PVV 19, CDA 18, JA21 9, FVD 7, BBB 3, DENK 3, SGP 3, PvdD 3, ChristenUnie 3, SP 3, 50PLUS 2, Volt 1, Groep Markuszower 7, Lid Keijzer 1) en een legenda 1 t/m 7 (Voorzitter, Griffier, Kabinet vak-K, Medewerkers Verslag en Redactie, Spreekgestoelte, Interruptiemicrofoons, Bodedienst). Geen namen van leden en geen zetelnummers per lid."
+    },
+    {
+      "url": "https://www.tweedekamer.nl/contact-en-bezoek/persinformatie/opnamerichtlijnen-voor-journalisten",
+      "retrieved": "2026-09-19",
+      "notes": "200. Linkt naar de pdf's Opnamerichtlijnen voor journalisten november 2024, Opnamerichtlijnen plattegrond plenaire zaal en Opnamerichtlijnen plattegrond commissiezalen."
+    },
+    {
+      "url": "https://www.tweedekamer.nl/sites/default/files/2024-12/20241204-opnamerichtlijnen-plattegrond-plenaire-zaal.pdf",
+      "retrieved": "2026-09-19",
+      "notes": "200, application/pdf, 1 pagina, geen tekstlaag (pdftotext levert niets op). Een plattegrond voor cameraposities, geen zetelnummers in tekst."
+    },
+    {
+      "url": "https://www.tweedekamer.nl/sites/default/files/2024-12/20241127_Opnamerichtlijnen_voor_journalisten_november_2024.pdf",
+      "retrieved": "2026-09-19",
+      "notes": "200, application/pdf. Opnamerichtlijnen; 0 treffers op 'zetel', 'plattegrond' of 'zitplaats' in de tekstlaag."
+    },
+    {
+      "url": "https://www.tweedekamer.nl/kamerleden_en_commissies/alle_kamerleden/abassi-i-el-denk",
+      "retrieved": "2026-09-19",
+      "notes": "200. Steekproef van een ledenprofiel; 0 treffers op 'zetel' of 'zitplaats'."
+    },
+    {
+      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/$metadata",
+      "retrieved": "2026-09-19",
+      "notes": "200, application/xml. 38 entiteittypen. Geen enkele property met zetel-, zaal-, plaats-, positie- of stoelbetekenis voor een lid: FractieZetel heeft Id, Gewicht, Fractie_Id; FractieZetelPersoon heeft Id, FractieZetel_Id, Persoon_Id, Functie, Van, TotEnMet; Persoon.Nummer is een persoonsnummer; Zaal heeft Id, Naam, SysCode en hangt aan Reservering."
+    },
+    {
+      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetel?$top=5&$expand=Fractie($select=Afkorting)&$format=json",
+      "retrieved": "2026-09-19",
+      "notes": "200. Steekproef: Gewicht bevat waarden als 14, 17 en 10000, een sorteergewicht, geen zetelnummer in de zaal."
+    },
+    {
+      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Zaal?$top=20&$format=json",
+      "retrieved": "2026-09-19",
+      "notes": "200. Vergaderzalen met naam en SysCode (onder meer 'Plenaire zaal Tweede Kamer', SysCode 79); geen zetels."
+    },
+    {
+      "url": "https://opendata.tweedekamer.nl/",
+      "retrieved": "2026-09-19",
+      "notes": "200. Portaalpagina; 0 treffers op 'zetel', 'zaal' of 'plattegrond'."
+    },
+    {
+      "url": "https://opendata.tweedekamer.nl/documentatie/informatiemodel",
+      "retrieved": "2026-09-19",
+      "notes": "200. Informatiemodel; 'zetel' komt alleen voor in CommissieZetel* en FractieZetel*, geen zaalpositie."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/zoeken?q=zetelindeling",
+      "retrieved": "2026-09-19",
+      "notes": "200. 'Geen resultaten met zetelindeling'; het menu bevat de pagina Wie zit waar?."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/plenaire_zaal",
+      "retrieved": "2026-09-19",
+      "notes": "404."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/alle_leden",
+      "retrieved": "2026-09-19",
+      "notes": "200. Ledenoverzicht; 0 treffers op 'zetel', 'plattegrond' of 'zaal'."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/wie_zit_waar",
+      "retrieved": "2026-09-19",
+      "notes": "200. Interactieve plattegrond: 75 cellen met class 'lid', data-fractie en de naam van het lid (linker bankjes 10 rijen met 3,3,4,4,4,4,4,4,4,5 cellen; rechter bankjes 10 rijen met 3,3,4,4,4,4,4,4,3,3 cellen; 1 cel in het middenblok). Attributen: alleen class, data-fractie en type. Geen zetelnummer in tekst of attribuut; de intro noemt 'een vaste plek, ook wel zetel genoemd' zonder nummering."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/wie_zit_waar?layout=print",
+      "retrieved": "2026-09-19",
+      "notes": "200. Printversie van dezelfde pagina; 'zetel' komt 5 keer voor, uitsluitend in de intro en de kop 'Fracties/zetels'. Geen nummers."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/9370221/v/js/wiezitwaar.js",
+      "retrieved": "2026-09-19",
+      "notes": "200, application/javascript. Toggle- en popuplogica voor de plattegrond; geen zeteldata."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/persoon/r_van_aelst_den_uijl_ma_sp",
+      "retrieved": "2026-09-19",
+      "notes": "200. Steekproef van een biografiepagina; 0 treffers op 'zetel', 'zitplaats' of 'plattegrond'."
+    },
+    {
+      "url": "https://data.overheid.nl/zoeken?q=tweede+kamer+zetel",
+      "retrieved": "2026-09-19",
+      "notes": "200. Zoekpagina zonder bruikbare resultatenlijst in de HTML; daarom via de CKAN-API herhaald."
+    },
+    {
+      "url": "https://data.overheid.nl/community/organization/tweede-kamer",
+      "retrieved": "2026-09-19",
+      "notes": "404."
+    },
+    {
+      "url": "https://data.overheid.nl/data/api/3/action/package_search?q=tweede+kamer&rows=50",
+      "retrieved": "2026-09-19",
+      "notes": "200. 186 datasets: verkiezingsuitslagen (DONL, gemeenten), CBS 'Verkiezingsuitslag en zetelverdeling Tweede Kamer' per verkiezingsjaar en 'Open Data Portaal van de Tweede Kamer der Staten-Generaal'. Geen zaalindeling."
+    },
+    {
+      "url": "https://data.overheid.nl/data/api/3/action/package_search?q=zetel+plenaire+zaal&rows=20",
+      "retrieved": "2026-09-19",
+      "notes": "200. 0 datasets."
+    }
+  ],
+  "organizations": [],
+  "positions": [],
+  "people": [],
+  "tenures": [],
+  "memberships": [],
+  "relations": [],
+  "topics": [],
+  "budgets": [],
+  "sources": [
+    {
+      "id": "src:tk-wie-zit-waar",
+      "url": "https://www.tweedekamer.nl/kamerleden-en-commissies/wie-zit-waar",
+      "title": "Wie zit waar?",
+      "publisher": "Tweede Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Verwijst naar de pdf Zetelverdeling plenaire zaal; noemt alleen fracties, geen zetelnummers per lid."
+    },
+    {
+      "id": "src:tk-zetelverdeling-plenaire-zaal-2026-06",
+      "url": "https://www.tweedekamer.nl/sites/default/files/2026-06/zetelverdeling%20Juni%202026%20NL.pdf",
+      "title": "Zetelverdeling plenaire zaal, juni 2026",
+      "publisher": "Tweede Kamer der Staten-Generaal",
+      "type": "page",
+      "published": "2026-06-11",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Eenpagina-factsheet met per fractie een blok en zeteltal en een legenda 1 t/m 7 voor Voorzitter, Griffier, Kabinet, Medewerkers, Spreekgestoelte, Interruptiemicrofoons en Bodedienst. Geen ledennamen, geen zetelnummers. Publicatiedatum uit de pdf-metadata (CreationDate 11-06-2026)."
+    },
+    {
+      "id": "src:tk-opnamerichtlijnen-plattegrond-plenaire-zaal",
+      "url": "https://www.tweedekamer.nl/sites/default/files/2024-12/20241204-opnamerichtlijnen-plattegrond-plenaire-zaal.pdf",
+      "title": "Opnamerichtlijnen plattegrond plenaire zaal",
+      "publisher": "Tweede Kamer der Staten-Generaal",
+      "type": "page",
+      "published": "2024-12-04",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Plattegrond voor cameraposities zonder tekstlaag. Geen zetelnummers."
+    },
+    {
+      "id": "src:tk-odata-metadata",
+      "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/$metadata",
+      "title": "Tweede Kamer OData v4 2.0 $metadata",
+      "publisher": "Tweede Kamer der Staten-Generaal",
+      "type": "api",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Geen entiteit of property met een zetelnummer of zaalpositie voor een lid; FractieZetel.Gewicht is een sorteergewicht."
+    },
+    {
+      "id": "src:ek-wie-zit-waar",
+      "url": "https://www.eerstekamer.nl/wie_zit_waar",
+      "title": "Wie zit waar",
+      "publisher": "Eerste Kamer der Staten-Generaal",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": "CC-BY-4.0",
+      "archiveUrl": null,
+      "notes": "Interactieve plattegrond met 75 ledencellen (naam en fractie) in linker en rechter bankjes; positie alleen als rij en kolom in de HTML, zonder zetelnummer."
+    },
+    {
+      "id": "src:data-overheid-package-search-tweede-kamer",
+      "url": "https://data.overheid.nl/data/api/3/action/package_search?q=tweede+kamer&rows=50",
+      "title": "data.overheid.nl package_search 'tweede kamer'",
+      "publisher": "Ministerie van Binnenlandse Zaken en Koninkrijksrelaties (data.overheid.nl)",
+      "type": "register",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "186 datasets, alle verkiezingsuitslagen, CBS-zetelverdelingen of het Open Data Portaal van de Tweede Kamer; geen zaalindeling."
+    }
+  ],
+  "media": [],
+  "gaps": [
+    {
+      "id": "gap:s-tk-zetelnummers",
+      "what": "seatNumber voor alle 150 huidige leden van de Tweede Kamer (org:tweede-kamer), 150 membership-records in data/memberships.json",
+      "why": "Niet gepubliceerd. tweedekamer.nl publiceert alleen een plattegrond per fractie (pdf Zetelverdeling plenaire zaal, juni 2026) met zeteltallen per fractie en een legenda 1 t/m 7 voor zaalfuncties; er staan geen ledennamen en geen zetelnummers per lid in. Het OData-gegevensmagazijn kent geen property met een zetelnummer of zaalpositie ($metadata gecontroleerd). De sitezoekopdrachten 'zetelnummer' en 'zetelindeling' geven 0 resultaten; ledenprofielen noemen geen zetel.",
+      "endpoint": "https://www.tweedekamer.nl/kamerleden-en-commissies/wie-zit-waar",
+      "resume": "Controleer of tweedekamer.nl een zaalindeling per lid gaat publiceren (pagina Wie zit waar? en de daar gelinkte pdf) of het gegevensmagazijn een zetelproperty toevoegt (vergelijk $metadata met de versie van 19-09-2026). Zonder zo'n bron blijft seatNumber null; nooit een nummer aflezen uit de pdf-tekening."
+    },
+    {
+      "id": "gap:s-ek-zetelnummers",
+      "what": "seatNumber voor alle 75 huidige leden van de Eerste Kamer (org:eerste-kamer), 75 membership-records in data/memberships.json",
+      "why": "Deels gepubliceerd, maar zonder nummer. eerstekamer.nl/wie_zit_waar toont per lid een vaste plek op een interactieve plattegrond (75 cellen met naam en fractie, verdeeld over linker en rechter bankjes met 10 rijen elk en 1 middencel). De HTML, de printversie, het script wiezitwaar.js en de biografiepagina's bevatten geen zetelnummer; de positie is alleen als rij en kolom in de opmaak te vinden. Een nummer daaruit afleiden zou een eigen nummering zijn, geen gepubliceerd feit.",
+      "endpoint": "https://www.eerstekamer.nl/wie_zit_waar",
+      "resume": "Controleer of de Eerste Kamer een zetelnummering per lid publiceert (op wie_zit_waar, de printversie of de biografiepagina's). Als het project ooit zelf rij- en kolomposities wil opnemen, vraagt dat een eigen veld naast seatNumber en een ADR; de HTML-cellen van wie_zit_waar zijn dan de machineleesbare bron."
+    }
+  ]
+}

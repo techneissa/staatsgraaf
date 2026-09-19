@@ -4,7 +4,7 @@ This file lists every source in `data/sources.json` with its URL, publisher, lic
 
 Licenses follow the per-source determination in `research/O-licenses.md`, which cites the terms page and retrieval date for each source. The dataset license is CC BY 4.0; see `LICENSE-DATA`. Facts are not copyrightable, and this dataset carries facts, codes, dates, and our own summaries, not source prose or images.
 
-## CC0-1.0 (1180)
+## CC0-1.0 (1287)
 
 | url | publisher | license | required credit line |
 | --- | --- | --- | --- |
@@ -25,11 +25,15 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://commons.wikimedia.org/wiki/File:Kees_van_der_Staaij.jpg | Wikimedia Commons | CC0-1.0 | - |
 | https://commons.wikimedia.org/wiki/File:Laura_van_Geest.jpg | Wikimedia Commons | CC0-1.0 | - |
 | https://commons.wikimedia.org/wiki/File:Mark_Ro%C3%ABll.jpg | Wikimedia Commons | CC0-1.0 | - |
+| https://commons.wikimedia.org/wiki/File:Noortje_Thijssen_(53100137763)_(cropped).jpg | Wikimedia Commons | CC0-1.0 | - |
 | https://commons.wikimedia.org/wiki/File:Peter_Snijders.jpg | Wikimedia Commons | CC0-1.0 | - |
 | https://commons.wikimedia.org/wiki/File:Petra_Dassen.jpg | Wikimedia Commons | CC0-1.0 | - |
 | https://commons.wikimedia.org/wiki/File:Ren%C3%A9_Claassen.jpg | Wikimedia Commons | CC0-1.0 | - |
 | https://commons.wikimedia.org/wiki/File:RvanAsten.jpg | Wikimedia Commons | CC0-1.0 | - |
+| https://commons.wikimedia.org/wiki/File:Staatssecretaris_van_Financi%C3%ABn_Van_Rooijen%2C_Bestanddeelnr_927-0357.jpg | Wikimedia Commons | CC0-1.0 | - |
+| https://commons.wikimedia.org/wiki/File:Theo_Bovens.jpg | Wikimedia Commons | CC0-1.0 | - |
 | https://commons.wikimedia.org/wiki/File:Wim_Kuijken.jpg | Wikimedia Commons | CC0-1.0 | - |
+| https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/$metadata | Tweede Kamer der Staten-Generaal | CC0-1.0 | - |
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Commissie?$filter=Verwijderd eq false | Tweede Kamer OData API | CC0-1.0 | - |
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/CommissieZetelVastPersoon?$filter=Verwijderd eq false and TotEnMet eq null&$expand=CommissieZetel($expand=Commissie),Persoon | Tweede Kamer OData API | CC0-1.0 | - |
 | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Fractie | Tweede Kamer der Staten-Generaal | CC0-1.0 | - |
@@ -245,6 +249,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://wetten.overheid.nl/BWBR0028105 | wetten.overheid.nl | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0028142 | Overheid.nl | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0028238 | wetten.overheid.nl | CC0-1.0 | - |
+| https://wetten.overheid.nl/BWBR0028859/2010-10-20 | Overheid.nl (wetten.overheid.nl) | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0028868 | wetten.overheid.nl | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0030099 | wetten.overheid.nl | CC0-1.0 | - |
 | https://wetten.overheid.nl/BWBR0030106 | wetten.overheid.nl | CC0-1.0 | - |
@@ -309,11 +314,27 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.inspectie-jenv.nl | Inspectie Justitie en Veiligheid | CC0-1.0 | - |
 | https://www.justitieleictorganisatie.nl | Justitiele ICT Organisatie | CC0-1.0 | - |
 | https://www.kiesraad.nl/ | Kiesraad | CC0-1.0 | - |
+| https://www.kiesraad.nl/actueel/nieuws/1998/05/19/uitslag-tweede-kamerverkiezing-opnieuw | Kiesraad | CC0-1.0 | - |
+| https://www.kiesraad.nl/actueel/nieuws/2010/06/16/uitslag-verkiezing-leden-tweede-kamer-van-9-juni-2010 | Kiesraad | CC0-1.0 | - |
+| https://www.kiesraad.nl/actueel/nieuws/2012/09/17/officiele-uitslag-tweede-kamerverkiezing-12-september-2012 | Kiesraad | CC0-1.0 | - |
+| https://www.kiesraad.nl/actueel/nieuws/2015/05/28/definitieve-uitslag-eerste-kamerverkiezing | Kiesraad | CC0-1.0 | - |
+| https://www.kiesraad.nl/actueel/nieuws/2017/03/20/officiele-uitslag-tweede-kamerverkiezing-15-maart-2017 | Kiesraad | CC0-1.0 | - |
+| https://www.kiesraad.nl/actueel/nieuws/2019/05/31/uitslag-eerste-kamerverkiezing-2019 | Kiesraad | CC0-1.0 | - |
 | https://www.kiesraad.nl/actueel/nieuws/2020/10/02/nieuwe-voorzitter-kiesraad | Kiesraad | CC0-1.0 | - |
+| https://www.kiesraad.nl/actueel/nieuws/2021/03/26/officiele-uitslag-tweede-kamerverkiezing-17-maart-2021 | Kiesraad | CC0-1.0 | - |
+| https://www.kiesraad.nl/actueel/nieuws/2023/06/01/uitslag-eerste-kamerverkiezing-2023 | Kiesraad | CC0-1.0 | - |
+| https://www.kiesraad.nl/actueel/nieuws/2023/12/01/kiesraad-stelt-uitslag-tweede-kamerverkiezing-22-november-2023-vast | Kiesraad | CC0-1.0 | - |
 | https://www.kiesraad.nl/actueel/nieuws/2024/09/26/carolien-van-ham-nieuw-lid-kiesraad-en-herbenoeming-voorzitter-wim-kuijken | Kiesraad | CC0-1.0 | - |
+| https://www.kiesraad.nl/actueel/nieuws/2025/11/7/kiesraad-uitslag-tweede-kamerverkiezing-betrouwbaar | Kiesraad | CC0-1.0 | - |
 | https://www.kiesraad.nl/over-ons | Kiesraad | CC0-1.0 | - |
 | https://www.kiesraad.nl/over-ons/leden-kiesraad | Kiesraad | CC0-1.0 | - |
 | https://www.kiesraad.nl/personen/leden-kiesraad/wim-kuijken | Kiesraad | CC0-1.0 | - |
+| https://www.kiesraad.nl/site/binaries/site-content/collections/documents/2010/06/22/kerngegevens-uitslagen-verkiezing-tweede-kamer-2010/kerngegevens-tweede-kamer-2010.pdf | Kiesraad | CC0-1.0 | - |
+| https://www.kiesraad.nl/site/binaries/site-content/collections/documents/2011/05/25/kerngegevens-eerste-kamer-2011/kerngegevens-eerste-kamerverkiezing-2011-0.pdf | Kiesraad | CC0-1.0 | - |
+| https://www.kiesraad.nl/site/binaries/site-content/collections/documents/2012/09/19/proces-verbaal-zitting-uitslag-tweede-kamerverkiezing-2012/proces-verbaal-vaststelling-uitslag-tweede-kamerverkiezing-2012.pdf | Kiesraad | CC0-1.0 | - |
+| https://www.kiesraad.nl/site/binaries/site-content/collections/documents/2017/3/proces-verbaal-zitting-kiesraad-uitslag-tweede-kamerverkiezing-2017/uitslag-tweede-kamerverkiezing-2017-in-excel/osv4-3_Totaaltelling_TK2017.ods | Kiesraad | CC0-1.0 | - |
+| https://www.kiesraad.nl/site/binaries/site-content/collections/documents/2021/03/26/uitslag-tweede-kamerverkiezing-17-maart-2021/Proces-verbaal+verkiezingsuitslag+Tweede+kamer+2021.pdf | Kiesraad | CC0-1.0 | - |
+| https://www.kiesraad.nl/site/binaries/site-content/collections/documents/2025/11/07/proces-verbaal-van-de-uitslag-van-de-verkiezing-van-de-tweede-kamer-2025-d.d.-7-november-2025/Proces-verbaal+van+het+centraal+stembureau+met+de+uitslag+van+de+verkiezing+van+de+Tweede+Kamer+der+Staten-Generaal+2025+P22-1+incl+bijlagen.pdf | Kiesraad | CC0-1.0 | - |
 | https://www.kiesraad.nl/verkiezingen/eerste-kamer | Kiesraad | CC0-1.0 | - |
 | https://www.kiesraad.nl/verkiezingen/eilandsraden | Kiesraad | CC0-1.0 | - |
 | https://www.kiesraad.nl/verkiezingen/provinciale-staten | Kiesraad | CC0-1.0 | - |
@@ -382,6 +403,12 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.rijksoverheid.nl/actueel/nieuws/2025/11/13/nieuwe-burgemeester-in-culemborg | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/actueel/nieuws/2026/04/17/benoeming-vice-president-raad-van-state | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/actueel/nieuws/2026/09/04/benoeming-vijf-nieuwe-leden-onderwijsraad | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/documenten/2007/02/07/coalitieakkoord-balkenende-iv | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/documenten/2010/09/30/regeerakkoord-vvd-cda | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/documenten/2012/10/29/regeerakkoord | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/documenten/2017/10/10/regeerakkoord-2017-vertrouwen-in-de-toekomst | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/documenten/2022/01/10/coalitieakkoord-omzien-naar-elkaar-vooruitkijken-naar-de-toekomst | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/documenten/2026/01/30/aan-de-slag-bouwen-aan-een-beter-nederland | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/ministeries | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken | Rijksoverheid | CC0-1.0 | - |
@@ -535,6 +562,39 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.rijksoverheid.nl/regering/bewindspersonen/vincent-karremans | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/regering/bewindspersonen/willemijn-aerdts | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/regering/ministerraad | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945 | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-balkenende-i | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-balkenende-ii | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-balkenende-iii | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-balkenende-iv | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-beel-i | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-beel-ii | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-biesheuvel | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-cals | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-de-jong | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-de-quay | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-den-uyl | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-drees-i | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-drees-ii | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-drees-iii | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-drees-van-schaijk | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-jetten | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-kok-i | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-kok-ii | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-lubbers-i | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-lubbers-ii | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-lubbers-iii | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-marijnen | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-rutte-asscher | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-rutte-iii | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-rutte-iv | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-rutte-verhagen | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-schermerhorn-drees | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-schoof | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-van-agt-i | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-van-agt-ii | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-van-agt-iii | Rijksoverheid | CC0-1.0 | - |
+| https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-zijlstra | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/service/contact/contactgids/a/adviesraad-migratie | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/service/contact/contactgids/a/adviesraad-voor-wetenschap-technologie-en-innovatie-awti | Rijksoverheid | CC0-1.0 | - |
 | https://www.rijksoverheid.nl/service/contact/contactgids/a/algemene-rekenkamer | Rijksoverheid | CC0-1.0 | - |
@@ -621,10 +681,12 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.wikidata.org/wiki/Q106119778 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q106119869 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q106133800 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q106162833 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q106191726 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q106204204 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q106214765 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q106519771 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q106595879 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q106599755 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q106621120 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q106621136 | Wikidata | CC0-1.0 | - |
@@ -639,6 +701,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.wikidata.org/wiki/Q109986157 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q110016345 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q110252994 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q110533646 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q110552900 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q110567717 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q110567942 | Wikidata | CC0-1.0 | - |
@@ -679,15 +742,25 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.wikidata.org/wiki/Q115941087 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q116542370 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q116842262 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q117193203 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q117193211 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q117193225 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q117210282 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q117210291 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q117228753 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q117228919 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q117233163 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q117233242 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q117233644 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q117233708 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q117235746 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q117288921 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q117303608 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q117358507 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q117359544 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q119478071 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q119514112 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q11960335 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q119855087 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q120133413 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q120640170 | Wikidata | CC0-1.0 | - |
@@ -832,6 +905,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.wikidata.org/wiki/Q17351527 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q17427994 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q1830398 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q1832437 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q1834097 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q1840629 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q1841359 | Wikidata | CC0-1.0 | - |
@@ -858,6 +932,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.wikidata.org/wiki/Q1982182 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q19830701 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q19839084 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q1986811 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q1991055 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q1994265 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q1996386 | Wikidata | CC0-1.0 | - |
@@ -872,6 +947,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.wikidata.org/wiki/Q20100030 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q20113688 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q2014373 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q2016880 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q20203714 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q2023682 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q2035262 | Wikidata | CC0-1.0 | - |
@@ -884,9 +960,11 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.wikidata.org/wiki/Q20978434 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q21004358 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q21009642 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q2106896 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q2111244 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q2120911 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q2122134 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q2125309 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q21255846 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q21264363 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q2129766 | Wikidata | CC0-1.0 | - |
@@ -914,6 +992,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.wikidata.org/wiki/Q2239421 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q22443091 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q2257196 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q2264234 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q22675626 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q22677170 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q2270173 | Wikidata | CC0-1.0 | - |
@@ -959,6 +1038,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.wikidata.org/wiki/Q24455738 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q24534840 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q2456211 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q2461231 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q2468871 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q24705911 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q2476648 | Wikidata | CC0-1.0 | - |
@@ -998,8 +1078,10 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.wikidata.org/wiki/Q2760813 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q27646718 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q2779827 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q2779827 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q2796885 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q2797379 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q2801440 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q28038561 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q28074029 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q28074031 | Wikidata | CC0-1.0 | - |
@@ -1039,6 +1121,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.wikidata.org/wiki/Q28861872 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q28861874 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q28861876 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q28861881 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q28861883 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q28861893 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q28861992 | Wikidata | CC0-1.0 | - |
@@ -1068,6 +1151,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.wikidata.org/wiki/Q4319521 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q434842 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q4370817 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q442061 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q4462875 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q46445036 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q46698130 | Wikidata | CC0-1.0 | - |
@@ -1113,12 +1197,15 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.wikidata.org/wiki/Q61741035 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q62058121 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q62075600 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q62565594 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q62687029 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q63223781 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q64032880 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q64399772 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q64552692 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q64590182 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q64706397 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q64847392 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q65008764 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q65178183 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q65178213 | Wikidata | CC0-1.0 | - |
@@ -1138,6 +1225,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.wikidata.org/wiki/Q70316496 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q71101713 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q71101774 | Wikidata | CC0-1.0 | - |
+| https://www.wikidata.org/wiki/Q7154615 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q71687106 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q72101119 | Wikidata | CC0-1.0 | - |
 | https://www.wikidata.org/wiki/Q72925845 | Wikidata | CC0-1.0 | - |
@@ -1188,8 +1276,27 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.wrr.nl/over-de-wrr/raad-en-adviserende-leden | WRR | CC0-1.0 | - |
 | https://www.wrr.nl/personen/raad-en-adviserende-leden/corien-prins | WRR | CC0-1.0 | - |
 | https://zoek.officielebekendmakingen.nl/blg-1151692.html | Tweede Kamer der Staten-Generaal | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2010-16523.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2010-16525.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2010-16527.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2010-16528.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2012-23040.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2012-23043.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2017-62719.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2017-62720.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2017-62722.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2017-62723.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2017-62725.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2017-62726.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2017-62730.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2024-22493.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2024-22495.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2024-22497.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2024-22499.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2024-22500.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
+| https://zoek.officielebekendmakingen.nl/stcrt-2024-22504.html | Ministerie van Algemene Zaken (Staatscourant) | CC0-1.0 | - |
 
-## CC-BY-4.0 (175)
+## CC-BY-4.0 (249)
 
 | url | publisher | license | required credit line |
 | --- | --- | --- | --- |
@@ -1211,7 +1318,27 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://commons.wikimedia.org/wiki/File:Thierry_Aartsen%2C_July_2025.jpg | Wikimedia Commons | CC-BY-4.0 | - |
 | https://commons.wikimedia.org/wiki/File:Visit_of_Foort_van_Oosten%2C_Dutch_Minister_for_Justice_and_Security%2C_to_the_EC_-_2025_(cropped).jpg | Wikimedia Commons | CC-BY-4.0 | - |
 | https://commons.wikimedia.org/wiki/File:Willemijn_Aerdts%2C_May_2025.jpg | Wikimedia Commons | CC-BY-4.0 | - |
+| https://opendata.cbs.nl/ODataApi/odata/03761/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1963 (CBS StatLine tabel 03761), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/37109/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1986 (CBS StatLine tabel 37109), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/37147/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1952 (CBS StatLine tabel 37147), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/37153/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1977 (CBS StatLine tabel 37153), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/37166/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1981 (CBS StatLine tabel 37166), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/37185/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1972 (CBS StatLine tabel 37185), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/37278/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingen; uitslagen Tweede Kamer, 1918-2006 (CBS StatLine tabel 37278), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/37299/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1971 (CBS StatLine tabel 37299), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/37322/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1982 (CBS StatLine tabel 37322), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/37381/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1956 (CBS StatLine tabel 37381), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/37475/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1946 (CBS StatLine tabel 37475), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/37517/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1948 (CBS StatLine tabel 37517), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/37607/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1967 (CBS StatLine tabel 37607), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/37613/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1989 (CBS StatLine tabel 37613), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/37628/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1998 (CBS StatLine tabel 37628), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/37635/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1959 (CBS StatLine tabel 37635), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/37864/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1994 (CBS StatLine tabel 37864), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/60045/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 2002 (CBS StatLine tabel 60045), geraadpleegd 2026-09-19. |
 | https://opendata.cbs.nl/ODataApi/OData/70072ned | CBS | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Provincies (CBS tabel 70072ned), geraadpleegd 2026-09-17. |
+| https://opendata.cbs.nl/ODataApi/odata/70148NED/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 2003 (CBS StatLine tabel 70148NED), geraadpleegd 2026-09-19. |
+| https://opendata.cbs.nl/ODataApi/odata/71277NED/TypedDataSet | Centraal Bureau voor de Statistiek | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingen; 2006 uitslag en zetelverdeling Tweede Kamer (CBS StatLine tabel 71277NED), geraadpleegd 2026-09-19. |
 | https://opendata.cbs.nl/ODataApi/OData/80445ned | CBS | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Waterschappen (CBS tabel 80445ned), geraadpleegd 2026-09-17. |
 | https://opendata.cbs.nl/ODataApi/OData/86247NED/RegioS | CBS | CC-BY-4.0 | Bron: Centraal Bureau voor de Statistiek (CBS), Gebieden in Nederland 2026 (CBS tabel 86247NED, RegioS), geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/ | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/, geraadpleegd 2026-09-17. |
@@ -1253,80 +1380,134 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.eerstekamer.nl/fracties | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fracties, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/fracties | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fracties, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/a_j_m_van_kesteren_pvv | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/a_j_m_van_kesteren_pvv, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/a_j_m_van_kesteren_pvv | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/a_j_m_van_kesteren_pvv, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/a_kanis_d66 | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/a_kanis_d66, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/a_kanis_d66 | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/a_kanis_d66, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/a_p_m_van_wijk_bbb | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/a_p_m_van_wijk_bbb, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/a_p_m_van_wijk_bbb | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/a_p_m_van_wijk_bbb, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/a_w_j_a_van_hattem_pvv | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/a_w_j_a_van_hattem_pvv, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/a_w_j_a_van_hattem_pvv | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/a_w_j_a_van_hattem_pvv, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/bgen_b_d_drs_a_j_a_beukering | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/bgen_b_d_drs_a_j_a_beukering, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/bgen_b_d_drs_a_j_a_beukering | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/bgen_b_d_drs_a_j_a_beukering, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/dr_d_m_g_roovers_pro | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_d_m_g_roovers_pro, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/dr_m_j_kaljouw_vvd | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_m_j_kaljouw_vvd, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/dr_m_j_kaljouw_vvd | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_m_j_kaljouw_vvd, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/dr_m_l_vos_pro | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_m_l_vos_pro, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/dr_m_l_vos_pro | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_m_l_vos_pro, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/dr_m_m_van_toorenburg_cda | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_m_m_van_toorenburg_cda, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/dr_mr_j_bakker_klein_cda | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_mr_j_bakker_klein_cda, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/dr_mr_j_bakker_klein_cda | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_mr_j_bakker_klein_cda, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/dr_n_c_thijssen_pro | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_n_c_thijssen_pro, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/dr_r_baumgarten_ja21 | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_r_baumgarten_ja21, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/dr_r_baumgarten_ja21 | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_r_baumgarten_ja21, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_a_griffioen_d66 | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_a_griffioen_d66, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_a_griffioen_d66 | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_a_griffioen_d66, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_a_sj_van_der_goot_opnl | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_a_sj_van_der_goot_opnl, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_a_sj_van_der_goot_opnl | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_a_sj_van_der_goot_opnl, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_a_van_langen_visbeek_bbb | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_a_van_langen_visbeek_bbb, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/drs_e_kemperman_mba_fvd | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_e_kemperman_mba_fvd, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_e_kemperman_mba_fvd | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_e_kemperman_mba_fvd, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_f_j_m_crone_pro | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_f_j_m_crone_pro, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/drs_f_w_j_holterhues_christenunie | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_f_w_j_holterhues_christenunie, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_f_w_j_holterhues_christenunie | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_f_w_j_holterhues_christenunie, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_h_a_m_janssen_van_helvoort_pro | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_h_a_m_janssen_van_helvoort_pro, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_h_a_m_janssen_van_helvoort_pro | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_h_a_m_janssen_van_helvoort_pro, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_h_j_meijer_vvd | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_h_j_meijer_vvd, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_h_j_meijer_vvd | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_h_j_meijer_vvd, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_ing_b_kroon_bbb | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_ing_b_kroon_bbb, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_ing_b_kroon_bbb | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_ing_b_kroon_bbb, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_ing_t_panman_bbb | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_ing_t_panman_bbb, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_ing_t_panman_bbb | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_ing_t_panman_bbb, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_k_c_j_straus_vvd | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_k_c_j_straus_vvd, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_k_c_j_straus_vvd | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_k_c_j_straus_vvd, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_k_petersen_vvd | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_k_petersen_vvd, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_k_petersen_vvd | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_k_petersen_vvd, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_m_c_t_fiers_pro | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_m_c_t_fiers_pro, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_m_c_t_fiers_pro | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_m_c_t_fiers_pro, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_m_j_van_rooijen_50plus | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_m_j_van_rooijen_50plus, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/drs_n_k_koffeman_pvdd | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_n_k_koffeman_pvdd, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_n_k_koffeman_pvdd | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_n_k_koffeman_pvdd, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_p_h_van_meenen_d66 | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_p_h_van_meenen_d66, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/drs_p_v_a_walenkamp_ma_fractie | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_p_v_a_walenkamp_ma_fractie, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_p_v_a_walenkamp_ma_fractie | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_p_v_a_walenkamp_ma_fractie, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_r_van_gurp_pro | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_r_van_gurp_pro, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_r_van_gurp_pro | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_r_van_gurp_pro, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_s_m_kluit_pro | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_s_m_kluit_pro, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_s_m_kluit_pro | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_s_m_kluit_pro, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_t_j_f_m_bovens_cda | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_t_j_f_m_bovens_cda, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/drs_t_klip_martin_vvd | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_t_klip_martin_vvd, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_t_klip_martin_vvd | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_t_klip_martin_vvd, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/drs_th_w_rietkerk_cda | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_th_w_rietkerk_cda, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/drs_th_w_rietkerk_cda | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_th_w_rietkerk_cda, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/e_w_hartog_volt | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/e_w_hartog_volt, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/e_w_hartog_volt | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/e_w_hartog_volt, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/em_prof_dr_f_van_knapen_bbb | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/em_prof_dr_f_van_knapen_bbb, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/em_prof_dr_f_van_knapen_bbb | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/em_prof_dr_f_van_knapen_bbb, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/f_karimi_pro | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/f_karimi_pro, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/g_j_oplaat_bbb | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/g_j_oplaat_bbb, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/g_k_perin_gopie_msc_volt | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/g_k_perin_gopie_msc_volt, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/g_k_perin_gopie_msc_volt | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/g_k_perin_gopie_msc_volt, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/i_m_lagas_mdr_bbb | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/i_m_lagas_mdr_bbb, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/i_m_lagas_mdr_bbb | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/i_m_lagas_mdr_bbb, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/ing_m_j_l_goossen_bbb | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/ing_m_j_l_goossen_bbb, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/ing_m_j_l_goossen_bbb | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/ing_m_j_l_goossen_bbb, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/ir_drs_g_a_van_strien_pvv | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/ir_drs_g_a_van_strien_pvv, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/ir_drs_g_a_van_strien_pvv | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/ir_drs_g_a_van_strien_pvv, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/ir_ing_c_p_m_moonen_d66 | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/ir_ing_c_p_m_moonen_d66, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/j_c_huizinga_heringa_christenunie | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/j_c_huizinga_heringa_christenunie, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/j_c_huizinga_heringa_christenunie | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/j_c_huizinga_heringa_christenunie, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/j_c_m_van_den_oetelaar_fvd | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/j_c_m_van_den_oetelaar_fvd, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/j_c_m_van_den_oetelaar_fvd | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/j_c_m_van_den_oetelaar_fvd, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/j_dessing_fvd | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/j_dessing_fvd, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/m_karaaslan_mmc_d66 | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/m_karaaslan_mmc_d66, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/m_karaaslan_mmc_d66 | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/m_karaaslan_mmc_d66, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/mr_b_o_dittrich_d66 | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_b_o_dittrich_d66, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/mr_c_a_h_van_de_sanden_ll_m | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_c_a_h_van_de_sanden_ll_m, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/mr_c_a_h_van_de_sanden_ll_m | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_c_a_h_van_de_sanden_ll_m, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/mr_dr_a_ramsodit_pro | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_dr_a_ramsodit_pro, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/mr_drs_h_doornhof_cda | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_drs_h_doornhof_cda, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/mr_drs_h_doornhof_cda | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_drs_h_doornhof_cda, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/mr_drs_j_p_m_steenkamp_cda | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_drs_j_p_m_steenkamp_cda, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/mr_drs_j_p_m_steenkamp_cda | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_drs_j_p_m_steenkamp_cda, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/mr_g_v_m_veldhoen_pro | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_g_v_m_veldhoen_pro, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/mr_g_v_m_veldhoen_pro | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_g_v_m_veldhoen_pro, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/mr_h_a_marquart_scholtz_bbb | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_h_a_marquart_scholtz_bbb, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/mr_h_a_marquart_scholtz_bbb | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_h_a_marquart_scholtz_bbb, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/mr_h_j_j_talsma_christenunie | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_h_j_j_talsma_christenunie, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/mr_h_w_vogels_vvd | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_h_w_vogels_vvd, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/mr_h_w_vogels_vvd | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_h_w_vogels_vvd, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/mr_i_a_bezaan_pvv | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_i_a_bezaan_pvv, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/mr_i_a_bezaan_pvv | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_i_a_bezaan_pvv, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/mr_j_recourt_pro | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_j_recourt_pro, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/mr_k_van_bijsterveld_ja21 | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_k_van_bijsterveld_ja21, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/mr_k_van_bijsterveld_ja21 | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_k_van_bijsterveld_ja21, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/mr_m_n_j_van_der_linden_vvd | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_m_n_j_van_der_linden_vvd, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/mr_m_n_j_van_der_linden_vvd | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_m_n_j_van_der_linden_vvd, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/mr_r_a_janssen_sp | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_r_a_janssen_sp, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/mr_r_m_j_van_gasteren_llm_fractie | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_r_m_j_van_gasteren_llm_fractie, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/mr_r_m_j_van_gasteren_llm_fractie | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_r_m_j_van_gasteren_llm_fractie, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/mr_r_s_croll_d66 | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_r_s_croll_d66, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/mr_r_s_croll_d66 | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_r_s_croll_d66, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/p_rosenmoller_pro | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/p_rosenmoller_pro, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/p_schalk_sgp | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/p_schalk_sgp, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/p_schalk_sgp | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/p_schalk_sgp, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/prof_dr_e_b_van_apeldoorn_sp | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/prof_dr_e_b_van_apeldoorn_sp, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/prof_dr_e_b_van_apeldoorn_sp | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/prof_dr_e_b_van_apeldoorn_sp, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/prof_dr_i_j_visseren_hamakers | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/prof_dr_i_j_visseren_hamakers, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/prof_dr_i_j_visseren_hamakers | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/prof_dr_i_j_visseren_hamakers, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/prof_dr_m_j_de_vries_sgp | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/prof_dr_m_j_de_vries_sgp, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/prof_mr_p_nicolai_pvdd | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/prof_mr_p_nicolai_pvdd, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/prof_mr_p_nicolai_pvdd | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/prof_mr_p_nicolai_pvdd, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/r_lievense_bbb | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/r_lievense_bbb, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/r_lievense_bbb | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/r_lievense_bbb, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/r_o_martens_msc_pro | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/r_o_martens_msc_pro, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/r_o_martens_msc_pro | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/r_o_martens_msc_pro, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/r_van_aelst_den_uijl_ma_sp | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/r_van_aelst_den_uijl_ma_sp, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/s_t_musa_vvd | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/s_t_musa_vvd, geraadpleegd 2026-09-17. |
 | https://www.eerstekamer.nl/persoon/w_c_p_h_jaspers_bbb | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/w_c_p_h_jaspers_bbb, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/persoon/w_c_p_h_jaspers_bbb | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/w_c_p_h_jaspers_bbb, geraadpleegd 2026-09-19. |
 | https://www.eerstekamer.nl/persoon/w_t_van_ballekom_vvd | Eerste Kamer | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/w_t_van_ballekom_vvd, geraadpleegd 2026-09-17. |
+| https://www.eerstekamer.nl/wie_zit_waar | Eerste Kamer der Staten-Generaal | CC-BY-4.0 | Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/wie_zit_waar, geraadpleegd 2026-09-19. |
 | https://www.pbl.nl/ | PBL | CC-BY-4.0 | Bron: PBL, Planbureau voor de Leefomgeving, geraadpleegd 2026-09-18. |
 | https://www.pbl.nl/over-het-pbl | PBL | CC-BY-4.0 | Bron: PBL, Over het PBL, geraadpleegd 2026-09-18. |
 | https://www.pbl.nl/over-het-pbl/directie | PBL | CC-BY-4.0 | Bron: PBL, Directie PBL, geraadpleegd 2026-09-18. |
@@ -1378,7 +1559,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.cpb.nl/medewerkers/pieter-hasekamp | CPB | CC-BY-3.0-NL | Bron: CPB, Pieter Hasekamp, directeur CPB, geraadpleegd 2026-09-18. |
 | https://www.cpb.nl/over-het-cpb | CPB | CC-BY-3.0-NL | Bron: CPB, Over het CPB, geraadpleegd 2026-09-18. |
 
-## CC-BY-SA-4.0 (143)
+## CC-BY-SA-4.0 (166)
 
 | url | publisher | license | required credit line |
 | --- | --- | --- | --- |
@@ -1484,6 +1665,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://commons.wikimedia.org/wiki/File:Neefjes_jacques_wiki.jpg | Wikimedia Commons | CC-BY-SA-4.0 | - |
 | https://commons.wikimedia.org/wiki/File:Olaf_Sleijpen_2022.jpg | Wikimedia Commons | CC-BY-SA-4.0 | - |
 | https://commons.wikimedia.org/wiki/File:OuafaOualhadj.jpg | Wikimedia Commons | CC-BY-SA-4.0 | - |
+| https://commons.wikimedia.org/wiki/File:Paul-van-Meenen.jpg | Wikimedia Commons | CC-BY-SA-4.0 | - |
 | https://commons.wikimedia.org/wiki/File:Pepijn_van_Houwelingen_(2024)_(cropped).jpg | Wikimedia Commons | CC-BY-SA-4.0 | - |
 | https://commons.wikimedia.org/wiki/File:Peter-Oskam-Capelle-IMG_0395.jpg | Wikimedia Commons | CC-BY-SA-4.0 | - |
 | https://commons.wikimedia.org/wiki/File:PGP9921_Dineke_de_Groot_Hoge_Raad.jpg | Wikimedia Commons | CC-BY-SA-4.0 | - |
@@ -1521,12 +1703,34 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://commons.wikimedia.org/wiki/File:Tom_van_der_Lee_2020_(2).jpg | Wikimedia Commons | CC-BY-SA-4.0 | - |
 | https://commons.wikimedia.org/wiki/File:Ula%C5%9FK%C3%B6se.jpg | Wikimedia Commons | CC-BY-SA-4.0 | - |
 | https://commons.wikimedia.org/wiki/File:WiekePaulusma.jpg | Wikimedia Commons | CC-BY-SA-4.0 | - |
+| https://nl.wikipedia.org/wiki/Algemeen_Ouderen_Verbond | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Algemeen_Ouderen_Verbond, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Anti-Revolutionaire_Partij | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Anti-Revolutionaire_Partij, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/BIJ1 | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/BIJ1, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Boerenpartij | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Boerenpartij, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Centrum_Democraten | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Centrum_Democraten, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Centrumpartij | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Centrumpartij, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Christelijk-Historische_Unie | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Christelijk-Historische_Unie, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Communistische_Partij_van_Nederland | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Communistische_Partij_van_Nederland, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Democratisch_Socialisten_'70 | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Democratisch_Socialisten_'70, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
 | https://nl.wikipedia.org/wiki/Dijkgraaf_(waterschap) | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Dijkgraaf_(waterschap), geraadpleegd 2026-09-18, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Evangelische_Volkspartij | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Evangelische_Volkspartij, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Gereformeerd_Politiek_Verbond | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Gereformeerd_Politiek_Verbond, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
 | https://nl.wikipedia.org/wiki/Kabinetten_Cura%C3%A7ao | nl.wikipedia.org | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Kabinetten_Cura%C3%A7ao, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Katholieke_Volkspartij | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Katholieke_Volkspartij, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Leefbaar_Nederland | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Leefbaar_Nederland, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Lijst_Pim_Fortuyn | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Lijst_Pim_Fortuyn, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
 | https://nl.wikipedia.org/wiki/Lijst_van_burgemeesters_van_gemeenten_in_Nederland_in_de_periode_2025-2029 | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Lijst_van_burgemeesters_van_gemeenten_in_Nederland_in_de_periode_2025-2029, geraadpleegd 2026-09-18, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Nederlandse_Middenstands_Partij | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Nederlandse_Middenstands_Partij, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Onafhankelijke_Senaatsfractie | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Onafhankelijke_Senaatsfractie, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Pacifistisch_Socialistische_Partij | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Pacifistisch_Socialistische_Partij, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Partij_van_de_Vrijheid | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Partij_van_de_Vrijheid, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Politieke_Partij_Radikalen | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Politieke_Partij_Radikalen, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Reformatorische_Politieke_Federatie | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Reformatorische_Politieke_Federatie, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Rooms_Katholieke_Partij_Nederland | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Rooms_Katholieke_Partij_Nederland, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
 | https://nl.wikipedia.org/wiki/Staten_van_Cura%C3%A7ao | nl.wikipedia.org | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Staten_van_Cura%C3%A7ao, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Unie_55+ | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Unie_55+, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
 
-## all-rights-reserved (1573)
+## all-rights-reserved (1648)
 
 | url | publisher | license | required credit line |
 | --- | --- | --- | --- |
@@ -1982,6 +2186,81 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.nu.nl/voetbal/6410211/lof-voor-van-bommel-en-zechiel-na-eerste-oranjeoproep-afvaller-til-hoorde-niks.html | NU.nl | all-rights-reserved | - |
 | https://www.nu.nl/wetenschap/6410234/winnaars-nobelprijs-krijgen-dit-jaar-bijna-90000-euro-meer-prijzengeld.html | NU.nl | all-rights-reserved | - |
 | https://www.overheid.nl/help/overheidsorganisaties | Overheid.nl / KOOP | all-rights-reserved | - |
+| https://www.parlement.com/eerste-kamerverkiezingen-1983 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/eerste-kamerverkiezingen-1986 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/eerste-kamerverkiezingen-1987 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/eerste-kamerverkiezingen-1991 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/eerste-kamerverkiezingen-1995 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/eerste-kamerverkiezingen-1999 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/eerste-kamerverkiezingen-2003 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/eerste-kamerverkiezingen-2007 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/eerste-kamerverkiezingen-2011 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/eerste-kamerverkiezingen-2015 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/eerste-kamerverkiezingen-2019 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/eerste-kamerverkiezingen-2023 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/hoofdlijnenakkoord-2024 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-balkenende-i-2002-2003 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-balkenende-ii-2003-2006 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-balkenende-iii-2006-2007 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-balkenende-iv-2007-2010 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-beel-i-1946-1948 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-beel-ii-1958-1959 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-biesheuvel-i-en-ii-1971-1973 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-cals-1965-1966 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-de-jong-1967-1971 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-de-quay-1959-1963 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-den-uyl-1973-1977 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-drees-i-1948-1951 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-drees-ii-1951-1952 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-drees-iii-1952-1956 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-drees-iv-1956-1958 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-jetten-2026-heden | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-kok-i-1994-1998 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-kok-ii-1998-2002 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-lubbers-i-1982-1986 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-lubbers-ii-1986-1989 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-lubbers-iii-1989-1994 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-marijnen-1963-1965 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-rutte-i-2010-2012 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-rutte-ii-2012-2017 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-rutte-iii-2017-2022 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-rutte-iv-2022-2024 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-schermerhorndrees-1945-1946 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-schoof-2024-2026 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-van-agt-i-1977-1981 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-van-agt-ii-1981-1982 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-van-agt-iii-1982 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinet-zijlstra-1966-1967 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/kabinetten-1945-heden | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/ministerie-van-economische-zaken-en-klimaat | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/ministerie-van-infrastructuur-en-milieu | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/opgeheven-politieke-partijen | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-1946 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-1948 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-1952 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-1956 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-1959 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-1963 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-1967 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-1971 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-1972 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-1977 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-1981 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-1982 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-1986 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-1989 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-1994 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-1998 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-2002 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-2003 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-2006 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-2010 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-2012 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-2017 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-2021 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-2023 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/tweede-kamerverkiezingen-2025 | Parlement.com (PDC) | all-rights-reserved | - |
+| https://www.parlement.com/vertrouwensregel-parlement-en-kabinet | Parlement.com (PDC, Montesquieu Instituut) | all-rights-reserved | - |
 | https://www.parool.nl/ajax/ajax-in-thuisduel-tegen-excelsior-nog-zonder-nieuwkomer-bissouma~b14f8237 | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/amsterdam-news/activist-frank-van-der-linde-collected-half-a-million-euros-from-the-government-can-you-justify-investing-so-much-in-repressing-a-peaceful-activist~b9ed5984 | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/amsterdam-news/after-the-berghain-express-to-berlin-govolta-to-offer-train-services-to-paris~b195d897 | Het Parool | all-rights-reserved | - |
@@ -3104,10 +3383,12 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.volkskrant.nl/wetenschap/nieuwe-duinen-voor-de-scheveningse-betonwoestijn-iedereen-wordt-er-beter-van~bbe478b6 | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/wetenschap/vondst-van-de-eeuw-boliviaanse-bioloog-ontdekt-nieuwe-kattensoort~b6101816 | de Volkskrant | all-rights-reserved | - |
 
-## unknown (59)
+## unknown (66)
 
 | url | publisher | license | required credit line |
 | --- | --- | --- | --- |
+| https://data.overheid.nl/data/api/3/action/package_search?q=tweede+kamer&rows=50 | Ministerie van Binnenlandse Zaken en Koninkrijksrelaties (data.overheid.nl) | unknown | Licentie niet vastgesteld; endpoint: https://data.overheid.nl/data/api/3/action/package_search?q=tweede+kamer&rows=50 |
+| https://data.overheid.nl/sites/default/files/dataset/e3fe6e42-06ab-4559-a466-a32b04247f68/resources/Verkiezingsuitslag%20Tweede%20Kamer%202023%20%28CSV%20formaat%29.zip | Kiesraad via data.overheid.nl | unknown | Licentie niet vastgesteld; endpoint: https://data.overheid.nl/sites/default/files/dataset/e3fe6e42-06ab-4559-a466-a32b04247f68/resources/Verkiezingsuitslag%20Tweede%20Kamer%202023%20%28CSV%20formaat%29.zip |
 | https://en.wikipedia.org/wiki/Estates_of_Cura%C3%A7ao | en.wikipedia.org | unknown | Licentie niet vastgesteld; endpoint: https://en.wikipedia.org/wiki/Estates_of_Cura%C3%A7ao |
 | https://en.wikipedia.org/wiki/Estates_of_Sint_Maarten | en.wikipedia.org | unknown | Licentie niet vastgesteld; endpoint: https://en.wikipedia.org/wiki/Estates_of_Sint_Maarten |
 | https://en.wikipedia.org/wiki/Parliament_of_Aruba | en.wikipedia.org | unknown | Licentie niet vastgesteld; endpoint: https://en.wikipedia.org/wiki/Parliament_of_Aruba |
@@ -3164,15 +3445,31 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.tweedekamer.nl/kamerleden_en_commissies/commissies | Tweede Kamer | unknown | Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/kamerleden_en_commissies/commissies |
 | https://www.tweedekamer.nl/kamerleden_en_commissies/presidium | Tweede Kamer | unknown | Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/kamerleden_en_commissies/presidium |
 | https://www.tweedekamer.nl/kamerleden-en-commissies/voorzitter | Tweede Kamer | unknown | Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/kamerleden-en-commissies/voorzitter |
+| https://www.tweedekamer.nl/kamerleden-en-commissies/wie-zit-waar | Tweede Kamer der Staten-Generaal | unknown | Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/kamerleden-en-commissies/wie-zit-waar |
+| https://www.tweedekamer.nl/sites/default/files/2024-12/20241204-opnamerichtlijnen-plattegrond-plenaire-zaal.pdf | Tweede Kamer der Staten-Generaal | unknown | Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/sites/default/files/2024-12/20241204-opnamerichtlijnen-plattegrond-plenaire-zaal.pdf |
+| https://www.tweedekamer.nl/sites/default/files/2026-06/zetelverdeling%20Juni%202026%20NL.pdf | Tweede Kamer der Staten-Generaal | unknown | Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/sites/default/files/2026-06/zetelverdeling%20Juni%202026%20NL.pdf |
+| https://www.tweedekamer.nl/zo-werkt-de-kamer/de-tweede-kamer/het-kabinet | Tweede Kamer | unknown | Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/zo-werkt-de-kamer/de-tweede-kamer/het-kabinet |
+| https://www.tweedekamer.nl/zo-werkt-de-kamer/de-tweede-kamer/staten-generaal | Tweede Kamer | unknown | Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/zo-werkt-de-kamer/de-tweede-kamer/staten-generaal |
 | https://www.universiteitleiden.nl/en/staffmembers/bert-koenders | Universiteit Leiden | unknown | Licentie niet vastgesteld; endpoint: https://www.universiteitleiden.nl/en/staffmembers/bert-koenders |
 | https://www.zeeland.nl/gedeputeerde-staten/commissaris-van-de-koning | Provincie Zeeland | unknown | Licentie niet vastgesteld; endpoint: https://www.zeeland.nl/gedeputeerde-staten/commissaris-van-de-koning |
 | https://www.zuid-holland.nl/politiek-bestuur/commissaris-van-de-koning/ | Provincie Zuid-Holland | unknown | Licentie niet vastgesteld; endpoint: https://www.zuid-holland.nl/politiek-bestuur/commissaris-van-de-koning/ |
 
-## CC-BY-2.0 (33)
+## Attribution (5)
+
+| url | publisher | license | required credit line |
+| --- | --- | --- | --- |
+| https://commons.wikimedia.org/wiki/File:1648335415969_20210427_HOOGEVEEN_Michiel_NL_016.jpg | Wikimedia Commons | Attribution | - |
+| https://commons.wikimedia.org/wiki/File:1718281946101_20240612_Sebastiaan_St%C3%B6teler_NL_006.jpg | Wikimedia Commons | Attribution | - |
+| https://commons.wikimedia.org/wiki/File:Femke_WIERSMA_July_2024_(cropped).jpg | Wikimedia Commons | Attribution | - |
+| https://commons.wikimedia.org/wiki/File:Rob_Jetten%2C_March_2026_-_02.jpg | Wikimedia Commons | Attribution | - |
+| https://commons.wikimedia.org/wiki/File:Vicky_Maeijer%2C_November_2015.jpg | Wikimedia Commons | Attribution | - |
+
+## CC-BY-2.0 (35)
 
 | url | publisher | license | required credit line |
 | --- | --- | --- | --- |
 | https://commons.wikimedia.org/wiki/File:14._Ahmed_Marcouch.jpg | Wikimedia Commons | CC-BY-2.0 | - |
+| https://commons.wikimedia.org/wiki/File:21._Jeroen_Recourt.jpg | Wikimedia Commons | CC-BY-2.0 | - |
 | https://commons.wikimedia.org/wiki/File:48._Joyce_Vermue.jpg | Wikimedia Commons | CC-BY-2.0 | - |
 | https://commons.wikimedia.org/wiki/File:48._Marinka_Mulder_(30959628934).jpg | Wikimedia Commons | CC-BY-2.0 | - |
 | https://commons.wikimedia.org/wiki/File:49._Wimar_Bolhuis_(31684016941).jpg | Wikimedia Commons | CC-BY-2.0 | - |
@@ -3186,6 +3483,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://commons.wikimedia.org/wiki/File:Eric_Geurts.jpg | Wikimedia Commons | CC-BY-2.0 | - |
 | https://commons.wikimedia.org/wiki/File:EU2024BE_240124_Launch_of_the_European_Ports_Alliance_Havenhuis_-_30.jpg | Wikimedia Commons | CC-BY-2.0 | - |
 | https://commons.wikimedia.org/wiki/File:Fatihya_Abdi_-_TK2021_(51014712878).jpg | Wikimedia Commons | CC-BY-2.0 | - |
+| https://commons.wikimedia.org/wiki/File:Ferd_Crone_2022_(52160097449).jpg | Wikimedia Commons | CC-BY-2.0 | - |
 | https://commons.wikimedia.org/wiki/File:Frans_Timmermans.jpg | Wikimedia Commons | CC-BY-2.0 | - |
 | https://commons.wikimedia.org/wiki/File:Gilbert_Isabella%2C_wethouder_in_Utrecht_(PvdA)%2C_bij_de_nieuwjaarsborrel_van_D66_Utrecht_(12036563954)_(cropped).jpg | Wikimedia Commons | CC-BY-2.0 | - |
 | https://commons.wikimedia.org/wiki/File:Habtamu_de_Hoop_-_TK2021_(51014716038)_(cropped).jpg | Wikimedia Commons | CC-BY-2.0 | - |
@@ -3206,12 +3504,13 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://commons.wikimedia.org/wiki/File:Ton_Heerts_bij_het_congres_FNV_in_Beweging%2C_15_mei_2013_(cropped).jpg | Wikimedia Commons | CC-BY-2.0 | - |
 | https://commons.wikimedia.org/wiki/File:Yvonne_van_Mastrigt.jpg | Wikimedia Commons | CC-BY-2.0 | - |
 
-## CC-BY-3.0 (81)
+## CC-BY-3.0 (85)
 
 | url | publisher | license | required credit line |
 | --- | --- | --- | --- |
 | https://commons.wikimedia.org/wiki/File:2018_03_21_Jongeren_gaan_voor_het_eerst_stemmen_met_burgemeester_Jaensch_van_Oegstgeest.jpg | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:Alexander-kops-1426067525.png | Wikimedia Commons | CC-BY-3.0 | - |
+| https://commons.wikimedia.org/wiki/File:Andrea_van_Langen_-_2021.jpg | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:Annabel_Nanninga_2021_(cropped).png | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:Anne_Mulder_-_2018.jpg | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:AnnetBertram2014.jpg | Wikimedia Commons | CC-BY-3.0 | - |
@@ -3223,9 +3522,11 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://commons.wikimedia.org/wiki/File:Burgemeester_J.M.L.N._Mikkers_(2017).png | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:Burgemeester_Michiel_Pijl.jpg | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:Burgemeester-brok-1366958702.jpg | Wikimedia Commons | CC-BY-3.0 | - |
+| https://commons.wikimedia.org/wiki/File:Carla_Moonen_-_2021.jpg | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:Carol_van_Eert.jpg | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:Chantal_Nijkerken-de_Haan.jpg | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:Christiaan_Rebergen.png | Wikimedia Commons | CC-BY-3.0 | - |
+| https://commons.wikimedia.org/wiki/File:Daan_Roovers_-_2015.png | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:Dani%C3%ABl_Wigboldus_(cropped).png | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:Daphne_Bergman_-_2018.jpg | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:Derk_Boswijk_-_2021.jpg | Wikimedia Commons | CC-BY-3.0 | - |
@@ -3273,6 +3574,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://commons.wikimedia.org/wiki/File:Reinier_van_Zutphen_4_(cropped).png | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:Renske_Helmer-Engelbert_-_2022.jpg | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:RianneLetschert2015_(cropped).jpg | Wikimedia Commons | CC-BY-3.0 | - |
+| https://commons.wikimedia.org/wiki/File:RikJanssen2010.jpg | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:Rob_Bats.jpg | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:Roel_Wever_-_2013.png | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:Ronald_van_Meygaarden_-_2020.jpg | Wikimedia Commons | CC-BY-3.0 | - |
@@ -3292,13 +3594,15 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://commons.wikimedia.org/wiki/File:Vincent_van_Neerbos_(2018).jpg | Wikimedia Commons | CC-BY-3.0 | - |
 | https://commons.wikimedia.org/wiki/File:Wouter-kolff-burgemeester-gemeente-veenendaal-1426788130.jpg | Wikimedia Commons | CC-BY-3.0 | - |
 
-## CC-BY-SA-2.0 (6)
+## CC-BY-SA-2.0 (8)
 
 | url | publisher | license | required credit line |
 | --- | --- | --- | --- |
+| https://commons.wikimedia.org/wiki/File:Boris_Dittrich_cropped.jpg | Wikimedia Commons | CC-BY-SA-2.0 | - |
 | https://commons.wikimedia.org/wiki/File:Bort_Koelewijn_(2011).jpg | Wikimedia Commons | CC-BY-SA-2.0 | - |
 | https://commons.wikimedia.org/wiki/File:Kim_Putters_(2021).jpg | Wikimedia Commons | CC-BY-SA-2.0 | - |
 | https://commons.wikimedia.org/wiki/File:Laurens_Dassen%2C_January_2025.jpg | Wikimedia Commons | CC-BY-SA-2.0 | - |
+| https://commons.wikimedia.org/wiki/File:Marc_de_Vries.jpg | Wikimedia Commons | CC-BY-SA-2.0 | - |
 | https://commons.wikimedia.org/wiki/File:Michel_Groothuizen%2C_kandidaat_Provinciale_Staten_D66_Utrecht_(16487412067).jpg | Wikimedia Commons | CC-BY-SA-2.0 | - |
 | https://commons.wikimedia.org/wiki/File:Portretfoto_Sigrid_Kaag_2018_01_(crop).jpg | Wikimedia Commons | CC-BY-SA-2.0 | - |
 | https://commons.wikimedia.org/wiki/File:Wilma_van_der_Rijt_at_JFCBS_70th_HQ_anniversary_in_2023_-_52995282837_(cropped).jpg | Wikimedia Commons | CC-BY-SA-2.0 | - |

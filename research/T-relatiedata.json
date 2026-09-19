@@ -1,0 +1,1667 @@
+{
+  "workstream": "T",
+  "generatedAt": "2026-09-19T07:29:24Z",
+  "endpointsUsed": [
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2010-16523.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2010, 16523: naamswijziging Justitie (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2010-16525.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2010, 16525: instelling IenM, opheffing VROM en VenW (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2010-16527.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2010, 16527: vreemdelingenzaken naar BZK (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2010-16528.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2010, 16528: veiligheid naar VenJ (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2012-23040.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2012, 23040: naamswijziging ELI (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2012-23043.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2012, 23043: vreemdelingenzaken naar VenJ (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62719.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2017, 62719: naamswijziging VenJ (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62720.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2017, 62720: naamswijziging IenM (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62722.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2017, 62722: naamswijziging EZ (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62723.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2017, 62723: instelling LNV (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62725.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2017, 62725: ruimtelijke ordening en Kadaster naar BZK (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62726.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2017, 62726: groen onderwijs naar OCW (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62730.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2017, 62730: klimaat naar EZK (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22493.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2024, 22493: naamswijziging EZK (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22495.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2024, 22495: naamswijziging LNV (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22497.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2024, 22497: instelling AenM (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22499.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2024, 22499: instelling VRO (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22500.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2024, 22500: instelling KGG (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22504.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2024, 22504: inburgering en hersteloperatie Groningen (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2026-8176.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2026, 8176: naamswijziging EZ (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2026-8177.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2026, 8177: opheffing AenM, VRO en KGG (HTTP 200)"
+    },
+    {
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2026-8180.html",
+      "retrieved": "2026-09-19",
+      "notes": "Staatscourant 2026, 8180: digitale zaken en circulaire economie (HTTP 200)"
+    },
+    {
+      "url": "https://wetten.overheid.nl/BWBR0028859/2010-10-20",
+      "retrieved": "2026-09-19",
+      "notes": "Besluit instelling ELI, geconsolideerde tekst (HTTP 200)"
+    },
+    {
+      "url": "https://organisaties.overheid.nl/export/Zelfstandige_bestuursorganen.csv",
+      "retrieved": "2026-09-19",
+      "notes": "ROO zbo-export, kolomkop gecontroleerd op Startdatum (HTTP 200)"
+    },
+    {
+      "url": "https://www.parlement.com/ministerie-van-economische-zaken-en-klimaat",
+      "retrieved": "2026-09-19",
+      "notes": "parlement.com naamsgeschiedenis EZ (HTTP 200, medium)"
+    },
+    {
+      "url": "https://www.parlement.com/ministerie-van-infrastructuur-en-milieu",
+      "retrieved": "2026-09-19",
+      "notes": "parlement.com geschiedenis IenM (HTTP 200, medium)"
+    },
+    {
+      "url": "https://www.parlement.com/ministerie",
+      "retrieved": "2026-09-19",
+      "notes": "parlement.com overzicht ministeries (HTTP 200, medium)"
+    },
+    {
+      "url": "https://repository.overheid.nl/sru",
+      "retrieved": "2026-09-19",
+      "notes": "SRU-zoekopdracht naar het Staatscourantnummer van het ELI-besluit: geen resultaat"
+    }
+  ],
+  "organizations": [],
+  "positions": [],
+  "people": [],
+  "tenures": [],
+  "memberships": [],
+  "relations": [
+    {
+      "id": "rel:oversees-zbo-airport-coordination-netherlands",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-airport-coordination-netherlands",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-centraal-bureau-rijvaardigheidsbewijzen",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-centraal-bureau-rijvaardigheidsbewijzen",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-erkenninghouders-algemene-periodieke-keuring",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-erkenninghouders-algemene-periodieke-keuring",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-havenbeheerders",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-havenbeheerders",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-innovam-branche-kwalificatie-instituut",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-innovam-branche-kwalificatie-instituut",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-keuringsinstanties-geluidshinder",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-keuringsinstanties-geluidshinder",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-keuringsinstanties-infrastructuur-milieu-overig",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-keuringsinstanties-infrastructuur-milieu-overig",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-keuringsinstanties-pleziervaartuigen-2016",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-keuringsinstanties-pleziervaartuigen-2016",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-keuringsinstanties-uitrusting-zeeschepen",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-keuringsinstanties-uitrusting-zeeschepen",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-klassenbureaus-scheepvaart",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-klassenbureaus-scheepvaart",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-koninklijke-nederlandse-toeristenbond-anwb",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-koninklijke-nederlandse-toeristenbond-anwb",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-luchtverkeersleiding-nederland",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-luchtverkeersleiding-nederland",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-nederlandse-loodsencorporatie",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-nederlandse-loodsencorporatie",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-rdw",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-rdw",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-regionale-loodsencorporaties",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-regionale-loodsencorporaties",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-rijkshavenmeesters",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-rijkshavenmeesters",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-stichting-milieukeur",
+      "from": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "to": "org:zbo-stichting-milieukeur",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Infrastructuur en Waterstaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16525",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-aangewezen-instanties-in-het-kader-van-metrologiewet-artikel-12",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:zbo-aangewezen-instanties-in-het-kader-van-metrologiewet-artikel-12",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Economische Zaken en Klimaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-bwbr0028859",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-centraal-bureau-voor-de-statistiek",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:zbo-centraal-bureau-voor-de-statistiek",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Economische Zaken en Klimaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-bwbr0028859",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-bedrijfsvoering-en-strategie",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:zbo-bedrijfsvoering-en-strategie",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Economische Zaken en Klimaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-bwbr0028859",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-cbs-communicatie-en-nieuws",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:zbo-cbs-communicatie-en-nieuws",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Economische Zaken en Klimaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-bwbr0028859",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-dataservices-research-en-innovatie",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:zbo-dataservices-research-en-innovatie",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Economische Zaken en Klimaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-bwbr0028859",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-economie-bedrijven-en-nationale-rekeningen",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:zbo-economie-bedrijven-en-nationale-rekeningen",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Economische Zaken en Klimaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-bwbr0028859",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-it-en-cio",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:zbo-it-en-cio",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Economische Zaken en Klimaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-bwbr0028859",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-sociaal-economische-en-ruimtelijke-statistieken",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:zbo-sociaal-economische-en-ruimtelijke-statistieken",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Economische Zaken en Klimaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-bwbr0028859",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-edelmetaal-waarborg-nederland-b-v",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:zbo-edelmetaal-waarborg-nederland-b-v",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Economische Zaken en Klimaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-bwbr0028859",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-kamer-van-koophandel",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:zbo-kamer-van-koophandel",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Economische Zaken en Klimaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-bwbr0028859",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-kamer-van-koophandel-en-nijverheid-bonaire",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:zbo-kamer-van-koophandel-en-nijverheid-bonaire",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Economische Zaken en Klimaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-bwbr0028859",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-kamer-van-koophandel-en-nijverheid-sint-eustatius-en-saba",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:zbo-kamer-van-koophandel-en-nijverheid-sint-eustatius-en-saba",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Economische Zaken en Klimaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-bwbr0028859",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-keuringsinstanties-als-bedoeld-in-artikel-10-9-telecommunicatiewet",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:zbo-keuringsinstanties-als-bedoeld-in-artikel-10-9-telecommunicatiewet",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Economische Zaken en Klimaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-bwbr0028859",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-raad-voor-accreditatie",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:zbo-raad-voor-accreditatie",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Economische Zaken en Klimaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-bwbr0028859",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-waarborgholland-b-v",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:zbo-waarborgholland-b-v",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Economische Zaken en Klimaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-bwbr0028859",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-waarborginstellingen",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:zbo-waarborginstellingen",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Economische Zaken en Klimaat"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:wet-bwbr0028859",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-nederlandse-emissieautoriteit",
+      "from": "org:ministerie-van-economische-zaken-en-klimaat",
+      "to": "org:nederlandse-emissieautoriteit",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Klimaat en Groene Groei"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2026-8177",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2026-02-23",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-bureau-beheer-landbouwgronden",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-bureau-beheer-landbouwgronden",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-college-voor-de-toelating-van-gewasbeschermingsmiddelen-en-biociden",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-college-voor-de-toelating-van-gewasbeschermingsmiddelen-en-biociden",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-grondkamer-noord",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-grondkamer-noord",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-grondkamer-noordwest",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-grondkamer-noordwest",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-grondkamer-oost",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-grondkamer-oost",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-grondkamer-zuid",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-grondkamer-zuid",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-grondkamer-zuidwest",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-grondkamer-zuidwest",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-grondkamers",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-grondkamers",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-kamer-voor-de-binnenvisserij",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-kamer-voor-de-binnenvisserij",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-raad-voor-plantenrassen",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-raad-voor-plantenrassen",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-skal-biocontrole",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-skal-biocontrole",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-staatsbosbeheer",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-staatsbosbeheer",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-stichting-bloembollenkeuringsdienst",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-stichting-bloembollenkeuringsdienst",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-stichting-controle-orgaan-kwaliteits-zaken",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-stichting-controle-orgaan-kwaliteits-zaken",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-stichting-kwaliteits-controle-bureau",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-stichting-kwaliteits-controle-bureau",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-stichting-nederlandse-algemene-keuringsdienst-voor-zaaizaad-en-pootgoed-van-land",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-stichting-nederlandse-algemene-keuringsdienst-voor-zaaizaad-en-pootgoed-van-land",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-stichting-nederlandse-algemene-kwaliteitsdienst-tuinbouw",
+      "from": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "to": "org:zbo-stichting-nederlandse-algemene-kwaliteitsdienst-tuinbouw",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Landbouw, Visserij, Voedselzekerheid en Natuur"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2017-62723",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2017-10-26",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-centraal-orgaan-opvang-asielzoekers",
+      "from": "org:ministerie-van-justitie-en-veiligheid",
+      "to": "org:zbo-centraal-orgaan-opvang-asielzoekers",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Justitie en Veiligheid"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2026-8177",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2026-02-23",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-politieacademie",
+      "from": "org:ministerie-van-justitie-en-veiligheid",
+      "to": "org:zbo-politieacademie",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Justitie en Veiligheid"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16528",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-onderzoeksraad-voor-veiligheid",
+      "from": "org:ministerie-van-justitie-en-veiligheid",
+      "to": "org:zbo-onderzoeksraad-voor-veiligheid",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Justitie en Veiligheid"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2010-16528",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
+      },
+      "validFrom": "2010-10-14",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-huurcommissie",
+      "from": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "to": "org:zbo-huurcommissie",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Binnenlandse Zaken en Koninkrijksrelaties"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2026-8177",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
+      },
+      "validFrom": "2026-02-23",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-dienst-voor-het-kadaster-en-de-openbare-registers",
+      "from": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "to": "org:zbo-dienst-voor-het-kadaster-en-de-openbare-registers",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Binnenlandse Zaken en Koninkrijksrelaties"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2026-8177",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
+      },
+      "validFrom": "2026-02-23",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-zbo-stichting-visitatie-woningcorporaties-nederland",
+      "from": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "to": "org:zbo-stichting-visitatie-woningcorporaties-nederland",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "relatieMet ministerie",
+        "ministerie": "Binnenlandse Zaken en Koninkrijksrelaties"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2026-8177",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
+      },
+      "validFrom": "2026-02-23",
+      "validTo": null,
+      "supersededBy": null
+    },
+    {
+      "id": "rel:oversees-rwt-stichting-waarborgfonds-sociale-woningbouw-wsw",
+      "from": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "to": "org:rwt-stichting-waarborgfonds-sociale-woningbouw-wsw",
+      "type": "oversees",
+      "metadata": {
+        "instrument": "rwt-overzicht Rekenkamer",
+        "ministerie": "BZK"
+      },
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:stcrt-2026-8177",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
+      },
+      "validFrom": "2026-02-23",
+      "validTo": null,
+      "supersededBy": null
+    }
+  ],
+  "topics": [],
+  "budgets": [],
+  "sources": [
+    {
+      "id": "src:stcrt-2010-16523",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2010-16523.html",
+      "title": "Staatscourant 2010, 16523: Besluit van 14 oktober 2010, nr. 10.002839, houdende naamswijziging van het ministerie van Justitie",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2010-10-18",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Ministerie van Justitie wordt ministerie van Veiligheid en Justitie. Naamswijziging, geen taakoverdracht."
+    },
+    {
+      "id": "src:stcrt-2010-16525",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2010-16525.html",
+      "title": "Staatscourant 2010, 16525: Besluit van 14 oktober 2010, nr. 10.002841, houdende opheffing van de ministeries van VROM en van Verkeer en Waterstaat en instelling van een ministerie van Infrastructuur en Milieu",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2010-10-18",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Art. 1 heft VROM en VenW op; art. 5 stelt IenM in; art. 6 draagt alle VenW- en VROM-aangelegenheden aan IenM op behalve wonen, wijken, integratie en Rijksgebouwendienst (art. 2, naar BZK), energie met inbegrip van de NEa (art. 3, naar ELI) en de coördinatie van het Europese en internationale milieubeleid (art. 4, naar BuZa). Werkt terug tot en met 14 oktober 2010."
+    },
+    {
+      "id": "src:stcrt-2010-16527",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2010-16527.html",
+      "title": "Staatscourant 2010, 16527: Besluit van 14 oktober 2010, nr. 10.002842, houdende departementale herindeling met betrekking tot vreemdelingenzaken",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2010-10-18",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Vreemdelingenzaken, met inbegrip van IND, COA, Dienst Terugkeer en Vertrek, grensbewaking en Rijkswet op het Nederlanderschap, van Justitie naar BZK. Werkt terug tot en met 14 oktober 2010."
+    },
+    {
+      "id": "src:stcrt-2010-16528",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2010-16528.html",
+      "title": "Staatscourant 2010, 16528: Besluit van 14 oktober 2010, nr. 10.002843, houdende departementale herindeling met betrekking tot veiligheid",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2010-10-18",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Veiligheid, behoudens de AIVD, van BZK naar Veiligheid en Justitie; toelichting: het Directoraat-Generaal Veiligheid gaat over. Werkt terug tot en met 14 oktober 2010."
+    },
+    {
+      "id": "src:wet-bwbr0028859",
+      "url": "https://wetten.overheid.nl/BWBR0028859/2010-10-20",
+      "title": "Besluit opheffing ministeries van Economische Zaken en Landbouw, Natuur en Voedselkwaliteit en instelling ministerie van Economische Zaken, Landbouw en Innovatie (BWBR0028859)",
+      "publisher": "Overheid.nl (wetten.overheid.nl)",
+      "type": "kb",
+      "published": "2010-10-14",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Besluit van 14 oktober 2010 (kenmerk 3096272). Art. 1 heft EZ en LNV op, art. 2 stelt ELI in, art. 3 draagt alle aangelegenheden van EZ en LNV van voor 14 oktober 2010 aan ELI op. Geldend van 20-10-2010. Het Staatscourantnummer is niet gevonden; de geconsolideerde tekst op wetten.overheid.nl is gebruikt."
+    },
+    {
+      "id": "src:stcrt-2012-23040",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2012-23040.html",
+      "title": "Staatscourant 2012, 23040: Besluit van 5 november 2012, nr. 12.002582, houdende naamswijziging van het ministerie van Economische Zaken, Landbouw en Innovatie",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2012-11-08",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "ELI wordt ministerie van Economische Zaken. Naamswijziging, geen taakoverdracht."
+    },
+    {
+      "id": "src:stcrt-2012-23043",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2012-23043.html",
+      "title": "Staatscourant 2012, 23043: Besluit van 5 november 2012, nr. 12.002584, houdende departementale herindeling met betrekking tot vreemdelingenzaken",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2012-11-08",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Vreemdelingenzaken, met inbegrip van IND, COA en Dienst Terugkeer en Vertrek, van BZK terug naar Veiligheid en Justitie. Werkt terug tot en met 5 november 2012."
+    },
+    {
+      "id": "src:stcrt-2017-62719",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62719.html",
+      "title": "Staatscourant 2017, 62719: Besluit van 26 oktober 2017, nr. 2017001801, houdende naamswijziging van het ministerie van Veiligheid en Justitie",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2017-11-03",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "VenJ wordt ministerie van Justitie en Veiligheid. Naamswijziging, geen taakoverdracht."
+    },
+    {
+      "id": "src:stcrt-2017-62720",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62720.html",
+      "title": "Staatscourant 2017, 62720: Besluit van 26 oktober 2017, nr. 2017001802, houdende naamswijziging van het ministerie van Infrastructuur en Milieu",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2017-11-03",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "IenM wordt ministerie van Infrastructuur en Waterstaat. Naamswijziging, geen taakoverdracht."
+    },
+    {
+      "id": "src:stcrt-2017-62722",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62722.html",
+      "title": "Staatscourant 2017, 62722: Besluit van 26 oktober 2017, nr. 2017001803, houdende naamswijziging van het ministerie van Economische Zaken",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2017-11-03",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "EZ wordt ministerie van Economische Zaken en Klimaat. Naamswijziging, geen taakoverdracht."
+    },
+    {
+      "id": "src:stcrt-2017-62723",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62723.html",
+      "title": "Staatscourant 2017, 62723: Besluit van 26 oktober 2017, nr. 2017001804, houdende instelling van een ministerie van Landbouw, Natuur en Voedselkwaliteit",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2017-11-03",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Art. 1 stelt LNV in; art. 2 draagt landbouw, visserij, natuur, voedselkwaliteit en regionale economische ontwikkeling (behoudens groen onderwijs) van EZ aan LNV op. Werkt terug tot en met 26 oktober 2017."
+    },
+    {
+      "id": "src:stcrt-2017-62725",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62725.html",
+      "title": "Staatscourant 2017, 62725: Besluit van 26 oktober 2017, nr. 2017001806, houdende departementale herindeling met betrekking tot de ruimtelijke ontwikkeling, ruimtelijke ordening, de Omgevingswet en het Kadaster",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2017-11-03",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Ruimtelijke ontwikkeling, ruimtelijke ordening, Omgevingswet, het Kadaster en de Kadasterwet van IenM naar BZK. Werkt terug tot en met 26 oktober 2017."
+    },
+    {
+      "id": "src:stcrt-2017-62726",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62726.html",
+      "title": "Staatscourant 2017, 62726: Besluit van 26 oktober 2017, nr. 2017001807, houdende departementale herindeling met betrekking tot het groen onderwijs",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2017-11-03",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Groen onderwijs van EZ naar OCW. Werkt terug tot en met 26 oktober 2017."
+    },
+    {
+      "id": "src:stcrt-2017-62730",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62730.html",
+      "title": "Staatscourant 2017, 62730: Besluit van 26 oktober 2017, nr. 2017001809, houdende departementale herindeling met betrekking tot klimaat",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2017-11-03",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Klimaat, met inbegrip van klimaatverandering, emissierechten, de Nederlandse Emissieautoriteit en luchtemissies industrie, van IenM naar EZK. Werkt terug tot en met 26 oktober 2017."
+    },
+    {
+      "id": "src:stcrt-2024-22493",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22493.html",
+      "title": "Staatscourant 2024, 22493: Besluit van 2 juli 2024, nr. 2024001703, houdende naamswijziging van het Ministerie van Economische Zaken en Klimaat",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2024-07-04",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "EZK wordt Ministerie van Economische Zaken. Naamswijziging, geen taakoverdracht."
+    },
+    {
+      "id": "src:stcrt-2024-22495",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22495.html",
+      "title": "Staatscourant 2024, 22495: Besluit van 2 juli 2024, nr. 2024001704, houdende naamswijziging van het Ministerie van Landbouw, Natuur en Voedselkwaliteit",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2024-07-04",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "LNV wordt Ministerie van Landbouw, Visserij, Voedselzekerheid en Natuur. Naamswijziging, geen taakoverdracht."
+    },
+    {
+      "id": "src:stcrt-2024-22497",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22497.html",
+      "title": "Staatscourant 2024, 22497: Besluit van 2 juli 2024, nr. 2024001705, houdende instelling van een Ministerie van Asiel en Migratie",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2024-07-04",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Art. 1 stelt AenM in; art. 2 draagt asiel en migratie van JenV aan AenM op. Werkt terug tot en met 2 juli 2024."
+    },
+    {
+      "id": "src:stcrt-2024-22499",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22499.html",
+      "title": "Staatscourant 2024, 22499: Besluit van 2 juli 2024, nr. 2024001706, houdende instelling van een Ministerie van Volkshuisvesting en Ruimtelijke Ordening",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2024-07-04",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Art. 1 stelt VRO in; art. 2 draagt volkshuisvesting en ruimtelijke ordening van BZK aan VRO op. Werkt terug tot en met 2 juli 2024."
+    },
+    {
+      "id": "src:stcrt-2024-22500",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22500.html",
+      "title": "Staatscourant 2024, 22500: Besluit van 2 juli 2024, nr. 2024001707, houdende instelling van een Ministerie van Klimaat en Groene Groei",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2024-07-04",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Art. 1 stelt KGG in; art. 2 draagt klimaat en groene groei van EZK aan KGG op. Werkt terug tot en met 2 juli 2024."
+    },
+    {
+      "id": "src:stcrt-2024-22504",
+      "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22504.html",
+      "title": "Staatscourant 2024, 22504: Besluit van 2 juli 2024, nr. 2024001709, houdende departementale herindelingen met betrekking tot inburgering en hersteloperatie Groningen",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2024-07-04",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Inburgering van SZW naar JenV (art. 1); hersteloperatie Groningen van EZK naar BZK (art. 4). Werkt terug tot en met 2 juli 2024."
+    },
+    {
+      "id": "src:stcrt-2026-8176",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8176",
+      "title": "Staatscourant 2026, 8176: Besluit van 23 februari 2026, nr. 2026000403, houdende naamswijziging van het Ministerie van Economische Zaken",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "EZ wordt Ministerie van Economische Zaken en Klimaat. Naamswijziging, geen taakoverdracht."
+    },
+    {
+      "id": "src:stcrt-2026-8177",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8177",
+      "title": "Staatscourant 2026, 8177: Besluit van 23 februari 2026, nr. 2026000404, houdende herindeling aangelegenheden betreffende de Ministeries van Asiel en Migratie, van Volkshuisvesting en Ruimtelijke Ordening en van Klimaat en Groene Groei en opheffing van deze ministeries",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Art. 1: alle aangelegenheden van AenM naar JenV, van VRO naar BZK, van KGG naar EZK. Art. 2 heft AenM, VRO en KGG op. Werkt terug tot en met 23 februari 2026."
+    },
+    {
+      "id": "src:stcrt-2026-8180",
+      "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8180",
+      "title": "Staatscourant 2026, 8180: Besluit van 23 februari 2026, nr. 2026000406, houdende departementale herindelingen met betrekking tot digitale zaken en circulaire economie",
+      "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+      "type": "kb",
+      "published": "2026-02-24",
+      "retrieved": "2026-09-19",
+      "license": "CC0-1.0",
+      "archiveUrl": null,
+      "notes": "Digitale zaken van BZK naar EZK (art. 1); circulaire economie van IenW naar KGG (art. 4). Werkt terug tot en met 23 februari 2026."
+    },
+    {
+      "id": "src:parlement-ministerie-ezk",
+      "url": "https://www.parlement.com/ministerie-van-economische-zaken-en-klimaat",
+      "title": "Ministerie van Economische Zaken en Klimaat",
+      "publisher": "Parlement.com (PDC)",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Overzicht van de naamsgeschiedenis van het departement: ELI (2010), EZ (2012), EZK (2017), EZ (2024), EZK (2026). Secundaire bron, confidence medium."
+    },
+    {
+      "id": "src:parlement-ministerie-ienm",
+      "url": "https://www.parlement.com/ministerie-van-infrastructuur-en-milieu",
+      "title": "Ministerie van Infrastructuur en Milieu",
+      "publisher": "Parlement.com (PDC)",
+      "type": "page",
+      "published": null,
+      "retrieved": "2026-09-19",
+      "license": null,
+      "archiveUrl": null,
+      "notes": "Ingesteld in 2010 door samenvoeging van Verkeer en Waterstaat en VROM; sinds mei 2015 belast met nucleaire veiligheid; in 2017 klimaat naar EZ en naamswijziging in Infrastructuur en Waterstaat. Secundaire bron, confidence medium."
+    }
+  ],
+  "media": [],
+  "gaps": [
+    {
+      "id": "gap:T-ienw-zbo-na-2010",
+      "what": "validFrom voor 19 IenW-zbo-relaties waarvan de ROO-startdatum na 14-10-2010 ligt: rel:oversees-zbo-autoriteit-nucleaire-veiligheid-en-stralingsbescherming, rel:oversees-zbo-bevoegde-autoriteiten-rijnvaart, rel:oversees-zbo-nationale-en-internationale-wegvervoer-organisatie, rel:oversees-zbo-keuringsartsen-voor-de-scheepvaart, rel:oversees-zbo-aangemelde-instanties-ex-regeling-overige-pyrotechnische-artikelen, rel:oversees-zbo-aangewezen-aangemelde-instanties-dezelfde-ex-art-1a-5-1-vuurwerkbesluit, rel:oversees-zbo-college-van-deskundigen-ex-besluit-en-regeling-bodemkwaliteit, rel:oversees-zbo-keuringsinstanties-ex-besluit-en-regeling-bodemkwaliteit, rel:oversees-zbo-keuringsinstanties-ex-regeling-vervoerbare-drukapparatuur-2011, rel:oversees-zbo-keuringsinstanties-ex-wet-milieubeheer-en-ex-regeling-handel-in-emissierechten, rel:oversees-zbo-keuringsinstellingen-ex-art-4-av-wegenverkeerswet-1994, rel:oversees-zbo-keuringsinstellingen-ex-wet-explosieven-voor-civiel-gebruik, rel:oversees-zbo-metacluster-in-het-schepenbesluit-2004-jo-besluit-erkende-organisaties-schepenwe, rel:oversees-zbo-onderzoeksgerechtigden-ex-art-4-av-wegenverkeerswet-1994, rel:oversees-zbo-regionale-loodsencorporatie-amsterdam-ijmond, rel:oversees-zbo-regionale-loodsencorporatie-noord, rel:oversees-zbo-regionale-loodsencorporatie-rotterdam-rijnmond, rel:oversees-zbo-regionale-loodsencorporatie-scheldemonden, rel:oversees-zbo-vts-operators",
+      "why": "Het instellingsbesluit van IenM (14-10-2010) dateert alleen relaties met organen die op die dag bestonden. Deze organen zijn volgens hun ROO-startdatum (2015, 2017 of 2019) later ingesteld; hun relatie begint bij de eigen instellingsregeling, niet bij een herindelingsbesluit. De ANVS is bovendien pas sinds mei 2015 bij IenM ondergebracht (parlement.com, medium).",
+      "endpoint": "https://organisaties.overheid.nl/export/Zelfstandige_bestuursorganen.csv",
+      "resume": "Neem per orgaan de inwerkingtredingsdatum van de instellingswet of aanwijzingsregeling (wetten.overheid.nl) als validFrom; voor de ANVS de Wet ANVS (BWBR0037934)."
+    },
+    {
+      "id": "gap:T-ienw-rwt-geen-startdatum",
+      "what": "validFrom voor 11 IenW-rwt-relaties: rel:oversees-rwt-commissie-voor-de-milieueffectrapportage-commissie-m-e-r, rel:oversees-rwt-havenbedrijf-amsterdam-nv-rijkshavenmeester, rel:oversees-rwt-havenbedrijf-rotterdam-nv-rijkshavenmeester, rel:oversees-rwt-hiswa-vereniging, rel:oversees-rwt-innovam, rel:oversees-rwt-kiwa-register-bv, rel:oversees-rwt-klassebureaus-als-bedoeld-in-art-6-schepenwet-en-art-6-en-3-1-schepenbesluit-196, rel:oversees-rwt-loodswezen-nederlands-loodswezen-bv-en-drie-regionale-loodsencorporaties-rlc-s, rel:oversees-rwt-prorail-bv, rel:oversees-rwt-stichting-afvalstoffen-vaardocumenten-binnenvaart-sab, rel:oversees-rwt-stichting-lsned-leidingenstraat-nederland",
+      "why": "De rwt-records in data/organizations.json hebben geen established-datum (de Rekenkamerlijst noemt er geen), dus is niet uit een bron vast te stellen dat de rwt op 14-10-2010 bestond. De datum 14-10-2010 wordt daarom niet toegekend.",
+      "endpoint": "https://www.rekenkamer.nl/onderwerpen/i/instellingen-op-afstand-van-het-rijk/rechtspersonen-met-een-wettelijke-taak",
+      "resume": "Vul established per rwt uit het Handelsregister of de instellingswet; is die datum op of voor 14-10-2010, dan geldt validFrom 2010-10-14 op grond van Stcrt. 2010, 16525 art. 6."
+    },
+    {
+      "id": "gap:T-ezk-zbo-na-2010-of-onzeker",
+      "what": "validFrom voor rel:oversees-zbo-autoriteit-consument-en-markt (ROO-startdatum 01-04-2013), rel:oversees-zbo-instituut-mijnbouwschade-groningen (01-07-2020) en rel:oversees-zbo-nederlandse-organisatie-voor-toegepast-natuurwetenschappelijk-onderzoek",
+      "why": "ACM en IMG zijn na het instellingsbesluit van ELI (14-10-2010) opgericht; hun relatie begint bij de eigen instellingswet. Voor het IMG geldt bovendien dat Stcrt. 2024, 22504 art. 4 de hersteloperatie Groningen per 02-07-2024 van EZK naar BZK overbracht, terwijl het ROO-register het IMG nog onder EZK plaatst; of het IMG onder die overdracht valt en of het in 2026 is teruggekeerd, blijkt uit geen besluit. Voor TNO blijkt uit geen herindelingsbesluit welk departement in 2010 verantwoordelijk was (TNO-wet), dus de datum 14-10-2010 is niet onderbouwd.",
+      "endpoint": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22504.html",
+      "resume": "ACM: Instellingswet ACM (BWBR0033052) inwerkingtreding 01-04-2013. IMG: Tijdelijke wet Groningen en het ministeriele besluit dat de verantwoordelijke minister na 02-07-2024 aanwijst; sluit zo nodig de EZK-relatie met validTo 2024-07-02 en voeg een BZK-relatie toe. TNO: TNO-wet art. 1 begripsbepaling Onze Minister per datum."
+    },
+    {
+      "id": "gap:T-ezk-rwt-geen-startdatum",
+      "what": "validFrom voor 6 EZK-rwt-relaties: rel:oversees-rwt-centraal-orgaan-voorraadvorming-aardolieproducten-cova, rel:oversees-rwt-distributeurs-van-elektriciteit-en-drinkwater-zoals-bedoeld-in-de-wet-elektricit, rel:oversees-rwt-examinerende-instanties-zoals-bedoeld-in-art-19-van-de-examenregeling-frequentie, rel:oversees-rwt-invest-nl, rel:oversees-rwt-nationaal-metrologisch-instituut-vsl, rel:oversees-rwt-waarborg-holland",
+      "why": "Geen established-datum in het bestand; bestaan op 14-10-2010 is niet uit een bron vast te stellen. Invest-NL en de BES-distributeurs zijn blijkens hun naam of wet (Wet elektriciteit en drinkwater BES) vermoedelijk van na 2010, maar dat is niet gefetcht.",
+      "endpoint": "https://www.rekenkamer.nl/onderwerpen/i/instellingen-op-afstand-van-het-rijk/rechtspersonen-met-een-wettelijke-taak",
+      "resume": "Vul established per rwt; is die op of voor 14-10-2010, dan validFrom 2010-10-14 op grond van BWBR0028859 art. 3, anders de eigen instellingsdatum."
+    },
+    {
+      "id": "gap:T-lvvn-zbo-onzeker",
+      "what": "validFrom voor rel:oversees-zbo-centrale-commissie-dierproeven en rel:oversees-zbo-stichting-groene-erkenningen",
+      "why": "De CCD (ROO-startdatum 2014) valt onder de Wet op de dierproeven; het LNV-instellingsbesluit (Stcrt. 2017, 62723 art. 2) noemt landbouw, visserij, natuur, voedselkwaliteit en regionale economische ontwikkeling, en of dierproeven daaronder vielen blijkt niet uit het besluit. Stichting Groene Erkenningen heeft ROO-startdatum 19-07-2019, na het besluit.",
+      "endpoint": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62723.html",
+      "resume": "CCD: controleer de begripsbepaling Onze Minister in de Wet op de dierproeven per 26-10-2017 (wetten.overheid.nl BWBR0003081). Groene Erkenningen: neem de aanwijzingsdatum 2019-07-19 uit de aanwijzingsregeling als validFrom."
+    },
+    {
+      "id": "gap:T-lvvn-rwt-geen-startdatum",
+      "what": "validFrom voor rel:oversees-rwt-gezondheidsdienst-voor-dieren-b-v-royal-gd, rel:oversees-rwt-rendac-son-b-v, rel:oversees-rwt-stichting-dienst-landbouwkundig-onderzoek-dlo",
+      "why": "Geen established-datum in het bestand; bestaan op 26-10-2017 is niet uit een bron vast te stellen.",
+      "endpoint": "https://www.rekenkamer.nl/onderwerpen/i/instellingen-op-afstand-van-het-rijk/rechtspersonen-met-een-wettelijke-taak",
+      "resume": "Vul established per rwt; is die op of voor 26-10-2017, dan validFrom 2017-10-26 op grond van Stcrt. 2017, 62723 art. 2."
+    },
+    {
+      "id": "gap:T-jenv-justitiedomein-geen-besluit",
+      "what": "validFrom voor 21 JenV-zbo-relaties in het justitiedomein: rel:oversees-zbo-autoriteit-online-terroristisch-en-kinderpornografisch-materiaal, rel:oversees-zbo-autoriteit-persoonsgegevens, rel:oversees-zbo-bureau-financieel-toezicht, rel:oversees-zbo-college-gerechtelijk-deskundigen, rel:oversees-zbo-college-van-toezicht-collectieve-beheersorganisaties-auteurs-en-naburige-rechten, rel:oversees-zbo-college-voor-de-rechten-van-de-mens, rel:oversees-zbo-commissie-schadefonds-geweldsmisdrijven, rel:oversees-zbo-gecertificeerde-instellingen-ex-jeugdwet, rel:oversees-zbo-gerechtsdeurwaarders, rel:oversees-zbo-inrichtingen-ex-art-3a-beginselenwet-justitiele-jeugdinrichtingen, rel:oversees-zbo-inrichtingen-ex-beginselenwet-verpleging-ter-beschikking-gestelden, rel:oversees-zbo-kansspelautoriteit, rel:oversees-zbo-keuringsinstanties-ex-regeling-particuliere-beveiligingsorganisaties-en-recherch, rel:oversees-zbo-keurmerkinstituut-jeugdzorg, rel:oversees-zbo-landelijk-bureau-inning-onderhoudsbijdragen, rel:oversees-zbo-nationaal-rapporteur-mensenhandel-en-seksueel-geweld-tegen-kinderen, rel:oversees-zbo-notarissen, rel:oversees-zbo-raad-voor-rechtsbijstand, rel:oversees-zbo-reclasseringsorganisaties-ex-reclasseringsregeling-1995, rel:oversees-zbo-representatief-rechtspersoon-ex-art-15a-wet-op-de-naburige-rechten, rel:oversees-zbo-representatief-rechtspersoon-ex-art-15f-auteurswet; en de part_of-relatie rel:part-of-dji",
+      "why": "Het ministerie van Justitie is in 2010 (Stcrt. 2010, 16523) en 2017 (Stcrt. 2017, 62719) alleen hernoemd, niet opgeheven of ingesteld. Een naamswijziging opent of sluit geen relatie. Geen herindelingsbesluit sinds 2010 verplaatst deze organen; hun relatie met het departement dateert van voor 2010 of van de eigen instellingswet. Zonder besluit blijft validFrom null.",
+      "endpoint": "https://wetten.overheid.nl/BWBR0040293",
+      "resume": "Dateer per orgaan uit de eigen instellingswet (validFrom = inwerkingtreding) of laat validFrom null; voor de ministerielijn Justitie (voor 2010) is een historisch org-record nodig als het knooppunt per naam moet worden gesplitst."
+    },
+    {
+      "id": "gap:T-jenv-veiligheid-na-2010",
+      "what": "validFrom voor rel:oversees-zbo-nederlands-instituut-publieke-veiligheid (ROO-startdatum 2013), rel:oversees-zbo-nederlands-meetinstituut-ex-regeling-meetmiddelen-politie (2019), rel:oversees-rwt-nationale-politie en rel:part-of-politie",
+      "why": "Het veiligheidsdomein ging op 14-10-2010 van BZK naar VenJ (Stcrt. 2010, 16528), maar deze organen zijn later ingesteld: het NIPV (voorheen IFV) in 2013, de nationale politie per 01-01-2013 (Politiewet 2012), het NMi-cluster in 2019. Hun relatie begint bij de eigen wet, niet bij het herindelingsbesluit.",
+      "endpoint": "https://zoek.officielebekendmakingen.nl/stcrt-2010-16528.html",
+      "resume": "Politie en Nationale Politie: Politiewet 2012 (BWBR0031788) inwerkingtreding 01-01-2013. NIPV: Wet veiligheidsregio's art. 66 en de naamswijziging 2022. NMi: aanwijzingsregeling."
+    },
+    {
+      "id": "gap:T-jenv-nidos-asieldomein",
+      "what": "validFrom voor rel:oversees-zbo-stichting-nidos",
+      "why": "Stichting Nidos (voogdij alleenstaande minderjarige vreemdelingen) wordt in geen van de vreemdelingenbesluiten (Stcrt. 2010, 16527; Stcrt. 2012, 23043; Stcrt. 2024, 22497; Stcrt. 2026, 8177) genoemd, anders dan COA, IND en DT&V. Of Nidos in 2024 mee overging naar Asiel en Migratie en in 2026 terugkeerde, blijkt niet uit een besluit.",
+      "endpoint": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22497.html",
+      "resume": "Zoek de Nidos-subsidieregeling of het mandaatbesluit van AenM (2024-2026) op officielebekendmakingen.nl; gaat Nidos mee, dan validFrom 2026-02-23 zoals COA, anders 2012-11-05."
+    },
+    {
+      "id": "gap:T-jenv-rwt-geen-startdatum",
+      "what": "validFrom voor 11 JenV-rwt-relaties: rel:oversees-rwt-het-juridisch-loket, rel:oversees-rwt-leger-des-heils-jeugdzorg-en-reclassering, rel:oversees-rwt-particuliere-forensisch-psychiatrische-centra, rel:oversees-rwt-particuliere-justitiele-jeugdinrichtingen, rel:oversees-rwt-raad-voor-de-rechtshandhaving, rel:oversees-rwt-slachtofferhulp-nederland-shn, rel:oversees-rwt-stichting-advisering-bestuursrechtspraak-voor-milieu-en-ruimtelijke-ordening, rel:oversees-rwt-stichting-donorgegevens-kunstmatige-bevruchting-sdkb, rel:oversees-rwt-stichting-halt, rel:oversees-rwt-stichting-reclassering-nederland-srn, rel:oversees-rwt-stichting-verslavingsreclassering-ggz",
+      "why": "Justitiedomein (zie gap:T-jenv-justitiedomein-geen-besluit): geen herindelingsbesluit raakt deze rwt's en het bestand heeft geen established-datum.",
+      "endpoint": "https://www.rekenkamer.nl/onderwerpen/i/instellingen-op-afstand-van-het-rijk/rechtspersonen-met-een-wettelijke-taak",
+      "resume": "Dateer per rwt uit de eigen wettelijke grondslag of laat validFrom null."
+    },
+    {
+      "id": "gap:T-bzk-geen-besluit-of-bouwdomein",
+      "what": "validFrom voor rel:oversees-zbo-garantiewetcommissie, rel:oversees-zbo-huis-voor-klokkenluiders, rel:oversees-zbo-stichting-administratie-indonesische-pensioenen, rel:oversees-zbo-keuringsinstanties-bouwproducten, rel:oversees-zbo-toelatingsorganisatie-kwaliteitsborging-bouw",
+      "why": "BZK is sinds 2010 niet ingesteld of opgeheven. Garantiewetcommissie, Huis voor Klokkenluiders en SAIP worden door geen herindelingsbesluit geraakt. Keuringsinstanties bouwproducten en de TloKB (ROO-startdatum 22-04-2022) horen bij bouwen; of bouwen onder het in 2024 naar VRO overgebrachte terrein volkshuisvesting en ruimtelijke ordening viel (Stcrt. 2024, 22499) en in 2026 terugkeerde, blijkt niet uit het besluit.",
+      "endpoint": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22499.html",
+      "resume": "Bouw: controleer het Organisatiebesluit VRO 2024 of de begroting VRO 2025 op de plaatsing van bouwkwaliteit; valt het eronder, dan validFrom 2026-02-23 op grond van Stcrt. 2026, 8177 art. 1 lid 2. Overige: laat validFrom null."
+    },
+    {
+      "id": "gap:T-historisch-nea",
+      "what": "Historische relaties voor de Nederlandse Emissieautoriteit die niet in het bestand staan: VROM tot 14-10-2010; ELI vanaf 14-10-2010 (Stcrt. 2010, 16525 art. 3); IenM tot 26-10-2017; EZK 26-10-2017 tot 02-07-2024 (Stcrt. 2017, 62730 art. 1); KGG 02-07-2024 tot 23-02-2026 (Stcrt. 2024, 22500 art. 2).",
+      "why": "Het bestand heeft alleen de huidige relatie EZK naar NEa (gedateerd vanaf 23-02-2026). Er is geen org-record voor VROM, ELI, IenM als afzonderlijk knooppunt of KGG, en het besluit dat de NEa tussen 2010 en 2017 van ELI/EZ naar IenM bracht is niet gevonden.",
+      "endpoint": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62730.html",
+      "resume": "Voeg org-records toe voor KGG (2024-2026) en de gesloten relaties EZK-NEa (2017-10-26 tot 2024-07-02) en KGG-NEa (2024-07-02 tot 2026-02-23) met supersededBy naar rel:oversees-zbo-nederlandse-emissieautoriteit; zoek het besluit uit november 2012 over klimaat naar IenM."
+    },
+    {
+      "id": "gap:T-historisch-coa-vreemdelingenzaken",
+      "what": "Historische relaties voor COA (en voor de agentschappen IND en Dienst Terugkeer en Vertrek, die in het bestand alleen een parent hebben): Justitie tot 14-10-2010; BZK 14-10-2010 tot 05-11-2012 (Stcrt. 2010, 16527 art. 1); VenJ/JenV 05-11-2012 tot 02-07-2024 (Stcrt. 2012, 23043 art. 1); Asiel en Migratie 02-07-2024 tot 23-02-2026 (Stcrt. 2024, 22497 art. 2).",
+      "why": "Het bestand heeft alleen de huidige relatie JenV naar COA (gedateerd vanaf 23-02-2026) en geen org-record voor Asiel en Migratie. De besluiten van 2010 en 2012 noemen IND, COA en DT&V met naam; het besluit van 2024 noemt alleen het terrein asiel en migratie.",
+      "endpoint": "https://zoek.officielebekendmakingen.nl/stcrt-2012-23043.html",
+      "resume": "Voeg een org-record voor het Ministerie van Asiel en Migratie (2024-07-02 tot 2026-02-23) toe en de gesloten relaties BZK-COA (2010-2012), JenV-COA (2012-2024, supersededBy AenM-COA) en AenM-COA (2024-2026, supersededBy rel:oversees-zbo-centraal-orgaan-opvang-asielzoekers); doe hetzelfde voor IND en DT&V zodra zij een part_of-relatie hebben."
+    },
+    {
+      "id": "gap:T-historisch-vro-wonen-kadaster",
+      "what": "Historische relaties voor Huurcommissie, WSW, Stichting Visitatie Woningcorporaties en Kadaster die niet in het bestand staan: wonen van VROM naar BZK per 14-10-2010 (Stcrt. 2010, 16525 art. 2); Kadaster van IenM naar BZK per 26-10-2017 (Stcrt. 2017, 62725 art. 1); volkshuisvesting en ruimtelijke ordening van BZK naar VRO per 02-07-2024 (Stcrt. 2024, 22499 art. 2); terug naar BZK per 23-02-2026 (Stcrt. 2026, 8177 art. 1 lid 2).",
+      "why": "De huidige BZK-relaties zijn gedateerd vanaf 23-02-2026 (confidence medium, omdat het VRO-besluit alleen het terrein noemt). De BZK-intervallen 2010/2017 tot 2024 en de VRO-intervallen 2024 tot 2026 ontbreken; er is geen org-record voor VRO.",
+      "endpoint": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22499.html",
+      "resume": "Voeg een org-record voor het Ministerie van VRO (2024-07-02 tot 2026-02-23) toe en de gesloten relaties BZK-Huurcommissie (2010-10-14 tot 2024-07-02), BZK-Kadaster (2017-10-26 tot 2024-07-02), BZK-WSW en BZK-Visitatie (tot 2024-07-02) met supersededBy naar de VRO-relaties, en de VRO-relaties (2024-07-02 tot 2026-02-23) met supersededBy naar de huidige BZK-relaties. Bevestig eerst uit het Organisatiebesluit VRO welke organen meegingen."
+    },
+    {
+      "id": "gap:T-historisch-agentschappen-verplaatst",
+      "what": "Agentschappen en inspecties die volgens de besluiten van ministerie wisselden maar in het bestand alleen een parent en geen relatie hebben: NVWA (landbouw en voedselkwaliteit van EZ naar LNV per 26-10-2017, Stcrt. 2017, 62723); Rijkswaterstaat, KNMI en ILT (van VenW/VROM naar IenM per 14-10-2010, Stcrt. 2010, 16525); Staatstoezicht op de Mijnen en RVO (EZ naar ELI per 14-10-2010, BWBR0028859); IND en DT&V (zie gap:T-historisch-coa-vreemdelingenzaken); Rijksinspectie Digitale Infrastructuur (digitale zaken van BZK naar EZK per 23-02-2026, Stcrt. 2026, 8180 art. 1, voor zover de RDI daaronder valt); Rijksvastgoedbedrijf (Rijksgebouwendienst van VROM naar BZK per 14-10-2010, Stcrt. 2010, 16525 art. 2).",
+      "why": "Geen relatie in data/relations.json om te dateren; de besluiten noemen de terreinen en soms de dienst (Rijksgebouwendienst, NEa), niet elk agentschap. Niet uitgevonden.",
+      "endpoint": "https://zoek.officielebekendmakingen.nl/stcrt-2010-16525.html",
+      "resume": "Laat de workstream die part_of-relaties voor agentschappen toevoegt deze meteen dateren met de hier genoemde besluiten; voeg org-records toe voor VenW, VROM, LNV (oud), ELI-naam en de 2024-ministeries waar het knooppunt per naam moet worden gesplitst."
+    }
+  ]
+}

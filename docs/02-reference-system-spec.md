@@ -330,8 +330,8 @@ Observed stack facts, useful because they tell us what not to over-build and whe
 Reproduce all of these. Each is an observed behavior, not a guess.
 
 1. Persistent right-canvas graph that stays mounted across navigation and re-highlights the current entity.
-2. Graph pan and zoom on a large radial map.
-3. Click a node to focus it, reveal its label and neighbors, and draw its path to the hub.
+2. Graph pan and zoom on a large radial map. Ours is the concentric tier layout of ADR 0015, not the reference's single ring system; dragging outside the outermost tier turns the canvas like a dial.
+3. Click a node to focus it, reveal its label and neighbors, and draw its path to the hub. Ours also turns the canvas until the focus sits straight above the core, gathers the body's children and relations onto a halo, and steps the outer tiers back to make room (turn, gather, step back; `web/lib/graph-layout.md` section 9). Clicking a sector selects the whole group and turns it to the top.
 4. `Graph` and `Power map` toggle that swaps the canvas view without a page load.
 5. `Legend` dropdown that filters or annotates node types.
 6. Global search overlay: expands from the top bar, dims the page, fuzzy-matches names and aliases, groups results under `Entities`, links each result.
@@ -349,6 +349,7 @@ Reproduce all of these. Each is an observed behavior, not a guess.
 18. Topic grid and topic detail with `Who's Responsible?`.
 19. Fiscal tiles with year-over-year indicators and an Explore budget entry.
 20. Every fact carries a source link and, where the reference lacks it, an updated-at stamp (we improve here).
+21. The Tweede Kamer and Eerste Kamer drawn as ∩ arches, on the canvas and on their pages, with the majority marked (ours; the reference has no seat chart).
 
 ## 7. Gaps in the reference we will close
 

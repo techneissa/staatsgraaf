@@ -237,6 +237,246 @@
     "archiveUrl": null
   },
   {
+    "id": "src:cbs-tk-1918-2006",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/37278/TypedDataSet",
+    "title": "Verkiezingen; uitslagen Tweede Kamer, 1918-2006 (CBS StatLine tabel 37278)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Kiesgerechtigden, opkomst (%), totaal stemmen, ongeldige en geldige stemmen en totaal aantal zetels per verkiezingsjaar. Gebruikt voor opkomst. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingen; uitslagen Tweede Kamer, 1918-2006 (CBS StatLine tabel 37278), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-1946",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/37475/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1946 (CBS StatLine tabel 37475)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1946 (CBS StatLine tabel 37475), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-1948",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/37517/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1948 (CBS StatLine tabel 37517)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1948 (CBS StatLine tabel 37517), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-1952",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/37147/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1952 (CBS StatLine tabel 37147)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1952 (CBS StatLine tabel 37147), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-1956",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/37381/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1956 (CBS StatLine tabel 37381)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1956 (CBS StatLine tabel 37381), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-1959",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/37635/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1959 (CBS StatLine tabel 37635)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1959 (CBS StatLine tabel 37635), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-1963",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/03761/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1963 (CBS StatLine tabel 03761)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1963 (CBS StatLine tabel 03761), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-1967",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/37607/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1967 (CBS StatLine tabel 37607)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1967 (CBS StatLine tabel 37607), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-1971",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/37299/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1971 (CBS StatLine tabel 37299)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1971 (CBS StatLine tabel 37299), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-1972",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/37185/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1972 (CBS StatLine tabel 37185)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1972 (CBS StatLine tabel 37185), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-1977",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/37153/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1977 (CBS StatLine tabel 37153)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1977 (CBS StatLine tabel 37153), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-1981",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/37166/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1981 (CBS StatLine tabel 37166)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1981 (CBS StatLine tabel 37166), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-1982",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/37322/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1982 (CBS StatLine tabel 37322)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1982 (CBS StatLine tabel 37322), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-1986",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/37109/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1986 (CBS StatLine tabel 37109)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1986 (CBS StatLine tabel 37109), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-1989",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/37613/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1989 (CBS StatLine tabel 37613)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1989 (CBS StatLine tabel 37613), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-1994",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/37864/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1994 (CBS StatLine tabel 37864)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1994 (CBS StatLine tabel 37864), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-1998",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/37628/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1998 (CBS StatLine tabel 37628)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 1998 (CBS StatLine tabel 37628), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-2002",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/60045/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 2002 (CBS StatLine tabel 60045)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partij. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 2002 (CBS StatLine tabel 60045), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-2003",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/70148NED/TypedDataSet",
+    "title": "Verkiezingsuitslag en zetelverdeling Tweede Kamer, 2003 (CBS StatLine tabel 70148NED)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partijen. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingsuitslag en zetelverdeling Tweede Kamer, 2003 (CBS StatLine tabel 70148NED), geraadpleegd 2026-09-19."
+  },
+  {
+    "id": "src:cbs-tk-2006",
+    "url": "https://opendata.cbs.nl/ODataApi/odata/71277NED/TypedDataSet",
+    "title": "Verkiezingen; 2006 uitslag en zetelverdeling Tweede Kamer (CBS StatLine tabel 71277NED)",
+    "publisher": "Centraal Bureau voor de Statistiek",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Geldige stemmen, aandeel in % en zetelverdeling per partij; partijnamen uit de dimensie Partijen. Status volgens CBS: definitief. Bron: Centraal Bureau voor de Statistiek (CBS), Verkiezingen; 2006 uitslag en zetelverdeling Tweede Kamer (CBS StatLine tabel 71277NED), geraadpleegd 2026-09-19."
+  },
+  {
     "id": "src:commons-11146b81",
     "url": "https://commons.wikimedia.org/wiki/File:2012-06_Michiel_Uitdehaag_D66_Gld.JPG",
     "title": "File:2012-06 Michiel Uitdehaag D66 Gld.JPG",
@@ -4569,6 +4809,18 @@
     "notes": "Bron: CPB, Centraal Planbureau, geraadpleegd 2026-09-18."
   },
   {
+    "id": "src:data-overheid-package-search-tweede-kamer",
+    "url": "https://data.overheid.nl/data/api/3/action/package_search?q=tweede+kamer&rows=50",
+    "title": "data.overheid.nl package_search 'tweede kamer'",
+    "publisher": "Ministerie van Binnenlandse Zaken en Koninkrijksrelaties (data.overheid.nl)",
+    "type": "register",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "archiveUrl": null,
+    "notes": "186 datasets, alle verkiezingsuitslagen, CBS-zetelverdelingen of het Open Data Portaal van de Tweede Kamer; geen zaalindeling. Licentie niet vastgesteld; endpoint: https://data.overheid.nl/data/api/3/action/package_search?q=tweede+kamer&rows=50"
+  },
+  {
     "id": "src:dji-besturing",
     "url": "https://www.dji.nl/actueel/nieuws/2025/12/30/nieuwe-besturing-dji-per-1-januari-2026",
     "title": "Nieuwe besturing DJI per 1 januari 2026",
@@ -5961,6 +6213,18 @@
     "notes": "Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/w_t_van_ballekom_vvd, geraadpleegd 2026-09-17."
   },
   {
+    "id": "src:ek-wie-zit-waar",
+    "url": "https://www.eerstekamer.nl/wie_zit_waar",
+    "title": "Wie zit waar",
+    "publisher": "Eerste Kamer der Staten-Generaal",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Interactieve plattegrond met 75 ledencellen (naam en fractie) in linker en rechter bankjes; positie alleen als rij en kolom in de HTML, zonder zetelnummer. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/wie_zit_waar, geraadpleegd 2026-09-19."
+  },
+  {
     "id": "src:electorale-raad-curacao",
     "url": "https://kse.cw/verkiezingen",
     "title": "Verkiezingen - Consejo Electoral (Electorale Raad van Curaçao)",
@@ -7114,6 +7378,54 @@
     "notes": null
   },
   {
+    "id": "src:kiesraad-ek-2011-kerngegevens",
+    "url": "https://www.kiesraad.nl/site/binaries/site-content/collections/documents/2011/05/25/kerngegevens-eerste-kamer-2011/kerngegevens-eerste-kamerverkiezing-2011-0.pdf",
+    "title": "Kerngegevens Eerste Kamerverkiezing 2011",
+    "publisher": "Kiesraad",
+    "type": "page",
+    "published": "2011-05-25",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "PDF; tabel 4 (aantal berekende stemmen en aantal zetels per partij), totaal 166.072 berekende stemmen."
+  },
+  {
+    "id": "src:kiesraad-ek-2015-nieuws",
+    "url": "https://www.kiesraad.nl/actueel/nieuws/2015/05/28/definitieve-uitslag-eerste-kamerverkiezing",
+    "title": "Definitieve uitslag Eerste Kamerverkiezing (nieuwsbericht 28-05-2015)",
+    "publisher": "Kiesraad",
+    "type": "page",
+    "published": "2015-05-28",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Totale zetelverdeling per partij; opkomst 100% (570 Statenleden)."
+  },
+  {
+    "id": "src:kiesraad-ek-2019-nieuws",
+    "url": "https://www.kiesraad.nl/actueel/nieuws/2019/05/31/uitslag-eerste-kamerverkiezing-2019",
+    "title": "Uitslag Eerste Kamerverkiezing 2019 (nieuwsbericht 31-05-2019)",
+    "publisher": "Kiesraad",
+    "type": "page",
+    "published": "2019-05-31",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Totale zetelverdeling per partij; opkomst 100% (570 Statenleden en 19 kiescollegeleden)."
+  },
+  {
+    "id": "src:kiesraad-ek-2023-nieuws",
+    "url": "https://www.kiesraad.nl/actueel/nieuws/2023/06/01/uitslag-eerste-kamerverkiezing-2023",
+    "title": "Uitslag Eerste Kamerverkiezing 2023 (nieuwsbericht 01-06-2023)",
+    "publisher": "Kiesraad",
+    "type": "page",
+    "published": "2023-06-01",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Zetelverdeling per lijst van de 75 zetels; totaal van de stemcijfers 178.970; kiesdeler 2386."
+  },
+  {
     "id": "src:kiesraad-er",
     "url": "https://www.kiesraad.nl/verkiezingen/eilandsraden",
     "title": "Eilandsraden, zetelaantallen BES",
@@ -7194,6 +7506,162 @@
     "license": "CC0-1.0",
     "notes": "Zetels per provincie op basis van inwonertal; artikel 8 Provinciewet.",
     "archiveUrl": null
+  },
+  {
+    "id": "src:kiesraad-tk-1998-nieuws",
+    "url": "https://www.kiesraad.nl/actueel/nieuws/1998/05/19/uitslag-tweede-kamerverkiezing-opnieuw",
+    "title": "Uitslag Tweede Kamerverkiezing opnieuw vastgesteld (nieuwsbericht 19-05-1998)",
+    "publisher": "Kiesraad",
+    "type": "page",
+    "published": "1998-05-19",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Herziene vaststelling van 19-05-1998; noemt stemmen en zetels per partij. Gebruikt als kruiscontrole van CBS tabel 37628."
+  },
+  {
+    "id": "src:kiesraad-tk-2010-kerngegevens",
+    "url": "https://www.kiesraad.nl/site/binaries/site-content/collections/documents/2010/06/22/kerngegevens-uitslagen-verkiezing-tweede-kamer-2010/kerngegevens-tweede-kamer-2010.pdf",
+    "title": "Kerngegevens uitslagen verkiezing Tweede Kamer 2010",
+    "publisher": "Kiesraad",
+    "type": "page",
+    "published": "2010-06-22",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "PDF; tabel 2 (aantal stemmen en zetels per groepering)."
+  },
+  {
+    "id": "src:kiesraad-tk-2010-nieuws",
+    "url": "https://www.kiesraad.nl/actueel/nieuws/2010/06/16/uitslag-verkiezing-leden-tweede-kamer-van-9-juni-2010",
+    "title": "Uitslag verkiezing leden Tweede Kamer van 9 juni 2010 (nieuwsbericht 16-06-2010)",
+    "publisher": "Kiesraad",
+    "type": "page",
+    "published": "2010-06-16",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Opkomst 75,40%, 9.416.001 geldige stemmen."
+  },
+  {
+    "id": "src:kiesraad-tk-2012-nieuws",
+    "url": "https://www.kiesraad.nl/actueel/nieuws/2012/09/17/officiele-uitslag-tweede-kamerverkiezing-12-september-2012",
+    "title": "Officiële uitslag Tweede Kamerverkiezing 12 september 2012 (nieuwsbericht 17-09-2012)",
+    "publisher": "Kiesraad",
+    "type": "page",
+    "published": "2012-09-17",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Opkomst 74,6%, 9.424.235 geldige stemmen; geen zeteltabel in het bericht zelf."
+  },
+  {
+    "id": "src:kiesraad-tk-2012-pv",
+    "url": "https://www.kiesraad.nl/site/binaries/site-content/collections/documents/2012/09/19/proces-verbaal-zitting-uitslag-tweede-kamerverkiezing-2012/proces-verbaal-vaststelling-uitslag-tweede-kamerverkiezing-2012.pdf",
+    "title": "Proces-verbaal vaststelling uitslag Tweede Kamerverkiezing 2012",
+    "publisher": "Kiesraad",
+    "type": "page",
+    "published": "2012-09-17",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "PDF; onderdeel H (verdeling van de zetels over de groeperingen, pagina 10) en onderdeel E (stemmen per lijst, pagina 7)."
+  },
+  {
+    "id": "src:kiesraad-tk-2017-nieuws",
+    "url": "https://www.kiesraad.nl/actueel/nieuws/2017/03/20/officiele-uitslag-tweede-kamerverkiezing-15-maart-2017",
+    "title": "Officiële uitslag Tweede Kamerverkiezing 15 maart 2017 (nieuwsbericht 21-03-2017)",
+    "publisher": "Kiesraad",
+    "type": "page",
+    "published": "2017-03-21",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Opkomst 81,9%, 10.516.041 geldige stemmen op kandidaten, zetelverdeling."
+  },
+  {
+    "id": "src:kiesraad-tk-2017-ods",
+    "url": "https://www.kiesraad.nl/site/binaries/site-content/collections/documents/2017/3/proces-verbaal-zitting-kiesraad-uitslag-tweede-kamerverkiezing-2017/uitslag-tweede-kamerverkiezing-2017-in-excel/osv4-3_Totaaltelling_TK2017.ods",
+    "title": "Uitslag Tweede Kamerverkiezing 2017 in ODS-bestand (osv4-3_Totaaltelling_TK2017.ods)",
+    "publisher": "Kiesraad",
+    "type": "api",
+    "published": "2017-04-18",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Totaaltelling centraal stembureau; kolom Totaal per lijst gebruikt voor stemmen per partij."
+  },
+  {
+    "id": "src:kiesraad-tk-2021-nieuws",
+    "url": "https://www.kiesraad.nl/actueel/nieuws/2021/03/26/officiele-uitslag-tweede-kamerverkiezing-17-maart-2021",
+    "title": "Officiële uitslag Tweede Kamerverkiezing 17 maart 2021 (nieuwsbericht 26-03-2021)",
+    "publisher": "Kiesraad",
+    "type": "page",
+    "published": "2021-03-26",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Opkomst 78,7%, 10.422.852 geldige stemmen op kandidaten, zetelverdeling van de 150 zetels."
+  },
+  {
+    "id": "src:kiesraad-tk-2021-pv",
+    "url": "https://www.kiesraad.nl/site/binaries/site-content/collections/documents/2021/03/26/uitslag-tweede-kamerverkiezing-17-maart-2021/Proces-verbaal+verkiezingsuitslag+Tweede+kamer+2021.pdf",
+    "title": "Proces-verbaal verkiezingsuitslag Tweede Kamer 2021",
+    "publisher": "Kiesraad",
+    "type": "page",
+    "published": "2021-03-29",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "PDF (21,6 MB); onderdeel 8 (verdeling van de volle zetels) geeft het aantal stemmen per lijstnummer; lijstnamen in de lijstentabel."
+  },
+  {
+    "id": "src:kiesraad-tk-2023-csv",
+    "url": "https://data.overheid.nl/sites/default/files/dataset/e3fe6e42-06ab-4559-a466-a32b04247f68/resources/Verkiezingsuitslag%20Tweede%20Kamer%202023%20%28CSV%20formaat%29.zip",
+    "title": "Verkiezingsuitslag Tweede Kamer 2023 (CSV-formaat), bestand TK2023_uitslag.csv",
+    "publisher": "Kiesraad via data.overheid.nl",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "archiveUrl": null,
+    "notes": "Gekoppeld vanaf het Kiesraad-proces-verbaal van 04-12-2023. README noemt het onderzoeksdata en geen officiële uitslag; het landelijke aantal geldige stemmen (10.432.726) is gelijk aan het definitieve cijfer in het nieuwsbericht. Gebruikt voor stemmen per lijst. Licentie niet vastgesteld; endpoint: https://data.overheid.nl/sites/default/files/dataset/e3fe6e42-06ab-4559-a466-a32b04247f68/resources/Verkiezingsuitslag%20Tweede%20Kamer%202023%20%28CSV%20formaat%29.zip"
+  },
+  {
+    "id": "src:kiesraad-tk-2023-nieuws",
+    "url": "https://www.kiesraad.nl/actueel/nieuws/2023/12/01/kiesraad-stelt-uitslag-tweede-kamerverkiezing-22-november-2023-vast",
+    "title": "Kiesraad stelt uitslag Tweede Kamerverkiezing 22 november 2023 vast (nieuwsbericht, geactualiseerd na de zitting van 04-12-2023)",
+    "publisher": "Kiesraad",
+    "type": "page",
+    "published": "2023-12-01",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Definitieve aantallen na de tweede zitting van 04-12-2023: opkomst 77,7%, 10.432.726 geldige stemmen op kandidaten, zetelverdeling."
+  },
+  {
+    "id": "src:kiesraad-tk-2025-nieuws",
+    "url": "https://www.kiesraad.nl/actueel/nieuws/2025/11/7/kiesraad-uitslag-tweede-kamerverkiezing-betrouwbaar",
+    "title": "Kiesraad: Uitslag Tweede Kamerverkiezing betrouwbaar (nieuwsbericht 07-11-2025)",
+    "publisher": "Kiesraad",
+    "type": "page",
+    "published": "2025-11-07",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Bevat kiesgerechtigden, opkomst, geldige stemmen en de zetelverdeling van de 150 zetels."
+  },
+  {
+    "id": "src:kiesraad-tk-2025-pv",
+    "url": "https://www.kiesraad.nl/site/binaries/site-content/collections/documents/2025/11/07/proces-verbaal-van-de-uitslag-van-de-verkiezing-van-de-tweede-kamer-2025-d.d.-7-november-2025/Proces-verbaal+van+het+centraal+stembureau+met+de+uitslag+van+de+verkiezing+van+de+Tweede+Kamer+der+Staten-Generaal+2025+P22-1+incl+bijlagen.pdf",
+    "title": "Proces-verbaal centraal stembureau uitslag Tweede Kamer 2025 (model P 22-1)",
+    "publisher": "Kiesraad",
+    "type": "page",
+    "published": "2025-11-07",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "PDF; tabel 8 (verdeling van de volle zetels) geeft het aantal stemmen per lijstnummer; de lijstnamen staan in de lijstentabel op pagina 2-3."
   },
   {
     "id": "src:kiesraad-tweede-kamer",
@@ -26788,6 +27256,42 @@
     "archiveUrl": null
   },
   {
+    "id": "src:parlement-ministerie-ezk",
+    "url": "https://www.parlement.com/ministerie-van-economische-zaken-en-klimaat",
+    "title": "Ministerie van Economische Zaken en Klimaat",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Overzicht van de naamsgeschiedenis van het departement: ELI (2010), EZ (2012), EZK (2017), EZ (2024), EZK (2026). Secundaire bron, confidence medium."
+  },
+  {
+    "id": "src:parlement-ministerie-ienm",
+    "url": "https://www.parlement.com/ministerie-van-infrastructuur-en-milieu",
+    "title": "Ministerie van Infrastructuur en Milieu",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Ingesteld in 2010 door samenvoeging van Verkeer en Waterstaat en VROM; sinds mei 2015 belast met nucleaire veiligheid; in 2017 klimaat naar EZ en naamswijziging in Infrastructuur en Waterstaat. Secundaire bron, confidence medium."
+  },
+  {
+    "id": "src:parlement-vertrouwensregel",
+    "url": "https://www.parlement.com/vertrouwensregel-parlement-en-kabinet",
+    "title": "Vertrouwensregel parlement en kabinet",
+    "publisher": "Parlement.com (PDC, Montesquieu Instituut)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Secundaire bron, confidence medium, opgehaald 19-09-2026. Samenvatting: de vertrouwensregel houdt in dat een minister, staatssecretaris of het kabinet als geheel moet aftreden als zij niet langer het vertrouwen van het parlement (in de praktijk de Tweede Kamer) genieten; het vertrouwen wordt verondersteld totdat het tegendeel blijkt, bijvoorbeeld door aanneming van een motie van wantrouwen; het kabinet kan de vertrouwenskwestie stellen of, bij een conflict, de Kamer ontbinden. Onder \"Wettelijke basis\" stelt de pagina dat de regel niet in de Grondwet of een andere wet is vastgelegd maar in de loop der tijd is ontstaan en als gewoonterecht geldt, met als aanvullende gewoonteregel dat de Tweede Kamer vanwege hetzelfde conflict slechts één keer ontbonden mag worden."
+  },
+  {
     "id": "src:pbl-directie",
     "url": "https://www.pbl.nl/over-het-pbl/directie",
     "title": "Directie PBL",
@@ -26822,6 +27326,870 @@
     "license": "CC-BY-4.0",
     "archiveUrl": null,
     "notes": "Bron: PBL, Planbureau voor de Leefomgeving, geraadpleegd 2026-09-18."
+  },
+  {
+    "id": "src:pdc-ek-1983",
+    "url": "https://www.parlement.com/eerste-kamerverkiezingen-1983",
+    "title": "Eerste Kamerverkiezingen 1983",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Zetelverdeling per partij; voor 2003 en 2007 ook kerngegevens (stemcijfers, opkomst)."
+  },
+  {
+    "id": "src:pdc-ek-1986",
+    "url": "https://www.parlement.com/eerste-kamerverkiezingen-1986",
+    "title": "Eerste Kamerverkiezingen 1986",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Zetelverdeling per partij; voor 2003 en 2007 ook kerngegevens (stemcijfers, opkomst)."
+  },
+  {
+    "id": "src:pdc-ek-1987",
+    "url": "https://www.parlement.com/eerste-kamerverkiezingen-1987",
+    "title": "Eerste Kamerverkiezingen 1987",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Zetelverdeling per partij; voor 2003 en 2007 ook kerngegevens (stemcijfers, opkomst)."
+  },
+  {
+    "id": "src:pdc-ek-1991",
+    "url": "https://www.parlement.com/eerste-kamerverkiezingen-1991",
+    "title": "Eerste Kamerverkiezingen 1991",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Zetelverdeling per partij; voor 2003 en 2007 ook kerngegevens (stemcijfers, opkomst)."
+  },
+  {
+    "id": "src:pdc-ek-1995",
+    "url": "https://www.parlement.com/eerste-kamerverkiezingen-1995",
+    "title": "Eerste Kamerverkiezingen 1995",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Zetelverdeling per partij; voor 2003 en 2007 ook kerngegevens (stemcijfers, opkomst)."
+  },
+  {
+    "id": "src:pdc-ek-1999",
+    "url": "https://www.parlement.com/eerste-kamerverkiezingen-1999",
+    "title": "Eerste Kamerverkiezingen 1999",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Zetelverdeling per partij; voor 2003 en 2007 ook kerngegevens (stemcijfers, opkomst)."
+  },
+  {
+    "id": "src:pdc-ek-2003",
+    "url": "https://www.parlement.com/eerste-kamerverkiezingen-2003",
+    "title": "Eerste Kamerverkiezingen 2003",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Zetelverdeling per partij; voor 2003 en 2007 ook kerngegevens (stemcijfers, opkomst)."
+  },
+  {
+    "id": "src:pdc-ek-2007",
+    "url": "https://www.parlement.com/eerste-kamerverkiezingen-2007",
+    "title": "Eerste Kamerverkiezingen 2007",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Zetelverdeling per partij; voor 2003 en 2007 ook kerngegevens (stemcijfers, opkomst)."
+  },
+  {
+    "id": "src:pdc-ek-2011",
+    "url": "https://www.parlement.com/eerste-kamerverkiezingen-2011",
+    "title": "Eerste Kamerverkiezingen 2011",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Zetelverdeling per partij; voor 2003 en 2007 ook kerngegevens (stemcijfers, opkomst)."
+  },
+  {
+    "id": "src:pdc-ek-2015",
+    "url": "https://www.parlement.com/eerste-kamerverkiezingen-2015",
+    "title": "Eerste Kamerverkiezingen 2015",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Zetelverdeling per partij; voor 2003 en 2007 ook kerngegevens (stemcijfers, opkomst)."
+  },
+  {
+    "id": "src:pdc-ek-2019",
+    "url": "https://www.parlement.com/eerste-kamerverkiezingen-2019",
+    "title": "Eerste Kamerverkiezingen 2019",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Zetelverdeling per partij; voor 2003 en 2007 ook kerngegevens (stemcijfers, opkomst)."
+  },
+  {
+    "id": "src:pdc-ek-2023",
+    "url": "https://www.parlement.com/eerste-kamerverkiezingen-2023",
+    "title": "Eerste Kamerverkiezingen 2023",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Zetelverdeling per partij; voor 2003 en 2007 ook kerngegevens (stemcijfers, opkomst)."
+  },
+  {
+    "id": "src:pdc-hoofdlijnenakkoord-2024",
+    "url": "https://www.parlement.com/hoofdlijnenakkoord-2024",
+    "title": "Hoofdlijnenakkoord 2024",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": "2024-05-16",
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Hoofdlijnenakkoord 'Hoop, lef en trots' tussen PVV, VVD, NSC en BBB, gepresenteerd 16-05-2024. Vervangende bron: de documentpagina op rijksoverheid.nl is niet gevonden (zie gaps). Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-balkenende-i-2002-2003",
+    "url": "https://www.parlement.com/kabinet-balkenende-i-2002-2003",
+    "title": "Kabinet-Balkenende I (2002-2003)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-balkenende-ii-2003-2006",
+    "url": "https://www.parlement.com/kabinet-balkenende-ii-2003-2006",
+    "title": "Kabinet-Balkenende II (2003-2006)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-balkenende-iii-2006-2007",
+    "url": "https://www.parlement.com/kabinet-balkenende-iii-2006-2007",
+    "title": "Kabinet-Balkenende III (2006-2007)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-balkenende-iv-2007-2010",
+    "url": "https://www.parlement.com/kabinet-balkenende-iv-2007-2010",
+    "title": "Kabinet-Balkenende IV (2007-2010)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-beel-i-1946-1948",
+    "url": "https://www.parlement.com/kabinet-beel-i-1946-1948",
+    "title": "Kabinet-Beel I (1946-1948)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-beel-ii-1958-1959",
+    "url": "https://www.parlement.com/kabinet-beel-ii-1958-1959",
+    "title": "Kabinet-Beel II (1958-1959)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-biesheuvel-i-en-ii-1971-1973",
+    "url": "https://www.parlement.com/kabinet-biesheuvel-i-en-ii-1971-1973",
+    "title": "Kabinet-Biesheuvel I en II (1971-1973)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-cals-1965-1966",
+    "url": "https://www.parlement.com/kabinet-cals-1965-1966",
+    "title": "Kabinet-Cals (1965-1966)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-de-jong-1967-1971",
+    "url": "https://www.parlement.com/kabinet-de-jong-1967-1971",
+    "title": "Kabinet-De Jong (1967-1971)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-de-quay-1959-1963",
+    "url": "https://www.parlement.com/kabinet-de-quay-1959-1963",
+    "title": "Kabinet-De Quay (1959-1963)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-den-uyl-1973-1977",
+    "url": "https://www.parlement.com/kabinet-den-uyl-1973-1977",
+    "title": "Kabinet-Den Uyl (1973-1977)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-drees-i-1948-1951",
+    "url": "https://www.parlement.com/kabinet-drees-i-1948-1951",
+    "title": "Kabinet-Drees I (1948-1951)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-drees-ii-1951-1952",
+    "url": "https://www.parlement.com/kabinet-drees-ii-1951-1952",
+    "title": "Kabinet-Drees II (1951-1952)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-drees-iii-1952-1956",
+    "url": "https://www.parlement.com/kabinet-drees-iii-1952-1956",
+    "title": "Kabinet-Drees III (1952-1956)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-drees-iv-1956-1958",
+    "url": "https://www.parlement.com/kabinet-drees-iv-1956-1958",
+    "title": "Kabinet-Drees IV (1956-1958)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-jetten-2026-heden",
+    "url": "https://www.parlement.com/kabinet-jetten-2026-heden",
+    "title": "Kabinet-Jetten (2026-heden)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-kok-i-1994-1998",
+    "url": "https://www.parlement.com/kabinet-kok-i-1994-1998",
+    "title": "Kabinet-Kok I (1994-1998)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-kok-ii-1998-2002",
+    "url": "https://www.parlement.com/kabinet-kok-ii-1998-2002",
+    "title": "Kabinet-Kok II (1998-2002)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-lubbers-i-1982-1986",
+    "url": "https://www.parlement.com/kabinet-lubbers-i-1982-1986",
+    "title": "Kabinet-Lubbers I (1982-1986)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-lubbers-ii-1986-1989",
+    "url": "https://www.parlement.com/kabinet-lubbers-ii-1986-1989",
+    "title": "Kabinet-Lubbers II (1986-1989)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-lubbers-iii-1989-1994",
+    "url": "https://www.parlement.com/kabinet-lubbers-iii-1989-1994",
+    "title": "Kabinet-Lubbers III (1989-1994)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-marijnen-1963-1965",
+    "url": "https://www.parlement.com/kabinet-marijnen-1963-1965",
+    "title": "Kabinet-Marijnen (1963-1965)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-rutte-i-2010-2012",
+    "url": "https://www.parlement.com/kabinet-rutte-i-2010-2012",
+    "title": "Kabinet-Rutte I (2010-2012)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-rutte-ii-2012-2017",
+    "url": "https://www.parlement.com/kabinet-rutte-ii-2012-2017",
+    "title": "Kabinet-Rutte II (2012-2017)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-rutte-iii-2017-2022",
+    "url": "https://www.parlement.com/kabinet-rutte-iii-2017-2022",
+    "title": "Kabinet-Rutte III (2017-2022)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-rutte-iv-2022-2024",
+    "url": "https://www.parlement.com/kabinet-rutte-iv-2022-2024",
+    "title": "Kabinet-Rutte IV (2022-2024)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-schermerhorndrees-1945-1946",
+    "url": "https://www.parlement.com/kabinet-schermerhorndrees-1945-1946",
+    "title": "Kabinet-Schermerhorn/Drees (1945-1946)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-schoof-2024-2026",
+    "url": "https://www.parlement.com/kabinet-schoof-2024-2026",
+    "title": "Kabinet-Schoof (2024-2026)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-van-agt-i-1977-1981",
+    "url": "https://www.parlement.com/kabinet-van-agt-i-1977-1981",
+    "title": "Kabinet-Van Agt I (1977-1981)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-van-agt-ii-1981-1982",
+    "url": "https://www.parlement.com/kabinet-van-agt-ii-1981-1982",
+    "title": "Kabinet-Van Agt II (1981-1982)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-van-agt-iii-1982",
+    "url": "https://www.parlement.com/kabinet-van-agt-iii-1982",
+    "title": "Kabinet-Van Agt III (1982)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinet-zijlstra-1966-1967",
+    "url": "https://www.parlement.com/kabinet-zijlstra-1966-1967",
+    "title": "Kabinet-Zijlstra (1966-1967)",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-kabinetten-1945-heden",
+    "url": "https://www.parlement.com/kabinetten-1945-heden",
+    "title": "Kabinetten 1945-heden",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-opgeheven-politieke-partijen",
+    "url": "https://www.parlement.com/opgeheven-politieke-partijen",
+    "title": "Opgeheven politieke partijen",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Bron voor de volledige namen van partijen buiten het register (KVP, ARP, CHU, DS70, PPR, LPF, SDAP, RKSP). Parlementair Documentatie Centrum (Universiteit Leiden); secundaire bron, confidence medium. Licentie niet vastgesteld."
+  },
+  {
+    "id": "src:pdc-tk-1946",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-1946",
+    "title": "Tweede Kamerverkiezingen 1946",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-1948",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-1948",
+    "title": "Tweede Kamerverkiezingen 1948",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-1952",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-1952",
+    "title": "Tweede Kamerverkiezingen 1952",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-1956",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-1956",
+    "title": "Tweede Kamerverkiezingen 1956",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-1959",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-1959",
+    "title": "Tweede Kamerverkiezingen 1959",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-1963",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-1963",
+    "title": "Tweede Kamerverkiezingen 1963",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-1967",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-1967",
+    "title": "Tweede Kamerverkiezingen 1967",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-1971",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-1971",
+    "title": "Tweede Kamerverkiezingen 1971",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-1972",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-1972",
+    "title": "Tweede Kamerverkiezingen 1972",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-1977",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-1977",
+    "title": "Tweede Kamerverkiezingen 1977",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-1981",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-1981",
+    "title": "Tweede Kamerverkiezingen 1981",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-1982",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-1982",
+    "title": "Tweede Kamerverkiezingen 1982",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-1986",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-1986",
+    "title": "Tweede Kamerverkiezingen 1986",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-1989",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-1989",
+    "title": "Tweede Kamerverkiezingen 1989",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-1994",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-1994",
+    "title": "Tweede Kamerverkiezingen 1994",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-1998",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-1998",
+    "title": "Tweede Kamerverkiezingen 1998",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-2002",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-2002",
+    "title": "Tweede Kamerverkiezingen 2002",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-2003",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-2003",
+    "title": "Tweede Kamerverkiezingen 2003",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-2006",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-2006",
+    "title": "Tweede Kamerverkiezingen 2006",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-2010",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-2010",
+    "title": "Tweede Kamerverkiezingen 2010",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-2012",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-2012",
+    "title": "Tweede Kamerverkiezingen 2012",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-2017",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-2017",
+    "title": "Tweede Kamerverkiezingen 2017",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-2021",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-2021",
+    "title": "Tweede Kamerverkiezingen 2021",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-2023",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-2023",
+    "title": "Tweede Kamerverkiezingen 2023",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
+  },
+  {
+    "id": "src:pdc-tk-2025",
+    "url": "https://www.parlement.com/tweede-kamerverkiezingen-2025",
+    "title": "Tweede Kamerverkiezingen 2025",
+    "publisher": "Parlement.com (PDC)",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Gebruikt voor de aard van de verkiezing (regulier of vervroegd) en als kruiscontrole van de zetelverdeling."
   },
   {
     "id": "src:penitentiaire-beginselenwet",
@@ -26869,7 +28237,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van A.J.M. van Kesteren, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van A.J.M. van Kesteren, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/a_j_m_van_kesteren_pvv, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-a-kanis",
@@ -26881,7 +28249,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van A. Kanis, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van A. Kanis, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/a_kanis_d66, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-a-p-m-van-wijk",
@@ -26893,7 +28261,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van A.P.M. van Wijk, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van A.P.M. van Wijk, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/a_p_m_van_wijk_bbb, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-a-w-j-a-van-hattem",
@@ -26905,7 +28273,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van A.W.J.A. van Hattem, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van A.W.J.A. van Hattem, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/a_w_j_a_van_hattem_pvv, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-bgen-b-d-drs-a-j-a-beukering",
@@ -26917,7 +28285,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van Bgen (b.d.) drs. A.J.A. Beukering, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van Bgen (b.d.) drs. A.J.A. Beukering, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/bgen_b_d_drs_a_j_a_beukering, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-dr-m-j-kaljouw",
@@ -26929,7 +28297,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van dr. M.J. Kaljouw, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van dr. M.J. Kaljouw, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_m_j_kaljouw_vvd, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-dr-m-l-vos",
@@ -26941,7 +28309,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van dr. M.L. Vos, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van dr. M.L. Vos, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_m_l_vos_pro, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-dr-mr-j-bakker-klein",
@@ -26953,7 +28321,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van dr. mr. J. Bakker-Klein, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van dr. mr. J. Bakker-Klein, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_mr_j_bakker_klein_cda, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-dr-r-baumgarten",
@@ -26965,7 +28333,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van dr. R. Baumgarten, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van dr. R. Baumgarten, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_r_baumgarten_ja21, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-a-griffioen",
@@ -26977,7 +28345,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. A. Griffioen, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. A. Griffioen, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_a_griffioen_d66, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-a-sj-van-der-goot",
@@ -26989,7 +28357,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. A.Sj. van der Goot, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. A.Sj. van der Goot, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_a_sj_van_der_goot_opnl, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-e-kemperman-mba",
@@ -27001,7 +28369,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. E. Kemperman MBA, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. E. Kemperman MBA, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_e_kemperman_mba_fvd, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-f-w-j-holterhues",
@@ -27013,7 +28381,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. F.W.J. Holterhues, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. F.W.J. Holterhues, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_f_w_j_holterhues_christenunie, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-h-a-m-janssen-van-helvoort",
@@ -27025,7 +28393,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. H.A.M. Janssen-van Helvoort, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. H.A.M. Janssen-van Helvoort, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_h_a_m_janssen_van_helvoort_pro, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-h-j-meijer",
@@ -27037,7 +28405,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. H.J. Meijer, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. H.J. Meijer, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_h_j_meijer_vvd, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-ing-b-kroon",
@@ -27049,7 +28417,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. ing. B. Kroon, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. ing. B. Kroon, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_ing_b_kroon_bbb, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-ing-t-panman",
@@ -27061,7 +28429,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. ing. T. Panman, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. ing. T. Panman, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_ing_t_panman_bbb, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-k-c-j-straus",
@@ -27073,7 +28441,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. K.C.J. Straus, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. K.C.J. Straus, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_k_c_j_straus_vvd, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-k-petersen",
@@ -27085,7 +28453,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. K. Petersen, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. K. Petersen, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_k_petersen_vvd, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-m-c-t-fiers",
@@ -27097,7 +28465,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. M.C.T. Fiers, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. M.C.T. Fiers, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_m_c_t_fiers_pro, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-n-k-koffeman",
@@ -27109,7 +28477,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. N.K. Koffeman, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. N.K. Koffeman, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_n_k_koffeman_pvdd, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-p-v-a-walenkamp-ma",
@@ -27121,7 +28489,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. P.V.A. Walenkamp MA, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. P.V.A. Walenkamp MA, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_p_v_a_walenkamp_ma_fractie, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-r-van-gurp",
@@ -27133,7 +28501,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. R. van Gurp, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. R. van Gurp, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_r_van_gurp_pro, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-s-m-kluit",
@@ -27145,7 +28513,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. S.M. Kluit, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. S.M. Kluit, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_s_m_kluit_pro, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-t-klip-martin",
@@ -27157,7 +28525,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. T. Klip-Martin, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. T. Klip-Martin, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_t_klip_martin_vvd, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-drs-th-w-rietkerk",
@@ -27169,7 +28537,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van drs. Th.W. Rietkerk, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van drs. Th.W. Rietkerk, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/drs_th_w_rietkerk_cda, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-e-w-hartog",
@@ -27181,7 +28549,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van E.W. Hartog, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van E.W. Hartog, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/e_w_hartog_volt, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-em-prof-dr-f-van-knapen",
@@ -27193,7 +28561,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van em. prof. dr. F. van Knapen, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van em. prof. dr. F. van Knapen, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/em_prof_dr_f_van_knapen_bbb, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-g-k-perin-gopie-msc",
@@ -27205,7 +28573,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van G.K. Perin-Gopie MSc, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van G.K. Perin-Gopie MSc, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/g_k_perin_gopie_msc_volt, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-i-m-lagas-mdr",
@@ -27217,7 +28585,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van I.M. Lagas MDR, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van I.M. Lagas MDR, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/i_m_lagas_mdr_bbb, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-ing-m-j-l-goossen",
@@ -27229,7 +28597,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van ing. M.J.L. Goossen, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van ing. M.J.L. Goossen, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/ing_m_j_l_goossen_bbb, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-ir-drs-g-a-van-strien",
@@ -27241,7 +28609,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van ir. drs. G.A. van Strien, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van ir. drs. G.A. van Strien, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/ir_drs_g_a_van_strien_pvv, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-j-c-huizinga-heringa",
@@ -27253,7 +28621,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van J.C. Huizinga-Heringa, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van J.C. Huizinga-Heringa, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/j_c_huizinga_heringa_christenunie, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-j-c-m-van-den-oetelaar",
@@ -27265,7 +28633,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van J.C.M. van den Oetelaar, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van J.C.M. van den Oetelaar, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/j_c_m_van_den_oetelaar_fvd, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-m-karaaslan-mmc",
@@ -27277,7 +28645,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van M. Karaaslan MMC, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van M. Karaaslan MMC, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/m_karaaslan_mmc_d66, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-mr-c-a-h-van-de-sanden-ll-m",
@@ -27289,7 +28657,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van mr. C.A.H. van de Sanden LL.M., rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van mr. C.A.H. van de Sanden LL.M., rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_c_a_h_van_de_sanden_ll_m, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-mr-drs-h-doornhof",
@@ -27301,7 +28669,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van mr. drs. H. Doornhof, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van mr. drs. H. Doornhof, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_drs_h_doornhof_cda, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-mr-drs-j-p-m-steenkamp",
@@ -27313,7 +28681,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van mr. drs. J.P.M. Steenkamp, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van mr. drs. J.P.M. Steenkamp, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_drs_j_p_m_steenkamp_cda, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-mr-g-v-m-veldhoen",
@@ -27325,7 +28693,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van mr. G.V.M. Veldhoen, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van mr. G.V.M. Veldhoen, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_g_v_m_veldhoen_pro, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-mr-h-a-marquart-scholtz",
@@ -27337,7 +28705,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van mr. H.A. Marquart Scholtz, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van mr. H.A. Marquart Scholtz, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_h_a_marquart_scholtz_bbb, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-mr-h-w-vogels",
@@ -27349,7 +28717,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van mr. H.W. Vogels, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van mr. H.W. Vogels, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_h_w_vogels_vvd, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-mr-i-a-bezaan",
@@ -27361,7 +28729,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van mr. I.A. Bezaan, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van mr. I.A. Bezaan, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_i_a_bezaan_pvv, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-mr-k-van-bijsterveld",
@@ -27373,7 +28741,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van mr. K. van Bijsterveld, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van mr. K. van Bijsterveld, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_k_van_bijsterveld_ja21, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-mr-m-n-j-van-der-linden",
@@ -27385,7 +28753,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van mr. M.N.J. van der Linden, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van mr. M.N.J. van der Linden, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_m_n_j_van_der_linden_vvd, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-mr-r-m-j-van-gasteren-llm",
@@ -27397,7 +28765,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van mr. R.M.J. van Gasteren LLM, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van mr. R.M.J. van Gasteren LLM, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_r_m_j_van_gasteren_llm_fractie, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-mr-r-s-croll",
@@ -27409,7 +28777,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van mr. R.S. Croll, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van mr. R.S. Croll, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/mr_r_s_croll_d66, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-p-schalk",
@@ -27421,7 +28789,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van P. Schalk, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van P. Schalk, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/p_schalk_sgp, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-prof-dr-e-b-van-apeldoorn",
@@ -27433,7 +28801,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van prof. dr. E.B. van Apeldoorn, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van prof. dr. E.B. van Apeldoorn, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/prof_dr_e_b_van_apeldoorn_sp, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-prof-dr-i-j-visseren-hamakers",
@@ -27445,7 +28813,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van prof. dr. I.J. Visseren-Hamakers, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van prof. dr. I.J. Visseren-Hamakers, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/prof_dr_i_j_visseren_hamakers, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-prof-mr-p-nicolai",
@@ -27457,7 +28825,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van prof. mr. P. Nicolaï, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van prof. mr. P. Nicolaï, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/prof_mr_p_nicolai_pvdd, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-r-lievense",
@@ -27469,7 +28837,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van R. Lievense, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van R. Lievense, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/r_lievense_bbb, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-r-o-martens-msc",
@@ -27481,7 +28849,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van R.O. Martens MSc, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van R.O. Martens MSc, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/r_o_martens_msc_pro, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:portret-officieel-w-c-p-h-jaspers",
@@ -27493,7 +28861,7 @@
     "retrieved": "2026-09-19",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
-    "notes": "Officieel portret van W.C.P.H. Jaspers, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden."
+    "notes": "Officieel portret van W.C.P.H. Jaspers, rechtstreeks van de officiële website (ek-persoon); gedownload zoals aangeboden. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/w_c_p_h_jaspers_bbb, geraadpleegd 2026-09-19."
   },
   {
     "id": "src:provincie-drenthe-cvdk",
@@ -28254,6 +29622,30 @@
     "notes": null
   },
   {
+    "id": "src:rijksoverheid-coalitieakkoord-2007",
+    "url": "https://www.rijksoverheid.nl/documenten/2007/02/07/coalitieakkoord-balkenende-iv",
+    "title": "Coalitieakkoord CDA, PvdA en ChristenUnie",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": "2007-02-07",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Coalitieakkoord 'Samen werken, samen leven'; link op de pagina van het kabinet-Balkenende IV."
+  },
+  {
+    "id": "src:rijksoverheid-coalitieakkoord-2022",
+    "url": "https://www.rijksoverheid.nl/documenten/2022/01/10/coalitieakkoord-omzien-naar-elkaar-vooruitkijken-naar-de-toekomst",
+    "title": "Coalitieakkoord 'Omzien naar elkaar, vooruitkijken naar de toekomst'",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": "2022-01-10",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Coalitieakkoord VVD, D66, CDA en ChristenUnie; link op de pagina van het kabinet-Rutte IV."
+  },
+  {
     "id": "src:rijksoverheid-culemborg",
     "url": "https://www.rijksoverheid.nl/actueel/nieuws/2025/11/13/nieuwe-burgemeester-in-culemborg",
     "title": "Nieuwe burgemeester in Culemborg",
@@ -28477,6 +29869,402 @@
     "license": "CC0-1.0",
     "archiveUrl": null,
     "notes": null
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-balkenende-i",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-balkenende-i",
+    "title": "Kabinet-Balkenende I",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Regeerde 22-07-2002 tot 27-05-2003; ontslag ingediend 16-10-2002."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-balkenende-ii",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-balkenende-ii",
+    "title": "Kabinet-Balkenende II",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Regeerde 27-05-2003 tot 07-07-2006; D66-bewindspersonen boden ontslag aan op 30-06-2006."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-balkenende-iii",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-balkenende-iii",
+    "title": "Kabinet-Balkenende III",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Regeerde 07-07-2006 tot 22-02-2007; ontslag aangeboden na de verkiezingen van 22-11-2006."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-balkenende-iv",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-balkenende-iv",
+    "title": "Kabinet-Balkenende IV",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Regeerde 22-02-2007 tot 14-10-2010; op 20-02-2010 ontslag aangeboden voor de PvdA-bewindspersonen, afgetreden 23-02-2010; link naar coalitieakkoord."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-beel-i",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-beel-i",
+    "title": "Kabinet-Beel I",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "03-07-1946 tot 07-08-1948; afgetreden vanwege ontbinding van de Tweede Kamer en vervroegde verkiezingen (Grondwetswijziging)."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-beel-ii",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-beel-ii",
+    "title": "Kabinet-Beel II",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "22-12-1958 tot 19-05-1959; gevormd na de ontslagaanvraag van 12-12-1958; ontbinding Tweede Kamer en vervroegde verkiezingen."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-biesheuvel",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-biesheuvel",
+    "title": "Kabinet-Biesheuvel",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "06-07-1971 tot 11-05-1973; DS70-ministers dienden ontslagaanvragen in op 18-07-1972 (Drees afgetreden 20-07-1972, Udink opvolger 21-07-1972); ontslagaanvraag ingetrokken 09-08-1972."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-cals",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-cals",
+    "title": "Kabinet-Cals",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "14-04-1965 tot 22-11-1966; afgetreden 14-10-1966 (Nacht van Schmelzer)."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-de-jong",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-de-jong",
+    "title": "Kabinet-De Jong",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "05-04-1967 tot 06-07-1971; einde van de parlementaire periode."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-de-quay",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-de-quay",
+    "title": "Kabinet-De Quay",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "19-05-1959 tot 24-07-1963; woningwetcrisis: ontslagaanvraag 23-12-1960 ingetrokken 02-01-1961; einde van de parlementaire periode."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-den-uyl",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-den-uyl",
+    "title": "Kabinet-Den Uyl",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "11-05-1973 tot 19-12-1977; KVP- en ARP-ministers boden ontslag aan op 22-03-1977; het kabinet bleef vanaf 28-03-1977 in zijn geheel demissionair aan."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-drees-i",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-drees-i",
+    "title": "Kabinet-Drees I",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "15-03-1951 tot 02-09-1952; gevormd na de ontslagaanvraag van 25-01-1951; einde van de parlementaire periode."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-drees-ii",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-drees-ii",
+    "title": "Kabinet-Drees II",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "02-09-1952 tot 13-10-1956; huurcrisis: ontslagaanvraag 17-05-1955 ingetrokken 02-06-1955; einde van de parlementaire periode."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-drees-iii",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-drees-iii",
+    "title": "Kabinet-Drees III",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "13-10-1956 tot 22-12-1958; ontslag aangeboden 12-12-1958 (kabinetscrisis belastingverlenging)."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-drees-van-schaijk",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-drees-van-schaijk",
+    "title": "Kabinet-Drees-Van Schaik",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "07-08-1948 tot 15-03-1951; kabinetscrisis Nieuw-Guinea: minister Stikker (VVD) bood 25-01-1951 ontslag aan, de andere ministers stelden hun portefeuilles ter beschikking. URL-slug van de Rijksoverheid schrijft 'schaijk'."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-jetten",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-jetten",
+    "title": "Kabinet-Jetten",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Beëdiging 23-02-2026; ministers en staatssecretarissen met partij; geen ontslagaanvraag vermeld op 19-09-2026."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-kok-i",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-kok-i",
+    "title": "Kabinet-Kok I",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "22-08-1994 tot 03-08-1998; einde van de parlementaire periode."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-kok-ii",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-kok-ii",
+    "title": "Kabinet-Kok II",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "03-08-1998 tot 22-07-2002; ontslag ingediend 16-04-2002 (NIOD-rapport Srebrenica); referendumcrisis 1999."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-lubbers-i",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-lubbers-i",
+    "title": "Kabinet-Lubbers I",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "04-11-1982 tot 14-07-1986; einde van de parlementaire periode."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-lubbers-ii",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-lubbers-ii",
+    "title": "Kabinet-Lubbers II",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "14-07-1986 tot 07-11-1989; ontslag aangeboden 03-05-1989 (kabinetscrisis)."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-lubbers-iii",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-lubbers-iii",
+    "title": "Kabinet-Lubbers III",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "07-11-1989 tot 22-08-1994; einde van de parlementaire periode."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-marijnen",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-marijnen",
+    "title": "Kabinet-Marijnen",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "24-07-1963 tot 14-04-1965; ontslag aangeboden 28-02-1965 (omroepcrisis)."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-rutte-asscher",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-rutte-asscher",
+    "title": "Kabinet-Rutte-Asscher",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Regeerde 05-11-2012 tot 26-10-2017; ontslagaanvraag 14-03-2017; link naar regeerakkoord 'Bruggen slaan'."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-rutte-iii",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-rutte-iii",
+    "title": "Kabinet-Rutte III",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Beëdiging 26-10-2017; ontslagaanvraag 15-01-2021 (rapport POK); link naar regeerakkoord."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-rutte-iv",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-rutte-iv",
+    "title": "Kabinet-Rutte IV",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Beëdiging 10-01-2022; ontslagaanvraag 07-07-2023; link naar coalitieakkoord."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-rutte-verhagen",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-rutte-verhagen",
+    "title": "Kabinet-Rutte-Verhagen",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Regeerde 14-10-2010 tot 05-11-2012; ontslagaanvraag 23-04-2012; links naar regeerakkoord en gedoogakkoord."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-schermerhorn-drees",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-schermerhorn-drees",
+    "title": "Kabinet-Schermerhorn-Drees",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "24-06-1945 tot 03-07-1946; ontbinding Tweede Kamer en eerste naoorlogse verkiezingen. Partijlabels op de pagina: NVB/PvdA, RKSP/KVP, SDAP/PvdA, ARP, Lib., partijloos."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-schoof",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-schoof",
+    "title": "Kabinet-Schoof",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Beëdiging 02-07-2024; PVV-bewindspersonen boden ontslag aan op 03-06-2025, NSC-bewindspersonen op 22-08-2025."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-van-agt-i",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-van-agt-i",
+    "title": "Kabinet-Van Agt I",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "19-12-1977 tot 11-09-1981; einde van de parlementaire periode."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-van-agt-ii",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-van-agt-ii",
+    "title": "Kabinet-Van Agt II",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "11-09-1981 tot 29-05-1982; ontslag aangeboden 13-05-1982; banenplan-crisis 1981."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-van-agt-iii",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-van-agt-iii",
+    "title": "Kabinet-Van Agt III",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "29-05-1982 tot 04-11-1982; gevormd na de ontslagaanvraag van het vorige kabinet op 13-05-1982."
+  },
+  {
+    "id": "src:rijksoverheid-kabinet-zijlstra",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945/kabinet-zijlstra",
+    "title": "Kabinet-Zijlstra",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "22-11-1966 tot 05-04-1967; gevormd na de ontslagaanvraag van het kabinet-Cals op 14-10-1966; ontbinding Tweede Kamer en vervroegde verkiezingen."
+  },
+  {
+    "id": "src:rijksoverheid-kabinetten-sinds-1945",
+    "url": "https://www.rijksoverheid.nl/regering/over-de-regering/kabinetten-sinds-1945",
+    "title": "Kabinetten sinds 1945",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Overzicht van de 32 kabinetten sinds 1945 met links naar de per-kabinetpagina's."
   },
   {
     "id": "src:rijksoverheid-lvvn-ambtelijke-leiding",
@@ -28921,6 +30709,54 @@
     "license": "CC0-1.0",
     "archiveUrl": null,
     "notes": null
+  },
+  {
+    "id": "src:rijksoverheid-regeerakkoord-2010",
+    "url": "https://www.rijksoverheid.nl/documenten/2010/09/30/regeerakkoord-vvd-cda",
+    "title": "Regeerakkoord VVD-CDA",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": "2010-09-30",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Regeerakkoord 'Vrijheid en verantwoordelijkheid'; met gedoogakkoord VVD-PVV-CDA. Link op de pagina van het kabinet-Rutte-Verhagen."
+  },
+  {
+    "id": "src:rijksoverheid-regeerakkoord-2012",
+    "url": "https://www.rijksoverheid.nl/documenten/2012/10/29/regeerakkoord",
+    "title": "Regeerakkoord 'Bruggen slaan'",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": "2012-10-29",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Regeerakkoord VVD en PvdA; link op de pagina van het kabinet-Rutte-Asscher."
+  },
+  {
+    "id": "src:rijksoverheid-regeerakkoord-2017",
+    "url": "https://www.rijksoverheid.nl/documenten/2017/10/10/regeerakkoord-2017-vertrouwen-in-de-toekomst",
+    "title": "Regeerakkoord 2017: 'Vertrouwen in de toekomst'",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": "2017-10-10",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Link op de pagina van het kabinet-Rutte III."
+  },
+  {
+    "id": "src:rijksoverheid-regeerakkoord-2026-aan-de-slag",
+    "url": "https://www.rijksoverheid.nl/documenten/2026/01/30/aan-de-slag-bouwen-aan-een-beter-nederland",
+    "title": "Aan de slag: Bouwen aan een beter Nederland",
+    "publisher": "Rijksoverheid",
+    "type": "page",
+    "published": "2026-01-30",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Regeerakkoord tussen D66, VVD en CDA voor de kabinetsperiode 2026-2030."
   },
   {
     "id": "src:rijksoverheid-regering",
@@ -30630,6 +32466,234 @@
     "archiveUrl": null
   },
   {
+    "id": "src:stcrt-2010-16523",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2010-16523.html",
+    "title": "Staatscourant 2010, 16523: Besluit van 14 oktober 2010, nr. 10.002839, houdende naamswijziging van het ministerie van Justitie",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2010-10-18",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Ministerie van Justitie wordt ministerie van Veiligheid en Justitie. Naamswijziging, geen taakoverdracht."
+  },
+  {
+    "id": "src:stcrt-2010-16525",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2010-16525.html",
+    "title": "Staatscourant 2010, 16525: Besluit van 14 oktober 2010, nr. 10.002841, houdende opheffing van de ministeries van VROM en van Verkeer en Waterstaat en instelling van een ministerie van Infrastructuur en Milieu",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2010-10-18",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Art. 1 heft VROM en VenW op; art. 5 stelt IenM in; art. 6 draagt alle VenW- en VROM-aangelegenheden aan IenM op behalve wonen, wijken, integratie en Rijksgebouwendienst (art. 2, naar BZK), energie met inbegrip van de NEa (art. 3, naar ELI) en de coördinatie van het Europese en internationale milieubeleid (art. 4, naar BuZa). Werkt terug tot en met 14 oktober 2010."
+  },
+  {
+    "id": "src:stcrt-2010-16527",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2010-16527.html",
+    "title": "Staatscourant 2010, 16527: Besluit van 14 oktober 2010, nr. 10.002842, houdende departementale herindeling met betrekking tot vreemdelingenzaken",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2010-10-18",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Vreemdelingenzaken, met inbegrip van IND, COA, Dienst Terugkeer en Vertrek, grensbewaking en Rijkswet op het Nederlanderschap, van Justitie naar BZK. Werkt terug tot en met 14 oktober 2010."
+  },
+  {
+    "id": "src:stcrt-2010-16528",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2010-16528.html",
+    "title": "Staatscourant 2010, 16528: Besluit van 14 oktober 2010, nr. 10.002843, houdende departementale herindeling met betrekking tot veiligheid",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2010-10-18",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Veiligheid, behoudens de AIVD, van BZK naar Veiligheid en Justitie; toelichting: het Directoraat-Generaal Veiligheid gaat over. Werkt terug tot en met 14 oktober 2010."
+  },
+  {
+    "id": "src:stcrt-2012-23040",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2012-23040.html",
+    "title": "Staatscourant 2012, 23040: Besluit van 5 november 2012, nr. 12.002582, houdende naamswijziging van het ministerie van Economische Zaken, Landbouw en Innovatie",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2012-11-08",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "ELI wordt ministerie van Economische Zaken. Naamswijziging, geen taakoverdracht."
+  },
+  {
+    "id": "src:stcrt-2012-23043",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2012-23043.html",
+    "title": "Staatscourant 2012, 23043: Besluit van 5 november 2012, nr. 12.002584, houdende departementale herindeling met betrekking tot vreemdelingenzaken",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2012-11-08",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Vreemdelingenzaken, met inbegrip van IND, COA en Dienst Terugkeer en Vertrek, van BZK terug naar Veiligheid en Justitie. Werkt terug tot en met 5 november 2012."
+  },
+  {
+    "id": "src:stcrt-2017-62719",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62719.html",
+    "title": "Staatscourant 2017, 62719: Besluit van 26 oktober 2017, nr. 2017001801, houdende naamswijziging van het ministerie van Veiligheid en Justitie",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2017-11-03",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "VenJ wordt ministerie van Justitie en Veiligheid. Naamswijziging, geen taakoverdracht."
+  },
+  {
+    "id": "src:stcrt-2017-62720",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62720.html",
+    "title": "Staatscourant 2017, 62720: Besluit van 26 oktober 2017, nr. 2017001802, houdende naamswijziging van het ministerie van Infrastructuur en Milieu",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2017-11-03",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "IenM wordt ministerie van Infrastructuur en Waterstaat. Naamswijziging, geen taakoverdracht."
+  },
+  {
+    "id": "src:stcrt-2017-62722",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62722.html",
+    "title": "Staatscourant 2017, 62722: Besluit van 26 oktober 2017, nr. 2017001803, houdende naamswijziging van het ministerie van Economische Zaken",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2017-11-03",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "EZ wordt ministerie van Economische Zaken en Klimaat. Naamswijziging, geen taakoverdracht."
+  },
+  {
+    "id": "src:stcrt-2017-62723",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62723.html",
+    "title": "Staatscourant 2017, 62723: Besluit van 26 oktober 2017, nr. 2017001804, houdende instelling van een ministerie van Landbouw, Natuur en Voedselkwaliteit",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2017-11-03",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Art. 1 stelt LNV in; art. 2 draagt landbouw, visserij, natuur, voedselkwaliteit en regionale economische ontwikkeling (behoudens groen onderwijs) van EZ aan LNV op. Werkt terug tot en met 26 oktober 2017."
+  },
+  {
+    "id": "src:stcrt-2017-62725",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62725.html",
+    "title": "Staatscourant 2017, 62725: Besluit van 26 oktober 2017, nr. 2017001806, houdende departementale herindeling met betrekking tot de ruimtelijke ontwikkeling, ruimtelijke ordening, de Omgevingswet en het Kadaster",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2017-11-03",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Ruimtelijke ontwikkeling, ruimtelijke ordening, Omgevingswet, het Kadaster en de Kadasterwet van IenM naar BZK. Werkt terug tot en met 26 oktober 2017."
+  },
+  {
+    "id": "src:stcrt-2017-62726",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62726.html",
+    "title": "Staatscourant 2017, 62726: Besluit van 26 oktober 2017, nr. 2017001807, houdende departementale herindeling met betrekking tot het groen onderwijs",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2017-11-03",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Groen onderwijs van EZ naar OCW. Werkt terug tot en met 26 oktober 2017."
+  },
+  {
+    "id": "src:stcrt-2017-62730",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2017-62730.html",
+    "title": "Staatscourant 2017, 62730: Besluit van 26 oktober 2017, nr. 2017001809, houdende departementale herindeling met betrekking tot klimaat",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2017-11-03",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Klimaat, met inbegrip van klimaatverandering, emissierechten, de Nederlandse Emissieautoriteit en luchtemissies industrie, van IenM naar EZK. Werkt terug tot en met 26 oktober 2017."
+  },
+  {
+    "id": "src:stcrt-2024-22493",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22493.html",
+    "title": "Staatscourant 2024, 22493: Besluit van 2 juli 2024, nr. 2024001703, houdende naamswijziging van het Ministerie van Economische Zaken en Klimaat",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2024-07-04",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "EZK wordt Ministerie van Economische Zaken. Naamswijziging, geen taakoverdracht."
+  },
+  {
+    "id": "src:stcrt-2024-22495",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22495.html",
+    "title": "Staatscourant 2024, 22495: Besluit van 2 juli 2024, nr. 2024001704, houdende naamswijziging van het Ministerie van Landbouw, Natuur en Voedselkwaliteit",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2024-07-04",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "LNV wordt Ministerie van Landbouw, Visserij, Voedselzekerheid en Natuur. Naamswijziging, geen taakoverdracht."
+  },
+  {
+    "id": "src:stcrt-2024-22497",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22497.html",
+    "title": "Staatscourant 2024, 22497: Besluit van 2 juli 2024, nr. 2024001705, houdende instelling van een Ministerie van Asiel en Migratie",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2024-07-04",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Art. 1 stelt AenM in; art. 2 draagt asiel en migratie van JenV aan AenM op. Werkt terug tot en met 2 juli 2024."
+  },
+  {
+    "id": "src:stcrt-2024-22499",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22499.html",
+    "title": "Staatscourant 2024, 22499: Besluit van 2 juli 2024, nr. 2024001706, houdende instelling van een Ministerie van Volkshuisvesting en Ruimtelijke Ordening",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2024-07-04",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Art. 1 stelt VRO in; art. 2 draagt volkshuisvesting en ruimtelijke ordening van BZK aan VRO op. Werkt terug tot en met 2 juli 2024."
+  },
+  {
+    "id": "src:stcrt-2024-22500",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22500.html",
+    "title": "Staatscourant 2024, 22500: Besluit van 2 juli 2024, nr. 2024001707, houdende instelling van een Ministerie van Klimaat en Groene Groei",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2024-07-04",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Art. 1 stelt KGG in; art. 2 draagt klimaat en groene groei van EZK aan KGG op. Werkt terug tot en met 2 juli 2024."
+  },
+  {
+    "id": "src:stcrt-2024-22504",
+    "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-22504.html",
+    "title": "Staatscourant 2024, 22504: Besluit van 2 juli 2024, nr. 2024001709, houdende departementale herindelingen met betrekking tot inburgering en hersteloperatie Groningen",
+    "publisher": "Ministerie van Algemene Zaken (Staatscourant)",
+    "type": "kb",
+    "published": "2024-07-04",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Inburgering van SZW naar JenV (art. 1); hersteloperatie Groningen van EZK naar BZK (art. 4). Werkt terug tot en met 2 juli 2024."
+  },
+  {
     "id": "src:stcrt-2026-8174",
     "url": "https://www.officielebekendmakingen.nl/stcrt-2026-8174",
     "title": "Staatscourant 2026, 8174: Besluit van 23 februari 2026, nr. 2026000401, houdende ontslag van drs. H.W.M. Schoof als Minister-President en als Minister van Algemene Zaken en benoeming van R.A.A. Jetten tot Minister-President en Minister van Algemene Zaken",
@@ -30663,7 +32727,7 @@
     "retrieved": "2026-09-17",
     "license": "CC0-1.0",
     "archiveUrl": null,
-    "notes": null
+    "notes": "EZ wordt Ministerie van Economische Zaken en Klimaat. Naamswijziging, geen taakoverdracht."
   },
   {
     "id": "src:stcrt-2026-8177",
@@ -30699,7 +32763,7 @@
     "retrieved": "2026-09-17",
     "license": "CC0-1.0",
     "archiveUrl": null,
-    "notes": null
+    "notes": "Digitale zaken van BZK naar EZK (art. 1); circulaire economie van IenW naar KGG (art. 4). Werkt terug tot en met 23 februari 2026."
   },
   {
     "id": "src:stcrt-2026-8181",
@@ -30999,6 +33063,18 @@
     "notes": null
   },
   {
+    "id": "src:tk-odata-metadata",
+    "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/$metadata",
+    "title": "Tweede Kamer OData v4 2.0 $metadata",
+    "publisher": "Tweede Kamer der Staten-Generaal",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Geen entiteit of property met een zetelnummer of zaalpositie voor een lid; FractieZetel.Gewicht is een sorteergewicht."
+  },
+  {
     "id": "src:tk-odata-personen",
     "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Persoon",
     "title": "Persoon",
@@ -31021,6 +33097,18 @@
     "license": "CC0-1.0",
     "archiveUrl": null,
     "notes": "Naamgegevens van (oud-)Kamerleden."
+  },
+  {
+    "id": "src:tk-opnamerichtlijnen-plattegrond-plenaire-zaal",
+    "url": "https://www.tweedekamer.nl/sites/default/files/2024-12/20241204-opnamerichtlijnen-plattegrond-plenaire-zaal.pdf",
+    "title": "Opnamerichtlijnen plattegrond plenaire zaal",
+    "publisher": "Tweede Kamer der Staten-Generaal",
+    "type": "page",
+    "published": "2024-12-04",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "archiveUrl": null,
+    "notes": "Plattegrond voor cameraposities zonder tekstlaag. Geen zetelnummers. Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/sites/default/files/2024-12/20241204-opnamerichtlijnen-plattegrond-plenaire-zaal.pdf"
   },
   {
     "id": "src:tk-over-de-diensten",
@@ -31071,6 +33159,30 @@
     "notes": "Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/kamerleden_en_commissies/commissies"
   },
   {
+    "id": "src:tk-wie-zit-waar",
+    "url": "https://www.tweedekamer.nl/kamerleden-en-commissies/wie-zit-waar",
+    "title": "Wie zit waar?",
+    "publisher": "Tweede Kamer der Staten-Generaal",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "archiveUrl": null,
+    "notes": "Verwijst naar de pdf Zetelverdeling plenaire zaal; noemt alleen fracties, geen zetelnummers per lid. Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/kamerleden-en-commissies/wie-zit-waar"
+  },
+  {
+    "id": "src:tk-zetelverdeling-plenaire-zaal-2026-06",
+    "url": "https://www.tweedekamer.nl/sites/default/files/2026-06/zetelverdeling%20Juni%202026%20NL.pdf",
+    "title": "Zetelverdeling plenaire zaal, juni 2026",
+    "publisher": "Tweede Kamer der Staten-Generaal",
+    "type": "page",
+    "published": "2026-06-11",
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "archiveUrl": null,
+    "notes": "Eenpagina-factsheet met per fractie een blok en zeteltal en een legenda 1 t/m 7 voor Voorzitter, Griffier, Kabinet, Medewerkers, Spreekgestoelte, Interruptiemicrofoons en Bodedienst. Geen ledennamen, geen zetelnummers. Publicatiedatum uit de pdf-metadata (CreationDate 11-06-2026). Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/sites/default/files/2026-06/zetelverdeling%20Juni%202026%20NL.pdf"
+  },
+  {
     "id": "src:tweede-kamer",
     "url": "https://www.tweedekamer.nl/",
     "title": "Tweede Kamer der Staten-Generaal",
@@ -31093,6 +33205,30 @@
     "license": "unknown",
     "archiveUrl": null,
     "notes": "Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/"
+  },
+  {
+    "id": "src:tweedekamer-het-kabinet",
+    "url": "https://www.tweedekamer.nl/zo-werkt-de-kamer/de-tweede-kamer/het-kabinet",
+    "title": "Hoe controleert de Tweede Kamer het kabinet?",
+    "publisher": "Tweede Kamer",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "archiveUrl": null,
+    "notes": "Uitleg van de Tweede Kamer zelf, opgehaald 19-09-2026 (de zoekopdracht \"vertrouwensregel\" op tweedekamer.nl levert alleen Kamerstukken en vergaderingen op; deze pagina uit de reeks \"Zo werkt de Kamer\" is de eigen uitlegpagina). Samenvatting: het kabinet is verantwoordelijk voor het beleid dat het maakt en uitvoert; ministers zijn verantwoordelijk voor het werk van de staatssecretaris, het ministerie en voor hoe de koning zijn werk doet (ministeriële verantwoordelijkheid); de Tweede Kamer en de Eerste Kamer controleren de ministers en staatssecretarissen, die zich aan beide Kamers verantwoorden. Onder de kop \"Als de Tweede Kamer geen vertrouwen heeft in het kabinet\" legt de pagina uit dat een meerderheid van de Kamerleden vertrouwen moet hebben in de ministers en het kabinet als geheel; zonder vertrouwen kan de Kamer een motie van wantrouwen indienen tegen een minister of het hele kabinet, en bij aanneming door een meerderheid moet de betrokken minister of het hele kabinet aftreden. De pagina noemt de regel niet met de term vertrouwensregel. Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/zo-werkt-de-kamer/de-tweede-kamer/het-kabinet"
+  },
+  {
+    "id": "src:tweedekamer-staten-generaal",
+    "url": "https://www.tweedekamer.nl/zo-werkt-de-kamer/de-tweede-kamer/staten-generaal",
+    "title": "De Staten-Generaal: hoe werken Tweede en Eerste Kamer samen?",
+    "publisher": "Tweede Kamer",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "unknown",
+    "archiveUrl": null,
+    "notes": "Opgehaald 19-09-2026. Samenvatting: de Eerste Kamer controleert, net als de Tweede Kamer, de regering; de leden van de Eerste Kamer worden gekozen door de Provinciale Staten van elke provincie en door de kiescolleges voor de Eerste Kamer op Bonaire, Sint Eustatius en Saba; de leden van de Provinciale Staten en de kiescolleges worden gekozen door de inwoners van de provincies en de Caribische openbare lichamen; Nederlanders in het buitenland kunnen sinds 2023 stemmen voor een kiescollege; Nederlanders stemmen dus alleen indirect voor de Eerste Kamer. Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/zo-werkt-de-kamer/de-tweede-kamer/staten-generaal"
   },
   {
     "id": "src:vreemdelingenwet-2000",
@@ -32094,6 +34230,18 @@
     "retrieved": "2026-09-18",
     "license": "CC0-1.0",
     "archiveUrl": null
+  },
+  {
+    "id": "src:wet-bwbr0028859",
+    "url": "https://wetten.overheid.nl/BWBR0028859/2010-10-20",
+    "title": "Besluit opheffing ministeries van Economische Zaken en Landbouw, Natuur en Voedselkwaliteit en instelling ministerie van Economische Zaken, Landbouw en Innovatie (BWBR0028859)",
+    "publisher": "Overheid.nl (wetten.overheid.nl)",
+    "type": "kb",
+    "published": "2010-10-14",
+    "retrieved": "2026-09-19",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Besluit van 14 oktober 2010 (kenmerk 3096272). Art. 1 heft EZ en LNV op, art. 2 stelt ELI in, art. 3 draagt alle aangelegenheden van EZ en LNV van voor 14 oktober 2010 aan ELI op. Geldend van 20-10-2010. Het Staatscourantnummer is niet gevonden; de geconsolideerde tekst op wetten.overheid.nl is gebruikt."
   },
   {
     "id": "src:wet-bwbr0028868",
@@ -40257,6 +42405,114 @@
     "notes": "Wikidata-entiteit Q2535053 voor Yvonne van Mastrigt; gebruikt voor persoonsidentificatie en het portret."
   },
   {
+    "id": "src:wikipedia-aov",
+    "url": "https://nl.wikipedia.org/wiki/Algemeen_Ouderen_Verbond",
+    "title": "Algemeen Ouderen Verbond (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Algemeen_Ouderen_Verbond, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
+    "id": "src:wikipedia-arp",
+    "url": "https://nl.wikipedia.org/wiki/Anti-Revolutionaire_Partij",
+    "title": "Anti-Revolutionaire Partij (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Anti-Revolutionaire_Partij, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
+    "id": "src:wikipedia-bij1",
+    "url": "https://nl.wikipedia.org/wiki/BIJ1",
+    "title": "BIJ1 (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/BIJ1, geraadpleegd 2026-09-19, CC BY-SA 4.0.",
+    "archiveUrl": null
+  },
+  {
+    "id": "src:wikipedia-bp",
+    "url": "https://nl.wikipedia.org/wiki/Boerenpartij",
+    "title": "Boerenpartij (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Boerenpartij, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
+    "id": "src:wikipedia-cd",
+    "url": "https://nl.wikipedia.org/wiki/Centrum_Democraten",
+    "title": "Centrumdemocraten (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Centrum_Democraten, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
+    "id": "src:wikipedia-chu",
+    "url": "https://nl.wikipedia.org/wiki/Christelijk-Historische_Unie",
+    "title": "Christelijk-Historische Unie (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Christelijk-Historische_Unie, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
+    "id": "src:wikipedia-cp",
+    "url": "https://nl.wikipedia.org/wiki/Centrumpartij",
+    "title": "Centrumpartij (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Centrumpartij, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
+    "id": "src:wikipedia-cpn",
+    "url": "https://nl.wikipedia.org/wiki/Communistische_Partij_van_Nederland",
+    "title": "Communistische Partij van Nederland (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Communistische_Partij_van_Nederland, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
+    "id": "src:wikipedia-ds70",
+    "url": "https://nl.wikipedia.org/wiki/Democratisch_Socialisten_'70",
+    "title": "Democratisch Socialisten '70 (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Democratisch_Socialisten_'70, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
     "id": "src:wikipedia-estates-curacao",
     "url": "https://en.wikipedia.org/wiki/Estates_of_Cura%C3%A7ao",
     "title": "Estates of Curaçao - Wikipedia",
@@ -40266,6 +42522,30 @@
     "license": "unknown",
     "notes": "Search excerpt only: Fergino Brownbill voorzitter sinds 11-05-2025; parlement geïnstalleerd 11-05-2025 na verkiezing 21-03-2025. Licentie niet vastgesteld; endpoint: https://en.wikipedia.org/wiki/Estates_of_Cura%C3%A7ao",
     "archiveUrl": null
+  },
+  {
+    "id": "src:wikipedia-evp",
+    "url": "https://nl.wikipedia.org/wiki/Evangelische_Volkspartij",
+    "title": "Evangelische Volkspartij (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Evangelische_Volkspartij, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
+    "id": "src:wikipedia-gpv",
+    "url": "https://nl.wikipedia.org/wiki/Gereformeerd_Politiek_Verbond",
+    "title": "Gereformeerd Politiek Verbond (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Gereformeerd_Politiek_Verbond, geraadpleegd 2026-09-19, CC BY-SA 4.0."
   },
   {
     "id": "src:wikipedia-kabinetten-curacao",
@@ -40279,6 +42559,66 @@
     "archiveUrl": null
   },
   {
+    "id": "src:wikipedia-kvp",
+    "url": "https://nl.wikipedia.org/wiki/Katholieke_Volkspartij",
+    "title": "Katholieke Volkspartij (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Katholieke_Volkspartij, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
+    "id": "src:wikipedia-ln",
+    "url": "https://nl.wikipedia.org/wiki/Leefbaar_Nederland",
+    "title": "Leefbaar Nederland (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Leefbaar_Nederland, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
+    "id": "src:wikipedia-lpf",
+    "url": "https://nl.wikipedia.org/wiki/Lijst_Pim_Fortuyn",
+    "title": "Lijst Pim Fortuyn (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Lijst_Pim_Fortuyn, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
+    "id": "src:wikipedia-nmp",
+    "url": "https://nl.wikipedia.org/wiki/Nederlandse_Middenstands_Partij",
+    "title": "Nederlandse Middenstands Partij (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Nederlandse_Middenstands_Partij, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
+    "id": "src:wikipedia-osf",
+    "url": "https://nl.wikipedia.org/wiki/Onafhankelijke_Senaatsfractie",
+    "title": "Onafhankelijke Senaatsfractie (doorverwijzing naar Onafhankelijke Politiek Nederland) (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Onafhankelijke_Senaatsfractie, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
     "id": "src:wikipedia-parlamento-aruba",
     "url": "https://en.wikipedia.org/wiki/Parliament_of_Aruba",
     "title": "Parliament of Aruba - Wikipedia",
@@ -40288,6 +42628,66 @@
     "license": "unknown",
     "notes": "Search excerpt only: voorzitter Marlon Sneek sinds 27-03-2025; 21 zetels. Licentie niet vastgesteld; endpoint: https://en.wikipedia.org/wiki/Parliament_of_Aruba",
     "archiveUrl": null
+  },
+  {
+    "id": "src:wikipedia-ppr",
+    "url": "https://nl.wikipedia.org/wiki/Politieke_Partij_Radikalen",
+    "title": "Politieke Partij Radikalen (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Politieke_Partij_Radikalen, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
+    "id": "src:wikipedia-psp",
+    "url": "https://nl.wikipedia.org/wiki/Pacifistisch_Socialistische_Partij",
+    "title": "Pacifistisch Socialistische Partij (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Pacifistisch_Socialistische_Partij, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
+    "id": "src:wikipedia-pvdv",
+    "url": "https://nl.wikipedia.org/wiki/Partij_van_de_Vrijheid",
+    "title": "Partij van de Vrijheid (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Partij_van_de_Vrijheid, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
+    "id": "src:wikipedia-rkpn",
+    "url": "https://nl.wikipedia.org/wiki/Rooms_Katholieke_Partij_Nederland",
+    "title": "Rooms Katholieke Partij Nederland (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Rooms_Katholieke_Partij_Nederland, geraadpleegd 2026-09-19, CC BY-SA 4.0."
+  },
+  {
+    "id": "src:wikipedia-rpf",
+    "url": "https://nl.wikipedia.org/wiki/Reformatorische_Politieke_Federatie",
+    "title": "Reformatorische Politieke Federatie (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Reformatorische_Politieke_Federatie, geraadpleegd 2026-09-19, CC BY-SA 4.0."
   },
   {
     "id": "src:wikipedia-staten-curacao",
@@ -40310,6 +42710,18 @@
     "license": "unknown",
     "notes": "Search excerpt only: President of Parliament Sarah A. Wescot-Williams (DP) sinds 10-02-2024; samenstelling URSM 3, DP 3, NA 3, PFP 2, SAM 1. Licentie niet vastgesteld; endpoint: https://en.wikipedia.org/wiki/Estates_of_Sint_Maarten",
     "archiveUrl": null
+  },
+  {
+    "id": "src:wikipedia-unie55",
+    "url": "https://nl.wikipedia.org/wiki/Unie_55+",
+    "title": "Unie 55+ (nl.wikipedia.org, alleen voor de partijnaam)",
+    "publisher": "Wikipedia",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-09-19",
+    "license": "CC-BY-SA-4.0",
+    "archiveUrl": null,
+    "notes": "Alleen gebruikt voor de officiële partijnaam, niet voor zetels of stemmen. Bron: Wikipedia, https://nl.wikipedia.org/wiki/Unie_55+, geraadpleegd 2026-09-19, CC BY-SA 4.0."
   },
   {
     "id": "src:wolbes",

@@ -108,6 +108,7 @@
         "additionalProperties": false,
         "required": ["what", "why", "endpoint", "resume"],
         "properties": {
+          "id": { "type": "string", "description": "Optional stable id (gap:<letter>-<slug>) so a gap can be referred to from reports and plans" },
           "what": { "type": "string", "description": "The missing fact or unfilled entity" },
           "why": { "type": "string", "description": "Why it could not be confirmed (blocked, not published, ambiguous)" },
           "endpoint": { "type": "string", "description": "The URL or register where the gap can be filled" },

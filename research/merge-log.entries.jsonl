@@ -10,6 +10,28 @@
 {"kind":"source-conflict","id":"src:stcrt-2026-8177","keptFrom":"A-regering-en-ministeries.json","droppedFrom":"L-budget-en-financien.json","note":"kept first, saw a differing value","field":"published"}
 {"kind":"source-conflict","id":"src:ek-alle-leden","keptFrom":"D-parlement.json","droppedFrom":"P-live-ambtsdragers.json","note":"kept 2026-09-17, saw 2026-09-18","field":"retrieved"}
 {"kind":"source-conflict","id":"src:rijksoverheid-bewindspersonen","keptFrom":"A-regering-en-ministeries.json","droppedFrom":"P-live-ambtsdragers.json","note":"kept 2026-09-17, saw 2026-09-18","field":"retrieved"}
+{"kind":"source-conflict","id":"src:stcrt-2026-8176","keptFrom":"A-regering-en-ministeries.json","droppedFrom":"T-relatiedata.json","note":"kept 2026-09-17, saw 2026-09-19","field":"retrieved"}
+{"kind":"source-conflict","id":"src:stcrt-2026-8176","keptFrom":"A-regering-en-ministeries.json","droppedFrom":"T-relatiedata.json","note":"kept first, saw a differing value","field":"publisher"}
+{"kind":"source-conflict","id":"src:stcrt-2026-8177","keptFrom":"A-regering-en-ministeries.json","droppedFrom":"T-relatiedata.json","note":"kept 2026-09-17, saw 2026-09-19","field":"retrieved"}
+{"kind":"source-conflict","id":"src:stcrt-2026-8177","keptFrom":"A-regering-en-ministeries.json","droppedFrom":"T-relatiedata.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:stcrt-2026-8177","keptFrom":"A-regering-en-ministeries.json","droppedFrom":"T-relatiedata.json","note":"kept first, saw a differing value","field":"publisher"}
+{"kind":"source-conflict","id":"src:stcrt-2026-8177","keptFrom":"A-regering-en-ministeries.json","droppedFrom":"T-relatiedata.json","note":"kept first, saw a differing value","field":"notes"}
+{"kind":"source-conflict","id":"src:stcrt-2026-8180","keptFrom":"A-regering-en-ministeries.json","droppedFrom":"T-relatiedata.json","note":"kept 2026-09-17, saw 2026-09-19","field":"retrieved"}
+{"kind":"source-conflict","id":"src:stcrt-2026-8180","keptFrom":"A-regering-en-ministeries.json","droppedFrom":"T-relatiedata.json","note":"kept first, saw a differing value","field":"publisher"}
+{"kind":"source-conflict","id":"src:grondwet","keptFrom":"A-regering-en-ministeries.json","droppedFrom":"U-mandaten.json","note":"kept 2026-09-17, saw 2026-09-19","field":"retrieved"}
+{"kind":"source-conflict","id":"src:grondwet","keptFrom":"A-regering-en-ministeries.json","droppedFrom":"U-mandaten.json","note":"kept first, saw a differing value","field":"notes"}
+{"kind":"source-conflict","id":"src:provinciewet","keptFrom":"G-decentraal.json","droppedFrom":"U-mandaten.json","note":"kept 2026-09-17, saw 2026-09-19","field":"retrieved"}
+{"kind":"source-conflict","id":"src:provinciewet","keptFrom":"G-decentraal.json","droppedFrom":"U-mandaten.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:provinciewet","keptFrom":"G-decentraal.json","droppedFrom":"U-mandaten.json","note":"kept first, saw a differing value","field":"notes"}
+{"kind":"source-conflict","id":"src:gemeentewet","keptFrom":"G-decentraal.json","droppedFrom":"U-mandaten.json","note":"kept 2026-09-17, saw 2026-09-19","field":"retrieved"}
+{"kind":"source-conflict","id":"src:gemeentewet","keptFrom":"G-decentraal.json","droppedFrom":"U-mandaten.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:gemeentewet","keptFrom":"G-decentraal.json","droppedFrom":"U-mandaten.json","note":"kept first, saw a differing value","field":"notes"}
+{"kind":"source-conflict","id":"src:waterschapswet","keptFrom":"G-decentraal.json","droppedFrom":"U-mandaten.json","note":"kept 2026-09-17, saw 2026-09-19","field":"retrieved"}
+{"kind":"source-conflict","id":"src:waterschapswet","keptFrom":"G-decentraal.json","droppedFrom":"U-mandaten.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:waterschapswet","keptFrom":"G-decentraal.json","droppedFrom":"U-mandaten.json","note":"kept first, saw a differing value","field":"notes"}
+{"kind":"source-conflict","id":"src:wolbes","keptFrom":"G-decentraal.json","droppedFrom":"U-mandaten.json","note":"kept 2026-09-17, saw 2026-09-19","field":"retrieved"}
+{"kind":"source-conflict","id":"src:wolbes","keptFrom":"G-decentraal.json","droppedFrom":"U-mandaten.json","note":"kept longest, saw a differing value","field":"license"}
+{"kind":"source-conflict","id":"src:wolbes","keptFrom":"G-decentraal.json","droppedFrom":"U-mandaten.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:cbs-70072ned","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
 {"kind":"source-conflict","id":"src:cbs-70072ned","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:cbs-80445ned","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
@@ -22,7 +44,6 @@
 {"kind":"source-conflict","id":"src:dji-organisatie","keptFrom":"E-rechterlijke-macht.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"title"}
 {"kind":"source-conflict","id":"src:ek-alle-leden","keptFrom":"D-parlement.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:electorale-raad-curacao","keptFrom":"M-samenwerking-koninkrijk.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
-{"kind":"source-conflict","id":"src:gemeentewet","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
 {"kind":"source-conflict","id":"src:gobierno-aw-0103-ministers","keptFrom":"M-samenwerking-koninkrijk.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:gobierno-aw-ministeries","keptFrom":"M-samenwerking-koninkrijk.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:gobierno-aw-regering","keptFrom":"M-samenwerking-koninkrijk.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
@@ -97,7 +118,6 @@
 {"kind":"source-conflict","id":"src:provincie-overijssel-cvdk","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:provincie-zeeland-cvdk","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:provincie-zuid-holland-cvdk","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
-{"kind":"source-conflict","id":"src:provinciewet","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
 {"kind":"source-conflict","id":"src:raad-van-state-website","keptFrom":"F-hoge-colleges-en-adviescolleges.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:rijksfinancien-begrotingsstaten-2013-2027","keptFrom":"L-budget-en-financien.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
 {"kind":"source-conflict","id":"src:rijksfinancien-mjn-2027-bijlage-2","keptFrom":"L-budget-en-financien.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
@@ -147,7 +167,6 @@
 {"kind":"source-conflict","id":"src:sxmparliament","keptFrom":"M-samenwerking-koninkrijk.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:sxmparliament-about","keptFrom":"M-samenwerking-koninkrijk.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:sxmparliament-presidium","keptFrom":"M-samenwerking-koninkrijk.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
-{"kind":"source-conflict","id":"src:waterschapswet","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
 {"kind":"source-conflict","id":"src:wet-veiligheidsregios","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
 {"kind":"source-conflict","id":"src:wiki-burgemeesters","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
 {"kind":"source-conflict","id":"src:wiki-burgemeesters","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
@@ -158,7 +177,6 @@
 {"kind":"source-conflict","id":"src:wikipedia-parlamento-aruba","keptFrom":"M-samenwerking-koninkrijk.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:wikipedia-staten-curacao","keptFrom":"M-samenwerking-koninkrijk.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
 {"kind":"source-conflict","id":"src:wikipedia-staten-sint-maarten","keptFrom":"M-samenwerking-koninkrijk.json","droppedFrom":"data/sources.json","note":"kept first, saw a differing value","field":"notes"}
-{"kind":"source-conflict","id":"src:wolbes","keptFrom":"G-decentraal.json","droppedFrom":"data/sources.json","note":"kept longest, saw a differing value","field":"license"}
 {"kind":"record-conflict","id":"org:adviesraad-internationale-vraagstukken","keptFrom":"F-hoge-colleges-en-adviescolleges.json","droppedFrom":"data/organizations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"org:adviesraad-migratie","keptFrom":"F-hoge-colleges-en-adviescolleges.json","droppedFrom":"data/organizations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"org:adviesraad-voor-wetenschap-technologie-en-innovatie","keptFrom":"F-hoge-colleges-en-adviescolleges.json","droppedFrom":"data/organizations.json","note":"seed base record replaced by research"}
@@ -7835,7 +7853,8 @@
 {"kind":"record-conflict","id":"rel:oversees-rwt-stichting-verslavingsreclassering-ggz","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-rwt-stichting-veteraneninstituut-veteranenloket","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-rwt-stichting-waarborgfonds-motorverkeer-wm","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-rwt-stichting-waarborgfonds-sociale-woningbouw-wsw","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-rwt-stichting-waarborgfonds-sociale-woningbouw-wsw","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-rwt-stichting-waarborgfonds-sociale-woningbouw-wsw","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-rwt-stichting-wetenschappelijk-onderwijs-en-onderzoek-nlda-swoon","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-rwt-stichting-ziektekostenverzekering-krijgsmacht-szvk","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-rwt-waarborg-holland","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
@@ -7847,8 +7866,10 @@
 {"kind":"record-conflict","id":"rel:oversees-zbo-aangemelde-instanties-ex-regeling-overige-pyrotechnische-artikelen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-aangewezen-aangemelde-instanties-dezelfde-ex-art-1a-5-1-vuurwerkbesluit","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-aangewezen-examenorganisatie-ex-art-1-lid-1-onder-qqq-en-rrr-geneesmiddelenwet-j","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-aangewezen-instanties-in-het-kader-van-metrologiewet-artikel-12","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-airport-coordination-netherlands","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-aangewezen-instanties-in-het-kader-van-metrologiewet-artikel-12","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-aangewezen-instanties-in-het-kader-van-metrologiewet-artikel-12","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-airport-coordination-netherlands","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-airport-coordination-netherlands","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-argonaut-advies-b-v","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-asr-wlz-uitvoerder-b-v","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-autoriteit-consument-en-markt","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
@@ -7856,16 +7877,22 @@
 {"kind":"record-conflict","id":"rel:oversees-zbo-autoriteit-online-terroristisch-en-kinderpornografisch-materiaal","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-autoriteit-persoonsgegevens","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-bedrijfstakpensioenfondsen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-bedrijfsvoering-en-strategie","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-bedrijfsvoering-en-strategie","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-bedrijfsvoering-en-strategie","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-bevoegde-autoriteiten-rijnvaart","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-bureau-architectenregister","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-bureau-beheer-landbouwgronden","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-bureau-beheer-landbouwgronden","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-bureau-beheer-landbouwgronden","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-bureau-financieel-toezicht","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-cak","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-cbs-communicatie-en-nieuws","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-centraal-bureau-rijvaardigheidsbewijzen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-centraal-bureau-voor-de-statistiek","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-centraal-orgaan-opvang-asielzoekers","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-cbs-communicatie-en-nieuws","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-cbs-communicatie-en-nieuws","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-centraal-bureau-rijvaardigheidsbewijzen","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-centraal-bureau-rijvaardigheidsbewijzen","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-centraal-bureau-voor-de-statistiek","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-centraal-bureau-voor-de-statistiek","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-centraal-orgaan-opvang-asielzoekers","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-centraal-orgaan-opvang-asielzoekers","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-centrale-commissie-dierproeven","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-centrale-commissie-mensgebonden-onderzoek","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-certificerende-instellingen-arbeidsomstandighedenwet","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
@@ -7877,46 +7904,67 @@
 {"kind":"record-conflict","id":"rel:oversees-zbo-college-van-deskundigen-ex-besluit-en-regeling-bodemkwaliteit","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-college-van-toezicht-collectieve-beheersorganisaties-auteurs-en-naburige-rechten","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-college-voor-de-rechten-van-de-mens","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-college-voor-de-toelating-van-gewasbeschermingsmiddelen-en-biociden","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-college-voor-de-toelating-van-gewasbeschermingsmiddelen-en-biociden","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-college-voor-de-toelating-van-gewasbeschermingsmiddelen-en-biociden","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-college-voor-toetsen-en-examens","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-commissariaat-voor-de-media","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-commissie-eindtermen-accountantsopleiding","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-commissie-registratie-en-toezicht","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-commissie-schadefonds-geweldsmisdrijven","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-cz-zorgkantoor-b-v","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-dataservices-research-en-innovatie","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-dataservices-research-en-innovatie","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-dataservices-research-en-innovatie","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-de-nederlandsche-bank","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-dienst-voor-het-kadaster-en-de-openbare-registers","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-dienst-voor-het-kadaster-en-de-openbare-registers","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-dienst-voor-het-kadaster-en-de-openbare-registers","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-dopingautoriteit","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-economie-bedrijven-en-nationale-rekeningen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-edelmetaal-waarborg-nederland-b-v","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-erkenninghouders-algemene-periodieke-keuring","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-economie-bedrijven-en-nationale-rekeningen","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-economie-bedrijven-en-nationale-rekeningen","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-edelmetaal-waarborg-nederland-b-v","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-edelmetaal-waarborg-nederland-b-v","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-erkenninghouders-algemene-periodieke-keuring","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-erkenninghouders-algemene-periodieke-keuring","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-fmmu-advies-b-v","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-garantiewetcommissie","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-gecertificeerde-instellingen-ex-jeugdwet","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-gerechtsdeurwaarders","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamer-noord","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamer-noordwest","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamer-oost","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamer-zuid","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamer-zuidwest","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamers","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-havenbeheerders","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamer-noord","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamer-noord","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamer-noordwest","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamer-noordwest","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamer-oost","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamer-oost","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamer-zuid","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamer-zuid","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamer-zuidwest","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamer-zuidwest","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamers","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-grondkamers","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-havenbeheerders","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-havenbeheerders","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-huis-voor-klokkenluiders","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-huurcommissie","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-innovam-branche-kwalificatie-instituut","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-huurcommissie","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-huurcommissie","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-innovam-branche-kwalificatie-instituut","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-innovam-branche-kwalificatie-instituut","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-inrichtingen-ex-art-3a-beginselenwet-justitiele-jeugdinrichtingen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-inrichtingen-ex-beginselenwet-verpleging-ter-beschikking-gestelden","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-instellingen-hoger-onderwijs-en-academische-ziekenhuizen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-instituut-mijnbouwschade-groningen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-it-en-cio","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-kamer-van-koophandel","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-kamer-van-koophandel-en-nijverheid-bonaire","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-kamer-van-koophandel-en-nijverheid-sint-eustatius-en-saba","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-kamer-voor-de-binnenvisserij","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-it-en-cio","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-it-en-cio","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-kamer-van-koophandel","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-kamer-van-koophandel","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-kamer-van-koophandel-en-nijverheid-bonaire","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-kamer-van-koophandel-en-nijverheid-bonaire","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-kamer-van-koophandel-en-nijverheid-sint-eustatius-en-saba","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-kamer-van-koophandel-en-nijverheid-sint-eustatius-en-saba","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-kamer-voor-de-binnenvisserij","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-kamer-voor-de-binnenvisserij","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-kansspelautoriteit","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-keuringsartsen-voor-de-scheepvaart","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-als-bedoeld-in-artikel-10-9-telecommunicatiewet","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-als-bedoeld-in-artikel-10-9-telecommunicatiewet","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-als-bedoeld-in-artikel-10-9-telecommunicatiewet","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-bouwproducten","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-certificerende-instellingen-ex-erfgoedwet","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-ex-7a-warenwet","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
@@ -7925,22 +7973,29 @@
 {"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-ex-regeling-vervoerbare-drukapparatuur-2011","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-ex-wet-medische-hulpmiddelen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-ex-wet-milieubeheer-en-ex-regeling-handel-in-emissierechten","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-geluidshinder","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-infrastructuur-milieu-overig","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-pleziervaartuigen-2016","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-uitrusting-zeeschepen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-geluidshinder","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-geluidshinder","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-infrastructuur-milieu-overig","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-infrastructuur-milieu-overig","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-pleziervaartuigen-2016","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-pleziervaartuigen-2016","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-uitrusting-zeeschepen","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-uitrusting-zeeschepen","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstanties-volksgezondheid-welzijn-en-sport","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstellingen-ex-art-4-av-wegenverkeerswet-1994","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-keuringsinstellingen-ex-wet-explosieven-voor-civiel-gebruik","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-keurmerkinstituut-jeugdzorg","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-kiesraad","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-klassenbureaus-scheepvaart","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-klassenbureaus-scheepvaart","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-klassenbureaus-scheepvaart","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-koninklijke-bibliotheek","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-koninklijke-nederlandse-akademie-van-wetenschappen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-koninklijke-nederlandse-toeristenbond-anwb","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-koninklijke-nederlandse-toeristenbond-anwb","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-koninklijke-nederlandse-toeristenbond-anwb","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-landelijk-bureau-inning-onderhoudsbijdragen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-landelijke-commissie-sociale-hygiene","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-luchtverkeersleiding-nederland","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-luchtverkeersleiding-nederland","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-luchtverkeersleiding-nederland","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-medisch-ethische-toetsingscommissies","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-metacluster-in-het-schepenbesluit-2004-jo-besluit-erkende-organisaties-schepenwe","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-mondriaan-fonds","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
@@ -7949,8 +8004,10 @@
 {"kind":"record-conflict","id":"rel:oversees-zbo-nederlands-instituut-publieke-veiligheid","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-nederlands-meetinstituut-ex-regeling-meetmiddelen-politie","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-nederlands-vlaamse-accreditatieorganisatie","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-nederlandse-emissieautoriteit","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-nederlandse-loodsencorporatie","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-nederlandse-emissieautoriteit","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-nederlandse-emissieautoriteit","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-nederlandse-loodsencorporatie","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-nederlandse-loodsencorporatie","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-nederlandse-organisatie-voor-toegepast-natuurwetenschappelijk-onderzoek","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-nederlandse-organisatie-voor-wetenschappelijk-onderzoek","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-nederlandse-publieke-omroep","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
@@ -7959,55 +8016,72 @@
 {"kind":"record-conflict","id":"rel:oversees-zbo-notarissen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-nuffic","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-onderzoeksgerechtigden-ex-art-4-av-wegenverkeerswet-1994","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-onderzoeksraad-voor-veiligheid","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-onderzoeksraad-voor-veiligheid","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-onderzoeksraad-voor-veiligheid","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-onvz-langdurige-zorg-b-v","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-pensioen-en-uitkeringsraad","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-politieacademie","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-raad-voor-accreditatie","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-raad-voor-plantenrassen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-politieacademie","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-politieacademie","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-raad-voor-accreditatie","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-raad-voor-accreditatie","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-raad-voor-plantenrassen","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-raad-voor-plantenrassen","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-raad-voor-rechtsbijstand","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-rdw","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-rdw","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-rdw","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-reclasseringsorganisaties-ex-reclasseringsregeling-1995","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-regionale-loodsencorporatie-amsterdam-ijmond","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-regionale-loodsencorporatie-noord","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-regionale-loodsencorporatie-rotterdam-rijnmond","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-regionale-loodsencorporatie-scheldemonden","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-regionale-loodsencorporaties","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-regionale-loodsencorporaties","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-regionale-loodsencorporaties","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-registratiecommissie-geneeskundig-specialisten","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-registratiecommissie-specialismen-verpleegkunde","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-registratiecommissie-tandheelkundige-specialismen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-registratiecommissies-knmg-knmp-knmt-fgzpt-en-v-vn","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-representatief-rechtspersoon-ex-art-15a-wet-op-de-naburige-rechten","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-representatief-rechtspersoon-ex-art-15f-auteurswet","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-rijkshavenmeesters","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-rijkshavenmeesters","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-rijkshavenmeesters","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-salland-zorgkantoor-b-v","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-samenwerkingsorganisatie-beroepsonderwijs-bedrijfsleven","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-skal-biocontrole","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-sociaal-economische-en-ruimtelijke-statistieken","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-skal-biocontrole","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-skal-biocontrole","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-sociaal-economische-en-ruimtelijke-statistieken","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-sociaal-economische-en-ruimtelijke-statistieken","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-sociale-verzekeringsbank","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-specialisten-registratie-commissie-kamers-openbare-farmacie-en-ziekenhuisfarmaci","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-staatsbosbeheer","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-staatsbosbeheer","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-staatsbosbeheer","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stichting-administratie-indonesische-pensioenen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stichting-autoriteit-financiele-markten","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stichting-blik-op-werk","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-bloembollenkeuringsdienst","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-controle-orgaan-kwaliteits-zaken","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-bloembollenkeuringsdienst","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-bloembollenkeuringsdienst","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-controle-orgaan-kwaliteits-zaken","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-controle-orgaan-kwaliteits-zaken","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stichting-fonds-voor-cultuurparticipatie","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stichting-groene-erkenningen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-kwaliteits-controle-bureau","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-milieukeur","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-kwaliteits-controle-bureau","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-kwaliteits-controle-bureau","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-milieukeur","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-milieukeur","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stichting-nederlands-fonds-voor-de-film","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stichting-nederlands-fonds-voor-podiumkunsten","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stichting-nederlands-jeugdinstituut","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stichting-nederlands-letterenfonds","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-nederlandse-algemene-keuringsdienst-voor-zaaizaad-en-pootgoed-van-land","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-nederlandse-algemene-kwaliteitsdienst-tuinbouw","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-nederlandse-algemene-keuringsdienst-voor-zaaizaad-en-pootgoed-van-land","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-nederlandse-algemene-keuringsdienst-voor-zaaizaad-en-pootgoed-van-land","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-nederlandse-algemene-kwaliteitsdienst-tuinbouw","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-nederlandse-algemene-kwaliteitsdienst-tuinbouw","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stichting-nidos","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stichting-participatiefonds-voor-het-onderwijs","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stichting-regionale-publieke-omroep","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stichting-stimuleringsfonds-creatieve-industrie","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stichting-vervangingsfonds-en-bedrijfsgezondheidszorg-voor-het-onderwijs","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-visitatie-woningcorporaties-nederland","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-visitatie-woningcorporaties-nederland","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-stichting-visitatie-woningcorporaties-nederland","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stichting-wlz-uitvoerder-zorg-en-zekerheid","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stichting-zorgkantoor-menzis","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-stimuleringsfonds-voor-de-journalistiek","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
@@ -8016,8 +8090,10 @@
 {"kind":"record-conflict","id":"rel:oversees-zbo-uitvoeringsinstituut-werknemersverzekeringen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-vgz-zorgkantoor-b-v","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-vts-operators","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-waarborgholland-b-v","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
-{"kind":"record-conflict","id":"rel:oversees-zbo-waarborginstellingen","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-waarborgholland-b-v","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-waarborgholland-b-v","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-waarborginstellingen","keptFrom":"T-relatiedata.json","droppedFrom":"C-zbos-en-rwts.json","note":"primary legal text wins over official register"}
+{"kind":"record-conflict","id":"rel:oversees-zbo-waarborginstellingen","keptFrom":"T-relatiedata.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-waarderingskamer","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-zilveren-kruis-zorgkantoor-n-v","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
 {"kind":"record-conflict","id":"rel:oversees-zbo-zorginstituut-nederland","keptFrom":"C-zbos-en-rwts.json","droppedFrom":"data/relations.json","note":"seed base record replaced by research"}
