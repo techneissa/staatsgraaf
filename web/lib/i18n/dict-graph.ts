@@ -63,6 +63,10 @@ export const GRAPH_DICT = {
     nl: "{label} uitgeklapt.",
     en: "{label} unpacked.",
   },
+  chamberSeats: {
+    nl: "{total} zetels, meerderheid bij {majority}",
+    en: "{total} seats, majority at {majority}",
+  },
   parentOf: {
     nl: "onder {parent}",
     en: "under {parent}",
