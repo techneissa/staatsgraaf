@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-380 -340 760 480" width="760" height="480" font-family="system-ui, sans-serif">
+<rect x="-380" y="-340" width="760" height="480" fill="#FBFAF7"/>
+<text x="-364" y="-316" font-size="18" font-weight="700" fill="#1F2330">Eerste Kamer: 75 zetels, meerderheid 38 (H3 rows, H6 order)</text>
+<text x="-364" y="-298" font-size="10" fill="#5B6070">Coalition outline: pending data/coalitions.json (phase 3). Seat order: fractie blocks, largest first from the left (H6); real zaalindeling (H5) pending seatNumber sourcing.</text>
+<circle cx="-120" cy="0" r="12" fill="#00AA00"><title>PRO</title></circle>
+<circle cx="-154" cy="0" r="12" fill="#00AA00"><title>PRO</title></circle>
+<circle cx="-188" cy="0" r="12" fill="#00AA00"><title>PRO</title></circle>
+<circle cx="-186.82" cy="-21.05" r="12" fill="#00AA00"><title>PRO</title></circle>
+<circle cx="-152.68" cy="-20.1" r="12" fill="#00AA00"><title>PRO</title></circle>
+<circle cx="-118.52" cy="-18.77" r="12" fill="#00AA00"><title>PRO</title></circle>
+<circle cx="-183.29" cy="-41.83" r="12" fill="#00AA00"><title>PRO</title></circle>
+<circle cx="-148.75" cy="-39.86" r="12" fill="#00AA00"><title>PRO</title></circle>
+<circle cx="-114.13" cy="-37.08" r="12" fill="#00AA00"><title>PRO</title></circle>
+<circle cx="-177.45" cy="-62.09" r="12" fill="#00AA00"><title>PRO</title></circle>
+<circle cx="-142.28" cy="-58.93" r="12" fill="#00AA00"><title>PRO</title></circle>
+<circle cx="-169.38" cy="-81.57" r="12" fill="#00AA00"><title>PRO</title></circle>
+<circle cx="-106.92" cy="-54.48" r="12" fill="#00AA00"><title>PRO</title></circle>
+<circle cx="-133.37" cy="-77" r="12" fill="#00AA00"><title>PRO</title></circle>
+<circle cx="-159.18" cy="-100.02" r="12" fill="#93C01F"><title>BBB</title></circle>
+<circle cx="-97.08" cy="-70.53" r="12" fill="#93C01F"><title>BBB</title></circle>
+<circle cx="-122.18" cy="-93.75" r="12" fill="#93C01F"><title>BBB</title></circle>
+<circle cx="-146.98" cy="-117.22" r="12" fill="#93C01F"><title>BBB</title></circle>
+<circle cx="-84.85" cy="-84.85" r="12" fill="#93C01F"><title>BBB</title></circle>
+<circle cx="-108.89" cy="-108.89" r="12" fill="#93C01F"><title>BBB</title></circle>
+<circle cx="-132.94" cy="-132.94" r="12" fill="#93C01F"><title>BBB</title></circle>
+<circle cx="-117.22" cy="-146.98" r="12" fill="#93C01F"><title>BBB</title></circle>
+<circle cx="-93.75" cy="-122.18" r="12" fill="#93C01F"><title>BBB</title></circle>
+<circle cx="-70.53" cy="-97.08" r="12" fill="#93C01F"><title>BBB</title></circle>
+<circle cx="-100.02" cy="-159.18" r="12" fill="#93C01F"><title>BBB</title></circle>
+<circle cx="-77" cy="-133.37" r="12" fill="#FF6400"><title>VVD</title></circle>
+<circle cx="-54.48" cy="-106.92" r="12" fill="#FF6400"><title>VVD</title></circle>
+<circle cx="-81.57" cy="-169.38" r="12" fill="#FF6400"><title>VVD</title></circle>
+<circle cx="-58.93" cy="-142.28" r="12" fill="#FF6400"><title>VVD</title></circle>
+<circle cx="-62.09" cy="-177.45" r="12" fill="#FF6400"><title>VVD</title></circle>
+<circle cx="-37.08" cy="-114.13" r="12" fill="#FF6400"><title>VVD</title></circle>
+<circle cx="-39.86" cy="-148.75" r="12" fill="#FF6400"><title>VVD</title></circle>
+<circle cx="-41.83" cy="-183.29" r="12" fill="#FF6400"><title>VVD</title></circle>
+<circle cx="-18.77" cy="-118.52" r="12" fill="#FF6400"><title>VVD</title></circle>
+<circle cx="-20.1" cy="-152.68" r="12" fill="#00AE41"><title>D66</title></circle>
+<circle cx="-21.05" cy="-186.82" r="12" fill="#00AE41"><title>D66</title></circle>
+<circle cx="0" cy="-120" r="12" fill="#00AE41"><title>D66</title></circle>
+<circle cx="0" cy="-154" r="12" fill="#00AE41"><title>D66</title></circle>
+<circle cx="0" cy="-188" r="12" fill="#00AE41"><title>D66</title></circle>
+<circle cx="21.05" cy="-186.82" r="12" fill="#00AE41"><title>D66</title></circle>
+<circle cx="20.1" cy="-152.68" r="12" fill="#00AE41"><title>D66</title></circle>
+<circle cx="18.77" cy="-118.52" r="12" fill="#2CC84D"><title>CDA</title></circle>
+<circle cx="41.83" cy="-183.29" r="12" fill="#2CC84D"><title>CDA</title></circle>
+<circle cx="39.86" cy="-148.75" r="12" fill="#2CC84D"><title>CDA</title></circle>
+<circle cx="37.08" cy="-114.13" r="12" fill="#2CC84D"><title>CDA</title></circle>
+<circle cx="62.09" cy="-177.45" r="12" fill="#2CC84D"><title>CDA</title></circle>
+<circle cx="58.93" cy="-142.28" r="12" fill="#2CC84D"><title>CDA</title></circle>
+<circle cx="81.57" cy="-169.38" r="12" fill="#012758"><title>PVV</title></circle>
+<circle cx="54.48" cy="-106.92" r="12" fill="#012758"><title>PVV</title></circle>
+<circle cx="77" cy="-133.37" r="12" fill="#012758"><title>PVV</title></circle>
+<circle cx="100.02" cy="-159.18" r="12" fill="#012758"><title>PVV</title></circle>
+<circle cx="70.53" cy="-97.08" r="12" fill="#00A7EB"><title>CU</title></circle>
+<circle cx="93.75" cy="-122.18" r="12" fill="#00A7EB"><title>CU</title></circle>
+<circle cx="117.22" cy="-146.98" r="12" fill="#00A7EB"><title>CU</title></circle>
+<circle cx="84.85" cy="-84.85" r="12" fill="#A71C20"><title>FvD</title></circle>
+<circle cx="108.89" cy="-108.89" r="12" fill="#A71C20"><title>FvD</title></circle>
+<circle cx="132.94" cy="-132.94" r="12" fill="#A71C20"><title>FvD</title></circle>
+<circle cx="146.98" cy="-117.22" r="12" fill="#E9161D"><title>SP</title></circle>
+<circle cx="122.18" cy="-93.75" r="12" fill="#E9161D"><title>SP</title></circle>
+<circle cx="97.08" cy="-70.53" r="12" fill="#E9161D"><title>SP</title></circle>
+<circle cx="159.18" cy="-100.02" r="12" fill="#1F2756"><title>JA21</title></circle>
+<circle cx="133.37" cy="-77" r="12" fill="#1F2756"><title>JA21</title></circle>
+<circle cx="106.92" cy="-54.48" r="12" fill="#00743C"><title>PvdD</title></circle>
+<circle cx="169.38" cy="-81.57" r="12" fill="#00743C"><title>PvdD</title></circle>
+<circle cx="142.28" cy="-58.93" r="12" fill="#EA5D06"><title>SGP</title></circle>
+<circle cx="177.45" cy="-62.09" r="12" fill="#EA5D06"><title>SGP</title></circle>
+<circle cx="114.13" cy="-37.08" r="12" fill="#502379"><title>Volt</title></circle>
+<circle cx="148.75" cy="-39.86" r="12" fill="#502379"><title>Volt</title></circle>
+<circle cx="183.29" cy="-41.83" r="12" fill="#84236D"><title>50PLUS</title></circle>
+<circle cx="118.52" cy="-18.77" r="12" fill="#9AA0AE" stroke="#5B6070" stroke-width="0.5"><title>Fractie-Beukering</title></circle>
+<circle cx="152.68" cy="-20.1" r="12" fill="#9AA0AE" stroke="#5B6070" stroke-width="0.5"><title>Fractie-Van Gasteren</title></circle>
+<circle cx="186.82" cy="-21.05" r="12" fill="#9AA0AE" stroke="#5B6070" stroke-width="0.5"><title>Fractie-Van de Sanden</title></circle>
+<circle cx="120" cy="0" r="12" fill="#9AA0AE" stroke="#5B6070" stroke-width="0.5"><title>Fractie-Visseren-Hamakers</title></circle>
+<circle cx="154" cy="0" r="12" fill="#9AA0AE" stroke="#5B6070" stroke-width="0.5"><title>Fractie-Walenkamp</title></circle>
+<circle cx="188" cy="0" r="12" fill="#0D2958"><title>OPNL</title></circle>
+<line x1="0" y1="-89.4" x2="0" y2="-218.6" stroke="#1F2330" stroke-width="6" stroke-dasharray="12 7.199999999999999"/>
+<text x="0" y="-54" font-size="19.200000000000003" text-anchor="middle" fill="#1F2330" font-weight="600">75 zetels</text>
+<text x="0" y="-30" font-size="14.399999999999999" text-anchor="middle" fill="#5B6070">meerderheid 38</text>
+<text x="-220.23" y="-59.01" font-size="26.400000000000002" text-anchor="middle" fill="#2B2F3A">PRO 14</text>
+<text x="-161.22" y="-161.22" font-size="26.400000000000002" text-anchor="middle" fill="#2B2F3A">BBB 11</text>
+<text x="-75.3" y="-215.21" font-size="26.400000000000002" text-anchor="middle" fill="#2B2F3A">VVD 9</text>
+<circle cx="-150" cy="26" r="5" fill="#00AE41"/><text x="-141" y="30" font-size="11" fill="#2B2F3A">D66 7</text>
+<circle cx="-50" cy="26" r="5" fill="#2CC84D"/><text x="-41" y="30" font-size="11" fill="#2B2F3A">CDA 6</text>
+<circle cx="50" cy="26" r="5" fill="#012758"/><text x="59" y="30" font-size="11" fill="#2B2F3A">PVV 4</text>
+<circle cx="150" cy="26" r="5" fill="#00A7EB"/><text x="159" y="30" font-size="11" fill="#2B2F3A">CU 3</text>
+<circle cx="-150" cy="42" r="5" fill="#A71C20"/><text x="-141" y="46" font-size="11" fill="#2B2F3A">FvD 3</text>
+<circle cx="-50" cy="42" r="5" fill="#E9161D"/><text x="-41" y="46" font-size="11" fill="#2B2F3A">SP 3</text>
+<circle cx="50" cy="42" r="5" fill="#1F2756"/><text x="59" y="46" font-size="11" fill="#2B2F3A">JA21 2</text>
+<circle cx="150" cy="42" r="5" fill="#00743C"/><text x="159" y="46" font-size="11" fill="#2B2F3A">PvdD 2</text>
+<circle cx="-150" cy="58" r="5" fill="#EA5D06"/><text x="-141" y="62" font-size="11" fill="#2B2F3A">SGP 2</text>
+<circle cx="-50" cy="58" r="5" fill="#502379"/><text x="-41" y="62" font-size="11" fill="#2B2F3A">Volt 2</text>
+<circle cx="50" cy="58" r="5" fill="#84236D"/><text x="59" y="62" font-size="11" fill="#2B2F3A">50PLUS 1</text>
+<circle cx="150" cy="58" r="5" fill="#9AA0AE"/><text x="159" y="62" font-size="11" fill="#2B2F3A">Fractie-Beukering 1</text>
+<circle cx="-150" cy="74" r="5" fill="#9AA0AE"/><text x="-141" y="78" font-size="11" fill="#2B2F3A">Fractie-Van Gasteren 1</text>
+<circle cx="-50" cy="74" r="5" fill="#9AA0AE"/><text x="-41" y="78" font-size="11" fill="#2B2F3A">Fractie-Van de Sanden 1</text>
+<circle cx="50" cy="74" r="5" fill="#9AA0AE"/><text x="59" y="78" font-size="11" fill="#2B2F3A">Fractie-Visseren-Hamakers 1</text>
+<circle cx="150" cy="74" r="5" fill="#9AA0AE"/><text x="159" y="78" font-size="11" fill="#2B2F3A">Fractie-Walenkamp 1</text>
+<circle cx="-150" cy="90" r="5" fill="#0D2958"/><text x="-141" y="94" font-size="11" fill="#2B2F3A">OPNL 1</text>
+<text x="0" y="120" font-size="11" text-anchor="middle" fill="#5B6070">Rows 21, 25, 29 (H3). Colours: web/lib/parties.ts (ADR 0009); grey = no sourced colour. Data: current memberships, org:eerste-kamer.</text>
+</svg>

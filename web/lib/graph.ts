@@ -258,13 +258,18 @@ export const GLYPH_BY_SUBTYPE: Record<OrgSubtype, GlyphClass> = {
   commissie: "small-dot",
 };
 
-function compareNames(a: string, b: string, aId: string, bId: string): number {
+/**
+ * The packer helpers below are exported for the layout variant renderer in
+ * research/graph-variants and for the polder layout that replaces this one
+ * (docs/13-graph-rebuild-plan.md). They are geometry, not layout policy.
+ */
+export function compareNames(a: string, b: string, aId: string, bId: string): number {
   if (a !== b) return a < b ? -1 : 1;
   if (aId !== bId) return aId < bId ? -1 : 1;
   return 0;
 }
 
-function computeDepths(nodes: BundleNode[]): Map<string, number> {
+export function computeDepths(nodes: BundleNode[]): Map<string, number> {
   const byId = new Map(nodes.map((node) => [node.id, node]));
   const memo = new Map<string, number>();
   const visiting = new Set<string>();
@@ -296,7 +301,7 @@ function round(value: number): number {
   return Math.round(value * 1000) / 1000;
 }
 
-function groupBy<T, K extends string>(items: T[], key: (item: T) => K): Map<K, T[]> {
+export function groupBy<T, K extends string>(items: T[], key: (item: T) => K): Map<K, T[]> {
   const map = new Map<K, T[]>();
   for (const item of items) {
     const k = key(item);
@@ -307,7 +312,7 @@ function groupBy<T, K extends string>(items: T[], key: (item: T) => K): Map<K, T
   return map;
 }
 
-function allocateSpans(weights: number[], minimums: number[], total: number): number[] {
+export function allocateSpans(weights: number[], minimums: number[], total: number): number[] {
   const count = weights.length;
   if (count === 0) return [];
   const minimumTotal = minimums.reduce((sum, value) => sum + value, 0);
@@ -373,9 +378,9 @@ export function edgePath(x1: number, y1: number, x2: number, y2: number): string
   return `M ${round(x1)} ${round(y1)} Q ${round(ctrlX)} ${round(ctrlY)} ${round(x2)} ${round(y2)}`;
 }
 
-type PlacedNode = { node: BundleNode; angle: number };
+export type PlacedNode = { node: BundleNode; angle: number };
 
-function placeRing(
+export function placeRing(
   nodes: BundleNode[],
   startIndex: number,
   from: number,
