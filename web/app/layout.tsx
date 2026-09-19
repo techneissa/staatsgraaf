@@ -40,7 +40,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <TopBar />
           <div className="grid min-h-0 flex-1 grid-cols-1 lg:grid-cols-[minmax(0,32rem)_minmax(0,1fr)]">
             <CanvasFrame />
-            <div className="flex min-h-0 flex-col lg:col-start-1 lg:row-start-1 lg:overflow-y-auto">
+            <div className="flex min-h-0 min-w-0 flex-col lg:col-start-1 lg:row-start-1 lg:overflow-y-auto">
               <main id="inhoud" tabIndex={-1} className="flex-1 px-4 pb-10 pt-6 lg:px-8">
                 {children}
               </main>

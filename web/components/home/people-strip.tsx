@@ -8,7 +8,7 @@ type StripPerson = {
   positionTitle: string | null;
 };
 
-function PersonBubble({ entry }: { entry: StripPerson }) {
+function PersonBubble({ entry, side }: { entry: StripPerson; side: "left" | "right" }) {
   const { person } = entry;
   const title = [person.name, entry.positionTitle].filter(Boolean).join(" · ");
   return (
@@ -22,7 +22,11 @@ function PersonBubble({ entry }: { entry: StripPerson }) {
         <PersonPortrait person={person} size={44} />
         <PersonPortraitCredit person={person} className="sr-only" />
       </Link>
-      <div className="invisible absolute left-0 top-12 z-30 flex w-max max-w-[14rem] flex-col gap-1.5 rounded-md border border-line bg-surface p-2.5 shadow-lg opacity-0 transition-fast group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+      <div
+        className={`invisible absolute top-12 z-30 flex w-max max-w-[12rem] flex-col gap-1.5 rounded-md border border-line bg-surface p-2.5 shadow-lg opacity-0 transition-fast group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100 ${
+          side === "left" ? "left-0" : "right-0"
+        }`}
+      >
         <p className="text-xs font-medium leading-snug text-ink">{person.name}</p>
         {entry.positionTitle ? (
           <p className="text-[11px] leading-snug text-ink-muted">{entry.positionTitle}</p>
@@ -36,7 +40,8 @@ function PersonBubble({ entry }: { entry: StripPerson }) {
 /**
  * CivLab-style avatar strip: overlapping rounded portraits whose hover (or
  * keyboard focus) reveals a callout with the name and a button that focuses
- * that person in the power map canvas.
+ * that person in the power map canvas. Callouts on the right half open to the
+ * left, so a hidden callout never widens the page past the screen edge.
  */
 export function PeopleStrip({ people }: { people: FocusPerson[] }) {
   const entries: StripPerson[] = people.map((entry) => ({
@@ -45,8 +50,8 @@ export function PeopleStrip({ people }: { people: FocusPerson[] }) {
   }));
   return (
     <ul className="flex flex-wrap items-center">
-      {entries.map((entry) => (
-        <PersonBubble key={entry.person.id} entry={entry} />
+      {entries.map((entry, index) => (
+        <PersonBubble key={entry.person.id} entry={entry} side={index < entries.length / 2 ? "left" : "right"} />
       ))}
     </ul>
   );

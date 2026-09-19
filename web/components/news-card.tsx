@@ -7,7 +7,7 @@ import { SourceRankLink } from "./news/source-rank-link";
 import { SourceArrow } from "./news/news-item-card";
 import { NewsPreviewTile } from "./news/news-preview";
 import { resolveNewsPreview, hostLabel } from "./news/news-view";
-import { stripPublisherPrefix, stripTitleFromMarkup, summaryIsPublisherEcho } from "@/lib/news-text";
+import { clampMarkupSentences, clampSentences, stripPublisherPrefix, stripTitleFromMarkup, summaryIsPublisherEcho } from "@/lib/news-text";
 import { getSourceById } from "@/lib/data";
 import { getMediaItem, mediaCreditLine } from "@/lib/entity";
 import { renderSummaryMarkup } from "@/lib/markup";
@@ -98,11 +98,11 @@ export function NewsCard({
             ) : null}
           </div>
           {useMarkup ? (
-            <p className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted">
-              {renderSummaryMarkup(summaryMarkup as string)}
+            <p className="mt-2 text-sm leading-normal text-ink-muted">
+              {renderSummaryMarkup(clampMarkupSentences(summaryMarkup as string))}
             </p>
           ) : showPlainSummary ? (
-            <p className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted">{plainSummary}</p>
+            <p className="mt-2 text-sm leading-normal text-ink-muted">{clampSentences(plainSummary)}</p>
           ) : null}
           {entities.length > 0 ? (
             <LabeledList labelKey="cardMentionedLabel" className="mt-3 flex flex-wrap gap-2">
@@ -165,9 +165,9 @@ export function NewsCard({
       {sources.length > 0 ? (
         <ol className="mt-3 space-y-1 border-t border-line pt-2">
           {sources.map(({ index, source }) => (
-            <li key={source.id} className="text-xs leading-snug">
-              <span className="mr-1 tabular-nums text-ink-faint">[{index}]</span>
-              <SourceLink href={source.url} meta={source.publisher} className="text-xs">
+            <li key={source.id} className="flex items-baseline gap-1.5 text-xs leading-snug">
+              <span className="shrink-0 tabular-nums text-ink-faint">[{index}]</span>
+              <SourceLink href={source.url} meta={source.publisher} className="min-w-0 text-xs">
                 {source.title}
               </SourceLink>
             </li>

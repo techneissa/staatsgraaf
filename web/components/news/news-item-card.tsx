@@ -1,6 +1,7 @@
 import { EntityChip } from "@/components/entity-chip";
 import { KindBadge } from "@/components/kind-badge";
 import { renderSummaryMarkupWithHrefs } from "@/lib/news-summary";
+import { clampMarkupSentences, clampSentences } from "@/lib/news-text";
 import type { NewsMessages } from "@/lib/news-i18n";
 import { NewsPreviewTile } from "./news-preview";
 import { stripPublisherPrefix, stripTitleFromMarkup } from "@/lib/news-text";
@@ -68,17 +69,17 @@ export function NewsItemCard({
           </div>
           {useMarkup ? (
             <p
-              className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted"
+              className="mt-2 text-sm leading-normal text-ink-muted"
               lang={item.language}
             >
-              {renderSummaryMarkupWithHrefs(summaryMarkup as string, (id) => item.entities.find((entry) => entry.id === id)?.href ?? null)}
+              {renderSummaryMarkupWithHrefs(clampMarkupSentences(summaryMarkup as string), (id) => item.entities.find((entry) => entry.id === id)?.href ?? null)}
             </p>
           ) : plainSummary !== "" ? (
             <p
-              className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted"
+              className="mt-2 text-sm leading-normal text-ink-muted"
               lang={item.language}
             >
-              {plainSummary}
+              {clampSentences(plainSummary)}
             </p>
           ) : null}
           {item.entities.length > 0 ? (

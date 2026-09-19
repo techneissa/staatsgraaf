@@ -4,6 +4,7 @@ import { PersonPortrait } from "@/components/entity/person-portrait";
 import { SourceLink } from "@/components/source-link";
 import { T } from "@/components/i18n/t";
 import { getOrganizationById, getPersonById, getPositionById, getSourceById } from "@/lib/data";
+import { formatDate } from "@/lib/format";
 import type { Change, ChangeKind, ChangeSide } from "@/lib/types";
 
 /** Token-backed tone per change kind; no hardcoded hexes. */
@@ -34,7 +35,7 @@ function SideRow({ label, side }: { label: string; side: ChangeSide }) {
   const person = side.person !== null ? getPersonById(side.person) : undefined;
   return (
     <div className="flex items-center gap-2.5">
-      <span className="w-8 shrink-0 text-[10px] font-semibold uppercase tracking-wider text-ink-faint">
+      <span className="min-w-8 shrink-0 text-[10px] font-semibold uppercase tracking-wider text-ink-faint">
         <T area="home" k={label} />
       </span>
       {person ? (
@@ -70,7 +71,7 @@ export function ChangeCard({ change, date }: { change: Change; date?: string }) 
         </span>
         {source ? (
           <SourceLink href={source.url} meta={source.publisher} className="text-xs">
-            <time dateTime={change.date}>{date ?? change.date}</time>
+            <time dateTime={change.date}>{formatDate(date ?? change.date)}</time>
           </SourceLink>
         ) : (
           <DateStamp date={change.date} />

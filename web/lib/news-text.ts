@@ -87,3 +87,58 @@ export function stripTitleFromMarkup(markup: string | null, title: string): stri
   const stripped = result.trim();
   return stripped === "" ? null : stripped;
 }
+
+/**
+ * Where to cut a summary so it ends at a sentence, never mid-word. Returns the
+ * cut length, or null when the text fits. A cut lands on the last sentence end
+ * before `max` when that keeps at least forty percent of the budget; otherwise
+ * on the last word boundary, which the caller marks with an ellipsis.
+ */
+export function sentenceCut(text: string, max: number): { at: number; clean: boolean } | null {
+  if (text.length <= max) return null;
+  const head = text.slice(0, max);
+  let last = -1;
+  for (const match of head.matchAll(/[.!?](?=\s|$)/g)) last = (match.index ?? 0) + 1;
+  if (last >= max * 0.4) return { at: last, clean: true };
+  const space = head.lastIndexOf(" ");
+  return { at: space > 0 ? space : max, clean: false };
+}
+
+/** A plain summary cut at a sentence (see `sentenceCut`), with an ellipsis only when a sentence was broken. */
+export function clampSentences(text: string, max = 260): string {
+  const cut = sentenceCut(text, max);
+  if (cut === null) return text;
+  const head = text.slice(0, cut.at).trimEnd();
+  return cut.clean ? head : `${head}\u2026`;
+}
+
+const ENTITY_TAG_SPLIT = /(<entity id="[^"]*">[^<]*<\/entity>)/g;
+
+/**
+ * The same cut for summary markup. The cut is found on the plain text and then
+ * mapped back onto the markup, and it never lands inside an entity tag: if it
+ * would, the whole tag is dropped so no link is left half open.
+ */
+export function clampMarkupSentences(markup: string, max = 260): string {
+  const plain = plainMarkupText(markup) ?? "";
+  const cut = sentenceCut(plain, max);
+  if (cut === null) return markup;
+  let seen = 0;
+  let out = "";
+  for (const token of markup.split(ENTITY_TAG_SPLIT)) {
+    if (token === "") continue;
+    const isTag = token.startsWith("<entity ");
+    const visible = isTag ? (plainMarkupText(token) ?? "") : token;
+    if (seen + visible.length <= cut.at) {
+      out += token;
+      seen += visible.length;
+      continue;
+    }
+    if (!isTag) out += token.slice(0, cut.at - seen);
+    break;
+  }
+  out = out.trimEnd();
+  // Dropping a whole tag at the cut breaks the sentence even when the cut was clean.
+  const kept = (plainMarkupText(out) ?? "").length;
+  return cut.clean && kept >= cut.at - 1 ? out : `${out}\u2026`;
+}

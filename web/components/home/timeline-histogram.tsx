@@ -23,6 +23,10 @@ export function TimelineHistogram({
     .map((bucket, index) => ({ bucket, index }))
     .filter(({ bucket }) => bucket.count > 0);
   const max = Math.max(1, ...buckets.map((bucket) => bucket.count));
+  // The first and last marks anchor to their edge instead of centring on it,
+  // so "vandaag" and a count bubble on the last day stay inside the card.
+  const anchor = (index: number) =>
+    index === 0 ? "translate-x-0" : index === lastIndex ? "-translate-x-full" : "-translate-x-1/2";
 
   return (
     <figure className="mt-3">
@@ -43,7 +47,7 @@ export function TimelineHistogram({
         {active.map(({ bucket, index }) => (
           <span
             key={`bubble-${bucket.date}`}
-            className="absolute -translate-x-1/2 rounded-pill border border-accent/40 bg-accent-soft px-1.5 py-px text-[10px] font-medium leading-snug tabular-nums text-accent-text"
+            className={`absolute ${anchor(index)} rounded-pill border border-accent/40 bg-accent-soft px-1.5 py-px text-[10px] font-medium leading-snug tabular-nums text-accent-text`}
             style={{ left: `${pct(index)}%`, bottom: `calc(1.5rem + ${(bucket.count / max) * 1.25}rem)` }}
           >
             {bucket.count}
@@ -61,7 +65,7 @@ export function TimelineHistogram({
         {labelled.map(({ bucket, index }) => (
           <span
             key={`label-${bucket.date}`}
-            className={`absolute -translate-x-1/2 whitespace-nowrap text-[10px] uppercase tracking-wide ${
+            className={`absolute ${anchor(index)} whitespace-nowrap text-[10px] uppercase tracking-wide ${
               index === lastIndex ? "text-ink-muted" : "text-ink-faint"
             }`}
             style={{ left: `${pct(index)}%`, bottom: 0 }}

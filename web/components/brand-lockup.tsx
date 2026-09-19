@@ -19,7 +19,7 @@ export function BrandLockup() {
         <circle cx="4.4" cy="13.2" r="1.3" fill="var(--t-color-ink-muted)" />
       </svg>
       <span className="text-sm font-semibold tracking-tight text-ink">{SITE_NAME}</span>
-      <span className="rounded-pill border border-line px-2 py-0.5 text-xs text-ink-muted">
+      <span className="hidden whitespace-nowrap rounded-pill border border-line px-2 py-0.5 text-xs text-ink-muted sm:inline">
         <T area="pages" k="scopeLabel" />
       </span>
     </Link>

@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { plainMarkupText, stripPublisherPrefix, stripTitleFromMarkup } from "./news-text.ts";
+import { clampMarkupSentences, clampSentences, plainMarkupText, stripPublisherPrefix, stripTitleFromMarkup } from "./news-text.ts";
 
 const TITLE = "Kop over Prinsjesdag";
 
@@ -57,4 +57,20 @@ test("stripPublisherPrefix leaves summaries without the prefix unchanged", () =>
 
 test("a summary that is only the publisher echo is detected", () => {
   assert.equal(stripPublisherPrefix(`Trouw bericht: "${TITLE}"`, TITLE), "");
+});
+
+test("a summary is cut at a sentence, never mid-word, and a broken sentence gets an ellipsis", () => {
+  const text = "Eerste zin is kort. Tweede zin gaat verder over het onderwerp. Derde zin is lang en past niet meer in het budget van tekens dat de kaart heeft.";
+  assert.equal(clampSentences(text, 70), "Eerste zin is kort. Tweede zin gaat verder over het onderwerp.");
+  assert.equal(clampSentences("Een enkele heel lange zin zonder einde die maar doorgaat en doorgaat", 30), "Een enkele heel lange zin…");
+  assert.equal(clampSentences("Past.", 30), "Past.");
+});
+
+test("a markup summary is cut on the plain text and never inside an entity tag", () => {
+  const markup = 'De <entity id="org:politie">Politie</entity> meldt een aanhouding. Daarna volgt <entity id="org:om">het Openbaar Ministerie</entity> met een besluit.';
+  const cut = clampMarkupSentences(markup, 40);
+  assert.equal(cut, 'De <entity id="org:politie">Politie</entity> meldt een aanhouding.');
+  const inside = clampMarkupSentences(markup, 62);
+  assert.ok(!inside.includes('<entity id="org:om">') || inside.includes("</entity>"), "no half-open tag");
+  assert.ok(inside.endsWith("…") || inside.endsWith("."), inside);
 });

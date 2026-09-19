@@ -93,7 +93,7 @@ export function CanvasControls({
   const locale = useLocale();
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-wrap items-center gap-2">
       <div
         role="group"
         aria-label={tg("viewToggleGroup")}
