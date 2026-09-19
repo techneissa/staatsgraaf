@@ -11717,6 +11717,45 @@
     }
   },
   {
+    "id": "rel:dept-head-voorzitter-staten-aruba",
+    "from": "pos:voorzitter-staten-aruba",
+    "to": "org:staten-aruba",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:statenvanaruba-ibabs-voorzitter",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-voorzitter-staten-curacao",
+    "from": "pos:voorzitter-staten-curacao",
+    "to": "org:staten-curacao",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:parlamento-curacao",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:dept-head-voorzitter-staten-sint-maarten",
+    "from": "pos:voorzitter-staten-sint-maarten",
+    "to": "org:staten-sint-maarten",
+    "type": "dept_head",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:sxmparliament-presidium",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
     "id": "rel:dept-head-voorzitter-tweede-kamer",
     "from": "pos:voorzitter-tweede-kamer",
     "to": "org:tweede-kamer",
@@ -23852,6 +23891,45 @@
     }
   },
   {
+    "id": "rel:oversees-staten-aruba-regering-aruba",
+    "from": "org:staten-aruba",
+    "to": "org:regering-aruba",
+    "type": "oversees",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobierno-aw-regering",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:oversees-staten-curacao-regering-curacao",
+    "from": "org:staten-curacao",
+    "to": "org:regering-curacao",
+    "type": "oversees",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:parlamento-curacao",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:oversees-staten-sint-maarten-regering-sint-maarten",
+    "from": "org:staten-sint-maarten",
+    "to": "org:regering-sint-maarten",
+    "type": "oversees",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:sxmparliament-about",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
     "id": "rel:oversees-zbo-aangemelde-instanties-ex-regeling-overige-pyrotechnische-artikelen",
     "from": "org:ministerie-van-infrastructuur-en-waterstaat",
     "to": "org:zbo-aangemelde-instanties-ex-regeling-overige-pyrotechnische-artikelen",
@@ -26946,6 +27024,318 @@
     "source": {
       "source": "src:ek-commissie-vws",
       "retrieved": "2026-09-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-algemene-zaken-aruba",
+    "from": "org:ministerie-algemene-zaken-aruba",
+    "to": "org:regering-aruba",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobierno-aw-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-algemene-zaken-minister-president-curacao",
+    "from": "org:ministerie-algemene-zaken-minister-president-curacao",
+    "to": "org:regering-curacao",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobiernu-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-arbeid-energie-integratie-aruba",
+    "from": "org:ministerie-arbeid-energie-integratie-aruba",
+    "to": "org:regering-aruba",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobierno-aw-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-bestuur-planning-dienstverlening-curacao",
+    "from": "org:ministerie-bestuur-planning-dienstverlening-curacao",
+    "to": "org:regering-curacao",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobiernu-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-economische-ontwikkeling-curacao",
+    "from": "org:ministerie-economische-ontwikkeling-curacao",
+    "to": "org:regering-curacao",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobiernu-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-economische-zaken-communicatie-duurzame-ontwikkeling-aruba",
+    "from": "org:ministerie-economische-zaken-communicatie-duurzame-ontwikkeling-aruba",
+    "to": "org:regering-aruba",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobierno-aw-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-financien-cultuur-aruba",
+    "from": "org:ministerie-financien-cultuur-aruba",
+    "to": "org:regering-aruba",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobierno-aw-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-financien-curacao",
+    "from": "org:ministerie-financien-curacao",
+    "to": "org:regering-curacao",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobiernu-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-gezondheid-milieu-natuur-curacao",
+    "from": "org:ministerie-gezondheid-milieu-natuur-curacao",
+    "to": "org:regering-curacao",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobiernu-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-justitie-curacao",
+    "from": "org:ministerie-justitie-curacao",
+    "to": "org:regering-curacao",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobiernu-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-justitie-sociale-zaken-aruba",
+    "from": "org:ministerie-justitie-sociale-zaken-aruba",
+    "to": "org:regering-aruba",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobierno-aw-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-onderwijs-sport-aruba",
+    "from": "org:ministerie-onderwijs-sport-aruba",
+    "to": "org:regering-aruba",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobierno-aw-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-onderwijs-wetenschap-cultuur-sport-curacao",
+    "from": "org:ministerie-onderwijs-wetenschap-cultuur-sport-curacao",
+    "to": "org:regering-curacao",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobiernu-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-sociale-ontwikkeling-arbeid-welzijn-curacao",
+    "from": "org:ministerie-sociale-ontwikkeling-arbeid-welzijn-curacao",
+    "to": "org:regering-curacao",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobiernu-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-toerisme-volksgezondheid-aruba",
+    "from": "org:ministerie-toerisme-volksgezondheid-aruba",
+    "to": "org:regering-aruba",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobierno-aw-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-transport-integriteit-natuur-ouderenzaken-aruba",
+    "from": "org:ministerie-transport-integriteit-natuur-ouderenzaken-aruba",
+    "to": "org:regering-aruba",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobierno-aw-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministerie-verkeer-vervoer-ruimtelijke-planning-curacao",
+    "from": "org:ministerie-verkeer-vervoer-ruimtelijke-planning-curacao",
+    "to": "org:regering-curacao",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:gobiernu-ministeries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministry-education-culture-youth-sport-sint-maarten",
+    "from": "org:ministry-education-culture-youth-sport-sint-maarten",
+    "to": "org:regering-sint-maarten",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:sintmaartengov-ministries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministry-finance-sint-maarten",
+    "from": "org:ministry-finance-sint-maarten",
+    "to": "org:regering-sint-maarten",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:sintmaartengov-ministries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministry-general-affairs-sint-maarten",
+    "from": "org:ministry-general-affairs-sint-maarten",
+    "to": "org:regering-sint-maarten",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:sintmaartengov-ministries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministry-justice-sint-maarten",
+    "from": "org:ministry-justice-sint-maarten",
+    "to": "org:regering-sint-maarten",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:sintmaartengov-ministries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministry-public-health-social-development-labor-sint-maarten",
+    "from": "org:ministry-public-health-social-development-labor-sint-maarten",
+    "to": "org:regering-sint-maarten",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:sintmaartengov-ministries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministry-public-housing-spatial-planning-environment-infrastructure-sint-maarten",
+    "from": "org:ministry-public-housing-spatial-planning-environment-infrastructure-sint-maarten",
+    "to": "org:regering-sint-maarten",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:sintmaartengov-ministries",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:part-of-ministry-tourism-economic-affairs-transport-telecommunication-sint-maarten",
+    "from": "org:ministry-tourism-economic-affairs-transport-telecommunication-sint-maarten",
+    "to": "org:regering-sint-maarten",
+    "type": "part_of",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:sintmaartengov-ministries",
+      "retrieved": "2026-09-19",
       "confidence": "high"
     }
   },

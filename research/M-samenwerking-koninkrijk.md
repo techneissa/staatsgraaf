@@ -13,14 +13,15 @@ Expansion wave 1 of Phase 7, in this order:
 
 | Entity | Count |
 | --- | --- |
-| Organizations | 42 (39 samenwerkingsverbanden, 3 land-regering) |
-| Positions | 6 (3 gouverneur, 3 gevolmachtigde minister) |
-| People | 7 |
-| Tenures | 8 |
-| Sources | 51 |
-| Gaps | 4 |
+| Organizations | 69 (39 samenwerkingsverbanden, 3 land-regering, 3 landstaten, 24 ministeries) |
+| Positions | 39 (3 gouverneur, 3 gevolmachtigde minister, 3 statenlid, 3 voorzitter staten, 3 minister-president, 24 minister) |
+| People | 12 |
+| Tenures | 13 |
+| Relations | 30 (24 part_of, 3 oversees, 3 dept_head) |
+| Sources | 71 |
+| Gaps | 8 |
 
-Dataset totals after merge: 1614 organisations, 1434 positions, 875 people.
+Dataset totals after the wave 1 merge: 1614 organisations, 1434 positions, 875 people. This section's counts are before the next merge run.
 
 ## Sources fetched with dates
 
@@ -60,11 +61,50 @@ All retrieved 19-09-2026. Raw caches under `research/raw/R/`.
 3. The waarnemend chain before Renkema in Culemborg (Jaco Geurts, Gerdo van Grootheest) is not modelled.
 4. The Sint Maarten governor site exists under both kabgsxm.com and governorsintmaarten.com; the canonical domain is not confirmed.
 
+## Kingdom breadth extension, 19-09-2026
+
+The three landstaten and the 24 landen-ministeries are modelled, so the three landen stop being satellite-only organs.
+
+### Organisations added
+
+- `org:staten-aruba` (Staten van Aruba, alias Parlamento di Aruba), 21 zetels: AVP 9, MEP 8, FUTURO Aruba 3, PPA 1 per de Staten-zelf op iBabs. Type `elected`, subtype `staten-land`, branch `koninkrijk`, level `koninkrijk`, country `aruba`. Website https://www.parlamento.aw/. Retrieved 19-09-2026, high (gobierno.aw statenpagina + iBabs); 21-zetels-telling high.
+- `org:staten-curacao` (Staten van Curaçao, alias Parlamento di Kòrsou), 21 leden, gekozen 21-03-2025 (Electorale Raad kse.cw, search excerpt), geïnstalleerd 11-05-2025; samenstelling MFK 13, PNP 4, PAR 2, MAN 2. Website https://www.parlamento.cw/ (let op: nl.wikipedia noemde "parlemento.cw", dat is een verkeerd domein). Established 10-10-2010, medium.
+- `org:staten-sint-maarten` (Staten van Sint Maarten, alias Parliament of Sint Maarten), 15 gekozen leden, opgericht 10-10-2010. Website https://sxmparliament.org/. Established 10-10-2010, high.
+- 8 Arubaanse ministeries (namen exact van https://www.gobierno.aw/nl/ministeries), rechtsgrond "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)" via https://www.gobierno.aw/nl/0103-ministers (wijzigingen 2016 no. 76; 2018 no. 22).
+- 9 Curaçaoanse ministeries (namen van https://gobiernu.cw/nl/ministeries/; ampersands behouden). De namen krijgen "(Curaçao)" als disambiguatie, omdat "Ministerie van Financiën" anders gelijkstaat aan het Nederlandse ministerie.
+- 7 Sint Maarten ministeries met officiële Engelse namen van https://www.sintmaartengov.org/Ministries/Pages/Ministries.aspx (site is Engels; namen ongewijzigd overgenomen).
+
+Alle ministeries: type `department`, subtype `ministerie`, branch `koninkrijk`, level `koninkrijk`, country per land.
+
+### Positions, people, tenures
+
+- `pos:statenlid-<land>` (elected, verkiezing, gekozen, 21/21/15 zetels, legal basis Statuut art. 46). Term 48 maanden alleen voor Aruba (gobierno.aw: leden gekozen voor 4 jaar); voor Curaçao en Sint Maarten geen officiële termlength gefetched, dus null.
+- `pos:voorzitter-staten-<land>` (dept_head, benoeming-door-college). Legal basis alleen voor Curaçao (nombramentu-pagina).
+- `pos:minister-president-<land>` op `org:regering-<land>` (dept_head, benoeming-door-college). Term 48 maanden alleen Aruba (gobierno.aw: "De ministers worden benoemd door de Staten voor dezelfde periode als de zittingsduur van de Staten"; maximaal negen ministers per Staatsregeling).
+- 24 ministerposities op de 24 ministerieorganen; `fillMethod: benoeming-door-college`, entryMode `benoemd`. Alle 24 plus de Sint Maarten minister-presidentschap staan leeg (zie gaps).
+- Voorzitters gemodelleerd: Alfred M. Sneek (alias Marlon Sneek, AVP) start 27-03-2025 (wikipedia, medium; identiteit high via iBabs); Fergino Brownbill (MFK) start 11-05-2025 (wikipedia, medium; identiteit high via parlamento.cw); Sarah A. Wescot-Williams (DP) start 10-02-2024 (wikipedia, medium; identiteit high via presidium-pagina).
+- Minister-presidenten: Mike Eman (Michiel Godfried Eman) start 28-03-2025, kabinet AVP-Futuro (gobierno.aw samenstelling, high); Gilmar Pisas start 09-06-2025, kabinet-Pisas III (wikipedia, medium).
+
+### Relations and conventions
+
+- Elk ministerie krijgt `part_of` naar `org:regering-<land>` (24 relaties). Nederlandse ministeries hebben dit niet (ze hangen onder geen aparte regering-organisatie); dit is een landniveau-conventie voor dit werkstream.
+- Elke statenorganisatie krijgt `oversees` naar `org:regering-<land>` (3 relaties), elk met een eigen officiële bron: gobierno.aw samenstelling ("beleid gecontroleerd door de Staten"), parlamento.cw ("kontrolá i eksigí responsabilidat for di Gobièrnu"), sxmparliament.org/about ("Parliament exercises oversight of the Government"). `accountable_to` wordt niet gebruikt (nul precedent in data).
+- Elk voorzitterschap krijgt een `dept_head`-relatie van positie naar statenorganisatie (precedent: voorzitter Tweede Kamer).
+
+### Gaps added (4, totaal nu 8)
+
+1. Aruba: zes ministers naast de minister-president niet als personen met tenuren gemodelleerd; portefeuille-ministerie-mapping is onduidelijk (menu-slugs verouderd). Endpoint https://www.gobierno.aw/nl/samenstelling-0.
+2. Curaçao: ministers niet gemodelleerd; geen officiële samenstellingspagina gefetched. Endpoint https://gobiernu.cw/nl/ministeries/.
+3. Sint Maarten: ministers en de tenure van PM Luc F.E. Mercelina niet gemodelleerd. Endpoint Ministries.aspx + per-ministry pagina's.
+4. Statenleden van de drie landen niet als leden gemodelleerd; startdatum voorzitterschap Wescot-Williams (10-02-2024) is alleen via Wikipedia (medium) bekend.
+
+All sources and endpoints are recorded with retrieval date 19-09-2026 in `research/M-samenwerking-koninkrijk.json` (20 new sources, 20 new endpoint entries).
+
 ## Ordered plan for the next Phase 7 cycles
 
 1. **Chamber depth**: committees and their members from the TK OData source already in use; votes and kamerstukken stay out until membership is complete (ADR 0006 defers them).
 2. **Unfilled seats**: fill the elected bodies (gemeenteraden, provinciale staten, waterschapsbesturen) from KOOP and municipality records; this is the largest headcount jump and needs a nightly-friendly source.
-3. **Kingdom breadth**: eilandsraden of Aruba, Curaçao and Sint Maarten, ministers and ministries of the three landen, on the same schema.
+3. **Kingdom breadth** (partly done 19-09-2026): landstaten, BES-eilandsraden and landen-ministeries are modelled; remaining are the ministers and the Statenlid membership of the three landen (see gaps above).
 4. **Historical dimension**: tenures and kabinetten back through time for a timeline scrubber.
 5. **Public API and bulk downloads** for researchers and journalists.
 6. **Swift app** (already planned as the iOS phase) once the contract stabilises.

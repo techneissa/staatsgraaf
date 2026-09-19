@@ -53975,6 +53975,646 @@
     }
   },
   {
+    "id": "org:ministerie-algemene-zaken-aruba",
+    "slug": "ministerie-algemene-zaken-aruba",
+    "name": "Ministerie van Algemene Zaken, Innovatie, Overheidsorganisatie, Infrastructuur en Ruimtelijke Ordening",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "aruba",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Aruba. Genoemd op de officiële ministeriespagina van gobierno.aw (8 ministeries); rechtsgrond is de Landsverordening instelling ministeries 2022 (AB 2022 no. 18).",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobierno-aw-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-algemene-zaken-minister-president-curacao",
+    "slug": "ministerie-algemene-zaken-minister-president-curacao",
+    "name": "Ministerie van Algemene Zaken en Minister President (Curaçao)",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "curacao",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-arbeid-energie-integratie-aruba",
+    "slug": "ministerie-arbeid-energie-integratie-aruba",
+    "name": "Ministerie van Arbeid, Energie en Integratie",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "aruba",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Aruba. Genoemd op de officiële ministeriespagina van gobierno.aw (8 ministeries); rechtsgrond is de Landsverordening instelling ministeries 2022 (AB 2022 no. 18).",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobierno-aw-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-bestuur-planning-dienstverlening-curacao",
+    "slug": "ministerie-bestuur-planning-dienstverlening-curacao",
+    "name": "Ministerie van Bestuur, Planning & Dienstverlening (Curaçao)",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "curacao",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-economische-ontwikkeling-curacao",
+    "slug": "ministerie-economische-ontwikkeling-curacao",
+    "name": "Ministerie van Economische Ontwikkeling (Curaçao)",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "curacao",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-economische-zaken-communicatie-duurzame-ontwikkeling-aruba",
+    "slug": "ministerie-economische-zaken-communicatie-duurzame-ontwikkeling-aruba",
+    "name": "Ministerie van Economische Zaken, Communicatie, Duurzame Ontwikkeling",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "aruba",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Aruba. Genoemd op de officiële ministeriespagina van gobierno.aw (8 ministeries); rechtsgrond is de Landsverordening instelling ministeries 2022 (AB 2022 no. 18).",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobierno-aw-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-financien-cultuur-aruba",
+    "slug": "ministerie-financien-cultuur-aruba",
+    "name": "Ministerie van Financiën en Cultuur",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "aruba",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Aruba. Genoemd op de officiële ministeriespagina van gobierno.aw (8 ministeries); rechtsgrond is de Landsverordening instelling ministeries 2022 (AB 2022 no. 18).",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobierno-aw-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-financien-curacao",
+    "slug": "ministerie-financien-curacao",
+    "name": "Ministerie van Financiën (Curaçao)",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "curacao",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-gezondheid-milieu-natuur-curacao",
+    "slug": "ministerie-gezondheid-milieu-natuur-curacao",
+    "name": "Ministerie van Gezondheid, Milieu & Natuur (Curaçao)",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "curacao",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-justitie-curacao",
+    "slug": "ministerie-justitie-curacao",
+    "name": "Ministerie van Justitie (Curaçao)",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "curacao",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-justitie-sociale-zaken-aruba",
+    "slug": "ministerie-justitie-sociale-zaken-aruba",
+    "name": "Ministerie van Justitie en Sociale Zaken",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "aruba",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Aruba. Genoemd op de officiële ministeriespagina van gobierno.aw (8 ministeries); rechtsgrond is de Landsverordening instelling ministeries 2022 (AB 2022 no. 18).",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobierno-aw-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-onderwijs-sport-aruba",
+    "slug": "ministerie-onderwijs-sport-aruba",
+    "name": "Ministerie van Onderwijs en Sport",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "aruba",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Aruba. Genoemd op de officiële ministeriespagina van gobierno.aw (8 ministeries); rechtsgrond is de Landsverordening instelling ministeries 2022 (AB 2022 no. 18).",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobierno-aw-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-onderwijs-wetenschap-cultuur-sport-curacao",
+    "slug": "ministerie-onderwijs-wetenschap-cultuur-sport-curacao",
+    "name": "Ministerie van Onderwijs, Wetenschap, Cultuur & Sport (Curaçao)",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "curacao",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-sociale-ontwikkeling-arbeid-welzijn-curacao",
+    "slug": "ministerie-sociale-ontwikkeling-arbeid-welzijn-curacao",
+    "name": "Ministerie van Sociale Ontwikkeling, Arbeid & Welzijn (Curaçao)",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "curacao",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-toerisme-volksgezondheid-aruba",
+    "slug": "ministerie-toerisme-volksgezondheid-aruba",
+    "name": "Ministerie van Toerisme en Volksgezondheid",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "aruba",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Aruba. Genoemd op de officiële ministeriespagina van gobierno.aw (8 ministeries); rechtsgrond is de Landsverordening instelling ministeries 2022 (AB 2022 no. 18).",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobierno-aw-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministerie-transport-integriteit-natuur-ouderenzaken-aruba",
+    "slug": "ministerie-transport-integriteit-natuur-ouderenzaken-aruba",
+    "name": "Ministerie van Transport, Integriteit, Natuur en Ouderenzaken",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "aruba",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Aruba. Genoemd op de officiële ministeriespagina van gobierno.aw (8 ministeries); rechtsgrond is de Landsverordening instelling ministeries 2022 (AB 2022 no. 18).",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobierno-aw-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "org:ministerie-van-algemene-zaken",
     "slug": "ministerie-van-algemene-zaken",
     "name": "Ministerie van Algemene Zaken",
@@ -54630,6 +55270,46 @@
     ]
   },
   {
+    "id": "org:ministerie-verkeer-vervoer-ruimtelijke-planning-curacao",
+    "slug": "ministerie-verkeer-vervoer-ruimtelijke-planning-curacao",
+    "name": "Ministerie van Verkeer, Vervoer & Ruimtelijke Planning (Curaçao)",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "curacao",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "org:ministerraad",
     "slug": "ministerraad",
     "name": "Ministerraad",
@@ -54675,6 +55355,286 @@
       {
         "source": "src:rijksoverheid-ministerraad",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministry-education-culture-youth-sport-sint-maarten",
+    "slug": "ministry-education-culture-youth-sport-sint-maarten",
+    "name": "Ministry of Education, Culture, Youth and Sport",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "sint-maarten",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Sint Maarten. Officiële Engelse naam volgens de ministeriespagina van sintmaartengov.org, die 7 ministeries onderscheidt.",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:sintmaartengov-ministries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministry-finance-sint-maarten",
+    "slug": "ministry-finance-sint-maarten",
+    "name": "Ministry of Finance",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "sint-maarten",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Sint Maarten. Officiële Engelse naam volgens de ministeriespagina van sintmaartengov.org, die 7 ministeries onderscheidt.",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:sintmaartengov-ministries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministry-general-affairs-sint-maarten",
+    "slug": "ministry-general-affairs-sint-maarten",
+    "name": "Ministry of General Affairs",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "sint-maarten",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Sint Maarten. Officiële Engelse naam volgens de ministeriespagina van sintmaartengov.org, die 7 ministeries onderscheidt.",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:sintmaartengov-ministries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministry-justice-sint-maarten",
+    "slug": "ministry-justice-sint-maarten",
+    "name": "Ministry of Justice",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "sint-maarten",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Sint Maarten. Officiële Engelse naam volgens de ministeriespagina van sintmaartengov.org, die 7 ministeries onderscheidt.",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:sintmaartengov-ministries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministry-public-health-social-development-labor-sint-maarten",
+    "slug": "ministry-public-health-social-development-labor-sint-maarten",
+    "name": "Ministry of Public Health, Social Development and Labor",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "sint-maarten",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Sint Maarten. Officiële Engelse naam volgens de ministeriespagina van sintmaartengov.org, die 7 ministeries onderscheidt.",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:sintmaartengov-ministries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministry-public-housing-spatial-planning-environment-infrastructure-sint-maarten",
+    "slug": "ministry-public-housing-spatial-planning-environment-infrastructure-sint-maarten",
+    "name": "Ministry of Public Housing, Spatial Planning, Environment and Infrastructure",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "sint-maarten",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Sint Maarten. Officiële Engelse naam volgens de ministeriespagina van sintmaartengov.org, die 7 ministeries onderscheidt.",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:sintmaartengov-ministries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "org:ministry-tourism-economic-affairs-transport-telecommunication-sint-maarten",
+    "slug": "ministry-tourism-economic-affairs-transport-telecommunication-sint-maarten",
+    "name": "Ministry of Tourism, Economic Affairs, Transport and Telecommunication",
+    "type": "department",
+    "subtype": "ministerie",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "sint-maarten",
+    "aliases": [],
+    "parent": null,
+    "partOf": [],
+    "description": "Ministerie van het land Sint Maarten. Officiële Engelse naam volgens de ministeriespagina van sintmaartengov.org, die 7 ministeries onderscheidt.",
+    "legalSource": {
+      "label": "Grondwet art. 44",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk2_Paragraaf2_Artikel44"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:sintmaartengov-ministries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
         "confidence": "high"
       }
     ]
@@ -62251,6 +63211,147 @@
       "label": "Mijnbouwwet",
       "url": "https://wetten.overheid.nl/BWBR0014168"
     }
+  },
+  {
+    "id": "org:staten-aruba",
+    "slug": "staten-aruba",
+    "name": "Staten van Aruba",
+    "type": "elected",
+    "subtype": "staten-land",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "aruba",
+    "aliases": [
+      "Parlamento di Aruba"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Vertegenwoordigend lichaam (parlement) van het land Aruba, door de ingezetenen gekozen voor vier jaar (Statuut art. 46; gobierno.aw). 21 zetels, na de verkiezing van 06-12-2024: AVP 9, MEP 8, FUTURO Aruba 3, PPA 1. Het zittingsjaar begint op de tweede dinsdag van september.",
+    "legalSource": {
+      "label": "Statuut voor het Koninkrijk art. 46",
+      "url": "https://wetten.overheid.nl/BWBR0002154"
+    },
+    "website": "https://www.parlamento.aw/",
+    "established": null,
+    "dissolved": null,
+    "seatsCount": 21,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:gobierno-aw-staten",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:statenvanaruba-ibabs",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:wikipedia-parlamento-aruba",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "id": "org:staten-curacao",
+    "slug": "staten-curacao",
+    "name": "Staten van Curaçao",
+    "type": "elected",
+    "subtype": "staten-land",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "curacao",
+    "aliases": [
+      "Parlamento di Kòrsou"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Vertegenwoordigend lichaam (parlement) van het land Curaçao, 21 leden, gekozen bij de verkiezing van 21-03-2025 en geïnstalleerd op 11-05-2025. Samenstelling: MFK 13, PNP 4, PAR 2, MAN 2. De Staten controleren de regering en vragen verantwoording (parlamento.cw).",
+    "legalSource": {
+      "label": "Statuut voor het Koninkrijk art. 46",
+      "url": "https://wetten.overheid.nl/BWBR0002154"
+    },
+    "website": "https://www.parlamento.cw/",
+    "established": "2010-10-10",
+    "dissolved": null,
+    "seatsCount": 21,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:parlamento-curacao",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:electorale-raad-curacao",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
+      },
+      {
+        "source": "src:wikipedia-staten-curacao",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "id": "org:staten-sint-maarten",
+    "slug": "staten-sint-maarten",
+    "name": "Staten van Sint Maarten",
+    "type": "elected",
+    "subtype": "staten-land",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "sint-maarten",
+    "aliases": [
+      "Parliament of Sint Maarten"
+    ],
+    "parent": null,
+    "partOf": [],
+    "description": "Vertegenwoordigend lichaam (parlement) van het land Sint Maarten, 15 gekozen leden (sxmparliament.org). Opgericht op 10-10-2010, de dag waarop het land Sint Maarten status equalis kreeg binnen het Koninkrijk.",
+    "legalSource": {
+      "label": "Statuut voor het Koninkrijk art. 46",
+      "url": "https://wetten.overheid.nl/BWBR0002154"
+    },
+    "website": "https://sxmparliament.org/",
+    "established": "2010-10-10",
+    "dissolved": null,
+    "seatsCount": 15,
+    "employeeCount": {
+      "budgeted": null,
+      "actual": null,
+      "year": null
+    },
+    "images": [],
+    "sources": [
+      {
+        "source": "src:sxmparliament-about",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:sxmparliament",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      },
+      {
+        "source": "src:wikipedia-staten-sint-maarten",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
+      }
+    ]
   },
   {
     "id": "org:tweede-kamer",

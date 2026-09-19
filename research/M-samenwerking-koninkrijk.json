@@ -76,6 +76,106 @@
       "url": "https://www.sintmaartengov.org/news/pages/Minister-Plenipotentiary-2025-Marked-a-Pivotal-Moment-in-Shaping-the-Future-Direction-of-the-Cabinet.aspx",
       "retrieved": "2026-09-19",
       "notes": "Fetched and cached during wave 1 research."
+    },
+    {
+      "url": "https://statenvanaruba.ibabs.org/People/Profiles/10d696c2-9000-4334-8aba-f74c36540a83",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched: zeteltelling per fractie (AVP 9, MEP 8, FUTURO Aruba 3, PPA 1)."
+    },
+    {
+      "url": "https://statenvanaruba.ibabs.org/People/Profiles/c607b22a-41f8-4d3e-a6e6-5c0712658602",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched: voorzitter Sneek, Alfred M."
+    },
+    {
+      "url": "https://www.parlamento.aw/",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched: officiële site Parlamento di Aruba."
+    },
+    {
+      "url": "https://www.gobierno.aw/nl/staten",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched: Staten gekozen voor 4 jaar; zittingsjaar tweede dinsdag van september."
+    },
+    {
+      "url": "https://www.gobierno.aw/nl/ministeries",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched: 8 ministeries; menu-slugs verouderd."
+    },
+    {
+      "url": "https://www.gobierno.aw/nl/samenstelling-0",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched: kabinet AVP-Futuro sinds 28-03-2025; ministers benoemd door de Staten."
+    },
+    {
+      "url": "https://www.gobierno.aw/nl/0103-ministers",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched: rechtsgrond Landsverordening instelling ministeries 2022 (AB 2022 no. 18)."
+    },
+    {
+      "url": "https://www.parlamento.cw/",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched: 21 leden; presidente Fergino Brownbill."
+    },
+    {
+      "url": "https://www.parlamento.cw/nombramentu-di-presidente",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched: geen naam of datum van president."
+    },
+    {
+      "url": "https://gobiernu.cw/nl/ministeries/",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched: 9 ministeries."
+    },
+    {
+      "url": "https://kse.cw/verkiezingen",
+      "retrieved": "2026-09-19",
+      "notes": "Search excerpt: Staten bestaat uit 21 leden; verkiezing 21-03-2025."
+    },
+    {
+      "url": "https://www.sintmaartengov.org/Ministries/Pages/Ministries.aspx",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched: 7 ministeries, officiële Engelse namen, geen ministernamen."
+    },
+    {
+      "url": "https://sxmparliament.org/",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched: officiële site Parliament of Sint Maarten."
+    },
+    {
+      "url": "https://sxmparliament.org/about/",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched: 15 gekozen leden; opgericht 10-10-2010; oversight."
+    },
+    {
+      "url": "https://sxmparliament.org/presidium/",
+      "retrieved": "2026-09-19",
+      "notes": "Fetched: president Sarah A. Wescot-Williams."
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Parliament_of_Aruba",
+      "retrieved": "2026-09-19",
+      "notes": "Search excerpt only: voorzitter Marlon Sneek sinds 27-03-2025."
+    },
+    {
+      "url": "https://nl.wikipedia.org/wiki/Staten_van_Cura%C3%A7ao",
+      "retrieved": "2026-09-19",
+      "notes": "Search excerpt only: Brownbill sinds 11-05-2025; samenstelling."
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Estates_of_Cura%C3%A7ao",
+      "retrieved": "2026-09-19",
+      "notes": "Search excerpt only: Brownbill sinds 11-05-2025."
+    },
+    {
+      "url": "https://nl.wikipedia.org/wiki/Kabinetten_Cura%C3%A7ao",
+      "retrieved": "2026-09-19",
+      "notes": "Search excerpt only: kabinet-Pisas III aangetreden 09-06-2025."
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Estates_of_Sint_Maarten",
+      "retrieved": "2026-09-19",
+      "notes": "Search excerpt only: Wescot-Williams voorzitter sinds 10-02-2024."
     }
   ],
   "organizations": [
@@ -1600,6 +1700,939 @@
           "confidence": "high"
         }
       ]
+    },
+    {
+      "id": "org:staten-aruba",
+      "slug": "staten-aruba",
+      "name": "Staten van Aruba",
+      "type": "elected",
+      "subtype": "staten-land",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "aruba",
+      "aliases": [
+        "Parlamento di Aruba"
+      ],
+      "parent": null,
+      "partOf": [],
+      "description": "Vertegenwoordigend lichaam (parlement) van het land Aruba, door de ingezetenen gekozen voor vier jaar (Statuut art. 46; gobierno.aw). 21 zetels, na de verkiezing van 06-12-2024: AVP 9, MEP 8, FUTURO Aruba 3, PPA 1. Het zittingsjaar begint op de tweede dinsdag van september.",
+      "legalSource": {
+        "label": "Statuut voor het Koninkrijk art. 46",
+        "url": "https://wetten.overheid.nl/BWBR0002154"
+      },
+      "website": "https://www.parlamento.aw/",
+      "established": null,
+      "dissolved": null,
+      "seatsCount": 21,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-staten",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "source": "src:statenvanaruba-ibabs",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wikipedia-parlamento-aruba",
+          "retrieved": "2026-09-19",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "org:staten-curacao",
+      "slug": "staten-curacao",
+      "name": "Staten van Curaçao",
+      "type": "elected",
+      "subtype": "staten-land",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "curacao",
+      "aliases": [
+        "Parlamento di Kòrsou"
+      ],
+      "parent": null,
+      "partOf": [],
+      "description": "Vertegenwoordigend lichaam (parlement) van het land Curaçao, 21 leden, gekozen bij de verkiezing van 21-03-2025 en geïnstalleerd op 11-05-2025. Samenstelling: MFK 13, PNP 4, PAR 2, MAN 2. De Staten controleren de regering en vragen verantwoording (parlamento.cw).",
+      "legalSource": {
+        "label": "Statuut voor het Koninkrijk art. 46",
+        "url": "https://wetten.overheid.nl/BWBR0002154"
+      },
+      "website": "https://www.parlamento.cw/",
+      "established": "2010-10-10",
+      "dissolved": null,
+      "seatsCount": 21,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:parlamento-curacao",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "source": "src:electorale-raad-curacao",
+          "retrieved": "2026-09-19",
+          "confidence": "medium"
+        },
+        {
+          "source": "src:wikipedia-staten-curacao",
+          "retrieved": "2026-09-19",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "org:staten-sint-maarten",
+      "slug": "staten-sint-maarten",
+      "name": "Staten van Sint Maarten",
+      "type": "elected",
+      "subtype": "staten-land",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "sint-maarten",
+      "aliases": [
+        "Parliament of Sint Maarten"
+      ],
+      "parent": null,
+      "partOf": [],
+      "description": "Vertegenwoordigend lichaam (parlement) van het land Sint Maarten, 15 gekozen leden (sxmparliament.org). Opgericht op 10-10-2010, de dag waarop het land Sint Maarten status equalis kreeg binnen het Koninkrijk.",
+      "legalSource": {
+        "label": "Statuut voor het Koninkrijk art. 46",
+        "url": "https://wetten.overheid.nl/BWBR0002154"
+      },
+      "website": "https://sxmparliament.org/",
+      "established": "2010-10-10",
+      "dissolved": null,
+      "seatsCount": 15,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:sxmparliament-about",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "source": "src:sxmparliament",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wikipedia-staten-sint-maarten",
+          "retrieved": "2026-09-19",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-algemene-zaken-aruba",
+      "slug": "ministerie-algemene-zaken-aruba",
+      "name": "Ministerie van Algemene Zaken, Innovatie, Overheidsorganisatie, Infrastructuur en Ruimtelijke Ordening",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "aruba",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Aruba. Genoemd op de officiële ministeriespagina van gobierno.aw (8 ministeries); rechtsgrond is de Landsverordening instelling ministeries 2022 (AB 2022 no. 18).",
+      "legalSource": {
+        "label": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)",
+        "url": "https://www.gobierno.aw/nl/0103-ministers"
+      },
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-arbeid-energie-integratie-aruba",
+      "slug": "ministerie-arbeid-energie-integratie-aruba",
+      "name": "Ministerie van Arbeid, Energie en Integratie",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "aruba",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Aruba. Genoemd op de officiële ministeriespagina van gobierno.aw (8 ministeries); rechtsgrond is de Landsverordening instelling ministeries 2022 (AB 2022 no. 18).",
+      "legalSource": {
+        "label": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)",
+        "url": "https://www.gobierno.aw/nl/0103-ministers"
+      },
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-economische-zaken-communicatie-duurzame-ontwikkeling-aruba",
+      "slug": "ministerie-economische-zaken-communicatie-duurzame-ontwikkeling-aruba",
+      "name": "Ministerie van Economische Zaken, Communicatie, Duurzame Ontwikkeling",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "aruba",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Aruba. Genoemd op de officiële ministeriespagina van gobierno.aw (8 ministeries); rechtsgrond is de Landsverordening instelling ministeries 2022 (AB 2022 no. 18).",
+      "legalSource": {
+        "label": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)",
+        "url": "https://www.gobierno.aw/nl/0103-ministers"
+      },
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-financien-cultuur-aruba",
+      "slug": "ministerie-financien-cultuur-aruba",
+      "name": "Ministerie van Financiën en Cultuur",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "aruba",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Aruba. Genoemd op de officiële ministeriespagina van gobierno.aw (8 ministeries); rechtsgrond is de Landsverordening instelling ministeries 2022 (AB 2022 no. 18).",
+      "legalSource": {
+        "label": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)",
+        "url": "https://www.gobierno.aw/nl/0103-ministers"
+      },
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-justitie-sociale-zaken-aruba",
+      "slug": "ministerie-justitie-sociale-zaken-aruba",
+      "name": "Ministerie van Justitie en Sociale Zaken",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "aruba",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Aruba. Genoemd op de officiële ministeriespagina van gobierno.aw (8 ministeries); rechtsgrond is de Landsverordening instelling ministeries 2022 (AB 2022 no. 18).",
+      "legalSource": {
+        "label": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)",
+        "url": "https://www.gobierno.aw/nl/0103-ministers"
+      },
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-onderwijs-sport-aruba",
+      "slug": "ministerie-onderwijs-sport-aruba",
+      "name": "Ministerie van Onderwijs en Sport",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "aruba",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Aruba. Genoemd op de officiële ministeriespagina van gobierno.aw (8 ministeries); rechtsgrond is de Landsverordening instelling ministeries 2022 (AB 2022 no. 18).",
+      "legalSource": {
+        "label": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)",
+        "url": "https://www.gobierno.aw/nl/0103-ministers"
+      },
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-toerisme-volksgezondheid-aruba",
+      "slug": "ministerie-toerisme-volksgezondheid-aruba",
+      "name": "Ministerie van Toerisme en Volksgezondheid",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "aruba",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Aruba. Genoemd op de officiële ministeriespagina van gobierno.aw (8 ministeries); rechtsgrond is de Landsverordening instelling ministeries 2022 (AB 2022 no. 18).",
+      "legalSource": {
+        "label": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)",
+        "url": "https://www.gobierno.aw/nl/0103-ministers"
+      },
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-transport-integriteit-natuur-ouderenzaken-aruba",
+      "slug": "ministerie-transport-integriteit-natuur-ouderenzaken-aruba",
+      "name": "Ministerie van Transport, Integriteit, Natuur en Ouderenzaken",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "aruba",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Aruba. Genoemd op de officiële ministeriespagina van gobierno.aw (8 ministeries); rechtsgrond is de Landsverordening instelling ministeries 2022 (AB 2022 no. 18).",
+      "legalSource": {
+        "label": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)",
+        "url": "https://www.gobierno.aw/nl/0103-ministers"
+      },
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-justitie-curacao",
+      "slug": "ministerie-justitie-curacao",
+      "name": "Ministerie van Justitie (Curaçao)",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "curacao",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+      "legalSource": null,
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-financien-curacao",
+      "slug": "ministerie-financien-curacao",
+      "name": "Ministerie van Financiën (Curaçao)",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "curacao",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+      "legalSource": null,
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-algemene-zaken-minister-president-curacao",
+      "slug": "ministerie-algemene-zaken-minister-president-curacao",
+      "name": "Ministerie van Algemene Zaken en Minister President (Curaçao)",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "curacao",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+      "legalSource": null,
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-gezondheid-milieu-natuur-curacao",
+      "slug": "ministerie-gezondheid-milieu-natuur-curacao",
+      "name": "Ministerie van Gezondheid, Milieu & Natuur (Curaçao)",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "curacao",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+      "legalSource": null,
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-economische-ontwikkeling-curacao",
+      "slug": "ministerie-economische-ontwikkeling-curacao",
+      "name": "Ministerie van Economische Ontwikkeling (Curaçao)",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "curacao",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+      "legalSource": null,
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-onderwijs-wetenschap-cultuur-sport-curacao",
+      "slug": "ministerie-onderwijs-wetenschap-cultuur-sport-curacao",
+      "name": "Ministerie van Onderwijs, Wetenschap, Cultuur & Sport (Curaçao)",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "curacao",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+      "legalSource": null,
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-verkeer-vervoer-ruimtelijke-planning-curacao",
+      "slug": "ministerie-verkeer-vervoer-ruimtelijke-planning-curacao",
+      "name": "Ministerie van Verkeer, Vervoer & Ruimtelijke Planning (Curaçao)",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "curacao",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+      "legalSource": null,
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-bestuur-planning-dienstverlening-curacao",
+      "slug": "ministerie-bestuur-planning-dienstverlening-curacao",
+      "name": "Ministerie van Bestuur, Planning & Dienstverlening (Curaçao)",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "curacao",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+      "legalSource": null,
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministerie-sociale-ontwikkeling-arbeid-welzijn-curacao",
+      "slug": "ministerie-sociale-ontwikkeling-arbeid-welzijn-curacao",
+      "name": "Ministerie van Sociale Ontwikkeling, Arbeid & Welzijn (Curaçao)",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "curacao",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Curaçao. Genoemd op de officiële ministeriespagina van gobiernu.cw, die 9 ministeries onderscheidt.",
+      "legalSource": null,
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministry-general-affairs-sint-maarten",
+      "slug": "ministry-general-affairs-sint-maarten",
+      "name": "Ministry of General Affairs",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "sint-maarten",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Sint Maarten. Officiële Engelse naam volgens de ministeriespagina van sintmaartengov.org, die 7 ministeries onderscheidt.",
+      "legalSource": null,
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:sintmaartengov-ministries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministry-tourism-economic-affairs-transport-telecommunication-sint-maarten",
+      "slug": "ministry-tourism-economic-affairs-transport-telecommunication-sint-maarten",
+      "name": "Ministry of Tourism, Economic Affairs, Transport and Telecommunication",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "sint-maarten",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Sint Maarten. Officiële Engelse naam volgens de ministeriespagina van sintmaartengov.org, die 7 ministeries onderscheidt.",
+      "legalSource": null,
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:sintmaartengov-ministries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministry-finance-sint-maarten",
+      "slug": "ministry-finance-sint-maarten",
+      "name": "Ministry of Finance",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "sint-maarten",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Sint Maarten. Officiële Engelse naam volgens de ministeriespagina van sintmaartengov.org, die 7 ministeries onderscheidt.",
+      "legalSource": null,
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:sintmaartengov-ministries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministry-public-housing-spatial-planning-environment-infrastructure-sint-maarten",
+      "slug": "ministry-public-housing-spatial-planning-environment-infrastructure-sint-maarten",
+      "name": "Ministry of Public Housing, Spatial Planning, Environment and Infrastructure",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "sint-maarten",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Sint Maarten. Officiële Engelse naam volgens de ministeriespagina van sintmaartengov.org, die 7 ministeries onderscheidt.",
+      "legalSource": null,
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:sintmaartengov-ministries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministry-education-culture-youth-sport-sint-maarten",
+      "slug": "ministry-education-culture-youth-sport-sint-maarten",
+      "name": "Ministry of Education, Culture, Youth and Sport",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "sint-maarten",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Sint Maarten. Officiële Engelse naam volgens de ministeriespagina van sintmaartengov.org, die 7 ministeries onderscheidt.",
+      "legalSource": null,
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:sintmaartengov-ministries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministry-justice-sint-maarten",
+      "slug": "ministry-justice-sint-maarten",
+      "name": "Ministry of Justice",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "sint-maarten",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Sint Maarten. Officiële Engelse naam volgens de ministeriespagina van sintmaartengov.org, die 7 ministeries onderscheidt.",
+      "legalSource": null,
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:sintmaartengov-ministries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "org:ministry-public-health-social-development-labor-sint-maarten",
+      "slug": "ministry-public-health-social-development-labor-sint-maarten",
+      "name": "Ministry of Public Health, Social Development and Labor",
+      "type": "department",
+      "subtype": "ministerie",
+      "branch": "koninkrijk",
+      "level": "koninkrijk",
+      "country": "sint-maarten",
+      "aliases": [],
+      "parent": null,
+      "partOf": [],
+      "description": "Ministerie van het land Sint Maarten. Officiële Engelse naam volgens de ministeriespagina van sintmaartengov.org, die 7 ministeries onderscheidt.",
+      "legalSource": null,
+      "website": null,
+      "established": null,
+      "dissolved": null,
+      "seatsCount": null,
+      "employeeCount": {
+        "budgeted": null,
+        "actual": null,
+        "year": null
+      },
+      "images": [],
+      "sources": [
+        {
+          "source": "src:sintmaartengov-ministries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
     }
   ],
   "positions": [
@@ -1767,6 +2800,861 @@
           "confidence": "high"
         }
       ]
+    },
+    {
+      "id": "pos:statenlid-aruba",
+      "slug": "statenlid-aruba",
+      "title": "Statenlid van Aruba",
+      "organization": "org:staten-aruba",
+      "type": "elected",
+      "fillMethod": "verkiezing",
+      "entryModes": [
+        "gekozen"
+      ],
+      "termLengthMonths": 48,
+      "seatsCount": 21,
+      "legalBasis": {
+        "label": "Statuut voor het Koninkrijk art. 46",
+        "url": "https://wetten.overheid.nl/BWBR0002154"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:statenvanaruba-ibabs",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "source": "src:statuut",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Statenlid van Aruba"
+      ]
+    },
+    {
+      "id": "pos:voorzitter-staten-aruba",
+      "slug": "voorzitter-staten-aruba",
+      "title": "Voorzitter van de Staten van Aruba",
+      "organization": "org:staten-aruba",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "gekozen"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:statenvanaruba-ibabs-voorzitter",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Voorzitter van de Staten van Aruba"
+      ]
+    },
+    {
+      "id": "pos:minister-president-aruba",
+      "slug": "minister-president-aruba",
+      "title": "Minister-President van Aruba",
+      "organization": "org:regering-aruba",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": 48,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-regering",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister-President van Aruba"
+      ]
+    },
+    {
+      "id": "pos:statenlid-curacao",
+      "slug": "statenlid-curacao",
+      "title": "Statenlid van Curaçao",
+      "organization": "org:staten-curacao",
+      "type": "elected",
+      "fillMethod": "verkiezing",
+      "entryModes": [
+        "gekozen"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 21,
+      "legalBasis": {
+        "label": "Statuut voor het Koninkrijk art. 46",
+        "url": "https://wetten.overheid.nl/BWBR0002154"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:parlamento-curacao",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "source": "src:statuut",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Statenlid van Curaçao"
+      ]
+    },
+    {
+      "id": "pos:voorzitter-staten-curacao",
+      "slug": "voorzitter-staten-curacao",
+      "title": "Voorzitter van de Staten van Curaçao",
+      "organization": "org:staten-curacao",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "gekozen"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Parlamento di Kòrsou: Nombramentu di Presidente",
+        "url": "https://www.parlamento.cw/nombramentu-di-presidente"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:parlamento-curacao",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Voorzitter van de Staten van Curaçao"
+      ]
+    },
+    {
+      "id": "pos:minister-president-curacao",
+      "slug": "minister-president-curacao",
+      "title": "Minister-President van Curaçao",
+      "organization": "org:regering-curacao",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:statuut",
+          "retrieved": "2026-09-19",
+          "confidence": "medium"
+        }
+      ],
+      "aliases": [
+        "Minister-President van Curaçao"
+      ]
+    },
+    {
+      "id": "pos:statenlid-sint-maarten",
+      "slug": "statenlid-sint-maarten",
+      "title": "Statenlid van Sint Maarten",
+      "organization": "org:staten-sint-maarten",
+      "type": "elected",
+      "fillMethod": "verkiezing",
+      "entryModes": [
+        "gekozen"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 15,
+      "legalBasis": {
+        "label": "Statuut voor het Koninkrijk art. 46",
+        "url": "https://wetten.overheid.nl/BWBR0002154"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:sxmparliament-about",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "source": "src:statuut",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Statenlid van Sint Maarten"
+      ]
+    },
+    {
+      "id": "pos:voorzitter-staten-sint-maarten",
+      "slug": "voorzitter-staten-sint-maarten",
+      "title": "Voorzitter van de Staten van Sint Maarten",
+      "organization": "org:staten-sint-maarten",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "gekozen"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:sxmparliament-presidium",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Voorzitter van de Staten van Sint Maarten"
+      ]
+    },
+    {
+      "id": "pos:minister-president-sint-maarten",
+      "slug": "minister-president-sint-maarten",
+      "title": "Minister-President van Sint Maarten",
+      "organization": "org:regering-sint-maarten",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:statuut",
+          "retrieved": "2026-09-19",
+          "confidence": "medium"
+        }
+      ],
+      "aliases": [
+        "Minister-President van Sint Maarten"
+      ]
+    },
+    {
+      "id": "pos:minister-algemene-zaken-aruba",
+      "slug": "minister-algemene-zaken-aruba",
+      "title": "Minister van Algemene Zaken, Innovatie, Overheidsorganisatie, Infrastructuur en Ruimtelijke Ordening",
+      "organization": "org:ministerie-algemene-zaken-aruba",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)",
+        "url": "https://www.gobierno.aw/nl/0103-ministers"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Algemene Zaken, Innovatie, Overheidsorganisatie, Infrastructuur en Ruimtelijke Ordening"
+      ]
+    },
+    {
+      "id": "pos:minister-arbeid-energie-integratie-aruba",
+      "slug": "minister-arbeid-energie-integratie-aruba",
+      "title": "Minister van Arbeid, Energie en Integratie",
+      "organization": "org:ministerie-arbeid-energie-integratie-aruba",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)",
+        "url": "https://www.gobierno.aw/nl/0103-ministers"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Arbeid, Energie en Integratie"
+      ]
+    },
+    {
+      "id": "pos:minister-economische-zaken-communicatie-duurzame-ontwikkeling-aruba",
+      "slug": "minister-economische-zaken-communicatie-duurzame-ontwikkeling-aruba",
+      "title": "Minister van Economische Zaken, Communicatie, Duurzame Ontwikkeling",
+      "organization": "org:ministerie-economische-zaken-communicatie-duurzame-ontwikkeling-aruba",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)",
+        "url": "https://www.gobierno.aw/nl/0103-ministers"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Economische Zaken, Communicatie, Duurzame Ontwikkeling"
+      ]
+    },
+    {
+      "id": "pos:minister-financien-cultuur-aruba",
+      "slug": "minister-financien-cultuur-aruba",
+      "title": "Minister van Financiën en Cultuur",
+      "organization": "org:ministerie-financien-cultuur-aruba",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)",
+        "url": "https://www.gobierno.aw/nl/0103-ministers"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Financiën en Cultuur"
+      ]
+    },
+    {
+      "id": "pos:minister-justitie-sociale-zaken-aruba",
+      "slug": "minister-justitie-sociale-zaken-aruba",
+      "title": "Minister van Justitie en Sociale Zaken",
+      "organization": "org:ministerie-justitie-sociale-zaken-aruba",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)",
+        "url": "https://www.gobierno.aw/nl/0103-ministers"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Justitie en Sociale Zaken"
+      ]
+    },
+    {
+      "id": "pos:minister-onderwijs-sport-aruba",
+      "slug": "minister-onderwijs-sport-aruba",
+      "title": "Minister van Onderwijs en Sport",
+      "organization": "org:ministerie-onderwijs-sport-aruba",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)",
+        "url": "https://www.gobierno.aw/nl/0103-ministers"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Onderwijs en Sport"
+      ]
+    },
+    {
+      "id": "pos:minister-toerisme-volksgezondheid-aruba",
+      "slug": "minister-toerisme-volksgezondheid-aruba",
+      "title": "Minister van Toerisme en Volksgezondheid",
+      "organization": "org:ministerie-toerisme-volksgezondheid-aruba",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)",
+        "url": "https://www.gobierno.aw/nl/0103-ministers"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Toerisme en Volksgezondheid"
+      ]
+    },
+    {
+      "id": "pos:minister-transport-integriteit-natuur-ouderenzaken-aruba",
+      "slug": "minister-transport-integriteit-natuur-ouderenzaken-aruba",
+      "title": "Minister van Transport, Integriteit, Natuur en Ouderenzaken",
+      "organization": "org:ministerie-transport-integriteit-natuur-ouderenzaken-aruba",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "legalBasis": {
+        "label": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18)",
+        "url": "https://www.gobierno.aw/nl/0103-ministers"
+      },
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobierno-aw-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Transport, Integriteit, Natuur en Ouderenzaken"
+      ]
+    },
+    {
+      "id": "pos:minister-justitie-curacao",
+      "slug": "minister-justitie-curacao",
+      "title": "Minister van Justitie",
+      "organization": "org:ministerie-justitie-curacao",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Justitie"
+      ]
+    },
+    {
+      "id": "pos:minister-financien-curacao",
+      "slug": "minister-financien-curacao",
+      "title": "Minister van Financiën",
+      "organization": "org:ministerie-financien-curacao",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Financiën"
+      ]
+    },
+    {
+      "id": "pos:minister-algemene-zaken-minister-president-curacao",
+      "slug": "minister-algemene-zaken-minister-president-curacao",
+      "title": "Minister van Algemene Zaken en Minister President",
+      "organization": "org:ministerie-algemene-zaken-minister-president-curacao",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Algemene Zaken en Minister President"
+      ]
+    },
+    {
+      "id": "pos:minister-gezondheid-milieu-natuur-curacao",
+      "slug": "minister-gezondheid-milieu-natuur-curacao",
+      "title": "Minister van Gezondheid, Milieu & Natuur",
+      "organization": "org:ministerie-gezondheid-milieu-natuur-curacao",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Gezondheid, Milieu & Natuur"
+      ]
+    },
+    {
+      "id": "pos:minister-economische-ontwikkeling-curacao",
+      "slug": "minister-economische-ontwikkeling-curacao",
+      "title": "Minister van Economische Ontwikkeling",
+      "organization": "org:ministerie-economische-ontwikkeling-curacao",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Economische Ontwikkeling"
+      ]
+    },
+    {
+      "id": "pos:minister-onderwijs-wetenschap-cultuur-sport-curacao",
+      "slug": "minister-onderwijs-wetenschap-cultuur-sport-curacao",
+      "title": "Minister van Onderwijs, Wetenschap, Cultuur & Sport",
+      "organization": "org:ministerie-onderwijs-wetenschap-cultuur-sport-curacao",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Onderwijs, Wetenschap, Cultuur & Sport"
+      ]
+    },
+    {
+      "id": "pos:minister-verkeer-vervoer-ruimtelijke-planning-curacao",
+      "slug": "minister-verkeer-vervoer-ruimtelijke-planning-curacao",
+      "title": "Minister van Verkeer, Vervoer & Ruimtelijke Planning",
+      "organization": "org:ministerie-verkeer-vervoer-ruimtelijke-planning-curacao",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Verkeer, Vervoer & Ruimtelijke Planning"
+      ]
+    },
+    {
+      "id": "pos:minister-bestuur-planning-dienstverlening-curacao",
+      "slug": "minister-bestuur-planning-dienstverlening-curacao",
+      "title": "Minister van Bestuur, Planning & Dienstverlening",
+      "organization": "org:ministerie-bestuur-planning-dienstverlening-curacao",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Bestuur, Planning & Dienstverlening"
+      ]
+    },
+    {
+      "id": "pos:minister-sociale-ontwikkeling-arbeid-welzijn-curacao",
+      "slug": "minister-sociale-ontwikkeling-arbeid-welzijn-curacao",
+      "title": "Minister van Sociale Ontwikkeling, Arbeid & Welzijn",
+      "organization": "org:ministerie-sociale-ontwikkeling-arbeid-welzijn-curacao",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:gobiernu-ministeries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister van Sociale Ontwikkeling, Arbeid & Welzijn"
+      ]
+    },
+    {
+      "id": "pos:minister-general-affairs-sint-maarten",
+      "slug": "minister-general-affairs-sint-maarten",
+      "title": "Minister of General Affairs",
+      "organization": "org:ministry-general-affairs-sint-maarten",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:sintmaartengov-ministries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister of General Affairs"
+      ]
+    },
+    {
+      "id": "pos:minister-tourism-economic-affairs-transport-telecommunication-sint-maarten",
+      "slug": "minister-tourism-economic-affairs-transport-telecommunication-sint-maarten",
+      "title": "Minister of Tourism, Economic Affairs, Transport and Telecommunication",
+      "organization": "org:ministry-tourism-economic-affairs-transport-telecommunication-sint-maarten",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:sintmaartengov-ministries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister of Tourism, Economic Affairs, Transport and Telecommunication"
+      ]
+    },
+    {
+      "id": "pos:minister-finance-sint-maarten",
+      "slug": "minister-finance-sint-maarten",
+      "title": "Minister of Finance",
+      "organization": "org:ministry-finance-sint-maarten",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:sintmaartengov-ministries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister of Finance"
+      ]
+    },
+    {
+      "id": "pos:minister-public-housing-spatial-planning-environment-infrastructure-sint-maarten",
+      "slug": "minister-public-housing-spatial-planning-environment-infrastructure-sint-maarten",
+      "title": "Minister of Public Housing, Spatial Planning, Environment and Infrastructure",
+      "organization": "org:ministry-public-housing-spatial-planning-environment-infrastructure-sint-maarten",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:sintmaartengov-ministries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister of Public Housing, Spatial Planning, Environment and Infrastructure"
+      ]
+    },
+    {
+      "id": "pos:minister-education-culture-youth-sport-sint-maarten",
+      "slug": "minister-education-culture-youth-sport-sint-maarten",
+      "title": "Minister of Education, Culture, Youth and Sport",
+      "organization": "org:ministry-education-culture-youth-sport-sint-maarten",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:sintmaartengov-ministries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister of Education, Culture, Youth and Sport"
+      ]
+    },
+    {
+      "id": "pos:minister-justice-sint-maarten",
+      "slug": "minister-justice-sint-maarten",
+      "title": "Minister of Justice",
+      "organization": "org:ministry-justice-sint-maarten",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:sintmaartengov-ministries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister of Justice"
+      ]
+    },
+    {
+      "id": "pos:minister-public-health-social-development-labor-sint-maarten",
+      "slug": "minister-public-health-social-development-labor-sint-maarten",
+      "title": "Minister of Public Health, Social Development and Labor",
+      "organization": "org:ministry-public-health-social-development-labor-sint-maarten",
+      "type": "dept_head",
+      "fillMethod": "benoeming-door-college",
+      "entryModes": [
+        "benoemd"
+      ],
+      "termLengthMonths": null,
+      "seatsCount": 1,
+      "exOfficioOf": [],
+      "sources": [
+        {
+          "source": "src:sintmaartengov-ministries",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ],
+      "aliases": [
+        "Minister of Public Health, Social Development and Labor"
+      ]
     }
   ],
   "people": [
@@ -1912,6 +3800,122 @@
           "source": "src:sintmaartengov-arrindell",
           "retrieved": "2026-09-19",
           "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:marlon-sneek",
+      "slug": "marlon-sneek",
+      "name": "Alfred M. Sneek",
+      "aliases": [
+        "Marlon Sneek"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": "AVP",
+      "wikipedia": null,
+      "wikidata": null,
+      "description": "Voorzitter van de Staten van Aruba sinds 27-03-2025; Statenlid voor de AVP.",
+      "sources": [
+        {
+          "source": "src:statenvanaruba-ibabs-voorzitter",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wikipedia-parlamento-aruba",
+          "retrieved": "2026-09-19",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "person:fergino-brownbill",
+      "slug": "fergino-brownbill",
+      "name": "Fergino Brownbill",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": "MFK",
+      "wikipedia": null,
+      "wikidata": null,
+      "description": "Voorzitter van de Staten van Curaçao sinds 11-05-2025; Statenlid voor de MFK.",
+      "sources": [
+        {
+          "source": "src:parlamento-curacao",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wikipedia-staten-curacao",
+          "retrieved": "2026-09-19",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "person:sarah-wescot-williams",
+      "slug": "sarah-wescot-williams",
+      "name": "Sarah A. Wescot-Williams",
+      "aliases": [
+        "Sarah Wescot-Williams"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": "DP",
+      "wikipedia": null,
+      "wikidata": null,
+      "description": "Voorzitter van de Staten van Sint Maarten sinds 10-02-2024; politica van de Democratische Partij (DP).",
+      "sources": [
+        {
+          "source": "src:sxmparliament-presidium",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        },
+        {
+          "source": "src:wikipedia-staten-sint-maarten",
+          "retrieved": "2026-09-19",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "person:mike-eman",
+      "slug": "mike-eman",
+      "name": "Michiel Godfried Eman",
+      "aliases": [
+        "Mike Eman"
+      ],
+      "portrait": null,
+      "birthDate": null,
+      "party": null,
+      "wikipedia": null,
+      "wikidata": null,
+      "description": "Minister-President van Aruba en minister van Algemene Zaken, Cultuur, Milieu en Natuur in het kabinet AVP-Futuro, met ingang van 28-03-2025.",
+      "sources": [
+        {
+          "source": "src:gobierno-aw-regering",
+          "retrieved": "2026-09-19",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "id": "person:gilmar-pisas",
+      "slug": "gilmar-pisas",
+      "name": "Gilmar Pisas",
+      "aliases": [],
+      "portrait": null,
+      "birthDate": null,
+      "party": "MFK",
+      "wikipedia": null,
+      "wikidata": null,
+      "description": "Minister-President van Curaçao, aan het hoofd van kabinet-Pisas III, dat op 09-06-2025 aantreedt.",
+      "sources": [
+        {
+          "source": "src:wikipedia-kabinetten-curacao",
+          "retrieved": "2026-09-19",
+          "confidence": "medium"
         }
       ]
     }
@@ -2068,10 +4072,496 @@
         "retrieved": "2026-09-19",
         "confidence": "high"
       }
+    },
+    {
+      "id": "tenure:voorzitter-staten-aruba-sneek-2025",
+      "person": "person:marlon-sneek",
+      "position": "pos:voorzitter-staten-aruba",
+      "seat": null,
+      "start": "2025-03-27",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:wikipedia-parlamento-aruba",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "tenure:voorzitter-staten-curacao-brownbill-2025",
+      "person": "person:fergino-brownbill",
+      "position": "pos:voorzitter-staten-curacao",
+      "seat": null,
+      "start": "2025-05-11",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:wikipedia-staten-curacao",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "tenure:voorzitter-staten-sint-maarten-wescot-williams-2024",
+      "person": "person:sarah-wescot-williams",
+      "position": "pos:voorzitter-staten-sint-maarten",
+      "seat": null,
+      "start": "2024-02-10",
+      "end": null,
+      "acting": false,
+      "entryMode": "gekozen",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:wikipedia-staten-sint-maarten",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "tenure:minister-president-aruba-eman-2025",
+      "person": "person:mike-eman",
+      "position": "pos:minister-president-aruba",
+      "seat": null,
+      "start": "2025-03-28",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:gobierno-aw-regering",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "tenure:minister-president-curacao-pisas-2025",
+      "person": "person:gilmar-pisas",
+      "position": "pos:minister-president-curacao",
+      "seat": null,
+      "start": "2025-06-09",
+      "end": null,
+      "acting": false,
+      "entryMode": "benoemd",
+      "appointedBy": null,
+      "predecessor": null,
+      "successor": null,
+      "endReason": null,
+      "source": {
+        "source": "src:wikipedia-kabinetten-curacao",
+        "retrieved": "2026-09-19",
+        "confidence": "medium"
+      }
     }
   ],
   "memberships": [],
-  "relations": [],
+  "relations": [
+    {
+      "id": "rel:part-of-ministerie-algemene-zaken-aruba",
+      "from": "org:ministerie-algemene-zaken-aruba",
+      "to": "org:regering-aruba",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobierno-aw-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministerie-arbeid-energie-integratie-aruba",
+      "from": "org:ministerie-arbeid-energie-integratie-aruba",
+      "to": "org:regering-aruba",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobierno-aw-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministerie-economische-zaken-communicatie-duurzame-ontwikkeling-aruba",
+      "from": "org:ministerie-economische-zaken-communicatie-duurzame-ontwikkeling-aruba",
+      "to": "org:regering-aruba",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobierno-aw-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministerie-financien-cultuur-aruba",
+      "from": "org:ministerie-financien-cultuur-aruba",
+      "to": "org:regering-aruba",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobierno-aw-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministerie-justitie-sociale-zaken-aruba",
+      "from": "org:ministerie-justitie-sociale-zaken-aruba",
+      "to": "org:regering-aruba",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobierno-aw-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministerie-onderwijs-sport-aruba",
+      "from": "org:ministerie-onderwijs-sport-aruba",
+      "to": "org:regering-aruba",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobierno-aw-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministerie-toerisme-volksgezondheid-aruba",
+      "from": "org:ministerie-toerisme-volksgezondheid-aruba",
+      "to": "org:regering-aruba",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobierno-aw-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministerie-transport-integriteit-natuur-ouderenzaken-aruba",
+      "from": "org:ministerie-transport-integriteit-natuur-ouderenzaken-aruba",
+      "to": "org:regering-aruba",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobierno-aw-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministerie-justitie-curacao",
+      "from": "org:ministerie-justitie-curacao",
+      "to": "org:regering-curacao",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministerie-financien-curacao",
+      "from": "org:ministerie-financien-curacao",
+      "to": "org:regering-curacao",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministerie-algemene-zaken-minister-president-curacao",
+      "from": "org:ministerie-algemene-zaken-minister-president-curacao",
+      "to": "org:regering-curacao",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministerie-gezondheid-milieu-natuur-curacao",
+      "from": "org:ministerie-gezondheid-milieu-natuur-curacao",
+      "to": "org:regering-curacao",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministerie-economische-ontwikkeling-curacao",
+      "from": "org:ministerie-economische-ontwikkeling-curacao",
+      "to": "org:regering-curacao",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministerie-onderwijs-wetenschap-cultuur-sport-curacao",
+      "from": "org:ministerie-onderwijs-wetenschap-cultuur-sport-curacao",
+      "to": "org:regering-curacao",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministerie-verkeer-vervoer-ruimtelijke-planning-curacao",
+      "from": "org:ministerie-verkeer-vervoer-ruimtelijke-planning-curacao",
+      "to": "org:regering-curacao",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministerie-bestuur-planning-dienstverlening-curacao",
+      "from": "org:ministerie-bestuur-planning-dienstverlening-curacao",
+      "to": "org:regering-curacao",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministerie-sociale-ontwikkeling-arbeid-welzijn-curacao",
+      "from": "org:ministerie-sociale-ontwikkeling-arbeid-welzijn-curacao",
+      "to": "org:regering-curacao",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobiernu-ministeries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministry-general-affairs-sint-maarten",
+      "from": "org:ministry-general-affairs-sint-maarten",
+      "to": "org:regering-sint-maarten",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:sintmaartengov-ministries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministry-tourism-economic-affairs-transport-telecommunication-sint-maarten",
+      "from": "org:ministry-tourism-economic-affairs-transport-telecommunication-sint-maarten",
+      "to": "org:regering-sint-maarten",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:sintmaartengov-ministries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministry-finance-sint-maarten",
+      "from": "org:ministry-finance-sint-maarten",
+      "to": "org:regering-sint-maarten",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:sintmaartengov-ministries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministry-public-housing-spatial-planning-environment-infrastructure-sint-maarten",
+      "from": "org:ministry-public-housing-spatial-planning-environment-infrastructure-sint-maarten",
+      "to": "org:regering-sint-maarten",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:sintmaartengov-ministries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministry-education-culture-youth-sport-sint-maarten",
+      "from": "org:ministry-education-culture-youth-sport-sint-maarten",
+      "to": "org:regering-sint-maarten",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:sintmaartengov-ministries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministry-justice-sint-maarten",
+      "from": "org:ministry-justice-sint-maarten",
+      "to": "org:regering-sint-maarten",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:sintmaartengov-ministries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:part-of-ministry-public-health-social-development-labor-sint-maarten",
+      "from": "org:ministry-public-health-social-development-labor-sint-maarten",
+      "to": "org:regering-sint-maarten",
+      "type": "part_of",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:sintmaartengov-ministries",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-staten-aruba-regering-aruba",
+      "from": "org:staten-aruba",
+      "to": "org:regering-aruba",
+      "type": "oversees",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:gobierno-aw-regering",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-staten-curacao-regering-curacao",
+      "from": "org:staten-curacao",
+      "to": "org:regering-curacao",
+      "type": "oversees",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:parlamento-curacao",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:oversees-staten-sint-maarten-regering-sint-maarten",
+      "from": "org:staten-sint-maarten",
+      "to": "org:regering-sint-maarten",
+      "type": "oversees",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:sxmparliament-about",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-voorzitter-staten-aruba",
+      "from": "pos:voorzitter-staten-aruba",
+      "to": "org:staten-aruba",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:statenvanaruba-ibabs-voorzitter",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-voorzitter-staten-curacao",
+      "from": "pos:voorzitter-staten-curacao",
+      "to": "org:staten-curacao",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:parlamento-curacao",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "rel:dept-head-voorzitter-staten-sint-maarten",
+      "from": "pos:voorzitter-staten-sint-maarten",
+      "to": "org:staten-sint-maarten",
+      "type": "dept_head",
+      "metadata": {},
+      "seatsAppointed": 0,
+      "source": {
+        "source": "src:sxmparliament-presidium",
+        "retrieved": "2026-09-19",
+        "confidence": "high"
+      }
+    }
+  ],
   "topics": [],
   "budgets": [],
   "sources": [
@@ -2584,6 +5074,206 @@
       "retrieved": "2026-09-19",
       "license": null,
       "notes": "Gracita R. Arrindell appointed as Minister Plenipotentiary of Sint Maarten on November 26, 2024."
+    },
+    {
+      "id": "src:parlamento-aruba",
+      "url": "https://www.parlamento.aw/",
+      "title": "Parlamento di Aruba",
+      "publisher": "parlamento.aw",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Officiele site van het parlement van Aruba; leden en fracties via iBabs."
+    },
+    {
+      "id": "src:statenvanaruba-ibabs",
+      "url": "https://statenvanaruba.ibabs.org/People/Profiles/10d696c2-9000-4334-8aba-f74c36540a83",
+      "title": "Staten van Aruba iBabs: leden en fracties",
+      "publisher": "statenvanaruba.ibabs.org",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Zeteltelling per fractie: AVP 9 (42,9%), MEP 8 (38,1%), FUTURO Aruba 3 (14,3%), PPA 1 (4,8%). Totaal 21 zetels."
+    },
+    {
+      "id": "src:statenvanaruba-ibabs-voorzitter",
+      "url": "https://statenvanaruba.ibabs.org/People/Profiles/c607b22a-41f8-4d3e-a6e6-5c0712658602",
+      "title": "Staten van Aruba iBabs: profiel voorzitter",
+      "publisher": "statenvanaruba.ibabs.org",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Sneek, Alfred M., Presidente di Parlamento / Voorzitter der Staten, genoemd onder de AVP."
+    },
+    {
+      "id": "src:gobierno-aw-staten",
+      "url": "https://www.gobierno.aw/nl/staten",
+      "title": "Staten - Gobierno di Aruba",
+      "publisher": "gobierno.aw",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Staten is hoogste orgaan en volksvertegenwoordiging; leden gekozen voor 4 jaar; zittingsjaar begint op de tweede dinsdag van september."
+    },
+    {
+      "id": "src:gobierno-aw-ministeries",
+      "url": "https://www.gobierno.aw/nl/ministeries",
+      "title": "Ministeries - Gobierno di Aruba",
+      "publisher": "gobierno.aw",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Noemt 8 ministeries van Aruba; menu-slugs zijn verouderd ten opzichte van de genoemde namen."
+    },
+    {
+      "id": "src:gobierno-aw-regering",
+      "url": "https://www.gobierno.aw/nl/samenstelling-0",
+      "title": "Samenstelling regering - Gobierno di Aruba",
+      "publisher": "gobierno.aw",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Kabinet AVP-Futuro met ingang van 28-03-2025; ministers worden benoemd door de Staten voor de zittingsduur van de Staten; maximaal negen ministers per Staatsregeling."
+    },
+    {
+      "id": "src:gobierno-aw-0103-ministers",
+      "url": "https://www.gobierno.aw/nl/0103-ministers",
+      "title": "Ministers - Gobierno di Aruba (rechtsgrond ministeries)",
+      "publisher": "gobierno.aw",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Landsverordening instelling ministeries 2022 (AB 2022 no. 18), wijzigingen 2016 no. 76 en 2018 no. 22; PDF: https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/0103ab22.018.pdf"
+    },
+    {
+      "id": "src:parlamento-curacao",
+      "url": "https://www.parlamento.cw/",
+      "title": "Parlamento di Kòrsou",
+      "publisher": "parlamento.cw",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Officiele site: 21 gekozen leden; presidente Fergino Brownbill; de Staten controleren en vragen verantwoording van de regering (kontrolá i eksigí responsabilidat for di Gobièrnu)."
+    },
+    {
+      "id": "src:parlamento-curacao-nombramentu",
+      "url": "https://www.parlamento.cw/nombramentu-di-presidente",
+      "title": "Nombramentu di Presidente - Parlamento di Kòrsou",
+      "publisher": "parlamento.cw",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Procedurepagina voorzitterschap; geen naam of datum van de huidige president vermeld."
+    },
+    {
+      "id": "src:gobiernu-ministeries",
+      "url": "https://gobiernu.cw/nl/ministeries/",
+      "title": "Ministeries - Gobiernu di Kòrsou",
+      "publisher": "gobiernu.cw",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Noemt 9 ministeries van Curaçao."
+    },
+    {
+      "id": "src:electorale-raad-curacao",
+      "url": "https://kse.cw/verkiezingen",
+      "title": "Verkiezingen - Consejo Electoral (Electorale Raad van Curaçao)",
+      "publisher": "kse.cw",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Search excerpt only: De Staten bestaat uit 21 leden; verkiezing van 21-03-2025."
+    },
+    {
+      "id": "src:sintmaartengov-ministries",
+      "url": "https://www.sintmaartengov.org/Ministries/Pages/Ministries.aspx",
+      "title": "Ministries - Government of Sint Maarten",
+      "publisher": "sintmaartengov.org",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Noemt 7 ministeries met officiële Engelse namen; geen namen van zittende ministers op deze pagina."
+    },
+    {
+      "id": "src:sxmparliament",
+      "url": "https://sxmparliament.org/",
+      "title": "Parliament of Sint Maarten",
+      "publisher": "sxmparliament.org",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Officiele site van het parlement van Sint Maarten; verwijst naar parlamento.aw en parlamento.cw."
+    },
+    {
+      "id": "src:sxmparliament-about",
+      "url": "https://sxmparliament.org/about/",
+      "title": "About - Parliament of Sint Maarten",
+      "publisher": "sxmparliament.org",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "15 gekozen leden (MPs); opgericht 10-10-2010; Parliament exercises oversight of the Government."
+    },
+    {
+      "id": "src:sxmparliament-presidium",
+      "url": "https://sxmparliament.org/presidium/",
+      "title": "Presidium - Parliament of Sint Maarten",
+      "publisher": "sxmparliament.org",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "President Sarah A. Wescot-Williams; vice-presidenten Christopher L. Wever en Ludmilla N.L. de Weever."
+    },
+    {
+      "id": "src:wikipedia-parlamento-aruba",
+      "url": "https://en.wikipedia.org/wiki/Parliament_of_Aruba",
+      "title": "Parliament of Aruba - Wikipedia",
+      "publisher": "en.wikipedia.org",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Search excerpt only: voorzitter Marlon Sneek sinds 27-03-2025; 21 zetels."
+    },
+    {
+      "id": "src:wikipedia-staten-curacao",
+      "url": "https://nl.wikipedia.org/wiki/Staten_van_Cura%C3%A7ao",
+      "title": "Staten van Curaçao - Wikipedia",
+      "publisher": "nl.wikipedia.org",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Search excerpt only: voorzitter Fergino Brownbill (MFK) sinds 11-05-2025; samenstelling MFK 13, PNP 4, PAR 2, MAN 2."
+    },
+    {
+      "id": "src:wikipedia-kabinetten-curacao",
+      "url": "https://nl.wikipedia.org/wiki/Kabinetten_Cura%C3%A7ao",
+      "title": "Kabinetten Curaçao - Wikipedia",
+      "publisher": "nl.wikipedia.org",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Search excerpt only: kabinet-Pisas III treedt aan op 09-06-2025; MFK 13 zetels."
+    },
+    {
+      "id": "src:wikipedia-staten-sint-maarten",
+      "url": "https://en.wikipedia.org/wiki/Estates_of_Sint_Maarten",
+      "title": "Estates of Sint Maarten - Wikipedia",
+      "publisher": "en.wikipedia.org",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Search excerpt only: President of Parliament Sarah A. Wescot-Williams (DP) sinds 10-02-2024; samenstelling URSM 3, DP 3, NA 3, PFP 2, SAM 1."
+    },
+    {
+      "id": "src:wikipedia-estates-curacao",
+      "url": "https://en.wikipedia.org/wiki/Estates_of_Cura%C3%A7ao",
+      "title": "Estates of Curaçao - Wikipedia",
+      "publisher": "en.wikipedia.org",
+      "type": "page",
+      "retrieved": "2026-09-19",
+      "license": null,
+      "notes": "Search excerpt only: Fergino Brownbill voorzitter sinds 11-05-2025; parlement geïnstalleerd 11-05-2025 na verkiezing 21-03-2025."
     }
   ],
   "media": [],
@@ -2611,6 +5301,30 @@
       "why": "kabgsxm.com reageert, maar de site rendert op governorsintmaarten.com; welke het canonieke domein is staat niet vastgesteld.",
       "endpoint": "https://www.kabgsxm.com/about-the-governor.aspx?language=NL",
       "resume": "Vaststellen welk domein de officiële site is en de bron bijwerken."
+    },
+    {
+      "what": "Ministers van Aruba (zes naast de minister-president) niet als personen met tenuren gemodelleerd",
+      "why": "De samenstellingspagina van gobierno.aw noemt de zittende ministers met hun portefeuilles, maar de portefeuille-names komen niet eenduidig overeen met de 8 ministeries op de menu-pagina (verouderde slugs); zonder betrouwbare mapping geen minister->ministerie-koppeling gemodelleerd.",
+      "endpoint": "https://www.gobierno.aw/nl/samenstelling-0",
+      "resume": "Bepaal per kabinetsminister welk ministerie de portefeuille dekt (evt. via staatsbesluiten van benoeming), voeg personen en tenuren toe."
+    },
+    {
+      "what": "Ministers van Curaçao niet als personen met tenuren gemodelleerd",
+      "why": "De ministeriespagina van gobiernu.cw noemt de 9 ministeries maar geen zittende ministers; er is deze sessie geen officiële samenstellingspagina van het kabinet-Pisas III gefetched.",
+      "endpoint": "https://gobiernu.cw/nl/ministeries/",
+      "resume": "Zoek een officiële samenstellingspagina (gobiernu.cw) of benoemingspublicatie en modelleer personen en tenuren."
+    },
+    {
+      "what": "Ministers van Sint Maarten en de tenure van minister-president Mercelina niet gemodelleerd",
+      "why": "De ministeriespagina van sintmaartengov.org noemt de 7 ministeries zonder ministernamen; de per-ministry pagina's zijn deze sessie niet gefetched en de startdatum van PM Luc F.E. Mercelina is alleen via Wikipedia (medium) bekend.",
+      "endpoint": "https://www.sintmaartengov.org/Ministries/Pages/Ministries.aspx",
+      "resume": "Fetch de zeven per-ministry pagina's voor de zittende ministers; zoek een officiële bron voor de aantredingsdatum van Mercelina en voeg tenuren toe."
+    },
+    {
+      "what": "Statenleden van de drie landen niet als leden gemodelleerd en startdatum voorzitterschap Wescot-Williams niet officieel bevestigd",
+      "why": "De samenstelling per fractie van de Staten van Aruba (iBabs), Curaçao en Sint Maarten (members-pagina) is wel gesignaleerd maar niet als membership-records verwerkt; de startdatum 10-02-2024 van voorzitter Wescot-Williams berust alleen op een Wikipedia-uitreksel.",
+      "endpoint": "https://sxmparliament.org/members/",
+      "resume": "Modelleer de ledenlijsten per fractie; zoek een officiële presidium-publicatie voor de startdatum van Wescot-Williams."
     }
   ],
   "aliases": [

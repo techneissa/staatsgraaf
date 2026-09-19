@@ -1378,7 +1378,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.cpb.nl/medewerkers/pieter-hasekamp | CPB | CC-BY-3.0-NL | Bron: CPB, Pieter Hasekamp, directeur CPB, geraadpleegd 2026-09-18. |
 | https://www.cpb.nl/over-het-cpb | CPB | CC-BY-3.0-NL | Bron: CPB, Over het CPB, geraadpleegd 2026-09-18. |
 
-## CC-BY-SA-4.0 (141)
+## CC-BY-SA-4.0 (143)
 
 | url | publisher | license | required credit line |
 | --- | --- | --- | --- |
@@ -1522,9 +1522,11 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://commons.wikimedia.org/wiki/File:Ula%C5%9FK%C3%B6se.jpg | Wikimedia Commons | CC-BY-SA-4.0 | - |
 | https://commons.wikimedia.org/wiki/File:WiekePaulusma.jpg | Wikimedia Commons | CC-BY-SA-4.0 | - |
 | https://nl.wikipedia.org/wiki/Dijkgraaf_(waterschap) | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Dijkgraaf_(waterschap), geraadpleegd 2026-09-18, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Kabinetten_Cura%C3%A7ao | nl.wikipedia.org | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Kabinetten_Cura%C3%A7ao, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
 | https://nl.wikipedia.org/wiki/Lijst_van_burgemeesters_van_gemeenten_in_Nederland_in_de_periode_2025-2029 | Wikipedia | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Lijst_van_burgemeesters_van_gemeenten_in_Nederland_in_de_periode_2025-2029, geraadpleegd 2026-09-18, CC BY-SA 4.0. |
+| https://nl.wikipedia.org/wiki/Staten_van_Cura%C3%A7ao | nl.wikipedia.org | CC-BY-SA-4.0 | Bron: Wikipedia, https://nl.wikipedia.org/wiki/Staten_van_Cura%C3%A7ao, geraadpleegd 2026-09-19, CC BY-SA 4.0. |
 
-## all-rights-reserved (1572)
+## all-rights-reserved (1573)
 
 | url | publisher | license | required credit line |
 | --- | --- | --- | --- |
@@ -1573,8 +1575,6 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://feeds.nos.nl/nosnieuwsalgemeen | NOS | all-rights-reserved | - |
 | https://nos.nl/l/2631426 | NOS | all-rights-reserved | - |
 | https://nos.nl/l/2631449 | NOS | all-rights-reserved | - |
-| https://nos.nl/l/2631534 | NOS | all-rights-reserved | - |
-| https://nos.nl/l/2631536 | NOS | all-rights-reserved | - |
 | https://nos.nl/l/2631538 | NOS | all-rights-reserved | - |
 | https://nos.nl/l/2631539 | NOS | all-rights-reserved | - |
 | https://nos.nl/l/2631541 | NOS | all-rights-reserved | - |
@@ -1593,6 +1593,8 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://nos.nl/l/2631580 | NOS | all-rights-reserved | - |
 | https://nos.nl/l/2631581 | NOS | all-rights-reserved | - |
 | https://nos.nl/l/2631589 | NOS | all-rights-reserved | - |
+| https://nos.nl/l/2631590 | NOS | all-rights-reserved | - |
+| https://nos.nl/l/2631591 | NOS | all-rights-reserved | - |
 | https://sargasso.nl/ai-voor-winst-mag-de-mensheid-wijken | Sargasso | all-rights-reserved | - |
 | https://sargasso.nl/algemene-politieke-beschouwingen-zonder-traditionele-aftrap-van-wantrouwen | Sargasso | all-rights-reserved | - |
 | https://sargasso.nl/closing-time-beasts-of-bourbon | Sargasso | all-rights-reserved | - |
@@ -1623,6 +1625,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.ad.nl/binnenland/na-drie-maanden-tussen-hoop-en-vrees-in-italiaans-ziekenhuis-zijn-paul-en-marleen-eindelijk-thuis-met-kleine-isa~a08a1257 | AD | all-rights-reserved | - |
 | https://www.ad.nl/binnenland/suriname-vraagt-interpol-om-internationaal-opsporingsbevel-voor-ryan-t-in-zaak-leysner~ae9d5943 | AD | all-rights-reserved | - |
 | https://www.ad.nl/buitenland/ai-rapport-van-amerikaans-leger-leidde-bijna-tot-oorlog-door-fout-over-chinees-schip~aa24222e | AD | all-rights-reserved | - |
+| https://www.ad.nl/buitenland/luchtalarm-en-explosies-in-saoedische-hoofdstad-riyad-terwijl-conflict-met-houthis-escaleert~ac528ac3 | AD | all-rights-reserved | - |
 | https://www.ad.nl/buitenland/rechtbank-veroordeelt-man-tot-15-jaar-cel-na-steekpartij-op-drie-5-jarige-kinderen-in-zurich~a59dcebb | AD | all-rights-reserved | - |
 | https://www.ad.nl/buitenland/trump-weert-cnn-politico-en-msnbc-uit-het-witte-huis-na-beschuldigingen-van-nepnieuws~ae67dd9c | AD | all-rights-reserved | - |
 | https://www.ad.nl/buitenland/trump-zegt-akkoord-te-hebben-over-amerikaanse-controle-op-veiligheid-groenland~ad5399ab | AD | all-rights-reserved | - |
@@ -1637,15 +1640,14 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.ad.nl/show/edwin-evers-staat-stil-bij-overlijden-bartina-koeman-ze-heeft-gestreden-en-geleden-maar-vooral-geleefd~a1ba13ef | AD | all-rights-reserved | - |
 | https://www.ad.nl/show/gordon-maakt-zijn-debuut-als-babs-en-kirsten-viert-de-liefde-met-nick~a7bae403 | AD | all-rights-reserved | - |
 | https://www.ad.nl/show/koor-zonder-stembanden-maakt-indruk-in-got-talent-jullie-hebben-mij-gigantisch-geraakt~a5891581 | AD | all-rights-reserved | - |
+| https://www.ad.nl/show/tom-cruise-krijgt-les-van-taylor-swift-over-american-football-ze-heeft-er-verstand-van~a743c623b | AD | all-rights-reserved | - |
 | https://www.ad.nl/tech/nooit-in-koffer-en-niet-te-veel-vermogen-dit-moet-je-weten-voordat-je-powerbank-in-vliegtuig-gaat~adb0634d | AD | all-rights-reserved | - |
 | https://www.ad.nl/voetbal/column-sjoerd-mossou-het-nut-is-overduidelijk-dit-is-met-afstand-de-beste-spelregelaanpassing-in-jaren~a6090584 | AD | all-rights-reserved | - |
 | https://www.ad.nl/voetbal/fc-groningen-boekt-ruime-zege-op-matig-pec-zwolle-fans-brengen-eerbetoon-aan-bartina-koeman~aa73f748 | AD | all-rights-reserved | - |
 | https://www.ad.nl/voetbal/genegeerde-wout-weghorst-zag-de-bui-al-hangen-ik-heb-er-de-afgelopen-weken-nog-alles-aan-gedaan~a6f6adaf | AD | all-rights-reserved | - |
+| https://www.ad.nl/voetbal/inter-legende-sandro-mazzola-83-overleden-hij-wilde-herinnerd-worden-als-een-goede-man~a568d827 | AD | all-rights-reserved | - |
 | https://www.ad.nl/voetbal/jesse-van-der-haar-knuffelt-vader-hans-op-de-tribune-pijnlijke-nederlaag-voor-fc-volendam-bij-jong-az~a66babfc | AD | all-rights-reserved | - |
 | https://www.ad.nl/voetbal/saibari-scoort-bij-monsterzege-bayern-munchen-chelsea-hard-onderuit-bij-brentford~a6b308d2 | AD | all-rights-reserved | - |
-| https://www.ad.nl/voetbal/tyrell-malacia-27-tekent-contract-bij-fc-cincinnati-in-de-mls~ad62a25a | AD | all-rights-reserved | - |
-| https://www.ad.nl/voorne-aan-zee/opeens-wonen-hans-60-en-ineke-59-langs-een-racebaan-door-suurhoffbrug-problemen-dit-kan-echt-niet~a4f12edb | AD | all-rights-reserved | - |
-| https://www.ad.nl/wielrennen/pepijn-reinderink-volgende-nederlandse-ritwinnaar-in-de-ronde-van-luxemburg~a6e15fbc | AD | all-rights-reserved | - |
 | https://www.binnenlandsbestuur.nl/bestuur-en-organisatie/1-miljoen-voor-versterking-lokale-democratie | Binnenlands Bestuur | all-rights-reserved | - |
 | https://www.binnenlandsbestuur.nl/bestuur-en-organisatie/25000-oude-raadsdocumenten-lansingerland-blijven-offline | Binnenlands Bestuur | all-rights-reserved | - |
 | https://www.binnenlandsbestuur.nl/bestuur-en-organisatie/borsele-wil-net-als-sluis-hoger-salaris-voor-college | Binnenlands Bestuur | all-rights-reserved | - |
@@ -1990,7 +1992,6 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.parool.nl/amsterdam-news/klm-needs-major-overhaul-and-the-doomsday-scenario-total-control-shifting-to-paris-remains-on-the-table~ba92fb5c8 | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/amsterdam-news/masterpiece-by-painter-hendrick-avercamp-to-rijksmuseum-and-mauritshuis-for-record-sum~b7fb7b2c | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/amsterdam-news/staff-at-the-film-academy-in-conflict-with-its-director-tears-are-shed-in-meetings~b540ef0d | Het Parool | all-rights-reserved | - |
-| https://www.parool.nl/amsterdam/aanhoudingen-voor-mensenhandel-en-mensensmokkel-bij-indiase-restaurantketens-die-ook-in-amsterdam-zitten~b72dcfc4 | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/amsterdam/ayman-58-beheert-de-fietsenstalling-bij-cs-en-kent-zo-n-duizend-vaste-klanten-van-gezicht-en-zeker-honderd-bij-naam-ik-voel-me-gastheer~bb55c6cd | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/amsterdam/dam-tot-damloop-2026-dit-moet-je-weten-over-de-route-afsluitingen-en-het-jubileumjaar~b0b97702 | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/amsterdam/de-gemeente-amsterdam-wist-dat-jeanne-72-onterecht-parkeerboetes-kreeg-maar-stuurde-toch-een-incassobureau-op-haar-af-dit-is-natuurlijk-helemaal-bezopen~bff00e49 | Het Parool | all-rights-reserved | - |
@@ -2012,7 +2013,6 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.parool.nl/amsterdam/theatermaker-dara-bazelet-25-het-gaat-steeds-over-israel-en-joden-dat-komt-tussen-mij-en-die-mensen-in-te-staan~ba98ec4c | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/amsterdam/tientallen-pro-palestijnse-betogers-aangehouden-op-de-dam-na-verbod-op-tegendemonstratie~b49b261a | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/amsterdam/veldwerker-rachid-ziet-in-amsterdam-meer-en-grotere-kampementen-van-daklozen-blijven-jullie-hier-dan-altijd-wonen~b04422f2 | Het Parool | all-rights-reserved | - |
-| https://www.parool.nl/amsterdam/voor-het-laatst-de-batavia-vaart-dit-weekend-dwars-door-amsterdam-om-opgeknapt-te-worden~bc41e7cd | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/amsterdam/waarom-het-funderingsprobleem-in-amsterdam-waarschijnlijk-veel-groter-is-dan-we-dachten-dit-gaat-vroeg-of-laat-als-een-kaartenhuis-in-elkaar-storten~b18d9cb8 | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/amsterdam/wie-zijn-de-amsterdammers-die-een-privezwembad-onder-hun-huis-laten-bouwen-wijken-die-al-rijk-waren-gaan-nu-naar-superrijk~b3326c3d | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/amsternationals/stina-49-verhuisde-van-stockholm-naar-de-helmersbuurt-ik-gebruik-mezelf-als-een-soort-proefkonijn~bbc6ede9 | Het Parool | all-rights-reserved | - |
@@ -2026,8 +2026,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.parool.nl/han-lips/en-toch-dook-jutta-leerdam-op-bij-casa-di-beau~beabc2e9 | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/kunst-media/ben-saunders-1983-2026-was-de-eerste-winnaar-van-the-voice-of-holland-maar-had-ook-een-bewogen-leven-vol-controverse~b5cc6a64 | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/kunst-media/een-marmeren-moslima-in-de-publieke-ruimte-we-wilden-haar-een-positief-verhaal-geven~bae20871 | Het Parool | all-rights-reserved | - |
-| https://www.parool.nl/kunst-media/jorgen-tjon-a-fong-verruilt-amsterdamse-kunstraad-voor-raad-van-cultuur~bbdea9a5 | Het Parool | all-rights-reserved | - |
-| https://www.parool.nl/misdaad/amsterdamse-ambtenaar-jim-b-leverde-adressen-voor-95-geweldsincidenten-van-36-bomaanslagen-tot-twee-moordpogingen~b2507748 | Het Parool | all-rights-reserved | - |
+| https://www.parool.nl/misdaad/bolle-jos-is-te-heet-geworden-ook-de-kartels-twijfelen-inmiddels-aan-zijn-vermogen-om-geld-voor-ze-te-verdienen~b58ee22d | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/misdaad/slechts-13-jaar-havoscholier-en-ingehuurd-om-in-duitsland-een-hells-angel-neer-te-schieten~baa274e3 | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/misdaad/tijn-15-werd-via-snapchat-geronseld-voor-een-bomaanslag-ze-hebben-hem-zwaar-bedreigd-we-gaan-je-verkrachten-we-gaan-je-vingers-afknippen~b52c51f5 | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/nederland/jan-g-uit-overasselt-die-in-beeld-kwam-na-geweldsexplosie-rond-zijn-woning-in-duitsland-opgepakt-voor-cocainesmokkel~b8f738c9 | Het Parool | all-rights-reserved | - |
@@ -2036,8 +2035,11 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.parool.nl/ps/als-queergezin-ben-je-kwetsbaar-weet-tv-maker-nicolaas-veul-42-tegelijk-heb-ik-meer-schijt-dan-ooit~bd0683f6 | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/ps/amsterdammer-julia-koopman-29-schreef-het-boek-solonaise-na-haar-solo-uitjes-niemand-in-het-restaurant-was-met-mij-bezig~b125f882 | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/ps/bestseller-yesteryear-is-een-goed-voorbeeld-van-de-schijnheilige-cultuur-schrijft-journalist-isa-davids-het-bevestigt-vooral-vooroordelen~bc41deab | Het Parool | all-rights-reserved | - |
+| https://www.parool.nl/ps/bo-het-eenvoudige-zusje-van-sterrenzaak-bougainville-is-lang-niet-zo-betaalbaar-als-het-belooft-6~b6156a54 | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/ps/ernst-52-en-jerrel-61-zoenden-voor-het-eerst-in-de-it-het-was-de-eerste-keer-dat-een-man-honderd-procent-voor-mij-ging~bee88c6b | Het Parool | all-rights-reserved | - |
+| https://www.parool.nl/ps/het-amsterdam-van-volt-fractievoorzitter-juliet-broersen-bij-snackbar-marja-hebben-ze-me-in-alle-staten-gezien-na-werk-verregend-brak~ba4286c0 | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/ps/ingrid-59-en-rivka-19-haar-broer-is-al-een-tijdje-uit-huis-dus-nu-hebben-we-een-leeg-nest-en-ik-merk-dat-ik-dat-toch-wel-lastig-vind~b14190ac | Het Parool | all-rights-reserved | - |
+| https://www.parool.nl/ps/journalist-malou-25-wil-zich-na-voorval-minder-onveilig-voelen-en-volgt-zelfverdedigingsles-de-man-in-het-joggingpak-bleef-maar-opduiken-op-dat-verlaten-bedrijventerrein-bij-sloterdijk~b53b0a8e | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/ps/martin-53-en-jemnah-50-toen-ik-mijn-achternaam-vertelde-heeft-ie-de-hele-weg-van-de-marco-polostraat-naar-het-centraal-station-gelachen~b83974f3 | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/ps/merel-pauw-31-en-haar-alter-ego-elmer-ik-vind-het-nog-steeds-ontroerend-dat-er-voor-mij-zo-n-groot-publiek-is~b5a40c37 | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/ps/op-zijn-sterfbed-heeft-mijn-vader-zijn-excuses-aangeboden-die-heb-ik-aanvaard-maar-de-littekens-blijven~bc33b176 | Het Parool | all-rights-reserved | - |
@@ -2056,7 +2058,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.parool.nl/uit-in-amsterdam/achter-de-schermen-in-de-tramremise-en-klassiek-op-het-amstelveld-dit-kun-je-deze-week-in-amsterdam-doen~b323375a | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/wereld/dit-wordt-in-de-komende-jaren-het-grootste-drugsprobleem-in-europa-ook-het-duitse-frankfurt-zoekt-naar-een-uitweg-uit-de-crackcrisis~b6387e5a | Het Parool | all-rights-reserved | - |
 | https://www.parool.nl/wereld/kabinet-trekt-miljoenen-euro-uit-voor-behandeling-van-zieke-en-gewonde-gazaanse-kinderen~b48362fb | Het Parool | all-rights-reserved | - |
-| https://www.parool.nl/wereld/trump-weert-cnn-politico-en-msnow-uit-het-witte-huis~b29af9e0 | Het Parool | all-rights-reserved | - |
+| https://www.parool.nl/wereld/trump-meldt-akkoord-over-amerikaanse-controle-over-veiligheid-groenland~b26befe2 | Het Parool | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/artikel/5649261/matthijs-van-nieuwkerk-gezinsleven-liefdesleven | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/artikel/5649339/anouk-diederik-de-bondgenoten-kinderen | RTL Nieuws | all-rights-reserved | - |
 | https://www.rtl.nl/boulevard/artikel/5649351/bner-op-zondag-stijn-fransen-verhuizing-gtst | RTL Nieuws | all-rights-reserved | - |
@@ -2933,8 +2935,10 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.trouw.nl/buitenland/in-deze-betoverende-bergen-in-turkije-werd-lang-gestreden-nu-er-vrede-is-komen-de-toeristen~b2e18897 | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/buitenland/in-een-duits-dorp-vol-neonazi-s-houdt-een-progressief-stel-moedig-stand-voor-deze-mensen-is-de-afd-nog-te-mild~beeac1ad | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/buitenland/israelische-politici-wakkeren-agressie-aan-tegen-makers-van-documentaire-naza~bf8e3615 | Trouw | all-rights-reserved | - |
+| https://www.trouw.nl/buitenland/live-oorlog-midden-oosten-luchtalarm-en-explosies-in-saoedische-hoofdstad-riyad~b4cda6da | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/buitenland/live-oorlog-oekraine-zelensky-bedankt-trump-en-congres-voor-grootste-sanctiepakket-tegen-rusland-sinds-trump-ii~ba2815bb | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/buitenland/trump-meldt-akkoord-over-amerikaanse-controle-over-veiligheid-groenland~b26befe2 | Trouw | all-rights-reserved | - |
+| https://www.trouw.nl/buitenland/trump-zet-strijd-tegen-de-pers-voort-cnn-ms-now-en-politico-geweerd-uit-witte-huis~bd8d8d1b | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/buitenland/von-der-leyen-stapt-in-machtsvacuum-dat-trump-achterlaat~bb792526 | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/cartoons/tjeerd-royaards~bfbd9e2c | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/cartoons/verhoudingen~bf325d65 | Trouw | all-rights-reserved | - |
@@ -2961,7 +2965,6 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.trouw.nl/gezondheid/terwijl-de-metalmuziek-klinkt-zegt-de-yogajuf-wees-lief-voor-jezelf~bc7f409e | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/gezondheid/vroeger-was-de-wijkverzorging-totaal-anders-dan-nu-ziet-deze-wijkverpleegkundige-je-moet-stevig-in-je-schoenen-staan~b695b9be | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/laatste-nieuws/dit-is-staatsbeleid-golf-van-arrestaties-treft-lhbti-gemeenschap-in-turkije~b0c77227 | Trouw | all-rights-reserved | - |
-| https://www.trouw.nl/laatste-nieuws/jan-g-28-uit-overasselt-aangehouden~be47396f | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/nieuws/live-algemene-politieke-beschouwingen-bbb-steunt-pvv-motie-van-wantrouwen-tegen-kabinet~bb87fc03 | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/onderwijs/de-wereldwijde-pisa-scores-voor-onderwijs-komen-er-weer-aan-vier-redenen-om-die-met-een-korrel-zout-te-nemen~bd12bb71 | Trouw | all-rights-reserved | - |
 | https://www.trouw.nl/onderwijs/hoe-voorkom-ik-dat-mijn-17-jarige-onverstandige-en-ongezonde-keuzes-maakt~b3cf38a4 | Trouw | all-rights-reserved | - |
@@ -3101,12 +3104,26 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.volkskrant.nl/wetenschap/nieuwe-duinen-voor-de-scheveningse-betonwoestijn-iedereen-wordt-er-beter-van~bbe478b6 | de Volkskrant | all-rights-reserved | - |
 | https://www.volkskrant.nl/wetenschap/vondst-van-de-eeuw-boliviaanse-bioloog-ontdekt-nieuwe-kattensoort~b6101816 | de Volkskrant | all-rights-reserved | - |
 
-## unknown (41)
+## unknown (59)
 
 | url | publisher | license | required credit line |
 | --- | --- | --- | --- |
+| https://en.wikipedia.org/wiki/Estates_of_Cura%C3%A7ao | en.wikipedia.org | unknown | Licentie niet vastgesteld; endpoint: https://en.wikipedia.org/wiki/Estates_of_Cura%C3%A7ao |
+| https://en.wikipedia.org/wiki/Estates_of_Sint_Maarten | en.wikipedia.org | unknown | Licentie niet vastgesteld; endpoint: https://en.wikipedia.org/wiki/Estates_of_Sint_Maarten |
+| https://en.wikipedia.org/wiki/Parliament_of_Aruba | en.wikipedia.org | unknown | Licentie niet vastgesteld; endpoint: https://en.wikipedia.org/wiki/Parliament_of_Aruba |
+| https://gobiernu.cw/nl/ministeries/ | gobiernu.cw | unknown | Licentie niet vastgesteld; endpoint: https://gobiernu.cw/nl/ministeries/ |
+| https://kse.cw/verkiezingen | kse.cw | unknown | Licentie niet vastgesteld; endpoint: https://kse.cw/verkiezingen |
+| https://statenvanaruba.ibabs.org/People/Profiles/10d696c2-9000-4334-8aba-f74c36540a83 | statenvanaruba.ibabs.org | unknown | Licentie niet vastgesteld; endpoint: https://statenvanaruba.ibabs.org/People/Profiles/10d696c2-9000-4334-8aba-f74c36540a83 |
+| https://statenvanaruba.ibabs.org/People/Profiles/c607b22a-41f8-4d3e-a6e6-5c0712658602 | statenvanaruba.ibabs.org | unknown | Licentie niet vastgesteld; endpoint: https://statenvanaruba.ibabs.org/People/Profiles/c607b22a-41f8-4d3e-a6e6-5c0712658602 |
+| https://sxmparliament.org/ | sxmparliament.org | unknown | Licentie niet vastgesteld; endpoint: https://sxmparliament.org/ |
+| https://sxmparliament.org/about/ | sxmparliament.org | unknown | Licentie niet vastgesteld; endpoint: https://sxmparliament.org/about/ |
+| https://sxmparliament.org/presidium/ | sxmparliament.org | unknown | Licentie niet vastgesteld; endpoint: https://sxmparliament.org/presidium/ |
 | https://www.brabant.nl/bestuur/commissaris-koning/ | Provincie Noord-Brabant | unknown | Licentie niet vastgesteld; endpoint: https://www.brabant.nl/bestuur/commissaris-koning/ |
 | https://www.fryslan.frl/commissaris-van-de-koning | Provincie Fryslân | unknown | Licentie niet vastgesteld; endpoint: https://www.fryslan.frl/commissaris-van-de-koning |
+| https://www.gobierno.aw/nl/0103-ministers | gobierno.aw | unknown | Licentie niet vastgesteld; endpoint: https://www.gobierno.aw/nl/0103-ministers |
+| https://www.gobierno.aw/nl/ministeries | gobierno.aw | unknown | Licentie niet vastgesteld; endpoint: https://www.gobierno.aw/nl/ministeries |
+| https://www.gobierno.aw/nl/samenstelling-0 | gobierno.aw | unknown | Licentie niet vastgesteld; endpoint: https://www.gobierno.aw/nl/samenstelling-0 |
+| https://www.gobierno.aw/nl/staten | gobierno.aw | unknown | Licentie niet vastgesteld; endpoint: https://www.gobierno.aw/nl/staten |
 | https://www.gouverneuraruba.com/gouverneur/gouverneur-boekhoudt | Gouverneur van Aruba | unknown | Licentie niet vastgesteld; endpoint: https://www.gouverneuraruba.com/gouverneur/gouverneur-boekhoudt |
 | https://www.hogeraad.nl/actueel/nieuwsoverzicht/2021/september/edwin-bleichrodt-geinstalleerd-procureur-generaal-hoge-raad/ | Hoge Raad der Nederlanden | unknown | Licentie niet vastgesteld; endpoint: https://www.hogeraad.nl/actueel/nieuwsoverzicht/2021/september/edwin-bleichrodt-geinstalleerd-procureur-generaal-hoge-raad/ |
 | https://www.hogeraad.nl/hoge-raad/ | Hoge Raad der Nederlanden | unknown | Licentie niet vastgesteld; endpoint: https://www.hogeraad.nl/hoge-raad/ |
@@ -3122,6 +3139,9 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.nationaleombudsman.nl/over-de-nationale-ombudsman | Nationale ombudsman | unknown | Licentie niet vastgesteld; endpoint: https://www.nationaleombudsman.nl/over-de-nationale-ombudsman |
 | https://www.nationaleombudsman.nl/wie-is-de-nationale-ombudsman | Nationale ombudsman | unknown | Licentie niet vastgesteld; endpoint: https://www.nationaleombudsman.nl/wie-is-de-nationale-ombudsman |
 | https://www.overijssel.nl/bestuur/commissaris-van-de-koning | Provincie Overijssel | unknown | Licentie niet vastgesteld; endpoint: https://www.overijssel.nl/bestuur/commissaris-van-de-koning |
+| https://www.parlamento.aw/ | parlamento.aw | unknown | Licentie niet vastgesteld; endpoint: https://www.parlamento.aw/ |
+| https://www.parlamento.cw/ | parlamento.cw | unknown | Licentie niet vastgesteld; endpoint: https://www.parlamento.cw/ |
+| https://www.parlamento.cw/nombramentu-di-presidente | parlamento.cw | unknown | Licentie niet vastgesteld; endpoint: https://www.parlamento.cw/nombramentu-di-presidente |
 | https://www.politie.nl/nieuws/2023/november/17/benoeming.html | Politie | unknown | Licentie niet vastgesteld; endpoint: https://www.politie.nl/nieuws/2023/november/17/benoeming.html |
 | https://www.provincie.drenthe.nl/organisatie-bestuur/gedeputeerde-staten/commissaris-koning/ | Provincie Drenthe | unknown | Licentie niet vastgesteld; endpoint: https://www.provincie.drenthe.nl/organisatie-bestuur/gedeputeerde-staten/commissaris-koning/ |
 | https://www.raadvanstate.nl/ | Raad van State | unknown | Licentie niet vastgesteld; endpoint: https://www.raadvanstate.nl/ |
@@ -3135,6 +3155,7 @@ Licenses follow the per-source determination in `research/O-licenses.md`, which 
 | https://www.ser.nl/nl/ser/over-ser | SER | unknown | Licentie niet vastgesteld; endpoint: https://www.ser.nl/nl/ser/over-ser |
 | https://www.ser.nl/nl/ser/raad/raadsleden | SER | unknown | Licentie niet vastgesteld; endpoint: https://www.ser.nl/nl/ser/raad/raadsleden |
 | https://www.ser.nl/nl/ser/raad/voorzitters | SER | unknown | Licentie niet vastgesteld; endpoint: https://www.ser.nl/nl/ser/raad/voorzitters |
+| https://www.sintmaartengov.org/Ministries/Pages/Ministries.aspx | sintmaartengov.org | unknown | Licentie niet vastgesteld; endpoint: https://www.sintmaartengov.org/Ministries/Pages/Ministries.aspx |
 | https://www.sintmaartengov.org/news/pages/Minister-Plenipotentiary-2025-Marked-a-Pivotal-Moment-in-Shaping-the-Future-Direction-of-the-Cabinet.aspx | Government of Sint Maarten | unknown | Licentie niet vastgesteld; endpoint: https://www.sintmaartengov.org/news/pages/Minister-Plenipotentiary-2025-Marked-a-Pivotal-Moment-in-Shaping-the-Future-Direction-of-the-Cabinet.aspx |
 | https://www.tweedekamer.nl/ | Tweede Kamer | unknown | Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/ |
 | https://www.tweedekamer.nl/ | Tweede Kamer | unknown | Licentie niet vastgesteld; endpoint: https://www.tweedekamer.nl/ |

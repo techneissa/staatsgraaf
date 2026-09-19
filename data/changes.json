@@ -12282,6 +12282,29 @@
     "id": "change:2024-02-01-appointment-dijkgraaf-limburg"
   },
   {
+    "date": "2024-02-10",
+    "kind": "appointment",
+    "summary": "Benoeming: Sarah A. Wescot-Williams wordt Voorzitter van de Staten van Sint Maarten.",
+    "source": {
+      "source": "src:wikipedia-staten-sint-maarten",
+      "retrieved": "2026-09-19",
+      "confidence": "medium"
+    },
+    "position": "pos:voorzitter-staten-sint-maarten",
+    "organization": "org:staten-sint-maarten",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:voorzitter-staten-sint-maarten-wescot-williams-2024",
+      "person": "person:sarah-wescot-williams",
+      "label": "Sarah A. Wescot-Williams - Voorzitter van de Staten van Sint Maarten"
+    },
+    "id": "change:2024-02-10-appointment-voorzitter-staten-sint-maarten"
+  },
+  {
     "date": "2024-02-20",
     "kind": "appointment",
     "summary": "Benoeming: Daniëlle Schultheiss wordt Lid Commissie Registratie en Toezicht.",
@@ -15847,6 +15870,52 @@
     "id": "change:2025-03-27-appointment-burgemeester-woerden"
   },
   {
+    "date": "2025-03-27",
+    "kind": "appointment",
+    "summary": "Benoeming: Alfred M. Sneek wordt Voorzitter van de Staten van Aruba.",
+    "source": {
+      "source": "src:wikipedia-parlamento-aruba",
+      "retrieved": "2026-09-19",
+      "confidence": "medium"
+    },
+    "position": "pos:voorzitter-staten-aruba",
+    "organization": "org:staten-aruba",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:voorzitter-staten-aruba-sneek-2025",
+      "person": "person:marlon-sneek",
+      "label": "Alfred M. Sneek - Voorzitter van de Staten van Aruba"
+    },
+    "id": "change:2025-03-27-appointment-voorzitter-staten-aruba"
+  },
+  {
+    "date": "2025-03-28",
+    "kind": "appointment",
+    "summary": "Benoeming: Michiel Godfried Eman wordt Minister-President van Aruba.",
+    "source": {
+      "source": "src:gobierno-aw-regering",
+      "retrieved": "2026-09-19",
+      "confidence": "high"
+    },
+    "position": "pos:minister-president-aruba",
+    "organization": "org:regering-aruba",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:minister-president-aruba-eman-2025",
+      "person": "person:mike-eman",
+      "label": "Michiel Godfried Eman - Minister-President van Aruba"
+    },
+    "id": "change:2025-03-28-appointment-minister-president-aruba"
+  },
+  {
     "date": "2025-03-31",
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Frans Backhuijs als Burgemeester van Lochem.",
@@ -16215,6 +16284,29 @@
     "id": "change:2025-05-07-appointment-burgemeester-weststellingwerf"
   },
   {
+    "date": "2025-05-11",
+    "kind": "appointment",
+    "summary": "Benoeming: Fergino Brownbill wordt Voorzitter van de Staten van Curaçao.",
+    "source": {
+      "source": "src:wikipedia-staten-curacao",
+      "retrieved": "2026-09-19",
+      "confidence": "medium"
+    },
+    "position": "pos:voorzitter-staten-curacao",
+    "organization": "org:staten-curacao",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:voorzitter-staten-curacao-brownbill-2025",
+      "person": "person:fergino-brownbill",
+      "label": "Fergino Brownbill - Voorzitter van de Staten van Curaçao"
+    },
+    "id": "change:2025-05-11-appointment-voorzitter-staten-curacao"
+  },
+  {
     "date": "2025-05-12",
     "kind": "appointment",
     "summary": "Waarnemend benoemd: José van Egmond als Burgemeester van Tiel.",
@@ -16397,6 +16489,29 @@
       "label": "Esther Ouwehand - Lid Vaste commissie voor Landbouw, Visserij, Voedselzekerheid en Natuur"
     },
     "id": "change:2025-06-04-appointment-lid-tweede-kamer-commissie-lvvn"
+  },
+  {
+    "date": "2025-06-09",
+    "kind": "appointment",
+    "summary": "Benoeming: Gilmar Pisas wordt Minister-President van Curaçao.",
+    "source": {
+      "source": "src:wikipedia-kabinetten-curacao",
+      "retrieved": "2026-09-19",
+      "confidence": "medium"
+    },
+    "position": "pos:minister-president-curacao",
+    "organization": "org:regering-curacao",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:minister-president-curacao-pisas-2025",
+      "person": "person:gilmar-pisas",
+      "label": "Gilmar Pisas - Minister-President van Curaçao"
+    },
+    "id": "change:2025-06-09-appointment-minister-president-curacao"
   },
   {
     "date": "2025-06-30",
