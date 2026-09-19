@@ -10,6 +10,7 @@ import {
   ARCH_PITCH_TK,
   ARCH_TK,
   ARCH_TK_OFFSET,
+  CLUSTER_DOT_PITCH,
   CLUSTER_DOT_RADIUS,
   SELECTED_GROWTH,
   alignRotation,
@@ -19,6 +20,7 @@ import {
   edgePath,
   hydrateLayout,
   routedEdgePath,
+  wrapPi,
   type ClusterInfo,
   type GraphBundle,
   type LaidOutNode,
@@ -26,7 +28,7 @@ import {
 } from "@/lib/graph";
 import type { OrgBranch as OrgBranchName } from "@/lib/types";
 import {
-  SPRING_FIRM,
+  SPRING_SNAPPY,
   SPRING_SOFT,
   SPRING_TURN,
   prefersReducedMotion,
@@ -35,7 +37,7 @@ import {
   spring,
   stepSpring,
 } from "@/lib/motion";
-import { clusterFocus, focusReach, frameFor, posePosition, sectorPose } from "@/lib/pose";
+import { posePosition, sectorPose, type PolarTarget } from "@/lib/pose";
 import { placeLabels, type LabelItem } from "@/lib/label-placement";
 import { branchColorVar } from "@/lib/branch-colors";
 import { edgeLine, edgeTypeOrderIndex } from "./edge-styles";
@@ -108,7 +110,10 @@ const LABEL_PRIORITY: Record<LabelState, number> = { selected: 3, path: 2, neigh
 
 type MarkState = "base" | "dim" | "neighbor" | "path" | "selected" | "hover" | "member";
 
-type Hover = { kind: "node"; id: string } | { kind: "cluster"; id: string };
+type Hover = { kind: "node"; id: string } | { kind: "cluster"; id: string } | { kind: "dot"; id: string; cluster: string };
+
+/** One thing in flight: where it starts, where it goes, and how big it is at each end. */
+type Flight = { from: PolarTarget & { scale: number }; to: PolarTarget & { scale: number } };
 
 function edgeKey(a: string, b: string): string {
   return a < b ? `${a}|${b}` : `${b}|${a}`;
@@ -175,7 +180,11 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   const positionsRef = useRef(new Map<string, { x: number; y: number }>());
 
   const rot = useRef(spring(0));
-  const open = useRef(spring(0));
+  /** One scalar for everything in flight: 0 is where things were, 1 is where they go. */
+  const move = useRef(spring(1));
+  const flightsRef = useRef(new Map<string, Flight>());
+  const settledFlightRef = useRef(true);
+  const onFlightSettledRef = useRef<(() => void) | null>(null);
   const viewK = useRef(spring(1));
   const viewX = useRef(spring(0));
   const viewY = useRef(spring(0));
@@ -204,9 +213,9 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   /** The hit block behind each chamber's arch, tinted on hover. */
   const archRefs = useRef(new Map<string, SVGRectElement>());
   const seatGroupRefs = useRef(new Map<string, SVGGElement>());
-  /** The cluster the reader wants open, and the one the pose is built for. */
+  /** The open cluster, and the one that is still folding while the next opens. */
   const [openCluster, setOpenCluster] = useState<string | null>(null);
-  const [activeCluster, setActiveCluster] = useState<string | null>(null);
+  const [closing, setClosing] = useState<{ id: string; pose: ReturnType<typeof sectorPose> } | null>(null);
   const [turnEnabled, setTurnEnabled] = useState(true);
 
   useEffect(() => {
@@ -230,19 +239,45 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
 
   const selectedNode = selectedId ? layout.byId.get(selectedId) ?? null : null;
 
-  const pose = useMemo(() => (activeCluster ? sectorPose(layout, activeCluster) : null), [layout, activeCluster]);
-  const activeClusterInfo = activeCluster ? layout.clusterById.get(activeCluster) ?? null : null;
+  const pose = useMemo(() => (openCluster ? sectorPose(layout, openCluster) : null), [layout, openCluster]);
+  const activeClusterInfo = openCluster ? layout.clusterById.get(openCluster) ?? null : null;
 
-  /** Members of the open cluster and the singles of its sector: marks that move. */
+  /** Change the open cluster, remembering the one that has to fold. */
+  const changeOpen = useCallback(
+    (next: string | null) => {
+      setOpenCluster((current) => {
+        if (current === next) return current;
+        if (current) setClosing({ id: current, pose: sectorPose(layout, current) });
+        return next;
+      });
+    },
+    [layout],
+  );
+
+  /**
+   * Marks that move: the members of the open cluster and the singles of its
+   * sector, and, while a previous cluster folds, its members and its sector's
+   * singles too, so nothing jumps back into the merged path mid-flight.
+   */
   const poseMarkIds = useMemo(() => {
     const set = new Set<string>();
-    if (!pose) return set;
-    for (const id of pose.target.keys()) {
-      const node = layout.byId.get(id);
-      if (node && (!node.cluster || node.cluster === pose.openId)) set.add(id);
-    }
+    const collect = (entry: ReturnType<typeof sectorPose>) => {
+      if (!entry) return;
+      for (const id of entry.target.keys()) {
+        const node = layout.byId.get(id);
+        if (node && (!node.cluster || node.cluster === entry.openId)) set.add(id);
+      }
+    };
+    collect(pose);
+    collect(closing?.pose ?? null);
     return set;
-  }, [layout, pose]);
+  }, [layout, pose, closing]);
+  const hiddenGrids = useMemo(() => {
+    const set = new Set<string>();
+    if (openCluster) set.add(openCluster);
+    if (closing) set.add(closing.id);
+    return set;
+  }, [openCluster, closing]);
 
   const visibleNodes = useMemo(
     () => layout.nodes.filter((node) => !hiddenBranches.has(node.branch)),
@@ -315,10 +350,11 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
    */
   const liveEdges = useMemo(() => {
     const list: { from: string; to: string; state: "base" | "neighbour" | "path"; hot: boolean }[] = [];
-    if (!pose) return list;
+    if (!pose && !closing) return list;
+    const moving = (id: string) => pose?.target.has(id) || closing?.pose?.target.has(id) || false;
     for (const edge of drawnEdges) {
       if (!visibleIds.has(edge.from) || !visibleIds.has(edge.to)) continue;
-      if (!pose.target.has(edge.from) && !pose.target.has(edge.to)) continue;
+      if (!moving(edge.from) && !moving(edge.to)) continue;
       const key = edgeKey(edge.from, edge.to);
       const isPath = pathEdgeKeys.has(key);
       const isNeighbour = selectedId !== null && (edge.from === selectedId || edge.to === selectedId);
@@ -326,7 +362,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       list.push({ from: edge.from, to: edge.to, state: isPath ? "path" : isNeighbour ? "neighbour" : "base", hot: isPath || isNeighbour || touchesOpen });
     }
     return list;
-  }, [drawnEdges, visibleIds, pose, poseMarkIds, pathEdgeKeys, selectedId]);
+  }, [drawnEdges, visibleIds, pose, closing, poseMarkIds, pathEdgeKeys, selectedId]);
   const liveEdgeKeys = useMemo(() => new Set(liveEdges.map((edge) => edgeKey(edge.from, edge.to))), [liveEdges]);
 
   /**
@@ -496,11 +532,11 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
    * closure: a loop started before the reader clicked would otherwise keep
    * drawing the previous state until it settled.
    */
-  const frameDataRef = useRef({ layout, pose, liveEdges, labelled });
+  const frameDataRef = useRef({ layout, liveEdges, labelled });
   useLayoutEffect(() => {
-    frameDataRef.current = { layout, pose, liveEdges, labelled };
+    frameDataRef.current = { layout, liveEdges, labelled };
     warmEdgesRef.current = "";
-  }, [layout, pose, liveEdges, labelled]);
+  }, [layout, liveEdges, labelled]);
 
   const measureScreen = useCallback(() => {
     const svg = svgRef.current;
@@ -587,11 +623,11 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     if (tooltip && hover) {
       const screen = screenRef.current;
       let anchor: { x: number; y: number; r: number } | null = null;
-      if (hover.kind === "node") {
+      if (hover.kind === "node" || hover.kind === "dot") {
         const node = data.layout.byId.get(hover.id);
         if (node) {
           const at = positionOf(node);
-          anchor = { ...project(at.x, at.y), r: viewK.current.value * (node.glyphRadius + 4) };
+          anchor = { ...project(at.x, at.y), r: viewK.current.value * (hover.kind === "dot" ? CLUSTER_DOT_RADIUS + 2 : node.glyphRadius + 4) };
         }
       } else {
         const cluster = data.layout.clusterById.get(hover.id);
@@ -626,13 +662,13 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
 
       if (prefersReducedMotion()) {
         snap(rot.current);
-        snap(open.current);
+        snap(move.current);
         snap(viewK.current);
         snap(viewX.current);
         snap(viewY.current);
       } else {
         stepSpring(rot.current, dt, SPRING_TURN);
-        stepSpring(open.current, dt, SPRING_FIRM);
+        stepSpring(move.current, dt, SPRING_SNAPPY);
         stepSpring(viewK.current, dt, SPRING_SOFT);
         stepSpring(viewX.current, dt, SPRING_SOFT);
         stepSpring(viewY.current, dt, SPRING_SOFT);
@@ -650,37 +686,39 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
         if (group.getAttribute("opacity") !== seatOpacity) group.setAttribute("opacity", seatOpacity);
       }
 
-      // The moving sector: marks slide along their rings, the open grid's dots
-      // grow into marks, and the other grids shift as blocks.
+      // Everything in flight: marks slide along their rings from where they
+      // were to where they go, dots grow into marks or shrink back, and grids
+      // shift as blocks. One scalar drives it all.
       const frame = frameDataRef.current;
-      const openValue = open.current.value < 0.001 ? 0 : open.current.value;
+      const progress = settled(move.current) || move.current.value >= 0.998 ? 1 : Math.max(0, move.current.value);
       const positions = new Map<string, { x: number; y: number }>();
-      if (frame.pose) {
-        for (const [id, target] of frame.pose.target) {
-          const node = frame.layout.byId.get(id);
-          if (!node) continue;
-          const point = posePosition(node, target, openValue);
-          positions.set(id, point);
-          const element = markRefs.current.get(id);
-          if (!element) continue;
-          const scale = node.cluster === frame.pose.openId ? CLUSTER_DOT_RADIUS / node.glyphRadius + (1 - CLUSTER_DOT_RADIUS / node.glyphRadius) * openValue : 1;
-          element.setAttribute("transform", `translate(${point.x.toFixed(2)} ${point.y.toFixed(2)}) scale(${scale.toFixed(3)})`);
-        }
-        for (const [id, target] of frame.pose.clusterTarget) {
-          const cluster = frame.layout.clusterById.get(id);
+      for (const [id, flight] of flightsRef.current) {
+        const angle = flight.from.angle + wrapPi(flight.to.angle - flight.from.angle) * progress;
+        const radius = flight.from.radius + (flight.to.radius - flight.from.radius) * progress;
+        const point = { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius };
+        positions.set(id, point);
+        const cluster = frame.layout.clusterById.get(id);
+        if (cluster) {
           const element = clusterRefs.current.get(id);
-          if (!cluster) continue;
-          const point = posePosition(cluster, target, openValue);
-          positions.set(id, point);
           if (!element) continue;
-          const turn = ((Math.atan2(point.y, point.x) - cluster.angle) * 180) / Math.PI;
+          const turn = ((angle - cluster.angle) * 180) / Math.PI;
           element.setAttribute("transform", `translate(${point.x.toFixed(2)} ${point.y.toFixed(2)}) rotate(${turn.toFixed(3)}) translate(${(-cluster.x).toFixed(2)} ${(-cluster.y).toFixed(2)})`);
+          continue;
         }
+        const element = markRefs.current.get(id);
+        if (!element) continue;
+        const scale = flight.from.scale + (flight.to.scale - flight.from.scale) * progress;
+        element.setAttribute("transform", `translate(${point.x.toFixed(2)} ${point.y.toFixed(2)}) scale(${scale.toFixed(3)})`);
       }
       positionsRef.current = positions;
+      if (progress >= 1 && !settledFlightRef.current) {
+        settledFlightRef.current = true;
+        flightsRef.current = new Map();
+        onFlightSettledRef.current?.();
+      }
 
       if (frame.liveEdges.length > 0) {
-        const settling = settled(open.current);
+        const settling = settled(move.current);
         frameCountRef.current += 1;
         const refreshWarm = settling || frameCountRef.current % 6 === 0 || warmEdgesRef.current === "";
         const segments: Record<"base" | "neighbour" | "path", string[]> = { base: [], neighbour: [], path: [] };
@@ -704,7 +742,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       placeOverlays();
 
       const done =
-        settled(rot.current) && settled(open.current) && settled(viewK.current) && settled(viewX.current) && settled(viewY.current);
+        settled(rot.current) && settled(move.current) && settled(viewK.current) && settled(viewX.current) && settled(viewY.current);
       if (!done) cancelFrameRef.current = scheduleFrame(tick);
     };
     cancelFrameRef.current = scheduleFrame(tick);
@@ -753,74 +791,114 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     placeOverlays();
   }, [labelled, placeOverlays]);
 
-  /** When the moving sector stops moving, its marks go back to their rest transforms. */
+  /**
+   * Plan the flights whenever the open cluster changes: every mark and grid
+   * of the sectors involved starts where it is now and goes to its target in
+   * the new pose, or back to rest. The scalar restarts at 0, so a click in the
+   * middle of a move continues from the current picture instead of snapping.
+   */
   useLayoutEffect(() => {
-    if (pose) return;
-    for (const [id, element] of markRefs.current) {
+    const flights = new Map<string, Flight>();
+    const current = positionsRef.current;
+    const restOf = (id: string): (PolarTarget & { scale: number }) | null => {
+      const cluster = layout.clusterById.get(id);
+      if (cluster) return { angle: cluster.angle, radius: cluster.radius, scale: 1 };
       const node = layout.byId.get(id);
-      if (node) element.setAttribute("transform", `translate(${node.x} ${node.y})`);
+      if (!node) return null;
+      return { angle: node.angle, radius: node.radius, scale: node.cluster ? CLUSTER_DOT_RADIUS / node.glyphRadius : 1 };
+    };
+    const startOf = (id: string): (PolarTarget & { scale: number }) | null => {
+      const inFlight = flightsRef.current.get(id);
+      const at = current.get(id);
+      const rest = restOf(id);
+      if (!rest) return null;
+      if (!at) return rest;
+      const progress = settled(move.current) || move.current.value >= 0.998 ? 1 : Math.max(0, move.current.value);
+      const scale = inFlight ? inFlight.from.scale + (inFlight.to.scale - inFlight.from.scale) * progress : rest.scale;
+      return { angle: Math.atan2(at.y, at.x), radius: Math.hypot(at.x, at.y), scale };
+    };
+    const plan = (id: string, to: (PolarTarget & { scale: number }) | null) => {
+      const from = startOf(id);
+      if (!from || !to) return;
+      flights.set(id, { from, to });
+    };
+    // Everything that was in flight or is in the previous pose goes back to rest unless the new pose says otherwise.
+    const involved = new Set<string>([...flightsRef.current.keys(), ...current.keys()]);
+    if (closing?.pose) for (const id of [...closing.pose.target.keys(), ...closing.pose.clusterTarget.keys()]) involved.add(id);
+    for (const id of involved) plan(id, restOf(id));
+    if (pose) {
+      for (const [id, target] of pose.target) {
+        const node = layout.byId.get(id);
+        if (!node) continue;
+        const scale = node.cluster && node.cluster !== pose.openId ? CLUSTER_DOT_RADIUS / node.glyphRadius : 1;
+        plan(id, { ...target, scale });
+      }
+      for (const [id, target] of pose.clusterTarget) plan(id, { ...target, scale: 1 });
     }
-    for (const element of clusterRefs.current.values()) element.removeAttribute("transform");
-    for (const state of ["base", "neighbour", "path"] as const) liveEdgeRefs.current[state]?.setAttribute("d", "");
-    positionsRef.current = new Map();
-  }, [pose, layout]);
+    // A flight that starts and ends at rest is no flight.
+    for (const [id, flight] of flights) {
+      // Positions are stored to a thousandth, so that is the tolerance.
+      if (
+        Math.abs(wrapPi(flight.from.angle - flight.to.angle)) * flight.to.radius < 0.01 &&
+        Math.abs(flight.from.radius - flight.to.radius) < 0.01 &&
+        Math.abs(flight.from.scale - flight.to.scale) < 1e-3
+      ) {
+        flights.delete(id);
+        const node = layout.byId.get(id);
+        const element = markRefs.current.get(id);
+        if (node && element) element.setAttribute("transform", `translate(${node.x} ${node.y}) scale(${flight.to.scale.toFixed(3)})`);
+        const grid = clusterRefs.current.get(id);
+        if (grid && !node) grid.removeAttribute("transform");
+      }
+    }
+    flightsRef.current = flights;
+    settledFlightRef.current = flights.size === 0;
+    if (flights.size > 0) {
+      snap(move.current, 0);
+      move.current.target = 1;
+    }
+    if (flights.size === 0) {
+      for (const state of ["base", "neighbour", "path"] as const) liveEdgeRefs.current[state]?.setAttribute("d", "");
+      positionsRef.current = new Map();
+      if (closing) setClosing(null);
+    }
+    kick();
+  }, [layout, pose, closing, kick]);
+
+  /** Once the fold has landed, the folded cluster's members return to the merged dots. */
+  useEffect(() => {
+    onFlightSettledRef.current = () => {
+      if (closing) setClosing(null);
+      for (const state of ["base", "neighbour", "path"] as const) liveEdgeRefs.current[state]?.setAttribute("d", "");
+    };
+  }, [closing]);
 
   /** Selecting a dot of a cluster opens that cluster; selecting anything else folds it. */
   useEffect(() => {
     if (!selectedNode) return;
-    setOpenCluster(selectedNode.cluster);
-  }, [selectedNode]);
-
-  /** Fold, then swap, then unpack: the pose changes only once the previous one has closed. */
-  useEffect(() => {
-    if (activeCluster === openCluster) return;
-    if (open.current.value < 0.02 || !activeCluster) {
-      setActiveCluster(openCluster);
-      return;
-    }
-    open.current.target = 0;
-    kick();
-    const timer = window.setInterval(() => {
-      if (open.current.value < 0.02) {
-        window.clearInterval(timer);
-        setActiveCluster(openCluster);
-      }
-    }, 40);
-    return () => window.clearInterval(timer);
-  }, [activeCluster, openCluster, kick]);
-
-  useEffect(() => {
-    open.current.target = pose && activeCluster === openCluster ? 1 : 0;
-    kick();
-  }, [pose, activeCluster, openCluster, kick]);
+    changeOpen(selectedNode.cluster);
+  }, [selectedNode, changeOpen]);
 
   /**
-   * Turn the canvas so the selection reads straight above the core, and ease
-   * the view to hold it, its relations and the core. The turn is one rigid
-   * rotation of the whole frame: every body keeps its neighbours. The reader
-   * can switch the turn off; the view still frames the selection.
+   * Turn the canvas so the selection, or the open cluster, or the selected
+   * sector reads straight above the core. The turn is one rigid rotation of
+   * the whole frame: every body keeps its neighbours. The view itself never
+   * zooms or pans on its own; the reader owns it through the wheel, the
+   * buttons and the drag.
    */
   useEffect(() => {
+    if (!turnEnabled) return;
     const sector = activeSector ? layout.sectors.find((entry) => entry.id === activeSector) ?? null : null;
-    let focus: { angle: number; radius: number; reach: number } | null = null;
-    if (selectedNode) {
-      const at = pose?.target.get(selectedNode.id) ?? selectedNode;
-      focus = { angle: at.angle, radius: at.radius, reach: focusReach(layout, selectedNode.id, hiddenBranches) };
-      if (activeClusterInfo && pose && selectedNode.cluster === activeClusterInfo.id) {
-        focus.reach = Math.max(focus.reach, clusterFocus(activeClusterInfo, pose).reach);
-      }
-    } else if (activeClusterInfo && pose) {
-      focus = clusterFocus(activeClusterInfo, pose);
-    } else if (sector) {
-      focus = { angle: sector.midAngle, radius: (sector.innerRadius + sector.outerRadius) / 2, reach: (sector.outerRadius - sector.innerRadius) / 2 + 40 };
-    }
-    if (turnEnabled) rot.current.target = alignRotation(focus ? focus.angle : null, rot.current.target);
-    const view = frameFor(layout, focus, rot.current.target, 1, selectedNode ? 2.4 : 1.8);
-    viewK.current.target = view.k;
-    viewX.current.target = view.x;
-    viewY.current.target = view.y;
+    const angle = selectedNode
+      ? (pose?.target.get(selectedNode.id) ?? selectedNode).angle
+      : activeClusterInfo
+        ? activeClusterInfo.angle
+        : sector
+          ? sector.midAngle
+          : null;
+    rot.current.target = alignRotation(angle, rot.current.target);
     kick();
-  }, [layout, selectedNode, activeSector, activeClusterInfo, pose, hiddenBranches, turnEnabled, kick]);
+  }, [layout, selectedNode, activeSector, activeClusterInfo, pose, turnEnabled, kick]);
 
   // ---------------------------------------------------------------------------
   // Pointer and keyboard
@@ -838,6 +916,42 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       };
     },
     [layout.viewBox],
+  );
+
+  /** A client point in the canvas's own frame: through the view and the rotation. */
+  const toLocalPoint = useCallback(
+    (clientX: number, clientY: number) => {
+      const user = toUserPoint(clientX, clientY);
+      const x = (user.x - viewX.current.value) / viewK.current.value;
+      const y = (user.y - viewY.current.value) / viewK.current.value;
+      const cos = Math.cos(-rot.current.value);
+      const sin = Math.sin(-rot.current.value);
+      return { x: cos * x - sin * y, y: sin * x + cos * y };
+    },
+    [toUserPoint],
+  );
+
+  /** The member whose dot is under the pointer, if the pointer is on a grid. */
+  const dotAt = useCallback(
+    (clusterId: string, clientX: number, clientY: number): string | null => {
+      const cluster = layout.clusterById.get(clusterId);
+      if (!cluster) return null;
+      const point = toLocalPoint(clientX, clientY);
+      let best: string | null = null;
+      let bestDistance = CLUSTER_DOT_PITCH * 0.7;
+      for (const id of cluster.members) {
+        const node = layout.byId.get(id);
+        if (!node) continue;
+        const at = positionsRef.current.get(id) ?? node;
+        const distance = Math.hypot(at.x - point.x, at.y - point.y);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          best = id;
+        }
+      }
+      return best;
+    },
+    [layout, toLocalPoint],
   );
 
   const zoomAt = useCallback(
@@ -978,7 +1092,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       return;
     }
     setActiveSector(null);
-    setOpenCluster(null);
+    changeOpen(null);
     onSelect(null);
   };
 
@@ -997,8 +1111,15 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     event.stopPropagation();
     setActiveSector(null);
     if (target.kind === "cluster") {
+      // A click on one dot selects that body; a click on the grid's edge opens or folds it.
+      const dot = dotAt(target.id, event.clientX, event.clientY);
+      if (dot && dot !== selectedId) {
+        changeOpen(target.id);
+        onSelect(dot);
+        return;
+      }
       onSelect(null);
-      setOpenCluster((current) => (current === target.id ? null : target.id));
+      changeOpen(openCluster === target.id ? null : target.id);
       return;
     }
     if (target.id === selectedId) {
@@ -1006,15 +1127,28 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       return;
     }
     const node = layout.byId.get(target.id);
-    setOpenCluster(node?.cluster ?? null);
+    changeOpen(node?.cluster ?? null);
     onSelect(target.id);
+  };
+
+  /** Moving across a grid names the dot under the pointer. */
+  const onGridMove = (event: ReactPointerEvent<SVGGElement>) => {
+    const target = targetAt(event);
+    if (!target || target.kind !== "cluster") return;
+    const dot = dotAt(target.id, event.clientX, event.clientY);
+    const next: Hover = dot ? { kind: "dot", id: dot, cluster: target.id } : target;
+    const current = hoverRef.current;
+    if (current && current.kind === next.kind && current.id === next.id) return;
+    applyHover(next);
   };
 
   /** Write the hover tint to the DOM and tell the tooltip; no React render of the canvas. */
   const applyHover = (target: Hover | null) => {
     const previous = hoverRef.current;
-    if (previous?.kind === "cluster" && previous.id !== target?.id) {
-      const rect = clusterRefs.current.get(previous.id)?.querySelector("rect");
+    const previousGrid = previous?.kind === "cluster" ? previous.id : previous?.kind === "dot" ? previous.cluster : null;
+    const targetGrid = target?.kind === "cluster" ? target.id : target?.kind === "dot" ? target.cluster : null;
+    if (previousGrid && previousGrid !== targetGrid) {
+      const rect = clusterRefs.current.get(previousGrid)?.querySelector("rect");
       rect?.setAttribute("fill-opacity", "0.06");
       rect?.setAttribute("stroke-opacity", "0.25");
     }
@@ -1040,8 +1174,8 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
         mark.setAttribute("opacity", "0");
       }
     }
-    if (target?.kind === "cluster") {
-      const rect = clusterRefs.current.get(target.id)?.querySelector("rect");
+    if (targetGrid) {
+      const rect = clusterRefs.current.get(targetGrid)?.querySelector("rect");
       rect?.setAttribute("fill-opacity", "0.22");
       rect?.setAttribute("stroke-opacity", "0.7");
     }
@@ -1061,7 +1195,9 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
 
   const onMarkOut = (event: ReactPointerEvent<SVGGElement>) => {
     const target = targetAt(event);
-    if (target && hoverRef.current?.id === target.id) applyHover(null);
+    const current = hoverRef.current;
+    if (!target || !current) return;
+    if (current.id === target.id || (current.kind === "dot" && current.cluster === target.id)) applyHover(null);
   };
 
   const onSectorClick = (event: ReactMouseEvent<SVGGElement>) => {
@@ -1070,7 +1206,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     if (!id) return;
     event.stopPropagation();
     onSelect(null);
-    setOpenCluster(null);
+    changeOpen(null);
     setActiveSector((current) => (current === id ? null : id));
   };
 
@@ -1126,7 +1262,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       case "Escape":
         event.preventDefault();
         if (selectedId) onSelect(null);
-        else if (openCluster) setOpenCluster(null);
+        else if (openCluster) changeOpen(null);
         else setActiveSector(null);
         break;
       case "[":
@@ -1183,8 +1319,13 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     (node: LaidOutNode) => (element: SVGGElement | null) => {
       if (element) {
         markRefs.current.set(node.id, element);
+        const flight = flightsRef.current.get(node.id);
         const at = positionsRef.current.get(node.id);
-        if (at) element.setAttribute("transform", `translate(${at.x.toFixed(2)} ${at.y.toFixed(2)})`);
+        if (flight && at) {
+          element.setAttribute("transform", `translate(${at.x.toFixed(2)} ${at.y.toFixed(2)}) scale(${flight.from.scale.toFixed(3)})`);
+        } else if (node.cluster) {
+          element.setAttribute("transform", `translate(${node.x} ${node.y}) scale(${(CLUSTER_DOT_RADIUS / node.glyphRadius).toFixed(3)})`);
+        }
       } else {
         markRefs.current.delete(node.id);
       }
@@ -1425,10 +1566,10 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
             </g>
 
             {/* Clusters: the standing children of one parent as a grid of dots, one hit block each. */}
-            <g onClick={onMarkClick} onPointerOver={onMarkOver} onPointerOut={onMarkOut}>
+            <g onClick={onMarkClick} onPointerOver={onMarkOver} onPointerOut={onMarkOut} onPointerMove={onGridMove}>
               {clusterDots.map(({ cluster, d, half }) => {
                 const color = branchColorVar(sectorBranch(cluster.sector));
-                const isOpen = activeClusterInfo?.id === cluster.id;
+                const isOpen = hiddenGrids.has(cluster.id);
                 const dim =
                   (selectedId || activeClusterInfo) && !isOpen && !(selectedNode && cluster.parent !== null && selectedNode.parent === cluster.parent);
                 return (
@@ -1827,8 +1968,9 @@ function HoverCard({
     register(setHover);
   }, [register]);
 
-  const node = hover?.kind === "node" ? layout.byId.get(hover.id) ?? null : null;
+  const node = hover?.kind === "node" || hover?.kind === "dot" ? layout.byId.get(hover.id) ?? null : null;
   const cluster = hover?.kind === "cluster" ? layout.clusterById.get(hover.id) ?? null : null;
+  const dotCluster = hover?.kind === "dot" ? layout.clusterById.get(hover.cluster) ?? null : null;
   if (!node && !cluster) return null;
   const branch = node?.branch ?? (cluster ? layout.sectors.find((sector) => sector.id === cluster.sector)?.branch ?? null : null);
   const parent = node?.parent ? layout.byId.get(node.parent) ?? null : null;
@@ -1868,6 +2010,7 @@ function HoverCard({
           </div>
           {parent ? <p className="mt-1 text-[11px] text-ink-muted">{t("parentOf", { parent: parent.name })}</p> : null}
           {chamber ? <p className="mt-1 text-[11px] text-ink-muted">{t("chamberSeats", { total: chamber.total, majority: chamber.majority })}</p> : null}
+          {dotCluster ? <p className="mt-1 text-[11px] text-ink-muted">{clusterLabel(dotCluster)}</p> : null}
           <p className="mt-0.5 text-[11px] text-ink-faint">{connections === 1 ? t("connectionsOne") : t("connections", { n: connections })}</p>
         </>
       ) : cluster ? (

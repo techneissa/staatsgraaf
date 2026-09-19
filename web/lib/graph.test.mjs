@@ -18,6 +18,7 @@ import {
   archParams,
   archSeats,
   clusterHalfSize,
+  sectorArcs,
   edgeAlive,
   glyphFootprint,
   hydrateLayout,
@@ -195,16 +196,17 @@ function ringItemsOf(sector) {
   return items;
 }
 
-test("every sector spreads its items evenly over its whole arc", () => {
+test("every sector spreads its items evenly over each of its arcs", () => {
   for (const sector of layout.sectors) {
+    for (const arc of sectorArcs(sector)) {
     const byRing = new Map();
     for (const item of ringItemsOf(sector)) {
+      if (item.angle < arc.start - 1e-9 || item.angle > arc.end + 1e-9) continue;
       const key = item.radius.toFixed(2);
       const list = byRing.get(key);
       if (list) list.push(item);
       else byRing.set(key, [item]);
     }
-    const span = sector.endAngle - sector.startAngle;
     for (const [radius, ring] of byRing) {
       if (ring.length < 3) continue;
       const r = Number(radius);
@@ -220,10 +222,11 @@ test("every sector spreads its items evenly over its whole arc", () => {
       for (const gap of gaps) {
         assert.ok(Math.abs(gap - first) < epsilon, `${sector.id} ring ${radius}: uneven gaps ${gap} and ${first}`);
       }
-      const lead = (sorted[0].angle - sector.startAngle) * r - sorted[0].halfWidth;
-      const trail = (sector.endAngle - sorted[sorted.length - 1].angle) * r - sorted[sorted.length - 1].halfWidth;
+      const lead = (sorted[0].angle - arc.start) * r - sorted[0].halfWidth;
+      const trail = (arc.end - sorted[sorted.length - 1].angle) * r - sorted[sorted.length - 1].halfWidth;
       assert.ok(Math.abs(lead - trail) < epsilon, `${sector.id} ring ${radius} is not centred in its arc`);
       assert.ok(Math.abs(lead - first / 2) < epsilon, `${sector.id} ring ${radius} leaves ${lead} at the start instead of ${first / 2}`);
+    }
     }
   }
 });
