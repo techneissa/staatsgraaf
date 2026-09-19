@@ -31,7 +31,8 @@ import {
   spring,
   stepSpring,
 } from "@/lib/motion";
-import { TETHER_MIN_TRAVEL, expansionFor, framePose, frameFor, posePosition } from "@/lib/pose";
+import { focusReach, frameFor } from "@/lib/pose";
+import { placeLabels, type LabelItem } from "@/lib/label-placement";
 import { branchColorVar } from "@/lib/branch-colors";
 import { edgeLine, edgeTypeOrderIndex } from "./edge-styles";
 import { useT } from "@/components/i18n/use-t";
@@ -64,7 +65,7 @@ type GraphCanvasProps = {
  * `requestAnimationFrame` is the right clock in a browser that composites, and
  * it is the only one that stays in step with the screen. Some environments
  * (headless automation, a tab that is never painted) never fire it at all, and
- * a canvas whose only clock never ticks would freeze halfway through a turn.
+ * a canvas whose only clock never ticks would freeze halfway through a move.
  * Whichever of the two fires first runs the frame and cancels the other, so a
  * normal browser is unaffected and a silent one degrades to a slower canvas
  * instead of a stuck one.
@@ -88,6 +89,17 @@ function scheduleFrame(callback: (now: number) => void): () => void {
 const MIN_ZOOM = 0.25;
 const MAX_ZOOM = 8;
 const DIM_OPACITY = 0.2;
+/** Most labelled relations of one selection; the placement hides what does not fit. */
+const MAX_LABELS = 80;
+/** Label sizes in CSS pixels on the reader's screen, whatever the zoom. */
+const LABEL_PX = 12;
+const LABEL_PX_SELECTED = 13.5;
+/** The width labels are measured at; a text's width scales with its font size. */
+const MEASURE_PX = 12;
+
+type LabelState = "selected" | "path" | "neighbor" | "hover";
+
+const LABEL_PRIORITY: Record<LabelState, number> = { hover: 4, selected: 3, path: 2, neighbor: 1 };
 
 function edgeKey(a: string, b: string): string {
   return a < b ? `${a}|${b}` : `${b}|${a}`;
@@ -106,13 +118,15 @@ function localized(
 
 /**
  * The tier canvas: a deterministic concentric layout drawn once by React, and
- * an imperative motion layer that owns every transform afterwards.
+ * an imperative motion layer that owns the camera afterwards.
  *
- * React renders the structure; the animation frame writes `transform` straight
- * to the DOM through refs. That is why panning 1600 marks does not reconcile
- * 1600 React elements, and why the turn, the gather and the step back can be
- * interrupted at any moment: each is one spring chasing a target, and the
- * target is a pure function of the current focus.
+ * A body never leaves its place. Selecting one highlights it, its path to the
+ * electorate and its direct relations where they are, and the camera eases to
+ * a view that holds them and the core. React renders the structure; the
+ * animation frame writes the view transform and the label positions straight
+ * to the DOM through refs, so panning 1600 marks does not reconcile 1600 React
+ * elements, and every move can be interrupted: each is one spring chasing a
+ * target that is a pure function of the current selection.
  */
 export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf = null }: GraphCanvasProps) {
   const layout = useMemo(() => hydrateLayout(bundle), [bundle]);
@@ -125,41 +139,18 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   const svgRef = useRef<SVGSVGElement | null>(null);
   const viewGroupRef = useRef<SVGGElement | null>(null);
   const rotGroupRef = useRef<SVGGElement | null>(null);
-  const frameCircleRef = useRef<SVGCircleElement | null>(null);
-  const liveEdgeRefs = useRef<Record<"base" | "neighbour" | "path", SVGPathElement | null>>({
-    base: null,
-    neighbour: null,
-    path: null,
-  });
-  const nodeRefs = useRef(new Map<string, SVGGElement>());
-  const labelRefs = useRef(new Map<string, SVGGElement>());
-  const ghostRefs = useRef(new Map<string, SVGGElement>());
-  const tetherRefs = useRef(new Map<string, SVGPathElement>());
+  const labelRefs = useRef(new Map<string, SVGTextElement>());
+  /** Text widths at `MEASURE_PX`, measured once per label element. */
+  const labelWidths = useRef(new Map<string, number>());
+  /** CSS pixels per viewBox unit, refreshed when the svg is resized. */
+  const clientScaleRef = useRef(1);
 
   const rot = useRef(spring(0));
-  const open = useRef(spring(0));
   const viewK = useRef(spring(1));
   const viewX = useRef(spring(0));
   const viewY = useRef(spring(0));
-  const frameR = useRef(spring(layout.frameRadius));
-  const movedRef = useRef(new Set<string>());
   const cancelFrameRef = useRef<(() => void) | null>(null);
   const lastTimeRef = useRef(0);
-  const frameCountRef = useRef(0);
-  /** The last drawn path of the edges that only ride the step back. */
-  const warmEdgesRef = useRef("");
-  /**
-   * What the animation frame draws. It lives in a ref, not in the frame's
-   * closure: a loop started before the reader clicked would otherwise keep
-   * drawing the previous focus until it settled, and every kick in between
-   * would be swallowed because a loop was already running.
-   */
-  const frameDataRef = useRef<{
-    layout: typeof layout;
-    expansion: typeof expansion;
-    liveEdges: typeof liveEdges;
-    ghosts: typeof ghosts;
-  } | null>(null);
 
   const dragRef = useRef<{ pointerId: number; startX: number; startY: number; x: number; y: number } | null>(null);
   const dialRef = useRef<{ pointerId: number; angle: number } | null>(null);
@@ -167,18 +158,10 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   const pinchRef = useRef<{ startDist: number; startK: number; startX: number; startY: number; midX: number; midY: number } | null>(null);
   const pointerMovedRef = useRef(false);
 
-  /** The focus the pose is currently built for; it swaps only when closed. */
-  const [activeFocus, setActiveFocus] = useState<string | null>(null);
-  const [haloOpen, setHaloOpen] = useState(true);
   const [activeSector, setActiveSector] = useState<string | null>(null);
+  const [hoverId, setHoverId] = useState<string | null>(null);
 
   const selectedNode = selectedId ? layout.byId.get(selectedId) ?? null : null;
-  const desiredFocus = selectedNode ? selectedNode.id : null;
-
-  const expansion = useMemo(
-    () => (activeFocus ? expansionFor(layout, activeFocus, hiddenBranches) : null),
-    [layout, activeFocus, hiddenBranches],
-  );
 
   const visibleNodes = useMemo(
     () => layout.nodes.filter((node) => !hiddenBranches.has(node.branch)),
@@ -203,6 +186,21 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     [layout, selectedId],
   );
 
+  /**
+   * Marks that are invisible at rest but shown for this selection: the
+   * selected body itself when it is a collapsed child, and the collapsed
+   * children of the selected body, which sit fanned just outside its mark.
+   */
+  const revealedIds = useMemo(() => {
+    const set = new Set<string>();
+    if (!selectedNode) return set;
+    if (selectedNode.hidden && !selectedNode.arch) set.add(selectedNode.id);
+    for (const node of layout.nodes) {
+      if (node.collapsedInto === selectedNode.id && !hiddenBranches.has(node.branch)) set.add(node.id);
+    }
+    return set;
+  }, [layout, selectedNode, hiddenBranches]);
+
   const pathEdgeKeys = useMemo(() => {
     const set = new Set<string>();
     for (let i = 0; i < focusPath.length - 1; i += 1) set.add(edgeKey(focusPath[i], focusPath[i + 1]));
@@ -210,40 +208,35 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   }, [focusPath]);
 
   /**
-   * Edges whose endpoints move while the pose is open are redrawn per frame.
-   * `hot` edges touch the focus or a summoned mark and move visibly; the rest
-   * only ride the small uniform step back and are refreshed every few frames,
-   * which is what keeps a focus on a well-connected body under the frame budget.
+   * The edges the selection lights up, merged into one path per state. They
+   * keep the shape they have at rest; only their colour and width change.
    */
-  const liveEdges = useMemo(() => {
-    const moving = expansion?.target;
-    const halo = new Set((expansion?.halo ?? []).map((member) => member.id));
-    const list: { from: string; to: string; state: "base" | "neighbour" | "path"; hot: boolean }[] = [];
-    if (!moving && !selectedId) return list;
+  const highlightEdges = useMemo(() => {
+    const segments: Record<"neighbour" | "path", string[]> = { neighbour: [], path: [] };
+    const keys = new Set<string>();
+    if (!selectedId) return { segments: { neighbour: "", path: "" }, keys };
     for (const edge of drawnEdges) {
       if (!visibleIds.has(edge.from) || !visibleIds.has(edge.to)) continue;
-      const touched = moving ? moving.has(edge.from) || moving.has(edge.to) : false;
       const key = edgeKey(edge.from, edge.to);
       const isPath = pathEdgeKeys.has(key);
-      const isNeighbour = selectedId !== null && (edge.from === selectedId || edge.to === selectedId);
-      if (!touched && !isPath && !isNeighbour) continue;
-      const hot = isPath || isNeighbour || halo.has(edge.from) || halo.has(edge.to) || edge.from === expansion?.focusId || edge.to === expansion?.focusId;
-      list.push({ from: edge.from, to: edge.to, state: isPath ? "path" : isNeighbour ? "neighbour" : "base", hot });
+      const isNeighbour = edge.from === selectedId || edge.to === selectedId;
+      if (!isPath && !isNeighbour) continue;
+      const from = layout.byId.get(edge.from);
+      const to = layout.byId.get(edge.to);
+      if (!from || !to) continue;
+      const d = from.sector === to.sector ? edgePath(from.x, from.y, to.x, to.y) : routedEdgePath(from, to, layout.channels);
+      segments[isPath ? "path" : "neighbour"].push(d);
+      keys.add(key);
     }
-    return list;
-  }, [layout, drawnEdges, expansion, visibleIds, pathEdgeKeys, selectedId]);
-
-  const liveEdgeKeys = useMemo(
-    () => new Set(liveEdges.map((edge) => edgeKey(edge.from, edge.to))),
-    [liveEdges],
-  );
+    return { segments: { neighbour: segments.neighbour.join(" "), path: segments.path.join(" ") }, keys };
+  }, [layout, drawnEdges, visibleIds, pathEdgeKeys, selectedId]);
 
   /** Everything else is merged into one path per relation type and never moves. */
   const staticEdges = useMemo(() => {
     const byType = new Map<string, string[]>();
     for (const edge of drawnEdges) {
       if (!visibleIds.has(edge.from) || !visibleIds.has(edge.to)) continue;
-      if (liveEdgeKeys.has(edgeKey(edge.from, edge.to))) continue;
+      if (highlightEdges.keys.has(edgeKey(edge.from, edge.to))) continue;
       const from = layout.byId.get(edge.from);
       const to = layout.byId.get(edge.to);
       if (!from || !to) continue;
@@ -258,29 +251,27 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     return [...byType.entries()]
       .sort((a, b) => edgeTypeOrderIndex(a[0]) - edgeTypeOrderIndex(b[0]))
       .map(([type, segments]) => ({ type, d: segments.join(" ") }));
-  }, [layout, drawnEdges, visibleIds, liveEdgeKeys]);
-
-  const haloIds = useMemo(() => new Set((expansion?.halo ?? []).map((member) => member.id)), [expansion]);
+  }, [layout, drawnEdges, visibleIds, highlightEdges]);
 
   /**
-   * Marks that need an element of their own: the selection and its path and
-   * neighbours, and everything the current pose moves. Every other mark is
-   * drawn into one merged path per sector and glyph (below), which is what
-   * keeps a turn of the whole canvas inside the frame budget: rasterising
-   * forty paths is cheap, rasterising 1600 is not.
+   * Marks that need an element of their own: the selection, its path, its
+   * neighbours and the marks revealed for it. Every other mark is drawn into
+   * one merged path per sector and glyph (below), which is what keeps a pan of
+   * the whole canvas inside the frame budget: rasterising forty paths is
+   * cheap, rasterising 1600 is not.
    */
   const dynamicIds = useMemo(() => {
     const set = new Set<string>();
     if (selectedId) set.add(selectedId);
     for (const id of focusSet) set.add(id);
     for (const id of neighborSet) set.add(id);
-    for (const id of expansion?.target.keys() ?? []) set.add(id);
+    for (const id of revealedIds) set.add(id);
     return set;
-  }, [selectedId, focusSet, neighborSet, expansion]);
+  }, [selectedId, focusSet, neighborSet, revealedIds]);
 
   const dynamicNodes = useMemo(
-    () => drawnNodes.filter((node) => dynamicIds.has(node.id) || (node.hidden && dynamicIds.has(node.id))),
-    [drawnNodes, dynamicIds],
+    () => drawnNodes.filter((node) => dynamicIds.has(node.id) && (!node.hidden || revealedIds.has(node.id))),
+    [drawnNodes, dynamicIds, revealedIds],
   );
 
   const staticMarkGroups = useMemo(() => {
@@ -300,10 +291,6 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     () => drawnNodes.filter((node) => !node.hidden && !dynamicIds.has(node.id)),
     [drawnNodes, dynamicIds],
   );
-  const ghosts = useMemo(
-    () => (expansion?.halo ?? []).filter((member) => !member.fromHidden && member.travel > TETHER_MIN_TRAVEL),
-    [expansion],
-  );
 
   const visibleSectors = useMemo(
     () => layout.sectors.filter((sector) => !hiddenBranches.has(sector.branch)),
@@ -318,6 +305,40 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     },
     [locale],
   );
+
+  const glossOf = useCallback((name: string): string | null => (locale === "en" ? orgEnGloss(name) : null), [locale]);
+
+  /**
+   * The names on the canvas: the selection, its path, its direct relations and
+   * the mark under the pointer. Nothing else carries a name, because 900
+   * names at once are a texture, not a map. The placement per frame decides
+   * which of these actually fit.
+   */
+  const labelled = useMemo(() => {
+    const list: { node: LaidOutNode; state: LabelState; text: string }[] = [];
+    const textOf = (node: LaidOutNode) => {
+      const gloss = glossOf(node.name);
+      return gloss ? `${node.name} (${gloss})` : node.name;
+    };
+    const seen = new Set<string>();
+    const push = (node: LaidOutNode | undefined, state: LabelState) => {
+      if (!node || seen.has(node.id) || !visibleIds.has(node.id)) return;
+      if (node.hidden && !revealedIds.has(node.id)) return;
+      seen.add(node.id);
+      list.push({ node, state, text: textOf(node) });
+    };
+    if (hoverId && hoverId !== selectedId) push(layout.byId.get(hoverId), "hover");
+    if (selectedNode) push(selectedNode, "selected");
+    for (const id of focusPath) push(layout.byId.get(id), "path");
+    const neighbours: LaidOutNode[] = [];
+    for (const id of [...neighborSet, ...revealedIds]) {
+      const node = layout.byId.get(id);
+      if (node && !seen.has(node.id)) neighbours.push(node);
+    }
+    neighbours.sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : a.id < b.id ? -1 : 1));
+    for (const node of neighbours.slice(0, MAX_LABELS)) push(node, "neighbor");
+    return list;
+  }, [layout, hoverId, selectedId, selectedNode, focusPath, neighborSet, revealedIds, visibleIds, glossOf]);
 
   const chambers = bundle.chambers;
   const statenSector = layout.sectors.find((sector) => sector.id === "staten-generaal") ?? null;
@@ -340,10 +361,76 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   // Motion
   // ---------------------------------------------------------------------------
 
+  /**
+   * What the label pass draws. It lives in a ref, not in the frame's closure:
+   * a loop started before the reader clicked would otherwise keep placing the
+   * previous selection's labels until it settled.
+   */
+  const labelDataRef = useRef(labelled);
   useLayoutEffect(() => {
-    frameDataRef.current = { layout, expansion, liveEdges, ghosts };
-    warmEdgesRef.current = "";
-  }, [layout, expansion, liveEdges, ghosts]);
+    labelDataRef.current = labelled;
+  }, [labelled]);
+
+  const measureScale = useCallback(() => {
+    const svg = svgRef.current;
+    if (!svg) return 1;
+    const rect = svg.getBoundingClientRect();
+    const vb = layout.viewBox;
+    const scale = Math.min(rect.width / vb.width, rect.height / vb.height);
+    return scale > 0 ? scale : 1;
+  }, [layout.viewBox]);
+
+  /**
+   * Place the labels for the current view. Labels live outside the view and
+   * rotation groups, so they stay upright and keep one size on screen: each
+   * mark's position is projected through the view, and the font is sized in
+   * viewBox units so it comes out at `LABEL_PX` CSS pixels.
+   */
+  const placeLabelsNow = useCallback(() => {
+    const data = labelDataRef.current;
+    if (data.length === 0) return;
+    const k = viewK.current.value;
+    const tx = viewX.current.value;
+    const ty = viewY.current.value;
+    const cos = Math.cos(rot.current.value);
+    const sin = Math.sin(rot.current.value);
+    const unit = 1 / clientScaleRef.current;
+    const items: LabelItem[] = [];
+    const fonts = new Map<string, number>();
+    for (const entry of data) {
+      const px = entry.state === "selected" ? LABEL_PX_SELECTED : LABEL_PX;
+      const font = px * unit;
+      const widthAtMeasure = labelWidths.current.get(entry.node.id) ?? entry.text.length * MEASURE_PX * 0.55;
+      const growth = entry.state === "selected" ? SELECTED_GROWTH + 6 : 0;
+      fonts.set(entry.node.id, font);
+      items.push({
+        id: entry.node.id,
+        x: tx + k * (cos * entry.node.x - sin * entry.node.y),
+        y: ty + k * (sin * entry.node.x + cos * entry.node.y),
+        r: k * (entry.node.glyphRadius + growth),
+        width: (widthAtMeasure / MEASURE_PX) * font,
+        height: font * 1.2,
+        priority: LABEL_PRIORITY[entry.state],
+      });
+    }
+    const slots = placeLabels(items, 3 * unit);
+    for (const entry of data) {
+      const element = labelRefs.current.get(entry.node.id);
+      if (!element) continue;
+      const slot = slots.get(entry.node.id);
+      if (!slot) {
+        element.setAttribute("opacity", "0");
+        continue;
+      }
+      const font = fonts.get(entry.node.id) ?? LABEL_PX * unit;
+      element.setAttribute("x", slot.x.toFixed(2));
+      element.setAttribute("y", slot.y.toFixed(2));
+      element.setAttribute("text-anchor", slot.anchor);
+      element.setAttribute("font-size", font.toFixed(2));
+      element.setAttribute("stroke-width", (font * 0.28).toFixed(2));
+      element.setAttribute("opacity", "1");
+    }
+  }, []);
 
   const kick = useCallback(() => {
     if (cancelFrameRef.current !== null) return;
@@ -353,26 +440,17 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       const dt = lastTimeRef.current === 0 ? 1 / 60 : (now - lastTimeRef.current) / 1000;
       lastTimeRef.current = now;
 
-      const reduced = prefersReducedMotion();
-      if (reduced) {
+      if (prefersReducedMotion()) {
         snap(rot.current);
-        snap(open.current);
         snap(viewK.current);
         snap(viewX.current);
         snap(viewY.current);
-        snap(frameR.current);
       } else {
         stepSpring(rot.current, dt, SPRING_FIRM);
-        stepSpring(open.current, dt, SPRING_FIRM);
         stepSpring(viewK.current, dt, SPRING_SOFT);
         stepSpring(viewX.current, dt, SPRING_SOFT);
         stepSpring(viewY.current, dt, SPRING_SOFT);
-        stepSpring(frameR.current, dt, SPRING_FIRM);
       }
-
-      const frame = frameDataRef.current;
-      if (!frame) return;
-      const openValue = open.current.value < 0.001 ? 0 : open.current.value;
 
       viewGroupRef.current?.setAttribute(
         "transform",
@@ -380,112 +458,14 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       );
       const degrees = (rot.current.value * 180) / Math.PI;
       rotGroupRef.current?.setAttribute("transform", `rotate(${degrees.toFixed(3)})`);
-      frameCircleRef.current?.setAttribute("r", frameR.current.value.toFixed(2));
-
-      const positions = new Map<string, { x: number; y: number }>();
-      const target = frame.expansion?.target;
-      const stillMoving = new Set<string>();
-      if (target) {
-        for (const [id, pose] of target) {
-          const node = frame.layout.byId.get(id);
-          const element = nodeRefs.current.get(id);
-          if (!node) continue;
-          const point = posePosition(node, pose, openValue);
-          positions.set(id, point);
-          stillMoving.add(id);
-          if (element) {
-            element.setAttribute("transform", `translate(${point.x.toFixed(2)} ${point.y.toFixed(2)})`);
-            if (node.hidden) {
-              element.setAttribute("opacity", openValue.toFixed(3));
-              element.style.pointerEvents = openValue > 0.6 ? "auto" : "none";
-            }
-          }
-        }
-      }
-      for (const id of movedRef.current) {
-        if (stillMoving.has(id)) continue;
-        const node = frame.layout.byId.get(id);
-        const element = nodeRefs.current.get(id);
-        if (node && element) {
-          element.setAttribute("transform", `translate(${node.x} ${node.y})`);
-          if (node.hidden) {
-            element.setAttribute("opacity", "0");
-            element.style.pointerEvents = "none";
-          }
-        }
-      }
-      movedRef.current = stillMoving;
-
-      const pointOf = (id: string) => positions.get(id) ?? frame.layout.byId.get(id) ?? null;
-      const settling =
-        settled(open.current) && settled(rot.current);
-      frameCountRef.current += 1;
-      const refreshWarm = settling || frameCountRef.current % 6 === 0 || warmEdgesRef.current === "";
-      const segments: Record<"base" | "neighbour" | "path", string[]> = { base: [], neighbour: [], path: [] };
-      const warm: string[] = [];
-      for (const edge of frame.liveEdges) {
-        if (!edge.hot && !refreshWarm) continue;
-        const a = pointOf(edge.from);
-        const b = pointOf(edge.to);
-        if (!a || !b) continue;
-        const from = frame.layout.byId.get(edge.from);
-        const to = frame.layout.byId.get(edge.to);
-        // A summoned mark sits outside its sector's rings, so its edges are drawn
-        // as plain curves; edges that stay in their sectors keep the routed shape.
-        const routed = from && to && from.sector !== to.sector && !edge.hot;
-        const d = routed ? routedEdgePath(a, b, frame.layout.channels) : edgePath(a.x, a.y, b.x, b.y);
-        if (edge.hot) segments[edge.state].push(d);
-        else warm.push(d);
-      }
-      if (refreshWarm) warmEdgesRef.current = warm.join(" ");
-      segments.base.push(warmEdgesRef.current);
-      for (const state of ["base", "neighbour", "path"] as const) {
-        liveEdgeRefs.current[state]?.setAttribute("d", segments[state].join(" "));
-      }
-
-      for (const member of frame.expansion?.halo ?? []) {
-        const point = positions.get(member.id);
-        const label = labelRefs.current.get(member.id);
-        if (point && label) {
-          // Halo labels run along the radius, reading outward from the mark, so
-          // neighbours on the arc never stack. On the left half of the screen
-          // the label is flipped and anchored at its end so it stays upright.
-          const local = Math.atan2(point.y, point.x);
-          const onScreen = local + rot.current.value;
-          const flipped = Math.cos(onScreen) < 0;
-          const deg = ((local + (flipped ? Math.PI : 0)) * 180) / Math.PI;
-          label.setAttribute("transform", `translate(${point.x.toFixed(2)} ${point.y.toFixed(2)}) rotate(${deg.toFixed(3)})`);
-          label.setAttribute("opacity", openValue > 0.55 ? ((openValue - 0.55) / 0.45).toFixed(3) : "0");
-          const offset = Number(label.dataset.offset ?? "8");
-          for (const text of label.querySelectorAll("text")) {
-            text.setAttribute("text-anchor", flipped ? "end" : "start");
-            text.setAttribute("x", (flipped ? -offset : offset).toFixed(1));
-          }
-        }
-      }
-      for (const ghost of frame.ghosts) {
-        const element = ghostRefs.current.get(ghost.id);
-        if (element) element.setAttribute("opacity", (openValue * 0.7).toFixed(3));
-        const tether = tetherRefs.current.get(ghost.id);
-        const node = frame.layout.byId.get(ghost.id);
-        const point = positions.get(ghost.id);
-        if (tether && node && point) {
-          tether.setAttribute("d", `M ${node.x} ${node.y} L ${point.x.toFixed(2)} ${point.y.toFixed(2)}`);
-          tether.setAttribute("opacity", (openValue * 0.45).toFixed(3));
-        }
-      }
+      placeLabelsNow();
 
       const done =
-        settled(rot.current) &&
-        settled(open.current) &&
-        settled(viewK.current) &&
-        settled(viewX.current) &&
-        settled(viewY.current) &&
-        settled(frameR.current);
+        settled(rot.current) && settled(viewK.current) && settled(viewX.current) && settled(viewY.current);
       if (!done) cancelFrameRef.current = scheduleFrame(tick);
     };
     cancelFrameRef.current = scheduleFrame(tick);
-  }, []);
+  }, [placeLabelsNow]);
 
   // Clearing the handle matters: React remounts effects in development, and a
   // cancelled frame left in the ref would make every later kick a no-op.
@@ -499,8 +479,8 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
 
   /**
    * The rest pose, written before the first paint. The animation frame owns
-   * every transform afterwards, but it must not own the first one: a canvas
-   * that has not animated yet still has to be in the right place.
+   * the view afterwards, but it must not own the first one: a canvas that has
+   * not animated yet still has to be in the right place.
    */
   useLayoutEffect(() => {
     viewGroupRef.current?.setAttribute(
@@ -508,37 +488,33 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       `translate(${viewX.current.value.toFixed(2)} ${viewY.current.value.toFixed(2)}) scale(${viewK.current.value.toFixed(4)})`,
     );
     rotGroupRef.current?.setAttribute("transform", `rotate(${((rot.current.value * 180) / Math.PI).toFixed(3)})`);
-    frameCircleRef.current?.setAttribute("r", frameR.current.value.toFixed(2));
   }, [layout]);
 
-  /** Close, turn, open: the pose swaps only once the previous one has folded. */
-  useEffect(() => {
-    if (activeFocus === desiredFocus) return;
-    if (open.current.value < 0.02 || !expansion) {
-      setActiveFocus(desiredFocus);
-      setHaloOpen(true);
-      return;
-    }
-    open.current.target = 0;
-    kick();
-    const timer = window.setInterval(() => {
-      if (open.current.value < 0.02) {
-        window.clearInterval(timer);
-        setActiveFocus(desiredFocus);
-        setHaloOpen(true);
-      }
-    }, 40);
-    return () => window.clearInterval(timer);
-  }, [activeFocus, desiredFocus, expansion, kick]);
+  /** Keep the label size in step with the size of the svg on screen. */
+  useLayoutEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    clientScaleRef.current = measureScale();
+    placeLabelsNow();
+    if (typeof ResizeObserver === "undefined") return;
+    const observer = new ResizeObserver(() => {
+      clientScaleRef.current = measureScale();
+      placeLabelsNow();
+    });
+    observer.observe(svg);
+    return () => observer.disconnect();
+  }, [measureScale, placeLabelsNow]);
 
-  /** Turn the canvas so the selection reads straight above the core. */
+  /** A new set of labels is placed at once, before the reader sees it unplaced. */
+  useLayoutEffect(() => {
+    placeLabelsNow();
+  }, [labelled, placeLabelsNow]);
+
+  /** Ease the view to hold the selection and its relations, or the sector. */
   useEffect(() => {
     const sector = activeSector ? layout.sectors.find((entry) => entry.id === activeSector) ?? null : null;
-    const angle = selectedNode ? selectedNode.angle : sector ? sector.midAngle : null;
-    rot.current.target = alignRotation(angle, rot.current.target);
-
     const focus = selectedNode
-      ? { angle: selectedNode.angle, radius: selectedNode.radius, reach: 120 }
+      ? { angle: selectedNode.angle, radius: selectedNode.radius, reach: focusReach(layout, selectedNode.id, hiddenBranches) }
       : sector
         ? { angle: sector.midAngle, radius: (sector.innerRadius + sector.outerRadius) / 2, reach: (sector.outerRadius - sector.innerRadius) / 2 + 40 }
         : null;
@@ -547,13 +523,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     viewX.current.target = view.x;
     viewY.current.target = view.y;
     kick();
-  }, [layout, selectedNode, activeSector, kick]);
-
-  useEffect(() => {
-    open.current.target = expansion && activeFocus === desiredFocus && haloOpen ? 1 : 0;
-    frameR.current.target = framePose(layout, expansion, open.current.target);
-    kick();
-  }, [expansion, activeFocus, desiredFocus, haloOpen, layout, kick]);
+  }, [layout, selectedNode, activeSector, hiddenBranches, kick]);
 
   // ---------------------------------------------------------------------------
   // Pointer and keyboard
@@ -575,14 +545,6 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     },
     [layout.viewBox],
   );
-
-  const clientScale = useCallback(() => {
-    const svg = svgRef.current;
-    if (!svg) return 1;
-    const rect = svg.getBoundingClientRect();
-    const vb = layout.viewBox;
-    return Math.min(rect.width / vb.width, rect.height / vb.height);
-  }, [layout.viewBox]);
 
   const zoomAt = useCallback(
     (point: { x: number; y: number }, factor: number) => {
@@ -655,7 +617,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     if (pointersRef.current.has(event.pointerId)) {
       pointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
     }
-    const scale = clientScale();
+    const scale = clientScaleRef.current;
 
     const pinch = pinchRef.current;
     if (pinch && pointersRef.current.size >= 2) {
@@ -725,14 +687,25 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     onSelect(null);
   };
 
+  const nodeIdAt = (event: { target: EventTarget }) =>
+    (event.target as Element).closest("[data-node-id]")?.getAttribute("data-node-id") ?? null;
+
   const onNodeClick = (event: ReactMouseEvent<SVGGElement>) => {
-    const target = (event.target as Element).closest("[data-node-id]");
-    const id = target?.getAttribute("data-node-id") ?? null;
+    const id = nodeIdAt(event);
     if (!id) return;
     event.stopPropagation();
     setActiveSector(null);
-    if (id === selectedId) setHaloOpen((value) => !value);
-    else onSelect(id);
+    onSelect(id === selectedId ? null : id);
+  };
+
+  const onNodeOver = (event: ReactPointerEvent<SVGGElement>) => {
+    const id = nodeIdAt(event);
+    if (id) setHoverId(id);
+  };
+
+  const onNodeOut = (event: ReactPointerEvent<SVGGElement>) => {
+    const id = nodeIdAt(event);
+    if (id) setHoverId((current) => (current === id ? null : current));
   };
 
   const onSectorClick = (event: ReactMouseEvent<SVGGElement>) => {
@@ -745,8 +718,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   };
 
   const onDoubleClick = (event: ReactMouseEvent<SVGSVGElement>) => {
-    const target = (event.target as Element).closest("[data-node-id]");
-    const id = target?.getAttribute("data-node-id") ?? null;
+    const id = nodeIdAt(event);
     const node = id ? layout.byId.get(id) : null;
     if (node) {
       event.preventDefault();
@@ -794,19 +766,10 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
           router.push(`/organisaties/${selectedNode.slug}/`);
         }
         break;
-      case " ":
-        if (selectedNode) {
-          event.preventDefault();
-          setHaloOpen((value) => !value);
-        }
-        break;
       case "Escape":
         event.preventDefault();
-        if (selectedNode && haloOpen && expansion) setHaloOpen(false);
-        else {
-          setActiveSector(null);
-          onSelect(null);
-        }
+        setActiveSector(null);
+        onSelect(null);
         break;
       case "[":
         event.preventDefault();
@@ -839,30 +802,27 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     }
   };
 
-  const setNodeRef = useCallback(
-    (node: LaidOutNode) => (element: SVGGElement | null) => {
+  const setLabelRef = useCallback(
+    (id: string) => (element: SVGTextElement | null) => {
       if (element) {
-        nodeRefs.current.set(node.id, element);
-        element.setAttribute("transform", `translate(${node.x} ${node.y})`);
-        if (node.hidden) {
-          element.setAttribute("opacity", "0");
-          element.style.pointerEvents = "none";
+        labelRefs.current.set(id, element);
+        if (!labelWidths.current.has(id)) {
+          element.setAttribute("font-size", String(MEASURE_PX));
+          try {
+            labelWidths.current.set(id, element.getComputedTextLength());
+          } catch {
+            // A detached or unsupported element: the estimate in the placement pass is used.
+          }
         }
       } else {
-        nodeRefs.current.delete(node.id);
+        labelRefs.current.delete(id);
       }
     },
     [],
   );
 
-  const glossOf = (name: string): string | null => (locale === "en" ? orgEnGloss(name) : null);
-
   const statusText = selectedNode
-    ? `${selectedNode.name}, ${localized(locale, ORG_SUBTYPE_LABELS_I18N, selectedNode.subtype)}, ${localized(locale, TIER_LABELS_I18N, selectedNode.tier)}. ${
-        expansion && haloOpen
-          ? t("haloStatus", { n: expansion.halo.length, name: selectedNode.name })
-          : t("connections", { n: neighborSet.size })
-      }`
+    ? `${selectedNode.name}, ${localized(locale, ORG_SUBTYPE_LABELS_I18N, selectedNode.subtype)}, ${localized(locale, TIER_LABELS_I18N, selectedNode.tier)}. ${t("connections", { n: neighborSet.size })}`
     : activeSector
       ? t("sectorStatus", {
           name: sectorLabel(layout.sectors.find((sector) => sector.id === activeSector) as SectorInfo),
@@ -963,7 +923,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
               </g>
             </g>
 
-            {/* Edges that never move. */}
+            {/* Edges at rest, one path per relation type. */}
             <g aria-hidden="true" pointerEvents="none">
               {staticEdges.map((group) => {
                 const line = edgeLine(group.type);
@@ -981,75 +941,17 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
               })}
             </g>
 
-            {/* Edges the motion layer redraws every frame. */}
+            {/* Edges the selection lights up: its relations, and its path to the electorate. */}
             <g aria-hidden="true" pointerEvents="none">
               <path
-                ref={(element) => {
-                  liveEdgeRefs.current.base = element;
-                }}
-                fill="none"
-                stroke="var(--t-color-line-strong)"
-                strokeWidth={0.75}
-                opacity={0.35}
-              />
-              <path
-                ref={(element) => {
-                  liveEdgeRefs.current.neighbour = element;
-                }}
+                d={highlightEdges.segments.neighbour}
                 fill="none"
                 stroke="var(--color-accent-text)"
                 strokeWidth={1}
                 opacity={0.75}
                 markerEnd="url(#grafiek-pijl)"
               />
-              <path
-                ref={(element) => {
-                  liveEdgeRefs.current.path = element;
-                }}
-                fill="none"
-                stroke="var(--color-accent)"
-                strokeWidth={2}
-                strokeLinecap="round"
-              />
-            </g>
-
-            {/* Ghosts and tethers: where a summoned mark came from. */}
-            <g aria-hidden="true" pointerEvents="none">
-              {ghosts.map((ghost) => {
-                const node = layout.byId.get(ghost.id);
-                if (!node) return null;
-                return (
-                  <g key={`ghost-${ghost.id}`}>
-                    <path
-                      ref={(element) => {
-                        if (element) tetherRefs.current.set(ghost.id, element);
-                        else tetherRefs.current.delete(ghost.id);
-                      }}
-                      fill="none"
-                      stroke={branchColorVar(node.branch)}
-                      strokeWidth={0.6}
-                      strokeDasharray="2 3"
-                      opacity={0}
-                    />
-                    <g
-                      ref={(element) => {
-                        if (element) ghostRefs.current.set(ghost.id, element);
-                        else ghostRefs.current.delete(ghost.id);
-                      }}
-                      transform={`translate(${node.x} ${node.y})`}
-                      opacity={0}
-                    >
-                      <circle
-                        r={node.glyphRadius + 2}
-                        fill="none"
-                        stroke={branchColorVar(node.branch)}
-                        strokeWidth={0.8}
-                        strokeDasharray="1.5 2"
-                      />
-                    </g>
-                  </g>
-                );
-              })}
+              <path d={highlightEdges.segments.path} fill="none" stroke="var(--color-accent)" strokeWidth={2} strokeLinecap="round" />
             </g>
 
             {/* Marks at rest: one path per sector and glyph, then a cheap hit circle each. */}
@@ -1071,7 +973,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
                 />
               ))}
             </g>
-            <g onClick={onNodeClick}>
+            <g onClick={onNodeClick} onPointerOver={onNodeOver} onPointerOut={onNodeOut}>
               {staticHitMarks.map((node) => (
                 <circle
                   key={node.id}
@@ -1085,24 +987,22 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
               ))}
             </g>
 
-            {/* Marks that are selected, highlighted or moving: one element each. */}
-            <g onClick={onNodeClick}>
+            {/* Marks that are selected, on the path, related or revealed: one element each. */}
+            <g onClick={onNodeClick} onPointerOver={onNodeOver} onPointerOut={onNodeOut}>
               {dynamicNodes.map((node) => {
                 const state =
                   node.id === selectedId
                     ? "selected"
-                    : haloIds.has(node.id)
-                      ? "halo"
-                      : focusSet.has(node.id)
-                        ? "path"
-                        : neighborSet.has(node.id)
-                          ? "neighbor"
-                          : selectedId || activeSector
-                            ? activeSector && node.sector === activeSector
-                              ? "base"
-                              : "dim"
-                            : "base";
-                return <Mark key={node.id} node={node} state={state} setRef={setNodeRef(node)} />;
+                    : focusSet.has(node.id)
+                      ? "path"
+                      : neighborSet.has(node.id) || revealedIds.has(node.id)
+                        ? "neighbor"
+                        : selectedId || activeSector
+                          ? activeSector && node.sector === activeSector
+                            ? "base"
+                            : "dim"
+                          : "base";
+                return <Mark key={node.id} node={node} state={state} />;
               })}
             </g>
 
@@ -1111,6 +1011,8 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
               <g
                 transform={`translate(${(Math.cos(statenSector.block.angle) * statenSector.block.radius).toFixed(2)} ${(Math.sin(statenSector.block.angle) * statenSector.block.radius).toFixed(2)}) rotate(${(((statenSector.block.angle + Math.PI / 2) * 180) / Math.PI).toFixed(2)})`}
                 onClick={onNodeClick}
+                onPointerOver={onNodeOver}
+                onPointerOut={onNodeOut}
               >
                 {arches.map((arch) => (
                   <g key={arch.id} data-node-id={arch.id} transform={`translate(${arch.offset} 0)`} className="cursor-pointer">
@@ -1141,36 +1043,6 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
                 ))}
               </g>
             ) : null}
-
-            {/* Labels for the summoned marks, kept upright by the motion layer. */}
-            <g aria-hidden="true" pointerEvents="none">
-              {(expansion?.halo ?? []).map((member) => {
-                const node = layout.byId.get(member.id);
-                if (!node) return null;
-                const gloss = glossOf(node.name);
-                return (
-                  <g
-                    key={`halo-label-${member.id}`}
-                    ref={(element) => {
-                      if (element) labelRefs.current.set(member.id, element);
-                      else labelRefs.current.delete(member.id);
-                    }}
-                    data-offset={(node.glyphRadius + 5).toFixed(1)}
-                    opacity={0}
-                  >
-                    <text
-                      x={node.glyphRadius + 5}
-                      y={0}
-                      dominantBaseline="central"
-                      fill="var(--color-ink-muted)"
-                      style={{ fontSize: 8, paintOrder: "stroke", stroke: "var(--t-color-canvas)", strokeWidth: 2.5 }}
-                    >
-                      {gloss ? `${node.name} (${gloss})` : node.name}
-                    </text>
-                  </g>
-                );
-              })}
-            </g>
 
             {/* Tier and sector labels. */}
             <g aria-hidden="true" pointerEvents="none">
@@ -1220,9 +1092,8 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
 
             {/* The electorate: the frame everything sits inside. */}
             {layout.frame ? (
-              <g>
+              <g onPointerOver={onNodeOver} onPointerOut={onNodeOut}>
                 <circle
-                  ref={frameCircleRef}
                   r={layout.frameRadius}
                   fill="none"
                   stroke="var(--t-color-accent)"
@@ -1245,6 +1116,28 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
               </g>
             ) : null}
           </g>
+        </g>
+
+        {/*
+          Names, outside the view so they stay upright and one size on screen.
+          The motion layer positions them; a name that does not fit is hidden.
+        */}
+        <g aria-hidden="true" pointerEvents="none" fontFamily="inherit">
+          {labelled.map((entry) => (
+            <text
+              key={`label-${entry.node.id}`}
+              ref={setLabelRef(entry.node.id)}
+              opacity={0}
+              dominantBaseline="central"
+              fill={entry.state === "selected" ? "var(--t-color-accent-text)" : "var(--t-color-ink)"}
+              fontWeight={entry.state === "selected" ? 700 : entry.state === "hover" ? 600 : 500}
+              stroke="var(--t-color-canvas)"
+              strokeLinejoin="round"
+              style={{ paintOrder: "stroke" }}
+            >
+              {entry.text}
+            </text>
+          ))}
         </g>
       </svg>
 
@@ -1275,15 +1168,6 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
             </div>
             <p className="mt-0.5 text-xs text-ink-faint">{connectionCountText(neighborSet.size)}</p>
             <div className="mt-1 flex items-center justify-center gap-3">
-              {expansion ? (
-                <button
-                  type="button"
-                  onClick={() => setHaloOpen((value) => !value)}
-                  className="text-xs font-medium text-accent-text underline underline-offset-2"
-                >
-                  {haloOpen ? t("haloHide") : t("haloShow", { n: expansion.halo.length })}
-                </button>
-              ) : null}
               <a
                 href={`/organisaties/${selectedNode.slug}/`}
                 className="text-xs font-medium text-accent-text underline underline-offset-2"
@@ -1333,25 +1217,20 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   );
 }
 
-function Mark({
-  node,
-  state,
-  setRef,
-}: {
-  node: LaidOutNode;
-  state: "base" | "dim" | "neighbor" | "path" | "halo" | "selected";
-  setRef: (element: SVGGElement | null) => void;
-}) {
+function Mark({ node, state }: { node: LaidOutNode; state: "base" | "dim" | "neighbor" | "path" | "selected" }) {
   const color = branchColorVar(node.branch);
   const radius = node.glyphRadius + (state === "selected" ? SELECTED_GROWTH : 0);
   const fill = state === "selected" || state === "path" ? "var(--t-color-accent)" : color;
   const opacity = state === "dim" ? DIM_OPACITY : state === "base" ? 0.82 : 1;
 
   return (
-    <g ref={setRef} data-node-id={node.id} opacity={node.hidden ? 0 : opacity} className="cursor-pointer">
+    <g data-node-id={node.id} transform={`translate(${node.x} ${node.y})`} opacity={opacity} className="cursor-pointer">
       <circle r={Math.max(10, radius + 4)} fill="transparent" />
       {state === "selected" ? (
         <circle r={radius + 6} fill="none" stroke="var(--t-color-accent)" strokeWidth={1.5} opacity={0.55} />
+      ) : null}
+      {state === "neighbor" ? (
+        <circle r={radius + 3} fill="none" stroke="var(--t-color-accent-text)" strokeWidth={0.8} opacity={0.7} />
       ) : null}
       <path d={glyphPath(node.glyph, radius)} fill={fill} />
       {node.orbit > 0

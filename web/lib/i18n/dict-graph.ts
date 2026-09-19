@@ -12,8 +12,8 @@ export const GRAPH_DICT = {
     en: "Network of Dutch government organizations. Use the arrow keys to browse, Enter to open and Escape to clear.",
   },
   graphInstructions: {
-    nl: "De grafiek toont de staat als ringen rond de Grondwet: hoe verder naar buiten, hoe zelfstandiger het orgaan. De buitenste cirkel zijn de kiesgerechtigden. Klik een orgaan om de kaart te draaien tot het bovenaan staat en zijn verbindingen uit te klappen; klik een ring of sector om die te selecteren. Pijltjestoetsen verplaatsen de selectie, spatie klapt verbindingen uit of in, Enter opent de organisatie, Escape klapt in en wist daarna de selectie. De blokhaken draaien de kaart, plus en min zoomen, nul herstelt het beeld. Slepen buiten de buitenste ring draait de kaart als een knop.",
-    en: "The graph shows the state as rings around the constitution: the farther out, the more autonomous the body. The outer circle is the electorate. Click a body to turn the map until it sits at the top and to expand its connections; click a ring or sector to select it. Arrow keys move the selection, space expands or collapses connections, Enter opens the organization, Escape collapses and then clears the selection. The bracket keys turn the map, plus and minus zoom, zero resets the view. Dragging outside the outer ring turns the map like a dial.",
+    nl: "De grafiek toont de staat als ringen rond de Grondwet: hoe verder naar buiten, hoe zelfstandiger het orgaan. De buitenste cirkel zijn de kiesgerechtigden. Klik een orgaan om het te selecteren: zijn naam, zijn verbindingen en zijn pad naar de kiesgerechtigden lichten op waar ze staan en het beeld zoomt erop in. Klik een ring of sector om die te selecteren. Pijltjestoetsen verplaatsen de selectie, Enter opent de organisatie, Escape wist de selectie. De blokhaken draaien de kaart, plus en min zoomen, nul herstelt het beeld. Slepen buiten de buitenste ring draait de kaart als een knop.",
+    en: "The graph shows the state as rings around the constitution: the farther out, the more autonomous the body. The outer circle is the electorate. Click a body to select it: its name, its connections and its path to the electorate light up where they are and the view zooms in on them. Click a ring or sector to select it. Arrow keys move the selection, Enter opens the organization, Escape clears the selection. The bracket keys turn the map, plus and minus zoom, zero resets the view. Dragging outside the outer ring turns the map like a dial.",
   },
   coreTitle: {
     nl: "Grondwet",
@@ -22,18 +22,6 @@ export const GRAPH_DICT = {
   coreSubtitle: {
     nl: "en Statuut",
     en: "and Charter",
-  },
-  haloShow: {
-    nl: "Toon {n} verbonden organen",
-    en: "Show {n} connected bodies",
-  },
-  haloHide: {
-    nl: "Verberg verbonden organen",
-    en: "Hide connected bodies",
-  },
-  haloStatus: {
-    nl: "{n} verbonden organen uitgeklapt rond {name}.",
-    en: "{n} connected bodies expanded around {name}.",
   },
   sectorStatus: {
     nl: "{name} geselecteerd, {n} organen.",

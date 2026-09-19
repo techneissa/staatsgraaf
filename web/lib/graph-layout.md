@@ -36,7 +36,7 @@ Canvas units are abstract. The renderer maps them to pixels with pan and zoom.
 - Angle `0` points right. Angles increase clockwise on screen because SVG y grows downward.
 - `START_ANGLE = -90deg` is straight up. Every tier lays its first sector from there, so the tiers line up on one radial seam and read as a single dial.
 - `x = cos(angle) * radius`, `y = sin(angle) * radius`.
-- The viewBox is `[-R, -R, 2R, 2R]` with `R = frameRadius + PUSH_RESERVE + FRAME_MARGIN`. `PUSH_RESERVE` is the room an open focus needs when the outer tiers step back (section 9), so an expanded neighbourhood never leaves the canvas at zoom 1.
+- The viewBox is `[-R, -R, 2R, 2R]` with `R = frameRadius + PUSH_RESERVE + FRAME_MARGIN`. `PUSH_RESERVE` is extra room outside the frame, kept from the first build so the layout id and the shipped coordinates did not change when the step back was withdrawn (section 9).
 
 ## 4. The tier table
 
@@ -68,7 +68,7 @@ Measured on the snapshot of 19-09-2026 (1641 nodes, 1447 edges, layout in 7 ms):
 
 Every gemeente, provincie, waterschap and openbaar lichaam is three records: the body, its raad or staten or algemeen bestuur, and its commissie. Drawn one by one they are 1202 of 1640 marks and they swamp the picture.
 
-A node whose `subtype` is in `COLLAPSE_CHILD` and whose parent's `subtype` is in `COLLAPSE_PARENT` is collapsed onto its parent: it keeps a position (fanned 32 degrees apart just outside the parent's glyph) but is marked `hidden`, and the parent carries `orbit` orbit marks instead. On focus the children fly out into the halo (section 9). Nothing is removed from the data and every body stays reachable from the list and the keyboard.
+A node whose `subtype` is in `COLLAPSE_CHILD` and whose parent's `subtype` is in `COLLAPSE_PARENT` is collapsed onto its parent: it keeps a position (fanned 32 degrees apart just outside the parent's glyph) but is marked `hidden`, and the parent carries `orbit` orbit marks instead. When the parent is selected the children are revealed at those positions (section 9). Nothing is removed from the data and every body stays reachable from the list and the keyboard.
 
 This takes the canvas from 1640 marks to 882.
 
@@ -118,7 +118,7 @@ Constants:
 | `MIN_RING_STEP` | 15 | lower bound on a sector's ring step |
 | `MAX_RING_STEP` | 40 | upper bound on a sector's ring step |
 | `FRAME_CLEARANCE` | 34 | band between the outermost tier and the electorate frame |
-| `PUSH_RESERVE` | 96 | viewBox room for the step back of an open focus |
+| `PUSH_RESERVE` | 96 | extra viewBox room outside the frame, kept for a stable layout id |
 | `SELECTED_GROWTH` | 1.5 | extra glyph radius of the focused mark, reserved in the ring step |
 
 ## 8. The chambers: the ∩ arch
@@ -136,17 +136,15 @@ Seat pitch is the same along the arc and down the legs. Seats are returned sorte
 
 Blocks are filled largest fractie first from the left (order H6 of the plan) until the real zaalindeling is sourced; `memberships.seatNumber` is the field that will replace it, and the chart always states which order it is using. Colours come from the sourced party registry (`web/lib/parties.ts`, ADR 0009) through `bundle.chambers`; a fractie with no sourced colour renders neutral and never gets an invented one. A dashed line marks the majority: seat 76 of 150, seat 38 of 75.
 
-## 9. Interaction: turn, gather, step back
+## 9. Interaction: select, highlight, frame
 
-The interaction layer is `web/lib/pose.ts`. A pose is a pure function of (layout, focus, visibility); the renderer interpolates between the rest layout and the pose with one scalar, so an interaction can be interrupted, reversed or replayed without leaving state behind. Collapse is the same functions at scalar 0, which is the rest layout itself.
+The interaction layer is `web/lib/pose.ts` and `web/lib/label-placement.ts`. A body never leaves its place: the layout decides where it lives and the canvas keeps it there. Selecting a body highlights it, its path to the electorate and its direct relations where they are, and moves the camera; nothing else moves. This replaced the gather and step back of the first rebuild on 19-09-2026 (ADR 0015, amendment 2): summoning relations onto a halo read as marks piling on top of each other, and a body that had moved could no longer be found where the reader had seen it.
 
-**Turn.** `alignRotation(angle, previous)` returns the frame rotation that brings a focused body or a selected sector to `START_ANGLE`, straight above the core, expressed as the value nearest `previous` so the canvas always turns the short way and never unwinds a whole circle. A turn under 0.05 rad is not made at all, so selecting a neighbour does not nudge the canvas. One rotation applies to the whole frame, so nothing inside it can collide by turning.
+**Highlight.** The selected mark grows by `SELECTED_GROWTH` and gets a ring; its path to the electorate is drawn in the accent colour; each direct relation gets a thin ring; every other mark dims. A collapsed child (section 5) is revealed at its fanned position when its body is selected, or when it is selected itself from the list or the keyboard.
 
-**Gather.** The focused body's collapsed children come first, then its children in the data, then its direct relations, capped at `MAX_HALO = 36` and sorted by name then id so the cap cuts the same marks every run. They are summoned onto a halo arc centred on the focus just outside its tier, placed in the order of their home angle so the tethers never cross. A mark summoned from farther than `TETHER_MIN_TRAVEL` leaves a ghost at home and a dotted tether to it, so the reader never loses where it came from.
+**Frame.** `focusReach(layout, id, hiddenBranches)` is the distance from the focus to its farthest visible relation plus a margin, clamped to `[MIN_REACH, MAX_REACH]`. `frameFor(layout, focus, rotation)` returns the view transform that holds the core and that neighbourhood on screen at once, never more than 2.4x. The canvas does not turn on selection; the reader turns it with the dial or the bracket keys.
 
-**Step back.** Every mark beyond the focused tier moves outward by one distance, `push`. The map `radius -> radius + push for radius > tier outer` is monotone in radius and constant in angle, so no two marks can approach each other: every gap is unchanged or wider. That is what makes the halo band provably free at any body, with no angular window to tune and no edge case where the window ends. The tier gap is free already, so `push` only covers what the halo needs beyond it, and the electorate frame grows with it.
-
-**Choreography.** Changing focus while a halo is open plays close, turn, open: the pose swaps only once the previous one has folded, so nothing collides mid-flight.
+**Names.** Only the selection, its path, its direct relations (at most `MAX_LABELS = 80`) and the mark under the pointer carry a name. Labels sit outside the view and rotation groups, so they stay upright and keep one size on the reader's screen (12 CSS pixels, 13.5 for the selection) at any zoom. `placeLabels` runs every frame in screen coordinates: labels are placed in priority order (hover, selection, path, relations) into the first free slot of right, left, above, below, keeping clear of every labelled mark and every label placed before; a name that fits nowhere is hidden rather than drawn over another.
 
 Motion is one critically damped spring per animated scalar (`web/lib/motion.ts`), not a timed tween, because retargeting mid-flight is the normal case here and a spring has no schedule to cancel. `prefers-reduced-motion` snaps every spring instead.
 
@@ -159,23 +157,22 @@ Only organization-to-organization edges are drawn.
 
 Edge states: default dim; neighbour of the focus in the accent colour with an arrow head; the path from the focus to the electorate in the accent colour at double width; hidden when either end's branch is filtered out.
 
-Edges whose ends move while a pose is open are redrawn every frame in three merged paths (base, neighbour, path). Everything else is merged into one path per relation type and never moves.
+The relations of the selection and its path are merged into one path each, in their rest shape. Everything else is merged into one path per relation type. No edge ever moves.
 
 ## 11. Pan, zoom and the dial
 
 - The SVG has a fixed `viewBox`; one group carries `translate(tx ty) scale(s)` and one inner group carries `rotate(deg)`.
 - Wheel zooms around the pointer, clamped to `[0.25, 8]`. Dragging inside the outermost tier pans. Dragging outside it turns the canvas like a dial.
-- Selecting a body also frames it: the zoom and pan ease to a view that holds the core and the focused neighbourhood at once, never more than 2.4x.
-- Keyboard: arrows move the selection, `Home` and `End` jump to the ends, `Enter` opens the organization page, `Space` expands or collapses the halo, `Escape` collapses and then clears, `[` and `]` turn the canvas, `+` `-` `0` zoom and reset.
+- Selecting a body also frames it: the zoom and pan ease to a view that holds the core, the body and its direct relations at once, never more than 2.4x. The rotation is left as the reader set it.
+- Keyboard: arrows move the selection, `Home` and `End` jump to the ends, `Enter` opens the organization page, `Escape` clears the selection, `[` and `]` turn the canvas, `+` `-` `0` zoom and reset.
 - The transform is written by one animation frame straight to the DOM through refs. React renders the structure once; it does not reconcile 1600 elements per pointer move.
 
 ## 12. Performance budget
 
 - The layout is computed once, at build time: 7 ms for 1641 nodes and 1447 edges on the 19-09-2026 snapshot. The client hydrates it in a `useMemo` and ships no packer code (`graph-layout.ts` is absent from the client chunks; the build checks this by grepping them).
-- 882 marks are drawn at rest; 756 are collapsed onto their body. At rest the marks are merged into one path per sector and glyph (16 paths on the 19-09-2026 snapshot) with one transparent hit circle each; a mark gets an element of its own only while it is selected, highlighted or moved by a pose, and folds back into the merged path when the pose closes.
-- Static edges are merged into one path per relation type. Live edges are three paths; edges that only ride the step back are refreshed every sixth frame and once more when the springs settle.
-- Only the marks in the current pose are written per frame, which is at most one tier's worth plus the halo.
-- Measured on 19-09-2026 in headless Chrome at 1280 x 900 with software rasterisation (no GPU), sampling `requestAnimationFrame` intervals: idle and wheel zoom 16.7 ms per frame; focusing a ministry (18 summoned marks, 811 stepping back) 17 to 19 ms average, p95 30 to 33 ms; a full turn of the canvas to a far sector 23 to 24 ms average, p95 34 ms, about 8 frames over 33 ms in a 900 ms turn. The turn cost is the rasterisation of the whole rotated scene and did not move with the element count (merging the marks and hiding the edge layer changed it by under 1 ms), so on a machine with GPU rasterisation it is expected to be well inside the budget; that measurement is still to be taken.
+- 882 marks are drawn at rest; 756 are collapsed onto their body. At rest the marks are merged into one path per sector and glyph (16 paths on the 19-09-2026 snapshot) with one transparent hit circle each; a mark gets an element of its own only while it is selected, on the path, a direct relation or revealed, and folds back into the merged path when the selection clears.
+- Static edges are merged into one path per relation type; the highlighted edges are two more. Nothing is redrawn per frame except the view transform and the labels of the selection (at most about 80 text elements).
+- Measured on 19-09-2026 in headless Chrome at 1280 x 900 with software rasterisation (no GPU), sampling `requestAnimationFrame` intervals: idle and wheel zoom 16.7 ms per frame; focusing a ministry under the earlier gather motion (18 summoned marks, 811 stepping back) 17 to 19 ms average, p95 30 to 33 ms, an upper bound for the in-place highlight that replaced it; a full turn of the canvas to a far sector 23 to 24 ms average, p95 34 ms, about 8 frames over 33 ms in a 900 ms turn. The turn cost is the rasterisation of the whole rotated scene and did not move with the element count (merging the marks and hiding the edge layer changed it by under 1 ms), so on a machine with GPU rasterisation it is expected to be well inside the budget; that measurement is still to be taken.
 - `graph.json` budget: under 800 KiB uncompressed and under 100 KiB gzip. Measured for 19-09-2026: 748 KiB, 83 KiB gzip. The coordinates cost about 36 KiB gzip over the packer-free bundle of the previous layout; that is the price of one file every client can draw, and it replaces the packer code the client used to ship.
 - `power-map.json`: 31 KiB, 4.6 KiB gzip, loaded only on demand.
 - The build script prints both sizes on every run.
@@ -185,4 +182,4 @@ Edges whose ends move while a pose is open are redrawn every frame in three merg
 - No `Math.random`, no `Date.now`, no locale-sensitive sort. Use plain `<` on names and ids.
 - The bundle carries `schema` and `layout` version strings. A change to the constants or the order bumps the layout string and is written here first.
 - `web/lib/graph.test.mjs` guards the invariants on the real bundle: every node in exactly one tier and sector, sectors never overlapping and keeping their gutter, tiers ordered outward, no two drawn footprints overlapping, nothing inside the core, rings spread evenly over their arc and filled to a comparable fraction, routed edges clear of the core, arch seat counts exact, the turn taking the short way, everything inside the viewBox, and the whole layout deterministic.
-- `web/lib/pose.test.mjs` guards the interaction: an expansion is pure, the halo respects its cap, scalar 0 is exactly the rest layout, the step back is uniform in angle and monotone in radius, an open halo overlaps nothing, nothing enters the core, a summoned mark never dips inside both its endpoints mid-flight, and the auto frame keeps the core and the focus on screen.
+- `web/lib/pose.test.mjs` guards the camera: the reach of a focus covers its farthest relation and stays bounded, a filtered branch does not stretch it, and the auto frame keeps the core and the focus on screen at any rotation. `web/lib/label-placement.test.mjs` guards the names: placed labels never overlap each other or a labelled mark, priority wins a slot, the order is reproducible, and a crowded field hides names instead of stacking them.
