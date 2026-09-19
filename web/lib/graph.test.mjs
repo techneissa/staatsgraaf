@@ -7,6 +7,7 @@ import {
   ARCH_PITCH_EK,
   ARCH_PITCH_TK,
   ARCH_TK,
+  CLUSTER_MIN,
   CORE_RADIUS,
   GLYPH_GAP,
   GRAPH_LAYOUT,
@@ -16,6 +17,7 @@ import {
   alignRotation,
   archParams,
   archSeats,
+  clusterHalfSize,
   edgeAlive,
   glyphFootprint,
   hydrateLayout,
@@ -43,7 +45,7 @@ test("hydrating the shipped bundle gives exactly the packer's layout", () => {
   for (const node of layout.nodes) {
     const same = hydrated.byId.get(node.id);
     assert.ok(same, `${node.id} missing from the bundle`);
-    for (const key of ["x", "y", "angle", "radius", "tier", "sector", "hidden", "arch", "orbit", "collapsedInto", "glyph", "glyphRadius"]) {
+    for (const key of ["x", "y", "angle", "radius", "tier", "sector", "hidden", "arch", "orbit", "collapsedInto", "cluster", "glyph", "glyphRadius"]) {
       assert.deepEqual(same[key], node[key], `${node.id}.${key}`);
     }
   }
@@ -162,61 +164,104 @@ test("tiers are ordered outward and never overlap", () => {
   }
 });
 
-test("every sector spreads its marks evenly over its whole arc", () => {
+/** The items of a sector as packed: marks and cluster grids, with their half widths along the ring. */
+function ringItemsOf(sector) {
+  const items = [];
+  for (const node of layout.nodes) {
+    if (node.sector !== sector.id || node.hidden) continue;
+    items.push({ id: node.id, angle: node.angle, radius: node.radius, halfWidth: glyphFootprint(node) });
+  }
+  for (const cluster of layout.clusters) {
+    if (cluster.sector !== sector.id) continue;
+    items.push({ id: cluster.id, angle: cluster.angle, radius: cluster.radius, halfWidth: clusterHalfSize(cluster.members.length).halfWidth });
+  }
+  return items;
+}
+
+test("every sector spreads its items evenly over its whole arc", () => {
   for (const sector of layout.sectors) {
-    const members = layout.nodes.filter((node) => node.sector === sector.id && !node.hidden);
     const byRing = new Map();
-    for (const node of members) {
-      const key = node.radius.toFixed(2);
+    for (const item of ringItemsOf(sector)) {
+      const key = item.radius.toFixed(2);
       const list = byRing.get(key);
-      if (list) list.push(node);
-      else byRing.set(key, [node]);
+      if (list) list.push(item);
+      else byRing.set(key, [item]);
     }
     const span = sector.endAngle - sector.startAngle;
     for (const [radius, ring] of byRing) {
       if (ring.length < 3) continue;
-      const angles = ring.map((node) => node.angle).sort((a, b) => a - b);
+      const r = Number(radius);
+      const sorted = [...ring].sort((a, b) => a.angle - b.angle);
+      // Edge-to-edge gaps: items have different widths, so centre spacing is not the measure.
       const gaps = [];
-      for (let i = 1; i < angles.length; i += 1) gaps.push(angles[i] - angles[i - 1]);
-      const first = gaps[0];
-      // Angles are stored rounded to a thousandth, so that is the tolerance.
-      const epsilon = 2e-3;
-      for (const gap of gaps) {
-        assert.ok(
-          Math.abs(gap - first) < epsilon,
-          `${sector.id} ring ${radius}: uneven gaps ${gap} and ${first}`,
-        );
+      for (let i = 1; i < sorted.length; i += 1) {
+        gaps.push((sorted[i].angle - sorted[i - 1].angle) * r - sorted[i].halfWidth - sorted[i - 1].halfWidth);
       }
-      // The ring fills the arc: the marks are centred, with half a gap at each end.
-      const lead = angles[0] - sector.startAngle;
-      const trail = sector.endAngle - angles[angles.length - 1];
+      const first = gaps[0];
+      // Angles are stored rounded to a thousandth of a radian, which is up to half a unit of arc here.
+      const epsilon = 2e-3 * r + 0.02;
+      for (const gap of gaps) {
+        assert.ok(Math.abs(gap - first) < epsilon, `${sector.id} ring ${radius}: uneven gaps ${gap} and ${first}`);
+      }
+      const lead = (sorted[0].angle - sector.startAngle) * r - sorted[0].halfWidth;
+      const trail = (sector.endAngle - sorted[sorted.length - 1].angle) * r - sorted[sorted.length - 1].halfWidth;
       assert.ok(Math.abs(lead - trail) < epsilon, `${sector.id} ring ${radius} is not centred in its arc`);
-      assert.ok(
-        Math.abs(lead - first / 2) < epsilon,
-        `${sector.id} ring ${radius} leaves ${lead} at the start instead of ${first / 2}`,
-      );
-      assert.ok(span - (angles[angles.length - 1] - angles[0]) < first + epsilon, `${sector.id} ring ${radius} bunches`);
+      assert.ok(Math.abs(lead - first / 2) < epsilon, `${sector.id} ring ${radius} leaves ${lead} at the start instead of ${first / 2}`);
     }
   }
 });
 
 test("rings of a sector are filled to a comparable fraction of their capacity", () => {
   for (const sector of layout.sectors) {
-    const members = layout.nodes.filter((node) => node.sector === sector.id && !node.hidden);
-    if (members.length < 20) continue;
+    const items = ringItemsOf(sector);
+    if (items.length < 20) continue;
     const span = sector.endAngle - sector.startAngle;
-    let widest = 0;
-    for (const node of members) widest = Math.max(widest, glyphFootprint(node));
-    const pitch = 2 * widest + GLYPH_GAP;
     const byRing = new Map();
-    for (const node of members) {
-      const key = node.radius.toFixed(2);
-      byRing.set(key, (byRing.get(key) ?? 0) + 1);
+    for (const item of items) {
+      const key = item.radius.toFixed(2);
+      byRing.set(key, (byRing.get(key) ?? 0) + 2 * item.halfWidth + GLYPH_GAP);
     }
-    const fills = [...byRing.entries()].map(([radius, count]) => count / Math.floor((span * Number(radius)) / pitch));
+    const fills = [...byRing.entries()].map(([radius, used]) => used / (span * Number(radius)));
     const min = Math.min(...fills);
     const max = Math.max(...fills);
     assert.ok(max - min < 0.2, `${sector.id} fills rings unevenly: ${min.toFixed(2)} to ${max.toFixed(2)}`);
+  }
+});
+
+test("clusters hold every standing child of their parent in the sector, and hydrate exactly", () => {
+  assert.ok(layout.clusters.length > 0);
+  const hydrated = hydrateLayout(bundle);
+  for (const cluster of layout.clusters) {
+    assert.ok(cluster.members.length >= CLUSTER_MIN, cluster.id);
+    for (const id of cluster.members) {
+      const node = layout.byId.get(id);
+      assert.equal(node.parent, cluster.parent);
+      assert.equal(node.sector, cluster.sector);
+      assert.equal(node.cluster, cluster.id);
+      assert.ok(node.hidden);
+    }
+    const sameParent = layout.nodes.filter((node) => node.parent === cluster.parent && node.sector === cluster.sector && node.collapsedInto === null && !node.arch);
+    assert.equal(sameParent.length, cluster.members.length, `${cluster.id} misses children`);
+    const twin = hydrated.clusterById.get(cluster.id);
+    assert.ok(twin, `${cluster.id} not on the wire`);
+    for (const key of ["sector", "parent", "angle", "radius", "rows", "cols", "x", "y"]) {
+      assert.ok(Math.abs(Number(twin[key]) - Number(cluster[key])) < 1e-9 || twin[key] === cluster[key], `${cluster.id} ${key}`);
+    }
+    assert.deepEqual(twin.members, cluster.members);
+    const sector = layout.sectors.find((entry) => entry.id === cluster.sector);
+    assert.ok(sector.items.includes(cluster.id));
+  }
+  // A cluster grid never overlaps a drawn mark or another grid.
+  const grids = layout.clusters.map((cluster) => ({ ...cluster, reach: Math.hypot(clusterHalfSize(cluster.members.length).halfWidth, clusterHalfSize(cluster.members.length).halfHeight) }));
+  for (const grid of grids) {
+    for (const node of drawn) {
+      const distance = Math.hypot(node.x - grid.x, node.y - grid.y);
+      assert.ok(distance >= grid.reach + glyphFootprint(node) - 0.01, `${grid.id} overlaps ${node.id}`);
+    }
+    for (const other of grids) {
+      if (other.id <= grid.id) continue;
+      assert.ok(Math.hypot(other.x - grid.x, other.y - grid.y) >= grid.reach + other.reach - 0.01, `${grid.id} overlaps ${other.id}`);
+    }
   }
 });
 

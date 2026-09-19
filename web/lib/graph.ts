@@ -27,7 +27,7 @@ export type OrgBranchLike = OrgBranch;
  */
 
 export const GRAPH_SCHEMA = "nl-graph-bundle-v2";
-export const GRAPH_LAYOUT = "nl-tiers-v1";
+export const GRAPH_LAYOUT = "nl-tiers-v2";
 
 /** The Grondwet disc at the core. */
 export const CORE_RADIUS = 62;
@@ -57,6 +57,18 @@ export const PUSH_RESERVE = 96;
 export const START_ANGLE = -Math.PI / 2;
 /** Extra glyph radius for the focused mark. */
 export const SELECTED_GROWTH = 1.5;
+/** A parent with this many standing children in one sector gets a cluster instead of marks. */
+export const CLUSTER_MIN = 3;
+/** Cluster grid: dot spacing and dot radius, in canvas units. */
+export const CLUSTER_DOT_PITCH = 3;
+export const CLUSTER_DOT_RADIUS = 1;
+/** Radial room between an arch block and the first ring packed outside it. */
+export const ARCH_BLOCK_CLEARANCE = 8;
+
+/** The inner radius a sector packs its rings from: past the arch block when it carries one. */
+export function packInnerOf(sector: Pick<SectorInfo, "innerRadius" | "block">): number {
+  return sector.block ? sector.innerRadius + sector.block.height + ARCH_BLOCK_CLEARANCE : sector.innerRadius;
+}
 export const MAX_DEPTH = 6;
 export const BOW = 0.14;
 /** Kept for the power map, which centres its own layout on a hub radius. */
@@ -180,6 +192,18 @@ export type WireNode = BundleNode & {
   arch?: boolean;
   orbit?: number;
   collapsedInto?: string | null;
+  cluster?: string;
+};
+
+/** A cluster on the wire: its members are the nodes whose `cluster` names it. */
+export type WireCluster = {
+  id: string;
+  sector: string;
+  parent: string;
+  angle: number;
+  radius: number;
+  rows: number;
+  cols: number;
 };
 
 /**
@@ -197,6 +221,7 @@ export type GraphBundle = {
   hub: HubNode | null;
   nodes: WireNode[];
   edges: BundleEdge[];
+  clusters: WireCluster[];
   /** Seat blocks per chamber organization id, for the arches. */
   chambers: Record<string, ChamberSeats>;
   tiers: TierInfo[];
@@ -236,6 +261,8 @@ export type SectorInfo = {
   outerRadius: number;
   /** The ∩ arch block of the Staten-Generaal sector, or null. */
   block: ArchBlock | null;
+  /** Node and cluster ids in packing order; the client re-packs from this when a cluster opens. */
+  items: string[];
 };
 
 export type TierInfo = {
@@ -266,6 +293,27 @@ export type LaidOutNode = BundleNode & {
   orbit: number;
   /** The parent mark this node is collapsed into, or null. */
   collapsedInto: string | null;
+  /** The cluster this node is a dot of at rest, or null. */
+  cluster: string | null;
+};
+
+/**
+ * A cluster: the standing children of one parent in one sector, drawn as a
+ * grid of dots at rest. Its members carry their dot position as their rest
+ * position and fly to full marks when the cluster opens.
+ */
+export type ClusterInfo = {
+  id: string;
+  sector: string;
+  parent: string;
+  /** Member ids in grid order, which is name order. */
+  members: string[];
+  angle: number;
+  radius: number;
+  x: number;
+  y: number;
+  rows: number;
+  cols: number;
 };
 
 export type LaidOutFrame = {
@@ -281,6 +329,8 @@ export type GraphLayout = {
   byId: Map<string, LaidOutNode>;
   edges: BundleEdge[];
   adjacency: Map<string, string[]>;
+  clusters: ClusterInfo[];
+  clusterById: Map<string, ClusterInfo>;
   /** The electorate, drawn as the frame that contains every tier. */
   frame: LaidOutFrame | null;
   tiers: TierInfo[];
@@ -353,6 +403,46 @@ function round(value: number): number {
 export function glyphRadiusForDegree(degree: number, selected = false): number {
   const base = Math.min(10, Math.max(5, 5 + Math.sqrt(Math.max(0, degree)) * 1.1));
   return selected ? base + SELECTED_GROWTH : base;
+}
+
+export function compareNames(a: string, b: string, aId: string, bId: string): number {
+  if (a !== b) return a < b ? -1 : 1;
+  return aId < bId ? -1 : aId > bId ? 1 : 0;
+}
+
+/** Rows across the ring and columns along it for a cluster of `count` dots. */
+export function clusterGrid(count: number): { rows: number; cols: number } {
+  const rows = count <= 6 ? 2 : count <= 15 ? 3 : count <= 32 ? 4 : 5;
+  return { rows, cols: Math.max(1, Math.ceil(count / rows)) };
+}
+
+/** Half extents of a cluster grid: width along the ring, height across it. */
+export function clusterHalfSize(count: number): { halfWidth: number; halfHeight: number } {
+  const { rows, cols } = clusterGrid(count);
+  return { halfWidth: (cols * CLUSTER_DOT_PITCH) / 2, halfHeight: (rows * CLUSTER_DOT_PITCH) / 2 };
+}
+
+/**
+ * Where dot `index` of a cluster sits, given the cluster's centre in polar
+ * coordinates. Columns run along the ring, rows outward, so the grid reads as
+ * a block that follows the curve of its tier.
+ */
+export function clusterDotPosition(
+  angle: number,
+  radius: number,
+  index: number,
+  rows: number,
+  cols: number,
+): { x: number; y: number; angle: number; radius: number } {
+  const col = Math.floor(index / rows);
+  const row = index % rows;
+  const along = (col - (cols - 1) / 2) * CLUSTER_DOT_PITCH;
+  const across = (row - (rows - 1) / 2) * CLUSTER_DOT_PITCH;
+  const cx = Math.cos(angle) * radius;
+  const cy = Math.sin(angle) * radius;
+  const x = cx + Math.cos(angle) * across - Math.sin(angle) * along;
+  const y = cy + Math.sin(angle) * across + Math.cos(angle) * along;
+  return { x, y, angle: Math.atan2(y, x), radius: Math.hypot(x, y) };
 }
 
 export function glyphFootprint(node: Pick<BundleNode, "subtype" | "degree">): number {
@@ -537,8 +627,24 @@ export function hydrateLayout(bundle: GraphBundle): GraphLayout {
       arch: node.arch === true,
       orbit: node.orbit ?? 0,
       collapsedInto: node.collapsedInto ?? null,
+      cluster: node.cluster ?? null,
     }));
   const byId = new Map(nodes.map((node) => [node.id, node]));
+  const membersByCluster = new Map<string, LaidOutNode[]>();
+  for (const node of nodes) {
+    if (!node.cluster) continue;
+    const list = membersByCluster.get(node.cluster) ?? [];
+    list.push(node);
+    membersByCluster.set(node.cluster, list);
+  }
+  const clusters: ClusterInfo[] = (bundle.clusters ?? []).map((cluster) => ({
+    ...cluster,
+    x: round(Math.cos(cluster.angle) * cluster.radius),
+    y: round(Math.sin(cluster.angle) * cluster.radius),
+    members: (membersByCluster.get(cluster.id) ?? [])
+      .sort((a, b) => compareNames(a.name, b.name, a.id, b.id))
+      .map((node) => node.id),
+  }));
   const adjacency = new Map<string, string[]>();
   for (const node of nodes) adjacency.set(node.id, []);
   const edges: BundleEdge[] = [];
@@ -554,6 +660,8 @@ export function hydrateLayout(bundle: GraphBundle): GraphLayout {
     byId,
     edges,
     adjacency,
+    clusters,
+    clusterById: new Map(clusters.map((cluster) => [cluster.id, cluster])),
     frame: bundle.hub ? { ...bundle.hub, radius: bundle.frameRadius } : null,
     tiers: bundle.tiers,
     sectors: bundle.tiers.flatMap((tier) => tier.sectors),
@@ -588,6 +696,7 @@ export function toWireNode(node: LaidOutNode): WireNode {
   if (node.arch) wire.arch = true;
   if (node.orbit > 0) wire.orbit = node.orbit;
   if (node.collapsedInto) wire.collapsedInto = node.collapsedInto;
+  if (node.cluster) wire.cluster = node.cluster;
   return wire;
 }
 
