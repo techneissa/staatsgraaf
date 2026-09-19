@@ -6,7 +6,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed
 
-- The graph keeps every body in its place. Selecting one no longer summons its relations onto a halo or pushes the outer rings back, and the canvas no longer turns; the selection, its path to the electorate and its direct relations light up where they are, collapsed children appear beside their body, and the view zooms to hold them and the core. Names are now drawn upright at one size on screen (12 px) for the selection, its relations and the mark under the pointer, placed each frame so they never overlap each other or a mark (`web/lib/label-placement.ts`, ADR 0015 amendment 2).
+- The graph keeps every body in its place. Selecting one no longer summons its relations onto a halo or pushes the outer rings back; the canvas still turns to bring it to the top, now on a slower spring, and the selection, its path to the electorate and its direct relations light up where they are, collapsed children appear beside their body, and the view zooms to hold them and the core. Names are now drawn upright at one size on screen (12 px) for the selection, its relations and the mark under the pointer, placed each frame so they never overlap each other or a mark (`web/lib/label-placement.ts`, ADR 0015 amendment 2).
 
 ### Added
 

@@ -23,8 +23,8 @@ import {
 } from "@/lib/graph";
 import type { OrgBranch as OrgBranchName } from "@/lib/types";
 import {
-  SPRING_FIRM,
   SPRING_SOFT,
+  SPRING_TURN,
   prefersReducedMotion,
   settled,
   snap,
@@ -122,7 +122,8 @@ function localized(
  *
  * A body never leaves its place. Selecting one highlights it, its path to the
  * electorate and its direct relations where they are, and the camera eases to
- * a view that holds them and the core. React renders the structure; the
+ * a view that holds them and the core, turning the canvas so the selection
+ * sits straight above the core. React renders the structure; the
  * animation frame writes the view transform and the label positions straight
  * to the DOM through refs, so panning 1600 marks does not reconcile 1600 React
  * elements, and every move can be interrupted: each is one spring chasing a
@@ -446,7 +447,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
         snap(viewX.current);
         snap(viewY.current);
       } else {
-        stepSpring(rot.current, dt, SPRING_FIRM);
+        stepSpring(rot.current, dt, SPRING_TURN);
         stepSpring(viewK.current, dt, SPRING_SOFT);
         stepSpring(viewX.current, dt, SPRING_SOFT);
         stepSpring(viewY.current, dt, SPRING_SOFT);
@@ -510,9 +511,15 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     placeLabelsNow();
   }, [labelled, placeLabelsNow]);
 
-  /** Ease the view to hold the selection and its relations, or the sector. */
+  /**
+   * Turn the canvas so the selection reads straight above the core, and ease
+   * the view to hold it, its relations and the core. The turn is one rigid
+   * rotation of the whole frame: every body keeps its neighbours.
+   */
   useEffect(() => {
     const sector = activeSector ? layout.sectors.find((entry) => entry.id === activeSector) ?? null : null;
+    const angle = selectedNode ? selectedNode.angle : sector ? sector.midAngle : null;
+    rot.current.target = alignRotation(angle, rot.current.target);
     const focus = selectedNode
       ? { angle: selectedNode.angle, radius: selectedNode.radius, reach: focusReach(layout, selectedNode.id, hiddenBranches) }
       : sector
