@@ -4,6 +4,34 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Added (25-09-2026)
+
+- Every news item is readable in both languages. Headlines and leads are machine translated (ADR 0016): the 1,511 items at hand were translated once in a Claude Code session, and every news run in CI now translates only new or changed items through OpenCode Zen with DeepSeek V4.1 Flash, reasoning off, with the DeepSeek API and Claude as fallbacks. Translations live in `data/news-translations.json` (schema `schema/v1/news-translation.schema.json`), are tied to their source by a hash (`shared/news-translation-hash.mjs`), keep every entity tag, and are carried between CI runs in the Actions cache. Translated cards say so, link to the new machine translation section on `/methodiek`, and show the original on request. `/news/` shows all items instead of English outlets only.
+- Peek popovers (ADR 0017). Entity links in news, connections, changes and lists open a popover with the name, kind, portrait or initials, role, description, key facts, news count and source, and an "Open pagina" button to the full page. Phones get a bottom sheet. The data comes from 64 lazily loaded same-origin files built by `web/scripts/build-peek-index.mjs`.
+- A share or copy-link button in the popover and on entity pages, and a news filter by mentioned entity (`?entity=`).
+- 149 official Tweede Kamer portraits from the Tweede Kamer Open Data portal (CC0 1.0), 57 of them for members who had none; 72 people have a portrait for the first time. Remaining gaps are named in `research/qa/portraits-25-09-2026.md`, and profiles without a photo show an initials avatar in the party or branch colour.
+
+### Changed (25-09-2026)
+
+- News cards are one design everywhere: mentioned entities are a single line of inline links coloured by kind instead of pills, the source is one line instead of a pill plus a footnote list, and on phones the thumbnail sits beside the headline so the summary gets the full width.
+- The change timeline groups changes by day under a sticky date, with a kind mark, a portrait or initials, a plain sentence with popover links, before and after values, and a quiet source link on a vertical rail. Rows fade in once, and not at all under reduced motion. Tenure timelines and the home change block use the same design.
+- iPhone and iPad pass over every route: 44 px touch targets, 16 px form fields, scrolling tab and filter rows, safe-area insets, tables that fit on a phone, and a compact graph panel with a full-screen button on phones.
+- The graph draws every connection as a solid line; relation types differ by colour, width and opacity, faint at rest and in accent for the selection.
+- The news run is hourly from 06:15 to 23:15 Dutch time plus one night run (ADR 0016).
+
+### Fixed (25-09-2026)
+
+- Clicking another body inside an unpacked group on the graph no longer folds the group (`web/lib/cluster-click.ts`).
+- NL Times items are ingested: their dates were not parsed before.
+
+### Removed (25-09-2026)
+
+- The 53 Eerste Kamer portraits: the Eerste Kamer colophon requires permission to republish its images, which contradicts the licence assumed in ADR 0014 (amendment 1).
+
+### Known issues
+
+- The entity linker misreads some foreign or ambiguous names, for example the American broadcaster CBS as the Dutch CBS, foreign police as `org:politie`, "de regering-Trump" as `org:regering`, and "RIS" as `org:rijksinkoopsamenwerking`. Recorded for a linker fix.
+
 ### Changed
 
 - Clusters on the graph, as in the reference product. Inside a sector, a body with three or more children draws them as a grid of dots (the ministries' agentschappen, inspecties and ZBOs, the Kamers' commissies), and in the gemeenten sector the parentless bodies too: the gemeenten by the provincie that oversees them (the dataset's `oversees` relation, labelled as oversight), the veiligheidsregio's and samenwerkingsverbanden by kind (34 grids in all). Clicking a grid, or picking one of its members, unpacks it in place: that sector is packed again with the shared ring packer (`web/lib/ring-pack.ts`) so the members get the arc they need and the neighbours slide aside; one grid is open at a time and the sector keeps room for its widest grid at build time. Layout id `nl-tiers-v2`, bundle field `clusters`.
