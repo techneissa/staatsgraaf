@@ -1,7 +1,7 @@
 # ADR 0014: Portrait sources and the Attribution licence
 
 Date: 19-09-2026
-Status: accepted, amended 25-09-2026 (Eerste Kamer portraits withdrawn, see amendment 1)
+Status: accepted, amended 25-09-2026 (amendments 1 and 2)
 
 ## Context
 
@@ -25,3 +25,13 @@ A licence check on 24-09-2026 found that the Eerste Kamer colophon (https://www.
 The Tweede Kamer Open Data portal publishes its data under CC0 1.0 unless stated otherwise (https://opendata.tweedekamer.nl/disclaimer, checked 24-09-2026). Its member photos are now the first choice for current Tweede Kamerleden, matched on current membership and full name, with birth dates compared where both sides have one. Rijksoverheid.nl reserves copyright on its photos of bewindspersonen (https://www.rijksoverheid.nl/service/copyright), so they are not used.
 
 Result: 420 of 880 people have a portrait (149 Tweede Kamer Open Data, 271 Commons). 72 of them had no portrait before. The 460 remaining gaps are named per person in `research/qa/portraits-25-09-2026.md`. The licence pages as fetched are kept in `research/raw/portraits/licences/`.
+
+## Amendment 2: second evidence, flagged files refused, two more licences (25-09-2026)
+
+1. **Second evidence for every match.** A portrait is accepted only when something besides the name ties it to the person: the office, the municipality, or the birth date. Full names and birth dates of Eerste Kamer members are read from the text of their eerstekamer.nl pages; no Eerste Kamer image is used. Namesakes are settled by the office held. Commons "depicts" tags alone are not trusted, because one pointed at a different person with the same name.
+2. **Manual review is recorded.** Every accepted or rejected candidate of this pass, with the reason, is in `research/raw/portraits/review.json`, which the pipeline applies on each run.
+3. **Flagged Commons files are refused.** A file with a pending deletion request, missing permission, or no licence is not used, and an existing portrait on such a file is replaced or withdrawn. Three Council of the EU photos with a pending deletion request were replaced by a Tweede Kamer or a CC BY 2.0 photo, or withdrawn.
+4. **Two more licences.** The European Parliament legal notice (https://www.europarl.europa.eu/legal-notice/en/) allows reuse with the credit "© European Union, [year] – Source: European Parliament". The Commons "Copyrighted free use" template is accepted for a file with a completed licence review.
+5. **Tweede Kamer photos of former members.** The Tweede Kamer Open Data archive (CC0) is searched for all members, not only current ones. A photo is used only when the full name and the birth date match exactly.
+
+Result: 455 of 880 people have a portrait (296 Commons, 159 Tweede Kamer Open Data). The 425 remaining gaps are named per person in `research/qa/portraits-25-09-2026.md`: mostly burgemeesters and college, ZBO and court members for whom no free photo exists, and Eerste Kamer members whose own chamber does not allow reuse of its photos.
