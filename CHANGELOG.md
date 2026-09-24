@@ -6,6 +6,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (25-09-2026, second round)
 
+- Portraits for 35 more people (455 of 880): Eerste Kamer members through their full names, burgemeesters matched on municipality, and former members through the Tweede Kamer Open Data archive, each matched on a second piece of evidence besides the name (ADR 0014 amendment 2). Three portraits with a disputed licence were replaced or withdrawn. The 425 remaining gaps are named in `research/qa/portraits-25-09-2026.md` and show an initials avatar.
 - The graph draws no connection lines at rest. A body's connections appear only when it is selected, in the accent colour.
 - Selecting a body no longer turns the canvas, so the view stays exactly where the reader left it. The turn is off by default and stays available under the ↻ button (stored under a new key, so an earlier "on" is not carried over).
 - Budget amounts are short and readable: at most four significant figures with "mld" and "mln" in Dutch and "B" and "M" in English, and the exact amount in a tooltip and for screen readers (`web/lib/budget-format.ts`, `web/components/budget/amount.tsx`). Totals and ministries are cards two to a row, also on phones. The "amounts in x 1.000 euro" notes are gone because the figures are now shown in euros.
