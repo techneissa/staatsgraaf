@@ -19,6 +19,11 @@ import {
   buildTkMediaRecord as tkMedia,
   isEkWebsitePortrait as ekPortrait,
   matchTkMembers as tkMatch,
+  isBlockedFile,
+  tkPersoonMatches,
+  resolveReviewed,
+  fetchWikipediaImage,
+  ENWIKI_API,
 } from "./portraits.mjs";
 
 const person = {
@@ -293,4 +298,93 @@ test("TK media records carry CC0 1.0 and the Kamer as credit; EK website portrai
   assert.match(record.credit, /Tweede Kamer der Staten-Generaal, CC0 1\.0/);
   assert.equal(ekPortrait({ source: "src:portret-officieel-y", credit: "Foto: Eerste Kamer der Staten-Generaal, CC BY 4.0" }, { url: "https://www.eerstekamer.nl/persoon/y" }), true);
   assert.equal(ekPortrait({ source: "src:commons-1", credit: "Foto: X" }, null), false);
+});
+
+test("mapLicense accepts the European Parliament and Copyrighted free use templates but not GFDL", () => {
+  assert.equal(mapLicense({ licenseRaw: "European Parliament" }), "European Parliament");
+  assert.equal(mapLicense({ licenseRaw: "Copyrighted free use" }), "Copyrighted free use");
+  assert.equal(mapLicense({ licenseRaw: "GFDL 1.2" }), null);
+});
+
+test("isBlockedFile refuses files with a pending deletion request or missing permission", () => {
+  assert.equal(isBlockedFile({ categories: ["CC-BY-2.0", "Deletion requests June 2026"] }), true);
+  assert.equal(isBlockedFile({ categories: ["Media without a license: needs history check"] }), true);
+  assert.equal(isBlockedFile({ categories: ["Files with no permission as of 1 June 2026"] }), true);
+  assert.equal(isBlockedFile({ categories: ["CC-BY-SA-4.0", "Sjoerd Sjoerdsma"] }), false);
+  assert.equal(isBlockedFile({}), false);
+});
+
+test("buildCredit gives the European Parliament credit once", () => {
+  assert.equal(
+    buildCredit({ author: "© European Union, 1998 – 2026", license: "European Parliament" }),
+    "Foto: © European Union, 1998 – 2026, Source: European Parliament, hergebruik volgens https://www.europarl.europa.eu/legal-notice/, via Wikimedia Commons",
+  );
+  assert.equal(
+    buildCredit({ author: "European Union 2024 - Source : EP", license: "European Parliament" }),
+    "Foto: © European Union 2024 - Source : EP, hergebruik volgens https://www.europarl.europa.eu/legal-notice/, via Wikimedia Commons",
+  );
+  assert.match(buildCredit({ author: "Alexis Haulot / EP", license: "European Parliament" }), /^Foto: Alexis Haulot \/ EP, © European Union, Source: European Parliament/);
+});
+
+function jsonResponse(body) {
+  return { ok: true, status: 200, json: async () => body, headers: { get: () => "application/json" } };
+}
+
+test("fetchWikipediaImage queries the endpoint it is given", async () => {
+  const urls = [];
+  const fetchImpl = async (url) => {
+    urls.push(url);
+    return jsonResponse({ query: { pages: {} } });
+  };
+  const result = await fetchWikipediaImage("Rob_Jetten", { fetchImpl, endpoint: ENWIKI_API });
+  assert.equal(result.ok, false);
+  assert.ok(urls[0].startsWith(ENWIKI_API));
+});
+
+test("tkPersoonMatches needs the reviewed name and the exact birth date", () => {
+  const member = { fullName: "Hendrikus Jager", callName: "Rikus Jager", birthDate: "1954-05-18" };
+  assert.equal(tkPersoonMatches(member, { expectName: "Rikus Jager", birthDate: "1954-05-18" }), true);
+  assert.equal(tkPersoonMatches(member, { expectName: "Rikus Jager", birthDate: "1954-05-19" }), false);
+  assert.equal(tkPersoonMatches(member, { expectName: "Rikus Jager" }), false);
+  assert.equal(tkPersoonMatches(member, { expectName: "Hans Jager", birthDate: "1954-05-18" }), false);
+});
+
+test("resolveReviewed turns a disputed Commons file into a gap, never another file", async () => {
+  const fetchImpl = async () => jsonResponse({
+    query: {
+      pages: {
+        1: {
+          title: "File:X.jpg",
+          categories: [{ title: "Category:Deletion requests June 2026" }],
+          imageinfo: [{ thumburl: "https://upload.example/x.jpg", thumbwidth: 320, thumbheight: 400, extmetadata: { LicenseShortName: { value: "Attribution" } } }],
+        },
+      },
+    },
+  });
+  const result = await resolveReviewed(
+    { id: "person:x", slug: "x", name: "X" },
+    { kind: "commons", file: "X.jpg", wikidata: "Q1", identity: "test", confidence: "high" },
+    { fetchImpl },
+  );
+  assert.equal(result.image, null);
+  assert.equal(result.reviewed, true);
+  assert.match(result.gaps[0].reason, /betwiste licentie/);
+});
+
+test("resolveReviewed applies a TK photo only when name and birth date agree", async () => {
+  const persoon = { Id: "abc", Voornamen: "Hendrikus", Roepnaam: "Rikus", Achternaam: "Jager", Geboortedatum: "1954-05-18T00:00:00", Functie: "Oud Kamerlid", ContentLength: 6509 };
+  const fetchImpl = async () => jsonResponse(persoon);
+  const ok = await resolveReviewed(
+    { id: "person:rikus-jager", slug: "rikus-jager", name: "Rikus Jager" },
+    { kind: "tk", tkId: "abc", expectName: "Rikus Jager", birthDate: "1954-05-18", wikidata: "Q1922264", confidence: "high" },
+    { fetchImpl },
+  );
+  assert.equal(ok.image.kind, "tk");
+  assert.equal(ok.image.member.resourceUrl.endsWith("Persoon(abc)/resource"), true);
+  const wrong = await resolveReviewed(
+    { id: "person:rikus-jager", slug: "rikus-jager", name: "Rikus Jager" },
+    { kind: "tk", tkId: "abc", expectName: "Rikus Jager", birthDate: "1963-04-11", wikidata: null },
+    { fetchImpl },
+  );
+  assert.equal(wrong.image, null);
 });
