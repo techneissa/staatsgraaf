@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
 import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 import { useT } from "@/components/i18n/use-t";
+import { prefersReducedMotion } from "@/lib/motion";
 import { buildSearchIndex, rankSearch } from "@/lib/search";
 import type { SearchIndex, SearchKind, SearchRecord } from "@/lib/search";
 
@@ -40,6 +41,8 @@ export function SearchOverlay() {
   const [active, setActive] = useState(-1);
   const [index, setIndex] = useState<SearchIndex | null>(null);
   const [status, setStatus] = useState<IndexStatus>("idle");
+  const [closing, setClosing] = useState(false);
+  const closeTimer = useRef<number | null>(null);
 
   const triggerRef = useRef<HTMLButtonElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -69,16 +72,36 @@ export function SearchOverlay() {
   }, []);
 
   const openOverlay = useCallback(() => {
+    if (closeTimer.current !== null) window.clearTimeout(closeTimer.current);
+    closeTimer.current = null;
+    setClosing(false);
     setOpen(true);
     loadIndex();
   }, [loadIndex]);
 
+  // The dialog stays mounted, inert, for its short exit animation.
   const closeOverlay = useCallback((returnFocus = true) => {
-    setOpen(false);
-    setQuery("");
-    setActive(-1);
     if (returnFocus) triggerRef.current?.focus();
+    if (closeTimer.current !== null) return;
+    setClosing(true);
+    closeTimer.current = window.setTimeout(
+      () => {
+        closeTimer.current = null;
+        setClosing(false);
+        setOpen(false);
+        setQuery("");
+        setActive(-1);
+      },
+      prefersReducedMotion() ? 0 : 160,
+    );
   }, []);
+
+  useEffect(
+    () => () => {
+      if (closeTimer.current !== null) window.clearTimeout(closeTimer.current);
+    },
+    [],
+  );
 
   useEffect(() => {
     if (open) inputRef.current?.focus();
@@ -159,7 +182,7 @@ export function SearchOverlay() {
         type="button"
         aria-label={t("searchTrigger")}
         aria-haspopup="dialog"
-        aria-expanded={open}
+        aria-expanded={open && !closing}
         onClick={openOverlay}
         className="tap-target flex items-center justify-center gap-2 rounded-sm border border-line px-2.5 py-2 text-sm text-ink-muted transition-fast hover:border-line-strong hover:text-ink"
       >
@@ -168,16 +191,21 @@ export function SearchOverlay() {
       </button>
 
       {open ? (
-        <div className="fixed inset-0 z-40 flex items-start justify-center overscroll-contain sm:px-4 sm:pt-16">
+        <div
+          className={`fixed inset-0 z-40 flex items-start justify-center overscroll-contain sm:px-4 sm:pt-16 ${closing ? "pointer-events-none" : ""}`}
+          inert={closing}
+        >
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-overlay"
+            data-state={closing ? "closed" : "open"}
+            className="motion-scrim absolute inset-0 bg-overlay"
             onClick={() => closeOverlay()}
           />
           <div
             role="dialog"
             aria-modal="true"
             aria-label={t("searchDialogLabel")}
+            data-state={closing ? "closed" : "open"}
             className="motion-pop relative w-full border-b border-line bg-surface pl-[var(--safe-left)] pr-[var(--safe-right)] pt-[var(--safe-top)] shadow-2xl sm:max-w-xl sm:rounded-md sm:border sm:p-0"
           >
             <div className="flex items-center gap-2 border-b border-line py-1.5 pl-3 pr-1.5 sm:py-2.5 sm:pr-3">
@@ -231,9 +259,8 @@ export function SearchOverlay() {
               </p>
             ) : query.trim() === "" ? (
               <div className="p-4">
-                <p className="text-sm text-ink-faint">{t("searchHint")}</p>
                 {suggestedTopics.length > 0 ? (
-                  <div className="mt-3">
+                  <div>
                     <p className="text-xs font-semibold uppercase tracking-wide text-ink-faint">
                       {t("searchTopicsHeader")}
                     </p>

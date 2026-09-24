@@ -21,8 +21,8 @@ export const NEWS_DICT = {
   // Topics: cards, responsible list, topic news
   topicsHeading: { nl: "Onderwerpen", en: "Topics" },
   topicsIntro: {
-    nl: "Onderwerpen doorsnijden de begrotingen en organisaties. Elk onderwerp toont wie er verantwoordelijk is: de ministeries, uitvoeringsorganisaties, adviesorganen en posities die de dataset aan het onderwerp koppelt.",
-    en: "Topics cut across budgets and organizations. Each topic shows who is responsible: the ministries, implementing bodies, advisory councils, and positions the dataset links to it.",
+    nl: "Onderwerpen met de organisaties en posities die ervoor verantwoordelijk zijn.",
+    en: "Topics with the organisations and positions responsible for them.",
   },
   topicsAllHeading: { nl: "Alle onderwerpen", en: "All topics" },
   topicsAllCaption: { nl: "onderwerpen met elk het aantal verantwoordelijke organisaties.", en: "topics, each with the number of responsible organizations." },
@@ -57,8 +57,8 @@ export const NEWS_DICT = {
   // Budget: headings, stat tiles, captions
   budgetHeading: { nl: "Begroting", en: "Budget" },
   budgetIntro: {
-    nl: "De begrotingen van de {count} ministeries voor {year}, met het verschil ten opzichte van {previous}. Elk bedrag komt uit de begrotingsstaten en is per organisatie na te lopen.",
-    en: "The budgets of the {count} ministries for {year}, with the change from {previous}. Every amount comes from the budget acts and can be checked per organization.",
+    nl: "De begrotingen van de {count} ministeries voor {year}, vergeleken met {previous}.",
+    en: "The budgets of the {count} ministries for {year}, compared with {previous}.",
   },
   budgetUnitNote: { nl: "Alle bedragen in {unit}, tenzij anders vermeld.", en: "All amounts in {unit} unless stated otherwise." },
   budgetTotalsHeading: { nl: "Totalen", en: "Totals" },
@@ -74,6 +74,8 @@ export const NEWS_DICT = {
   budgetTileSpendingCaption: { nl: "Begrote uitgaven {year}", en: "Budgeted spending {year}" },
   budgetPreviousYearFigure: { nl: "{year}: {amount}", en: "{year}: {amount}" },
   budgetShareOfTotal: { nl: "Aandeel van het totaal: {percent}", en: "Share of the total: {percent}" },
+  budgetShareOfTotalShort: { nl: "{percent} van het totaal", en: "{percent} of the total" },
+  budgetShareBelowTotalShort: { nl: "< {percent} van het totaal", en: "< {percent} of the total" },
   budgetShareBelowTotal: { nl: "Aandeel van het totaal: kleiner dan {percent}", en: "Share of the total: less than {percent}" },
   budgetFootnoteAria: { nl: "Bron {number}, zie de bronnenlijst onderaan de pagina", en: "Source {number}, see the source list at the bottom of the page" },
   budgetFootnoteIntro: {
@@ -108,8 +110,8 @@ export const NEWS_DICT = {
   budgetSourceLabel: { nl: "Bron:", en: "Source:" },
   budgetUnknownSource: { nl: "Onbekende bron ({id})", en: "Unknown source ({id})" },
   budgetYearFiguresCaption: {
-    nl: "Begrote en gerealiseerde bedragen per jaar, in {unit}.",
-    en: "Budgeted and realized amounts per year, in {unit}.",
+    nl: "Begrote en gerealiseerde bedragen per jaar, in euro.",
+    en: "Budgeted and realized amounts per year, in euros.",
   },
   budgetHistoryCaptionSr: {
     nl: "Gerealiseerde uitgaven en ontvangsten per jaar, in {unit}.",

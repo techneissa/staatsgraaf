@@ -93,7 +93,7 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
       "Recente nieuwsberichten over de Nederlandse overheid, per bron en per dag, met gekoppelde organisaties, personen en posities. Engelstalige berichten zijn machinaal vertaald, het origineel staat er altijd bij.",
     heading: "Nieuws",
     intro:
-      "Deze sectie bundelt nieuwsberichten over de overheid uit Nederlandse en Engelstalige bronnen. Elk bericht toont de uitgever, het soort bron en de gekoppelde organisaties, personen en posities. Kop en inleiding van Engelstalige berichten zijn door een taalmodel vertaald en zo gemarkeerd; het origineel is één klik weg en de bronlink gaat altijd naar het oorspronkelijke artikel.",
+      "Nieuws over de overheid uit Nederlandse en Engelstalige bronnen.",
     breadcrumbHome: "Home",
     otherLanguageHref: "/news/",
     otherLanguageLabel: "Lees in het Engels",
@@ -192,7 +192,7 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
     dayCountWordPlural: "berichten",
     sourcesHeading: "Bronnen",
     sourcesIntro:
-      "Elke uitgever in de nieuwsdataset, met het soort bron, de talen, het aantal berichten en de licenties die op de bronrecords staan.",
+      "De uitgevers in de nieuwsdataset, met hun licenties.",
     sourcesEmpty: "Er zijn nog geen nieuwsbronnen opgenomen.",
     sourcesTablePublisher: "Uitgever",
     sourcesTableKind: "Soort",
@@ -208,7 +208,7 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
       "Recent news about the Dutch government, by source and by day, linked to organizations, people and positions. Dutch items are machine translated into English, with the original always one click away.",
     heading: "News",
     intro:
-      "This section collects news about the Dutch government from Dutch and English-language outlets. Each item shows its publisher, the kind of outlet and the organizations, people and positions it mentions. Headlines and leads of Dutch items are translated by a language model and marked as such; the original is one click away, and the source link always goes to the original article. Names of people and bodies stay in Dutch.",
+      "News about the Dutch government from Dutch and English-language outlets.",
     breadcrumbHome: "Home",
     otherLanguageHref: "/nieuws/",
     otherLanguageLabel: "Read in Dutch",
@@ -307,7 +307,7 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
     dayCountWordPlural: "items",
     sourcesHeading: "Sources",
     sourcesIntro:
-      "Every publisher in the news dataset, with its source kind, languages, item count and the licences recorded on its source records.",
+      "The publishers in the news dataset, with their licences.",
     sourcesEmpty: "No news sources have been included yet.",
     sourcesTablePublisher: "Publisher",
     sourcesTableKind: "Kind",

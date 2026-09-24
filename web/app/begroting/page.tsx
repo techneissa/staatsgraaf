@@ -7,7 +7,6 @@ import { SourceFootnotes } from "@/components/budget/source-footnotes";
 import { T } from "@/components/i18n/t";
 import { JsonLd } from "@/components/json-ld";
 import {
-  budgetUnitLabel,
   getBudgetOverview,
 } from "@/lib/budget";
 import { getDatasetDate } from "@/lib/data";
@@ -24,7 +23,6 @@ export const metadata: Metadata = pageMetadata({
 export default function BudgetOverviewPage() {
   const overview = getBudgetOverview();
   const sources = overview.sources;
-  const unitLabel = budgetUnitLabel(overview.unit);
   const pageUrl = absoluteUrl("/begroting/");
   const allFootnotes = sources.map((_, index) => index + 1);
 
@@ -58,11 +56,6 @@ export default function BudgetOverviewPage() {
             }}
           />
         </p>
-        {unitLabel !== null ? (
-          <p className="mt-2 text-xs text-ink-faint">
-            <T area="news" k="budgetUnitNote" vars={{ unit: unitLabel }} />
-          </p>
-        ) : null}
       </header>
 
       <section aria-labelledby="totalen-titel" className="border-b border-line py-6">
@@ -86,10 +79,7 @@ export default function BudgetOverviewPage() {
             vars={{ count: overview.items.length, year: overview.fiscalYear }}
           />
         </p>
-        <p className="mt-2 text-xs leading-relaxed text-ink-faint">
-          <T area="news" k="budgetFootnoteIntro" />
-        </p>
-        <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+        <ul className="mt-4 grid grid-cols-2 gap-2.5 sm:gap-3">
           {overview.items.map((item) => (
             <li key={item.organization.id}>
               <BudgetTile item={item} unit={overview.unit} />

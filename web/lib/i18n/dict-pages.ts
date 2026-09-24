@@ -21,8 +21,8 @@ export const PAGES_DICT = {
   // Party pages (/partijen)
   partiesTitle: { nl: "Partijen", en: "Parties" },
   partiesIntro: {
-    nl: "De politieke partijen uit de dataset met hun officiële naam, kleur en links, en de zetels die ze op dit snapshot in de Kamers hebben. Elke kleur en elk lidmaatschap heeft een bron; de partijpagina's linken naar de officiële site en de Wikipedia-pagina.",
-    en: "The political parties in the dataset with their official name, colour and current seats in the Houses at this snapshot. Every colour and membership carries a source; each party page links to the official site and the Wikipedia entry.",
+    nl: "De politieke partijen met hun zetels in de Kamers.",
+    en: "The political parties with their seats in the two chambers.",
   },
   partiesSeatsTK: {
     nl: "Zetels in de Tweede Kamer",

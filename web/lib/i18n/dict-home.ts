@@ -31,8 +31,8 @@ export const HOME_DICT = {
   changesSection: { nl: "Laatste wijzigingen", en: "Latest changes" },
   changesEyebrow: { nl: "Wijzigingen", en: "Changes" },
   changesIntro: {
-    nl: "De wijzigingenfeed wordt gevuld door de dagelijkse vergelijking van de dataset met de vorige versie. Aanstellingen, vertrekken en structuurwijzigingen verschijnen hier met een bron per wijziging.",
-    en: "This feed is filled by the daily comparison of the dataset with the previous version. Appointments, departures and structural changes appear here with one source per change.",
+    nl: "Aanstellingen, vertrekken en structuurwijzigingen, elk met een bron.",
+    en: "Appointments, departures and structural changes, each with a source.",
   },
   windowTabsLabel: { nl: "Wijzigingsperiode", en: "Change period" },
   timelineLabel: { nl: "Tijdlijn", en: "Timeline" },
@@ -93,8 +93,8 @@ export const HOME_DICT = {
   currentBadge: { nl: "Huidig", en: "Current" },
   changesPageTitle: { nl: "Wijzigingen", en: "Changes" },
   changesPageIntro: {
-    nl: "Deze feed volgt benoemingen, vertrekken en vacatures in de rijksoverheid. Elke regel is afgeleid uit de dataset en gekoppeld aan de bron die het feit vermeldt. Kies een periode en filter op soort.",
-    en: "This feed tracks appointments, departures and vacancies in the national government. Every line is derived from the dataset and linked to the source that states the fact. Pick a period and filter by kind.",
+    nl: "Benoemingen, vertrekken en vacatures in de rijksoverheid, elk met een bron.",
+    en: "Appointments, departures and vacancies in central government, each with a source.",
   },
   keyFigures: { nl: "Kerncijfers", en: "Key figures" },
   feedTitle: { nl: "Wijzigingenfeed", en: "Change feed" },
