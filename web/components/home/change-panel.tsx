@@ -1,78 +1,70 @@
+import Link from "next/link";
+import { ChangeDay } from "@/components/change/change-day";
+import { ChangeHistogram } from "@/components/change/change-histogram";
 import { EmptyStateT } from "@/components/change/empty-state-t";
-import { Card } from "@/components/card";
 import { T } from "@/components/i18n/t";
+import { changeDisplayKind } from "@/lib/changes";
 import { formatCount } from "@/lib/format";
 import type { ChangeWindow } from "@/lib/home";
 import { ChangeCard } from "./change-card";
-import { TimelineHistogram } from "./timeline-histogram";
 
-/** lib/home emits "Vandaag" or "Gisteren" as the day label; map those to the dictionary. */
-function DayHeading({ label }: { label: string }) {
-  if (label === "Vandaag") return <T area="home" k="dayToday" />;
-  if (label === "Gisteren") return <T area="home" k="dayYesterday" />;
-  return <>{label}</>;
-}
+/** The home page shows the newest few; the full feed lives on /wijzigingen/. */
+const HOME_LIMIT = 5;
 
 export function ChangePanel({ window }: { window: ChangeWindow }) {
-  if (!window.ready) {
-    return (
-      <EmptyStateT
-        title="noChangesYet"
-        description="noChangesYetBody"
-      />
-    );
+  if (!window.ready || window.until === null) {
+    return <EmptyStateT title="noChangesYet" description="noChangesYetBody" />;
+  }
+  const reference = window.until;
+
+  let remaining = HOME_LIMIT;
+  const groups = [];
+  for (const group of window.groups) {
+    if (remaining <= 0) break;
+    const changes = group.changes.slice(0, remaining);
+    remaining -= changes.length;
+    groups.push({ date: group.date, total: group.changes.length, changes });
   }
 
   return (
     <div>
-      <Card>
-        <div className="flex flex-wrap items-baseline justify-between gap-2">
-          <h3 className="text-[10px] font-medium uppercase tracking-wider text-ink-faint">
-            <T area="home" k="timelineLabel" />
-          </h3>
-          <p className="text-xs tabular-nums text-ink-muted">
-            {window.count === 1 ? (
-              <T area="home" k="changesInWindowOne" />
-            ) : (
-              <T area="home" k="changesInWindow" vars={{ n: formatCount(window.count) }} />
-            )}
-          </p>
-        </div>
-        <TimelineHistogram buckets={window.buckets} windowDays={window.days} />
-      </Card>
+      <ChangeHistogram buckets={window.buckets} days={window.days} total={window.count} />
 
-      {window.groups.length === 0 ? (
-        <div className="mt-3">
-          <EmptyStateT
-            title="noChangesInWindow"
-            description="noChangesInWindowBody"
-          />
+      {groups.length === 0 ? (
+        <div className="mt-4">
+          <EmptyStateT title="noChangesInWindow" description="noChangesInWindowBody" />
         </div>
       ) : (
-        <ol className="mt-4 space-y-3">
-          {window.groups.map((group) => (
-            <li key={group.date}>
-              <Card className="py-4">
-                <div className="flex items-baseline justify-between gap-2 border-b border-line pb-2">
-                  <h3 className="text-[10px] font-medium uppercase tracking-wider text-ink-faint">
-                    <DayHeading label={group.label} />
-                  </h3>
-                  <span className="text-[10px] tabular-nums text-ink-faint">
-                    {formatCount(group.changes.length)}
-                  </span>
-                </div>
-                <ul className="mt-3 space-y-4">
-                  {group.changes.map((change) => (
-                    <li key={change.id}>
-                      <ChangeCard change={change} date={group.date} />
-                    </li>
-                  ))}
-                </ul>
-              </Card>
-            </li>
+        <div className="mt-4 space-y-3">
+          {groups.map((group) => (
+            <ChangeDay
+              key={group.date}
+              date={group.date}
+              reference={reference}
+              count={group.total}
+              items={group.changes.map((change) => ({
+                id: change.id,
+                displayKind: changeDisplayKind(change),
+                node: <ChangeCard change={change} />,
+              }))}
+            />
           ))}
-        </ol>
+        </div>
       )}
+
+      <p className="mt-3">
+        <Link
+          href="/wijzigingen/"
+          className="inline-flex min-h-8 items-center gap-1 text-sm font-medium text-accent-text underline-offset-2 hover:underline pointer-coarse:min-h-11"
+        >
+          {window.count > HOME_LIMIT ? (
+            <T area="home" k="seeAllChanges" vars={{ n: formatCount(window.count) }} />
+          ) : (
+            <T area="home" k="seeChangesPage" />
+          )}
+          <span aria-hidden="true">→</span>
+        </Link>
+      </p>
     </div>
   );
 }

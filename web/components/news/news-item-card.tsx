@@ -1,136 +1,204 @@
-import { EntityChip } from "@/components/entity-chip";
-import { KindBadge } from "@/components/kind-badge";
+"use client";
+
+import { useState } from "react";
+import { Avatar } from "@/components/avatar";
+import { useLocale } from "@/components/i18n/language-provider";
+import { KindGlyph } from "@/components/kind-glyph";
+import { PeekLink } from "@/components/peek/peek-link";
 import { renderSummaryMarkupWithHrefs } from "@/lib/news-summary";
 import { clampMarkupSentences, clampSentences } from "@/lib/news-text";
-import type { NewsMessages } from "@/lib/news-i18n";
+import { NEWS_MESSAGES } from "@/lib/news-i18n";
+import type { NewsLanguage } from "@/lib/types";
 import { NewsPreviewTile } from "./news-preview";
-import { stripPublisherPrefix, stripTitleFromMarkup } from "@/lib/news-text";
 import type { NewsItemView } from "./news-view";
 
+const DATE_TIME: Record<NewsLanguage, Intl.DateTimeFormat> = {
+  nl: new Intl.DateTimeFormat("nl-NL", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Amsterdam" }),
+  en: new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Amsterdam" }),
+};
+
+/** Mentioned people that get a micro portrait; more would crowd the line. */
+const AVATARS_IN_LINE = 2;
+
 /**
- * One news item, in the reference-product style: strong linked title, a date
- * line under it, a short muted summary, source pill with the outlet host at the
- * bottom left, and the preview tile on the right. Pure: it renders a resolved
- * view and reads no data, so it works inside the client explorer and on
- * server-rendered archive pages alike.
- * The source link is always rendered; no filter or disclosure removes it.
+ * One news item, the same everywhere: the home page, entity and topic pages,
+ * the news explorer and the day archives.
+ *
+ * Hierarchy: the headline (links to the article), the lead with its mentions as
+ * inline peek links, one quiet "Mentioned" line, and one source line with the
+ * outlet, the time and the kind. The thumbnail sits beside the headline at a
+ * small fixed size on phones, so the lead gets the full width, and beside the
+ * whole card from the small breakpoint up.
+ *
+ * Language (docs/adr/0016): the card shows the item in `displayLanguage`, or
+ * in the site language when none is given. When the item was published in the
+ * other language and a valid machine translation exists, the translation is
+ * shown with a "Translated from ..." label and a toggle back to the original;
+ * without one, the original is shown with a language tag. Every text run
+ * carries its real `lang`. The source link always points at the original.
  */
 export function NewsItemCard({
   item,
-  messages,
+  displayLanguage,
   showDate = true,
+  as: Tag = "article",
+  headingLevel = 3,
 }: {
   item: NewsItemView;
-  messages: NewsMessages;
+  /** Fixed interface language for the /news/ and /nieuws/ routes; otherwise the site locale. */
+  displayLanguage?: NewsLanguage;
   showDate?: boolean;
+  as?: "article" | "div";
+  headingLevel?: 2 | 3 | 4;
 }) {
-  const keywordText = item.keywords.length > 0 ? item.keywords.join(", ") : null;
-  const summaryMarkup = stripTitleFromMarkup(item.summaryMarkup, item.title);
-  const useMarkup = summaryMarkup !== null;
-  const plainSummary = stripPublisherPrefix(item.summary, item.title);
+  const siteLocale = useLocale();
+  const target: NewsLanguage = displayLanguage ?? siteLocale;
+  const messages = NEWS_MESSAGES[target];
+  const [original, setOriginal] = useState(false);
+
+  const translation = item.translation !== null && item.translation.language === target ? item.translation : null;
+  const translated = translation !== null && !original;
+  const textLanguage: NewsLanguage = translated ? target : item.language;
+  const title = translated ? translation.title : item.title;
+  const lead = translated ? translation.lead : item.lead;
+  const plainLead = translated ? null : item.plainLead;
+  const foreign = item.language !== target;
+
+  const entityFor = (id: string) => {
+    const entry = item.entities.find((candidate) => candidate.id === id);
+    return entry ? { href: entry.href, kind: entry.peekKind } : null;
+  };
+  const Heading = `h${headingLevel}` as "h3";
+  const headingId = `${item.id}-kop`;
+  const people = item.entities.filter((entry) => entry.kind === "person").slice(0, AVATARS_IN_LINE);
+  const monogram = item.preview.kind === "monogram";
 
   return (
-    <article
-      className="group rounded-md border border-line bg-surface p-4 transition-fast hover:border-line-strong"
-      aria-labelledby={`${item.id}-kop`}
+    <Tag
+      aria-labelledby={headingId}
+      className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 rounded-md border border-line bg-surface p-4 transition-fast hover:border-line-strong sm:gap-x-4"
     >
-      <div className="flex items-start gap-4">
-        <div className="min-w-0 flex-1">
-          <h3 id={`${item.id}-kop`} className="text-[15px] font-semibold leading-snug" lang={item.language}>
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-ink decoration-accent decoration-2 underline-offset-2 transition-fast hover:text-accent-text hover:underline"
-            >
-              {item.title}
-              <span className="sr-only"> {messages.card.opensNewTab}</span>
-            </a>
-          </h3>
-          <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-faint">
-            {showDate ? (
-              <time dateTime={item.published} className="tabular-nums">
-                {item.dateTime}
-              </time>
-            ) : (
-              <time dateTime={item.published} className="tabular-nums">
-                {item.time}
-              </time>
-            )}
-            {item.language === "en" ? (
-              <span
-                lang="en"
-                className="rounded-pill border border-line px-1.5 text-[10px] font-medium uppercase tracking-wide"
-              >
-                EN
-              </span>
-            ) : null}
-            <KindBadge>{item.kindLabel}</KindBadge>
-          </div>
-          {useMarkup ? (
-            <p
-              className="mt-2 text-sm leading-normal text-ink-muted"
-              lang={item.language}
-            >
-              {renderSummaryMarkupWithHrefs(clampMarkupSentences(summaryMarkup as string), (id) => item.entities.find((entry) => entry.id === id)?.href ?? null)}
-            </p>
-          ) : plainSummary !== "" ? (
-            <p
-              className="mt-2 text-sm leading-normal text-ink-muted"
-              lang={item.language}
-            >
-              {clampSentences(plainSummary)}
-            </p>
-          ) : null}
-          {item.entities.length > 0 ? (
-            <ul className="mt-3 flex flex-wrap gap-2" aria-label={messages.card.mentionedInLabel}>
-              {item.entities.map((entry) => (
-                <li key={entry.id}>
-                  <EntityChip
-                    href={entry.href}
-                    meta={messages.card.entityKindLabels[entry.kind]}
-                    icon={
-                      entry.portrait !== null ? (
-                        <img
-                          src={entry.portrait.url}
-                          alt=""
-                          title={entry.portrait.caption}
-                          width={24}
-                          height={24}
-                          loading="lazy"
-                          decoding="async"
-                          className="h-6 w-6 rounded-pill border border-line object-cover"
-                        />
-                      ) : undefined
-                    }
-                  >
-                    {entry.label}
-                  </EntityChip>
-                </li>
-              ))}
-            </ul>
-          ) : null}
-        </div>
-        <NewsPreviewTile preview={item.preview} rounded="lg" responsive />
-      </div>
-      <p className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-xs text-ink-faint">
+      <Heading id={headingId} lang={textLanguage} className="col-start-1 row-start-1 text-[15px] font-semibold leading-snug">
         <a
           href={item.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 rounded-pill border border-line bg-surface-inset py-1 px-2.5 text-[11px] font-medium tracking-wide text-ink-muted transition-fast hover:border-line-strong hover:text-accent-text"
+          className="text-ink decoration-accent decoration-2 underline-offset-2 transition-fast hover:text-accent-text hover:underline"
         >
-          {item.host}
-          <SourceArrow />
-          <span className="sr-only"> {messages.card.opensNewTab}</span>
+          {title}
+          <span lang={target} className="sr-only">
+            {" "}
+            {messages.card.opensNewTab}
+          </span>
         </a>
-        {keywordText !== null ? (
-          <span title={`${messages.card.linkedOnLabel} ${keywordText}`}>
-            {messages.card.linkedOnLabel} {keywordText}
+      </Heading>
+
+      <div className={`col-start-2 row-start-1 sm:row-span-3 ${monogram ? "hidden sm:block" : ""}`}>
+        <NewsPreviewTile preview={item.preview} rounded="sm" responsive />
+      </div>
+
+      <div className="col-span-2 min-w-0 sm:col-span-1 sm:col-start-1">
+        {lead !== null ? (
+          <p lang={textLanguage} className="mt-1.5 line-clamp-4 text-sm leading-normal text-ink-muted">
+            {renderSummaryMarkupWithHrefs(clampMarkupSentences(lead, 280), entityFor)}
+          </p>
+        ) : plainLead !== null ? (
+          <p lang={textLanguage} className="mt-1.5 line-clamp-4 text-sm leading-normal text-ink-muted">
+            {clampSentences(plainLead, 280)}
+          </p>
+        ) : null}
+
+        {item.entities.length > 0 ? (
+          <p
+            className="mt-2 text-xs leading-relaxed text-ink-faint"
+            title={item.keywords.length > 0 ? `${messages.card.linkedOnLabel} ${item.keywords.join(", ")}` : undefined}
+          >
+            {item.entities.map((entry, index) => (
+              <span key={entry.id}>
+                {index === 0 ? <span lang={target}>{messages.card.mentionedShort}: </span> : null}
+                <PeekLink id={entry.id} href={entry.href} kind={entry.peekKind} variant="quiet" lang="nl">
+                  {people.includes(entry) ? (
+                    <Avatar
+                      name={entry.label}
+                      url={entry.portrait?.url ?? null}
+                      color={entry.color ?? null}
+                      size={16}
+                      className="mr-1 align-[-0.3em]"
+                    />
+                  ) : (
+                    <KindGlyph kind={entry.peekKind} size={7} className="mr-1 align-[0.05em]" />
+                  )}
+                  {entry.label}
+                </PeekLink>
+                {index < item.entities.length - 1 ? (
+                  <span aria-hidden="true" className="px-1.5 text-ink-faint">
+                    ·
+                  </span>
+                ) : null}{" "}
+              </span>
+            ))}
+          </p>
+        ) : null}
+      </div>
+
+      <div className="col-span-2 mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-faint sm:col-span-1 sm:col-start-1">
+        <p className="min-w-0">
+          <span className="whitespace-nowrap">
+            <a
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={`${messages.card.sourceLinkTitle}: ${item.host}`}
+              className="inline-flex items-center gap-1 font-medium text-ink-muted underline decoration-line-strong underline-offset-2 transition-fast hover:text-accent-text"
+            >
+              {item.publisher}
+              <SourceArrow />
+              <span lang={target} className="sr-only">
+                {" "}
+                {messages.card.opensNewTab}
+              </span>
+            </a>
+            <span aria-hidden="true" className="px-1.5">·</span>
+          </span>{" "}
+          <span className="whitespace-nowrap">
+            <time dateTime={item.published} className="tabular-nums">
+              {showDate ? DATE_TIME[target].format(new Date(item.published)) : item.time}
+            </time>
+            <span aria-hidden="true" className="px-1.5">·</span>
+          </span>{" "}
+          <span lang={target} className="whitespace-nowrap">{messages.kindBadges[item.kind]}</span>
+        </p>
+        {translation !== null ? (
+          <p className="flex items-center gap-x-1">
+            <a
+              href="/methodiek/#machinevertaling"
+              lang={target}
+              title={messages.card.translatedTitle}
+              className="underline decoration-line underline-offset-2 hover:text-ink"
+            >
+              {messages.card.translatedFrom[item.language]}
+            </a>
+            <button
+              type="button"
+              lang={target}
+              aria-pressed={original}
+              onClick={() => setOriginal((value) => !value)}
+              className="-my-2 inline-flex min-h-11 items-center rounded-xs px-1.5 font-medium text-accent-text underline-offset-2 hover:underline sm:my-0 sm:min-h-0 sm:py-0.5"
+            >
+              {original ? messages.card.showTranslation : messages.card.showOriginal}
+            </button>
+          </p>
+        ) : foreign ? (
+          <span
+            lang={target}
+            title={messages.card.originalLanguageTitle[item.language]}
+            className="rounded-xs border border-line px-1.5 py-px text-[11px] font-medium text-ink-muted"
+          >
+            {messages.card.originalLanguageTag[item.language]}
           </span>
         ) : null}
-      </p>
-    </article>
+      </div>
+    </Tag>
   );
 }
 

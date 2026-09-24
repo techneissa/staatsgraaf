@@ -1,6 +1,6 @@
 import { T } from "@/components/i18n/t";
 import { partySeatHistory } from "@/lib/elections";
-import { formatDate } from "@/lib/format";
+import { DateT, LocalDate } from "@/components/content/local-date";
 
 /**
  * A party's seats in one chamber across elections: one line, one dot per
@@ -37,10 +37,11 @@ export function SeatSparkline({
   return (
     <figure className="mt-3">
       <figcaption className="text-xs text-ink-faint">
-        <T
+        <DateT
           area="entity"
           k="seatSparklineLabel"
-          vars={{ from: formatDate(points[0].date), to: formatDate(latest.date), n: points.length }}
+          dates={{ from: points[0].date, to: latest.date }}
+          vars={{ n: points.length }}
         />
       </figcaption>
       <svg
@@ -52,7 +53,7 @@ export function SeatSparkline({
         <path d={path} fill="none" stroke={stroke} strokeWidth={1.6} strokeLinejoin="round" strokeLinecap="round" />
         {points.map((point) => (
           <circle key={point.date} cx={x(point.date).toFixed(1)} cy={y(point.seats).toFixed(1)} r={2} fill={stroke}>
-            <title>{`${formatDate(point.date)}: ${point.seats}`}</title>
+            <title>{`${point.date.slice(0, 4)}: ${point.seats}`}</title>
           </circle>
         ))}
         <text
@@ -77,7 +78,7 @@ export function SeatSparkline({
         ) : null}
       </svg>
       <details className="mt-1 text-xs text-ink-muted">
-        <summary className="cursor-pointer text-ink-faint">
+        <summary className="inline-flex cursor-pointer items-center text-ink-faint pointer-coarse:min-h-11">
           <T area="entity" k="seatSparklineTable" />
         </summary>
         <table className="mt-1 text-xs tabular-nums">
@@ -88,7 +89,7 @@ export function SeatSparkline({
               .map((point) => (
                 <tr key={point.date}>
                   <td className="pe-3 text-ink-faint">
-                    <time dateTime={point.date}>{formatDate(point.date)}</time>
+                    <LocalDate iso={point.date} />
                   </td>
                   <td className="text-ink">
                     {point.seats}/{point.total}

@@ -9,8 +9,9 @@ import {
   getOrganizationById,
   getPositions,
 } from "@/lib/data";
-import { formatCount } from "@/lib/format";
-import { ORG_TYPE_LABELS } from "@/lib/labels";
+import { LocaleLabel } from "@/components/i18n/locale-label";
+import { EntityPeekLink } from "@/components/peek/entity-peek-link";
+import { DateT, LocalCount } from "@/components/content/local-date";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 import type { OrgType, Position } from "@/lib/types";
 
@@ -56,18 +57,14 @@ export default function PositionsIndexPage() {
         }}
       />
 
-      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Posities" }]} />
+      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: <T area="entity" k="positionsIndexTitle" /> }]} />
 
       <header className="mt-4">
         <h1 className="text-3xl font-semibold tracking-tight text-ink">
           <T area="entity" k="positionsIndexTitle" />
         </h1>
         <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
-          <T
-            area="entity"
-            k="positionsIndexIntro"
-            vars={{ n: formatCount(positions.length) }}
-          />
+          <DateT area="entity" k="positionsIndexIntro" counts={{ n: positions.length }} />
         </p>
       </header>
 
@@ -81,9 +78,9 @@ export default function PositionsIndexPage() {
             id={`type-${group.type}`}
             className="scroll-mt-20 border-b border-line pb-2 text-lg font-semibold tracking-tight text-ink"
           >
-            {ORG_TYPE_LABELS[group.type] ?? group.type}
+            <LocaleLabel kind="type" value={group.type} />
             <span className="ms-2 text-sm font-normal tabular-nums text-ink-faint">
-              {formatCount(group.positions.length)}
+              <LocalCount value={group.positions.length} />
             </span>
           </h2>
           <ul className="mt-3 grid list-none gap-2 p-0 sm:grid-cols-2 xl:grid-cols-3">
@@ -110,20 +107,15 @@ export default function PositionsIndexPage() {
                     </h3>
                     {organization ? (
                       <p className="mt-0.5 truncate text-xs text-ink-muted">
-                        <Link
-                          href={`/organisaties/${organization.slug}/`}
-                          className="underline-offset-2 hover:text-ink hover:underline"
-                        >
-                          {organization.name}
-                        </Link>
+                        <EntityPeekLink id={organization.id} variant="quiet" />
                       </p>
                     ) : null}
                     {position.seatsCount !== null ? (
                       <p className="mt-auto pt-1.5 text-xs tabular-nums text-ink-faint">
-                        <T
-                          area="common"
-                          k="seatsOfLabel"
-                          vars={{ n: formatCount(position.seatsCount) }}
+                        <DateT
+                          area="entity"
+                          k={position.seatsCount === 1 ? "seatOne" : "seatMany"}
+                          counts={{ n: position.seatsCount }}
                         />
                       </p>
                     ) : null}

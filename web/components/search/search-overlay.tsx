@@ -29,6 +29,7 @@ function SearchIcon() {
 export function SearchOverlay() {
   const router = useRouter();
   const t = useT("pages");
+  const tg = useT("graph");
   const baseId = useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const inputId = `${baseId}-input`;
   const listboxId = `${baseId}-listbox`;
@@ -160,14 +161,14 @@ export function SearchOverlay() {
         aria-haspopup="dialog"
         aria-expanded={open}
         onClick={openOverlay}
-        className="flex items-center gap-2 rounded-sm border border-line px-2.5 py-2 text-sm text-ink-muted transition-fast hover:border-line-strong hover:text-ink"
+        className="tap-target flex items-center justify-center gap-2 rounded-sm border border-line px-2.5 py-2 text-sm text-ink-muted transition-fast hover:border-line-strong hover:text-ink"
       >
         <SearchIcon />
         <span className="hidden sm:inline">{t("searchTrigger")}</span>
       </button>
 
       {open ? (
-        <div className="fixed inset-0 z-40 flex items-start justify-center px-4 pt-16">
+        <div className="fixed inset-0 z-40 flex items-start justify-center overscroll-contain sm:px-4 sm:pt-16">
           <div
             aria-hidden="true"
             className="absolute inset-0 bg-overlay"
@@ -177,9 +178,9 @@ export function SearchOverlay() {
             role="dialog"
             aria-modal="true"
             aria-label={t("searchDialogLabel")}
-            className="relative w-full max-w-xl rounded-md border border-line bg-surface shadow-2xl"
+            className="motion-pop relative w-full border-b border-line bg-surface pl-[var(--safe-left)] pr-[var(--safe-right)] pt-[var(--safe-top)] shadow-2xl sm:max-w-xl sm:rounded-md sm:border sm:p-0"
           >
-            <div className="flex items-center gap-2 border-b border-line px-3 py-2.5">
+            <div className="flex items-center gap-2 border-b border-line py-1.5 pl-3 pr-1.5 sm:py-2.5 sm:pr-3">
               <span className="text-ink-faint">
                 <SearchIcon />
               </span>
@@ -207,9 +208,10 @@ export function SearchOverlay() {
                 type="button"
                 aria-label={t("searchClose")}
                 onClick={() => closeOverlay()}
-                className="rounded-sm px-1.5 py-1 text-xs text-ink-faint hover:text-ink"
+                className="tap-target flex shrink-0 items-center justify-center rounded-sm px-2 py-1 text-xs text-ink-muted hover:text-ink"
               >
-                Esc
+                <span aria-hidden="true" className="pointer-coarse:hidden">Esc</span>
+                <span aria-hidden="true" className="hidden text-sm pointer-coarse:inline">{tg("searchCloseShort")}</span>
               </button>
             </div>
 
@@ -241,7 +243,7 @@ export function SearchOverlay() {
                           key={topic.id}
                           type="button"
                           onClick={() => setQuery(topic.label)}
-                          className="rounded-pill border border-line px-2.5 py-1 text-xs text-ink-muted hover:border-line-strong hover:text-ink"
+                          className="tap-row rounded-pill border border-line px-2.5 py-1 text-xs text-ink-muted hover:border-line-strong hover:text-ink pointer-coarse:px-3.5 pointer-coarse:text-sm"
                         >
                           {topic.label}
                         </button>
@@ -257,7 +259,7 @@ export function SearchOverlay() {
                 id={listboxId}
                 role="listbox"
                 aria-labelledby={labelId}
-                className="max-h-80 overflow-y-auto p-1"
+                className="max-h-[calc(100dvh-8rem-var(--safe-top))] overflow-y-auto overscroll-contain p-1 pb-[max(0.25rem,var(--safe-bottom))] sm:max-h-80 sm:pb-1"
               >
                 {results.map((result, index) => (
                   <Link
@@ -269,7 +271,7 @@ export function SearchOverlay() {
                     tabIndex={-1}
                     onMouseEnter={() => setActive(index)}
                     onClick={() => closeOverlay(false)}
-                    className={`flex items-center justify-between gap-3 rounded-sm px-3 py-2 text-sm ${
+                    className={`tap-row flex items-center justify-between gap-3 rounded-sm px-3 py-2 text-sm ${
                       index === active ? "bg-surface-raised text-ink" : "text-ink-muted"
                     }`}
                   >

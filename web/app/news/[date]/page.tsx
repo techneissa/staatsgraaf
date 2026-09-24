@@ -108,7 +108,7 @@ export default async function NewsDayPage({ params }: { params: Promise<{ date: 
             <ol className="mt-3 list-none space-y-3 p-0">
               {hour.items.map((item) => (
                 <li key={item.id}>
-                  <NewsItemCard item={item} messages={messages} />
+                  <NewsItemCard item={item} displayLanguage={messages.locale} />
                 </li>
               ))}
             </ol>

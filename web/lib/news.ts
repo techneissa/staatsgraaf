@@ -7,6 +7,8 @@ import {
   getSourceById,
 } from "./data";
 import { getMediaItem, mediaCreditLine, personPortraitId } from "./entity";
+import { partyByDataset } from "./parties";
+import { peekKindFor } from "./peek";
 import type { NewsItem, NewsLanguage, Person, PublisherKind, Source } from "./types";
 
 import {
@@ -298,6 +300,7 @@ export function resolveNewsEntities(item: NewsItem): NewsEntityRef[] {
           href: `/organisaties/${organization.slug}/`,
           label: organization.name,
           kind: "organization",
+          peekKind: peekKindFor(id, organization.subtype) ?? "organization",
           portrait: null,
         });
       }
@@ -306,7 +309,7 @@ export function resolveNewsEntities(item: NewsItem): NewsEntityRef[] {
     if (id.startsWith("pos:")) {
       const position = getPositionById(id);
       if (position) {
-        refs.push({ id, href: `/posities/${position.slug}/`, label: position.title, kind: "position", portrait: null });
+        refs.push({ id, href: `/posities/${position.slug}/`, label: position.title, kind: "position", peekKind: "position", portrait: null });
       }
       continue;
     }
@@ -318,6 +321,8 @@ export function resolveNewsEntities(item: NewsItem): NewsEntityRef[] {
           href: `/personen/${person.slug}/`,
           label: person.name,
           kind: "person",
+          peekKind: "person",
+          color: partyByDataset(person.party)?.color ?? null,
           portrait: personPortrait(person),
         });
       }
@@ -326,7 +331,7 @@ export function resolveNewsEntities(item: NewsItem): NewsEntityRef[] {
     if (id.startsWith("topic:")) {
       const topic = topics.find((entry) => entry.id === id);
       if (topic) {
-        refs.push({ id, href: `/onderwerpen/${topic.slug}/`, label: topic.name, kind: "topic", portrait: null });
+        refs.push({ id, href: `/onderwerpen/${topic.slug}/`, label: topic.name, kind: "topic", peekKind: "topic", portrait: null });
       }
     }
   }
@@ -335,7 +340,7 @@ export function resolveNewsEntities(item: NewsItem): NewsEntityRef[] {
     seen.add(id);
     const topic = topics.find((entry) => entry.id === id);
     if (topic) {
-      refs.push({ id, href: `/onderwerpen/${topic.slug}/`, label: topic.name, kind: "topic", portrait: null });
+      refs.push({ id, href: `/onderwerpen/${topic.slug}/`, label: topic.name, kind: "topic", peekKind: "topic", portrait: null });
     }
   }
   return refs;

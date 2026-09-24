@@ -9,6 +9,8 @@ import { getDatasetDate } from "@/lib/data";
 import { formatCount } from "@/lib/format";
 import { getNewsDays } from "@/lib/news";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
+import { NT, NTKind, NTLanguage } from "@/components/news/news-t";
+import { L } from "@/components/i18n/t";
 import { buildNewsDayArchive, formatNewsDayLabel } from "@/lib/news-page";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 
@@ -61,8 +63,8 @@ export default async function NewsDayPage({ params }: { params: Promise<{ date: 
 
       <Breadcrumb
         items={[
-          { label: messages.breadcrumbHome, href: "/" },
-          { label: messages.heading, href: "/nieuws/" },
+          { label: <NT k="breadcrumbHome" />, href: "/" },
+          { label: <NT k="heading" />, href: "/nieuws/" },
           { label },
         ]}
       />
@@ -70,21 +72,21 @@ export default async function NewsDayPage({ params }: { params: Promise<{ date: 
       <header className="mt-4 border-b border-line pb-6">
         <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
           <h1 className="text-2xl font-semibold tracking-tight text-ink">
-            {messages.dayHeadingPrefix} {label}
+            <NT k="dayHeadingPrefix" /> {label}
           </h1>
           <Link
             href={messages.otherLanguageHref}
             className="text-sm text-accent-text underline-offset-2 hover:underline"
           >
-            {messages.otherLanguageLabel}
+            <L nl={messages.otherLanguageLabel} en="English page" />
           </Link>
         </div>
         <p className="mt-3 text-sm text-ink-muted">
-          {formatCount(total)} {total === 1 ? messages.dayCountWordSingular : messages.dayCountWordPlural}
+          {formatCount(total)} {total === 1 ? <NT k="dayCountWordSingular" /> : <NT k="dayCountWordPlural" />}
         </p>
         <p className="mt-2 text-sm">
           <Link href="/nieuws/" className="text-accent-text underline-offset-2 hover:underline">
-            {messages.backLabel}
+            <NT k="backLabel" />
           </Link>
         </p>
       </header>
@@ -97,12 +99,12 @@ export default async function NewsDayPage({ params }: { params: Promise<{ date: 
         archive.hours.map((hour) => (
           <section key={hour.hour} aria-labelledby={`uur-${hour.hour}`} className="border-b border-line py-6">
             <h2 id={`uur-${hour.hour}`} className="text-lg font-semibold tracking-tight text-ink">
-              {hour.label}
+              {hour.hour}:00 <NT k="hourConnector" /> {hour.hour}:59
             </h2>
             <ol className="mt-3 list-none space-y-3 p-0">
               {hour.items.map((item) => (
                 <li key={item.id}>
-                  <NewsItemCard item={item} messages={messages} />
+                  <NewsItemCard item={item} />
                 </li>
               ))}
             </ol>

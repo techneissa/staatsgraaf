@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
 import { LanguageProvider } from "@/components/i18n/language-provider";
 import { CanvasFrame } from "@/components/canvas-frame";
+import { PeekProvider } from "@/components/peek/peek-provider";
+import { RevealObserver } from "@/components/reveal-observer";
 import { SiteFooter } from "@/components/site-footer";
 import { SkipLink } from "@/components/skip-link";
 import { TopBar } from "@/components/top-bar";
@@ -25,6 +27,21 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * viewport-fit=cover lets the page draw under the iPhone notch and home
+ * indicator; the top bar, the bottom sheet and the footer pad themselves with
+ * env(safe-area-inset-*) so nothing sits under them.
+ */
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0B0B0D" },
+    { media: "(prefers-color-scheme: light)", color: "#FAFAF7" },
+  ],
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   const datasetDate = getDatasetDate();
 
@@ -41,13 +58,22 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <div className="grid min-h-0 flex-1 grid-cols-1 lg:grid-cols-[minmax(0,32rem)_minmax(0,1fr)]">
             <CanvasFrame />
             <div className="flex min-h-0 min-w-0 flex-col lg:col-start-1 lg:row-start-1 lg:overflow-y-auto">
-              <main id="inhoud" tabIndex={-1} className="flex-1 px-4 pb-10 pt-6 lg:px-8">
-                {children}
+              {/* Below lg the column is the full screen width: pad it clear of the
+                  notch in landscape and cap the measure so lines stay readable on
+                  an iPad in portrait. From lg the column is at most 32rem already. */}
+              <main
+                id="inhoud"
+                tabIndex={-1}
+                className="flex-1 pb-10 pl-[max(1rem,var(--safe-left))] pr-[max(1rem,var(--safe-right))] pt-6 lg:pl-[max(2rem,var(--safe-left))] lg:pr-8"
+              >
+                <div className="mx-auto w-full max-w-[44rem] lg:mx-0 lg:max-w-none">{children}</div>
               </main>
               <SiteFooter datasetDate={datasetDate} />
             </div>
           </div>
           </div>
+          <PeekProvider />
+          <RevealObserver />
         </LanguageProvider>
       </body>
     </html>

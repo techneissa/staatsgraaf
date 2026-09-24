@@ -1,14 +1,20 @@
 import { EmptyStateT } from "@/components/change/empty-state-t";
 import { SourceLink } from "@/components/source-link";
 import { L, T } from "@/components/i18n/t";
-import { getOrganizationById, getPositionById, getSourceById } from "@/lib/data";
+import { KindGlyph } from "@/components/kind-glyph";
+import { PartyBadge } from "@/components/party-badge";
+import { LocaleLabel } from "@/components/i18n/locale-label";
+import { EntityPeekLink } from "@/components/peek/entity-peek-link";
+import { PeekLink } from "@/components/peek/peek-link";
+import { getOrganizationById, getPersonById, getPositionById, getSourceById } from "@/lib/data";
+import { peekKindFor, type PeekKind } from "@/lib/peek";
+import { PersonPortrait } from "./person-portrait";
 import {
   groupConnections,
   getRelationById,
   type Connection,
   type ConnectionGroup,
 } from "@/lib/entity";
-import { EntityDot } from "./entity-dot";
 import { FactGroup } from "./fact-group";
 import {
   AdviceIcon,
@@ -24,6 +30,12 @@ import {
 } from "./icons";
 
 const GROUP_LIMIT = 8;
+
+const LIST_CLASS = "grid grid-cols-1 gap-x-6 md:grid-cols-2 lg:grid-cols-1";
+
+/** A quiet text toggle; 44 px tall on touch screens. */
+export const SUMMARY_CLASS =
+  "inline-flex cursor-pointer list-none items-center rounded-sm py-1.5 text-xs font-medium text-accent-text underline-offset-2 transition-fast hover:underline pointer-coarse:min-h-11 [&::-webkit-details-marker]:hidden";
 
 function iconFor(type: ConnectionGroup["type"]) {
   switch (type) {
@@ -114,63 +126,80 @@ function seatLine(connection: Connection): { appointed: number; total: number | 
   } else if (connection.other.kind === "organization") {
     total = getOrganizationById(connection.other.id)?.seatsCount ?? null;
   }
-  if (appointed === 0 && total === null) return null;
+  // "0 of 1 seats" tells a reader nothing; show a seat line only when seats are appointed.
+  if (appointed === 0) return null;
   return { appointed, total };
 }
 
-/** Subtitle under the entity name: the organization for a position. */
-function contextLabel(connection: Connection): string | null {
-  if (connection.other.kind === "position") {
-    const position = getPositionById(connection.other.id);
-    if (!position) return null;
-    return getOrganizationById(position.organization)?.name ?? null;
-  }
+/** Peek kind for the other end of a connection (a gemeente or provincie is a place). */
+function peekKindOf(connection: Connection): PeekKind {
   if (connection.other.kind === "organization") {
-    return getOrganizationById(connection.other.id)?.name ?? null;
+    return peekKindFor(connection.other.id, getOrganizationById(connection.other.id)?.subtype ?? null) ?? "organization";
   }
-  return null;
+  return connection.other.kind;
 }
 
-function ConnectionCard({
+/** Muted context under the name: the organisation of a position, the type of an organisation, the party of a person. */
+function ContextLine({ connection, selfId }: { connection: Connection; selfId?: string }) {
+  if (connection.other.kind === "position") {
+    const position = getPositionById(connection.other.id);
+    if (!position || position.organization === selfId) return null;
+    return <EntityPeekLink id={position.organization} variant="quiet" />;
+  }
+  if (connection.other.kind === "organization") {
+    const organization = getOrganizationById(connection.other.id);
+    return organization ? <LocaleLabel kind="subtype" value={organization.subtype} /> : null;
+  }
+  const person = getPersonById(connection.other.id);
+  return person?.party ? <PartyBadge party={person.party} /> : null;
+}
+
+function ConnectionRow({
   connection,
   showDirection,
+  selfId,
 }: {
   connection: Connection;
   showDirection: boolean;
+  selfId?: string;
 }) {
   const source = getSourceById(connection.source.source);
   const seats = seatLine(connection);
-  const context = contextLabel(connection);
+  const kind = peekKindOf(connection);
+  const person = connection.other.kind === "person" ? getPersonById(connection.other.id) : undefined;
   return (
-    <article className="flex items-center gap-x-2.5 rounded-md border border-line bg-surface px-2.5 py-2 transition-fast hover:border-line-strong">
-      <span className="flex shrink-0 items-center gap-1.5">
-        <EntityDot kind={connection.other.kind} id={connection.other.id} />
-        {connection.other.kind === "person" ? (
-          <PersonIcon width={15} height={15} className="text-ink-muted" />
-        ) : connection.other.kind === "position" ? (
-          <ClipboardIcon width={15} height={15} className="text-ink-muted" />
-        ) : (
-          <BuildingIcon width={15} height={15} className="text-ink-muted" />
-        )}
+    <div className="flex items-start gap-2.5 py-2">
+      <span className="flex h-6 w-6 shrink-0 items-center justify-center" aria-hidden="true">
+        {person ? <PersonPortrait person={person} size={24} /> : <KindGlyph kind={kind} size={9} />}
       </span>
-      <a
-        href={connection.other.href}
-        className="min-w-0 flex-1 text-sm text-ink underline-offset-2 hover:text-accent-text hover:underline"
-      >
-        <span className="block truncate font-medium">{connection.other.name}</span>
-        <span className="mt-0.5 flex flex-wrap items-baseline gap-x-2 text-xs text-ink-faint">
+      <div className="min-w-0 flex-1">
+        <p className="text-sm leading-snug">
           {showDirection ? (
-            <span aria-hidden="true">{connection.direction === "outgoing" ? "\u2192" : "\u2190"}</span>
+            <span aria-hidden="true" className="me-1 text-ink-faint">
+              {connection.direction === "outgoing" ? "\u2192" : "\u2190"}
+            </span>
           ) : null}
-          <span className="sr-only">
-            {connection.direction === "outgoing" ? (
-              <L nl="Uitgaande relatie naar" en="Outgoing connection to" />
-            ) : (
-              <L nl="Inkomende relatie van" en="Incoming connection from" />
-            )}{" "}
+          {showDirection ? (
+            <span className="sr-only">
+              {connection.direction === "outgoing" ? (
+                <L nl="Uitgaande relatie naar" en="Outgoing connection to" />
+              ) : (
+                <L nl="Inkomende relatie van" en="Incoming connection from" />
+              )}{" "}
+            </span>
+          ) : null}
+          <PeekLink
+            id={connection.other.id}
+            href={connection.other.href}
+            kind={kind}
+            variant="plain"
+            className="font-medium"
+          >
             {connection.other.name}
-          </span>
-          {context !== null ? <span className="truncate">{context}</span> : null}
+          </PeekLink>
+        </p>
+        <p className="mt-0.5 flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-xs text-ink-faint">
+          <ContextLine connection={connection} selfId={selfId} />
           {seats !== null ? (
             <span className="tabular-nums">
               {seats.total !== null ? (
@@ -180,25 +209,25 @@ function ConnectionCard({
               )}
             </span>
           ) : null}
-        </span>
-      </a>
-      {source ? (
-        <span className="shrink-0">
-          <SourceLink href={source.url} meta={source.publisher}>
-            <L nl="Bron" en="Source" />
-          </SourceLink>
-        </span>
-      ) : null}
-    </article>
+          {source ? (
+            <SourceLink href={source.url} tone="quiet" className="text-xs">
+              <T area="entity" k="sourceLabel" />
+            </SourceLink>
+          ) : null}
+        </p>
+      </div>
+    </div>
   );
 }
 
 function ConnectionGroupBlock({
   group,
   showDirection,
+  selfId,
 }: {
   group: ConnectionGroup;
   showDirection: boolean;
+  selfId?: string;
 }) {
   const connections = [...group.connections].sort((a, b) => {
     if ((a.direction === "outgoing" ? 0 : 1) !== (b.direction === "outgoing" ? 0 : 1)) {
@@ -214,25 +243,26 @@ function ConnectionGroupBlock({
       icon={iconFor(group.type)}
       title={<L nl={title.nl} en={title.en} />}
       count={connections.length}
+      plain
     >
       {visible.length > 0 ? (
-        <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+        <ul className={LIST_CLASS}>
           {visible.map((connection) => (
-            <li key={connection.id}>
-              <ConnectionCard connection={connection} showDirection={showDirection} />
+            <li key={connection.id} className="border-b border-line/60 last:border-b-0">
+              <ConnectionRow connection={connection} showDirection={showDirection} selfId={selfId} />
             </li>
           ))}
         </ul>
       ) : null}
       {rest.length > 0 ? (
         <details className="mt-2">
-          <summary className="cursor-pointer list-none rounded-sm border border-line bg-surface-raised px-3 py-1.5 text-xs font-medium text-ink transition-fast hover:border-line-strong">
+          <summary className={SUMMARY_CLASS}>
             <T area="common" k="seeAll" vars={{ n: group.connections.length }} />
           </summary>
-          <ul className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <ul className={`mt-1 ${LIST_CLASS}`}>
             {rest.map((connection) => (
-              <li key={connection.id}>
-                <ConnectionCard connection={connection} showDirection={showDirection} />
+              <li key={connection.id} className="border-b border-line/60 last:border-b-0">
+                <ConnectionRow connection={connection} showDirection={showDirection} selfId={selfId} />
               </li>
             ))}
           </ul>
@@ -242,7 +272,8 @@ function ConnectionGroupBlock({
   );
 }
 
-export function EntityConnections({ connections }: { connections: Connection[] }) {
+/** `selfId` is the entity the page is about, so rows do not repeat it as context. */
+export function EntityConnections({ connections, selfId }: { connections: Connection[]; selfId?: string }) {
   if (connections.length === 0) {
     return (
       <EmptyStateT
@@ -277,9 +308,9 @@ export function EntityConnections({ connections }: { connections: Connection[] }
   });
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-5">
       {composed.map(({ group, showDirection }) => (
-        <ConnectionGroupBlock key={group.type} group={group} showDirection={showDirection} />
+        <ConnectionGroupBlock key={group.type} group={group} showDirection={showDirection} selfId={selfId} />
       ))}
     </div>
   );

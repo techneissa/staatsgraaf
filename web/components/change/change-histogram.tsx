@@ -1,8 +1,9 @@
 "use client";
 
+import { useLocale } from "@/components/i18n/language-provider";
 import { useT } from "@/components/i18n/use-t";
-import { formatDateShort } from "@/lib/format";
 import type { TimelineBucket } from "@/lib/changes";
+import { formatIsoDate } from "./local-date";
 
 export function ChangeHistogram({
   buckets,
@@ -14,6 +15,8 @@ export function ChangeHistogram({
   total: number;
 }) {
   const t = useT("home");
+  const locale = useLocale();
+  const formatDateShort = (iso: string) => formatIsoDate(iso, locale, "short");
   const max = Math.max(1, ...buckets.map((bucket) => bucket.count));
   const barWidth = 6;
   const gap = 1;
@@ -30,9 +33,9 @@ export function ChangeHistogram({
   const nonEmpty = buckets.filter((bucket) => bucket.count > 0);
 
   return (
-    <figure className="rounded-md border border-line bg-surface p-4">
+    <figure className="min-w-0">
       <figcaption className="flex flex-wrap items-baseline justify-between gap-2">
-        <span className="text-xs font-medium uppercase tracking-wider text-ink-faint">
+        <span className="text-[11px] font-medium uppercase tracking-wider text-ink-faint">
           {t("timelineLabel")}
         </span>
         <span className="text-sm text-ink-muted">
@@ -49,7 +52,7 @@ export function ChangeHistogram({
             : t("histogramAria", { n: total, days })
         }
         viewBox={`0 0 ${width} ${height}`}
-        className="mt-3 h-16 w-full"
+        className="mt-2 block h-12 w-full"
         preserveAspectRatio="none"
       >
         {buckets.map((bucket, index) => {
@@ -68,7 +71,7 @@ export function ChangeHistogram({
           );
         })}
       </svg>
-      <div className="mt-1.5 flex justify-between text-xs text-ink-faint">
+      <div aria-hidden="true" className="mt-1 flex justify-between border-t border-line pt-1 text-[11px] tabular-nums text-ink-faint">
         {axisLabels.map((label) => (
           <span key={label}>{label}</span>
         ))}

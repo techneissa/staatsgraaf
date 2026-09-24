@@ -71,8 +71,7 @@ export default function NewsPage() {
         <NewsExplorer
           groups={groups}
           initialVisible={initialVisible}
-          messages={messages}
-          initialLanguage="en"
+          fixedLanguage="en"
           archiveBase="/news"
         />
       </section>

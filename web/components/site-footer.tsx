@@ -4,13 +4,17 @@ import { UpdatedStamp } from "./updated-stamp";
 
 export function SiteFooter({ datasetDate }: { datasetDate: string | null }) {
   return (
-    <footer className="border-t border-line px-4 py-6 lg:px-8">
-      <nav aria-label="Voettekst / Footer">
-        <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+    <footer className="border-t border-line pb-[max(1.5rem,var(--safe-bottom))] pl-[max(1rem,var(--safe-left))] pr-[max(1rem,var(--safe-right))] pt-6 lg:pl-[max(2rem,var(--safe-left))] lg:pr-8">
+      <div className="mx-auto w-full max-w-[44rem] lg:mx-0 lg:max-w-none">
+      <nav aria-labelledby="voettekst-titel">
+        <h2 id="voettekst-titel" className="sr-only">
+          <T area="graph" k="footerNav" />
+        </h2>
+        <ul className="flex flex-wrap gap-x-5 gap-y-1 text-sm sm:gap-y-2">
           <li>
             <Link
               href="/methodiek/"
-              className="text-ink-muted underline-offset-2 hover:text-ink hover:underline"
+              className="tap-row inline-flex items-center text-ink-muted underline-offset-2 hover:text-ink hover:underline"
             >
               <T area="pages" k="linkMethodology" />
             </Link>
@@ -18,7 +22,7 @@ export function SiteFooter({ datasetDate }: { datasetDate: string | null }) {
           <li>
             <Link
               href="/privacy/"
-              className="text-ink-muted underline-offset-2 hover:text-ink hover:underline"
+              className="tap-row inline-flex items-center text-ink-muted underline-offset-2 hover:text-ink hover:underline"
             >
               <T area="pages" k="linkPrivacy" />
             </Link>
@@ -26,7 +30,7 @@ export function SiteFooter({ datasetDate }: { datasetDate: string | null }) {
           <li>
             <Link
               href="/toegankelijkheid/"
-              className="text-ink-muted underline-offset-2 hover:text-ink hover:underline"
+              className="tap-row inline-flex items-center text-ink-muted underline-offset-2 hover:text-ink hover:underline"
             >
               <T area="pages" k="linkAccessibility" />
             </Link>
@@ -34,7 +38,7 @@ export function SiteFooter({ datasetDate }: { datasetDate: string | null }) {
           <li>
             <Link
               href="/dataset/"
-              className="text-ink-muted underline-offset-2 hover:text-ink hover:underline"
+              className="tap-row inline-flex items-center text-ink-muted underline-offset-2 hover:text-ink hover:underline"
             >
               <T area="pages" k="linkDataset" />
             </Link>
@@ -45,6 +49,7 @@ export function SiteFooter({ datasetDate }: { datasetDate: string | null }) {
         <T area="pages" k="footerIndependent" />
       </p>
       <UpdatedStamp datasetDate={datasetDate} />
+      </div>
     </footer>
   );
 }

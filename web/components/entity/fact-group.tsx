@@ -12,6 +12,8 @@ export function FactGroup({
   count,
   children,
   className = "",
+  plain = false,
+  id,
 }: {
   icon?: ReactNode;
   title: ReactNode;
@@ -20,11 +22,16 @@ export function FactGroup({
   count?: number;
   children: ReactNode;
   className?: string;
+  /** No card border: a titled section inside another panel. */
+  plain?: boolean;
+  /** Anchor id for in-page links. */
+  id?: string;
 }) {
   return (
     <section
+      id={id}
       aria-label={typeof title === "string" ? title : undefined}
-      className={`rounded-md border border-line bg-surface p-4 ${className}`.trim()}
+      className={`scroll-mt-4 ${plain ? "" : "rounded-md border border-line bg-surface p-4"} ${className}`.trim()}
     >
       <h2 className="flex items-center justify-between gap-2 text-sm font-semibold tracking-tight text-ink">
         <span className="flex min-w-0 items-center gap-2">
@@ -47,7 +54,7 @@ export function FactGroup({
           </a>
         ) : null}
       </h2>
-      <div className="mt-3">{children}</div>
+      <div className={plain ? "mt-1.5" : "mt-3"}>{children}</div>
     </section>
   );
 }

@@ -238,6 +238,21 @@ export const ENTITY_DICT = {
   unknownPerson: { nl: "Onbekende persoon", en: "Unknown person" },
   unknownPosition: { nl: "Onbekende positie", en: "Unknown position" },
   personPortraitAlt: { nl: "Portret van {name}", en: "Portrait of {name}" },
+  rolesMore: { nl: "en {n} andere posities", en: "and {n} more positions" },
+  personInitialsAlt: { nl: "Initialen van {name}, geen portret beschikbaar", en: "Initials of {name}, no portrait available" },
+
+  // Entity pages pass: counts, share, English audit
+  countOnly: { nl: "{n}", en: "{n}" },
+  countWithYear: { nl: "{n} ({year})", en: "{n} ({year})" },
+  rolesNowLabel: { nl: "Nu in functie als", en: "Currently serving as" },
+  seatOne: { nl: "{n} zetel", en: "{n} seat" },
+  seatMany: { nl: "{n} zetels", en: "{n} seats" },
+  seatsFilledOne: { nl: "{n} van 1 zetel bezet", en: "{n} of 1 seat filled" },
+  seatsFilled: { nl: "{n} van {total} zetels bezet", en: "{n} of {total} seats filled" },
+  termYearOne: { nl: "{n} jaar", en: "{n} year" },
+  termYears: { nl: "{n} jaar", en: "{n} years" },
+  termMonthOne: { nl: "{n} maand", en: "{n} month" },
+  termMonths: { nl: "{n} maanden", en: "{n} months" },
 } as const satisfies Record<string, LocString>;
 
 export type EntityDictKey = keyof typeof ENTITY_DICT;

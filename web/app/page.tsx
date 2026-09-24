@@ -23,7 +23,7 @@ import {
   getSubOrganizationCount,
 } from "@/lib/home";
 import { getBudgetOverview } from "@/lib/budget";
-import { ORG_BRANCH_LABELS, ORG_TYPE_LABELS } from "@/lib/labels";
+import { LocaleLabel } from "@/components/i18n/locale-label";
 import { absoluteUrl, pageMetadata, SCOPE_LABEL, SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 import type { OrgBranch, OrgType } from "@/lib/types";
 
@@ -191,7 +191,7 @@ export default function HomePage() {
                 {counts.byType.map((entry) => (
                   <li key={entry.key} className="flex items-baseline justify-between gap-2 break-inside-avoid">
                     <span className="text-ink-muted">
-                      {ORG_TYPE_LABELS[entry.key as OrgType] ?? entry.key}
+                      <LocaleLabel kind="type" value={entry.key as OrgType} />
                     </span>
                     <span className="tabular-nums text-ink">{formatCount(entry.count)}</span>
                   </li>
@@ -206,7 +206,7 @@ export default function HomePage() {
                 {counts.byBranch.map((entry) => (
                   <li key={entry.key} className="flex items-baseline justify-between gap-2 break-inside-avoid">
                     <span className="text-ink-muted">
-                      {ORG_BRANCH_LABELS[entry.key as OrgBranch] ?? entry.key}
+                      <LocaleLabel kind="branch" value={entry.key as OrgBranch} />
                     </span>
                     <span className="tabular-nums text-ink">{formatCount(entry.count)}</span>
                   </li>
@@ -229,7 +229,7 @@ export default function HomePage() {
           </h2>
           <Link
             href="/begroting/"
-            className="rounded-sm border border-line bg-surface px-2.5 py-1 text-xs font-medium text-accent-text transition-fast hover:bg-surface-inset"
+            className="inline-flex min-h-11 items-center rounded-sm px-1 text-sm font-medium text-accent-text underline-offset-2 hover:underline sm:min-h-0"
           >
             <L nl="Begroting verkennen" en="Explore the budget" />
           </Link>

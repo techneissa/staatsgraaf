@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { PeekLink } from "@/components/peek/peek-link";
+import { peekKindFor } from "@/lib/peek";
 import { T } from "@/components/i18n/t";
 import { KindBadge } from "@/components/kind-badge";
 import { LabeledList } from "@/components/news/labeled-list";
-import { branchColorVar } from "@/lib/branch-colors";
 import { formatCount } from "@/lib/format";
 import { getResponsibleOrganizations } from "@/lib/topics";
 import type { Topic } from "@/lib/types";
@@ -38,32 +39,36 @@ export function TopicCard({
         ) : null}
       </div>
       {topic.description !== null ? (
-        <p className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted">
+        <p lang="nl" className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted">
           {topic.description}
         </p>
       ) : null}
       {chipOrganizations.length > 0 ? (
         <LabeledList
           labelKey="responsibleHeading"
-          className="mt-3 flex flex-wrap items-center gap-1.5"
+          className="mt-3 text-xs leading-relaxed text-ink-faint"
         >
-          {chipOrganizations.map((organization) => (
-            <li key={organization.id}>
-              <Link
+          {chipOrganizations.map((organization, index) => (
+            <li key={organization.id} className="inline">
+              <PeekLink
+                id={organization.id}
                 href={`/organisaties/${organization.slug}/`}
-                className="inline-flex items-center gap-1.5 rounded-pill border border-line bg-surface-raised py-0.5 pl-2 pr-2.5 text-xs text-ink-muted transition-fast hover:border-line-strong hover:text-accent-text"
+                kind={peekKindFor(organization.id, organization.subtype) ?? "organization"}
+                variant="quiet"
+                glyph
+                lang="nl"
               >
-                <span
-                  aria-hidden="true"
-                  className="h-1.5 w-1.5 shrink-0 rounded-pill"
-                  style={{ backgroundColor: branchColorVar(organization.branch) }}
-                />
                 {organization.name}
-              </Link>
+              </PeekLink>
+              {index < chipOrganizations.length - 1 || restCount > 0 ? (
+                <span aria-hidden="true" className="px-1.5">
+                  ·
+                </span>
+              ) : null}{" "}
             </li>
           ))}
           {restCount > 0 ? (
-            <li className="text-xs text-ink-faint">
+            <li className="inline">
               <T area="news" k="topicMoreOrganizations" vars={{ count: restCount }} />
             </li>
           ) : null}

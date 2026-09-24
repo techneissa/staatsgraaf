@@ -2,6 +2,8 @@ import { formatClockTime } from "@/lib/format";
 import { getMediaItem, mediaCreditLine } from "@/lib/entity";
 import { newsMonogram } from "@/lib/news-preview";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
+import { stripPublisherPrefix, stripTitleFromMarkup } from "@/lib/news-text";
+import { newsTranslationFor } from "@/lib/news-translations";
 import {
   newsDayKey,
   newsKeywords,
@@ -58,6 +60,16 @@ export type NewsItemView = {
   summaryMarkup: string | null;
   entities: NewsEntityRef[];
   keywords: string[];
+  /** The lead as published: summary markup with the headline prefix removed, or null. */
+  lead: string | null;
+  /** The plain summary without the publisher-and-headline prefix, for items without markup. */
+  plainLead: string | null;
+  /**
+   * A machine translation into the other interface language (docs/adr/0016),
+   * present only while its hash matches this item. Null when the item has no
+   * valid translation yet; the card then shows the original, tagged with its language.
+   */
+  translation: { language: NewsLanguage; title: string; lead: string | null; engine: string; translated: string } | null;
   /**
    * A licensed preview image stored by the pipeline, when the item carries
    * one. All current feeds are all rights reserved, so this stays null today
@@ -154,6 +166,18 @@ export function toNewsItemView(item: NewsItem, locale: NewsLanguage = "nl"): New
     summaryMarkup: item.summaryMarkup,
     entities,
     keywords: newsKeywords(item),
+    lead: stripTitleFromMarkup(item.summaryMarkup, item.title),
+    plainLead: (() => {
+      const plain = stripPublisherPrefix(item.summary, item.title);
+      return plain === "" ? null : plain;
+    })(),
+    translation: (() => {
+      const target = language === "en" ? "nl" : "en";
+      const record = newsTranslationFor(item, target);
+      return record === null
+        ? null
+        : { language: target, title: record.title, lead: record.lead, engine: record.engine, translated: record.translated };
+    })(),
     image: image === null || image.remote ? null : { url: image.url, caption: image.caption },
     preview: resolveNewsPreview({ image, entities, publisher: item.publisher, publisherKind: kind }),
   };

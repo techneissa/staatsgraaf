@@ -4,7 +4,7 @@ import { SITE_NAME } from "@/lib/site";
 
 export function BrandLockup() {
   return (
-    <Link href="/" className="flex items-center gap-2.5 rounded-sm">
+    <Link href="/" className="tap-row flex shrink-0 items-center gap-2 rounded-sm sm:gap-2.5">
       <svg aria-hidden="true" viewBox="0 0 20 20" width="20" height="20" className="shrink-0">
         <circle cx="10" cy="10" r="8.5" fill="none" stroke="var(--t-color-line-strong)" strokeWidth="1" />
         <path

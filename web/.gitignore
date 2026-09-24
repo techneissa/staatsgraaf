@@ -5,3 +5,6 @@ out/
 .env
 .env.*
 .DS_Store
+
+# Derived at build time by scripts/build-peek-index.mjs
+public/peek/

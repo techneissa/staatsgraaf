@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { SECTOR_ORDER } from "@/lib/graph";
 import type { OrgBranch } from "@/lib/types";
@@ -15,6 +15,14 @@ export function CanvasFrame() {
   const pathname = usePathname();
   const { bundle, status } = useGraphBundle();
   const t = useT("common");
+  const tg = useT("graph");
+  const asideRef = useRef<HTMLElement | null>(null);
+  /**
+   * Below lg the canvas is a compact band above the page so the content starts
+   * on the first screen; this opens it full screen. From lg it has its own
+   * column and the flag has no effect (every class it sets is max-lg).
+   */
+  const [expanded, setExpanded] = useState(false);
   const [view, setView] = useState<CanvasView>("graph");
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hiddenBranches, setHiddenBranches] = useState<Set<string>>(new Set());
@@ -99,7 +107,42 @@ export function CanvasFrame() {
   // Navigating away from the page that triggered the callout clears the focus.
   useEffect(() => {
     setFocusPerson(null);
+    setExpanded(false);
   }, [pathname]);
+
+  // A focus request from further down the page (the power map callout) brings
+  // the canvas into view on a phone or tablet, where it sits above the content.
+  useEffect(() => {
+    const reveal = () => {
+      if (!window.matchMedia("(max-width: 1023.98px)").matches) return;
+      const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      asideRef.current?.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+    };
+    window.addEventListener("staatsgraaf:focus", reveal);
+    return () => window.removeEventListener("staatsgraaf:focus", reveal);
+  }, []);
+
+  // Full screen: the page behind stops scrolling and Escape closes it. A menu
+  // open inside the canvas handles its own Escape first.
+  useEffect(() => {
+    if (!expanded) return;
+    const root = document.documentElement;
+    const previous = root.style.overflow;
+    root.style.overflow = "hidden";
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && !event.defaultPrevented) setExpanded(false);
+    };
+    const onResize = () => {
+      if (window.matchMedia("(min-width: 1024px)").matches) setExpanded(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("resize", onResize);
+    return () => {
+      root.style.overflow = previous;
+      window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("resize", onResize);
+    };
+  }, [expanded]);
 
   const branches = useMemo(() => {
     if (!bundle) return [] as { branch: OrgBranch; count: number }[];
@@ -141,17 +184,30 @@ export function CanvasFrame() {
 
   return (
     <aside
+      ref={asideRef}
       aria-labelledby="grafiek-titel"
-      className="flex h-[70dvh] min-w-0 flex-col border-b border-line bg-surface-inset lg:col-start-2 lg:row-start-1 lg:h-auto lg:min-h-0 lg:border-b-0 lg:border-s lg:border-t-0"
+      data-canvas-frame
+      className={`flex min-w-0 flex-col [--canvas-bottom:0px] lg:[--canvas-bottom:var(--safe-bottom)] border-b border-line bg-surface-inset lg:col-start-2 lg:row-start-1 lg:h-auto lg:min-h-0 lg:border-b-0 lg:border-s lg:border-t-0 ${
+        expanded
+          ? "max-lg:fixed max-lg:inset-0 max-lg:z-40 max-lg:h-dvh max-lg:border-b-0 max-lg:[--canvas-bottom:var(--safe-bottom)]"
+          : "h-[max(19rem,50dvh)] sm:h-[max(24rem,56dvh)]"
+      }`}
     >
-      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-line px-4 py-2.5">
+      <div
+        className={`flex items-start gap-2 border-b border-line py-2 pl-[max(0.75rem,var(--safe-left))] pr-[max(0.75rem,var(--safe-right))] sm:items-center sm:pl-[max(1rem,var(--safe-left))] sm:pr-[max(1rem,var(--safe-right))] ${
+          expanded ? "max-lg:pt-[max(0.5rem,var(--safe-top))]" : ""
+        }`}
+      >
+        <div className="flex min-w-0 flex-1 flex-wrap items-center justify-between gap-x-3 gap-y-2">
+        {/* On a phone the view switch names the view already; the heading stays for screen readers. */}
         <h2
           id="grafiek-titel"
-          className="text-xs font-medium uppercase tracking-wider text-ink-muted"
+          className="sr-only text-xs font-medium uppercase tracking-wider text-ink-muted sm:not-sr-only"
         >
           {view === "power" ? t("powerTitle") : t("graphTitle")}
         </h2>
         <CanvasControls
+          asOfClassName={expanded ? "flex" : "hidden sm:flex"}
           view={view}
           onViewChange={setView}
           branches={branches}
@@ -163,9 +219,43 @@ export function CanvasFrame() {
           onAsOfChange={setAsOf}
           datedEdges={datedEdges}
         />
+        </div>
+        <button
+          type="button"
+          onClick={() => setExpanded((current) => !current)}
+          aria-pressed={expanded}
+          aria-label={expanded ? tg("canvasCollapse") : tg("canvasExpand")}
+          title={expanded ? tg("canvasCollapse") : tg("canvasExpand")}
+          className="tap-target flex shrink-0 items-center justify-center gap-1.5 rounded-sm border border-line bg-surface px-2 py-1 text-xs font-medium text-ink-muted transition-fast hover:border-line-strong hover:text-ink lg:hidden"
+        >
+          {expanded ? (
+            <>
+              <svg aria-hidden="true" viewBox="0 0 20 20" width="14" height="14">
+                <path d="m5 5 10 10M15 5 5 15" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+              </svg>
+              <span aria-hidden="true">{tg("canvasClose")}</span>
+            </>
+          ) : (
+            <svg aria-hidden="true" viewBox="0 0 20 20" width="14" height="14">
+              <path
+                d="M12 3.5h4.5V8M8 16.5H3.5V12M16.5 3.5 11.5 8.5M3.5 16.5l5-5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          )}
+        </button>
       </div>
 
-      <div className="relative min-h-0 flex-1">
+      <noscript>
+        <style>{"[data-canvas-frame]{height:auto!important}[data-canvas-body]{display:none!important}"}</style>
+        <p className="px-4 py-3 text-sm text-ink-muted">{tg("canvasNoScript")}</p>
+      </noscript>
+
+      <div data-canvas-body className="relative min-h-0 flex-1">
         {status === "loading" ? (
           <div className="flex h-full items-center justify-center p-6">
             <p className="text-sm text-ink-muted">{t("graphLoading")}</p>

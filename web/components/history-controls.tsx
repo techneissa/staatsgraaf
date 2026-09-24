@@ -14,7 +14,7 @@ export function HistoryControls() {
         onClick={() => router.back()}
         aria-label={t("backLabel")}
         title={t("backLabel")}
-        className="rounded-sm border border-line p-2 text-ink-muted transition-fast hover:border-line-strong hover:text-ink"
+        className="tap-target flex items-center justify-center rounded-sm border border-line p-2 text-ink-muted transition-fast hover:border-line-strong hover:text-ink"
       >
         <svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16">
           <path
@@ -32,7 +32,7 @@ export function HistoryControls() {
         onClick={() => router.forward()}
         aria-label={t("forwardLabel")}
         title={t("forwardLabel")}
-        className="rounded-sm border border-line p-2 text-ink-muted transition-fast hover:border-line-strong hover:text-ink"
+        className="tap-target flex items-center justify-center rounded-sm border border-line p-2 text-ink-muted transition-fast hover:border-line-strong hover:text-ink"
       >
         <svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16">
           <path

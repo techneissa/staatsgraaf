@@ -74,3 +74,46 @@ export function formatClockTime(iso: string): string {
 export function formatDateTimeLocal(iso: string): string {
   return dateTimeAmsterdam.format(new Date(iso));
 }
+
+/** Site locale for the locale-aware formatters below; mirrors lib/i18n/locales. */
+export type FormatLocale = "nl" | "en";
+
+const localeFormatters = new Map<string, Intl.DateTimeFormat>();
+
+function dateFormatterFor(locale: FormatLocale, style: "long" | "short"): Intl.DateTimeFormat {
+  const key = `${locale}-${style}`;
+  let formatter = localeFormatters.get(key);
+  if (formatter === undefined) {
+    formatter = new Intl.DateTimeFormat(locale === "en" ? "en-GB" : "nl-NL", {
+      day: "numeric",
+      month: style,
+      year: "numeric",
+      timeZone: "UTC",
+    });
+    localeFormatters.set(key, formatter);
+  }
+  return formatter;
+}
+
+/** A calendar date in the site locale: "18 september 2026" or "18 September 2026". */
+export function formatDateIn(iso: string, locale: FormatLocale, style: "long" | "short" = "long"): string {
+  return dateFormatterFor(locale, style).format(parse(iso));
+}
+
+/** A period in the site locale: "Sinds 3 jan 2024" or "Since 3 Jan 2024", "A tot B" or "A to B". */
+export function formatPeriodIn(
+  start: string,
+  end: string | null,
+  locale: FormatLocale,
+  style: "long" | "short" = "long",
+): string {
+  const from = formatDateIn(start, locale, style);
+  if (end === null) return locale === "en" ? `Since ${from}` : `Sinds ${from}`;
+  const to = formatDateIn(end, locale, style);
+  return locale === "en" ? `${from} to ${to}` : `${from} tot ${to}`;
+}
+
+/** A count in the site locale: "12.345" or "12,345". */
+export function formatCountIn(value: number, locale: FormatLocale): string {
+  return new Intl.NumberFormat(locale === "en" ? "en-GB" : "nl-NL").format(value);
+}

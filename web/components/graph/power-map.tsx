@@ -249,9 +249,8 @@ export function PowerMapView({ powerMap, entityPeople, entityTitle, entityHref }
               r={POWER_HUB_RADIUS - 5}
               fill="none"
               stroke="var(--t-color-accent)"
-              strokeOpacity={0.55}
-              strokeWidth={2.5}
-              strokeDasharray="1.6 6.51"
+              strokeOpacity={0.35}
+              strokeWidth={1.25}
             />
           </g>
           <g aria-hidden="true">

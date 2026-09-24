@@ -1,100 +1,123 @@
-import Link from "next/link";
-import { Card } from "./card";
-import { DateStamp } from "./date-stamp";
+import type { ReactNode } from "react";
 import { PersonPortrait } from "./entity/person-portrait";
-import { KindBadge } from "./kind-badge";
-import { SourceLink } from "./source-link";
+import { EntityPeekLink } from "./peek/entity-peek-link";
 import { T } from "@/components/i18n/t";
+import { CHANGE_KIND_KEY, CHANGE_LABEL_TONE, ChangeKindGlyph } from "@/components/change/change-glyph";
+import { QuietSource } from "@/components/change/quiet-source";
+import { TemplateT } from "@/components/change/template-t";
+import { changeDisplayKind, titleNamesBody, type ChangeDisplayKind } from "@/lib/changes";
 import { getOrganizationById, getPersonById, getPositionById, getSourceById } from "@/lib/data";
-import { formatDate } from "@/lib/format";
-import type { Change, ChangeKind, ChangeSide } from "@/lib/types";
+import type { Change, Person } from "@/lib/types";
 
-const KIND_KEY: Record<ChangeKind, string> = {
-  appointment: "appointed",
-  departure: "departure",
-  vacancy: "vacancy",
-  structural: "structuralChange",
-  "tenure-between": "transfer",
-  rename: "renameLabel",
-  move: "moveLabel",
+/** The mark a change hangs on the rail: its kind glyph. */
+export function ChangeMark({ change }: { change: Change }) {
+  return <ChangeKindGlyph kind={changeDisplayKind(change)} />;
+}
+
+const SENTENCE_KEY: Partial<Record<ChangeDisplayKind, string>> = {
+  appointment: "changeAppointed",
+  acting: "changeActing",
+  departure: "changeDeparted",
+  vacancy: "changeVacant",
 };
 
-function Side({ label, side }: { label: string; side?: ChangeSide }) {
-  if (!side) return null;
-  const person = side.person !== null ? getPersonById(side.person) : undefined;
+/** The person a change is about: the new holder, or the one who left. */
+function subjectPerson(change: Change, kind: ChangeDisplayKind): Person | undefined {
+  const id = kind === "departure" ? change.out?.person : kind === "vacancy" ? null : change.in?.person;
+  return id ? getPersonById(id) : undefined;
+}
+
+/**
+ * "{person} werd {position} bij {body}" built from the structured change, with
+ * peek links. Returns null when the structure is missing, so the caller falls
+ * back to the Dutch summary.
+ */
+function buildSentence(change: Change, kind: ChangeDisplayKind, person: Person | undefined): ReactNode | null {
+  const key = SENTENCE_KEY[kind];
+  if (key === undefined) return null;
+  const position = change.position !== null ? getPositionById(change.position) : undefined;
+  if (!position) return null;
+  if (kind !== "vacancy" && !person) return null;
+  const organization = change.organization !== null ? getOrganizationById(change.organization) : undefined;
+  const showBody = organization !== undefined && !titleNamesBody(position.title, organization.name);
+  const slots: Record<string, ReactNode> = {
+    position: <EntityPeekLink id={position.id} />,
+  };
+  if (person) slots.person = <EntityPeekLink id={person.id} variant="plain" className="font-medium" />;
+  if (showBody) slots.body = <EntityPeekLink id={organization.id} />;
+  return <TemplateT k={showBody ? key : `${key}NoBody`} slots={slots} />;
+}
+
+/** OUT -> IN: two people, or the Dutch seat labels of a vacancy. */
+function BeforeAfter({ change, kind }: { change: Change; kind: ChangeDisplayKind }) {
+  const out = change.out;
+  const into = change.in;
+  if (!out || !into) return null;
+  let before: ReactNode;
+  let after: ReactNode;
+  if (kind === "vacancy") {
+    before = <span lang="nl">{out.label}</span>;
+    after = <span lang="nl">{into.label}</span>;
+  } else if (out.person && into.person && out.person !== into.person) {
+    const outPerson = getPersonById(out.person);
+    const inPerson = getPersonById(into.person);
+    if (!outPerson || !inPerson) return null;
+    before = <EntityPeekLink id={outPerson.id} variant="quiet" />;
+    after = <EntityPeekLink id={inPerson.id} variant="quiet" />;
+  } else {
+    return null;
+  }
   return (
-    <div className="flex items-center gap-3">
-      <span className="w-6 shrink-0 text-xs font-medium uppercase tracking-wide text-ink-faint">
-        <T area="home" k={label} />
+    <p className="mt-1 flex flex-wrap items-baseline gap-x-1.5 text-xs leading-relaxed text-ink-muted">
+      <span className="min-w-0">{before}</span>
+      <span aria-hidden="true" className="text-ink-faint">
+        →
       </span>
-      {person ? (
-        <Link
-          href={`/personen/${person.slug}/`}
-          className="inline-flex items-center gap-2 text-sm text-accent-text underline-offset-2 hover:underline"
-        >
-          <PersonPortrait person={person} size={24} />
-          {person.name}
-        </Link>
-      ) : (
-        <span className="text-sm text-ink-muted">{side.label}</span>
-      )}
-    </div>
+      <span className="sr-only">
+        <T area="home" k={kind === "vacancy" ? "changeBecame" : "changeReplacedBy"} />
+      </span>
+      <span className="min-w-0">{after}</span>
+    </p>
   );
 }
 
-export function ChangeRow({ change }: { change: Change }) {
-  const position = change.position !== null ? getPositionById(change.position) : undefined;
-  const organization =
-    change.organization !== null ? getOrganizationById(change.organization) : undefined;
+/**
+ * One change on the rail: kind label, portrait or initials, a one-line
+ * sentence with peek links, a before -> after line and the quiet source.
+ * Hangs inside a RailItem; the kind glyph is the rail mark (ChangeMark).
+ */
+export function ChangeRow({ change, compact = false }: { change: Change; compact?: boolean }) {
+  const kind = changeDisplayKind(change);
+  const person = subjectPerson(change, kind);
   const source = getSourceById(change.source.source);
+  const size = compact ? 32 : 36;
+  const sentence = buildSentence(change, kind, person);
 
   return (
-    <Card as="article">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <KindBadge tone={change.kind === "appointment" ? "accent" : "neutral"}>
-          <T area="common" k={KIND_KEY[change.kind]} />
-        </KindBadge>
-        {source ? (
-          <SourceLink href={source.url} meta={source.publisher}>
-            <time dateTime={change.date}>{formatDate(change.date)}</time>
-          </SourceLink>
-        ) : (
-          <DateStamp date={change.date} />
-        )}
-      </div>
-      <p className="mt-2 text-sm leading-normal text-ink">{change.summary}</p>
-      {position ? (
-        <p className="mt-1 text-sm text-ink-muted">
-          <Link
-            href={`/posities/${position.slug}/`}
-            className="underline-offset-2 hover:text-ink hover:underline"
-          >
-            {position.title}
-          </Link>
-          {organization ? (
-            <>
-              {" "}
-              <span aria-hidden="true">·</span>{" "}
-              <Link
-                href={`/organisaties/${organization.slug}/`}
-                className="underline-offset-2 hover:text-ink hover:underline"
-              >
-                {organization.name}
-              </Link>
-            </>
-          ) : null}
+    <article className="flex min-w-0 gap-3">
+      {person ? (
+        <PersonPortrait person={person} size={size} className="mt-0.5" />
+      ) : (
+        <span
+          aria-hidden="true"
+          className="mt-0.5 shrink-0 rounded-pill border border-dashed border-line-strong"
+          style={{ width: size, height: size }}
+        />
+      )}
+      <div className="min-w-0 flex-1">
+        <p className={`text-[11px] font-semibold uppercase leading-4 tracking-wider ${CHANGE_LABEL_TONE[kind]}`}>
+          <T area="home" k={CHANGE_KIND_KEY[kind]} />
         </p>
-      ) : null}
-      <div className="mt-3 space-y-1.5 border-t border-line pt-3">
-        {change.kind === "vacancy" ? (
-          <Side label="seatsLabel" side={change.in} />
-        ) : (
-          <>
-            <Side label="outLabel" side={change.out} />
-            <Side label="inLabel" side={change.in} />
-          </>
-        )}
+        <p className="mt-0.5 text-sm leading-snug text-ink [overflow-wrap:anywhere]">
+          {sentence !== null ? sentence : <span lang="nl">{change.summary}</span>}
+        </p>
+        <BeforeAfter change={change} kind={kind} />
+        {source ? (
+          <p className="mt-1.5 leading-none">
+            <QuietSource href={source.url} publisher={source.publisher} retrieved={change.source.retrieved} />
+          </p>
+        ) : null}
       </div>
-    </Card>
+    </article>
   );
 }

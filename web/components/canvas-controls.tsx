@@ -11,7 +11,7 @@ import { glyphPath } from "./graph/glyph";
 import type { OrgBranch } from "@/lib/types";
 
 const segmentClass =
-  "rounded-sm px-2.5 py-1 text-xs font-medium text-ink-muted transition-fast";
+  "tap-target rounded-sm px-2.5 py-1 text-xs font-medium text-ink-muted transition-fast pointer-coarse:text-sm";
 const segmentActive = "bg-surface text-ink shadow-sm";
 
 const GLYPH_LEGEND: { glyph: GlyphClass; key: string }[] = [
@@ -39,6 +39,8 @@ type CanvasControlsProps = {
   onAsOfChange?: (date: string | null) => void;
   datedEdges?: boolean;
   onShowAll: () => void;
+  /** Display classes for the "as of" date; the frame hides it in the compact phone band. */
+  asOfClassName?: string;
 };
 
 function branchLabel(locale: "nl" | "en", branch: string): string {
@@ -68,14 +70,16 @@ function EdgeTypeSample({ type }: { type: string }) {
         x2={25}
         y2={5}
         stroke={line.color}
-        strokeWidth={line.width * 1.4}
-        strokeDasharray={line.dash ?? undefined}
+        strokeWidth={line.width * 1.8}
+        strokeOpacity={Math.min(1, line.opacity + 0.2)}
+        strokeLinecap="round"
       />
       <path
         d="M 26 1.8 L 33 5 L 26 8.2"
         fill="none"
         stroke={line.color}
-        strokeWidth={line.width * 1.4}
+        strokeWidth={line.width * 1.8}
+        strokeOpacity={Math.min(1, line.opacity + 0.2)}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -94,13 +98,14 @@ export function CanvasControls({
   asOf = null,
   onAsOfChange,
   datedEdges = false,
+  asOfClassName = "flex",
 }: CanvasControlsProps) {
   const t = useT("common");
   const tg = useT("graph");
   const locale = useLocale();
 
   return (
-    <div className="flex flex-wrap items-center gap-2">
+    <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
       <div
         role="group"
         aria-label={tg("viewToggleGroup")}
@@ -125,7 +130,7 @@ export function CanvasControls({
       </div>
 
       {datedEdges && onAsOfChange ? (
-        <label className="flex items-center gap-1.5 text-xs text-ink-muted">
+        <label className={`${asOf !== null ? "flex" : asOfClassName} items-center gap-1.5 text-xs text-ink-muted`}>
           <span>{t("asOfLabel")}</span>
           <input
             type="date"
@@ -134,13 +139,13 @@ export function CanvasControls({
             onChange={(event) => onAsOfChange(event.target.value === "" ? null : event.target.value)}
             disabled={view !== "graph"}
             aria-label={t("asOfLabel")}
-            className="rounded-sm border border-line bg-surface px-1.5 py-0.5 text-xs text-ink disabled:opacity-60"
+            className="tap-row rounded-sm border border-line bg-surface px-1.5 py-0.5 text-xs text-ink disabled:opacity-60 pointer-coarse:text-base"
           />
           {asOf !== null ? (
             <button
               type="button"
               onClick={() => onAsOfChange(null)}
-              className="rounded-sm border border-line px-1.5 py-0.5 text-[11px] text-ink-muted hover:text-ink"
+              className="tap-target rounded-sm border border-line px-1.5 py-0.5 text-[11px] text-ink-muted hover:text-ink pointer-coarse:text-sm"
             >
               {t("asOfClear")}
             </button>
@@ -152,7 +157,7 @@ export function CanvasControls({
         <DropdownMenu.Trigger
           disabled={view !== "graph"}
           aria-label={t("legendAndFilters")}
-          className="flex items-center gap-1 rounded-sm border border-line px-2.5 py-1 text-xs font-medium text-ink-muted disabled:cursor-not-allowed disabled:opacity-60"
+          className="tap-target flex items-center justify-center gap-1 rounded-sm border border-line px-2.5 py-1 text-xs font-medium text-ink-muted disabled:cursor-not-allowed disabled:opacity-60 pointer-coarse:text-sm"
         >
           {t("legendLabel")}
           <svg aria-hidden="true" viewBox="0 0 20 20" width="10" height="10">
@@ -170,7 +175,8 @@ export function CanvasControls({
             <DropdownMenu.Content
               align="end"
               sideOffset={6}
-              className="z-50 max-h-[26rem] w-72 overflow-y-auto rounded-md border border-line bg-surface p-1 shadow-xl"
+              collisionPadding={8}
+              className="z-50 max-h-[min(26rem,var(--radix-dropdown-menu-content-available-height))] w-72 max-w-[calc(100vw-1rem)] overflow-y-auto overscroll-contain rounded-md border border-line bg-surface p-1 shadow-xl"
             >
             <DropdownMenu.Label className="px-2 py-1.5 text-xs font-semibold uppercase tracking-wide text-ink-faint">
               {t("layerTitle")}
@@ -181,9 +187,12 @@ export function CanvasControls({
                 checked={!hiddenBranches.has(branch)}
                 onCheckedChange={(checked) => onToggleBranch(branch, checked === true)}
                 onSelect={(event) => event.preventDefault()}
-                className="flex cursor-pointer items-center justify-between rounded-sm px-2 py-1.5 text-xs text-ink-muted outline-none data-[highlighted]:bg-surface-raised data-[highlighted]:text-ink"
+                className="tap-row flex cursor-pointer items-center justify-between rounded-sm px-2 py-1.5 text-xs text-ink-muted outline-none pointer-coarse:text-sm data-[highlighted]:bg-surface-raised data-[highlighted]:text-ink data-[state=unchecked]:opacity-55"
               >
                 <span className="flex items-center gap-1.5">
+                  <span aria-hidden="true" className="w-3 shrink-0 text-center text-accent-text">
+                    <DropdownMenu.ItemIndicator>✓</DropdownMenu.ItemIndicator>
+                  </span>
                   <svg aria-hidden="true" viewBox="-11 -11 22 22" width={11} height={11}>
                     <circle r={8} fill={branchColorVar(branch)} />
                   </svg>
@@ -195,7 +204,7 @@ export function CanvasControls({
             <DropdownMenu.Separator className="my-1 h-px bg-line" />
             <DropdownMenu.Item
               onSelect={onShowAll}
-              className="cursor-pointer rounded-sm px-2 py-1.5 text-xs text-ink-muted outline-none data-[highlighted]:bg-surface-raised data-[highlighted]:text-ink"
+              className="tap-row flex cursor-pointer items-center rounded-sm px-2 py-1.5 text-xs text-ink-muted outline-none pointer-coarse:text-sm data-[highlighted]:bg-surface-raised data-[highlighted]:text-ink"
             >
               {t("showAllLayers")}
             </DropdownMenu.Item>

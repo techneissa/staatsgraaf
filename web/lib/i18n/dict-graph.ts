@@ -45,7 +45,7 @@ export const GRAPH_DICT = {
   },
   pluralSamenwerkingsverband: {
     nl: "samenwerkingsverbanden",
-    en: "partnerships",
+    en: "joint arrangements",
   },
   pluralOther: {
     nl: "organen",
@@ -69,8 +69,8 @@ export const GRAPH_DICT = {
   },
   detailsTitle: { nl: "Details", en: "Details" },
   detailsEmpty: {
-    nl: "Klik een orgaan, een blokje stippen of een fractie in de grafiek. De details verschijnen hier.",
-    en: "Click a body, a block of dots or a party group in the graph. The details appear here.",
+    nl: "Kies een orgaan, een blokje stippen of een fractie in de grafiek. De details verschijnen hier.",
+    en: "Pick a body, a block of dots or a party group in the graph to see its details here.",
   },
   detailsClear: { nl: "Wissen", en: "Clear" },
   detailsRelations: { nl: "Verbindingen", en: "Connections" },
@@ -87,7 +87,7 @@ export const GRAPH_DICT = {
     nl: "De Kamers publiceren geen zetelnummer per lid; de zetels staan per fractie op volgorde van grootte.",
     en: "Neither chamber publishes a seat number per member; seats are ordered by party group size.",
   },
-  detailsMore: { nl: "en {n} meer", en: "{n} more" },
+  detailsMore: { nl: "en {n} meer", en: "and {n} more" },
   detailsOpenGroup: { nl: "Uitklappen", en: "Unpack" },
   detailsFoldGroup: { nl: "Inklappen", en: "Fold" },
   detailsSectorBodies: { nl: "{n} organen", en: "{n} bodies" },
@@ -169,7 +169,7 @@ export const GRAPH_DICT = {
   },
   shapeDot: {
     nl: "Decentrale of monarchale organisatie",
-    en: "Decentralized or monarch-related body",
+    en: "Decentralised or royal body",
   },
   shapeSmallDot: {
     nl: "Commissie",
@@ -193,8 +193,23 @@ export const GRAPH_DICT = {
   },
   viewToggleGroup: {
     nl: "Weergave van de grafiek",
-    en: "Graph view switch",
+    en: "Graph view",
   },
+  // App shell and canvas chrome on phones and tablets.
+  languageGroup: { nl: "Taal", en: "Language" },
+  languageSwitchToEn: { nl: "Schakel naar Engels (English)", en: "Switch to English" },
+  languageSwitchToNl: { nl: "Schakel naar Nederlands", en: "Switch to Dutch (Nederlands)" },
+  footerNav: { nl: "Voettekst", en: "Footer" },
+  canvasExpand: { nl: "Grafiek op volledig scherm", en: "Show the graph full screen" },
+  canvasCollapse: { nl: "Volledig scherm sluiten", en: "Exit full screen" },
+  canvasClose: { nl: "Sluiten", en: "Close" },
+  canvasNoScript: {
+    nl: "De grafiek en het zoeken hebben JavaScript nodig. Alle feiten staan ook als tekst op de pagina's.",
+    en: "The graph and search need JavaScript. Every fact is also on the pages as text.",
+  },
+  listTitleShort: { nl: "Lijst", en: "List" },
+  detailsHintShort: { nl: "Kies een orgaan voor details", en: "Pick a body to see its details" },
+  searchCloseShort: { nl: "Sluiten", en: "Close" },
 } as const satisfies Record<string, LocString>;
 
 export type DictAreaKey = keyof typeof GRAPH_DICT;
@@ -249,12 +264,12 @@ export const ORG_TYPE_LABELS_I18N: Record<string, LocString> = {
   commission: { nl: "Commissies", en: "Commissions" },
   advisory: { nl: "Adviesorganen", en: "Advisory bodies" },
   dept_head: { nl: "Hoofdposities", en: "Head positions" },
-  constituency: { nl: "Kiesgerechtigden", en: "Constituency" },
+  constituency: { nl: "Kiesgerechtigden", en: "Electorate" },
 };
 
 /** Bilingual labels for every organisation subtype. */
 export const ORG_SUBTYPE_LABELS_I18N: Record<string, LocString> = {
-  "kiesgerechtigden-nederland": { nl: "Kiesgerechtigden Nederland", en: "Netherlands electorate" },
+  "kiesgerechtigden-nederland": { nl: "Kiesgerechtigden Nederland", en: "Electorate of the Netherlands" },
   "kiezers-caribisch-nederland": { nl: "Kiezers Caribisch Nederland", en: "Caribbean Netherlands electorate" },
   "tweede-kamer": { nl: "Tweede Kamer", en: "House of Representatives" },
   "eerste-kamer": { nl: "Eerste Kamer", en: "Senate" },
@@ -279,15 +294,15 @@ export const ORG_SUBTYPE_LABELS_I18N: Record<string, LocString> = {
   gemeente: { nl: "Gemeente", en: "Municipality" },
   waterschap: { nl: "Waterschap", en: "Water board" },
   "openbaar-lichaam-bes": { nl: "Openbaar lichaam BES", en: "Public body BES" },
-  samenwerkingsverband: { nl: "Samenwerkingsverband", en: "Cooperation body" },
+  samenwerkingsverband: { nl: "Samenwerkingsverband", en: "Joint arrangement" },
   veiligheidsregio: { nl: "Veiligheidsregio", en: "Safety region" },
   defensieonderdeel: { nl: "Defensieonderdeel", en: "Defence unit" },
   koninkrijksorgaan: { nl: "Koninkrijksorgaan", en: "Kingdom body" },
   "land-regering": { nl: "Regering", en: "Government" },
-  "staten-land": { nl: "Staten van het land", en: "Island council of the land" },
+  "staten-land": { nl: "Staten van het land", en: "Parliament of the country" },
   staatscommissie: { nl: "Staatscommissie", en: "State commission" },
   commissie: { nl: "Commissie", en: "Committee" },
-  "raad-van-advies": { nl: "Raad van advies", en: "Council of advice" },
+  "raad-van-advies": { nl: "Raad van advies", en: "Advisory council" },
 };
 
 /** Bilingual verbs for the edge types shown in the neighbour fan-out and list. */
@@ -299,7 +314,7 @@ export const EDGE_TYPE_LABELS_I18N: Record<string, LocString> = {
   part_of: { nl: "maakt deel uit van", en: "is part of" },
   appoints: { nl: "benoemt", en: "appoints" },
   office: { nl: "geeft leiding aan", en: "leads" },
-  dept_head: { nl: "heeft als departementshoofd", en: "heads as department head" },
+  dept_head: { nl: "heeft als departementshoofd", en: "is headed by" },
   confirms: { nl: "bevestigt", en: "confirms" },
   ex_officio: { nl: "zit van rechtswege in", en: "sits in ex officio" },
   administers: { nl: "beheert", en: "administers" },

@@ -36,7 +36,7 @@ export default function TopicsPage() {
         }}
       />
 
-      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Onderwerpen" }]} />
+      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: <T area="common" k="navTopics" /> }]} />
       <header className="mt-4 border-b border-line pb-6">
         <h1 className="text-2xl font-semibold tracking-tight text-ink">
           <T area="news" k="topicsHeading" />

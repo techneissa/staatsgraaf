@@ -43,3 +43,146 @@
     }
   }
 }
+
+/*
+ * Entity kind colours. Aliases over the generated sector tokens, so a kind
+ * reads the same in both themes and never introduces a new hex value. Colour
+ * is never the only signal: every kind also has its own glyph shape
+ * (components/kind-glyph.tsx) and a text label in the peek popover.
+ */
+@layer base {
+  :root {
+    --kind-person: var(--t-color-sector-hoge-colleges);
+    --kind-organization: var(--t-color-sector-decentraal-provinciaal);
+    --kind-position: var(--t-color-sector-regering);
+    --kind-topic: var(--t-color-sector-adviescolleges);
+    --kind-place: var(--t-color-sector-decentraal-lokaal);
+    --kind-party: var(--t-color-sector-staten-generaal);
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-right: env(safe-area-inset-right, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-left: env(safe-area-inset-left, 0px);
+  }
+
+  /* iOS zooms into any focused field under 16px; keep form controls at 16px on touch screens. */
+  @media (pointer: coarse) {
+    input,
+    select,
+    textarea {
+      font-size: max(16px, 1em);
+    }
+  }
+}
+
+@utility pad-safe-x {
+  padding-left: max(var(--t-space-4), var(--safe-left));
+  padding-right: max(var(--t-space-4), var(--safe-right));
+}
+
+@utility pb-safe {
+  padding-bottom: max(var(--t-space-4), var(--safe-bottom));
+}
+
+/* Horizontal scroller for tab bars and filter rows that do not fit a phone:
+   scrolls instead of wrapping, with a soft fade at the edges. */
+@utility scroll-row {
+  display: flex;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  mask-image: linear-gradient(to right, transparent 0, #000 12px, #000 calc(100% - 20px), transparent 100%);
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/*
+ * Motion. One-shot entrances only, nothing loops, and everything is off under
+ * prefers-reduced-motion (the base layer above also clamps durations).
+ * `.motion-rise` fades an element in and lifts it a few pixels; add
+ * `data-revealed` (see components/reveal.tsx) to run it when the element enters
+ * the viewport. `.motion-draw` grows a vertical rail from the top.
+ */
+@keyframes sg-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes sg-draw {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes sg-sheet {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes sg-pop {
+  from {
+    transform: translateY(4px) scale(0.98);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-reveal="on"] .motion-rise[data-reveal="pending"] {
+    opacity: 0;
+  }
+  html[data-reveal="on"] .motion-draw[data-reveal="pending"] {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  .motion-rise[data-reveal="shown"] {
+    animation: sg-rise var(--t-duration-slow) var(--t-ease-decelerate) both;
+  }
+  .motion-draw[data-reveal="shown"] {
+    transform-origin: top;
+    animation: sg-draw 600ms var(--t-ease-decelerate) both;
+  }
+  .motion-sheet {
+    animation: sg-sheet var(--t-duration-base) var(--t-ease-decelerate) both;
+  }
+  .motion-pop {
+    animation: sg-pop var(--t-duration-fast) var(--t-ease-decelerate) both;
+  }
+}
+
+/*
+ * Touch targets. On a touch screen every control is at least 44 by 44 CSS
+ * pixels (WCAG 2.5.5, Apple HIG); a mouse keeps the compact desktop size.
+ */
+@utility tap-target {
+  @media (pointer: coarse) {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* The same, height only, for rows and text buttons that already span their width. */
+@utility tap-row {
+  @media (pointer: coarse) {
+    min-height: 44px;
+  }
+}

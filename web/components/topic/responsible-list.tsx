@@ -1,9 +1,9 @@
-import Link from "next/link";
 import { T } from "@/components/i18n/t";
 import { DictEmptyState } from "@/components/budget/dict-empty-state";
 import { getOrganizationById } from "@/lib/data";
-import { ORG_SUBTYPE_LABELS } from "@/lib/labels";
-import { branchColorVar } from "@/lib/branch-colors";
+import { LocaleLabel } from "@/components/i18n/locale-label";
+import { PeekLink } from "@/components/peek/peek-link";
+import { peekKindFor } from "@/lib/peek";
 import { formatCount } from "@/lib/format";
 import { getResponsibleOrganizations, getResponsiblePositions } from "@/lib/topics";
 import type { Topic } from "@/lib/types";
@@ -39,23 +39,23 @@ export function ResponsibleList({ topic }: { topic: Topic }) {
           <h3 className="text-xs font-medium uppercase tracking-wider text-ink-faint">
             <T area="news" k="responsibleOrganizationsLabel" />
           </h3>
-          <ul className="mt-2.5 flex flex-wrap gap-2">
+          <ul className="mt-2 grid gap-x-6 sm:grid-cols-2">
             {organizations.map((organization) => (
-              <li key={organization.id}>
-                <Link
+              <li key={organization.id} className="border-b border-line/60 py-2.5 text-sm leading-snug">
+                <PeekLink
+                  id={organization.id}
                   href={`/organisaties/${organization.slug}/`}
-                  className="inline-flex items-center gap-2 rounded-pill border border-line bg-surface py-1.5 pl-2.5 pr-3 text-sm text-ink transition-fast hover:border-line-strong hover:text-accent-text"
+                  kind={peekKindFor(organization.id, organization.subtype) ?? "organization"}
+                  variant="plain"
+                  glyph
+                  lang="nl"
+                  className="font-medium"
                 >
-                  <span
-                    aria-hidden="true"
-                    className="h-2 w-2 shrink-0 rounded-pill"
-                    style={{ backgroundColor: branchColorVar(organization.branch) }}
-                  />
-                  <span className="font-medium">{organization.name}</span>
-                  <span className="text-xs text-ink-faint">
-                    {ORG_SUBTYPE_LABELS[organization.subtype]}
-                  </span>
-                </Link>
+                  {organization.name}
+                </PeekLink>
+                <span className="mt-0.5 block text-xs text-ink-faint">
+                  <LocaleLabel kind="subtype" value={organization.subtype} />
+                </span>
               </li>
             ))}
           </ul>
@@ -67,20 +67,27 @@ export function ResponsibleList({ topic }: { topic: Topic }) {
           <h3 className="text-xs font-medium uppercase tracking-wider text-ink-faint">
             <T area="news" k="responsiblePositionsLabel" />
           </h3>
-          <ul className="mt-2.5 flex flex-wrap gap-2">
+          <ul className="mt-2 grid gap-x-6 sm:grid-cols-2">
             {positions.map((position) => {
               const organization = getOrganizationById(position.organization);
               return (
-                <li key={position.id}>
-                  <Link
+                <li key={position.id} className="border-b border-line/60 py-2.5 text-sm leading-snug">
+                  <PeekLink
+                    id={position.id}
                     href={`/posities/${position.slug}/`}
-                    className="inline-flex items-baseline gap-2 rounded-pill border border-line bg-surface py-1.5 px-3 text-sm text-ink transition-fast hover:border-line-strong hover:text-accent-text"
+                    kind="position"
+                    variant="plain"
+                    glyph
+                    lang="nl"
+                    className="font-medium"
                   >
-                    <span className="font-medium">{position.title}</span>
-                    {organization ? (
-                      <span className="text-xs text-ink-faint">{organization.name}</span>
-                    ) : null}
-                  </Link>
+                    {position.title}
+                  </PeekLink>
+                  {organization ? (
+                    <span lang="nl" className="mt-0.5 block text-xs text-ink-faint">
+                      {organization.name}
+                    </span>
+                  ) : null}
                 </li>
               );
             })}

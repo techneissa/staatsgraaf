@@ -44,7 +44,7 @@ export function BudgetHistory({
   return (
     <div>
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[32rem] border-collapse text-sm">
+        <table className="w-full border-collapse text-xs tabular-nums sm:min-w-[32rem] sm:text-sm">
           <caption className="sr-only">
             <L nl={captionNl} en={captionEn} />
           </caption>

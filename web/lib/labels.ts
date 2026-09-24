@@ -27,6 +27,16 @@ export const ORG_TYPE_LABELS: Record<OrgType, string> = {
   constituency: "Kiesgerechtigden",
 };
 
+/** Singular label for one position's type, for the position page (the maps above name groups). */
+export const POSITION_TYPE_LABELS: Record<OrgType, { nl: string; en: string }> = {
+  department: { nl: "Functie bij een orgaan", en: "Position at a body" },
+  elected: { nl: "Gekozen functie", en: "Elected office" },
+  commission: { nl: "Commissiefunctie", en: "Committee position" },
+  advisory: { nl: "Adviesfunctie", en: "Advisory position" },
+  dept_head: { nl: "Hoofdpositie", en: "Head position" },
+  constituency: { nl: "Kiesgerechtigden", en: "Voters" },
+};
+
 export const ORG_SUBTYPE_LABELS: Record<OrgSubtype, string> = {
   "kiesgerechtigden-nederland": "Kiesgerechtigden Nederland",
   "kiezers-caribisch-nederland": "Kiezers Caribisch Nederland",

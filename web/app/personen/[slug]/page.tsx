@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { EmptyStateT } from "@/components/change/empty-state-t";
-import { EntityChip } from "@/components/entity-chip";
 import { EntityTabs } from "@/components/entity-tabs";
 import { JsonLd } from "@/components/json-ld";
 import { PartyBadge } from "@/components/party-badge";
@@ -11,8 +9,10 @@ import { SourceLink } from "@/components/source-link";
 import { SourceList } from "@/components/source-list";
 import { NewsPanel } from "@/components/news/news-panel";
 import { T } from "@/components/i18n/t";
-import { type TimelineItem } from "@/components/timeline";
-import { TimelineT } from "@/components/entity/timeline-t";
+import { ShareButton } from "@/components/share-button";
+import { LocalDate } from "@/components/content/local-date";
+import { EntityPeekLink } from "@/components/peek/entity-peek-link";
+import { MembershipList } from "@/components/entity/membership-list";
 import { EntityConnections } from "@/components/entity/entity-connections";
 import { EntityDot } from "@/components/entity/entity-dot";
 import { EntityFacts } from "@/components/entity/entity-facts";
@@ -27,7 +27,6 @@ import {
   getPeople,
   getPersonBySlug,
   getPositionById,
-  getSourceById,
   getTenuresForPerson,
 } from "@/lib/data";
 import {
@@ -39,13 +38,15 @@ import {
   personParty,
   personPortraitId,
 } from "@/lib/entity";
-import { formatDate, formatPeriod } from "@/lib/format";
 import { getNewsForEntity } from "@/lib/news";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 import type { Organization } from "@/lib/types";
 import type { Connection } from "@/lib/entity";
 
 export const dynamicParams = false;
+
+/** Current roles listed in the header; the rest are in the Positions section. */
+const HEADER_ROLE_LIMIT = 4;
 
 export function generateStaticParams() {
   return getPeople().map((person) => ({ slug: person.slug }));
@@ -93,45 +94,10 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
 
   const currentTenures = tenures.filter((tenure) => tenure.end === null);
 
-  const membershipItems: TimelineItem[] = memberships.map((membership) => {
-    const organization = getOrganizationById(membership.organization);
-    const source = getSourceById(membership.source.source);
-    const badges: string[] = [];
-    if (membership.fractie !== null) badges.push(membership.fractie);
-    if (membership.seatNumber !== null) badges.push(`Zetel ${membership.seatNumber}`);
-    return {
-      id: membership.id,
-      title: organization ? (
-        <Link
-          href={`/organisaties/${organization.slug}/`}
-          className="underline-offset-2 hover:text-accent-text hover:underline"
-        >
-          {organization.name}
-        </Link>
-      ) : (
-        <T area="entity" k="unknownOrganization" />
-      ),
-      meta: (
-        <span className="inline-flex flex-wrap items-baseline gap-x-2">
-          <span>
-            <T area="entity" k="membershipMeta" />
-          </span>
-          {source ? (
-            <SourceLink href={source.url} meta={source.publisher}>
-              <T area="entity" k="sourceLabel" />
-            </SourceLink>
-          ) : null}
-        </span>
-      ),
-      period: formatPeriod(membership.start, membership.end),
-      current: membership.end === null,
-      badges,
-    };
-  });
-
-  const currentTitles = currentTenures
-    .map((tenure) => getPositionById(tenure.position)?.title)
-    .filter((title): title is string => title !== undefined);
+  const currentPositions = currentTenures
+    .map((tenure) => getPositionById(tenure.position))
+    .filter((position) => position !== undefined);
+  const currentTitles = currentPositions.map((position) => position.title);
 
   const currentOrganizationIds = new Set<string>();
   for (const tenure of currentTenures) {
@@ -159,7 +125,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
     },
     {
       label: <T area="entity" k="factBorn" />,
-      value: birthDate !== null ? <time dateTime={birthDate}>{formatDate(birthDate)}</time> : null,
+      value: birthDate !== null ? <LocalDate iso={birthDate} /> : null,
     },
     {
       label: <T area="entity" k="factWikipedia" />,
@@ -204,13 +170,11 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
       <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: person.name }]} />
 
       <header className="mt-4">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
           <div className="shrink-0">
-            <div className="rounded-md border border-line bg-surface p-3">
-              <PersonPortrait person={person} size={96} className="mx-auto" />
-            </div>
+            <PersonPortrait person={person} size={96} labelled />
             {portrait !== null ? (
-              <p className="mt-2 max-w-[96px] text-xs leading-snug text-ink-faint">
+              <p className="mt-2 max-w-[12rem] text-[11px] leading-snug text-ink-faint">
                 <T area="entity" k="imageCredit" />: {mediaCreditLine(portrait)}
               </p>
             ) : null}
@@ -227,8 +191,9 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
                   <PartyBadge party={party} />
                 </span>
               ) : null}
+              <ShareButton className="ms-auto" title={person.name} />
             </div>
-            <h1 className="mt-2 text-3xl font-semibold tracking-tight text-ink">{person.name}</h1>
+            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-balance text-ink">{person.name}</h1>
             <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
               {description !== null ? (
                 description
@@ -236,15 +201,42 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
                 <T area="entity" k="personNoDescription" vars={{ name: person.name }} />
               )}
             </p>
-            {currentTitles.length > 0 ? (
-              <p className="mt-2 flex flex-wrap gap-2 text-sm text-ink">
-                <span className="font-semibold"><T area="entity" k="rolesTitle" />:</span>
-                {currentTitles.map((title) => (
-                  <span key={title} className="text-ink-muted">
-                    {title}
-                  </span>
-                ))}
-              </p>
+            {currentPositions.length > 0 ? (
+              <div className="mt-3 text-sm">
+                <p className="text-xs font-medium uppercase tracking-wide text-ink-faint">
+                  <T area="entity" k="rolesNowLabel" />
+                </p>
+                <ul className="mt-1 space-y-1">
+                  {currentPositions.slice(0, HEADER_ROLE_LIMIT).map((position) => {
+                    const organization = getOrganizationById(position.organization);
+                    // "Lid Vaste commissie voor X" already names its body; do not repeat it.
+                    const namesBody =
+                      organization !== undefined &&
+                      position.title.toLowerCase().includes(organization.name.toLowerCase());
+                    return (
+                      <li key={position.id} className="text-ink-muted">
+                        <EntityPeekLink id={position.id} glyph>
+                          {position.title}
+                        </EntityPeekLink>
+                        {organization !== undefined && !namesBody ? (
+                          <>
+                            {" "}
+                            <span className="text-ink-faint">·</span>{" "}
+                            <EntityPeekLink id={position.organization} variant="quiet" />
+                          </>
+                        ) : null}
+                      </li>
+                    );
+                  })}
+                  {currentPositions.length > HEADER_ROLE_LIMIT ? (
+                    <li className="text-xs text-ink-faint">
+                      <a href="#posities-titel" className="underline-offset-2 hover:text-ink hover:underline">
+                        <T area="entity" k="rolesMore" vars={{ n: currentPositions.length - HEADER_ROLE_LIMIT }} />
+                      </a>
+                    </li>
+                  ) : null}
+                </ul>
+              </div>
             ) : null}
           </div>
         </div>
@@ -283,21 +275,21 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
                   <T area="entity" k="whosConnected" />
                 </h2>
                 <div className="mt-3">
-                  <EntityConnections connections={connections} />
+                  <EntityConnections connections={connections} selfId={person.id} />
                 </div>
               </div>
             }
           />
 
           {tenures.length > 0 ? (
-            <FactGroup icon={<HistoryIcon />} title={<T area="entity" k="rolesTitle" />} count={tenures.length}>
+            <FactGroup id="posities-titel" icon={<HistoryIcon />} title={<T area="entity" k="rolesTitle" />} count={tenures.length}>
               <TenureTimeline tenures={tenures} variant="person" labelKey="rolesTitle" />
             </FactGroup>
           ) : null}
 
           {memberships.length > 0 ? (
             <FactGroup icon={<SeatIcon />} title={<T area="entity" k="membershipsTitle" />} count={memberships.length}>
-              <TimelineT items={membershipItems} labelKey="membershipsTitle" />
+              <MembershipList memberships={memberships} />
             </FactGroup>
           ) : null}
 
@@ -318,15 +310,10 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
 
           {currentOrganizations.length > 0 ? (
             <FactGroup title={<T area="entity" k="rolesNowTitle" />}>
-              <ul className="flex flex-wrap gap-2">
+              <ul className="space-y-1.5 text-sm">
                 {currentOrganizations.map((organization) => (
                   <li key={organization.id}>
-                    <EntityChip
-                      href={`/organisaties/${organization.slug}/`}
-                      dot={<EntityDot kind="organization" id={organization.id} />}
-                    >
-                      {organization.name}
-                    </EntityChip>
+                    <EntityPeekLink id={organization.id} glyph />
                   </li>
                 ))}
               </ul>

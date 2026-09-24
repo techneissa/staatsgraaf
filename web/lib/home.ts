@@ -55,6 +55,8 @@ export type ChangeWindow = {
   ready: boolean;
   count: number;
   since: string | null;
+  /** The reference day of the window (the dataset date), for relative day labels. */
+  until: string | null;
   buckets: DailyBucket[];
   groups: ChangeDayGroup[];
 };
@@ -226,7 +228,7 @@ function buildChangeWindow(
   until: string | null,
 ): ChangeWindow {
   if (until === null || changes.length === 0) {
-    return { key, days, ready: false, count: 0, since: null, buckets: [], groups: [] };
+    return { key, days, ready: false, count: 0, since: null, until: null, buckets: [], groups: [] };
   }
 
   const since = addDays(until, -(days - 1));
@@ -263,7 +265,7 @@ function buildChangeWindow(
     changes: dayChanges,
   }));
 
-  return { key, days, ready: true, count: inWindow.length, since, buckets, groups };
+  return { key, days, ready: true, count: inWindow.length, since, until, buckets, groups };
 }
 
 export function getChangeWindows(): ChangeWindow[] {

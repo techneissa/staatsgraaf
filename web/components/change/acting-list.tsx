@@ -1,78 +1,71 @@
-import Link from "next/link";
-import { Card } from "../card";
 import { EmptyStateT } from "./empty-state-t";
-import { KindBadge } from "../kind-badge";
 import { PersonPortrait } from "../entity/person-portrait";
-import { SourceLink } from "../source-link";
+import { EntityPeekLink } from "../peek/entity-peek-link";
 import { T } from "@/components/i18n/t";
 import { getSourceById } from "@/lib/data";
-import { formatPeriodShort } from "@/lib/format";
-import type { ActingOfficial } from "@/lib/changes";
+import { titleNamesBody, type ActingOfficial } from "@/lib/changes";
+import { CHANGE_KIND_KEY, CHANGE_LABEL_TONE, ChangeKindGlyph } from "./change-glyph";
+import { PeriodT } from "./local-date";
+import { QuietSource } from "./quiet-source";
+import { RailItem, RailList } from "./rail";
+import { AriaLabelT } from "./aria-label-t";
 
+/** Current acting officials, in the change rail language: glyph, portrait, peek links, quiet source. */
 export function ActingList({ officials }: { officials: ActingOfficial[] }) {
   if (officials.length === 0) {
     return <EmptyStateT title="actingEmptyTitle" description="actingEmptyBody" />;
   }
 
   return (
-    <ul className="space-y-2">
-      {officials.map((official) => {
-        const source = getSourceById(official.tenure.source.source);
-        return (
-          <li key={official.tenure.id}>
-            <Card as="article" className="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
-              <div className="flex min-w-0 items-start gap-3">
-                <PersonPortrait person={official.person} size={40} />
-                <div className="min-w-0">
-                  <h3 className="text-sm font-semibold">
-                    <Link
-                      href={`/personen/${official.person.slug}/`}
-                      className="text-ink underline-offset-2 hover:text-accent-text hover:underline"
-                    >
-                      {official.person.name}
-                    </Link>
+    <AriaLabelT k="actingListAria">
+      <RailList>
+        {officials.map((official, index) => {
+          const source = getSourceById(official.tenure.source.source);
+          const showBody =
+            official.organization !== undefined &&
+            !titleNamesBody(official.position.title, official.organization.name);
+          return (
+            <RailItem
+              key={official.tenure.id}
+              mark={<ChangeKindGlyph kind="acting" />}
+              first={index === 0}
+              last={index === officials.length - 1}
+              markTop={8}
+            >
+              <article className="flex min-w-0 gap-3">
+                <PersonPortrait person={official.person} size={36} className="mt-0.5" />
+                <div className="min-w-0 flex-1">
+                  <p className={`text-[11px] font-semibold uppercase leading-4 tracking-wider ${CHANGE_LABEL_TONE.acting}`}>
+                    <T area="home" k={CHANGE_KIND_KEY.acting} />
+                  </p>
+                  <h3 className="mt-0.5 text-sm font-medium leading-snug">
+                    <EntityPeekLink id={official.person.id} variant="plain" />
                   </h3>
-                  <p className="mt-0.5 text-sm text-ink-muted">
-                    <Link
-                      href={`/posities/${official.position.slug}/`}
-                      className="underline-offset-2 hover:text-ink hover:underline"
-                    >
-                      {official.position.title}
-                    </Link>
-                    {official.organization ? (
+                  <p className="mt-0.5 text-sm leading-snug text-ink-muted [overflow-wrap:anywhere]">
+                    <EntityPeekLink id={official.position.id} variant="quiet" />
+                    {showBody && official.organization ? (
                       <>
-                        {" "}
-                        <span aria-hidden="true">·</span>{" "}
-                        <Link
-                          href={`/organisaties/${official.organization.slug}/`}
-                          className="underline-offset-2 hover:text-ink hover:underline"
-                        >
-                          {official.organization.name}
-                        </Link>
+                        <span aria-hidden="true" className="px-1.5 text-ink-faint">
+                          ·
+                        </span>
+                        <EntityPeekLink id={official.organization.id} variant="quiet" />
                       </>
                     ) : null}
                   </p>
-                  {source ? (
-                    <div className="mt-2">
-                      <SourceLink href={source.url} meta={source.publisher}>
-                        {source.title}
-                      </SourceLink>
-                    </div>
-                  ) : null}
+                  <p className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-faint">
+                    <span>
+                      <PeriodT start={official.tenure.start} end={official.tenure.end} style="short" />
+                    </span>
+                    {source ? (
+                      <QuietSource href={source.url} publisher={source.publisher} retrieved={official.tenure.source.retrieved} />
+                    ) : null}
+                  </p>
                 </div>
-              </div>
-              <div className="flex shrink-0 items-center gap-2">
-                <KindBadge tone="accent">
-                  <T area="home" k="filterActing" />
-                </KindBadge>
-                <span className="text-xs text-ink-faint">
-                  {formatPeriodShort(official.tenure.start, official.tenure.end)}
-                </span>
-              </div>
-            </Card>
-          </li>
-        );
-      })}
-    </ul>
+              </article>
+            </RailItem>
+          );
+        })}
+      </RailList>
+    </AriaLabelT>
   );
 }

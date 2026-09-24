@@ -17,8 +17,7 @@ export function SourceNote({ items }: { items: SourceNoteItem[] }) {
     <p className="mt-2 text-xs text-ink-faint">
       {t("budgetSourceLabel")}{" "}
       {items.map((item, index) => (
-        <span key={`${item.id}-${index}`}>
-          {index > 0 ? ", " : null}
+        <span key={`${item.id}-${index}`} className="mt-0.5 block">
           {item.url !== null && item.title !== null ? (
             <SourceLink href={item.url}>{item.title}</SourceLink>
           ) : (
