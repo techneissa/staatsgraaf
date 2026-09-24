@@ -9,6 +9,7 @@ import type {
   MediaItem,
   Membership,
   NewsItem,
+  NewsTranslation,
   Organization,
   Person,
   Position,
@@ -59,6 +60,23 @@ function readArray<T>(file: string): T[] {
   return parsed as T[];
 }
 
+/**
+ * An optional dataset file: a missing file is an empty list, not a build
+ * failure. Used for files another pipeline fills in over time, such as the
+ * news translations (docs/adr/0016-news-machine-translation.md).
+ */
+function readOptionalArray<T>(file: string): T[] {
+  const fullPath = join(DATA_DIR, file);
+  if (!existsSync(fullPath)) return [];
+  try {
+    const parsed: unknown = JSON.parse(readFileSync(fullPath, "utf8"));
+    return Array.isArray(parsed) ? (parsed as T[]) : [];
+  } catch {
+    // A file that is mid-write or malformed shows every item in its original language.
+    return [];
+  }
+}
+
 function indexById<T extends { id: string }>(items: T[]): Map<string, T> {
   return new Map(items.map((item) => [item.id, item]));
 }
@@ -74,6 +92,7 @@ export type Dataset = {
   governments: Government[];
   changes: Change[];
   news: NewsItem[];
+  newsTranslations: NewsTranslation[];
   topics: Topic[];
   budgets: Budget[];
   media: MediaItem[];
@@ -149,6 +168,7 @@ export function getDataset(): Dataset {
   const governments = readArray<Government>("governments.json");
   const changes = readArray<Change>("changes.json");
   const news = readArray<NewsItem>("news.json");
+  const newsTranslations = readOptionalArray<NewsTranslation>("news-translations.json");
   const topics = readArray<Topic>("topics.json");
   const budgets = readArray<Budget>("budgets.json");
   const media = readArray<MediaItem>("media.json");
@@ -166,6 +186,7 @@ export function getDataset(): Dataset {
     governments,
     changes,
     news,
+    newsTranslations,
     topics,
     budgets,
     media,

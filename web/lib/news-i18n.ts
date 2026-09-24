@@ -18,6 +18,15 @@ export type NewsMessages = {
   otherLanguageHref: string;
   otherLanguageLabel: string;
   languageTabsLabel: string;
+  /** Filter option that shows items in every original language. */
+  allLanguagesLabel: string;
+  /** Filter options by original language: "Dutch outlets", "English outlets". */
+  languageFilterLabels: Record<NewsLanguage, string>;
+  entityFilterLabel: string;
+  entityFilterClear: string;
+  entityFilterNote: string;
+  entityFilterEmpty: string;
+  filtersLabel: string;
   languageLabels: Record<NewsLanguage, string>;
   noscript: string;
   emptyByLanguage: Record<NewsLanguage, { title: string; description: string }>;
@@ -47,6 +56,17 @@ export type NewsMessages = {
     opensNewTab: string;
     /** Precedes the credit line of the preview image. */
     imageCreditLabel: string;
+    /** Short label before the inline list of mentioned entities. */
+    mentionedShort: string;
+    /** Quiet label on a machine-translated card, keyed by the original language. */
+    translatedFrom: Record<NewsLanguage, string>;
+    translatedTitle: string;
+    showOriginal: string;
+    showTranslation: string;
+    /** Tag on an item shown in its original language, keyed by that language. */
+    originalLanguageTag: Record<NewsLanguage, string>;
+    originalLanguageTitle: Record<NewsLanguage, string>;
+    sourceLinkTitle: string;
   };
   backLabel: string;
   /** Sits between the start and end of an hour range, for example "09:00 tot 09:59". */
@@ -70,14 +90,21 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
     locale: "nl",
     metaTitle: "Nieuws",
     metaDescription:
-      "Recente nieuwsberichten over de Nederlandse rijksoverheid, per bron en per dag, met gekoppelde organisaties, personen en posities. Nederlandstalig en Engelstalig, zonder vertaling.",
+      "Recente nieuwsberichten over de Nederlandse overheid, per bron en per dag, met gekoppelde organisaties, personen en posities. Engelstalige berichten zijn machinaal vertaald, het origineel staat er altijd bij.",
     heading: "Nieuws",
     intro:
-      "Deze sectie bundelt nieuwsberichten over de rijksoverheid uit Nederlandse en Engelstalige bronnen. Elk bericht toont de uitgever, het soort bron en de gekoppelde organisaties, personen en posities. Berichten worden niet vertaald: je leest ze in de taal waarin ze zijn gepubliceerd.",
+      "Deze sectie bundelt nieuwsberichten over de overheid uit Nederlandse en Engelstalige bronnen. Elk bericht toont de uitgever, het soort bron en de gekoppelde organisaties, personen en posities. Kop en inleiding van Engelstalige berichten zijn door een taalmodel vertaald en zo gemarkeerd; het origineel is één klik weg en de bronlink gaat altijd naar het oorspronkelijke artikel.",
     breadcrumbHome: "Home",
     otherLanguageHref: "/news/",
     otherLanguageLabel: "Lees in het Engels",
-    languageTabsLabel: "Taal van de berichten",
+    languageTabsLabel: "Oorspronkelijke taal",
+    allLanguagesLabel: "Alle talen",
+    languageFilterLabels: { nl: "Nederlandstalig", en: "Engelstalig" },
+    entityFilterLabel: "Gefilterd op",
+    entityFilterClear: "Filter wissen",
+    entityFilterNote: "Alleen de recent geladen berichten worden doorzocht. Alle berichten staan op de pagina van",
+    entityFilterEmpty: "Geen van de recent geladen berichten noemt deze vermelding.",
+    filtersLabel: "Filters",
     languageLabels: { nl: "Nederlands", en: "English" },
     noscript:
       "Filteren en het wisselen van taal vereisen JavaScript. Het archief per dag onderaan werkt zonder.",
@@ -89,7 +116,7 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
       en: {
         title: "Geen Engelstalige berichten in de dataset",
         description:
-          "Geen van de opgenomen bronnen publiceert in het Engels, dus dit tabblad is leeg. Berichten worden niet vertaald. Zodra een Engelstalige bron is opgenomen, verschijnen de berichten hier in de taal van de bron.",
+          "Geen van de opgenomen bronnen publiceert in het Engels. Kies Alle talen om alle berichten te zien.",
       },
     },
     kindFilterLabel: "Filter op soort bron",
@@ -146,6 +173,17 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
       linkedOnLabel: "Gekoppeld op:",
       opensNewTab: "(opent in een nieuw tabblad)",
       imageCreditLabel: "Beeld:",
+      mentionedShort: "Genoemd",
+      translatedFrom: { nl: "Vertaald uit het Nederlands", en: "Vertaald uit het Engels" },
+      translatedTitle: "Machinevertaling door een taalmodel. Lees hoe dit werkt in de methodiek.",
+      showOriginal: "Toon origineel",
+      showTranslation: "Toon vertaling",
+      originalLanguageTag: { nl: "Nederlands", en: "Engels" },
+      originalLanguageTitle: {
+        nl: "Dit bericht is in het Nederlands gepubliceerd.",
+        en: "Dit bericht is in het Engels gepubliceerd en nog niet vertaald.",
+      },
+      sourceLinkTitle: "Lees het originele bericht bij de uitgever",
     },
     backLabel: "Terug naar nieuws",
     hourConnector: "tot",
@@ -167,14 +205,21 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
     locale: "en",
     metaTitle: "News",
     metaDescription:
-      "Recent news about the Dutch national government, by source and by day, linked to organizations, people and positions. Dutch and English, without translation.",
+      "Recent news about the Dutch government, by source and by day, linked to organizations, people and positions. Dutch items are machine translated into English, with the original always one click away.",
     heading: "News",
     intro:
-      "This section collects news items about the Dutch national government from Dutch and English-language sources. Each item shows its publisher, its source kind and the linked organizations, people and positions. Items are not translated: you read them in the language they were published in.",
+      "This section collects news about the Dutch government from Dutch and English-language outlets. Each item shows its publisher, the kind of outlet and the organizations, people and positions it mentions. Headlines and leads of Dutch items are translated by a language model and marked as such; the original is one click away, and the source link always goes to the original article. Names of people and bodies stay in Dutch.",
     breadcrumbHome: "Home",
     otherLanguageHref: "/nieuws/",
     otherLanguageLabel: "Read in Dutch",
-    languageTabsLabel: "Language of the items",
+    languageTabsLabel: "Original language",
+    allLanguagesLabel: "All languages",
+    languageFilterLabels: { nl: "Published in Dutch", en: "Published in English" },
+    entityFilterLabel: "Filtered on",
+    entityFilterClear: "Clear filter",
+    entityFilterNote: "Only the recently loaded items are searched. Every item is on the page of",
+    entityFilterEmpty: "None of the recently loaded items mention it.",
+    filtersLabel: "Filters",
     languageLabels: { nl: "Dutch", en: "English" },
     noscript:
       "Filtering and switching language require JavaScript. The day archive below works without it.",
@@ -182,7 +227,7 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
       nl: {
         title: "No Dutch-language items in the dataset",
         description:
-          "None of the included sources publishes in Dutch, so this tab is empty. Items are not translated. As soon as a Dutch-language source is included, its items appear here in the source language.",
+          "None of the included sources publishes in Dutch. Choose All languages to see every item.",
       },
       en: {
         title: "No English-language items in the dataset",
@@ -243,6 +288,17 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
       linkedOnLabel: "Linked on:",
       opensNewTab: "(opens in a new tab)",
       imageCreditLabel: "Image:",
+      mentionedShort: "Mentioned",
+      translatedFrom: { nl: "Translated from Dutch", en: "Translated from English" },
+      translatedTitle: "Machine translation by a language model. Read how this works on the method page.",
+      showOriginal: "Show original",
+      showTranslation: "Show translation",
+      originalLanguageTag: { nl: "Dutch", en: "English" },
+      originalLanguageTitle: {
+        nl: "This item was published in Dutch and has not been translated yet.",
+        en: "This item was published in English.",
+      },
+      sourceLinkTitle: "Read the original article at the publisher",
     },
     backLabel: "Back to news",
     hourConnector: "to",

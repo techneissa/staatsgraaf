@@ -9,6 +9,7 @@ import { T } from "@/components/i18n/t";
 import { JsonLd } from "@/components/json-ld";
 import {
   CHANGE_WINDOWS,
+  changeDisplayKind,
   getActingOfficials,
   getChangeReferenceDate,
   getChangeStats,
@@ -40,10 +41,10 @@ export default function ChangesPage() {
     const histogram = getTimeline(changes, days, reference);
     const groups = groupChangesByDay(changes, reference).map((group) => ({
       date: group.date,
-      label: group.label,
       items: group.changes.map((change) => ({
         id: change.id,
         kind: change.kind,
+        displayKind: changeDisplayKind(change),
         node: <ChangeRow key={change.id} change={change} />,
       })),
     }));
@@ -63,9 +64,9 @@ export default function ChangesPage() {
         }}
       />
 
-      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Wijzigingen" }]} />
+      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: <T area="home" k="changesPageTitle" /> }]} />
 
-      <header className="mt-4 border-b border-line pb-6">
+      <header className="mt-4 pb-5">
         <h1 className="text-2xl font-semibold tracking-tight text-ink">
           <T area="home" k="changesPageTitle" />
         </h1>
@@ -74,7 +75,7 @@ export default function ChangesPage() {
         </p>
       </header>
 
-      <section aria-labelledby="cijfers-titel" className="border-b border-line py-6">
+      <section aria-labelledby="cijfers-titel">
         <h2 id="cijfers-titel" className="sr-only">
           <T area="home" k="keyFigures" />
         </h2>
@@ -93,6 +94,7 @@ export default function ChangesPage() {
         <div className="mt-4">
           <ChangeExplorer
             panes={panes}
+            reference={reference}
             vacancies={<VacancyList vacancies={vacancies} />}
             vacancyCount={vacancies.reduce((sum, vacancy) => sum + vacancy.vacant, 0)}
             acting={<ActingList officials={officials} />}

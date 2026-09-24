@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useId, useMemo, useState } from "react";
 import type { ClusterInfo, GraphBundle, GraphLayout, LaidOutNode } from "@/lib/graph";
 import { computeFocusPath } from "@/lib/graph";
 import { PARTIES, partySlug } from "@/lib/parties";
@@ -56,7 +56,7 @@ function Row({ label, onClick, colour }: { label: string; onClick: () => void; c
       <button
         type="button"
         onClick={onClick}
-        className="flex w-full items-center gap-1.5 rounded-sm px-1 py-0.5 text-start text-[11px] leading-snug text-ink-muted hover:bg-surface-inset hover:text-ink"
+        className="tap-row flex w-full items-center gap-1.5 rounded-sm px-1 py-0.5 text-start text-[11px] leading-snug text-ink-muted hover:bg-surface-inset hover:text-ink pointer-coarse:text-[13px]"
       >
         {colour ? <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full" style={{ background: colour }} /> : null}
         <span className="min-w-0 flex-1 truncate">{label}</span>
@@ -97,6 +97,9 @@ export function GraphDetails({
   const t = useT("graph");
   const tCommon = useT("common");
   const locale = useLocale();
+  const bodyId = useId();
+  /** Folded to its header bar where the panel sits below the drawing; beside it, always open. */
+  const [collapsed, setCollapsed] = useState(true);
 
   const node = target?.kind === "node" ? layout.byId.get(target.id) ?? null : null;
   const cluster = target?.kind === "cluster" ? layout.clusterById.get(target.id) ?? null : null;
@@ -159,18 +162,47 @@ export function GraphDetails({
   return (
     <aside
       aria-label={t("detailsTitle")}
-      className="flex max-h-56 min-h-0 shrink-0 flex-col border-t border-line bg-surface sm:max-h-none sm:w-52 sm:border-s sm:border-t-0 xl:w-60"
+      className={`flex min-h-0 shrink-0 flex-col border-t border-line bg-surface pb-[var(--canvas-bottom,0px)] @min-[44rem]:max-h-none @min-[44rem]:w-52 @min-[44rem]:border-s @min-[44rem]:border-t-0 @min-[60rem]:w-60 ${
+        collapsed ? "" : "max-h-[45%]"
+      }`}
     >
-      <div className="flex items-center justify-between gap-2 border-b border-line px-3 py-2">
-        <h3 className="text-[10px] font-semibold uppercase tracking-wider text-ink-muted">{t("detailsTitle")}</h3>
+      <div className="flex items-center justify-between gap-2 border-b border-line py-1 pl-[max(0.75rem,var(--safe-left))] pr-[max(0.5rem,var(--safe-right))] @min-[44rem]:py-2 @min-[44rem]:pl-3 @min-[44rem]:pr-3">
+        <h3 className="sr-only text-[10px] font-semibold uppercase tracking-wider text-ink-muted @min-[44rem]:not-sr-only">
+          {t("detailsTitle")}
+        </h3>
+        {/* Below the drawing the header is a toggle that names what is selected. */}
+        <button
+          type="button"
+          onClick={() => setCollapsed((current) => !current)}
+          aria-expanded={!collapsed}
+          aria-controls={bodyId}
+          className="tap-row flex min-w-0 flex-1 items-center gap-2 py-1 text-start @min-[44rem]:hidden"
+        >
+          <span className="shrink-0 text-[10px] font-semibold uppercase tracking-wider text-ink-muted">
+            {t("detailsTitle")}
+          </span>
+          <span className={`min-w-0 flex-1 truncate text-xs ${target ? "font-medium text-ink" : "text-ink-faint"}`}>
+            {target ? heading : t("detailsHintShort")}
+          </span>
+          <svg aria-hidden="true" viewBox="0 0 20 20" width="12" height="12" className={`shrink-0 text-ink-muted transition-fast ${collapsed ? "" : "rotate-180"}`}>
+            <path d="m5.5 12.5 4.5-4.5 4.5 4.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
         {target ? (
-          <button type="button" onClick={onClear} className="text-[10px] font-medium text-accent-text underline underline-offset-2">
+          <button
+            type="button"
+            onClick={onClear}
+            className="tap-target flex shrink-0 items-center justify-center px-1 text-[10px] font-medium text-accent-text underline underline-offset-2 pointer-coarse:text-xs"
+          >
             {t("detailsClear")}
           </button>
         ) : null}
       </div>
 
-      <div className="min-h-0 flex-1 overflow-y-auto px-3 py-2.5">
+      <div
+        id={bodyId}
+        className={`min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 py-2.5 @min-[44rem]:block ${collapsed ? "hidden" : ""}`}
+      >
         {!target ? <p className="text-[11px] leading-relaxed text-ink-faint">{t("detailsEmpty")}</p> : null}
 
         {target ? (
@@ -299,7 +331,7 @@ export function GraphDetails({
 
                 <a
                   href={`/organisaties/${node.slug}/`}
-                  className="mt-3 inline-block text-[11px] font-medium text-accent-text underline underline-offset-2"
+                  className="tap-row mt-3 inline-flex items-center text-[11px] font-medium text-accent-text underline underline-offset-2 pointer-coarse:text-[13px]"
                 >
                   {tCommon("openOrgPage")}
                 </a>
@@ -312,7 +344,7 @@ export function GraphDetails({
                 <button
                   type="button"
                   onClick={() => onSelectCluster(openCluster === cluster.id ? null : cluster.id)}
-                  className="mt-2 rounded-sm border border-line px-2 py-1 text-[11px] font-medium text-ink-muted hover:text-ink"
+                  className="tap-row mt-2 rounded-sm border border-line px-2 py-1 text-[11px] font-medium text-ink-muted hover:text-ink pointer-coarse:text-[13px]"
                 >
                   {openCluster === cluster.id ? t("detailsFoldGroup") : t("detailsOpenGroup")}
                 </button>
@@ -369,7 +401,7 @@ export function GraphDetails({
                 {party ? (
                   <a
                     href={`/partijen/${partySlug(party)}/`}
-                    className="mt-3 inline-block text-[11px] font-medium text-accent-text underline underline-offset-2"
+                    className="tap-row mt-3 inline-flex items-center text-[11px] font-medium text-accent-text underline underline-offset-2 pointer-coarse:text-[13px]"
                   >
                     {t("detailsPartyPage")}
                   </a>

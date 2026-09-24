@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { EmptyStateT } from "@/components/change/empty-state-t";
-import { EntityChip } from "@/components/entity-chip";
 import { EntityTabs } from "@/components/entity-tabs";
 import { JsonLd } from "@/components/json-ld";
 import { KindBadge } from "@/components/kind-badge";
 import { NewsCard } from "@/components/news-card";
 import { PersonCard } from "@/components/person-card";
 import { SourceLink } from "@/components/source-link";
+import { EntityConnections } from "@/components/entity/entity-connections";
+import { ShareButton } from "@/components/share-button";
+import { DateT, LocalDate } from "@/components/content/local-date";
+import { EntityPeekLink } from "@/components/peek/entity-peek-link";
+import { SUMMARY_CLASS } from "@/components/entity/entity-connections";
 import { SourceList } from "@/components/source-list";
 import { T } from "@/components/i18n/t";
-import { EntityConnections } from "@/components/entity/entity-connections";
 import { EntityDot } from "@/components/entity/entity-dot";
 import { EntityFacts } from "@/components/entity/entity-facts";
 import { FactGroup } from "@/components/entity/fact-group";
@@ -42,8 +46,6 @@ import {
   organizationParentId,
   organizationPartOf,
 } from "@/lib/entity";
-import { formatCount, formatDate } from "@/lib/format";
-import { ORG_BRANCH_LABELS, ORG_SUBTYPE_LABELS } from "@/lib/labels";
 import { seatTallyForOrganization } from "@/lib/parliament";
 import { LocaleLabel } from "@/components/i18n/locale-label";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
@@ -89,12 +91,16 @@ function websiteHost(url: string | null | undefined): string | null {
   }
 }
 
-function employeeValue(organization: Organization): string | null {
+function employeeValue(organization: Organization): ReactNode {
   const employeeCount = organization.employeeCount ?? null;
   if (employeeCount === null) return null;
   const count = employeeCount.actual ?? employeeCount.budgeted ?? null;
   if (count === null) return null;
-  return employeeCount.year !== null ? `${formatCount(count)} (${employeeCount.year})` : formatCount(count);
+  return employeeCount.year !== null ? (
+    <DateT area="entity" k="countWithYear" counts={{ n: count }} vars={{ year: employeeCount.year }} />
+  ) : (
+    <DateT area="entity" k="countOnly" counts={{ n: count }} />
+  );
 }
 
 export default async function OrganizationPage({
@@ -150,19 +156,19 @@ export default async function OrganizationPage({
       label: <T area="entity" k="factEstablished" />,
       value:
         organization.established != null ? (
-          <time dateTime={organization.established}>{formatDate(organization.established)}</time>
+          <LocalDate iso={organization.established} />
         ) : null,
     },
     {
       label: <T area="entity" k="factDissolved" />,
       value:
         organization.dissolved != null ? (
-          <time dateTime={organization.dissolved}>{formatDate(organization.dissolved)}</time>
+          <LocalDate iso={organization.dissolved} />
         ) : null,
     },
     {
       label: <T area="entity" k="factSeats" />,
-      value: seatsCount !== null ? formatCount(seatsCount) : null,
+      value: seatsCount !== null ? <DateT area="entity" k="countOnly" counts={{ n: seatsCount }} /> : null,
     },
     { label: <T area="entity" k="factEmployees" />, value: employeeValue(organization) },
   ];
@@ -203,10 +209,11 @@ export default async function OrganizationPage({
           </KindBadge>
           <span className="inline-flex items-center gap-1.5 rounded-pill border border-line bg-surface px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-ink-muted">
             <EntityDot kind="organization" id={organization.id} />
-            {ORG_BRANCH_LABELS[organization.branch]}
+            <LocaleLabel kind="branch" value={organization.branch} />
           </span>
+          <ShareButton className="ms-auto" title={organization.name} />
         </div>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-ink border-l-4 border-line pl-3">
+        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-ink text-balance">
           {organization.name}
         </h1>
         <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
@@ -271,7 +278,7 @@ export default async function OrganizationPage({
                   <T area="entity" k="whosConnected" />
                 </h2>
                 <div className="mt-3">
-                  <EntityConnections connections={connections} />
+                  <EntityConnections connections={connections} selfId={organization.id} />
                 </div>
               </div>
             }
@@ -285,15 +292,15 @@ export default async function OrganizationPage({
             >
               {seatsCount !== null ? (
                 <p className="text-sm tabular-nums text-ink-muted">
-                  <T
-                    area="common"
-                    k="seatsCountLabel"
-                    vars={{ n: memberCount, total: seatsCount }}
+                  <DateT
+                    area="entity"
+                    k={seatsCount === 1 ? "seatsFilledOne" : "seatsFilled"}
+                    counts={{ n: memberCount, total: seatsCount }}
                   />
                 </p>
               ) : (
                 <p className="text-sm text-ink-muted">
-                  <T area="entity" k="membersCountLine" vars={{ n: formatCount(memberCount) }} />
+                  <DateT area="entity" k="membersCountLine" counts={{ n: memberCount }} />
                 </p>
               )}
               {tally !== null ? <ArchChart tally={tally} /> : null}
@@ -304,7 +311,7 @@ export default async function OrganizationPage({
               </div>
               {memberCount > GRID_LIMIT ? (
                 <details className="mt-3">
-                  <summary className="cursor-pointer list-none rounded-sm border border-line bg-surface-raised px-3 py-1.5 text-xs font-medium text-ink transition-fast hover:border-line-strong">
+                  <summary className={SUMMARY_CLASS}>
                     <T area="common" k="seeAll" vars={{ n: memberCount }} />
                   </summary>
                   <div className="mt-3">
@@ -340,27 +347,29 @@ export default async function OrganizationPage({
               title={<T area="entity" k="currentOfficials" />}
               count={currentHolders.length}
             >
-              <ul className="space-y-2">
+              <ul className="divide-y divide-line/60">
                 {currentHolders.map((tenure) => {
                   const person = getPersonById(tenure.person);
                   const position = getPositionById(tenure.position);
                   const source = getSourceById(tenure.source.source);
                   if (!person) return null;
                   return (
-                    <li key={tenure.id} className="space-y-1">
+                    <li key={tenure.id}>
                       <PersonCard
                         person={person}
-                        positionTitle={position?.title ?? null}
+                        positionTitle={
+                          position ? <EntityPeekLink id={position.id} variant="quiet">{position.title}</EntityPeekLink> : null
+                        }
                         startedAt={tenure.start}
                         acting={tenure.acting}
+                        source={
+                          source ? (
+                            <SourceLink href={source.url} meta={source.publisher} tone="quiet">
+                              <T area="entity" k="sourceLabel" />
+                            </SourceLink>
+                          ) : null
+                        }
                       />
-                      {source ? (
-                        <p className="pl-1">
-                          <SourceLink href={source.url} meta={source.publisher}>
-                            <T area="entity" k="sourceLabel" />
-                          </SourceLink>
-                        </p>
-                      ) : null}
                     </li>
                   );
                 })}
@@ -403,15 +412,10 @@ export default async function OrganizationPage({
 
           <FactGroup title={<T area="entity" k="partOfTitle" />}>
             {partOfOrganizations.length > 0 ? (
-              <ul className="flex flex-wrap gap-2">
+              <ul className="space-y-1.5 text-sm">
                 {partOfOrganizations.map((parent) => (
                   <li key={parent.id}>
-                    <EntityChip
-                      href={`/organisaties/${parent.slug}/`}
-                      dot={<EntityDot kind="organization" id={parent.id} />}
-                    >
-                      {parent.name}
-                    </EntityChip>
+                    <EntityPeekLink id={parent.id} glyph />
                   </li>
                 ))}
               </ul>

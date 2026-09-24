@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import type { NewsPreview } from "./news-view";
 import type { PublisherKind } from "@/lib/types";
 import { newsMonogram } from "@/lib/news-preview";
@@ -52,8 +52,12 @@ export function NewsPreviewTile({
   responsive?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
+  // An image that failed before hydration never fires onError in React; check once it mounts.
+  const checkLoaded = useCallback((img: HTMLImageElement | null) => {
+    if (img && img.complete && img.naturalWidth === 0) setFailed(true);
+  }, []);
   const roundedClass = { sm: "rounded-sm", md: "rounded-md", lg: "rounded-lg" }[rounded];
-  const frame = `shrink-0 overflow-hidden ${roundedClass} border border-line ${
+  const frame = `block shrink-0 overflow-hidden ${roundedClass} border border-line ${
     responsive ? RESPONSIVE_FRAMES[rounded] : ""
   } ${className}`.trim();
 
@@ -70,6 +74,7 @@ export function NewsPreviewTile({
           loading="lazy"
           decoding="async"
           referrerPolicy="no-referrer"
+          ref={checkLoaded}
           onError={() => setFailed(true)}
           className="h-full w-full object-cover"
         />
@@ -89,6 +94,7 @@ export function NewsPreviewTile({
           loading="lazy"
           decoding="async"
           referrerPolicy="no-referrer"
+          ref={checkLoaded}
           onError={() => setFailed(true)}
           className="h-full w-full object-cover"
         />

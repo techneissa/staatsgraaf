@@ -82,7 +82,7 @@ export default async function BudgetOrganizationPage({
       <Breadcrumb
         items={[
           { label: SITE_NAME, href: "/" },
-          { label: "Begroting", href: "/begroting/" },
+          { label: <T area="common" k="navBudget" />, href: "/begroting/" },
           { label: view.organization.name },
         ]}
       />
@@ -193,7 +193,7 @@ export default async function BudgetOrganizationPage({
         </div>
       </section>
 
-      <SourceList sources={view.sources} title="Bronnen en ophaaldata" />
+      <SourceList sources={view.sources} title={<T area="news" k="budgetSourcesTitle" />} />
     </>
   );
 }

@@ -332,6 +332,24 @@ export type NewsItem = {
   sources: SourceRef[];
 };
 
+/**
+ * A machine translation of a news item's headline and lead into the other
+ * interface language (data/news-translations.json, docs/adr/0016). Shown only
+ * while `sourceHash` matches the current item.
+ */
+export type NewsTranslation = {
+  id: string;
+  language: NewsLanguage;
+  sourceLanguage: NewsLanguage;
+  title: string;
+  /** The translated lead, entity tags preserved; null when the item has no lead. */
+  lead: string | null;
+  sourceHash: string;
+  engine: string;
+  method: string;
+  translated: string;
+};
+
 export type Topic = {
   id: string;
   slug: string;

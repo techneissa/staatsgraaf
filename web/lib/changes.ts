@@ -219,3 +219,64 @@ export function changeAgeDays(date: string | null, reference = getChangeReferenc
   if (!date) return null;
   return Math.max(0, daysBetween(reference, date));
 }
+
+/**
+ * How a change reads on screen. Acting is an appointment whose tenure is
+ * acting; rename and move fold into structural for the glyph and colour but
+ * keep their own label.
+ */
+export type ChangeDisplayKind =
+  | "appointment"
+  | "acting"
+  | "departure"
+  | "vacancy"
+  | "structural"
+  | "rename"
+  | "move"
+  | "relation";
+
+let tenureIndex: Map<string, Tenure> | null = null;
+
+function tenureById(id: string): Tenure | undefined {
+  if (tenureIndex === null) tenureIndex = new Map(getDataset().tenures.map((tenure) => [tenure.id, tenure]));
+  return tenureIndex.get(id);
+}
+
+/** True when the tenure behind a change side is an acting (waarnemend) tenure. */
+export function isActingTenure(id: string | null | undefined): boolean {
+  if (!id) return false;
+  const tenure = tenureById(id);
+  if (!tenure) return false;
+  return tenure.acting === true || tenure.entryMode === "waarnemend";
+}
+
+export function changeDisplayKind(change: Change): ChangeDisplayKind {
+  switch (change.kind) {
+    case "appointment":
+      return isActingTenure(change.in?.tenure) ? "acting" : "appointment";
+    case "tenure-between":
+      return "relation";
+    default:
+      return change.kind;
+  }
+}
+
+const BODY_PREFIX =
+  /^(gemeente|provincie|ministerie van|waterschap|hoogheemraadschap van|hoogheemraadschap|openbaar lichaam|regering van|het|de)\s+/;
+
+function normalizeName(value: string): string {
+  return value.toLocaleLowerCase("nl").replace(/\s+/g, " ").trim();
+}
+
+/**
+ * True when a position title already names its body, so a sentence does not
+ * say "Burgemeester van Eemnes bij Gemeente Eemnes".
+ */
+export function titleNamesBody(title: string, bodyName: string): boolean {
+  const titleNorm = normalizeName(title);
+  let body = normalizeName(bodyName);
+  if (body.length === 0) return true;
+  if (titleNorm.includes(body)) return true;
+  for (let pass = 0; pass < 2; pass += 1) body = body.replace(BODY_PREFIX, "");
+  return body.length >= 3 && titleNorm.includes(body);
+}

@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { T } from "@/components/i18n/t";
 import { getDataset } from "@/lib/data";
 import { formatCount, formatDate } from "@/lib/format";
@@ -89,23 +90,7 @@ export default function DatasetPage() {
 
   return (
     <>
-      <nav aria-label="Kruimelpad">
-        <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-muted">
-          <li className="flex items-center gap-x-2">
-            <Link href="/" className="underline-offset-2 hover:text-ink hover:underline">
-              {SITE_NAME}
-            </Link>
-            <span aria-hidden="true" className="text-ink-faint">
-              /
-            </span>
-          </li>
-          <li className="flex items-center gap-x-2">
-            <span aria-current="page">
-              <T area="pages" k="datasetTitle" />
-            </span>
-          </li>
-        </ol>
-      </nav>
+      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: <T area="pages" k="datasetTitle" /> }]} />
       <h1 className="mt-4 text-2xl font-semibold tracking-tight text-ink">
         <T area="pages" k="datasetTitle" />
       </h1>

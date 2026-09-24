@@ -32,7 +32,7 @@ export function NewsList({
 
   return (
     <div>
-      <ol className="mt-3 list-none space-y-3 p-0">
+      <ol className="mt-3 list-none space-y-2 p-0">
         {visible.map((item, index) => (
           <li key={item.id}>
             <NewsCard item={item} rank={index + 1} as="div" />
@@ -41,7 +41,7 @@ export function NewsList({
       </ol>
       {hidden.length > 0 ? (
         <details className="group mt-3">
-          <summary className="inline-flex cursor-pointer list-none items-center gap-1.5 rounded-sm border border-line bg-surface-raised px-3 py-2 text-sm font-medium text-ink transition-fast hover:border-line-strong">
+          <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-sm border border-line bg-surface-raised px-3 text-sm font-medium text-ink transition-fast hover:border-line-strong sm:min-h-9 [&::-webkit-details-marker]:hidden">
             <span className="group-open:hidden">
               <T area="news" k="newsListShowMore" vars={{ count: formatCount(hidden.length) }} />
             </span>
@@ -49,7 +49,7 @@ export function NewsList({
               <T area="news" k="newsListShowLess" />
             </span>
           </summary>
-          <ol className="mt-3 list-none space-y-3 p-0">
+          <ol className="mt-3 list-none space-y-2 p-0">
             {hidden.map((item, index) => (
               <li key={item.id}>
                 <NewsCard item={item} rank={visible.length + index + 1} as="div" />

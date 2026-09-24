@@ -1,44 +1,41 @@
+import { Avatar } from "@/components/avatar";
 import { getMediaItem, mediaCreditLine, personPortraitId } from "@/lib/entity";
-import { PortraitImg } from "./portrait-img";
+import { partyByDataset } from "@/lib/parties";
 import type { Person } from "@/lib/types";
 
-function initials(name: string): string {
-  const parts = name
-    .split(/\s+/)
-    .filter((part) => part.length > 1 && /^[A-ZÀ-Ý]/.test(part));
-  if (parts.length === 0) return name.slice(0, 1).toUpperCase();
-  const first = parts[0].charAt(0);
-  const last = parts.length > 1 ? parts[parts.length - 1].charAt(0) : "";
-  return `${first}${last}`.toUpperCase();
+/** The sourced party colour of a person, or null when none is on record. */
+export function personColor(person: Person): string | null {
+  return partyByDataset(person.party)?.color ?? null;
 }
 
+/**
+ * A person's portrait from media.json, or an initials disc tinted with the
+ * party colour when no licensed portrait is on record. Decorative by default,
+ * because it nearly always sits next to the visible name; pass `labelled`
+ * where the portrait stands alone (the person page header).
+ */
 export function PersonPortrait({
   person,
   size = 64,
   className = "",
+  labelled = false,
 }: {
   person: Person;
   size?: number;
   className?: string;
+  labelled?: boolean;
 }) {
   const media = getMediaItem(personPortraitId(person));
   return (
-    <span
-      className={`inline-flex shrink-0 items-center justify-center overflow-hidden rounded-pill border border-line bg-surface-raised ${className}`.trim()}
-      style={{ width: size, height: size }}
-    >
-      {media ? (
-        <PortraitImg name={person.name} url={media.url} size={size} />
-      ) : (
-        <span
-          aria-hidden="true"
-          className="font-medium text-ink-muted"
-          style={{ fontSize: Math.max(11, Math.round(size / 3)) }}
-        >
-          {initials(person.name)}
-        </span>
-      )}
-    </span>
+    <Avatar
+      name={person.name}
+      url={media?.url ?? null}
+      color={personColor(person)}
+      size={size}
+      labelled={labelled}
+      className={className}
+      title={media ? mediaCreditLine(media) : undefined}
+    />
   );
 }
 

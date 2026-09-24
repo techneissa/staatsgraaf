@@ -76,6 +76,57 @@ export const COMMON_DICT = {
   seeAll: { nl: "Alles tonen ({n})", en: "See all ({n})" },
   backLabel: { nl: "Vorige", en: "Previous" },
   forwardLabel: { nl: "Volgende", en: "Next" },
+
+  // Peek popover (components/peek/peek-provider.tsx, docs/adr/0017)
+  peekOpenPage: { nl: "Open pagina", en: "Open page" },
+  peekClose: { nl: "Sluiten", en: "Close" },
+  peekLoading: { nl: "Gegevens laden", en: "Loading details" },
+  peekUnavailable: {
+    nl: "De samenvatting kon niet worden geladen. De volledige pagina werkt wel.",
+    en: "The summary could not be loaded. The full page still works.",
+  },
+  peekKindPerson: { nl: "Persoon", en: "Person" },
+  peekKindOrganization: { nl: "Organisatie", en: "Organization" },
+  peekKindPosition: { nl: "Positie", en: "Position" },
+  peekKindTopic: { nl: "Onderwerp", en: "Topic" },
+  peekKindPlace: { nl: "Plaats", en: "Place" },
+  peekPartOf: { nl: "Onderdeel van", en: "Part of" },
+  peekAt: { nl: "bij", en: "at" },
+  peekNow: { nl: "Nu", en: "Now" },
+  peekHeldBy: { nl: "Bekleed door", en: "Held by" },
+  peekLeadership: { nl: "Leiding", en: "Leadership" },
+  peekMemberOf: { nl: "Lid van", en: "Member of" },
+  peekResponsible: { nl: "Verantwoordelijk", en: "Responsible" },
+  peekVacant: { nl: "Geen huidige bekleder in de dataset", en: "No current holder in the dataset" },
+  peekActing: { nl: "waarnemend", en: "acting" },
+  peekAndMore: { nl: "en {n} meer", en: "and {n} more" },
+  peekMembers: { nl: "{n} leden", en: "{n} members" },
+  peekSeats: { nl: "{n} zetels", en: "{n} seats" },
+  peekConnections: { nl: "{n} verbindingen", en: "{n} connections" },
+  peekConnectionsOne: { nl: "1 verbinding", en: "1 connection" },
+  peekNewsCount: { nl: "{n} nieuwsberichten", en: "{n} news items" },
+  peekNewsCountOne: { nl: "1 nieuwsbericht", en: "1 news item" },
+  peekNewsLink: { nl: "Nieuws hierover", en: "News about this" },
+  peekSource: { nl: "Bron", en: "Source" },
+  peekDutchDescription: { nl: "Beschrijving", en: "Description (in Dutch)" },
+  peekHint: {
+    nl: "Tip: cmd- of ctrl-klik opent de pagina direct.",
+    en: "Tip: cmd or ctrl click opens the page directly.",
+  },
+
+  // Share and copy link (peek popover and entity pages)
+  shareLink: { nl: "Deel link", en: "Share link" },
+  copyLink: { nl: "Kopieer link", en: "Copy link" },
+  linkCopied: { nl: "Link gekopieerd", en: "Link copied" },
+  linkCopyFailed: { nl: "Kopiëren lukte niet", en: "Could not copy" },
+
+  // Languages of a text run
+  languageDutch: { nl: "Nederlands", en: "Dutch" },
+  languageEnglish: { nl: "Engels", en: "English" },
+  opensNewTab: { nl: "(opent in een nieuw tabblad)", en: "(opens in a new tab)" },
+  archiveCopy: { nl: "Archiefkopie", en: "Archive copy" },
+  sourcesTitle: { nl: "Bronnen", en: "Sources" },
+  unknownSource: { nl: "Onbekende bron ({id})", en: "Unknown source ({id})" },
 } as const satisfies Record<string, LocString>;
 
 export type DictAreaKey = keyof typeof COMMON_DICT;

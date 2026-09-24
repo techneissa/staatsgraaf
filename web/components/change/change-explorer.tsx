@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { useT } from "@/components/i18n/use-t";
 import { ChangeHistogram } from "./change-histogram";
+import { ChangeDay } from "./change-day";
+import type { ChangeDisplayKind } from "@/lib/changes";
 import type { ChangeKind } from "@/lib/types";
 
 export type HistogramBucket = { date: string; count: number };
@@ -12,12 +14,12 @@ export type HistogramBucket = { date: string; count: number };
 export type ChangeItem = {
   id: string;
   kind: ChangeKind;
+  displayKind: ChangeDisplayKind;
   node: ReactNode;
 };
 
 export type ChangeGroupData = {
   date: string;
-  label: string;
   items: ChangeItem[];
 };
 
@@ -71,14 +73,19 @@ function countItems(groups: ChangeGroupData[]): number {
   return groups.reduce((sum, group) => sum + group.items.length, 0);
 }
 
+/** Tabs and filter pills: 44 px tall on touch, compact with a mouse. */
+const CONTROL = "inline-flex shrink-0 items-center min-h-8 pointer-coarse:min-h-11";
+
 export function ChangeExplorer({
   panes,
+  reference,
   vacancies,
   vacancyCount,
   acting,
   actingCount,
 }: {
   panes: ChangePane[];
+  reference: string;
   vacancies: ReactNode;
   vacancyCount: number;
   acting: ReactNode;
@@ -95,23 +102,17 @@ export function ChangeExplorer({
     setExpanded(false);
   }, [activeDays, filter]);
 
-  const dayLabel = (label: string) => {
-    if (label === "Vandaag") return t("dayToday");
-    if (label === "Gisteren") return t("dayYesterday");
-    return label;
-  };
-
   return (
     <Tabs.Root value={activeDays} onValueChange={setActiveDays}>
       <Tabs.List
         aria-label={t("periodTabsAria")}
-        className="inline-flex gap-1 rounded-sm border border-line bg-surface-inset p-1"
+        className="inline-flex gap-1 rounded-sm border border-line bg-surface-inset p-0.5"
       >
         {panes.map((pane) => (
           <Tabs.Trigger
             key={pane.days}
             value={String(pane.days)}
-            className="rounded-xs px-3 py-1.5 text-sm font-medium text-ink-muted transition-fast hover:text-ink data-[state=active]:bg-accent-soft data-[state=active]:text-accent-text"
+            className={`${CONTROL} rounded-xs px-3.5 text-sm font-medium tabular-nums text-ink-muted transition-fast hover:text-ink data-[state=active]:bg-accent-soft data-[state=active]:text-accent-text`}
           >
             {pane.label}
           </Tabs.Trigger>
@@ -130,7 +131,7 @@ export function ChangeExplorer({
           >
             <ChangeHistogram buckets={pane.histogram} days={pane.days} total={pane.total} />
 
-            <div role="group" aria-label={t("filterGroupAria")} className="mt-3 flex flex-wrap gap-2">
+            <div role="group" aria-label={t("filterGroupAria")} className="scroll-row -mx-4 mt-4 gap-2 px-4 lg:mx-0 lg:flex-wrap lg:px-0 lg:[mask-image:none]">
               {FILTERS.map((option) => {
                 const active = filter === option.value;
                 let count: number | null = null;
@@ -145,10 +146,10 @@ export function ChangeExplorer({
                     type="button"
                     aria-pressed={active}
                     onClick={() => setFilter(option.value)}
-                    className={`rounded-pill border px-3 py-1 text-sm font-medium transition-fast ${
+                    className={`${CONTROL} whitespace-nowrap rounded-pill border px-3 text-sm font-medium transition-fast ${
                       active
                         ? "border-accent/40 bg-accent-soft text-accent-text"
-                        : "border-line bg-surface-raised text-ink-muted hover:text-ink"
+                        : "border-line text-ink-muted hover:border-line-strong hover:text-ink"
                     }`}
                   >
                     {t(option.key)}
@@ -166,25 +167,20 @@ export function ChangeExplorer({
               ) : filter === "acting" ? (
                 acting
               ) : visible.length === 0 ? (
-                <p className="rounded-md border border-dashed border-line bg-surface-inset p-5 text-center text-sm text-ink-faint">
+                <p className="border-y border-line py-6 text-center text-sm text-ink-faint">
                   {t("kindFilteredEmpty")}
                 </p>
               ) : (
-                <div className="space-y-6">
+                <div className="space-y-4">
                   {visible.map((group) => (
-                    <section key={group.date} aria-labelledby={`dag-${group.date}`}>
-                      <div className="flex items-baseline justify-between gap-2">
-                        <h3 id={`dag-${group.date}`} className="text-sm font-semibold text-ink">
-                          {dayLabel(group.label)}
-                        </h3>
-                        <span className="text-xs tabular-nums text-ink-faint">{group.items.length}</span>
-                      </div>
-                      <ol className="mt-3 space-y-2">
-                        {group.items.map((item) => (
-                          <li key={item.id}>{item.node}</li>
-                        ))}
-                      </ol>
-                    </section>
+                    <ChangeDay
+                      key={group.date}
+                      date={group.date}
+                      reference={reference}
+                      items={group.items}
+                      count={filtered.find((full) => full.date === group.date)?.items.length}
+                      sticky
+                    />
                   ))}
                 </div>
               )}
@@ -194,7 +190,7 @@ export function ChangeExplorer({
                   <button
                     type="button"
                     onClick={() => setExpanded((value) => !value)}
-                    className="mt-4 rounded-sm border border-line bg-surface-raised px-3 py-2 text-sm font-medium text-ink transition-fast hover:border-line-strong"
+                    className={`${CONTROL} mt-4 w-full justify-center rounded-sm border border-line px-3 text-sm font-medium text-ink transition-fast hover:border-line-strong sm:w-auto`}
                   >
                     {expanded ? t("showFewer") : t("showAllChanges", { n: total })}
                   </button>

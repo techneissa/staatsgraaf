@@ -1,7 +1,7 @@
 import { SourceLink } from "@/components/source-link";
 import { T } from "@/components/i18n/t";
 import { getSourceById } from "@/lib/data";
-import { formatDate } from "@/lib/format";
+import { LocalDate } from "@/components/content/local-date";
 import type { SourceRef } from "@/lib/types";
 
 /**
@@ -35,14 +35,16 @@ export function SourceFootnotes({ sources }: { sources: SourceRef[] }) {
                     archiveHref={source.archiveUrl}
                     meta={
                       <>
-                        {source.publisher}, {formatDate(source.retrieved)}
+                        {source.publisher}, <LocalDate iso={source.retrieved} />
                       </>
                     }
                   >
                     {source.title}
                   </SourceLink>
                 ) : (
-                  <span className="text-ink-faint">Onbekende bron ({ref.source})</span>
+                  <span className="text-ink-faint">
+                    <T area="common" k="unknownSource" vars={{ id: ref.source }} />
+                  </span>
                 )}
               </span>
             </li>

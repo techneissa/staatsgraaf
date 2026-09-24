@@ -1,8 +1,7 @@
 import Link from "next/link";
 import { branchColorClass } from "@/lib/branch-colors";
-import { T } from "@/components/i18n/t";
-import { formatCount } from "@/lib/format";
-import { ORG_BRANCH_LABELS, ORG_SUBTYPE_LABELS } from "@/lib/labels";
+import { DateT } from "@/components/content/local-date";
+import { LocaleLabel } from "@/components/i18n/locale-label";
 import type { Organization } from "@/lib/types";
 
 /** Employee number used for the card count line, budgeted value as fallback. */
@@ -28,8 +27,8 @@ export function EntityCard({ organization }: { organization: Organization }) {
         </Link>
       </h3>
       <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1">
-        <span className="text-xs text-ink-muted">{ORG_SUBTYPE_LABELS[organization.subtype]}</span>
-        <span className="text-xs text-ink-faint">{ORG_BRANCH_LABELS[organization.branch]}</span>
+        <span className="text-xs text-ink-muted"><LocaleLabel kind="subtype" value={organization.subtype} /></span>
+        <span className="text-xs text-ink-faint"><LocaleLabel kind="branch" value={organization.branch} /></span>
       </div>
       {organization.description !== null ? (
         <p className="mt-1.5 line-clamp-2 text-sm leading-normal text-ink-muted">
@@ -38,10 +37,10 @@ export function EntityCard({ organization }: { organization: Organization }) {
       ) : null}
       {seats !== null || employees !== null ? (
         <p className="mt-auto pt-2 text-xs tabular-nums text-ink-faint">
-          {seats !== null ? <T area="common" k="seatsOfLabel" vars={{ n: formatCount(seats) }} /> : null}
+          {seats !== null ? <DateT area="common" k="seatsOfLabel" counts={{ n: seats }} /> : null}
           {seats !== null && employees !== null ? " · " : null}
           {employees !== null ? (
-            <T area="entity" k="employeesShort" vars={{ n: formatCount(employees) }} />
+            <DateT area="entity" k="employeesShort" counts={{ n: employees }} />
           ) : null}
         </p>
       ) : null}

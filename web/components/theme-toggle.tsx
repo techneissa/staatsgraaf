@@ -34,7 +34,7 @@ export function ThemeToggle() {
       aria-label={nextLabel}
       aria-pressed={isLight}
       title={nextLabel}
-      className="rounded-sm border border-line p-2 text-ink-muted transition-fast hover:border-line-strong hover:text-ink"
+      className="tap-target flex items-center justify-center rounded-sm border border-line p-2 text-ink-muted transition-fast hover:border-line-strong hover:text-ink"
     >
       <svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16">
         {isLight ? (

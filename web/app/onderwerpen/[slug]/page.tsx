@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { T } from "@/components/i18n/t";
+import { ShareButton } from "@/components/share-button";
 import { SourceList } from "@/components/source-list";
 import { ResponsibleList } from "@/components/topic/responsible-list";
 import { TopicNews } from "@/components/topic/topic-news";
@@ -59,15 +60,20 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
       <Breadcrumb
         items={[
           { label: SITE_NAME, href: "/" },
-          { label: "Onderwerpen", href: "/onderwerpen/" },
+          { label: <T area="common" k="navTopics" />, href: "/onderwerpen/" },
           { label: topic.name },
         ]}
       />
 
       <header className="mt-4 border-b border-line pb-6">
-        <h1 className="text-2xl font-semibold tracking-tight text-ink">{topic.name}</h1>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <h1 lang="nl" className="text-2xl font-semibold tracking-tight text-ink">
+            {topic.name}
+          </h1>
+          <ShareButton title={topic.name} />
+        </div>
         {topic.description !== null ? (
-          <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
+          <p lang="nl" className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
             {topic.description}
           </p>
         ) : (
@@ -80,7 +86,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
       <ResponsibleList topic={topic} />
 
       {topic.sources !== undefined && topic.sources.length > 0 ? (
-        <SourceList sources={topic.sources} title="Bronnen" />
+        <SourceList sources={topic.sources} />
       ) : null}
 
       <section aria-labelledby="nieuws-titel" className="py-6">

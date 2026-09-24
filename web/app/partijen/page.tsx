@@ -37,7 +37,7 @@ export default function PartiesIndexPage() {
         }}
       />
 
-      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Partijen" }]} />
+      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: <T area="common" k="navParties" /> }]} />
 
       <header className="mt-4">
         <h1 className="text-3xl font-semibold tracking-tight text-ink">
@@ -66,7 +66,7 @@ export default function PartiesIndexPage() {
                   {party.abbrev.slice(0, 4)}
                 </span>
                 <span className="min-w-0">
-                  <span className="block truncate text-sm font-semibold text-ink">
+                  <span className="block text-sm font-semibold leading-snug text-ink">
                     {party.name.nl}
                   </span>
                   <span className="mt-0.5 block text-xs tabular-nums text-ink-faint">

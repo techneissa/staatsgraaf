@@ -2,7 +2,8 @@ import { T } from "@/components/i18n/t";
 import { SourceLink } from "@/components/source-link";
 import { getSourceById } from "@/lib/data";
 import { electionRow, getElectionsForBody } from "@/lib/elections";
-import { formatCount, formatDate } from "@/lib/format";
+import { formatCount } from "@/lib/format";
+import { DateT, LocalDate } from "@/components/content/local-date";
 
 const NEUTRAL = "var(--t-color-line-strong)";
 
@@ -36,7 +37,7 @@ export function ElectionHistory({ organizationId }: { organizationId: string }) 
             <li key={election.id}>
               <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5 text-xs">
                 <span className="font-medium tabular-nums text-ink">
-                  <time dateTime={election.date}>{formatDate(election.date)}</time>
+                  <LocalDate iso={election.date} />
                   {election.kind === "vervroegd" ? (
                     <span className="ms-2 font-normal text-ink-faint">
                       <T area="entity" k="electionEarly" />
@@ -48,7 +49,7 @@ export function ElectionHistory({ organizationId }: { organizationId: string }) 
                   {election.turnout !== null && election.turnout !== undefined ? (
                     <>
                       {" · "}
-                      <T area="entity" k="electionTurnout" vars={{ pct: Math.round(election.turnout * 1000) / 10 }} />
+                      <DateT area="entity" k="electionTurnout" counts={{ pct: Math.round(election.turnout * 1000) / 10 }} />
                     </>
                   ) : null}
                 </span>

@@ -78,6 +78,10 @@ export type NewsEntityRef = {
   href: string;
   label: string;
   kind: "organization" | "position" | "person" | "topic";
+  /** Link colour and glyph: organisation records that are a gemeente, provincie or openbaar lichaam count as a place. */
+  peekKind: "organization" | "position" | "person" | "topic" | "place";
+  /** Party or branch colour for a person's initials avatar, when sourced. */
+  color?: string | null;
   /** A licensed portrait for a person, with its credit line; null for every other kind. */
   portrait: { url: string; caption: string } | null;
 };

@@ -37,6 +37,7 @@ import { benchSeats, type Bench, type BenchBlock } from "@/lib/bench";
 import { GraphDetails, type DetailsTarget } from "./graph-details";
 import { branchColorVar } from "@/lib/branch-colors";
 import { edgeLine, edgeTypeOrderIndex } from "./edge-styles";
+import { resolveCanvasClick, type CanvasClick } from "@/lib/cluster-click";
 import { useT } from "@/components/i18n/use-t";
 import { useLocale } from "@/components/i18n/language-provider";
 import {
@@ -1111,15 +1112,46 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     }
   };
 
-  const onBackgroundClick = () => {
+  /** Apply the pure click rules (web/lib/cluster-click.ts) to the canvas state. */
+  const applyClick = (click: CanvasClick) => {
+    const result = resolveCanvasClick(click, { selectedId, openCluster });
+    changeOpen(result.open);
+    if (result.select !== undefined) onSelect(result.select);
+  };
+
+  /**
+   * The member of the open cluster nearest to a client point, within the hit
+   * radius of a mark. A click just beside an unpacked member selects it
+   * instead of folding the cluster under the reader's pointer.
+   */
+  const openMemberAt = (clientX: number, clientY: number): string | null => {
+    if (!openCluster) return null;
+    const cluster = layout.clusterById.get(openCluster);
+    if (!cluster) return null;
+    const point = toLocalPoint(clientX, clientY);
+    let best: string | null = null;
+    let bestDistance = 14;
+    for (const id of cluster.members) {
+      const node = layout.byId.get(id);
+      if (!node || !visibleIds.has(id)) continue;
+      const at = positionsRef.current.get(id) ?? node;
+      const distance = Math.hypot(at.x - point.x, at.y - point.y);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        best = id;
+      }
+    }
+    return best;
+  };
+
+  const onBackgroundClick = (event: ReactMouseEvent<SVGSVGElement>) => {
     if (pointerMovedRef.current) {
       pointerMovedRef.current = false;
       return;
     }
     setActiveSector(null);
-    changeOpen(null);
     setSelectedFractie(null);
-    onSelect(null);
+    applyClick({ kind: "background", nearMember: openMemberAt(event.clientX, event.clientY) });
   };
 
   const targetAt = (event: { target: EventTarget }): Hover | null => {
@@ -1142,8 +1174,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     event.stopPropagation();
     setActiveSector(null);
     if (target.kind === "fractie") {
-      onSelect(null);
-      changeOpen(null);
+      applyClick({ kind: "fractie" });
       setSelectedFractie((current) =>
         current && current.chamberId === target.chamberId && current.index === target.index
           ? null
@@ -1153,24 +1184,12 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     }
     setSelectedFractie(null);
     if (target.kind === "cluster") {
-      // A click on one dot selects that body; a click on the grid's edge opens or folds it.
-      const dot = dotAt(target.id, event.clientX, event.clientY);
-      if (dot && dot !== selectedId) {
-        changeOpen(target.id);
-        onSelect(dot);
-        return;
-      }
-      onSelect(null);
-      changeOpen(openCluster === target.id ? null : target.id);
-      return;
-    }
-    if (target.id === selectedId) {
-      onSelect(null);
+      // A click on one dot selects that body; a click on the grid's edge opens it.
+      applyClick({ kind: "cluster", id: target.id, dot: dotAt(target.id, event.clientX, event.clientY) });
       return;
     }
     const node = layout.byId.get(target.id);
-    changeOpen(node?.cluster ?? null);
-    onSelect(target.id);
+    applyClick({ kind: "node", id: target.id, cluster: node?.cluster ?? null });
   };
 
   /** Moving across a grid names the dot under the pointer. */
@@ -1242,6 +1261,18 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     const id = target?.getAttribute("data-sector-id") ?? null;
     if (!id) return;
     event.stopPropagation();
+    if (pointerMovedRef.current) {
+      pointerMovedRef.current = false;
+      return;
+    }
+    // Inside the open cluster's own sector the wedge lies under the unpacked
+    // members: a click there picks the member beside the pointer, or does
+    // nothing, and never folds the cluster (docs: lib/cluster-click.ts).
+    if (openCluster && layout.clusterById.get(openCluster)?.sector === id) {
+      const member = openMemberAt(event.clientX, event.clientY);
+      if (member) applyClick({ kind: "background", nearMember: member });
+      return;
+    }
     onSelect(null);
     changeOpen(null);
     setSelectedFractie(null);
@@ -1447,8 +1478,12 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
         : t("noSelection");
 
   return (
-    <div className="flex h-full min-h-0 w-full flex-col sm:flex-row">
-      <div ref={containerRef} className="relative flex min-h-0 min-w-0 flex-1 flex-col">
+    // The details panel sits beside the drawing when the canvas is at least
+    // 44rem wide and below it otherwise (a phone, the 32rem-plus column on an
+    // iPad in landscape), so the drawing is never squeezed into a sliver.
+    <div className="@container h-full min-h-0 w-full">
+    <div className="flex h-full min-h-0 w-full flex-col @min-[44rem]:flex-row">
+      <div ref={containerRef} className="@container/drawing relative flex min-h-0 min-w-0 flex-1 flex-col">
       <p className="sr-only" aria-live="polite">
         {statusText}
       </p>
@@ -1553,8 +1588,8 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
                     fill="none"
                     stroke={line.color}
                     strokeWidth={line.width}
-                    strokeDasharray={line.dash ?? undefined}
-                    opacity={selectedId ? 0.16 : 0.3}
+                    strokeLinecap="round"
+                    opacity={line.opacity * (selectedId ? 0.28 : 0.45)}
                   />
                 );
               })}
@@ -1650,7 +1685,14 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
                 const dim =
                   (selectedId || activeClusterInfo) && !isOpen && !(selectedNode && cluster.parent !== null && selectedNode.parent === cluster.parent);
                 return (
-                  <g key={cluster.id} ref={setClusterRef(cluster.id)} data-cluster-id={cluster.id} className="cursor-pointer" opacity={isOpen ? 0 : dim ? DIM_OPACITY : 1}>
+                  <g
+                    key={cluster.id}
+                    ref={setClusterRef(cluster.id)}
+                    data-cluster-id={cluster.id}
+                    className="cursor-pointer"
+                    opacity={isOpen ? 0 : dim ? DIM_OPACITY : 1}
+                    pointerEvents={isOpen ? "none" : undefined}
+                  >
                     <rect
                       x={-half.halfHeight - 2.5}
                       y={-half.halfWidth - 2.5}
@@ -1892,12 +1934,14 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
         }}
       />
 
-      <div className="absolute bottom-3 left-3 flex flex-col gap-1">
+      {/* A row where the drawing is narrow (a phone, a stacked iPad column) so the
+          buttons never reach the list toggle at the top; a column beside the rings otherwise. */}
+      <div className="absolute bottom-3 left-[max(0.75rem,var(--safe-left))] flex flex-row gap-1 @min-[44rem]/drawing:flex-col @min-[44rem]:bottom-[calc(0.75rem+var(--canvas-bottom,0px))]">
         <button
           type="button"
           onClick={() => zoomByCentre(1.25)}
           aria-label={t("zoomIn")}
-          className="flex h-8 w-8 items-center justify-center rounded-sm border border-line bg-surface text-sm text-ink-muted hover:text-ink"
+          className="tap-target flex h-8 w-8 items-center justify-center rounded-sm border border-line bg-surface text-sm text-ink-muted hover:text-ink"
         >
           +
         </button>
@@ -1905,7 +1949,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
           type="button"
           onClick={() => zoomByCentre(0.8)}
           aria-label={t("zoomOut")}
-          className="flex h-8 w-8 items-center justify-center rounded-sm border border-line bg-surface text-sm text-ink-muted hover:text-ink"
+          className="tap-target flex h-8 w-8 items-center justify-center rounded-sm border border-line bg-surface text-sm text-ink-muted hover:text-ink"
         >
           -
         </button>
@@ -1919,7 +1963,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
             kick();
           }}
           aria-label={t("zoomReset")}
-          className="flex h-8 w-8 items-center justify-center rounded-sm border border-line bg-surface text-[10px] font-medium text-ink-muted hover:text-ink"
+          className="tap-target flex h-8 w-8 items-center justify-center rounded-sm border border-line bg-surface text-[10px] font-medium text-ink-muted hover:text-ink"
         >
           0
         </button>
@@ -1929,7 +1973,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
           aria-pressed={turnEnabled}
           aria-label={t("turnToggle")}
           title={t("turnToggle")}
-          className={`flex h-8 w-8 items-center justify-center rounded-sm border bg-surface text-sm ${
+          className={`tap-target flex h-8 w-8 items-center justify-center rounded-sm border bg-surface text-sm ${
             turnEnabled ? "border-accent text-accent-text" : "border-line text-ink-faint hover:text-ink"
           }`}
         >
@@ -1951,6 +1995,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
         onSelectFractie={pickFractie}
         onClear={clearSelection}
       />
+    </div>
     </div>
   );
 }

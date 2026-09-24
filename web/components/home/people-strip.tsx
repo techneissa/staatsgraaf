@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { PersonPortrait, PersonPortraitCredit } from "@/components/entity/person-portrait";
 import { PowerMapCallout } from "@/components/home/power-map-callout";
 import type { FocusPerson } from "@/lib/home";
@@ -13,17 +12,20 @@ function PersonBubble({ entry, side }: { entry: StripPerson; side: "left" | "rig
   const title = [person.name, entry.positionTitle].filter(Boolean).join(" · ");
   return (
     <li className="group relative -ml-2.5 first:ml-0">
-      <Link
+      <a
         href={`/personen/${person.slug}/`}
+        data-peek={person.id}
+        data-peek-kind="person"
+        aria-haspopup="dialog"
         title={title}
         aria-label={title}
         className="relative z-10 block h-11 w-11 shrink-0 rounded-pill ring-2 ring-canvas transition-fast hover:z-20 hover:ring-accent"
       >
         <PersonPortrait person={person} size={44} />
         <PersonPortraitCredit person={person} className="sr-only" />
-      </Link>
+      </a>
       <div
-        className={`invisible absolute top-12 z-30 flex w-max max-w-[12rem] flex-col gap-1.5 rounded-md border border-line bg-surface p-2.5 shadow-lg opacity-0 transition-fast group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100 ${
+        className={`invisible absolute top-12 z-30 flex w-max max-w-[12rem] flex-col gap-1.5 rounded-md border border-line bg-surface p-2.5 shadow-lg opacity-0 transition-fast group-focus-within:visible group-focus-within:opacity-100 [@media(hover:hover)]:group-hover:visible [@media(hover:hover)]:group-hover:opacity-100 ${
           side === "left" ? "left-0" : "right-0"
         }`}
       >
@@ -38,8 +40,9 @@ function PersonBubble({ entry, side }: { entry: StripPerson; side: "left" | "rig
 }
 
 /**
- * CivLab-style avatar strip: overlapping rounded portraits whose hover (or
- * keyboard focus) reveals a callout with the name and a button that focuses
+ * CivLab-style avatar strip: overlapping rounded portraits. A tap or click
+ * opens the person's peek (name, role, party, Open page); on devices that
+ * hover, hover or keyboard focus also reveals a callout with the name and a button that focuses
  * that person in the power map canvas. Callouts on the right half open to the
  * left, so a hidden callout never widens the page past the screen edge.
  */

@@ -2,20 +2,23 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumb, type BreadcrumbItem } from "@/components/breadcrumb";
 import { EmptyStateT } from "@/components/change/empty-state-t";
-import { EntityChip } from "@/components/entity-chip";
 import { EntityTabs } from "@/components/entity-tabs";
 import { JsonLd } from "@/components/json-ld";
 import { KindBadge } from "@/components/kind-badge";
 import { PersonCard } from "@/components/person-card";
 import { SourceLink } from "@/components/source-link";
+import { ShareButton } from "@/components/share-button";
+import { DateT } from "@/components/content/local-date";
+import { LocaleLabel } from "@/components/i18n/locale-label";
+import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { SourceList } from "@/components/source-list";
 import { NewsPanel } from "@/components/news/news-panel";
-import { T } from "@/components/i18n/t";
+import { L, T } from "@/components/i18n/t";
+import { POSITION_TYPE_LABELS } from "@/lib/labels";
 import { EntityConnections } from "@/components/entity/entity-connections";
-import { EntityDot } from "@/components/entity/entity-dot";
 import { EntityFacts } from "@/components/entity/entity-facts";
 import { FactGroup } from "@/components/entity/fact-group";
-import { ClipboardIcon, HistoryIcon, PeopleIcon, SeatIcon } from "@/components/entity/icons";
+import { HistoryIcon, PeopleIcon, SeatIcon } from "@/components/entity/icons";
 import { TenureTimeline } from "@/components/entity/tenure-timeline";
 import {
   getDatasetDate,
@@ -27,19 +30,12 @@ import {
   getTenuresForPosition,
 } from "@/lib/data";
 import {
-  formatTermLength,
   getConnectionsForEntity,
   getCurrentHoldersForPosition,
   positionEntryModes,
   positionExOfficioOf,
 } from "@/lib/entity";
-import { formatCount } from "@/lib/format";
 import { getNewsForEntity } from "@/lib/news";
-import {
-  ENTRY_MODE_LABELS,
-  FILL_METHOD_LABELS,
-  ORG_TYPE_LABELS,
-} from "@/lib/labels";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 import type { Organization, Position } from "@/lib/types";
 import type { Connection } from "@/lib/entity";
@@ -96,6 +92,15 @@ export async function generateMetadata({
   });
 }
 
+/** Term length in the site language: "4 jaar" or "4 years". */
+function TermLength({ months }: { months: number }) {
+  if (months % 12 === 0) {
+    const years = months / 12;
+    return <DateT area="entity" k={years === 1 ? "termYearOne" : "termYears"} counts={{ n: years }} />;
+  }
+  return <DateT area="entity" k={months === 1 ? "termMonthOne" : "termMonths"} counts={{ n: months }} />;
+}
+
 export default async function PositionPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const position = getPositionBySlug(slug);
@@ -119,32 +124,34 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
 
   const entryModeLabel =
     entryModes.length > 0
-      ? entryModes
-          .map((mode) => ENTRY_MODE_LABELS[mode])
-          .filter((label): label is string => label !== undefined)
-          .join(", ")
+      ? entryModes.map((mode, index) => (
+          <span key={mode}>
+            {index > 0 ? ", " : null}
+            <LocaleLabel kind="entryMode" value={mode} />
+          </span>
+        ))
       : null;
 
   const facts = [
     {
       label: <T area="entity" k="factOrganization" />,
-      value: organization ? organization.name : null,
+      value: organization ? <EntityPeekLink id={organization.id} /> : null,
     },
     {
       label: <T area="entity" k="factType" />,
-      value: ORG_TYPE_LABELS[position.type],
+      value: <L {...POSITION_TYPE_LABELS[position.type]} />,
     },
     {
       label: <T area="entity" k="factFillMethod" />,
-      value: fillMethod !== null ? FILL_METHOD_LABELS[fillMethod] : null,
+      value: fillMethod !== null ? <LocaleLabel kind="fillMethod" value={fillMethod} /> : null,
     },
     {
       label: <T area="entity" k="factTermLength" />,
-      value: termLength !== null ? formatTermLength(termLength) : null,
+      value: termLength !== null ? <TermLength months={termLength} /> : null,
     },
     {
       label: <T area="entity" k="factSeats" />,
-      value: seatsCount !== null ? formatCount(seatsCount) : null,
+      value: seatsCount !== null ? <DateT area="entity" k="countOnly" counts={{ n: seatsCount }} /> : null,
     },
     {
       label: <T area="entity" k="factEntryModes" />,
@@ -185,30 +192,26 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
 
       <header className="mt-4">
         <div className="flex min-w-0 flex-wrap items-center gap-2">
-          <KindBadge tone="accent">{ORG_TYPE_LABELS[position.type]}</KindBadge>
+          <KindBadge tone="accent">
+            <L {...POSITION_TYPE_LABELS[position.type]} />
+          </KindBadge>
           {fillMethod !== null ? (
             <span className="inline-flex items-center rounded-pill border border-line bg-surface px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-ink-muted">
-              {FILL_METHOD_LABELS[fillMethod]}
+              <LocaleLabel kind="fillMethod" value={fillMethod} />
             </span>
           ) : null}
           {seatsCount !== null ? (
             <span className="inline-flex items-center gap-1.5 rounded-pill border border-line bg-surface px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-ink-muted">
               <SeatIcon width={13} height={13} />
-              {formatCount(seatsCount)} <T area="entity" k="holderMeta" />
+              <DateT area="entity" k={seatsCount === 1 ? "seatOne" : "seatMany"} counts={{ n: seatsCount }} />
             </span>
           ) : null}
+          <ShareButton className="ms-auto" title={position.title} />
         </div>
-        <h1 className="mt-2 text-3xl font-semibold tracking-tight text-ink">{position.title}</h1>
+        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-balance text-ink">{position.title}</h1>
         {organization ? (
-          <p className="mt-2 flex items-center gap-2 text-sm text-ink-muted">
-            <EntityDot kind="position" id={position.id} />
-            <T area="entity" k="factOrganization" />:{" "}
-            <a
-              href={`/organisaties/${organization.slug}/`}
-              className="underline-offset-2 hover:text-accent-text hover:underline"
-            >
-              {organization.name}
-            </a>
+          <p className="mt-2 text-sm text-ink-muted">
+            <T area="entity" k="factOrganization" />: <EntityPeekLink id={organization.id} glyph />
           </p>
         ) : null}
         <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
@@ -257,7 +260,7 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
                   <T area="entity" k="whosConnected" />
                 </h2>
                 <div className="mt-3">
-                  <EntityConnections connections={connections} />
+                  <EntityConnections connections={connections} selfId={position.organization} />
                 </div>
               </div>
             }
@@ -269,32 +272,31 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
                 {seatsCount !== null ? (
                   <p className="text-sm tabular-nums text-ink-muted">
                     <T
-                      area="common"
-                      k="seatsCountLabel"
+                      area="entity"
+                      k={seatsCount === 1 ? "seatsFilledOne" : "seatsFilled"}
                       vars={{ n: currentHolders.length, total: seatsCount }}
                     />
                   </p>
                 ) : null}
-                <ul className="mt-3 space-y-2">
+                <ul className="mt-1 divide-y divide-line/60">
                   {currentHolders.map((tenure) => {
                     const person = getPersonById(tenure.person);
                     const source = getSourceById(tenure.source.source);
                     if (!person) return null;
                     return (
-                      <li key={tenure.id} className="space-y-1">
+                      <li key={tenure.id}>
                         <PersonCard
                           person={person}
-                          positionTitle={organization?.name ?? null}
                           startedAt={tenure.start}
                           acting={tenure.acting}
+                          source={
+                            source ? (
+                              <SourceLink href={source.url} meta={source.publisher} tone="quiet">
+                                <T area="entity" k="sourceLabel" />
+                              </SourceLink>
+                            ) : null
+                          }
                         />
-                        {source ? (
-                          <p className="pl-1">
-                            <SourceLink href={source.url} meta={source.publisher}>
-                              <T area="entity" k="sourceLabel" />
-                            </SourceLink>
-                          </p>
-                        ) : null}
                       </li>
                     );
                   })}
@@ -325,35 +327,15 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
         <aside className="order-first min-w-0 space-y-4">
           <EntityFacts facts={facts} className="rounded-md border border-line bg-surface p-4" />
 
-          <FactGroup title={<T area="entity" k="factOrganization" />}>
-            {organization ? (
-              <EntityChip
-                href={`/organisaties/${organization.slug}/`}
-                dot={<EntityDot kind="organization" id={organization.id} />}
-              >
-                {organization.name}
-              </EntityChip>
-            ) : (
-              <p className="text-sm text-ink-faint">
-                <T area="entity" k="unknownOrganization" />.
-              </p>
-            )}
-          </FactGroup>
-
           {exOfficio.length > 0 ? (
             <FactGroup icon={<SeatIcon />} title={<T area="entity" k="exOfficioTitle" />} count={exOfficio.length}>
               <p className="text-sm text-ink-muted">
                 <T area="entity" k="exOfficioNote" />
               </p>
-              <ul className="mt-3 flex flex-wrap gap-2">
+              <ul className="mt-2 space-y-1.5 text-sm">
                 {exOfficio.map((item) => (
                   <li key={item.id}>
-                    <EntityChip
-                      href={`/organisaties/${item.slug}/`}
-                      dot={<EntityDot kind="organization" id={item.id} />}
-                    >
-                      {item.name}
-                    </EntityChip>
+                    <EntityPeekLink id={item.id} glyph />
                   </li>
                 ))}
               </ul>

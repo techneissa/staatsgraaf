@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { PersonPortrait } from "@/components/entity/person-portrait";
 import { PartyBadge } from "@/components/party-badge";
 import { T } from "@/components/i18n/t";
+import { PeekLink } from "@/components/peek/peek-link";
 import { LabelledNav } from "@/components/entity/labelled-nav";
 import {
   getDatasetDate,
@@ -65,7 +65,7 @@ export default function PeopleIndexPage() {
         }}
       />
 
-      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: "Personen" }]} />
+      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: <T area="entity" k="peopleIndexTitle" /> }]} />
 
       <header className="mt-4">
         <h1 className="text-3xl font-semibold tracking-tight text-ink">
@@ -89,7 +89,7 @@ export default function PeopleIndexPage() {
             <li key={group.letter}>
               <a
                 href={`#letter-${group.letter}`}
-                className="inline-flex h-7 min-w-7 items-center justify-center rounded-pill border border-line bg-surface px-2 text-xs font-medium text-ink-muted transition-fast hover:border-line-strong hover:text-ink"
+                className="inline-flex h-7 min-w-7 items-center justify-center rounded-pill border border-line bg-surface px-2 text-xs font-medium text-ink-muted transition-fast hover:border-line-strong hover:text-ink pointer-coarse:h-11 pointer-coarse:min-w-11"
               >
                 {group.letter}
                 <span className="ms-1 tabular-nums text-ink-faint">
@@ -117,23 +117,26 @@ export default function PeopleIndexPage() {
               const role = currentRole(person.id);
               return (
                 <li key={person.id}>
-                  <article className="flex items-center gap-3 rounded-md border border-line bg-surface p-2.5 transition-fast hover:border-line-strong">
+                  <article className="relative flex items-center gap-3 rounded-md border border-line/70 p-2.5 transition-fast hover:border-line-strong">
                     <PersonPortrait person={person} size={40} />
                     <div className="min-w-0 flex-1">
                       <h3 className="truncate text-sm font-medium">
-                        <Link
+                        <PeekLink
+                          id={person.id}
                           href={`/personen/${person.slug}/`}
-                          className="text-ink underline-offset-2 hover:text-accent-text hover:underline"
+                          kind="person"
+                          variant="plain"
+                          className="after:absolute after:inset-0 after:rounded-md"
                         >
                           {person.name}
-                        </Link>
+                        </PeekLink>
                       </h3>
                       {role !== null ? (
                         <p className="truncate text-xs text-ink-muted">{role}</p>
                       ) : null}
                     </div>
                     {person.party !== null ? (
-                      <span className="shrink-0">
+                      <span className="relative z-10 shrink-0">
                         <PartyBadge party={person.party} />
                       </span>
                     ) : null}

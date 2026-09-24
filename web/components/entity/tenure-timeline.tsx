@@ -1,31 +1,29 @@
-import Link from "next/link";
+import type { ReactNode } from "react";
 import { type TimelineItem } from "@/components/timeline";
 import { PersonPortrait } from "./person-portrait";
-import { SourceLink } from "@/components/source-link";
+import { QuietSource } from "@/components/change/quiet-source";
 import { T } from "@/components/i18n/t";
+import { LocaleLabel } from "@/components/i18n/locale-label";
+import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { TimelineT } from "./timeline-t";
 import { getOrganizationById, getPersonById, getPositionById, getSourceById } from "@/lib/data";
-import { END_REASON_LABELS, ENTRY_MODE_LABELS } from "@/lib/labels";
+import { titleNamesBody } from "@/lib/changes";
 import { tenureEndReason, tenureEntryMode } from "@/lib/entity";
-import { formatPeriod } from "@/lib/format";
 import type { Tenure } from "@/lib/types";
 
 type TenureTimelineVariant = "organization" | "position" | "person";
 
-function linkClass(): string {
-  return "underline-offset-2 hover:text-accent-text hover:underline";
-}
-
 function Source({ tenure }: { tenure: Tenure }) {
   const source = getSourceById(tenure.source.source);
   if (!source) return null;
-  return (
-    <SourceLink href={source.url} meta={source.publisher}>
-      <T area="entity" k="sourceLabel" />
-    </SourceLink>
-  );
+  return <QuietSource href={source.url} publisher={source.publisher} retrieved={tenure.source.retrieved} />;
 }
 
+/**
+ * The tenure history of a person, position or organisation on a rail:
+ * portrait or initials, peek links, the period in the site locale, the
+ * acting, entry mode and end reason labels translated, and a quiet source.
+ */
 export function TenureTimeline({
   tenures,
   variant,
@@ -40,68 +38,50 @@ export function TenureTimeline({
     const organization = position ? getOrganizationById(position.organization) : undefined;
     const person = getPersonById(tenure.person);
 
-    const badges: string[] = [];
-    if (tenure.acting) badges.push("Waarnemend");
+    const badges: ReactNode[] = [];
     const entryMode = tenureEntryMode(tenure);
-    if (entryMode !== null && entryMode !== "benoemd") {
-      const entryLabel = ENTRY_MODE_LABELS[entryMode];
-      if (entryLabel !== undefined) badges.push(entryLabel);
-    }
+    if (tenure.acting && entryMode !== "waarnemend") badges.push(<LocaleLabel kind="entryMode" value="waarnemend" />);
+    if (entryMode !== null && entryMode !== "benoemd") badges.push(<LocaleLabel kind="entryMode" value={entryMode} />);
     const endReason = tenureEndReason(tenure);
-    if (endReason !== null) badges.push(END_REASON_LABELS[endReason]);
+    if (endReason !== null) badges.push(<LocaleLabel kind="endReason" value={endReason} />);
 
-    let title: React.ReactNode;
+    const personLink = person ? (
+      <EntityPeekLink id={person.id} variant="plain" />
+    ) : (
+      <T area="entity" k="unknownPerson" />
+    );
+    const positionLink = position ? (
+      <EntityPeekLink id={position.id} variant="plain" />
+    ) : (
+      <T area="entity" k="unknownPosition" />
+    );
+
+    let title: ReactNode;
+    let meta: ReactNode = null;
     if (variant === "position") {
-      title = person ? (
-        <Link href={`/personen/${person.slug}/`} className={linkClass()}>
-          {person.name}
-        </Link>
-      ) : (
-        <T area="entity" k="unknownPerson" />
-      );
+      title = personLink;
+    } else if (variant === "organization") {
+      title = positionLink;
+      meta = person ? <EntityPeekLink id={person.id} variant="quiet" /> : <T area="entity" k="unknownPerson" />;
     } else {
-      title = position ? (
-        <Link href={`/posities/${position.slug}/`} className={linkClass()}>
-          {position.title}
-        </Link>
-      ) : (
-        <T area="entity" k="unknownPosition" />
-      );
-    }
-
-    let meta: React.ReactNode = null;
-    if (variant === "organization") {
-      meta = person ? (
-        <Link href={`/personen/${person.slug}/`} className={linkClass()}>
-          {person.name}
-        </Link>
-      ) : (
-        <T area="entity" k="unknownPerson" />
-      );
-    } else if (variant === "person") {
-      meta = organization ? (
-        <Link href={`/organisaties/${organization.slug}/`} className={linkClass()}>
-          {organization.name}
-        </Link>
-      ) : (
-        <T area="entity" k="unknownOrganization" />
-      );
+      title = positionLink;
+      // Skip the body when the position title already names it.
+      if (!organization) meta = <T area="entity" k="unknownOrganization" />;
+      else if (!position || !titleNamesBody(position.title, organization.name)) {
+        meta = <EntityPeekLink id={organization.id} variant="quiet" />;
+      }
     }
 
     return {
       id: tenure.id,
       title,
-      meta: (
-        <span className="inline-flex flex-wrap items-baseline gap-x-2">
-          {meta}
-          <Source tenure={tenure} />
-        </span>
-      ),
-      icon:
-        person && variant !== "person" ? <PersonPortrait person={person} size={32} /> : undefined,
-      period: formatPeriod(tenure.start, tenure.end),
+      meta,
+      icon: person && variant !== "person" ? <PersonPortrait person={person} size={36} /> : undefined,
+      start: tenure.start,
+      end: tenure.end,
       current: tenure.end === null,
       badges,
+      source: <Source tenure={tenure} />,
     };
   });
 

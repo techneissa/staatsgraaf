@@ -5,7 +5,9 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { SourceLink } from "@/components/source-link";
 import { SourceList } from "@/components/source-list";
-import { T } from "@/components/i18n/t";
+import { L, T } from "@/components/i18n/t";
+import { LocalDate } from "@/components/content/local-date";
+import { ShareButton } from "@/components/share-button";
 import { MemberList } from "@/components/entity/member-list";
 import { getDatasetDate, getPersonById } from "@/lib/data";
 import type { MemberEntry } from "@/lib/entity";
@@ -13,7 +15,6 @@ import { currentMembershipsForPartyKey, seatCountsByPartyKey, seatTallyForOrgani
 import { ArchChart } from "@/components/parliament/arch-chart";
 import { SeatSparkline } from "@/components/parliament/seat-sparkline";
 import { PARTIES, partyBySlug, partySlug } from "@/lib/parties";
-import { formatDate } from "@/lib/format";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 import type { SourceRef } from "@/lib/types";
 
@@ -85,7 +86,7 @@ export default async function PartyPage({
       <Breadcrumb
         items={[
           { label: SITE_NAME, href: "/" },
-          { label: "Partijen", href: "/partijen/" },
+          { label: <T area="common" k="navParties" />, href: "/partijen/" },
           { label: party.abbrev },
         ]}
       />
@@ -100,11 +101,14 @@ export default async function PartyPage({
             {party.abbrev.slice(0, 4)}
           </span>
           <div className="min-w-0">
-            <h1 className="text-3xl font-semibold tracking-tight text-ink">{party.name.nl}</h1>
+            <h1 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{party.name.nl}</h1>
             <p className="mt-1 text-sm text-ink-muted" lang="en">
               {party.name.en}
             </p>
           </div>
+        </div>
+        <div className="mt-3">
+          <ShareButton title={party.name.nl} />
         </div>
         <p className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
           <span className="tabular-nums text-ink-muted">
@@ -131,7 +135,7 @@ export default async function PartyPage({
         <dl className="mt-3 space-y-2 text-sm">
           <div className="flex flex-wrap gap-x-3 gap-y-1">
             <dt className="text-ink-faint"><T area="pages" k="partyColourLabel" /></dt>
-            <dd className="flex items-center gap-2 text-ink-muted">
+            <dd className="flex flex-wrap items-center gap-x-2 gap-y-1 text-ink-muted">
               <span
                 aria-hidden="true"
                 className="inline-block h-4 w-4 rounded-full ring-1 ring-line"
@@ -148,17 +152,17 @@ export default async function PartyPage({
                 </SourceLink>
               ) : null}
               <span className="text-xs text-ink-faint">
-                <T area="pages" k="partyColourRetrieved" /> {formatDate(party.retrieved)}
+                <T area="pages" k="partyColourRetrieved" /> <LocalDate iso={party.retrieved} />
               </span>
             </dd>
           </div>
           <div className="flex flex-wrap gap-x-5 gap-y-1">
             <div className="flex gap-2">
-              <dt className="text-ink-faint">Nederlands</dt>
+              <dt className="text-ink-faint"><L nl="Nederlands" en="Dutch" /></dt>
               <dd className="text-ink-muted">{party.name.nl}</dd>
             </div>
             <div className="flex gap-2">
-              <dt className="text-ink-faint" lang="en">English</dt>
+              <dt className="text-ink-faint"><L nl="Engels" en="English" /></dt>
               <dd className="text-ink-muted" lang="en">{party.name.en}</dd>
             </div>
           </div>

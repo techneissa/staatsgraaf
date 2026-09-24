@@ -1,8 +1,10 @@
 import type { ReactNode } from "react";
-import { Card } from "../card";
 import { T } from "@/components/i18n/t";
 import { changeAgeDays } from "@/lib/changes";
-import { formatCount, formatDate } from "@/lib/format";
+import { formatCount } from "@/lib/format";
+import { LocalDate } from "./local-date";
+import { StatStrip } from "./stat-strip";
+import { TemplateT } from "./template-t";
 
 function ageLabel(days: number | null): ReactNode {
   if (days === null) return <T area="home" k="ageUnknown" />;
@@ -24,44 +26,35 @@ export function ChangeStats({
 }) {
   const age = changeAgeDays(lastChangeDate, reference);
   return (
-    <div className="grid gap-3 sm:grid-cols-3">
-      <Card>
-        <p className="text-xs font-medium uppercase tracking-wider text-ink-faint">
-          <T area="home" k="statVacantLabel" />
-        </p>
-        <p className="mt-2 text-3xl font-semibold tabular-nums tracking-tight text-ink">
-          {formatCount(vacantSeats)}
-        </p>
-        <p className="mt-1 text-sm text-ink-muted">
-          <T area="home" k="statVacantSub" />
-        </p>
-      </Card>
-      <Card>
-        <p className="text-xs font-medium uppercase tracking-wider text-ink-faint">
-          <T area="home" k="statActingLabel" />
-        </p>
-        <p className="mt-2 text-3xl font-semibold tabular-nums tracking-tight text-ink">
-          {formatCount(actingOfficials)}
-        </p>
-        <p className="mt-1 text-sm text-ink-muted">
-          <T area="home" k="statActingSub" />
-        </p>
-      </Card>
-      <Card>
-        <p className="text-xs font-medium uppercase tracking-wider text-ink-faint">
-          <T area="home" k="statLastChangeLabel" />
-        </p>
-        <p className="mt-2 text-3xl font-semibold tabular-nums tracking-tight text-ink">
-          {ageLabel(age)}
-        </p>
-        <p className="mt-1 text-sm text-ink-muted">
-          {lastChangeDate ? (
-            <T area="home" k="lastChangeAgoOn" vars={{ date: formatDate(lastChangeDate) }} />
+    <StatStrip
+      items={[
+        {
+          key: "vacant",
+          label: <T area="home" k="statVacantLabel" />,
+          value: formatCount(vacantSeats),
+          sub: <T area="home" k="statVacantSub" />,
+        },
+        {
+          key: "acting",
+          label: <T area="home" k="statActingLabel" />,
+          value: formatCount(actingOfficials),
+          sub: <T area="home" k="statActingSub" />,
+        },
+        {
+          key: "last",
+          label: <T area="home" k="statLastChangeLabel" />,
+          value: ageLabel(age),
+          sub: lastChangeDate ? (
+            age === 0 ? (
+              <LocalDate iso={lastChangeDate} />
+            ) : (
+              <TemplateT k="lastChangeOn" slots={{ date: <LocalDate iso={lastChangeDate} /> }} />
+            )
           ) : (
             <T area="home" k="statLastChangeNone" />
-          )}
-        </p>
-      </Card>
-    </div>
+          ),
+        },
+      ]}
+    />
   );
 }
