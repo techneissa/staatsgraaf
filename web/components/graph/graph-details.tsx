@@ -182,7 +182,7 @@ export function GraphDetails({
             {t("detailsTitle")}
           </span>
           <span className={`min-w-0 flex-1 truncate text-xs ${target ? "font-medium text-ink" : "text-ink-faint"}`}>
-            {target ? heading : t("detailsHintShort")}
+            {target ? heading : t("detailsTitle")}
           </span>
           <svg aria-hidden="true" viewBox="0 0 20 20" width="12" height="12" className={`shrink-0 text-ink-muted transition-fast ${collapsed ? "" : "rotate-180"}`}>
             <path d="m5.5 12.5 4.5-4.5 4.5 4.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
@@ -201,12 +201,12 @@ export function GraphDetails({
 
       <div
         id={bodyId}
-        className={`min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 py-2.5 @min-[44rem]:block ${collapsed ? "hidden" : ""}`}
+        className={`motion-unfold min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 py-2.5 @min-[44rem]:block ${collapsed ? "hidden" : ""}`}
       >
-        {!target ? <p className="text-[11px] leading-relaxed text-ink-faint">{t("detailsEmpty")}</p> : null}
 
         {target ? (
-          <>
+          // Keyed on the selection, so a new pick fades in over the last one.
+          <div key={JSON.stringify(target)} className="motion-swap">
             <div className="border-s-2 ps-2" style={{ borderColor: accent }}>
               <p className="text-sm font-semibold leading-tight text-ink">{heading}</p>
               {node && gloss(node.name) ? <p className="text-[10px] text-ink-faint">({gloss(node.name)})</p> : null}
@@ -412,7 +412,7 @@ export function GraphDetails({
 
             {/* A sector: how much of the state it holds. */}
             {sector ? <p className="mt-2 text-[11px] text-ink-muted">{t("detailsSectorBodies", { n: sector.count })}</p> : null}
-          </>
+          </div>
         ) : null}
       </div>
     </aside>

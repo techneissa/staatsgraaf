@@ -1,9 +1,10 @@
+import { Amount } from "./amount";
 import { L } from "@/components/i18n/t";
 import { DictEmptyState } from "./dict-empty-state";
 import { T } from "@/components/i18n/t";
 import { interpolate } from "@/lib/i18n/locales";
 import { NEWS_DICT } from "@/lib/i18n/dict-news";
-import { formatBudgetAmount, type BudgetBreakdownRow } from "@/lib/budget";
+import { type BudgetBreakdownRow } from "@/lib/budget";
 import { toSourceNoteItems } from "./source-note-data";
 import { SourceNote } from "./source-note";
 import type { SourceRef } from "@/lib/types";
@@ -68,7 +69,7 @@ export function BudgetBreakdown({
               <T area="news" k={heading} />
               {fiscalYear !== null ? ` ${fiscalYear}` : ""}
             </h3>
-            <table className="mt-2 w-full border-collapse text-sm">
+            <table className="motion-grow mt-2 w-full border-collapse text-sm" data-reveal="pending">
               <caption className="sr-only">
                 <L nl={captionText.nl} en={captionText.en} />
               </caption>
@@ -94,7 +95,7 @@ export function BudgetBreakdown({
                       {row.category}
                     </th>
                     <td className="py-2 text-right tabular-nums text-ink">
-                      {formatBudgetAmount(row.amount, unit) ?? (
+                      {row.amount !== null && row.amount !== undefined ? <Amount value={row.amount} unit={unit} /> : (
                         <span className="text-ink-faint">
                           <T area="news" k="budgetNotReported" />
                         </span>
@@ -103,7 +104,7 @@ export function BudgetBreakdown({
                     <td className="w-24 py-2 pl-3" aria-hidden="true">
                       <span className="block h-2 w-full rounded-pill bg-surface-inset">
                         <span
-                          className="block h-2 rounded-pill bg-accent"
+                          className="grow-x block h-2 rounded-pill bg-accent"
                           style={{
                             width:
                               groupMax(group.rows) > 0 && row.amount !== null

@@ -90,7 +90,7 @@ export function GraphList({ bundle, selectedId, onSelect, hiddenBranches }: Grap
 
   return (
     <details
-      className="absolute left-[max(0.75rem,var(--safe-left))] top-3 max-w-[min(22rem,calc(100%-1.5rem))] rounded-md border border-line bg-surface text-sm"
+      className="motion-disclosure absolute left-[max(0.75rem,var(--safe-left))] top-3 max-w-[min(22rem,calc(100%-1.5rem))] rounded-md border border-line bg-surface text-sm"
       onToggle={(event) => setOpen((event.currentTarget as HTMLDetailsElement).open)}
     >
       <summary className="tap-row flex cursor-pointer items-center gap-1.5 px-3 py-2 text-xs font-medium uppercase tracking-wide text-ink-muted [&::-webkit-details-marker]:hidden">

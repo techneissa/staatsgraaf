@@ -214,20 +214,20 @@ export const ENTITY_DICT = {
   // Listing pages
   orgIndexTitle: { nl: "Organisaties", en: "Organizations" },
   orgIndexIntro: {
-    nl: "Alle {n} organisaties in de dataset, gegroepeerd naar staatsmacht. Elke organisatiepagina toont de positie in de staatsinrichting, de bijbehorende posities en de bronnen.",
-    en: "All {n} organizations in the dataset, grouped by branch of state power. Each organization page shows the position in the state structure, the related positions, and the sources.",
+    nl: "Alle {n} organisaties, gegroepeerd naar staatsmacht.",
+    en: "All {n} organisations, grouped by branch of government.",
   },
   groupNavLabel: { nl: "Groepen", en: "Groups" },
   peopleIndexTitle: { nl: "Personen", en: "People" },
   peopleIndexIntro: {
-    nl: "Alle {n} personen in de dataset, alfabetisch. Van {withPortrait} personen is een gelicentieerd portret opgenomen; de overige tonen initialen. Elke functie op een persoonspagina heeft een bron.",
-    en: "All {n} people in the dataset, alphabetically. {withPortrait} people have a licensed portrait on record; the others show initials. Every position on a person page has a source.",
+    nl: "Alle {n} personen, alfabetisch.",
+    en: "All {n} people, alphabetically.",
   },
   alphabetNavLabel: { nl: "Alfabet", en: "Alphabet" },
   positionsIndexTitle: { nl: "Posities", en: "Positions" },
   positionsIndexIntro: {
-    nl: "Alle {n} posities in de dataset, gegroepeerd naar type. Elke positiepagina toont de wettelijke basis, de vulwijze en de reeks bekleders met een bron.",
-    en: "All {n} positions in the dataset, grouped by type. Each position page shows the legal basis, the filling method, and the list of holders with a source.",
+    nl: "Alle {n} posities, gegroepeerd naar type.",
+    en: "All {n} positions, grouped by type.",
   },
 
   // Badges and fallback names

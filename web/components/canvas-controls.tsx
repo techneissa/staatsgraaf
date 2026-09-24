@@ -1,6 +1,7 @@
 "use client";
 
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { SlidingIndicator } from "@/components/motion/sliding-indicator";
 import { useT } from "@/components/i18n/use-t";
 import { useLocale } from "@/components/i18n/language-provider";
 import { branchColorVar } from "@/lib/branch-colors";
@@ -111,6 +112,7 @@ export function CanvasControls({
         aria-label={tg("viewToggleGroup")}
         className="flex items-center rounded-sm border border-line bg-surface-inset p-0.5"
       >
+        <SlidingIndicator className="rounded-sm bg-surface shadow-sm" />
         <button
           type="button"
           aria-pressed={view === "graph"}
@@ -176,7 +178,7 @@ export function CanvasControls({
               align="end"
               sideOffset={6}
               collisionPadding={8}
-              className="z-50 max-h-[min(26rem,var(--radix-dropdown-menu-content-available-height))] w-72 max-w-[calc(100vw-1rem)] overflow-y-auto overscroll-contain rounded-md border border-line bg-surface p-1 shadow-xl"
+              className="motion-menu z-50 max-h-[min(26rem,var(--radix-dropdown-menu-content-available-height))] w-72 max-w-[calc(100vw-1rem)] overflow-y-auto overscroll-contain rounded-md border border-line bg-surface p-1 shadow-xl"
             >
             <DropdownMenu.Label className="px-2 py-1.5 text-xs font-semibold uppercase tracking-wide text-ink-faint">
               {t("layerTitle")}

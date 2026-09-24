@@ -12,7 +12,6 @@ import { JsonLd } from "@/components/json-ld";
 import { SourceList } from "@/components/source-list";
 import {
   budgetDelta,
-  budgetUnitLabel,
   formatBudgetAmount,
   formatBudgetPercent,
   getBudgetByOrganizationSlug,
@@ -57,7 +56,6 @@ export default async function BudgetOrganizationPage({
   const view = getBudgetByOrganizationSlug(slug);
   if (!view) notFound();
 
-  const unitLabel = budgetUnitLabel(view.unit);
   const currentYear = view.currentRecord?.fiscalYear ?? null;
   const previousYear = currentYear !== null ? currentYear - 1 : null;
   const delta =
@@ -99,11 +97,6 @@ export default async function BudgetOrganizationPage({
               <T area="news" k="budgetOrgActionLink" />
           </Link>
         </p>
-        {unitLabel !== null ? (
-          <p className="mt-2 text-xs text-ink-faint">
-            <T area="news" k="budgetUnitNote" vars={{ unit: unitLabel }} />
-          </p>
-        ) : null}
         {currentYear !== null && previousYear !== null ? (
           <p className="mt-1 text-xs text-ink-faint">
             <T

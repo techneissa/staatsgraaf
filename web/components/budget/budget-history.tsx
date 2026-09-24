@@ -1,9 +1,10 @@
+import { Amount } from "./amount";
 import { L } from "@/components/i18n/t";
 import { DictEmptyState } from "./dict-empty-state";
 import { T } from "@/components/i18n/t";
 import { interpolate } from "@/lib/i18n/locales";
 import { NEWS_DICT } from "@/lib/i18n/dict-news";
-import { formatBudgetAmount, type BudgetHistoryRow } from "@/lib/budget";
+import { type BudgetHistoryRow } from "@/lib/budget";
 import { toSourceNoteItems } from "./source-note-data";
 import { SourceNote } from "./source-note";
 import type { SourceRef } from "@/lib/types";
@@ -44,7 +45,7 @@ export function BudgetHistory({
   return (
     <div>
       <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-xs tabular-nums sm:min-w-[32rem] sm:text-sm">
+        <table className="motion-grow w-full border-collapse text-xs tabular-nums sm:min-w-[32rem] sm:text-sm" data-reveal="pending">
           <caption className="sr-only">
             <L nl={captionNl} en={captionEn} />
           </caption>
@@ -78,14 +79,14 @@ export function BudgetHistory({
                     {row.fiscalYear}
                   </th>
                   <td className="py-2 pe-3 text-right tabular-nums text-ink">
-                    {formatBudgetAmount(row.spendingActual, unit) ?? (
+                    {row.spendingActual !== null && row.spendingActual !== undefined ? <Amount value={row.spendingActual} unit={unit} /> : (
                       <span className="text-ink-faint">
                         <T area="news" k="budgetNotReported" />
                       </span>
                     )}
                   </td>
                   <td className="py-2 pe-3 text-right tabular-nums text-ink">
-                    {formatBudgetAmount(row.revenue, unit) ?? (
+                    {row.revenue !== null && row.revenue !== undefined ? <Amount value={row.revenue} unit={unit} /> : (
                       <span className="text-ink-faint">
                         <T area="news" k="budgetNotReported" />
                       </span>
@@ -94,7 +95,7 @@ export function BudgetHistory({
                   <td className="py-2" aria-hidden="true">
                     <span className="block h-2 w-full rounded-pill bg-surface-inset">
                       <span
-                        className="block h-2 rounded-pill bg-accent"
+                        className="grow-x block h-2 rounded-pill bg-accent"
                         style={{ width: `${share}%` }}
                       />
                     </span>

@@ -143,6 +143,10 @@ export const GRAPH_DICT = {
     nl: "Relaties",
     en: "Relationships",
   },
+  relationshipLegendHint: {
+    nl: "Lijnen verschijnen pas als je een organisatie kiest.",
+    en: "Lines appear only when you pick an organisation.",
+  },
   shapeShield: {
     nl: "Ministerie en defensieonderdeel",
     en: "Ministry and defence unit",

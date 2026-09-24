@@ -3,7 +3,7 @@ import { SourceLink } from "@/components/source-link";
 import { T } from "@/components/i18n/t";
 import { interpolate } from "@/lib/i18n/locales";
 import { NEWS_DICT } from "@/lib/i18n/dict-news";
-import { formatBudgetAmount } from "@/lib/budget";
+import { Amount } from "./amount";
 import { toSourceNoteItems } from "./source-note-data";
 import { SourceNote } from "./source-note";
 import type { AmountSet, SourceRef } from "@/lib/types";
@@ -24,15 +24,14 @@ function Cell({
   value: number | null;
   unit: string | null | undefined;
 }) {
-  const formatted = formatBudgetAmount(value, unit);
-  if (formatted === null) {
+  if (value === null) {
     return (
       <span className="text-ink-faint">
         <T area="news" k="budgetNotReported" />
       </span>
     );
   }
-  return <span className="tabular-nums text-ink">{formatted}</span>;
+  return <Amount value={value} unit={unit} className="tabular-nums text-ink" />;
 }
 
 export function BudgetYearFigures({

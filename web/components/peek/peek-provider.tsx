@@ -8,6 +8,7 @@ import { useLocale } from "@/components/i18n/language-provider";
 import { useT } from "@/components/i18n/use-t";
 import { KindGlyph } from "@/components/kind-glyph";
 import { ShareButton } from "@/components/share-button";
+import { prefersReducedMotion } from "@/lib/motion";
 import { ORG_SUBTYPE_LABELS, ORG_SUBTYPE_LABELS_EN } from "@/lib/labels";
 import {
   normalizePeekRecord,
@@ -70,6 +71,10 @@ export function PeekProvider() {
   const [record, setRecord] = useState<PeekRecord | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
   const [sheet, setSheet] = useState(false);
+  /** The peek that is animating out after a close; null once it has gone. */
+  const [leaving, setLeaving] = useState<OpenState | null>(null);
+  const openRef = useRef<OpenState | null>(null);
+  openRef.current = open;
 
   useEffect(() => {
     const media = matchMedia(SHEET_QUERY);
@@ -91,9 +96,14 @@ export function PeekProvider() {
       const href = anchor.getAttribute("href");
       if (!id || !kind || !href) return;
       event.preventDefault();
-      setOpen((current) =>
-        current?.anchor === anchor ? null : { id, kind, href, label: anchor.textContent?.trim() ?? "", anchor },
-      );
+      const current = openRef.current;
+      if (current?.anchor === anchor) {
+        setLeaving(current);
+        setOpen(null);
+        return;
+      }
+      setLeaving(null);
+      setOpen({ id, kind, href, label: anchor.textContent?.trim() ?? "", anchor });
     };
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
@@ -119,21 +129,27 @@ export function PeekProvider() {
   }, [open]);
 
   const close = useCallback((returnFocus = true) => {
-    setOpen((current) => {
-      if (current && returnFocus) current.anchor.focus({ preventScroll: true });
-      return null;
-    });
+    const current = openRef.current;
+    if (!current) return;
+    if (returnFocus) current.anchor.focus({ preventScroll: true });
+    // The dialog stays mounted, inert, for its exit animation.
+    setLeaving(current);
+    setOpen(null);
   }, []);
 
-  if (!open) return null;
+  const clearLeaving = useCallback(() => setLeaving(null), []);
+  const shown = open ?? leaving;
+  if (!shown) return null;
   return (
     <PeekDialog
-      key={open.id + open.href}
-      open={open}
+      key={shown.id + shown.href}
+      open={shown}
       record={record}
       status={status}
       sheet={sheet}
+      closing={open === null}
       onClose={close}
+      onClosed={clearLeaving}
     />
   );
 }
@@ -143,19 +159,46 @@ function PeekDialog({
   record,
   status,
   sheet,
+  closing,
   onClose,
+  onClosed,
 }: {
   open: OpenState;
   record: PeekRecord | null;
   status: "loading" | "ready" | "error";
   sheet: boolean;
+  /** Animating out: inert, and unmounted by `onClosed` when the exit ends. */
+  closing: boolean;
   onClose: (returnFocus?: boolean) => void;
+  onClosed: () => void;
 }) {
   const t = useT("common");
   const router = useRouter();
   const titleId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState<CSSProperties>({ visibility: "hidden" });
+
+  // Unmount when the exit animation ends; the timer covers reduced motion and
+  // browsers that never fire animationend.
+  useEffect(() => {
+    if (!closing) return;
+    const panel = panelRef.current;
+    let done = false;
+    const finish = () => {
+      if (done) return;
+      done = true;
+      onClosed();
+    };
+    const onEnd = (event: AnimationEvent) => {
+      if (event.target === panel) finish();
+    };
+    panel?.addEventListener("animationend", onEnd);
+    const timer = window.setTimeout(finish, prefersReducedMotion() ? 0 : 260);
+    return () => {
+      panel?.removeEventListener("animationend", onEnd);
+      window.clearTimeout(timer);
+    };
+  }, [closing, onClosed]);
 
   // Anchor the popover to the link: below it, or above when there is no room.
   const place = useCallback(() => {
@@ -176,7 +219,11 @@ function PeekDialog({
     const top = below >= height || below >= above ? rect.bottom + GAP : Math.max(MARGIN, rect.top - GAP - height);
     const left = Math.min(Math.max(MARGIN, rect.left), viewportWidth - width - MARGIN);
     const room = top > rect.top ? viewportHeight - top - MARGIN : rect.top - GAP - MARGIN;
-    setPosition({ top, left, maxHeight: Math.max(200, room) });
+    // The popover grows out of the link: its origin is the edge that faces the
+    // link, at the link's horizontal position.
+    const originX = Math.min(Math.max(12, rect.left + Math.min(rect.width, 48) / 2 - left), width - 12);
+    const originY = top > rect.top ? "0px" : "100%";
+    setPosition({ top, left, maxHeight: Math.max(200, room), "--origin": `${originX.toFixed(0)}px ${originY}` } as CSSProperties);
   }, [open.anchor, sheet, onClose]);
 
   useLayoutEffect(() => {
@@ -272,9 +319,7 @@ function PeekDialog({
       <ShareButton href={open.href} title={record?.name ?? open.label} compact />
     </div>
   );
-  const hint = (
-    <p className="mt-2 hidden text-[11px] text-ink-faint [@media(hover:hover)_and_(pointer:fine)]:block">{t("peekHint")}</p>
-  );
+  const hint = null;
 
   const closeButton = (
     <button
@@ -292,14 +337,20 @@ function PeekDialog({
 
   if (sheet) {
     return (
-      <div className="fixed inset-0 z-50">
-        <div aria-hidden="true" className="absolute inset-0 bg-overlay" onClick={() => onClose(true)} />
+      <div className={`fixed inset-0 z-50 ${closing ? "pointer-events-none" : ""}`} inert={closing}>
+        <div
+          aria-hidden="true"
+          data-state={closing ? "closed" : "open"}
+          className="motion-scrim absolute inset-0 bg-overlay"
+          onClick={() => onClose(true)}
+        />
         <div
           ref={panelRef}
           role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
           tabIndex={-1}
+          data-state={closing ? "closed" : "open"}
           className="motion-sheet absolute inset-x-0 bottom-0 flex max-h-[85dvh] flex-col rounded-t-lg border border-b-0 border-line bg-surface shadow-2xl outline-none"
           style={{
             paddingBottom: "max(var(--t-space-4), env(safe-area-inset-bottom, 0px))",
@@ -325,7 +376,9 @@ function PeekDialog({
       aria-modal="false"
       aria-labelledby={titleId}
       tabIndex={-1}
-      className="motion-pop fixed z-50 flex w-[min(22rem,calc(100vw-1rem))] flex-col overflow-y-auto rounded-md border border-line-strong bg-surface p-4 shadow-2xl outline-none"
+      inert={closing}
+      data-state={closing ? "closed" : "open"}
+      className={`motion-pop fixed z-50 flex w-[min(22rem,calc(100vw-1rem))] flex-col overflow-y-auto rounded-md border border-line-strong bg-surface p-4 shadow-2xl outline-none ${closing ? "pointer-events-none" : ""}`}
       style={position}
     >
       <div className="flex items-start gap-2">
@@ -427,15 +480,15 @@ function PeekBody({
       {status === "loading" ? (
         <div aria-live="polite" className="mt-3 space-y-2">
           <span className="sr-only">{t("peekLoading")}</span>
-          <span aria-hidden="true" className="block h-3 w-4/5 animate-pulse rounded-xs bg-surface-inset" />
-          <span aria-hidden="true" className="block h-3 w-3/5 animate-pulse rounded-xs bg-surface-inset" />
+          <span aria-hidden="true" className="sg-skeleton block h-3 w-4/5 rounded-xs" />
+          <span aria-hidden="true" className="sg-skeleton block h-3 w-3/5 rounded-xs" />
         </div>
       ) : null}
 
       {status === "error" ? <p className="mt-3 text-sm text-ink-muted">{t("peekUnavailable")}</p> : null}
 
       {record ? (
-        <div className="mt-3 space-y-2.5 text-sm">
+        <div className="motion-swap mt-3 space-y-2.5 text-sm">
           {record.description ? (
             <p lang="nl" className="line-clamp-3 leading-snug text-ink-muted">
               {record.description}

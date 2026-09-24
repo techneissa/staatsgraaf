@@ -1,14 +1,11 @@
 import { getDataset, getOrganizationById, getOrganizationBySlug } from "./data";
 import type { AmountSet, Budget, Organization, SourceRef } from "./types";
+import { budgetUnitFactor } from "./budget-format";
+
+export { budgetUnitFactor, formatBudgetAmount, formatBudgetAmountExact, formatEuroCompact } from "./budget-format";
 
 export const BUDGET_OVERVIEW_YEAR = 2026;
 export const BUDGET_PREVIOUS_YEAR = BUDGET_OVERVIEW_YEAR - 1;
-
-const euroFormatter = new Intl.NumberFormat("nl-NL", {
-  style: "currency",
-  currency: "EUR",
-  maximumFractionDigits: 0,
-});
 
 const percentFormatter = new Intl.NumberFormat("nl-NL", {
   minimumFractionDigits: 1,
@@ -91,28 +88,12 @@ export function emptyAmountSet(): AmountSet {
   };
 }
 
-export function budgetUnitFactor(unit: string | null | undefined): number {
-  if (!unit) return 1;
-  const normalized = unit.toLowerCase().replace(/\s+/g, "");
-  if (/x1[.,]?000[.,]?000/.test(normalized)) return 1_000_000;
-  if (/x1[.,]?000/.test(normalized)) return 1_000;
-  return 1;
-}
-
 export function budgetUnitLabel(unit: string | null | undefined): string | null {
   if (!unit) return null;
   const factor = budgetUnitFactor(unit);
   if (factor === 1_000) return "x 1.000 euro";
   if (factor === 1_000_000) return "x 1.000.000 euro";
   return unit;
-}
-
-export function formatBudgetAmount(
-  value: number | null | undefined,
-  unit: string | null | undefined,
-): string | null {
-  if (value === null || value === undefined) return null;
-  return euroFormatter.format(value * budgetUnitFactor(unit));
 }
 
 export function formatBudgetPercent(value: number): string {

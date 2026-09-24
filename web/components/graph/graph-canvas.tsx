@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import type { KeyboardEvent as ReactKeyboardEvent, MouseEvent as ReactMouseEvent, PointerEvent as ReactPointerEvent } from "react";
+import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent, MouseEvent as ReactMouseEvent, PointerEvent as ReactPointerEvent } from "react";
 import { useRouter } from "next/navigation";
 import {
   CLUSTER_DOT_PITCH,
@@ -36,7 +36,7 @@ import { placeLabels, type LabelItem } from "@/lib/label-placement";
 import { benchSeats, type Bench, type BenchBlock } from "@/lib/bench";
 import { GraphDetails, type DetailsTarget } from "./graph-details";
 import { branchColorVar } from "@/lib/branch-colors";
-import { edgeLine, edgeTypeOrderIndex } from "./edge-styles";
+
 import { resolveCanvasClick, type CanvasClick } from "@/lib/cluster-click";
 import { useT } from "@/components/i18n/use-t";
 import { useLocale } from "@/components/i18n/language-provider";
@@ -98,7 +98,9 @@ const LABEL_PX_SELECTED = 13.5;
 /** The width labels are measured at; a text's width scales with its font size. */
 const MEASURE_PX = 12;
 /** The reader's choice whether the canvas turns to the selection. */
-const TURN_STORAGE_KEY = "staatsgraaf.graph.turn";
+const TURN_STORAGE_KEY = "staatsgraaf.graph.turn.v2";
+/** Session flag: the home page intro of the canvas has run in this tab. */
+const INTRO_STORAGE_KEY = "staatsgraaf.graph.intro.v1";
 
 type LabelState = "selected" | "path" | "neighbor" | "member";
 const LABEL_PRIORITY: Record<LabelState, number> = { selected: 3, path: 2, neighbor: 1, member: 0.5 };
@@ -215,11 +217,34 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   const [closing, setClosing] = useState<{ id: string; pose: ReturnType<typeof sectorPose> } | null>(null);
   /** The fractie whose seats are picked out, as chamber id and index in the chamber's blocks. */
   const [selectedFractie, setSelectedFractie] = useState<{ chamberId: string; index: number } | null>(null);
-  const [turnEnabled, setTurnEnabled] = useState(true);
+  const [turnEnabled, setTurnEnabled] = useState(false);
+  /**
+   * The one orchestrated moment on the site: the first time the canvas draws
+   * on the home page in a session, the rings settle in from the centre
+   * outward, about 600 ms in all. CSS only (globals.css, `.sg-intro`), on
+   * opacity and a scale about the centre; nothing the reader does waits for
+   * it, and the classes are gone once it has run.
+   */
+  const [intro, setIntro] = useState(false);
+  useLayoutEffect(() => {
+    if (window.location.pathname !== "/" || prefersReducedMotion()) return;
+    try {
+      if (window.sessionStorage.getItem(INTRO_STORAGE_KEY) === "seen") return;
+      window.sessionStorage.setItem(INTRO_STORAGE_KEY, "seen");
+    } catch {
+      // Without storage the intro may run again on a reload; harmless.
+    }
+    setIntro(true);
+  }, []);
+  useEffect(() => {
+    if (!intro) return;
+    const timer = window.setTimeout(() => setIntro(false), 1100);
+    return () => window.clearTimeout(timer);
+  }, [intro]);
 
   useEffect(() => {
     try {
-      if (window.localStorage.getItem(TURN_STORAGE_KEY) === "off") setTurnEnabled(false);
+      if (window.localStorage.getItem(TURN_STORAGE_KEY) === "on") setTurnEnabled(true);
     } catch {
       // Storage can be unavailable; the default stands.
     }
@@ -388,26 +413,6 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     return { segments: { neighbour: segments.neighbour.join(" "), path: segments.path.join(" ") }, keys };
   }, [layout, drawnEdges, visibleIds, pathEdgeKeys, selectedId, liveEdgeKeys, edgeShape]);
 
-  /** Everything else is merged into one path per relation type and never moves. */
-  const staticEdges = useMemo(() => {
-    const byType = new Map<string, string[]>();
-    for (const edge of drawnEdges) {
-      if (!visibleIds.has(edge.from) || !visibleIds.has(edge.to)) continue;
-      const key = edgeKey(edge.from, edge.to);
-      if (highlightEdges.keys.has(key) || liveEdgeKeys.has(key)) continue;
-      const from = layout.byId.get(edge.from);
-      const to = layout.byId.get(edge.to);
-      if (!from || !to) continue;
-      const list = byType.get(edge.type);
-      const segment = edgeShape(from, to, from, to);
-      if (list) list.push(segment);
-      else byType.set(edge.type, [segment]);
-    }
-    return [...byType.entries()]
-      .sort((a, b) => edgeTypeOrderIndex(a[0]) - edgeTypeOrderIndex(b[0]))
-      .map(([type, segments]) => ({ type, d: segments.join(" ") }));
-  }, [layout, drawnEdges, visibleIds, highlightEdges, liveEdgeKeys, edgeShape]);
-
   /**
    * Marks that need an element of their own: the selection, its path, its
    * neighbours, the marks revealed for it, and everything in the moving
@@ -457,6 +462,21 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     () => layout.sectors.filter((sector) => !hiddenBranches.has(sector.branch)),
     [layout, hiddenBranches],
   );
+
+  /** Which drawn ring a radius falls in, counted from the centre: the intro's stagger. */
+  const ringAt = useMemo(() => {
+    const starts = layout.tiers
+      .filter((tier) => tier.count > 0)
+      .map((tier) => tier.innerRadius)
+      .sort((a, b) => a - b);
+    return (radius: number) => Math.max(0, starts.filter((start) => start <= radius + 1).length - 1);
+  }, [layout]);
+  const sectorRing = useMemo(
+    () => new Map(layout.sectors.map((sector) => [sector.id, ringAt(sector.innerRadius)])),
+    [layout, ringAt],
+  );
+  const ringStyle = (ring: number) => (intro ? ({ "--ring": ring } as CSSProperties) : undefined);
+  const lastRing = ringAt(Number.POSITIVE_INFINITY) + 1;
 
   const sectorLabel = useCallback(
     (sector: SectorInfo) => {
@@ -1539,7 +1559,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
           </marker>
         </defs>
 
-        <g ref={viewGroupRef}>
+        <g ref={viewGroupRef} className={intro ? "sg-intro" : undefined}>
           <g ref={rotGroupRef}>
             {/* Tier rings and sector wedges. */}
             <g aria-hidden="true">
@@ -1548,6 +1568,8 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
                 .map((tier) => (
                   <path
                     key={`ring-${tier.id}`}
+                    className="sg-intro-fade"
+                    style={ringStyle(ringAt(tier.innerRadius))}
                     d={ringPath(tier.innerRadius - 12)}
                     fill="none"
                     stroke="var(--t-color-line)"
@@ -1556,7 +1578,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
                     pointerEvents="none"
                   />
                 ))}
-              <g onClick={onSectorClick}>
+              <g onClick={onSectorClick} className="sg-intro-fade">
                 {visibleSectors.map((sector) => {
                   const wedge = sectorWedge(sector);
                   const active = activeSector === sector.id || selectedNode?.sector === sector.id || activeClusterInfo?.sector === sector.id;
@@ -1577,24 +1599,6 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
               </g>
             </g>
 
-            {/* Edges at rest, one path per relation type. */}
-            <g aria-hidden="true" pointerEvents="none">
-              {staticEdges.map((group) => {
-                const line = edgeLine(group.type);
-                return (
-                  <path
-                    key={`static-${group.type}`}
-                    d={group.d}
-                    fill="none"
-                    stroke={line.color}
-                    strokeWidth={line.width}
-                    strokeLinecap="round"
-                    opacity={line.opacity * (selectedId ? 0.28 : 0.45)}
-                  />
-                );
-              })}
-            </g>
-
             {/* Edges the selection lights up: its relations, and its path to the electorate. */}
             <g aria-hidden="true" pointerEvents="none">
               <path
@@ -1610,15 +1614,6 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
 
             {/* Edges with an end in the moving sector, redrawn every frame. */}
             <g aria-hidden="true" pointerEvents="none">
-              <path
-                ref={(element) => {
-                  liveEdgeRefs.current.base = element;
-                }}
-                fill="none"
-                stroke="var(--t-color-line-strong)"
-                strokeWidth={0.75}
-                opacity={0.35}
-              />
               <path
                 ref={(element) => {
                   liveEdgeRefs.current.neighbour = element;
@@ -1645,6 +1640,8 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
               {staticMarkGroups.map((group) => (
                 <path
                   key={group.key}
+                  className="sg-intro-ring"
+                  style={ringStyle(sectorRing.get(group.sector) ?? 0)}
                   d={group.d}
                   fill={branchColorVar(group.branch as OrgBranchName)}
                   fillOpacity={0.22}
@@ -1689,7 +1686,8 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
                     key={cluster.id}
                     ref={setClusterRef(cluster.id)}
                     data-cluster-id={cluster.id}
-                    className="cursor-pointer"
+                    className="sg-intro-fade cursor-pointer"
+                    style={ringStyle(ringAt(Math.hypot(cluster.x, cluster.y)))}
                     opacity={isOpen ? 0 : dim ? DIM_OPACITY : 1}
                     pointerEvents={isOpen ? "none" : undefined}
                   >
@@ -1753,7 +1751,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
                 const isChamber = selectedId === bench.id;
                 const dim = Boolean(selectedId || selectedFractie || activeClusterInfo || activeSector);
                 return (
-                  <g key={bench.id}>
+                  <g key={bench.id} className="sg-intro-ring" style={ringStyle(ringAt(bench.innerRadius))}>
                     {/* The chamber itself: the band its seats sit in, and its name on an arc. */}
                     <path
                       d={wedgePath(bench.startAngle, bench.endAngle, bench.innerRadius - 5, bench.outerRadius + 5)}
@@ -1819,7 +1817,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
             </g>
 
             {/* Tier and sector labels. */}
-            <g aria-hidden="true" pointerEvents="none">
+            <g aria-hidden="true" pointerEvents="none" className="sg-intro-fade" style={ringStyle(lastRing)}>
               {layout.tiers
                 .filter((tier) => tier.count > 0)
                 .map((tier) => (
@@ -2149,7 +2147,6 @@ function HoverCard({
               {clusterSubtype(cluster)}
             </span>
           </div>
-          <p className="mt-1 text-[11px] text-ink-faint">{openClusterId === cluster.id ? t("clusterCloseHint") : t("clusterOpenHint")}</p>
         </>
       ) : null}
     </div>
