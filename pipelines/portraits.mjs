@@ -15,7 +15,8 @@
 //
 // No dependencies. Node ESM only.
 
-import { readFile, writeFile, mkdir, stat } from "node:fs/promises";
+import { readFile, writeFile, mkdir, stat, rm, rename } from "node:fs/promises";
+import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -36,7 +37,9 @@ export const ENWIKI_API = "https://en.wikipedia.org/w/api.php";
 export const HUMAN_QID = "Q5";
 // Ophogen zodra de resolutielogica verandert: oudere cachebestanden worden
 // dan opnieuw bevraagd in plaats van stil te blijven staan.
-export const CACHE_VERSION = 2;
+// 3 (24-09-2026): "Attribution" accepted, EK website portraits withdrawn, known
+// Wikidata entities re-checked for a newer P18.
+export const CACHE_VERSION = 3;
 
 // Nederland, het Koninkrijk der Nederlanden en Caribisch Nederland. Een entiteit
 // met een andere nationaliteit is nooit de juiste persoon voor deze dataset.
@@ -528,6 +531,7 @@ export async function resolvePerson(person, {
   nowIso = new Date().toISOString(),
   log = () => {},
   hint = null,
+  knownEntity = null,
 } = {}) {
   const effective = hint?.fullName
     ? { ...person, aliases: [hint.fullName, ...(Array.isArray(person.aliases) ? person.aliases : [])] }
@@ -547,6 +551,11 @@ export async function resolvePerson(person, {
     gaps: [],
   };
   const candidateIds = new Map();
+  if (knownEntity?.id) {
+    // A previous run already matched this person to an entity (by name, birth date,
+    // party or an official full name); re-read that entity for a current P18.
+    return resolveKnownEntity(person, knownEntity, base, { fetchImpl, userAgent });
+  }
   try {
     for (const [index, form] of forms.entries()) {
       const search = await apiGet(fetchImpl, WIKIDATA_API, {
@@ -638,6 +647,46 @@ export async function resolvePerson(person, {
     return { ...base, candidates, reason: selection.reason };
   }
 
+  return findImageForEntity(selection.profile, {
+    score: selection.score,
+    matchedName: selection.matchedName,
+    confidence: selection.confidence,
+  }, { ...base, candidates }, { fetchImpl, userAgent, hint });
+}
+
+async function resolveKnownEntity(person, knownEntity, base, { fetchImpl, userAgent }) {
+  let entities;
+  try {
+    entities = await apiGet(fetchImpl, WIKIDATA_API, {
+      action: "wbgetentities",
+      ids: knownEntity.id,
+      props: "claims|labels|aliases|descriptions|sitelinks",
+      languages: "nl|en",
+      sitefilter: "nlwiki|enwiki",
+      format: "json",
+    }, { userAgent });
+  } catch (error) {
+    return { ...base, reason: `Wikidata-entiteit ophalen mislukt: ${error.message}` };
+  }
+  const profile = candidateProfile(entities?.entities?.[knownEntity.id]);
+  if (!profile || profile.isHuman !== true) return { ...base, reason: `eerder gekozen entiteit ${knownEntity.id} is geen mens meer` };
+  if (profile.citizenship.length > 0 && !profile.citizenship.some((id) => NL_CITIZENSHIP.includes(id))) {
+    return { ...base, reason: `eerder gekozen entiteit ${knownEntity.id} heeft geen Nederlandse nationaliteit` };
+  }
+  if (person.birthDate && profile.birthDate && !birthDatesAgree(person.birthDate, profile.birthDate)) {
+    return { ...base, reason: `geboortedatum van ${knownEntity.id} wijkt af` };
+  }
+  return findImageForEntity(profile, {
+    score: knownEntity.score ?? null,
+    matchedName: knownEntity.matchedName ?? null,
+    confidence: knownEntity.confidence ?? "medium",
+  }, { ...base, candidates: [{ id: profile.id, label: profile.labels[0] ?? null, hasImage: profile.images.length > 0 }], reusedEntity: true }, { fetchImpl, userAgent, hint: null });
+}
+
+async function findImageForEntity(profile, match, base, { fetchImpl, userAgent, hint }) {
+  const person = { name: base.name };
+  const candidates = base.candidates;
+  const selection = { profile, ...match };
   const chosen = {
     id: selection.profile.id,
     label: selection.profile.labels[0] ?? person.name,
@@ -769,6 +818,9 @@ export function renderPortraitReport({ stats, gaps, today, licenseCounts = {} })
   lines.push(`- Toegepaste portretten: ${stats.portraitsApplied}.`);
   lines.push(`- Afbeeldingen gedownload: ${stats.imagesDownloaded}; al aanwezig: ${stats.imagesPresent}.`);
   lines.push(`- Gaps: ${gaps.length}.`);
+  if (stats.withdrawnEk) lines.push(`- Ingetrokken portretten van de EK-website: ${stats.withdrawnEk}.`);
+  if (stats.tkApplied !== undefined) lines.push(`- Officiele TK-portretten (CC0 1.0): ${stats.tkApplied} toegepast, waarvan ${stats.tkReplaced} ter vervanging van een ouder portret; ${stats.tkSkipped} overgeslagen.`);
+  if (stats.redownloaded) lines.push(`- Opnieuw gedownload omdat Wikidata een ander P18-bestand aanwijst: ${stats.redownloaded}.`);
   if (typeof stats.remaining === "number" && stats.remaining > 0) {
     lines.push(`- --max-new bereikt: ${stats.remaining} personen resteren voor de volgende run.`);
   }
@@ -806,11 +858,106 @@ export function renderPortraitReport({ stats, gaps, today, licenseCounts = {} })
   lines.push("## Toelichting");
   lines.push("");
   lines.push("- Alleen Wikimedia Commons-bestanden met een herkenbare licentie (CC0, CC BY, CC BY-SA, publiek domein of, per ADR 0014, de korte naam \"Attribution\") zijn toegepast; de creditline staat in `data/media.json`.");
-  lines.push("- Zonder bruikbaar Commons-portret valt de resolver eerst terug op het officiële portret van de eigen website (EK-pagina, CC BY 4.0, hoog betrouwbaar) en daarna op het vrije paginabezame van het Nederlandstalige Wikipedia-artikel (ADR 0014).");
+  lines.push("- Voor huidige Tweede Kamerleden gaat de officiele portretfoto uit het Gegevensmagazijn van de Tweede Kamer voor (CC0 1.0 volgens https://opendata.tweedekamer.nl/disclaimer). Zonder bruikbaar Commons-portret valt de resolver terug op het vrije paginabezame van het Wikipedia-artikel.");
+  lines.push("- Portretten van de EK-website worden niet meer gebruikt: het colofon (https://www.eerstekamer.nl/begrip/colofon) staat herpublicatie van beeldmateriaal zonder toestemming niet toe.");
   lines.push("- Een ontbrekende of onherkenbare licentie, een ontbrekende P18 en een dubbele kandidaat zonder officiële fallback zijn gaps. Er is niets geschat.");
   lines.push(`- De thumbnails van ${THUMB_WIDTH} px staan onder \`web/public/media/portretten/\` en worden van de eigen origin geserveerd.`);
   lines.push("");
   return `${lines.join("\n")}\n`;
+}
+
+
+export const TK_ODATA = "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0";
+export const TK_LICENSE_PAGE = "https://opendata.tweedekamer.nl/disclaimer";
+export const EK_COLOFON = "https://www.eerstekamer.nl/begrip/colofon";
+
+/** Fetch the current Tweede Kamer members with their Persoon record (CC0 1.0 per TK_LICENSE_PAGE). */
+export async function fetchTkMembers({ fetchImpl = globalThis.fetch, userAgent = USER_AGENT } = {}) {
+  const url = `${TK_ODATA}/FractieZetelPersoon?$filter=${encodeURIComponent("TotEnMet eq null and Verwijderd eq false")}&$expand=Persoon&$top=250`;
+  const response = await fetchImpl(url, { headers: { "User-Agent": userAgent, Accept: "application/json" } });
+  if (!response.ok) throw new Error(`HTTP ${response.status} voor ${url}`);
+  const body = await response.json();
+  return (body?.value ?? [])
+    .map((row) => row?.Persoon)
+    .filter((persoon) => persoon && typeof persoon.Id === "string" && persoon.Functie === "Tweede Kamerlid")
+    .map((persoon) => ({
+      id: persoon.Id,
+      fullName: [persoon.Voornamen, persoon.Tussenvoegsel, persoon.Achternaam].filter(Boolean).join(" "),
+      roepnaam: persoon.Roepnaam ?? null,
+      birthDate: typeof persoon.Geboortedatum === "string" ? persoon.Geboortedatum.slice(0, 10) : null,
+      contentType: persoon.ContentType ?? null,
+      contentLength: persoon.ContentLength ?? null,
+      changed: persoon.GewijzigdOp ?? null,
+      resourceUrl: `${TK_ODATA}/Persoon(${persoon.Id})/resource`,
+      recordUrl: `${TK_ODATA}/Persoon(${persoon.Id})`,
+    }));
+}
+
+/**
+ * Match TK members to dataset people. A match needs a current Tweede Kamer
+ * membership in the dataset, the same full name (Voornamen, tussenvoegsel,
+ * achternaam) and, when both sides have one, the same birth date. Anything
+ * short of that is left alone: a wrong face is worse than no face.
+ */
+export function matchTkMembers(members, people, memberships) {
+  const current = new Set(
+    memberships.filter((m) => m.organization === "org:tweede-kamer" && !m.end).map((m) => m.person),
+  );
+  const byName = new Map();
+  for (const member of members) {
+    const key = normalizeName(member.fullName);
+    byName.set(key, byName.has(key) ? null : member);
+  }
+  const matches = [];
+  for (const person of people) {
+    if (!current.has(person.id)) continue;
+    const member = byName.get(normalizeName(person.name));
+    if (!member) continue;
+    if (person.birthDate && member.birthDate && person.birthDate !== member.birthDate) continue;
+    matches.push({ person, member, birthChecked: Boolean(person.birthDate && member.birthDate) });
+  }
+  return matches;
+}
+
+/** Resize to THUMB_WIDTH px wide with ImageMagick or sips; returns false when neither works. */
+export function resizeImage(source, destination, width = THUMB_WIDTH) {
+  const magick = spawnSync("magick", [source, "-resize", `${width}x`, "-strip", "-quality", "85", destination]);
+  if (magick.status === 0) return true;
+  const sips = spawnSync("sips", ["--resampleWidth", String(width), source, "--out", destination]);
+  return sips.status === 0;
+}
+
+export function buildTkMediaRecord(person, extension = ".jpg") {
+  return {
+    id: `media:portret-${person.slug}`,
+    url: `/media/portretten/${person.slug}${extension}`,
+    type: "portrait",
+    license: "CC0-1.0",
+    credit: "Foto: Tweede Kamer der Staten-Generaal, CC0 1.0, via het Open Data Portaal van de Tweede Kamer",
+    author: null,
+    source: `src:portret-tk-${person.slug}`,
+  };
+}
+
+export function buildTkSource(person, member, today) {
+  return {
+    id: `src:portret-tk-${person.slug}`,
+    url: member.recordUrl,
+    title: `Portretfoto van ${member.fullName} (Persoon ${member.id})`,
+    publisher: "Tweede Kamer der Staten-Generaal",
+    type: "api",
+    published: member.changed ? String(member.changed).slice(0, 10) : null,
+    retrieved: today,
+    license: "CC0-1.0",
+    archiveUrl: null,
+    notes: `Officiele portretfoto uit het Gegevensmagazijn van de Tweede Kamer (${member.resourceUrl}), verkleind tot ${THUMB_WIDTH} px breed. Licentie: CC0 1.0 volgens ${TK_LICENSE_PAGE}, gecontroleerd op 24-09-2026.`,
+  };
+}
+
+/** True for a media record that came from an Eerste Kamer member page (ADR 0014, withdrawn 24-09-2026). */
+export function isEkWebsitePortrait(mediaRecord, sourceRecord) {
+  if (!mediaRecord || !String(mediaRecord.source ?? "").startsWith("src:portret-officieel-")) return false;
+  return /eerstekamer\.nl/.test(sourceRecord?.url ?? "") || /Eerste Kamer/.test(mediaRecord.credit ?? "");
 }
 
 export async function runPortraits(options = {}) {
@@ -844,8 +991,33 @@ export async function runPortraits(options = {}) {
   const people = JSON.parse(await readFile(join(dataDir, "people.json"), "utf8"));
   const sources = JSON.parse(await readFile(join(dataDir, "sources.json"), "utf8"));
   let media = JSON.parse(await readFile(join(dataDir, "media.json"), "utf8"));
-  const srcById = new Map(sources.map((record) => [record.id, record]));
-  const mediaById = new Map(media.map((record) => [record.id, record]));
+  let srcById = new Map(sources.map((record) => [record.id, record]));
+  let mediaById = new Map(media.map((record) => [record.id, record]));
+  const tkEnabled = options.tk ?? !offline;
+
+  // The Eerste Kamer colofon (EK_COLOFON, read 24-09-2026) reserves image rights:
+  // republishing its photos needs permission. Portraits taken from EK member pages
+  // under ADR 0014 are withdrawn: record, source reference and file.
+  const withdrawn = [];
+  if (!only) {
+    for (const person of people) {
+      const record = person.portrait ? mediaById.get(person.portrait) : null;
+      if (!record || !isEkWebsitePortrait(record, srcById.get(record.source))) continue;
+      withdrawn.push({ person: person.id, name: person.name, source: record.source });
+      person.portrait = null;
+      person.sources = (person.sources ?? []).filter((ref) => ref?.source !== record.source);
+      media = media.filter((entry) => entry.id !== record.id);
+      const stillUsed = media.some((entry) => entry.source === record.source);
+      if (!stillUsed) {
+        const index = sources.findIndex((entry) => entry.id === record.source);
+        if (index >= 0) sources.splice(index, 1);
+      }
+      const file = join(mediaDir, String(record.url).split("/").pop());
+      if (existsSync(file)) await rm(file);
+    }
+    srcById = new Map(sources.map((record) => [record.id, record]));
+    mediaById = new Map(media.map((record) => [record.id, record]));
+  }
 
   let selected = people;
   if (only) selected = people.filter((person) => only.has(person.slug));
@@ -872,6 +1044,11 @@ export async function runPortraits(options = {}) {
     remaining: 0,
     orphanMedia: 0,
     prunedMedia: 0,
+    withdrawnEk: withdrawn.length,
+    tkApplied: 0,
+    tkReplaced: 0,
+    tkSkipped: 0,
+    redownloaded: 0,
   };
   const gaps = [];
   const licenseCounts = {};
@@ -895,6 +1072,7 @@ export async function runPortraits(options = {}) {
       }
     }
     const validCache = resolution && resolution.cacheVersion === CACHE_VERSION;
+    const knownEntity = !validCache && resolution?.chosen?.id ? resolution.chosen : null;
     // De cap telt alleen nieuw bevraagde personen; wie al uit de cache komt kost geen
     // netwerkverzoek en mag gewoon worden toegepast. Eenmaal bereikt stopt de run in
     // plaats van verder te bevragen; de rest staat klaar voor de volgende run.
@@ -917,6 +1095,7 @@ export async function runPortraits(options = {}) {
           sleep,
           log,
           hint: hints?.[person.slug] ?? null,
+          knownEntity,
         });
       } catch (error) {
         gaps.push({ person: person.id, name: person.name, reason: `onverwachte fout: ${error.message}` });
@@ -954,6 +1133,10 @@ export async function runPortraits(options = {}) {
     }
     // ADR 0014: een officiële portret van de eigen website is een hogere
     // betrouwbaarheid dan de gematchte Wikidata-entiteit.
+    if (resolution.image.kind === "official" && /eerstekamer\.nl/.test(resolution.image.filePage ?? resolution.image.thumbUrl ?? "")) {
+      gaps.push({ person: person.id, name: person.name, reason: "alleen een portret van de EK-website; het EK-colofon staat hergebruik van beeld niet toe" });
+      continue;
+    }
     const official = resolution.image.kind === "official";
     if (official) confidence = "high";
     const imageSource = official
@@ -961,15 +1144,22 @@ export async function runPortraits(options = {}) {
       : upsertSource(buildCommonsSource(person, resolution, today));
     const mediaRecord = buildMediaRecord({ person, image: resolution.image, sourceId: imageSource.id });
     const existing = mediaById.get(mediaRecord.id);
-    if (existing) Object.assign(existing, mediaRecord);
+    // A different source file under the same name must replace the file on disk,
+    // or the credit line would describe another photo.
+    const sourceChanged = Boolean(existing && existing.source !== mediaRecord.source);
+    if (existing) {
+      for (const key of Object.keys(existing)) if (!(key in mediaRecord)) delete existing[key];
+      Object.assign(existing, mediaRecord);
+    }
     else {
       media.push(mediaRecord);
       mediaById.set(mediaRecord.id, mediaRecord);
     }
     const destination = join(mediaDir, mediaRecord.url.split("/").pop());
-    if (existsSync(destination)) {
+    if (existsSync(destination) && !sourceChanged) {
       stats.imagesPresent += 1;
     } else {
+      if (sourceChanged) stats.redownloaded += 1;
       try {
         await downloadImage(resolution.image.thumbUrl, destination, { fetchImpl, userAgent });
         stats.imagesDownloaded += 1;
@@ -978,6 +1168,12 @@ export async function runPortraits(options = {}) {
         continue;
       }
     }
+    if (sourceChanged && existing) {
+      // handled below: the stale reference to the previous image source is dropped
+    }
+    person.sources = (person.sources ?? []).filter(
+      (ref) => ref?.source === imageSource.id || !/^src:(commons-|portret-)/.test(ref?.source ?? ""),
+    );
     person.portrait = mediaRecord.id;
     addSourceRef(person, {
       source: imageSource.id,
@@ -988,6 +1184,93 @@ export async function runPortraits(options = {}) {
     if (official) stats.officialApplied += 1;
     else if (resolution.image.fallback === "wikipedia") stats.wikiFallbackApplied += 1;
     licenseCounts[mediaRecord.license] = (licenseCounts[mediaRecord.license] ?? 0) + 1;
+  }
+
+  // Officiele TK-portretten (CC0 1.0, Open Data Portaal): voor huidige Tweede
+  // Kamerleden gaat het portret dat de Kamer nu publiceert voor elk ander.
+  const tkLog = [];
+  if (tkEnabled) {
+    let members = [];
+    try {
+      members = await fetchTkMembers({ fetchImpl, userAgent });
+    } catch (error) {
+      gaps.push({ person: "tk", name: "Tweede Kamer", reason: `TK Open Data niet bereikbaar: ${error.message}` });
+    }
+    const memberships = JSON.parse(await readFile(join(dataDir, "memberships.json"), "utf8"));
+    const selectedIds = new Set(selected.map((person) => person.id));
+    const tkRaw = join(cacheDir, "tk");
+    await io.mkdir(tkRaw, { recursive: true });
+    if (members.length > 0) {
+      await io.writeFile(join(tkRaw, "personen.json"), `${JSON.stringify({ retrieved: today, license: TK_LICENSE_PAGE, members }, null, 2)}\n`, "utf8");
+    }
+    for (const { person, member, birthChecked } of matchTkMembers(members, people, memberships)) {
+      if (!selectedIds.has(person.id)) continue;
+      if (!member.contentLength) {
+        stats.tkSkipped += 1;
+        tkLog.push(`${person.name}: geen portretfoto in het Gegevensmagazijn`);
+        continue;
+      }
+      const record = buildTkMediaRecord(person, ".jpg");
+      const destination = join(mediaDir, `${person.slug}.jpg`);
+      const measure = () => {
+        const probe = spawnSync("magick", ["identify", "-format", "%w %h", destination], { encoding: "utf8" });
+        const [width, height] = String(probe.stdout ?? "").trim().split(" ").map(Number);
+        if (probe.status === 0 && Number.isInteger(width) && Number.isInteger(height)) {
+          record.width = width;
+          record.height = height;
+        }
+      };
+      const raw = join(tkRaw, `${person.slug}.orig`);
+      const previous = person.portrait ? mediaById.get(person.portrait) : null;
+      const unchanged = previous?.source === record.source && existsSync(destination) &&
+        srcById.get(record.source)?.published === (member.changed ? String(member.changed).slice(0, 10) : null);
+      if (!unchanged) {
+        try {
+          const response = await fetchImpl(member.resourceUrl, { headers: { "User-Agent": userAgent, Accept: "image/*" } });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const buffer = Buffer.from(await response.arrayBuffer());
+          if (buffer.length === 0) throw new Error("lege afbeelding");
+          await writeFile(raw, buffer);
+          const temp = `${destination}.tmp.jpg`;
+          if (!resizeImage(raw, temp)) throw new Error("verkleinen mislukt (geen magick of sips)");
+          await rename(temp, destination);
+          await rm(raw);
+          stats.imagesDownloaded += 1;
+        } catch (error) {
+          stats.tkSkipped += 1;
+          gaps.push({ person: person.id, name: person.name, reason: `TK-portret niet op te halen: ${error.message}` });
+          continue;
+        }
+      }
+      if (existsSync(destination)) measure();
+      if (previous && previous.source !== record.source) {
+        stats.tkReplaced += 1;
+        person.sources = (person.sources ?? []).filter((ref) => ref?.source !== previous.source);
+        if (previous.id !== record.id) media = media.filter((entry) => entry.id !== previous.id);
+      }
+      const source = buildTkSource(person, member, today);
+      const oldSource = srcById.get(source.id);
+      if (oldSource) Object.assign(oldSource, source);
+      else {
+        sources.push(source);
+        srcById.set(source.id, source);
+      }
+      const existing = mediaById.get(record.id);
+      if (existing) {
+        for (const key of Object.keys(existing)) if (!(key in record)) delete existing[key];
+        Object.assign(existing, record);
+      } else {
+        media.push(record);
+        mediaById.set(record.id, record);
+      }
+      if (!person.portrait) stats.portraitsApplied += 1;
+      person.portrait = record.id;
+      addSourceRef(person, { source: source.id, retrieved: today, confidence: birthChecked ? "high" : "medium" });
+      // Remove the gap this person may have had from the Commons pass.
+      for (let index = gaps.length - 1; index >= 0; index -= 1) if (gaps[index].person === person.id) gaps.splice(index, 1);
+      stats.tkApplied += 1;
+      licenseCounts["CC0-1.0 (TK)"] = (licenseCounts["CC0-1.0 (TK)"] ?? 0) + 1;
+    }
   }
 
   // Een media:portret-* record dat geen enkele persoon meer aanwijst is een wees: de
@@ -1037,6 +1320,8 @@ function parseArgs(argv) {
     else if (argv[i] === "--max-new") options.maxNew = Number(argv[(i += 1)]);
     else if (argv[i] === "--prune") options.prune = true;
     else if (argv[i] === "--hints") options.hintsPath = argv[(i += 1)];
+    else if (argv[i] === "--no-tk") options.tk = false;
+    else if (argv[i] === "--today") options.today = argv[(i += 1)];
   }
   return options;
 }

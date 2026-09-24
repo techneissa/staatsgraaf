@@ -16,6 +16,7 @@ The frozen data contract, derived from `docs/04-data-model.md` and the vocabular
 | `relation.schema.json` | `data/relations.json` | array |
 | `change.schema.json` | `data/changes.json` | array |
 | `news-item.schema.json` | `data/news.json` | array |
+| `news-translation.schema.json` | `data/news-translations.json` (optional) | array |
 | `topic.schema.json` | `data/topics.json` | array |
 | `budget.schema.json` | `data/budgets.json` | array |
 | `source.schema.json` | `data/sources.json` | array |

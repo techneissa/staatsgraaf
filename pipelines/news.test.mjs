@@ -88,6 +88,9 @@ test("normalizeDate converts feed dates to ISO and rejects junk", () => {
   assert.equal(normalizeDate("Fri, 18 Sep 2026 00:58:13 +0200"), "2026-09-17T22:58:13.000Z");
   assert.equal(normalizeDate("2026-09-17T20:02:21Z"), "2026-09-17T20:02:21.000Z");
   assert.equal(normalizeDate("geen datum"), null);
+  // NL Times: Amsterdam wall-clock time without a zone (CEST in September, CET in January).
+  assert.equal(normalizeDate("24 September 2026 - 21:30"), "2026-09-24T19:30:00.000Z");
+  assert.equal(normalizeDate("5 January 2026 - 09:05"), "2026-01-05T08:05:00.000Z");
   assert.equal(normalizeDate(""), null);
 });
 

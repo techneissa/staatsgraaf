@@ -342,6 +342,43 @@ for (const news of byFile["news.json"]) {
   refOk(w, news.image, mediaIds, "image");
   for (const s of news.sources ?? []) refOk(w, s.source, srcIds, "source");
 }
+// News translations live in their own file so a news run never overwrites them.
+// The file is optional; when present every record must translate a current news
+// item into the other language and keep the source's entity tags.
+const TRANSLATIONS_FILE = "news-translations.json";
+let translationLine = null;
+if (existsSync(join(DATA_DIR, TRANSLATIONS_FILE))) {
+  const { entityTags, translationSourceHash } = await import("../shared/news-translation-hash.mjs");
+  const translations = loadData(TRANSLATIONS_FILE) ?? [];
+  const schema = { $ref: "news-translation.schema.json#/$defs/newsTranslation" };
+  translations.forEach((record, i) => validate(record, schema, "news-translation.schema.json", `${TRANSLATIONS_FILE}[${i}]`));
+  const newsById = index("news.json");
+  const seen = new Set();
+  let previous = "";
+  let stale = 0;
+  for (const record of translations) {
+    const w = `${TRANSLATIONS_FILE}#${record.id}/${record.language}`;
+    const key = `${record.id}|${record.language}`;
+    if (seen.has(key)) fail(w, "duplicate record for this item and language");
+    seen.add(key);
+    if (key < previous) fail(w, "records are not sorted by id and language");
+    previous = key;
+    const item = newsById.get(record.id);
+    if (!item) {
+      fail(w, "news item does not resolve (run `bun run translate` to prune records of items that left news.json)");
+      continue;
+    }
+    const itemLanguage = item.language ?? "nl";
+    if (record.sourceLanguage !== itemLanguage) fail(w, `sourceLanguage ${record.sourceLanguage} but the item is ${itemLanguage}`);
+    if (record.language === record.sourceLanguage) fail(w, "language equals sourceLanguage");
+    for (const tag of entityTags(record.lead)) {
+      if (!(item.summaryMarkup ?? "").includes(tag)) fail(w, `entity tag not in the source summaryMarkup: ${tag}`);
+    }
+    if (record.sourceHash !== translationSourceHash(item.title, item.summaryMarkup ?? null)) stale += 1;
+  }
+  translationLine = `  ${TRANSLATIONS_FILE.padEnd(22)} ${String(translations.length).padStart(5)} (${stale} stale, hidden until retranslated)`;
+}
+
 for (const topic of byFile["topics.json"]) {
   const w = `topics.json#${topic.id}`;
   for (const o of topic.organizations ?? []) refOk(w, o, orgIds, "organization");
@@ -452,6 +489,7 @@ const total = Object.values(counts).reduce((a, b) => a + b, 0);
 console.log("Validated data files:");
 for (const [file] of DATA_MAP) console.log(`  ${file.padEnd(22)} ${String(counts[file]).padStart(5)}`);
 console.log(`  ${"total".padEnd(22)} ${String(total).padStart(5)}`);
+if (translationLine) console.log(translationLine);
 if (RESEARCH_MODE) {
   console.log("\nValidated workstream files:");
   if (researchLines.length === 0) console.log("  (none found)");
