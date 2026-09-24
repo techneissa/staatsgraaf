@@ -71,7 +71,16 @@ export function ShareButton({
     >
       <svg aria-hidden="true" viewBox="0 0 20 20" width="15" height="15" className="shrink-0">
         {status === "copied" ? (
-          <path d="m4.5 10.5 3.5 3.5 7.5-8" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          <path
+            className="motion-check"
+            pathLength={1}
+            d="m4.5 10.5 3.5 3.5 7.5-8"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         ) : canShare ? (
           <path
             d="M10 12.5V3.5M6.5 7 10 3.5 13.5 7M5 10.5v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5"
@@ -92,7 +101,11 @@ export function ShareButton({
           />
         )}
       </svg>
-      {compact ? null : <span>{shown}</span>}
+      {compact ? null : (
+        <span key={status} className={status === "idle" ? undefined : "motion-swap"}>
+          {shown}
+        </span>
+      )}
       <span role="status" aria-live="polite" className="sr-only">
         {status === "idle" ? "" : shown}
       </span>

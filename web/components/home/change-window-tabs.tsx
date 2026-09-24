@@ -3,6 +3,8 @@
 import * as Tabs from "@radix-ui/react-tabs";
 import type { ReactNode } from "react";
 import { useT } from "@/components/i18n/use-t";
+import { SlidingIndicator } from "@/components/motion/sliding-indicator";
+import { useSettled } from "@/components/motion/use-settled";
 
 export type ChangeWindowPanel = {
   value: string;
@@ -21,12 +23,14 @@ export function ChangeWindowTabs({
   defaultValue: string;
 }) {
   const t = useT("home");
+  const settled = useSettled();
   return (
-    <Tabs.Root defaultValue={defaultValue}>
+    <Tabs.Root defaultValue={defaultValue} data-settled={settled ? "" : undefined}>
       <Tabs.List
         aria-label={t("windowTabsLabel")}
         className="inline-flex items-center gap-0.5 rounded-pill border border-line bg-surface-inset p-0.5"
       >
+        <SlidingIndicator className="rounded-pill bg-surface shadow-sm" />
         {panels.map((panel) => (
           <Tabs.Trigger key={panel.value} value={panel.value} className={triggerClass}>
             {panel.label}
@@ -37,7 +41,7 @@ export function ChangeWindowTabs({
         <Tabs.Content
           key={panel.value}
           value={panel.value}
-          className="pt-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+          className="motion-panel pt-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
         >
           {panel.content}
         </Tabs.Content>

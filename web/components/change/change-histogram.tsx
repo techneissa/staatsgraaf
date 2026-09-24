@@ -1,5 +1,6 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import { useLocale } from "@/components/i18n/language-provider";
 import { useT } from "@/components/i18n/use-t";
 import type { TimelineBucket } from "@/lib/changes";
@@ -52,7 +53,8 @@ export function ChangeHistogram({
             : t("histogramAria", { n: total, days })
         }
         viewBox={`0 0 ${width} ${height}`}
-        className="mt-2 block h-12 w-full"
+        className="motion-grow mt-2 block h-12 w-full"
+        data-reveal="pending"
         preserveAspectRatio="none"
       >
         {buckets.map((bucket, index) => {
@@ -66,7 +68,8 @@ export function ChangeHistogram({
               width={barWidth}
               height={barHeight}
               rx="1"
-              className={bucket.count === 0 ? "fill-line" : "fill-accent"}
+              className={`grow-y ${bucket.count === 0 ? "fill-line" : "fill-accent"}`}
+              style={{ "--d": `${Math.round((index / Math.max(1, buckets.length)) * 280)}ms` } as CSSProperties}
             />
           );
         })}

@@ -1,6 +1,8 @@
 "use client";
 
+import { startTransition } from "react";
 import { DEFAULT_LOCALE, LOCALES, LOCALE_LABEL, type Locale } from "@/lib/i18n/locales";
+import { SlidingIndicator } from "./motion/sliding-indicator";
 import { useLocale, useLocaleSetter } from "./i18n/language-provider";
 import { useT } from "./i18n/use-t";
 
@@ -11,7 +13,10 @@ import { useT } from "./i18n/use-t";
  */
 export function LanguageToggle() {
   const locale = useLocale();
-  const setLocale = useLocaleSetter();
+  const setLocaleNow = useLocaleSetter();
+  // As a transition, so the page column cross-fades into the other language
+  // (the <ViewTransition> in app/layout.tsx) instead of cutting.
+  const setLocale = (next: Locale) => startTransition(() => setLocaleNow(next));
   const t = useT("graph");
   const other: Locale = locale === "nl" ? "en" : "nl";
   const switchLabel = other === "en" ? t("languageSwitchToEn") : t("languageSwitchToNl");
@@ -32,6 +37,7 @@ export function LanguageToggle() {
         aria-label={t("languageGroup")}
         className="hidden items-center rounded-sm border border-line bg-surface-inset p-0.5 text-xs font-medium sm:flex"
       >
+        <SlidingIndicator className="rounded-sm bg-surface shadow-sm" />
         {LOCALES.map((code) => (
           <button
             key={code}

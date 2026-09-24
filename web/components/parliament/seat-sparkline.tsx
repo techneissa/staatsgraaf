@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { T } from "@/components/i18n/t";
 import { partySeatHistory } from "@/lib/elections";
 import { DateT, LocalDate } from "@/components/content/local-date";
@@ -48,11 +49,16 @@ export function SeatSparkline({
         viewBox={`0 0 ${width} ${height}`}
         role="img"
         aria-label={points.map((point) => `${point.date.slice(0, 4)}: ${point.seats}`).join(", ")}
-        className="mt-1 h-auto w-full max-w-[240px]"
+        className="motion-grow mt-1 h-auto w-full max-w-[240px]"
+        data-reveal="pending"
       >
-        <path d={path} fill="none" stroke={stroke} strokeWidth={1.6} strokeLinejoin="round" strokeLinecap="round" />
-        {points.map((point) => (
-          <circle key={point.date} cx={x(point.date).toFixed(1)} cy={y(point.seats).toFixed(1)} r={2} fill={stroke}>
+        <path className="grow-stroke" pathLength={1} d={path} fill="none" stroke={stroke} strokeWidth={1.6} strokeLinejoin="round" strokeLinecap="round" />
+        {points.map((point, index) => (
+          <circle
+            key={point.date}
+            className="grow-seat"
+            style={{ "--d": `${Math.round((index / Math.max(1, points.length - 1)) * 480)}ms` } as CSSProperties}
+            cx={x(point.date).toFixed(1)} cy={y(point.seats).toFixed(1)} r={2} fill={stroke}>
             <title>{`${point.date.slice(0, 4)}: ${point.seats}`}</title>
           </circle>
         ))}
@@ -61,7 +67,8 @@ export function SeatSparkline({
           y={(y(latest.seats) - 5).toFixed(1)}
           textAnchor="end"
           fill="var(--t-color-ink)"
-          style={{ fontSize: 10, fontWeight: 600 }}
+          className="grow-fade"
+          style={{ fontSize: 10, fontWeight: 600, "--d": "520ms" } as CSSProperties}
         >
           {latest.seats}
         </text>
@@ -71,13 +78,14 @@ export function SeatSparkline({
             y={(y(peak.seats) - 5).toFixed(1)}
             textAnchor="middle"
             fill="var(--t-color-ink-faint)"
-            style={{ fontSize: 9 }}
+            className="grow-fade"
+            style={{ fontSize: 9, "--d": "520ms" } as CSSProperties}
           >
             {peak.seats}
           </text>
         ) : null}
       </svg>
-      <details className="mt-1 text-xs text-ink-muted">
+      <details className="motion-disclosure mt-1 text-xs text-ink-muted">
         <summary className="inline-flex cursor-pointer items-center text-ink-faint pointer-coarse:min-h-11">
           <T area="entity" k="seatSparklineTable" />
         </summary>

@@ -40,7 +40,7 @@ export function NewsList({
         ))}
       </ol>
       {hidden.length > 0 ? (
-        <details className="group mt-3">
+        <details className="motion-disclosure group mt-3">
           <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-sm border border-line bg-surface-raised px-3 text-sm font-medium text-ink transition-fast hover:border-line-strong sm:min-h-9 [&::-webkit-details-marker]:hidden">
             <span className="group-open:hidden">
               <T area="news" k="newsListShowMore" vars={{ count: formatCount(hidden.length) }} />

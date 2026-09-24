@@ -121,7 +121,10 @@ export function TopBar() {
   const pathname = usePathname();
 
   return (
-    <header className="relative z-20 shrink-0 border-b border-line bg-canvas pt-[var(--safe-top)]">
+    <header
+      className="relative z-20 shrink-0 border-b border-line bg-canvas pt-[var(--safe-top)]"
+      style={{ viewTransitionName: "site-header" }}
+    >
       <div className="flex items-center gap-1.5 py-2 pl-[max(0.75rem,var(--safe-left))] pr-[max(0.75rem,var(--safe-right))] sm:gap-3 sm:pl-[max(1rem,var(--safe-left))] sm:pr-[max(1rem,var(--safe-right))]">
         <BrandLockup />
         <MobileMenu pathname={pathname} />
@@ -133,7 +136,7 @@ export function TopBar() {
                 key={item.href}
                 href={item.href}
                 aria-current={current ? "page" : undefined}
-                className={`tap-row flex items-center whitespace-nowrap rounded-sm px-2 py-1 underline-offset-4 hover:text-ink hover:underline ${
+                className={`link-draw tap-row flex items-center whitespace-nowrap rounded-sm px-2 py-1 underline-offset-4 [--link-draw-bottom:calc(50%-0.72em)] [--link-draw-inset:0.5rem] hover:text-ink hover:underline ${
                   current ? "text-ink underline decoration-accent" : "text-ink-muted"
                 }`}
               >

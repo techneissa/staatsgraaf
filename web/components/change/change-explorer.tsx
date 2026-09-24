@@ -4,6 +4,8 @@ import * as Tabs from "@radix-ui/react-tabs";
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { useT } from "@/components/i18n/use-t";
+import { SlidingIndicator } from "@/components/motion/sliding-indicator";
+import { useSettled } from "@/components/motion/use-settled";
 import { ChangeHistogram } from "./change-histogram";
 import { ChangeDay } from "./change-day";
 import type { ChangeDisplayKind } from "@/lib/changes";
@@ -97,17 +99,19 @@ export function ChangeExplorer({
   );
   const [filter, setFilter] = useState<FilterValue>("all");
   const [expanded, setExpanded] = useState(false);
+  const settled = useSettled();
 
   useEffect(() => {
     setExpanded(false);
   }, [activeDays, filter]);
 
   return (
-    <Tabs.Root value={activeDays} onValueChange={setActiveDays}>
+    <Tabs.Root value={activeDays} onValueChange={setActiveDays} data-settled={settled ? "" : undefined}>
       <Tabs.List
         aria-label={t("periodTabsAria")}
         className="inline-flex gap-1 rounded-sm border border-line bg-surface-inset p-0.5"
       >
+        <SlidingIndicator className="rounded-xs bg-accent-soft" />
         {panes.map((pane) => (
           <Tabs.Trigger
             key={pane.days}
@@ -127,11 +131,12 @@ export function ChangeExplorer({
           <Tabs.Content
             key={pane.days}
             value={String(pane.days)}
-            className="mt-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+            className="motion-panel mt-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
           >
             <ChangeHistogram buckets={pane.histogram} days={pane.days} total={pane.total} />
 
             <div role="group" aria-label={t("filterGroupAria")} className="scroll-row -mx-4 mt-4 gap-2 px-4 lg:mx-0 lg:flex-wrap lg:px-0 lg:[mask-image:none]">
+              <SlidingIndicator variant="ring" className="rounded-pill border border-accent/40" />
               {FILTERS.map((option) => {
                 const active = filter === option.value;
                 let count: number | null = null;

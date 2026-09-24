@@ -255,7 +255,7 @@ function ConnectionGroupBlock({
         </ul>
       ) : null}
       {rest.length > 0 ? (
-        <details className="mt-2">
+        <details className="motion-disclosure mt-2">
           <summary className={SUMMARY_CLASS}>
             <T area="common" k="seeAll" vars={{ n: group.connections.length }} />
           </summary>

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import type { ReactNode } from "react";
+import { ViewTransition, type ReactNode } from "react";
 import "./globals.css";
 import { LanguageProvider } from "@/components/i18n/language-provider";
 import { CanvasFrame } from "@/components/canvas-frame";
@@ -66,7 +66,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 tabIndex={-1}
                 className="flex-1 pb-10 pl-[max(1rem,var(--safe-left))] pr-[max(1rem,var(--safe-right))] pt-6 lg:pl-[max(2rem,var(--safe-left))] lg:pr-8"
               >
-                <div className="mx-auto w-full max-w-[44rem] lg:mx-0 lg:max-w-none">{children}</div>
+                {/* The page column cross-fades on navigation (globals.css, "Page
+                    transitions"); nothing else on the page takes part. */}
+                <ViewTransition update="sg-page" default="none">
+                  <div className="mx-auto w-full max-w-[44rem] lg:mx-0 lg:max-w-none">{children}</div>
+                </ViewTransition>
               </main>
               <SiteFooter datasetDate={datasetDate} />
             </div>

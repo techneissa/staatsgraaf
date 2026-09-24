@@ -118,7 +118,7 @@ export default function PeopleIndexPage() {
               return (
                 <li key={person.id}>
                   <article className="relative flex items-center gap-3 rounded-md border border-line/70 p-2.5 transition-fast hover:border-line-strong">
-                    <PersonPortrait person={person} size={40} />
+                    <PersonPortrait person={person} size={40} morph />
                     <div className="min-w-0 flex-1">
                       <h3 className="truncate text-sm font-medium">
                         <PeekLink
