@@ -29,6 +29,7 @@ Every AI touchpoint is listed here with its guardrail. If a new touchpoint is ad
 | Entity linking | Tags entity mentions in a summary | Matched against the alias gazetteer, with a confidence threshold and a manual review list |
 | Change summary | Writes a one-line description of a diff | Derived only from the dataset diff and its source, no outside knowledge |
 | Topic description | Drafts a scope paragraph and keyword list | Reviewed against the responsible-entities list |
+| News translation | Translates the headline and lead of a news item into the other interface language, through OpenCode Zen (DeepSeek), the DeepSeek API, or Claude (`docs/adr/0016-news-machine-translation.md`) | Faithful translation only, entity tags returned unchanged or the record is dropped, a hash ties each translation to the exact source text, the card is labelled as translated and shows the original on request |
 
 ## 4. Description standards
 

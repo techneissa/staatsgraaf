@@ -1,7 +1,7 @@
 # ADR 0014: Portrait sources and the Attribution licence
 
 Date: 19-09-2026
-Status: accepted
+Status: accepted, amended 25-09-2026 (Eerste Kamer portraits withdrawn, see amendment 1)
 
 ## Context
 
@@ -17,3 +17,11 @@ Status: accepted
 ## Consequences
 
 Portraits rise from 330 to 401 of 880 people (71 added this pass: 53 official EK portraits, 18 Commons files, of which 5 carry the Attribution licence). 60 current parliament members remain without a portrait: most sit in the Tweede Kamer or are new members without a free photograph anywhere; the named gaps stay in the report. The media licence vocabulary gains the literal value "Attribution" alongside the SPDX-like values. The Tweede Kamer site itself is not scraped: its photo licence is not stated on the pages, so it fails the "somewhat official and reliable" bar without further verification.
+
+## Amendment 1: Eerste Kamer portraits withdrawn, Tweede Kamer Open Data added (25-09-2026)
+
+A licence check on 24-09-2026 found that the Eerste Kamer colophon (https://www.eerstekamer.nl/begrip/colofon) requires permission to republish its images. Decision point 2 above assumed CC BY 4.0 for the member pages; that assumption was wrong. All 53 Eerste Kamer portraits are withdrawn, and the pipeline now withdraws them automatically. Those members fall back to a free Commons file where one exists, or to an initials placeholder with a named gap.
+
+The Tweede Kamer Open Data portal publishes its data under CC0 1.0 unless stated otherwise (https://opendata.tweedekamer.nl/disclaimer, checked 24-09-2026). Its member photos are now the first choice for current Tweede Kamerleden, matched on current membership and full name, with birth dates compared where both sides have one. Rijksoverheid.nl reserves copyright on its photos of bewindspersonen (https://www.rijksoverheid.nl/service/copyright), so they are not used.
+
+Result: 420 of 880 people have a portrait (149 Tweede Kamer Open Data, 271 Commons). 72 of them had no portrait before. The 460 remaining gaps are named per person in `research/qa/portraits-25-09-2026.md`. The licence pages as fetched are kept in `research/raw/portraits/licences/`.
