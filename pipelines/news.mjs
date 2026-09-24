@@ -94,9 +94,49 @@ function normalizeWhitespace(value) {
   return String(value ?? "").replace(/\s+/g, " ").trim();
 }
 
+const MONTHS_EN = [
+  "january", "february", "march", "april", "may", "june",
+  "july", "august", "september", "october", "november", "december",
+];
+
+/** Offset in minutes of Europe/Amsterdam from UTC at a given UTC instant. */
+function amsterdamOffsetMinutes(utcMs) {
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Europe/Amsterdam",
+    hourCycle: "h23",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).formatToParts(new Date(utcMs));
+  const get = (type) => Number(parts.find((part) => part.type === type)?.value);
+  const local = Date.UTC(get("year"), get("month") - 1, get("day"), get("hour"), get("minute"));
+  return Math.round((local - utcMs) / 60_000);
+}
+
+/**
+ * NL Times writes pubDate as "24 September 2026 - 21:30" with no zone. The
+ * times are Amsterdam wall-clock time: on 24-09-2026 the newest item read 21:30
+ * when the fetch ran at 20:31 UTC (22:31 in Amsterdam), so a UTC reading would
+ * sit in the future.
+ */
+function parseDayMonthYearDashTime(value) {
+  const match = value.match(/^(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})\s*-\s*(\d{1,2}):(\d{2})$/);
+  if (!match) return null;
+  const month = MONTHS_EN.indexOf(match[2].toLowerCase());
+  if (month < 0) return null;
+  const wall = Date.UTC(Number(match[3]), month, Number(match[1]), Number(match[4]), Number(match[5]));
+  const guess = wall - amsterdamOffsetMinutes(wall) * 60_000;
+  return guess - (amsterdamOffsetMinutes(guess) - amsterdamOffsetMinutes(wall)) * 60_000;
+}
+
 export function normalizeDate(value) {
   if (typeof value !== "string" || value.trim() === "") return null;
-  const parsed = Date.parse(value.trim());
+  const trimmed = value.trim();
+  const local = parseDayMonthYearDashTime(trimmed);
+  if (local !== null) return new Date(local).toISOString();
+  const parsed = Date.parse(trimmed);
   if (Number.isNaN(parsed)) return null;
   return new Date(parsed).toISOString();
 }

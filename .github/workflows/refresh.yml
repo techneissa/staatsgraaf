@@ -68,6 +68,43 @@ jobs:
       - name: Refresh news
         run: bun run news
 
+      # Machine translation of new or changed news items (ADR 0016). Translations
+      # made here are not committed, so they persist between runs in the Actions
+      # cache: restore the newest copy, merge it with the committed file, send only
+      # items whose hash does not match yet, and save the result under a new key.
+      # Provider: OpenCode Zen (OPENCODE_API_KEY, DeepSeek), else DeepSeek direct
+      # (DEEPSEEK_API_KEY), else Anthropic (ANTHROPIC_API_KEY); vars.TRANSLATE_PROVIDER
+      # and vars.TRANSLATE_MODEL override. Without any key the step logs the backlog and exits 0;
+      # a translation failure never fails the run.
+      - name: Restore news translations cache
+        uses: actions/cache/restore@v4
+        with:
+          path: pipelines/.cache/translations
+          key: news-translations-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            news-translations-
+
+      - name: Install pipeline dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Translate new news items
+        continue-on-error: true
+        run: bun run translate --cache pipelines/.cache/translations/news-translations.json --max 400
+        env:
+          OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TRANSLATE_PROVIDER: ${{ vars.TRANSLATE_PROVIDER }}
+          TRANSLATE_MODEL: ${{ vars.TRANSLATE_MODEL }}
+
+      - name: Save news translations cache
+        if: always()
+        continue-on-error: true
+        uses: actions/cache/save@v4
+        with:
+          path: pipelines/.cache/translations
+          key: news-translations-${{ github.run_id }}-${{ github.run_attempt }}
+
       - name: Refresh the change feed
         run: bun run changes
 

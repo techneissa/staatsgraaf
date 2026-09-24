@@ -10,6 +10,7 @@
     "refresh-official": "bun pipelines/refresh-official.mjs",
     "merge": "bun pipelines/merge.mjs",
     "news": "bun pipelines/news.mjs",
+    "translate": "bun pipelines/translate.mjs api",
     "changes": "bun pipelines/changes.mjs",
     "diff": "bun pipelines/diff.mjs",
     "contract": "bun scripts/check-contract.mjs",
@@ -19,5 +20,8 @@
   },
   "engines": {
     "bun": ">=1.2"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.128.0"
   }
 }

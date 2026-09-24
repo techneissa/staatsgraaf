@@ -16,6 +16,9 @@ import {
   commonsSourceId,
   wikidataSourceId,
   renderPortraitReport,
+  buildTkMediaRecord as tkMedia,
+  isEkWebsitePortrait as ekPortrait,
+  matchTkMembers as tkMatch,
 } from "./portraits.mjs";
 
 const person = {
@@ -256,4 +259,38 @@ test("renderPortraitReport writes counts, licenses and gaps", () => {
   assert.match(report, /\| CC-BY-4.0 \| 1 \|/);
   assert.equal(report.includes("CC0-1.0"), false);
   assert.match(report, /`person:x` \(X\): geen P18/);
+});
+
+test("matchTkMembers needs a current TK membership, the full name and an agreeing birth date", () => {
+  const members = [
+    { id: "a", fullName: "Danny Ranjith Franciscus Clemminck", birthDate: "1986-01-12" },
+    { id: "b", fullName: "Jan de Vries", birthDate: "1970-01-01" },
+    { id: "c", fullName: "Piet Jansen", birthDate: null },
+  ];
+  const people = [
+    { id: "person:clemminck", name: "Danny Ranjith Franciscus Clemminck", birthDate: "1986-01-12" },
+    { id: "person:jan-de-vries", name: "Jan de Vries", birthDate: "1980-05-05" },
+    { id: "person:piet-jansen", name: "Piet Jansen" },
+    { id: "person:oud-lid", name: "Danny Ranjith Franciscus Clemminck" },
+  ];
+  const memberships = [
+    { organization: "org:tweede-kamer", person: "person:clemminck", end: null },
+    { organization: "org:tweede-kamer", person: "person:jan-de-vries", end: null },
+    { organization: "org:tweede-kamer", person: "person:piet-jansen", end: null },
+    { organization: "org:tweede-kamer", person: "person:oud-lid", end: "2023-01-01" },
+  ];
+  const matches = tkMatch(members, people, memberships);
+  assert.deepEqual(matches.map((m) => [m.person.id, m.member.id, m.birthChecked]), [
+    ["person:clemminck", "a", true],
+    ["person:piet-jansen", "c", false],
+  ]);
+});
+
+test("TK media records carry CC0 1.0 and the Kamer as credit; EK website portraits are recognised", () => {
+  const record = tkMedia({ slug: "x" });
+  assert.equal(record.license, "CC0-1.0");
+  assert.equal(record.source, "src:portret-tk-x");
+  assert.match(record.credit, /Tweede Kamer der Staten-Generaal, CC0 1\.0/);
+  assert.equal(ekPortrait({ source: "src:portret-officieel-y", credit: "Foto: Eerste Kamer der Staten-Generaal, CC BY 4.0" }, { url: "https://www.eerstekamer.nl/persoon/y" }), true);
+  assert.equal(ekPortrait({ source: "src:commons-1", credit: "Foto: X" }, null), false);
 });

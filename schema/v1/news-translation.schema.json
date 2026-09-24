@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "news-translation.schema.json",
+  "$ref": "#/$defs/newsTranslation",
+  "$defs": {
+    "newsTranslation": {
+      "type": "object",
+      "description": "Machine translation of one news item into the other site language. Shown only while sourceHash matches the item (shared/news-translation-hash.mjs).",
+      "required": [
+        "id",
+        "language",
+        "sourceLanguage",
+        "title",
+        "lead",
+        "sourceHash",
+        "engine",
+        "method",
+        "translated"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^news:[a-z0-9][a-z0-9-]*$",
+          "description": "The news item this translates."
+        },
+        "language": {
+          "type": "string",
+          "enum": ["nl", "en"],
+          "description": "Target language of the translation."
+        },
+        "sourceLanguage": {
+          "type": "string",
+          "enum": ["nl", "en"],
+          "description": "Language of the news item as published."
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Translation of the item title."
+        },
+        "lead": {
+          "type": ["string", "null"],
+          "minLength": 1,
+          "description": "Translation of the lead: summaryMarkup without the title prefix. Entity tags are kept byte for byte, including their Dutch inner text. Null when the item has no lead."
+        },
+        "sourceHash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{12}$",
+          "description": "First 12 hex characters of sha256(title + \"\\n\" + (summaryMarkup ?? \"\")) at translation time."
+        },
+        "engine": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Model that wrote the translation, for example claude-opus-5-5, deepseek-v4.1-flash or claude-haiku-4-5."
+        },
+        "method": {
+          "type": "string",
+          "enum": ["claude-code-session", "opencode-zen", "deepseek-api", "anthropic-api"],
+          "description": "How the translation was produced: in a reviewed Claude Code session, or by the pipeline through OpenCode Zen, the DeepSeek API or the Anthropic Messages API."
+        },
+        "translated": {
+          "$ref": "common.schema.json#/$defs/isoDate"
+        }
+      }
+    }
+  }
+}
