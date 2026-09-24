@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import { Avatar } from "@/components/avatar";
 import { getMediaItem, mediaCreditLine, personPortraitId } from "@/lib/entity";
 import { partyByDataset } from "@/lib/parties";
@@ -13,20 +14,28 @@ export function personColor(person: Person): string | null {
  * party colour when no licensed portrait is on record. Decorative by default,
  * because it nearly always sits next to the visible name; pass `labelled`
  * where the portrait stands alone (the person page header).
+ *
+ * With `morph`, the portrait is a shared element between pages: from the
+ * people index or the home strip into the person page header it moves and
+ * grows instead of being replaced (globals.css, `.sg-morph`). Use it only
+ * where the person appears once on the page, since a view transition name
+ * must be unique.
  */
 export function PersonPortrait({
   person,
   size = 64,
   className = "",
   labelled = false,
+  morph = false,
 }: {
   person: Person;
   size?: number;
   className?: string;
   labelled?: boolean;
+  morph?: boolean;
 }) {
   const media = getMediaItem(personPortraitId(person));
-  return (
+  const avatar = (
     <Avatar
       name={person.name}
       url={media?.url ?? null}
@@ -36,6 +45,12 @@ export function PersonPortrait({
       className={className}
       title={media ? mediaCreditLine(media) : undefined}
     />
+  );
+  if (!morph) return avatar;
+  return (
+    <ViewTransition name={`portrait-${person.slug}`} share="sg-morph" default="none">
+      {avatar}
+    </ViewTransition>
   );
 }
 

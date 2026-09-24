@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { T } from "@/components/i18n/t";
 import { layoutArch } from "@/components/graph/arch";
 import { ARCH_EK, ARCH_TK, archParams, type ArchParams, type ChamberSeats } from "@/lib/graph";
@@ -104,6 +105,10 @@ export function ArchChart({
     return { entry, marks, label };
   });
 
+  // Seats fill the arch block by block, left to right, in about half a second.
+  const seatDelay = (index: number) => `${Math.round((index / Math.max(1, tally.total)) * 420)}ms`;
+  let seatOffset = 0;
+
   const highlighted = highlightKey ? tally.entries.find((entry) => entry.key === highlightKey) ?? null : null;
   const description = tally.entries.map((entry) => `${entry.label} ${entry.seats}`).join(", ");
 
@@ -118,14 +123,19 @@ export function ArchChart({
         viewBox={`${minX.toFixed(1)} ${minY.toFixed(1)} ${width.toFixed(1)} ${height.toFixed(1)}`}
         role="img"
         aria-label={`${description}. ${tally.majority}/${tally.total}.`}
-        className={compact ? "mt-1 h-auto w-full max-w-[220px]" : "mt-2 h-auto w-full max-w-xl"}
+        className={`motion-grow ${compact ? "mt-1 h-auto w-full max-w-[220px]" : "mt-2 h-auto w-full max-w-xl"}`}
+        data-reveal="pending"
       >
         {blocks.map(({ entry, marks, label }) => {
           const faded = highlighted !== null && entry.key !== highlightKey;
           const fill = entry.color ?? NEUTRAL;
+          const first = seatOffset;
+          seatOffset += marks.length;
           const seats = marks.map((mark, index) => (
             <circle
               key={index}
+              className="grow-seat"
+              style={{ "--d": seatDelay(first + index) } as CSSProperties}
               cx={mark.x.toFixed(2)}
               cy={mark.y.toFixed(2)}
               r={seatRadius.toFixed(2)}
@@ -143,7 +153,8 @@ export function ArchChart({
               dominantBaseline="central"
               fill="var(--t-color-ink)"
               opacity={faded ? 0.4 : 0.9}
-              style={{ fontSize: labelFont, fontWeight: 600 }}
+              className="grow-fade"
+              style={{ fontSize: labelFont, fontWeight: 600, "--d": "360ms" } as CSSProperties}
             >
               {`${entry.label} ${entry.seats}`}
             </text>
@@ -174,6 +185,8 @@ export function ArchChart({
             strokeWidth={seatRadius * 0.45}
             strokeDasharray={`${seatRadius} ${seatRadius * 0.6}`}
             opacity={0.85}
+            className="grow-fade"
+            style={{ "--d": "440ms" } as CSSProperties}
           >
             <title>{`${tally.majority}/${tally.total}`}</title>
           </line>

@@ -310,7 +310,7 @@ export default async function OrganizationPage({
                 <SeatGrid members={members} limit={GRID_LIMIT} />
               </div>
               {memberCount > GRID_LIMIT ? (
-                <details className="mt-3">
+                <details className="motion-disclosure mt-3">
                   <summary className={SUMMARY_CLASS}>
                     <T area="common" k="seeAll" vars={{ n: memberCount }} />
                   </summary>

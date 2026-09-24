@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { T } from "@/components/i18n/t";
 import { SourceLink } from "@/components/source-link";
 import { getSourceById } from "@/lib/data";
@@ -54,8 +55,8 @@ export function ElectionHistory({ organizationId }: { organizationId: string }) 
                   ) : null}
                 </span>
               </div>
-              <div role="img" aria-label={label} className="relative mt-1.5">
-                <div className="flex h-3.5 w-full overflow-hidden rounded-pill border border-line">
+              <div role="img" aria-label={label} className="motion-grow relative mt-1.5" data-reveal="pending">
+                <div className="grow-x flex h-3.5 w-full overflow-hidden rounded-pill border border-line">
                   {blocks.map((block) => (
                     <span
                       key={block.key}
@@ -70,8 +71,8 @@ export function ElectionHistory({ organizationId }: { organizationId: string }) 
                 </div>
                 <span
                   aria-hidden="true"
-                  className="absolute -top-1 bottom-[-4px] w-0.5 bg-ink"
-                  style={{ left: `${majorityPercent}%` }}
+                  className="grow-fade absolute -top-1 bottom-[-4px] w-0.5 bg-ink"
+                  style={{ left: `${majorityPercent}%`, "--d": "240ms" } as CSSProperties}
                 />
               </div>
               <p className="mt-1 text-[11px] leading-snug text-ink-muted">

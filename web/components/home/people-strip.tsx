@@ -21,7 +21,7 @@ function PersonBubble({ entry, side }: { entry: StripPerson; side: "left" | "rig
         aria-label={title}
         className="relative z-10 block h-11 w-11 shrink-0 rounded-pill ring-2 ring-canvas transition-fast hover:z-20 hover:ring-accent"
       >
-        <PersonPortrait person={person} size={44} />
+        <PersonPortrait person={person} size={44} morph />
         <PersonPortraitCredit person={person} className="sr-only" />
       </a>
       <div

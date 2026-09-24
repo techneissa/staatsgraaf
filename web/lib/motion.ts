@@ -58,3 +58,27 @@ export function prefersReducedMotion(): boolean {
   if (typeof window === "undefined" || typeof window.matchMedia !== "function") return false;
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
+
+/**
+ * Run a DOM update inside a document view transition, so the whole page
+ * cross-fades instead of cutting (the theme switch). `flag` is written to
+ * `html[data-vt]` for the length of the transition so globals.css can tell
+ * this transition from a page navigation. Without the API, or under reduced
+ * motion, the update runs at once.
+ */
+export function withPageTransition(update: () => void, flag: string): void {
+  const doc = typeof document === "undefined" ? null : document;
+  const start = (doc as (Document & { startViewTransition?: (callback: () => void) => { finished: Promise<void> } }) | null)
+    ?.startViewTransition;
+  if (!doc || typeof start !== "function" || prefersReducedMotion()) {
+    update();
+    return;
+  }
+  const root = doc.documentElement;
+  root.setAttribute("data-vt", flag);
+  const transition = start.call(doc, update);
+  const clear = () => {
+    if (root.getAttribute("data-vt") === flag) root.removeAttribute("data-vt");
+  };
+  transition.finished.then(clear, clear);
+}

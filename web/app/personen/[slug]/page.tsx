@@ -172,7 +172,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
       <header className="mt-4">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
           <div className="shrink-0">
-            <PersonPortrait person={person} size={96} labelled />
+            <PersonPortrait person={person} size={96} labelled morph />
             {portrait !== null ? (
               <p className="mt-2 max-w-[12rem] text-[11px] leading-snug text-ink-faint">
                 <T area="entity" k="imageCredit" />: {mediaCreditLine(portrait)}

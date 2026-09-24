@@ -7,6 +7,8 @@ import type { NewsItemView } from "./news-view";
 import { EmptyState } from "@/components/empty-state";
 import { useLocale } from "@/components/i18n/language-provider";
 import { KindGlyph } from "@/components/kind-glyph";
+import { SlidingIndicator } from "@/components/motion/sliding-indicator";
+import { useSettled } from "@/components/motion/use-settled";
 import { loadPeekRecord } from "@/components/peek/peek-provider";
 import { formatCount } from "@/lib/format";
 import { NEWS_LANGUAGES, PUBLISHER_KINDS, type RecencyGroupKey } from "@/lib/news-meta";
@@ -77,6 +79,7 @@ export function NewsExplorer({
   const [publisher, setPublisher] = useState<string>(ALL_PUBLISHERS);
   const [entity, setEntity] = useState<EntityFilter | null>(null);
   const selectId = useId();
+  const settled = useSettled();
 
   const merged = useMemo(
     () =>
@@ -145,13 +148,14 @@ export function NewsExplorer({
   const languageOptions: LanguageFilter[] = ["all", ...NEWS_LANGUAGES];
 
   return (
-    <div>
+    <div data-settled={settled ? "" : undefined}>
       <div role="group" aria-label={messages.filtersLabel} className="space-y-3">
         <div
           role="group"
           aria-label={messages.languageTabsLabel}
           className="scroll-row -mx-4 gap-2 px-4 sm:mx-0 sm:flex-wrap sm:px-0 sm:[mask-image:none]"
         >
+          <SlidingIndicator variant="ring" className="rounded-pill border border-accent/40" />
           {languageOptions.map((option) => (
             <button
               key={option}
@@ -174,6 +178,7 @@ export function NewsExplorer({
           aria-label={messages.kindFilterLabel}
           className="scroll-row -mx-4 gap-2 px-4 sm:mx-0 sm:flex-wrap sm:px-0 sm:[mask-image:none]"
         >
+          <SlidingIndicator variant="ring" className="rounded-pill border border-accent/40" />
           {(["all", ...PUBLISHER_KINDS] as KindFilter[]).map((option) => {
             const count = option === "all" ? byEntity.length : (kindCounts.get(option) ?? 0);
             if (option !== "all" && count === 0) return null;
@@ -310,13 +315,13 @@ export function NewsExplorer({
                   <>
                     <ol className="mt-3 list-none space-y-2 p-0">
                       {visible.map((item) => (
-                        <li key={item.id}>
+                        <li key={item.id} className="motion-enter">
                           <NewsItemCard item={item} displayLanguage={uiLanguage} />
                         </li>
                       ))}
                     </ol>
                     {hidden.length > 0 ? (
-                      <details className="group mt-3">
+                      <details className="motion-disclosure group mt-3">
                         <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-pill border border-line bg-surface-raised px-4 text-sm font-medium text-ink transition-fast hover:border-accent/40 hover:bg-accent-soft hover:text-accent-text sm:min-h-9 [&::-webkit-details-marker]:hidden">
                           <span className="group-open:hidden">
                             {messages.showMoreLabel} ({formatCount(hidden.length)})
@@ -325,7 +330,7 @@ export function NewsExplorer({
                         </summary>
                         <ol className="mt-3 list-none space-y-2 p-0">
                           {hidden.map((item) => (
-                            <li key={item.id}>
+                            <li key={item.id} className="motion-enter">
                               <NewsItemCard item={item} displayLanguage={uiLanguage} />
                             </li>
                           ))}

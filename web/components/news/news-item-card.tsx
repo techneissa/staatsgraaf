@@ -55,6 +55,9 @@ export function NewsItemCard({
   const target: NewsLanguage = displayLanguage ?? siteLocale;
   const messages = NEWS_MESSAGES[target];
   const [original, setOriginal] = useState(false);
+  /** Set by the toggle, so only a switch the reader made fades the text in. */
+  const [switched, setSwitched] = useState(false);
+  const swap = switched ? "motion-swap" : "";
 
   const translation = item.translation !== null && item.translation.language === target ? item.translation : null;
   const translated = translation !== null && !original;
@@ -85,7 +88,9 @@ export function NewsItemCard({
           rel="noopener noreferrer"
           className="text-ink decoration-accent decoration-2 underline-offset-2 transition-fast hover:text-accent-text hover:underline"
         >
-          {title}
+          <span key={String(translated)} className={swap || undefined}>
+            {title}
+          </span>
           <span lang={target} className="sr-only">
             {" "}
             {messages.card.opensNewTab}
@@ -99,11 +104,11 @@ export function NewsItemCard({
 
       <div className="col-span-2 min-w-0 sm:col-span-1 sm:col-start-1">
         {lead !== null ? (
-          <p lang={textLanguage} className="mt-1.5 line-clamp-4 text-sm leading-normal text-ink-muted">
+          <p key={String(translated)} lang={textLanguage} className={`mt-1.5 line-clamp-4 text-sm leading-normal text-ink-muted ${swap}`}>
             {renderSummaryMarkupWithHrefs(clampMarkupSentences(lead, 280), entityFor)}
           </p>
         ) : plainLead !== null ? (
-          <p lang={textLanguage} className="mt-1.5 line-clamp-4 text-sm leading-normal text-ink-muted">
+          <p key={String(translated)} lang={textLanguage} className={`mt-1.5 line-clamp-4 text-sm leading-normal text-ink-muted ${swap}`}>
             {clampSentences(plainLead, 280)}
           </p>
         ) : null}
@@ -182,7 +187,10 @@ export function NewsItemCard({
               type="button"
               lang={target}
               aria-pressed={original}
-              onClick={() => setOriginal((value) => !value)}
+              onClick={() => {
+                setSwitched(true);
+                setOriginal((value) => !value);
+              }}
               className="-my-2 inline-flex min-h-11 items-center rounded-xs px-1.5 font-medium text-accent-text underline-offset-2 hover:underline sm:my-0 sm:min-h-0 sm:py-0.5"
             >
               {original ? messages.card.showTranslation : messages.card.showOriginal}

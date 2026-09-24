@@ -98,12 +98,36 @@
 }
 
 /*
- * Motion. One-shot entrances only, nothing loops, and everything is off under
- * prefers-reduced-motion (the base layer above also clamps durations).
- * `.motion-rise` fades an element in and lifts it a few pixels; add
- * `data-revealed` (see components/reveal.tsx) to run it when the element enters
- * the viewport. `.motion-draw` grows a vertical rail from the top.
+ * Motion system.
+ *
+ * Motion here answers something the reader did (opened, switched, expanded,
+ * copied) or shows what changed; it never decorates. The one orchestrated
+ * moment is the first load of the graph canvas on the home page, once per
+ * session (components/graph/graph-canvas.tsx). The canvas itself runs on
+ * springs (lib/motion.ts); everything else runs on these tokens.
+ *
+ * Durations: fast for feedback (a press, a colour), base for things that open
+ * or switch, slow for things that travel or grow. Curves: `--ease-out` for
+ * anything arriving, `--ease-in` for anything leaving (leaving is quicker than
+ * arriving), `--ease-spring` for surfaces that arrive with weight (the bottom
+ * sheet, the sliding tab indicator): a sampled critically-near spring with a
+ * 3% overshoot.
+ *
+ * Only transform and opacity are animated, with three deliberate exceptions:
+ * disclosure height (interpolate-size, the only way to open to `auto`), the
+ * focus ring's outline offset, and the sparkline's stroke dash. Every rule
+ * sits inside `prefers-reduced-motion: no-preference`; the base layer above
+ * also clamps any stray duration to zero under `reduce`.
  */
+:root {
+  --motion-fast: var(--t-duration-fast);
+  --motion-base: 200ms;
+  --motion-slow: var(--t-duration-slow);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.55, 0, 0.9, 0.4);
+  --ease-spring: linear(0, 0.071, 0.224, 0.401, 0.571, 0.715, 0.828, 0.911, 0.966, 1, 1.019, 1.027, 1.028, 1.025, 1.02, 1.015, 1.011, 1.007, 1.004, 1.002, 1);
+}
+
 @keyframes sg-rise {
   from {
     opacity: 0;
@@ -124,29 +148,149 @@
   }
 }
 
-@keyframes sg-sheet {
+@keyframes sg-fade-in {
   from {
-    transform: translateY(24px);
     opacity: 0;
-  }
-  to {
-    transform: none;
-    opacity: 1;
   }
 }
 
-@keyframes sg-pop {
-  from {
-    transform: translateY(4px) scale(0.98);
+@keyframes sg-fade-out {
+  to {
     opacity: 0;
   }
-  to {
-    transform: none;
-    opacity: 1;
+}
+
+/* Surfaces that open from a point: popovers, menus, the search dialog. */
+@keyframes sg-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
   }
+}
+
+@keyframes sg-pop-out {
+  to {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+
+@keyframes sg-sheet-in {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes sg-sheet-out {
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes sg-grow-x {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes sg-grow-y {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes sg-seat {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+}
+
+@keyframes sg-stroke-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes sg-shimmer {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes sg-focus {
+  from {
+    outline-offset: 5px;
+    outline-color: transparent;
+  }
+}
+
+/* The graph's first load: a ring settles onto its radius as it fades in. */
+@keyframes sg-settle {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+}
+
+@keyframes sg-page-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+/* The sliding indicator for tab bars, segmented controls and filter rows
+   (components/motion/sliding-indicator.tsx). Once it has measured, the list
+   carries data-indicator and the active item hands its own fill or border to
+   the indicator, so the look without JavaScript is unchanged. */
+.sg-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  transform-origin: 0 0;
+  opacity: 0;
+}
+
+[data-indicator] {
+  position: relative;
+  isolation: isolate;
+}
+
+[data-indicator="fill"] > .sg-indicator {
+  z-index: -1;
+}
+
+[data-indicator="fill"]
+  > :is([data-state="active"], [aria-pressed="true"], [aria-current="page"]):not(.sg-indicator) {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+[data-indicator="underline"] > [data-state="active"]:not(.sg-indicator) {
+  border-bottom-color: transparent;
+}
+
+[data-indicator="ring"] > [aria-pressed="true"]:not(.sg-indicator) {
+  border-color: transparent;
+}
+
+/* A skeleton line for data that is still on its way. */
+.sg-skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--t-color-surface-inset);
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  /* Scroll-in entrances (components/reveal-observer.tsx). */
   html[data-reveal="on"] .motion-rise[data-reveal="pending"] {
     opacity: 0;
   }
@@ -155,17 +299,274 @@
     transform-origin: top;
   }
   .motion-rise[data-reveal="shown"] {
-    animation: sg-rise var(--t-duration-slow) var(--t-ease-decelerate) both;
+    animation: sg-rise var(--motion-slow) var(--ease-out) both;
   }
   .motion-draw[data-reveal="shown"] {
     transform-origin: top;
-    animation: sg-draw 600ms var(--t-ease-decelerate) both;
+    animation: sg-draw 600ms var(--ease-out) both;
+  }
+
+  /*
+   * Data visuals grow once as they enter the viewport. The container carries
+   * `motion-grow` and `data-reveal="pending"`; its bars carry `grow-x` (grow
+   * from the start edge) or `grow-y` (grow from the baseline), seats carry
+   * `grow-seat`, a line carries `grow-stroke` with pathLength="1". `--d` sets a
+   * per-mark delay. A chart already on screen at first paint stays still, so
+   * a hard load never flashes empty bars.
+   */
+  html[data-reveal="on"] .motion-grow[data-reveal="pending"] :is(.grow-x, .grow-y, .grow-seat) {
+    opacity: 0;
+  }
+  html[data-reveal="on"] .motion-grow[data-reveal="pending"] .grow-stroke {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  .motion-grow[data-reveal="shown"] .grow-x {
+    transform-origin: left center;
+    transform-box: fill-box;
+    animation: sg-grow-x var(--motion-slow) var(--ease-out) var(--d, 0ms) both;
+  }
+  .motion-grow[data-reveal="shown"] .grow-y {
+    transform-origin: center bottom;
+    transform-box: fill-box;
+    animation: sg-grow-y var(--motion-slow) var(--ease-out) var(--d, 0ms) both;
+  }
+  .motion-grow[data-reveal="shown"] .grow-seat {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: sg-seat var(--motion-base) var(--ease-out) var(--d, 0ms) both;
+  }
+  .motion-grow[data-reveal="shown"] .grow-stroke {
+    stroke-dasharray: 1;
+    animation: sg-stroke-draw 600ms var(--ease-out) var(--d, 0ms) both;
+  }
+  .motion-grow[data-reveal="shown"] .grow-fade {
+    animation: sg-fade-in var(--motion-base) var(--ease-out) var(--d, 0ms) both;
+  }
+
+  /* Overlays. `data-state` is Radix's; the peek and search set their own. */
+  .motion-pop {
+    transform-origin: var(--origin, top center);
+    animation: sg-pop-in var(--motion-base) var(--ease-out) both;
+  }
+  .motion-pop[data-state="closed"] {
+    animation: sg-pop-out var(--motion-fast) var(--ease-in) both;
   }
   .motion-sheet {
-    animation: sg-sheet var(--t-duration-base) var(--t-ease-decelerate) both;
+    animation: sg-sheet-in 420ms var(--ease-spring) both;
   }
-  .motion-pop {
-    animation: sg-pop var(--t-duration-fast) var(--t-ease-decelerate) both;
+  .motion-sheet[data-state="closed"] {
+    animation: sg-sheet-out var(--motion-base) var(--ease-in) both;
+  }
+  .motion-scrim {
+    animation: sg-fade-in var(--motion-base) var(--ease-out) both;
+  }
+  .motion-scrim[data-state="closed"] {
+    animation: sg-fade-out var(--motion-base) var(--ease-in) both;
+  }
+  .motion-menu[data-state="open"] {
+    transform-origin: var(--radix-dropdown-menu-content-transform-origin);
+    animation: sg-pop-in var(--motion-base) var(--ease-out) both;
+  }
+  .motion-menu[data-state="closed"] {
+    transform-origin: var(--radix-dropdown-menu-content-transform-origin);
+    animation: sg-pop-out var(--motion-fast) var(--ease-in) both;
+  }
+
+  /* The sliding indicator travels; a resize moves it without animating. */
+  .sg-indicator {
+    transition:
+      transform var(--motion-slow) var(--ease-spring),
+      opacity var(--motion-fast) var(--ease-out);
+  }
+
+  /*
+   * A tab panel that replaces another fades in, and items that a filter
+   * brings into a list arrive instead of appearing. @starting-style only
+   * applies to elements inserted after the list has settled, so the content
+   * already on the page never animates.
+   */
+  @starting-style {
+    [data-settled] .motion-panel[data-state="active"] {
+      opacity: 0;
+    }
+    [data-settled] .motion-enter {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+  }
+  [data-settled] .motion-panel[data-state="active"] {
+    transition: opacity var(--motion-base) var(--ease-out);
+  }
+  [data-settled] .motion-enter {
+    transition:
+      opacity var(--motion-base) var(--ease-out),
+      transform var(--motion-base) var(--ease-out);
+  }
+
+  /* Text that swaps in place: a translation and its original, a selection. */
+  .motion-swap {
+    animation: sg-fade-in var(--motion-base) var(--ease-out) both;
+  }
+
+  /* The details panel under the canvas on a phone opens with its content. */
+  @container (width < 44rem) {
+    .motion-unfold {
+      animation: sg-pop-in var(--motion-base) var(--ease-out) both;
+      transform-origin: top center;
+    }
+  }
+
+  /* Disclosures open to their natural height (Chromium 131+, Safari 26). */
+  @supports (interpolate-size: allow-keywords) {
+    :root {
+      interpolate-size: allow-keywords;
+    }
+    details.motion-disclosure::details-content {
+      block-size: 0;
+      opacity: 0;
+      overflow-y: clip;
+      transition:
+        block-size var(--motion-base) var(--ease-out),
+        opacity var(--motion-base) var(--ease-out),
+        content-visibility var(--motion-base) allow-discrete;
+    }
+    details.motion-disclosure[open]::details-content {
+      block-size: auto;
+      opacity: 1;
+    }
+  }
+
+  /* An underline that draws in from the start of the word (single-line links). */
+  .link-draw {
+    position: relative;
+    text-decoration-line: none;
+  }
+  .link-draw::after {
+    content: "";
+    position: absolute;
+    left: var(--link-draw-inset, 0);
+    right: var(--link-draw-inset, 0);
+    bottom: var(--link-draw-bottom, 0);
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--motion-base) var(--ease-out);
+  }
+  .link-draw:hover::after,
+  .link-draw[aria-current="page"]::after {
+    transform: none;
+  }
+  .link-draw[aria-current="page"]::after {
+    background-color: var(--t-color-accent);
+  }
+
+  /* The share button's check draws itself when the copy lands. */
+  .motion-check {
+    stroke-dasharray: 1;
+    animation: sg-stroke-draw 260ms var(--ease-out) both;
+  }
+
+  /* An icon swapped by a toggle turns into place. */
+  .motion-turn {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: sg-turn var(--motion-slow) var(--ease-out) both;
+  }
+
+  .sg-skeleton::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--t-color-ink) 7%, transparent), transparent);
+    transform: translateX(-100%);
+    animation: sg-shimmer 1.2s ease-in-out infinite;
+  }
+
+  /* The first load of the graph canvas, ring by ring from the centre. */
+  .sg-intro .sg-intro-ring {
+    animation: sg-settle var(--motion-slow) var(--ease-out) calc(var(--ring, 0) * 60ms) backwards;
+  }
+  .sg-intro .sg-intro-fade {
+    animation: sg-fade-in var(--motion-slow) var(--ease-out) calc(var(--ring, 0) * 60ms) backwards;
+  }
+
+  /*
+   * Page transitions (React <ViewTransition> in app/layout.tsx). Only the page
+   * column takes part: the old page leaves fast, the new one arrives a beat
+   * later. The top bar is its own group and does not move. Browsers without
+   * the View Transitions API simply swap the page.
+   */
+  ::view-transition {
+    pointer-events: none;
+  }
+  ::view-transition-old(.sg-page) {
+    animation: sg-fade-out var(--motion-fast) var(--ease-in) both;
+  }
+  ::view-transition-new(.sg-page) {
+    animation: sg-page-in var(--motion-slow) var(--ease-out) 60ms both;
+  }
+  ::view-transition-group(.sg-page) {
+    animation-duration: var(--motion-slow);
+  }
+  ::view-transition-group(.sg-morph) {
+    animation-duration: var(--motion-slow);
+    animation-timing-function: var(--ease-out);
+  }
+  ::view-transition-group(site-header) {
+    z-index: 100;
+  }
+  html:not([data-vt="theme"])::view-transition-group(site-header) {
+    animation: none;
+  }
+  html:not([data-vt="theme"])::view-transition-old(site-header) {
+    display: none;
+  }
+  html:not([data-vt="theme"])::view-transition-new(site-header) {
+    animation: none;
+  }
+  /* The theme switch cross-fades the whole page instead of cutting. */
+  html[data-vt="theme"]::view-transition-old(root),
+  html[data-vt="theme"]::view-transition-new(root) {
+    animation-duration: var(--motion-slow);
+    animation-timing-function: var(--ease-out);
+  }
+}
+
+/*
+ * Press feedback and focus, in the base layer so any component rule wins:
+ * controls give slightly under the finger or the click, and focus rings
+ * settle onto the control rather than blinking on.
+ */
+@layer base {
+  @media (prefers-reduced-motion: no-preference) {
+    :is(button, summary, [role="tab"], .motion-press) {
+      transition-property: color, background-color, border-color, text-decoration-color, box-shadow, opacity, scale, rotate;
+      transition-duration: var(--motion-fast);
+      transition-timing-function: var(--ease-out);
+    }
+    :is(button, summary, [role="tab"], .motion-press):not(:disabled):active {
+      scale: 0.97;
+    }
+    :focus-visible {
+      animation: sg-focus var(--motion-fast) var(--ease-out);
+    }
+  }
+}
+
+@keyframes sg-turn {
+  from {
+    opacity: 0;
+    transform: rotate(-60deg) scale(0.6);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
   }
 }
 
