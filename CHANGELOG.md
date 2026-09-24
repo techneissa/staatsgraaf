@@ -4,6 +4,14 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (25-09-2026, second round)
+
+- The graph draws no connection lines at rest. A body's connections appear only when it is selected, in the accent colour.
+- Selecting a body no longer turns the canvas, so the view stays exactly where the reader left it. The turn is off by default and stays available under the ↻ button (stored under a new key, so an earlier "on" is not carried over).
+- Budget amounts are short and readable: at most four significant figures with "mld" and "mln" in Dutch and "B" and "M" in English, and the exact amount in a tooltip and for screen readers (`web/lib/budget-format.ts`, `web/components/budget/amount.tsx`). Totals and ministries are cards two to a row, also on phones. The "amounts in x 1.000 euro" notes are gone because the figures are now shown in euros.
+- Instruction text is removed where the design speaks for itself: the empty graph details hint, "click to unpack", the cmd-click tip, the search hint, the budget footnote explainer. Page intros are one plain sentence. Screen-reader instructions stay.
+- Motion that answers the reader: pages cross-fade, a portrait moves from a list into its person page, popovers grow from their link and the phone sheet slides up, tab indicators slide, accordions open to their height, filtered news items rise in, and budget, election, seat and histogram charts grow once as they come into view. The graph settles in ring by ring once per session on the home page. Durations and curves are tokens in `web/app/globals.css`, and everything is off under reduced motion (`web/components/motion/`).
+
 ### Added (25-09-2026)
 
 - Every news item is readable in both languages. Headlines and leads are machine translated (ADR 0016): the 1,511 items at hand were translated once in a Claude Code session, and every news run in CI now translates only new or changed items through OpenCode Zen with DeepSeek V4.1 Flash, reasoning off, with the DeepSeek API and Claude as fallbacks. Translations live in `data/news-translations.json` (schema `schema/v1/news-translation.schema.json`), are tied to their source by a hash (`shared/news-translation-hash.mjs`), keep every entity tag, and are carried between CI runs in the Actions cache. Translated cards say so, link to the new machine translation section on `/methodiek`, and show the original on request. `/news/` shows all items instead of English outlets only.
