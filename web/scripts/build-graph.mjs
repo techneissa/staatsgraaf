@@ -6,12 +6,14 @@ import { computeLayout } from "../lib/graph-layout.ts";
 import { isSplinterGroup, partyByDataset } from "../lib/parties.ts";
 import { seatOrder } from "../lib/seats.ts";
 import { isCabinetPost, newsReferenceDate, scoreConnections } from "../lib/power-connections.ts";
+import { buildHierarchy } from "../lib/hierarchy.ts";
 
 const DATA_DIR = fileURLToPath(new URL("../../data/", import.meta.url));
 const WINDOW_DAYS = 90;
 const OUT_DIR = fileURLToPath(new URL("../public/", import.meta.url));
 const OUT_FILE = fileURLToPath(new URL("../public/graph.json", import.meta.url));
 const POWER_FILE = fileURLToPath(new URL("../public/power-map.json", import.meta.url));
+const HIERARCHY_FILE = fileURLToPath(new URL("../public/hierarchy.json", import.meta.url));
 
 function readJson(name) {
   return JSON.parse(readFileSync(`${DATA_DIR}${name}`, "utf8"));
@@ -444,6 +446,24 @@ writeFileSync(OUT_FILE, json);
 const powerJson = JSON.stringify(powerBundle);
 writeFileSync(POWER_FILE, powerJson);
 
+// The hierarchy form of the connections view (lib/hierarchy.ts): cabinet and
+// chambers from current tenures and memberships, loaded only when shown.
+const hierarchy = buildHierarchy({
+  snapshot,
+  organizations,
+  people,
+  positions,
+  tenures,
+  memberships,
+  coalitions,
+  sources: readArray("sources.json"),
+  portraitOf: (id) => portraitOf(peopleById.get(id)),
+  partyOf: (name) => partyByDataset(name),
+  seatOrder,
+});
+const hierarchyJson = JSON.stringify(hierarchy);
+writeFileSync(HIERARCHY_FILE, hierarchyJson);
+
 const bytes = Buffer.byteLength(json, "utf8");
 const powerBytes = Buffer.byteLength(powerJson, "utf8");
 console.log(
@@ -455,4 +475,9 @@ console.log(
     `ranked ${powerBundle.powerMap.people.length}, people ${Object.keys(powerBundle.people).length}, ` +
     `bodies ${Object.keys(powerBundle.bodies).length}, news ${powerBundle.news.length}, links ${powerBundle.links.length}, ` +
     `sources ${powerBundle.powerMap.sources.length}, articles ${powerBundle.powerMap.articleCount}`,
+);
+console.log(
+  `hierarchy.json: ${Buffer.byteLength(hierarchyJson, "utf8")} bytes, ` +
+    hierarchy.trees.map((tree) => `${tree.id} ${tree.hubs.length} hubs`).join(", ") +
+    `, sources ${hierarchy.sources.length}`,
 );

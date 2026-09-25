@@ -5,6 +5,10 @@ import type { PowerMapBundle, PowerNewsItem } from "@/lib/graph";
 import type { Selection } from "@/lib/selection";
 import type { PowerLink } from "@/lib/power-connections";
 import { egoFits, rankOverview } from "@/lib/power-map-layout";
+import { focusFits } from "@/lib/hierarchy-layout";
+import type { HierarchyPerson, HierarchySource, HierarchyTreeId } from "@/lib/hierarchy";
+import { Network, Orbit } from "lucide";
+import { LucideIcon } from "@/components/icons/lucide-icon";
 import { useT } from "@/components/i18n/use-t";
 import { useLocale } from "@/components/i18n/language-provider";
 import { useSelection } from "@/components/selection/selection-provider";
@@ -23,6 +27,12 @@ import { EgoDiagram } from "./ego-diagram";
 import { Overview } from "./overview";
 import { TieList } from "./tie-list";
 import { EntityMark, NewsRows, PartyChip, ProfileLink, SourceNote } from "./parts";
+import { FocusDiagram } from "./focus-diagram";
+import { HierarchyView, Segmented, TREE_KEYS } from "./hierarchy-view";
+import { useHierarchyBundle } from "./use-hierarchy";
+
+/** The two forms of the view: the hierarchy (default) and the network of ties. */
+export type ConnectionsMode = "hierarchy" | "network";
 
 export type { FractieResolver, NameResolver } from "./model";
 
@@ -75,11 +85,18 @@ export function ConnectionsView({
   fractieOf?: FractieResolver;
 }) {
   const t = useT("power");
+  const tc = useT("common");
   const locale = useLocale();
   const { current, previous, canGoBack, select, back, clear } = useSelection();
   const rootRef = useRef<HTMLDivElement | null>(null);
   const [bodyRef, box] = useBoxSize<HTMLDivElement>();
   const [newsOpen, setNewsOpen] = useState(false);
+  const [mode, setMode] = useState<ConnectionsMode>("hierarchy");
+  const [tree, setTree] = useState<HierarchyTreeId>("kabinet");
+  const [expanded, setExpanded] = useState<string | null>(null);
+  /** The full tie list of a focus, when the reader asks for more than the diagram holds. */
+  const [listAll, setListAll] = useState(false);
+  const hierarchy = useHierarchyBundle(mode === "hierarchy");
 
   /**
    * A person or body pick focuses the view; a news or topic pick keeps the
@@ -100,16 +117,47 @@ export function ConnectionsView({
     if (next?.id !== focus?.id) {
       setFocus(next);
       setNewsOpen(false);
+      setListAll(false);
     }
   }
   const pickedNewsId = current?.kind === "news" ? current.id : null;
 
   const newsById = useMemo(() => new Map(bundle.news.map((item) => [item.id, item])), [bundle.news]);
-  const infoCache = useMemo(() => new Map<string, EntityInfo>(), [bundle, locale, resolveName, fractieOf]);
+
+  /** Everyone the hierarchy places, with the source that places them. */
+  const hierarchyPeople = useMemo(() => {
+    const map = new Map<string, { person: HierarchyPerson; source: HierarchySource | null }>();
+    const data = hierarchy.bundle;
+    if (!data) return map;
+    for (const entry of data.trees) {
+      const add = (person: HierarchyPerson | null | undefined) => {
+        if (person && !map.has(person.id)) map.set(person.id, { person, source: data.sources[person.src] ?? null });
+      };
+      add(entry.head);
+      add(entry.headOfState);
+      for (const hub of entry.hubs) hub.people.forEach(add);
+    }
+    return map;
+  }, [hierarchy.bundle]);
+  const kabinetHubs = useMemo(
+    () => new Set(hierarchy.bundle?.trees.find((entry) => entry.id === "kabinet")?.hubs.map((hub) => hub.id) ?? []),
+    [hierarchy.bundle],
+  );
+  const resolveAll = useMemo<NameResolver>(
+    () => (id: string) => {
+      const found = resolveName?.(id) ?? null;
+      if (found) return found;
+      const placed = hierarchyPeople.get(id)?.person;
+      return placed ? { name: placed.name, image: placed.image, slug: placed.slug ?? id.replace(/^person:/, "") } : null;
+    },
+    [resolveName, hierarchyPeople],
+  );
+
+  const infoCache = useMemo(() => new Map<string, EntityInfo>(), [bundle, locale, resolveAll, fractieOf]);
   const infoOf = (id: string): EntityInfo => {
     let info = infoCache.get(id);
     if (!info) {
-      info = entityInfo(id, bundle, locale, resolveName, fractieOf);
+      info = entityInfo(id, bundle, locale, resolveAll, fractieOf);
       infoCache.set(id, info);
     }
     return info;
@@ -120,10 +168,10 @@ export function ConnectionsView({
   const model = useMemo(() => {
     if (!focusId) return null;
     const ties = focusLinks(bundle, focusId, fractieOf);
-    const reasonsOf = (link: PowerLink) => reasonViews(link, t, bundle, newsById, (id) => entityInfo(id, bundle, locale, resolveName).name, locale);
+    const reasonsOf = (link: PowerLink) => reasonViews(link, t, bundle, newsById, (id) => entityInfo(id, bundle, locale, resolveAll).name, locale);
     const news = bundle.news.filter((item) => item.people.includes(focusId) || item.bodies.includes(focusId));
     return { ...groupViews(ties, reasonsOf), news, total: ties.length };
-  }, [focusId, bundle, fractieOf, t, newsById, locale, resolveName]);
+  }, [focusId, bundle, fractieOf, t, newsById, locale, resolveAll]);
 
   // The cabinet group is named after the cabinet, the party group after its one fractie.
   const kindLabel = (kind: keyof typeof KIND_LABEL_KEY) =>
@@ -162,6 +210,7 @@ export function ConnectionsView({
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key !== "Escape" || event.defaultPrevented || !current) return;
+      if (hubFocus) return;
       const target = event.target as Node | null;
       if (!(rootRef.current?.contains(target) || target === document.body)) return;
       event.preventDefault();
@@ -196,12 +245,59 @@ export function ConnectionsView({
 
   const focusInfo = focus ? infoOf(focus.id) : null;
   const newsFocus = !focus && pickedNews ? pickedNews : null;
-  const diagram = Boolean(model && focusInfo && model.total > 0 && egoFits(box.width, box.height));
-  const emptyOverview = !focus && !newsFocus && overview.length === 0;
+  const hierarchyMode = mode === "hierarchy";
+  /** A ministry picked in the hierarchy opens its hub instead of a focus. */
+  const hubFocus = hierarchyMode && focus?.kind === "org" && kabinetHubs.has(focus.id) ? focus.id : null;
+  const personFocus = hubFocus ? null : focusInfo;
+  const hasTies = Boolean(model && model.total > 0);
+  const diagram = Boolean(
+    personFocus &&
+      hasTies &&
+      (hierarchyMode ? !listAll && focusFits(box.width, box.height) : egoFits(box.width, box.height)),
+  );
+  const showHierarchy = hierarchyMode && !personFocus && !newsFocus;
+  const emptyOverview = !hierarchyMode && !focus && !newsFocus && overview.length === 0;
 
-  const toolbar = current ? (
-    <div className="flex shrink-0 items-center gap-2 px-3 pt-2 sm:px-4">
-      {canGoBack ? (
+  const closeHub = (hub: string | null) => {
+    if (hubFocus && hub !== hubFocus) {
+      if (canGoBack) back();
+      else clear();
+      return;
+    }
+    setExpanded(hub);
+  };
+
+  const modeSwitch = (
+    <Segmented
+      label={t("modeLabel")}
+      value={mode}
+      options={[
+        { value: "hierarchy", label: t("modeHierarchy"), icon: <LucideIcon icon={Orbit} size={14} />, compact: true },
+        { value: "network", label: t("modeNetwork"), icon: <LucideIcon icon={Network} size={14} />, compact: true },
+      ]}
+      onChange={(value) => {
+        setMode(value as ConnectionsMode);
+        setListAll(false);
+      }}
+    />
+  );
+
+  const toolbar = (
+    <div className="flex shrink-0 flex-wrap items-center gap-2 px-3 pt-2 sm:px-4">
+      {modeSwitch}
+      {showHierarchy && hierarchy.bundle && !hubFocus ? (
+        <Segmented
+          label={t("treeLabel")}
+          value={tree}
+          options={hierarchy.bundle.trees.map((entry) => ({ value: entry.id, label: t(TREE_KEYS[entry.id]) }))}
+          onChange={(value) => {
+            setExpanded(null);
+            setTree(value as HierarchyTreeId);
+          }}
+        />
+      ) : null}
+      <span className="flex-1" />
+      {current && canGoBack ? (
         <button
           type="button"
           onClick={back}
@@ -215,16 +311,18 @@ export function ConnectionsView({
           {t("powerBack")}
         </button>
       ) : null}
-      <button
-        type="button"
-        onClick={clear}
-        className="tap-target rounded-sm border border-line bg-surface px-2 py-1 text-xs font-medium text-ink-muted hover:border-line-strong hover:text-ink"
-      >
-        {t("overview")}
-      </button>
+      {current ? (
+        <button
+          type="button"
+          onClick={clear}
+          aria-label={hierarchyMode ? t("backToHierarchy") : undefined}
+          className="tap-target rounded-sm border border-line bg-surface px-2 py-1 text-xs font-medium text-ink-muted hover:border-line-strong hover:text-ink"
+        >
+          {hierarchyMode ? t("modeHierarchy") : t("overview")}
+        </button>
+      ) : null}
     </div>
-  ) : null;
-
+  );
   const newsBlock = (items: readonly PowerNewsItem[], preview: boolean) =>
     items.length === 0 ? null : (
       <section aria-labelledby="verbanden-nieuws" className="min-w-0">
@@ -252,11 +350,54 @@ export function ConnectionsView({
       </section>
     );
 
+  const listForm = (info: EntityInfo) =>
+    model ? (
+      <div className="flex flex-col gap-3 px-3 py-3 sm:px-4">
+        <header className="flex min-w-0 items-center gap-3">
+          <EntityMark info={info} size={52} />
+          <div className="flex min-w-0 flex-1 flex-col">
+            <h3 className="truncate text-base font-semibold text-ink">{info.name}</h3>
+            {info.meta ? <p className="line-clamp-2 text-xs text-ink-faint">{info.meta}</p> : null}
+            <p className="mt-0.5 flex items-center gap-2 text-xs text-ink-muted">
+              <PartyChip info={info} />
+              {model.total === 1 ? t("tieCount1") : t("tieCount", { n: model.total })}
+            </p>
+          </div>
+          <ProfileLink info={info} />
+        </header>
+        {model.total === 0 ? <p className="text-sm text-ink-faint">{t("noTies")}</p> : null}
+        <TieList groups={model.groups} infoOf={infoOf} labelOf={kindLabel} highlighted={highlighted} onPick={pick} />
+        {newsBlock(model.news, false)}
+      </div>
+    ) : null;
+
+  const hierarchyBody =
+    hierarchy.status === "ready" && hierarchy.bundle ? (
+      <HierarchyView
+        bundle={hierarchy.bundle}
+        tree={hubFocus ? "kabinet" : tree}
+        width={box.width}
+        height={box.height}
+        locale={locale}
+        expanded={hubFocus ?? expanded}
+        onExpand={closeHub}
+        highlighted={highlighted}
+        onPick={pick}
+      />
+    ) : (
+      <div className="flex h-full items-center justify-center p-6">
+        <p className="text-sm text-ink-muted">{hierarchy.status === "error" ? tc("graphErrorTitle") : tc("graphLoading")}</p>
+      </div>
+    );
+
+  const sourceLine = showHierarchy ? t("hierarchySource") : sourceText;
+  const bodyKey = showHierarchy ? "hierarchy" : `${mode}:${focusId ?? newsFocus?.id ?? "overview"}`;
+
   return (
     <div
       ref={rootRef}
       role="region"
-      aria-label={focusInfo ? t("focusAria", { name: focusInfo.name }) : newsFocus ? t("newsFocusAria") : t("overviewAria")}
+      aria-label={personFocus ? t("focusAria", { name: personFocus.name }) : newsFocus ? t("newsFocusAria") : hierarchyMode ? t("modeHierarchy") : t("overviewAria")}
       className="flex h-full min-h-0 w-full flex-col"
     >
       <style>{`
@@ -267,7 +408,12 @@ export function ConnectionsView({
       {toolbar}
 
       <div ref={bodyRef} className="relative min-h-0 flex-1">
-        <div key={focusId ?? newsFocus?.id ?? "overview"} className={`verbanden-in absolute inset-0 ${diagram ? "" : "overflow-y-auto overscroll-contain"}`}>
+        <div
+          key={bodyKey}
+          className={`${showHierarchy || (diagram && hierarchyMode) ? "" : "verbanden-in"} absolute inset-0 ${diagram || showHierarchy ? "" : "overflow-y-auto overscroll-contain"}`}
+        >
+          {showHierarchy ? hierarchyBody : null}
+
           {emptyOverview ? (
             <div className="flex h-full items-center justify-center p-6">
               <div className="max-w-sm text-center">
@@ -277,7 +423,7 @@ export function ConnectionsView({
             </div>
           ) : null}
 
-          {!focus && !newsFocus && !emptyOverview ? (
+          {!hierarchyMode && !focus && !newsFocus && !emptyOverview ? (
             <Overview groups={overview} infoOf={infoOf} highlighted={highlighted} onPick={pick} />
           ) : null}
 
@@ -310,13 +456,28 @@ export function ConnectionsView({
             </div>
           ) : null}
 
-          {focusInfo && model && diagram ? (
+          {personFocus && model && diagram && hierarchyMode ? (
+            <FocusDiagram
+              width={box.width}
+              height={box.height}
+              groups={model.groups}
+              focus={personFocus}
+              source={hierarchyPeople.get(personFocus.id)?.source ?? null}
+              infoOf={infoOf}
+              labelOf={kindLabel}
+              highlighted={highlighted}
+              onPick={pick}
+              onShowAll={() => setListAll(true)}
+            />
+          ) : null}
+
+          {personFocus && model && diagram && !hierarchyMode ? (
             <EgoDiagram
               width={box.width}
               height={box.height}
               raw={model.raw}
               groups={model.groups}
-              focus={focusInfo}
+              focus={personFocus}
               infoOf={infoOf}
               labelOf={kindLabel}
               highlighted={highlighted}
@@ -324,25 +485,7 @@ export function ConnectionsView({
             />
           ) : null}
 
-          {focusInfo && model && !diagram ? (
-            <div className="flex flex-col gap-3 px-3 py-3 sm:px-4">
-              <header className="flex min-w-0 items-center gap-3">
-                <EntityMark info={focusInfo} size={52} />
-                <div className="flex min-w-0 flex-1 flex-col">
-                  <h3 className="truncate text-base font-semibold text-ink">{focusInfo.name}</h3>
-                  {focusInfo.meta ? <p className="line-clamp-2 text-xs text-ink-faint">{focusInfo.meta}</p> : null}
-                  <p className="mt-0.5 flex items-center gap-2 text-xs text-ink-muted">
-                    <PartyChip info={focusInfo} />
-                    {model.total === 1 ? t("tieCount1") : t("tieCount", { n: model.total })}
-                  </p>
-                </div>
-                <ProfileLink info={focusInfo} />
-              </header>
-              {model.total === 0 ? <p className="text-sm text-ink-faint">{t("noTies")}</p> : null}
-              <TieList groups={model.groups} infoOf={infoOf} labelOf={kindLabel} highlighted={highlighted} onPick={pick} />
-              {newsBlock(model.news, false)}
-            </div>
-          ) : null}
+          {personFocus && model && !diagram ? listForm(personFocus) : null}
         </div>
       </div>
 
@@ -353,7 +496,7 @@ export function ConnectionsView({
       ) : null}
 
       <div className="shrink-0 border-t border-line">
-        <SourceNote text={sourceText} />
+        <SourceNote text={sourceLine} />
       </div>
     </div>
   );
