@@ -94,26 +94,27 @@ describe("scales", () => {
     expect(shareTicks(0).ticks.length).toBeGreaterThan(0);
   });
 
-  test("amount ticks are round, linear and cover the largest value", () => {
-    const { max, ticks } = amountTicks([1.13e8, 6.64e10, null, 2.33e10]);
-    expect(max).toBeGreaterThanOrEqual(6.64e10);
-    expect(ticks.length).toBeLessThanOrEqual(5);
-    expect(ticks[ticks.length - 1]).toBe(max);
-    const step = ticks[0];
-    ticks.forEach((tick, index) => expect(tick).toBeCloseTo(step * (index + 1)));
+  test("amount rings are 100M, 1B, 10B, 25B, 50B and 100B for the ministry range", () => {
+    const { ticks, lo, hi } = amountTicks([1.13e8, 6.64e10, null, 2.33e10]);
+    expect(ticks).toEqual([1e8, 1e9, 1e10, 2.5e10, 5e10, 1e11]);
+    expect(lo).toBe(7.5);
+    expect(hi).toBe(11);
   });
 
-  test("a €23 billion ministry sits proportionally, not near the €100 billion mark", () => {
-    const { max } = amountTicks([6.64e10, 2.33e10]);
-    const fraction = scaleFraction(2.33e10, "amount", { shareMax: 25, amountMax: max });
-    expect(fraction).toBeCloseTo(2.33e10 / max);
-    expect(fraction).toBeLessThan(0.5);
+  test("a €23 billion ministry sits just inside the €25 billion ring", () => {
+    const { lo, hi } = amountTicks([1.13e8, 6.64e10]);
+    const domain = { shareMax: 25, lo, hi };
+    const defensie = scaleFraction(2.33e10, "amount", domain);
+    const ring25 = scaleFraction(2.5e10, "amount", domain);
+    const ring10 = scaleFraction(1e10, "amount", domain);
+    expect(defensie).toBeLessThan(ring25);
+    expect(defensie).toBeGreaterThan(ring10);
   });
 
   test("fractions stay inside the circle and skip missing values", () => {
-    const domain = { shareMax: 25, amountMax: 8e10 };
+    const domain = { shareMax: 25, lo: 7, hi: 11 };
     expect(scaleFraction(12.5, "share", domain)).toBeCloseTo(0.5);
-    expect(scaleFraction(4e10, "amount", domain)).toBeCloseTo(0.5);
+    expect(scaleFraction(1e9, "amount", domain)).toBeCloseTo(0.5);
     expect(scaleFraction(null, "share", domain)).toBeNull();
     expect(scaleFraction(0, "amount", domain)).toBe(0);
     expect(scaleFraction(1e13, "amount", domain)).toBe(1);

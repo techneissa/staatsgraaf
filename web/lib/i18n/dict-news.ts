@@ -155,8 +155,8 @@ export const NEWS_DICT = {
     en: "Share: a ministry's spending as part of the summed spending of the twelve ministries in that year. Together they make 100%.",
   },
   budgetRadarNoteAmount: {
-    nl: "Bedrag in euro, lineair: twee keer zo ver van het midden is twee keer zoveel geld.",
-    en: "Amount in euros, linear: twice as far from the centre is twice as much money.",
+    nl: "Bedrag in euro op een logaritmische schaal: elke ring is een vast bedrag.",
+    en: "Amount in euros on a logarithmic scale: each ring is a fixed amount.",
   },
   budgetRadarMissing: { nl: "Geen cijfer voor {names} in {year}.", en: "No figure for {names} in {year}." },
   budgetRadarAria: {

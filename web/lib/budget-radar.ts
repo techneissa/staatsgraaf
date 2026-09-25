@@ -4,8 +4,8 @@
  *
  * The chart puts one axis per ministry around a circle and draws one closed
  * line per selected year. The radius is either the ministry's share of that
- * year's summed spending or the amount in euros, both linear from zero, so
- * the distance from the centre is always proportional to the money.
+ * year's summed spending (linear, from zero) or the amount in euros on a
+ * log10 scale with extra rings in the top decade (see amountTicks).
  */
 
 export type RadarScaleMode = "share" | "amount";
@@ -227,34 +227,39 @@ export function shareTicks(maxShare: number): { max: number; ticks: number[] } {
 }
 
 /**
- * A round upper bound and ring values for a linear euro axis, at most five
- * rings: 10, 20, 50 and so on times a power of ten. Linear on purpose: the
- * distance from the centre is proportional to the money, so €23 billion sits
- * a little over a third of the way to a €60 billion ring and never reads as
- * €100 billion, which a logarithmic axis invited.
+ * Rings for the amount axis, on a log10 scale: every power of ten from the
+ * smallest amount up (100M, 1B, 10B), plus 25% and 50% of the top power
+ * (25B, 50B when the top is 100B). The extra rings in the top decade are what
+ * make the large ministries readable: €23 billion sits just inside the €25
+ * billion ring instead of floating between €10 and €100 billion. The centre
+ * sits half a decade below the first ring, so that ring is visible.
  */
-export function amountTicks(values: (number | null)[]): { max: number; ticks: number[] } {
+export function amountTicks(values: (number | null)[]): { lo: number; hi: number; ticks: number[] } {
   const positive = values.filter((value): value is number => value !== null && Number.isFinite(value) && value > 0);
-  const top = positive.length === 0 ? 1 : Math.max(...positive);
-  const magnitude = 10 ** Math.floor(Math.log10(top));
-  const steps = [0.1, 0.2, 0.25, 0.5, 1, 2, 2.5, 5, 10].map((factor) => factor * magnitude);
-  const step = steps.find((candidate) => Math.ceil(top / candidate) <= 5) ?? magnitude * 10;
-  const max = Math.ceil(top / step) * step;
+  if (positive.length === 0) return { lo: 0, hi: 1, ticks: [10] };
+  const first = Math.floor(Math.log10(Math.min(...positive)));
+  const top = Math.ceil(Math.log10(Math.max(...positive)));
   const ticks: number[] = [];
-  for (let value = step; value <= max * (1 + 1e-9); value += step) ticks.push(value);
-  return { max, ticks };
+  for (let exponent = first; exponent <= top; exponent += 1) ticks.push(10 ** exponent);
+  if (top - 1 >= first) ticks.push(0.25 * 10 ** top, 0.5 * 10 ** top);
+  ticks.sort((x, y) => x - y);
+  return { lo: first - 0.5, hi: top, ticks };
 }
 
 /** Radius as a fraction of the full radius, or null when the value cannot be placed. */
 export function scaleFraction(
   value: number | null,
   mode: RadarScaleMode,
-  domain: { shareMax: number; amountMax: number },
+  domain: { shareMax: number; lo: number; hi: number },
 ): number | null {
   if (value === null || !Number.isFinite(value)) return null;
-  const max = mode === "share" ? domain.shareMax : domain.amountMax;
-  if (max <= 0) return null;
-  return Math.max(0, Math.min(1, value / max));
+  if (mode === "share") {
+    if (domain.shareMax <= 0) return null;
+    return Math.max(0, Math.min(1, value / domain.shareMax));
+  }
+  if (value <= 0) return 0;
+  const fraction = (Math.log10(value) - domain.lo) / (domain.hi - domain.lo);
+  return Math.max(0, Math.min(1, fraction));
 }
 
 /**
