@@ -44,7 +44,25 @@ export const WHEEL_RINGS = {
 /** What a cell picks when it is clicked, in the selection store's own terms. */
 export type WheelPick = { kind: "org"; id: string } | { kind: "sector"; id: string } | { kind: "cluster"; id: string };
 
-export type WheelItem = { id: string; label: string; name: string; subtype: WireNode["subtype"]; branch: WireNode["branch"] };
+export type WheelItem = {
+  id: string;
+  label: string;
+  name: string;
+  subtype: WireNode["subtype"];
+  branch: WireNode["branch"];
+  /** Bodies it is tied to: its edges, its parent and the bodies under it (the reference's connected nodes). */
+  ties: number;
+};
+
+/**
+ * How much larger a mark is drawn for its ties, in three steps as in the
+ * reference (whose departments are 14, 19.5 or 25 units by connected
+ * bodies): a body tied to many others reads as a hub at a glance.
+ */
+export function tieScale(ties: number, head = false): number {
+  if (head) return ties >= 40 ? 1.2 : ties >= 15 ? 1 : 0.82;
+  return ties >= 10 ? 1.28 : ties >= 3 ? 1.14 : 1;
+}
 
 export type WheelCell = {
   id: string;
@@ -77,6 +95,8 @@ export type WheelCell = {
   headBand?: number;
   /** Whether this family is open. */
   open?: boolean;
+  /** Items are in angular order (from a0 to a1) rather than outer row first. */
+  byAngle?: boolean;
 };
 
 /** Step between marks of a family at rest, and when it is open. */
@@ -208,12 +228,15 @@ export function buildWheel(
   const nodes = bundle.nodes.filter((node) => node.sector !== "frame" && !node.id.startsWith("org:kiesgerechtigden"));
   const inSector = (sector: string, filter: (node: WireNode) => boolean = () => true) =>
     nodes.filter((node) => node.sector === sector && filter(node)).sort(byDegree);
+  const childCount = new Map<string, number>();
+  for (const node of bundle.nodes) if (node.parent) childCount.set(node.parent, (childCount.get(node.parent) ?? 0) + 1);
   const item = (node: WireNode): WheelItem => ({
     id: node.id,
     label: shortLabel(node, bundle.shortNames),
     name: node.name,
     subtype: node.subtype,
     branch: node.branch,
+    ties: node.degree + (childCount.get(node.id) ?? 0) + (node.parent ? 1 : 0),
   });
   const cells: (Omit<WheelCell, "group"> & { group?: string })[] = [];
   /** Titles of the groups of more than one cell; the others take their cell's. */
@@ -328,7 +351,15 @@ export function buildWheel(
   groupTitles.ministeries = { title: "Ministeries", count: ministries.length };
 
   // Advies: the vaste adviescolleges, the planbureaus and the Kiesraad, independent in what they advise.
-  const advies = inSector("advies");
+  // Each sits toward the ministry it advises, so its tie is short: the ministries nearest the wedge first.
+  const ministryAngle = new Map<string, number>();
+  for (const cell of cells) if (cell.head && cell.group === "ministeries") ministryAngle.set(cell.head.id, (cell.a0 + cell.a1) / 2);
+  const advisedAngle = (node: WireNode) => {
+    const edge = bundle.edges.find((entry) => entry.type === "advises" && entry.from === node.id && ministryAngle.has(entry.to));
+    const target = edge?.to ?? (node.parent && ministryAngle.has(node.parent) ? node.parent : null);
+    return target ? ministryAngle.get(target)! : -Infinity;
+  };
+  const advies = inSector("advies").sort((a, b) => advisedAngle(b) - advisedAngle(a) || byDegree(a, b));
   cells.push({
     id: "advies",
     title: "Advies en planbureaus",
@@ -340,6 +371,7 @@ export function buildWheel(
     a1: W.adv[1],
     pick: { kind: "sector", id: "advies" },
     items: advies.map(item),
+    byAngle: true,
   });
 
   // Rechtspraak en controle: the Hoge Colleges, then the courts by instance.
@@ -545,13 +577,69 @@ export type WheelMark = { id: string; x: number; y: number; r: number };
  * the count allows up to `maxPitch`. `titleBand` is kept free at the outer
  * edge for the cell's name.
  */
-export function cellMarks(cell: Pick<WheelCell, "r0" | "r1" | "a0" | "a1">, ids: readonly string[], titleBand: number, maxPitch = 30): WheelMark[] {
+/**
+ * Marks spread over the whole cell, the way the reference spreads its
+ * commissions evenly along a ring: as many rows as keep the step along the
+ * ring close to the step across it, each row filled end to end. Null when
+ * the count does not fit at `pitch`.
+ */
+function spreadMarks(cell: Pick<WheelCell, "r0" | "r1" | "a0" | "a1">, count: number, inner: number, outer: number, pitch: number) {
+  const depth = outer - inner;
+  let best: { score: number; slots: { angle: number; radius: number }[] } | null = null;
+  for (let k = 1; k <= Math.max(1, Math.floor(depth / pitch)); k += 1) {
+    const radii = Array.from({ length: k }, (_, index) => outer - (index + 0.5) * (depth / k));
+    const arcs = radii.map((radius) => (cell.a1 - cell.a0) * radius - 4);
+    const capacity = arcs.map((arc) => Math.max(0, Math.floor(arc / pitch)));
+    if (capacity.reduce((sum, value) => sum + value, 0) < count) continue;
+    const total = arcs.reduce((sum, arc) => sum + arc, 0);
+    const take = arcs.map((arc, index) => Math.min(capacity[index], Math.floor((arc / total) * count)));
+    let left = count - take.reduce((sum, value) => sum + value, 0);
+    for (let pass = 0; left > 0 && pass < k * 4; pass += 1) {
+      const index = pass % k;
+      if (take[index] < capacity[index]) {
+        take[index] += 1;
+        left -= 1;
+      }
+    }
+    if (left > 0) continue;
+    const along = Math.min(...take.map((value, index) => (value > 0 ? arcs[index] / value : Infinity)));
+    const across = depth / k;
+    if (across < pitch * 0.95) continue;
+    const score = Math.abs(Math.log(along / across));
+    if (best && best.score <= score) continue;
+    const slots: { angle: number; radius: number }[] = [];
+    take.forEach((value, index) => {
+      const span = arcs[index] / radii[index];
+      const start = (cell.a0 + cell.a1) / 2 - span / 2;
+      for (let j = 0; j < value; j += 1) slots.push({ angle: start + ((j + 0.5) * span) / value, radius: radii[index] });
+    });
+    best = { score, slots };
+  }
+  return best?.slots ?? null;
+}
+
+export function cellMarks(
+  cell: Pick<WheelCell, "r0" | "r1" | "a0" | "a1">,
+  ids: readonly string[],
+  titleBand: number,
+  maxPitch = 30,
+  options: { spread?: boolean; byAngle?: boolean } = {},
+): WheelMark[] {
   const count = ids.length;
   if (count === 0) return [];
   const inner = cell.r0 + 3;
   const outer = cell.r1 - titleBand;
   const depth = outer - inner;
   if (depth <= 1) return [];
+  if (options.spread) {
+    // The largest step that still fits, then the marks spread over the whole cell at that size.
+    for (let pitch = Math.min(maxPitch, depth); pitch > 2.5; pitch *= 0.94) {
+      const slots = spreadMarks(cell, count, inner, outer, pitch);
+      if (!slots) continue;
+      const ordered = options.byAngle ? [...slots].sort((a, b) => a.angle - b.angle) : slots;
+      return ordered.map((slot, index) => ({ id: ids[index], x: Math.cos(slot.angle) * slot.radius, y: Math.sin(slot.angle) * slot.radius, r: pitch * 0.4 }));
+    }
+  }
   const rowsFor = (pitch: number) => {
     const rows = Math.max(1, Math.floor(depth / pitch));
     const offset = (depth - rows * pitch) / 2;
