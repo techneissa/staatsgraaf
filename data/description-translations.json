@@ -3749,5 +3749,137 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-25"
+  },
+  {
+    "id": "topic:arbeidsmarkt",
+    "field": "description",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "text": "The labour market covers employment, working conditions, participation, benefits and pensions. Responsibility lies with the Minister of Social Affairs and Employment and the Minister for Work and Participation, with UWV, SVB and the Nederlandse Arbeidsinspectie carrying out the work.",
+    "sourceHash": "f2ae31f27a9a",
+    "engine": "claude-opus-5-5",
+    "method": "claude-code-session",
+    "translated": "2026-09-25"
+  },
+  {
+    "id": "topic:asiel-en-migratie",
+    "field": "description",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "text": "Asylum and migration covers asylum procedures, the reception of asylum seekers, family reunification and return. Responsibility lies with the Minister for Asylum and Migration and the State Secretary for Justice and Security, with the IND, the COA and the DT&V carrying out the work.",
+    "sourceHash": "bc3b934e0df7",
+    "engine": "claude-opus-5-5",
+    "method": "claude-code-session",
+    "translated": "2026-09-25"
+  },
+  {
+    "id": "topic:infrastructuur",
+    "field": "description",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "text": "Infrastructure covers roads, rail, water, shipping, aviation and public transport. Responsibility lies with the Minister and the State Secretary for Infrastructure and Water Management, with Rijkswaterstaat and the KNMI carrying out the work.",
+    "sourceHash": "a4ad3e5ea599",
+    "engine": "claude-opus-5-5",
+    "method": "claude-code-session",
+    "translated": "2026-09-25"
+  },
+  {
+    "id": "topic:klimaat-en-energie",
+    "field": "description",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "text": "Climate and energy covers climate policy, the energy transition, the congested power grid, nuclear energy and making industry sustainable. Responsibility lies with the Minister and the State Secretary for Climate and Green Growth and the Minister of Economic Affairs and Climate.",
+    "sourceHash": "344eae9ee3b1",
+    "engine": "claude-opus-5-5",
+    "method": "claude-code-session",
+    "translated": "2026-09-25"
+  },
+  {
+    "id": "topic:koninkrijksrelaties",
+    "field": "description",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "text": "Kingdom relations covers the relations between the Netherlands and Aruba, Curaçao and Sint Maarten, and the administration of the Caribbean Netherlands. Responsibility lies with the State Secretary for Kingdom Relations and Effective Government at the Ministry of the Interior and Kingdom Relations.",
+    "sourceHash": "79fd4d1d6fc5",
+    "engine": "claude-opus-5-5",
+    "method": "claude-code-session",
+    "translated": "2026-09-25"
+  },
+  {
+    "id": "topic:onderwijs",
+    "field": "description",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "text": "Education covers primary and secondary education, vocational education, higher education and science. Responsibility lies with the Minister of Education, Culture and Science and the State Secretary for Education and Emancipation, with DUO and the Onderwijsinspectie carrying out the work.",
+    "sourceHash": "a3b23db828ed",
+    "engine": "claude-opus-5-5",
+    "method": "claude-code-session",
+    "translated": "2026-09-25"
+  },
+  {
+    "id": "topic:openbaar-bestuur-en-democratie",
+    "field": "description",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "text": "Public administration and democracy covers how public administration is organised, elections, the relation between central government and the other tiers of government, and the democratic rule of law. Responsibility lies with the Minister of the Interior and Kingdom Relations and the State Secretary for Kingdom Relations and Effective Government, with the Kiesraad and parliament as core institutions.",
+    "sourceHash": "3d61693525b5",
+    "engine": "claude-opus-5-5",
+    "method": "claude-code-session",
+    "translated": "2026-09-25"
+  },
+  {
+    "id": "topic:stikstof-en-landbouw",
+    "field": "description",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "text": "Nitrogen and agriculture covers the nitrogen approach, nature restoration, the agricultural transition, fisheries and food security. Responsibility lies with the Minister and the State Secretary for Agriculture, Fisheries, Food Security and Nature, with the NVWA and Staatsbosbeheer carrying out the work.",
+    "sourceHash": "a911f1b323a0",
+    "engine": "claude-opus-5-5",
+    "method": "claude-code-session",
+    "translated": "2026-09-25"
+  },
+  {
+    "id": "topic:toeslagen",
+    "field": "description",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "text": "Benefits covers the administration of allowances and the recovery after the childcare benefits scandal, with tailored support and aftercare for affected parents. Responsibility lies with the Minister of Finance and the State Secretary for Benefits Recovery, with Dienst Toeslagen and the Belastingdienst carrying out the work.",
+    "sourceHash": "1da8425fb23d",
+    "engine": "claude-opus-5-5",
+    "method": "claude-code-session",
+    "translated": "2026-09-25"
+  },
+  {
+    "id": "topic:veiligheid",
+    "field": "description",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "text": "Security covers the police, justice, fighting crime, counter-terrorism and law enforcement. Responsibility lies with the Minister and the State Secretary for Justice and Security, with the Politie, the Openbaar Ministerie and the judiciary.",
+    "sourceHash": "221c00571d1b",
+    "engine": "claude-opus-5-5",
+    "method": "claude-code-session",
+    "translated": "2026-09-25"
+  },
+  {
+    "id": "topic:wonen",
+    "field": "description",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "text": "Housing covers sufficient and affordable housing, house building and the allocation of the available space. The policy falls under the Minister of Housing and Spatial Planning at the Ministry of the Interior and Kingdom Relations.",
+    "sourceHash": "e8a9b2a2181a",
+    "engine": "claude-opus-5-5",
+    "method": "claude-code-session",
+    "translated": "2026-09-25"
+  },
+  {
+    "id": "topic:zorg",
+    "field": "description",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "text": "Health care covers curative and long-term care, youth care, public health and the accessibility of the health care system. Responsibility lies with the Minister of Health, Welfare and Sport and the Minister for Long-term Care, Youth and Sport.",
+    "sourceHash": "d28175ce44cc",
+    "engine": "claude-opus-5-5",
+    "method": "claude-code-session",
+    "translated": "2026-09-25"
   }
 ]

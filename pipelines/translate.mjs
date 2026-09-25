@@ -722,7 +722,7 @@ async function runNewsApi({
 // web shows nothing for a stale record. The data refresh never touches it.
 
 export const DESCRIPTIONS_FILE = "description-translations.json";
-export const DESCRIPTION_ENTITY_FILES = Object.freeze(["organizations.json", "people.json"]);
+export const DESCRIPTION_ENTITY_FILES = Object.freeze(["organizations.json", "people.json", "topics.json"]);
 export const DESCRIPTION_FIELD = "description";
 export const DEFAULT_DESCRIPTION_MAX = 100;
 export const DEFAULT_DESCRIPTION_BATCH = 6;
