@@ -230,7 +230,8 @@ it("counts match the Phase 0 snapshot", async () => {
   assert.equal(bySubtype("koepel"), 3, "koepels");
   assert.equal(bySubtype("samenwerkingsverband"), 39, "regionale samenwerkingsorganen");
   // +3 landstaten en 24 landen-ministeries (M-kingdom breadth, 19-09-2026).
-  assert.equal(organizations.length, 1641, "organizations total");
+  // +3 koninkrijksorganen: Rijksministerraad, Cft en IPKO (workstream V, 25-09-2026).
+  assert.equal(organizations.length, 1644, "organizations total");
   assert.equal(memberships.filter((record) => record.organization === "org:tweede-kamer").length, 150, "Tweede Kamer");
   assert.equal(memberships.filter((record) => record.organization === "org:eerste-kamer").length, 75, "Eerste Kamer");
 });

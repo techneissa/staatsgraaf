@@ -440,7 +440,8 @@ export function buildWheel(
     })
     .sort((a, b) => Number(Boolean(b.head)) - Number(Boolean(a.head)) || a.title.localeCompare(b.title, "nl"));
   const waterschappen = inSector("waterschappen", (node) => node.subtype === "waterschap");
-  const caribisch = inSector("caribisch", (node) => node.subtype === "openbaar-lichaam-bes");
+  // The openbare lichamen and the Rijksvertegenwoordiger; a raad or bestuurscollege stands in for its openbaar lichaam.
+  const caribisch = inSector("caribisch", (node) => !node.parent);
   const top = deg(-130);
   const decentraalNeeds = [
     ...gemeenteGroups.map((group) =>
@@ -719,6 +720,7 @@ export type WheelLinkType =
   | "accountable_to"
   | "part_of"
   | "appoints"
+  | "confirms"
   | "joint_arrangement_member";
 
 const WHEEL_LINK_TYPES: ReadonlySet<string> = new Set<WheelLinkType>([
@@ -728,6 +730,7 @@ const WHEEL_LINK_TYPES: ReadonlySet<string> = new Set<WheelLinkType>([
   "accountable_to",
   "part_of",
   "appoints",
+  "confirms",
   "joint_arrangement_member",
 ]);
 

@@ -58,6 +58,7 @@ const LINK_STYLE: Record<WheelLinkType, { dash?: string; arrow: "filled" | "open
   accountable_to: { arrow: "open" },
   part_of: { dash: "3 3", arrow: null },
   appoints: { arrow: "filled" },
+  confirms: { arrow: "open" },
   joint_arrangement_member: { dash: "1 3", arrow: null },
 };
 
