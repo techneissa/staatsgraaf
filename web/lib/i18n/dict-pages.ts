@@ -285,10 +285,10 @@ export const PAGES_DICT = {
     nl: "Feiten zelf zijn niet auteursrechtelijk beschermd. De licentie geldt voor onze eigen bijdrage: de selectie, de structuur, de samenstelling, de beschrijvingen en de samenvattingen.",
     en: "Facts themselves are not protected by copyright. The licence covers our own contribution: the selection, the structure, the composition, the descriptions and the summaries.",
   },
-  datasetAttributionTitle: { nl: "Hoe je de dataset noemt", en: "How to credit the dataset" },
+  datasetAttributionTitle: { nl: "Bronvermelding", en: "Credit" },
   datasetAttributionP1: {
-    nl: "Noem bij hergebruik {site} en de onderliggende bron. Houd bij elk feit de bron-URL en de ophaaldatum die in de gegevens staan. Vermeld de licentie en link naar de licentietekst.",
-    en: "When reusing, credit {site} and the underlying source. Keep the source URL and the retrieval date recorded in the data for every fact. State the licence and link to the licence text.",
+    nl: "De dataset valt onder CC BY 4.0. Noem bij hergebruik {site} en link naar deze site, bijvoorbeeld zo:",
+    en: "The dataset is under CC BY 4.0. When you reuse it, mention {site} and link to this site, for example:",
   },
   datasetAttributionP2a: {
     nl: "De volledige creditregels per bron staan in",
@@ -297,6 +297,10 @@ export const PAGES_DICT = {
   datasetAttributionP2b: {
     nl: ". Dat bestand staat in de repository, die nog niet openbaar is. Deze verwijzing is daarom voorlopig een bestandsnaam zonder host en nog niet aanklikbaar in de browser. Dat is een benoemde leemte. Dezelfde licentie- en broninformatie staat in",
     en: ". That file is in the repository, which is not public yet. This reference is therefore for now a file name without a host and is not clickable in the browser. That is a named gap. The same licence and source information is in",
+  },
+  datasetPhotoCredits: {
+    nl: "Portretten: Tweede Kamer der Staten-Generaal (CC0) en Wikimedia Commons (licentie per bestand). De credit en licentie per foto staan in media.json in de download.",
+    en: "Portraits: Tweede Kamer der Staten-Generaal (CC0) and Wikimedia Commons (licence per file). The credit and licence per photo are in media.json in the download.",
   },
   datasetCiteTitle: { nl: "Citeer de dataset", en: "Cite the dataset" },
   datasetCiteIntro: {
@@ -368,12 +372,12 @@ export const PAGES_DICT = {
     en: "The dataset is about people in public office. The data comes from sources the government itself makes public, such as laws, appointment decisions, registers and the websites of the bodies.",
   },
   privacyDatasetP2: {
-    nl: "De grondslag is het algemeen belang bij een publiek overzicht van de overheid, in combinatie met het feit dat de gegevens al openbaar zijn. De dataset bevat naam, functie, organisatie en datums van aanstelling en vertrek, met per feit een bron.",
-    en: "The basis is the public interest in a public overview of the government, combined with the fact that the data is already public. The dataset contains name, position, organization and dates of appointment and departure, with a source per fact.",
+    nl: "De grondslag is het algemeen belang bij een publiek overzicht van de overheid, in combinatie met het feit dat de gegevens al openbaar zijn. De dataset bevat naam, functie, organisatie, datums van aanstelling en vertrek en, als een openbare bron die publiceert, de geboortedatum, met per feit een bron.",
+    en: "The basis is the public interest in a public overview of the government, combined with the fact that the data is already public. The dataset contains name, position, organization, dates of appointment and departure and, where a public source publishes it, the date of birth, with a source per fact.",
   },
   privacyDatasetP3: {
-    nl: "Er zijn geen contactgegevens, geen privéadressen, geen gezinsgegevens en geen geboortedatums, tenzij de overheid die zelf openbaar heeft gemaakt en ze nodig zijn om de structuur te begrijpen. Wat niet nodig is voor dat overzicht, wordt niet verzameld.",
-    en: "There are no contact details, no private addresses, no family data and no dates of birth, unless the government published them itself and they are needed to understand the structure. Anything not needed for that overview is not collected.",
+    nl: "Er zijn geen contactgegevens, privéadressen of gezinsgegevens. Van politici en andere ambtsdragers staat de geboortedatum vermeld als een openbare bron die publiceert, zoals de open data van de Tweede Kamer of Wikidata. Wat niet nodig is voor het overzicht, wordt niet verzameld.",
+    en: "There are no contact details, private addresses or family data. For politicians and other office holders, the date of birth is shown when a public source publishes it, such as the Tweede Kamer open data or Wikidata. Anything not needed for the overview is not collected.",
   },
   privacyLogsTitle: { nl: "Serverlogbestanden", en: "Server logs" },
   privacyLogsP1: {
@@ -400,8 +404,8 @@ export const PAGES_DICT = {
     en: "The data controller is the independent project Staatsgraaf. No government body is involved in the processing and no Data Protection Officer has been appointed.",
   },
   privacyFooterPre: {
-    nl: "Deze verklaring is opgesteld op 18 september 2026. Zie ook",
-    en: "This statement was written on 18 September 2026. See also",
+    nl: "Deze verklaring is opgesteld op 18 september 2026.",
+    en: "This statement was written on 18 September 2026.",
   },
 
   accessTitle: { nl: "Toegankelijkheid", en: "Accessibility" },

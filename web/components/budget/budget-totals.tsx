@@ -10,6 +10,11 @@ import {
   type BudgetTotals,
 } from "@/lib/budget";
 
+/**
+ * One total. The amount never breaks across lines; the tiles reflow by the
+ * width of the column they sit in (container queries), not the screen, so a
+ * 32rem page column beside the canvas gets two tiles a row, like a phone.
+ */
 function StatTile({
   label,
   value,
@@ -20,10 +25,10 @@ function StatTile({
   caption: string;
 }) {
   return (
-    <div className="min-w-0 rounded-md border border-line bg-surface p-3 sm:p-4">
-      <h4 className="text-[10px] font-medium uppercase leading-snug tracking-widest text-ink-faint">{label}</h4>
-      <p className="mt-1.5 text-lg font-semibold tabular-nums tracking-tight text-ink sm:text-xl">{value}</p>
-      <p className="mt-1 text-xs text-ink-faint">{caption}</p>
+    <div className="flex min-w-0 flex-col rounded-md border border-line bg-surface px-3 py-2.5 @[40rem]:px-4 @[40rem]:py-3">
+      <dt className="text-xs leading-snug text-ink-muted">{label}</dt>
+      <dd className="order-last mt-0.5 text-xs tabular-nums text-ink-faint">{caption}</dd>
+      <dd className="mt-1 whitespace-nowrap text-lg font-semibold tabular-nums tracking-tight text-ink @[26rem]:text-xl">{value}</dd>
     </div>
   );
 }
@@ -54,11 +59,11 @@ export function BudgetTotals({ overview }: { overview: BudgetOverview }) {
   const partial = totals.spendingBudgetCounted < totals.expected;
 
   return (
-    <div>
-      <h3 className="text-xs font-medium uppercase tracking-wider text-ink-faint">
+    <div className="@container">
+      <h3 className="text-[13px] font-medium text-ink-muted">
         <T area="news" k="budgetTotalsCaption" vars={{ count: totals.expected }} />
       </h3>
-      <div className="mt-3 grid grid-cols-2 gap-2.5 sm:gap-3 lg:grid-cols-4">
+      <dl className="mt-2.5 grid grid-cols-1 gap-2 @[18rem]:grid-cols-2 @[44rem]:grid-cols-4 @[44rem]:gap-3">
         <StatTile
           label={<T area="news" k="budgetSpendingLabel" />}
           value={totalValue(totals, "spendingBudget", unit)}
@@ -79,7 +84,7 @@ export function BudgetTotals({ overview }: { overview: BudgetOverview }) {
           value={totalValue(totals, "net", unit)}
           caption={String(fiscalYear)}
         />
-      </div>
+      </dl>
 
       {spendingDelta !== null ? (
         <ChangeIndicator

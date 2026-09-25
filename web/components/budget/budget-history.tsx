@@ -51,16 +51,16 @@ export function BudgetHistory({
           </caption>
           <thead>
             <tr className="border-b border-line text-left">
-              <th scope="col" className="py-2 pe-3 text-xs uppercase tracking-wider font-medium text-ink-faint">
+              <th scope="col" className="py-2 pe-3 text-xs font-medium text-ink-faint">
                 <T area="news" k="budgetTableYear" />
               </th>
-              <th scope="col" className="py-2 pe-3 text-right text-xs uppercase tracking-wider font-medium text-ink-faint">
+              <th scope="col" className="py-2 pe-3 text-right text-xs font-medium text-ink-faint">
                 <T area="news" k="budgetSpendingActualLabel" />
               </th>
-              <th scope="col" className="py-2 pe-3 text-right text-xs uppercase tracking-wider font-medium text-ink-faint">
+              <th scope="col" className="py-2 pe-3 text-right text-xs font-medium text-ink-faint">
               <T area="news" k="budgetRevenueLabel" />
               </th>
-              <th scope="col" className="w-24 py-2 text-xs uppercase tracking-wider font-medium text-ink-faint">
+              <th scope="col" className="w-24 py-2 text-xs font-medium text-ink-faint">
                 <span className="sr-only">
                   <T area="news" k="budgetTableComparison" />
                 </span>

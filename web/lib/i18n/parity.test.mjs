@@ -8,6 +8,7 @@ import { HOME_DICT } from "./dict-home.ts";
 import { NEWS_DICT } from "./dict-news.ts";
 import { ENTITY_DICT } from "./dict-entity.ts";
 import { PAGES_DICT } from "./dict-pages.ts";
+import { PANELS_DICT } from "./dict-panels.ts";
 
 const AREAS = {
   common: COMMON_DICT,
@@ -17,6 +18,7 @@ const AREAS = {
   news: NEWS_DICT,
   entity: ENTITY_DICT,
   pages: PAGES_DICT,
+  panels: PANELS_DICT,
 };
 
 for (const [name, table] of Object.entries(AREAS)) {

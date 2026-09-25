@@ -3,6 +3,10 @@ import { ViewTransition, type ReactNode } from "react";
 import "./globals.css";
 import { LanguageProvider } from "@/components/i18n/language-provider";
 import { CanvasFrame } from "@/components/canvas-frame";
+import { SelectionProvider } from "@/components/selection/selection-provider";
+import { SelectionProfile } from "@/components/panels/selection-profile";
+import { Workspace } from "@/components/panels/workspace";
+import { PANELS_INIT_SCRIPT } from "@/components/panels/panel-prefs";
 import { PeekProvider } from "@/components/peek/peek-provider";
 import { RevealObserver } from "@/components/reveal-observer";
 import { SiteFooter } from "@/components/site-footer";
@@ -49,33 +53,40 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="nl" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{ __html: PANELS_INIT_SCRIPT }} />
       </head>
       <body>
         <LanguageProvider>
           <SkipLink />
-          <div className="flex min-h-dvh flex-col lg:h-dvh lg:min-h-0 lg:overflow-hidden">
-            <TopBar />
-          <div className="grid min-h-0 flex-1 grid-cols-1 lg:grid-cols-[minmax(0,32rem)_minmax(0,1fr)]">
-            <CanvasFrame />
-            <div className="flex min-h-0 min-w-0 flex-col lg:col-start-1 lg:row-start-1 lg:overflow-y-auto">
-              {/* Below lg the column is the full screen width: pad it clear of the
-                  notch in landscape and cap the measure so lines stay readable on
-                  an iPad in portrait. From lg the column is at most 32rem already. */}
-              <main
-                id="inhoud"
-                tabIndex={-1}
-                className="flex-1 pb-10 pl-[max(1rem,var(--safe-left))] pr-[max(1rem,var(--safe-right))] pt-6 lg:pl-[max(2rem,var(--safe-left))] lg:pr-8"
-              >
-                {/* The page column cross-fades on navigation (globals.css, "Page
-                    transitions"); nothing else on the page takes part. */}
-                <ViewTransition update="sg-page" default="none">
-                  <div className="mx-auto w-full max-w-[44rem] lg:mx-0 lg:max-w-none">{children}</div>
-                </ViewTransition>
-              </main>
-              <SiteFooter datasetDate={datasetDate} />
+          <SelectionProvider>
+            <div className="flex min-h-dvh flex-col lg:h-dvh lg:min-h-0 lg:overflow-hidden">
+              <TopBar />
+              {/* Three columns from lg (page, canvas, details), one stack below it;
+                  the grid and the stored column choices live in Workspace. */}
+              <Workspace canvas={<CanvasFrame />}>
+                {/* Below lg the column is the full screen width: pad it clear of the
+                    notch in landscape and cap the measure so lines stay readable on
+                    an iPad in portrait. From lg the column is at most 32rem already. */}
+                <main
+                  id="inhoud"
+                  tabIndex={-1}
+                  className="@container flex-1 pb-10 pl-[max(1rem,var(--safe-left))] pr-[max(1rem,var(--safe-right))] pt-6 lg:pl-[max(2rem,var(--safe-left))] lg:pr-8"
+                >
+                  <div className="mx-auto w-full max-w-[44rem] lg:mx-0 lg:max-w-none">
+                    {/* What is picked on the canvas, above the page; it does not
+                        take part in the page transition. */}
+                    <SelectionProfile />
+                    {/* The page column cross-fades on navigation (globals.css, "Page
+                        transitions"); nothing else on the page takes part. */}
+                    <ViewTransition update="sg-page" default="none">
+                      <div>{children}</div>
+                    </ViewTransition>
+                  </div>
+                </main>
+                <SiteFooter datasetDate={datasetDate} />
+              </Workspace>
             </div>
-          </div>
-          </div>
+          </SelectionProvider>
           <PeekProvider />
           <RevealObserver />
         </LanguageProvider>

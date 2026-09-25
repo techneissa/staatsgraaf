@@ -587,3 +587,56 @@
     min-height: 44px;
   }
 }
+
+/*
+ * Workspace (components/panels/workspace.tsx): the page column, the canvas
+ * and the details panel. From lg they are three grid columns; the reader can
+ * fold either side column away and drag the details panel wider. The stored
+ * choices arrive on <html> before first paint (PANELS_INIT_SCRIPT), so the
+ * columns never open and shut again on load. A folding column keeps its
+ * content at full width and is clipped as it narrows, so its text slides
+ * away instead of rewrapping on every frame. The column width is the fourth
+ * deliberate exception to "only transform and opacity" in the motion system.
+ */
+@media (min-width: 64rem) {
+  .sg-workspace {
+    --page-w: clamp(22rem, 34vw, 32rem);
+    --details-w-resolved: min(var(--details-w, 20rem), 32vw);
+    grid-template-columns: var(--page-col, var(--page-w)) minmax(0, 1fr) var(--details-col, var(--details-w-resolved));
+  }
+  html[data-page-panel="closed"] .sg-workspace {
+    --page-col: 0px;
+  }
+  html[data-details-panel="closed"] .sg-workspace {
+    --details-col: 0px;
+  }
+  .sg-page-inner {
+    width: var(--page-w);
+  }
+  .sg-details-inner {
+    width: var(--details-w-resolved);
+  }
+  /* A folded column leaves the tab order and the accessibility tree once it has slid away. */
+  html[data-page-panel="closed"] .sg-page-col,
+  html[data-details-panel="closed"] .sg-details-col {
+    visibility: hidden;
+    transition: visibility 0s linear var(--motion-slow);
+  }
+  html[data-details-panel="closed"] .sg-details-col {
+    border-inline-start-width: 0;
+  }
+}
+
+@media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+  .sg-workspace {
+    transition: grid-template-columns var(--motion-slow) var(--ease-out);
+  }
+  html[data-panels-resizing] .sg-workspace {
+    transition: none;
+  }
+}
+
+html[data-panels-resizing] {
+  cursor: col-resize;
+  user-select: none;
+}
