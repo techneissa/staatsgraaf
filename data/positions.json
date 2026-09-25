@@ -14275,6 +14275,462 @@
     ]
   },
   {
+    "id": "pos:ek-fractievoorzitter-50plus",
+    "slug": "ek-fractievoorzitter-50plus",
+    "title": "Fractievoorzitter 50PLUS",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-50plus",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter 50PLUS Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-bbb",
+    "slug": "ek-fractievoorzitter-bbb",
+    "title": "Fractievoorzitter BBB",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-boerburgerbeweging",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter BBB Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-cda",
+    "slug": "ek-fractievoorzitter-cda",
+    "title": "Fractievoorzitter CDA",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-christen-democratisch-appel",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter CDA Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-christenunie",
+    "slug": "ek-fractievoorzitter-christenunie",
+    "title": "Fractievoorzitter ChristenUnie",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-christenunie",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter ChristenUnie Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-d66",
+    "slug": "ek-fractievoorzitter-d66",
+    "title": "Fractievoorzitter D66",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-democraten-1966",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter D66 Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-fractie-beukering",
+    "slug": "ek-fractievoorzitter-fractie-beukering",
+    "title": "Fractievoorzitter Fractie-Beukering",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-beukering",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter Fractie-Beukering Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-fractie-van-de-sanden",
+    "slug": "ek-fractievoorzitter-fractie-van-de-sanden",
+    "title": "Fractievoorzitter Fractie-Van de Sanden",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-van-de-sanden",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter Fractie-Van de Sanden Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-fractie-visseren-hamakers",
+    "slug": "ek-fractievoorzitter-fractie-visseren-hamakers",
+    "title": "Fractievoorzitter Fractie-Visseren-Hamakers",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-visseren-hamakers",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter Fractie-Visseren-Hamakers Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-fractie-walenkamp",
+    "slug": "ek-fractievoorzitter-fractie-walenkamp",
+    "title": "Fractievoorzitter Fractie-Walenkamp",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-walenkamp",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter Fractie-Walenkamp Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-fvd",
+    "slug": "ek-fractievoorzitter-fvd",
+    "title": "Fractievoorzitter FVD",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-forum-voor-democratie",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter FVD Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-ja21",
+    "slug": "ek-fractievoorzitter-ja21",
+    "title": "Fractievoorzitter JA21",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-ja21",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter JA21 Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-opnl",
+    "slug": "ek-fractievoorzitter-opnl",
+    "title": "Fractievoorzitter OPNL",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-onafhankelijke-politiek-nederland",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter OPNL Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-pro",
+    "slug": "ek-fractievoorzitter-pro",
+    "title": "Fractievoorzitter PRO",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-progressief-nederland-pro",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter PRO Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-pvdd",
+    "slug": "ek-fractievoorzitter-pvdd",
+    "title": "Fractievoorzitter PvdD",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-partij-voor-de-dieren",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter PvdD Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-pvv",
+    "slug": "ek-fractievoorzitter-pvv",
+    "title": "Fractievoorzitter PVV",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-partij-voor-de-vrijheid",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter PVV Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-sgp",
+    "slug": "ek-fractievoorzitter-sgp",
+    "title": "Fractievoorzitter SGP",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-staatkundig-gereformeerde-partij",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter SGP Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-sp",
+    "slug": "ek-fractievoorzitter-sp",
+    "title": "Fractievoorzitter SP",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-socialistische-partij",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter SP Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-volt",
+    "slug": "ek-fractievoorzitter-volt",
+    "title": "Fractievoorzitter Volt",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-volt",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter Volt Eerste Kamer"
+    ]
+  },
+  {
+    "id": "pos:ek-fractievoorzitter-vvd",
+    "slug": "ek-fractievoorzitter-vvd",
+    "title": "Fractievoorzitter VVD",
+    "organization": "org:eerste-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-fractie-volkspartij-voor-vrijheid-en",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Fractievoorzitter VVD Eerste Kamer"
+    ]
+  },
+  {
     "id": "pos:fmhaaglanden-directeur-generaal",
     "slug": "fmhaaglanden-directeur-generaal",
     "title": "Directeur-generaal FMHaaglanden",

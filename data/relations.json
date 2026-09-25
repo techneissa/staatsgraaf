@@ -28713,6 +28713,253 @@
     }
   },
   {
+    "id": "rel:office-ek-fractievoorzitter-50plus",
+    "from": "pos:ek-fractievoorzitter-50plus",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-50plus",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-bbb",
+    "from": "pos:ek-fractievoorzitter-bbb",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-boerburgerbeweging",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-cda",
+    "from": "pos:ek-fractievoorzitter-cda",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-christen-democratisch-appel",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-christenunie",
+    "from": "pos:ek-fractievoorzitter-christenunie",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-christenunie",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-d66",
+    "from": "pos:ek-fractievoorzitter-d66",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-democraten-1966",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-fractie-beukering",
+    "from": "pos:ek-fractievoorzitter-fractie-beukering",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-beukering",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-fractie-van-de-sanden",
+    "from": "pos:ek-fractievoorzitter-fractie-van-de-sanden",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-van-de-sanden",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-fractie-visseren-hamakers",
+    "from": "pos:ek-fractievoorzitter-fractie-visseren-hamakers",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-visseren-hamakers",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-fractie-walenkamp",
+    "from": "pos:ek-fractievoorzitter-fractie-walenkamp",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-walenkamp",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-fvd",
+    "from": "pos:ek-fractievoorzitter-fvd",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-forum-voor-democratie",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-ja21",
+    "from": "pos:ek-fractievoorzitter-ja21",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-ja21",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-opnl",
+    "from": "pos:ek-fractievoorzitter-opnl",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-onafhankelijke-politiek-nederland",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-pro",
+    "from": "pos:ek-fractievoorzitter-pro",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-progressief-nederland-pro",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-pvdd",
+    "from": "pos:ek-fractievoorzitter-pvdd",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-partij-voor-de-dieren",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-pvv",
+    "from": "pos:ek-fractievoorzitter-pvv",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-partij-voor-de-vrijheid",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-sgp",
+    "from": "pos:ek-fractievoorzitter-sgp",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-staatkundig-gereformeerde-partij",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-sp",
+    "from": "pos:ek-fractievoorzitter-sp",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-socialistische-partij",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-volt",
+    "from": "pos:ek-fractievoorzitter-volt",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-volt",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-ek-fractievoorzitter-vvd",
+    "from": "pos:ek-fractievoorzitter-vvd",
+    "to": "org:eerste-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:ek-fractie-volkspartij-voor-vrijheid-en",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
     "id": "rel:office-fractievoorzitter-50plus",
     "from": "pos:fractievoorzitter-50plus",
     "to": "org:tweede-kamer",
