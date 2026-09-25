@@ -9,7 +9,7 @@
       "required": ["id", "field", "language", "sourceLanguage", "text", "sourceHash", "engine", "method", "translated"],
       "additionalProperties": false,
       "properties": {
-        "id": { "type": "string", "pattern": "^(org|person):[a-z0-9][a-z0-9-]*$" },
+        "id": { "type": "string", "pattern": "^(org|person|topic):[a-z0-9][a-z0-9-]*$" },
         "field": { "type": "string", "enum": ["description"] },
         "language": { "type": "string", "enum": ["en"] },
         "sourceLanguage": { "type": "string", "enum": ["nl"] },

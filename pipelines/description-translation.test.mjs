@@ -130,6 +130,7 @@ test("data/description-translations.json: every record is current and passes the
   const entities = [
     ...JSON.parse(readFileSync(join(ROOT, "data", "organizations.json"), "utf8")),
     ...JSON.parse(readFileSync(join(ROOT, "data", "people.json"), "utf8")),
+    ...JSON.parse(readFileSync(join(ROOT, "data", "topics.json"), "utf8")),
   ];
   const byId = new Map(entities.map((e) => [e.id, e]));
   for (const record of JSON.parse(readFileSync(file, "utf8"))) {

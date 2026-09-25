@@ -457,7 +457,7 @@ const DESCRIPTION_FLAGS_FILE = "description-flags.json";
 let descriptionLine = null;
 {
   const described = new Map();
-  for (const e of [...byFile["organizations.json"], ...byFile["people.json"]]) if (e.description) described.set(e.id, e.description);
+  for (const e of [...byFile["organizations.json"], ...byFile["people.json"], ...(byFile["topics.json"] ?? [])]) if (e.description) described.set(e.id, e.description);
   if (existsSync(join(DATA_DIR, DESCRIPTION_TRANSLATIONS_FILE))) {
     const { descriptionSourceHash } = await import("../shared/description-translation-hash.mjs");
     const records = loadData(DESCRIPTION_TRANSLATIONS_FILE) ?? [];
