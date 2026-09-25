@@ -24,7 +24,8 @@ export function CanvasFrame() {
   /**
    * Below lg the canvas is a compact band above the page so the content starts
    * on the first screen; this opens it full screen. From lg it has its own
-   * column and the flag has no effect (every class it sets is max-lg).
+   * column, and the same button opens it over the whole window when a chart
+   * needs more room than the column gives.
    */
   const [expanded, setExpanded] = useState(false);
   const [view, setView] = useState<CanvasView>("graph");
@@ -145,6 +146,14 @@ export function CanvasFrame() {
     setExpanded(false);
   }, [pathname]);
 
+  // A view that needs more room than the column gives (the hierarchy chart)
+  // asks for full screen with a `staatsgraaf:canvas-expand` event.
+  useEffect(() => {
+    const handler = () => setExpanded(true);
+    window.addEventListener("staatsgraaf:canvas-expand", handler);
+    return () => window.removeEventListener("staatsgraaf:canvas-expand", handler);
+  }, []);
+
   // Full screen: the page behind stops scrolling and Escape closes it. A menu
   // open inside the canvas handles its own Escape first.
   useEffect(() => {
@@ -155,15 +164,10 @@ export function CanvasFrame() {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape" && !event.defaultPrevented) setExpanded(false);
     };
-    const onResize = () => {
-      if (window.matchMedia("(min-width: 1024px)").matches) setExpanded(false);
-    };
     window.addEventListener("keydown", onKeyDown);
-    window.addEventListener("resize", onResize);
     return () => {
       root.style.overflow = previous;
       window.removeEventListener("keydown", onKeyDown);
-      window.removeEventListener("resize", onResize);
     };
   }, [expanded]);
 
@@ -212,13 +216,13 @@ export function CanvasFrame() {
       data-canvas-frame
       className={`flex min-w-0 flex-col [--canvas-bottom:0px] lg:[--canvas-bottom:var(--safe-bottom)] border-b border-line bg-surface-inset lg:col-start-2 lg:row-start-1 lg:h-auto lg:min-h-0 lg:border-b-0 lg:border-s lg:border-t-0 ${
         expanded
-          ? "max-lg:fixed max-lg:inset-0 max-lg:z-40 max-lg:h-dvh max-lg:border-b-0 max-lg:[--canvas-bottom:var(--safe-bottom)]"
+          ? "fixed inset-0 z-40 h-dvh border-b-0 [--canvas-bottom:var(--safe-bottom)] lg:border-s-0"
           : "h-[max(19rem,50dvh)] sm:h-[max(24rem,56dvh)]"
       }`}
     >
       <div
         className={`flex items-start gap-2 border-b border-line py-2 pl-[max(0.75rem,var(--safe-left))] pr-[max(0.75rem,var(--safe-right))] sm:items-center sm:pl-[max(1rem,var(--safe-left))] sm:pr-[max(1rem,var(--safe-right))] ${
-          expanded ? "max-lg:pt-[max(0.5rem,var(--safe-top))]" : ""
+          expanded ? "pt-[max(0.5rem,var(--safe-top))]" : ""
         }`}
       >
         <div className="flex min-w-0 flex-1 flex-wrap items-center justify-between gap-x-3 gap-y-2">
@@ -246,7 +250,7 @@ export function CanvasFrame() {
           aria-pressed={expanded}
           aria-label={expanded ? tg("canvasCollapse") : tg("canvasExpand")}
           title={expanded ? tg("canvasCollapse") : tg("canvasExpand")}
-          className="tap-target flex shrink-0 items-center justify-center gap-1.5 rounded-sm border border-line bg-surface px-2 py-1 text-xs font-medium text-ink-muted transition-fast hover:border-line-strong hover:text-ink lg:hidden"
+          className="tap-target flex shrink-0 items-center justify-center gap-1.5 rounded-sm border border-line bg-surface px-2 py-1 text-xs font-medium text-ink-muted transition-fast hover:border-line-strong hover:text-ink"
         >
           {expanded ? (
             <>

@@ -5,7 +5,6 @@ import type { PowerMapBundle, PowerNewsItem } from "@/lib/graph";
 import type { Selection } from "@/lib/selection";
 import type { PowerLink } from "@/lib/power-connections";
 import { egoFits, rankOverview } from "@/lib/power-map-layout";
-import { focusFits } from "@/lib/hierarchy-layout";
 import type { HierarchyPerson, HierarchySource, HierarchyTreeId } from "@/lib/hierarchy";
 import { Network, Orbit } from "lucide";
 import { LucideIcon } from "@/components/icons/lucide-icon";
@@ -94,8 +93,6 @@ export function ConnectionsView({
   const [mode, setMode] = useState<ConnectionsMode>("hierarchy");
   const [tree, setTree] = useState<HierarchyTreeId>("kabinet");
   const [expanded, setExpanded] = useState<string | null>(null);
-  /** The full tie list of a focus, when the reader asks for more than the diagram holds. */
-  const [listAll, setListAll] = useState(false);
   const hierarchy = useHierarchyBundle(mode === "hierarchy");
 
   /**
@@ -117,7 +114,6 @@ export function ConnectionsView({
     if (next?.id !== focus?.id) {
       setFocus(next);
       setNewsOpen(false);
-      setListAll(false);
     }
   }
   const pickedNewsId = current?.kind === "news" ? current.id : null;
@@ -250,10 +246,9 @@ export function ConnectionsView({
   const hubFocus = hierarchyMode && focus?.kind === "org" && kabinetHubs.has(focus.id) ? focus.id : null;
   const personFocus = hubFocus ? null : focusInfo;
   const hasTies = Boolean(model && model.total > 0);
+  // The hierarchy's focus draws every width itself (side by side, or stacked when narrow).
   const diagram = Boolean(
-    personFocus &&
-      hasTies &&
-      (hierarchyMode ? !listAll && focusFits(box.width, box.height) : egoFits(box.width, box.height)),
+    personFocus && (hierarchyMode ? hierarchy.status === "ready" && hierarchy.bundle : hasTies && egoFits(box.width, box.height)),
   );
   const showHierarchy = hierarchyMode && !personFocus && !newsFocus;
   const emptyOverview = !hierarchyMode && !focus && !newsFocus && overview.length === 0;
@@ -277,7 +272,6 @@ export function ConnectionsView({
       ]}
       onChange={(value) => {
         setMode(value as ConnectionsMode);
-        setListAll(false);
       }}
     />
   );
@@ -324,7 +318,26 @@ export function ConnectionsView({
     </div>
   );
   const newsBlock = (items: readonly PowerNewsItem[], preview: boolean) =>
-    items.length === 0 ? null : (
+    items.length === 0 ? null : preview && hierarchyMode ? (
+      // Under the hierarchy's focus the news folds to one line, so the diagram keeps the room.
+      <section aria-labelledby="verbanden-nieuws" className="min-w-0">
+        <h3 id="verbanden-nieuws" className="text-xs font-semibold text-ink-muted">
+          <button
+            type="button"
+            aria-expanded={newsOpen}
+            onClick={() => setNewsOpen((open) => !open)}
+            className="tap-row flex w-full items-center gap-2 rounded-sm py-1 text-left hover:text-ink"
+          >
+            {t("inNews")}
+            <span className="font-normal text-ink-faint">{items.length}</span>
+            <svg aria-hidden="true" viewBox="0 0 20 20" width="12" height="12" className={newsOpen ? "rotate-180" : ""}>
+              <path d="M5 7.5 10 12.5l5-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </h3>
+        {newsOpen ? <NewsRows items={items} picked={pickedNewsId} locale={locale} onPick={pickNews} clamp={1} /> : null}
+      </section>
+    ) : (
       <section aria-labelledby="verbanden-nieuws" className="min-w-0">
         <h3 id="verbanden-nieuws" className="mb-0.5 flex items-baseline gap-2 text-xs font-semibold text-ink-muted">
           {t("inNews")}
@@ -456,18 +469,19 @@ export function ConnectionsView({
             </div>
           ) : null}
 
-          {personFocus && model && diagram && hierarchyMode ? (
+          {personFocus && model && diagram && hierarchyMode && hierarchy.bundle ? (
             <FocusDiagram
               width={box.width}
               height={box.height}
-              groups={model.groups}
+              bundle={hierarchy.bundle}
+              ties={model.groups}
               focus={personFocus}
               source={hierarchyPeople.get(personFocus.id)?.source ?? null}
               infoOf={infoOf}
               labelOf={kindLabel}
               highlighted={highlighted}
+              locale={locale}
               onPick={pick}
-              onShowAll={() => setListAll(true)}
             />
           ) : null}
 
@@ -490,7 +504,7 @@ export function ConnectionsView({
       </div>
 
       {diagram && model && model.news.length > 0 ? (
-        <div className={`shrink-0 border-t border-line px-3 pt-2 sm:px-4 ${newsOpen ? "max-h-[45%] overflow-y-auto overscroll-contain" : ""}`}>
+        <div className={`shrink-0 border-t border-line px-3 sm:px-4 ${hierarchyMode ? "py-0.5" : "pt-2"} ${newsOpen ? "max-h-[45%] overflow-y-auto overscroll-contain" : ""}`}>
           {newsBlock(model.news, true)}
         </div>
       ) : null}

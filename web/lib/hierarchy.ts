@@ -139,7 +139,7 @@ export const MINISTRY_ICON: Record<string, string> = {
   "org:ministerie-van-buitenlandse-zaken": "globe",
   "org:ministerie-van-defensie": "shield",
   "org:ministerie-van-economische-zaken-en-klimaat": "factory",
-  "org:ministerie-van-financien": "landmark",
+  "org:ministerie-van-financien": "coins",
   "org:ministerie-van-infrastructuur-en-waterstaat": "waves",
   "org:ministerie-van-justitie-en-veiligheid": "scale",
   "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur": "wheat",
@@ -322,4 +322,243 @@ export function buildHierarchy(input: HierarchyInput): HierarchyBundle {
 /** A person's page slug. */
 export function personSlug(person: HierarchyPerson): string {
   return person.slug ?? person.id.replace(/^person:/, "");
+}
+
+// ---------------------------------------------------------------------------
+// Ministry clusters
+
+export type ClusterId = "economie" | "ruimte" | "bestuur" | "zorg" | "veiligheid" | "buitenland";
+
+export type MinistryCluster = {
+  id: ClusterId;
+  nl: string;
+  en: string;
+  /** Categorical colour per mode, validated as a ring (see `CLUSTER_PALETTE_NOTE`). */
+  light: string;
+  dark: string;
+  ministries: readonly string[];
+};
+
+/**
+ * Eleven ministries would need eleven hues, past the categorical limit of
+ * eight, so they share six colours by policy area and differ by icon and
+ * label. The order is the order around the ring, clockwise from the top.
+ */
+export const MINISTRY_CLUSTERS: readonly MinistryCluster[] = [
+  {
+    id: "economie",
+    nl: "Economie en Financiën",
+    en: "Economy and finance",
+    light: "#2a78d6",
+    dark: "#3987e5",
+    ministries: [
+      "org:ministerie-van-financien",
+      "org:ministerie-van-economische-zaken-en-klimaat",
+      "org:ministerie-van-economische-zaken",
+      "org:ministerie-van-klimaat-en-groene-groei",
+    ],
+  },
+  {
+    id: "ruimte",
+    nl: "Ruimte en Landbouw",
+    en: "Land, water and farming",
+    light: "#009a67",
+    dark: "#199e70",
+    ministries: [
+      "org:ministerie-van-infrastructuur-en-waterstaat",
+      "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "org:ministerie-van-volkshuisvesting-en-ruimtelijke-ordening",
+    ],
+  },
+  {
+    id: "bestuur",
+    nl: "Bestuur",
+    en: "Government",
+    light: "#c07700",
+    dark: "#c98500",
+    ministries: ["org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties", "org:ministerie-van-algemene-zaken"],
+  },
+  {
+    id: "zorg",
+    nl: "Zorg, Werk en Onderwijs",
+    en: "Care, work and education",
+    light: "#ce648d",
+    dark: "#d55181",
+    ministries: [
+      "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+      "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+    ],
+  },
+  {
+    id: "veiligheid",
+    nl: "Veiligheid en Recht",
+    en: "Security and justice",
+    light: "#4a3aa7",
+    dark: "#9085e9",
+    ministries: ["org:ministerie-van-justitie-en-veiligheid", "org:ministerie-van-defensie", "org:ministerie-van-asiel-en-migratie"],
+  },
+  {
+    id: "buitenland",
+    nl: "Buitenland",
+    en: "Foreign affairs",
+    light: "#e34948",
+    dark: "#e66767",
+    ministries: ["org:ministerie-van-buitenlandse-zaken"],
+  },
+];
+
+/**
+ * How the cluster colours were chosen: the documented categorical hues
+ * (blue, aqua, yellow, magenta, violet, red), the light steps darkened in
+ * OKLCH to clear 3:1 on the canvas (#EFEEE9) and white, validated with the
+ * dataviz validator as a closed ring (the first colour repeated at the end):
+ * worst adjacent CVD delta E 8.4 in both modes, normal-vision 16.2 light and
+ * 19.3 dark, every colour at least 3:1 on its surface.
+ */
+export const CLUSTER_PALETTE_NOTE = "validate_palette.js, ring order, light #EFEEE9/#FFFFFF, dark #0F0F13/#141419";
+
+/** The cluster of a ministry; a ministry not listed falls under Bestuur. */
+export function clusterOf(orgId: string): MinistryCluster {
+  return MINISTRY_CLUSTERS.find((cluster) => cluster.ministries.includes(orgId)) ?? MINISTRY_CLUSTERS[2];
+}
+
+/** CSS custom property that carries a cluster's colour in the current theme. */
+export function clusterVar(id: ClusterId): string {
+  return `var(--hv-${id})`;
+}
+
+/** Ministry hubs in ring order: by cluster, then as they came. */
+export function orderByCluster<T extends { id: string }>(hubs: readonly T[]): T[] {
+  const rank = (hub: T) => MINISTRY_CLUSTERS.indexOf(clusterOf(hub.id));
+  return hubs
+    .map((hub, index) => ({ hub, index }))
+    .sort((x, y) => rank(x.hub) - rank(y.hub) || x.index - y.index)
+    .map(({ hub }) => hub);
+}
+
+// ---------------------------------------------------------------------------
+// Person focus groups
+
+export type FocusTieKind = "office" | "cabinet" | "party" | "news";
+export type FocusTieGroup = { kind: FocusTieKind; ties: readonly { other: string }[] };
+
+export type FocusGroupHead =
+  | { type: "person"; id: string }
+  | { type: "ministry"; hub: string }
+  | { type: "party"; party: string }
+  | { type: "kind" };
+
+export type FocusGroup = {
+  key: string;
+  kind: "ministry" | "fractie" | "party" | FocusTieKind;
+  /** The ministry or fractie hub behind the group. */
+  hub?: string;
+  /** Tree of the hub. */
+  tree?: HierarchyTreeId;
+  /** Party label of a party or fractie group. */
+  party?: string;
+  head: FocusGroupHead;
+  /** Everyone in the group apart from the head and the focus, strongest first. */
+  members: string[];
+};
+
+/**
+ * The groups around a person in the focus: first the two that go left and
+ * right (party or fractie, then ministry or office), then the rest. The
+ * hierarchy gives each group its lead; the connections bundle adds the ties
+ * it has beyond that (cabinet, bodies, shared news). Nobody appears twice.
+ */
+export function focusGroups(bundle: HierarchyBundle, personId: string, ties: readonly FocusTieGroup[]): FocusGroup[] {
+  const kabinet = bundle.trees.find((tree) => tree.id === "kabinet") ?? null;
+  const used = new Set<string>([personId]);
+  const take = (ids: readonly string[]) => {
+    const out: string[] = [];
+    for (const id of ids) {
+      if (used.has(id)) continue;
+      used.add(id);
+      out.push(id);
+    }
+    return out;
+  };
+  let party: FocusGroup | null = null;
+  let office: FocusGroup | null = null;
+
+  // A seat in a chamber: the fractie, led by its fractievoorzitter.
+  for (const tree of bundle.trees) {
+    if (tree.id === "kabinet" || party) continue;
+    const hub = tree.hubs.find((entry) => entry.people.some((person) => person.id === personId));
+    if (!hub) continue;
+    const leader = hub.people.find((person) => person.leader);
+    const head: FocusGroupHead = leader && leader.id !== personId ? { type: "person", id: leader.id } : { type: "party", party: hub.short };
+    if (head.type === "person") used.add(head.id);
+    party = { key: hub.id, kind: "fractie", hub: hub.id, tree: tree.id, party: hub.short, head, members: take(hub.people.map((person) => person.id)) };
+  }
+
+  // A post in the cabinet: the ministry, led by its minister.
+  const kabinetPerson = kabinet?.hubs.flatMap((hub) => hub.people).find((person) => person.id === personId) ?? null;
+  const ministry = kabinet?.hubs.find((hub) => hub.people.some((person) => person.id === personId)) ?? null;
+  if (ministry) {
+    const title = ministry.name.replace(/^Ministerie van /, "Minister van ");
+    const lead =
+      ministry.people.find((person) => person.role === title) ??
+      ministry.people.find((person) => /^minister/i.test(person.role ?? "")) ??
+      null;
+    const head: FocusGroupHead = lead && lead.id !== personId ? { type: "person", id: lead.id } : { type: "ministry", hub: ministry.id };
+    if (head.type === "person") used.add(head.id);
+    office = { key: ministry.id, kind: "ministry", hub: ministry.id, tree: "kabinet", head, members: take(ministry.people.map((person) => person.id)) };
+    used.add(ministry.id);
+  }
+
+  // A member of the cabinet without a seat: the party's other bewindspersonen.
+  const ownParty = kabinetPerson?.party ?? (kabinet?.head?.id === personId ? kabinet.head.party : undefined);
+  if (!party && kabinet && ownParty) {
+    const same = kabinet.hubs.flatMap((hub) => hub.people).filter((person) => person.party === ownParty).map((person) => person.id);
+    if (kabinet.head?.party === ownParty) same.unshift(kabinet.head.id);
+    const members = take(same);
+    if (members.length > 0) party = { key: `party:${ownParty}`, kind: "party", party: ownParty, head: { type: "party", party: ownParty }, members };
+  }
+
+  // The rest from the connections bundle, in its order of kinds.
+  const rest: FocusGroup[] = [];
+  for (const group of ties) {
+    if (group.kind === "party" && party) {
+      // Fractie peers the hierarchy did not list still belong to the fractie.
+      party.members.push(...take(group.ties.map((tie) => tie.other)));
+      continue;
+    }
+    let head: FocusGroupHead = { type: "kind" };
+    if (group.kind === "cabinet" && kabinet?.head && kabinet.head.id !== personId && !used.has(kabinet.head.id)) {
+      head = { type: "person", id: kabinet.head.id };
+      used.add(kabinet.head.id);
+    }
+    const members = take(group.ties.map((tie) => tie.other));
+    if (members.length === 0 && head.type === "kind") continue;
+    rest.push({ key: `kind:${group.kind}`, kind: group.kind, head, members });
+  }
+  const sides: FocusGroup[] = [];
+  if (party) sides.push(party);
+  if (office) sides.push(office);
+  // Fill the empty side with the largest remaining group, office before cabinet before news at equal size.
+  while (sides.length < 2 && rest.length > 0) {
+    let best = 0;
+    for (let i = 1; i < rest.length; i += 1) if (rest[i].members.length > rest[best].members.length) best = i;
+    sides.push(rest.splice(best, 1)[0]);
+  }
+  return [...sides, ...rest];
+}
+
+/**
+ * Fracties in ring order: the largest third by seats, largest first, with the
+ * smaller ones dealt round-robin into the gaps after them, so the thin ring
+ * segments of small fracties spread around the ring instead of bunching in
+ * one corner where their bars would cross.
+ */
+export function interleaveBySize<T extends { seats?: number }>(hubs: readonly T[]): T[] {
+  const sorted = hubs.map((hub, index) => ({ hub, index })).sort((x, y) => (y.hub.seats ?? 0) - (x.hub.seats ?? 0) || x.index - y.index);
+  const bigCount = Math.max(1, Math.ceil(sorted.length / 3));
+  const big = sorted.slice(0, bigCount);
+  const gaps: (typeof sorted)[] = big.map(() => []);
+  sorted.slice(bigCount).forEach((entry, index) => gaps[index % bigCount].push(entry));
+  return big.flatMap((entry, index) => [entry.hub, ...gaps[index].map((small) => small.hub)]);
 }

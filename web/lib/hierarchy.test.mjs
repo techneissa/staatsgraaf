@@ -2,7 +2,18 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
-import { buildHierarchy, ministryShort, personSlug, HIERARCHY_SCHEMA } from "./hierarchy.ts";
+import {
+  buildHierarchy,
+  clusterOf,
+  focusGroups,
+  interleaveBySize,
+  ministryShort,
+  orderByCluster,
+  personSlug,
+  HIERARCHY_SCHEMA,
+  MINISTRY_CLUSTERS,
+  MINISTRY_ICON,
+} from "./hierarchy.ts";
 
 const src = (id) => ({ source: id, retrieved: "2026-09-17", confidence: "high" });
 
@@ -145,4 +156,105 @@ test("the shipped hierarchy.json is small and complete", () => {
     for (const hub of tree.hubs) for (const person of hub.people) assert.ok(bundle.sources[person.src], `${person.id} is sourced`);
   }
   assert.ok(raw.length < 120_000, `hierarchy.json is ${raw.length} bytes`);
+});
+
+test("every ministry in the shipped data has a cluster and an icon of its own", () => {
+  const bundle = JSON.parse(readFileSync(new URL("../public/hierarchy.json", import.meta.url), "utf8"));
+  const kabinet = bundle.trees.find((tree) => tree.id === "kabinet");
+  const listed = new Set(MINISTRY_CLUSTERS.flatMap((cluster) => cluster.ministries));
+  for (const hub of kabinet.hubs) {
+    assert.ok(listed.has(hub.id), `${hub.id} is in a cluster`);
+    assert.ok(MINISTRY_ICON[hub.id], `${hub.id} has an icon`);
+  }
+  const icons = kabinet.hubs.map((hub) => MINISTRY_ICON[hub.id]);
+  assert.equal(new Set(icons).size, icons.length, "no two ministry hubs share an icon");
+  // Six colours at most, well under the categorical limit of eight.
+  assert.ok(MINISTRY_CLUSTERS.length <= 6);
+  assert.equal(new Set(MINISTRY_CLUSTERS.map((cluster) => cluster.light)).size, MINISTRY_CLUSTERS.length);
+  assert.equal(new Set(MINISTRY_CLUSTERS.map((cluster) => cluster.dark)).size, MINISTRY_CLUSTERS.length);
+});
+
+test("the clusters group the ministries by policy area", () => {
+  assert.equal(clusterOf("org:ministerie-van-financien").id, "economie");
+  assert.equal(clusterOf("org:ministerie-van-economische-zaken-en-klimaat").id, "economie");
+  assert.equal(clusterOf("org:ministerie-van-justitie-en-veiligheid").id, "veiligheid");
+  assert.equal(clusterOf("org:ministerie-van-defensie").id, "veiligheid");
+  assert.equal(clusterOf("org:ministerie-van-volksgezondheid-welzijn-en-sport").id, "zorg");
+  assert.equal(clusterOf("org:ministerie-van-onderwijs-cultuur-en-wetenschap").id, "zorg");
+  assert.equal(clusterOf("org:ministerie-van-infrastructuur-en-waterstaat").id, "ruimte");
+  assert.equal(clusterOf("org:ministerie-van-buitenlandse-zaken").id, "buitenland");
+  assert.equal(clusterOf("org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties").id, "bestuur");
+  // An unknown ministry falls under Bestuur rather than being dropped.
+  assert.equal(clusterOf("org:ministerie-van-iets-nieuws").id, "bestuur");
+});
+
+test("ministry hubs are ordered by cluster, keeping their order within one", () => {
+  const hubs = [
+    { id: "org:ministerie-van-defensie" },
+    { id: "org:ministerie-van-financien" },
+    { id: "org:ministerie-van-buitenlandse-zaken" },
+    { id: "org:ministerie-van-justitie-en-veiligheid" },
+    { id: "org:ministerie-van-economische-zaken-en-klimaat" },
+  ];
+  assert.deepEqual(orderByCluster(hubs).map((hub) => hub.id), [
+    "org:ministerie-van-financien",
+    "org:ministerie-van-economische-zaken-en-klimaat",
+    "org:ministerie-van-defensie",
+    "org:ministerie-van-justitie-en-veiligheid",
+    "org:ministerie-van-buitenlandse-zaken",
+  ]);
+});
+
+test("small fracties are dealt between the large ones", () => {
+  const hubs = [26, 22, 20, 3, 3, 2, 1].map((seats, i) => ({ id: `f${i}`, seats }));
+  const order = interleaveBySize(hubs).map((hub) => hub.seats);
+  assert.deepEqual(order, [26, 3, 1, 22, 3, 20, 2]);
+  assert.equal(order.length, hubs.length);
+});
+
+test("a minister's focus has the party on one side and the ministry on the other", () => {
+  const input = fixture();
+  input.people = input.people.map((person) => (person.id === "person:fin" ? { ...person, party: "VVD" } : person));
+  const bundle = buildHierarchy(input);
+  // Minister Def (VVD) at Defensie with a staatssecretaris; Minister Fin is VVD too.
+  const groups = focusGroups(bundle, "person:def", [
+    { kind: "cabinet", ties: [{ other: "person:pm" }, { other: "person:fin" }, { other: "person:def-s" }] },
+    { kind: "news", ties: [{ other: "person:a" }] },
+  ]);
+  assert.equal(groups[0].kind, "party");
+  assert.equal(groups[0].party, "VVD");
+  assert.deepEqual(groups[0].head, { type: "party", party: "VVD" });
+  assert.deepEqual(groups[0].members, ["person:fin"]);
+  assert.equal(groups[1].kind, "ministry");
+  assert.equal(groups[1].hub, "org:ministerie-van-defensie");
+  // He leads his own ministry, so its head is the ministry's icon.
+  assert.deepEqual(groups[1].head, { type: "ministry", hub: "org:ministerie-van-defensie" });
+  assert.deepEqual(groups[1].members, ["person:def-s"]);
+  // The cabinet is led by the minister-president; nobody appears twice.
+  const cabinet = groups.find((group) => group.kind === "cabinet");
+  assert.deepEqual(cabinet.head, { type: "person", id: "person:pm" });
+  assert.deepEqual(cabinet.members, []);
+  const all = groups.flatMap((group) => [...group.members, ...(group.head.type === "person" ? [group.head.id] : [])]);
+  assert.equal(new Set(all).size, all.length);
+  assert.ok(!all.includes("person:def"));
+});
+
+test("a staatssecretaris's ministry is led by its minister", () => {
+  const groups = focusGroups(buildHierarchy(fixture()), "person:def-s", []);
+  const ministry = groups.find((group) => group.kind === "ministry");
+  assert.deepEqual(ministry.head, { type: "person", id: "person:def" });
+  assert.deepEqual(ministry.members, []);
+});
+
+test("a Kamerlid's fractie is led by the fractievoorzitter, a leader's by the party mark", () => {
+  const bundle = buildHierarchy(fixture());
+  const member = focusGroups(bundle, "person:a", [{ kind: "news", ties: [{ other: "person:pm" }] }]);
+  assert.equal(member[0].kind, "fractie");
+  assert.deepEqual(member[0].head, { type: "person", id: "person:c" });
+  assert.deepEqual(member[0].members, ["person:b"]);
+  // The second side is the largest other group.
+  assert.equal(member[1].kind, "news");
+  const leader = focusGroups(bundle, "person:c", []);
+  assert.deepEqual(leader[0].head, { type: "party", party: "PX" });
+  assert.deepEqual(leader[0].members, ["person:b", "person:a"]);
 });

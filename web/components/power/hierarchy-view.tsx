@@ -8,10 +8,35 @@ import { LucideIcon } from "@/components/icons/lucide-icon";
 import { PartyPill } from "@/components/party-pill";
 import { useT } from "@/components/i18n/use-t";
 import { orgEnGloss } from "@/lib/name-gloss";
-import { arcPath, edgePoint, layoutRadial, radialFits, type RadialLayout } from "@/lib/hierarchy-layout";
-import type { HierarchyBundle, HierarchyHub, HierarchyPerson, HierarchyTree, HierarchyTreeId } from "@/lib/hierarchy";
-import { EntityMark } from "./parts";
-import { HubIcon, PersonRow, SourceIconLink, hubColor, hubName, personInfo, roleText } from "./hierarchy-parts";
+import { arcPath, layoutOrgChart, orgChartFits, type OrgChartLayout } from "@/lib/hierarchy-layout";
+import {
+  MINISTRY_CLUSTERS,
+  clusterOf,
+  clusterVar,
+  interleaveBySize,
+  orderByCluster,
+  type HierarchyBundle,
+  type HierarchyHub,
+  type HierarchyPerson,
+  type HierarchyTree,
+  type HierarchyTreeId,
+} from "@/lib/hierarchy";
+import {
+  CLUSTER_CSS,
+  ExpandHint,
+  MOTION_CSS,
+  HubIcon,
+  PersonRow,
+  RingBadge,
+  RingPortrait,
+  SourceIconLink,
+  hubColor,
+  hubName,
+  personInfo,
+  rememberTap,
+  roleText,
+  shortRole,
+} from "./hierarchy-parts";
 
 export const TREE_KEYS: Record<HierarchyTreeId, string> = {
   kabinet: "treeKabinet",
@@ -19,14 +44,17 @@ export const TREE_KEYS: Record<HierarchyTreeId, string> = {
   "eerste-kamer": "treeEersteKamer",
 };
 
-/** Portraits shown around a hub before the rest wait for the hub to open. */
-const SATELLITES: Record<HierarchyHub["kind"], number> = { ministry: 4, fractie: 1 };
+/** People placed around a hub before the rest wait behind its "+n". */
+const AROUND: Record<HierarchyHub["kind"], number> = { ministry: 4, fractie: 1 };
 
 /**
- * The hierarchy form of Verbanden: the head of a structure in the centre, its
- * parts as hubs on a ring, and the people of each part around its hub. A hub
- * opens into a card with everyone in it; a person opens their focus through
- * the selection store (`onPick`). Below `radialFits` it is a stacked list.
+ * The hierarchy form of Verbanden, after a circular organisation chart: the
+ * head of a structure in a large centre circle, a thick ring cut into one
+ * coloured segment per group (ministry cluster or fractie by seats), a solid
+ * bar from each segment to its hub, and each hub's people around it on short
+ * bars with their name and role. A hub opens into a card with everyone in it;
+ * a person opens their focus through the selection store (`onPick`). Below
+ * `orgChartFits` it stacks into cards.
  */
 export function HierarchyView({
   bundle,
@@ -50,15 +78,22 @@ export function HierarchyView({
   onPick: (id: string) => void;
 }) {
   const t = useT("power");
-  const tree = bundle.trees.find((entry) => entry.id === treeId) ?? bundle.trees[0];
+  const raw = bundle.trees.find((entry) => entry.id === treeId) ?? bundle.trees[0];
+  const tree = useMemo<HierarchyTree | undefined>(
+    () => (raw ? { ...raw, hubs: raw.id === "kabinet" ? orderByCluster(raw.hubs) : interleaveBySize(raw.hubs) } : raw),
+    [raw],
+  );
   const [barRef, barHeight] = useHeight<HTMLDivElement>();
+  const [legendRef, legendHeight] = useHeight<HTMLDivElement>();
   if (!tree) return null;
-  const chartHeight = Math.max(0, height - barHeight);
-  const radial = radialFits(width, chartHeight);
+  const chartHeight = Math.max(0, height - barHeight - legendHeight);
+  const chart = orgChartFits(width, chartHeight);
   const coalition = tree.parties ?? [];
+  const clusters = tree.id === "kabinet" ? MINISTRY_CLUSTERS.filter((cluster) => tree.hubs.some((hub) => clusterOf(hub.id).id === cluster.id)) : [];
 
   return (
-    <div className="flex h-full min-h-0 w-full flex-col">
+    <div className="hv-root flex h-full min-h-0 w-full flex-col">
+      <style>{CLUSTER_CSS + MOTION_CSS}</style>
       <div ref={barRef} className="flex shrink-0 flex-wrap items-center gap-x-3 gap-y-1.5 px-3 pb-1 pt-1.5 sm:px-4">
         <p className="flex min-w-0 flex-wrap items-center gap-1.5 text-xs text-ink-muted">
           {tree.id === "kabinet" ? (
@@ -78,8 +113,8 @@ export function HierarchyView({
         </p>
       </div>
       <div className="relative min-h-0 flex-1">
-        {radial ? (
-          <Radial
+        {chart ? (
+          <OrgChart
             key={tree.id}
             bundle={bundle}
             tree={tree}
@@ -92,8 +127,22 @@ export function HierarchyView({
             onPick={onPick}
           />
         ) : (
-          <Stacked key={tree.id} bundle={bundle} tree={tree} locale={locale} highlighted={highlighted} onPick={onPick} initial={expanded} />
+          <Stacked key={tree.id} bundle={bundle} tree={tree.id === "kabinet" || !raw ? tree : raw} locale={locale} highlighted={highlighted} onPick={onPick} initial={expanded} />
         )}
+      </div>
+      <div ref={legendRef} className={chart ? "shrink-0" : "hidden"}>
+        {chart && tree.id === "kabinet" ? (
+          <ul aria-label={t("clusterLegend")} className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 px-3 pb-1.5 pt-1 text-xs text-ink-muted">
+            {clusters.map((cluster) => (
+              <li key={cluster.id} className="flex items-center gap-1.5">
+                <span aria-hidden="true" className="h-2.5 w-2.5 rounded-pill" style={{ backgroundColor: clusterVar(cluster.id) }} />
+                {locale === "en" ? cluster.en : cluster.nl}
+              </li>
+            ))}
+          </ul>
+        ) : chart ? (
+          <p className="px-3 pb-1.5 pt-1 text-center text-xs text-ink-faint">{t("seatsRingNote")}</p>
+        ) : null}
       </div>
     </div>
   );
@@ -156,27 +205,18 @@ function countText(t: (key: string, vars?: Record<string, string | number>) => s
   return hub.people.length === 1 ? t("people1") : t("peopleN", { n: hub.people.length });
 }
 
-function headMeta(person: HierarchyPerson | null | undefined, locale: "nl" | "en"): string | null {
-  return person ? roleText(person, locale) : null;
+/** The role shown beside a person in the chart. */
+function memberRole(person: HierarchyPerson, hub: HierarchyHub, locale: "nl" | "en", leader: string): string | null {
+  if (person.leader) return hub.kind === "fractie" ? `${leader} ${hub.short}` : leader;
+  return roleText(person, locale);
 }
 
-const MOTION_CSS = `
-@keyframes hv-pop { from { opacity: 0; transform: scale(.72); } to { opacity: 1; transform: none; } }
-@keyframes hv-in { from { opacity: 0; transform: translate(var(--fx, 0px), var(--fy, 0px)) scale(.6); } to { opacity: 1; transform: none; } }
-@keyframes hv-fade { from { opacity: 0; } to { opacity: 1; } }
-.hv-pop { animation: hv-pop 280ms var(--t-ease-decelerate) both; }
-.hv-in { animation: hv-in 340ms var(--t-ease-decelerate) both; }
-.hv-fade { animation: hv-fade 320ms var(--t-ease-standard) both; }
-.hv-lift { transition: transform var(--t-duration-fast) var(--t-ease-standard), opacity var(--t-duration-base) var(--t-ease-standard); }
-@media (prefers-reduced-motion: reduce) {
-  .hv-pop, .hv-in, .hv-fade { animation: none; }
-  .hv-lift { transition: none; }
-}`;
 
-/** Staggered entrance: the centre, then the ring, then hubs, then people. */
+
 const delay = (ms: number): CSSProperties => ({ animationDelay: `${Math.round(ms)}ms` });
+const lineLength = (a: { x: number; y: number }, b: { x: number; y: number }) => Math.max(1, Math.round(Math.hypot(b.x - a.x, b.y - a.y)));
 
-function Radial({
+function OrgChart({
   bundle,
   tree,
   width,
@@ -199,211 +239,309 @@ function Radial({
 }) {
   const t = useT("power");
   const [hot, setHot] = useState<string | null>(null);
-  const layout: RadialLayout = useMemo(
+  const leaderWord = t("leader");
+  const layout: OrgChartLayout = useMemo(
     () =>
-      layoutRadial(
-        tree.hubs.map((hub) => ({
-          id: hub.id,
-          weight: hub.kind === "fractie" ? hub.seats ?? 1 : 1,
+      layoutOrgChart(
+        tree.hubs.map((hub) => {
           // A fractie shows its leader; without one on record it shows nobody rather than a stand-in.
-          satellites: hub.kind === "fractie" ? (hub.people[0]?.leader ? 1 : 0) : Math.min(SATELLITES[hub.kind], hub.people.length),
-          label: hub.short,
-        })),
-        { width, height },
+          const around = hub.kind === "fractie" ? hub.people.filter((person) => person.leader).slice(0, 1) : hub.people.slice(0, AROUND.ministry);
+          return {
+            id: hub.id,
+            group: hub.kind === "ministry" ? clusterOf(hub.id).id : hub.id,
+            weight: hub.kind === "fractie" ? hub.seats ?? 1 : 1,
+            label: hub.short,
+            members: around.map((person) => ({ id: person.id, name: person.name, role: memberRole(person, hub, locale, leaderWord) })),
+          };
+        }),
+        { width, height, ring: tree.id === "kabinet" ? "groups" : "weight" },
       ),
-    [tree, width, height],
+    [tree, width, height, locale, leaderWord],
   );
-  const { centre, ring } = layout;
+  const { centre, ring, metrics, stroke } = layout;
+  const hubById = useMemo(() => new Map(tree.hubs.map((hub) => [hub.id, hub])), [tree]);
+  const colorOfGroup = (group: string) =>
+    tree.id === "kabinet" ? clusterVar(group as Parameters<typeof clusterVar>[0]) : hubColor(hubById.get(group) ?? tree.hubs[0]);
+  const groupOrder = useMemo(() => {
+    const order = new Map<string, number>();
+    layout.hubs.forEach((hub) => {
+      if (!order.has(hub.group)) order.set(hub.group, order.size);
+    });
+    return order;
+  }, [layout]);
+  const groups = Math.max(1, groupOrder.size);
+  // The timeline: centre, ring segments, bars, hubs by group, then people by group.
+  const segmentDelay = (index: number) => 140 + (index / Math.max(1, layout.segments.length)) * 320;
+  const groupDelay = (group: string) => 420 + ((groupOrder.get(group) ?? 0) / groups) * 360;
   const anyLit = highlighted.size > 0;
-  const openHub = expanded ? tree.hubs.find((hub) => hub.id === expanded) ?? null : null;
-  const n = tree.hubs.length;
-  const hubDelay = (index: number) => 160 + (index / Math.max(1, n)) * 260;
+  const openHub = expanded ? hubById.get(expanded) ?? null : null;
   const head = tree.head;
-  const headInfo = head ? personInfo(head, null, locale) : null;
   const king = tree.headOfState ?? null;
-  const focusDim = (hubId: string) => (hot !== null && hot !== hubId) || (openHub !== null && openHub.id !== hubId);
+  const dimHub = (hubId: string) => (hot !== null && hot !== hubId) || (openHub !== null && openHub.id !== hubId);
+  const portrait = Math.round(centre.r * 1.12);
+  const headRole = head ? shortRole(roleText(head, locale)) : null;
+  const centreColor = tree.id === "kabinet" ? "var(--t-color-sector-regering)" : "var(--t-color-sector-staten-generaal)";
 
   return (
-    <div
-      className="absolute inset-0"
-      role="group"
-      aria-label={t("hierarchyAria", { name: tree.name, head: head?.name ?? "", n })}
-    >
-      <style>{MOTION_CSS}</style>
+    <div className="absolute inset-0" role="group" aria-label={t("hierarchyAria", { name: tree.name, head: head?.name ?? "", n: tree.hubs.length })}>
       <svg aria-hidden="true" width={width} height={height} className="absolute inset-0">
-        {layout.hubs.map((placed, index) => {
-          const hub = tree.hubs[index];
+        {layout.segments.map((segment, index) => {
+          const full = segment.end - segment.start >= Math.PI * 2 - 0.001;
+          const length = Math.max(1, Math.round(ring.r * (segment.end - segment.start)));
+          const color = colorOfGroup(segment.group);
+          const dim = hot !== null && !layout.hubs.some((hub) => hub.group === segment.group && hub.id === hot);
+          return full ? (
+            <circle key={segment.group + index} cx={centre.x} cy={centre.y} r={ring.r} fill="none" stroke={color} strokeWidth={ring.width} className="hv-fade" />
+          ) : (
+            <path
+              key={segment.group + index}
+              d={arcPath(centre, ring.r, segment.start, segment.end)}
+              fill="none"
+              stroke={color}
+              strokeWidth={ring.width}
+              className="hv-draw hv-lift"
+              style={{ ["--len" as string]: length, ...delay(segmentDelay(index)), opacity: dim ? 0.45 : 1 }}
+            />
+          );
+        })}
+        {layout.hubs.map((placed) => {
+          const hub = hubById.get(placed.id)!;
           const color = hubColor(hub);
-          const from = edgePoint(centre, placed, ring.r + ring.width / 2 + 1);
-          const to = edgePoint(placed, centre, placed.r + 2);
-          const dim = focusDim(hub.id);
+          const length = lineLength(placed.bar.a, placed.bar.b);
           return (
-            <g key={hub.id} className="hv-fade hv-lift" style={{ ...delay(90 + (index / n) * 200), opacity: dim ? 0.35 : 1 }}>
-              <path d={arcPath(centre, ring.r, placed.start, placed.end)} fill="none" stroke={color} strokeWidth={ring.width} strokeLinecap="butt" />
-              <line
-                x1={from.x}
-                y1={from.y}
-                x2={to.x}
-                y2={to.y}
-                stroke={color}
-                strokeOpacity={hot === hub.id || openHub?.id === hub.id ? 0.95 : 0.45}
-                strokeWidth={hot === hub.id ? 1.6 : 1}
-              />
-            </g>
+            <line
+              key={placed.id}
+              x1={placed.bar.a.x}
+              y1={placed.bar.a.y}
+              x2={placed.bar.b.x}
+              y2={placed.bar.b.y}
+              stroke={color}
+              strokeWidth={stroke.hubBar}
+              className="hv-draw hv-lift"
+              style={{ ["--len" as string]: length, ...delay(groupDelay(placed.group) - 120), opacity: dimHub(placed.id) ? 0.35 : 1 }}
+            />
+          );
+        })}
+        {layout.members.map((member) => {
+          const hub = hubById.get(member.hub)!;
+          const placed = layout.hubs.find((entry) => entry.id === member.hub)!;
+          return (
+            <line
+              key={`${member.hub}${member.id}`}
+              x1={member.bar.a.x}
+              y1={member.bar.a.y}
+              x2={member.bar.b.x}
+              y2={member.bar.b.y}
+              stroke={hubColor(hub)}
+              strokeWidth={stroke.memberBar}
+              strokeLinecap="round"
+              className="hv-draw hv-lift"
+              style={{ ["--len" as string]: lineLength(member.bar.a, member.bar.b), ...delay(groupDelay(placed.group) + 140 + member.index * 40), opacity: dimHub(member.hub) ? 0.35 : 1 }}
+            />
           );
         })}
       </svg>
 
-      {king ? (
+      {head ? (
         <button
           type="button"
-          onClick={() => onPick(king.id)}
-          title={[king.name, roleText(king, locale), t("headOfState")].filter(Boolean).join("\n")}
-          aria-label={[king.name, t("headOfState")].join(", ")}
-          className="hv-pop hv-lift absolute flex items-center justify-center rounded-pill hover:scale-105"
-          style={{ left: layout.crown.x - 22, top: layout.crown.y - 22, width: 44, height: 44, ...delay(60) }}
+          onClick={() => {
+            rememberTap(head.id, centre);
+            onPick(head.id);
+          }}
+          title={[head.name, roleText(head, locale)].filter(Boolean).join("\n")}
+          aria-label={[head.name, roleText(head, locale)].filter(Boolean).join(", ")}
+          className="hv-pop absolute flex flex-col items-center overflow-hidden rounded-pill bg-surface text-center shadow-sm transition-transform hover:scale-[1.02]"
+          style={{
+            left: centre.x - centre.r,
+            top: centre.y - centre.r,
+            width: centre.r * 2,
+            height: centre.r * 2,
+            paddingTop: Math.round(centre.r * 0.13),
+            boxShadow: `0 0 0 1px var(--t-color-line), 0 1px 3px rgb(0 0 0 / .12)`,
+          }}
         >
-          <span className="rounded-pill" style={{ boxShadow: "0 0 0 2px var(--t-color-surface-inset), 0 0 0 3px var(--t-color-line-strong)" }}>
-            <EntityMark info={personInfo(king, null, locale)} size={Math.round(layout.crown.r * 2)} />
+          <RingPortrait name={head.name} image={head.image} size={portrait} color={centreColor} stroke={Math.max(3, stroke.member)} />
+          <span
+            className="mt-0.5 block w-[78%] truncate font-bold leading-tight text-ink"
+            style={{ fontSize: metrics.name, lineHeight: `${metrics.lineName}px` }}
+          >
+            {head.name}
           </span>
+          {headRole ? (
+            <span className="block w-[70%] truncate text-ink-muted" style={{ fontSize: metrics.role - 0.5, lineHeight: `${metrics.lineRole}px` }}>
+              {headRole}
+            </span>
+          ) : null}
         </button>
       ) : null}
 
-      {head && headInfo ? (
-        <>
-          <button
-            type="button"
-            onClick={() => onPick(head.id)}
-            title={[head.name, headMeta(head, locale)].filter(Boolean).join("\n")}
-            aria-label={[head.name, headMeta(head, locale)].filter(Boolean).join(", ")}
-            className="hv-pop hv-lift absolute rounded-pill hover:scale-[1.03]"
-            style={{ left: centre.x - centre.r, top: centre.y - centre.r, width: centre.r * 2, height: centre.r * 2 }}
-          >
-            <span
-              className="block rounded-pill"
-              style={{ boxShadow: `0 0 0 3px var(--t-color-surface-inset), 0 0 0 4.5px ${tree.id === "kabinet" ? "var(--t-color-sector-regering)" : "var(--t-color-sector-staten-generaal)"}` }}
-            >
-              <EntityMark info={{ ...headInfo, color: null }} size={Math.round(centre.r * 2)} />
-            </span>
-          </button>
-          <p
-            className="hv-fade pointer-events-none absolute max-w-[11rem] -translate-x-1/2 truncate rounded-sm bg-surface-inset px-1.5 text-center text-xs font-semibold leading-5 text-ink"
-            style={{ left: centre.x, top: centre.y + centre.r + 5, ...delay(80) }}
-          >
-            {head.name}
-          </p>
-        </>
+      {king ? (
+        <button
+          type="button"
+          onClick={() => {
+            rememberTap(king.id, layout.crown);
+            onPick(king.id);
+          }}
+          title={[king.name, roleText(king, locale), t("headOfState")].filter(Boolean).join("\n")}
+          aria-label={[king.name, t("headOfState")].join(", ")}
+          className="hv-pop absolute flex items-center justify-center rounded-pill transition-transform hover:scale-105"
+          style={{ left: layout.crown.x - 22, top: layout.crown.y - 22, width: 44, height: 44, ...delay(90) }}
+        >
+          <RingPortrait name={king.name} image={king.image} size={layout.crown.r * 2} color="var(--t-color-line-strong)" stroke={2.5} />
+        </button>
       ) : null}
 
-      {layout.labels
-        ? layout.hubs.map((placed, index) => {
-            const hub = tree.hubs[index];
-            if (!placed.showLabel) return null;
-            return (
-              <span
-                key={hub.id}
-                aria-hidden="true"
-                className="hv-fade hv-lift pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-sm bg-surface-inset px-1 text-[11px] font-medium leading-4 text-ink-muted"
-                style={{ left: placed.label.x, top: placed.label.y, opacity: focusDim(hub.id) ? 0.35 : 1, ...delay(hubDelay(index) + 60) }}
-              >
-                {hub.short}
-              </span>
-            );
-          })
-        : null}
-
-      {layout.hubs.map((placed, index) => {
-        const hub = tree.hubs[index];
+      {layout.hubs.map((placed) => {
+        const hub = hubById.get(placed.id)!;
         const color = hubColor(hub);
         const open = openHub?.id === hub.id;
         const name = hubName(hub, locale);
         const count = countText(t, hub);
         const size = placed.r * 2;
-        const fx = centre.x - placed.x;
-        const fy = centre.y - placed.y;
+        const hidden = hub.people.length - placed.shown;
+        const hit = Math.max(44, size);
         return (
-          <button
-            key={hub.id}
-            type="button"
-            aria-expanded={open}
-            aria-label={t("hubOpen", { name, count })}
-            title={`${name}\n${count}`}
-            onClick={() => onExpand(open ? null : hub.id)}
-            onPointerEnter={() => setHot(hub.id)}
-            onPointerLeave={() => setHot((current) => (current === hub.id ? null : current))}
-            onFocus={() => setHot(hub.id)}
-            onBlur={() => setHot((current) => (current === hub.id ? null : current))}
-            className="hv-in absolute flex items-center justify-center"
-            style={{
-              left: placed.x - Math.max(22, placed.r),
-              top: placed.y - Math.max(22, placed.r),
-              width: Math.max(44, size),
-              height: Math.max(44, size),
-              ["--fx" as string]: `${fx * 0.5}px`,
-              ["--fy" as string]: `${fy * 0.5}px`,
-              ...delay(hubDelay(index)),
-            }}
-          >
-            <span
-              className="hv-lift flex items-center justify-center rounded-pill border-2 text-ink"
-              style={{
-                width: size,
-                height: size,
-                borderColor: color,
-                backgroundColor: `color-mix(in oklab, ${color} ${open || hot === hub.id ? 30 : 16}%, var(--t-color-surface))`,
-                transform: hot === hub.id || open ? "scale(1.08)" : undefined,
-                opacity: focusDim(hub.id) ? 0.4 : 1,
-              }}
+          <div key={hub.id}>
+            <button
+              type="button"
+              aria-expanded={open}
+              aria-label={t("hubOpen", { name, count })}
+              title={`${name}\n${count}`}
+              onClick={() => onExpand(open ? null : hub.id)}
+              onPointerEnter={() => setHot(hub.id)}
+              onPointerLeave={() => setHot((current) => (current === hub.id ? null : current))}
+              onFocus={() => setHot(hub.id)}
+              onBlur={() => setHot((current) => (current === hub.id ? null : current))}
+              className="hv-pop absolute flex items-center justify-center rounded-pill"
+              style={{ left: placed.x - hit / 2, top: placed.y - hit / 2, width: hit, height: hit, ...delay(groupDelay(placed.group)) }}
             >
-              {hub.kind === "ministry" ? (
-                <HubIcon hub={hub} size={Math.max(12, Math.round(placed.r * 0.95))} />
-              ) : size >= 26 ? (
-                <span className="text-[11px] font-semibold tabular-nums">{hub.seats}</span>
-              ) : null}
-            </span>
-          </button>
+              <RingBadge
+                size={size}
+                color={color}
+                stroke={stroke.hub}
+                className="hv-lift"
+                style={{
+                  transform: hot === hub.id || open ? "scale(1.08)" : undefined,
+                  opacity: dimHub(hub.id) ? 0.45 : 1,
+                  backgroundColor: open || hot === hub.id ? `color-mix(in oklab, ${color} 14%, var(--t-color-surface))` : undefined,
+                }}
+              >
+                {hub.kind === "ministry" ? (
+                  <HubIcon hub={hub} size={Math.round(placed.r * 1.02)} strokeWidth={2} />
+                ) : (
+                  <span className="font-bold tabular-nums text-ink" style={{ fontSize: Math.max(10, Math.round(placed.r * 0.72)) }}>
+                    {hub.seats}
+                  </span>
+                )}
+              </RingBadge>
+            </button>
+            {hidden > 0 && placed.r >= 12 ? (
+              <button
+                type="button"
+                onClick={() => onExpand(hub.id)}
+                aria-label={t("moreIn", { n: hidden, name })}
+                title={t("moreIn", { n: hidden, name })}
+                className="hv-pop absolute flex items-center justify-center rounded-pill border bg-surface px-1 font-semibold tabular-nums text-ink-muted hover:text-ink"
+                style={{
+                  left: placed.more.x - 12,
+                  top: placed.more.y - 9,
+                  minWidth: 24,
+                  height: 18,
+                  fontSize: 10,
+                  borderColor: color,
+                  ...delay(groupDelay(placed.group) + 200),
+                }}
+              >
+                +{hidden}
+              </button>
+            ) : null}
+            {placed.chip ? (
+              <span
+                aria-hidden="true"
+                className="hv-fade pointer-events-none absolute flex items-center justify-center truncate rounded-sm border bg-surface px-1 font-semibold text-ink"
+                style={{
+                  left: placed.chip.x,
+                  top: placed.chip.y,
+                  width: placed.chip.w,
+                  height: placed.chip.h,
+                  fontSize: metrics.role,
+                  borderColor: color,
+                  opacity: dimHub(hub.id) ? 0.4 : 1,
+                  ...delay(groupDelay(placed.group) + 120),
+                }}
+              >
+                {hub.short}
+              </span>
+            ) : null}
+          </div>
         );
       })}
 
-      {layout.hubs.map((placed, index) => {
-        const hub = tree.hubs[index];
-        return placed.satellites.map((point, i) => {
-          const person = hub.people[i];
-          if (!person) return null;
-          const info = personInfo(person, hub, locale);
-          const lit = anyLit && highlighted.has(person.id);
-          const dim = (anyLit && !lit) || focusDim(hub.id);
-          const hit = Math.max(44, layout.sat + 6);
-          const role = person.leader ? t("leader") : roleText(person, locale);
-          return (
+      {layout.members.map((member) => {
+        const hub = hubById.get(member.hub)!;
+        const placed = layout.hubs.find((entry) => entry.id === member.hub)!;
+        const person = hub.people.find((entry) => entry.id === member.id)!;
+        const color = hubColor(hub);
+        const role = memberRole(person, hub, locale, leaderWord);
+        const info = personInfo(person, hub, locale);
+        const lit = anyLit && highlighted.has(person.id);
+        const dim = (anyLit && !lit) || dimHub(hub.id);
+        const hit = Math.max(40, member.r * 2);
+        const tip = [person.name, role, info.party].filter(Boolean).join("\n");
+        const d = delay(groupDelay(placed.group) + 200 + member.index * 45);
+        const pick = () => {
+          rememberTap(person.id, member);
+          onPick(person.id);
+        };
+        const label = member.label;
+        return (
+          <div key={`${hub.id}${person.id}`}>
             <button
-              key={`${hub.id}${person.id}`}
               type="button"
-              onClick={() => onPick(person.id)}
+              onClick={pick}
               onPointerEnter={() => setHot(hub.id)}
               onPointerLeave={() => setHot((current) => (current === hub.id ? null : current))}
-              title={[person.name, role, info.party].filter(Boolean).join("\n")}
+              title={tip}
               aria-label={[person.name, role, info.party].filter(Boolean).join(", ")}
-              className="hv-in absolute flex items-center justify-center rounded-pill"
-              style={{
-                left: point.x - hit / 2,
-                top: point.y - hit / 2,
-                width: hit,
-                height: hit,
-                ["--fx" as string]: `${(placed.x - point.x) * 0.8}px`,
-                ["--fy" as string]: `${(placed.y - point.y) * 0.8}px`,
-                ...delay(hubDelay(index) + 180 + i * 40),
-              }}
+              className="hv-pop absolute flex items-center justify-center rounded-pill"
+              style={{ left: member.x - hit / 2, top: member.y - hit / 2, width: hit, height: hit, ...d }}
             >
               <span
                 className={`hv-lift rounded-pill ${lit ? "outline outline-2 outline-offset-2 outline-accent" : ""}`}
-                style={{ opacity: dim ? 0.35 : 1, transform: hot === hub.id ? "scale(1.1)" : undefined }}
+                style={{ opacity: dim ? 0.4 : 1, transform: hot === hub.id ? "scale(1.06)" : undefined }}
               >
-                <EntityMark info={info} size={layout.sat} />
+                <RingPortrait name={person.name} image={person.image} size={member.r * 2} color={color} stroke={stroke.member} tint={info.color} />
               </span>
             </button>
-          );
-        });
+            {label ? (
+              <span
+                aria-hidden="true"
+                onClick={pick}
+                title={tip}
+                className="hv-fade absolute cursor-pointer leading-tight"
+                style={{
+                  left: label.x,
+                  top: label.y,
+                  width: label.w,
+                  height: label.h,
+                  textAlign: label.align === "middle" ? "center" : label.align === "end" ? "right" : "left",
+                  opacity: dim ? 0.4 : 1,
+                  ...delay(groupDelay(placed.group) + 320 + member.index * 45),
+                }}
+              >
+                <span className="block truncate font-bold text-ink" style={{ fontSize: metrics.name, lineHeight: `${metrics.lineName}px` }}>
+                  {person.name}
+                </span>
+                {label.lines === 2 && role ? (
+                  <span className="block truncate text-ink-muted" style={{ fontSize: metrics.role, lineHeight: `${metrics.lineRole}px` }}>
+                    {role}
+                  </span>
+                ) : null}
+              </span>
+            ) : null}
+          </div>
+        );
       })}
 
       {openHub ? (
@@ -466,13 +604,9 @@ function HubCard({
       style={style}
     >
       <header className="flex shrink-0 items-center gap-2.5 border-b border-line px-3 py-2">
-        <span
-          aria-hidden="true"
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-pill border-2 text-ink"
-          style={{ borderColor: color, backgroundColor: `color-mix(in oklab, ${color} 20%, var(--t-color-surface))` }}
-        >
-          {hub.kind === "ministry" ? <HubIcon hub={hub} size={16} /> : <span className="text-[11px] font-semibold tabular-nums">{hub.seats}</span>}
-        </span>
+        <RingBadge size={36} color={color} stroke={3}>
+          {hub.kind === "ministry" ? <HubIcon hub={hub} size={17} /> : <span className="text-[11px] font-semibold tabular-nums text-ink">{hub.seats}</span>}
+        </RingBadge>
         <div className="flex min-w-0 flex-1 flex-col">
           <h3 id={headingId} className="line-clamp-2 text-sm font-semibold leading-tight text-ink">
             {hub.kind === "ministry" && hub.slug ? (
@@ -519,7 +653,38 @@ function HubCard({
   );
 }
 
-/** The narrow form: the head as a card, then each hub as a section that opens. */
+/** A conic gradient of the ring's segments, for the stacked form's centre card. */
+function ringGradient(tree: HierarchyTree): string {
+  if (tree.hubs.length === 0) return "var(--t-color-line-strong)";
+  const stops: string[] = [];
+  if (tree.id === "kabinet") {
+    const counts = new Map<string, number>();
+    for (const hub of tree.hubs) counts.set(clusterOf(hub.id).id, (counts.get(clusterOf(hub.id).id) ?? 0) + 1);
+    let at = 0;
+    for (const cluster of MINISTRY_CLUSTERS) {
+      const n = counts.get(cluster.id);
+      if (!n) continue;
+      const end = at + (n / tree.hubs.length) * 360;
+      stops.push(`${clusterVar(cluster.id)} ${at + 1.5}deg ${end - 1.5}deg`, `transparent ${end - 1.5}deg ${end}deg`);
+      at = end;
+    }
+  } else {
+    const total = tree.hubs.reduce((sum, hub) => sum + (hub.seats ?? 0), 0) || 1;
+    let at = 0;
+    for (const hub of tree.hubs) {
+      const end = at + ((hub.seats ?? 0) / total) * 360;
+      stops.push(`${hubColor(hub)} ${at}deg ${Math.max(at, end - 0.8)}deg`, `transparent ${Math.max(at, end - 0.8)}deg ${end}deg`);
+      at = end;
+    }
+  }
+  return `conic-gradient(${stops.join(", ")})`;
+}
+
+/**
+ * The narrow form, in the same language: the head in a card with the
+ * segmented ring, then each hub as a card in its colour with its icon and a
+ * row of its people, which opens into the full list.
+ */
 function Stacked({
   bundle,
   tree,
@@ -540,6 +705,7 @@ function Stacked({
   const head = tree.head;
   const king = tree.headOfState ?? null;
   const baseId = useId();
+  const leaderWord = t("leader");
   const toggle = (id: string) =>
     setOpen((current) => {
       const next = new Set(current);
@@ -547,63 +713,99 @@ function Stacked({
       else next.add(id);
       return next;
     });
-  const card = (person: HierarchyPerson, size: number, label?: string) => {
-    const info = personInfo(person, null, locale);
-    return (
-      <div className="flex min-w-0 items-center gap-1">
-        <button
-          type="button"
-          onClick={() => onPick(person.id)}
-          className="tap-row flex min-w-0 flex-1 items-center gap-3 rounded-sm px-1 py-1.5 text-left hover:bg-surface-raised"
-        >
-          <EntityMark info={{ ...info, color: null }} size={size} />
-          <span className="flex min-w-0 flex-1 flex-col leading-tight">
-            {label ? <span className="text-xs text-ink-faint">{label}</span> : null}
-            <span className={`truncate font-semibold text-ink ${size > 40 ? "text-base" : "text-sm"}`}>{person.name}</span>
-            {info.meta ? <span className="line-clamp-2 text-xs text-ink-muted">{info.meta}</span> : null}
-          </span>
-        </button>
-        <SourceIconLink source={bundle.sources[person.src] ?? null} />
-      </div>
-    );
-  };
   return (
     <div className="absolute inset-0 overflow-y-auto overscroll-contain px-3 pb-3 sm:px-4">
-      <style>{MOTION_CSS}</style>
-      <div className="hv-fade rounded-md border border-line bg-surface px-2 py-1.5">
-        {king ? card(king, 32, t("headOfState")) : null}
-        {head ? <div className={king ? "border-t border-line" : ""}>{card(head, 52)}</div> : null}
-      </div>
-      <ul className="mt-2 flex flex-col gap-1.5">
+      <ExpandHint />
+      {head ? (
+        <div className="hv-pop flex min-w-0 items-center gap-3 rounded-md border border-line bg-surface p-2.5">
+          <button type="button" onClick={() => onPick(head.id)} className="relative shrink-0 rounded-pill" aria-label={[head.name, roleText(head, locale)].filter(Boolean).join(", ")}>
+            <span className="flex h-[84px] w-[84px] items-center justify-center rounded-pill" style={{ background: ringGradient(tree) }}>
+              <span className="flex h-[70px] w-[70px] items-center justify-center rounded-pill bg-surface">
+                <RingPortrait name={head.name} image={head.image} size={64} color="var(--t-color-line)" stroke={1} />
+              </span>
+            </span>
+          </button>
+          <span className="flex min-w-0 flex-1 flex-col leading-tight">
+            <button type="button" onClick={() => onPick(head.id)} className="tap-row min-w-0 text-left">
+              <span className="block truncate text-base font-bold text-ink">{head.name}</span>
+              <span className="line-clamp-2 text-xs text-ink-muted">{roleText(head, locale)}</span>
+            </button>
+            {king ? (
+              <button type="button" onClick={() => onPick(king.id)} className="tap-row mt-1 flex min-w-0 items-center gap-1.5 text-left text-xs text-ink-faint">
+                <RingPortrait name={king.name} image={king.image} size={24} color="var(--t-color-line-strong)" stroke={1.5} />
+                <span className="truncate">
+                  {t("headOfState")}: {king.name}
+                </span>
+              </button>
+            ) : null}
+          </span>
+          <SourceIconLink source={bundle.sources[head.src] ?? null} />
+        </div>
+      ) : null}
+      <ul className="mt-2 flex flex-col gap-2">
         {tree.hubs.map((hub, index) => {
           const isOpen = open.has(hub.id);
           const color = hubColor(hub);
           const panelId = `${baseId}-${index}`;
           const name = hubName(hub, locale);
+          const preview = hub.people.slice(0, hub.kind === "fractie" ? 3 : 4);
           return (
-            <li key={hub.id} className="hv-fade rounded-md border border-line bg-surface" style={delay(60 + index * 25)}>
+            <li
+              key={hub.id}
+              className="hv-fade overflow-hidden rounded-md border bg-surface"
+              style={{ borderColor: `color-mix(in oklab, ${color} 55%, var(--t-color-line))`, ...delay(60 + index * 25) }}
+            >
               <button
                 type="button"
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(hub.id)}
-                className="tap-row flex w-full min-w-0 items-center gap-2.5 rounded-md px-2 py-1.5 text-left hover:bg-surface-raised"
+                className="tap-row flex w-full min-w-0 items-center gap-2.5 px-2.5 py-2 text-left hover:bg-surface-raised"
+                style={{ boxShadow: `inset 4px 0 0 ${color}` }}
               >
-                <span
-                  aria-hidden="true"
-                  className="flex h-8 w-8 shrink-0 items-center justify-center rounded-pill border-2 text-ink"
-                  style={{ borderColor: color, backgroundColor: `color-mix(in oklab, ${color} 18%, var(--t-color-surface))` }}
-                >
-                  {hub.kind === "ministry" ? <HubIcon hub={hub} size={15} /> : <span className="text-[11px] font-semibold tabular-nums">{hub.seats}</span>}
-                </span>
+                <RingBadge size={40} color={color} stroke={3.5}>
+                  {hub.kind === "ministry" ? (
+                    <HubIcon hub={hub} size={19} strokeWidth={2} />
+                  ) : (
+                    <span className="text-xs font-bold tabular-nums text-ink">{hub.seats}</span>
+                  )}
+                </RingBadge>
                 <span className="flex min-w-0 flex-1 flex-col leading-tight">
-                  <span className="truncate text-sm font-medium text-ink">{hub.kind === "ministry" ? name.replace(/^(Ministerie van|Ministry of( the)?) /, "") : hub.short}</span>
-                  <span className="truncate text-xs text-ink-faint">
-                    {hub.kind === "fractie" && hub.people[0]?.leader ? `${hub.people[0].name} · ${countText(t, hub)}` : countText(t, hub)}
+                  <span className="truncate text-sm font-semibold text-ink">
+                    {hub.kind === "ministry" ? name.replace(/^(Ministerie van|Ministry of( the)?) /, "") : hub.short}
                   </span>
+                  <span className="truncate text-xs text-ink-faint">{countText(t, hub)}</span>
                 </span>
                 <Morph icon={isOpen ? ChevronUp : ChevronDown} size={16} className="shrink-0 text-ink-faint" />
               </button>
+              {!isOpen ? (
+                <ul className="grid min-w-0 grid-cols-[repeat(auto-fill,minmax(9.5rem,1fr))] gap-x-3 gap-y-1.5 border-t border-line px-2.5 py-2">
+                  {preview.map((person) => (
+                    <li key={person.id} className="min-w-0">
+                      <button type="button" onClick={() => onPick(person.id)} className="tap-row flex w-full min-w-0 items-center gap-1.5 text-left">
+                        <RingPortrait name={person.name} image={person.image} size={30} color={color} stroke={2.5} />
+                        <span className="flex min-w-0 flex-col leading-tight">
+                          <span className="truncate text-xs font-bold text-ink">{person.name}</span>
+                          <span className="truncate text-[11px] text-ink-faint">{memberRole(person, hub, locale, leaderWord) ?? ""}</span>
+                        </span>
+                      </button>
+                    </li>
+                  ))}
+                  {hub.people.length > preview.length ? (
+                    <li>
+                      <button
+                        type="button"
+                        onClick={() => toggle(hub.id)}
+                        className="tap-target flex h-[30px] min-w-[30px] items-center justify-center rounded-pill border px-1.5 text-[11px] font-semibold text-ink-muted"
+                        style={{ borderColor: color }}
+                        aria-label={t("moreIn", { n: hub.people.length - preview.length, name })}
+                      >
+                        +{hub.people.length - preview.length}
+                      </button>
+                    </li>
+                  ) : null}
+                </ul>
+              ) : null}
               <div id={panelId} hidden={!isOpen}>
                 {isOpen ? (
                   <ul className="border-t border-line px-2 py-0.5">
@@ -625,6 +827,16 @@ function Stacked({
           );
         })}
       </ul>
+      {tree.id === "kabinet" ? (
+        <ul aria-label={t("clusterLegend")} className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-ink-muted">
+          {MINISTRY_CLUSTERS.filter((cluster) => tree.hubs.some((hub) => clusterOf(hub.id).id === cluster.id)).map((cluster) => (
+            <li key={cluster.id} className="flex items-center gap-1.5">
+              <span aria-hidden="true" className="h-2.5 w-2.5 rounded-pill" style={{ backgroundColor: clusterVar(cluster.id) }} />
+              {locale === "en" ? cluster.en : cluster.nl}
+            </li>
+          ))}
+        </ul>
+      ) : null}
     </div>
   );
 }
