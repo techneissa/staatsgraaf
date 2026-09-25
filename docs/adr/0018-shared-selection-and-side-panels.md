@@ -21,3 +21,9 @@ Each canvas kept its own idea of what was picked: the graph held the selected bo
 - A new panel or a new canvas needs only the selection interface. That makes the Swift client's port of the same behaviour a matter of one reducer.
 - The graph, the power map and both panels always agree on what is picked, and "back" means the same thing everywhere.
 - Seat order within a fractie is not a real seating plan. It is labelled as such until a chamber publishes one.
+
+## Amendment 1: the power map becomes "Verbanden / Connections" (25-09-2026)
+
+The owner asked on 25-09-2026 for the power map to be renamed and redesigned so it no longer resembles the reference product. The view is now called "Verbanden" in Dutch and "Connections" in English, which says what it shows without a claim about power. Internal ids (`power`, `surface: "power"`, `power-map.json`) are unchanged.
+
+The bubble map is replaced by an ego view. With nothing picked, it ranks the most connected people in three columns (kabinet, Kamerleden, others). With a pick, the person or body sits in the centre and its ties are grouped by kind (office and bodies, kabinet, fractie, shared news), with strength shown by line weight and distance and the reason on every tie. Below about 620 px of width the same groups are a list. Ties are scored at build time for every sitting minister and staatssecretaris as well as for the people in the news, and a Kamerlid without scored ties gets their fractie colleagues. News is a compact list, not floating bubbles.

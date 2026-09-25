@@ -4,6 +4,15 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (25-09-2026, fifth round)
+
+- The power map is renamed "Verbanden / Connections" and redesigned as an ego view (ADR 0018 amendment 1): the pick in the centre with its ties grouped by office, kabinet, fractie and shared news, strength as line weight and a reason on every tie; a list with a strength meter on narrow screens; a ranked overview with nothing picked. Every sitting bewindspersoon now has ties.
+- Budget: the English name of each ministry leads in English mode, percentages follow the reader's language, the year and measure are stated once per section, each card shows the amount, the change, last year and a share bar, and a radar chart compares the ministries across any three years from 2013 to 2027 (share of total by default, log amounts on request, with a table view). The colours pass the colour-blind validator in light and dark mode.
+- English mode: Dutch strings in English dropped from 781 to 162, the remainder being sourced names and data text; dates and numbers follow the reader's language; change rows are written in English from their structured fields. A test now fails when an English label equals the Dutch one without a reason on record.
+- Repeated text is removed across the entity, index, topic, party and dataset pages. Parties are cards in a responsive grid with one legend for the Tweede Kamer and Eerste Kamer seat icons.
+- Careers include undated employers and offices when Wikidata cites a reference (for example Willem-Alexander at KLM), and occupations as tags.
+- The method page is now "Over / About" without the corrections section; the accessibility statement drops "What works" and "Review"; the dataset page drops "Version and snapshot" and shows its contents and downloads as cards with icons, links and counts that run up once when first seen. Section headings on these pages carry an icon, and a few controls morph between states (menu, theme, share, show more) through morphicons, instant under reduced motion.
+
 ### Changed (25-09-2026, fourth round)
 
 - Profiles, organisations, positions and parties open with a one-line summary built from the data ("Koning der Nederlanden sinds 30 april 2013", "Ministerie in de rijksoverheid, 18 organisaties onder zich") instead of a generic sentence; the same line is the meta description.
