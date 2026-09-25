@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { PeekLink } from "@/components/peek/peek-link";
 import { peekKindFor } from "@/lib/peek";
-import { T } from "@/components/i18n/t";
+import { L, T } from "@/components/i18n/t";
+import { LocalizedDescription } from "@/components/entity/localized-description";
+import { englishDescription } from "@/lib/description-translations";
+import { topicNameEn } from "@/lib/topic-names";
 import { KindBadge } from "@/components/kind-badge";
 import { LabeledList } from "@/components/news/labeled-list";
 import { getResponsibleOrganizations } from "@/lib/topics";
@@ -28,7 +31,7 @@ export function TopicCard({
             href={`/onderwerpen/${topic.slug}/`}
             className="text-ink underline-offset-2 hover:text-accent-text hover:underline"
           >
-            {topic.name}
+            <L nl={topic.name} en={topicNameEn(topic.slug, topic.name)} />
           </Link>
         </h3>
         {topic.trending === true ? (
@@ -38,9 +41,11 @@ export function TopicCard({
         ) : null}
       </div>
       {topic.description !== null ? (
-        <p lang="nl" className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted">
-          {topic.description}
-        </p>
+        <LocalizedDescription
+          nl={topic.description}
+          en={englishDescription(topic.id, topic.description)}
+          className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted"
+        />
       ) : null}
       {chipOrganizations.length > 0 ? (
         <LabeledList
