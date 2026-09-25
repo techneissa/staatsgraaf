@@ -109,7 +109,7 @@ export function BudgetRadar({ data }: { data: RadarData }) {
 
   const share = shareTicks(Math.max(0, ...series.flatMap((entry) => entry.shares.map((value) => value ?? 0))));
   const amount = amountTicks(series.flatMap((entry) => entry.values));
-  const domain = { shareMax: share.max, amountMax: amount.max };
+  const domain = { shareMax: share.max, lo: amount.lo, hi: amount.hi };
   const { cx, cy, radius } = layout;
 
   const fractions = series.map((entry) =>
@@ -143,7 +143,7 @@ export function BudgetRadar({ data }: { data: RadarData }) {
           }).format(value / 100),
         }))
       : amount.ticks.map((value) => ({
-          fraction: value / amount.max,
+          fraction: (Math.log10(value) - amount.lo) / (amount.hi - amount.lo),
           label: formatEuroCompact(value, locale),
         }));
 
