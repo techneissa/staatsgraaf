@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useMemo, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
-import { Armchair, ChevronDown, ChevronUp, CircleUserRound, LayoutList, X } from "lucide";
+import { Armchair, Briefcase, ChevronDown, ChevronUp, CircleUserRound, LayoutList, X } from "lucide";
 import { Morph } from "@/components/icons/morph";
 import { LucideIcon } from "@/components/icons/lucide-icon";
 import { PartyPill } from "@/components/party-pill";
@@ -38,6 +38,28 @@ import {
   shortRole,
 } from "./hierarchy-parts";
 import { ChamberHallView } from "./chamber-hall";
+
+/**
+ * Icons for the three structures: a briefcase for the kabinet, and the two
+ * halls as they are drawn: the Tweede Kamer's dome of seats and the Eerste
+ * Kamer's two blocks facing each other.
+ */
+export function TreeIcon({ tree, size = 16 }: { tree: HierarchyTreeId; size?: number }) {
+  if (tree === "kabinet") return <LucideIcon icon={Briefcase} size={size} />;
+  const dot = (cx: number, cy: number) => <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={1.35} fill="currentColor" />;
+  const dots =
+    tree === "tweede-kamer"
+      ? [0, 1, 2, 3, 4, 5, 6].flatMap((i) => {
+          const angle = Math.PI - (i * Math.PI) / 6;
+          return [dot(10 + 8 * Math.cos(angle), 15 - 8 * Math.sin(angle)), ...(i % 2 === 0 ? [dot(10 + 4.4 * Math.cos(angle), 15 - 4.4 * Math.sin(angle))] : [])];
+        })
+      : [4, 8, 12, 16].flatMap((y) => [dot(3, y), dot(6.6, y), dot(13.4, y), dot(17, y)]);
+  return (
+    <svg aria-hidden="true" viewBox="0 0 20 20" width={size} height={size}>
+      {dots}
+    </svg>
+  );
+}
 
 export const TREE_KEYS: Record<HierarchyTreeId, string> = {
   kabinet: "treeKabinet",
@@ -192,8 +214,8 @@ export function HierarchyView({
               label={t("hallLabel")}
               value={hall ? "hall" : "list"}
               options={[
-                { value: "hall", label: t("hallShow"), icon: <LucideIcon icon={Armchair} size={14} /> },
-                { value: "list", label: t("hallList"), icon: <LucideIcon icon={LayoutList} size={14} /> },
+                { value: "hall", label: t("hallShow"), icon: <LucideIcon icon={Armchair} size={16} />, iconOnly: true },
+                { value: "list", label: t("hallList"), icon: <LucideIcon icon={LayoutList} size={16} />, iconOnly: true },
               ]}
               onChange={(value) => {
                 onExpand(null);
@@ -296,8 +318,11 @@ export function Segmented({
 }: {
   label: string;
   value: string;
-  /** With `compact`, the label shows from the sm breakpoint and is read by screen readers below it. */
-  options: { value: string; label: string; icon?: React.ReactNode; compact?: boolean }[];
+  /**
+   * With `compact`, the label shows from the sm breakpoint and is read by screen readers below it.
+   * With `iconOnly`, only the icon shows; the label is the tooltip and the accessible name.
+   */
+  options: { value: string; label: string; icon?: React.ReactNode; compact?: boolean; iconOnly?: boolean }[];
   onChange: (value: string) => void;
 }) {
   return (
@@ -309,14 +334,14 @@ export function Segmented({
             key={option.value}
             type="button"
             aria-pressed={on}
-            title={option.compact ? option.label : undefined}
+            title={option.compact || option.iconOnly ? option.label : undefined}
             onClick={() => onChange(option.value)}
             className={`tap-target flex items-center justify-center gap-1.5 rounded-[3px] px-2.5 py-1 text-xs font-medium transition-colors ${
               on ? "bg-surface-raised text-ink shadow-[inset_0_0_0_1px_var(--t-color-line-strong)]" : "text-ink-muted hover:text-ink"
             }`}
           >
             {option.icon}
-            <span className={option.compact ? "max-sm:sr-only" : undefined}>{option.label}</span>
+            <span className={option.iconOnly ? "sr-only" : option.compact ? "max-sm:sr-only" : undefined}>{option.label}</span>
           </button>
         );
       })}

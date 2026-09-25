@@ -27,7 +27,7 @@ import { Overview } from "./overview";
 import { TieList } from "./tie-list";
 import { EntityMark, NewsRows, PartyChip, ProfileLink, SourceNote } from "./parts";
 import { FocusDiagram } from "./focus-diagram";
-import { HierarchyView, Segmented, TREE_KEYS } from "./hierarchy-view";
+import { HierarchyView, Segmented, TREE_KEYS, TreeIcon } from "./hierarchy-view";
 import { useHierarchyBundle } from "./use-hierarchy";
 
 /** The two forms of the view: the hierarchy (default) and the network of ties. */
@@ -284,7 +284,12 @@ export function ConnectionsView({
         <Segmented
           label={t("treeLabel")}
           value={tree}
-          options={hierarchy.bundle.trees.map((entry) => ({ value: entry.id, label: t(TREE_KEYS[entry.id]) }))}
+          options={hierarchy.bundle.trees.map((entry) => ({
+            value: entry.id,
+            label: t(TREE_KEYS[entry.id]),
+            icon: <TreeIcon tree={entry.id} />,
+            iconOnly: true,
+          }))}
           onChange={(value) => {
             setExpanded(null);
             setTree(value as HierarchyTreeId);
