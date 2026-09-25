@@ -1,7 +1,23 @@
 "use client";
 
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
-import { Orbit, Users } from "lucide";
+import {
+  Briefcase,
+  Building,
+  Cog,
+  House,
+  Landmark,
+  Lightbulb,
+  Map as MapIcon,
+  MessagesSquare,
+  Orbit,
+  Scale,
+  SearchCheck,
+  Siren,
+  Users,
+  WavesHorizontal,
+  type IconNode,
+} from "lucide";
 import { LucideIcon } from "@/components/icons/lucide-icon";
 import { SlidingIndicator } from "@/components/motion/sliding-indicator";
 import { useT } from "@/components/i18n/use-t";
@@ -17,15 +33,24 @@ const segmentClass =
   "tap-target rounded-sm px-2.5 py-1 text-xs font-medium text-ink-muted transition-fast pointer-coarse:text-sm";
 const segmentActive = "bg-surface text-ink shadow-sm";
 
-const GLYPH_LEGEND: { glyph: GlyphClass; key: string }[] = [
-  { glyph: "shield", key: "shapeShield" },
-  { glyph: "hex", key: "shapeHex" },
-  { glyph: "capsule", key: "shapeCapsule" },
-  { glyph: "diamond", key: "shapeDiamond" },
-  { glyph: "triangle", key: "shapeTriangle" },
-  { glyph: "seat", key: "shapeSeat" },
-  { glyph: "dot", key: "shapeDot" },
-  { glyph: "small-dot", key: "shapeSmallDot" },
+/**
+ * The kinds of body: shape, icon and a word or two. The colour of a mark is
+ * its branch; the legend's branch list says which colour is which.
+ */
+export const GLYPH_LEGEND: { glyph: GlyphClass; key: string; icon: IconNode }[] = [
+  { glyph: "shield", key: "shapeShield", icon: Briefcase },
+  { glyph: "hex", key: "shapeHex", icon: Cog },
+  { glyph: "octagon", key: "shapeOctagon", icon: SearchCheck },
+  { glyph: "capsule", key: "shapeCapsule", icon: Building },
+  { glyph: "diamond", key: "shapeDiamond", icon: Scale },
+  { glyph: "star", key: "shapeStar", icon: Landmark },
+  { glyph: "triangle", key: "shapeTriangle", icon: Lightbulb },
+  { glyph: "seat", key: "shapeSeat", icon: Users },
+  { glyph: "dot", key: "shapeDot", icon: House },
+  { glyph: "square", key: "shapeSquare", icon: MapIcon },
+  { glyph: "triangle-down", key: "shapeTriangleDown", icon: WavesHorizontal },
+  { glyph: "pentagon", key: "shapePentagon", icon: Siren },
+  { glyph: "small-dot", key: "shapeSmallDot", icon: MessagesSquare },
 ];
 
 export type CanvasView = "graph" | "power";
@@ -227,15 +252,16 @@ export function CanvasControls({
               aria-label={tg("entityLegendTitle")}
               className="px-2 pb-1.5 pt-0.5"
             >
-              {GLYPH_LEGEND.map(({ glyph, key }) => (
+              {GLYPH_LEGEND.map(({ glyph, key, icon }) => (
                 <div
                   key={glyph}
                   role="listitem"
                   className="flex items-center gap-2 py-0.5 text-xs text-ink-muted"
                 >
                   <svg aria-hidden="true" viewBox="-12 -12 24 24" width={14} height={14} className="shrink-0">
-                    <path d={glyphPath(glyph, 9)} fill={glyph === "dot" || glyph === "small-dot" ? undefined : "currentColor"} stroke="currentColor" strokeWidth={glyph === "dot" || glyph === "small-dot" ? 2 : undefined} fillOpacity={0.95} />
+                    <path d={glyphPath(glyph, 9)} fill="currentColor" fillOpacity={0.25} stroke="currentColor" strokeWidth={1.6} strokeLinejoin="round" />
                   </svg>
+                  <LucideIcon icon={icon} size={13} className="shrink-0 text-ink-faint" />
                   <span className="truncate">{tg(key)}</span>
                 </div>
               ))}

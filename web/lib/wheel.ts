@@ -38,7 +38,7 @@ export const WHEEL_RINGS = {
 /** What a cell picks when it is clicked, in the selection store's own terms. */
 export type WheelPick = { kind: "org"; id: string } | { kind: "sector"; id: string } | { kind: "cluster"; id: string };
 
-export type WheelItem = { id: string; label: string; name: string };
+export type WheelItem = { id: string; label: string; name: string; subtype: WireNode["subtype"]; branch: WireNode["branch"] };
 
 export type WheelCell = {
   id: string;
@@ -94,7 +94,13 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
   const nodes = bundle.nodes.filter((node) => node.sector !== "frame" && !node.id.startsWith("org:kiesgerechtigden"));
   const inSector = (sector: string, filter: (node: WireNode) => boolean = () => true) =>
     nodes.filter((node) => node.sector === sector && filter(node)).sort(byDegree);
-  const item = (node: WireNode): WheelItem => ({ id: node.id, label: shortLabel(node, bundle.shortNames), name: node.name });
+  const item = (node: WireNode): WheelItem => ({
+    id: node.id,
+    label: shortLabel(node, bundle.shortNames),
+    name: node.name,
+    subtype: node.subtype,
+    branch: node.branch,
+  });
   /** Bodies with a known abbreviation first (they fit and are recognised), then by connections. */
   const known = (list: WireNode[]) => [...list].sort((a, b) => Number(Boolean(bundle.shortNames?.[b.id])) - Number(Boolean(bundle.shortNames?.[a.id])) || byDegree(a, b));
   const cells: WheelCell[] = [];
@@ -126,7 +132,7 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
     a0: W.leg[0],
     a1: W.leg[1],
     pick: { kind: "sector", id: "staten-generaal" },
-    items: [],
+    items: sg.filter((node) => node.subtype === "commissie").map(item),
   });
   const chamberIds = ["org:tweede-kamer", "org:eerste-kamer"];
   split(W.leg[0], W.leg[1], [150, 110]).forEach(([a0, a1], index) => {
@@ -177,7 +183,7 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
       a0,
       a1,
       pick: { kind: "org", id: node.id },
-      items: [],
+      items: [item(node)],
     });
   });
   const uitvoering = inSector("uitvoering");
@@ -238,7 +244,7 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
     a0: W.jud[0],
     a1: W.jud[1],
     pick: { kind: "sector", id: "hoge-colleges" },
-    items: hoge.map((node) => ({ id: node.id, label: node.name, name: node.name })),
+    items: hoge.map(item),
   });
   const courts = inSector("rechterlijke-macht");
   const courtGroups: { id: string; title: string; test: (node: WireNode) => boolean }[] = [
@@ -386,4 +392,73 @@ function inCluster(bundle: Pick<GraphBundle, "edges" | "clusters">, node: WireNo
   }
   if (cluster.kind === "subtype") return node.subtype === cluster.subtype;
   return node.parent === cluster.parent;
+}
+
+
+export type WheelMark = { id: string; x: number; y: number; r: number };
+
+/**
+ * Where a cell's bodies sit: curved rows that follow the cell, filled from
+ * the outside in, every row centred along its arc, the marks as large as
+ * the count allows up to `maxPitch`. `titleBand` is kept free at the outer
+ * edge for the cell's name.
+ */
+export function cellMarks(cell: Pick<WheelCell, "r0" | "r1" | "a0" | "a1">, ids: readonly string[], titleBand: number, maxPitch = 30): WheelMark[] {
+  const count = ids.length;
+  if (count === 0) return [];
+  const inner = cell.r0 + 3;
+  const outer = cell.r1 - titleBand;
+  const depth = outer - inner;
+  if (depth <= 1) return [];
+  const rowsFor = (pitch: number) => {
+    const rows = Math.max(1, Math.floor(depth / pitch));
+    const offset = (depth - rows * pitch) / 2;
+    const out: { radius: number; capacity: number }[] = [];
+    for (let row = 0; row < rows; row += 1) {
+      const radius = outer - offset - pitch / 2 - row * pitch;
+      const capacity = Math.max(0, Math.floor(((cell.a1 - cell.a0) * radius - 4) / pitch));
+      out.push({ radius, capacity });
+    }
+    return out;
+  };
+  let pitch = Math.min(maxPitch, depth);
+  let rows = rowsFor(pitch);
+  while (rows.reduce((sum, row) => sum + row.capacity, 0) < count && pitch > 2.5) {
+    pitch *= 0.94;
+    rows = rowsFor(pitch);
+  }
+  // Only as many rows as the count needs, then the count spread over them by capacity.
+  const used: typeof rows = [];
+  let room = 0;
+  for (const row of rows) {
+    if (room >= count) break;
+    used.push(row);
+    room += row.capacity;
+  }
+  const total = used.reduce((sum, row) => sum + row.capacity, 0) || 1;
+  const quota = used.map((row) => (row.capacity * count) / total);
+  const take = quota.map(Math.floor);
+  let left = count - take.reduce((sum, value) => sum + value, 0);
+  const order = quota.map((value, index) => ({ index, rest: value - Math.floor(value) })).sort((a, b) => b.rest - a.rest || a.index - b.index);
+  for (const { index } of order) {
+    if (left <= 0) break;
+    if (take[index] < used[index].capacity) {
+      take[index] += 1;
+      left -= 1;
+    }
+  }
+  // Centre the rows actually used across the band.
+  const shift = ((rows.length - used.length) * pitch) / 2;
+  const mid = (cell.a0 + cell.a1) / 2;
+  const marks: WheelMark[] = [];
+  let at = 0;
+  used.forEach((row, index) => {
+    const radius = row.radius - shift;
+    for (let j = 0; j < take[index] && at < count; j += 1) {
+      const angle = mid + ((j - (take[index] - 1) / 2) * pitch) / radius;
+      marks.push({ id: ids[at], x: Math.cos(angle) * radius, y: Math.sin(angle) * radius, r: pitch * 0.4 });
+      at += 1;
+    }
+  });
+  return marks;
 }

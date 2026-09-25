@@ -101,7 +101,12 @@ export type GlyphClass =
   | "triangle"
   | "seat"
   | "dot"
-  | "small-dot";
+  | "small-dot"
+  | "square"
+  | "pentagon"
+  | "octagon"
+  | "star"
+  | "triangle-down";
 
 export type BundleNode = {
   id: string;
@@ -238,6 +243,11 @@ export type GraphBundle = {
   seatPeople: Record<string, SeatPerson>;
   /** Short name (an abbreviation such as BZK or IGJ, from the organisation's aliases) by id, where one exists. */
   shortNames?: Record<string, string>;
+  /**
+   * The chambers' halls from their sourced floor plans (lib/chamber-hall.ts),
+   * by chamber org id: seats as [x, y, colour index, chair] in seat pitches.
+   */
+  chamberShapes?: Record<string, { width: number; height: number; r: number; colors: (string | null)[]; seats: [number, number, number, number][] }>;
   tiers: TierInfo[];
   /** Radii of the channels (tier gaps) routed edges travel along, innermost first. */
   channels: number[];
@@ -408,42 +418,43 @@ export const SECTOR_ORDER: OrgBranch[] = [
 ];
 
 /**
- * Every body is a circle (owner, 25-09-2026): the icon inside it says what
- * kind of body it is (lib/graph-icons.ts) and the colour says the branch. A
- * commissie stays a small plain dot.
+ * One shape per kind of body (owner, 25-09-2026): the shape says what kind
+ * of body it is, the colour says the branch, and the legend explains both.
+ * Kinds that share a shape live in different branches, so the colour tells
+ * them apart.
  */
 export const GLYPH_BY_SUBTYPE: Record<OrgSubtype, GlyphClass> = {
-  ministerie: "dot",
-  defensieonderdeel: "dot",
-  agentschap: "dot",
-  uitvoeringsorganisatie: "dot",
-  inspectie: "dot",
-  zbo: "dot",
-  rwt: "dot",
-  toezichthouder: "dot",
-  "rechterlijke-instantie": "dot",
-  "hoge-college": "dot",
-  kiesraad: "dot",
-  adviescollege: "dot",
-  planbureau: "dot",
-  staatscommissie: "dot",
-  "raad-van-advies": "dot",
-  "tweede-kamer": "dot",
-  "eerste-kamer": "dot",
-  "provinciale-staten": "dot",
-  gemeenteraad: "dot",
-  "algemeen-bestuur-waterschap": "dot",
-  eilandsraad: "dot",
-  "europees-parlement": "dot",
-  "staten-land": "dot",
+  ministerie: "shield",
+  defensieonderdeel: "shield",
+  agentschap: "hex",
+  uitvoeringsorganisatie: "hex",
+  inspectie: "octagon",
+  zbo: "capsule",
+  rwt: "capsule",
+  toezichthouder: "capsule",
+  "rechterlijke-instantie": "diamond",
+  "hoge-college": "star",
+  kiesraad: "star",
+  adviescollege: "triangle",
+  planbureau: "triangle",
+  staatscommissie: "triangle",
+  "raad-van-advies": "triangle",
+  "tweede-kamer": "seat",
+  "eerste-kamer": "seat",
+  "provinciale-staten": "seat",
+  gemeenteraad: "seat",
+  "algemeen-bestuur-waterschap": "seat",
+  eilandsraad: "seat",
+  "europees-parlement": "seat",
+  "staten-land": "seat",
   gemeente: "dot",
-  provincie: "dot",
-  waterschap: "dot",
-  veiligheidsregio: "dot",
+  provincie: "square",
+  waterschap: "triangle-down",
+  veiligheidsregio: "pentagon",
   "openbaar-lichaam-bes": "dot",
-  samenwerkingsverband: "dot",
-  koninkrijksorgaan: "dot",
-  "land-regering": "dot",
+  samenwerkingsverband: "octagon",
+  koninkrijksorgaan: "star",
+  "land-regering": "shield",
   "kiesgerechtigden-nederland": "dot",
   "kiezers-caribisch-nederland": "dot",
   commissie: "small-dot",

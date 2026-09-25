@@ -8,6 +8,15 @@ function circle(r: number, cx = 0, cy = 0): string {
   return `M ${n(cx - r)} ${n(cy)} a ${n(r)} ${n(r)} 0 1 0 ${n(r * 2)} 0 a ${n(r)} ${n(r)} 0 1 0 ${n(-r * 2)} 0 Z`;
 }
 
+function polygon(sides: number, r: number, cx: number, cy: number, start: number): string {
+  const parts: string[] = [];
+  for (let i = 0; i < sides; i += 1) {
+    const a = start + (i * 2 * Math.PI) / sides;
+    parts.push(`${i === 0 ? "M" : "L"} ${n(cx + Math.cos(a) * r)} ${n(cy + Math.sin(a) * r)}`);
+  }
+  return `${parts.join(" ")} Z`;
+}
+
 function capsule(r: number, halfHeight: number, cx = 0, cy = 0): string {
   const h = halfHeight;
   return (
@@ -48,6 +57,25 @@ export function glyphPathAt(glyph: GlyphClass, radius: number, cx: number, cy: n
     }
     case "capsule":
       return capsule(r, r * 0.6, cx, cy);
+    case "square": {
+      const h = r * 0.86;
+      return `M ${n(cx - h)} ${n(cy - h)} L ${n(cx + h)} ${n(cy - h)} L ${n(cx + h)} ${n(cy + h)} L ${n(cx - h)} ${n(cy + h)} Z`;
+    }
+    case "pentagon":
+      return polygon(5, r, cx, cy, -Math.PI / 2);
+    case "octagon":
+      return polygon(8, r, cx, cy, Math.PI / 8);
+    case "triangle-down":
+      return `M ${n(cx - r)} ${n(cy - r * 0.85)} L ${n(cx + r)} ${n(cy - r * 0.85)} L ${n(cx)} ${n(cy + r)} Z`;
+    case "star": {
+      const parts: string[] = [];
+      for (let i = 0; i < 10; i += 1) {
+        const a = -Math.PI / 2 + (i * Math.PI) / 5;
+        const radius = i % 2 === 0 ? r : r * 0.45;
+        parts.push(`${i === 0 ? "M" : "L"} ${n(cx + Math.cos(a) * radius)} ${n(cy + Math.sin(a) * radius)}`);
+      }
+      return `${parts.join(" ")} Z`;
+    }
     case "seat":
       return capsule(r, r * 0.38, cx, cy);
   }
