@@ -6,6 +6,9 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (25-09-2026, third round)
 
+- Profiles of Tweede Kamerleden and bewindspersonen get a "Voorstellen en moties" tab: the moties, amendementen, schriftelijke vragen, wetsvoorstellen and initiatiefwetsvoorstellen they submitted or co-submitted since 06-12-2023, with the vote outcome where the data has one, the co-submitters in their party colour and a link to the item on tweedekamer.nl. Source: the Tweede Kamer Open Data gegevensmagazijn (CC0), people matched on full name and birth date (`pipelines/parliament-activity.mjs`, `data/activities.json`, 268 people). Eerste Kamer members and bewindspersonen who were never Kamerlid are named gaps in `research/qa/parliament-activity-25-09-2026.md`.
+- Profiles show the date of birth and the age, with the record it came from.
+
 - One shared selection for the whole page (ADR 0018, `web/lib/selection.ts`): the graph, the seats, the power map and both side panels read and write the same pick, with a way back.
 - Side panels: the page column and a new details column beside the canvas can each be collapsed, and the details column can be dragged or keyed between 16 and 30rem; the choices are remembered. The details column is redesigned per kind of pick, with a back button, and every row picks in place. With nothing picked it lists the people most in the news, the largest sectors and the latest changes.
 - The page column shows a profile of the pick at the top: description, budget for ministries, key people, news, people named with them in the news and recent changes, with back and close.
