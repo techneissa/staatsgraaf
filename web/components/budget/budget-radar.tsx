@@ -9,6 +9,7 @@ import { formatEuroCompact, formatShare } from "@/lib/budget-format";
 import {
   axisAngle,
   amountTicks,
+  estimateTextWidth,
   ministryShortLabel,
   polar,
   radarLayoutForLabels,
@@ -148,6 +149,37 @@ export function BudgetRadar({ data }: { data: RadarData }) {
           fraction: Math.sqrt(value / amount.max),
           label: formatEuroCompact(value, locale),
         }));
+
+  // Place each ring value in the first gap where its box touches neither a
+  // ministry badge on the outer ring nor another value; a value with no free
+  // spot is left out (the ring and the table still carry it).
+  const ringLabels: { ring: (typeof rings)[number]; at: { x: number; y: number } }[] = [];
+  const badgeCentres = Array.from({ length: count }, (_, index) => polar(cx, cy, radius, axisAngle(index, count)));
+  const placedBoxes: { x0: number; y0: number; x1: number; y1: number }[] = [];
+  rings.forEach((ring, ringIndex) => {
+    const halfW = estimateTextWidth(ring.label, 10) / 2 + 2;
+    const start = ringIndex % labelWedges.length;
+    const order = [...labelWedges.slice(start), ...labelWedges.slice(0, start)];
+    for (const wedge of order) {
+      for (const inset of [0, 8, 16]) {
+        const at = polar(cx, cy, Math.max(0, radius * ring.fraction - inset), axisAngle(wedge + 0.5, count));
+        const box = { x0: at.x - halfW, y0: at.y - 7, x1: at.x + halfW, y1: at.y + 7 };
+        const clearOfBadges = badgeCentres.every((c) => {
+          const dx = Math.max(box.x0 - c.x, 0, c.x - box.x1);
+          const dy = Math.max(box.y0 - c.y, 0, c.y - box.y1);
+          return Math.hypot(dx, dy) > 13;
+        });
+        const clearOfLabels = placedBoxes.every(
+          (o) => box.x1 < o.x0 - 2 || box.x0 > o.x1 + 2 || box.y1 < o.y0 - 1 || box.y0 > o.y1 + 1,
+        );
+        if (clearOfBadges && clearOfLabels) {
+          placedBoxes.push(box);
+          ringLabels.push({ ring, at });
+          return;
+        }
+      }
+    }
+  });
 
   const missing = [...new Set(years)]
     .map((year) => ({
@@ -300,9 +332,7 @@ export function BudgetRadar({ data }: { data: RadarData }) {
             );
           })}
 
-          {rings.map((ring, ringIndex) => {
-            const wedge = labelWedges[ringIndex % labelWedges.length];
-            const at = polar(cx, cy, radius * ring.fraction, axisAngle(wedge + 0.5, count));
+          {ringLabels.map(({ ring, at }) => {
             return (
             <text
               key={`label-${ring.label}`}
