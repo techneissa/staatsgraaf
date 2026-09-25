@@ -147,38 +147,19 @@ export const GRAPH_DICT = {
     nl: "Lijnen verschijnen pas als je een organisatie kiest.",
     en: "Lines appear only when you pick an organisation.",
   },
-  shapeShield: {
-    nl: "Ministerie en defensieonderdeel",
-    en: "Ministry and defence unit",
-  },
-  shapeHex: {
-    nl: "Agentschap, uitvoering of inspectie",
-    en: "Agency, executive body or inspectorate",
-  },
-  shapeCapsule: {
-    nl: "Zbo, rwt of toezichthouder",
-    en: "Independent body, legal entity or regulator",
-  },
-  shapeDiamond: {
-    nl: "Rechterlijke instantie, hoge college of kiesraad",
-    en: "Judicial body, high council or electoral board",
-  },
-  shapeTriangle: {
-    nl: "Adviescollege, planbureau of staatscommissie",
-    en: "Advisory body, planning bureau or state commission",
-  },
-  shapeSeat: {
-    nl: "Gekozen orgaan",
-    en: "Elected body",
-  },
-  shapeDot: {
-    nl: "Decentrale of monarchale organisatie",
-    en: "Decentralised or royal body",
-  },
-  shapeSmallDot: {
-    nl: "Commissie",
-    en: "Committee",
-  },
+  shapeShield: { nl: "Ministerie", en: "Ministry" },
+  shapeHex: { nl: "Agentschap", en: "Agency" },
+  shapeOctagon: { nl: "Inspectie, samenwerking", en: "Inspectorate, partnership" },
+  shapeCapsule: { nl: "Zbo of rwt", en: "Arm's-length body" },
+  shapeDiamond: { nl: "Rechtspraak", en: "Court" },
+  shapeStar: { nl: "Hoog College", en: "High Council" },
+  shapeTriangle: { nl: "Advies", en: "Advisory" },
+  shapeSeat: { nl: "Gekozen orgaan", en: "Elected body" },
+  shapeDot: { nl: "Gemeente", en: "Municipality" },
+  shapeSquare: { nl: "Provincie", en: "Province" },
+  shapeTriangleDown: { nl: "Waterschap", en: "Water board" },
+  shapePentagon: { nl: "Veiligheidsregio", en: "Safety region" },
+  shapeSmallDot: { nl: "Commissie", en: "Committee" },
   zoomIn: {
     nl: "Inzoomen",
     en: "Zoom in",

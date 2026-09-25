@@ -458,8 +458,6 @@ const powerBundle = {
 };
 
 mkdirSync(OUT_DIR, { recursive: true });
-const json = JSON.stringify(bundle);
-writeFileSync(OUT_FILE, json);
 const powerJson = JSON.stringify(powerBundle);
 writeFileSync(POWER_FILE, powerJson);
 
@@ -479,6 +477,30 @@ const hierarchy = buildHierarchy({
   seatOrder,
   plans: readArray("chamber-plans.json"),
 });
+// The chambers' halls, compact, for the wheel form of the graph: seat
+// positions in seat pitches as the sourced floor plans lay them out
+// (lib/chamber-hall.ts) and the fractie colour of each seat.
+bundle.chamberShapes = Object.fromEntries(
+  hierarchy.trees
+    .filter((tree) => tree.hall)
+    .map((tree) => {
+      const colorOf = new Map(tree.hubs.map((hub) => [hub.id, hub.color ?? null]));
+      const colors = [...new Set(tree.hall.seats.map((seat) => colorOf.get(seat.hub) ?? null))];
+      return [
+        tree.org,
+        {
+          width: tree.hall.width,
+          height: tree.hall.height,
+          r: tree.hall.r,
+          colors,
+          seats: tree.hall.seats.map((seat) => [seat.x, seat.y, colors.indexOf(colorOf.get(seat.hub) ?? null), seat.chair ? 1 : 0]),
+        },
+      ];
+    }),
+);
+const json = JSON.stringify(bundle);
+writeFileSync(OUT_FILE, json);
+
 const hierarchyJson = JSON.stringify(hierarchy);
 writeFileSync(HIERARCHY_FILE, hierarchyJson);
 

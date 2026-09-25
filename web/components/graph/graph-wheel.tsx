@@ -1,161 +1,18 @@
 "use client";
 
 import { useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
-import type { GraphBundle } from "@/lib/graph";
+import { GLYPH_BY_SUBTYPE, type GraphBundle } from "@/lib/graph";
 import { branchColorVar } from "@/lib/branch-colors";
-import { buildWheel, WHEEL_RADIUS, WHEEL_RINGS, type WheelCell, type WheelItem } from "@/lib/wheel";
+import { buildWheel, cellMarks, WHEEL_RADIUS, WHEEL_RINGS, type WheelCell } from "@/lib/wheel";
 import { useSelection } from "@/components/selection/selection-provider";
 import { useT } from "@/components/i18n/use-t";
+import { glyphPathAt } from "./glyph";
 
-const TITLE = 12.5;
-const ITEM = 10;
-const LINE_TITLE = 15;
-const LINE_ITEM = 12.5;
-const CHAR = 0.56;
-const PAD = 6;
-
-type Line = { y: number; title?: string; size?: number; items?: WheelItem[]; more?: number };
-
-/** The smallest a title may shrink to before it is cut instead. */
-const TITLE_MIN = 9.5;
-
-/** Where a cell's text goes: along the ring when the cell is wide, along the radius when it is narrow. */
-function textFrame(cell: WheelCell) {
-  const mid = (cell.a0 + cell.a1) / 2;
-  const rm = (cell.r0 + cell.r1) / 2;
-  const depth = cell.r1 - cell.r0;
-  const half = (cell.a1 - cell.a0) / 2;
-  const arcInner = (cell.a1 - cell.a0) * (cell.r0 + PAD);
-  const tangential = arcInner >= depth * 1.05;
-  const flip = tangential ? Math.sin(mid) > 0.05 : Math.cos(mid) < 0;
-  const rotate = tangential ? (flip ? mid - Math.PI / 2 : mid + Math.PI / 2) : flip ? mid + Math.PI : mid;
-  /**
-   * How wide a line may be at local height `y` (its baseline): a straight
-   * line along a curved band must stay inside the outer arc and between the
-   * cell's two edges, so it is shorter near the rim.
-   */
-  const widthAt = (y: number, size: number): number => {
-    if (!tangential) return depth - 2 * PAD;
-    // Radial distance of the glyph's top and bottom from the centre.
-    const top = y - size * 0.8;
-    const bottom = y + size * 0.2;
-    const radius = (value: number) => (flip ? rm + value : rm - value);
-    const far = Math.max(radius(top), radius(bottom));
-    const near = Math.min(radius(top), radius(bottom));
-    const outer = cell.r1 - 3;
-    if (far >= outer || near <= cell.r0 + 2) return 0;
-    const byArc = Math.sqrt(outer * outer - far * far);
-    const byEdge = near * Math.tan(half) - 5;
-    return Math.max(0, 2 * Math.min(byArc, byEdge) - 4);
-  };
-  return {
-    x: Math.cos(mid) * rm,
-    y: Math.sin(mid) * rm,
-    rotate: (rotate * 180) / Math.PI,
-    /** Room across the lines. */
-    height: (tangential ? depth : (cell.a1 - cell.a0) * cell.r0) - 2 * PAD,
-    widthAt,
-    tangential,
-  };
-}
-
-const textWidth = (text: string, size: number) => text.length * size * CHAR;
-function clip(text: string, size: number, width: number): string {
-  const max = Math.max(1, Math.floor(width / (size * CHAR)));
-  return text.length <= max ? text : `${text.slice(0, Math.max(1, max - 1))}…`;
-}
-
-/** Split a title over two lines at the space nearest its middle. */
-function wrapTitle(text: string): [string, string] | null {
-  const spaces = [...text.matchAll(/ /g)].map((match) => match.index ?? 0);
-  if (spaces.length === 0) return null;
-  const at = spaces.reduce((best, index) => (Math.abs(index - text.length / 2) < Math.abs(best - text.length / 2) ? index : best), spaces[0]);
-  return [text.slice(0, at), text.slice(at + 1)];
-}
-
-/**
- * The title (on one line, or two when it does not fit), then as many lines of
- * names as fit, the last ending in "+n" when some do not. Lines are laid out
- * from the top of the cell's text area; `start` moves the block down.
- */
-function packLines(cell: WheelCell, frame: ReturnType<typeof textFrame>, start: number, reserve: number): Line[] {
-  const lines: Line[] = [];
-  let y = start;
-  const bottom = -frame.height / 2 + frame.height - reserve;
-  const title = cell.count !== null ? `${cell.title} · ${cell.count}` : cell.title;
-  const fitsAt = (text: string, size: number, at: number) => textWidth(text, size) <= frame.widthAt(at, size);
-  // A title that almost fits shrinks a little rather than being cut or split.
-  const shrink = (text: string) => Math.min(TITLE, frame.widthAt(y, TITLE) / (text.length * CHAR));
-  if (fitsAt(title, TITLE, y)) {
-    lines.push({ y, title });
-    y += LINE_TITLE;
-  } else if (!frame.tangential && shrink(title) >= TITLE_MIN) {
-    lines.push({ y, title, size: shrink(title) });
-    y += LINE_TITLE;
-  } else if (!frame.tangential && shrink(cell.title) >= TITLE_MIN) {
-    lines.push({ y, title: cell.title, size: shrink(cell.title) });
-    y += LINE_TITLE;
-  } else {
-    const parts = wrapTitle(cell.title);
-    const second = parts ? (cell.count !== null ? `${parts[1]} · ${cell.count}` : parts[1]) : null;
-    if (parts && second && fitsAt(parts[0], TITLE, y) && fitsAt(second, TITLE, y + LINE_TITLE) && y + LINE_TITLE <= bottom) {
-      lines.push({ y, title: parts[0] });
-      lines.push({ y: y + LINE_TITLE, title: second });
-      y += 2 * LINE_TITLE;
-    } else {
-      lines.push({ y, title: clip(cell.title, TITLE, Math.max(frame.widthAt(y, TITLE), TITLE)) });
-      y += LINE_TITLE;
-    }
-  }
-  const sep = " · ";
-  let index = 0;
-  while (index < cell.items.length && y - LINE_ITEM + LINE_ITEM <= bottom + 0.01) {
-    const width = frame.widthAt(y, ITEM);
-    if (width < ITEM * CHAR * 3) break;
-    const line: WheelItem[] = [];
-    let used = 0;
-    while (index < cell.items.length) {
-      const item = cell.items[index];
-      const add = (line.length ? sep.length : 0) + item.label.length;
-      if (line.length > 0 && (used + add) * ITEM * CHAR > width) break;
-      if (line.length === 0 && item.label.length * ITEM * CHAR > width) {
-        line.push({ ...item, label: clip(item.label, ITEM, width) });
-        index += 1;
-        break;
-      }
-      line.push(item);
-      used += add;
-      index += 1;
-    }
-    lines.push({ y, items: line });
-    y += LINE_ITEM;
-  }
-  const rest = cell.items.length - index;
-  if (rest > 0) {
-    const last = lines[lines.length - 1];
-    if (last.items) {
-      last.more = rest;
-      const width = frame.widthAt(last.y, ITEM);
-      while (last.items.length > 1 && textWidth(`${last.items.map((entry) => entry.label).join(sep)} +${last.more}`, ITEM) > width) {
-        last.items.pop();
-        last.more += 1;
-      }
-    }
-  }
-  return lines;
-}
-
-/** Lines centred in the cell: packed once from the top, then again from where a centred block of that size starts. */
-function layoutLines(cell: WheelCell, frame: ReturnType<typeof textFrame>, reserve = 0): Line[] {
-  const top = -frame.height / 2 + TITLE * 0.85;
-  const first = packLines(cell, frame, top, reserve);
-  const used = first[first.length - 1].y - first[0].y + LINE_ITEM;
-  const slack = frame.height - reserve - used - TITLE * 0.2;
-  if (slack <= 2) return first;
-  const centred = packLines(cell, frame, top + slack / 2, reserve);
-  const shown = (lines: Line[]) => lines.reduce((sum, line) => sum + (line.items?.length ?? 0), 0);
-  return shown(centred) >= shown(first) ? centred : first;
-}
+/** Room kept at a cell's outer edge for its curved name. */
+const TITLE_BAND = 14;
+const TITLE = 9.5;
+const TITLE_MIN = 7.5;
+const CHAR = 0.58;
 
 function segment(r0: number, r1: number, a0: number, a1: number): string {
   const p = (r: number, a: number) => `${(Math.cos(a) * r).toFixed(2)} ${(Math.sin(a) * r).toFixed(2)}`;
@@ -163,15 +20,35 @@ function segment(r0: number, r1: number, a0: number, a1: number): string {
   return `M${p(r1, a0)}A${r1} ${r1} 0 ${large} 1 ${p(r1, a1)}L${p(r0, a1)}A${r0} ${r0} 0 ${large} 0 ${p(r0, a0)}Z`;
 }
 
-function arcPath(r: number, a0: number, a1: number): string {
+/** An arc to set text on; drawn backwards on the lower half so the text reads upright there. */
+function arcPath(r: number, a0: number, a1: number, backwards = false): string {
   const p = (a: number) => `${(Math.cos(a) * r).toFixed(2)} ${(Math.sin(a) * r).toFixed(2)}`;
-  return `M${p(a0)}A${r} ${r} 0 ${a1 - a0 > Math.PI ? 1 : 0} 1 ${p(a1)}`;
+  const large = a1 - a0 > Math.PI ? 1 : 0;
+  return backwards ? `M${p(a1)}A${r} ${r} 0 ${large} 0 ${p(a0)}` : `M${p(a0)}A${r} ${r} 0 ${large} 1 ${p(a1)}`;
+}
+
+/** A cell's name along its outer edge, at a size that fits, or null when even the smallest does not. */
+function cellTitle(cell: WheelCell) {
+  const mid = (cell.a0 + cell.a1) / 2;
+  const lower = Math.sin(mid) > 0.1;
+  // Upper half: baseline inside the outer edge, text rising outward. Lower half: baseline at the edge, text hanging inward.
+  const radius = lower ? cell.r1 - 3.5 : cell.r1 - 10.5;
+  const length = (cell.a1 - cell.a0) * radius - 8;
+  const text = cell.count !== null ? `${cell.title} · ${cell.count}` : cell.title;
+  for (const candidate of [text, cell.title]) {
+    const size = Math.min(TITLE, length / (candidate.length * CHAR));
+    if (size >= TITLE_MIN) return { text: candidate, size, path: arcPath(radius, cell.a0, cell.a1, lower) };
+  }
+  return null;
 }
 
 /**
- * The wheel form of the graph (lib/wheel.ts): labelled cells from the
- * Grondwet out to the voters. A cell picks its body, sector or group; a name
- * inside it picks that body. Scroll to zoom, drag to pan.
+ * The wheel form of the graph (lib/wheel.ts): the Grondwet in the centre,
+ * the national bodies in four branch wedges, the decentrale overheden and
+ * the Koninkrijk around them and the voters as the rim. Every body is a mark
+ * in its shape (the kind of body) and colour (the branch); the Kamers are
+ * drawn as their halls. A mark picks its body, a cell its sector or group.
+ * Scroll to zoom, drag to pan.
  */
 export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
   const t = useT("graph");
@@ -182,12 +59,23 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
   const drag = useRef<{ x: number; y: number; vx: number; vy: number; moved: boolean } | null>(null);
   const svgRef = useRef<SVGSVGElement | null>(null);
 
+  const drawn = useMemo(
+    () =>
+      model.cells.map((cell) => {
+        const title = cellTitle(cell);
+        const shape = bundle.chamberShapes?.[cell.id] ?? null;
+        const marks = shape ? [] : cellMarks(cell, cell.items.map((entry) => entry.id), title ? TITLE_BAND : 3, 40);
+        return { cell, title, shape, marks, itemById: new Map(cell.items.map((entry) => [entry.id, entry])) };
+      }),
+    [model, bundle.chamberShapes],
+  );
+
   const selectedId = current && "id" in current ? current.id : null;
-  const pick = (cell: WheelCell) => {
+  const pickCell = (cell: WheelCell) => {
     if (!cell.pick || drag.current?.moved) return;
     select({ kind: cell.pick.kind, id: cell.pick.id, surface: "graph" } as Parameters<typeof select>[0]);
   };
-  const pickItem = (id: string) => {
+  const pickBody = (id: string) => {
     if (drag.current?.moved) return;
     select({ kind: "org", id, surface: "graph" });
   };
@@ -199,7 +87,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
   const onWheel = (event: ReactWheelEvent<SVGSVGElement>) => {
     const factor = Math.exp(-event.deltaY * 0.0015);
     setView((current) => {
-      const k = Math.min(4, Math.max(1, current.k * factor));
+      const k = Math.min(5, Math.max(1, current.k * factor));
       if (k === 1) return { k: 1, x: 0, y: 0 };
       const box = svgRef.current?.getBoundingClientRect();
       if (!box) return { ...current, k };
@@ -249,14 +137,23 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
         <defs>
           {[0, 1, 2, 3].map((index) => {
             const a = -Math.PI / 2 + (index * Math.PI) / 2;
-            return <path key={index} id={`wheel-frame-${index}`} d={arcPath((f0 + f1) / 2 - 3.5, a - 0.5, a + 0.5)} />;
+            const lower = Math.sin(a) > 0.1;
+            return <path key={index} id={`wheel-frame-${index}`} d={arcPath((f0 + f1) / 2 + (lower ? 3.5 : -3.5), a - 0.5, a + 0.5, lower)} />;
           })}
-          {model.wedges.map((wedge) => (
-            <path key={wedge.id} id={`wheel-wedge-${wedge.id}`} d={arcPath(WHEEL_RINGS.national[2][1] + 4.5, wedge.a0, wedge.a1)} />
-          ))}
+          {model.wedges.map((wedge) => {
+            const lower = Math.sin((wedge.a0 + wedge.a1) / 2) > 0.1;
+            return (
+              <path
+                key={wedge.id}
+                id={`wheel-wedge-${wedge.id}`}
+                d={arcPath(WHEEL_RINGS.national[2][1] + (lower ? 8.5 : 3), wedge.a0, wedge.a1, lower)}
+              />
+            );
+          })}
+          {drawn.map(({ cell, title }) => (title ? <path key={cell.id} id={`wheel-title-${cell.id}`} d={title.path} /> : null))}
         </defs>
         <g transform={`translate(${view.x.toFixed(2)} ${view.y.toFixed(2)}) scale(${view.k.toFixed(3)})`}>
-          {/* The voters as the frame. */}
+          {/* The voters as the rim. */}
           <circle r={(f0 + f1) / 2} fill="none" stroke="var(--t-color-sector-regering)" strokeOpacity={0.55} strokeWidth={f1 - f0} />
           {[0, 1, 2, 3].map((index) => (
             <text key={index} fontSize={11} letterSpacing={3} fontWeight={700} fill="var(--t-color-ink)" opacity={0.85}>
@@ -265,7 +162,6 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
               </textPath>
             </text>
           ))}
-
           {model.wedges.map((wedge) => (
             <text key={wedge.id} fontSize={8.5} letterSpacing={1.6} fontWeight={700} fill="var(--t-color-ink-faint)">
               <textPath href={`#wheel-wedge-${wedge.id}`} startOffset="50%" textAnchor="middle">
@@ -274,69 +170,62 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
             </text>
           ))}
 
-          {model.cells.map((cell) => {
+          {drawn.map(({ cell, title, shape, marks, itemById }) => {
             const color = branchColorVar(cell.branch);
             const selected = selectedId !== null && (cell.pick?.id === selectedId || cell.id === selectedId);
-            const containsSelected = selectedId !== null && cell.items.some((entry) => entry.id === selectedId);
-            const frame = textFrame(cell);
-            const seatRows = cell.seats ? Math.max(4, Math.ceil(Math.sqrt((cell.count ?? 0) / 1.6))) : 0;
-            const reserve = cell.seats ? frame.height * 0.62 : 0;
-            const lines = layoutLines(cell, frame, reserve);
-            const seatTop = lines[lines.length - 1].y + TITLE * 0.6;
+            const holdsSelected = selectedId !== null && itemById.has(selectedId);
+            const mid = (cell.a0 + cell.a1) / 2;
+            const rm = (cell.r0 + cell.r1 - (title ? TITLE_BAND : 0)) / 2;
             return (
               <g
                 key={cell.id}
                 onPointerEnter={() => setHot(cell.id)}
                 onPointerLeave={() => setHot((current) => (current === cell.id ? null : current))}
-                className={cell.pick ? "cursor-pointer" : undefined}
               >
-                <title>{[cell.count !== null ? `${cell.title}: ${cell.count}` : cell.title, ...cell.items.slice(0, 12).map((entry) => entry.name)].join("\n")}</title>
                 <path
                   d={segment(cell.r0, cell.r1, cell.a0, cell.a1)}
                   fill={color}
-                  fillOpacity={selected ? 0.42 : hot === cell.id || containsSelected ? 0.3 : 0.16}
+                  fillOpacity={selected ? 0.34 : hot === cell.id || holdsSelected ? 0.22 : 0.1}
                   stroke={selected ? "var(--t-color-accent)" : color}
-                  strokeOpacity={selected ? 1 : 0.55}
+                  strokeOpacity={selected ? 1 : 0.5}
                   strokeWidth={selected ? 2 : 1}
-                  onClick={() => pick(cell)}
-                />
-                <g transform={`translate(${frame.x.toFixed(2)} ${frame.y.toFixed(2)}) rotate(${frame.rotate.toFixed(2)})`} pointerEvents="none">
-                  {lines.map((line, index) => {
-                    const at = line.y;
-                    if (line.title) {
-                      return (
-                        <text key={`title-${index}`} y={at} textAnchor="middle" fontSize={line.size ?? TITLE} fontWeight={700} fill="var(--t-color-ink)">
-                          {line.title}
-                        </text>
-                      );
-                    }
-                    return (
-                      <text key={index} y={at} textAnchor="middle" fontSize={ITEM} fill="var(--t-color-ink-muted)">
-                        {(line.items ?? []).map((entry, position) => (
-                          <tspan
-                            key={entry.id}
-                            pointerEvents="auto"
-                            className="cursor-pointer hover:underline"
-                            fill={entry.id === selectedId ? "var(--t-color-accent-text)" : undefined}
-                            fontWeight={entry.id === selectedId ? 700 : undefined}
-                            onClick={(event) => {
-                              event.stopPropagation();
-                              pickItem(entry.id);
-                            }}
-                          >
-                            {position > 0 ? " · " : ""}
-                            {entry.label}
-                            <title>{entry.name}</title>
-                          </tspan>
-                        ))}
-                        {line.more ? <tspan fill="var(--t-color-ink-faint)">{`${line.items?.length ? " " : ""}+${line.more}`}</tspan> : null}
-                      </text>
-                    );
-                  })}
-                  {cell.seats ? (
-                    <Seats cell={cell} rows={seatRows} width={frame.widthAt(seatTop + reserve * 0.5, 0) * 0.9} top={seatTop} height={reserve - 4} />
-                  ) : null}
-                </g>
+                  className={cell.pick ? "cursor-pointer" : undefined}
+                  onClick={() => pickCell(cell)}
+                >
+                  <title>{cell.count !== null ? `${cell.title}: ${cell.count}` : cell.title}</title>
+                </path>
+                {title ? (
+                  <text fontSize={title.size} fontWeight={700} fill="var(--t-color-ink)" pointerEvents="none">
+                    <textPath href={`#wheel-title-${cell.id}`} startOffset="50%" textAnchor="middle">
+                      {title.text}
+                    </textPath>
+                  </text>
+                ) : null}
+                {shape ? <Hall shape={shape} cell={cell} rm={rm} mid={mid} titleBand={title ? TITLE_BAND : 0} /> : null}
+                {marks.map((mark) => {
+                  const entry = itemById.get(mark.id)!;
+                  const markColor = branchColorVar(entry.branch);
+                  const isSelected = entry.id === selectedId;
+                  const glyph = GLYPH_BY_SUBTYPE[entry.subtype] ?? "dot";
+                  return (
+                    <path
+                      key={mark.id}
+                      d={glyphPathAt(glyph, isSelected ? mark.r * 1.25 : mark.r, mark.x, mark.y)}
+                      fill={markColor}
+                      fillOpacity={isSelected ? 0.9 : 0.45}
+                      stroke={isSelected ? "var(--t-color-accent)" : markColor}
+                      strokeWidth={isSelected ? 1.8 : Math.max(0.6, mark.r * 0.14)}
+                      strokeLinejoin="round"
+                      className="cursor-pointer transition-[fill-opacity] hover:[fill-opacity:0.85]"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        pickBody(entry.id);
+                      }}
+                    >
+                      <title>{entry.name}</title>
+                    </path>
+                  );
+                })}
               </g>
             );
           })}
@@ -363,28 +252,42 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
   );
 }
 
-/** A chamber's seats as a small grid of squares in fractie colours, largest fractie first. */
-function Seats({ cell, rows, width, top, height }: { cell: WheelCell; rows: number; width: number; top: number; height: number }) {
-  const total = cell.count ?? 0;
-  if (!cell.seats || total === 0) return null;
-  const cols = Math.ceil(total / rows);
-  const pitch = Math.min(width / cols, height / rows);
-  const x0 = (-cols * pitch) / 2;
-  const squares: { x: number; y: number; color: string }[] = [];
-  let index = 0;
-  for (const block of cell.seats) {
-    for (let seat = 0; seat < block.seats; seat += 1) {
-      const col = Math.floor(index / rows);
-      const row = index % rows;
-      squares.push({ x: x0 + col * pitch, y: top + row * pitch, color: block.color ?? "var(--t-color-line-strong)" });
-      index += 1;
-    }
-  }
+/**
+ * A chamber drawn as its hall, from its sourced floor plan: the Tweede
+ * Kamer's dome of seats, the Eerste Kamer's two blocks with the chair
+ * between them. The hall's top faces outward, so the dome opens to the core.
+ */
+function Hall({
+  shape,
+  cell,
+  rm,
+  mid,
+  titleBand,
+}: {
+  shape: NonNullable<GraphBundle["chamberShapes"]>[string];
+  cell: WheelCell;
+  rm: number;
+  mid: number;
+  titleBand: number;
+}) {
+  const depth = cell.r1 - cell.r0 - titleBand - 8;
+  // Width at the hall's middle radius, kept inside the cell's two edges.
+  const width = 2 * (rm - depth / 4) * Math.tan((cell.a1 - cell.a0) / 2) - 10;
+  // Fitted to the seats only: the hall's box also holds the kabinet bench, which the wheel draws elsewhere.
+  const xs = shape.seats.map((seat) => seat[0]);
+  const ys = shape.seats.map((seat) => seat[1]);
+  const box = { x0: Math.min(...xs) - shape.r, x1: Math.max(...xs) + shape.r, y0: Math.min(...ys) - shape.r, y1: Math.max(...ys) + shape.r };
+  const scale = Math.min(width / (box.x1 - box.x0), depth / (box.y1 - box.y0));
+  const rotate = ((mid + Math.PI / 2) * 180) / Math.PI;
   return (
-    <g>
-      {squares.map((square, position) => (
-        <rect key={position} x={square.x + pitch * 0.1} y={square.y + pitch * 0.1} width={pitch * 0.8} height={pitch * 0.8} rx={pitch * 0.15} fill={square.color} />
-      ))}
+    <g
+      transform={`translate(${(Math.cos(mid) * rm).toFixed(2)} ${(Math.sin(mid) * rm).toFixed(2)}) rotate(${rotate.toFixed(2)}) scale(${scale.toFixed(4)}) translate(${(-(box.x0 + box.x1) / 2).toFixed(2)} ${(-(box.y0 + box.y1) / 2).toFixed(2)})`}
+      pointerEvents="none"
+    >
+      {shape.seats.map(([x, y, colorIndex, chair], index) => {
+        const color = shape.colors[colorIndex] ?? "var(--t-color-line-strong)";
+        return <circle key={index} cx={x} cy={y} r={shape.r * (chair ? 1.35 : 1)} fill={color} stroke={chair ? "var(--t-color-ink)" : "none"} strokeWidth={chair ? 0.12 : 0} />;
+      })}
     </g>
   );
 }
