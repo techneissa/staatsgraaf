@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumb, type BreadcrumbItem } from "@/components/breadcrumb";
-import { EmptyStateT } from "@/components/change/empty-state-t";
 import { EntityTabs } from "@/components/entity-tabs";
 import { JsonLd } from "@/components/json-ld";
-import { KindBadge } from "@/components/kind-badge";
 import { PersonCard } from "@/components/person-card";
 import { SourceLink } from "@/components/source-link";
 import { ShareButton } from "@/components/share-button";
@@ -15,10 +13,12 @@ import { SourceList } from "@/components/source-list";
 import { NewsPanel } from "@/components/news/news-panel";
 import { L, T } from "@/components/i18n/t";
 import { POSITION_TYPE_LABELS } from "@/lib/labels";
-import { EntityConnections } from "@/components/entity/entity-connections";
-import { EntityFacts } from "@/components/entity/entity-facts";
+import { EntityConnections, SUMMARY_CLASS } from "@/components/entity/entity-connections";
+import { Callout } from "@/components/entity/callout";
+import { FactTiles, type FactTile } from "@/components/entity/fact-tiles";
 import { FactGroup } from "@/components/entity/fact-group";
-import { HistoryIcon, PeopleIcon, SeatIcon } from "@/components/entity/icons";
+import { BuildingIcon, ClipboardIcon, ClockIcon, HistoryIcon, KeyIcon, PeopleIcon, SeatIcon } from "@/components/entity/icons";
+import { positionSummary } from "@/lib/entity-summary";
 import { TenureTimeline } from "@/components/entity/tenure-timeline";
 import {
   getDatasetDate,
@@ -37,7 +37,7 @@ import {
 } from "@/lib/entity";
 import { getNewsForEntity } from "@/lib/news";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
-import type { Organization, Position } from "@/lib/types";
+import type { Organization, Position, Tenure } from "@/lib/types";
 import type { Connection } from "@/lib/entity";
 
 export const dynamicParams = false;
@@ -80,13 +80,14 @@ export async function generateMetadata({
   const position = getPositionBySlug(slug);
   if (!position) return {};
   const organization = getOrganizationById(position.organization);
-  const description =
+  const summary = positionSummary(position);
+  const fallback =
     organization !== undefined
       ? `${position.title} bij ${organization.name}: wettelijke basis en de reeks bekende functionarissen, met bron per gegeven.`
       : `${position.title}: wettelijke basis en de reeks bekende functionarissen, met bron per gegeven.`;
   return pageMetadata({
     title: positionMetadataTitle(position),
-    description,
+    description: summary !== null ? `${position.title}: ${summary.nl}.` : fallback,
     path: `/posities/${position.slug}/`,
     snapshotDate: getDatasetDate(),
   });
@@ -132,30 +133,53 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
         ))
       : null;
 
-  const facts = [
+  const summary = positionSummary(position);
+  const lastEnded =
+    currentHolders.length === 0
+      ? tenures
+          .map((tenure) => tenure.end)
+          .filter((end): end is string => typeof end === "string")
+          .sort()
+          .at(-1) ?? null
+      : null;
+
+  const facts: FactTile[] = [
     {
+      key: "organization",
+      icon: <BuildingIcon />,
       label: <T area="entity" k="factOrganization" />,
       value: organization ? <EntityPeekLink id={organization.id} /> : null,
     },
     {
+      key: "type",
+      icon: <ClipboardIcon />,
       label: <T area="entity" k="factType" />,
       value: <L {...POSITION_TYPE_LABELS[position.type]} />,
     },
     {
+      key: "fill",
+      icon: <KeyIcon />,
       label: <T area="entity" k="factFillMethod" />,
       value: fillMethod !== null ? <LocaleLabel kind="fillMethod" value={fillMethod} /> : null,
     },
     {
+      key: "term",
+      icon: <ClockIcon />,
       label: <T area="entity" k="factTermLength" />,
       value: termLength !== null ? <TermLength months={termLength} /> : null,
     },
     {
+      key: "seats",
+      icon: <SeatIcon />,
       label: <T area="entity" k="factSeats" />,
-      value: seatsCount !== null ? <DateT area="entity" k="countOnly" counts={{ n: seatsCount }} /> : null,
+      value: seatsCount !== null && seatsCount > 1 ? <DateT area="entity" k="countOnly" counts={{ n: seatsCount }} /> : null,
     },
     {
+      key: "entry",
+      icon: <PeopleIcon />,
       label: <T area="entity" k="factEntryModes" />,
-      value: entryModeLabel,
+      // "Van rechtswege" as fill method and as the only entry mode says the same thing once.
+      value: entryModes.every((mode) => mode === fillMethod) ? null : entryModeLabel,
     },
   ];
 
@@ -191,160 +215,138 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
       <Breadcrumb items={breadcrumbItems} />
 
       <header className="mt-4">
-        <div className="flex min-w-0 flex-wrap items-center gap-2">
-          <KindBadge tone="accent">
-            <L {...POSITION_TYPE_LABELS[position.type]} />
-          </KindBadge>
-          {fillMethod !== null ? (
-            <span className="inline-flex items-center rounded-pill border border-line bg-surface px-2.5 py-0.5 text-xs font-medium text-ink-muted">
-              <LocaleLabel kind="fillMethod" value={fillMethod} />
-            </span>
-          ) : null}
-          {seatsCount !== null ? (
-            <span className="inline-flex items-center gap-1.5 rounded-pill border border-line bg-surface px-2.5 py-0.5 text-xs font-medium text-ink-muted">
-              <SeatIcon width={13} height={13} />
-              <DateT area="entity" k={seatsCount === 1 ? "seatOne" : "seatMany"} counts={{ n: seatsCount }} />
-            </span>
-          ) : null}
-          <ShareButton className="ms-auto" title={position.title} />
+        <div className="flex min-w-0 items-start gap-3">
+          <h1 className="min-w-0 flex-1 text-3xl font-semibold tracking-tight text-balance text-ink break-words">
+            {position.title}
+          </h1>
+          <ShareButton className="mt-1 shrink-0" title={position.title} />
         </div>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-balance text-ink">{position.title}</h1>
-        {organization ? (
-          <p className="mt-2 text-sm text-ink-muted">
-            <T area="entity" k="factOrganization" />: <EntityPeekLink id={organization.id} glyph />
+        {summary !== null ? (
+          <p className="mt-2 max-w-prose text-base leading-snug text-ink-muted">
+            <L nl={summary.nl} en={summary.en} />
           </p>
         ) : null}
-        <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
-          {legalBasis !== null ? (
+        {lastEnded !== null ? (
+          <div className="mt-3">
+            <Callout>
+              <DateT area="entity" k="noHolderSinceCallout" dates={{ date: lastEnded }} />
+            </Callout>
+          </div>
+        ) : null}
+        <FactTiles facts={facts} className="mt-4" />
+        {legalBasis !== null ? (
+          <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
             <SourceLink href={legalBasis.url}>
               <T area="entity" k="legalBasisLabel" />: {legalBasis.label}
             </SourceLink>
-          ) : (
-            <span className="text-xs text-ink-faint">
-              <T area="entity" k="noLegalBasisLabel" />
-            </span>
-          )}
-        </div>
+          </div>
+        ) : null}
       </header>
 
-      <div className="mt-6 grid grid-cols-1 items-start gap-4">
-        <div className="min-w-0 space-y-4">
-          <EntityTabs
-            news={
-              <div>
-                <h2 id="nieuws-paneel-titel" className="text-base font-semibold tracking-tight text-ink">
-                  <T area="entity" k="tabNews" />
-                </h2>
-                {news.length > 0 ? (
-                  <div className="mt-3">
-                    <NewsPanel scope="custom" items={news} initialLimit={4} />
-                  </div>
-                ) : (
-                  <div className="mt-3">
-                    <EmptyStateT
-                      area="entity"
-                      title="newsEmptyTitle"
-                      description="newsEmptyNote"
-                      descriptionVars={{ name: position.title }}
-                    />
-                  </div>
-                )}
-              </div>
-            }
-            connections={
-              <div>
-                <h2
-                  id="verbindingen-paneel-titel"
-                  className="text-base font-semibold tracking-tight text-ink"
-                >
-                  <T area="entity" k="whosConnected" />
-                </h2>
+      <div className="mt-6 min-w-0 space-y-4">
+        <EntityTabs
+          news={
+            <div>
+              <h2 id="nieuws-paneel-titel" className="text-base font-semibold tracking-tight text-ink">
+                <T area="entity" k="tabNews" />
+              </h2>
+              {news.length > 0 ? (
                 <div className="mt-3">
-                  <EntityConnections connections={connections} selfId={position.organization} />
+                  <NewsPanel scope="custom" items={news} initialLimit={4} />
                 </div>
+              ) : (
+                <p className="mt-3 text-sm text-ink-faint">
+                  <T area="entity" k="newsEmptyTitle" />
+                </p>
+              )}
+            </div>
+          }
+          connections={
+            <div>
+              <h2 id="verbindingen-paneel-titel" className="text-base font-semibold tracking-tight text-ink">
+                <T area="entity" k="whosConnected" />
+              </h2>
+              <div className="mt-3">
+                <EntityConnections connections={connections} selfId={position.organization} />
               </div>
-            }
-          />
+            </div>
+          }
+        />
 
-          <FactGroup icon={<PeopleIcon />} title={<T area="entity" k="currentOfficials" />} count={currentHolders.length > 0 ? currentHolders.length : undefined}>
-            {currentHolders.length > 0 ? (
-              <>
-                {seatsCount !== null ? (
-                  <p className="text-sm tabular-nums text-ink-muted">
-                    <T
-                      area="entity"
-                      k={seatsCount === 1 ? "seatsFilledOne" : "seatsFilled"}
-                      vars={{ n: currentHolders.length, total: seatsCount }}
-                    />
-                  </p>
-                ) : null}
-                <ul className="mt-1 divide-y divide-line/60">
-                  {currentHolders.map((tenure) => {
-                    const person = getPersonById(tenure.person);
-                    const source = getSourceById(tenure.source.source);
-                    if (!person) return null;
-                    return (
-                      <li key={tenure.id}>
-                        <PersonCard
-                          person={person}
-                          startedAt={tenure.start}
-                          acting={tenure.acting}
-                          source={
-                            source ? (
-                              <SourceLink href={source.url} meta={source.publisher} tone="quiet">
-                                <T area="entity" k="sourceLabel" />
-                              </SourceLink>
-                            ) : null
-                          }
-                        />
-                      </li>
-                    );
-                  })}
-                </ul>
-              </>
-            ) : (
-              <EmptyStateT
-                area="entity"
-                title="vacancyTitle"
-                description="vacancyNote"
-              />
-            )}
-          </FactGroup>
-
-          <FactGroup icon={<HistoryIcon />} title={<T area="entity" k="tenureHistoryTitle" />} count={tenures.length > 0 ? tenures.length : undefined}>
-            {tenures.length > 0 ? (
-              <TenureTimeline tenures={tenures} variant="position" labelKey="tenureHistoryTitle" />
-            ) : (
-              <EmptyStateT
-                area="entity"
-                title="noHoldersTitle"
-                description="noHoldersNote"
-              />
-            )}
-          </FactGroup>
-        </div>
-
-        <aside className="order-first min-w-0 space-y-4">
-          <EntityFacts facts={facts} className="rounded-md border border-line bg-surface p-4" />
-
-          {exOfficio.length > 0 ? (
-            <FactGroup icon={<SeatIcon />} title={<T area="entity" k="exOfficioTitle" />} count={exOfficio.length}>
-              <p className="text-sm text-ink-muted">
-                <T area="entity" k="exOfficioNote" />
+        {currentHolders.length > 0 ? (
+          <FactGroup icon={<PeopleIcon />} title={<T area="entity" k="currentOfficials" />} count={currentHolders.length}>
+            {seatsCount !== null && seatsCount > 1 ? (
+              <p className="text-sm tabular-nums text-ink-muted">
+                <DateT area="entity" k="seatsFilled" counts={{ n: currentHolders.length, total: seatsCount }} />
               </p>
-              <ul className="mt-2 space-y-1.5 text-sm">
-                {exOfficio.map((item) => (
-                  <li key={item.id}>
-                    <EntityPeekLink id={item.id} glyph />
-                  </li>
-                ))}
-              </ul>
-            </FactGroup>
-          ) : null}
-        </aside>
+            ) : null}
+            <ul className="mt-1 divide-y divide-line/60">
+              {currentHolders.slice(0, HOLDER_LIMIT).map((tenure) => (
+                <HolderRow key={tenure.id} tenure={tenure} />
+              ))}
+            </ul>
+            {currentHolders.length > HOLDER_LIMIT ? (
+              <details className="motion-disclosure mt-2">
+                <summary className={SUMMARY_CLASS}>
+                  <T area="common" k="seeAll" vars={{ n: currentHolders.length }} />
+                </summary>
+                <ul className="divide-y divide-line/60">
+                  {currentHolders.slice(HOLDER_LIMIT).map((tenure) => (
+                    <HolderRow key={tenure.id} tenure={tenure} />
+                  ))}
+                </ul>
+              </details>
+            ) : null}
+          </FactGroup>
+        ) : null}
+
+        {tenures.length > 0 ? (
+          <FactGroup icon={<HistoryIcon />} title={<T area="entity" k="tenureHistoryTitle" />} count={tenures.length}>
+            <TenureTimeline tenures={tenures} variant="position" labelKey="tenureHistoryTitle" limit={6} />
+          </FactGroup>
+        ) : null}
+
+        {exOfficio.length > 0 ? (
+          <FactGroup icon={<SeatIcon />} title={<T area="entity" k="exOfficioTitle" />} count={exOfficio.length}>
+            <p className="text-sm text-ink-muted">
+              <T area="entity" k="exOfficioNote" />
+            </p>
+            <ul className="mt-2 space-y-1.5 text-sm">
+              {exOfficio.map((item) => (
+                <li key={item.id}>
+                  <EntityPeekLink id={item.id} glyph />
+                </li>
+              ))}
+            </ul>
+          </FactGroup>
+        ) : null}
       </div>
 
       <SourceList sources={position.sources} />
     </>
+  );
+}
+
+const HOLDER_LIMIT = 10;
+
+function HolderRow({ tenure }: { tenure: Tenure }) {
+  const person = getPersonById(tenure.person);
+  const source = getSourceById(tenure.source.source);
+  if (!person) return null;
+  return (
+    <li>
+      <PersonCard
+        person={person}
+        startedAt={tenure.start}
+        acting={tenure.acting}
+        source={
+          source ? (
+            <SourceLink href={source.url} meta={source.publisher} tone="quiet">
+              <T area="entity" k="sourceLabel" />
+            </SourceLink>
+          ) : null
+        }
+      />
+    </li>
   );
 }

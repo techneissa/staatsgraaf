@@ -431,3 +431,37 @@ export type PersonActivity = {
   items: ActivityItem[];
   source: SourceRef;
 };
+
+/** English text for a Dutch description (data/description-translations.json). */
+export type DescriptionTranslation = {
+  id: string;
+  field: "description";
+  language: "en";
+  text: string;
+  /** First 12 hex characters of sha256 of the Dutch description it was made from. */
+  sourceHash: string;
+};
+
+/** A description that only talks about where it came from (data/description-flags.json). */
+export type DescriptionFlag = {
+  id: string;
+  provenanceOnly: boolean;
+  reason?: string;
+};
+
+export type CareerKind = "politiek" | "loopbaan" | "nevenfunctie" | "opleiding";
+
+/** One step in a person's career (data/careers.json). */
+export type CareerEntry = {
+  id: string;
+  person: string;
+  title: string;
+  organization: string | null;
+  organizationId: string | null;
+  start: string | null;
+  end: string | null;
+  current: boolean;
+  kind: CareerKind;
+  /** A source reference, a source id, or a URL; readers tolerate each form. */
+  source: SourceRef | string | { url: string; publisher?: string; title?: string; retrieved?: string } | null;
+};

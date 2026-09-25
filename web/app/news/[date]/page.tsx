@@ -5,6 +5,7 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { EmptyState } from "@/components/empty-state";
 import { JsonLd } from "@/components/json-ld";
 import { NewsItemCard } from "@/components/news/news-item-card";
+import { ShowAllList } from "@/components/news/show-all-list";
 import { getDatasetDate } from "@/lib/data";
 import { formatCount } from "@/lib/format";
 import { getNewsDays } from "@/lib/news";
@@ -84,11 +85,6 @@ export default async function NewsDayPage({ params }: { params: Promise<{ date: 
           {formatCount(total)}{" "}
           {total === 1 ? messages.dayCountWordSingular : messages.dayCountWordPlural}
         </p>
-        <p className="mt-2 text-sm">
-          <Link href="/news/" className="text-accent-text underline-offset-2 hover:underline">
-            {messages.backLabel}
-          </Link>
-        </p>
       </header>
 
       {archive.hours.length === 0 ? (
@@ -105,13 +101,16 @@ export default async function NewsDayPage({ params }: { params: Promise<{ date: 
             <h2 id={`uur-${hour.hour}`} className="text-lg font-semibold tracking-tight text-ink">
               {hour.label}
             </h2>
-            <ol className="mt-3 list-none space-y-3 p-0">
-              {hour.items.map((item) => (
-                <li key={item.id}>
-                  <NewsItemCard item={item} displayLanguage={messages.locale} />
-                </li>
-              ))}
-            </ol>
+            <ShowAllList
+              as="ol"
+              items={hour.items}
+              initial={8}
+              minHidden={4}
+              locale="en"
+              className="mt-3 list-none space-y-3 p-0"
+              keyOf={(item) => item.id}
+              render={(item) => <NewsItemCard item={item} displayLanguage={messages.locale} />}
+            />
           </section>
         ))
       )}

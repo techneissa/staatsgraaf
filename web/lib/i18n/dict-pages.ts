@@ -18,12 +18,12 @@ export const PAGES_DICT = {
   andWord: { nl: "en", en: "and" },
   crumbLabel: { nl: "Kruimelpad", en: "Breadcrumb" },
 
+  // Long index lists folded behind a disclosure
+  listShowAll: { nl: "Toon alle {count}", en: "Show all {count}" },
+  listShowLess: { nl: "Toon minder", en: "Show less" },
+
   // Party pages (/partijen)
   partiesTitle: { nl: "Partijen", en: "Parties" },
-  partiesIntro: {
-    nl: "De politieke partijen met hun zetels in de Kamers.",
-    en: "The political parties with their seats in the two chambers.",
-  },
   partiesSeatsTK: {
     nl: "Zetels in de Tweede Kamer",
     en: "Seats in the House of Representatives",

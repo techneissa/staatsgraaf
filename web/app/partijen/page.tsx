@@ -43,9 +43,6 @@ export default function PartiesIndexPage() {
         <h1 className="text-3xl font-semibold tracking-tight text-ink">
           <T area="pages" k="partiesTitle" />
         </h1>
-        <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
-          <T area="pages" k="partiesIntro" />
-        </p>
       </header>
 
       <ul className="mt-6 grid list-none gap-3 p-0 sm:grid-cols-2 xl:grid-cols-3">

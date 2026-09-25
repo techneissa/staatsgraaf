@@ -6,7 +6,7 @@ import type { NewsItem } from "@/lib/types";
 
 export function NewsBand({ items }: { items: NewsItem[] }) {
   if (items.length === 0) {
-    return <EmptyStateT title="newsEmptyTitle" description="newsEmptyBody" />;
+    return <EmptyStateT title="newsEmptyTitle" />;
   }
 
   return (
@@ -23,7 +23,7 @@ export function NewsBand({ items }: { items: NewsItem[] }) {
           href="/nieuws/"
           className="inline-flex items-center gap-1 text-sm font-medium text-accent-text underline-offset-2 hover:underline"
         >
-          <T area="home" k="newsReadMore" />
+          <T area="home" k="newsAll" />
           <span aria-hidden="true">&rsaquo;</span>
         </Link>
       </p>

@@ -9,17 +9,18 @@ import { PeriodT } from "./local-date";
 import { QuietSource } from "./quiet-source";
 import { RailItem, RailList } from "./rail";
 import { AriaLabelT } from "./aria-label-t";
+import { ShowMore } from "./show-more";
 
-/** Current acting officials, in the change rail language: glyph, portrait, peek links, quiet source. */
+/** Acting officials shown before the "show all" button. */
+const FIRST_VIEW = 10;
+
+/** Current acting officials, in the change rail language: glyph, portrait, peek links, quiet source. The first ten, then the rest on request. */
 export function ActingList({ officials }: { officials: ActingOfficial[] }) {
   if (officials.length === 0) {
-    return <EmptyStateT title="actingEmptyTitle" description="actingEmptyBody" />;
+    return <EmptyStateT title="actingEmptyTitle" />;
   }
 
-  return (
-    <AriaLabelT k="actingListAria">
-      <RailList>
-        {officials.map((official, index) => {
+  const row = (official: ActingOfficial, index: number, list: ActingOfficial[]) => {
           const source = getSourceById(official.tenure.source.source);
           const showBody =
             official.organization !== undefined &&
@@ -29,7 +30,7 @@ export function ActingList({ officials }: { officials: ActingOfficial[] }) {
               key={official.tenure.id}
               mark={<ChangeKindGlyph kind="acting" />}
               first={index === 0}
-              last={index === officials.length - 1}
+              last={index === list.length - 1}
               markTop={8}
             >
               <article className="flex min-w-0 gap-3">
@@ -64,8 +65,18 @@ export function ActingList({ officials }: { officials: ActingOfficial[] }) {
               </article>
             </RailItem>
           );
-        })}
-      </RailList>
+  };
+
+  const first = officials.slice(0, FIRST_VIEW);
+  const rest = officials.slice(FIRST_VIEW);
+  return (
+    <AriaLabelT k="actingListAria">
+      <RailList>{first.map((official, index) => row(official, index, first))}</RailList>
+      {rest.length > 0 ? (
+        <ShowMore count={officials.length} showKey="showAllActing" hideKey="showFewerActing">
+          <RailList>{rest.map((official, index) => row(official, index, rest))}</RailList>
+        </ShowMore>
+      ) : null}
     </AriaLabelT>
   );
 }

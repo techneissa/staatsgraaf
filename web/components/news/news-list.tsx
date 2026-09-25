@@ -20,9 +20,9 @@ export function NewsList({
         <p className="text-sm font-semibold text-ink">
           {emptyTitle ?? <T area="news" k="newsListEmptyTitle" />}
         </p>
-        <p className="mt-1 text-sm text-ink-muted">
-          {emptyDescription ?? <T area="news" k="newsListEmptyDescription" />}
-        </p>
+        {emptyDescription !== undefined ? (
+          <p className="mt-1 text-sm text-ink-muted">{emptyDescription}</p>
+        ) : null}
       </div>
     );
   }
@@ -41,7 +41,7 @@ export function NewsList({
       </ol>
       {hidden.length > 0 ? (
         <details className="motion-disclosure group mt-3">
-          <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-sm border border-line bg-surface-raised px-3 text-sm font-medium text-ink transition-fast hover:border-line-strong sm:min-h-9 [&::-webkit-details-marker]:hidden">
+          <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-sm border border-line bg-surface-raised px-3 text-sm font-medium text-ink transition-fast hover:border-line-strong sm:min-h-9 pointer-coarse:min-h-11 [&::-webkit-details-marker]:hidden">
             <span className="group-open:hidden">
               <T area="news" k="newsListShowMore" vars={{ count: formatCount(hidden.length) }} />
             </span>

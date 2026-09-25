@@ -72,13 +72,6 @@ export default function BudgetOverviewPage() {
         <h2 id="ministeries-titel" className="text-lg font-semibold tracking-tight text-ink">
           <T area="news" k="budgetMinistriesHeading" />
         </h2>
-        <p className="mt-1 text-sm text-ink-muted">
-          <T
-            area="news"
-            k="budgetMinistriesCaption"
-            vars={{ count: overview.items.length, year: overview.fiscalYear }}
-          />
-        </p>
         <ul className="mt-4 grid grid-cols-2 gap-2.5 sm:gap-3">
           {overview.items.map((item) => (
             <li key={item.organization.id}>

@@ -4,9 +4,10 @@ import { JsonLd } from "@/components/json-ld";
 import { EntityCard } from "@/components/entity-card";
 import { T } from "@/components/i18n/t";
 import { LabelledNav } from "@/components/entity/labelled-nav";
+import { ShowAllList } from "@/components/news/show-all-list";
 import { branchColorVar } from "@/lib/branch-colors";
 import { getDatasetDate, getOrganizations } from "@/lib/data";
-import { DateT, LocalCount } from "@/components/content/local-date";
+import { LocalCount } from "@/components/content/local-date";
 import { SECTOR_ORDER } from "@/lib/graph";
 import { LocaleLabel } from "@/components/i18n/locale-label";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
@@ -62,9 +63,6 @@ export default function OrganizationsIndexPage() {
         <h1 className="text-3xl font-semibold tracking-tight text-ink">
           <T area="entity" k="orgIndexTitle" />
         </h1>
-        <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
-          <DateT area="entity" k="orgIndexIntro" counts={{ n: organizations.length }} />
-        </p>
       </header>
 
       <LabelledNav area="entity" k="groupNavLabel" className="mt-6">
@@ -105,13 +103,12 @@ export default function OrganizationsIndexPage() {
               <LocalCount value={group.organizations.length} />
             </span>
           </h2>
-          <ul className="mt-3 grid list-none gap-3 p-0 sm:grid-cols-2 xl:grid-cols-3">
-            {group.organizations.map((organization) => (
-              <li key={organization.id}>
-                <EntityCard organization={organization} />
-              </li>
-            ))}
-          </ul>
+          <ShowAllList
+            items={group.organizations}
+            className="mt-3 grid list-none gap-3 p-0 sm:grid-cols-2 xl:grid-cols-3"
+            keyOf={(organization) => organization.id}
+            render={(organization) => <EntityCard organization={organization} />}
+          />
         </section>
       ))}
     </>

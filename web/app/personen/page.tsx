@@ -6,13 +6,13 @@ import { PartyBadge } from "@/components/party-badge";
 import { T } from "@/components/i18n/t";
 import { PeekLink } from "@/components/peek/peek-link";
 import { LabelledNav } from "@/components/entity/labelled-nav";
+import { ShowAllList } from "@/components/news/show-all-list";
 import {
   getDatasetDate,
   getPeople,
   getPositionById,
   getTenuresForPerson,
 } from "@/lib/data";
-import { personPortraitId } from "@/lib/entity";
 import { formatCount } from "@/lib/format";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 import type { Person } from "@/lib/types";
@@ -50,7 +50,6 @@ function groupByLetter(people: Person[]): LetterGroup[] {
 export default function PeopleIndexPage() {
   const people = [...getPeople()].sort((a, b) => a.name.localeCompare(b.name, "nl"));
   const groups = groupByLetter(people);
-  const withPortrait = people.filter((person) => personPortraitId(person) !== null).length;
   const pageUrl = absoluteUrl("/personen/");
 
   return (
@@ -71,16 +70,6 @@ export default function PeopleIndexPage() {
         <h1 className="text-3xl font-semibold tracking-tight text-ink">
           <T area="entity" k="peopleIndexTitle" />
         </h1>
-        <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
-          <T
-            area="entity"
-            k="peopleIndexIntro"
-            vars={{
-              n: formatCount(people.length),
-              withPortrait: formatCount(withPortrait),
-            }}
-          />
-        </p>
       </header>
 
       <LabelledNav area="entity" k="alphabetNavLabel" className="mt-6">
@@ -112,39 +101,40 @@ export default function PeopleIndexPage() {
               {formatCount(group.people.length)}
             </span>
           </h2>
-          <ul className="mt-3 grid list-none gap-2 p-0 sm:grid-cols-2 xl:grid-cols-3">
-            {group.people.map((person) => {
+          <ShowAllList
+            items={group.people}
+            className="mt-3 grid list-none gap-2 p-0 sm:grid-cols-2 xl:grid-cols-3"
+            keyOf={(person) => person.id}
+            render={(person) => {
               const role = currentRole(person.id);
               return (
-                <li key={person.id}>
-                  <article className="relative flex items-center gap-3 rounded-md border border-line/70 p-2.5 transition-fast hover:border-line-strong">
-                    <PersonPortrait person={person} size={40} morph />
-                    <div className="min-w-0 flex-1">
-                      <h3 className="truncate text-sm font-medium">
-                        <PeekLink
-                          id={person.id}
-                          href={`/personen/${person.slug}/`}
-                          kind="person"
-                          variant="plain"
-                          className="after:absolute after:inset-0 after:rounded-md"
-                        >
-                          {person.name}
-                        </PeekLink>
-                      </h3>
-                      {role !== null ? (
-                        <p className="truncate text-xs text-ink-muted">{role}</p>
-                      ) : null}
-                    </div>
-                    {person.party !== null ? (
-                      <span className="relative z-10 shrink-0">
-                        <PartyBadge party={person.party} />
-                      </span>
+                <article className="relative flex items-center gap-3 rounded-md border border-line/70 p-2.5 transition-fast hover:border-line-strong">
+                  <PersonPortrait person={person} size={40} morph />
+                  <div className="min-w-0 flex-1">
+                    <h3 className="truncate text-sm font-medium">
+                      <PeekLink
+                        id={person.id}
+                        href={`/personen/${person.slug}/`}
+                        kind="person"
+                        variant="plain"
+                        className="after:absolute after:inset-0 after:rounded-md"
+                      >
+                        {person.name}
+                      </PeekLink>
+                    </h3>
+                    {role !== null ? (
+                      <p className="truncate text-xs text-ink-muted">{role}</p>
                     ) : null}
-                  </article>
-                </li>
+                  </div>
+                  {person.party !== null ? (
+                    <span className="relative z-10 shrink-0">
+                      <PartyBadge party={person.party} />
+                    </span>
+                  ) : null}
+                </article>
               );
-            })}
-          </ul>
+            }}
+          />
         </section>
       ))}
     </>

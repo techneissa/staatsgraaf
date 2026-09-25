@@ -10,6 +10,7 @@ import {
   getPositions,
 } from "@/lib/data";
 import { LocaleLabel } from "@/components/i18n/locale-label";
+import { ShowAllList } from "@/components/news/show-all-list";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { DateT, LocalCount } from "@/components/content/local-date";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
@@ -63,9 +64,6 @@ export default function PositionsIndexPage() {
         <h1 className="text-3xl font-semibold tracking-tight text-ink">
           <T area="entity" k="positionsIndexTitle" />
         </h1>
-        <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
-          <DateT area="entity" k="positionsIndexIntro" counts={{ n: positions.length }} />
-        </p>
       </header>
 
       {groups.map((group) => (
@@ -83,47 +81,48 @@ export default function PositionsIndexPage() {
               <LocalCount value={group.positions.length} />
             </span>
           </h2>
-          <ul className="mt-3 grid list-none gap-2 p-0 sm:grid-cols-2 xl:grid-cols-3">
-            {group.positions.map((position) => {
+          <ShowAllList
+            items={group.positions}
+            className="mt-3 grid list-none gap-2 p-0 sm:grid-cols-2 xl:grid-cols-3"
+            keyOf={(position) => position.id}
+            render={(position) => {
               const organization = getOrganizationById(position.organization);
               const accent = organization ? branchColorVar(organization.branch) : null;
               return (
-                <li key={position.id}>
-                  <article className="relative flex h-full flex-col overflow-hidden rounded-md border border-line bg-surface p-3 pl-4 transition-fast hover:border-line-strong">
-                    {accent !== null ? (
-                      <span
-                        aria-hidden="true"
-                        className="absolute inset-y-0 left-0 w-1"
-                        style={{ backgroundColor: accent }}
+                <article className="relative flex h-full flex-col overflow-hidden rounded-md border border-line bg-surface p-3 pl-4 transition-fast hover:border-line-strong">
+                  {accent !== null ? (
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-y-0 left-0 w-1"
+                      style={{ backgroundColor: accent }}
+                    />
+                  ) : null}
+                  <h3 className="text-sm font-medium">
+                    <Link
+                      href={`/posities/${position.slug}/`}
+                      className="text-ink underline-offset-2 hover:text-accent-text hover:underline"
+                    >
+                      {position.title}
+                    </Link>
+                  </h3>
+                  {organization ? (
+                    <p className="mt-0.5 truncate text-xs text-ink-muted">
+                      <EntityPeekLink id={organization.id} variant="quiet" />
+                    </p>
+                  ) : null}
+                  {position.seatsCount !== null ? (
+                    <p className="mt-auto pt-1.5 text-xs tabular-nums text-ink-faint">
+                      <DateT
+                        area="entity"
+                        k={position.seatsCount === 1 ? "seatOne" : "seatMany"}
+                        counts={{ n: position.seatsCount }}
                       />
-                    ) : null}
-                    <h3 className="text-sm font-medium">
-                      <Link
-                        href={`/posities/${position.slug}/`}
-                        className="text-ink underline-offset-2 hover:text-accent-text hover:underline"
-                      >
-                        {position.title}
-                      </Link>
-                    </h3>
-                    {organization ? (
-                      <p className="mt-0.5 truncate text-xs text-ink-muted">
-                        <EntityPeekLink id={organization.id} variant="quiet" />
-                      </p>
-                    ) : null}
-                    {position.seatsCount !== null ? (
-                      <p className="mt-auto pt-1.5 text-xs tabular-nums text-ink-faint">
-                        <DateT
-                          area="entity"
-                          k={position.seatsCount === 1 ? "seatOne" : "seatMany"}
-                          counts={{ n: position.seatsCount }}
-                        />
-                      </p>
-                    ) : null}
-                  </article>
-                </li>
+                    </p>
+                  ) : null}
+                </article>
               );
-            })}
-          </ul>
+            }}
+          />
         </section>
       ))}
     </>

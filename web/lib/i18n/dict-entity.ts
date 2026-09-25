@@ -12,17 +12,10 @@ export const ENTITY_DICT = {
   legalSourceLabel: { nl: "Wettelijke grondslag", en: "Legal basis" },
   legalBasisLabel: { nl: "Wettelijke basis", en: "Legal basis" },
   websiteLabel: { nl: "Officiële website", en: "Official website" },
-  noLegalSourceLabel: { nl: "Geen wettelijke grondslag opgenomen.", en: "No legal basis on record." },
-  noWebsiteLabel: { nl: "Geen website opgenomen.", en: "No website on record." },
-  noLegalBasisLabel: { nl: "Geen wettelijke basis opgenomen.", en: "No legal basis on record." },
-  noDescriptionLabel: {
-    nl: "Nog geen Nederlandse beschrijving met bron opgenomen in de dataset.",
-    en: "No Dutch description with a source is in the dataset yet.",
-  },
 
   // Fact grid labels
   factType: { nl: "Type", en: "Type" },
-  factBranch: { nl: "Branche", en: "Branch" },
+  factBranch: { nl: "Tak", en: "Branch" },
   factLevel: { nl: "Niveau", en: "Level" },
   factAliases: { nl: "Aliassen", en: "Aliases" },
   factEstablished: { nl: "Opgericht", en: "Established" },
@@ -110,44 +103,13 @@ export const ENTITY_DICT = {
     nl: "{n} leden met een lopend lidmaatschap in de dataset.",
     en: "{n} members with a current membership in the dataset.",
   },
-  noOfficialsTitle: { nl: "Geen lopende functies of lidmaatschappen", en: "No current tenures or memberships" },
-  noOfficialsNote: {
-    nl: "Voor {name} is in de dataset nog geen lopende benoeming of lidmaatschap met bron opgenomen.",
-    en: "No current appointment or membership with a source is in the dataset for {name} yet.",
-  },
   partOfTitle: { nl: "Onderdeel van", en: "Part of" },
-  partOfNone: {
-    nl: "Geen bovenliggende organisatie met bron opgenomen.",
-    en: "No parent organization with a source on record.",
-  },
   historyTitle: { nl: "Functiegeschiedenis", en: "Office history" },
-  historyNoneTitle: { nl: "Geen functiegeschiedenis", en: "No office history" },
-  historyNoneNote: {
-    nl: "Voor {name} zijn in de dataset nog geen benoemingen met datum en bron opgenomen.",
-    en: "No appointments with a date and source are in the dataset for {name} yet.",
-  },
-  membersNoneNote: {
-    nl: "Geen lopende leden met bron opgenomen in de dataset.",
-    en: "No current members with a source are in the dataset.",
-  },
-  newsEmptyNote: {
-    nl: "Er zijn nog geen nieuwsberichten met {name} opgenomen in de dataset.",
-    en: "No news items mentioning {name} are in the dataset yet.",
-  },
 
   // Person page sections
   rolesTitle: { nl: "Functies", en: "Positions" },
-  personNoDescription: {
-    nl: "Functies en bronnen van {name} op de kaart van de Nederlandse staat.",
-    en: "Positions and sources for {name} on the map of the Dutch state.",
-  },
   membershipMeta: { nl: "Lidmaatschap", en: "Membership" },
   membershipsTitle: { nl: "Lidmaatschappen", en: "Memberships" },
-  noRoleTitle: { nl: "Geen gedateerde rol met bron", en: "No dated role with a source" },
-  noRoleNote: {
-    nl: "Voor {name} is in de dataset geen functie of lidmaatschap met een startdatum en bron opgenomen.",
-    en: "No position or membership with a start date and source is in the dataset for {name}.",
-  },
   inTheNewsTitle: { nl: "In het nieuws", en: "In the news" },
   imageCredit: { nl: "Beeld", en: "Image" },
 
@@ -157,10 +119,6 @@ export const ENTITY_DICT = {
   exOfficioNote: {
     nl: "De bekleder van deze positie zit of voorzit van rechtswege in de volgende organen.",
     en: "The holder of this position sits in or chairs the following bodies by virtue of office.",
-  },
-  vacanciesNote: {
-    nl: "Een positie zonder bekleder is een vacature zodra de dataset dat bijhoudt.",
-    en: "A position without a holder counts as a vacancy once the dataset tracks that.",
   },
   holderMeta: { nl: "zetel(s)", en: "seat(s)" },
 
@@ -195,21 +153,16 @@ export const ENTITY_DICT = {
 
   // Empty states
   noConnectionsTitle: { nl: "Nog geen verbindingen", en: "No connections yet" },
-  noConnectionsNote: {
-    nl: "In de dataset zijn voor dit onderdeel nog geen inkomende of uitgaande relaties met een bron opgenomen.",
-    en: "No incoming or outgoing relations with a source are in the dataset for this entity yet.",
-  },
   newsEmptyTitle: { nl: "Nog geen nieuws", en: "No news yet" },
-  vacancyTitle: { nl: "Geen lopende bekleder", en: "No current holder" },
-  vacancyNote: {
-    nl: "Voor deze positie is in de dataset geen benoeming zonder einddatum met bron opgenomen. Een positie zonder bekleder is een vacature zodra de dataset dat bijhoudt.",
-    en: "No appointment without an end date with a source is in the dataset for this position. A position without a holder counts as a vacancy once the dataset tracks that.",
-  },
-  noHoldersTitle: { nl: "Geen bekleders bekend", en: "No known holders" },
-  noHoldersNote: {
-    nl: "Voor deze positie is nog geen bekleder met bron opgenomen.",
-    en: "No holder with a source is in the dataset for this position yet.",
-  },
+
+  // Summaries, descriptions, facts, career and callouts
+  translatedFromDutch: { nl: "Vertaald uit het Nederlands", en: "Translated from Dutch" },
+  factBranchLevel: { nl: "Tak en niveau", en: "Branch and level" },
+  factLinks: { nl: "Elders", en: "Elsewhere" },
+  careerTitle: { nl: "Loopbaan", en: "Career" },
+  actingCallout: { nl: "Waarnemend {title}", en: "Acting {title}" },
+  noHolderSinceCallout: { nl: "Geen bekleder bekend sinds {date}", en: "No known holder since {date}" },
+  dissolvedCallout: { nl: "Opgeheven op {date}", en: "Dissolved on {date}" },
 
   // Listing pages
   orgIndexTitle: { nl: "Organisaties", en: "Organizations" },

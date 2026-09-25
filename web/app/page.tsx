@@ -1,9 +1,11 @@
+import { Count } from "@/components/i18n/count";
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Card } from "@/components/card";
 import { ChangePanel } from "@/components/home/change-panel";
-import { ChangeStats } from "@/components/home/change-stats";
+import { ChangeStatTiles } from "@/components/change/stat-tiles";
+import { getChangeTileFigures } from "@/components/change/change-figures";
 import {
   ChangeWindowTabs,
   type ChangeWindowPanel,
@@ -16,7 +18,6 @@ import { JsonLd } from "@/components/json-ld";
 import { getDatasetDate, getOrganizationCounts } from "@/lib/data";
 import { formatCount } from "@/lib/format";
 import {
-  getChangeStats,
   getChangeWindows,
   getFocusPeople,
   getHomeNews,
@@ -41,7 +42,7 @@ function OverviewFigure({ label, value }: { label: ReactNode; value: number }) {
     <div className="min-w-0 rounded-md border border-line bg-surface px-3 py-2.5">
       <dt className="text-xs leading-snug text-ink-muted">{label}</dt>
       <dd className="mt-0.5 whitespace-nowrap text-xl font-semibold tabular-nums tracking-tight text-ink @[30rem]:text-2xl">
-        {formatCount(value)}
+        <Count value={value} />
       </dd>
     </div>
   );
@@ -69,7 +70,7 @@ function CountList({
           <li key={entry.key} className="text-[13px]">
             <div className="flex items-baseline justify-between gap-3">
               <span className="min-w-0 text-ink">{entry.label}</span>
-              <span className="shrink-0 whitespace-nowrap tabular-nums text-ink-muted">{formatCount(entry.count)}</span>
+              <span className="shrink-0 whitespace-nowrap tabular-nums text-ink-muted"><Count value={entry.count} /></span>
             </div>
             <div aria-hidden="true" className="mt-1 h-0.5 rounded-pill bg-surface-inset">
               <div className="h-full rounded-pill bg-line-strong" style={{ width: `${Math.max(2, (entry.count / max) * 100)}%` }} />
@@ -86,7 +87,6 @@ export default function HomePage() {
   const counts = getOrganizationCounts();
   const news = getHomeNews(3);
   const people = getFocusPeople(12);
-  const stats = getChangeStats();
   const windows = getChangeWindows();
   const subOrganizations = getSubOrganizationCount();
   const budget = getBudgetOverview();
@@ -149,62 +149,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="mensen-titel" className="border-b border-line py-6">
-        <div className="flex flex-wrap items-baseline justify-between gap-2">
+      {people.length > 0 ? (
+        <section aria-labelledby="mensen-titel" className="border-b border-line py-6">
           <h2 id="mensen-titel" className="text-lg font-semibold tracking-tight text-ink">
-            <L nl="Wie in het nieuws" en="Who is in the news" />
+            {news.length > 0 ? (
+              <L nl="Wie in het nieuws" en="Who is in the news" />
+            ) : (
+              <L nl="Huidige functionarissen" en="Current office holders" />
+            )}
           </h2>
-        </div>
-        {news.length > 0 ? (
-          <p className="mt-1 text-sm text-ink-muted">
-            <L
-              nl="De meest genoemde personen in de nieuwsberichten van de laatste periode."
-              en="The people most mentioned in recent news coverage."
-            />
-          </p>
-        ) : (
-          <p className="mt-1 text-sm text-ink-muted">
-            <L
-              nl="Nog geen nieuwsanalyse beschikbaar. Hieronder staan mensen met een lopende functie in de dataset, op volgorde van functie."
-              en="No news analysis yet. Shown instead are people with an active tenure in the dataset, ordered by position."
-            />
-          </p>
-        )}
-        {people.length > 0 ? (
           <div className="mt-4">
             <PeopleStrip people={people} />
           </div>
-        ) : (
-          <p className="mt-3 text-sm text-ink-faint">
-            <L nl="Nog geen personen met een lopende functie." en="No people with an active tenure yet." />
-          </p>
-        )}
-      </section>
+        </section>
+      ) : null}
 
       <section aria-labelledby="wijzigingen-titel" className="border-b border-line py-6">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 id="wijzigingen-titel" className="text-lg font-semibold tracking-tight text-ink">
-            <L nl="Laatste wijzigingen" en="Latest changes" />
-          </h2>
+        <h2 id="wijzigingen-titel" className="text-lg font-semibold tracking-tight text-ink">
+          <L nl="Laatste wijzigingen" en="Latest changes" />
+        </h2>
+        <ChangeStatTiles figures={getChangeTileFigures()} className="mt-3" />
+        <div className="mt-3">
           <ChangeWindowTabs panels={panels} defaultValue="30d" />
         </div>
-        <p className="mt-2 max-w-prose text-sm text-ink-muted">
-          <L
-            nl="De wijzigingenfeed wordt gevuld door de dagelijkse vergelijking van de dataset met de vorige versie. Aanstellingen, vertrekken en structuurwijzigingen verschijnen hier met een bron per wijziging."
-            en="This feed is filled by the daily comparison of the dataset with the previous version. Appointments, departures and structural changes appear here with one source per change."
-          />
-        </p>
-        <ChangeStats stats={stats} />
       </section>
 
       <section aria-labelledby="overzicht-titel" className="border-b border-line py-6">
         <h2 id="overzicht-titel" className="text-lg font-semibold tracking-tight text-ink">
           <L nl="Overzicht" en="Overview" />
         </h2>
-        <p className="mt-1 text-sm text-ink-muted">
-          <L nl="Tellingen op het hoogste niveau voor het Rijk." en="Top-level counts for the national government." />
-        </p>
-        <dl className="mt-4 grid grid-cols-2 gap-2">
+        <dl className="mt-3 grid grid-cols-2 gap-2">
           <OverviewFigure label={<L nl="Organisaties" en="Organizations" />} value={counts.total} />
           <OverviewFigure label={<L nl="Suborganisaties" en="Sub-organizations" />} value={subOrganizations} />
         </dl>
@@ -226,14 +200,9 @@ export default function HomePage() {
             }))}
           />
         </div>
-        <p className="mt-3 text-xs text-ink-faint">
-          <a href="#over" className="text-accent-text underline-offset-2 hover:underline">
-            <L nl="Over deze kaart" en="About this map" />
-          </a>
-        </p>
       </section>
 
-      <section aria-labelledby="begroting-titel" className="border-b border-line py-6">
+      <section aria-labelledby="begroting-titel" className="py-6">
         <div className="flex flex-wrap items-baseline justify-between gap-3">
           <h2 id="begroting-titel" className="text-lg font-semibold tracking-tight text-ink">
             <L nl="Begroting" en="Budget" />
@@ -245,51 +214,11 @@ export default function HomePage() {
             <L nl="Begroting verkennen" en="Explore the budget" />
           </Link>
         </div>
-        <p className="mt-1 text-sm text-ink-muted">
-          <L
-            nl="De begrote uitgaven, ontvangsten en het saldo van de ministeries, met het verschil tegen het voorgaande jaar."
-            en="Budgeted spending, revenue and the balance across the ministries, with the change against the previous year."
-          />
-        </p>
-        <div className="mt-4">
+        <div className="mt-3">
           <BudgetTotals overview={budget} />
         </div>
       </section>
 
-      <section id="over" aria-labelledby="over-titel" className="py-6">
-        <h2 id="over-titel" className="text-lg font-semibold tracking-tight text-ink">
-          <L nl="Over deze kaart" en="About this map" />
-        </h2>
-        <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
-          <L
-            nl="Deze kaart brengt de Nederlandse rijksoverheid in kaart als een open, bronvaste grafiek van organisaties, posities, personen en hun onderlinge relaties. Elk gegeven verwijst naar de bron waar het vandaan komt, met een ophaaldatum."
-            en="This map charts the Dutch national government as an open, source-backed graph of organizations, positions, people and their relationships. Every fact points to the source it comes from, with a retrieval date."
-          />
-        </p>
-        <ul className="mt-3 flex flex-wrap gap-x-5 gap-y-2 text-sm">
-          <li>
-            <Link
-              href="/methodiek/"
-              className="text-accent-text underline-offset-2 hover:underline"
-            >
-              <L nl="Methodiek en verantwoording" en="Methodology" />
-            </Link>
-          </li>
-          <li>
-            <Link href="/privacy/" className="text-accent-text underline-offset-2 hover:underline">
-              <L nl="Privacy" en="Privacy" />
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/toegankelijkheid/"
-              className="text-accent-text underline-offset-2 hover:underline"
-            >
-              <L nl="Toegankelijkheid" en="Accessibility" />
-            </Link>
-          </li>
-        </ul>
-      </section>
     </>
   );
 }

@@ -13,7 +13,7 @@ const HOME_LIMIT = 5;
 
 export function ChangePanel({ window }: { window: ChangeWindow }) {
   if (!window.ready || window.until === null) {
-    return <EmptyStateT title="noChangesYet" description="noChangesYetBody" />;
+    return <EmptyStateT title="noChangesYet" />;
   }
   const reference = window.until;
 
@@ -32,7 +32,7 @@ export function ChangePanel({ window }: { window: ChangeWindow }) {
 
       {groups.length === 0 ? (
         <div className="mt-4">
-          <EmptyStateT title="noChangesInWindow" description="noChangesInWindowBody" />
+          <EmptyStateT title="noChangesInWindow" />
         </div>
       ) : (
         <div className="mt-4 space-y-3">

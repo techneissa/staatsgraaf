@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { EmptyState } from "@/components/empty-state";
+import { DictEmptyState } from "@/components/budget/dict-empty-state";
 import { getDatasetDate } from "@/lib/data";
 import { formatCount } from "@/lib/format";
 import { getNewsOutlets } from "@/lib/news";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
 import { NT, NTKind, NTLanguage } from "@/components/news/news-t";
-import { L } from "@/components/i18n/t";
+import { T } from "@/components/i18n/t";
 import { pageMetadata } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -43,17 +43,14 @@ export default function NewsSourcesPage() {
             href={messages.otherLanguageHref}
             className="text-sm text-accent-text underline-offset-2 hover:underline"
           >
-            <L nl={messages.otherLanguageLabel} en="English page" />
+            <T area="news" k="newsOtherLanguageEn" />
           </Link>
         </div>
-        <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
-          <NT k="sourcesIntro" />
-        </p>
       </header>
 
       <section className="py-6">
         {outlets.length === 0 ? (
-          <EmptyState title={messages.sourcesEmpty} />
+          <DictEmptyState titleKey="newsSourcesEmpty" />
         ) : (
           <div className="overflow-x-auto">
             <table className="w-full border-collapse text-sm">
@@ -63,10 +60,10 @@ export default function NewsSourcesPage() {
                   <th scope="col" className="py-2 pr-3 font-medium">
                     <NT k="sourcesTablePublisher" />
                   </th>
-                  <th scope="col" className="py-2 pr-3 font-medium">
+                  <th scope="col" className="hidden py-2 pr-3 font-medium sm:table-cell">
                     <NT k="sourcesTableKind" />
                   </th>
-                  <th scope="col" className="py-2 pr-3 font-medium">
+                  <th scope="col" className="hidden py-2 pr-3 font-medium sm:table-cell">
                     <NT k="sourcesTableLanguages" />
                   </th>
                   <th scope="col" className="py-2 pr-3 text-right font-medium">
@@ -82,9 +79,17 @@ export default function NewsSourcesPage() {
                   <tr key={outlet.publisher} className="border-b border-line align-top">
                     <th scope="row" className="py-2 pr-3 text-left font-medium text-ink">
                       {outlet.publisher}
+                      <span className="mt-0.5 block text-xs font-normal text-ink-faint sm:hidden">
+                        <NTKind kind={outlet.kind} /> · {outlet.languages.map((language, index) => (
+                        <span key={language}>
+                          {index > 0 ? ", " : null}
+                          <NTLanguage language={language} />
+                        </span>
+                      ))}
+                      </span>
                     </th>
-                    <td className="py-2 pr-3 text-ink-muted"><NTKind kind={outlet.kind} /></td>
-                    <td className="py-2 pr-3 text-ink-muted">
+                    <td className="hidden py-2 pr-3 text-ink-muted sm:table-cell"><NTKind kind={outlet.kind} /></td>
+                    <td className="hidden py-2 pr-3 text-ink-muted sm:table-cell">
                       {outlet.languages.map((language, index) => (
                         <span key={language}>
                           {index > 0 ? ", " : null}

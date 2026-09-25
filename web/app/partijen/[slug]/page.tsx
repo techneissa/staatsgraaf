@@ -9,6 +9,8 @@ import { L, T } from "@/components/i18n/t";
 import { LocalDate } from "@/components/content/local-date";
 import { ShareButton } from "@/components/share-button";
 import { MemberList } from "@/components/entity/member-list";
+import { ColorDot, FactTiles } from "@/components/entity/fact-tiles";
+import { TagIcon } from "@/components/entity/icons";
 import { getDatasetDate, getPersonById } from "@/lib/data";
 import type { MemberEntry } from "@/lib/entity";
 import { currentMembershipsForPartyKey, seatCountsByPartyKey, seatTallyForOrganization } from "@/lib/parliament";
@@ -128,46 +130,41 @@ export default async function PartyPage({
         </p>
       </header>
 
-      <section aria-labelledby="party-feiten" className="mt-6">
-        <h2 id="party-feiten" className="border-b border-line pb-2 text-lg font-semibold tracking-tight text-ink">
-          <T area="entity" k="factsLabel" />
-        </h2>
-        <dl className="mt-3 space-y-2 text-sm">
-          <div className="flex flex-wrap gap-x-3 gap-y-1">
-            <dt className="text-ink-faint"><T area="pages" k="partyColourLabel" /></dt>
-            <dd className="flex flex-wrap items-center gap-x-2 gap-y-1 text-ink-muted">
-              <span
-                aria-hidden="true"
-                className="inline-block h-4 w-4 rounded-full ring-1 ring-line"
-                style={{ backgroundColor: party.color ?? "var(--t-color-line-strong)" }}
-              />
-              {party.color !== null ? (
-                <code className="text-xs">{party.color}</code>
-              ) : (
-                <T area="pages" k="partyNoColour" />
-              )}
-              {party.source !== null ? (
-                <SourceLink href={party.source} meta={party.confidence}>
-                  <T area="pages" k="partyColourConfidence" />
-                </SourceLink>
-              ) : null}
-              <span className="text-xs text-ink-faint">
-                <T area="pages" k="partyColourRetrieved" /> <LocalDate iso={party.retrieved} />
+      <FactTiles
+        className="mt-6"
+        facts={[
+          {
+            key: "colour",
+            icon: <ColorDot color={party.color ?? "var(--t-color-line-strong)"} />,
+            label: <T area="pages" k="partyColourLabel" />,
+            value: (
+              <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                {party.color !== null ? <code className="text-xs">{party.color}</code> : <T area="pages" k="partyNoColour" />}
+                {party.source !== null ? (
+                  <SourceLink href={party.source} meta={party.confidence} tone="quiet">
+                    <T area="pages" k="partyColourConfidence" />
+                  </SourceLink>
+                ) : null}
+                <span className="text-xs text-ink-faint">
+                  <T area="pages" k="partyColourRetrieved" /> <LocalDate iso={party.retrieved} />
+                </span>
               </span>
-            </dd>
-          </div>
-          <div className="flex flex-wrap gap-x-5 gap-y-1">
-            <div className="flex gap-2">
-              <dt className="text-ink-faint"><L nl="Nederlands" en="Dutch" /></dt>
-              <dd className="text-ink-muted">{party.name.nl}</dd>
-            </div>
-            <div className="flex gap-2">
-              <dt className="text-ink-faint"><L nl="Engels" en="English" /></dt>
-              <dd className="text-ink-muted" lang="en">{party.name.en}</dd>
-            </div>
-          </div>
-        </dl>
-      </section>
+            ),
+          },
+          {
+            key: "name-nl",
+            icon: <TagIcon />,
+            label: <L nl="Nederlands" en="Dutch" />,
+            value: <span lang="nl">{party.name.nl}</span>,
+          },
+          {
+            key: "name-en",
+            icon: <TagIcon />,
+            label: <L nl="Engels" en="English" />,
+            value: <span lang="en">{party.name.en}</span>,
+          },
+        ]}
+      />
 
       <section aria-labelledby="party-tk" className="mt-6">
         <h2 id="party-tk" className="border-b border-line pb-2 text-lg font-semibold tracking-tight text-ink">

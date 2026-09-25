@@ -35,15 +35,8 @@ export function ChangeHistogram({
 
   return (
     <figure className="min-w-0">
-      <figcaption className="flex flex-wrap items-baseline justify-between gap-2">
-        <span className="text-xs font-medium text-ink-faint">
-          {t("timelineLabel")}
-        </span>
-        <span className="text-sm text-ink-muted">
-          {total === 1
-            ? t("changesInWindowOne")
-            : t("changesInWindow", { n: total })}
-        </span>
+      <figcaption className="text-sm tabular-nums text-ink-muted">
+        {total === 1 ? t("dayCountOne") : t("dayCount", { n: total })}
       </figcaption>
       <svg
         role="img"

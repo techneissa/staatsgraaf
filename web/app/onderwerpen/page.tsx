@@ -41,20 +41,14 @@ export default function TopicsPage() {
         <h1 className="text-2xl font-semibold tracking-tight text-ink">
           <T area="news" k="topicsHeading" />
         </h1>
-        <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
-          <T area="news" k="topicsIntro" />
-        </p>
       </header>
 
       <section aria-labelledby="onderwerpen-titel" className="py-6">
-        <h2 id="onderwerpen-titel" className="text-lg font-semibold tracking-tight text-ink">
+        <h2 id="onderwerpen-titel" className="sr-only">
           <T area="news" k="topicsAllHeading" />
         </h2>
-        <p className="mt-1 text-sm text-ink-muted">
-          {topics.length} <T area="news" k="topicsAllCaption" />
-        </p>
         {cards.length > 0 ? (
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+          <ul className="grid gap-3 sm:grid-cols-2">
             {cards.map(({ topic, organizationCount }) => (
               <li key={topic.id}>
                 <TopicCard topic={topic} organizationCount={organizationCount} />

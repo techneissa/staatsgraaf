@@ -6,6 +6,7 @@ import { T } from "@/components/i18n/t";
 import { LocaleLabel } from "@/components/i18n/locale-label";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { TimelineT } from "./timeline-t";
+import { SUMMARY_CLASS } from "./entity-connections";
 import { getOrganizationById, getPersonById, getPositionById, getSourceById } from "@/lib/data";
 import { titleNamesBody } from "@/lib/changes";
 import { tenureEndReason, tenureEntryMode } from "@/lib/entity";
@@ -28,10 +29,13 @@ export function TenureTimeline({
   tenures,
   variant,
   labelKey,
+  limit,
 }: {
   tenures: Tenure[];
   variant: TenureTimelineVariant;
   labelKey: string;
+  /** Show this many first; the rest sit behind a "Toon alle" disclosure. */
+  limit?: number;
 }) {
   const items: TimelineItem[] = tenures.map((tenure) => {
     const position = getPositionById(tenure.position);
@@ -85,5 +89,18 @@ export function TenureTimeline({
     };
   });
 
-  return <TimelineT items={items} labelKey={labelKey} />;
+  if (limit === undefined || items.length <= limit + 1) return <TimelineT items={items} labelKey={labelKey} />;
+  return (
+    <>
+      <TimelineT items={items.slice(0, limit)} labelKey={labelKey} />
+      <details className="motion-disclosure mt-2">
+        <summary className={SUMMARY_CLASS}>
+          <T area="common" k="seeAll" vars={{ n: items.length }} />
+        </summary>
+        <div className="mt-2">
+          <TimelineT items={items.slice(limit)} labelKey={labelKey} />
+        </div>
+      </details>
+    </>
+  );
 }

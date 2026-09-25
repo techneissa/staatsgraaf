@@ -80,6 +80,8 @@ export const COMMON_DICT = {
   // Peek popover (components/peek/peek-provider.tsx, docs/adr/0017)
   peekOpenPage: { nl: "Open pagina", en: "Open page" },
   peekClose: { nl: "Sluiten", en: "Close" },
+  sheetExpand: { nl: "Paneel vergroten", en: "Expand panel" },
+  sheetShrink: { nl: "Paneel verkleinen", en: "Shrink panel" },
   peekLoading: { nl: "Gegevens laden", en: "Loading details" },
   peekUnavailable: {
     nl: "De samenvatting kon niet worden geladen. De volledige pagina werkt wel.",

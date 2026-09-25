@@ -10,9 +10,11 @@ import { KindGlyph } from "@/components/kind-glyph";
 import { SlidingIndicator } from "@/components/motion/sliding-indicator";
 import { useSettled } from "@/components/motion/use-settled";
 import { loadPeekRecord } from "@/components/peek/peek-provider";
-import { formatCount } from "@/lib/format";
+import { formatCountIn } from "@/lib/format";
 import { NEWS_LANGUAGES, PUBLISHER_KINDS, type RecencyGroupKey } from "@/lib/news-meta";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
+import { NEWS_DICT } from "@/lib/i18n/dict-news";
+import { interpolate } from "@/lib/i18n/locales";
 import type { PeekKind } from "@/lib/peek";
 import type { NewsLanguage, PublisherKind } from "@/lib/types";
 
@@ -168,7 +170,7 @@ export function NewsExplorer({
               className={pill(language === option)}
             >
               {option === "all" ? messages.allLanguagesLabel : messages.languageFilterLabels[option]}
-              <span className="ml-1.5 tabular-nums text-ink-faint">{formatCount(totals[option])}</span>
+              <span className="ml-1.5 tabular-nums text-ink-faint">{formatCountIn(totals[option], uiLanguage)}</span>
             </button>
           ))}
         </div>
@@ -236,11 +238,9 @@ export function NewsExplorer({
             {entity.href ? (
               <p className="mt-1 text-xs text-ink-faint">
                 {byEntity.length === 0 ? `${messages.entityFilterEmpty} ` : null}
-                {messages.entityFilterNote}{" "}
-                <Link href={entity.href} lang="nl" className="text-accent-text underline-offset-2 hover:underline">
-                  {entity.label}
+                <Link href={entity.href} className="text-accent-text underline-offset-2 hover:underline">
+                  {interpolate(NEWS_DICT.newsEntityAllLink[uiLanguage], { name: entity.label })}
                 </Link>
-                .
               </p>
             ) : null}
           </div>
@@ -281,30 +281,14 @@ export function NewsExplorer({
                   </h3>
                   <span className="text-xs tabular-nums text-ink-faint">
                     {!filtering && truncated
-                      ? `${formatCount(bucketItems.length)} ${messages.ofWord} ${formatCount(bucketTotal)}`
-                      : formatCount(filtered.length)}{" "}
+                      ? `${formatCountIn(bucketItems.length, uiLanguage)} ${messages.ofWord} ${formatCountIn(bucketTotal, uiLanguage)}`
+                      : formatCountIn(filtered.length, uiLanguage)}{" "}
                     {filtered.length === 1 ? messages.itemsWordSingular : messages.itemsWordPlural}
                   </span>
                 </div>
 
                 {truncated && entity === null ? (
-                  <p className="mt-2 text-xs leading-relaxed text-ink-faint">
-                    {messages.truncatedIntro} {formatCount(bucketItems.length)} {messages.ofWord}{" "}
-                    {formatCount(bucketTotal)} {bucketTotal === 1 ? messages.itemsWordSingular : messages.itemsWordPlural}.{" "}
-                    {messages.allPerDay}{" "}
-                    {group.days.map((day, index) => (
-                      <span key={day.date}>
-                        {index > 0 ? ", " : null}
-                        <Link
-                          href={`${archiveBase}/${day.date}/`}
-                          className="text-accent-text underline-offset-2 hover:underline"
-                        >
-                          {day.label} ({formatCount(day.count)})
-                        </Link>
-                      </span>
-                    ))}
-                    .
-                  </p>
+                  <DayLinks days={group.days} archiveBase={archiveBase} language={uiLanguage} />
                 ) : null}
 
                 {filtered.length === 0 ? (
@@ -322,9 +306,9 @@ export function NewsExplorer({
                     </ol>
                     {hidden.length > 0 ? (
                       <details className="motion-disclosure group mt-3">
-                        <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-pill border border-line bg-surface-raised px-4 text-sm font-medium text-ink transition-fast hover:border-accent/40 hover:bg-accent-soft hover:text-accent-text sm:min-h-9 [&::-webkit-details-marker]:hidden">
+                        <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-pill border border-line bg-surface-raised px-4 text-sm font-medium text-ink transition-fast hover:border-accent/40 hover:bg-accent-soft hover:text-accent-text sm:min-h-9 pointer-coarse:min-h-11 [&::-webkit-details-marker]:hidden">
                           <span className="group-open:hidden">
-                            {messages.showMoreLabel} ({formatCount(hidden.length)})
+                            {messages.showMoreLabel} ({formatCountIn(hidden.length, uiLanguage)})
                           </span>
                           <span className="hidden group-open:inline">{messages.showLessLabel}</span>
                         </summary>
@@ -345,5 +329,55 @@ export function NewsExplorer({
         </div>
       )}
     </div>
+  );
+}
+
+/** Days shown before the rest of a group's day archive links fold away. */
+const DAYS_INITIAL = 7;
+
+/**
+ * Links to the day archives that hold everything in a recency group, for when
+ * the group shows only its newest items. Long runs of days fold behind a
+ * toggle so the "earlier" group does not open with a wall of dates.
+ */
+function DayLinks({
+  days,
+  archiveBase,
+  language,
+}: {
+  days: NewsExplorerDay[];
+  archiveBase: string;
+  language: NewsLanguage;
+}) {
+  const [open, setOpen] = useState(false);
+  const fold = days.length > DAYS_INITIAL + 2;
+  const shown = fold && !open ? days.slice(0, DAYS_INITIAL) : days;
+  const dict = NEWS_DICT;
+  return (
+    <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs leading-relaxed text-ink-faint">
+      <span>{dict.newsByDay[language]}</span>
+      {shown.map((day) => (
+        <Link
+          key={day.date}
+          href={`${archiveBase}/${day.date}/`}
+          className="inline-flex items-center text-accent-text underline-offset-2 hover:underline pointer-coarse:min-h-11"
+        >
+          {day.label}
+          <span className="ms-1 tabular-nums text-ink-faint">{formatCountIn(day.count, language)}</span>
+        </Link>
+      ))}
+      {fold ? (
+        <button
+          type="button"
+          aria-expanded={open}
+          onClick={() => setOpen((value) => !value)}
+          className="inline-flex items-center rounded-xs px-1 font-medium text-ink-muted underline-offset-2 hover:text-ink hover:underline pointer-coarse:min-h-11"
+        >
+          {open
+            ? dict.newsFewerDays[language]
+            : interpolate(dict.newsMoreDays[language], { count: formatCountIn(days.length - DAYS_INITIAL, language) })}
+        </button>
+      ) : null}
+    </p>
   );
 }

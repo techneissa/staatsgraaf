@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { ChangeRow } from "@/components/change-row";
 import { ChangeExplorer } from "@/components/change/change-explorer";
-import { ChangeStats } from "@/components/change/change-stats";
+import { Callout } from "@/components/change/callout";
+import { ChangeKindGlyph } from "@/components/change/change-glyph";
+import { ChangeStatTiles } from "@/components/change/stat-tiles";
+import { getChangeTileFigures } from "@/components/change/change-figures";
+import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { ActingList } from "@/components/change/acting-list";
 import { VacancyList } from "@/components/change/vacancy-list";
 import { T } from "@/components/i18n/t";
@@ -12,7 +16,6 @@ import {
   changeDisplayKind,
   getActingOfficials,
   getChangeReferenceDate,
-  getChangeStats,
   getTimeline,
   getVacantSeats,
   getWindowedChanges,
@@ -29,12 +32,15 @@ export const metadata: Metadata = pageMetadata({
   snapshotDate: getDatasetDate(),
 });
 
+/** Vacant positions named in the callout before "and N more". */
+const CALLOUT_LIMIT = 3;
+
 export default function ChangesPage() {
   const reference = getChangeReferenceDate();
-  const stats = getChangeStats(reference);
   const vacancies = getVacantSeats();
   const officials = getActingOfficials();
   const pageUrl = absoluteUrl("/wijzigingen/");
+  const shownVacancies = vacancies.slice(0, CALLOUT_LIMIT);
 
   const panes = CHANGE_WINDOWS.map((days) => {
     const changes = getWindowedChanges(days, reference);
@@ -66,41 +72,48 @@ export default function ChangesPage() {
 
       <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: <T area="home" k="changesPageTitle" /> }]} />
 
-      <header className="mt-4 pb-5">
-        <h1 className="text-2xl font-semibold tracking-tight text-ink">
-          <T area="home" k="changesPageTitle" />
-        </h1>
-        <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
-          <T area="home" k="changesPageIntro" />
-        </p>
-      </header>
+      <h1 className="mt-4 text-2xl font-semibold tracking-tight text-ink">
+        <T area="home" k="changesPageTitle" />
+      </h1>
 
-      <section aria-labelledby="cijfers-titel">
+      <section aria-labelledby="cijfers-titel" className="mt-4">
         <h2 id="cijfers-titel" className="sr-only">
           <T area="home" k="keyFigures" />
         </h2>
-        <ChangeStats
-          vacantSeats={stats.vacantSeats}
-          actingOfficials={stats.actingOfficials}
-          lastChangeDate={stats.lastChangeDate}
-          reference={reference}
-        />
+        <ChangeStatTiles figures={getChangeTileFigures(reference)} />
+        {shownVacancies.length > 0 ? (
+          <Callout icon={<ChangeKindGlyph kind="vacancy" size={16} />} className="mt-3">
+            <span className="font-medium">
+              <T area="home" k="vacancyCallout" />:
+            </span>{" "}
+            {shownVacancies.map((vacancy, index) => (
+              <span key={vacancy.position.id}>
+                {index > 0 ? ", " : null}
+                <EntityPeekLink id={vacancy.position.id} />
+              </span>
+            ))}
+            {vacancies.length > shownVacancies.length ? (
+              <span className="text-ink-muted">
+                {" "}
+                <T area="home" k="vacancyCalloutMore" vars={{ n: vacancies.length - shownVacancies.length }} />
+              </span>
+            ) : null}
+          </Callout>
+        ) : null}
       </section>
 
-      <section aria-labelledby="feed-titel" className="py-6">
-        <h2 id="feed-titel" className="text-lg font-semibold tracking-tight text-ink">
+      <section aria-labelledby="feed-titel" className="pb-6 pt-5">
+        <h2 id="feed-titel" className="sr-only">
           <T area="home" k="feedTitle" />
         </h2>
-        <div className="mt-4">
-          <ChangeExplorer
-            panes={panes}
-            reference={reference}
-            vacancies={<VacancyList vacancies={vacancies} />}
-            vacancyCount={vacancies.reduce((sum, vacancy) => sum + vacancy.vacant, 0)}
-            acting={<ActingList officials={officials} />}
-            actingCount={officials.length}
-          />
-        </div>
+        <ChangeExplorer
+          panes={panes}
+          reference={reference}
+          vacancies={<VacancyList vacancies={vacancies} />}
+          vacancyCount={vacancies.reduce((sum, vacancy) => sum + vacancy.vacant, 0)}
+          acting={<ActingList officials={officials} />}
+          actingCount={officials.length}
+        />
       </section>
     </>
   );

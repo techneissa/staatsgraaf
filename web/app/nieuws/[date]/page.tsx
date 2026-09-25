@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { EmptyState } from "@/components/empty-state";
+import { DictEmptyState } from "@/components/budget/dict-empty-state";
 import { JsonLd } from "@/components/json-ld";
 import { NewsItemCard } from "@/components/news/news-item-card";
+import { ShowAllList } from "@/components/news/show-all-list";
 import { getDatasetDate } from "@/lib/data";
-import { formatCount } from "@/lib/format";
+import { LocalCount } from "@/components/content/local-date";
 import { getNewsDays } from "@/lib/news";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
-import { NT, NTKind, NTLanguage } from "@/components/news/news-t";
-import { L } from "@/components/i18n/t";
+import { NT } from "@/components/news/news-t";
+import { T } from "@/components/i18n/t";
 import { buildNewsDayArchive, formatNewsDayLabel } from "@/lib/news-page";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 
@@ -78,22 +79,18 @@ export default async function NewsDayPage({ params }: { params: Promise<{ date: 
             href={messages.otherLanguageHref}
             className="text-sm text-accent-text underline-offset-2 hover:underline"
           >
-            <L nl={messages.otherLanguageLabel} en="English page" />
+            <T area="news" k="newsOtherLanguageEn" />
           </Link>
         </div>
         <p className="mt-3 text-sm text-ink-muted">
-          {formatCount(total)} {total === 1 ? <NT k="dayCountWordSingular" /> : <NT k="dayCountWordPlural" />}
-        </p>
-        <p className="mt-2 text-sm">
-          <Link href="/nieuws/" className="text-accent-text underline-offset-2 hover:underline">
-            <NT k="backLabel" />
-          </Link>
+          <LocalCount value={total} />{" "}
+          {total === 1 ? <NT k="dayCountWordSingular" /> : <NT k="dayCountWordPlural" />}
         </p>
       </header>
 
       {archive.hours.length === 0 ? (
         <section className="py-6">
-          <EmptyState title={messages.noItemsLabel} />
+          <DictEmptyState titleKey="newsDayEmpty" />
         </section>
       ) : (
         archive.hours.map((hour) => (
@@ -101,13 +98,15 @@ export default async function NewsDayPage({ params }: { params: Promise<{ date: 
             <h2 id={`uur-${hour.hour}`} className="text-lg font-semibold tracking-tight text-ink">
               {hour.hour}:00 <NT k="hourConnector" /> {hour.hour}:59
             </h2>
-            <ol className="mt-3 list-none space-y-3 p-0">
-              {hour.items.map((item) => (
-                <li key={item.id}>
-                  <NewsItemCard item={item} />
-                </li>
-              ))}
-            </ol>
+            <ShowAllList
+              as="ol"
+              items={hour.items}
+              initial={8}
+              minHidden={4}
+              className="mt-3 list-none space-y-3 p-0"
+              keyOf={(item) => item.id}
+              render={(item) => <NewsItemCard item={item} />}
+            />
           </section>
         ))
       )}

@@ -2,30 +2,28 @@ import type { LocString } from "./locales";
 
 /** Owned by the news, topics and budget pages area. */
 export const NEWS_DICT = {
-  mediaTitle: { nl: "Media", en: "Media" },
-  whosConnected: { nl: "Wie is verbonden?", en: "Who is connected?" },
-
   // News list and news card (server-rendered cards with client-swapped chrome)
   cardOpensNewTab: { nl: "(opent in een nieuw tabblad)", en: "(opens in a new tab)" },
   cardMentionedLabel: { nl: "Genoemd in dit bericht", en: "Mentioned in this item" },
   imageCreditLabel: { nl: "Beeld:", en: "Image:" },
   sourceRankAria: { nl: "Bron {rank} voor dit bericht", en: "Source {rank} for this item" },
   newsListEmptyTitle: { nl: "Nog geen nieuws", en: "No news yet" },
-  newsListEmptyDescription: {
-    nl: "Zodra de nieuwsbronnen zijn ontsloten, verschijnen hier berichten met gekoppelde organisaties, personen en een bron per bericht.",
-    en: "Once the news sources are unlocked, items appear here with linked organizations, people and one source per item.",
-  },
-  newsListShowMore: { nl: "Laad meer ({count})", en: "Show more ({count})" },
-  newsListShowLess: { nl: "Minder weergeven", en: "Show less" },
+  newsListShowMore: { nl: "Toon meer ({count})", en: "Show more ({count})" },
+  newsListShowLess: { nl: "Toon minder", en: "Show less" },
+
+  // News explorer and day archives
+  newsUpdated: { nl: "bijgewerkt {date}", en: "updated {date}" },
+  newsOtherLanguageEn: { nl: "Lees in het Engels", en: "English page" },
+  newsByDay: { nl: "Per dag:", en: "By day:" },
+  newsMoreDays: { nl: "+{count} dagen", en: "+{count} days" },
+  newsFewerDays: { nl: "Minder dagen", en: "Fewer days" },
+  newsDayEmpty: { nl: "Geen berichten op deze dag.", en: "No items on this day." },
+  newsSourcesEmpty: { nl: "Nog geen nieuwsbronnen opgenomen.", en: "No news sources included yet." },
+  newsEntityAllLink: { nl: "Alle berichten over {name}", en: "All items about {name}" },
 
   // Topics: cards, responsible list, topic news
   topicsHeading: { nl: "Onderwerpen", en: "Topics" },
-  topicsIntro: {
-    nl: "Onderwerpen met de organisaties en posities die ervoor verantwoordelijk zijn.",
-    en: "Topics with the organisations and positions responsible for them.",
-  },
   topicsAllHeading: { nl: "Alle onderwerpen", en: "All topics" },
-  topicsAllCaption: { nl: "onderwerpen met elk het aantal verantwoordelijke organisaties.", en: "topics, each with the number of responsible organizations." },
   topicsEmpty: { nl: "Nog geen onderwerpen in de dataset.", en: "No topics in the dataset yet." },
   topicTrending: { nl: "In het nieuws", en: "In the news" },
   topicViewLink: { nl: "Bekijk onderwerp", en: "View topic" },
@@ -42,16 +40,16 @@ export const NEWS_DICT = {
   responsiblePositionsLabel: { nl: "Posities", en: "Positions" },
   responsibleEmptyTitle: { nl: "Nog geen verantwoordelijke organisaties", en: "No responsible organizations yet" },
   responsibleEmptyDescription: {
-    nl: "Voor dit onderwerp zijn in de dataset nog geen organisaties of posities vastgelegd. Dit is een bekend gat en geen leeg onderwerp.",
-    en: "No organizations or positions are recorded for this topic in the dataset. This is a named gap, not an empty topic.",
+    nl: "Bekend gat: nog geen organisatie of positie met bron.",
+    en: "Named gap: no organization or position with a source yet.",
   },
   topicNewsHeading: { nl: "Nieuws", en: "News" },
   topicNewsEmptyTitle: { nl: "Nog geen nieuws bij dit onderwerp", en: "No news for this topic yet" },
   topicNewsEmptyDescription: {
-    nl: "Zodra de nieuwsbronnen zijn ontsloten, verschijnen hier berichten die aan dit onderwerp zijn gekoppeld, met bron en datum.",
-    en: "Once the news sources are published, items linked to this topic appear here with source and date.",
+    nl: "Geen bericht noemt dit onderwerp of een van de verantwoordelijke organisaties.",
+    en: "No item mentions this topic or one of the responsible organizations.",
   },
-  topicNewsCount: { nl: "{shown} van {total} berichten weergegeven, de meest recente eerst.", en: "Showing {shown} of {total} items, most recent first." },
+  topicNewsCount: { nl: "De {shown} nieuwste van {total} berichten.", en: "The {shown} newest of {total} items." },
   topicDescriptionMissing: { nl: "Voor dit onderwerp is nog geen beschrijving opgenomen.", en: "No description is recorded for this topic yet." },
 
   // Budget: headings, stat tiles, captions
@@ -60,7 +58,6 @@ export const NEWS_DICT = {
     nl: "De begrotingen van de {count} ministeries voor {year}, vergeleken met {previous}.",
     en: "The budgets of the {count} ministries for {year}, compared with {previous}.",
   },
-  budgetUnitNote: { nl: "Alle bedragen in {unit}, tenzij anders vermeld.", en: "All amounts in {unit} unless stated otherwise." },
   budgetTotalsHeading: { nl: "Totalen", en: "Totals" },
   budgetTotalsCaption: { nl: "Rijk, opgeteld over de {count} begrotingen", en: "The national government, summed over the {count} budgets" },
   budgetSpendingLabel: { nl: "Uitgaven begroot", en: "Spending budget" },
@@ -70,7 +67,6 @@ export const NEWS_DICT = {
   budgetYearCaption: { nl: "begroot {year}", en: "budgeted {year}" },
   budgetNotReported: { nl: "Niet gerapporteerd", en: "Not reported" },
   budgetMinistriesHeading: { nl: "Ministeries", en: "Ministries" },
-  budgetMinistriesCaption: { nl: "{count} begrotingen, gesorteerd op begrote uitgaven in {year}.", en: "{count} budgets, sorted by budgeted spending in {year}." },
   budgetTileSpendingCaption: { nl: "Begrote uitgaven {year}", en: "Budgeted spending {year}" },
   budgetPreviousYearFigure: { nl: "{year}: {amount}", en: "{year}: {amount}" },
   budgetShareOfTotal: { nl: "Aandeel van het totaal: {percent}", en: "Share of the total: {percent}" },
@@ -78,11 +74,6 @@ export const NEWS_DICT = {
   budgetShareBelowTotalShort: { nl: "< {percent} van het totaal", en: "< {percent} of the total" },
   budgetShareBelowTotal: { nl: "Aandeel van het totaal: kleiner dan {percent}", en: "Share of the total: less than {percent}" },
   budgetFootnoteAria: { nl: "Bron {number}, zie de bronnenlijst onderaan de pagina", en: "Source {number}, see the source list at the bottom of the page" },
-  budgetFootnoteIntro: {
-    nl: "Elke verwijzing naast een ministerie (zoals ^1) verwijst naar een genummerde bron in de lijst onderaan de pagina.",
-    en: "Each marker next to a ministry (such as ^1) refers to a numbered source in the list at the bottom of the page.",
-  },
-  budgetViewLink: { nl: "Bekijk begroting", en: "View budget" },
   budgetOrgActionLink: { nl: "Bekijk de organisatie", en: "View the organization" },
   budgetNoComparison: { nl: "Geen vergelijking met {year} beschikbaar.", en: "No comparison with {year} available." },
   budgetChangeSince: { nl: "t.o.v. {year}", en: "vs. {year}" },
@@ -91,7 +82,6 @@ export const NEWS_DICT = {
   budgetChangeFlat: { nl: "gelijk gebleven", en: "unchanged" },
   budgetFiguresHeading: { nl: "Uitgaven, ontvangsten en saldo", en: "Spending, revenue and net result" },
   budgetHistoryHeading: { nl: "Reeks gerealiseerde bedragen", en: "Series of realized amounts" },
-  budgetHistoryCaption: { nl: "De werkelijke uitgaven en ontvangsten per jaar zoals de begrotingsstaten die melden.", en: "Actual spending and revenue per year as reported by the budget acts." },
   budgetHistoryStartNote: { nl: "De reeks begint in {year}; de bron bevat geen eerdere jaren voor deze organisatie.", en: "The series starts in {year}; the source has no earlier years for this organization." },
   budgetBreakdownHeading: { nl: "Uitsplitsing naar categorie", en: "Breakdown by category" },
   budgetSourcesTitle: { nl: "Bronnen en ophaaldata", en: "Sources and retrieval dates" },
@@ -125,8 +115,8 @@ export const NEWS_DICT = {
   budgetBreakdownRevenue: { nl: "Ontvangsten", en: "Revenue" },
   budgetBreakdownEmptyTitle: { nl: "Geen uitsplitsing naar categorie beschikbaar", en: "No breakdown by category available" },
   budgetBreakdownEmptyDescription: {
-    nl: "De bron voor deze begroting bevat nog geen categorieën met bedragen. Dit is een bekend gat: er wordt geen uitsplitsing getoond die niet in de bron staat.",
-    en: "The source for this budget contains no categories with amounts yet. This is a named gap: no breakdown is shown that is not in the source.",
+    nl: "De bron bevat geen categorieën met bedragen.",
+    en: "The source contains no categories with amounts.",
   },
   budgetHistoryEmptyTitle: { nl: "Geen reeks beschikbaar", en: "No series available" },
   budgetHistoryEmptyDescription: {
@@ -138,14 +128,13 @@ export const NEWS_DICT = {
     nl: "De bron bevat voor deze organisatie nog geen begrote uitgaven, ontvangsten of saldo.",
     en: "The source does not yet contain budgeted spending, revenue or net result for this organization.",
   },
-  budgetComparisonNote: { nl: "Vergelijking van {current} met {previous}.", en: "Comparing {current} with {previous}." },
   budgetTotalsNote: {
-    nl: "Deze totalen tellen de begrotingen van de afzonderlijke ministeries op zoals gerapporteerd en zijn niet gecorrigeerd voor overlappende stromen tussen begrotingen. Het saldo is het verschil tussen ontvangsten en uitgaven per begroting.",
-    en: "These totals sum the budgets of the individual ministries as reported and are not corrected for overlapping flows between budgets. The net result is revenue minus spending per budget.",
+    nl: "Opgeteld zoals gerapporteerd, niet gecorrigeerd voor stromen tussen begrotingen.",
+    en: "Summed as reported, not corrected for flows between budgets.",
   },
   budgetTotalsPartialNote: {
-    nl: "Niet elke begroting heeft een volledig cijfer; het totaal is dan gedeeltelijk.",
-    en: "Not every budget has a complete figure; the total is partial in that case.",
+    nl: "Niet elke begroting heeft een cijfer; het totaal is gedeeltelijk.",
+    en: "Not every budget has a figure; the total is partial.",
   },
   budgetTotalsComparable: {
     nl: "{counted} van {total} begrotingen hebben een vergelijkbaar cijfer voor {year}.",
