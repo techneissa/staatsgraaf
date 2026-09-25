@@ -165,8 +165,10 @@ export function BudgetRadar({ data }: { data: RadarData }) {
   const ringFont = radius < 130 ? 9 : 10;
   // A near-vertical line keeps the values stacked one above the other, where a
   // diagonal line would make neighbouring values bump sideways.
-  const verticalWedges = labelWedges.filter((wedge) => Math.abs(Math.cos(axisAngle(wedge + 0.5, count))) < 0.35);
-  const scaleAngle = axisAngle((verticalWedges[0] ?? labelWedges[0]) + 0.5, count);
+  // The values read as a scale going up and slightly left: along the gap
+  // between the first axis (straight up) and the last one, so the column
+  // always sits in the same, familiar place.
+  const scaleAngle = axisAngle(count - 0.5, count);
   const badgeCentres = Array.from({ length: count }, (_, index) => polar(cx, cy, radius, axisAngle(index, count)));
   const placedBoxes: { x0: number; y0: number; x1: number; y1: number }[] = [];
   const across = { x: -Math.sin(scaleAngle), y: Math.cos(scaleAngle) };
