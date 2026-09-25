@@ -148,14 +148,14 @@ export const NEWS_DICT = {
   budgetRadarSeries: { nl: "Jaar {number}", en: "Year {number}" },
   budgetRadarScaleGroup: { nl: "Schaal", en: "Scale" },
   budgetRadarScaleShare: { nl: "Aandeel", en: "Share" },
-  budgetRadarScaleLog: { nl: "Bedrag (log)", en: "Amount (log)" },
+  budgetRadarScaleAmount: { nl: "Bedrag", en: "Amount" },
   budgetRadarNoteShare: {
-    nl: "Straal: aandeel in de opgetelde uitgaven van dat jaar.",
-    en: "Radius: share of that year's summed spending.",
+    nl: "Aandeel: de uitgaven van een ministerie als deel van de opgetelde uitgaven van de twaalf ministeries in dat jaar. Samen is dat 100%.",
+    en: "Share: a ministry's spending as part of the summed spending of the twelve ministries in that year. Together they make 100%.",
   },
-  budgetRadarNoteLog: {
-    nl: "Straal: bedrag in euro op een logaritmische schaal.",
-    en: "Radius: amount in euros on a logarithmic scale.",
+  budgetRadarNoteAmount: {
+    nl: "Bedrag in euro, lineair: twee keer zo ver van het midden is twee keer zoveel geld.",
+    en: "Amount in euros, linear: twice as far from the centre is twice as much money.",
   },
   budgetRadarMissing: { nl: "Geen cijfer voor {names} in {year}.", en: "No figure for {names} in {year}." },
   budgetRadarAria: {

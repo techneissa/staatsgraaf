@@ -6,7 +6,7 @@ import { useDict } from "@/components/i18n/use-t";
 import { formatEuroCompact, formatShare } from "@/lib/budget-format";
 import {
   axisAngle,
-  logTicks,
+  amountTicks,
   ministryShortLabel,
   polar,
   radarLayoutForLabels,
@@ -104,8 +104,8 @@ export function BudgetRadar({ data }: { data: RadarData }) {
   });
 
   const share = shareTicks(Math.max(0, ...series.flatMap((entry) => entry.shares.map((value) => value ?? 0))));
-  const log = logTicks(series.flatMap((entry) => entry.values));
-  const domain = { shareMax: share.max, lo: log.lo, hi: log.hi };
+  const amount = amountTicks(series.flatMap((entry) => entry.values));
+  const domain = { shareMax: share.max, amountMax: amount.max };
   const { cx, cy, radius } = layout;
 
   const fractions = series.map((entry) =>
@@ -138,8 +138,8 @@ export function BudgetRadar({ data }: { data: RadarData }) {
             maximumFractionDigits: 0,
           }).format(value / 100),
         }))
-      : log.ticks.map((value) => ({
-          fraction: (Math.log10(value) - log.lo) / (log.hi - log.lo),
+      : amount.ticks.map((value) => ({
+          fraction: value / amount.max,
           label: formatEuroCompact(value, locale),
         }));
 
@@ -181,7 +181,7 @@ export function BudgetRadar({ data }: { data: RadarData }) {
     return { left, top: below ? anchor.y + 14 : anchor.y - 14, below, tipWidth };
   })();
 
-  const noteKey = mode === "share" ? "budgetRadarNoteShare" : "budgetRadarNoteLog";
+  const noteKey = mode === "share" ? "budgetRadarNoteShare" : "budgetRadarNoteAmount";
   const noteId = `${id}-note`;
 
   return (
@@ -220,7 +220,7 @@ export function BudgetRadar({ data }: { data: RadarData }) {
         aria-label={t("budgetRadarScaleGroup")}
         className="mt-3 inline-flex rounded-sm border border-line bg-surface-inset p-0.5"
       >
-        {(["share", "log"] as const).map((option) => (
+        {(["share", "amount"] as const).map((option) => (
           <button
             key={option}
             type="button"
@@ -230,7 +230,7 @@ export function BudgetRadar({ data }: { data: RadarData }) {
               mode === option ? "bg-surface font-medium text-ink shadow-sm" : "text-ink-muted hover:text-ink"
             }`}
           >
-            {option === "share" ? t("budgetRadarScaleShare") : t("budgetRadarScaleLog")}
+            {option === "share" ? t("budgetRadarScaleShare") : t("budgetRadarScaleAmount")}
           </button>
         ))}
       </div>
