@@ -1,0 +1,30 @@
+name: provision-counter
+
+# One-off, run by hand: creates the Workers KV namespace that holds the anonymous
+# page view counts (web/functions/api/views.ts) and prints its id, which goes into
+# web/wrangler.toml. Safe to re-run: an existing namespace is reported, not recreated.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  provision:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: oven-sh/setup-bun@v2
+      - name: Create or find the counter namespace
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -e
+          bunx wrangler@4 kv namespace list > list.json
+          id=$(bun -e 'const l=JSON.parse(require("fs").readFileSync("list.json","utf8"));const n=l.find(x=>x.title==="staatsgraaf-views"||x.title.endsWith("staatsgraaf-views"));console.log(n?n.id:"")')
+          if [ -z "$id" ]; then
+            bunx wrangler@4 kv namespace create staatsgraaf-views
+          else
+            echo "existing namespace id: $id"
+          fi
