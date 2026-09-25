@@ -1,6 +1,8 @@
 "use client";
 
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import { Orbit, Users } from "lucide";
+import { LucideIcon } from "@/components/icons/lucide-icon";
 import { SlidingIndicator } from "@/components/motion/sliding-indicator";
 import { useT } from "@/components/i18n/use-t";
 import { useLocale } from "@/components/i18n/language-provider";
@@ -116,18 +118,24 @@ export function CanvasControls({
         <button
           type="button"
           aria-pressed={view === "graph"}
+          aria-label={t("viewGraph")}
+          title={t("viewGraph")}
           onClick={() => onViewChange("graph")}
           className={`${segmentClass} ${view === "graph" ? segmentActive : "hover:text-ink"}`}
+          style={view === "graph" ? { color: "var(--color-accent-text)" } : undefined}
         >
-          {t("viewGraph")}
+          <LucideIcon icon={Orbit} size={16} />
         </button>
         <button
           type="button"
           aria-pressed={view === "power"}
+          aria-label={t("viewPower")}
+          title={t("viewPower")}
           onClick={() => onViewChange("power")}
           className={`${segmentClass} ${view === "power" ? segmentActive : "hover:text-ink"}`}
+          style={view === "power" ? { color: "var(--t-color-sector-hoge-colleges)" } : undefined}
         >
-          {t("viewPower")}
+          <LucideIcon icon={Users} size={16} />
         </button>
       </div>
 

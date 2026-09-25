@@ -6,6 +6,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (25-09-2026, sixth round)
 
+- The Grafiek / Verbanden switch shows two icons instead of words (orbit for the graph, people for Connections), each lit in its own colour when active, with the name as tooltip and accessible label.
 - The Connections hierarchy and person focus are rebuilt after the owner's two concept images: a segmented colour ring, thick bars, outlined icon hubs and labelled members; the person between two group heads with vertical member chains and a legend. Ministries fall into six colour clusters; the canvas can go full screen on desktop.
 - News: the "by day" link list is gone, the per-card "Translated from Dutch" label and "Show original" link are replaced by one translate icon per card and a single line above the list (ADR 0016 amendment 2), and the "read in English / Dutch" links at the top of the news pages are removed.
 - Connections opens on a hierarchy view (ADR 0018 amendment 2): the kabinet with the minister-president in the centre, the Koning as head of state and one icon hub per ministry with its bewindspersonen; the Tweede Kamer and Eerste Kamer with the chair in the centre and fracties as hubs in party colour. Clicking a person shows their ties as portrait tiles around them. The earlier view stays under "Netwerk".
