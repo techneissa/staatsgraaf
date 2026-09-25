@@ -1,4 +1,4 @@
-import { KindBadge } from "@/components/kind-badge";
+import { PartyPill } from "@/components/party-pill";
 import { T } from "@/components/i18n/t";
 import { PeekLink } from "@/components/peek/peek-link";
 import { PersonPortrait, PersonPortraitCredit } from "./person-portrait";
@@ -34,7 +34,7 @@ export function SeatGrid({ members, limit }: { members: MemberEntry[]; limit?: n
           />
           {membership.fractie !== null ? (
             <span className="mt-1.5 block">
-              <KindBadge>{membership.fractie}</KindBadge>
+              <PartyPill party={membership.fractie} />
             </span>
           ) : null}
           {membership.seatNumber !== null ? (

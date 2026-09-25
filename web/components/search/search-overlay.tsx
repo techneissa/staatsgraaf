@@ -261,7 +261,7 @@ export function SearchOverlay() {
               <div className="p-4">
                 {suggestedTopics.length > 0 ? (
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-ink-faint">
+                    <p className="text-xs font-semibold text-ink-faint">
                       {t("searchTopicsHeader")}
                     </p>
                     <div className="mt-2 flex flex-wrap gap-2">

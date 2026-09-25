@@ -105,7 +105,7 @@ export function ChangeRow({ change, compact = false }: { change: Change; compact
         />
       )}
       <div className="min-w-0 flex-1">
-        <p className={`text-[11px] font-semibold uppercase leading-4 tracking-wider ${CHANGE_LABEL_TONE[kind]}`}>
+        <p className={`text-xs font-semibold leading-4 ${CHANGE_LABEL_TONE[kind]}`}>
           <T area="home" k={CHANGE_KIND_KEY[kind]} />
         </p>
         <p className="mt-0.5 text-sm leading-snug text-ink [overflow-wrap:anywhere]">

@@ -119,17 +119,6 @@ export default function AccessibilityPage() {
         </Section>
       </div>
 
-      <p className="py-6 text-xs text-ink-faint">
-        <T area="pages" k="seeAlso" />{" "}
-        <Link href="/methodiek/" className="text-accent-text underline-offset-2 hover:underline">
-          <T area="pages" k="linkMethodology" />
-        </Link>{" "}
-        <T area="pages" k="andWord" />{" "}
-        <Link href="/privacy/" className="text-accent-text underline-offset-2 hover:underline">
-          <T area="pages" k="linkPrivacy" />
-        </Link>
-        .
-      </p>
     </>
   );
 }

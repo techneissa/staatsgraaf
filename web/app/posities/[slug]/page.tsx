@@ -196,12 +196,12 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
             <L {...POSITION_TYPE_LABELS[position.type]} />
           </KindBadge>
           {fillMethod !== null ? (
-            <span className="inline-flex items-center rounded-pill border border-line bg-surface px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-ink-muted">
+            <span className="inline-flex items-center rounded-pill border border-line bg-surface px-2.5 py-0.5 text-xs font-medium text-ink-muted">
               <LocaleLabel kind="fillMethod" value={fillMethod} />
             </span>
           ) : null}
           {seatsCount !== null ? (
-            <span className="inline-flex items-center gap-1.5 rounded-pill border border-line bg-surface px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-ink-muted">
+            <span className="inline-flex items-center gap-1.5 rounded-pill border border-line bg-surface px-2.5 py-0.5 text-xs font-medium text-ink-muted">
               <SeatIcon width={13} height={13} />
               <DateT area="entity" k={seatsCount === 1 ? "seatOne" : "seatMany"} counts={{ n: seatsCount }} />
             </span>

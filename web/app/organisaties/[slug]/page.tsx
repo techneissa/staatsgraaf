@@ -207,7 +207,7 @@ export default async function OrganizationPage({
           <KindBadge tone="accent">
             <LocaleLabel kind="subtype" value={organization.subtype} />
           </KindBadge>
-          <span className="inline-flex items-center gap-1.5 rounded-pill border border-line bg-surface px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-ink-muted">
+          <span className="inline-flex items-center gap-1.5 rounded-pill border border-line bg-surface px-2.5 py-0.5 text-xs font-medium text-ink-muted">
             <EntityDot kind="organization" id={organization.id} />
             <LocaleLabel kind="branch" value={organization.branch} />
           </span>

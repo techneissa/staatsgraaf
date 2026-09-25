@@ -86,7 +86,7 @@ export default async function BudgetOrganizationPage({
       />
 
       <header className="mt-4 border-b border-line pb-6">
-        <p className="text-xs font-medium uppercase tracking-wider text-accent-text"><T area="news" k="budgetHeading" /></p>
+        <p className="text-xs font-medium text-accent-text"><T area="news" k="budgetHeading" /></p>
         <h1 className="mt-1 text-2xl font-semibold tracking-tight text-ink">          {view.organization.name}
         </h1>
         <p className="mt-2 text-sm">

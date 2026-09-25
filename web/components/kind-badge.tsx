@@ -12,7 +12,7 @@ export function KindBadge({ children, tone = "neutral" }: KindBadgeProps) {
       : "border-line bg-surface-raised text-ink-muted";
   return (
     <span
-      className={`inline-flex items-center rounded-pill border px-2 py-0.5 text-xs font-medium uppercase tracking-wide ${toneClass}`}
+      className={`inline-flex items-center rounded-pill border px-2 py-0.5 text-xs font-medium ${toneClass}`}
     >
       {children}
     </span>

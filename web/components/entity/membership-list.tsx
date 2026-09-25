@@ -1,3 +1,4 @@
+import { PartyPill } from "@/components/party-pill";
 import { KindBadge } from "@/components/kind-badge";
 import { SourceLink } from "@/components/source-link";
 import { LocalPeriod } from "@/components/content/local-date";
@@ -39,7 +40,7 @@ export function MembershipList({ memberships }: { memberships: Membership[] }) {
               </span>
             </div>
             <p className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-ink-faint">
-              {membership.fractie !== null ? <KindBadge>{membership.fractie}</KindBadge> : null}
+              {membership.fractie !== null ? <PartyPill party={membership.fractie} /> : null}
               {membership.seatNumber !== null ? (
                 <span>
                   <T area="entity" k="seatNumber" vars={{ n: membership.seatNumber }} />

@@ -276,7 +276,7 @@ export function NewsExplorer({
             return (
               <section key={group.key} aria-labelledby={headingId}>
                 <div className="sticky top-0 z-10 -mx-4 flex items-baseline justify-between gap-2 border-b border-line bg-canvas/95 px-4 py-2 backdrop-blur-sm">
-                  <h3 id={headingId} className="text-xs font-semibold uppercase tracking-wider text-ink-faint">
+                  <h3 id={headingId} className="text-xs font-semibold text-ink-faint">
                     {messages.groupLabels[group.key]}
                   </h3>
                   <span className="text-xs tabular-nums text-ink-faint">

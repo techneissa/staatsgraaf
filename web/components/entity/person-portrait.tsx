@@ -55,17 +55,40 @@ export function PersonPortrait({
 }
 
 /**
- * Credit and license for a portrait, ready to place under the image. Renders
- * nothing when the person has no portrait, so callers do not need a check.
+ * Credit and license for a portrait. The credit is never printed as a line of
+ * text under a photo: in lists it is there for screen readers only (the image
+ * carries it as a tooltip too), and on a profile it sits behind a small info
+ * button next to the photo. CC BY and CC BY-SA require the attribution to be
+ * reachable from the work, which both forms keep.
  */
 export function PersonPortraitCredit({
   person,
-  className = "",
+  variant = "hidden",
 }: {
   person: Person;
+  /** Unused, kept so older call sites still compile. */
   className?: string;
+  variant?: "hidden" | "info";
 }) {
   const media = getMediaItem(personPortraitId(person));
   if (media === null) return null;
-  return <span className={className.trim()}>{mediaCreditLine(media)}</span>;
+  const credit = mediaCreditLine(media);
+  if (variant === "hidden") return <span className="sr-only">{credit}</span>;
+  return (
+    <details className="group relative inline-block">
+      <summary
+        aria-label={credit}
+        title={credit}
+        className="tap-target flex h-5 w-5 cursor-pointer list-none items-center justify-center rounded-pill text-[11px] text-ink-faint transition-fast hover:text-ink [&::-webkit-details-marker]:hidden"
+      >
+        <svg aria-hidden="true" viewBox="0 0 16 16" width="13" height="13">
+          <circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" strokeWidth="1.3" />
+          <path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+      </summary>
+      <p className="absolute left-0 top-6 z-20 w-56 rounded-md border border-line bg-surface p-2 text-[11px] leading-snug text-ink-muted shadow-lg">
+        {credit}
+      </p>
+    </details>
+  );
 }
