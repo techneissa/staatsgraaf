@@ -4,6 +4,16 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (25-09-2026, fourth round)
+
+- Profiles, organisations, positions and parties open with a one-line summary built from the data ("Koning der Nederlanden sinds 30 april 2013", "Ministerie in de rijksoverheid, 18 organisaties onder zich") instead of a generic sentence; the same line is the meta description.
+- Facts are compact tiles with icons, side by side when there is room; duplicate facts are merged, and "no X on record" lines are gone: empty sections are hidden.
+- Descriptions that only say where an entity was listed are hidden (`data/description-flags.json`), and organisation and person descriptions have an English version (ADR 0016 amendment 1, `data/description-translations.json`).
+- Long sections collapse to a first view with "Toon alle", and one calm callout style marks an acting office holder, a position without a holder and a dissolved organisation.
+- The phone bottom sheets can be dragged: up to expand, down to shrink or close, with the same through the handle by keyboard.
+- The change figures are four icon tiles ("1 vacature", "51 waarnemend", "6 dagen geleden", appointments in 30 days) with details folded away, the same on the home page and on /wijzigingen.
+- Filler text is removed from the home, news, change, index, budget and topic pages; counts on the home page follow the reader's language.
+
 ### Changed (25-09-2026, third round)
 
 - Profiles of Tweede Kamerleden and bewindspersonen get a "Voorstellen en moties" tab: the moties, amendementen, schriftelijke vragen, wetsvoorstellen and initiatiefwetsvoorstellen they submitted or co-submitted since 06-12-2023, with the vote outcome where the data has one, the co-submitters in their party colour and a link to the item on tweedekamer.nl. Source: the Tweede Kamer Open Data gegevensmagazijn (CC0), people matched on full name and birth date (`pipelines/parliament-activity.mjs`, `data/activities.json`, 268 people). Eerste Kamer members and bewindspersonen who were never Kamerlid are named gaps in `research/qa/parliament-activity-25-09-2026.md`.
