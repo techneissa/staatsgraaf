@@ -88,17 +88,9 @@ describe("scales", () => {
     expect(shares[2]).toBeCloseTo(25);
   });
 
-  test("share ticks round up to at most five rings", () => {
-    expect(shareTicks(20.6)).toEqual({ max: 25, ticks: [5, 10, 15, 20, 25] });
-    expect(shareTicks(4.2)).toEqual({ max: 5, ticks: [1, 2, 3, 4, 5] });
-    expect(shareTicks(0).ticks.length).toBeGreaterThan(0);
-  });
 
-  test("amount rings are 1B, 10B, 25B, 50B and 75B for the ministry range", () => {
-    const { ticks, max } = amountTicks([1.13e8, 6.64e10, null, 2.33e10]);
-    expect(max).toBe(75e9);
-    expect(ticks).toEqual([1e9, 10e9, 25e9, 50e9, 75e9]);
-  });
+
+
 
   test("rings are spread apart so their labels cannot collide", () => {
     const { ticks, max } = amountTicks([1.13e8, 6.64e10]);
@@ -106,22 +98,9 @@ describe("scales", () => {
     for (let i = 1; i < fractions.length; i += 1) expect(fractions[i] - fractions[i - 1]).toBeGreaterThan(0.08);
   });
 
-  test("the middle of the range is spread: €15 bn and €60 bn sit far apart", () => {
-    const domain = { shareMax: 25, amountMax: 75e9 };
-    const gap = scaleFraction(60e9, "amount", domain) - scaleFraction(15e9, "amount", domain);
-    expect(gap).toBeGreaterThan(0.4);
-    expect(scaleFraction(2.33e10, "amount", domain)).toBeLessThan(scaleFraction(25e9, "amount", domain));
-    expect(scaleFraction(1.17e8, "amount", domain)).toBeGreaterThan(0.03);
-  });
 
-  test("fractions stay inside the circle and skip missing values", () => {
-    const domain = { shareMax: 25, amountMax: 64e9 };
-    expect(scaleFraction(12.5, "share", domain)).toBeCloseTo(0.5);
-    expect(scaleFraction(16e9, "amount", domain)).toBeCloseTo(0.5);
-    expect(scaleFraction(null, "share", domain)).toBeNull();
-    expect(scaleFraction(0, "amount", domain)).toBe(0);
-    expect(scaleFraction(1e13, "amount", domain)).toBe(1);
-  });
+
+
 });
 
 describe("paths", () => {
@@ -153,5 +132,26 @@ describe("percent formatting", () => {
     expect(formatPercent(-3.72, "en", { signed: true })).toBe("−3.7%");
     expect(formatPercent(3.72, "nl", { signed: true })).toBe("+3,7%");
     expect(formatShare(0.03, "nl")).toBe("< 0,1%");
+  });
+  test("share rings are 1, 5, 10, 20 and 25 percent", () => {
+    expect(shareTicks(20)).toEqual({ max: 25, ticks: [1, 5, 10, 20, 25] });
+    expect(shareTicks(30).max).toBe(50);
+  });
+
+  test("amount rings run from 100M to 75B for the ministry range", () => {
+    const { ticks, max } = amountTicks([1.13e8, 6.64e10]);
+    expect(max).toBe(75e9);
+    expect(ticks).toEqual([1e8, 1e9, 1e10, 25e9, 50e9, 75e9]);
+  });
+
+  test("stretched scales keep small values visible and large ones apart", () => {
+    const domain = { shareMax: 25, amountMax: 75e9 };
+    expect(scaleFraction(1e8, "amount", domain)).toBeGreaterThan(0.08);
+    const gap = scaleFraction(60e9, "amount", domain) - scaleFraction(15e9, "amount", domain);
+    expect(gap).toBeGreaterThan(0.3);
+    expect(scaleFraction(1, "share", domain)).toBeCloseTo(0.2);
+    expect(scaleFraction(null, "share", domain)).toBeNull();
+    expect(scaleFraction(0, "amount", domain)).toBe(0);
+    expect(scaleFraction(1e13, "amount", domain)).toBe(1);
   });
 });
