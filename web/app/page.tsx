@@ -144,6 +144,11 @@ export default function HomePage() {
         >
           <L nl="Laatste nieuws" en="Latest news" />
         </h2>
+        <p className="mt-1 text-xs text-ink-faint">
+          <a href="/methodiek/#machinevertaling" className="underline decoration-line underline-offset-2 hover:text-ink">
+            <L nl="Anderstalige berichten zijn automatisch vertaald." en="Items in another language are machine translated." />
+          </a>
+        </p>
         <div className="mt-3">
           <NewsBand items={news} />
         </div>

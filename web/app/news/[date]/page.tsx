@@ -74,16 +74,15 @@ export default async function NewsDayPage({ params }: { params: Promise<{ date: 
           <h1 className="text-2xl font-semibold tracking-tight text-ink">
             {messages.dayHeadingPrefix} {label}
           </h1>
-          <Link
-            href={messages.otherLanguageHref}
-            className="text-sm text-accent-text underline-offset-2 hover:underline"
-          >
-            {messages.otherLanguageLabel}
-          </Link>
         </div>
         <p className="mt-3 text-sm text-ink-muted">
           {formatCountIn(total, "en")}{" "}
           {total === 1 ? messages.dayCountWordSingular : messages.dayCountWordPlural}
+        </p>
+        <p className="mt-1 text-xs text-ink-faint">
+          <a href="/methodiek/#machinevertaling" className="underline decoration-line underline-offset-2 hover:text-ink">
+            {messages.card.translationNote}
+          </a>
         </p>
       </header>
 

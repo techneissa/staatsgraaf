@@ -1,4 +1,6 @@
 "use client";
+import { Languages } from "lucide";
+import { LucideIcon } from "@/components/icons/lucide-icon";
 
 import { useState } from "react";
 import { Avatar } from "@/components/avatar";
@@ -170,28 +172,22 @@ export function NewsItemCard({
           <span lang={target} className="whitespace-nowrap">{messages.kindBadges[item.kind]}</span>
         </p>
         {translation !== null ? (
-          <p className="flex items-center gap-x-1">
-            <a
-              href="/methodiek/#machinevertaling"
-              lang={target}
-              title={messages.card.translatedTitle}
-              className="underline decoration-line underline-offset-2 hover:text-ink"
-            >
-              {messages.card.translatedFrom[item.language]}
-            </a>
-            <button
-              type="button"
-              lang={target}
-              aria-pressed={original}
-              onClick={() => {
-                setSwitched(true);
-                setOriginal((value) => !value);
-              }}
-              className="-my-2 inline-flex min-h-11 items-center rounded-xs px-1.5 font-medium text-accent-text underline-offset-2 hover:underline sm:my-0 sm:min-h-0 sm:py-0.5"
-            >
-              {original ? messages.card.showTranslation : messages.card.showOriginal}
-            </button>
-          </p>
+          <button
+            type="button"
+            lang={target}
+            aria-pressed={original}
+            aria-label={original ? messages.card.showTranslation : messages.card.showOriginal}
+            title={original ? messages.card.showTranslation : messages.card.showOriginal}
+            onClick={() => {
+              setSwitched(true);
+              setOriginal((value) => !value);
+            }}
+            className={`tap-target -my-1 inline-flex h-7 w-7 items-center justify-center rounded-sm transition-fast hover:bg-surface-raised hover:text-ink ${
+              original ? "text-accent-text" : "text-ink-faint"
+            }`}
+          >
+            <LucideIcon icon={Languages} size={15} />
+          </button>
         ) : foreign ? (
           <span
             lang={target}

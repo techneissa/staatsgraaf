@@ -39,12 +39,6 @@ export default function NewsSourcesPage() {
           <h1 className="text-2xl font-semibold tracking-tight text-ink">
             <NT k="sourcesHeading" />
           </h1>
-          <Link
-            href={messages.otherLanguageHref}
-            className="text-sm text-accent-text underline-offset-2 hover:underline"
-          >
-            <T area="news" k="newsOtherLanguageEn" />
-          </Link>
         </div>
       </header>
 
