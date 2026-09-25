@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "activity.schema.json",
+  "$ref": "#/$defs/personActivity",
+  "$defs": {
+    "personActivity": {
+      "title": "Proposals and motions of one person",
+      "description": "Zaken in the Tweede Kamer Gegevensmagazijn where the person is indiener or medeindiener, since the start of the previous term. Written by pipelines/parliament-activity.mjs.",
+      "type": "object",
+      "required": ["id", "person", "tkPersoon", "since", "totals", "items", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^activities:[a-z0-9][a-z0-9-]*$" },
+        "person": { "type": "string", "pattern": "^person:" },
+        "tkPersoon": { "type": "string", "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$" },
+        "since": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "totals": {
+          "type": "object",
+          "required": ["motie", "amendement", "initiatiefwetsvoorstel", "wetsvoorstel", "schriftelijke-vragen"],
+          "additionalProperties": false,
+          "properties": {
+            "motie": { "type": "integer", "minimum": 0 },
+            "amendement": { "type": "integer", "minimum": 0 },
+            "initiatiefwetsvoorstel": { "type": "integer", "minimum": 0 },
+            "wetsvoorstel": { "type": "integer", "minimum": 0 },
+            "schriftelijke-vragen": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "items": { "type": "array", "items": { "$ref": "#/$defs/activityItem" } },
+        "source": { "$ref": "common.schema.json#/$defs/sourceRef" }
+      }
+    },
+    "activityItem": {
+      "type": "object",
+      "required": ["id", "role", "kind", "title", "date", "kamerstuk", "outcome", "coSubmitters", "url"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^tk:[0-9]{4}Z[0-9]+$" },
+        "role": { "$ref": "#/$defs/role" },
+        "kind": {
+          "type": "string",
+          "enum": ["motie", "amendement", "initiatiefwetsvoorstel", "wetsvoorstel", "schriftelijke-vragen"]
+        },
+        "title": { "type": "string", "minLength": 1 },
+        "date": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "kamerstuk": { "type": ["string", "null"], "pattern": "^[0-9]+(-[A-Za-z0-9]+| \\([A-Za-z0-9]+\\))?(, nr\\. [0-9]+)?$" },
+        "outcome": {
+          "type": ["string", "null"],
+          "enum": ["aangenomen", "verworpen", "aangehouden", "ingetrokken", "vervallen", null]
+        },
+        "coSubmitters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["person", "name", "party", "role"],
+            "additionalProperties": false,
+            "properties": {
+              "person": { "$ref": "common.schema.json#/$defs/personRef" },
+              "name": { "type": "string", "minLength": 1 },
+              "party": { "type": ["string", "null"], "minLength": 1 },
+              "role": { "$ref": "#/$defs/role" }
+            }
+          }
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://(www\\.tweedekamer\\.nl/kamerstukken/|gegevensmagazijn\\.tweedekamer\\.nl/OData/v4/2\\.0/Zaak\\()"
+        }
+      }
+    },
+    "role": { "type": "string", "enum": ["indiener", "medeindiener"] }
+  }
+}
