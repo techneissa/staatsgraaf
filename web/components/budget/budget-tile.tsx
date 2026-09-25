@@ -5,6 +5,7 @@ import { BudgetShareBar } from "./budget-share-bar";
 import { ChangeIndicator } from "./change-indicator";
 import { T } from "@/components/i18n/t";
 import { branchColorVar } from "@/lib/branch-colors";
+import { MinistryIcon } from "@/components/icons/ministry-icon";
 import type { BudgetOverviewItem } from "@/lib/budget";
 
 /**
@@ -21,7 +22,14 @@ export function BudgetTile({ item, unit }: { item: BudgetOverviewItem; unit: str
   return (
     <article className="relative flex h-full min-w-0 flex-col rounded-md border border-line bg-surface px-3.5 py-3 transition-fast hover:border-line-strong">
       <div className="flex items-start justify-between gap-3">
-        <h3 className="min-w-0 text-sm font-semibold leading-snug text-ink">
+        <h3 className="flex min-w-0 items-start gap-2 text-sm font-semibold leading-snug text-ink">
+          <span
+            aria-hidden="true"
+            className="mt-px flex h-6 w-6 shrink-0 items-center justify-center rounded-sm border border-line"
+            style={{ color: branchColorVar(organization.branch) }}
+          >
+            <MinistryIcon orgId={organization.id} size={14} />
+          </span>
           <Link
             href={`/begroting/${organization.slug}/`}
             className="underline-offset-2 after:absolute after:inset-0 after:content-[''] hover:text-accent-text hover:underline"
