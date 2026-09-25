@@ -331,9 +331,9 @@ function BudgetBlock({ budget }: { budget: NonNullable<PanelOrg["budget"]> }) {
             </div>
           ))}
       </dl>
-      <div className="mt-1.5 flex flex-wrap items-center justify-between gap-x-4">
-        <SourceLine source={budget.source} />
+      <div className="mt-1.5 flex flex-wrap items-center gap-x-4">
         <OpenPageLink href={budget.href} label={t("budgetOpen")} />
+        <SourceLine source={budget.source} />
       </div>
     </Section>
   );
@@ -456,11 +456,11 @@ export function OrgBody({
 function Footer({ source, href, website }: { source: PanelOrg["source"]; href: string | null; website?: string | null }) {
   const t = useDict("panels");
   return (
-    <div className="space-y-1 border-t border-line pt-3">
-      <SourceLine source={source} />
+    <div className="border-t border-line pt-3">
       <Links>
         {href ? <OpenPageLink href={href} /> : null}
         {website ? <ExternalLink href={website}>{t("website")}</ExternalLink> : null}
+        <SourceLine source={source} />
       </Links>
     </div>
   );
@@ -770,9 +770,11 @@ export function NewsBody({ record, variant }: { record: PanelNewsRecord | null; 
           </ul>
         </Section>
       ) : null}
-      <div className="space-y-1 border-t border-line pt-3">
-        <SourceLine source={record.source} />
-        <ExternalLink href={record.url}>{t("readArticle", { publisher: record.publisher })}</ExternalLink>
+      <div className="border-t border-line pt-3">
+        <Links>
+          <ExternalLink href={record.url}>{t("readArticle", { publisher: record.publisher })}</ExternalLink>
+          <SourceLine source={record.source} />
+        </Links>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import { Avatar } from "@/components/avatar";
 import { useLocale } from "@/components/i18n/language-provider";
 import { KindGlyph } from "@/components/kind-glyph";
 import { PeekLink } from "@/components/peek/peek-link";
+import { SourceIcon } from "@/components/source-icon";
 import { renderSummaryMarkupWithHrefs } from "@/lib/news-summary";
 import { clampMarkupSentences, clampSentences } from "@/lib/news-text";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
@@ -149,20 +150,15 @@ export function NewsItemCard({
       <div className="col-span-2 mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-faint sm:col-span-1 sm:col-start-1">
         <p className="min-w-0">
           <span className="whitespace-nowrap">
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={`${messages.card.sourceLinkTitle}: ${item.host}`}
-              className="inline-flex items-center gap-1 font-medium text-ink-muted underline decoration-line-strong underline-offset-2 transition-fast hover:text-accent-text"
-            >
+            <span className="inline-flex items-center gap-1.5 font-medium text-ink-muted">
               {item.publisher}
-              <SourceArrow />
-              <span lang={target} className="sr-only">
-                {" "}
-                {messages.card.opensNewTab}
-              </span>
-            </a>
+              <SourceIcon
+                href={item.url}
+                title={item.publisher}
+                size={14}
+                label={`${messages.card.sourceLabel} ${item.publisher} (${item.host})`}
+              />
+            </span>
             <span aria-hidden="true" className="px-1.5">·</span>
           </span>{" "}
           <span className="whitespace-nowrap">
@@ -207,20 +203,5 @@ export function NewsItemCard({
         ) : null}
       </div>
     </Tag>
-  );
-}
-
-export function SourceArrow() {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 20 20" width="10" height="10" className="shrink-0">
-      <path
-        d="M6 14 14 6M8 6h6v6"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }

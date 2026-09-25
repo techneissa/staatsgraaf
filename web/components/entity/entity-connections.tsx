@@ -1,4 +1,4 @@
-import { SourceLink } from "@/components/source-link";
+import { SourceIcon } from "@/components/source-icon";
 import { L, T } from "@/components/i18n/t";
 import { KindGlyph } from "@/components/kind-glyph";
 import { PartyBadge } from "@/components/party-badge";
@@ -209,9 +209,7 @@ function ConnectionRow({
             </span>
           ) : null}
           {source ? (
-            <SourceLink href={source.url} tone="quiet" className="text-xs">
-              <T area="entity" k="sourceLabel" />
-            </SourceLink>
+            <SourceIcon href={source.url} title={source.title} retrieved={connection.source.retrieved} className="self-center" />
           ) : null}
         </p>
       </div>

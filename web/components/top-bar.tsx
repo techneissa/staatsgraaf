@@ -71,7 +71,7 @@ function MobileMenu({ pathname }: { pathname: string | null }) {
         className="tap-target flex cursor-pointer list-none items-center gap-1.5 rounded-sm border border-line px-2.5 py-1.5 text-sm text-ink-muted transition-fast hover:border-line-strong hover:text-ink group-open:border-line-strong group-open:text-ink [&::-webkit-details-marker]:hidden"
       >
         <Morph icon={open ? X : Menu} size={14} />
-        {t("menu")}
+        <span className="max-[400px]:sr-only">{t("menu")}</span>
       </summary>
       <nav
         aria-label={t("navMain")}
@@ -145,7 +145,9 @@ export function TopBar() {
               </Link>
             </noscript>
           </div>
-          <HistoryControls />
+          <div className="max-[400px]:hidden">
+            <HistoryControls />
+          </div>
           <ThemeToggle />
         </div>
       </div>

@@ -6,7 +6,6 @@ export const ENTITY_DICT = {
   tabNews: { nl: "Nieuws", en: "News" },
   whosConnected: { nl: "Wie is verbonden?", en: "Who is connected?" },
   panelLabel: { nl: "Panelen", en: "Panels" },
-  sourceLabel: { nl: "Bron", en: "Source" },
 
   // Header block
   legalSourceLabel: { nl: "Wettelijke grondslag", en: "Legal basis" },

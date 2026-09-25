@@ -1,4 +1,6 @@
 "use client";
+import { Link as LinkGlyph } from "lucide";
+import { LucideIcon } from "@/components/icons/lucide-icon";
 
 import Link from "next/link";
 import { Avatar } from "@/components/avatar";
@@ -174,11 +176,18 @@ export function NewsRows({
 
 /** The one quiet source line: which outlets and which window, and where the rest comes from. */
 export function SourceNote({ text }: { text: string }) {
+  // One quiet link icon at the foot of the view: the full source note is its
+  // name and tooltip, so the view carries no line of source text.
   return (
-    <p className="line-clamp-2 px-3 py-1.5 text-xs text-ink-faint">
-      <Link href="/nieuws/bronnen/" className="hover:text-ink hover:underline">
-        {text}
+    <div className="flex justify-end px-2 py-0.5">
+      <Link
+        href="/nieuws/bronnen/"
+        aria-label={text}
+        title={text}
+        className="tap-target flex h-7 w-7 items-center justify-center rounded-sm text-ink-faint transition-fast hover:text-accent-text focus-visible:text-accent-text"
+      >
+        <LucideIcon icon={LinkGlyph} size={14} />
       </Link>
-    </p>
+    </div>
   );
 }

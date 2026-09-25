@@ -25,7 +25,7 @@ function PersonBubble({ entry, side }: { entry: StripPerson; side: "left" | "rig
         <PersonPortraitCredit person={person} className="sr-only" />
       </a>
       <div
-        className={`invisible absolute top-12 z-30 flex w-max max-w-[12rem] flex-col gap-1.5 rounded-md border border-line bg-surface p-2.5 shadow-lg opacity-0 transition-fast group-focus-within:visible group-focus-within:opacity-100 [@media(hover:hover)]:group-hover:visible [@media(hover:hover)]:group-hover:opacity-100 ${
+        className={`absolute top-12 z-30 hidden w-max max-w-[min(12rem,calc(100vw-1.5rem))] flex-col gap-1.5 rounded-md border border-line bg-surface p-2.5 shadow-lg group-focus-within:flex [@media(hover:hover)]:group-hover:flex ${
           side === "left" ? "left-0" : "right-0"
         }`}
       >

@@ -3,6 +3,7 @@
 import type { IconNode } from "lucide";
 import { Building2, Factory, FileText, Globe, GraduationCap, HeartPulse, Landmark, Scale, Shield, Users, Waves, Wheat } from "lucide";
 import { LucideIcon } from "@/components/icons/lucide-icon";
+import { SourceIcon } from "@/components/source-icon";
 import { PartyPill } from "@/components/party-pill";
 import { useT } from "@/components/i18n/use-t";
 import { initialsFor } from "@/lib/initials";
@@ -69,21 +70,8 @@ export function personInfo(person: HierarchyPerson, hub: HierarchyHub | null, lo
 
 /** A small icon link to the record that puts a person in the hierarchy. */
 export function SourceIconLink({ source }: { source: HierarchySource | null | undefined }) {
-  const t = useT("power");
   if (!source?.url) return null;
-  const label = t("sourceOf", { title: source.title ?? source.id, date: formatDutchDate(source.retrieved) });
-  return (
-    <a
-      href={source.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={label}
-      title={label}
-      className="tap-target flex w-8 shrink-0 items-center justify-center rounded-sm text-ink-faint hover:bg-surface-raised hover:text-ink"
-    >
-      <LucideIcon icon={FileText} size={14} />
-    </a>
-  );
+  return <SourceIcon href={source.url} title={source.title ?? source.id} retrieved={source.retrieved ?? null} size={14} />;
 }
 
 /**

@@ -110,8 +110,6 @@ export const HOME_DICT = {
   changeSeatsFilled: { nl: "{filled} van {seats} zetels vervuld", en: "{filled} of {seats} seats filled" },
   dayCount: { nl: "{n} wijzigingen", en: "{n} changes" },
   dayCountOne: { nl: "1 wijziging", en: "1 change" },
-  sourcePrefix: { nl: "Bron:", en: "Source:" },
-  sourceRetrievedOn: { nl: "Opgehaald op {date}", en: "Retrieved on {date}" },
   periodSince: { nl: "Sinds {start}", en: "Since {start}" },
   periodRange: { nl: "{start} tot {end}", en: "{start} to {end}" },
   seeAllChanges: { nl: "Alle {n} wijzigingen bekijken", en: "See all {n} changes" },

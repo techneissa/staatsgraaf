@@ -1,4 +1,5 @@
 import { QuietSource } from "@/components/change/quiet-source";
+import { SourceIcons } from "@/components/source-icon";
 import { L, T } from "@/components/i18n/t";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { SUMMARY_CLASS } from "./entity-connections";
@@ -77,20 +78,20 @@ function OccupationTags({ items }: { items: CareerItemView[] }) {
       <h3 className="mb-2 text-xs font-medium text-ink-muted">
         <L nl={CAREER_KIND_LABEL.beroep.nl} en={CAREER_KIND_LABEL.beroep.en} />
       </h3>
-      <ul className="flex flex-wrap gap-1.5">
+      <ul className="flex flex-wrap items-center gap-1.5">
         {items.map((item) => (
           <li key={item.id} lang="nl" className="rounded-full border border-line px-2.5 py-0.5 text-xs text-ink">
             {item.title}
           </li>
         ))}
+        {sources.size > 0 ? (
+          <li className="ms-1 inline-flex">
+            <SourceIcons
+              sources={[...sources.values()].map((source) => ({ href: source.url, title: source.publisher, retrieved: source.retrieved }))}
+            />
+          </li>
+        ) : null}
       </ul>
-      {sources.size > 0 ? (
-        <p className="mt-1.5 flex flex-wrap gap-x-3">
-          {[...sources.values()].map((source) => (
-            <QuietSource key={source.url} href={source.url} publisher={source.publisher} retrieved={source.retrieved} />
-          ))}
-        </p>
-      ) : null}
     </section>
   );
 }

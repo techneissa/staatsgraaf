@@ -8,7 +8,7 @@ import { SourceFootnotes } from "@/components/budget/source-footnotes";
 import { T } from "@/components/i18n/t";
 import { JsonLd } from "@/components/json-ld";
 import { getBudgetOverview, getBudgetRadarData } from "@/lib/budget";
-import { getDatasetDate } from "@/lib/data";
+import { getDatasetDate, getSourceById } from "@/lib/data";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -26,6 +26,10 @@ export default function BudgetOverviewPage() {
   const allFootnotes = sources.map((_, index) => index + 1);
   const itemFootnotes = [...new Set(overview.items.flatMap((item) => item.footnotes))].sort((a, b) => a - b);
   const radar = getBudgetRadarData();
+  const markerSources = sources.map((ref) => {
+    const source = getSourceById(ref.source);
+    return source ? { href: source.url, title: source.title, retrieved: source.retrieved } : null;
+  });
 
   return (
     <>
@@ -62,7 +66,7 @@ export default function BudgetOverviewPage() {
       <section aria-labelledby="totalen-titel" className="border-b border-line py-6">
         <h2 id="totalen-titel" className="text-lg font-semibold tracking-tight text-ink">
           <T area="news" k="budgetTotalsHeadingYear" vars={{ year: overview.fiscalYear }} />
-          <FootnoteMarkers numbers={allFootnotes} />
+          <FootnoteMarkers numbers={allFootnotes} sources={markerSources} />
         </h2>
         <div className="mt-3">
           <BudgetTotals overview={overview} yearInHeading />
@@ -72,7 +76,7 @@ export default function BudgetOverviewPage() {
       <section aria-labelledby="verdeling-titel" className="border-b border-line py-6">
         <h2 id="verdeling-titel" className="text-lg font-semibold tracking-tight text-ink">
           <T area="news" k="budgetRadarHeading" />
-          <FootnoteMarkers numbers={allFootnotes} />
+          <FootnoteMarkers numbers={allFootnotes} sources={markerSources} />
         </h2>
         <div className="mt-3">
           <BudgetRadar data={radar} />
@@ -82,7 +86,7 @@ export default function BudgetOverviewPage() {
       <section aria-labelledby="ministeries-titel" className="py-6">
         <h2 id="ministeries-titel" className="text-lg font-semibold tracking-tight text-ink">
           <T area="news" k="budgetMinistriesHeadingYear" vars={{ year: overview.fiscalYear }} />
-          <FootnoteMarkers numbers={itemFootnotes} />
+          <FootnoteMarkers numbers={itemFootnotes} sources={markerSources} />
         </h2>
         <ul className="mt-3 grid grid-cols-1 gap-2 @[40rem]:grid-cols-2 @[40rem]:gap-3">
           {overview.items.map((item) => (
