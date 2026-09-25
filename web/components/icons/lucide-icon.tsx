@@ -12,11 +12,16 @@ export function LucideIcon({
   size = 18,
   strokeWidth = 1.75,
   className,
+  x,
+  y,
 }: {
   icon: IconNode;
   size?: number;
   strokeWidth?: number;
   className?: string;
+  /** Position when the icon is nested inside another SVG. */
+  x?: number;
+  y?: number;
 }) {
   return (
     <svg
@@ -26,6 +31,8 @@ export function LucideIcon({
       viewBox="0 0 24 24"
       width={size}
       height={size}
+      x={x}
+      y={y}
       fill="none"
       stroke="currentColor"
       strokeWidth={strokeWidth}

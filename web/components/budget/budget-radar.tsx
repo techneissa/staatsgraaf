@@ -1,5 +1,7 @@
 "use client";
 
+import { MinistryIcon } from "@/components/icons/ministry-icon";
+
 import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 import { useLocale } from "@/components/i18n/language-provider";
 import { useDict } from "@/components/i18n/use-t";
@@ -94,7 +96,7 @@ export function BudgetRadar({ data }: { data: RadarData }) {
         data.ministries.map((ministry) =>
           ministryShortLabel(ministry.name, locale, orgEnGloss(ministry.name), { breakable: true }),
         ),
-        { fontSize: FONT_SIZE },
+        { fontSize: FONT_SIZE, gap: 22 },
       ),
     [width, data.ministries, locale],
   );
@@ -109,7 +111,7 @@ export function BudgetRadar({ data }: { data: RadarData }) {
 
   const share = shareTicks(Math.max(0, ...series.flatMap((entry) => entry.shares.map((value) => value ?? 0))));
   const amount = amountTicks(series.flatMap((entry) => entry.values));
-  const domain = { shareMax: share.max, lo: amount.lo, hi: amount.hi };
+  const domain = { shareMax: share.max, amountMax: amount.max };
   const { cx, cy, radius } = layout;
 
   const fractions = series.map((entry) =>
@@ -143,7 +145,7 @@ export function BudgetRadar({ data }: { data: RadarData }) {
           }).format(value / 100),
         }))
       : amount.ticks.map((value) => ({
-          fraction: (Math.log10(value) - amount.lo) / (amount.hi - amount.lo),
+          fraction: Math.sqrt(value / amount.max),
           label: formatEuroCompact(value, locale),
         }));
 
@@ -298,10 +300,14 @@ export function BudgetRadar({ data }: { data: RadarData }) {
             );
           })}
 
-          {rings.map((ring) => {
+          {rings.map((ring, ringIndex) => {
             // Ring values sit halfway between the two neighbouring axes with the
-            // smallest values, where the lines leave the most room.
+            // smallest values, where the lines leave the most room. A label that
+            // would come within 12 px of the one inside it is left out, so the
+            // labels never overlap on a small screen; the ring itself stays.
             const at = polar(cx, cy, radius * ring.fraction, axisAngle(ringWedge + 0.5, count));
+            const previous = ringIndex > 0 ? rings[ringIndex - 1] : null;
+            if (previous && radius * (ring.fraction - previous.fraction) < 12) return null;
             return (
             <text
               key={`label-${ring.label}`}
@@ -353,6 +359,28 @@ export function BudgetRadar({ data }: { data: RadarData }) {
               ))}
             </text>
           ))}
+
+          {data.ministries.map((ministry, index) => {
+            // Each ministry's icon sits in a small badge on the outer ring, at
+            // the end of its axis, so the axis is recognisable at a glance.
+            const at = polar(cx, cy, radius, axisAngle(index, count));
+            const lit = active === index;
+            return (
+              <g key={`badge-${ministry.id}`} aria-hidden="true" pointerEvents="none">
+                <circle
+                  cx={at.x}
+                  cy={at.y}
+                  r={10}
+                  fill="var(--t-color-surface)"
+                  stroke={lit ? "var(--t-color-ink)" : "var(--t-color-line-strong)"}
+                  strokeWidth={1.2}
+                />
+                <g style={{ color: lit ? "var(--t-color-ink)" : "var(--t-color-ink-muted)" }}>
+                  <MinistryIcon orgId={ministry.id} size={12} strokeWidth={2} x={at.x - 6} y={at.y - 6} />
+                </g>
+              </g>
+            );
+          })}
 
           {data.ministries.map((ministry, index) => (
             <path

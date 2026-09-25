@@ -155,8 +155,8 @@ export const NEWS_DICT = {
     en: "Share: a ministry's spending as part of the summed spending of the twelve ministries in that year. Together they make 100%.",
   },
   budgetRadarNoteAmount: {
-    nl: "Bedrag in euro op een logaritmische schaal: elke ring is een vast bedrag.",
-    en: "Amount in euros on a logarithmic scale: each ring is a fixed amount.",
+    nl: "Bedrag in euro. De schaal is uitgerekt zodat grote en kleine ministeries allebei leesbaar zijn: elke ring is een vast bedrag.",
+    en: "Amount in euros. The scale is stretched so large and small ministries both stay readable: each ring is a fixed amount.",
   },
   budgetRadarMissing: { nl: "Geen cijfer voor {names} in {year}.", en: "No figure for {names} in {year}." },
   budgetRadarAria: {

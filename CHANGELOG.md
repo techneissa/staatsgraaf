@@ -6,6 +6,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (25-09-2026, sixth round)
 
+- The budget radar's amount scale is a square-root scale with rings at €1, €10, €25, €50 and €75 mld: the log scale squeezed the large ministries together and overlapped the ring labels, while this one spreads €10 to €75 mld apart and keeps the smallest ministries off the centre. Ring labels never overlap. Each ministry has an icon (`web/components/icons/ministry-icon.tsx`, the same set as the Connections hierarchy) on its radar axis and on its budget card.
 - Topics are in English in English mode: an English name for each of the 12 topics (`web/lib/topic-names.ts`, the project's own grouping, so not a proper name) and English descriptions through the description translations, which now cover `topics.json` too, also in the automatic CI translation.
 - The budget radar's amount scale is logarithmic again, now with rings at €100 mln, €1 mld, €10 mld, €25 mld, €50 mld and €100 mld, so a large ministry reads against a nearby ring (Defensie's €23 mld sits just inside €25 mld) while the small ministries stay visible.
 - The budget radar compares one, two or three years: the second and third year selectors have a "Geen / None" option, and each remaining year keeps its colour.

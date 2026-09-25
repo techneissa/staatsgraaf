@@ -94,27 +94,30 @@ describe("scales", () => {
     expect(shareTicks(0).ticks.length).toBeGreaterThan(0);
   });
 
-  test("amount rings are 100M, 1B, 10B, 25B, 50B and 100B for the ministry range", () => {
-    const { ticks, lo, hi } = amountTicks([1.13e8, 6.64e10, null, 2.33e10]);
-    expect(ticks).toEqual([1e8, 1e9, 1e10, 2.5e10, 5e10, 1e11]);
-    expect(lo).toBe(7.5);
-    expect(hi).toBe(11);
+  test("amount rings are 1B, 10B, 25B, 50B and 75B for the ministry range", () => {
+    const { ticks, max } = amountTicks([1.13e8, 6.64e10, null, 2.33e10]);
+    expect(max).toBe(75e9);
+    expect(ticks).toEqual([1e9, 10e9, 25e9, 50e9, 75e9]);
   });
 
-  test("a €23 billion ministry sits just inside the €25 billion ring", () => {
-    const { lo, hi } = amountTicks([1.13e8, 6.64e10]);
-    const domain = { shareMax: 25, lo, hi };
-    const defensie = scaleFraction(2.33e10, "amount", domain);
-    const ring25 = scaleFraction(2.5e10, "amount", domain);
-    const ring10 = scaleFraction(1e10, "amount", domain);
-    expect(defensie).toBeLessThan(ring25);
-    expect(defensie).toBeGreaterThan(ring10);
+  test("rings are spread apart so their labels cannot collide", () => {
+    const { ticks, max } = amountTicks([1.13e8, 6.64e10]);
+    const fractions = ticks.map((tick) => scaleFraction(tick, "amount", { shareMax: 25, amountMax: max }));
+    for (let i = 1; i < fractions.length; i += 1) expect(fractions[i] - fractions[i - 1]).toBeGreaterThan(0.08);
+  });
+
+  test("the middle of the range is spread: €15 bn and €60 bn sit far apart", () => {
+    const domain = { shareMax: 25, amountMax: 75e9 };
+    const gap = scaleFraction(60e9, "amount", domain) - scaleFraction(15e9, "amount", domain);
+    expect(gap).toBeGreaterThan(0.4);
+    expect(scaleFraction(2.33e10, "amount", domain)).toBeLessThan(scaleFraction(25e9, "amount", domain));
+    expect(scaleFraction(1.17e8, "amount", domain)).toBeGreaterThan(0.03);
   });
 
   test("fractions stay inside the circle and skip missing values", () => {
-    const domain = { shareMax: 25, lo: 7, hi: 11 };
+    const domain = { shareMax: 25, amountMax: 64e9 };
     expect(scaleFraction(12.5, "share", domain)).toBeCloseTo(0.5);
-    expect(scaleFraction(1e9, "amount", domain)).toBeCloseTo(0.5);
+    expect(scaleFraction(16e9, "amount", domain)).toBeCloseTo(0.5);
     expect(scaleFraction(null, "share", domain)).toBeNull();
     expect(scaleFraction(0, "amount", domain)).toBe(0);
     expect(scaleFraction(1e13, "amount", domain)).toBe(1);
