@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
 import { GLYPH_BY_SUBTYPE, type GraphBundle } from "@/lib/graph";
 import { branchColorVar } from "@/lib/branch-colors";
-import { buildWheel, cellMarks, WHEEL_RADIUS, WHEEL_RINGS, WHEEL_VOTERS, wheelLinks, type WheelCell, type WheelGroup, type WheelLinkType } from "@/lib/wheel";
+import { buildWheel, cellMarks, OPEN_PITCH, REST_PITCH, WHEEL_RADIUS, WHEEL_RINGS, WHEEL_VOTERS, wheelLinks, type WheelCell, type WheelGroup, type WheelLinkType } from "@/lib/wheel";
 import { useSelection } from "@/components/selection/selection-provider";
 import { useT } from "@/components/i18n/use-t";
 import { glyphPathAt } from "./glyph";
@@ -112,7 +112,20 @@ function cellTitle(cell: WheelCell, turn: number) {
 export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
   const t = useT("graph");
   const { current, select } = useSelection();
-  const model = useMemo(() => buildWheel(bundle), [bundle]);
+  const selectedId = current && "id" in current ? current.id : null;
+  // The family on the selection's path opens, like a department in the reference; all others stay packed.
+  const restModel = useMemo(() => buildWheel(bundle), [bundle]);
+  const parentOf = useMemo(() => new Map(bundle.nodes.map((node) => [node.id, node.parent])), [bundle]);
+  const openFamily = useMemo(() => {
+    let at: string | null | undefined = selectedId;
+    for (let step = 0; at && step < 4; step += 1) {
+      const family = restModel.familyOf[at];
+      if (family) return family;
+      at = parentOf.get(at);
+    }
+    return null;
+  }, [selectedId, restModel, parentOf]);
+  const model = useMemo(() => (openFamily ? buildWheel(bundle, openFamily) : restModel), [bundle, openFamily, restModel]);
   const [hot, setHot] = useState<string | null>(null);
   const [view, setView] = useState({ k: 1, x: 0, y: 0 });
   const drag = useRef<{ x: number; y: number; vx: number; vy: number; moved: boolean } | null>(null);
@@ -130,8 +143,18 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
         // A part names itself inside only when its group has several parts; a group of one is named outside.
         const named = group.cells.length > 1 && cellTitle(cell, 0) !== null;
         const shape = bundle.chamberShapes?.[cell.id] ?? null;
-        const marks = shape ? [] : cellMarks(cell, cell.items.map((entry) => entry.id), named ? TITLE_BAND : 3, MARK_PITCH);
-        return { cell, group, named, shape, marks, itemById: new Map(cell.items.map((entry) => [entry.id, entry])) };
+        const headBand = cell.head ? (cell.headBand ?? 0) : 0;
+        const pitch = cell.head ? (cell.open ? OPEN_PITCH : REST_PITCH) : MARK_PITCH;
+        const marks = shape ? [] : cellMarks({ ...cell, r0: cell.r0 + headBand }, cell.items.map((entry) => entry.id), named ? TITLE_BAND : 3, pitch);
+        // The head of a family sits large at the inner edge, in the middle of its cell.
+        if (cell.head) {
+          const mid = (cell.a0 + cell.a1) / 2;
+          const radius = cell.r0 + headBand / 2 + 1;
+          marks.push({ id: cell.head.id, x: Math.cos(mid) * radius, y: Math.sin(mid) * radius, r: (headBand - 6) * 0.42 });
+        }
+        const itemById = new Map(cell.items.map((entry) => [entry.id, entry]));
+        if (cell.head) itemById.set(cell.head.id, cell.head);
+        return { cell, group, named, shape, marks, itemById };
       }),
     [model, groupOf, bundle.chamberShapes],
   );
@@ -153,7 +176,6 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
     return out;
   }, [placed]);
 
-  const selectedId = current && "id" in current ? current.id : null;
   const linked = useMemo(() => {
     if (!selectedId) return null;
     const { self, links } = wheelLinks(bundle, selectedId, new Set(anchors.keys()));
@@ -196,25 +218,27 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
       }
       const end = anchors.get(link.other);
       if (!end) continue;
-      const key = `${end.cell}|${link.type}|${link.outgoing}`;
+      // Ties inside the selection's own cell (an open family) fan out one by one, as in the reference.
+      const key = end.cell === self.cell ? `${link.other}|own` : `${end.cell}|${link.type}|${link.outgoing}`;
       const bucket = buckets.get(key) ?? { link, ends: [] };
       bucket.ends.push(end);
       buckets.set(key, bucket);
     }
-    const ends: { link: (typeof linked.links)[number]; other: End; weight: number; key: string }[] = [];
+    const ends: { link: (typeof linked.links)[number]; other: End; weight: number; key: string; own?: boolean }[] = [];
     for (const [key, { link, ends: list }] of buckets) {
       if (list.length >= BUNDLE) {
         const x = list.reduce((sum, end) => sum + end.x, 0) / list.length;
         const y = list.reduce((sum, end) => sum + end.y, 0) / list.length;
         ends.push({ link, other: { x, y, r: 3, branch: list[0].branch }, weight: list.length, key });
       } else {
-        list.forEach((end, index) => ends.push({ link, other: end, weight: 1, key: `${key}|${index}` }));
+        list.forEach((end, index) => ends.push({ link, other: end, weight: 1, key: `${key}|${index}`, own: key.endsWith("|own") }));
       }
     }
-    return ends.flatMap(({ link, other, weight, key }) => {
+    return ends.flatMap(({ link, other, weight, key, own }) => {
       const [from, to] = link.outgoing ? [self, other] : [other, self];
       // Bend toward the core, more for far pairs, so ties read as passing through the state rather than across it.
-      const bend = link.other === WHEEL_VOTERS ? 1 : 0.42;
+      // Straight for the voters and for a fan inside the open family.
+      const bend = link.other === WHEEL_VOTERS || own ? 1 : 0.42;
       const cx = ((from.x + to.x) / 2) * bend;
       const cy = ((from.y + to.y) / 2) * bend;
       const dx = to.x - cx;
@@ -435,14 +459,16 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
                   const along = glyph === "capsule" || glyph === "seat" ? ((Math.atan2(mark.y, mark.x) + Math.PI / 2) * 180) / Math.PI : 0;
                   // Other shapes stay upright while the wheel turns: they turn back by the same amount, in step.
                   const upright = !along && glyph !== "dot" && glyph !== "small-dot";
+                  const spin = along || (upright ? -turnDeg : 0);
                   const linkedMark = linkedIds.has(entry.id);
-                  const faded = linked !== null && !linkedMark;
+                  const inOpenFamily = openFamily !== null && model.familyOf[entry.id] === openFamily;
+                  const faded = linked !== null && !linkedMark && !inOpenFamily;
                   return (
                     <path
                       key={mark.id}
-                      transform={along ? `rotate(${along.toFixed(2)} ${mark.x.toFixed(2)} ${mark.y.toFixed(2)})` : undefined}
-                      style={upright ? { transform: `rotate(${(-turnDeg).toFixed(3)}deg)`, transformBox: "fill-box", transformOrigin: "center", transition: motion } : undefined}
-                      d={glyphPathAt(glyph, isSelected ? mark.r * 1.25 : mark.r, mark.x, mark.y)}
+                      // Drawn at the origin and moved by a transform, so a mark glides when a family opens or closes.
+                      style={{ transform: `translate(${mark.x.toFixed(2)}px, ${mark.y.toFixed(2)}px) rotate(${spin.toFixed(3)}deg)`, transition: motion }}
+                      d={glyphPathAt(glyph, isSelected ? mark.r * 1.25 : mark.r, 0, 0)}
                       fill={markColor}
                       fillOpacity={isSelected ? 0.95 : linkedMark ? 0.8 : faded ? 0.14 : 0.45}
                       stroke={isSelected ? "var(--t-color-ink)" : markColor}
@@ -468,7 +494,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
           {/* The selection's ties, over everything, turning with the wheel. */}
           <g style={{ transform: `rotate(${turnDeg.toFixed(3)}deg)`, transition: motion }} pointerEvents="none">
             {linkPaths.map((link) => (
-              <g key={link.key} className="animate-[sg-fade-in_300ms_ease-out_both]">
+              <g key={link.key} className="animate-[sg-fade-in_300ms_ease-out_450ms_both]">
                 <path d={link.d} fill="none" stroke={link.color} strokeWidth={link.width} strokeOpacity={0.85} strokeDasharray={link.dash} strokeLinecap="round" />
                 {link.head ? (
                   <path

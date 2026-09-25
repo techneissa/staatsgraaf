@@ -29,7 +29,7 @@ test("every cell stays inside the wheel and within its ring band", () => {
 test("a body is named in at most one cell", () => {
   const seen = new Map();
   for (const cell of wheel.cells) {
-    for (const item of cell.items) {
+    for (const item of [...cell.items, ...(cell.head ? [cell.head] : [])]) {
       assert.ok(!seen.has(item.id), `${item.id} in ${cell.id} and ${seen.get(item.id)}`);
       seen.set(item.id, cell.id);
     }
@@ -54,7 +54,7 @@ test("the wheel is deterministic", () => {
 
 test("a gemeente's ties include the voters, its provincie and no tie to itself", async () => {
   const { wheelLinks, WHEEL_VOTERS } = await import("./wheel.ts");
-  const drawn = new Set(wheel.cells.flatMap((cell) => [cell.id, ...cell.items.map((item) => item.id)]));
+  const drawn = new Set(wheel.cells.flatMap((cell) => [cell.id, ...cell.items.map((item) => item.id), ...(cell.head ? [cell.head.id] : [])]));
   const gemeente = bundle.nodes.find((node) => node.subtype === "gemeente");
   const { self, links } = wheelLinks(bundle, gemeente.id, drawn);
   assert.equal(self, gemeente.id);
@@ -65,14 +65,45 @@ test("a gemeente's ties include the voters, its provincie and no tie to itself",
 
 test("a hidden body stands in for the body it belongs to", async () => {
   const { wheelLinks } = await import("./wheel.ts");
-  const drawn = new Set(wheel.cells.flatMap((cell) => [cell.id, ...cell.items.map((item) => item.id)]));
+  const drawn = new Set(wheel.cells.flatMap((cell) => [cell.id, ...cell.items.map((item) => item.id), ...(cell.head ? [cell.head.id] : [])]));
   const raad = bundle.nodes.find((node) => node.subtype === "gemeenteraad");
   assert.equal(wheelLinks(bundle, raad.id, drawn).self, raad.parent);
 });
 
 test("a ministry is tied to the bodies it oversees", async () => {
   const { wheelLinks } = await import("./wheel.ts");
-  const drawn = new Set(wheel.cells.flatMap((cell) => [cell.id, ...cell.items.map((item) => item.id)]));
+  const drawn = new Set(wheel.cells.flatMap((cell) => [cell.id, ...cell.items.map((item) => item.id), ...(cell.head ? [cell.head.id] : [])]));
   const { links } = wheelLinks(bundle, "org:ministerie-van-financien", drawn);
   assert.ok(links.filter((link) => link.type === "oversees" && link.outgoing).length >= 5);
+});
+
+test("every ministry heads a family of the bodies that fall under it", () => {
+  const families = wheel.cells.filter((cell) => cell.head && cell.group === "ministeries");
+  assert.equal(families.length, 12);
+  for (const cell of families) for (const item of cell.items) assert.equal(bundle.nodes.find((node) => node.id === item.id).parent, cell.head.id);
+});
+
+test("opening a family widens it, pushes its neighbours aside and never makes cells overlap", () => {
+  const head = "org:ministerie-van-justitie-en-veiligheid";
+  const opened = buildWheel(bundle, head);
+  const span = (model) => {
+    const cell = model.cells.find((entry) => entry.head?.id === head);
+    return cell.a1 - cell.a0;
+  };
+  assert.ok(span(opened) > span(wheel) * 1.3, `${span(opened)} vs ${span(wheel)}`);
+  assert.ok(opened.cells.find((entry) => entry.head?.id === head).open);
+  for (let i = 0; i < opened.cells.length; i += 1) {
+    for (let j = i + 1; j < opened.cells.length; j += 1) {
+      const a = opened.cells[i];
+      const b = opened.cells[j];
+      const radial = a.r0 < b.r1 - 1e-6 && b.r0 < a.r1 - 1e-6;
+      const angular = a.a0 < b.a1 - 1e-6 && b.a0 < a.a1 - 1e-6;
+      assert.ok(!(radial && angular), `${a.id} overlaps ${b.id}`);
+    }
+  }
+});
+
+test("a gemeente belongs to the family of the provincie that oversees it", () => {
+  const edge = bundle.edges.find((entry) => entry.type === "oversees" && entry.to.startsWith("org:gemeente"));
+  assert.equal(wheel.familyOf[edge.to], edge.from);
 });
