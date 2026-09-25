@@ -205,6 +205,15 @@ export const GRAPH_DICT = {
   languageSwitchToNl: { nl: "Schakel naar Nederlands", en: "Switch to Dutch (Nederlands)" },
   footerNav: { nl: "Voettekst", en: "Footer" },
   canvasExpand: { nl: "Grafiek op volledig scherm", en: "Show the graph full screen" },
+  wheelShow: { nl: "Als wiel tonen", en: "Show as a wheel" },
+  ringsShow: { nl: "Als ringen tonen", en: "Show as rings" },
+  wheelAria: {
+    nl: "De Nederlandse overheid als wiel: de Grondwet in het midden, de landelijke organen in vier machten, de decentrale overheden en het Koninkrijk eromheen, de kiesgerechtigden als rand.",
+    en: "The Dutch state as a wheel: the constitution in the centre, national bodies in four branches, decentral government and the Kingdom around them, the voters as the rim.",
+  },
+  wheelVoters: { nl: "KIESGERECHTIGDEN", en: "VOTERS" },
+  wheelCoreSub: { nl: "en Statuut", en: "and Charter" },
+  wheelReset: { nl: "Passend maken", en: "Fit" },
   canvasCollapse: { nl: "Volledig scherm sluiten", en: "Exit full screen" },
   canvasClose: { nl: "Sluiten", en: "Close" },
   canvasNoScript: {

@@ -379,6 +379,22 @@ function buildChambers() {
   return { chambers, seatPeople: sortedPeople };
 }
 
+/**
+ * An abbreviation per organisation for the wheel form of the graph: the
+ * shortest alias of at most eight characters without spaces that has a
+ * capital (BZK, IGJ, CPB), where the dataset records one.
+ */
+function buildShortNames() {
+  const out = {};
+  for (const org of [...organizations].sort((a, b) => (a.id < b.id ? -1 : 1))) {
+    const pick = (org.aliases ?? [])
+      .filter((alias) => typeof alias === "string" && alias.length <= 8 && !/\s/.test(alias) && /[A-Z]/.test(alias))
+      .sort((a, b) => a.length - b.length || (a < b ? -1 : 1))[0];
+    if (pick) out[org.id] = pick;
+  }
+  return out;
+}
+
 const hub = hubOrg ? { id: hubOrg.id, slug: hubOrg.slug, name: hubOrg.name } : null;
 
 // The layout is computed here, once, and shipped. The client hydrates it and
@@ -424,6 +440,7 @@ const bundle = {
   })),
   chambers,
   seatPeople,
+  shortNames: buildShortNames(),
   tiers: layout.tiers,
   channels: layout.channels,
   coreRadius: layout.coreRadius,

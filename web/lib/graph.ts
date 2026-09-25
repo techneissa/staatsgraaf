@@ -236,6 +236,8 @@ export type GraphBundle = {
   chambers: Record<string, ChamberSeats>;
   /** Name, slug and portrait of every person seated in `chambers`, by person id. */
   seatPeople: Record<string, SeatPerson>;
+  /** Short name (an abbreviation such as BZK or IGJ, from the organisation's aliases) by id, where one exists. */
+  shortNames?: Record<string, string>;
   tiers: TierInfo[];
   /** Radii of the channels (tier gaps) routed edges travel along, innermost first. */
   channels: number[];

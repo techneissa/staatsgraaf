@@ -8,6 +8,9 @@ import { edgeTypeOrderIndex } from "./graph/edge-styles";
 import { useT } from "@/components/i18n/use-t";
 import { CanvasControls, type CanvasView } from "./canvas-controls";
 import { GraphCanvas } from "./graph/graph-canvas";
+import { GraphWheel } from "./graph/graph-wheel";
+import { ChartPie, Orbit } from "lucide";
+import { LucideIcon } from "./icons/lucide-icon";
 import { ConnectionsView, type FractieResolver, type NameResolver } from "./power/connections-view";
 import { useSelection } from "./selection/selection-provider";
 import { seatIndex } from "@/lib/seats";
@@ -29,6 +32,23 @@ export function CanvasFrame() {
    */
   const [expanded, setExpanded] = useState(false);
   const [view, setView] = useState<CanvasView>("graph");
+  /** The graph's form: the tier map (rings) or the wheel of labelled cells; the reader's choice is remembered. */
+  const [graphForm, setGraphForm] = useState<"rings" | "wheel">("rings");
+  useEffect(() => {
+    try {
+      if (window.localStorage.getItem("staatsgraaf.graph.form") === "wheel") setGraphForm("wheel");
+    } catch {
+      // Storage can be blocked; the rings stay.
+    }
+  }, []);
+  const chooseGraphForm = (form: "rings" | "wheel") => {
+    setGraphForm(form);
+    try {
+      window.localStorage.setItem("staatsgraaf.graph.form", form);
+    } catch {
+      // Remembering is a convenience only.
+    }
+  };
   const [hiddenBranches, setHiddenBranches] = useState<Set<string>>(new Set());
   /** The date the relations are drawn for; null is today. Only the dated relations change. */
   const [asOf, setAsOf] = useState<string | null>(null);
@@ -296,7 +316,18 @@ export function CanvasFrame() {
         ) : null}
 
         {status === "ready" && bundle && view === "graph" ? (
-          <GraphCanvas bundle={bundle} hiddenBranches={hiddenBranches} asOf={asOf} />
+          <>
+            {graphForm === "wheel" ? <GraphWheel bundle={bundle} /> : <GraphCanvas bundle={bundle} hiddenBranches={hiddenBranches} asOf={asOf} />}
+            <button
+              type="button"
+              onClick={() => chooseGraphForm(graphForm === "wheel" ? "rings" : "wheel")}
+              aria-label={graphForm === "wheel" ? tg("ringsShow") : tg("wheelShow")}
+              title={graphForm === "wheel" ? tg("ringsShow") : tg("wheelShow")}
+              className="tap-target absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-sm border border-line bg-surface text-ink-muted shadow-sm transition-fast hover:border-line-strong hover:text-ink"
+            >
+              <LucideIcon icon={graphForm === "wheel" ? Orbit : ChartPie} size={17} />
+            </button>
+          </>
         ) : null}
 
         {view === "power" && power.status !== "ready" ? (
