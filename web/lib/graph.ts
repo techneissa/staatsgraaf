@@ -32,7 +32,7 @@ export type OrgBranchLike = OrgBranch;
  */
 
 export const GRAPH_SCHEMA = "nl-graph-bundle-v2";
-export const GRAPH_LAYOUT = "nl-tiers-v5";
+export const GRAPH_LAYOUT = "nl-tiers-v6";
 
 /** The Grondwet disc at the core. */
 export const CORE_RADIUS = 62;
@@ -64,6 +64,8 @@ export const START_ANGLE = -Math.PI / 2;
 export const SELECTED_GROWTH = 1.5;
 /** A parent with this many standing children in one sector gets a cluster instead of marks. */
 export const CLUSTER_MIN = 3;
+/** Most rows an open cluster takes across the ring; the build reserves room for that many (ring-pack.ts, bloomPack). */
+export const BLOOM_MAX_ROWS = 5;
 /** A sector with this many standing members also clusters the members that have no parent. */
 export const CLUSTER_SECTOR_MIN = 40;
 /** How a cluster's members belong together. */
@@ -403,30 +405,35 @@ export const SECTOR_ORDER: OrgBranch[] = [
   "koninkrijk",
 ];
 
+/**
+ * Every body is a circle (owner, 25-09-2026): the icon inside it says what
+ * kind of body it is (lib/graph-icons.ts) and the colour says the branch. A
+ * commissie stays a small plain dot.
+ */
 export const GLYPH_BY_SUBTYPE: Record<OrgSubtype, GlyphClass> = {
-  ministerie: "shield",
-  defensieonderdeel: "shield",
-  agentschap: "hex",
-  uitvoeringsorganisatie: "hex",
-  inspectie: "hex",
-  zbo: "capsule",
-  rwt: "capsule",
-  toezichthouder: "capsule",
-  "rechterlijke-instantie": "diamond",
-  "hoge-college": "diamond",
-  kiesraad: "diamond",
-  adviescollege: "triangle",
-  planbureau: "triangle",
-  staatscommissie: "triangle",
-  "raad-van-advies": "triangle",
-  "tweede-kamer": "seat",
-  "eerste-kamer": "seat",
-  "provinciale-staten": "seat",
-  gemeenteraad: "seat",
-  "algemeen-bestuur-waterschap": "seat",
-  eilandsraad: "seat",
-  "europees-parlement": "seat",
-  "staten-land": "seat",
+  ministerie: "dot",
+  defensieonderdeel: "dot",
+  agentschap: "dot",
+  uitvoeringsorganisatie: "dot",
+  inspectie: "dot",
+  zbo: "dot",
+  rwt: "dot",
+  toezichthouder: "dot",
+  "rechterlijke-instantie": "dot",
+  "hoge-college": "dot",
+  kiesraad: "dot",
+  adviescollege: "dot",
+  planbureau: "dot",
+  staatscommissie: "dot",
+  "raad-van-advies": "dot",
+  "tweede-kamer": "dot",
+  "eerste-kamer": "dot",
+  "provinciale-staten": "dot",
+  gemeenteraad: "dot",
+  "algemeen-bestuur-waterschap": "dot",
+  eilandsraad: "dot",
+  "europees-parlement": "dot",
+  "staten-land": "dot",
   gemeente: "dot",
   provincie: "dot",
   waterschap: "dot",

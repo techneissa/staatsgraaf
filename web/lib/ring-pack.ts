@@ -197,3 +197,110 @@ export function pushPack(
   }
   return placed;
 }
+
+/**
+ * Open one item as a compact block. The members take a few rows across the
+ * ring and columns along it, centred where the item was and kept inside the
+ * radial band the sector may use, so a group of fifty reads as one patch
+ * instead of a long arc. Only the neighbours the block overlaps move: each
+ * on its own ring, pushed away from the block just far enough to clear it
+ * and the next one, never past the ends of the sector. Nothing on a ring the
+ * block does not reach moves at all.
+ *
+ * The block tries the most compact shape first and, when a ring cannot make
+ * room, a taller one (more rows, fewer columns), then the same shape moved
+ * toward the side with more room. Returns null when nothing fits, in which
+ * case the caller falls back to `pushPack` or a full re-pack.
+ */
+export function bloomPack(
+  rest: readonly RestItem[],
+  openId: string,
+  members: readonly RingItem[],
+  arc: { start: number; end: number },
+  band: { inner: number; outer: number },
+  gap = GLYPH_GAP,
+): RingPlacement[] | null {
+  const open = rest.find((item) => item.id === openId);
+  if (!open || members.length === 0) return null;
+  const half = members.reduce((max, member) => Math.max(max, member.halfWidth, member.halfHeight), 0);
+  const pitch = 2 * half + gap;
+  const count = members.length;
+  const rowsMax = Math.max(1, Math.floor((band.outer - band.inner - 2 * half) / pitch) + 1);
+  // Along the ring a block reads well about twice as long as it is deep.
+  const rowsIdeal = Math.max(1, Math.min(rowsMax, Math.ceil(Math.sqrt(count / 2.2))));
+  const others = rest.filter((item) => item.id !== openId);
+
+  const attempt = (rows: number, shift: number): RingPlacement[] | null => {
+    const cols = Math.ceil(count / rows);
+    const depth = (rows - 1) * pitch;
+    const lowest = band.inner + half;
+    const highest = band.outer - half - depth;
+    if (highest < lowest - 1e-9) return null;
+    const r0 = Math.min(highest, Math.max(lowest, open.radius - depth / 2));
+    const r1 = r0 + depth;
+    // Angular half span of the block, measured on its innermost row (the widest in angle).
+    const halfAngle = ((cols - 1) * pitch) / 2 / r0 + half / r0;
+    const centre = Math.min(arc.end - halfAngle, Math.max(arc.start + halfAngle, open.angle + shift));
+    if (arc.end - arc.start < 2 * halfAngle) return null;
+
+    const placed: RingPlacement[] = [];
+    members.forEach((member, index) => {
+      const col = Math.floor(index / rows);
+      const row = index % rows;
+      const inCol = Math.min(rows, count - col * rows);
+      const radius = r0 + (row + (rows - inCol) / 2) * pitch;
+      const along = (col - (cols - 1) / 2) * pitch;
+      placed.push({ id: member.id, angle: centre + along / radius, radius });
+    });
+
+    // Every neighbour whose band the block reaches is on a ring that must make room.
+    const rings = new Map<number, RestItem[]>();
+    const moved = new Map<string, number>();
+    for (const item of others) {
+      const reaches = item.radius + item.halfHeight > r0 - half - gap && item.radius - item.halfHeight < r1 + half + gap;
+      if (!reaches) continue;
+      const key = Math.round(item.radius * 2) / 2;
+      rings.set(key, [...(rings.get(key) ?? []), item]);
+    }
+    for (const [radius, items] of rings) {
+      const blockLo = (centre - halfAngle) * radius - gap;
+      const blockHi = (centre + halfAngle) * radius + gap;
+      const lo = arc.start * radius;
+      const hi = arc.end * radius;
+      const left = items.filter((item) => item.angle < centre).sort((a, b) => b.angle - a.angle);
+      const right = items.filter((item) => item.angle >= centre).sort((a, b) => a.angle - b.angle);
+      let wall = blockLo;
+      for (const item of left) {
+        const at = Math.min(item.angle * radius, wall - item.halfWidth);
+        if (at - item.halfWidth < lo - 1e-6) return null;
+        moved.set(item.id, at / radius);
+        wall = at - item.halfWidth - gap;
+      }
+      wall = blockHi;
+      for (const item of right) {
+        const at = Math.max(item.angle * radius, wall + item.halfWidth);
+        if (at + item.halfWidth > hi + 1e-6) return null;
+        moved.set(item.id, at / radius);
+        wall = at + item.halfWidth + gap;
+      }
+    }
+    for (const item of others) placed.push({ id: item.id, angle: moved.get(item.id) ?? item.angle, radius: item.radius });
+    return placed;
+  };
+
+  for (let rows = rowsIdeal; rows <= rowsMax; rows += 1) {
+    const placed = attempt(rows, 0);
+    if (placed) return placed;
+  }
+  // Moved toward either side, in growing steps, at the ideal shape and then the tallest.
+  const span = arc.end - arc.start;
+  for (const rows of [rowsIdeal, rowsMax]) {
+    for (let step = 1; step <= 8; step += 1) {
+      for (const sign of [1, -1]) {
+        const placed = attempt(rows, (sign * step * span) / 16);
+        if (placed) return placed;
+      }
+    }
+  }
+  return null;
+}

@@ -21,7 +21,7 @@ import {
   type GraphLayout,
   type LaidOutNode,
 } from "./graph";
-import { packRing, pushPack, type RestItem, type RingItem, type RingPlacement } from "./ring-pack";
+import { bloomPack, packRing, pushPack, type RestItem, type RingItem, type RingPlacement } from "./ring-pack";
 
 export type PolarTarget = { angle: number; radius: number };
 
@@ -88,7 +88,11 @@ export function sectorPose(layout: GraphLayout, openId: string): SectorPose | nu
 
   const arc = { start: sector.startAngle, end: sector.endAngle };
   const { rest, open } = sectorRest(layout, sector, openId);
-  let placed: RingPlacement[] | null = pushPack(rest, openId, memberItems(layout, cluster), arc);
+  // A compact block first; the old one-ring unpacking and then a full re-pack only when it cannot fit.
+  // The block stays inside the room the build reserved for the sector, so it never enters the next tier.
+  const band = { inner: packInnerOf(sector), outer: sector.outerRadius };
+  let placed: RingPlacement[] | null =
+    bloomPack(rest, openId, memberItems(layout, cluster), arc, band) ?? pushPack(rest, openId, memberItems(layout, cluster), arc);
   let outerRadius = 0;
   if (placed) {
     for (const entry of placed) {
