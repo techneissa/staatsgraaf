@@ -51,3 +51,28 @@ test("a short label prefers the abbreviation and otherwise drops the type prefix
 test("the wheel is deterministic", () => {
   assert.deepEqual(buildWheel(bundle), wheel);
 });
+
+test("a gemeente's ties include the voters, its provincie and no tie to itself", async () => {
+  const { wheelLinks, WHEEL_VOTERS } = await import("./wheel.ts");
+  const drawn = new Set(wheel.cells.flatMap((cell) => [cell.id, ...cell.items.map((item) => item.id)]));
+  const gemeente = bundle.nodes.find((node) => node.subtype === "gemeente");
+  const { self, links } = wheelLinks(bundle, gemeente.id, drawn);
+  assert.equal(self, gemeente.id);
+  assert.ok(links.some((link) => link.other === WHEEL_VOTERS && link.type === "elects" && !link.outgoing));
+  assert.ok(links.some((link) => link.type === "oversees" && !link.outgoing && bundle.nodes.find((node) => node.id === link.other)?.subtype === "provincie"));
+  assert.ok(links.every((link) => link.other !== self));
+});
+
+test("a hidden body stands in for the body it belongs to", async () => {
+  const { wheelLinks } = await import("./wheel.ts");
+  const drawn = new Set(wheel.cells.flatMap((cell) => [cell.id, ...cell.items.map((item) => item.id)]));
+  const raad = bundle.nodes.find((node) => node.subtype === "gemeenteraad");
+  assert.equal(wheelLinks(bundle, raad.id, drawn).self, raad.parent);
+});
+
+test("a ministry is tied to the bodies it oversees", async () => {
+  const { wheelLinks } = await import("./wheel.ts");
+  const drawn = new Set(wheel.cells.flatMap((cell) => [cell.id, ...cell.items.map((item) => item.id)]));
+  const { links } = wheelLinks(bundle, "org:ministerie-van-financien", drawn);
+  assert.ok(links.filter((link) => link.type === "oversees" && link.outgoing).length >= 5);
+});

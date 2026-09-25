@@ -1,9 +1,9 @@
 "use client";
 
-import { useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
 import { GLYPH_BY_SUBTYPE, type GraphBundle } from "@/lib/graph";
 import { branchColorVar } from "@/lib/branch-colors";
-import { buildWheel, cellMarks, WHEEL_RADIUS, WHEEL_RINGS, type WheelCell, type WheelGroup } from "@/lib/wheel";
+import { buildWheel, cellMarks, WHEEL_RADIUS, WHEEL_RINGS, WHEEL_VOTERS, wheelLinks, type WheelCell, type WheelGroup, type WheelLinkType } from "@/lib/wheel";
 import { useSelection } from "@/components/selection/selection-provider";
 import { useT } from "@/components/i18n/use-t";
 import { glyphPathAt } from "./glyph";
@@ -21,6 +21,38 @@ const GROUP_MIN = 6.5;
 const GROUP_SPACING = 1.3;
 const GROUP_CHAR = 0.68;
 
+/** How long the wheel takes to turn a selection to the bottom. */
+const TURN_MS = 700;
+const TURN_EASE = "cubic-bezier(0.4, 0, 0.2, 1)";
+
+/** How each kind of tie is drawn: dashed for the line of parts, an arrow for the rest. */
+const LINK_STYLE: Record<WheelLinkType, { dash?: string; arrow: "filled" | "open" | "double" | null }> = {
+  elects: { arrow: "double" },
+  oversees: { arrow: "filled" },
+  advises: { arrow: "open" },
+  accountable_to: { arrow: "open" },
+  part_of: { dash: "3 3", arrow: null },
+};
+
+/** The shortest turn that brings `angle` to the bottom of the wheel, starting from `from`. */
+function turnToBottom(from: number, angle: number): number {
+  const want = Math.PI / 2 - angle;
+  let delta = (want - from) % (2 * Math.PI);
+  if (delta > Math.PI) delta -= 2 * Math.PI;
+  if (delta < -Math.PI) delta += 2 * Math.PI;
+  return from + delta;
+}
+
+/** A small arrowhead at (x, y) pointing along (dx, dy). */
+function arrowHead(x: number, y: number, dx: number, dy: number, size: number, double: boolean): string {
+  const length = Math.hypot(dx, dy) || 1;
+  const ux = dx / length;
+  const uy = dy / length;
+  const head = (tipX: number, tipY: number) =>
+    `M${(tipX - ux * size - uy * size * 0.55).toFixed(2)} ${(tipY - uy * size + ux * size * 0.55).toFixed(2)}L${tipX.toFixed(2)} ${tipY.toFixed(2)}L${(tipX - ux * size + uy * size * 0.55).toFixed(2)} ${(tipY - uy * size - ux * size * 0.55).toFixed(2)}Z`;
+  return double ? head(x, y) + head(x - ux * size * 0.7, y - uy * size * 0.7) : head(x, y);
+}
+
 function segment(r0: number, r1: number, a0: number, a1: number): string {
   const p = (r: number, a: number) => `${(Math.cos(a) * r).toFixed(2)} ${(Math.sin(a) * r).toFixed(2)}`;
   const large = a1 - a0 > Math.PI ? 1 : 0;
@@ -35,9 +67,9 @@ function arcPath(r: number, a0: number, a1: number, backwards = false): string {
 }
 
 /** A group's name in the lane beside it, outside the background, at a size that fits. */
-function groupTitle(group: WheelGroup) {
+function groupTitle(group: WheelGroup, turn: number) {
   const mid = (group.a0 + group.a1) / 2;
-  const lower = Math.sin(mid) > 0.1;
+  const lower = Math.sin(mid + turn) > 0.1;
   // Upper half: the text rises outward from its baseline; lower half: it hangs toward the core.
   const radius = group.label === "inner" ? (lower ? group.r0 - 3 : group.r0 - 10.5) : lower ? group.r1 + 10.5 : group.r1 + 3.5;
   const a0 = Math.max(group.a0, mid - Math.PI * 0.95);
@@ -55,9 +87,9 @@ function groupTitle(group: WheelGroup) {
 }
 
 /** A cell's name along its outer edge, at a size that fits, or null when even the smallest does not. */
-function cellTitle(cell: WheelCell) {
+function cellTitle(cell: WheelCell, turn: number) {
   const mid = (cell.a0 + cell.a1) / 2;
-  const lower = Math.sin(mid) > 0.1;
+  const lower = Math.sin(mid + turn) > 0.1;
   // Upper half: baseline inside the outer edge, text rising outward. Lower half: baseline at the edge, text hanging inward.
   const radius = lower ? cell.r1 - 3.5 : cell.r1 - 10.5;
   const length = (cell.a1 - cell.a0) * radius - 8;
@@ -91,21 +123,129 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
     for (const group of model.groups) for (const id of group.cells) out.set(id, group);
     return out;
   }, [model]);
-  const groupTitles = useMemo(() => model.groups.map((group) => ({ group, title: groupTitle(group) })), [model]);
-  const drawn = useMemo(
+  const placed = useMemo(
     () =>
       model.cells.map((cell) => {
         const group = groupOf.get(cell.id)!;
         // A part names itself inside only when its group has several parts; a group of one is named outside.
-        const title = group.cells.length > 1 ? cellTitle(cell) : null;
+        const named = group.cells.length > 1 && cellTitle(cell, 0) !== null;
         const shape = bundle.chamberShapes?.[cell.id] ?? null;
-        const marks = shape ? [] : cellMarks(cell, cell.items.map((entry) => entry.id), title ? TITLE_BAND : 3, MARK_PITCH);
-        return { cell, group, title, shape, marks, itemById: new Map(cell.items.map((entry) => [entry.id, entry])) };
+        const marks = shape ? [] : cellMarks(cell, cell.items.map((entry) => entry.id), named ? TITLE_BAND : 3, MARK_PITCH);
+        return { cell, group, named, shape, marks, itemById: new Map(cell.items.map((entry) => [entry.id, entry])) };
       }),
     [model, groupOf, bundle.chamberShapes],
   );
 
+  /** Where each drawn body sits: its mark, or for a chamber the middle of its hall. */
+  const anchors = useMemo(() => {
+    const out = new Map<string, { x: number; y: number; r: number; name: string; branch: WheelCell["branch"]; cell: string }>();
+    for (const { cell, named, shape, marks, itemById } of placed) {
+      if (shape) {
+        const mid = (cell.a0 + cell.a1) / 2;
+        const rm = (cell.r0 + cell.r1 - (named ? TITLE_BAND : 0)) / 2;
+        out.set(cell.id, { x: Math.cos(mid) * rm, y: Math.sin(mid) * rm, r: (cell.r1 - cell.r0) * 0.3, name: cell.title, branch: cell.branch, cell: cell.id });
+      }
+      for (const mark of marks) {
+        const entry = itemById.get(mark.id)!;
+        out.set(mark.id, { x: mark.x, y: mark.y, r: mark.r, name: entry.name, branch: entry.branch, cell: cell.id });
+      }
+    }
+    return out;
+  }, [placed]);
+
   const selectedId = current && "id" in current ? current.id : null;
+  const linked = useMemo(() => {
+    if (!selectedId) return null;
+    const { self, links } = wheelLinks(bundle, selectedId, new Set(anchors.keys()));
+    return self && anchors.has(self) ? { self, links } : null;
+  }, [bundle, selectedId, anchors]);
+  const linkedIds = useMemo(() => new Set(linked ? [linked.self, ...linked.links.map((link) => link.other)] : []), [linked]);
+
+  // Turn the wheel so the selection sits at the bottom, the way the reference does; back upright when nothing is picked.
+  const [turn, setTurn] = useState(0);
+  const selectedCell = selectedId ? model.cells.find((cell) => cell.pick?.id === selectedId || cell.id === selectedId) : undefined;
+  const focusAngle = linked
+    ? Math.atan2(anchors.get(linked.self)!.y, anchors.get(linked.self)!.x)
+    : selectedCell
+      ? (selectedCell.a0 + selectedCell.a1) / 2
+      : null;
+  useEffect(() => {
+    setTurn((from) => (focusAngle === null ? from - Math.round(from / (2 * Math.PI)) * 2 * Math.PI : turnToBottom(from, focusAngle)));
+  }, [focusAngle]);
+  const turnDeg = (turn * 180) / Math.PI;
+  const motion = `transform ${TURN_MS}ms ${TURN_EASE}`;
+
+  const groupTitles = useMemo(() => model.groups.map((group) => ({ group, title: groupTitle(group, turn) })), [model, turn]);
+  const drawn = useMemo(() => placed.map((entry) => ({ ...entry, title: entry.named ? cellTitle(entry.cell, turn) : null })), [placed, turn]);
+
+  /** The ties of the selection, as curves bent toward the core with an arrow at the end they point to. */
+  const linkPaths = useMemo(() => {
+    if (!linked) return [];
+    const self = anchors.get(linked.self)!;
+    const [f0] = WHEEL_RINGS.frame;
+    const selfAngle = Math.atan2(self.y, self.x);
+    type End = { x: number; y: number; r: number; branch: WheelCell["branch"] };
+    // Many ties of one kind into one cell (a provincie's gemeenten, a ministry's zbo's) become one bundle
+    // to the middle of those bodies, drawn thicker; the bodies themselves light up.
+    const BUNDLE = 12;
+    const buckets = new Map<string, { link: (typeof linked.links)[number]; ends: End[] }>();
+    for (const link of linked.links) {
+      if (link.other === WHEEL_VOTERS) {
+        buckets.set(link.other, { link, ends: [{ x: Math.cos(selfAngle) * f0, y: Math.sin(selfAngle) * f0, r: 0, branch: "kiesgerechtigden" as WheelCell["branch"] }] });
+        continue;
+      }
+      const end = anchors.get(link.other);
+      if (!end) continue;
+      const key = `${end.cell}|${link.type}|${link.outgoing}`;
+      const bucket = buckets.get(key) ?? { link, ends: [] };
+      bucket.ends.push(end);
+      buckets.set(key, bucket);
+    }
+    const ends: { link: (typeof linked.links)[number]; other: End; weight: number; key: string }[] = [];
+    for (const [key, { link, ends: list }] of buckets) {
+      if (list.length >= BUNDLE) {
+        const x = list.reduce((sum, end) => sum + end.x, 0) / list.length;
+        const y = list.reduce((sum, end) => sum + end.y, 0) / list.length;
+        ends.push({ link, other: { x, y, r: 3, branch: list[0].branch }, weight: list.length, key });
+      } else {
+        list.forEach((end, index) => ends.push({ link, other: end, weight: 1, key: `${key}|${index}` }));
+      }
+    }
+    return ends.flatMap(({ link, other, weight, key }) => {
+      const [from, to] = link.outgoing ? [self, other] : [other, self];
+      // Bend toward the core, more for far pairs, so ties read as passing through the state rather than across it.
+      const bend = link.other === WHEEL_VOTERS ? 1 : 0.42;
+      const cx = ((from.x + to.x) / 2) * bend;
+      const cy = ((from.y + to.y) / 2) * bend;
+      const dx = to.x - cx;
+      const dy = to.y - cy;
+      const length = Math.hypot(dx, dy) || 1;
+      const inset = to.r + 2.5;
+      const endX = to.x - (dx / length) * inset;
+      const endY = to.y - (dy / length) * inset;
+      const style = LINK_STYLE[link.type];
+      return [
+        {
+          key,
+          width: weight > 1 ? Math.min(4.5, 1.3 + Math.sqrt(weight) * 0.45) : 1.3,
+          d: `M${from.x.toFixed(2)} ${from.y.toFixed(2)}Q${cx.toFixed(2)} ${cy.toFixed(2)} ${endX.toFixed(2)} ${endY.toFixed(2)}`,
+          head: style.arrow ? arrowHead(endX, endY, dx, dy, 5, style.arrow === "double") : null,
+          open: style.arrow === "open",
+          dash: style.dash,
+          color: branchColorVar(from.branch),
+        },
+      ];
+    });
+  }, [linked, anchors]);
+
+  const [tip, setTip] = useState<{ name: string; x: number; y: number } | null>(null);
+  const boxRef = useRef<HTMLDivElement | null>(null);
+  const showTip = (event: ReactPointerEvent, name: string) => {
+    if (event.pointerType !== "mouse") return;
+    const box = boxRef.current?.getBoundingClientRect();
+    if (box) setTip({ name, x: event.clientX - box.left, y: event.clientY - box.top });
+  };
+  const selectedName = linked ? anchors.get(linked.self)?.name : selectedCell?.title;
   const pickCell = (cell: WheelCell) => {
     if (!cell.pick || drag.current?.moved) return;
     select({ kind: cell.pick.kind, id: cell.pick.id, surface: "graph" } as Parameters<typeof select>[0]);
@@ -156,7 +296,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
   const size = WHEEL_RADIUS + 10;
 
   return (
-    <div className="relative h-full w-full">
+    <div ref={boxRef} className="relative h-full w-full">
       <svg
         ref={svgRef}
         viewBox={`${-size} ${-size} ${2 * size} ${2 * size}`}
@@ -176,7 +316,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
             return <path key={index} id={`wheel-frame-${index}`} d={arcPath((f0 + f1) / 2 + (lower ? 3.4 : -3.4), a - 0.5, a + 0.5, lower)} />;
           })}
           {model.wedges.map((wedge) => {
-            const lower = Math.sin((wedge.a0 + wedge.a1) / 2) > 0.1;
+            const lower = Math.sin((wedge.a0 + wedge.a1) / 2 + turn) > 0.1;
             return (
               <path
                 key={wedge.id}
@@ -200,6 +340,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
               </textPath>
             </text>
           ))}
+          <g style={{ transform: `rotate(${turnDeg.toFixed(3)}deg)`, transition: motion }}>
           {model.wedges.map((wedge) => (
             <text key={wedge.id} fontSize={8.5} letterSpacing={1.6} fontWeight={700} fill="var(--t-color-ink-faint)">
               <textPath href={`#wheel-wedge-${wedge.id}`} startOffset="50%" textAnchor="middle">
@@ -292,30 +433,57 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
                   const glyph = GLYPH_BY_SUBTYPE[entry.subtype] ?? "dot";
                   // Long shapes lie along the ring, so they follow their cell instead of cutting across it.
                   const along = glyph === "capsule" || glyph === "seat" ? ((Math.atan2(mark.y, mark.x) + Math.PI / 2) * 180) / Math.PI : 0;
+                  // Other shapes stay upright while the wheel turns: they turn back by the same amount, in step.
+                  const upright = !along && glyph !== "dot" && glyph !== "small-dot";
+                  const linkedMark = linkedIds.has(entry.id);
+                  const faded = linked !== null && !linkedMark;
                   return (
                     <path
                       key={mark.id}
                       transform={along ? `rotate(${along.toFixed(2)} ${mark.x.toFixed(2)} ${mark.y.toFixed(2)})` : undefined}
+                      style={upright ? { transform: `rotate(${(-turnDeg).toFixed(3)}deg)`, transformBox: "fill-box", transformOrigin: "center", transition: motion } : undefined}
                       d={glyphPathAt(glyph, isSelected ? mark.r * 1.25 : mark.r, mark.x, mark.y)}
                       fill={markColor}
-                      fillOpacity={isSelected ? 0.9 : 0.45}
-                      stroke={isSelected ? "var(--t-color-accent)" : markColor}
+                      fillOpacity={isSelected ? 0.95 : linkedMark ? 0.8 : faded ? 0.14 : 0.45}
+                      stroke={isSelected ? "var(--t-color-ink)" : markColor}
+                      strokeOpacity={faded ? 0.35 : 1}
                       strokeWidth={isSelected ? 1.8 : Math.max(0.6, mark.r * 0.14)}
                       strokeLinejoin="round"
+                      aria-label={entry.name}
                       className="cursor-pointer transition-[fill-opacity] hover:[fill-opacity:0.85]"
+                      onPointerEnter={(event) => showTip(event, entry.name)}
+                      onPointerLeave={() => setTip(null)}
                       onClick={(event) => {
                         event.stopPropagation();
                         pickBody(entry.id);
                       }}
-                    >
-                      <title>{entry.name}</title>
-                    </path>
+                    />
                   );
                 })}
               </g>
             );
           })}
+          </g>
 
+          {/* The selection's ties, over everything, turning with the wheel. */}
+          <g style={{ transform: `rotate(${turnDeg.toFixed(3)}deg)`, transition: motion }} pointerEvents="none">
+            {linkPaths.map((link) => (
+              <g key={link.key} className="animate-[sg-fade-in_300ms_ease-out_both]">
+                <path d={link.d} fill="none" stroke={link.color} strokeWidth={link.width} strokeOpacity={0.85} strokeDasharray={link.dash} strokeLinecap="round" />
+                {link.head ? (
+                  <path
+                    d={link.head}
+                    fill={link.open ? "var(--t-color-surface)" : link.color}
+                    stroke={link.color}
+                    strokeWidth={1}
+                    strokeLinejoin="round"
+                  />
+                ) : null}
+              </g>
+            ))}
+          </g>
+
+          {/* The core above the ties, so they pass under the Grondwet instead of over its name. */}
           <circle r={WHEEL_RINGS.core} fill="var(--t-color-surface)" stroke="var(--t-color-sector-regering)" strokeOpacity={0.7} strokeWidth={1.5} />
           <text y={-4} textAnchor="middle" fontSize={15} fontWeight={800} fill="var(--t-color-ink)">
             Grondwet
@@ -325,6 +493,22 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
           </text>
         </g>
       </svg>
+      {tip ? (
+        <div
+          className="pointer-events-none absolute z-10 max-w-[16rem] -translate-x-1/2 truncate rounded-sm bg-ink px-2 py-0.5 text-xs font-medium text-surface shadow"
+          style={{ left: tip.x, top: Math.max(0, tip.y - 30) }}
+        >
+          {tip.name}
+        </div>
+      ) : null}
+      {selectedName ? (
+        <div className="pointer-events-none absolute inset-x-0 bottom-3 flex justify-center px-16">
+          <span className="truncate rounded-sm border border-line bg-surface/90 px-2 py-0.5 text-sm font-semibold text-ink">
+            {selectedName}
+            {linked && linked.links.length > 0 ? <span className="ml-1.5 font-normal text-ink-muted">· {t("wheelLinks", { n: linked.links.length })}</span> : null}
+          </span>
+        </div>
+      ) : null}
       {view.k > 1 ? (
         <button
           type="button"

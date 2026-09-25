@@ -525,3 +525,60 @@ export function cellMarks(cell: Pick<WheelCell, "r0" | "r1" | "a0" | "a1">, ids:
   });
   return marks;
 }
+
+/** How two bodies on the wheel are tied, in the terms of the graph's edges plus the parent line. */
+export type WheelLinkType = "elects" | "oversees" | "advises" | "accountable_to" | "part_of";
+
+/** One tie of the selected body: the other end (a drawn body, or the voters at the rim) and which way it points. */
+export type WheelLink = { other: string; type: WheelLinkType; outgoing: boolean };
+
+/** The id that stands for the voters: their ties are drawn from the rim. */
+export const WHEEL_VOTERS = "voters";
+
+/**
+ * The ties of one body as the wheel can draw them. A body the wheel does not
+ * draw on its own (a gemeenteraad, provinciale staten, a gemeente's
+ * commissie) stands in for the body it belongs to, so the voters electing a
+ * gemeenteraad show as a tie to its gemeente, and provinciale staten
+ * electing the Eerste Kamer as a tie from the provincie. Ties inside one
+ * drawn body fall away, and each pair is drawn once.
+ */
+export function wheelLinks(
+  bundle: Pick<GraphBundle, "nodes" | "edges">,
+  selectedId: string,
+  drawn: ReadonlySet<string>,
+): { self: string | null; links: WheelLink[] } {
+  const byId = new Map(bundle.nodes.map((node) => [node.id, node]));
+  const resolve = (id: string): string | null => {
+    let at: string | null | undefined = id;
+    for (let step = 0; at && step < 4; step += 1) {
+      if (drawn.has(at)) return at;
+      const node = byId.get(at);
+      if (!node) return null;
+      if (node.subtype === "kiesgerechtigden-nederland") return WHEEL_VOTERS;
+      at = node.parent;
+    }
+    return null;
+  };
+  const self = resolve(selectedId);
+  if (!self || self === WHEEL_VOTERS) return { self, links: [] };
+  const links = new Map<string, WheelLink>();
+  const add = (other: string | null, type: WheelLinkType, outgoing: boolean) => {
+    if (!other || other === self || links.has(other)) return;
+    links.set(other, { other, type, outgoing });
+  };
+  for (const edge of bundle.edges) {
+    const from = resolve(edge.from);
+    const to = resolve(edge.to);
+    if (from === to) continue;
+    const type: WheelLinkType = edge.type === "consists_of" ? "part_of" : (edge.type as WheelLinkType);
+    // consists_of runs from the whole to its part; part_of from the part to the whole.
+    if (from === self) add(to, type, edge.type !== "consists_of");
+    else if (to === self) add(from, type, edge.type === "consists_of");
+  }
+  // The parent line: the body it falls under, and the bodies that fall under it.
+  const parent = byId.get(self)?.parent;
+  if (parent) add(resolve(parent), "part_of", true);
+  for (const node of bundle.nodes) if (node.parent === self) add(resolve(node.id), "part_of", false);
+  return { self, links: [...links.values()].sort((a, b) => a.other.localeCompare(b.other)) };
+}
