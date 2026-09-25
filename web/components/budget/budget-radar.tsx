@@ -147,30 +147,43 @@ export function BudgetRadar({ data }: { data: RadarData }) {
         }))
       : amount.ticks.map((value) => ({
           fraction: Math.sqrt(value / amount.max),
-          label: formatEuroCompact(value, locale),
+          // The note under the chart says the amounts are in euros, so the
+          // ring values drop the sign: "75 mld" / "75B" keeps the scale compact.
+          label: formatEuroCompact(value, locale).replace(/^−?€\s?/, ""),
         }));
 
-  // Place each ring value in the first gap where its box touches neither a
-  // ministry badge on the outer ring nor another value; a value with no free
-  // spot is left out (the ring and the table still carry it).
+  // Ring values read as one scale: they all sit along the same line, through
+  // the gap where the data reaches least far. Where two values or a value and
+  // a ministry badge would touch, the value is nudged sideways (alternating
+  // sides, a little further each try) or slightly inward, never moved to
+  // another part of the chart. A value with no room is left out; the ring and
+  // the table still carry it.
   const ringLabels: { ring: (typeof rings)[number]; at: { x: number; y: number } }[] = [];
+  // A small chart gets slightly smaller ring values so all of them fit.
+  const ringFont = radius < 130 ? 9 : 10;
+  // A near-vertical line keeps the values stacked one above the other, where a
+  // diagonal line would make neighbouring values bump sideways.
+  const verticalWedges = labelWedges.filter((wedge) => Math.abs(Math.cos(axisAngle(wedge + 0.5, count))) < 0.35);
+  const scaleAngle = axisAngle((verticalWedges[0] ?? labelWedges[0]) + 0.5, count);
   const badgeCentres = Array.from({ length: count }, (_, index) => polar(cx, cy, radius, axisAngle(index, count)));
   const placedBoxes: { x0: number; y0: number; x1: number; y1: number }[] = [];
+  const across = { x: -Math.sin(scaleAngle), y: Math.cos(scaleAngle) };
   rings.forEach((ring, ringIndex) => {
-    const halfW = estimateTextWidth(ring.label, 10) / 2 + 2;
-    const start = ringIndex % labelWedges.length;
-    const order = [...labelWedges.slice(start), ...labelWedges.slice(0, start)];
-    for (const wedge of order) {
-      for (const inset of [0, 8, 16]) {
-        const at = polar(cx, cy, Math.max(0, radius * ring.fraction - inset), axisAngle(wedge + 0.5, count));
-        const box = { x0: at.x - halfW, y0: at.y - 7, x1: at.x + halfW, y1: at.y + 7 };
+    const halfW = estimateTextWidth(ring.label, ringFont) / 2 + 4;
+    const lean = ringIndex % 2 === 0 ? 1 : -1;
+    const nudges = [0, 8, -8, 16, -16, 24, -24, 32, -32, 40, -40, 48, -48].map((step) => step * lean);
+    for (const inset of [0, 6, 12, 18, 24]) {
+      for (const nudge of nudges) {
+        const base = polar(cx, cy, Math.max(0, radius * ring.fraction - inset), scaleAngle);
+        const at = { x: base.x + across.x * nudge, y: base.y + across.y * nudge };
+        const box = { x0: at.x - halfW, y0: at.y - ringFont + 2, x1: at.x + halfW, y1: at.y + ringFont - 2 };
         const clearOfBadges = badgeCentres.every((c) => {
           const dx = Math.max(box.x0 - c.x, 0, c.x - box.x1);
           const dy = Math.max(box.y0 - c.y, 0, c.y - box.y1);
-          return Math.hypot(dx, dy) > 13;
+          return Math.hypot(dx, dy) > 12;
         });
         const clearOfLabels = placedBoxes.every(
-          (o) => box.x1 < o.x0 - 2 || box.x0 > o.x1 + 2 || box.y1 < o.y0 - 1 || box.y0 > o.y1 + 1,
+          (o) => box.x1 < o.x0 - 1 || box.x0 > o.x1 + 1 || box.y1 < o.y0 || box.y0 > o.y1,
         );
         if (clearOfBadges && clearOfLabels) {
           placedBoxes.push(box);
@@ -340,7 +353,7 @@ export function BudgetRadar({ data }: { data: RadarData }) {
               y={at.y}
               textAnchor="middle"
               dominantBaseline="central"
-              fontSize="10"
+              fontSize={ringFont}
               fill="var(--t-color-ink-faint)"
               stroke="var(--t-color-surface)"
               strokeWidth="3"
