@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
 import { GLYPH_BY_SUBTYPE, type GraphBundle } from "@/lib/graph";
 import { branchColorVar } from "@/lib/branch-colors";
-import { buildWheel, cellMarks, OPEN_PITCH, REST_PITCH, tieScale, WHEEL_RADIUS, WHEEL_RINGS, WHEEL_VOTERS, wheelLinks, type WheelCell, type WheelGroup, type WheelLinkType } from "@/lib/wheel";
+import { buildWheel, cellMarks, OPEN_PITCH, REST_PITCH, tieScale, WHEEL_GUTTER, WHEEL_RADIUS, WHEEL_RINGS, WHEEL_VOTERS, wheelLinks, type WheelCell, type WheelGroup, type WheelLinkType } from "@/lib/wheel";
 import { useSelection } from "@/components/selection/selection-provider";
 import { useT } from "@/components/i18n/use-t";
 import { glyphPathAt } from "./glyph";
@@ -53,9 +53,18 @@ function arrowHead(x: number, y: number, dx: number, dy: number, size: number, d
   return double ? head(x, y) + head(x - ux * size * 0.7, y - uy * size * 0.7) : head(x, y);
 }
 
-/** A ring segment, its four corners rounded by `round` wheel units. */
-function segment(r0: number, r1: number, a0: number, a1: number, round = 0): string {
+/**
+ * A ring segment, its four corners rounded by `round` wheel units and its two
+ * sides moved in by `inset` units: a side then runs parallel to the radius
+ * it started on, so the gutter between two segments is as wide at the rim as
+ * near the core.
+ */
+function segment(r0: number, r1: number, a0: number, a1: number, round = 0, inset = 0): string {
   const p = (r: number, a: number) => `${(Math.cos(a) * r).toFixed(2)} ${(Math.sin(a) * r).toFixed(2)}`;
+  if (inset > 0 && a1 - a0 < Math.PI * 2 - 1e-6) {
+    const at = (r: number) => Math.asin(Math.min(0.95, inset / r));
+    return insetSegment(r0, r1, a0, a1, round, at);
+  }
   if (round <= 0) {
     const large = a1 - a0 > Math.PI ? 1 : 0;
     return `M${p(r1, a0)}A${r1} ${r1} 0 ${large} 1 ${p(r1, a1)}L${p(r0, a1)}A${r0} ${r0} 0 ${large} 0 ${p(r0, a0)}Z`;
@@ -71,6 +80,39 @@ function segment(r0: number, r1: number, a0: number, a1: number, round = 0): str
     `L${p(r0 + k, a1)}Q${p(r0, a1)} ${p(r0, a1 - inner)}` +
     `A${r0} ${r0} 0 ${largeInner} 0 ${p(r0, a0 + inner)}Q${p(r0, a0)} ${p(r0 + k, a0)}Z`
   );
+}
+
+/** `segment` with its sides moved in by `shift(r)` radians at radius r. */
+function insetSegment(r0: number, r1: number, a0: number, a1: number, round: number, shift: (r: number) => number): string {
+  const p = (r: number, a: number) => `${(Math.cos(a) * r).toFixed(2)} ${(Math.sin(a) * r).toFixed(2)}`;
+  const k = Math.max(0, Math.min(round, (r1 - r0) / 2 - 0.5));
+  const o0 = a0 + shift(r1);
+  const o1 = a1 - shift(r1);
+  const i0 = a0 + shift(r0);
+  const i1 = a1 - shift(r0);
+  // The side points at the rounded corners' ends, on the parallel side lines.
+  const s0 = (r: number) => a0 + shift(r);
+  const s1 = (r: number) => a1 - shift(r);
+  const outer = Math.min(k / r1, (o1 - o0) * 0.45);
+  const inner = Math.min(k / r0, (i1 - i0) * 0.45);
+  const largeOuter = o1 - o0 - 2 * outer > Math.PI ? 1 : 0;
+  const largeInner = i1 - i0 - 2 * inner > Math.PI ? 1 : 0;
+  return (
+    `M${p(r1 - k, s0(r1 - k))}Q${p(r1, o0)} ${p(r1, o0 + outer)}` +
+    `A${r1} ${r1} 0 ${largeOuter} 1 ${p(r1, o1 - outer)}Q${p(r1, o1)} ${p(r1 - k, s1(r1 - k))}` +
+    `L${p(r0 + k, s1(r0 + k))}Q${p(r0, i1)} ${p(r0, i1 - inner)}` +
+    `A${r0} ${r0} 0 ${largeInner} 0 ${p(r0, i0 + inner)}Q${p(r0, i0)} ${p(r0 + k, s0(r0 + k))}Z`
+  );
+}
+
+/** Half the gutter between groups, taken off each side of a background. */
+const HALF_GUTTER = WHEEL_GUTTER / 2;
+
+/** The part of a cell marks may use: clear of the gutter on both sides (measured at its inner edge) and of the head band. */
+function inside(cell: WheelCell, headBand: number): WheelCell {
+  const r0 = cell.r0 + headBand;
+  const shift = Math.asin(Math.min(0.95, (HALF_GUTTER + 1) / Math.max(r0, 1)));
+  return { ...cell, r0, a0: cell.a0 + shift, a1: cell.a1 - shift };
 }
 
 /** Corner radius of a group's background, and of a part inside it. */
@@ -167,7 +209,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
         // spreads its bodies over its whole area instead of bunching them in the middle.
         const marks = shape
           ? []
-          : cellMarks({ ...cell, r0: cell.r0 + headBand }, cell.items.map((entry) => entry.id), named ? TITLE_BAND : 3, pitch, {
+          : cellMarks(inside(cell, headBand), cell.items.map((entry) => entry.id), named ? TITLE_BAND : 3, pitch, {
               spread: !cell.head,
               byAngle: cell.byAngle,
             });
@@ -179,7 +221,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
         // The head of a family sits large at the inner edge, in the middle of its cell.
         if (cell.head) {
           const mid = (cell.a0 + cell.a1) / 2;
-          const radius = cell.r0 + headBand / 2 + 1;
+          const radius = cell.r0 + headBand / 2 + 2;
           marks.push({ id: cell.head.id, x: Math.cos(mid) * radius, y: Math.sin(mid) * radius, r: (headBand - 6) * 0.42 * tieScale(cell.head.ties, true) });
         }
         const itemById = new Map(cell.items.map((entry) => [entry.id, entry]));
@@ -425,7 +467,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
             return (
               <g key={group.id} pointerEvents="none">
                 <path
-                  d={segment(group.r0, group.r1, group.a0, group.a1, GROUP_ROUND)}
+                  d={segment(group.r0, group.r1, group.a0, group.a1, GROUP_ROUND, HALF_GUTTER)}
                   fill={color}
                   fillOpacity={chosen ? 0.24 : lit ? 0.17 : 0.11}
                   stroke={color}
@@ -454,7 +496,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
             const parts = group.cells.length > 1;
             // Parts of a group are set apart by a faint dashed line on the sides they share, not by their own boxes.
             const rimBelow = parts && cell.r0 > group.r0 + 1e-6 ? (cell.r0 + Math.max(...model.cells.filter((other) => other.group === cell.group && other.r1 <= cell.r0).map((other) => other.r1), group.r0)) / 2 : null;
-            const sideLine = parts && cell.a0 > group.a0 + 1e-6 ? cell.a0 - 0.0079 : null;
+            const sideLine = parts && cell.a0 > group.a0 + 1e-6 ? cell.a0 : null;
             return (
               <g
                 key={cell.id}
@@ -477,7 +519,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
                   <path d={arcPath(rimBelow, cell.a0 + 0.02, cell.a1 - 0.02)} fill="none" stroke={color} strokeOpacity={0.45} strokeDasharray="2 3" pointerEvents="none" />
                 ) : null}
                 <path
-                  d={segment(cell.r0, cell.r1, cell.a0, cell.a1, parts ? PART_ROUND : GROUP_ROUND)}
+                  d={segment(cell.r0, cell.r1, cell.a0, cell.a1, parts ? PART_ROUND : GROUP_ROUND, HALF_GUTTER)}
                   fill={color}
                   fillOpacity={selected ? 0.2 : parts && (hot === cell.id || holdsSelected) ? 0.1 : 0}
                   stroke="none"
