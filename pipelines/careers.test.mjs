@@ -12,6 +12,7 @@ import {
   isPoliticalTitle,
   itemFacts,
   mergeConsecutiveTerms,
+  officialOffices,
   normalizeDate,
   organizationIndex,
   rawStatements,
@@ -90,14 +91,21 @@ const q = (id) => ({ snaktype: "value", datavalue: { value: { id } } });
 const ENTITY = {
   claims: {
     P39: [
-      { id: "s1", rank: "normal", mainsnak: q("Q10"), qualifiers: { P580: [t("+2017-03-23T00:00:00Z", 11)], P582: [t("+2021-03-30T00:00:00Z", 11)] } },
-      { id: "s2", rank: "normal", mainsnak: q("Q10"), qualifiers: { P580: [t("+2021-03-31T00:00:00Z", 11)] } },
+      { id: "s1", rank: "normal", mainsnak: q("Q10"), qualifiers: { P580: [t("+2017-03-23T00:00:00Z", 11)], P582: [t("+2021-03-30T00:00:00Z", 11)] }, references: [{}] },
+      { id: "s2", rank: "normal", mainsnak: q("Q10"), qualifiers: { P580: [t("+2021-03-31T00:00:00Z", 11)] }, references: [{}] },
       { id: "s5", rank: "deprecated", mainsnak: q("Q10"), qualifiers: { P580: [t("+1990-01-01T00:00:00Z", 9)] } },
       { id: "s6", rank: "normal", mainsnak: q("Q11"), qualifiers: {} },
+      { id: "s7", rank: "normal", mainsnak: q("Q12"), qualifiers: {} },
     ],
     P108: [
-      { id: "s3", rank: "normal", mainsnak: q("Q30"), qualifiers: { P580: [t("+2000-01-01T00:00:00Z", 9)] } },
-      { id: "s4", rank: "normal", mainsnak: q("Q31"), qualifiers: { P580: [t("+2005-01-01T00:00:00Z", 9)], P582: [t("+2010-01-01T00:00:00Z", 9)] } },
+      { id: "s3", rank: "normal", mainsnak: q("Q30"), qualifiers: { P580: [t("+2000-01-01T00:00:00Z", 9)] }, references: [{}] },
+      { id: "s4", rank: "normal", mainsnak: q("Q31"), qualifiers: { P580: [t("+2005-01-01T00:00:00Z", 9)], P582: [t("+2010-01-01T00:00:00Z", 9)] }, references: [{}] },
+      { id: "s8", rank: "normal", mainsnak: q("Q181912"), qualifiers: {}, references: [{}] },
+      { id: "s9", rank: "normal", mainsnak: q("Q32"), qualifiers: {} },
+    ],
+    P106: [
+      { id: "s10", rank: "normal", mainsnak: q("Q2095549"), qualifiers: {}, references: [{}] },
+      { id: "s11", rank: "normal", mainsnak: q("Q16533"), qualifiers: {} },
     ],
   },
 };
@@ -106,18 +114,41 @@ const ITEMS = {
   Q20: itemFacts({ labels: { nl: { value: "Tweede Kamer" } } }),
   Q30: itemFacts({ labels: {} }),
   Q31: itemFacts({ labels: { nl: { value: "Universiteit Leiden" } } }),
+  Q11: itemFacts({ labels: { nl: { value: "Koning der Nederlanden" } } }),
+  Q12: itemFacts({ labels: { nl: { value: "burgemeester van Utrecht" } } }),
+  Q32: itemFacts({ labels: { nl: { value: "Shell" } } }),
+  Q181912: itemFacts({ labels: { nl: { value: "Koninklijke Luchtvaart Maatschappij" } } }),
+  Q2095549: itemFacts({ labels: { nl: { value: "piloot" } } }),
+  Q16533: itemFacts({ labels: { nl: { value: "rechter" } } }),
 };
 const STATEMENTS = resolveStatements(rawStatements(ENTITY), ITEMS);
 
-test("wikidataEntries needs a Dutch label, merges consecutive terms and keeps current false", () => {
-  const counters = { noLabel: 0, noDate: 0 };
-  const entries = wikidataEntries(STATEMENTS, counters);
+test("wikidataEntries keeps referenced claims, dated or not, and occupations apart from employers", () => {
+  const counters = { noLabel: 0, undated: 0, unreferenced: 0 };
+  const confirms = (title) => /Koning/.test(title);
+  const entries = wikidataEntries(STATEMENTS, counters, confirms);
   assert.equal(counters.noLabel, 1);
-  assert.equal(counters.noDate, 1);
-  assert.deepEqual(entries.map((e) => [e.title, e.organization, e.start, e.end, e.kind, e.current]), [
-    ["Universiteit Leiden", "Universiteit Leiden", "2005", "2010", "loopbaan", false],
+  // s7 (P39 burgemeester, not confirmed), s9 (P108 Shell) and s11 (P106 rechter) have no reference.
+  assert.equal(counters.unreferenced, 3);
+  assert.deepEqual(sortEntries(entries).map((e) => [e.title, e.organization, e.start, e.end, e.kind, e.current]), [
     ["lid van de Tweede Kamer", "Tweede Kamer", "2017-03-23", null, "politiek", false],
+    ["Universiteit Leiden", "Universiteit Leiden", "2005", "2010", "loopbaan", false],
+    ["Koning der Nederlanden", null, null, null, "politiek", false],
+    ["Koninklijke Luchtvaart Maatschappij", "Koninklijke Luchtvaart Maatschappij", null, null, "loopbaan", false],
+    ["piloot", null, null, null, "beroep", false],
   ]);
+});
+
+test("officialOffices confirms an office only from a non-Wikidata source", () => {
+  const confirmsFor = officialOffices({
+    tenures: [{ person: "person:k", position: "pos:koning", source: { source: "src:koninklijkhuis-koning" } }],
+    memberships: [{ person: "person:m", organization: "org:tk", source: { source: "src:wikidata-m" } }],
+    positions: [{ id: "pos:koning", title: "Koning", organization: null }],
+    organizations: [{ id: "org:tk", name: "Tweede Kamer" }],
+  });
+  assert.ok(confirmsFor("person:k")("Koning der Nederlanden", null));
+  assert.ok(!confirmsFor("person:k")("burgemeester van Utrecht", null));
+  assert.ok(!confirmsFor("person:m")("lid van de Tweede Kamer", "Tweede Kamer"));
 });
 
 test("mergeConsecutiveTerms leaves a gap of more than a week alone", () => {
@@ -144,8 +175,9 @@ test("sortEntries puts current first, then newest start, undated last", () => {
     { title: "b", start: null, end: null, current: false, rank: 2 },
     { title: "c", start: "1999", end: null, current: true, rank: 1 },
     { title: "d", start: "2015-06", end: null, current: false, rank: 0 },
+    { title: "e", start: null, end: "1990", current: false, rank: 0 },
   ]);
-  assert.deepEqual(sorted.map((e) => e.title), ["c", "d", "a", "b"]);
+  assert.deepEqual(sorted.map((e) => e.title), ["c", "d", "a", "e", "b"]);
 });
 
 test("resolveOrganization resolves only an exact, unique name or alias", () => {
@@ -190,6 +222,8 @@ test("runCareers offline writes careers, sources and a report from the cache", a
     ["career:jan-1", "lid van de Tweede Kamer", "org:tk", "src:wikidata-jan", "medium"],
     ["career:jan-2", "Universiteit Leiden", null, "src:wikidata-jan", "medium"],
     ["career:jan-3", "Leraar", null, "src:tk-loopbaan-jan", "high"],
+    ["career:jan-4", "Koninklijke Luchtvaart Maatschappij", null, "src:wikidata-jan", "medium"],
+    ["career:jan-5", "piloot", null, "src:wikidata-jan", "medium"],
   ]);
   const sources = JSON.parse(await readFile(join(dataDir, "sources.json"), "utf8"));
   assert.deepEqual(sources.map((s) => s.id), ["src:keep", "src:tk-loopbaan-jan", "src:wikidata-jan"]);

@@ -33,7 +33,9 @@ export const WIKIDATA_API = "https://www.wikidata.org/w/api.php";
 export const THROTTLE_MS = 250;
 export const MAX_PER_PERSON = 25;
 export const WIKIDATA_CHUNK = 50;
-export const KINDS = Object.freeze(["politiek", "loopbaan", "nevenfunctie", "opleiding"]);
+export const KINDS = Object.freeze(["politiek", "loopbaan", "nevenfunctie", "opleiding", "beroep"]);
+export const WIKIDATA_CACHE_VERSION = 2;
+export const WIKIDATA_PROPS = Object.freeze(["P39", "P108", "P106"]);
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -165,7 +167,7 @@ export function tkEntries(persoon, today, gaps = []) {
     if (!title) continue;
     const end = normalizeDate(row.PeriodeTotEnMet);
     const endPassed = end !== null && comparePartial(end, today) < 0;
-    if (row.IsActief === true && endPassed) gaps.push(`nevenfunctie ${row.Id} staat op IsActief maar heeft einddatum ${row.PeriodeTotEnMet}; niet als lopend opgenomen`);
+    if (row.IsActief === true && endPassed) gaps.push(`nevenfunctie ${row.Id} staat op IsActief maar heeft einddatum \`${row.PeriodeTotEnMet}\`; niet als lopend opgenomen`);
     out.push({
       origin: "tk",
       rank: 1,
@@ -210,11 +212,11 @@ const snakItem = (snak) => (snak?.snaktype === "value" && snak.datavalue?.value?
 /**
  * The P39 and P108 statements of one Wikidata entity (wbgetentities, props
  * claims), deprecated rank skipped, as plain rows with the Q ids they need
- * labels for. Statements without P580 or P582 are counted, not kept.
+ * labels for and the number of references each statement carries.
  */
 export function rawStatements(entity) {
   const rows = [];
-  for (const prop of ["P39", "P108"]) {
+  for (const prop of WIKIDATA_PROPS) {
     for (const claim of entity?.claims?.[prop] ?? []) {
       if (claim.rank === "deprecated") continue;
       const value = snakItem(claim.mainsnak);
@@ -231,6 +233,7 @@ export function rawStatements(entity) {
         endPrecision: end?.precision ?? null,
         of: snakItem(claim.qualifiers?.P642?.[0]),
         roles: [...(claim.qualifiers?.P2868 ?? []), ...(claim.qualifiers?.P794 ?? [])].map(snakItem).filter(Boolean),
+        references: (claim.references ?? []).length,
       });
     }
   }
@@ -267,6 +270,7 @@ export function resolveStatements(rows, items) {
       endPrecision: row.endPrecision,
       orgs,
       roles: Object.fromEntries((row.roles ?? []).map((q) => [q, label(q)])),
+      references: row.references ?? 0,
     };
   });
 }
@@ -278,49 +282,72 @@ export function dutchLabel(label) {
 }
 
 /** Entries from the grouped Wikidata statements of one person. */
-export function wikidataEntries(statements, counters = { noLabel: 0, noDate: 0 }) {
+/**
+ * Entries from the resolved Wikidata statements of one person. A statement
+ * needs at least one reference, except P39 when `confirmsOffice(label,
+ * organization)` says the dataset already has that office from an official
+ * source. Undated statements are kept with start and end null.
+ */
+export function wikidataEntries(statements, counters = { noLabel: 0, undated: 0, unreferenced: 0 }, confirmsOffice = () => false) {
   const out = [];
   for (const row of statements ?? []) {
     const start = wikidataDate(row.start, row.startPrecision);
     const end = wikidataDate(row.end, row.endPrecision);
-    if (start === null && end === null) {
-      counters.noDate += 1;
-      continue;
-    }
     const valueLabel = dutchLabel(row.valueLabel);
     if (!valueLabel) {
-      counters.noLabel += 1;
+      counters.noLabel = (counters.noLabel ?? 0) + 1;
       continue;
     }
+    let entry = null;
     if (row.prop === "P39") {
       const via = ORG_PREFERENCE.find((key) => row.orgs?.[key] && dutchLabel(row.orgs[key].label));
-      out.push({
-        origin: "wikidata",
-        rank: 3,
-        value: row.value,
-        title: valueLabel,
-        organization: via ? dutchLabel(row.orgs[via].label) : null,
-        start,
-        end,
-        current: false,
-        kind: "politiek",
-      });
+      entry = { rank: 3, title: valueLabel, organization: via ? dutchLabel(row.orgs[via].label) : null, kind: "politiek" };
     } else if (row.prop === "P108") {
       const role = Object.values(row.roles ?? {}).map(dutchLabel).find(Boolean) ?? null;
-      out.push({
-        origin: "wikidata",
-        rank: 4,
-        value: row.value,
-        title: role ?? valueLabel,
-        organization: valueLabel,
-        start,
-        end,
-        current: false,
-        kind: "loopbaan",
-      });
+      entry = { rank: 4, title: role ?? valueLabel, organization: valueLabel, kind: "loopbaan" };
+    } else if (row.prop === "P106") {
+      // An occupation stands alone: Wikidata does not tie it to an employer.
+      entry = { rank: 5, title: valueLabel, organization: null, kind: "beroep" };
     }
+    if (!entry) continue;
+    if (!(row.references > 0) && !(row.prop === "P39" && confirmsOffice(entry.title, entry.organization))) {
+      counters.unreferenced = (counters.unreferenced ?? 0) + 1;
+      continue;
+    }
+    if (start === null && end === null) counters.undated = (counters.undated ?? 0) + 1;
+    out.push({ origin: "wikidata", value: row.value, start, end, current: false, ...entry });
   }
   return mergeConsecutiveTerms(out);
+}
+
+/**
+ * Per person, a test whether the dataset confirms an office from an official
+ * (non-Wikidata) source: a tenure or membership whose position title or
+ * organisation name shares a keyword with the Wikidata office.
+ */
+export function officialOffices({ tenures = [], memberships = [], positions = [], organizations = [] }) {
+  const posById = new Map(positions.map((p) => [p.id, p]));
+  const orgById = new Map(organizations.map((o) => [o.id, o]));
+  const official = (ref) => typeof ref?.source === "string" && !/^src:(wikidata|wikipedia)/.test(ref.source);
+  const byPerson = new Map();
+  const add = (person, words) => {
+    if (words.size === 0) return;
+    if (!byPerson.has(person)) byPerson.set(person, []);
+    byPerson.get(person).push(words);
+  };
+  for (const t of tenures) {
+    if (!official(t.source)) continue;
+    const pos = posById.get(t.position);
+    add(t.person, keywords(pos?.title, pos?.name, orgById.get(pos?.organization)?.name));
+  }
+  for (const m of memberships) {
+    if (!official(m.source)) continue;
+    add(m.person, keywords(orgById.get(m.organization)?.name));
+  }
+  return (personId) => (title, organization) => {
+    const want = keywords(title, organization);
+    return (byPerson.get(personId) ?? []).some((words) => [...want].some((w) => words.has(w)));
+  };
 }
 
 function dayOf(date) {
@@ -383,7 +410,11 @@ export function dedupe(entries) {
   let dropped = 0;
   for (const entry of ordered) {
     const exact = kept.some((k) => k.title === entry.title && k.organization === entry.organization && k.start === entry.start && k.end === entry.end);
-    const repeat = entry.origin === "wikidata" && kept.some((k) => k.origin === "tk" && k.kind !== "opleiding" && sameOffice(k, entry));
+    const repeat = entry.origin === "wikidata" && (
+      kept.some((k) => k.origin === "tk" && k.kind !== "opleiding" && sameOffice(k, entry)) ||
+      // An undated claim adds nothing when the same title and organisation is already there.
+      (!entry.start && !entry.end && kept.some((k) => k.title.toLowerCase() === entry.title.toLowerCase() && (k.organization ?? "") === (entry.organization ?? "")))
+    );
     if (exact || repeat) {
       dropped += 1;
       continue;
@@ -396,8 +427,10 @@ export function dedupe(entries) {
 /** Current first, then by start, newest first; entries without a start last, by end. */
 export function sortEntries(entries) {
   const when = (e) => e.start ?? "";
+  const undated = (e) => !e.start && !e.end;
   return [...entries].sort((a, b) => {
     if (a.current !== b.current) return a.current ? -1 : 1;
+    if (undated(a) !== undated(b)) return undated(a) ? 1 : -1;
     const c = when(b).localeCompare(when(a));
     if (c !== 0) return c;
     const d = (b.end ?? "").localeCompare(a.end ?? "");
@@ -466,6 +499,12 @@ export async function runCareers(options = {}) {
   const sources = await readJson(join(dataDir, "sources.json"), []);
   const matches = (await readJson(matchesPath, { people: {} })).people ?? {};
   const orgIndex = organizationIndex(organizations);
+  const confirmsFor = officialOffices({
+    tenures: await readJson(join(dataDir, "tenures.json"), []),
+    memberships: await readJson(join(dataDir, "memberships.json"), []),
+    positions: await readJson(join(dataDir, "positions.json"), []),
+    organizations,
+  });
   const gaps = [];
 
   // (a) TK
@@ -512,9 +551,12 @@ export async function runCareers(options = {}) {
 
   // (b) Wikidata
   const wdPath = join(cacheDir, "wikidata.json");
-  const wdCache = (await readJson(wdPath, null)) ?? { retrieved: today, license: "CC0-1.0", endpoint: WIKIDATA_API, persons: {}, items: {} };
-  wdCache.persons ??= {};
+  let wdCache = (await readJson(wdPath, null)) ?? null;
+  if (!wdCache) wdCache = { version: WIKIDATA_CACHE_VERSION, retrieved: today, license: "CC0-1.0", endpoint: WIKIDATA_API, persons: {}, items: {} };
   wdCache.items ??= {};
+  // Version 1 kept only dated P39 and P108 without references; those person claims are fetched again, labels stay.
+  if ((wdCache.version ?? 1) < WIKIDATA_CACHE_VERSION && !offline) wdCache.persons = {};
+  wdCache.persons ??= {};
   const qids = [...new Set(people.map((p) => p.wikidata).filter(Boolean))].sort();
   const needed = qids.filter((q) => refresh || !(q in wdCache.persons));
   const getEntities = async (ids, props) => {
@@ -529,6 +571,7 @@ export async function runCareers(options = {}) {
         const entities = await getEntities(chunk, "claims");
         for (const q of chunk) wdCache.persons[q] = rawStatements(entities[q]);
         wdCache.retrieved = today;
+        wdCache.version = WIKIDATA_CACHE_VERSION;
       } catch (error) {
         gaps.push(`Wikidata-claims voor ${chunk.length} personen niet op te halen (${error.message}).`);
       }
@@ -541,7 +584,6 @@ export async function runCareers(options = {}) {
     const refs = new Set();
     for (const q of qids) {
       for (const row of wdCache.persons[q] ?? []) {
-        if (!row.start && !row.end) continue;
         if (round === 0) [row.value, row.of, ...(row.roles ?? [])].filter(Boolean).forEach((x) => refs.add(x));
         else [...(wdCache.items[row.value]?.P2389 ?? []).slice(0, 1), ...(wdCache.items[row.value]?.P361 ?? []).slice(0, 1)].forEach((x) => refs.add(x));
       }
@@ -568,7 +610,7 @@ export async function runCareers(options = {}) {
   const byId = new Map(sources.map((s) => [s.id, s]));
   const newSources = [];
   const records = [];
-  const stats = { tkEntries: 0, wdEntries: 0, deduped: 0, capped: 0, droppedBadRange: 0, wdNoLabel: 0, wdNoDate: 0, tkBadDate: 0, withOrgId: 0 };
+  const stats = { tkEntries: 0, wdEntries: 0, deduped: 0, capped: 0, droppedBadRange: 0, wdNoLabel: 0, wdUnreferenced: 0, tkBadDate: 0, withOrgId: 0 };
   const perPerson = new Map();
   for (const person of people) {
     const entries = [];
@@ -599,10 +641,10 @@ export async function runCareers(options = {}) {
       }
     }
     if (person.wikidata && wdCache.persons[person.wikidata]) {
-      const counters = { noLabel: 0, noDate: 0 };
-      const wd = wikidataEntries(resolveStatements(wdCache.persons[person.wikidata], wdCache.items), counters);
+      const counters = { noLabel: 0, undated: 0, unreferenced: 0 };
+      const wd = wikidataEntries(resolveStatements(wdCache.persons[person.wikidata], wdCache.items), counters, confirmsFor(person.id));
       stats.wdNoLabel += counters.noLabel;
-      stats.wdNoDate += counters.noDate;
+      stats.wdUnreferenced += counters.unreferenced;
       if (wd.length > 0) {
         const url = `https://www.wikidata.org/wiki/${person.wikidata}`;
         let source = byUrl.get(url);
@@ -621,7 +663,7 @@ export async function runCareers(options = {}) {
     const valid = entries.filter((e) => {
       if (e.start && e.end && comparePartial(e.end, e.start) < 0) {
         stats.droppedBadRange += 1;
-        personGaps.push(`"${e.title}" (${e.origin}) heeft einde ${e.end} voor begin ${e.start}; weggelaten`);
+        personGaps.push(`"${e.title}" (${e.origin}) heeft einde \`${e.end}\` voor begin \`${e.start}\`; weggelaten`);
         return false;
       }
       return true;
@@ -717,8 +759,11 @@ export function renderReport({ today, groups, kinds, stats, records, noCareer, g
   lines.push("- `PersoonLoopbaan`: `Functie` wordt de titel, `Werkgever` de organisatie, `Van` en `TotEnMet` de jaren. Soort `politiek` als titel of werkgever een politiek ambt noemt (minister, wethouder, burgemeester, raadslid, Statenlid, gedeputeerde, Kamerlid, enzovoort), anders `loopbaan`. `current` blijft `false`: de bron zegt bij een loopbaanregel niet of die loopt.");
   lines.push("- `PersoonNevenfunctie`: `Omschrijving` wordt de titel, zonder aparte organisatie. `current` is `true` als `IsActief` waar is en er geen einddatum in het verleden staat.");
   lines.push("- `PersoonOnderwijs`: `OpleidingNl` wordt de titel, `Instelling` de organisatie, soort `opleiding`.");
-  lines.push("- Tweede bron: Wikidata, P39 (functie) en P108 (werkgever) van de eigen entiteit van de persoon, alleen claims met P580 of P582, labels in het Nederlands, geen claims met rang deprecated, opgehaald met `wbgetentities` (de SPARQL-dienst gaf op 25-09-2026 een time-out, HTTP 504). Organisatie bij P39: het label van kwalificatie P642, anders P2389 of P361 van de functie. Titel bij P108: de rol (P2868 of P794) als die er is, anders de werkgever. Opeenvolgende claims voor dezelfde functie (per zittingsperiode) worden samengevoegd als de volgende binnen zeven dagen na het einde van de vorige begint. Wikidata zegt niet of een functie loopt, dus `current` is daar `false`. Betrouwbaarheid `medium`.");
-  lines.push("- Een Wikidata-regel die dezelfde functie beschrijft als een TK-regel (zelfde beginjaar en een gedeeld kernwoord) valt weg; TK gaat voor. Per persoon: lopend eerst, dan op begin, nieuwste eerst, en hooguit " + maxPerPerson + " regels.");
+  lines.push("- Tweede bron: Wikidata, P39 (functie), P108 (werkgever) en P106 (beroep) van de eigen entiteit van de persoon, labels in het Nederlands, geen claims met rang deprecated, opgehaald met `wbgetentities` (de SPARQL-dienst gaf op 25-09-2026 een time-out, HTTP 504). Claims zonder P580 en P582 blijven staan met `start` en `end` op null.");
+  lines.push("- Referentieregel: een Wikidata-claim komt alleen in het bestand als hij minstens een referentie heeft. De enige uitzondering is P39 zonder referentie bij een persoon van wie de dataset dat ambt al uit een officiele bron (geen Wikidata of Wikipedia) bevestigt: een tenure of lidmaatschap waarvan de positietitel of organisatienaam een kernwoord deelt met de Wikidata-functie.");
+  lines.push("- P106 wordt soort `beroep`: titel het Nederlandse label van het beroep, organisatie null, datums alleen als kwalificaties ze geven. Een beroep wordt niet aan een werkgever gekoppeld, omdat Wikidata dat verband niet legt; P108 KLM en P106 vliegenier blijven twee regels.");
+  lines.push("-  Organisatie bij P39: het label van kwalificatie P642, anders P2389 of P361 van de functie. Titel bij P108: de rol (P2868 of P794) als die er is, anders de werkgever. Opeenvolgende claims voor dezelfde functie (per zittingsperiode) worden samengevoegd als de volgende binnen zeven dagen na het einde van de vorige begint. Wikidata zegt niet of een functie loopt, dus `current` is daar `false`. Betrouwbaarheid `medium`.");
+  lines.push("- Een Wikidata-regel die dezelfde functie beschrijft als een TK-regel (zelfde beginjaar en een gedeeld kernwoord) valt weg; TK gaat voor. Een ongedateerde Wikidata-regel met dezelfde titel en organisatie als een al opgenomen regel valt ook weg. Per persoon: lopend eerst, dan gedateerd op begin, nieuwste eerst, dan ongedateerd, en hooguit " + maxPerPerson + " regels.");
   lines.push("- `organizationId` staat alleen ingevuld als de organisatienaam precies gelijk is aan de naam of een alias van precies een organisatie in `data/organizations.json`.");
   lines.push("");
   lines.push("## Aantallen");
@@ -729,9 +774,9 @@ export function renderReport({ today, groups, kinds, stats, records, noCareer, g
     lines.push(`| ${GROUP_LABELS[group]} | ${row.people} | ${row.matched} | ${row.wikidata} | ${row.withCareer} | ${row.fromTk} | ${row.fromWd} | ${row.entries} |`);
   }
   lines.push("");
-  lines.push(`Totaal ${records.length} regels: ${stats.tkEntries} uit de Tweede Kamer, ${stats.wdEntries} uit Wikidata. Per soort: ${KINDS.map((k) => `${k} ${kinds[k]}`).join(", ")}. Lopend: ${records.filter((r) => r.current).length}. Met een \`organizationId\`: ${stats.withOrgId}.`);
+  lines.push(`Totaal ${records.length} regels: ${stats.tkEntries} uit de Tweede Kamer, ${stats.wdEntries} uit Wikidata. Per soort: ${KINDS.map((k) => `${k} ${kinds[k]}`).join(", ")}. Lopend: ${records.filter((r) => r.current).length}. Met een \`organizationId\`: ${stats.withOrgId}. Zonder begin en einde: ${records.filter((r) => !r.start && !r.end).length} (${records.filter((r) => !r.start && !r.end && r.source.confidence === "medium").length} uit Wikidata).`);
   lines.push("");
-  lines.push(`Weggelaten: ${stats.deduped} dubbele regels (Wikidata gelijk aan TK, of exact dezelfde regel), ${stats.capped} regels boven de grens van ${maxPerPerson} per persoon, ${stats.droppedBadRange} regels met een einde voor het begin, ${stats.wdNoLabel} Wikidata-claims zonder Nederlands label. ${stats.tkBadDate} TK-regels hebben een datumwaarde die niet als jaar of datum te lezen is; die datum staat op null.`);
+  lines.push(`Weggelaten: ${stats.deduped} dubbele regels (Wikidata gelijk aan TK, of exact dezelfde regel), ${stats.capped} regels boven de grens van ${maxPerPerson} per persoon, ${stats.droppedBadRange} regels met een einde voor het begin, ${stats.wdNoLabel} Wikidata-claims zonder Nederlands label, ${stats.wdUnreferenced} Wikidata-claims zonder referentie. ${stats.tkBadDate} TK-regels hebben een datumwaarde die niet als jaar of datum te lezen is; die datum staat op null.`);
   lines.push("");
   lines.push("## Gaps");
   lines.push("");
@@ -746,7 +791,7 @@ export function renderReport({ today, groups, kinds, stats, records, noCareer, g
   if (noCareer.length === 0) lines.push("Geen.");
   noCareer.forEach((row, i) => {
     const why = row.tk ? "gekoppelde TK-Persoon zonder loopbaanregels" : `geen TK-koppeling (${row.reason ?? "onbekend"})`;
-    const wd = row.wikidata ? `Wikidata ${row.wikidata} zonder bruikbare P39 of P108 met datum` : "geen Wikidata-id";
+    const wd = row.wikidata ? `Wikidata ${row.wikidata} zonder bruikbare P39, P108 of P106 met referentie` : "geen Wikidata-id";
     lines.push(`${i + 1}. \`${row.id}\` (${row.name}, ${row.group}): ${why}; ${wd}.`);
   });
   lines.push("");
