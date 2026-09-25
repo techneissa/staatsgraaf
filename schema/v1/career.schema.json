@@ -10,7 +10,7 @@
     },
     "career": {
       "title": "One line of a person's career history",
-      "description": "A previous or current office, job, side job or education of a person, from the Tweede Kamer Gegevensmagazijn (PersoonLoopbaan, PersoonNevenfunctie, PersoonOnderwijs) or Wikidata (P39, P108). Written by pipelines/careers.mjs.",
+      "description": "A previous or current office, job, side job or education of a person, from the Tweede Kamer Gegevensmagazijn (PersoonLoopbaan, PersoonNevenfunctie, PersoonOnderwijs) or Wikidata (P39, P108, P106). Written by pipelines/careers.mjs.",
       "type": "object",
       "required": ["id", "person", "title", "organization", "organizationId", "start", "end", "current", "kind", "source"],
       "additionalProperties": false,
@@ -23,7 +23,7 @@
         "start": { "$ref": "#/$defs/partialDate" },
         "end": { "$ref": "#/$defs/partialDate" },
         "current": { "type": "boolean", "description": "True only when the source says the role is ongoing." },
-        "kind": { "type": "string", "enum": ["politiek", "loopbaan", "nevenfunctie", "opleiding"] },
+        "kind": { "type": "string", "enum": ["politiek", "loopbaan", "nevenfunctie", "opleiding", "beroep"] },
         "source": { "$ref": "common.schema.json#/$defs/sourceRef" }
       }
     }
