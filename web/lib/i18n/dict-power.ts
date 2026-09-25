@@ -138,4 +138,7 @@ export const POWER_DICT = {
   hallPrev: { nl: "Vorige", en: "Previous" },
   hallNext: { nl: "Volgende", en: "Next" },
   hallClose: { nl: "Sluiten", en: "Close" },
+  hallSinceHouse: { nl: "Kamerlid sinds {date}", en: "Member of the House since {date}" },
+  hallSinceSenate: { nl: "Eerste Kamerlid sinds {date}", en: "Senator since {date}" },
+  hallSincePost: { nl: "In functie sinds {date}", en: "In office since {date}" },
 } as const satisfies Record<string, LocString>;

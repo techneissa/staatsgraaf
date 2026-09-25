@@ -48,6 +48,7 @@ export type ChamberPlan = {
     clerk?: PlanPoint;
     rostrum?: PlanPoint;
     cabinet?: readonly { from: PlanPoint; to: PlanPoint }[];
+    furniture?: readonly { kind: "desk" | "rostrum" | "cabinet" | "other"; points: readonly PlanPoint[] }[];
   };
   source?: { source: string; retrieved?: string | null } | null;
 };
@@ -82,6 +83,8 @@ export type ChamberHall = {
   /** The chair at the desk (Tweede Kamer); in the Eerste Kamer the chair's seat is in `seats`. */
   chair: { x: number; y: number; r: number; person: string | null } | null;
   cabinet: { r: number; seats: HallBenchSeat[]; label: PlanPoint };
+  /** The hall's furniture as polygons (desks, rostrum, vak-K), drawn faintly under the seats. */
+  furniture: { kind: "desk" | "rostrum" | "cabinet" | "other"; points: PlanPoint[] }[];
   total: number;
   majority: number;
 };
@@ -195,11 +198,13 @@ export function layoutHall(input: HallInput): ChamberHall {
   let chairPoint: PlanPoint | null = null;
   let cabinetSeats: HallBenchSeat[] = [];
   let cabinetLabel: PlanPoint = { x: 0, y: 0 };
+  let furniture: ChamberHall["furniture"] = [];
   const benchPitch = 0.86;
   if (plan.coordinates === "pdf-points") {
     const { pitch, turn } = turnPdf(plan);
     points = plan.seats.map(turn);
     chairPoint = plan.places.chair ? turn(plan.places.chair) : null;
+    furniture = (plan.places.furniture ?? []).map((item) => ({ kind: item.kind, points: item.points.map(turn) }));
     const bars = plan.places.cabinet ?? [];
     if (bars.length > 0 && bench.length > 0) {
       // Rows start at the members' end of the front bar and run along it,
@@ -221,6 +226,21 @@ export function layoutHall(input: HallInput): ChamberHall {
     }
   } else {
     points = plan.seats.map(placeGrid);
+    // The chair's desk with the griffie either side of it, as the page's
+    // middle block draws it (griffie, chair, griffie), just in front of the chair.
+    const chairIndex = plan.seats.findIndex((seat) => seat.block === "chair");
+    if (chairIndex >= 0) {
+      const at = points[chairIndex];
+      furniture.push({
+        kind: "desk",
+        points: [
+          { x: at.x - 1.3, y: at.y - 0.95 },
+          { x: at.x + 1.3, y: at.y - 0.95 },
+          { x: at.x + 1.3, y: at.y - 0.72 },
+          { x: at.x - 1.3, y: at.y - 0.72 },
+        ],
+      });
+    }
     // The regeringstafel faces the chair across the hall: an arc above the
     // aisle, the minister-president in the middle of the front row.
     const xs = points.map((point) => point.x);
@@ -294,8 +314,8 @@ export function layoutHall(input: HallInput): ChamberHall {
   const labelBox = [-1.5, 1.5].flatMap((dx) => [-0.9, 0.9].map((dy) => ({ x: cabinetLabel.x + dx, y: cabinetLabel.y + dy })));
   // Room under the chair for its label, at the desk or in its seat.
   const chairAt = chairPoint ?? seats.find((seat) => seat.chair && seat.person) ?? null;
-  const chairBox = chairAt ? [{ x: chairAt.x, y: chairAt.y + r * 1.5 + 1.1 }] : [];
-  const all: PlanPoint[] = [...seats, ...cabinetSeats, ...chairBox, ...labelBox];
+  const chairBox = chairAt ? [{ x: chairAt.x, y: chairAt.y + r * 2.3 + 1.1 }] : [];
+  const all: PlanPoint[] = [...seats, ...cabinetSeats, ...chairBox, ...labelBox, ...furniture.flatMap((item) => item.points)];
   const minX = Math.min(...all.map((point) => point.x)) - margin;
   const minY = Math.min(...all.map((point) => point.y)) - margin;
   const maxX = Math.max(...all.map((point) => point.x)) + margin;
@@ -311,8 +331,9 @@ export function layoutHall(input: HallInput): ChamberHall {
     height: round(maxY - minY),
     r,
     seats: seats.map((seat) => ({ ...seat, ...shift(seat) })),
-    chair: chairPoint && plan.coordinates === "pdf-points" ? { ...shift(chairPoint), r: round(r * 1.5), person: input.chair } : null,
+    chair: chairPoint && plan.coordinates === "pdf-points" ? { ...shift(chairPoint), r: round(r * 2.3), person: input.chair } : null,
     cabinet: { r: round(r * 0.9), seats: cabinetSeats.map((seat) => ({ ...seat, ...shift(seat) })), label: shift(cabinetLabel) },
+    furniture: furniture.map((item) => ({ kind: item.kind, points: item.points.map(shift) })),
     total,
     majority,
   };
