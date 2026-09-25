@@ -54,9 +54,12 @@ export function BudgetRadar({ data }: { data: RadarData }) {
   const [active, setActive] = useState<number | null>(null);
 
   const available = data.years.map((entry) => entry.year);
-  const [years, setYears] = useState<number[]>(() =>
+  // Three selector slots; the second and third can be switched off ("Geen"),
+  // so the chart can compare one, two or three years. Colour follows the slot.
+  const [slotYears, setSlotYears] = useState<(number | null)[]>(() =>
     DEFAULT_YEARS.every((year) => available.includes(year)) ? DEFAULT_YEARS : available.slice(-3),
   );
+  const years = slotYears.filter((year): year is number => year !== null);
 
   useEffect(() => {
     const node = wrapRef.current;
@@ -98,9 +101,10 @@ export function BudgetRadar({ data }: { data: RadarData }) {
 
   const measureOf = (year: number) => data.years.find((entry) => entry.year === year)?.measure ?? "actual";
 
-  const series = years.map((year) => {
+  const series = slotYears.flatMap((year, slot) => {
+    if (year === null) return [];
     const values = data.ministries.map((ministry) => ministry.values[String(year)] ?? null);
-    return { year, values, shares: sharesOf(values), measure: measureOf(year) };
+    return [{ year, slot, values, shares: sharesOf(values), measure: measureOf(year) }];
   });
 
   const share = shareTicks(Math.max(0, ...series.flatMap((entry) => entry.shares.map((value) => value ?? 0))));
@@ -189,20 +193,21 @@ export function BudgetRadar({ data }: { data: RadarData }) {
       <style>{SERIES_STYLE}</style>
 
       <div className="grid grid-cols-3 gap-2">
-        {years.map((year, slot) => (
+        {slotYears.map((year, slot) => (
           <div key={slot} className="min-w-0">
             <div className="flex items-center gap-1.5">
-              <LineKey color={SLOT_COLORS[slot]} />
+              <LineKey color={year === null ? "var(--t-color-line-strong)" : SLOT_COLORS[slot]} />
               <select
                 aria-label={t("budgetRadarSeries", { number: slot + 1 })}
-                value={year}
+                value={year === null ? "" : year}
                 onChange={(event) => {
-                  const next = [...years];
-                  next[slot] = Number(event.target.value);
-                  setYears(next);
+                  const next = [...slotYears];
+                  next[slot] = event.target.value === "" ? null : Number(event.target.value);
+                  setSlotYears(next);
                 }}
                 className="min-h-11 w-full min-w-0 rounded-sm border border-line bg-surface px-2 text-sm font-medium tabular-nums text-ink hover:border-line-strong"
               >
+                {slot > 0 ? <option value="">{t("budgetRadarNoYear")}</option> : null}
                 {[...available].reverse().map((option) => (
                   <option key={option} value={option}>
                     {option}
@@ -210,7 +215,7 @@ export function BudgetRadar({ data }: { data: RadarData }) {
                 ))}
               </select>
             </div>
-            <p className="mt-1 pl-[22px] text-[11px] leading-tight text-ink-faint">{measureLabel(year)}</p>
+            <p className="mt-1 pl-[22px] text-[11px] leading-tight text-ink-faint">{year === null ? "\u00a0" : measureLabel(year)}</p>
           </div>
         ))}
       </div>
@@ -277,15 +282,15 @@ export function BudgetRadar({ data }: { data: RadarData }) {
             );
           })}
 
-          {series.map((entry, slot) => {
-            const { d, closed } = radarPath(pointsOf(slot));
+          {series.map((entry, index) => {
+            const { d, closed } = radarPath(pointsOf(index));
             return (
               <path
-                key={slot}
+                key={entry.slot}
                 d={d}
-                fill={closed ? SLOT_COLORS[slot] : "none"}
+                fill={closed ? SLOT_COLORS[entry.slot] : "none"}
                 fillOpacity={closed ? 0.08 : undefined}
-                stroke={SLOT_COLORS[slot]}
+                stroke={SLOT_COLORS[entry.slot]}
                 strokeWidth="2"
                 strokeLinejoin="round"
                 strokeLinecap="round"
@@ -315,15 +320,15 @@ export function BudgetRadar({ data }: { data: RadarData }) {
           })}
 
           {active !== null
-            ? series.map((_, slot) => {
-                const point = pointsOf(slot)[active];
+            ? series.map((entry, index) => {
+                const point = pointsOf(index)[active];
                 return point ? (
                   <circle
-                    key={`dot-${slot}`}
+                    key={`dot-${entry.slot}`}
                     cx={point.x}
                     cy={point.y}
                     r="4"
-                    fill={SLOT_COLORS[slot]}
+                    fill={SLOT_COLORS[entry.slot]}
                     stroke="var(--t-color-surface)"
                     strokeWidth="2"
                   />
@@ -391,7 +396,7 @@ export function BudgetRadar({ data }: { data: RadarData }) {
               {locale === "en" ? (orgEnGloss(data.ministries[active].name) ?? data.ministries[active].name) : data.ministries[active].name}
             </p>
             <ul className="mt-1.5 space-y-1">
-              {series.map((entry, slot) => {
+              {series.map((entry, index) => {
                 const value = entry.values[active];
                 const shareValue = entry.shares[active];
                 const amount = value === null ? t("budgetNotReported") : formatEuroCompact(value, locale);
@@ -399,8 +404,8 @@ export function BudgetRadar({ data }: { data: RadarData }) {
                 const [primary, secondary] =
                   mode === "share" && shareText !== null ? [shareText, amount] : [amount, shareText];
                 return (
-                  <li key={slot} className="flex items-center gap-2">
-                    <LineKey color={SLOT_COLORS[slot]} />
+                  <li key={entry.slot} className="flex items-center gap-2">
+                    <LineKey color={SLOT_COLORS[entry.slot]} />
                     <span className="font-semibold tabular-nums text-ink">{primary}</span>
                     {secondary !== null ? (
                       <span className="tabular-nums text-ink-muted">{secondary}</span>
@@ -435,10 +440,10 @@ export function BudgetRadar({ data }: { data: RadarData }) {
               <th scope="col" className="w-[34%] py-2 pe-2 font-medium text-ink-faint">
                 {t("budgetRadarTableMinistry")}
               </th>
-              {series.map((entry, slot) => (
-                <th key={slot} scope="col" className="py-2 ps-2 text-right font-medium text-ink-faint">
+              {series.map((entry, index) => (
+                <th key={entry.slot} scope="col" className="py-2 ps-2 text-right font-medium text-ink-faint">
                   <span className="inline-flex items-center gap-1 tabular-nums text-ink">
-                    <LineKey color={SLOT_COLORS[slot]} />
+                    <LineKey color={SLOT_COLORS[entry.slot]} />
                     {entry.year}
                   </span>
                   <span className="block font-normal">{measureLabel(entry.year)}</span>
@@ -452,11 +457,11 @@ export function BudgetRadar({ data }: { data: RadarData }) {
                 <th scope="row" className="py-2 pe-2 text-left font-normal leading-snug text-ink-muted">
                   {shortLabels[index]}
                 </th>
-                {series.map((entry, slot) => {
+                {series.map((entry) => {
                   const value = entry.values[index];
                   const shareValue = entry.shares[index];
                   return (
-                    <td key={slot} className="py-2 ps-2 text-right tabular-nums">
+                    <td key={entry.slot} className="py-2 ps-2 text-right tabular-nums">
                       {value === null ? (
                         <span className="text-ink-faint">{t("budgetNotReported")}</span>
                       ) : (

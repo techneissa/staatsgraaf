@@ -146,6 +146,7 @@ export const NEWS_DICT = {
   budgetMeasureActual: { nl: "gerealiseerd", en: "realized" },
   budgetRadarHeading: { nl: "Verdeling over de ministeries", en: "Spending across the ministries" },
   budgetRadarSeries: { nl: "Jaar {number}", en: "Year {number}" },
+  budgetRadarNoYear: { nl: "Geen", en: "None" },
   budgetRadarScaleGroup: { nl: "Schaal", en: "Scale" },
   budgetRadarScaleShare: { nl: "Aandeel", en: "Share" },
   budgetRadarScaleAmount: { nl: "Bedrag", en: "Amount" },
