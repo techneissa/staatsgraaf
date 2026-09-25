@@ -103,17 +103,19 @@ export function BudgetTotals({ overview }: { overview: BudgetOverview }) {
           </>
         ) : null}
       </p>
-      <p className="mt-2 text-xs text-ink-faint">
-        <T
-          area="news"
-          k="budgetTotalsComparable"
-          vars={{
-            counted: previousTotals.expected,
-            total: totals.expected,
-            year: previousFiscalYear,
-          }}
-        />
-      </p>
+      {previousTotals.expected < totals.expected ? (
+        <p className="mt-2 text-xs text-ink-faint">
+          <T
+            area="news"
+            k="budgetTotalsComparable"
+            vars={{
+              counted: previousTotals.expected,
+              total: totals.expected,
+              year: previousFiscalYear,
+            }}
+          />
+        </p>
+      ) : null}
     </div>
   );
 }

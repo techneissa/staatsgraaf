@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { EmptyStateT } from "@/components/change/empty-state-t";
 import { EntityTabs } from "@/components/entity-tabs";
 import { JsonLd } from "@/components/json-ld";
 import { PartyBadge } from "@/components/party-badge";
+import { DateT, LocalPeriod } from "@/components/content/local-date";
 import { SourceLink } from "@/components/source-link";
 import { SourceList } from "@/components/source-list";
 import { NewsPanel } from "@/components/news/news-panel";
@@ -13,11 +13,12 @@ import { ShareButton } from "@/components/share-button";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { MembershipList } from "@/components/entity/membership-list";
 import { EntityConnections } from "@/components/entity/entity-connections";
-import { EntityDot } from "@/components/entity/entity-dot";
-import { EntityFacts } from "@/components/entity/entity-facts";
+import { Callout } from "@/components/entity/callout";
+import { CareerTimeline } from "@/components/entity/career-timeline";
+import { FactTiles, type FactTile } from "@/components/entity/fact-tiles";
 import { FactGroup } from "@/components/entity/fact-group";
-import { HistoryIcon, PeopleIcon, PersonIcon, SeatIcon } from "@/components/entity/icons";
-import { PartyPill } from "@/components/party-pill";
+import { BriefcaseIcon, CalendarIcon, HistoryIcon, LinkIcon, PeopleIcon, SeatIcon } from "@/components/entity/icons";
+import { LocalizedDescription } from "@/components/entity/localized-description";
 import { PersonActivity } from "@/components/entity/person-activity";
 import { PersonBirth } from "@/components/entity/person-birth";
 import { PersonPortrait, PersonPortraitCredit } from "@/components/entity/person-portrait";
@@ -33,10 +34,12 @@ import {
   getTenuresForPerson,
 } from "@/lib/data";
 import { getPersonActivityView } from "@/lib/activities";
+import { getCareerForPerson } from "@/lib/careers";
+import { descriptionFor } from "@/lib/description-translations";
+import { personSummary } from "@/lib/entity-summary";
 import {
   getConnectionsForEntity,
   personBirthDate,
-  personDescription,
   personParty,
 } from "@/lib/entity";
 import { getNewsForEntity } from "@/lib/news";
@@ -81,7 +84,8 @@ export async function generateMetadata({
       .map((tenure) => getPositionById(tenure.position)?.title)
       .filter((title): title is string => title !== undefined)[0] ?? null;
   const description =
-    person.description ??
+    personSummary(person)?.nl ??
+    descriptionFor(person.id, person.description)?.nl ??
     (role !== null
       ? `${person.name} is ${role.charAt(0).toLowerCase()}${role.slice(1)}. Bekijk de functies, lidmaatschappen en bronnen.`
       : `Functies, lidmaatschappen en bronnen van ${person.name}.`);
@@ -106,7 +110,10 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
 
   const party = personParty(person);
   const birthDate = personBirthDate(person);
-  const description = personDescription(person);
+  const description = descriptionFor(person.id, person.description);
+  const summary = personSummary(person);
+  const career = getCareerForPerson(person.id);
+  const careerCount = career.reduce((sum, group) => sum + group.items.length, 0);
   const birthSource = birthDate !== null ? birthDateSource(person) : null;
 
   const currentTenures = tenures.filter((tenure) => tenure.end === null);
@@ -135,29 +142,33 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
     person.wikidata !== null ? `https://www.wikidata.org/wiki/${person.wikidata}` : null,
   ].filter((value): value is string => value !== null);
 
-  const facts = [
+  const actingTenures = currentTenures.filter((tenure) => tenure.acting);
+
+  const facts: FactTile[] = [
     {
+      key: "party",
+      icon: <PeopleIcon />,
       label: <T area="entity" k="factParty" />,
       value: party !== null ? <PartyBadge party={party} /> : null,
     },
     {
+      key: "born",
+      icon: <CalendarIcon />,
       label: <T area="entity" k="factBorn" />,
       value: birthDate !== null ? <PersonBirth iso={birthDate} /> : null,
     },
     {
-      label: <T area="entity" k="factWikipedia" />,
+      key: "links",
+      icon: <LinkIcon />,
+      label: <T area="entity" k="factLinks" />,
       value:
-        person.wikipedia != null ? (
-          <SourceLink href={person.wikipedia}>Wikipedia</SourceLink>
-        ) : null,
-    },
-    {
-      label: <T area="entity" k="factWikidata" />,
-      value:
-        person.wikidata != null ? (
-          <SourceLink href={`https://www.wikidata.org/wiki/${person.wikidata}`}>
-            {person.wikidata}
-          </SourceLink>
+        person.wikipedia != null || person.wikidata != null ? (
+          <span className="flex flex-wrap gap-x-3 gap-y-1">
+            {person.wikipedia != null ? <SourceLink href={person.wikipedia}>Wikipedia</SourceLink> : null}
+            {person.wikidata != null ? (
+              <SourceLink href={`https://www.wikidata.org/wiki/${person.wikidata}`}>Wikidata</SourceLink>
+            ) : null}
+          </span>
         ) : null,
     },
   ];
@@ -197,28 +208,36 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
             </div>
           </div>
           <div className="min-w-0 flex-1">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-1.5 rounded-pill border border-line bg-surface px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-ink-muted">
-                <EntityDot kind="person" id={person.id} />
-                <PersonIcon width={13} height={13} />
-                <T area="entity" k="personChip" />
-              </span>
-              {party !== null ? (
-                <PartyPill party={party} className="px-2.5 text-xs" />
-              ) : null}
-              <ShareButton className="ms-auto" title={person.name} />
+            <div className="flex min-w-0 items-start gap-3">
+              <h1 className="min-w-0 flex-1 text-3xl font-semibold tracking-tight text-balance text-ink break-words">
+                {person.name}
+              </h1>
+              <ShareButton className="mt-1 shrink-0" title={person.name} />
             </div>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-balance text-ink">{person.name}</h1>
-            <p className="mt-2 max-w-prose text-sm leading-relaxed text-ink-muted">
-              {description !== null ? (
-                description
-              ) : (
-                <T area="entity" k="personNoDescription" vars={{ name: person.name }} />
-              )}
-            </p>
+            {summary !== null ? (
+              <p className="mt-2 max-w-prose text-base leading-snug text-ink-muted">
+                <L nl={summary.nl} en={summary.en} />
+              </p>
+            ) : null}
+            {actingTenures.length > 0 ? (
+              <div className="mt-3 space-y-2">
+                {actingTenures.slice(0, 2).map((tenure) => {
+                  const position = getPositionById(tenure.position);
+                  if (!position) return null;
+                  return (
+                    <Callout key={tenure.id}>
+                      <DateT area="entity" k="actingCallout" vars={{ title: position.title }} />{" "}
+                      <span className="text-ink-muted">
+                        (<LocalPeriod start={tenure.start} end={null} />)
+                      </span>
+                    </Callout>
+                  );
+                })}
+              </div>
+            ) : null}
             {currentPositions.length > 0 ? (
               <div className="mt-3 text-sm">
-                <p className="text-xs font-medium uppercase tracking-wide text-ink-faint">
+                <p className="text-xs text-ink-faint">
                   <T area="entity" k="rolesNowLabel" />
                 </p>
                 <ul className="mt-1 space-y-1">
@@ -236,7 +255,9 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
                         {organization !== undefined && !namesBody ? (
                           <>
                             {" "}
-                            <span className="text-ink-faint">·</span>{" "}
+                            <span className="text-ink-faint">
+                              <L nl="bij" en="at" />
+                            </span>{" "}
                             <EntityPeekLink id={position.organization} variant="quiet" />
                           </>
                         ) : null}
@@ -245,7 +266,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
                   })}
                   {currentPositions.length > HEADER_ROLE_LIMIT ? (
                     <li className="text-xs text-ink-faint">
-                      <a href="#posities-titel" className="underline-offset-2 hover:text-ink hover:underline">
+                      <a href="#posities-titel" className="tap-row underline-offset-2 hover:text-ink hover:underline">
                         <T area="entity" k="rolesMore" vars={{ n: currentPositions.length - HEADER_ROLE_LIMIT }} />
                       </a>
                     </li>
@@ -255,97 +276,74 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
             ) : null}
           </div>
         </div>
+        <FactTiles facts={facts} className="mt-4" />
+        {description !== null ? (
+          <LocalizedDescription
+            nl={description.nl}
+            en={description.en}
+            className="mt-4 max-w-prose text-sm leading-relaxed text-ink-muted"
+          />
+        ) : null}
       </header>
 
-      <div className="mt-6 grid grid-cols-1 items-start gap-4">
-        <div className="min-w-0 space-y-4">
-          <EntityTabs
-            news={
-              <div>
-                <h2 id="nieuws-paneel-titel" className="text-base font-semibold tracking-tight text-ink">
-                  <T area="entity" k="tabNews" />
-                </h2>
-                {news.length > 0 ? (
-                  <div className="mt-3">
-                    <NewsPanel scope="custom" items={news} initialLimit={4} />
-                  </div>
-                ) : (
-                  <div className="mt-3">
-                    <EmptyStateT
-                      area="entity"
-                      title="newsEmptyTitle"
-                      description="newsEmptyNote"
-                      descriptionVars={{ name: person.name }}
-                    />
-                  </div>
-                )}
-              </div>
-            }
-            extra={
-              activity !== null
-                ? [
-                    {
-                      value: "voorstellen",
-                      label: <L nl="Voorstellen en moties" en="Proposals and motions" />,
-                      content: <PersonActivity view={activity} />,
-                    },
-                  ]
-                : []
-            }
-            connections={
-              <div>
-                <h2
-                  id="verbindingen-paneel-titel"
-                  className="text-base font-semibold tracking-tight text-ink"
-                >
-                  <T area="entity" k="whosConnected" />
-                </h2>
+      <div className="mt-6 min-w-0 space-y-4">
+        <EntityTabs
+          news={
+            <div>
+              <h2 id="nieuws-paneel-titel" className="text-base font-semibold tracking-tight text-ink">
+                <T area="entity" k="tabNews" />
+              </h2>
+              {news.length > 0 ? (
                 <div className="mt-3">
-                  <EntityConnections connections={connections} selfId={person.id} />
+                  <NewsPanel scope="custom" items={news} initialLimit={4} />
                 </div>
+              ) : (
+                <p className="mt-3 text-sm text-ink-faint">
+                  <T area="entity" k="newsEmptyTitle" />
+                </p>
+              )}
+            </div>
+          }
+          extra={
+            activity !== null
+              ? [
+                  {
+                    value: "voorstellen",
+                    label: <L nl="Voorstellen en moties" en="Proposals and motions" />,
+                    content: <PersonActivity view={activity} />,
+                  },
+                ]
+              : []
+          }
+          connections={
+            <div>
+              <h2 id="verbindingen-paneel-titel" className="text-base font-semibold tracking-tight text-ink">
+                <T area="entity" k="whosConnected" />
+              </h2>
+              <div className="mt-3">
+                <EntityConnections connections={connections} selfId={person.id} />
               </div>
-            }
-          />
+            </div>
+          }
+        />
 
-          {tenures.length > 0 ? (
-            <FactGroup id="posities-titel" icon={<HistoryIcon />} title={<T area="entity" k="rolesTitle" />} count={tenures.length}>
-              <TenureTimeline tenures={tenures} variant="person" labelKey="rolesTitle" />
-            </FactGroup>
-          ) : null}
+        {tenures.length > 0 ? (
+          <FactGroup id="posities-titel" icon={<HistoryIcon />} title={<T area="entity" k="rolesTitle" />} count={tenures.length}>
+            <TenureTimeline tenures={tenures} variant="person" labelKey="rolesTitle" limit={6} />
+          </FactGroup>
+        ) : null}
 
-          {memberships.length > 0 ? (
-            <FactGroup icon={<SeatIcon />} title={<T area="entity" k="membershipsTitle" />} count={memberships.length}>
-              <MembershipList memberships={memberships} />
-            </FactGroup>
-          ) : null}
+        {careerCount > 0 ? (
+          <FactGroup id="loopbaan" icon={<BriefcaseIcon />} title={<T area="entity" k="careerTitle" />} count={careerCount}>
+            <CareerTimeline groups={career} />
+          </FactGroup>
+        ) : null}
 
-          {tenures.length === 0 && memberships.length === 0 ? (
-            <FactGroup icon={<PeopleIcon />} title={<T area="entity" k="rolesTitle" />}>
-              <EmptyStateT
-                area="entity"
-                title="noRoleTitle"
-                description="noRoleNote"
-                descriptionVars={{ name: person.name }}
-              />
-            </FactGroup>
-          ) : null}
-        </div>
-
-        <aside className="order-first min-w-0 space-y-4">
-          <EntityFacts facts={facts} className="rounded-md border border-line bg-surface p-4" />
-
-          {currentOrganizations.length > 0 ? (
-            <FactGroup title={<T area="entity" k="rolesNowTitle" />}>
-              <ul className="space-y-1.5 text-sm">
-                {currentOrganizations.map((organization) => (
-                  <li key={organization.id}>
-                    <EntityPeekLink id={organization.id} glyph />
-                  </li>
-                ))}
-              </ul>
-            </FactGroup>
-          ) : null}
-        </aside>
+        {memberships.length > 0 ? (
+          <FactGroup icon={<SeatIcon />} title={<T area="entity" k="membershipsTitle" />} count={memberships.length}>
+            <MembershipList memberships={memberships} />
+          </FactGroup>
+        ) : null}
       </div>
 
       <SourceList sources={person.sources} />

@@ -2,13 +2,15 @@
 
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from "react";
-import type { CSSProperties, ReactNode } from "react";
+import type { CSSProperties, ReactNode, RefObject } from "react";
 import { Avatar } from "@/components/avatar";
 import { useLocale } from "@/components/i18n/language-provider";
 import { useT } from "@/components/i18n/use-t";
 import { KindGlyph } from "@/components/kind-glyph";
 import { ShareButton } from "@/components/share-button";
 import { prefersReducedMotion } from "@/lib/motion";
+import { SheetHandle } from "./sheet-handle";
+import { useBottomSheet } from "./use-bottom-sheet";
 import { ORG_SUBTYPE_LABELS, ORG_SUBTYPE_LABELS_EN } from "@/lib/labels";
 import {
   normalizePeekRecord,
@@ -29,7 +31,9 @@ import {
  * JavaScript the anchor is an ordinary link. Data comes from the build-time
  * peek shards under /peek/, fetched same-origin and cached per shard.
  *
- * Phones get a bottom sheet with safe-area padding; wider screens get a
+ * Phones get a bottom sheet with safe-area padding that the handle or the
+ * header drags between a peek height and nearly full screen, or down to
+ * close (use-bottom-sheet.ts); wider screens get a
  * popover anchored to the link that flips above it when there is no room
  * below. Escape, an outside click or the close button closes it and returns
  * focus to the link.
@@ -319,7 +323,6 @@ function PeekDialog({
       <ShareButton href={open.href} title={record?.name ?? open.label} compact />
     </div>
   );
-  const hint = null;
 
   const closeButton = (
     <button
@@ -337,35 +340,16 @@ function PeekDialog({
 
   if (sheet) {
     return (
-      <div className={`fixed inset-0 z-50 ${closing ? "pointer-events-none" : ""}`} inert={closing}>
-        <div
-          aria-hidden="true"
-          data-state={closing ? "closed" : "open"}
-          className="motion-scrim absolute inset-0 bg-overlay"
-          onClick={() => onClose(true)}
-        />
-        <div
-          ref={panelRef}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby={titleId}
-          tabIndex={-1}
-          data-state={closing ? "closed" : "open"}
-          className="motion-sheet absolute inset-x-0 bottom-0 flex max-h-[85dvh] flex-col rounded-t-lg border border-b-0 border-line bg-surface shadow-2xl outline-none"
-          style={{
-            paddingBottom: "max(var(--t-space-4), env(safe-area-inset-bottom, 0px))",
-            paddingLeft: "max(var(--t-space-4), env(safe-area-inset-left, 0px))",
-            paddingRight: "max(var(--t-space-4), env(safe-area-inset-right, 0px))",
-          }}
-        >
-          <div aria-hidden="true" className="mx-auto mb-1 mt-2 h-1 w-9 shrink-0 rounded-pill bg-line-strong" />
-          <div className="flex min-h-0 items-start gap-2 overflow-y-auto pt-2">
-            <div className="min-w-0 flex-1">{body}</div>
-            {closeButton}
-          </div>
-          <div className="mt-3">{actions}</div>
-        </div>
-      </div>
+      <PeekSheet
+        panelRef={panelRef}
+        titleId={titleId}
+        closing={closing}
+        onClose={onClose}
+        head={<PeekBody open={open} record={record} status={status} titleId={titleId} onNavigate={go} part="head" />}
+        rest={<PeekBody open={open} record={record} status={status} titleId={titleId} onNavigate={go} part="rest" />}
+        closeButton={closeButton}
+        actions={actions}
+      />
     );
   }
 
@@ -386,7 +370,6 @@ function PeekDialog({
         {closeButton}
       </div>
       <div className="mt-3">{actions}</div>
-      {hint}
     </div>
   );
 }
@@ -399,18 +382,111 @@ const KIND_KEY: Record<PeekKind, string> = {
   place: "peekKindPlace",
 };
 
+/**
+ * The phone layout: a bottom sheet whose handle and header drag it between a
+ * peek height (at most 60 % of the viewport) and an expanded height (at most
+ * 90 %), or down to close. The content scrolls between the header and the
+ * actions. When everything fits at the peek height there is nothing to
+ * expand, so the handle goes; the header still drags down to close.
+ */
+function PeekSheet({
+  panelRef,
+  titleId,
+  closing,
+  onClose,
+  head,
+  rest,
+  closeButton,
+  actions,
+}: {
+  panelRef: RefObject<HTMLDivElement | null>;
+  titleId: string;
+  closing: boolean;
+  onClose: (returnFocus?: boolean) => void;
+  head: ReactNode;
+  rest: ReactNode;
+  closeButton: ReactNode;
+  actions: ReactNode;
+}) {
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
+  const scrollerId = useId();
+  const sheet = useBottomSheet({
+    panelRef,
+    scrollerRef,
+    innerRef,
+    detents: ({ natural, viewport }) => ({
+      peek: Math.min(natural, viewport * 0.6),
+      expanded: Math.min(natural, viewport * 0.9),
+    }),
+    onDismiss: () => onClose(true),
+  });
+  return (
+    <div className={`fixed inset-0 z-50 ${closing ? "pointer-events-none" : ""}`} inert={closing}>
+      <div
+        aria-hidden="true"
+        data-state={closing ? "closed" : "open"}
+        className="motion-scrim absolute inset-0 bg-overlay"
+        onClick={() => onClose(true)}
+      />
+      <div data-state={closing ? "closed" : "open"} className="motion-sheet absolute inset-x-0 bottom-0">
+        <div
+          ref={panelRef}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby={titleId}
+          tabIndex={-1}
+          className="flex max-h-[90dvh] flex-col overflow-hidden rounded-t-lg border border-b-0 border-line bg-surface shadow-2xl outline-none"
+          style={{
+            ...sheet.style,
+            paddingBottom: "max(var(--t-space-4), env(safe-area-inset-bottom, 0px))",
+            paddingLeft: "max(var(--t-space-4), env(safe-area-inset-left, 0px))",
+            paddingRight: "max(var(--t-space-4), env(safe-area-inset-right, 0px))",
+          }}
+        >
+          <div {...sheet.dragProps} className={`shrink-0 select-none ${sheet.canExpand ? "" : "pt-3"}`}>
+            {sheet.canExpand ? (
+              <SheetHandle
+                expanded={sheet.detent === "expanded"}
+                onToggle={sheet.toggle}
+                onKeyDown={sheet.onHandleKeyDown}
+                controls={scrollerId}
+              />
+            ) : null}
+            <div className="flex items-start gap-2 pt-2">
+              <div className="min-w-0 flex-1">{head}</div>
+              {closeButton}
+            </div>
+          </div>
+          <div
+            ref={scrollerRef}
+            id={scrollerId}
+            className={`min-h-0 flex-1 overscroll-contain ${sheet.dragging ? "overflow-hidden" : "overflow-y-auto"}`}
+          >
+            <div ref={innerRef} className="flow-root">{rest}</div>
+          </div>
+          <div className="mt-3 shrink-0">{actions}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function PeekBody({
   open,
   record,
   status,
   titleId,
   onNavigate,
+  part = "all",
 }: {
   open: OpenState;
   record: PeekRecord | null;
   status: "loading" | "ready" | "error";
   titleId: string;
   onNavigate: (href: string) => void;
+  /** The sheet puts the header in its drag zone and scrolls the rest. */
+  part?: "all" | "head" | "rest";
 }) {
   const t = useT("common");
   const locale = useLocale();
@@ -438,8 +514,7 @@ function PeekBody({
     </a>
   );
 
-  return (
-    <div>
+  const head = (
       <div className="flex items-start gap-3">
         {kind === "person" ? (
           <Avatar name={name} url={record?.portrait?.url ?? null} color={record?.color ?? null} size={48} title={record?.portrait?.credit} />
@@ -476,7 +551,10 @@ function PeekBody({
           ) : null}
         </div>
       </div>
+  );
 
+  const rest = (
+    <>
       {status === "loading" ? (
         <div aria-live="polite" className="mt-3 space-y-2">
           <span className="sr-only">{t("peekLoading")}</span>
@@ -600,6 +678,15 @@ function PeekBody({
           ) : null}
         </div>
       ) : null}
+    </>
+  );
+
+  if (part === "head") return head;
+  if (part === "rest") return <div className="pb-1">{rest}</div>;
+  return (
+    <div>
+      {head}
+      {rest}
     </div>
   );
 }

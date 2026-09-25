@@ -81,14 +81,6 @@ export function TopicCard({
           k={organizationCount === 1 ? "topicOrgCountSingular" : "topicOrgCountPlural"}
         />
       </p>
-      <p className="mt-2 text-sm">
-        <Link
-          href={`/onderwerpen/${topic.slug}/`}
-          className="text-accent-text underline-offset-2 hover:underline"
-        >
-          <T area="news" k="topicViewLink" />
-        </Link>
-      </p>
     </article>
   );
 }

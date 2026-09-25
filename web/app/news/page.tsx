@@ -4,8 +4,6 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { NewsExplorer } from "@/components/news/news-explorer";
 import { getDatasetDate } from "@/lib/data";
-import { formatCount } from "@/lib/format";
-import { getNewsCount } from "@/lib/news";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
 import { buildNewsExplorerGroups, formatNewsDayLabel } from "@/lib/news-page";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
@@ -29,7 +27,6 @@ export const metadata: Metadata = {
 export default function NewsPage() {
   const { groups, initialVisible } = buildNewsExplorerGroups("en", "/news");
   const datasetDate = getDatasetDate();
-  const total = getNewsCount();
   const pageUrl = absoluteUrl("/news/");
 
   return (
@@ -59,15 +56,12 @@ export default function NewsPage() {
             {messages.otherLanguageLabel}
           </Link>
         </div>
-        <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">{messages.intro}</p>
-        <p className="mt-2 text-xs text-ink-faint">
-          {formatCount(total)}{" "}
-          {total === 1 ? messages.itemsWordSingular : messages.itemsWordPlural}
-          {datasetDate !== null ? ` · updated ${formatNewsDayLabel(datasetDate, "en")}` : null}
-        </p>
+        {datasetDate !== null ? (
+          <p className="mt-2 text-xs text-ink-faint">updated {formatNewsDayLabel(datasetDate, "en")}</p>
+        ) : null}
       </header>
 
-      <section aria-label={messages.heading} className="py-6">
+      <section className="py-6">
         <NewsExplorer
           groups={groups}
           initialVisible={initialVisible}

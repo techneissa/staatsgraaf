@@ -1,4 +1,3 @@
-import { EmptyStateT } from "@/components/change/empty-state-t";
 import { SourceLink } from "@/components/source-link";
 import { L, T } from "@/components/i18n/t";
 import { KindGlyph } from "@/components/kind-glyph";
@@ -276,11 +275,9 @@ function ConnectionGroupBlock({
 export function EntityConnections({ connections, selfId }: { connections: Connection[]; selfId?: string }) {
   if (connections.length === 0) {
     return (
-      <EmptyStateT
-        area="entity"
-        title="noConnectionsTitle"
-        description="noConnectionsNote"
-      />
+      <p className="text-sm text-ink-faint">
+        <T area="entity" k="noConnectionsTitle" />
+      </p>
     );
   }
 

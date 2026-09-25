@@ -78,6 +78,14 @@ function readOptionalArray<T>(file: string): T[] {
   }
 }
 
+/**
+ * Read an optional dataset file by name: a missing or malformed file is an
+ * empty list. For loaders outside this module (descriptions, careers).
+ */
+export function readOptionalDataFile<T>(file: string): T[] {
+  return readOptionalArray<T>(file);
+}
+
 function indexById<T extends { id: string }>(items: T[]): Map<string, T> {
   return new Map(items.map((item) => [item.id, item]));
 }

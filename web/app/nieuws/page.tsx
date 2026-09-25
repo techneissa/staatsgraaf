@@ -3,12 +3,10 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { NewsExplorer } from "@/components/news/news-explorer";
-import { L } from "@/components/i18n/t";
+import { L, T } from "@/components/i18n/t";
 import { getDatasetDate } from "@/lib/data";
-import { formatCount } from "@/lib/format";
-import { getNewsCount } from "@/lib/news";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
-import { NT, NTKind, NTLanguage } from "@/components/news/news-t";
+import { NT } from "@/components/news/news-t";
 import { buildNewsExplorerGroups, formatNewsDayLabel } from "@/lib/news-page";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 
@@ -27,7 +25,6 @@ export const metadata: Metadata = pageMetadata({
 export default function NewsPage() {
   const { groups, initialVisible } = buildNewsExplorerGroups("nl", "/nieuws");
   const datasetDate = getDatasetDate();
-  const total = getNewsCount();
   const pageUrl = absoluteUrl("/nieuws/");
 
   return (
@@ -59,29 +56,20 @@ export default function NewsPage() {
             href={messages.otherLanguageHref}
             className="text-sm text-accent-text underline-offset-2 hover:underline"
           >
-            <L nl={messages.otherLanguageLabel} en="English page" />
+            <T area="news" k="newsOtherLanguageEn" />
           </Link>
         </div>
-        <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
-          <L nl={messages.intro} en={en.intro} />
-        </p>
-        <p className="mt-2 text-xs text-ink-faint">
-          {formatCount(total)}{" "}
-          {total === 1 ? (
-            <L nl={messages.itemsWordSingular} en={en.itemsWordSingular} />
-          ) : (
-            <L nl={messages.itemsWordPlural} en={en.itemsWordPlural} />
-          )}
-          {datasetDate !== null ? (
-            <>
-              {" · "}
-              <L nl="bijgewerkt" en="updated" /> {formatNewsDayLabel(datasetDate, "nl")}
-            </>
-          ) : null}
-        </p>
+        {datasetDate !== null ? (
+          <p className="mt-2 text-xs text-ink-faint">
+            <L
+              nl={`bijgewerkt ${formatNewsDayLabel(datasetDate, "nl")}`}
+              en={`updated ${formatNewsDayLabel(datasetDate, "en")}`}
+            />
+          </p>
+        ) : null}
       </header>
 
-      <section aria-label={messages.heading} className="py-6">
+      <section className="py-6">
         <NewsExplorer
           groups={groups}
           initialVisible={initialVisible}

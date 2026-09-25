@@ -87,7 +87,8 @@ export default async function BudgetOrganizationPage({
 
       <header className="mt-4 border-b border-line pb-6">
         <p className="text-xs font-medium text-accent-text"><T area="news" k="budgetHeading" /></p>
-        <h1 className="mt-1 text-2xl font-semibold tracking-tight text-ink">          {view.organization.name}
+        <h1 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
+          {view.organization.name}
         </h1>
         <p className="mt-2 text-sm">
           <Link
@@ -97,15 +98,6 @@ export default async function BudgetOrganizationPage({
               <T area="news" k="budgetOrgActionLink" />
           </Link>
         </p>
-        {currentYear !== null && previousYear !== null ? (
-          <p className="mt-1 text-xs text-ink-faint">
-            <T
-              area="news"
-              k="budgetComparisonNote"
-              vars={{ current: currentYear, previous: previousYear }}
-            />
-          </p>
-        ) : null}
       </header>
 
       {view.current !== null ? (
@@ -164,9 +156,6 @@ export default async function BudgetOrganizationPage({
         <h2 id="reeks-titel" className="text-lg font-semibold tracking-tight text-ink">
             <T area="news" k="budgetHistoryHeading" />
         </h2>
-        <p className="mt-1 text-sm text-ink-muted">
-          <T area="news" k="budgetHistoryCaption" />
-        </p>
         <div className="mt-3">
           <BudgetHistory history={view.history} unit={view.unit} sources={view.sources} />
         </div>

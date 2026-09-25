@@ -49,9 +49,6 @@ export default function NewsSourcesPage() {
             {messages.otherLanguageLabel}
           </Link>
         </div>
-        <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
-          {messages.sourcesIntro}
-        </p>
       </header>
 
       <section className="py-6">
@@ -66,10 +63,10 @@ export default function NewsSourcesPage() {
                   <th scope="col" className="py-2 pr-3 font-medium">
                     {messages.sourcesTablePublisher}
                   </th>
-                  <th scope="col" className="py-2 pr-3 font-medium">
+                  <th scope="col" className="hidden py-2 pr-3 font-medium sm:table-cell">
                     {messages.sourcesTableKind}
                   </th>
-                  <th scope="col" className="py-2 pr-3 font-medium">
+                  <th scope="col" className="hidden py-2 pr-3 font-medium sm:table-cell">
                     {messages.sourcesTableLanguages}
                   </th>
                   <th scope="col" className="py-2 pr-3 text-right font-medium">
@@ -85,9 +82,12 @@ export default function NewsSourcesPage() {
                   <tr key={outlet.publisher} className="border-b border-line align-top">
                     <th scope="row" className="py-2 pr-3 text-left font-medium text-ink">
                       {outlet.publisher}
+                      <span className="mt-0.5 block text-xs font-normal text-ink-faint sm:hidden">
+                        {messages.kindLabels[outlet.kind]} · {outlet.languages.map((language) => messages.languageLabels[language]).join(", ")}
+                      </span>
                     </th>
-                    <td className="py-2 pr-3 text-ink-muted">{messages.kindLabels[outlet.kind]}</td>
-                    <td className="py-2 pr-3 text-ink-muted">
+                    <td className="hidden py-2 pr-3 text-ink-muted sm:table-cell">{messages.kindLabels[outlet.kind]}</td>
+                    <td className="hidden py-2 pr-3 text-ink-muted sm:table-cell">
                       {outlet.languages.map((language) => messages.languageLabels[language]).join(", ")}
                     </td>
                     <td className="py-2 pr-3 text-right tabular-nums text-ink-muted">
