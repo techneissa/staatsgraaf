@@ -57,6 +57,8 @@ const LINK_STYLE: Record<WheelLinkType, { dash?: string; arrow: "filled" | "open
   advises: { arrow: "open" },
   accountable_to: { arrow: "open" },
   part_of: { dash: "3 3", arrow: null },
+  appoints: { arrow: "filled" },
+  joint_arrangement_member: { dash: "1 3", arrow: null },
 };
 
 /** The shortest turn that brings `angle` to the bottom of the wheel, starting from `from`. */
