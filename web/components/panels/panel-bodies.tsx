@@ -339,8 +339,27 @@ function BudgetBlock({ budget }: { budget: NonNullable<PanelOrg["budget"]> }) {
   );
 }
 
+/**
+ * A description in the site language: the English machine translation when a
+ * current one exists (with the quiet disclosure of ADR 0016), else the Dutch text.
+ */
+function PanelDescription({ nl, en }: { nl: string; en: string | null }) {
+  const locale = useLocale();
+  const t = useDict("entity");
+  if (locale === "en" && en !== null) {
+    return (
+      <div className="max-w-prose text-sm leading-relaxed text-ink-muted">
+        <p lang="en">{en}</p>
+        <p className="mt-0.5 text-xs text-ink-faint">{t("translatedFromDutch")}</p>
+      </div>
+    );
+  }
+  return <p lang="nl" className="max-w-prose text-sm leading-relaxed text-ink-muted">{nl}</p>;
+}
+
 function HolderRows({ holders, limit, total }: { holders: PanelOrg["holders"]; limit: number; total: number }) {
   const t = useDict("panels");
+  const locale = useLocale();
   return (
     <LimitedList
       items={holders}
@@ -352,8 +371,8 @@ function HolderRows({ holders, limit, total }: { holders: PanelOrg["holders"]; l
           key={`${holder.position.id}-${holder.person.id}`}
           person={holder.person}
           sub={
-            <span lang="nl">
-              {holder.position.name}
+            <span lang={locale === "en" && holder.position.gloss ? "en" : "nl"}>
+              {locale === "en" && holder.position.gloss ? holder.position.gloss : holder.position.name}
               {holder.acting ? <span lang={undefined}>, {t("actingRole")}</span> : null}
             </span>
           }
@@ -406,7 +425,7 @@ export function OrgBody({
 
   return (
     <div className={STACK}>
-      {record?.description ? <p lang="nl" className="max-w-prose text-sm leading-relaxed text-ink-muted">{record.description}</p> : null}
+      {record?.description ? <PanelDescription nl={record.description} en={record.descriptionEn ?? null} /> : null}
       {record?.budget ? <BudgetBlock budget={record.budget} /> : null}
       {record && record.holders.length > 0 ? (
         <Section title={t("keyPositions")} count={record.holderCount} size="md">
@@ -472,7 +491,7 @@ export function PersonBody({
   return (
     <div className={STACK}>
       {variant === "page" && record.description ? (
-        <p lang="nl" className="max-w-prose text-sm leading-relaxed text-ink-muted">{record.description}</p>
+        <PanelDescription nl={record.description} en={record.descriptionEn ?? null} />
       ) : null}
 
       {record.roles.length > 0 ? (

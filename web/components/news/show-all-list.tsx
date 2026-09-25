@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { DateT } from "@/components/content/local-date";
 import { T } from "@/components/i18n/t";
+import { DisclosureChevron } from "@/components/icons/disclosure-chevron";
 import { formatCountIn } from "@/lib/format";
 import { PAGES_DICT } from "@/lib/i18n/dict-pages";
 import { interpolate } from "@/lib/i18n/locales";
@@ -52,7 +53,7 @@ export function ShowAllList<Item>({
       <List className={className}>{renderItems(head)}</List>
       {rest.length > 0 ? (
         <details className="motion-disclosure group mt-3">
-          <summary className="inline-flex min-h-11 cursor-pointer list-none items-center rounded-pill border border-line bg-surface-raised px-4 text-sm font-medium text-ink transition-fast hover:border-accent/40 hover:bg-accent-soft hover:text-accent-text sm:min-h-9 pointer-coarse:min-h-11 [&::-webkit-details-marker]:hidden">
+          <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-pill border border-line bg-surface-raised px-4 text-sm font-medium text-ink transition-fast hover:border-accent/40 hover:bg-accent-soft hover:text-accent-text sm:min-h-9 pointer-coarse:min-h-11 [&::-webkit-details-marker]:hidden">
             <span className="group-open:hidden">
               {locale !== undefined ? (
                 interpolate(PAGES_DICT.listShowAll[locale], { count: formatCountIn(items.length, locale) })
@@ -63,6 +64,7 @@ export function ShowAllList<Item>({
             <span className="hidden group-open:inline">
               {locale !== undefined ? PAGES_DICT.listShowLess[locale] : <T area="pages" k="listShowLess" />}
             </span>
+            <DisclosureChevron />
           </summary>
           <List className={className} start={List === "ol" ? head.length + 1 : undefined}>
             {renderItems(rest)}

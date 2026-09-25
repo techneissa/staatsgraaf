@@ -1,6 +1,8 @@
 "use client";
 
 import { useId, useState, type ReactNode } from "react";
+import { ChevronDown, ChevronUp } from "lucide";
+import { Morph } from "@/components/icons/morph";
 import { useT } from "@/components/i18n/use-t";
 
 /**
@@ -31,9 +33,10 @@ export function ShowMore({
         aria-expanded={open}
         aria-controls={id}
         onClick={() => setOpen((value) => !value)}
-        className="mt-2 inline-flex min-h-8 w-full items-center justify-center rounded-sm border border-line px-3 text-sm font-medium text-ink transition-fast hover:border-line-strong pointer-coarse:min-h-11 sm:w-auto"
+        className="mt-2 inline-flex min-h-8 w-full items-center justify-center gap-1.5 rounded-sm border border-line px-3 text-sm font-medium text-ink transition-fast hover:border-line-strong pointer-coarse:min-h-11 sm:w-auto"
       >
         {open ? t(hideKey) : t(showKey, { n: count })}
+        <Morph icon={open ? ChevronUp : ChevronDown} size={14} />
       </button>
     </>
   );

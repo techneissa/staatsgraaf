@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
-import { T } from "@/components/i18n/t";
+import { Gloss, T } from "@/components/i18n/t";
+import { positionEn } from "@/lib/name-gloss";
 import { branchColorVar } from "@/lib/branch-colors";
 import {
   getDatasetDate,
@@ -105,12 +106,14 @@ export default function PositionsIndexPage() {
                       {position.title}
                     </Link>
                   </h3>
+                  <Gloss text={positionEn(position.title)} className="block text-xs text-ink-faint" />
                   {organization ? (
                     <p className="mt-0.5 truncate text-xs text-ink-muted">
                       <EntityPeekLink id={organization.id} variant="quiet" />
                     </p>
                   ) : null}
-                  {position.seatsCount !== null ? (
+                  {/* A single seat is the norm; the count only says something when there are more. */}
+                  {position.seatsCount !== null && position.seatsCount > 1 ? (
                     <p className="mt-auto pt-1.5 text-xs tabular-nums text-ink-faint">
                       <DateT
                         area="entity"

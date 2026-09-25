@@ -449,7 +449,7 @@ export type DescriptionFlag = {
   reason?: string;
 };
 
-export type CareerKind = "politiek" | "loopbaan" | "nevenfunctie" | "opleiding";
+export type CareerKind = "beroep" | "politiek" | "loopbaan" | "nevenfunctie" | "opleiding";
 
 /** One step in a person's career (data/careers.json). */
 export type CareerEntry = {
@@ -458,9 +458,9 @@ export type CareerEntry = {
   title: string;
   organization: string | null;
   organizationId: string | null;
-  start: string | null;
-  end: string | null;
-  current: boolean;
+  start?: string | null;
+  end?: string | null;
+  current?: boolean;
   kind: CareerKind;
   /** A source reference, a source id, or a URL; readers tolerate each form. */
   source: SourceRef | string | { url: string; publisher?: string; title?: string; retrieved?: string } | null;

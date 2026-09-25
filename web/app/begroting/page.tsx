@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { FootnoteMarkers } from "@/components/budget/footnote-marker";
+import { BudgetRadar } from "@/components/budget/budget-radar";
 import { BudgetTile } from "@/components/budget/budget-tile";
 import { BudgetTotals } from "@/components/budget/budget-totals";
 import { SourceFootnotes } from "@/components/budget/source-footnotes";
 import { T } from "@/components/i18n/t";
 import { JsonLd } from "@/components/json-ld";
-import {
-  getBudgetOverview,
-} from "@/lib/budget";
+import { getBudgetOverview, getBudgetRadarData } from "@/lib/budget";
 import { getDatasetDate } from "@/lib/data";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 
@@ -25,6 +24,8 @@ export default function BudgetOverviewPage() {
   const sources = overview.sources;
   const pageUrl = absoluteUrl("/begroting/");
   const allFootnotes = sources.map((_, index) => index + 1);
+  const itemFootnotes = [...new Set(overview.items.flatMap((item) => item.footnotes))].sort((a, b) => a - b);
+  const radar = getBudgetRadarData();
 
   return (
     <>
@@ -60,19 +61,30 @@ export default function BudgetOverviewPage() {
 
       <section aria-labelledby="totalen-titel" className="border-b border-line py-6">
         <h2 id="totalen-titel" className="text-lg font-semibold tracking-tight text-ink">
-          <T area="news" k="budgetTotalsHeading" />
+          <T area="news" k="budgetTotalsHeadingYear" vars={{ year: overview.fiscalYear }} />
           <FootnoteMarkers numbers={allFootnotes} />
         </h2>
-        <div className="mt-4">
-          <BudgetTotals overview={overview} />
+        <div className="mt-3">
+          <BudgetTotals overview={overview} yearInHeading />
+        </div>
+      </section>
+
+      <section aria-labelledby="verdeling-titel" className="border-b border-line py-6">
+        <h2 id="verdeling-titel" className="text-lg font-semibold tracking-tight text-ink">
+          <T area="news" k="budgetRadarHeading" />
+          <FootnoteMarkers numbers={allFootnotes} />
+        </h2>
+        <div className="mt-3">
+          <BudgetRadar data={radar} />
         </div>
       </section>
 
       <section aria-labelledby="ministeries-titel" className="py-6">
         <h2 id="ministeries-titel" className="text-lg font-semibold tracking-tight text-ink">
-          <T area="news" k="budgetMinistriesHeading" />
+          <T area="news" k="budgetMinistriesHeadingYear" vars={{ year: overview.fiscalYear }} />
+          <FootnoteMarkers numbers={itemFootnotes} />
         </h2>
-        <ul className="mt-4 grid grid-cols-2 gap-2.5 sm:gap-3">
+        <ul className="mt-3 grid grid-cols-1 gap-2 @[40rem]:grid-cols-2 @[40rem]:gap-3">
           {overview.items.map((item) => (
             <li key={item.organization.id}>
               <BudgetTile item={item} unit={overview.unit} />

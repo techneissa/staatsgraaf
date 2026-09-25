@@ -2,7 +2,8 @@ import type { ReactNode } from "react";
 import { type TimelineItem } from "@/components/timeline";
 import { PersonPortrait } from "./person-portrait";
 import { QuietSource } from "@/components/change/quiet-source";
-import { T } from "@/components/i18n/t";
+import { Gloss, T } from "@/components/i18n/t";
+import { positionEn } from "@/lib/name-gloss";
 import { LocaleLabel } from "@/components/i18n/locale-label";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { TimelineT } from "./timeline-t";
@@ -55,7 +56,10 @@ export function TenureTimeline({
       <T area="entity" k="unknownPerson" />
     );
     const positionLink = position ? (
-      <EntityPeekLink id={position.id} variant="plain" />
+      <>
+        <EntityPeekLink id={position.id} variant="plain" />
+        <Gloss text={positionEn(position.title)} className="block text-xs font-normal text-ink-faint" />
+      </>
     ) : (
       <T area="entity" k="unknownPosition" />
     );

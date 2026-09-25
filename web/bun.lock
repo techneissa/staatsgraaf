@@ -7,6 +7,8 @@
       "dependencies": {
         "@radix-ui/react-dropdown-menu": "^2.1.24",
         "@radix-ui/react-tabs": "^1.1.21",
+        "lucide": "1.48.0",
+        "morphicons": "1.7.1",
         "next": "^16.3.5",
         "react": "^19.3.0",
         "react-dom": "^19.3.0",
@@ -254,7 +256,11 @@
 
     "lightningcss-win32-x64-msvc": ["lightningcss-win32-x64-msvc@1.32.0", "", { "os": "win32", "cpu": "x64" }, "sha512-Amq9B/SoZYdDi1kFrojnoqPLxYhQ4Wo5XiL8EVJrVsB8ARoC1PWW6VGtT0WKCemjy8aC+louJnjS7U18x3b06Q=="],
 
+    "lucide": ["lucide@1.48.0", "", {}, "sha512-8FglIlGkcIItJjJfLUiqAufUCdbtnTOsdG02/fxXd4oIt+NrcrEVH8t0ZcKAfawxHckorO5qJ9XDfnJbdf0TOg=="],
+
     "magic-string": ["magic-string@0.30.21", "", { "dependencies": { "@jridgewell/sourcemap-codec": "^1.5.5" } }, "sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ=="],
+
+    "morphicons": ["morphicons@1.7.1", "", { "peerDependencies": { "react": ">=18", "react-native": ">=0.71", "react-native-svg": ">=14", "svelte": ">=5", "vue": ">=3.3" }, "optionalPeers": ["react", "react-native", "react-native-svg", "svelte", "vue"] }, "sha512-q5ylxy5/d7vBg0OAzanlooXf05PekovMYDuuQVpr6vAQZxl99lrJbaIi+jJ32PXQf9WEEaDO2pbNBsx1ZhEnFQ=="],
 
     "nanoid": ["nanoid@3.3.19", "", { "bin": { "nanoid": "bin/nanoid.cjs" } }, "sha512-Y2tUNy4ouw6tq5oDSKeQYGOyhkUBhNOcGV/02KC+6kd9eDGqdZd++mjMiIDilrBYvjEnCYvVtsuHCuP+okSfug=="],
 

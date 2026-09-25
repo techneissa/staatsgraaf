@@ -5,7 +5,7 @@ import { GRAPH_LAYOUT, GRAPH_SCHEMA, toWireNode } from "../lib/graph.ts";
 import { computeLayout } from "../lib/graph-layout.ts";
 import { isSplinterGroup, partyByDataset } from "../lib/parties.ts";
 import { seatOrder } from "../lib/seats.ts";
-import { newsReferenceDate, scoreConnections } from "../lib/power-connections.ts";
+import { isCabinetPost, newsReferenceDate, scoreConnections } from "../lib/power-connections.ts";
 
 const DATA_DIR = fileURLToPath(new URL("../../data/", import.meta.url));
 const WINDOW_DAYS = 90;
@@ -112,7 +112,6 @@ function buildPowerMap() {
       windowDays,
       since,
       computedAt: generatedAt,
-    asOf: newsAsOf,
       asOf: newsAsOf,
       articleCount: 0,
       sources: [],
@@ -258,6 +257,13 @@ function buildPowerExtras(ranked) {
   const positionsMap = new Map(
     positions.map((position) => [position.id, { organization: position.organization, title: position.title, type: position.type }]),
   );
+  // The sitting cabinet is always on the connections view, in the news or not,
+  // so every minister and staatssecretaris can be focused with their ties.
+  for (const tenure of tenures) {
+    if (tenure.end !== null) continue;
+    const position = positionsMap.get(tenure.position);
+    if (position && isCabinetPost(position) && peopleById.has(tenure.person)) anchors.add(tenure.person);
+  }
   const prominence = new Map(ranked.map((entry) => [entry.person, entry.total]));
   const links = scoreConnections({
     anchors,

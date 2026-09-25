@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import Link from "next/link";
+import { CircleAlert, MessageSquareWarning, Target, type IconNode } from "lucide";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { SectionHeading } from "@/components/icons/section-heading";
 import { T } from "@/components/i18n/t";
 import { getS } from "@/lib/i18n/server-strings";
 import { canonical, SITE_NAME } from "@/lib/site";
@@ -12,24 +13,26 @@ import { canonical, SITE_NAME } from "@/lib/site";
 export const metadata: Metadata = {
   title: getS("pages", "accessTitle"),
   description:
-    "Toegankelijkheidsverklaring van Staatsgraaf: het nagestreefde niveau, wat al werkt, de bekende beperkingen en hoe je een probleem meldt.",
+    "Toegankelijkheidsverklaring van Staatsgraaf: het nagestreefde niveau, de bekende beperkingen en hoe je een probleem meldt.",
   alternates: canonical("/toegankelijkheid/"),
 };
 
 function Section({
   id,
   titleKey,
+  icon,
   children,
 }: {
   id: string;
   titleKey: string;
+  icon: IconNode;
   children: ReactNode;
 }) {
   return (
     <section aria-labelledby={`${id}-titel`} className="border-b border-line py-6 last:border-b-0">
-      <h2 id={`${id}-titel`} className="text-lg font-semibold tracking-tight text-ink">
+      <SectionHeading id={`${id}-titel`} icon={icon}>
         <T area="pages" k={titleKey} />
-      </h2>
+      </SectionHeading>
       <div className="mt-2 space-y-3 text-sm leading-relaxed text-ink-muted">{children}</div>
     </section>
   );
@@ -51,42 +54,13 @@ export default function AccessibilityPage() {
       </p>
 
       <div className="mt-4">
-        <Section id="doel" titleKey="accessGoalTitle">
+        <Section id="doel" titleKey="accessGoalTitle" icon={Target}>
           <p>
             <T area="pages" k="accessGoalP1" />
           </p>
         </Section>
 
-        <Section id="werkt" titleKey="accessWorksTitle">
-          <List>
-            <li>
-              <T area="pages" k="accessWorks1" />
-            </li>
-            <li>
-              <T area="pages" k="accessWorks2" />
-            </li>
-            <li>
-              <T area="pages" k="accessWorks3" />
-            </li>
-            <li>
-              <T area="pages" k="accessWorks4" />
-            </li>
-            <li>
-              <T area="pages" k="accessWorks5" />
-            </li>
-            <li>
-              <T area="pages" k="accessWorks6" />
-            </li>
-            <li>
-              <T area="pages" k="accessWorks7" />
-            </li>
-            <li>
-              <T area="pages" k="accessWorks8" />
-            </li>
-          </List>
-        </Section>
-
-        <Section id="beperkingen" titleKey="accessLimitsTitle">
+        <Section id="beperkingen" titleKey="accessLimitsTitle" icon={CircleAlert}>
           <List>
             <li>
               <T area="pages" k="accessLimits1" />
@@ -106,19 +80,12 @@ export default function AccessibilityPage() {
           </p>
         </Section>
 
-        <Section id="melden" titleKey="accessReportTitle">
+        <Section id="melden" titleKey="accessReportTitle" icon={MessageSquareWarning}>
           <p>
             <T area="pages" k="accessReportP1" />
           </p>
         </Section>
-
-        <Section id="herziening" titleKey="accessReviewTitle">
-          <p>
-            <T area="pages" k="accessReviewP1" />
-          </p>
-        </Section>
       </div>
-
     </>
   );
 }

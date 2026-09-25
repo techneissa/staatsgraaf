@@ -123,6 +123,9 @@ export function EntityRow({
   trailing?: ReactNode;
 }) {
   const surface = useSurface();
+  const locale = useLocale();
+  const entityGloss = (entity as PanelRef & { gloss?: string | null }).gloss;
+  const gloss = locale === "en" && typeof entityGloss === "string" && entityGloss !== entity.name ? entityGloss : null;
   const body = (
     <>
       {lead ?? null}
@@ -130,6 +133,7 @@ export function EntityRow({
         <span lang="nl" className="block text-[13px] leading-snug text-ink group-hover:underline decoration-1 underline-offset-2">
           {entity.name}
         </span>
+        {gloss ? <span lang="en" className="block text-xs leading-snug text-ink-faint">{gloss}</span> : null}
         {sub ? <span className="mt-0.5 block text-xs leading-snug text-ink-muted">{sub}</span> : null}
       </span>
       {trailing !== undefined && trailing !== null ? (

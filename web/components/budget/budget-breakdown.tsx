@@ -5,9 +5,6 @@ import { T } from "@/components/i18n/t";
 import { interpolate } from "@/lib/i18n/locales";
 import { NEWS_DICT } from "@/lib/i18n/dict-news";
 import { type BudgetBreakdownRow } from "@/lib/budget";
-import { toSourceNoteItems } from "./source-note-data";
-import { SourceNote } from "./source-note";
-import type { SourceRef } from "@/lib/types";
 
 const TYPE_LABELS = {
   spending: "budgetBreakdownSpending",
@@ -17,13 +14,9 @@ const TYPE_LABELS = {
 export function BudgetBreakdown({
   breakdown,
   unit,
-  fiscalYear,
-  sources,
 }: {
   breakdown: BudgetBreakdownRow[];
   unit: string | null;
-  fiscalYear: number | null;
-  sources: SourceRef[];
 }) {
   if (breakdown.length === 0) {
     return (
@@ -67,7 +60,6 @@ export function BudgetBreakdown({
           <div key={group.type} className="mb-5 last:mb-0">
             <h3 className="text-xs font-medium text-ink-faint">
               <T area="news" k={heading} />
-              {fiscalYear !== null ? ` ${fiscalYear}` : ""}
             </h3>
             <table className="motion-grow mt-2 w-full border-collapse text-sm" data-reveal="pending">
               <caption className="sr-only">
@@ -121,8 +113,6 @@ export function BudgetBreakdown({
           </div>
         );
       })}
-
-      <SourceNote items={toSourceNoteItems(sources)} />
     </div>
   );
 }

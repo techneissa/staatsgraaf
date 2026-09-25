@@ -175,7 +175,7 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
       imageCreditLabel: "Beeld:",
       mentionedShort: "Genoemd",
       translatedFrom: { nl: "Vertaald uit het Nederlands", en: "Vertaald uit het Engels" },
-      translatedTitle: "Machinevertaling door een taalmodel. Lees hoe dit werkt in de methodiek.",
+      translatedTitle: "Machinevertaling door een taalmodel. Lees hoe dit werkt op de pagina Over.",
       showOriginal: "Toon origineel",
       showTranslation: "Toon vertaling",
       originalLanguageTag: { nl: "Nederlands", en: "Engels" },
@@ -290,7 +290,7 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
       imageCreditLabel: "Image:",
       mentionedShort: "Mentioned",
       translatedFrom: { nl: "Translated from Dutch", en: "Translated from English" },
-      translatedTitle: "Machine translation by a language model. Read how this works on the method page.",
+      translatedTitle: "Machine translation by a language model. Read how this works on the About page.",
       showOriginal: "Show original",
       showTranslation: "Show translation",
       originalLanguageTag: { nl: "Dutch", en: "English" },
@@ -317,3 +317,19 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
     licenseNone: "No licence recorded",
   },
 };
+
+/**
+ * Labels for the fixed licence values of the feed configuration
+ * (pipelines/feeds.json). Unknown values render as recorded.
+ */
+const LICENSE_LABELS: Record<string, Record<NewsLanguage, string>> = {
+  "all-rights-reserved": { nl: "Alle rechten voorbehouden", en: "All rights reserved" },
+  "Koppen en deep links; geen overname van artikeltekst of beeld.": {
+    nl: "Koppen en deep links; geen overname van artikeltekst of beeld.",
+    en: "Headlines and deep links; no reuse of article text or images.",
+  },
+};
+
+export function licenseLabel(value: string, locale: NewsLanguage): string {
+  return LICENSE_LABELS[value]?.[locale] ?? value;
+}

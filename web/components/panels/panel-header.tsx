@@ -132,7 +132,10 @@ export function PanelHeader({
           >
             {meta?.name ?? <span className="sg-skeleton inline-block h-4 w-40 rounded-sm align-middle" />}
           </h2>
-          {meta?.gloss ? <p className="mt-0.5 text-xs text-ink-faint">{meta.gloss}</p> : null}
+          {/* "House of Representatives" as the kind and again as the gloss says it twice. */}
+          {meta?.gloss && meta.gloss.toLowerCase() !== (meta.kindLabel ?? "").toLowerCase() ? (
+            <p lang="en" className="mt-0.5 text-xs text-ink-faint">{meta.gloss}</p>
+          ) : null}
         </div>
       </div>
     </div>

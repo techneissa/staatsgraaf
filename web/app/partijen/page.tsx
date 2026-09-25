@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { T } from "@/components/i18n/t";
+import { IconLegend, IconValue } from "@/components/legend-icons";
 import { getDatasetDate } from "@/lib/data";
 import { PARTIES, partySlug } from "@/lib/parties";
 import { seatCountsByPartyKey } from "@/lib/parliament";
@@ -45,31 +46,26 @@ export default function PartiesIndexPage() {
         </h1>
       </header>
 
-      <ul className="mt-6 grid list-none gap-3 p-0 sm:grid-cols-2 xl:grid-cols-3">
+      <IconLegend kinds={["tk", "ek"]} className="mt-4" />
+
+      <ul className="mt-4 grid list-none grid-cols-[repeat(auto-fill,minmax(min(100%,14rem),1fr))] gap-3 p-0">
         {PARTIES.map((party) => {
           const tkSeats = tkCounts.get(party.key) ?? 0;
           const ekSeats = ekCounts.get(party.key) ?? 0;
           return (
-            <li key={party.key}>
+            <li key={party.key} className="min-w-0">
               <Link
                 href={`/partijen/${partySlug(party)}/`}
-                className="flex h-full items-center gap-3 rounded-md border border-line bg-surface p-3 transition-fast hover:border-line-strong"
+                className="flex h-full min-w-0 flex-col gap-1 rounded-md border border-line border-t-4 bg-surface p-3 transition-fast hover:border-line-strong"
+                style={{ borderTopColor: party.color ?? "var(--t-color-line-strong)" }}
               >
-                <span
-                  aria-hidden="true"
-                  className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-[11px] font-bold text-white ring-1 ring-line"
-                  style={{ backgroundColor: party.color ?? "var(--t-color-line-strong)" }}
-                >
-                  {party.abbrev.slice(0, 4)}
+                <span className="text-sm font-semibold leading-snug text-ink">{party.abbrev}</span>
+                <span className="text-xs leading-snug text-ink-muted" lang="nl">
+                  {party.name.nl !== party.abbrev ? party.name.nl : null}
                 </span>
-                <span className="min-w-0">
-                  <span className="block text-sm font-semibold leading-snug text-ink">
-                    {party.name.nl}
-                  </span>
-                  <span className="mt-0.5 block text-xs tabular-nums text-ink-faint">
-                    <T area="pages" k="partiesSeatsTK" />: {tkSeats} ·{" "}
-                    <T area="pages" k="partiesSeatsEK" />: {ekSeats}
-                  </span>
+                <span className="mt-auto flex items-center gap-3 pt-1 text-xs text-ink-muted">
+                  <IconValue kind="tk" value={tkSeats} />
+                  <IconValue kind="ek" value={ekSeats} />
                 </span>
               </Link>
             </li>

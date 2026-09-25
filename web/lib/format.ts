@@ -117,3 +117,26 @@ export function formatPeriodIn(
 export function formatCountIn(value: number, locale: FormatLocale): string {
   return new Intl.NumberFormat(locale === "en" ? "en-GB" : "nl-NL").format(value);
 }
+
+/**
+ * A portrait credit in the site locale. The portrait pipeline writes credits
+ * in one fixed Dutch pattern ("Foto: maker, licentie, via ..."); in English
+ * only the fixed words of that pattern change. The maker, the licence and any
+ * names stay exactly as recorded.
+ */
+const CREDIT_PHRASES_EN: Array<[RegExp, string]> = [
+  [/^Foto: /, "Photo: "],
+  [/, via het Open Data Portaal van de Tweede Kamer/, ", via the Open Data Portal of the Tweede Kamer"],
+  [/, publiek-domein,/, ", public domain,"],
+  [/auteur niet vermeld/, "author not stated"],
+  [/vrijgegeven door/, "released by"],
+  [/hergebruik volgens/, "reuse under"],
+  [/Houder van het auteursrecht/, "Copyright holder"],
+];
+
+export function localizeCredit(credit: string, locale: FormatLocale): string {
+  if (locale !== "en") return credit;
+  let out = credit;
+  for (const [pattern, replacement] of CREDIT_PHRASES_EN) out = out.replace(pattern, replacement);
+  return out;
+}

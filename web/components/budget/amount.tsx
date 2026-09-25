@@ -1,12 +1,13 @@
 "use client";
 
 import { useLocale } from "@/components/i18n/language-provider";
-import { formatBudgetAmount, formatBudgetAmountExact } from "@/lib/budget-format";
+import { formatBudgetAmount } from "@/lib/budget-format";
 
 /**
- * A budget amount in short form (€ 45,3 mld, or €45.3B in English) with the
- * exact figure as a tooltip and for screen readers. Renders nothing when the
- * value is missing, so the caller decides how to say "not reported".
+ * A budget amount in short form, in the reader's locale (€ 45,3 mld, or
+ * €45.3B in English), at most four significant figures. The exact figure
+ * stays in the linked source. Renders nothing when the value is missing, so
+ * the caller decides how to say "not reported".
  */
 export function Amount({
   value,
@@ -17,14 +18,10 @@ export function Amount({
   unit: string | null | undefined;
   className?: string;
 }) {
-  const locale = useLocale();
-  const short = formatBudgetAmount(value, unit, locale === "en" ? "en" : "nl");
-  const exact = formatBudgetAmountExact(value, unit);
+  const locale = useLocale() === "en" ? "en" : "nl";
+  const short = formatBudgetAmount(value, unit, locale);
   if (short === null) return null;
   return (
-    <span className={className} title={exact ?? undefined}>
-      <span aria-hidden="true">{short}</span>
-      <span className="sr-only">{exact}</span>
-    </span>
+    <span className={`whitespace-nowrap ${className ?? ""}`}>{short}</span>
   );
 }

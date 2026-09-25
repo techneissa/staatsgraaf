@@ -1,54 +1,53 @@
 import type { LocString } from "./locales";
 
-/** Owned by the power map area. Extend with power-map-specific strings only. */
+/**
+ * Owned by the connections view (Verbanden; internal id `power`) and the
+ * seat loupe. Extend with strings for those two only.
+ */
 export const POWER_DICT = {
-  powerMapTitle: { nl: "Machtskaart: wie is in het nieuws", en: "Power map: who is in the news" },
-  powerMapAria: {
-    nl: "Machtskaart met de personen die het meest in het nieuws zijn, verbonden door de machtsas.",
-    en: "Power map of the people most in the news, linked to the power hub.",
+  viewName: { nl: "Verbanden", en: "Connections" },
+  overviewAria: {
+    nl: "Verbanden: de mensen met de sterkste verbanden, per rol.",
+    en: "Connections: the people with the strongest ties, by role.",
   },
-  powerMapAriaEntity: {
-    nl: "Machtskaart van de mensen rond dit onderwerp, verbonden door de machtsas.",
-    en: "Power map of the people around this part of the state, linked to the power axis.",
+  focusAria: {
+    nl: "Verbanden van {name}, per soort: functie, kabinet, partij en nieuws.",
+    en: "Connections of {name}, by kind: office, cabinet, party and news.",
   },
-  powerMapSubtitle: {
-    nl: "De {people} mensen die het meest genoemd zijn in {articles}, uit {sources} bronnen, in de laatste {days} dagen.",
-    en: "The {people} people named most often in {articles} across {sources} outlets, in the last {days} days.",
+  newsFocusAria: { nl: "Wie in dit bericht genoemd wordt", en: "Who this news item names" },
+  roleCabinet: { nl: "Kabinet", en: "Cabinet" },
+  roleParliament: { nl: "Kamerleden", en: "Members of parliament" },
+  roleOther: { nl: "Overig", en: "Other" },
+  kindOffice: { nl: "Functie en organen", en: "Office and bodies" },
+  kindCabinet: { nl: "Kabinet", en: "Cabinet" },
+  kindParty: { nl: "Partij en fractie", en: "Party and faction" },
+  kindNews: { nl: "Samen in het nieuws", en: "Together in the news" },
+  tieCount: { nl: "{n} verbanden", en: "{n} ties" },
+  tieCount1: { nl: "1 verband", en: "1 tie" },
+  moreCount: { nl: "+{n}", en: "+{n}" },
+  showAll: { nl: "Alle {n} tonen", en: "Show all {n}" },
+  showFewer: { nl: "Minder tonen", en: "Show fewer" },
+  strength: { nl: "Sterkte {level} van 5", en: "Strength {level} of 5" },
+  noTies: { nl: "Geen verbanden in de gegevens.", en: "No ties in the data." },
+  inNews: { nl: "In het nieuws", en: "In the news" },
+  newsCount: { nl: "{n} berichten", en: "{n} news items" },
+  openArticle: { nl: "Artikel bij {publisher}", en: "Article at {publisher}" },
+  openProfile: { nl: "Profiel", en: "Profile" },
+  openProfileOf: { nl: "Profiel van {name}", en: "Profile of {name}" },
+  overview: { nl: "Overzicht", en: "Overview" },
+  sourceNote: {
+    nl: "Bronnen: {outlets} nieuwsmedia, {since} tot {until}; functies, fracties en kabinet uit de dataset.",
+    en: "Sources: {outlets} news outlets, {since} to {until}; offices, factions and cabinet from the dataset.",
   },
-  powerMapSubtitleNoSources: {
-    nl: "De {people} mensen die het meest genoemd zijn in {articles} in de laatste {days} dagen.",
-    en: "The {people} people named most often in {articles} in the last {days} days.",
+  sourceNoteNoNews: {
+    nl: "Bronnen: functies, fracties en kabinet uit de dataset.",
+    en: "Sources: offices, factions and cabinet from the dataset.",
   },
-  powerMapEntitySubtitle: {
-    nl: "{n} mensen, op volgorde van hoe vaak ze in het nieuws zijn.",
-    en: "{n} people, ordered by how often they are in the news.",
-  },
-  powerMapCenterLabel: { nl: "Kiesgerechtigden Nederland", en: "Dutch electorate" },
-  powerMapEntityCentreLabel: { nl: "Wie is verbonden?", en: "Who is connected?" },
-  powerMapOpenPerson: { nl: "Open personenpagina", en: "Open person page" },
-  powerMapOpenPersonName: {
-    nl: "Open de personenpagina van {name}",
-    en: "Open the person page of {name}",
-  },
-  powerMapArticle1: { nl: "1 artikel", en: "1 article" },
-  powerMapEmptyTitle: { nl: "Nog geen machtskaart", en: "No power map yet" },
-  powerMapEmptyBody: {
-    nl: "De machtskaart rangschikt mensen naar hoe vaak zij in het nieuws voorkomen. Er zijn nog geen nieuwsartikelen aan de dataset toegevoegd, dus er valt nog geen rangschikking te tonen. We verzinnen er geen.",
-    en: "The power map ranks people by how often they appear in the news. No news articles have been added to the dataset yet, so there is no ranking to show. Nothing is invented.",
-  },
-  powerMapEmptyWindow: {
-    nl: "Venster: {days}, {articles}{since}.",
-    en: "Window: {days}, {articles}{since}.",
-  },
-  powerMapEmptySince: { nl: " vanaf {since}", en: " from {since}" },
-  powerMapLastItem: { nl: "Laatste bericht op {date}.", en: "Last item on {date}." },
-  powerMapCentreSubtitle: {
-    nl: "Bron van alle openbare macht",
-    en: "The source of all public power",
-  },
-  powerMapEntityCentreSubtitle: {
-    nl: "{n} mensen in het nieuws",
-    en: "{n} people in the news",
+  fractieSeats: { nl: "Fractie {label}, {chamber}", en: "Faction {label}, {chamber}" },
+  emptyTitle: { nl: "Nog geen verbanden", en: "No connections yet" },
+  emptyBody: {
+    nl: "Er zijn nog geen verbanden uit functies, fracties of nieuws berekend.",
+    en: "No ties from offices, factions or news have been computed yet.",
   },
   seatLoupeLabel: { nl: "Zetels van {label} in de {chamber}", en: "Seats of {label} in the {chamber}" },
   seatLoupeSeats: { nl: "{n} van {total} zetels, {chamber}", en: "{n} of {total} seats, {chamber}" },
@@ -59,24 +58,12 @@ export const POWER_DICT = {
   },
   powerBack: { nl: "Terug", en: "Back" },
   powerBackTo: { nl: "Terug naar {name}", en: "Back to {name}" },
-  powerWholeMap: { nl: "Hele kaart", en: "Whole map" },
-  powerFocusAria: {
-    nl: "Machtskaart rond {name}, met de verbanden uit nieuws, fracties, kabinet en functies.",
-    en: "Power map around {name}, with the ties from news, fracties, cabinet and positions.",
-  },
-  powerFocusSubtitle: { nl: "{n} verbanden", en: "{n} ties" },
-  powerFocusSubtitle1: { nl: "1 verband", en: "1 tie" },
-  powerFocusEmpty: {
-    nl: "Geen verbanden in de gegevens van de machtskaart.",
-    en: "No ties in the power map data.",
-  },
   reasonNews1: { nl: "1 bericht samen", en: "1 news item together" },
   reasonNews: { nl: "{n} berichten samen", en: "{n} news items together" },
   reasonTenure: { nl: "Functie", en: "Position" },
   reasonKabinet: { nl: "Kabinet", en: "Cabinet" },
-  reasonFractie: { nl: "Fractie {fractie}", en: "Fractie {fractie}" },
+  reasonFractie: { nl: "Fractie {fractie}", en: "Faction {fractie}" },
   reasonOrganisation: { nl: "Zelfde orgaan", en: "Same body" },
   reasonOrganisations: { nl: "{n} gedeelde organen", en: "{n} shared bodies" },
-  newsBubble: { nl: "{title}. {publisher}, {date}.", en: "{title}. {publisher}, {date}." },
-  newsMentions: { nl: "Genoemd: {names}", en: "Named: {names}" },
+  newsItemLabel: { nl: "{title}. {publisher}, {date}.", en: "{title}. {publisher}, {date}." },
 } as const satisfies Record<string, LocString>;

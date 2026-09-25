@@ -2,109 +2,114 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 
-import { layoutPowerMap, powerMapCardBox, powerMapLinkPath } from "./power-map-layout.ts";
+import {
+  assignSides,
+  egoFits,
+  groupTies,
+  layoutEgo,
+  rankOverview,
+  roleOf,
+  strengthLevel,
+  tieKind,
+  tiePath,
+  TIE_KINDS,
+} from "./power-map-layout.ts";
+import { connectionsOf } from "./power-connections.ts";
 
-const bundle = JSON.parse(
-  readFileSync(new URL("../public/power-map.json", import.meta.url), "utf8"),
-);
+const bundle = JSON.parse(readFileSync(new URL("../public/power-map.json", import.meta.url), "utf8"));
 
-const people = bundle.powerMap.people;
-const layout = layoutPowerMap(people);
-
-test("every ranked person gets a card", () => {
-  assert.equal(layout.cards.length, people.length);
-  assert.ok(people.length > 0, "the bundle has no power map people");
+test("a tie's group follows its most structural reason", () => {
+  assert.equal(tieKind(["tenure", "news"]), "office");
+  assert.equal(tieKind(["news", "kabinet", "organisation"]), "cabinet");
+  assert.equal(tieKind(["fractie", "organisation"]), "party");
+  assert.equal(tieKind(["organisation"]), "office");
+  assert.equal(tieKind(["news"]), "news");
 });
 
-test("no two portrait-and-label boxes overlap", () => {
-  const boxes = layout.cards.map(powerMapCardBox);
-  const issues = [];
-  for (let i = 0; i < boxes.length; i += 1) {
-    for (let j = i + 1; j < boxes.length; j += 1) {
-      const a = boxes[i];
-      const b = boxes[j];
-      const overlapX = Math.min(a.right, b.right) - Math.max(a.left, b.left);
-      const overlapY = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
-      if (overlapX > 0.01 && overlapY > 0.01) {
-        issues.push([layout.cards[i].person.name, layout.cards[j].person.name, overlapX, overlapY]);
+test("strength levels run from 1 to 5 and never fall as the weight rises", () => {
+  let last = 0;
+  for (let weight = 0; weight <= 6; weight += 0.05) {
+    const level = strengthLevel(weight);
+    assert.ok(level >= 1 && level <= 5);
+    assert.ok(level >= last);
+    last = level;
+  }
+});
+
+test("groups come in the fixed order, strongest tie first", () => {
+  const ties = connectionsOf(bundle.links, bundle.powerMap.people[0].person, Infinity);
+  const groups = groupTies(ties);
+  const order = groups.map((group) => TIE_KINDS.indexOf(group.kind));
+  assert.deepEqual(order, [...order].sort((a, b) => a - b));
+  for (const group of groups) {
+    for (let i = 1; i < group.ties.length; i += 1) assert.ok(group.ties[i - 1].link.weight >= group.ties[i].link.weight);
+  }
+  assert.equal(groups.reduce((sum, group) => sum + group.ties.length, 0), ties.length);
+});
+
+test("sides balance the columns", () => {
+  const sides = assignSides([8, 2, 1, 5]);
+  const left = [8, 2, 1, 5].reduce((sum, size, index) => sum + (sides[index] === -1 ? size : 0), 0);
+  const right = 16 - left;
+  assert.ok(Math.abs(left - right) <= 4, `${left} against ${right}`);
+});
+
+const boxes = [
+  { width: 1180, height: 700 },
+  { width: 820, height: 520 },
+  { width: 680, height: 420 },
+];
+
+for (const box of boxes) {
+  test(`every focus lays out without overlap in ${box.width} by ${box.height}`, () => {
+    const focusIds = new Set(bundle.links.flatMap((link) => [link.a, link.b]));
+    for (const id of focusIds) {
+      if (!egoFits(box.width, box.height)) continue;
+      const groups = groupTies(connectionsOf(bundle.links, id, Infinity));
+      const layout = layoutEgo(groups, box);
+      for (const node of layout.nodes) {
+        assert.ok(node.y - 22 >= 0 && node.y + 22 <= box.height, `${id}: ${node.id} inside the box vertically`);
+        const far = node.side === 1 ? node.x + 18 + 4 + 148 : node.x - 18 - 4 - 148;
+        assert.ok(far >= -0.5 && far <= box.width + 0.5, `${id}: ${node.id} label inside the box`);
+        assert.ok(Math.abs(node.x - layout.centre.x) >= 40 + 18, `${id}: ${node.id} clear of the focus`);
       }
+      for (const side of [-1, 1]) {
+        const ys = layout.nodes.filter((node) => node.side === side).map((node) => node.y).sort((a, b) => a - b);
+        for (let i = 1; i < ys.length; i += 1) assert.ok(ys[i] - ys[i - 1] >= 44, `${id}: rows at least a touch target apart`);
+      }
+      const shown = layout.headings.reduce((sum, heading) => sum + heading.shown, 0);
+      assert.equal(shown, layout.nodes.length);
     }
-  }
-  assert.deepEqual(issues, []);
+  });
+}
+
+test("the diagram gives way to the list on a phone", () => {
+  assert.equal(egoFits(390, 420), false);
+  assert.equal(egoFits(1000, 600), true);
 });
 
-test("cards form a symmetric tree with rank 1 above the hub", () => {
-  const first = layout.cards[0];
-  assert.equal(first.person.rank, 1);
-  assert.equal(first.x, 0, "rank 1 sits on the vertical axis");
-  const minY = Math.min(...layout.cards.map((card) => card.y));
-  assert.ok(Math.abs(first.y - minY) < 0.001, "rank 1 is the topmost card");
-  for (const card of layout.cards) {
-    if (card.row === 0) {
-      assert.equal(card.x, 0);
-      continue;
-    }
-    assert.ok(card.y > 0, `${card.person.name} hangs below the hub`);
-    if (card.slot % 2 === 0) assert.ok(card.x < 0, card.person.name);
-    else assert.ok(card.x > 0, card.person.name);
-  }
+test("a tie path starts at the focus and ends at the neighbour", () => {
+  const path = tiePath({ x: 100, y: 100 }, { x: 300, y: 40 });
+  assert.match(path, /^M100 100 C/);
+  assert.match(path, / 300 40$/);
 });
 
-test("the bounds contain every card box", () => {
-  for (const card of layout.cards) {
-    const box = powerMapCardBox(card);
-    assert.ok(box.left >= layout.bounds.minX - 0.01, card.person.name);
-    assert.ok(box.right <= layout.bounds.maxX + 0.01, card.person.name);
-    assert.ok(box.top >= layout.bounds.minY - 0.01, card.person.name);
-    assert.ok(box.bottom <= layout.bounds.maxY + 0.01, card.person.name);
-  }
+test("roles come from the title of the current position", () => {
+  assert.equal(roleOf("Minister van Financiën"), "cabinet");
+  assert.equal(roleOf("Staatssecretaris van Defensie"), "cabinet");
+  assert.equal(roleOf("Fractievoorzitter Volt"), "parliament");
+  assert.equal(roleOf("Lid Vaste commissie voor Digitale Zaken"), "parliament");
+  assert.equal(roleOf("Burgemeester van Utrecht"), "other");
+  assert.equal(roleOf(null), "other");
 });
 
-test("the bounds contain the hub circle and its centre label", () => {
-  assert.ok(layout.bounds.minY <= -36, "hub top inside bounds");
-  assert.ok(layout.bounds.maxX >= 70 && layout.bounds.minX <= -70, "centre label inside bounds");
-});
-
-test("links bow toward the hub without degenerating", () => {
-  for (const card of layout.cards) {
-    const path = powerMapLinkPath(card.x, card.y);
-    assert.match(path, /^M -?\d+(\.\d+)? -?\d+(\.\d+)? Q /, card.person.name);
-    assert.match(path, / 0 0$/, card.person.name);
-  }
-});
-
-test("the power map layout is deterministic", () => {
-  const again = layoutPowerMap(people);
-  assert.deepEqual(
-    again.cards.map((card) => [card.person.person, card.x, card.y]),
-    layout.cards.map((card) => [card.person.person, card.x, card.y]),
-  );
-});
-
-test("news bubbles sit at the first card they name, capped per card, and never overlap", async () => {
-  const { placeNewsBubbles, NEWS_BUBBLES_PER_CARD, NEWS_BUBBLE_RADIUS } = await import("./power-map-layout.ts");
-  const anchors = [
-    { id: "person:a", x: 0, y: 0, radius: 30 },
-    { id: "person:b", x: 200, y: 0, radius: 20 },
-  ];
-  const items = [
-    { id: "news:1", people: ["person:b", "person:a"], bodies: [] },
-    { id: "news:2", people: ["person:b"], bodies: ["org:x"] },
-    { id: "news:3", people: ["person:z"], bodies: [] },
-    ...Array.from({ length: 8 }, (_, index) => ({ id: `news:a${index}`, people: ["person:a"], bodies: [] })),
-  ];
-  const placed = placeNewsBubbles(anchors, items);
-  assert.equal(placed.find((bubble) => bubble.id === "news:1").owner, "person:a");
-  assert.equal(placed.find((bubble) => bubble.id === "news:2").owner, "person:b");
-  assert.equal(placed.find((bubble) => bubble.id === "news:3"), undefined);
-  assert.equal(placed.filter((bubble) => bubble.owner === "person:a").length, NEWS_BUBBLES_PER_CARD);
-  for (let i = 0; i < placed.length; i += 1) {
-    for (let j = i + 1; j < placed.length; j += 1) {
-      const gap = Math.hypot(placed[i].x - placed[j].x, placed[i].y - placed[j].y);
-      assert.ok(gap >= 2 * NEWS_BUBBLE_RADIUS, `${placed[i].id} and ${placed[j].id} overlap`);
-    }
-    // Above the name line: never lower than the portrait's centre plus its radius.
-    const owner = anchors.find((anchor) => anchor.id === placed[i].owner);
-    assert.ok(placed[i].y - owner.y < owner.radius, `${placed[i].id} runs into the name`);
+test("the overview ranks anchors by summed strength", () => {
+  const anchors = new Set(bundle.powerMap.people.map((entry) => entry.person));
+  const groups = rankOverview(bundle.links, anchors, (id) => bundle.people[id]?.job ?? null);
+  const everyone = groups.flatMap((group) => group.people);
+  assert.ok(everyone.length > 0);
+  for (const entry of everyone) assert.ok(anchors.has(entry.id));
+  for (const group of groups) {
+    for (let i = 1; i < group.people.length; i += 1) assert.ok(group.people[i - 1].strength >= group.people[i].strength);
   }
 });

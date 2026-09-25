@@ -8,7 +8,7 @@ import { edgeTypeOrderIndex } from "./graph/edge-styles";
 import { useT } from "@/components/i18n/use-t";
 import { CanvasControls, type CanvasView } from "./canvas-controls";
 import { GraphCanvas } from "./graph/graph-canvas";
-import { PowerMapView, type NameResolver } from "./graph/power-map";
+import { ConnectionsView, type FractieResolver, type NameResolver } from "./power/connections-view";
 import { useSelection } from "./selection/selection-provider";
 import { seatIndex } from "@/lib/seats";
 import type { Selection } from "@/lib/selection";
@@ -19,6 +19,7 @@ export function CanvasFrame() {
   const { bundle, status } = useGraphBundle();
   const t = useT("common");
   const tg = useT("graph");
+  const tp = useT("power");
   const asideRef = useRef<HTMLElement | null>(null);
   /**
    * Below lg the canvas is a compact band above the page so the content starts
@@ -38,7 +39,7 @@ export function CanvasFrame() {
    */
   const { current, select } = useSelection();
 
-  // The machtskaart bundle is loaded only when it is shown.
+  // The connections bundle (power-map.json) is loaded only when it is shown.
   const wantsPower = view === "power" || current?.kind === "news" || current?.kind === "topic";
   const power = usePowerMapBundle(wantsPower);
 
@@ -90,7 +91,7 @@ export function CanvasFrame() {
     else if (current.kind === "person" && !seats.has(current.id)) setView("power");
   }, [current, seats]);
 
-  /** Names the power map does not carry itself: bodies from the graph, seated members. */
+  /** Names the connections view does not carry itself: bodies from the graph, seated members. */
   const resolveName = useMemo<NameResolver>(() => {
     const nodes = new Map((bundle?.nodes ?? []).map((node) => [node.id, node]));
     return (id: string) => {
@@ -99,6 +100,19 @@ export function CanvasFrame() {
       const person = bundle?.seatPeople?.[id];
       return person ? { name: person.name, image: person.image, slug: person.slug } : null;
     };
+  }, [bundle]);
+
+  /** The fractie of a seated member, from the seat blocks, for the connections view. */
+  const fractieOf = useMemo<FractieResolver>(() => {
+    const byPerson = new Map<string, { label: string; chamber: string; color: string | null; members: readonly string[] }>();
+    for (const [chamberId, seatsOf] of Object.entries(bundle?.chambers ?? {})) {
+      const chamber = bundle?.nodes.find((node) => node.id === chamberId)?.name ?? chamberId;
+      for (const entry of seatsOf.entries) {
+        const info = { label: entry.label, chamber, color: entry.color, members: entry.members ?? [] };
+        for (const member of info.members) if (!byPerson.has(member)) byPerson.set(member, info);
+      }
+    }
+    return (id: string) => byPerson.get(id) ?? null;
   }, [bundle]);
 
   /**
@@ -208,12 +222,9 @@ export function CanvasFrame() {
         }`}
       >
         <div className="flex min-w-0 flex-1 flex-wrap items-center justify-between gap-x-3 gap-y-2">
-        {/* On a phone the view switch names the view already; the heading stays for screen readers. */}
-        <h2
-          id="grafiek-titel"
-          className="sr-only text-xs font-medium text-ink-muted sm:not-sr-only"
-        >
-          {view === "power" ? t("powerTitle") : t("graphTitle")}
+        {/* The view switch names the view already; the heading stays for screen readers. */}
+        <h2 id="grafiek-titel" className="sr-only">
+          {view === "power" ? tp("viewName") : t("graphTitle")}
         </h2>
         <CanvasControls
           asOfClassName={expanded ? "flex" : "hidden sm:flex"}
@@ -293,7 +304,7 @@ export function CanvasFrame() {
         ) : null}
 
         {view === "power" && power.status === "ready" && power.bundle ? (
-          <PowerMapView bundle={power.bundle} resolveName={resolveName} />
+          <ConnectionsView bundle={power.bundle} resolveName={resolveName} fractieOf={fractieOf} />
         ) : null}
       </div>
     </aside>

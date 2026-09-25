@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { BudgetBreakdown } from "@/components/budget/budget-breakdown";
 import { BudgetHistory } from "@/components/budget/budget-history";
+import { BudgetOrgName } from "@/components/budget/budget-org-name";
 import { BudgetYearFigures } from "@/components/budget/budget-year-figures";
 import { ChangeIndicator } from "@/components/budget/change-indicator";
 import { T } from "@/components/i18n/t";
@@ -12,8 +13,6 @@ import { JsonLd } from "@/components/json-ld";
 import { SourceList } from "@/components/source-list";
 import {
   budgetDelta,
-  formatBudgetAmount,
-  formatBudgetPercent,
   getBudgetByOrganizationSlug,
   getBudgetOrganizations,
 } from "@/lib/budget";
@@ -81,84 +80,65 @@ export default async function BudgetOrganizationPage({
         items={[
           { label: SITE_NAME, href: "/" },
           { label: <T area="common" k="navBudget" />, href: "/begroting/" },
-          { label: view.organization.name },
+          { label: <BudgetOrgName name={view.organization.name} variant="plain" /> },
         ]}
       />
 
-      <header className="mt-4 border-b border-line pb-6">
-        <p className="text-xs font-medium text-accent-text"><T area="news" k="budgetHeading" /></p>
-        <h1 className="mt-1 text-2xl font-semibold tracking-tight text-ink">
-          {view.organization.name}
+      <header className="mt-4 border-b border-line pb-5">
+        <h1 className="text-2xl font-semibold tracking-tight text-ink">
+          <BudgetOrgName
+            name={view.organization.name}
+            secondaryClassName="text-sm font-normal tracking-normal text-ink-muted"
+          />
         </h1>
-        <p className="mt-2 text-sm">
+        <p className="mt-1">
           <Link
             href={`/organisaties/${view.organization.slug}/`}
-            className="text-accent-text underline-offset-2 hover:underline"
+            className="inline-flex min-h-11 items-center text-sm text-accent-text underline-offset-2 hover:underline"
           >
-              <T area="news" k="budgetOrgActionLink" />
+            <T area="news" k="budgetOrgActionLink" />
           </Link>
         </p>
       </header>
 
-      {view.current !== null ? (
-        <section aria-labelledby="bedragen-titel" className="border-b border-line py-6">
-          <h2 id="bedragen-titel" className="text-lg font-semibold tracking-tight text-ink">
-              <T area="news" k="budgetFiguresHeading" />
-          </h2>
-          {currentYear !== null && previousYear !== null ? (
-            delta !== null ? (
-              (() => {
-                const direction =
-                  delta.absolute > 0 ? "up" : delta.absolute < 0 ? "down" : "flat";
-                const sign = direction === "up" ? "+" : direction === "down" ? "−" : "";
-                return (
-                  <ChangeIndicator
-                    direction={direction}
-                    percent={
-                      delta.percent !== null
-                        ? `${sign}${formatBudgetPercent(delta.percent)}`
-                        : null
-                    }
-                    absolute={formatBudgetAmount(delta.absolute, view.unit)}
-                    since={String(previousYear)}
-                    labelKey="budgetChangeIndicatorLabel"
-                  />
-                );
-              })()
-            ) : null
-          ) : null}
-          <div className="mt-3">
-            <BudgetYearFigures
-              unit={view.unit}
-              currentYear={currentYear ?? 0}
-              previousYear={previousYear ?? 0}
-              current={view.current}
-              previous={view.previous}
-              sources={view.sources}
-            />
-          </div>
-        </section>
-      ) : (
-        <section aria-labelledby="bedragen-titel" className="border-b border-line py-6">
-          <h2 id="bedragen-titel" className="text-lg font-semibold tracking-tight text-ink">
-              <T area="news" k="budgetFiguresHeading" />
-          </h2>
-          <div className="mt-3">
-            <DictEmptyState
-              titleKey="budgetNoFiguresTitle"
-              descriptionKey="budgetNoFiguresDescription"
-            />
-          </div>
-        </section>
-      )}
-
-      <section aria-labelledby="reeks-titel" className="border-b border-line py-6">
-        <h2 id="reeks-titel" className="text-lg font-semibold tracking-tight text-ink">
-            <T area="news" k="budgetHistoryHeading" />
+      <section aria-labelledby="bedragen-titel" className="border-b border-line py-6">
+        <h2 id="bedragen-titel" className="text-lg font-semibold tracking-tight text-ink">
+          {currentYear !== null ? (
+            <T area="news" k="budgetFiguresHeadingYear" vars={{ year: currentYear }} />
+          ) : (
+            <T area="news" k="budgetFiguresHeading" />
+          )}
         </h2>
-        <div className="mt-3">
-          <BudgetHistory history={view.history} unit={view.unit} sources={view.sources} />
-        </div>
+        {view.current !== null ? (
+          <>
+            {delta !== null && previousYear !== null ? (
+              <ChangeIndicator
+                absolute={delta.absolute}
+                percent={delta.percent}
+                unit={view.unit}
+                since={previousYear}
+                labelKey="budgetChangeIndicatorLabel"
+              />
+            ) : null}
+            <div className="mt-3">
+              <BudgetYearFigures
+                unit={view.unit}
+                currentYear={currentYear ?? 0}
+                previousYear={previousYear ?? 0}
+                current={view.current}
+                previous={view.previous}
+              />
+            </div>
+          </>
+        ) : (
+          <div className="mt-3">
+            <DictEmptyState titleKey="budgetNoFiguresTitle" descriptionKey="budgetNoFiguresDescription" />
+          </div>
+        )}
+      </section>
+
+      <section className="border-b border-line py-3">
+        <BudgetHistory history={view.history} unit={view.unit} />
       </section>
 
       <section aria-labelledby="uitsplitsing-titel" className="border-b border-line py-6">
@@ -169,8 +149,6 @@ export default async function BudgetOrganizationPage({
           <BudgetBreakdown
             breakdown={view.breakdown}
             unit={view.unit}
-            fiscalYear={currentYear}
-            sources={view.currentRecord?.sources ?? []}
           />
         </div>
       </section>

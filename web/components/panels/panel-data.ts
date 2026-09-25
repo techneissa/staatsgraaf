@@ -96,6 +96,8 @@ export type PanelOrg = {
   subtype: OrgSubtype | null;
   branch: OrgBranch | null;
   description: string | null;
+  /** English machine translation of the description, when current (ADR 0016). */
+  descriptionEn?: string | null;
   website: string | null;
   parent: PanelRef | null;
   holders: PanelHolder[];
@@ -138,6 +140,8 @@ export type PanelPersonRecord = {
   partyKey: string | null;
   party: { abbrev: string; name: string; href: string | null } | null;
   description: string | null;
+  /** English machine translation of the description, when current (ADR 0016). */
+  descriptionEn?: string | null;
   roles: PanelRole[];
   memberships: PanelMembership[];
   news: PanelNews[];
@@ -215,6 +219,7 @@ export function normalizePanelRecord(raw: Record<string, unknown>): PanelRecord 
     "subtype",
     "branch",
     "description",
+    "descriptionEn",
     "website",
     "parent",
     "budget",

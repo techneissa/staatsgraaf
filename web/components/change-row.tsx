@@ -5,7 +5,8 @@ import { T } from "@/components/i18n/t";
 import { CHANGE_KIND_KEY, CHANGE_LABEL_TONE, ChangeKindGlyph } from "@/components/change/change-glyph";
 import { QuietSource } from "@/components/change/quiet-source";
 import { TemplateT } from "@/components/change/template-t";
-import { changeDisplayKind, titleNamesBody, type ChangeDisplayKind } from "@/lib/changes";
+import { changeDisplayKind, titleNamesBody, vacancySeatCounts, type ChangeDisplayKind } from "@/lib/changes";
+import { DateT } from "@/components/content/local-date";
 import { getOrganizationById, getPersonById, getPositionById, getSourceById } from "@/lib/data";
 import type { Change, Person } from "@/lib/types";
 
@@ -48,35 +49,42 @@ function buildSentence(change: Change, kind: ChangeDisplayKind, person: Person |
   return <TemplateT k={showBody ? key : `${key}NoBody`} slots={slots} />;
 }
 
-/** OUT -> IN: two people, or the Dutch seat labels of a vacancy. */
+/**
+ * OUT -> IN: two people. A vacancy has no people; its sentence already says a
+ * seat is vacant, so it shows only how many seats are filled, built from the
+ * counts of the record in the reader's language.
+ */
 function BeforeAfter({ change, kind }: { change: Change; kind: ChangeDisplayKind }) {
+  if (kind === "vacancy") {
+    const counts = vacancySeatCounts(change);
+    if (counts === null || counts.seats < 2) return null;
+    return (
+      <p className="mt-1 text-xs leading-relaxed text-ink-muted">
+        <DateT area="home" k="changeSeatsFilled" counts={{ filled: counts.filled, seats: counts.seats }} />
+      </p>
+    );
+  }
   const out = change.out;
   const into = change.in;
   if (!out || !into) return null;
-  let before: ReactNode;
-  let after: ReactNode;
-  if (kind === "vacancy") {
-    before = <span lang="nl">{out.label}</span>;
-    after = <span lang="nl">{into.label}</span>;
-  } else if (out.person && into.person && out.person !== into.person) {
-    const outPerson = getPersonById(out.person);
-    const inPerson = getPersonById(into.person);
-    if (!outPerson || !inPerson) return null;
-    before = <EntityPeekLink id={outPerson.id} variant="quiet" />;
-    after = <EntityPeekLink id={inPerson.id} variant="quiet" />;
-  } else {
-    return null;
-  }
+  if (!(out.person && into.person && out.person !== into.person)) return null;
+  const outPerson = getPersonById(out.person);
+  const inPerson = getPersonById(into.person);
+  if (!outPerson || !inPerson) return null;
   return (
     <p className="mt-1 flex flex-wrap items-baseline gap-x-1.5 text-xs leading-relaxed text-ink-muted">
-      <span className="min-w-0">{before}</span>
+      <span className="min-w-0">
+        <EntityPeekLink id={outPerson.id} variant="quiet" />
+      </span>
       <span aria-hidden="true" className="text-ink-faint">
         →
       </span>
       <span className="sr-only">
-        <T area="home" k={kind === "vacancy" ? "changeBecame" : "changeReplacedBy"} />
+        <T area="home" k="changeReplacedBy" />
       </span>
-      <span className="min-w-0">{after}</span>
+      <span className="min-w-0">
+        <EntityPeekLink id={inPerson.id} variant="quiet" />
+      </span>
     </p>
   );
 }

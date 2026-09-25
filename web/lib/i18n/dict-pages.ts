@@ -10,7 +10,7 @@ export const PAGES_DICT = {
   scopeLabel: { nl: "NL Rijk", en: "NL national" },
 
   linkHome: { nl: "homepage", en: "homepage" },
-  linkMethodology: { nl: "Methodiek", en: "Methodology" },
+  linkAbout: { nl: "Over", en: "About" },
   linkPrivacy: { nl: "Privacy", en: "Privacy" },
   linkAccessibility: { nl: "Toegankelijkheid", en: "Accessibility" },
   linkDataset: { nl: "Dataset", en: "Dataset" },
@@ -42,8 +42,8 @@ export const PAGES_DICT = {
     nl: "Geen kleur met bron opgenomen; er wordt nooit een waarde verzonnen.",
     en: "No sourced colour on record; a value is never invented.",
   },
-  partyColourConfidence: { nl: "Zekerheid kleurbron", en: "Colour source confidence" },
-  partyColourRetrieved: { nl: "Kleur opgehaald", en: "Colour retrieved" },
+  partyColourConfidence: { nl: "Bron", en: "Source" },
+  partyColourRetrieved: { nl: "opgehaald", en: "retrieved" },
   partyOverviewLabel: { nl: "Alle partijen", en: "All parties" },
 
   notFoundTitle: { nl: "Pagina niet gevonden", en: "Page not found" },
@@ -88,7 +88,7 @@ export const PAGES_DICT = {
   kindPerson: { nl: "Persoon", en: "Person" },
   kindTopic: { nl: "Onderwerp", en: "Topic" },
 
-  methodTitle: { nl: "Methodiek", en: "Methodology" },
+  aboutTitle: { nl: "Over", en: "About" },
   methodIntro: {
     nl: "Staatsgraaf is een open, bronvaste kaart van de Nederlandse overheid. Deze pagina beschrijft hoe de dataset tot stand komt, welke regels voor elke bewering gelden, hoe de wijzigingenfeed werkt, waar taalmodellen wel en niet worden gebruikt, en welke grenzen de data nu hebben.",
     en: "Staatsgraaf is an open, source-backed map of the Dutch government. This page describes how the dataset is built, which rules apply to every claim, how the change feed works, where language models are and are not used, and which limits the data have today.",
@@ -256,22 +256,9 @@ export const PAGES_DICT = {
     en: "The whole dataset is on this site as separate JSON files. Every fact has a source with a URL and a retrieval date. The files are meant for reuse, research and the iOS app that works on the same data.",
   },
   datasetContentsTitle: { nl: "Wat de dataset bevat", en: "What the dataset contains" },
-  datasetContentsP1: {
-    nl: "De momentopname van {snapshot} bevat {organizations} organisaties, {positions} posities, {people} personen, {tenures} dienstverbanden, {memberships} lidmaatschappen en {relations} relaties tussen organisaties. Daarnaast zijn er {sources} bronnen, {topics} onderwerpen, {budgets} begrotingen, {changes} wijzigingen en {news} nieuwsberichten.",
-    en: "The snapshot of {snapshot} contains {organizations} organizations, {positions} positions, {people} people, {tenures} tenures, {memberships} memberships and {relations} relations between organizations. There are also {sources} sources, {topics} topics, {budgets} budgets, {changes} changes and {news} news items.",
-  },
-  datasetSnapshotUnknown: { nl: "deze versie", en: "this version" },
   datasetContentsP2: {
     nl: "Elk bestand heeft een vaste naam en een vaste vorm. Verwijzingen tussen records lopen via een id, nooit via een naam. De dataset is een momentopname en geen live feed: nieuwe feiten komen pas in een volgende versie.",
     en: "Every file has a fixed name and a fixed shape. References between records run through an id, never through a name. The dataset is a snapshot and not a live feed: new facts only enter in a next version.",
-  },
-  datasetVersionTitle: { nl: "Versie en momentopname", en: "Version and snapshot" },
-  datasetVersionP1a: { nl: "De huidige versie is", en: "The current version is" },
-  datasetVersionP1b: { nl: "met momentopname", en: "with snapshot" },
-  datasetUnknownDate: { nl: "onbekende datum", en: "unknown date" },
-  datasetVersionP1c: {
-    nl: ". De versie en de datum staan ook in het manifest, samen met de bestandsgroottes en een sha256-controlesom per bestand. Zo kun je controleren of een download compleet en ongewijzigd is.",
-    en: ". The version and the date are also in the manifest, together with the file sizes and a sha256 checksum per file. That lets you verify that a download is complete and unchanged.",
   },
   datasetLicenseTitle: { nl: "Licentie", en: "Licence" },
   datasetLicenseP1: {
@@ -312,11 +299,6 @@ export const PAGES_DICT = {
     en: "Fill in the access date and, if you use a fixed address, the version and the snapshot. The manifest names the same version and date, so a reader can find back the right snapshot.",
   },
   datasetDownloadTitle: { nl: "Downloaden", en: "Download" },
-  datasetDownloadPre: {
-    nl: "Het manifest beschrijft alle bestanden:",
-    en: "The manifest describes all files:",
-  },
-  datasetDownloadPost: { nl: ". Daaronder staat elk bestand apart.", en: ". Each file is listed below it." },
   fileOrganizations: { nl: "Organisaties", en: "Organizations" },
   filePositions: { nl: "Posities", en: "Positions" },
   filePeople: { nl: "Personen", en: "People" },
@@ -331,6 +313,17 @@ export const PAGES_DICT = {
   fileGovernments: { nl: "Regeringen", en: "Governments" },
   fileMedia: { nl: "Media", en: "Media" },
   fileMeta: { nl: "Metadata", en: "Metadata" },
+  fileManifest: { nl: "Overzicht van alle bestanden", en: "Overview of all files" },
+  downloadButton: { nl: "Downloaden", en: "Download" },
+  recordsWord: { nl: "records", en: "records" },
+  filesWord: { nl: "bestanden", en: "files" },
+  fileElections: { nl: "Verkiezingen", en: "Elections" },
+  fileCoalitions: { nl: "Coalities", en: "Coalitions" },
+  fileCareers: { nl: "Loopbaanstappen", en: "Career steps" },
+  fileActivities: { nl: "Activiteit per Kamerlid", en: "Activity per MP" },
+  fileNewsTranslations: { nl: "Vertaalde nieuwsberichten", en: "Translated news items" },
+  fileDescriptionTranslations: { nl: "Vertaalde beschrijvingen", en: "Translated descriptions" },
+  fileDescriptionFlags: { nl: "Gemarkeerde beschrijvingen", en: "Flagged descriptions" },
   recordsCount: { nl: "{n} records", en: "{n} records" },
   fileLicenseData: { nl: "Datumlicentie", en: "Data licence" },
   fileLicenseCode: { nl: "Codelicentie", en: "Code licence" },
@@ -410,46 +403,13 @@ export const PAGES_DICT = {
 
   accessTitle: { nl: "Toegankelijkheid", en: "Accessibility" },
   accessIntro: {
-    nl: "Staatsgraaf wil voor iedereen leesbaar en bedienbaar zijn. Deze verklaring beschrijft het nagestreefde niveau, wat al werkt, waar de site nog tekortschiet, en hoe je een probleem meldt.",
-    en: "Staatsgraaf wants to be readable and operable for everyone. This statement describes the level aimed for, what already works, where the site still falls short, and how to report a problem.",
+    nl: "Staatsgraaf wil voor iedereen leesbaar en bedienbaar zijn. Deze verklaring beschrijft het nagestreefde niveau, waar de site nog tekortschiet, en hoe je een probleem meldt.",
+    en: "Staatsgraaf wants to be readable and operable for everyone. This statement describes the level aimed for, where the site still falls short, and how to report a problem.",
   },
   accessGoalTitle: { nl: "Doel", en: "Goal" },
   accessGoalP1: {
     nl: "De site streeft naar WCAG 2.2 niveau AA. Dat geldt voor de leesbare pagina's en voor de interactieve onderdelen zoals de grafiek en het zoeken. De latere iOS- en iPadOS-app volgt de toegankelijkheidsfuncties van het platform.",
     en: "The site aims for WCAG 2.2 level AA. That applies to the readable pages and to the interactive parts such as the graph and search. The later iOS and iPadOS app follows the platform's accessibility features.",
-  },
-  accessWorksTitle: { nl: "Wat werkt", en: "What works" },
-  accessWorks1: {
-    nl: "Toetsenbord. Alle bediening is met het toetsenbord bereikbaar: eerst de bovenbalk, dan de leeskolom en daarna de grafiek. De grafiek heeft eigen toetsenbordbediening. Pijltjestoetsen verplaatsen de selectie, Enter opent de organisatie, Escape wist de selectie, plus en min zoomen, en nul herstelt het beeld.",
-    en: "Keyboard. All controls are reachable with the keyboard: first the top bar, then the reading column and then the graph. The graph has its own keyboard controls. Arrow keys move the selection, Enter opens the organization, Escape clears the selection, plus and minus zoom, and zero resets the view.",
-  },
-  accessWorks2: {
-    nl: "Zichtbare focus. Elk bedienbaar element heeft een zichtbare focusring. De ring gebruikt de focuskleur uit de tokens en is in beide thema's zichtbaar.",
-    en: "Visible focus. Every operable element has a visible focus ring. The ring uses the focus colour from the tokens and is visible in both themes.",
-  },
-  accessWorks3: {
-    nl: "Structuur. Elke pagina heeft één h1, oplopende koppen zonder overgeslagen niveaus, en de landmarks header, nav, main, aside en footer.",
-    en: "Structure. Every page has one h1, headings in ascending order with no skipped levels, and the landmarks header, nav, main, aside and footer.",
-  },
-  accessWorks4: {
-    nl: "Overslaan. Een skip-link met de tekst Naar de inhoud springt direct naar de hoofdinhoud.",
-    en: "Skip link. A skip link with the text Skip to content jumps straight to the main content.",
-  },
-  accessWorks5: {
-    nl: "Contrast. De kleurparen die het controlescript in de repository toetst, halen in zowel het lichte als het donkere thema de WCAG AA-minima. Het donkere thema is de standaard.",
-    en: "Contrast. The colour pairs tested by the check script in the repository meet the WCAG AA minima in both the light and the dark theme. The dark theme is the default.",
-  },
-  accessWorks6: {
-    nl: "Beweging. De site respecteert de systeeminstelling voor minder beweging en schakelt decoratieve overgangen uit.",
-    en: "Motion. The site respects the system setting for reduced motion and switches off decorative transitions.",
-  },
-  accessWorks7: {
-    nl: "De grafiek heeft een lijstalternatief. Naast de visuele grafiek staat een lijst van organisaties per bestuurslaag. Bij een gekozen organisatie noemt de lijst ook de verbindingen, met de richting en het soort relatie. Een schermlezer hoort de selectie via een live melding.",
-    en: "The graph has a list alternative. Next to the visual graph there is a list of organizations per government branch. For a chosen organization the list also names the connections, with the direction and the kind of relation. A screen reader hears the selection through a live announcement.",
-  },
-  accessWorks8: {
-    nl: "Zoeken is een combobox. Het zoekveld heeft een label, een uitgeklapte status, een resultatenlijst met opties en een live melding van het aantal resultaten.",
-    en: "Search is a combobox. The search field has a label, an expanded state, a results list with options and a live announcement of the number of results.",
   },
   accessLimitsTitle: { nl: "Bekende beperkingen", en: "Known limitations" },
   accessLimits1: {
@@ -476,11 +436,6 @@ export const PAGES_DICT = {
   accessReportP1: {
     nl: "Loop je tegen een toegankelijkheidsprobleem aan, dan kun je dat melden. Er is nog geen openbaar contactadres en nog geen publieke repository-URL vastgelegd, dus er is nog geen concrete plek voor een melding. Dat is een benoemde leemte. Zodra die gegevens er zijn, staat hier hoe je meldt en binnen welke termijn je een reactie kunt verwachten.",
     en: "If you run into an accessibility problem, you can report it. No public contact address and no public repository URL have been recorded yet, so there is no concrete place for a report yet. That is a named gap. Once that information exists, this page will describe how to report and within which period you can expect a reply.",
-  },
-  accessReviewTitle: { nl: "Herziening", en: "Review" },
-  accessReviewP1: {
-    nl: "Deze verklaring is opgesteld op 18 september 2026. De verklaring wordt herzien wanneer de interface verandert of wanneer een nieuw onderzoek daartoe aanleiding geeft.",
-    en: "This statement was written on 18 September 2026. The statement is revised when the interface changes or when a new audit gives reason to.",
   },
 } as const satisfies Record<string, LocString>;
 

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
+import { LocalCount } from "@/components/content/local-date";
 import { T } from "@/components/i18n/t";
-import { formatCount } from "@/lib/format";
 import { ChangeKindGlyph } from "./change-glyph";
 import { LocalDate } from "./local-date";
 import { TemplateT } from "./template-t";
@@ -56,18 +56,18 @@ export function ChangeStatTiles({ figures, className = "" }: { figures: ChangeTi
       <ul className="grid grid-cols-2 gap-2 @[40rem]:grid-cols-4">
         <Tile
           icon={<ChangeKindGlyph kind="vacancy" size={16} />}
-          value={vacantSeats === null ? "-" : formatCount(vacantSeats)}
+          value={vacantSeats === null ? "-" : <LocalCount value={vacantSeats} />}
           label={<T area="home" k={vacantSeats === 1 ? "tileVacancyOne" : "tileVacancies"} />}
         />
         <Tile
           icon={<ChangeKindGlyph kind="acting" size={16} />}
-          value={formatCount(actingOfficials)}
+          value={<LocalCount value={actingOfficials} />}
           label={<T area="home" k="tileActing" />}
         />
         <Tile
           icon={<ClockIcon />}
           context={<T area="home" k="statLastChangeLabel" />}
-          value={age === null ? "-" : age === 0 ? <T area="home" k="dayToday" /> : formatCount(age)}
+          value={age === null ? "-" : age === 0 ? <T area="home" k="dayToday" /> : <LocalCount value={age} />}
           label={
             age === null ? (
               <T area="home" k="statLastChangeNone" />
@@ -80,7 +80,7 @@ export function ChangeStatTiles({ figures, className = "" }: { figures: ChangeTi
         />
         <Tile
           icon={<ChangeKindGlyph kind="appointment" size={16} />}
-          value={formatCount(appointments.count)}
+          value={<LocalCount value={appointments.count} />}
           label={
             <T
               area="home"

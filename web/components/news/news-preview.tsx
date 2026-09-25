@@ -4,6 +4,8 @@ import { useCallback, useState } from "react";
 import type { NewsPreview } from "./news-view";
 import type { PublisherKind } from "@/lib/types";
 import { newsMonogram } from "@/lib/news-preview";
+import { useLocale } from "@/components/i18n/language-provider";
+import { localizeCredit } from "@/lib/format";
 
 /**
  * Outlet kinds that carry the accent tint on a monogram tile. Everything else
@@ -52,6 +54,8 @@ export function NewsPreviewTile({
   responsive?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
+  const locale = useLocale();
+  const caption = preview.kind === "monogram" ? undefined : localizeCredit(preview.caption, locale);
   // An image that failed before hydration never fires onError in React; check once it mounts.
   const checkLoaded = useCallback((img: HTMLImageElement | null) => {
     if (img && img.complete && img.naturalWidth === 0) setFailed(true);
@@ -68,7 +72,7 @@ export function NewsPreviewTile({
         <img
           src={preview.url}
           alt=""
-          title={preview.caption}
+          title={caption}
           width={size}
           height={size}
           loading="lazy"
@@ -88,7 +92,7 @@ export function NewsPreviewTile({
         <img
           src={preview.url}
           alt={preview.personLabel}
-          title={preview.caption}
+          title={caption}
           width={size}
           height={size}
           loading="lazy"

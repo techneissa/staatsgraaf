@@ -8,6 +8,12 @@ const euroFormatter = new Intl.NumberFormat("nl-NL", {
   maximumFractionDigits: 0,
 });
 
+const euroFormatterEn = new Intl.NumberFormat("en-GB", {
+  style: "currency",
+  currency: "EUR",
+  maximumFractionDigits: 0,
+});
+
 export function budgetUnitFactor(unit: string | null | undefined): number {
   if (!unit) return 1;
   const normalized = unit.toLowerCase().replace(/\s+/g, "");
@@ -47,11 +53,42 @@ export function formatBudgetAmount(
   return formatEuroCompact(value * budgetUnitFactor(unit), locale);
 }
 
-/** The exact amount in full euros, as the source states it. */
+/** The exact amount in full euros, as the source states it, in the reader's locale. */
 export function formatBudgetAmountExact(
   value: number | null | undefined,
   unit: string | null | undefined,
+  locale: "nl" | "en" = "nl",
 ): string | null {
   if (value === null || value === undefined) return null;
-  return euroFormatter.format(value * budgetUnitFactor(unit));
+  const formatter = locale === "en" ? euroFormatterEn : euroFormatter;
+  return formatter.format(value * budgetUnitFactor(unit));
+}
+
+/**
+ * A percentage in the reader's locale with one decimal: "3,7%" in Dutch,
+ * "3.7%" in English. `signed` adds "+" or "−"; otherwise the absolute value
+ * is shown, because the caller carries the direction with an arrow.
+ */
+export function formatPercent(
+  value: number,
+  locale: "nl" | "en" = "nl",
+  options: { signed?: boolean } = {},
+): string {
+  const tag = locale === "en" ? "en-GB" : "nl-NL";
+  const body = new Intl.NumberFormat(tag, {
+    style: "percent",
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  }).format(Math.abs(value) / 100);
+  if (!options.signed) return body;
+  const rounded = Math.round(value * 10) / 10;
+  if (rounded > 0) return `+${body}`;
+  if (rounded < 0) return `−${body}`;
+  return body;
+}
+
+/** A share of a total, with "< 0,1%" for a share too small to show at one decimal. */
+export function formatShare(value: number, locale: "nl" | "en" = "nl"): string {
+  if (value > 0 && value < 0.05) return `< ${formatPercent(0.1, locale)}`;
+  return formatPercent(value, locale);
 }

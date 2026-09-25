@@ -157,6 +157,10 @@ export const ENTITY_DICT = {
 
   // Summaries, descriptions, facts, career and callouts
   translatedFromDutch: { nl: "Vertaald uit het Nederlands", en: "Translated from Dutch" },
+  descriptionsTranslatedNote: {
+    nl: "Beschrijvingen staan in het Nederlands.",
+    en: "Descriptions are machine translated from Dutch where a translation exists.",
+  },
   factBranchLevel: { nl: "Tak en niveau", en: "Branch and level" },
   factLinks: { nl: "Elders", en: "Elsewhere" },
   careerTitle: { nl: "Loopbaan", en: "Career" },

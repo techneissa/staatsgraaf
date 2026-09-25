@@ -3,6 +3,7 @@ import { Avatar } from "@/components/avatar";
 import { getMediaItem, mediaCreditLine, personPortraitId } from "@/lib/entity";
 import { partyByDataset } from "@/lib/parties";
 import type { Person } from "@/lib/types";
+import { CreditSummary, CreditText } from "./credit-text";
 
 /** The sourced party colour of a person, or null when none is on record. */
 export function personColor(person: Person): string | null {
@@ -73,21 +74,20 @@ export function PersonPortraitCredit({
   const media = getMediaItem(personPortraitId(person));
   if (media === null) return null;
   const credit = mediaCreditLine(media);
-  if (variant === "hidden") return <span className="sr-only">{credit}</span>;
+  if (variant === "hidden") return <span className="sr-only"><CreditText credit={credit} /></span>;
   return (
     <details className="group relative inline-block">
-      <summary
-        aria-label={credit}
-        title={credit}
+      <CreditSummary
+        credit={credit}
         className="tap-target flex h-5 w-5 cursor-pointer list-none items-center justify-center rounded-pill text-[11px] text-ink-faint transition-fast hover:text-ink [&::-webkit-details-marker]:hidden"
       >
         <svg aria-hidden="true" viewBox="0 0 16 16" width="13" height="13">
           <circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" strokeWidth="1.3" />
           <path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
-      </summary>
+      </CreditSummary>
       <p className="absolute left-0 top-6 z-20 w-56 rounded-md border border-line bg-surface p-2 text-[11px] leading-snug text-ink-muted shadow-lg">
-        {credit}
+        <CreditText credit={credit} />
       </p>
     </details>
   );

@@ -1,12 +1,9 @@
 import { L } from "@/components/i18n/t";
-import { SourceLink } from "@/components/source-link";
 import { T } from "@/components/i18n/t";
 import { interpolate } from "@/lib/i18n/locales";
 import { NEWS_DICT } from "@/lib/i18n/dict-news";
 import { Amount } from "./amount";
-import { toSourceNoteItems } from "./source-note-data";
-import { SourceNote } from "./source-note";
-import type { AmountSet, SourceRef } from "@/lib/types";
+import type { AmountSet } from "@/lib/types";
 
 type AmountKey = "spendingBudget" | "spendingActual" | "revenue" | "net";
 
@@ -40,14 +37,12 @@ export function BudgetYearFigures({
   previousYear,
   current,
   previous,
-  sources,
 }: {
   unit: string | null;
   currentYear: number;
   previousYear: number;
   current: AmountSet;
   previous: AmountSet | null;
-  sources: SourceRef[];
 }) {
   const captionNl = interpolate(NEWS_DICT.budgetYearFiguresCaption.nl, {
     unit: unit ?? NEWS_DICT.budgetUnknownUnit.nl,
@@ -58,8 +53,8 @@ export function BudgetYearFigures({
 
   return (
     <div>
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse text-xs tabular-nums sm:min-w-[32rem] sm:text-sm">
+      <div>
+        <table className="w-full border-collapse text-sm tabular-nums">
           <caption className="sr-only">
             <L nl={captionNl} en={captionEn} />
           </caption>
@@ -82,10 +77,10 @@ export function BudgetYearFigures({
                 <th scope="row" className="py-2 pe-3 text-left font-normal text-ink-muted">
                   <T area="news" k={row.k} />
                 </th>
-                <td className="py-2 pe-3 text-right">
+                <td className="whitespace-nowrap py-2 pe-3 text-right">
                   <Cell value={current[row.key]} unit={unit} />
                 </td>
-                <td className="py-2 text-right">
+                <td className="whitespace-nowrap py-2 text-right">
                   {previous !== null ? (
                     <Cell value={previous[row.key]} unit={unit} />
                   ) : (
@@ -99,8 +94,6 @@ export function BudgetYearFigures({
           </tbody>
         </table>
       </div>
-
-      <SourceNote items={toSourceNoteItems(sources)} />
     </div>
   );
 }

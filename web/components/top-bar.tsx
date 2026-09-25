@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { Menu, X } from "lucide";
 import { BrandLockup } from "./brand-lockup";
 import { HistoryControls } from "./history-controls";
+import { Morph } from "./icons/morph";
 import { LanguageToggle } from "./language-toggle";
 import { SearchOverlay } from "./search/search-overlay";
 import { ThemeToggle } from "./theme-toggle";
@@ -68,22 +70,7 @@ function MobileMenu({ pathname }: { pathname: string | null }) {
       <summary
         className="tap-target flex cursor-pointer list-none items-center gap-1.5 rounded-sm border border-line px-2.5 py-1.5 text-sm text-ink-muted transition-fast hover:border-line-strong hover:text-ink group-open:border-line-strong group-open:text-ink [&::-webkit-details-marker]:hidden"
       >
-        <svg aria-hidden="true" viewBox="0 0 20 20" width="14" height="14" className="shrink-0">
-          <path
-            className="group-open:hidden"
-            d="M3.5 6h13M3.5 10h13M3.5 14h13"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-          />
-          <path
-            className="hidden group-open:block"
-            d="m5 5 10 10M15 5 5 15"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-          />
-        </svg>
+        <Morph icon={open ? X : Menu} size={14} />
         {t("menu")}
       </summary>
       <nav

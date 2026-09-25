@@ -1,16 +1,19 @@
 import { getDataset, getOrganizationById, getOrganizationBySlug } from "./data";
 import type { AmountSet, Budget, Organization, SourceRef } from "./types";
-import { budgetUnitFactor } from "./budget-format";
+import { budgetUnitFactor, formatPercent } from "./budget-format";
+import type { RadarData, RadarYear } from "./budget-radar";
 
-export { budgetUnitFactor, formatBudgetAmount, formatBudgetAmountExact, formatEuroCompact } from "./budget-format";
+export {
+  budgetUnitFactor,
+  formatBudgetAmount,
+  formatBudgetAmountExact,
+  formatEuroCompact,
+  formatPercent,
+  formatShare,
+} from "./budget-format";
 
 export const BUDGET_OVERVIEW_YEAR = 2026;
 export const BUDGET_PREVIOUS_YEAR = BUDGET_OVERVIEW_YEAR - 1;
-
-const percentFormatter = new Intl.NumberFormat("nl-NL", {
-  minimumFractionDigits: 1,
-  maximumFractionDigits: 1,
-});
 
 export type BudgetDelta = {
   absolute: number;
@@ -96,8 +99,9 @@ export function budgetUnitLabel(unit: string | null | undefined): string | null 
   return unit;
 }
 
-export function formatBudgetPercent(value: number): string {
-  return `${percentFormatter.format(Math.abs(value))}%`;
+/** The absolute percentage in the reader's locale; see formatPercent for a signed one. */
+export function formatBudgetPercent(value: number, locale: "nl" | "en" = "nl"): string {
+  return formatPercent(value, locale);
 }
 
 export function budgetDelta(
@@ -333,4 +337,56 @@ export function getBudgetByOrganizationSlug(slug: string): BudgetOrganizationVie
     breakdown: collectBreakdown(currentRecord),
     sources: dedupeSources(records),
   };
+}
+
+/**
+ * Spending per ministry per year for the radar chart, in euros. A year with a
+ * budget record uses its budgeted spending (current.spendingBudget); a year
+ * that only appears in a record's history uses realized spending
+ * (history.spendingActual). Ministries follow the overview order.
+ */
+export function getBudgetRadarData(): RadarData {
+  const { budgets } = getDataset();
+  const overview = getBudgetOverview();
+  const byOrganization = groupByOrganization(budgets);
+  const budgetYears = new Set(budgets.map((budget) => budget.fiscalYear));
+  const allYears = new Set<number>(budgetYears);
+  for (const budget of budgets) {
+    for (const row of Array.isArray(budget.history) ? budget.history : []) allYears.add(row.fiscalYear);
+  }
+  const years: RadarYear[] = [...allYears]
+    .sort((a, b) => a - b)
+    .map((year) => ({ year, measure: budgetYears.has(year) ? "budget" : "actual" }));
+
+  const ministries = overview.items.map((item) => {
+    const records = byOrganization.get(item.organization.id) ?? [];
+    const values: Record<string, number | null> = {};
+    for (const { year, measure } of years) {
+      let value: number | null = null;
+      if (measure === "budget") {
+        const record = records.find((entry) => entry.fiscalYear === year);
+        const amount = record?.current?.spendingBudget;
+        if (record && amount !== null && amount !== undefined) value = amount * budgetUnitFactor(record.unit);
+      } else {
+        for (const record of records) {
+          const row = (Array.isArray(record.history) ? record.history : []).find(
+            (entry) => entry.fiscalYear === year,
+          );
+          if (row && row.spendingActual !== null && row.spendingActual !== undefined) {
+            value = row.spendingActual * budgetUnitFactor(record.unit);
+            break;
+          }
+        }
+      }
+      values[String(year)] = value;
+    }
+    return {
+      id: item.organization.id,
+      slug: item.organization.slug,
+      name: item.organization.name,
+      values,
+    };
+  });
+
+  return { years, ministries };
 }

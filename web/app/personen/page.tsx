@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { LocalCount } from "@/components/content/local-date";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { PersonPortrait } from "@/components/entity/person-portrait";
 import { PartyBadge } from "@/components/party-badge";
-import { T } from "@/components/i18n/t";
+import { T, LocalText } from "@/components/i18n/t";
+import { positionEn } from "@/lib/name-gloss";
 import { PeekLink } from "@/components/peek/peek-link";
 import { LabelledNav } from "@/components/entity/labelled-nav";
 import { ShowAllList } from "@/components/news/show-all-list";
@@ -13,7 +15,6 @@ import {
   getPositionById,
   getTenuresForPerson,
 } from "@/lib/data";
-import { formatCount } from "@/lib/format";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 import type { Person } from "@/lib/types";
 
@@ -98,7 +99,7 @@ export default function PeopleIndexPage() {
           >
             {group.letter}
             <span className="ms-2 text-sm font-normal tabular-nums text-ink-faint">
-              {formatCount(group.people.length)}
+              <LocalCount value={group.people.length} />
             </span>
           </h2>
           <ShowAllList
@@ -123,7 +124,10 @@ export default function PeopleIndexPage() {
                       </PeekLink>
                     </h3>
                     {role !== null ? (
-                      <p className="truncate text-xs text-ink-muted">{role}</p>
+                      <p className="truncate text-xs text-ink-muted" title={role}>
+                        {/* The established English title on the meta line, as on the power map (ADR 0012). */}
+                        <LocalText nl={role} en={positionEn(role)} />
+                      </p>
                     ) : null}
                   </div>
                   {person.party !== null ? (

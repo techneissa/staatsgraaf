@@ -1,273 +1,257 @@
-import type { PowerMapPerson } from "./graph";
-import { positionEn } from "./name-gloss";
-
 /**
- * Radial tree layout for the power map (Machtskaart).
+ * Layout and grouping for the connections view (Verbanden), the view with the
+ * internal id `power`. Pure and deterministic, so the web and a later Swift
+ * client draw the same picture from the same `power-map.json`.
  *
- * The centre of the coordinate system is the power-map hub card. Rank 1 sits
- * centred on the vertical axis above the hub; the remaining people are placed
- * in horizontal, top-axis-symmetric rows below the hub, each row filled from
- * the axis outward (left, right, then further out, mirroring the CivLab
- * "double tree" ranking). Connecting links are slight quadratic bows from each
- * card to the hub.
+ * Two shapes:
  *
- * The layout is deterministic and guarantees that no two card boxes overlap:
- * within a row the cards spread axis-outward with a slot gap between
- * neighbouring cards, sized by each card's own half width, and rows are
- * stacked with a vertical gap that accounts for the tallest card in each row.
+ * - The overview ranks the most connected people by the summed strength of
+ *   their ties (lib/power-connections.ts) and groups them by role: the
+ *   cabinet, the Kamers, and everyone else.
+ * - The focus is an ego network. The picked person or body sits in the
+ *   centre; its ties are grouped by kind (office and body, cabinet, party and
+ *   fractie, shared news) into labelled columns on the left and the right.
+ *   A stronger tie sits closer to the centre and gets a heavier line.
+ *
+ * Columns instead of a circle keep every label horizontal and one row apart,
+ * so names never collide at any width the diagram is drawn at. Below that
+ * width the view shows the same groups as a list (`egoFits`).
  */
 
-export const POWER_HUB_RADIUS = 36;
-export const POWER_HUB_CLEARANCE = 46;
-export const POWER_ROW_GAP = 20;
-export const POWER_SLOT_GAP = 30;
-export const POWER_PORTRAIT_RADIUS = 30;
-export const POWER_MIN_PORTRAIT_RADIUS = 19;
-export const POWER_BOX_TOP_PAD = 3;
-export const POWER_NAME_CHAR = 6.9;
-export const POWER_META_CHAR = 5.7;
-export const POWER_LINK_BOW = 0.14;
+import type { PowerLink, PowerReason } from "./power-connections";
 
-export type PowerMapCard = {
-  person: PowerMapPerson;
-  x: number;
-  y: number;
-  /** Portrait circle radius; larger for the top-ranked people. */
-  radius: number;
-  halfWidth: number;
-  /** Offset from the card centre to the first text line. */
-  labelTop: number;
-  /** Offset from the card centre to the bottom of the text block. */
-  labelBottom: number;
-  /** Row below the hub, 0 is the single card above the hub. */
-  row: number;
-  /** Slot index in the row, axis-outward order. */
-  slot: number;
+export const TIE_KINDS = ["office", "cabinet", "party", "news"] as const;
+export type TieKind = (typeof TIE_KINDS)[number];
+
+export type Tie = { other: string; link: PowerLink };
+export type TieGroup = { kind: TieKind; ties: Tie[] };
+
+/** The group a tie belongs to: its most structural reason wins. */
+export function tieKind(reasons: readonly PowerReason[]): TieKind {
+  if (reasons.includes("tenure")) return "office";
+  if (reasons.includes("kabinet")) return "cabinet";
+  if (reasons.includes("fractie")) return "party";
+  if (reasons.includes("organisation")) return "office";
+  return "news";
+}
+
+/** Tie strength on a five step scale, for the meter and the line weight. */
+export const STRENGTH_STEPS = [0.5, 0.9, 1.4, 2.4] as const;
+export function strengthLevel(weight: number): 1 | 2 | 3 | 4 | 5 {
+  let level = 1;
+  for (const step of STRENGTH_STEPS) if (weight >= step) level += 1;
+  return level as 1 | 2 | 3 | 4 | 5;
+}
+
+/** Every tie in its group, groups in the fixed order of `TIE_KINDS`, strongest first. */
+export function groupTies(ties: readonly Tie[]): TieGroup[] {
+  const byKind = new Map<TieKind, Tie[]>();
+  for (const tie of ties) {
+    const kind = tieKind(tie.link.reasons);
+    const list = byKind.get(kind) ?? [];
+    list.push(tie);
+    byKind.set(kind, list);
+  }
+  return TIE_KINDS.filter((kind) => byKind.has(kind)).map((kind) => ({
+    kind,
+    ties: [...(byKind.get(kind) ?? [])].sort(
+      (x, y) => y.link.weight - x.link.weight || (x.other < y.other ? -1 : x.other > y.other ? 1 : 0),
+    ),
+  }));
+}
+
+export type EgoOptions = {
+  width: number;
+  height: number;
+  /** Diameter of a neighbour's portrait. */
+  node?: number;
+  /** Radius of the focus portrait. */
+  focusRadius?: number;
+  /** Width kept for a neighbour's name and reason beside its portrait. */
+  label?: number;
+  /** Height of one neighbour row; never less than a 44 px touch target. */
+  row?: number;
+  /** Width of the focus's name and title under its portrait, kept clear of the neighbours. */
+  centreText?: number;
+  /** Height of a group heading. */
+  heading?: number;
+  pad?: number;
 };
 
-export function powerMapMeta(
-  person: PowerMapPerson,
-  locale: "nl" | "en" = "nl",
-): string {
-  // In English, swap the Dutch position title for its established English
-  // gloss when one exists; unknown titles keep the Dutch text (honest gap).
-  // Titles are never truncated: the card boxes grow to fit the full text.
-  const job =
-    locale === "en" ? positionEn(person.job) ?? person.job : person.job;
-  return [person.party, job].filter(Boolean).join(" · ");
-}
-
-export function powerMapCountLabel(total: number, locale: "nl" | "en"): string {
-  if (total === 1) return locale === "en" ? "1 article" : "1 artikel";
-  return locale === "en" ? `${total} articles` : `${total} artikelen`;
-}
-
-export function powerMapPortraitRadius(rank: number): number {
-  if (rank === 1) return 30;
-  if (rank === 2) return 27;
-  if (rank === 3) return 25;
-  return Math.max(
-    POWER_MIN_PORTRAIT_RADIUS,
-    22 - Math.floor(Math.max(0, rank - 4) / 4),
-  );
-}
-
-type CardPlan = {
-  radius: number;
-  halfWidth: number;
-  labelTop: number;
-  labelBottom: number;
+export type EgoNode = { id: string; kind: TieKind; side: -1 | 1; x: number; y: number; level: number };
+export type EgoHeading = { kind: TieKind; side: -1 | 1; x: number; y: number; shown: number; hidden: number };
+export type EgoLayout = {
+  centre: { x: number; y: number };
+  nodes: EgoNode[];
+  headings: EgoHeading[];
 };
 
-function planFor(person: PowerMapPerson, locale: "nl" | "en", thirdLine?: (person: PowerMapPerson) => string): CardPlan {
-  const radius = powerMapPortraitRadius(person.rank);
-  const name = person.name;
-  const meta = powerMapMeta(person, locale);
-  const count = thirdLine ? thirdLine(person) : powerMapCountLabel(person.total, locale);
-  const halfWidth = Math.max(
-    radius,
-    (name.length * POWER_NAME_CHAR) / 2,
-    (meta.length * POWER_META_CHAR) / 2,
-    (count.length * POWER_META_CHAR) / 2,
-  );
-  const labelTop = radius + 13;
-  const labelBottom = labelTop + 38;
-  return { radius, halfWidth, labelTop, labelBottom };
+const EGO_DEFAULTS = { node: 36, focusRadius: 40, label: 148, centreText: 144, row: 46, heading: 26, pad: 12 };
+
+/** The nearest a neighbour's centre may come to the focus's centre, horizontally. */
+function innerReach(o: typeof EGO_DEFAULTS): number {
+  return Math.max(o.focusRadius + 48, o.centreText / 2 + o.node / 2 + 16);
 }
 
-/** Row capacities for the axis-symmetric tree below the hub. */
-function rowCapacities(count: number): number[] {
-  const capacities: number[] = [];
-  let filled = 0;
-  let index = 0;
-  const base = [1, 2, 2];
-  while (filled < count) {
-    const capacity = index < base.length ? base[index] : 4 + 2 * Math.floor((index - base.length) / 2);
-    capacities.push(capacity);
-    filled += capacity;
-    index += 1;
-  }
-  return capacities;
+/** Whether the diagram fits the box; below this the list form is used. */
+export function egoFits(width: number, height: number, options: Omit<EgoOptions, "width" | "height"> = {}): boolean {
+  const o = { ...EGO_DEFAULTS, ...options };
+  const half = width / 2;
+  const reach = half - o.pad - o.label - o.node / 2;
+  return reach - innerReach(o) >= 8 && height >= o.heading + o.row * 4 + o.pad * 2;
 }
-
-export function powerMapCardBox(card: PowerMapCard): {
-  left: number;
-  right: number;
-  top: number;
-  bottom: number;
-} {
-  return {
-    left: card.x - card.halfWidth,
-    right: card.x + card.halfWidth,
-    top: card.y - card.radius - POWER_BOX_TOP_PAD,
-    bottom: card.y + card.labelBottom,
-  };
-}
-
-/** Slight bow toward the outside so links fan out to the hub like CivLab's. */
-export function powerMapLinkPath(x: number, y: number): string {
-  const length = Math.hypot(x, y);
-  if (length < 0.001) return `M 0 0 L 0 0`;
-  const midX = x / 2;
-  const midY = y / 2;
-  const normal = { x: y / length, y: -x / length };
-  const side = x >= 0 ? 1 : -1;
-  const controlX = midX + normal.x * side * length * POWER_LINK_BOW;
-  const controlY = midY + normal.y * side * length * POWER_LINK_BOW;
-  const round = (value: number) => Math.round(value * 1000) / 1000;
-  return `M ${round(x)} ${round(y)} Q ${round(controlX)} ${round(controlY)} 0 0`;
-}
-
-function includesHub(
-  bounds: { minX: number; minY: number; maxX: number; maxY: number },
-  centreTextWidth: number,
-): void {
-  bounds.minX = Math.min(bounds.minX, -centreTextWidth);
-  bounds.maxX = Math.max(bounds.maxX, centreTextWidth);
-  bounds.minY = Math.min(bounds.minY, -POWER_HUB_RADIUS);
-  bounds.maxY = Math.max(bounds.maxY, POWER_HUB_RADIUS + POWER_HUB_CLEARANCE - 10);
-}
-
-export function layoutPowerMap(
-  people: PowerMapPerson[],
-  locale: "nl" | "en" = "nl",
-  /** The card's third line when it is not the article count, so the card is wide enough for it. */
-  thirdLine?: (person: PowerMapPerson) => string,
-): {
-  cards: PowerMapCard[];
-  bounds: { minX: number; minY: number; maxX: number; maxY: number };
-} {
-  const plans = people.map((person) => planFor(person, locale, thirdLine));
-
-  const cards: PowerMapCard[] = [];
-  let cursor = POWER_HUB_RADIUS + POWER_HUB_CLEARANCE;
-  let start = 0;
-  const capacities = rowCapacities(people.length);
-  for (const [row, capacity] of capacities.entries()) {
-    const members = plans.slice(start, start + capacity);
-    if (members.length === 0) break;
-    const maxRadius = Math.max(...members.map((plan) => plan.radius));
-
-    let rowY: number;
-    if (row === 0) {
-      rowY = -(POWER_HUB_RADIUS + POWER_HUB_CLEARANCE + plans[0].labelBottom);
-    } else {
-      rowY = cursor + maxRadius + POWER_BOX_TOP_PAD;
-      cursor = rowY + Math.max(...members.map((plan) => plan.labelBottom)) + POWER_ROW_GAP;
-    }
-
-    // Full titles change every card's width, so each side of the row places
-    // its cards axis-outward with a slot gap between neighbours instead of a
-    // fixed pitch sized by the widest card.
-    const positions: number[] = new Array(members.length);
-    if (members.length === 1) {
-      positions[0] = 0;
-    } else {
-      for (const side of [-1, 1]) {
-        for (let slot = side === -1 ? 0 : 1; slot < members.length; slot += 2) {
-          const width = members[slot].halfWidth;
-          positions[slot] =
-            slot <= 1
-              ? side * (width + POWER_SLOT_GAP / 2)
-              : side * (Math.abs(positions[slot - 2]) + members[slot - 2].halfWidth + POWER_SLOT_GAP + width);
-        }
-      }
-    }
-
-    for (let slot = 0; slot < members.length; slot += 1) {
-      cards.push({
-        person: people[start + slot],
-        x: members.length === 1 ? 0 : positions[slot],
-        y: rowY,
-        radius: members[slot].radius,
-        halfWidth: members[slot].halfWidth,
-        labelTop: members[slot].labelTop,
-        labelBottom: members[slot].labelBottom,
-        row,
-        slot,
-      });
-    }
-    start += members.length;
-  }
-
-  let bounds = { minX: Infinity, minY: Infinity, maxX: -Infinity, maxY: -Infinity };
-  for (const card of cards) {
-    const box = powerMapCardBox(card);
-    bounds.minX = Math.min(bounds.minX, box.left);
-    bounds.maxX = Math.max(bounds.maxX, box.right);
-    bounds.minY = Math.min(bounds.minY, box.top);
-    bounds.maxY = Math.max(bounds.maxY, box.bottom);
-  }
-  includesHub(bounds, 78);
-  return { cards, bounds: { ...bounds } };
-}
-
-export const NEWS_BUBBLE_RADIUS = 4.5;
-export const NEWS_BUBBLES_PER_CARD = 6;
-/** Gap between a portrait's edge and the centre of its news bubbles. */
-export const NEWS_BUBBLE_OFFSET = 8;
-
-export type BubbleAnchor = { id: string; x: number; y: number; radius: number };
-export type PlacedBubble = { id: string; owner: string; x: number; y: number };
 
 /**
- * News bubbles beside the cards they belong to. An item sits at the first card
- * on the map (in the order given, so the highest ranked) that it names; the
- * other people and bodies it names get their lines only when it is picked.
- * Bubbles run clockwise over a card's upper right shoulder, clear of the name
- * below it, at most `NEWS_BUBBLES_PER_CARD` per card in the order the items
- * come (newest first). Items that name no card on the map are left out.
+ * Split groups over the left and right column so the taller column is as
+ * short as possible; ties keep the order of `TIE_KINDS`, top to bottom.
  */
-export function placeNewsBubbles(
-  anchors: readonly BubbleAnchor[],
-  items: readonly { id: string; people: readonly string[]; bodies: readonly string[] }[],
-): PlacedBubble[] {
-  const order = new Map(anchors.map((anchor, index) => [anchor.id, index]));
-  const perOwner = new Map<string, number>();
-  const placed: PlacedBubble[] = [];
-  for (const item of items) {
-    let owner: BubbleAnchor | null = null;
-    let best = Number.POSITIVE_INFINITY;
-    for (const id of [...item.people, ...item.bodies]) {
-      const index = order.get(id);
-      if (index !== undefined && index < best) {
-        best = index;
-        owner = anchors[index];
-      }
-    }
-    if (!owner) continue;
-    const k = perOwner.get(owner.id) ?? 0;
-    if (k >= NEWS_BUBBLES_PER_CARD) continue;
-    perOwner.set(owner.id, k + 1);
-    const angle = -Math.PI / 2 + 0.55 + k * 0.36;
-    const distance = owner.radius + NEWS_BUBBLE_OFFSET;
-    const round = (value: number) => Math.round(value * 100) / 100;
-    placed.push({
-      id: item.id,
-      owner: owner.id,
-      x: round(owner.x + Math.cos(angle) * distance),
-      y: round(owner.y + Math.sin(angle) * distance),
+export function assignSides(sizes: readonly number[], headingRows = 0.6): (-1 | 1)[] {
+  const n = sizes.length;
+  let best: (-1 | 1)[] = sizes.map(() => 1);
+  let bestScore = Infinity;
+  for (let mask = 0; mask < 1 << n; mask += 1) {
+    const sides = sizes.map((_, index) => ((mask >> index) & 1 ? 1 : -1) as -1 | 1);
+    let left = 0;
+    let right = 0;
+    sizes.forEach((size, index) => {
+      if (sides[index] === -1) left += size + headingRows;
+      else right += size + headingRows;
     });
+    // Prefer the first group on the right, where the eye starts after the centre.
+    const score = Math.max(left, right) * 100 + Math.abs(left - right) + (sides[0] === 1 ? 0 : 0.5);
+    if (score < bestScore - 1e-9) {
+      bestScore = score;
+      best = sides;
+    }
   }
-  return placed;
+  return best;
+}
+
+/** Place the neighbours of a focus in labelled columns. */
+export function layoutEgo(input: readonly TieGroup[], options: EgoOptions): EgoLayout {
+  const o = { ...EGO_DEFAULTS, ...options };
+  const centre = { x: o.width / 2, y: o.height / 2 };
+  // One group alone would fill one side; it splits over both, alternating so each side gets strong ties.
+  const groups: TieGroup[] =
+    input.length === 1 && input[0].ties.length > 3
+      ? [
+          { kind: input[0].kind, ties: input[0].ties.filter((_, index) => index % 2 === 0) },
+          { kind: input[0].kind, ties: input[0].ties.filter((_, index) => index % 2 === 1) },
+        ]
+      : [...input];
+  const usable = Math.max(0, o.height - o.pad * 2);
+  const sides = assignSides(groups.map((group) => group.ties.length));
+
+  // How many rows each side can hold after its headings; groups share what is left, strongest first.
+  const shownPerGroup = groups.map((group) => group.ties.length);
+  for (const side of [-1, 1] as const) {
+    const indexes = groups.map((_, index) => index).filter((index) => sides[index] === side);
+    const capacity = Math.max(indexes.length, Math.floor((usable - indexes.length * o.heading) / o.row));
+    let total = indexes.reduce((sum, index) => sum + shownPerGroup[index], 0);
+    while (total > capacity) {
+      // Trim the longest group on this side, never below one row.
+      let longest = -1;
+      for (const index of indexes) if (shownPerGroup[index] > 1 && (longest < 0 || shownPerGroup[index] > shownPerGroup[longest])) longest = index;
+      if (longest < 0) break;
+      shownPerGroup[longest] -= 1;
+      total -= 1;
+    }
+  }
+
+  // The inner limit keeps the focus's name and title under its portrait clear.
+  const floor = innerReach(o);
+  const reachMax = Math.max(floor, o.width / 2 - o.pad - o.label - o.node / 2);
+  const reachMin = Math.min(reachMax, floor + Math.max(0, (reachMax - floor) * 0.25));
+  const maxWeight = Math.max(0.001, ...groups.flatMap((group) => group.ties.map((tie) => tie.link.weight)));
+
+  const nodes: EgoNode[] = [];
+  const headings: EgoHeading[] = [];
+  for (const side of [-1, 1] as const) {
+    const indexes = groups.map((_, index) => index).filter((index) => sides[index] === side);
+    const height = indexes.reduce((sum, index) => sum + o.heading + shownPerGroup[index] * o.row, 0);
+    let y = centre.y - height / 2;
+    for (const index of indexes) {
+      const group = groups[index];
+      const shown = shownPerGroup[index];
+      // Headings sit at the outer edge, clear of the lines, aligned outward.
+      const edgeX = side === 1 ? o.width - o.pad : o.pad;
+      headings.push({ kind: group.kind, side, x: edgeX, y: y + o.heading / 2, shown, hidden: group.ties.length - shown });
+      y += o.heading;
+      for (const tie of group.ties.slice(0, shown)) {
+        const rowY = y + o.row / 2;
+        const strength = Math.sqrt(tie.link.weight / maxWeight);
+        // Strong ties come in toward the centre; rows far above or below bend in a little, like an arc.
+        const bend = Math.min(1, Math.abs(rowY - centre.y) / Math.max(1, usable / 2));
+        const reach = reachMax - (reachMax - reachMin) * strength - (reachMax - reachMin) * 0.35 * bend * bend;
+        nodes.push({
+          id: tie.other,
+          kind: group.kind,
+          side,
+          x: Math.round((centre.x + side * Math.max(floor, reach)) * 10) / 10,
+          y: Math.round(rowY * 10) / 10,
+          level: strengthLevel(tie.link.weight),
+        });
+        y += o.row;
+      }
+    }
+  }
+  return { centre, nodes, headings };
+}
+
+/** A soft curve from the focus to a neighbour, leaving the focus horizontally. */
+export function tiePath(from: { x: number; y: number }, to: { x: number; y: number }): string {
+  const dx = to.x - from.x;
+  const r = (value: number) => Math.round(value * 10) / 10;
+  return `M${r(from.x)} ${r(from.y)} C${r(from.x + dx * 0.5)} ${r(from.y)} ${r(from.x + dx * 0.5)} ${r(to.y)} ${r(to.x)} ${r(to.y)}`;
+}
+
+/** Line weight in px for a strength level. */
+export function tieWidth(level: number): number {
+  return 0.75 + level * 0.55;
+}
+
+export const ROLES = ["cabinet", "parliament", "other"] as const;
+export type Role = (typeof ROLES)[number];
+
+/** The role group of a person in the overview, from the title of their current position. */
+export function roleOf(job: string | null): Role {
+  if (!job) return "other";
+  if (/^(minister|staatssecretaris)/i.test(job)) return "cabinet";
+  if (/^(fractievoorzitter|lid vaste commissie|lid tweede kamer|lid eerste kamer|tweede kamerlid|eerste kamerlid|voorzitter van de (tweede|eerste) kamer)/i.test(job)) {
+    return "parliament";
+  }
+  return "other";
+}
+
+export type RankedPerson = { id: string; strength: number; ties: number };
+export type RoleGroup = { role: Role; people: RankedPerson[] };
+
+/**
+ * The overview: the people with the strongest ties, the top `perRole` of each
+ * role. Only the people
+ * the bundle scores ties for (`anchors`) take part, so nobody ranks low just
+ * because their own ties were not computed.
+ */
+export function rankOverview(
+  links: readonly PowerLink[],
+  anchors: ReadonlySet<string>,
+  jobOf: (id: string) => string | null,
+  perRole = 8,
+): RoleGroup[] {
+  const totals = new Map<string, RankedPerson>();
+  for (const link of links) {
+    for (const end of [link.a, link.b]) {
+      if (!end.startsWith("person:") || !anchors.has(end)) continue;
+      const entry = totals.get(end) ?? { id: end, strength: 0, ties: 0 };
+      entry.strength += link.weight;
+      entry.ties += 1;
+      totals.set(end, entry);
+    }
+  }
+  const ranked = [...totals.values()]
+    .map((entry) => ({ ...entry, strength: Math.round(entry.strength * 1000) / 1000 }))
+    .sort((x, y) => y.strength - x.strength || y.ties - x.ties || (x.id < y.id ? -1 : 1));
+  return ROLES.map((role) => ({ role, people: ranked.filter((entry) => roleOf(jobOf(entry.id)) === role).slice(0, perRole) })).filter(
+    (group) => group.people.length > 0,
+  );
 }

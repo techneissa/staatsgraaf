@@ -280,3 +280,18 @@ export function titleNamesBody(title: string, bodyName: string): boolean {
   for (let pass = 0; pass < 2; pass += 1) body = body.replace(BODY_PREFIX, "");
   return body.length >= 3 && titleNorm.includes(body);
 }
+
+/**
+ * The seat counts of a vacancy, read from the fixed labels the change pipeline
+ * writes ("4 van 5 zetels vervuld", "1 vacante zetel"). Null when the labels
+ * do not follow that pattern, so the caller shows nothing rather than a guess.
+ */
+export function vacancySeatCounts(change: Change): { filled: number; seats: number; vacant: number } | null {
+  if (change.kind !== "vacancy") return null;
+  const before = /^(\d+) van (\d+) zetels? vervuld$/.exec(change.out?.label?.trim() ?? "");
+  if (before === null) return null;
+  const filled = Number(before[1]);
+  const seats = Number(before[2]);
+  if (!Number.isFinite(filled) || !Number.isFinite(seats) || seats < filled) return null;
+  return { filled, seats, vacant: seats - filled };
+}

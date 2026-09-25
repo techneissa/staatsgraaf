@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import Link from "next/link";
+import { Clock, Database, EyeOff, PenLine, Server, UserCheck, type IconNode } from "lucide";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { SectionHeading } from "@/components/icons/section-heading";
 import { T } from "@/components/i18n/t";
 import { getS } from "@/lib/i18n/server-strings";
 import { canonical, SITE_NAME } from "@/lib/site";
@@ -19,17 +20,19 @@ export const metadata: Metadata = {
 function Section({
   id,
   titleKey,
+  icon,
   children,
 }: {
   id: string;
   titleKey: string;
+  icon: IconNode;
   children: ReactNode;
 }) {
   return (
     <section aria-labelledby={`${id}-titel`} className="border-b border-line py-6 last:border-b-0">
-      <h2 id={`${id}-titel`} className="text-lg font-semibold tracking-tight text-ink">
+      <SectionHeading id={`${id}-titel`} icon={icon}>
         <T area="pages" k={titleKey} />
-      </h2>
+      </SectionHeading>
       <div className="mt-2 space-y-3 text-sm leading-relaxed text-ink-muted">{children}</div>
     </section>
   );
@@ -51,7 +54,7 @@ export default function PrivacyPage() {
       </p>
 
       <div className="mt-4">
-        <Section id="niet" titleKey="privacyNotTitle">
+        <Section id="niet" titleKey="privacyNotTitle" icon={EyeOff}>
           <List>
             <li>
               <T area="pages" k="privacyNot1" />
@@ -71,7 +74,7 @@ export default function PrivacyPage() {
           </p>
         </Section>
 
-        <Section id="dataset" titleKey="privacyDatasetTitle">
+        <Section id="dataset" titleKey="privacyDatasetTitle" icon={Database}>
           <p>
             <T area="pages" k="privacyDatasetP1" />
           </p>
@@ -83,19 +86,19 @@ export default function PrivacyPage() {
           </p>
         </Section>
 
-        <Section id="logs" titleKey="privacyLogsTitle">
+        <Section id="logs" titleKey="privacyLogsTitle" icon={Server}>
           <p>
             <T area="pages" k="privacyLogsP1" />
           </p>
         </Section>
 
-        <Section id="bewaren" titleKey="privacyRetentionTitle">
+        <Section id="bewaren" titleKey="privacyRetentionTitle" icon={Clock}>
           <p>
             <T area="pages" k="privacyRetentionP1" />
           </p>
         </Section>
 
-        <Section id="correctie" titleKey="privacyCorrectionTitle">
+        <Section id="correctie" titleKey="privacyCorrectionTitle" icon={PenLine}>
           <p>
             <T area="pages" k="privacyCorrectionP1" />
           </p>
@@ -104,7 +107,7 @@ export default function PrivacyPage() {
           </p>
         </Section>
 
-        <Section id="verantwoordelijke" titleKey="privacyControllerTitle">
+        <Section id="verantwoordelijke" titleKey="privacyControllerTitle" icon={UserCheck}>
           <p>
             <T area="pages" k="privacyControllerP1" />
           </p>

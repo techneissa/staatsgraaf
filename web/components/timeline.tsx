@@ -67,7 +67,8 @@ export function Timeline({ items, label }: { items: TimelineItem[]; label: strin
                 ) : null}
                 <p className="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-ink-faint">
                   {period !== null ? <span className="tabular-nums">{period}</span> : null}
-                  {item.current ? (
+                  {/* "Since ..." and the accent dot already say the role is current; a badge only when no period shows. */}
+                  {item.current && period === null ? (
                     <span className="rounded-xs bg-accent-soft px-1.5 py-px text-[11px] font-medium text-accent-text">
                       <T area="home" k="currentBadge" />
                     </span>

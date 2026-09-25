@@ -11,7 +11,8 @@ import { LocaleLabel } from "@/components/i18n/locale-label";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { SourceList } from "@/components/source-list";
 import { NewsPanel } from "@/components/news/news-panel";
-import { L, T } from "@/components/i18n/t";
+import { Gloss, L, T } from "@/components/i18n/t";
+import { positionEn } from "@/lib/name-gloss";
 import { POSITION_TYPE_LABELS } from "@/lib/labels";
 import { EntityConnections, SUMMARY_CLASS } from "@/components/entity/entity-connections";
 import { Callout } from "@/components/entity/callout";
@@ -178,8 +179,9 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
       key: "entry",
       icon: <PeopleIcon />,
       label: <T area="entity" k="factEntryModes" />,
-      // "Van rechtswege" as fill method and as the only entry mode says the same thing once.
-      value: entryModes.every((mode) => mode === fillMethod) ? null : entryModeLabel,
+      // An entry mode that only restates the fill method ("Van rechtswege" twice, "Koninklijk
+      // besluit" and "Benoemd bij koninklijk besluit", "Verkiezing" and "Gekozen") is said once.
+      value: entryModes.every((mode) => entryRestatesFill(mode, fillMethod)) ? null : entryModeLabel,
     },
   ];
 
@@ -218,6 +220,7 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
         <div className="flex min-w-0 items-start gap-3">
           <h1 className="min-w-0 flex-1 text-3xl font-semibold tracking-tight text-balance text-ink break-words">
             {position.title}
+            <Gloss text={positionEn(position.title)} className="mt-1 block text-base font-normal tracking-normal text-ink-muted" />
           </h1>
           <ShareButton className="mt-1 shrink-0" title={position.title} />
         </div>
@@ -247,7 +250,7 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
         <EntityTabs
           news={
             <div>
-              <h2 id="nieuws-paneel-titel" className="text-base font-semibold tracking-tight text-ink">
+              <h2 id="nieuws-paneel-titel" className="sr-only">
                 <T area="entity" k="tabNews" />
               </h2>
               {news.length > 0 ? (
@@ -263,7 +266,7 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
           }
           connections={
             <div>
-              <h2 id="verbindingen-paneel-titel" className="text-base font-semibold tracking-tight text-ink">
+              <h2 id="verbindingen-paneel-titel" className="sr-only">
                 <T area="entity" k="whosConnected" />
               </h2>
               <div className="mt-3">
@@ -300,7 +303,8 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
           </FactGroup>
         ) : null}
 
-        {tenures.length > 0 ? (
+        {/* The history repeats the current holders unless it holds someone who left. */}
+        {tenures.some((tenure) => tenure.end !== null) ? (
           <FactGroup icon={<HistoryIcon />} title={<T area="entity" k="tenureHistoryTitle" />} count={tenures.length}>
             <TenureTimeline tenures={tenures} variant="position" labelKey="tenureHistoryTitle" limit={6} />
           </FactGroup>
@@ -308,10 +312,7 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
 
         {exOfficio.length > 0 ? (
           <FactGroup icon={<SeatIcon />} title={<T area="entity" k="exOfficioTitle" />} count={exOfficio.length}>
-            <p className="text-sm text-ink-muted">
-              <T area="entity" k="exOfficioNote" />
-            </p>
-            <ul className="mt-2 space-y-1.5 text-sm">
+            <ul className="space-y-1.5 text-sm">
               {exOfficio.map((item) => (
                 <li key={item.id}>
                   <EntityPeekLink id={item.id} glyph />
@@ -328,6 +329,15 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
 }
 
 const HOLDER_LIMIT = 10;
+
+function entryRestatesFill(mode: string, fillMethod: string | null): boolean {
+  if (fillMethod === null) return false;
+  if (mode === fillMethod) return true;
+  if (fillMethod === "koninklijk-besluit") return mode === "benoemd-bij-kb" || mode === "benoemd";
+  if (fillMethod === "verkiezing") return mode === "gekozen";
+  if (fillMethod.startsWith("benoeming")) return mode === "benoemd";
+  return false;
+}
 
 function HolderRow({ tenure }: { tenure: Tenure }) {
   const person = getPersonById(tenure.person);

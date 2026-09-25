@@ -2,6 +2,9 @@ import Link from "next/link";
 import { branchColorClass } from "@/lib/branch-colors";
 import { DateT } from "@/components/content/local-date";
 import { LocaleLabel } from "@/components/i18n/locale-label";
+import { Gloss, LocalText } from "@/components/i18n/t";
+import { descriptionFor } from "@/lib/description-translations";
+import { orgEnGloss } from "@/lib/name-gloss";
 import type { Organization } from "@/lib/types";
 
 /** Employee number used for the card count line, budgeted value as fallback. */
@@ -12,6 +15,7 @@ export function employeeCountValue(organization: Organization): number | null {
 export function EntityCard({ organization }: { organization: Organization }) {
   const seats = organization.seatsCount;
   const employees = employeeCountValue(organization);
+  const description = descriptionFor(organization.id, organization.description);
   return (
     <article className="relative flex h-full flex-col overflow-hidden rounded-md border border-line border-l-4 bg-surface p-3 pr-4 transition-fast hover:border-line-strong">
       <span
@@ -26,13 +30,14 @@ export function EntityCard({ organization }: { organization: Organization }) {
           {organization.name}
         </Link>
       </h3>
-      <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1">
-        <span className="text-xs text-ink-muted"><LocaleLabel kind="subtype" value={organization.subtype} /></span>
-        <span className="text-xs text-ink-faint"><LocaleLabel kind="branch" value={organization.branch} /></span>
-      </div>
-      {organization.description !== null ? (
+      <Gloss text={orgEnGloss(organization.name)} className="mt-0.5 block text-xs text-ink-faint" />
+      {/* The branch is the heading of the section this card sits in; only the type is per card. */}
+      <p className="mt-1 text-xs text-ink-muted">
+        <LocaleLabel kind="subtype" value={organization.subtype} />
+      </p>
+      {description !== null ? (
         <p className="mt-1.5 line-clamp-2 text-sm leading-normal text-ink-muted">
-          {organization.description}
+          <LocalText nl={description.nl} en={description.en} />
         </p>
       ) : null}
       {seats !== null || employees !== null ? (

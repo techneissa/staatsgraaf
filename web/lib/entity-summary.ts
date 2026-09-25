@@ -1,3 +1,4 @@
+import { positionEn } from "./name-gloss";
 import {
   getDataset,
   getMembershipsForPerson,
@@ -85,8 +86,12 @@ function roleLabel(position: Position, organization: Organization | undefined): 
     organization.subtype !== "land-regering" &&
     organization.id !== "org:regering" &&
     !titleNamesBody(position.title, organization.name);
-  if (!showBody) return { nl: position.title, en: position.title };
-  return { nl: `${position.title} bij ${organization.name}`, en: `${position.title} at ${organization.name}` };
+  // English uses the established English title where one exists (ADR 0012); the Dutch title otherwise.
+  const titleEn = positionEn(position.title) ?? position.title;
+  if (!showBody) return { nl: position.title, en: titleEn };
+  // An English title that already names its body ("Minister of Finance") needs no "at Ministerie van Financiën".
+  if (titleEn !== position.title && /\b(of|for)\b/.test(titleEn)) return { nl: `${position.title} bij ${organization.name}`, en: titleEn };
+  return { nl: `${position.title} bij ${organization.name}`, en: `${titleEn} at ${organization.name}` };
 }
 
 export function personSummary(person: Person): Summary | null {
