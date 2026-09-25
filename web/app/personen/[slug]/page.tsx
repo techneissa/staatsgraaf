@@ -8,9 +8,8 @@ import { PartyBadge } from "@/components/party-badge";
 import { SourceLink } from "@/components/source-link";
 import { SourceList } from "@/components/source-list";
 import { NewsPanel } from "@/components/news/news-panel";
-import { T } from "@/components/i18n/t";
+import { L, T } from "@/components/i18n/t";
 import { ShareButton } from "@/components/share-button";
-import { LocalDate } from "@/components/content/local-date";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { MembershipList } from "@/components/entity/membership-list";
 import { EntityConnections } from "@/components/entity/entity-connections";
@@ -18,7 +17,10 @@ import { EntityDot } from "@/components/entity/entity-dot";
 import { EntityFacts } from "@/components/entity/entity-facts";
 import { FactGroup } from "@/components/entity/fact-group";
 import { HistoryIcon, PeopleIcon, PersonIcon, SeatIcon } from "@/components/entity/icons";
-import { PersonPortrait } from "@/components/entity/person-portrait";
+import { PartyPill } from "@/components/party-pill";
+import { PersonActivity } from "@/components/entity/person-activity";
+import { PersonBirth } from "@/components/entity/person-birth";
+import { PersonPortrait, PersonPortraitCredit } from "@/components/entity/person-portrait";
 import { TenureTimeline } from "@/components/entity/tenure-timeline";
 import {
   getMembershipsForPerson,
@@ -27,23 +29,37 @@ import {
   getPeople,
   getPersonBySlug,
   getPositionById,
+  getSourceById,
   getTenuresForPerson,
 } from "@/lib/data";
+import { getPersonActivityView } from "@/lib/activities";
 import {
   getConnectionsForEntity,
-  getMediaItem,
-  mediaCreditLine,
   personBirthDate,
   personDescription,
   personParty,
-  personPortraitId,
 } from "@/lib/entity";
 import { getNewsForEntity } from "@/lib/news";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
-import type { Organization } from "@/lib/types";
+import type { Organization, Person, Source } from "@/lib/types";
 import type { Connection } from "@/lib/entity";
 
 export const dynamicParams = false;
+
+/**
+ * The source record that gave the birth date: the TK or EK member list the
+ * seed read it from, else the person's Wikidata record. Null when none of the
+ * listed sources is one of those.
+ */
+function birthDateSource(person: Person): Source | null {
+  const order = [/^src:tk-odata-personen$/, /^src:ek-alle-leden$/, /^src:ek-persoon-/, /^src:wikidata-/];
+  for (const pattern of order) {
+    const ref = person.sources.find((entry) => pattern.test(entry.source));
+    const source = ref !== undefined ? getSourceById(ref.source) : undefined;
+    if (source !== undefined) return source;
+  }
+  return null;
+}
 
 /** Current roles listed in the header; the rest are in the Positions section. */
 const HEADER_ROLE_LIMIT = 4;
@@ -86,11 +102,12 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
   const memberships = getMembershipsForPerson(person.id);
   const connections: Connection[] = getConnectionsForEntity(person.id);
   const news = getNewsForEntity(person.id);
+  const activity = getPersonActivityView(person.id);
 
   const party = personParty(person);
   const birthDate = personBirthDate(person);
   const description = personDescription(person);
-  const portrait = getMediaItem(personPortraitId(person));
+  const birthSource = birthDate !== null ? birthDateSource(person) : null;
 
   const currentTenures = tenures.filter((tenure) => tenure.end === null);
 
@@ -125,7 +142,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
     },
     {
       label: <T area="entity" k="factBorn" />,
-      value: birthDate !== null ? <LocalDate iso={birthDate} /> : null,
+      value: birthDate !== null ? <PersonBirth iso={birthDate} /> : null,
     },
     {
       label: <T area="entity" k="factWikipedia" />,
@@ -172,12 +189,12 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
       <header className="mt-4">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
           <div className="shrink-0">
-            <PersonPortrait person={person} size={96} labelled morph />
-            {portrait !== null ? (
-              <p className="mt-2 max-w-[12rem] text-[11px] leading-snug text-ink-faint">
-                <T area="entity" k="imageCredit" />: {mediaCreditLine(portrait)}
-              </p>
-            ) : null}
+            <div className="relative inline-block">
+              <PersonPortrait person={person} size={96} labelled morph />
+              <span className="absolute -bottom-1 -right-1">
+                <PersonPortraitCredit person={person} variant="info" />
+              </span>
+            </div>
           </div>
           <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-2">
@@ -187,9 +204,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
                 <T area="entity" k="personChip" />
               </span>
               {party !== null ? (
-                <span className="inline-flex items-center rounded-pill border border-line bg-surface px-2.5 py-0.5 text-xs font-medium uppercase tracking-wide text-ink-muted">
-                  <PartyBadge party={party} />
-                </span>
+                <PartyPill party={party} className="px-2.5 text-xs" />
               ) : null}
               <ShareButton className="ms-auto" title={person.name} />
             </div>
@@ -266,6 +281,17 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
                 )}
               </div>
             }
+            extra={
+              activity !== null
+                ? [
+                    {
+                      value: "voorstellen",
+                      label: <L nl="Voorstellen en moties" en="Proposals and motions" />,
+                      content: <PersonActivity view={activity} />,
+                    },
+                  ]
+                : []
+            }
             connections={
               <div>
                 <h2
@@ -323,6 +349,14 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
       </div>
 
       <SourceList sources={person.sources} />
+      {birthSource !== null ? (
+        <p className="mt-2 text-xs text-ink-faint">
+          <L nl="Geboortedatum uit:" en="Date of birth from:" />{" "}
+          <SourceLink href={birthSource.url} tone="quiet">
+            {birthSource.title}
+          </SourceLink>
+        </p>
+      ) : null}
     </>
   );
 }

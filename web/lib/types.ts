@@ -393,3 +393,41 @@ export type MediaItem = {
   height: number | null;
   source: string;
 };
+
+/** Kind of a parliamentary item in data/activities.json (Zaak.Soort in the TK Gegevensmagazijn). */
+export type ActivityKind = "motie" | "amendement" | "initiatiefwetsvoorstel" | "wetsvoorstel" | "schriftelijke-vragen";
+
+/** Outcome from a "Stemmen - ..." Besluit; null when the data holds none. */
+export type ActivityOutcome = "aangenomen" | "verworpen" | "aangehouden" | "ingetrokken" | "vervallen";
+
+export type ActivityRole = "indiener" | "medeindiener";
+
+export type ActivityCoSubmitter = {
+  person: string | null;
+  name: string;
+  party: string | null;
+  role: ActivityRole;
+};
+
+export type ActivityItem = {
+  id: string;
+  role: ActivityRole;
+  kind: ActivityKind;
+  title: string;
+  date: string;
+  kamerstuk: string | null;
+  outcome: ActivityOutcome | null;
+  coSubmitters: ActivityCoSubmitter[];
+  url: string;
+};
+
+/** One person's proposals and motions since the start of the previous term (pipelines/parliament-activity.mjs). */
+export type PersonActivity = {
+  id: string;
+  person: string;
+  tkPersoon: string;
+  since: string;
+  totals: Record<ActivityKind, number>;
+  items: ActivityItem[];
+  source: SourceRef;
+};

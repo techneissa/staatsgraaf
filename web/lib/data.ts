@@ -12,6 +12,7 @@ import type {
   NewsTranslation,
   Organization,
   Person,
+  PersonActivity,
   Position,
   Relation,
   Source,
@@ -98,6 +99,9 @@ export type Dataset = {
   media: MediaItem[];
   elections: Election[];
   coalitions: Coalition[];
+  /** Proposals and motions per person; optional file, empty when absent. */
+  activities: PersonActivity[];
+  activitiesByPersonId: Map<string, PersonActivity>;
   organizationsById: Map<string, Organization>;
   organizationsBySlug: Map<string, Organization>;
   positionsById: Map<string, Position>;
@@ -174,6 +178,7 @@ export function getDataset(): Dataset {
   const media = readArray<MediaItem>("media.json");
   const elections = readArray<Election>("elections.json");
   const coalitions = readArray<Coalition>("coalitions.json");
+  const activities = readOptionalArray<PersonActivity>("activities.json");
 
   dataset = {
     organizations,
@@ -192,6 +197,8 @@ export function getDataset(): Dataset {
     media,
     elections,
     coalitions,
+    activities,
+    activitiesByPersonId: new Map(activities.map((record) => [record.person, record])),
     organizationsById: indexById(organizations),
     organizationsBySlug: new Map(organizations.map((org) => [org.slug, org])),
     positionsById: indexById(positions),
