@@ -4,6 +4,15 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Added (25-09-2026, eighth round)
+
+- A second form of the graph, the wheel, behind the icon button at the top right of the graph (owner's concept, after the CivLab Gov Graph): the Grondwet in the centre, the national bodies in four branch wedges, the decentrale overheden and the Koninkrijk around them and the voters as the rim. Every body is a mark in its shape and colour; the Kamers are drawn as their halls. Related bodies share one background with the group's name outside it.
+- Picking a body on the wheel turns the wheel so the body sits at the bottom and draws its ties: arrows for oversight, advice, accountability and elections (the voters from the rim), dashed lines for the bodies it falls under or holds. A body the wheel does not draw on its own, such as a gemeenteraad, stands in for the body it belongs to, and many ties into one group, such as a provincie's gemeenten, are one thicker bundle. Unrelated marks fade, hovering names a mark, and a caption names the selection with its number of ties.
+
+### Fixed (25-09-2026, eighth round)
+
+- The rings view draws the selection's ties at a fixed screen width, so they stay visible at every zoom level instead of thinning to under a pixel.
+
 ### Added (25-09-2026, seventh round)
 
 - The Kamers in Connections are their plenary hall (ADR 0018 amendment 3): every seat where the chamber's own floor plan puts it and each seat the member who holds it, as a face where there is room and as a dot in the fractie colour where there is not. The Tweede Kamer has its benches as a dome, the voorzitter at the desk and the kabinet in vak-K facing them; the Eerste Kamer has its two bench blocks, the voorzitter between them and the regeringstafel opposite. Hover or tap a seat for the member's face and fractie; the legend lists coalition and opposition with seat counts, fractievoorzitters and the majority. The kabinet's "Kabinet" link opens the ministry chart. Phones keep the card overview, with a "Zaal / Overzicht" switch that opens the hall full screen.

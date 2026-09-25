@@ -195,6 +195,7 @@ export const GRAPH_DICT = {
   wheelVoters: { nl: "KIESGERECHTIGDEN", en: "VOTERS" },
   wheelCoreSub: { nl: "en Statuut", en: "and Charter" },
   wheelReset: { nl: "Passend maken", en: "Fit" },
+  wheelLinks: { nl: "{n} verbindingen", en: "{n} connections" },
   canvasCollapse: { nl: "Volledig scherm sluiten", en: "Exit full screen" },
   canvasClose: { nl: "Sluiten", en: "Close" },
   canvasNoScript: {

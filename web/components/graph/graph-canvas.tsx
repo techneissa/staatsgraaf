@@ -1688,11 +1688,12 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
                 d={highlightEdges.segments.neighbour}
                 fill="none"
                 stroke="var(--color-accent-text)"
-                strokeWidth={1}
-                opacity={0.75}
+                strokeWidth={1.4}
+                vectorEffect="non-scaling-stroke"
+                opacity={0.8}
                 markerEnd="url(#grafiek-pijl)"
               />
-              <path d={highlightEdges.segments.path} fill="none" stroke="var(--color-accent)" strokeWidth={2} strokeLinecap="round" />
+              <path d={highlightEdges.segments.path} fill="none" stroke="var(--color-accent)" strokeWidth={2.2} vectorEffect="non-scaling-stroke" strokeLinecap="round" />
             </g>
 
             {/* Edges with an end in the moving sector, redrawn every frame. */}
@@ -1703,8 +1704,9 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
                 }}
                 fill="none"
                 stroke="var(--color-accent-text)"
-                strokeWidth={1}
-                opacity={0.75}
+                strokeWidth={1.4}
+                vectorEffect="non-scaling-stroke"
+                opacity={0.8}
                 markerEnd="url(#grafiek-pijl)"
               />
               <path
@@ -1713,7 +1715,8 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
                 }}
                 fill="none"
                 stroke="var(--color-accent)"
-                strokeWidth={2}
+                strokeWidth={2.2}
+                vectorEffect="non-scaling-stroke"
                 strokeLinecap="round"
               />
             </g>
