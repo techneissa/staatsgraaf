@@ -217,14 +217,17 @@ export function sharesOf(values: (number | null)[]): (number | null)[] {
 
 /** A round upper bound and ring values for a share axis in percent, at most five rings. */
 export function shareTicks(maxShare: number): { max: number; ticks: number[] } {
-  const steps = [1, 2, 5, 10, 20, 25, 50];
+  // The owner's steps: 1, 5, 10, 20 and 25 percent; the top ring grows in
+  // steps of 25 when a ministry ever passes it.
   const safe = Math.max(maxShare, 0.1);
-  const step = steps.find((candidate) => Math.ceil(safe / candidate) <= 5) ?? 50;
-  const max = Math.min(100, Math.ceil(safe / step) * step);
-  const ticks: number[] = [];
-  for (let value = step; value <= max + 1e-9; value += step) ticks.push(value);
-  return { max, ticks };
+  const max = Math.min(100, Math.max(25, Math.ceil(safe / 25) * 25));
+  const ticks = [1, 5, 10, 20, 25].filter((value) => value < max);
+  return { max, ticks: [...ticks, max] };
 }
+
+/** Power used to stretch each scale: small values get room, large ones stay apart. */
+export const SHARE_POWER = 0.5;
+export const AMOUNT_POWER = 0.35;
 
 /**
  * Rings for the amount axis, on a square-root scale. A log scale squeezed the
@@ -241,7 +244,7 @@ export function amountTicks(values: (number | null)[]): { max: number; ticks: nu
   const B = 1e9;
   const tops = [1, 5, 10, 25, 50, 75, 100, 150, 200, 300, 500].map((n) => n * B);
   const max = tops.find((candidate) => candidate >= top) ?? Math.ceil(top / (100 * B)) * 100 * B;
-  const rings = [1, 10, 25, 50, 75, 100, 150].map((n) => n * B).filter((value) => value < max);
+  const rings = [0.1, 1, 10, 25, 50, 75, 100, 150].map((n) => n * B).filter((value) => value < max);
   return { max, ticks: [...rings, max] };
 }
 
@@ -252,13 +255,10 @@ export function scaleFraction(
   domain: { shareMax: number; amountMax: number },
 ): number | null {
   if (value === null || !Number.isFinite(value)) return null;
-  if (mode === "share") {
-    if (domain.shareMax <= 0) return null;
-    return Math.max(0, Math.min(1, value / domain.shareMax));
-  }
-  if (domain.amountMax <= 0) return null;
+  const max = mode === "share" ? domain.shareMax : domain.amountMax;
+  if (max <= 0) return null;
   if (value <= 0) return 0;
-  return Math.max(0, Math.min(1, Math.sqrt(value / domain.amountMax)));
+  return Math.max(0, Math.min(1, (value / max) ** (mode === "share" ? SHARE_POWER : AMOUNT_POWER)));
 }
 
 /**

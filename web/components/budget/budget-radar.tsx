@@ -9,6 +9,8 @@ import { formatEuroCompact, formatShare } from "@/lib/budget-format";
 import {
   axisAngle,
   amountTicks,
+  AMOUNT_POWER,
+  SHARE_POWER,
   estimateTextWidth,
   ministryShortLabel,
   polar,
@@ -139,14 +141,14 @@ export function BudgetRadar({ data }: { data: RadarData }) {
   const rings =
     mode === "share"
       ? share.ticks.map((value) => ({
-          fraction: value / share.max,
+          fraction: (value / share.max) ** SHARE_POWER,
           label: new Intl.NumberFormat(locale === "en" ? "en-GB" : "nl-NL", {
             style: "percent",
             maximumFractionDigits: 0,
           }).format(value / 100),
         }))
       : amount.ticks.map((value) => ({
-          fraction: Math.sqrt(value / amount.max),
+          fraction: (value / amount.max) ** AMOUNT_POWER,
           // The note under the chart says the amounts are in euros, so the
           // ring values drop the sign: "75 mld" / "75B" keeps the scale compact.
           label: formatEuroCompact(value, locale).replace(/^−?€\s?/, ""),
