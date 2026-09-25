@@ -53,11 +53,29 @@ function arrowHead(x: number, y: number, dx: number, dy: number, size: number, d
   return double ? head(x, y) + head(x - ux * size * 0.7, y - uy * size * 0.7) : head(x, y);
 }
 
-function segment(r0: number, r1: number, a0: number, a1: number): string {
+/** A ring segment, its four corners rounded by `round` wheel units. */
+function segment(r0: number, r1: number, a0: number, a1: number, round = 0): string {
   const p = (r: number, a: number) => `${(Math.cos(a) * r).toFixed(2)} ${(Math.sin(a) * r).toFixed(2)}`;
-  const large = a1 - a0 > Math.PI ? 1 : 0;
-  return `M${p(r1, a0)}A${r1} ${r1} 0 ${large} 1 ${p(r1, a1)}L${p(r0, a1)}A${r0} ${r0} 0 ${large} 0 ${p(r0, a0)}Z`;
+  if (round <= 0) {
+    const large = a1 - a0 > Math.PI ? 1 : 0;
+    return `M${p(r1, a0)}A${r1} ${r1} 0 ${large} 1 ${p(r1, a1)}L${p(r0, a1)}A${r0} ${r0} 0 ${large} 0 ${p(r0, a0)}Z`;
+  }
+  const k = Math.max(0, Math.min(round, (r1 - r0) / 2 - 0.5));
+  const outer = Math.min(k / r1, (a1 - a0) * 0.45);
+  const inner = Math.min(k / r0, (a1 - a0) * 0.45);
+  const largeOuter = a1 - a0 - 2 * outer > Math.PI ? 1 : 0;
+  const largeInner = a1 - a0 - 2 * inner > Math.PI ? 1 : 0;
+  return (
+    `M${p(r1 - k, a0)}Q${p(r1, a0)} ${p(r1, a0 + outer)}` +
+    `A${r1} ${r1} 0 ${largeOuter} 1 ${p(r1, a1 - outer)}Q${p(r1, a1)} ${p(r1 - k, a1)}` +
+    `L${p(r0 + k, a1)}Q${p(r0, a1)} ${p(r0, a1 - inner)}` +
+    `A${r0} ${r0} 0 ${largeInner} 0 ${p(r0, a0 + inner)}Q${p(r0, a0)} ${p(r0 + k, a0)}Z`
+  );
 }
+
+/** Corner radius of a group's background, and of a part inside it. */
+const GROUP_ROUND = 8;
+const PART_ROUND = 5;
 
 /** An arc to set text on; drawn backwards on the lower half so the text reads upright there. */
 function arcPath(r: number, a0: number, a1: number, backwards = false): string {
@@ -186,6 +204,15 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
   // Turn the wheel so the selection sits at the bottom, the way the reference does; back upright when nothing is picked.
   const [turn, setTurn] = useState(0);
   const selectedCell = selectedId ? model.cells.find((cell) => cell.pick?.id === selectedId || cell.id === selectedId) : undefined;
+  const groupChosen = useMemo(() => {
+    const out = new Set<string>();
+    if (!selectedId) return out;
+    for (const group of model.groups) {
+      const cells = model.cells.filter((cell) => cell.group === group.id);
+      if (cells.every((cell) => cell.pick?.id === selectedId || cell.id === selectedId)) out.add(group.id);
+    }
+    return out;
+  }, [model, selectedId]);
   const focusAngle = linked
     ? Math.atan2(anchors.get(linked.self)!.y, anchors.get(linked.self)!.x)
     : selectedCell
@@ -377,15 +404,16 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
           {groupTitles.map(({ group, title }) => {
             const color = branchColorVar(group.branch);
             const lit = hot !== null && group.cells.includes(hot);
+            const chosen = groupChosen.has(group.id);
             return (
               <g key={group.id} pointerEvents="none">
                 <path
-                  d={segment(group.r0, group.r1, group.a0, group.a1)}
+                  d={segment(group.r0, group.r1, group.a0, group.a1, GROUP_ROUND)}
                   fill={color}
-                  fillOpacity={lit ? 0.17 : 0.11}
-                  stroke={color}
-                  strokeOpacity={0.4}
-                  strokeWidth={1}
+                  fillOpacity={chosen ? 0.24 : lit ? 0.17 : 0.11}
+                  stroke={chosen ? "var(--t-color-accent)" : color}
+                  strokeOpacity={chosen ? 1 : 0.45}
+                  strokeWidth={chosen ? 1.8 : 1.1}
                   strokeLinejoin="round"
                 />
                 {title ? (
@@ -401,7 +429,8 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
 
           {drawn.map(({ cell, group, title, shape, marks, itemById }) => {
             const color = branchColorVar(cell.branch);
-            const selected = selectedId !== null && (cell.pick?.id === selectedId || cell.id === selectedId);
+            // A pick that covers the whole group (a sector like Rechtspraak) lights the group's one outline, not every part.
+            const selected = selectedId !== null && (cell.pick?.id === selectedId || cell.id === selectedId) && !groupChosen.has(group.id);
             const holdsSelected = selectedId !== null && itemById.has(selectedId);
             const mid = (cell.a0 + cell.a1) / 2;
             const rm = (cell.r0 + cell.r1 - (title ? TITLE_BAND : 0)) / 2;
@@ -431,11 +460,10 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
                   <path d={arcPath(rimBelow, cell.a0 + 0.02, cell.a1 - 0.02)} fill="none" stroke={color} strokeOpacity={0.45} strokeDasharray="2 3" pointerEvents="none" />
                 ) : null}
                 <path
-                  d={segment(cell.r0, cell.r1, cell.a0, cell.a1)}
+                  d={segment(cell.r0, cell.r1, cell.a0, cell.a1, parts ? PART_ROUND : GROUP_ROUND)}
                   fill={color}
-                  fillOpacity={selected ? 0.22 : parts && (hot === cell.id || holdsSelected) ? 0.1 : 0}
-                  stroke={selected ? "var(--t-color-accent)" : "none"}
-                  strokeWidth={selected ? 2 : 0}
+                  fillOpacity={selected ? 0.2 : parts && (hot === cell.id || holdsSelected) ? 0.1 : 0}
+                  stroke="none"
                   pointerEvents="all"
                   className={cell.pick ? "cursor-pointer" : undefined}
                   onClick={() => pickCell(cell)}
@@ -443,7 +471,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
                   <title>{cell.count !== null ? `${cell.title}: ${cell.count}` : cell.title}</title>
                 </path>
                 {title ? (
-                  <text fontSize={title.size} fontWeight={600} fill="var(--t-color-ink-muted)" pointerEvents="none">
+                  <text fontSize={title.size} fontWeight={600} fill={color} pointerEvents="none">
                     <textPath href={`#wheel-title-${cell.id}`} startOffset="50%" textAnchor="middle">
                       {title.text}
                     </textPath>
@@ -456,10 +484,8 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
                   const isSelected = entry.id === selectedId;
                   const glyph = GLYPH_BY_SUBTYPE[entry.subtype] ?? "dot";
                   // Long shapes lie along the ring, so they follow their cell instead of cutting across it.
-                  const along = glyph === "capsule" || glyph === "seat" ? ((Math.atan2(mark.y, mark.x) + Math.PI / 2) * 180) / Math.PI : 0;
-                  // Other shapes stay upright while the wheel turns: they turn back by the same amount, in step.
-                  const upright = !along && glyph !== "dot" && glyph !== "small-dot";
-                  const spin = along || (upright ? -turnDeg : 0);
+                  // Every shape faces along its ring, its top toward the rim, and turns with the wheel.
+                  const spin = ((Math.atan2(mark.y, mark.x) + Math.PI / 2) * 180) / Math.PI;
                   const linkedMark = linkedIds.has(entry.id);
                   const inOpenFamily = openFamily !== null && model.familyOf[entry.id] === openFamily;
                   const faded = linked !== null && !linkedMark && !inOpenFamily;
