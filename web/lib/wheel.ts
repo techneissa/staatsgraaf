@@ -182,7 +182,13 @@ function allocate(a0: number, a1: number, needs: readonly FamilyNeed[], open: nu
 }
 
 const deg = (value: number) => (value * Math.PI) / 180;
-const GAP = deg(0.9);
+/**
+ * Cells share their boundaries: the gutter between groups is drawn by the
+ * component as an even width (`WHEEL_GUTTER`), not as an angle, so it does
+ * not widen toward the rim.
+ */
+const GAP = 0;
+export const WHEEL_GUTTER = 12;
 
 /** Split [a0, a1] into parts by weight, with a small gap between them. */
 function split(a0: number, a1: number, weights: readonly number[], gap = GAP): [number, number][] {
@@ -246,10 +252,10 @@ export function buildWheel(
 
   // The four branch wedges of the national rings, clockwise from the top.
   const W = {
-    leg: [deg(-130), deg(-52)] as const,
-    exec: [deg(-50), deg(104)] as const,
-    adv: [deg(106), deg(138)] as const,
-    jud: [deg(140), deg(228)] as const,
+    leg: [deg(-130), deg(-51)] as const,
+    exec: [deg(-51), deg(105)] as const,
+    adv: [deg(105), deg(139)] as const,
+    jud: [deg(139), deg(230)] as const,
   };
   const wedges = [
     { id: "leg", title: "Wetgevende macht", a0: W.leg[0], a1: W.leg[1] },
