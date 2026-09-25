@@ -171,7 +171,7 @@ function cellTitle(cell: WheelCell, turn: number) {
  */
 export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
   const t = useT("graph");
-  const { current, select } = useSelection();
+  const { current, select, clear } = useSelection();
   const selectedId = current && "id" in current ? current.id : null;
   // The family on the selection's path opens, like a department in the reference; all others stay packed.
   const restModel = useMemo(() => buildWheel(bundle), [bundle]);
@@ -418,6 +418,10 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
         onPointerLeave={onPointerUp}
+        // A click on nothing (a gutter, a lane, the core, the space around the wheel) lets go of the selection.
+        onClick={() => {
+          if (!drag.current?.moved && current) clear();
+        }}
       >
         <defs>
           {[0, 1, 2, 3].map((index) => {
@@ -525,7 +529,10 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
                   stroke="none"
                   pointerEvents="all"
                   className={cell.pick ? "cursor-pointer" : undefined}
-                  onClick={() => pickCell(cell)}
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    pickCell(cell);
+                  }}
                 >
                   <title>{cell.count !== null ? `${cell.title}: ${cell.count}` : cell.title}</title>
                 </path>
