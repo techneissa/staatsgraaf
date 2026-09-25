@@ -11,6 +11,8 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 - The wheel groups bodies in families, after the reference and adapted to the Dutch state (ADR 0015 amendment 5): each ministry with the agentschappen, uitvoeringsorganisaties, inspecties, zbo's and rwt's under it, each provincie with the gemeenten it oversees, each Kamer with its commissies. At rest a family's bodies are packed small beyond its head; picking the head or one of its bodies opens that family full size, and its neighbours move aside a little. The adviescolleges, planbureaus and Kiesraad keep a wedge of their own.
 
+- The wheel sizes and places bodies by their ties, after the reference (ADR 0015 amendment 5): a body's size follows how many bodies it is tied to (its edges, its parent and the bodies under it) in three steps, so the ministries and provincies with the most bodies read as hubs; cells spread their bodies evenly over their whole area instead of bunching them in the middle; and each adviescollege and planbureau sits toward the ministry it advises.
+
 ### Fixed (25-09-2026, eighth round)
 
 - The rings view draws the selection's ties at a fixed screen width, so they stay visible at every zoom level instead of thinning to under a pixel.

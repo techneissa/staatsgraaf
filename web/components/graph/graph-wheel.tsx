@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
 import { GLYPH_BY_SUBTYPE, type GraphBundle } from "@/lib/graph";
 import { branchColorVar } from "@/lib/branch-colors";
-import { buildWheel, cellMarks, OPEN_PITCH, REST_PITCH, WHEEL_RADIUS, WHEEL_RINGS, WHEEL_VOTERS, wheelLinks, type WheelCell, type WheelGroup, type WheelLinkType } from "@/lib/wheel";
+import { buildWheel, cellMarks, OPEN_PITCH, REST_PITCH, tieScale, WHEEL_RADIUS, WHEEL_RINGS, WHEEL_VOTERS, wheelLinks, type WheelCell, type WheelGroup, type WheelLinkType } from "@/lib/wheel";
 import { useSelection } from "@/components/selection/selection-provider";
 import { useT } from "@/components/i18n/use-t";
 import { glyphPathAt } from "./glyph";
@@ -163,12 +163,24 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
         const shape = bundle.chamberShapes?.[cell.id] ?? null;
         const headBand = cell.head ? (cell.headBand ?? 0) : 0;
         const pitch = cell.head ? (cell.open ? OPEN_PITCH : REST_PITCH) : MARK_PITCH;
-        const marks = shape ? [] : cellMarks({ ...cell, r0: cell.r0 + headBand }, cell.items.map((entry) => entry.id), named ? TITLE_BAND : 3, pitch);
+        // Families stay packed beside their head, as the reference packs a department's agencies; every other cell
+        // spreads its bodies over its whole area instead of bunching them in the middle.
+        const marks = shape
+          ? []
+          : cellMarks({ ...cell, r0: cell.r0 + headBand }, cell.items.map((entry) => entry.id), named ? TITLE_BAND : 3, pitch, {
+              spread: !cell.head,
+              byAngle: cell.byAngle,
+            });
+        // A body's size follows its ties, in three steps.
+        for (const mark of marks) {
+          const entry = cell.items.find((candidate) => candidate.id === mark.id);
+          if (entry) mark.r *= 0.92 * tieScale(entry.ties);
+        }
         // The head of a family sits large at the inner edge, in the middle of its cell.
         if (cell.head) {
           const mid = (cell.a0 + cell.a1) / 2;
           const radius = cell.r0 + headBand / 2 + 1;
-          marks.push({ id: cell.head.id, x: Math.cos(mid) * radius, y: Math.sin(mid) * radius, r: (headBand - 6) * 0.42 });
+          marks.push({ id: cell.head.id, x: Math.cos(mid) * radius, y: Math.sin(mid) * radius, r: (headBand - 6) * 0.42 * tieScale(cell.head.ties, true) });
         }
         const itemById = new Map(cell.items.map((entry) => [entry.id, entry]));
         if (cell.head) itemById.set(cell.head.id, cell.head);
