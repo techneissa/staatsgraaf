@@ -36,7 +36,7 @@ export function ChangeHistogram({
   return (
     <figure className="min-w-0">
       <figcaption className="flex flex-wrap items-baseline justify-between gap-2">
-        <span className="text-[11px] font-medium uppercase tracking-wider text-ink-faint">
+        <span className="text-xs font-medium text-ink-faint">
           {t("timelineLabel")}
         </span>
         <span className="text-sm text-ink-muted">

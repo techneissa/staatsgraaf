@@ -452,7 +452,7 @@ function PeekBody({
           </span>
         )}
         <div className="min-w-0 flex-1 pt-0.5">
-          <p className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wide text-ink-faint">
+          <p className="flex items-center gap-1.5 text-[11px] font-medium text-ink-faint">
             <KindGlyph kind={kind} size={7} />
             <span className="truncate">{kindLabel}</span>
           </p>

@@ -82,11 +82,7 @@ export default function DatasetPage() {
   const snapshot = meta.snapshotId !== null ? formatDate(meta.snapshotId) : null;
   const year = meta.snapshotId !== null ? meta.snapshotId.slice(0, 4) : null;
   const datasetUrl = SITE_URL ? `${SITE_URL}/dataset/` : "[url]";
-  const citation =
-    `${SITE_NAME}${year !== null ? ` (${year})` : ""}. ` +
-    `Dataset Nederlandse rijksoverheid, versie ${version}, ` +
-    `momentopname ${snapshot ?? "onbekende datum"}. ` +
-    `Geraadpleegd op [datum], van ${datasetUrl}.`;
+  const citation = `${SITE_NAME}${year !== null ? ` (${year})` : ""}. Dataset Nederlandse overheid, ${version}. ${datasetUrl}`;
 
   return (
     <>
@@ -183,22 +179,11 @@ export default function DatasetPage() {
           <p>
             <T area="pages" k="datasetAttributionP1" vars={{ site: SITE_NAME }} />
           </p>
-          <p>
-            <T area="pages" k="datasetAttributionP2a" /> <code>ATTRIBUTION.md</code>
-            <T area="pages" k="datasetAttributionP2b" /> <code>data/meta.json</code>{" "}
-            <T area="pages" k="andWord" /> <code>data/sources.json</code>.
-          </p>
-        </Section>
-
-        <Section id="citeren" titleKey="datasetCiteTitle">
-          <p>
-            <T area="pages" k="datasetCiteIntro" />
-          </p>
           <p className="rounded-md border border-line bg-surface-raised px-3 py-2 font-mono text-xs leading-relaxed text-ink">
             {citation}
           </p>
-          <p>
-            <T area="pages" k="datasetCiteNote" />
+          <p className="text-xs text-ink-faint">
+            <T area="pages" k="datasetPhotoCredits" />
           </p>
         </Section>
 
@@ -260,17 +245,6 @@ export default function DatasetPage() {
         </Section>
       </div>
 
-      <p className="py-6 text-xs text-ink-faint">
-        <T area="pages" k="seeAlso" />{" "}
-        <Link href="/methodiek/" className="text-accent-text underline-offset-2 hover:underline">
-          <T area="pages" k="linkMethodology" />
-        </Link>{" "}
-        <T area="pages" k="andWord" />{" "}
-        <Link href="/privacy/" className="text-accent-text underline-offset-2 hover:underline">
-          <T area="pages" k="linkPrivacy" />
-        </Link>
-        .
-      </p>
     </>
   );
 }

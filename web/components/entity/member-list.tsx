@@ -1,4 +1,4 @@
-import { KindBadge } from "@/components/kind-badge";
+import { PartyPill } from "@/components/party-pill";
 import { LocalPeriod } from "@/components/content/local-date";
 import { T } from "@/components/i18n/t";
 import { PeekLink } from "@/components/peek/peek-link";
@@ -25,7 +25,7 @@ export function MemberList({ members }: { members: MemberEntry[] }) {
                 {person.name}
               </PeekLink>
               <span className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
-                {membership.fractie !== null ? <KindBadge>{membership.fractie}</KindBadge> : null}
+                {membership.fractie !== null ? <PartyPill party={membership.fractie} /> : null}
                 {membership.seatNumber !== null ? (
                   <span className="text-xs text-ink-faint">
                     <T area="entity" k="seatNumber" vars={{ n: membership.seatNumber }} />

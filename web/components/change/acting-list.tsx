@@ -35,7 +35,7 @@ export function ActingList({ officials }: { officials: ActingOfficial[] }) {
               <article className="flex min-w-0 gap-3">
                 <PersonPortrait person={official.person} size={36} className="mt-0.5" />
                 <div className="min-w-0 flex-1">
-                  <p className={`text-[11px] font-semibold uppercase leading-4 tracking-wider ${CHANGE_LABEL_TONE.acting}`}>
+                  <p className={`text-xs font-semibold leading-4 ${CHANGE_LABEL_TONE.acting}`}>
                     <T area="home" k={CHANGE_KIND_KEY.acting} />
                   </p>
                   <h3 className="mt-0.5 text-sm font-medium leading-snug">

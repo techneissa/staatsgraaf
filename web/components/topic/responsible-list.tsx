@@ -36,7 +36,7 @@ export function ResponsibleList({ topic }: { topic: Topic }) {
 
       {organizations.length > 0 ? (
         <div className="mt-4">
-          <h3 className="text-xs font-medium uppercase tracking-wider text-ink-faint">
+          <h3 className="text-xs font-medium text-ink-faint">
             <T area="news" k="responsibleOrganizationsLabel" />
           </h3>
           <ul className="mt-2 grid gap-x-6 sm:grid-cols-2">
@@ -64,7 +64,7 @@ export function ResponsibleList({ topic }: { topic: Topic }) {
 
       {positions.length > 0 ? (
         <div className="mt-5">
-          <h3 className="text-xs font-medium uppercase tracking-wider text-ink-faint">
+          <h3 className="text-xs font-medium text-ink-faint">
             <T area="news" k="responsiblePositionsLabel" />
           </h3>
           <ul className="mt-2 grid gap-x-6 sm:grid-cols-2">

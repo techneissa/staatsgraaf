@@ -205,12 +205,6 @@ export default async function PartyPage({
         <SourceList sources={memberSourceRefs} />
       ) : null}
 
-      <p className="mt-6 text-sm text-ink-muted">
-        <T area="pages" k="seeAlso" />:{" "}
-        <Link href="/partijen/" className="text-accent-text underline-offset-2 hover:underline">
-          <T area="pages" k="partyOverviewLabel" />
-        </Link>
-      </p>
     </>
   );
 }

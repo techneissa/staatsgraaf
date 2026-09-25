@@ -36,7 +36,7 @@ export function EntityFacts({
           key={`fact-${index}`}
           className="border-line/60 border-t pt-2 first:border-t-0 sm:[&:nth-child(2)]:border-t-0"
         >
-          <dt className="text-xs font-medium uppercase tracking-wide text-ink-faint">{fact.label}</dt>
+          <dt className="text-xs font-medium text-ink-faint">{fact.label}</dt>
           <dd className="mt-0.5 text-sm text-ink">{fact.value}</dd>
         </div>
       ))}

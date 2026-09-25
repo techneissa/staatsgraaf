@@ -59,7 +59,7 @@ export default function NewsSourcesPage() {
             <table className="w-full border-collapse text-sm">
               <caption className="sr-only"><NT k="sourcesHeading" /></caption>
               <thead>
-                <tr className="border-b border-line text-left text-xs uppercase tracking-wide text-ink-faint">
+                <tr className="border-b border-line text-left text-xs text-ink-faint">
                   <th scope="col" className="py-2 pr-3 font-medium">
                     <NT k="sourcesTablePublisher" />
                   </th>

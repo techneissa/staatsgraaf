@@ -175,22 +175,6 @@ export function ArchChart({
             </g>
           );
         })}
-        {arch.majority ? (
-          <line
-            x1={arch.majority.x1.toFixed(2)}
-            y1={arch.majority.y1.toFixed(2)}
-            x2={arch.majority.x2.toFixed(2)}
-            y2={arch.majority.y2.toFixed(2)}
-            stroke="var(--t-color-ink)"
-            strokeWidth={seatRadius * 0.45}
-            strokeDasharray={`${seatRadius} ${seatRadius * 0.6}`}
-            opacity={0.85}
-            className="grow-fade"
-            style={{ "--d": "440ms" } as CSSProperties}
-          >
-            <title>{`${tally.majority}/${tally.total}`}</title>
-          </line>
-        ) : null}
         {!compact ? (
           <text
             x={0}

@@ -112,18 +112,7 @@ export default function PrivacyPage() {
       </div>
 
       <p className="py-6 text-xs text-ink-faint">
-        <T area="pages" k="privacyFooterPre" />{" "}
-        <Link href="/methodiek/" className="text-accent-text underline-offset-2 hover:underline">
-          <T area="pages" k="linkMethodology" />
-        </Link>{" "}
-        <T area="pages" k="andWord" />{" "}
-        <Link
-          href="/toegankelijkheid/"
-          className="text-accent-text underline-offset-2 hover:underline"
-        >
-          <T area="pages" k="linkAccessibility" />
-        </Link>
-        .
+        <T area="pages" k="privacyFooterPre" />
       </p>
     </>
   );

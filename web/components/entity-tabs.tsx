@@ -12,7 +12,18 @@ const triggerClass =
 const panelClass =
   "motion-panel pt-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus";
 
-export function EntityTabs({ news, connections }: { news: ReactNode; connections: ReactNode }) {
+/** An extra section tab after the default two, for example a person's proposals and motions. */
+export type EntityExtraTab = { value: string; label: ReactNode; content: ReactNode };
+
+export function EntityTabs({
+  news,
+  connections,
+  extra = [],
+}: {
+  news: ReactNode;
+  connections: ReactNode;
+  extra?: EntityExtraTab[];
+}) {
   const t = useT("entity");
   const settled = useSettled();
   return (
@@ -25,6 +36,11 @@ export function EntityTabs({ news, connections }: { news: ReactNode; connections
         <Tabs.Trigger value="verbindingen" className={triggerClass}>
           {t("whosConnected")}
         </Tabs.Trigger>
+        {extra.map((tab) => (
+          <Tabs.Trigger key={tab.value} value={tab.value} className={triggerClass}>
+            {tab.label}
+          </Tabs.Trigger>
+        ))}
       </Tabs.List>
       <Tabs.Content value="nieuws" className={panelClass}>
         {news}
@@ -32,6 +48,11 @@ export function EntityTabs({ news, connections }: { news: ReactNode; connections
       <Tabs.Content value="verbindingen" className={panelClass}>
         {connections}
       </Tabs.Content>
+      {extra.map((tab) => (
+        <Tabs.Content key={tab.value} value={tab.value} className={panelClass}>
+          {tab.content}
+        </Tabs.Content>
+      ))}
     </Tabs.Root>
   );
 }

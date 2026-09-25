@@ -180,7 +180,7 @@ export function CanvasControls({
               collisionPadding={8}
               className="motion-menu z-50 max-h-[min(26rem,var(--radix-dropdown-menu-content-available-height))] w-72 max-w-[calc(100vw-1rem)] overflow-y-auto overscroll-contain rounded-md border border-line bg-surface p-1 shadow-xl"
             >
-            <DropdownMenu.Label className="px-2 py-1.5 text-xs font-semibold uppercase tracking-wide text-ink-faint">
+            <DropdownMenu.Label className="px-2 py-1.5 text-xs font-semibold text-ink-faint">
               {t("layerTitle")}
             </DropdownMenu.Label>
             {branches.map(({ branch, count }) => (
@@ -211,7 +211,7 @@ export function CanvasControls({
               {t("showAllLayers")}
             </DropdownMenu.Item>
             <DropdownMenu.Separator className="my-1 h-px bg-line" />
-            <DropdownMenu.Label className="px-2 py-1.5 text-xs font-semibold uppercase tracking-wide text-ink-faint">
+            <DropdownMenu.Label className="px-2 py-1.5 text-xs font-semibold text-ink-faint">
               {tg("entityLegendTitle")}
             </DropdownMenu.Label>
             <div
@@ -233,7 +233,7 @@ export function CanvasControls({
               ))}
             </div>
             <DropdownMenu.Separator className="my-1 h-px bg-line" />
-            <DropdownMenu.Label className="px-2 py-1.5 text-xs font-semibold uppercase tracking-wide text-ink-faint">
+            <DropdownMenu.Label className="px-2 py-1.5 text-xs font-semibold text-ink-faint">
               {tg("relationshipLegendTitle")}
             </DropdownMenu.Label>
             <div
