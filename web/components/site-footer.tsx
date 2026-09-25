@@ -16,7 +16,7 @@ export function SiteFooter({ datasetDate }: { datasetDate: string | null }) {
               href="/methodiek/"
               className="tap-row inline-flex items-center text-ink-muted underline-offset-2 hover:text-ink hover:underline"
             >
-              <T area="pages" k="linkMethodology" />
+              <T area="pages" k="linkAbout" />
             </Link>
           </li>
           <li>

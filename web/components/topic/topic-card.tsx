@@ -4,7 +4,6 @@ import { peekKindFor } from "@/lib/peek";
 import { T } from "@/components/i18n/t";
 import { KindBadge } from "@/components/kind-badge";
 import { LabeledList } from "@/components/news/labeled-list";
-import { formatCount } from "@/lib/format";
 import { getResponsibleOrganizations } from "@/lib/topics";
 import type { Topic } from "@/lib/types";
 
@@ -74,13 +73,6 @@ export function TopicCard({
           ) : null}
         </LabeledList>
       ) : null}
-      <p className="mt-3 text-xs text-ink-faint">
-        {formatCount(organizationCount)}{" "}
-        <T
-          area="news"
-          k={organizationCount === 1 ? "topicOrgCountSingular" : "topicOrgCountPlural"}
-        />
-      </p>
     </article>
   );
 }

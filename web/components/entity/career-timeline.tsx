@@ -9,13 +9,15 @@ import type { CareerKind } from "@/lib/types";
 const INITIAL_ROWS = 5;
 
 export const CAREER_KIND_LABEL: Record<CareerKind, { nl: string; en: string }> = {
+  beroep: { nl: "Beroep", en: "Occupation" },
   politiek: { nl: "Politiek", en: "Politics" },
-  loopbaan: { nl: "Loopbaan", en: "Career" },
+  loopbaan: { nl: "Werk", en: "Work" },
   nevenfunctie: { nl: "Nevenfuncties", en: "Other positions" },
   opleiding: { nl: "Opleiding", en: "Education" },
 };
 
 const KIND_COLOR: Record<CareerKind, string> = {
+  beroep: "var(--t-color-line-strong)",
   politiek: "var(--t-color-sector-staten-generaal)",
   loopbaan: "var(--t-color-sector-regering)",
   nevenfunctie: "var(--t-color-sector-zelfstandig)",
@@ -66,6 +68,33 @@ function Rail({ items }: { items: CareerItemView[] }) {
   );
 }
 
+/** Occupations as one row of small tags, with their sources on one quiet line. */
+function OccupationTags({ items }: { items: CareerItemView[] }) {
+  const sources = new Map<string, NonNullable<CareerItemView["source"]>>();
+  for (const item of items) if (item.source !== null && !sources.has(item.source.url)) sources.set(item.source.url, item.source);
+  return (
+    <section>
+      <h3 className="mb-2 text-xs font-medium text-ink-muted">
+        <L nl={CAREER_KIND_LABEL.beroep.nl} en={CAREER_KIND_LABEL.beroep.en} />
+      </h3>
+      <ul className="flex flex-wrap gap-1.5">
+        {items.map((item) => (
+          <li key={item.id} lang="nl" className="rounded-full border border-line px-2.5 py-0.5 text-xs text-ink">
+            {item.title}
+          </li>
+        ))}
+      </ul>
+      {sources.size > 0 ? (
+        <p className="mt-1.5 flex flex-wrap gap-x-3">
+          {[...sources.values()].map((source) => (
+            <QuietSource key={source.url} href={source.url} publisher={source.publisher} retrieved={source.retrieved} />
+          ))}
+        </p>
+      ) : null}
+    </section>
+  );
+}
+
 /**
  * A person's career as a calm vertical rail per kind (politics, career, side
  * positions, education): the years, the title, the organisation as a peek
@@ -76,6 +105,7 @@ export function CareerTimeline({ groups }: { groups: CareerGroupView[] }) {
   return (
     <div className="space-y-5">
       {groups.map((group) => {
+        if (group.kind === "beroep") return <OccupationTags key={group.kind} items={group.items} />;
         const visible = group.items.slice(0, INITIAL_ROWS);
         const rest = group.items.slice(INITIAL_ROWS);
         return (

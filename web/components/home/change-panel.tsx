@@ -4,7 +4,7 @@ import { ChangeHistogram } from "@/components/change/change-histogram";
 import { EmptyStateT } from "@/components/change/empty-state-t";
 import { T } from "@/components/i18n/t";
 import { changeDisplayKind } from "@/lib/changes";
-import { formatCount } from "@/lib/format";
+import { DateT } from "@/components/content/local-date";
 import type { ChangeWindow } from "@/lib/home";
 import { ChangeCard } from "./change-card";
 
@@ -58,7 +58,7 @@ export function ChangePanel({ window }: { window: ChangeWindow }) {
           className="inline-flex min-h-8 items-center gap-1 text-sm font-medium text-accent-text underline-offset-2 hover:underline pointer-coarse:min-h-11"
         >
           {window.count > HOME_LIMIT ? (
-            <T area="home" k="seeAllChanges" vars={{ n: formatCount(window.count) }} />
+            <DateT area="home" k="seeAllChanges" counts={{ n: window.count }} />
           ) : (
             <T area="home" k="seeChangesPage" />
           )}

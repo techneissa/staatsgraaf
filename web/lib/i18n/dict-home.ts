@@ -107,6 +107,7 @@ export const HOME_DICT = {
   changeVacantNoBody: { nl: "Een zetel als {position} is vacant", en: "A seat as {position} is vacant" },
   changeReplacedBy: { nl: "opgevolgd door", en: "succeeded by" },
   changeBecame: { nl: "werd", en: "became" },
+  changeSeatsFilled: { nl: "{filled} van {seats} zetels vervuld", en: "{filled} of {seats} seats filled" },
   dayCount: { nl: "{n} wijzigingen", en: "{n} changes" },
   dayCountOne: { nl: "1 wijziging", en: "1 change" },
   sourcePrefix: { nl: "Bron:", en: "Source:" },

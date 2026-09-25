@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
+import { LocalCount } from "@/components/content/local-date";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { DictEmptyState } from "@/components/budget/dict-empty-state";
 import { getDatasetDate } from "@/lib/data";
-import { formatCount } from "@/lib/format";
 import { getNewsOutlets } from "@/lib/news";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
-import { NT, NTKind, NTLanguage } from "@/components/news/news-t";
+import { NT, NTKind, NTLanguage, NTLicense } from "@/components/news/news-t";
 import { T } from "@/components/i18n/t";
 import { pageMetadata } from "@/lib/site";
 
@@ -98,10 +98,17 @@ export default function NewsSourcesPage() {
                       ))}
                     </td>
                     <td className="py-2 pr-3 text-right tabular-nums text-ink-muted">
-                      {formatCount(outlet.count)}
+                      <LocalCount value={outlet.count} />
                     </td>
                     <td className="py-2 text-ink-muted">
-                      {outlet.licenses.length > 0 ? outlet.licenses.join(", ") : <NT k="licenseNone" />}
+                      {outlet.licenses.length > 0
+                        ? outlet.licenses.map((license, index) => (
+                            <span key={license}>
+                              {index > 0 ? ", " : null}
+                              <NTLicense value={license} />
+                            </span>
+                          ))
+                        : <NT k="licenseNone" />}
                     </td>
                   </tr>
                 ))}

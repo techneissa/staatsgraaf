@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useT } from "@/components/i18n/use-t";
+import { useLocale } from "@/components/i18n/language-provider";
+import { localizeCredit } from "@/lib/format";
 import { avatarTint, initialsFor } from "@/lib/initials";
 
 /**
@@ -30,6 +32,7 @@ export function Avatar({
   title?: string;
 }) {
   const t = useT("entity");
+  const locale = useLocale();
   const [failed, setFailed] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
   // An image that failed before hydration never fires onError in React; catch it here.
@@ -43,7 +46,7 @@ export function Avatar({
     <span
       className={`inline-flex shrink-0 items-center justify-center overflow-hidden rounded-pill border ${className}`.trim()}
       style={{ width: size, height: size, ...tint }}
-      title={title}
+      title={title === undefined ? undefined : localizeCredit(title, locale)}
     >
       {showImage ? (
         <img

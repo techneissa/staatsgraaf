@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { LocalCount } from "@/components/content/local-date";
 import type { ReactNode } from "react";
+import { CircleDashed, Info, Link as LinkGlyph, RefreshCw, Scale, Sparkles, type IconNode } from "lucide";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { SectionHeading } from "@/components/icons/section-heading";
 import { L, T } from "@/components/i18n/t";
 import { getDataset } from "@/lib/data";
-import { formatCount } from "@/lib/format";
 import { getS } from "@/lib/i18n/server-strings";
 import { canonical, SITE_NAME } from "@/lib/site";
 
@@ -11,18 +13,28 @@ import { canonical, SITE_NAME } from "@/lib/site";
  * Build-time SEO stays Dutch by design: pageMetadata copy is build-time only.
  */
 export const metadata: Metadata = {
-  title: getS("pages", "methodTitle"),
+  title: getS("pages", "aboutTitle"),
   description:
     "Over Staatsgraaf: waarom het bestaat, waar de gegevens vandaan komen, hoe ze actueel blijven en waar AI is gebruikt.",
   alternates: canonical("/methodiek/"),
 };
 
-function Section({ id, title, children }: { id: string; title: ReactNode; children: ReactNode }) {
+function Section({
+  id,
+  title,
+  icon,
+  children,
+}: {
+  id: string;
+  title: ReactNode;
+  icon: IconNode;
+  children: ReactNode;
+}) {
   return (
     <section aria-labelledby={`${id}-titel`} id={id} className="scroll-mt-4 border-b border-line py-6 last:border-b-0">
-      <h2 id={`${id}-titel`} className="text-lg font-semibold tracking-tight text-ink">
+      <SectionHeading id={`${id}-titel`} icon={icon}>
         {title}
-      </h2>
+      </SectionHeading>
       <div className="mt-2 max-w-prose space-y-3 text-sm leading-relaxed text-ink-muted">{children}</div>
     </section>
   );
@@ -36,13 +48,13 @@ export default function MethodPage() {
 
   return (
     <>
-      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: <T area="pages" k="methodTitle" /> }]} />
+      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: <T area="pages" k="aboutTitle" /> }]} />
       <h1 className="mt-4 text-2xl font-semibold tracking-tight text-ink">
-        <T area="pages" k="methodTitle" />
+        <T area="pages" k="aboutTitle" />
       </h1>
 
       <div className="mt-2">
-        <Section id="over" title={<L nl="Over dit project" en="About this project" />}>
+        <Section id="over" icon={Info} title={<L nl="Over dit project" en="About this project" />}>
           <p>
             <L
               nl="Staatsgraaf is een persoonlijk project. Ik bouw het voor mezelf en publiceer het voor iedereen die een algemeen beeld wil krijgen van hoe de Nederlandse overheid in elkaar zit: wie welke functie heeft, welke organisaties er zijn, wat er aan beleid en regelgeving verandert en wat het nieuws erover zegt."
@@ -68,7 +80,7 @@ export default function MethodPage() {
           </p>
         </Section>
 
-        <Section id="bronnen" title={<L nl="Bronnen" en="Sources" />}>
+        <Section id="bronnen" icon={LinkGlyph} title={<L nl="Bronnen" en="Sources" />}>
           <p>
             <L
               nl="Elk feit verwijst naar een bron, met de datum waarop die is opgehaald. Waar geen betrouwbare bron is, staat er niets ingevuld maar een benoemde leemte. Er wordt nooit een waarde geraden."
@@ -77,7 +89,7 @@ export default function MethodPage() {
           </p>
         </Section>
 
-        <Section id="onderhoud" title={<L nl="Actualiteit" en="Freshness" />}>
+        <Section id="onderhoud" icon={RefreshCw} title={<L nl="Actualiteit" en="Freshness" />}>
           <p>
             <L
               nl="Bewindspersonen en de leden van beide Kamers worden elke nacht bijgewerkt uit de officiële lijsten. Nieuws wordt overdag elk uur opgehaald. Wijzigingen verschijnen in de wijzigingenfeed, elk met de bron die ze veroorzaakte."
@@ -86,7 +98,7 @@ export default function MethodPage() {
           </p>
         </Section>
 
-        <Section id="ai" title={<L nl="AI" en="AI" />}>
+        <Section id="ai" icon={Sparkles} title={<L nl="AI" en="AI" />}>
           <p>
             <L
               nl="Dit project is gebouwd met hulp van AI: de code, de gegevensverwerking en een deel van de teksten zijn met AI-assistenten gemaakt en daarna gecontroleerd."
@@ -101,16 +113,7 @@ export default function MethodPage() {
           </p>
         </Section>
 
-        <Section id="correcties" title={<L nl="Correcties" en="Corrections" />}>
-          <p>
-            <L
-              nl="Een gepubliceerd feit wordt niet stil aangepast: elke correctie wordt vastgelegd met de oude en de nieuwe waarde, de datum en de reden."
-              en="A published fact is never changed silently: every correction is recorded with the old and the new value, the date and the reason."
-            />
-          </p>
-        </Section>
-
-        <Section id="licenties" title={<L nl="Licenties" en="Licences" />}>
+        <Section id="licenties" icon={Scale} title={<L nl="Licenties" en="Licences" />}>
           <p>
             <L
               nl="De code valt onder de MIT-licentie, de dataset onder CC BY 4.0. Portretten komen van de Tweede Kamer (CC0) en Wikimedia Commons (onder de licentie van elk bestand); de credit per foto staat in de dataset."
@@ -119,11 +122,11 @@ export default function MethodPage() {
           </p>
         </Section>
 
-        <Section id="grenzen" title={<L nl="Wat nog ontbreekt" en="What is still missing" />}>
+        <Section id="grenzen" icon={CircleDashed} title={<L nl="Wat nog ontbreekt" en="What is still missing" />}>
           <ul className="list-disc space-y-1.5 ps-5 marker:text-ink-faint">
             <li>
-              <L nl="Portretten:" en="Portraits:" /> {formatCount(withPortrait)} <L nl="van" en="of" />{" "}
-              {formatCount(people.length)}
+              <L nl="Portretten:" en="Portraits:" /> <LocalCount value={withPortrait} /> <L nl="van" en="of" />{" "}
+              <LocalCount value={people.length} />
               <L
                 nl=". Wie geen vrij gelicentieerde foto heeft, krijgt initialen."
                 en=". People without a freely licensed photo show initials."

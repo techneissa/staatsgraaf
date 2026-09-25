@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/json-ld";
 import { NewsItemCard } from "@/components/news/news-item-card";
 import { ShowAllList } from "@/components/news/show-all-list";
 import { getDatasetDate } from "@/lib/data";
-import { formatCount } from "@/lib/format";
+import { formatCountIn } from "@/lib/format";
 import { getNewsDays } from "@/lib/news";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
 import { buildNewsDayArchive, formatNewsDayLabel } from "@/lib/news-page";
@@ -82,7 +82,7 @@ export default async function NewsDayPage({ params }: { params: Promise<{ date: 
           </Link>
         </div>
         <p className="mt-3 text-sm text-ink-muted">
-          {formatCount(total)}{" "}
+          {formatCountIn(total, "en")}{" "}
           {total === 1 ? messages.dayCountWordSingular : messages.dayCountWordPlural}
         </p>
       </header>

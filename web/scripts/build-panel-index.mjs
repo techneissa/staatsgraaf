@@ -27,6 +27,7 @@ const { changeDisplayKind, titleNamesBody } = await import("../lib/changes.ts");
 const { newsTranslationFor } = await import("../lib/news-translations.ts");
 const { getBudgetByOrganizationSlug, BUDGET_OVERVIEW_YEAR } = await import("../lib/budget.ts");
 const { peekKindFor } = await import("../lib/peek.ts");
+const { descriptionFor } = await import("../lib/description-translations.ts");
 const { compactValue, PANEL_SHARDS, panelShard } = await import("../components/panels/panel-data.ts");
 
 const dataset = data.getDataset();
@@ -45,6 +46,13 @@ function ref(id) {
 function description(text, max = 520) {
   if (typeof text !== "string" || text.trim() === "") return null;
   return clampSentences(text.replaceAll(/\s+/g, " ").trim(), max);
+}
+
+/** The English description, only when a current translation of the Dutch text exists (ADR 0016). */
+function descriptionEn(id, text, max = 520) {
+  const pair = descriptionFor(id, text);
+  if (pair === null || pair.en === null) return null;
+  return clampSentences(pair.en.replaceAll(/\s+/g, " ").trim(), max);
 }
 
 function sourceOf(sourceId, retrieved) {
@@ -242,6 +250,7 @@ for (const org of organizations) {
     subtype: org.subtype ?? null,
     branch: org.branch ?? null,
     description: description(org.description),
+    descriptionEn: descriptionEn(org.id, org.description),
     website: typeof org.website === "string" && org.website !== "" ? org.website : null,
     parent: parentId ? ref(parentId) : null,
     holders: current.slice(0, HOLDER_LIMIT).flatMap((tenure) => {
@@ -288,6 +297,7 @@ for (const person of people) {
         }
       : null,
     description: description(person.description),
+    descriptionEn: descriptionEn(person.id, person.description),
     roles: (currentByPerson.get(person.id) ?? []).flatMap((tenure) => {
       const position = dataset.positionsById.get(tenure.position);
       if (!position) return [];

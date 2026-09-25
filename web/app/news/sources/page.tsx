@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { EmptyState } from "@/components/empty-state";
 import { getDatasetDate } from "@/lib/data";
-import { formatCount } from "@/lib/format";
+import { formatCountIn } from "@/lib/format";
 import { getNewsOutlets } from "@/lib/news";
-import { NEWS_MESSAGES } from "@/lib/news-i18n";
+import { NEWS_MESSAGES, licenseLabel } from "@/lib/news-i18n";
 import { pageMetadata } from "@/lib/site";
 
 export const dynamic = "force-static";
@@ -91,10 +91,10 @@ export default function NewsSourcesPage() {
                       {outlet.languages.map((language) => messages.languageLabels[language]).join(", ")}
                     </td>
                     <td className="py-2 pr-3 text-right tabular-nums text-ink-muted">
-                      {formatCount(outlet.count)}
+                      {formatCountIn(outlet.count, "en")}
                     </td>
                     <td className="py-2 text-ink-muted">
-                      {outlet.licenses.length > 0 ? outlet.licenses.join(", ") : messages.licenseNone}
+                      {outlet.licenses.length > 0 ? outlet.licenses.map((license) => licenseLabel(license, "en")).join(", ") : messages.licenseNone}
                     </td>
                   </tr>
                 ))}

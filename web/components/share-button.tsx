@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Check, Link as LinkIcon, Share } from "lucide";
+import { Morph } from "@/components/icons/morph";
 import { useT } from "@/components/i18n/use-t";
 
 type Status = "idle" | "copied" | "failed";
@@ -25,6 +27,8 @@ export function ShareButton({
   const t = useT("common");
   const [status, setStatus] = useState<Status>("idle");
   const [canShare, setCanShare] = useState(false);
+  /** True after the first press, so the icon morphs in answer to it and not on load. */
+  const [used, setUsed] = useState(false);
   const timer = useRef<number | null>(null);
 
   useEffect(() => {
@@ -41,6 +45,7 @@ export function ShareButton({
   };
 
   const onClick = async () => {
+    setUsed(true);
     const url = new URL(href ?? window.location.pathname, window.location.origin).toString();
     if (canShare) {
       try {
@@ -69,38 +74,7 @@ export function ShareButton({
       title={compact ? label : undefined}
       className={`inline-flex min-h-11 items-center justify-center gap-1.5 rounded-sm border border-line bg-surface px-3 text-sm font-medium text-ink-muted transition-fast hover:border-line-strong hover:text-ink sm:min-h-9 ${className}`.trim()}
     >
-      <svg aria-hidden="true" viewBox="0 0 20 20" width="15" height="15" className="shrink-0">
-        {status === "copied" ? (
-          <path
-            className="motion-check"
-            pathLength={1}
-            d="m4.5 10.5 3.5 3.5 7.5-8"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        ) : canShare ? (
-          <path
-            d="M10 12.5V3.5M6.5 7 10 3.5 13.5 7M5 10.5v5a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-5"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        ) : (
-          <path
-            d="M8.5 11.5a3 3 0 0 0 4.2 0l2.6-2.6a3 3 0 0 0-4.2-4.2l-.9.9M11.5 8.5a3 3 0 0 0-4.2 0l-2.6 2.6a3 3 0 0 0 4.2 4.2l.9-.9"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        )}
-      </svg>
+      <Morph icon={status === "copied" ? Check : canShare ? Share : LinkIcon} size={15} strokeWidth={2} still={!used} />
       {compact ? null : (
         <span key={status} className={status === "idle" ? undefined : "motion-swap"}>
           {shown}

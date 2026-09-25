@@ -1,6 +1,6 @@
 import { NewsCard } from "@/components/news-card";
 import { T } from "@/components/i18n/t";
-import { formatCount } from "@/lib/format";
+import { DateT } from "@/components/content/local-date";
 import type { NewsItem } from "@/lib/types";
 
 export function NewsList({
@@ -43,7 +43,7 @@ export function NewsList({
         <details className="motion-disclosure group mt-3">
           <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-sm border border-line bg-surface-raised px-3 text-sm font-medium text-ink transition-fast hover:border-line-strong sm:min-h-9 pointer-coarse:min-h-11 [&::-webkit-details-marker]:hidden">
             <span className="group-open:hidden">
-              <T area="news" k="newsListShowMore" vars={{ count: formatCount(hidden.length) }} />
+              <DateT area="news" k="newsListShowMore" counts={{ count: hidden.length }} />
             </span>
             <span className="hidden group-open:inline">
               <T area="news" k="newsListShowLess" />

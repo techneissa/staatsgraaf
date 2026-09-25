@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { EntityCard } from "@/components/entity-card";
-import { T } from "@/components/i18n/t";
+import { EnglishOnly, T } from "@/components/i18n/t";
 import { LabelledNav } from "@/components/entity/labelled-nav";
 import { ShowAllList } from "@/components/news/show-all-list";
 import { branchColorVar } from "@/lib/branch-colors";
@@ -63,6 +63,11 @@ export default function OrganizationsIndexPage() {
         <h1 className="text-3xl font-semibold tracking-tight text-ink">
           <T area="entity" k="orgIndexTitle" />
         </h1>
+        <EnglishOnly>
+          <p className="mt-2 text-xs text-ink-faint">
+            <T area="entity" k="descriptionsTranslatedNote" />
+          </p>
+        </EnglishOnly>
       </header>
 
       <LabelledNav area="entity" k="groupNavLabel" className="mt-6">

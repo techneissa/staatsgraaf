@@ -7,7 +7,8 @@ import type { CareerEntry, CareerKind } from "./types";
  * career section, never a build failure.
  */
 
-export const CAREER_KINDS: CareerKind[] = ["politiek", "loopbaan", "nevenfunctie", "opleiding"];
+/** Occupations (beroep) come first: they render as a row of tags, not as steps. */
+export const CAREER_KINDS: CareerKind[] = ["beroep", "politiek", "loopbaan", "nevenfunctie", "opleiding"];
 
 export type CareerSourceView = { url: string; publisher: string; retrieved: string | null };
 
@@ -32,7 +33,7 @@ function index(): Map<string, CareerEntry[]> {
   if (byPerson) return byPerson;
   byPerson = new Map();
   for (const entry of readOptionalDataFile<CareerEntry>("careers.json")) {
-    if (!entry || typeof entry.person !== "string" || typeof entry.title !== "string") continue;
+    if (!entry || typeof entry.person !== "string" || typeof entry.title !== "string" || entry.title.trim() === "") continue;
     if (!CAREER_KINDS.includes(entry.kind)) continue;
     const list = byPerson.get(entry.person);
     if (list) list.push(entry);
@@ -103,16 +104,20 @@ export function getCareerForPerson(personId: string): CareerGroupView[] {
         ? entry.organizationId
         : null;
     const item: CareerItemView = {
-      id: entry.id,
+      id: typeof entry.id === "string" ? entry.id : `${entry.person}-${entry.kind}-${entry.title}`,
       title: entry.title.trim(),
       organization: typeof entry.organization === "string" && entry.organization.trim() !== "" ? entry.organization.trim() : null,
       organizationId,
       kind: entry.kind,
       current,
       years: careerYears(entry.start, entry.end, current),
-      source: resolveSource(entry.source, null),
-      // Current first, then the latest start.
-      sortKey: `${current ? "1" : "0"}${entry.end ?? "9999"}${entry.start ?? "0000"}`,
+      source: resolveSource(entry.source ?? null, null),
+      // Dated entries first (current, then the latest end and start); entries
+      // with no dates at all go last in their group.
+      sortKey:
+        entry.start == null && entry.end == null && !current
+          ? "!"
+          : `${current ? "1" : "0"}${entry.end ?? "9999"}${entry.start ?? "0000"}`,
     };
     const list = groups.get(entry.kind);
     if (list) list.push(item);
@@ -120,6 +125,6 @@ export function getCareerForPerson(personId: string): CareerGroupView[] {
   }
   return CAREER_KINDS.filter((kind) => groups.has(kind)).map((kind) => ({
     kind,
-    items: (groups.get(kind) ?? []).sort((a, b) => b.sortKey.localeCompare(a.sortKey)),
+    items: (groups.get(kind) ?? []).sort((a, b) => (a.sortKey < b.sortKey ? 1 : a.sortKey > b.sortKey ? -1 : 0)),
   }));
 }

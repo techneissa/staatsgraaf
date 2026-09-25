@@ -43,9 +43,6 @@ export function SeatTally({ tally }: { tally: SeatTally }) {
           <T area="entity" k="seatTallyMajorityMarker" vars={{ n: tally.majority }} />
         </span>
       </div>
-      <p className="mt-1.5 text-xs text-ink-muted">
-        <T area="entity" k="seatTallyMajorityLine" vars={{ n: tally.majority, total: tally.total }} />
-      </p>
       <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-1.5">
         {tally.entries.map((entry) => (
           <li key={entry.label} className="text-xs text-ink-muted">

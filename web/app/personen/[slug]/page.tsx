@@ -8,7 +8,8 @@ import { DateT, LocalPeriod } from "@/components/content/local-date";
 import { SourceLink } from "@/components/source-link";
 import { SourceList } from "@/components/source-list";
 import { NewsPanel } from "@/components/news/news-panel";
-import { L, T } from "@/components/i18n/t";
+import { Gloss, L, T } from "@/components/i18n/t";
+import { positionEn } from "@/lib/name-gloss";
 import { ShareButton } from "@/components/share-button";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { MembershipList } from "@/components/entity/membership-list";
@@ -235,7 +236,8 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
                 })}
               </div>
             ) : null}
-            {currentPositions.length > 0 ? (
+            {/* A single current role is already the summary line; list roles only when there are more. */}
+            {currentPositions.length > 1 || (currentPositions.length === 1 && (summary === null || !summary.nl.includes(currentPositions[0].title))) ? (
               <div className="mt-3 text-sm">
                 <p className="text-xs text-ink-faint">
                   <T area="entity" k="rolesNowLabel" />
@@ -252,6 +254,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
                         <EntityPeekLink id={position.id} glyph>
                           {position.title}
                         </EntityPeekLink>
+                        <Gloss text={positionEn(position.title)} className="ms-1 text-xs text-ink-faint" />
                         {organization !== undefined && !namesBody ? (
                           <>
                             {" "}
@@ -290,7 +293,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
         <EntityTabs
           news={
             <div>
-              <h2 id="nieuws-paneel-titel" className="text-base font-semibold tracking-tight text-ink">
+              <h2 id="nieuws-paneel-titel" className="sr-only">
                 <T area="entity" k="tabNews" />
               </h2>
               {news.length > 0 ? (
@@ -317,7 +320,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
           }
           connections={
             <div>
-              <h2 id="verbindingen-paneel-titel" className="text-base font-semibold tracking-tight text-ink">
+              <h2 id="verbindingen-paneel-titel" className="sr-only">
                 <T area="entity" k="whosConnected" />
               </h2>
               <div className="mt-3">

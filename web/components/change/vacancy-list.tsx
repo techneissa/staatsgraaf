@@ -1,8 +1,8 @@
+import { DateT } from "@/components/content/local-date";
 import { EmptyStateT } from "./empty-state-t";
 import { EntityPeekLink } from "../peek/entity-peek-link";
 import { T } from "@/components/i18n/t";
 import { getSourceById } from "@/lib/data";
-import { formatCount } from "@/lib/format";
 import { titleNamesBody, type VacancySummary } from "@/lib/changes";
 import { CHANGE_KIND_KEY, CHANGE_LABEL_TONE, ChangeKindGlyph } from "./change-glyph";
 import { QuietSource } from "./quiet-source";
@@ -49,10 +49,10 @@ export function VacancyList({ vacancies }: { vacancies: VacancySummary[] }) {
                   ) : null}
                   <p className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-faint">
                     <span className="tabular-nums">
-                      <T
+                      <DateT
                         area="home"
                         k={vacancy.seats === 1 ? "vacancySeatsUnfilledOne" : "vacancySeatsUnfilled"}
-                        vars={{ vacant: formatCount(vacancy.vacant), seats: formatCount(vacancy.seats) }}
+                        counts={{ vacant: vacancy.vacant, seats: vacancy.seats }}
                       />
                     </span>
                     {source ? (

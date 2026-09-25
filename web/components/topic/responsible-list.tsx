@@ -1,10 +1,11 @@
-import { T } from "@/components/i18n/t";
+import { Gloss, T } from "@/components/i18n/t";
+import { positionEn } from "@/lib/name-gloss";
+import { LocalCount } from "@/components/content/local-date";
 import { DictEmptyState } from "@/components/budget/dict-empty-state";
 import { getOrganizationById } from "@/lib/data";
 import { LocaleLabel } from "@/components/i18n/locale-label";
 import { PeekLink } from "@/components/peek/peek-link";
 import { peekKindFor } from "@/lib/peek";
-import { formatCount } from "@/lib/format";
 import { getResponsibleOrganizations, getResponsiblePositions } from "@/lib/topics";
 import type { Topic } from "@/lib/types";
 
@@ -17,13 +18,6 @@ export function ResponsibleList({ topic }: { topic: Topic }) {
       <h2 id="verantwoordelijk-titel" className="text-lg font-semibold tracking-tight text-ink">
         <T area="news" k="responsibleHeading" />
       </h2>
-      <p className="mt-1 text-sm text-ink-muted">
-        {formatCount(organizations.length)}{" "}
-        {organizations.length === 1 ? <T area="news" k="responsibleOrgSingular" /> : <T area="news" k="responsibleOrgPlural" />}{" "}
-        {formatCount(positions.length)}{" "}
-        {positions.length === 1 ? <T area="news" k="responsiblePositionSingular" /> : <T area="news" k="responsiblePositionPlural" />}{" "}
-        <T area="news" k="responsibleLinkedIntro" />
-      </p>
 
       {organizations.length === 0 && positions.length === 0 ? (
         <div className="mt-4">
@@ -38,6 +32,7 @@ export function ResponsibleList({ topic }: { topic: Topic }) {
         <div className="mt-4">
           <h3 className="text-xs font-medium text-ink-faint">
             <T area="news" k="responsibleOrganizationsLabel" />
+            <span className="ms-1.5 tabular-nums"><LocalCount value={organizations.length} /></span>
           </h3>
           <ul className="mt-2 grid gap-x-6 sm:grid-cols-2">
             {organizations.map((organization) => (
@@ -66,6 +61,7 @@ export function ResponsibleList({ topic }: { topic: Topic }) {
         <div className="mt-5">
           <h3 className="text-xs font-medium text-ink-faint">
             <T area="news" k="responsiblePositionsLabel" />
+            <span className="ms-1.5 tabular-nums"><LocalCount value={positions.length} /></span>
           </h3>
           <ul className="mt-2 grid gap-x-6 sm:grid-cols-2">
             {positions.map((position) => {
@@ -83,6 +79,7 @@ export function ResponsibleList({ topic }: { topic: Topic }) {
                   >
                     {position.title}
                   </PeekLink>
+                  <Gloss text={positionEn(position.title)} className="block text-xs text-ink-faint" />
                   {organization ? (
                     <span lang="nl" className="mt-0.5 block text-xs text-ink-faint">
                       {organization.name}

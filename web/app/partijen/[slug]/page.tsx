@@ -5,15 +5,15 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { SourceLink } from "@/components/source-link";
 import { SourceList } from "@/components/source-list";
-import { L, T } from "@/components/i18n/t";
+import { T } from "@/components/i18n/t";
+import { LegendIcon } from "@/components/legend-icons";
 import { LocalDate } from "@/components/content/local-date";
 import { ShareButton } from "@/components/share-button";
 import { MemberList } from "@/components/entity/member-list";
 import { ColorDot, FactTiles } from "@/components/entity/fact-tiles";
-import { TagIcon } from "@/components/entity/icons";
 import { getDatasetDate, getPersonById } from "@/lib/data";
 import type { MemberEntry } from "@/lib/entity";
-import { currentMembershipsForPartyKey, seatCountsByPartyKey, seatTallyForOrganization } from "@/lib/parliament";
+import { currentMembershipsForPartyKey, seatTallyForOrganization } from "@/lib/parliament";
 import { ArchChart } from "@/components/parliament/arch-chart";
 import { SeatSparkline } from "@/components/parliament/seat-sparkline";
 import { PARTIES, partyBySlug, partySlug } from "@/lib/parties";
@@ -57,8 +57,6 @@ export default async function PartyPage({
 
   const tkMembers = partyMembers(party.key, TK_ID);
   const ekMembers = partyMembers(party.key, EK_ID);
-  const tkSeats = seatCountsByPartyKey(TK_ID).get(party.key) ?? 0;
-  const ekSeats = seatCountsByPartyKey(EK_ID).get(party.key) ?? 0;
   const tkTally = seatTallyForOrganization(TK_ID);
   const ekTally = seatTallyForOrganization(EK_ID);
   const memberSourceRefs: SourceRef[] = [];
@@ -113,12 +111,6 @@ export default async function PartyPage({
           <ShareButton title={party.name.nl} />
         </div>
         <p className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
-          <span className="tabular-nums text-ink-muted">
-            <T area="pages" k="partiesSeatsTK" />: <strong className="font-semibold text-ink">{tkSeats}</strong>
-          </span>
-          <span className="tabular-nums text-ink-muted">
-            <T area="pages" k="partiesSeatsEK" />: <strong className="font-semibold text-ink">{ekSeats}</strong>
-          </span>
           {party.website !== null ? (
             <SourceLink href={party.website}>
               <T area="entity" k="websiteLabel" />
@@ -151,23 +143,12 @@ export default async function PartyPage({
               </span>
             ),
           },
-          {
-            key: "name-nl",
-            icon: <TagIcon />,
-            label: <L nl="Nederlands" en="Dutch" />,
-            value: <span lang="nl">{party.name.nl}</span>,
-          },
-          {
-            key: "name-en",
-            icon: <TagIcon />,
-            label: <L nl="Engels" en="English" />,
-            value: <span lang="en">{party.name.en}</span>,
-          },
         ]}
       />
 
       <section aria-labelledby="party-tk" className="mt-6">
         <h2 id="party-tk" className="border-b border-line pb-2 text-lg font-semibold tracking-tight text-ink">
+          <span className="me-2 inline-block align-middle"><LegendIcon kind="tk" size={18} /></span>
           <T area="pages" k="partiesSeatsTK" />
           <span className="ms-2 text-sm font-normal tabular-nums text-ink-faint">{tkMembers.length}</span>
         </h2>
@@ -175,7 +156,7 @@ export default async function PartyPage({
           <div className="mt-3">
             {tkTally !== null ? <ArchChart tally={tkTally} highlightKey={party.key} compact /> : null}
             <SeatSparkline partyKey={party.key} organizationId={TK_ID} color={party.color} />
-            <MemberList members={tkMembers} />
+            <MemberList members={tkMembers} showParty={false} />
           </div>
         ) : (
           <p className="mt-3 text-sm text-ink-faint">
@@ -187,13 +168,14 @@ export default async function PartyPage({
       {ekMembers.length > 0 ? (
         <section aria-labelledby="party-ek" className="mt-6">
           <h2 id="party-ek" className="border-b border-line pb-2 text-lg font-semibold tracking-tight text-ink">
+            <span className="me-2 inline-block align-middle"><LegendIcon kind="ek" size={18} /></span>
             <T area="pages" k="partiesSeatsEK" />
             <span className="ms-2 text-sm font-normal tabular-nums text-ink-faint">{ekMembers.length}</span>
           </h2>
           <div className="mt-3">
             {ekTally !== null ? <ArchChart tally={ekTally} highlightKey={party.key} compact /> : null}
             <SeatSparkline partyKey={party.key} organizationId={EK_ID} color={party.color} />
-            <MemberList members={ekMembers} />
+            <MemberList members={ekMembers} showParty={false} />
           </div>
         </section>
       ) : null}

@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale } from "@/components/i18n/language-provider";
-import { NEWS_MESSAGES, type NewsMessages } from "@/lib/news-i18n";
+import { NEWS_MESSAGES, licenseLabel, type NewsMessages } from "@/lib/news-i18n";
 import type { NewsLanguage, PublisherKind } from "@/lib/types";
 
 type StringKey = { [K in keyof NewsMessages]: NewsMessages[K] extends string ? K : never }[keyof NewsMessages];
@@ -26,4 +26,10 @@ export function NTKind({ kind, plural = true }: { kind: PublisherKind; plural?: 
 export function NTLanguage({ language }: { language: NewsLanguage }) {
   const locale = useLocale();
   return <>{NEWS_MESSAGES[locale].languageLabels[language]}</>;
+}
+
+/** A feed licence value in the site language (lib/news-i18n.ts). */
+export function NTLicense({ value }: { value: string }) {
+  const locale = useLocale();
+  return <>{licenseLabel(value, locale)}</>;
 }
