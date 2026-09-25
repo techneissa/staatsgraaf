@@ -7,6 +7,7 @@ import { LocalDate } from "@/components/content/local-date";
 import { L } from "@/components/i18n/t";
 import { useLocale } from "@/components/i18n/language-provider";
 import { PartyPill } from "@/components/party-pill";
+import { SourceIcon } from "@/components/source-icon";
 import { formatCountIn } from "@/lib/format";
 import type { ActivityGroupView, ActivityPersonView, ActivityRowView, PersonActivityView } from "@/lib/activities";
 import type { ActivityKind, ActivityOutcome } from "@/lib/types";
@@ -239,20 +240,28 @@ export function PersonActivity({ view }: { view: PersonActivityView }) {
       <h2 id="voorstellen-paneel-titel" className="sr-only">
         <L nl="Voorstellen en moties" en="Proposals and motions" />
       </h2>
-      <p className="mt-1 text-xs text-ink-faint">
+      <p className="mt-1 flex flex-wrap items-center gap-x-1.5 text-xs text-ink-faint">
         {total > 0 ? (
-          <>
+          <span>
             {formatCountIn(total, locale)} <L nl="sinds" en="since" /> <LocalDate iso={view.since} />
-          </>
+          </span>
         ) : (
-          <>
+          <span>
             <L
               nl="Geen moties, amendementen, wetsvoorstellen of schriftelijke vragen sinds"
               en="No motions, amendments, bills or written questions since"
             />{" "}
             <LocalDate iso={view.since} />
-          </>
+          </span>
         )}
+        {view.source !== null ? (
+          <SourceIcon
+            href={view.source.url}
+            title={`${locale === "en" ? "Tweede Kamer open data" : "Gegevensmagazijn van de Tweede Kamer"} (${view.source.publisher}, CC0 1.0)`}
+            retrieved={view.source.retrieved}
+            className="ms-0.5"
+          />
+        ) : null}
       </p>
       {view.groups.length > 0 ? (
         <div className="mt-3 space-y-3">
@@ -260,17 +269,6 @@ export function PersonActivity({ view }: { view: PersonActivityView }) {
             <ActivityGroup key={group.kind} group={group} />
           ))}
         </div>
-      ) : null}
-      {view.source !== null ? (
-        <p className="mt-3 text-xs text-ink-faint">
-          <L nl="Bron:" en="Source:" />{" "}
-          <OutLink href={view.source.url}>
-            <L nl="Gegevensmagazijn van de Tweede Kamer" en="Tweede Kamer open data" />
-          </OutLink>{" "}
-          <span>
-            {view.source.publisher}, CC0 1.0, <LocalDate iso={view.source.retrieved} />
-          </span>
-        </p>
       ) : null}
     </div>
   );

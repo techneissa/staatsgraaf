@@ -1,56 +1,40 @@
-import { SourceLink } from "@/components/source-link";
 import { T } from "@/components/i18n/t";
-import { getSourceById } from "@/lib/data";
-import { LocalDate } from "@/components/content/local-date";
+import { SOURCES_SUMMARY_CLASS, SourceRow } from "@/components/source-list";
 import type { SourceRef } from "@/lib/types";
 
 /**
- * The numbered source list behind the ^1, ^2 markers on the budget page.
- * Each entry carries the anchor id `bron-N` the markers link to.
+ * The numbered source list behind the ^1, ^2 markers on the budget page. The
+ * markers open their source directly, so the list sits folded; each entry
+ * keeps the anchor id `bron-N` as a fallback target.
  */
 export function SourceFootnotes({ sources }: { sources: SourceRef[] }) {
   if (sources.length === 0) return null;
   return (
     <section aria-labelledby="bronnen-titel" className="mt-6">
-      <h2 id="bronnen-titel" className="text-sm font-semibold text-ink">
-        <T area="news" k="budgetSourcesTitle" />
-      </h2>
-      <ol className="mt-2 space-y-2">
-        {sources.map((ref, index) => {
-          const source = getSourceById(ref.source);
-          const number = index + 1;
-          return (
-            <li
-              key={`${ref.source}-${ref.retrieved}`}
-              id={`bron-${number}`}
-              className="flex gap-2 text-sm"
-            >
-              <span className="w-7 shrink-0 font-medium tabular-nums text-accent-text">
-                ^{number}
-              </span>
-              <span className="min-w-0">
-                {source ? (
-                  <SourceLink
-                    href={source.url}
-                    archiveHref={source.archiveUrl}
-                    meta={
-                      <>
-                        {source.publisher}, <LocalDate iso={source.retrieved} />
-                      </>
-                    }
-                  >
-                    {source.title}
-                  </SourceLink>
-                ) : (
-                  <span className="text-ink-faint">
-                    <T area="common" k="unknownSource" vars={{ id: ref.source }} />
-                  </span>
-                )}
-              </span>
-            </li>
-          );
-        })}
-      </ol>
+      <details className="group motion-disclosure">
+        <summary className={SOURCES_SUMMARY_CLASS}>
+          <svg aria-hidden="true" viewBox="0 0 12 12" width="10" height="10" className="shrink-0 transition-fast group-open:rotate-90">
+            <path d="M4 2.5 7.5 6 4 9.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+          <h2 id="bronnen-titel" className="text-sm font-semibold">
+            <T area="news" k="budgetSourcesTitle" />{" "}
+            <span className="font-normal tabular-nums text-ink-faint">({sources.length})</span>
+          </h2>
+        </summary>
+        <ol className="mt-2 space-y-2 text-sm">
+          {sources.map((ref, index) => {
+            const number = index + 1;
+            return (
+              <li key={`${ref.source}-${ref.retrieved}`} id={`bron-${number}`}>
+                <SourceRow
+                  sourceRef={ref}
+                  marker={<span className="w-6 shrink-0 text-xs font-medium tabular-nums text-accent-text">^{number}</span>}
+                />
+              </li>
+            );
+          })}
+        </ol>
+      </details>
     </section>
   );
 }

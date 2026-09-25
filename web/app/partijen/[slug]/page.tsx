@@ -5,9 +5,9 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { SourceLink } from "@/components/source-link";
 import { SourceList } from "@/components/source-list";
+import { SourceIcon } from "@/components/source-icon";
 import { T } from "@/components/i18n/t";
 import { LegendIcon } from "@/components/legend-icons";
-import { LocalDate } from "@/components/content/local-date";
 import { ShareButton } from "@/components/share-button";
 import { MemberList } from "@/components/entity/member-list";
 import { ColorDot, FactTiles } from "@/components/entity/fact-tiles";
@@ -133,13 +133,8 @@ export default async function PartyPage({
               <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
                 {party.color !== null ? <code className="text-xs">{party.color}</code> : <T area="pages" k="partyNoColour" />}
                 {party.source !== null ? (
-                  <SourceLink href={party.source} meta={party.confidence} tone="quiet">
-                    <T area="pages" k="partyColourConfidence" />
-                  </SourceLink>
+                  <SourceIcon href={party.source} title={new URL(party.source).host} retrieved={party.retrieved} />
                 ) : null}
-                <span className="text-xs text-ink-faint">
-                  <T area="pages" k="partyColourRetrieved" /> <LocalDate iso={party.retrieved} />
-                </span>
               </span>
             ),
           },

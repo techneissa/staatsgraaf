@@ -13,6 +13,7 @@ import { formatCountIn, formatDateIn } from "@/lib/format";
 import type { SelectionSurface } from "@/lib/selection";
 import type { PanelChange, PanelNews, PanelPerson, PanelRef, PanelSource } from "./panel-data";
 import { SelectLink, selectionFor } from "./select-link";
+import { SourceIcon } from "@/components/source-icon";
 
 /** The canvas the current pick came from; new picks from a panel stay on it. */
 export function useSurface(): SelectionSurface {
@@ -291,7 +292,6 @@ function ChangeSentence({ change }: { change: PanelChange }) {
 export function ChangeRows({ changes }: { changes: PanelChange[] }) {
   const format = usePanelFormat();
   const th = useT("home");
-  const tp = useDict("panels");
   return (
     <ul className="space-y-2.5">
       {changes.map((change) => (
@@ -308,10 +308,8 @@ export function ChangeRows({ changes }: { changes: PanelChange[] }) {
               <time dateTime={change.date}>{format.date(change.date)}</time>
               {change.source ? (
                 <>
-                  {", "}
-                  <a href={change.source} rel="noopener noreferrer" target="_blank" className="underline decoration-1 underline-offset-2 hover:text-ink">
-                    {tp("sourceShort")}
-                  </a>
+                  {" "}
+                  <SourceIcon href={change.source} title={new URL(change.source).host} size={14} className="ms-0.5" />
                 </>
               ) : null}
             </p>
@@ -339,18 +337,10 @@ export function Facts({ items }: { items: { key: string; label: ReactNode; value
   );
 }
 
+/** The source of a panel record as the shared chain-link icon. */
 export function SourceLine({ source }: { source: PanelSource | null | undefined }) {
-  const t = useDict("panels");
-  const format = usePanelFormat();
   if (!source) return null;
-  return (
-    <p className="text-xs leading-relaxed text-ink-faint">
-      <a href={source.url} rel="noopener noreferrer" target="_blank" className="underline decoration-1 underline-offset-2 hover:text-ink">
-        {t("source", { publisher: source.publisher || new URL(source.url).host })}
-      </a>
-      {source.retrieved ? <>, {t("retrieved", { date: format.date(source.retrieved) })}</> : null}
-    </p>
-  );
+  return <SourceIcon href={source.url} title={source.publisher || new URL(source.url).host} retrieved={source.retrieved} />;
 }
 
 /** A quiet link to the full page. */

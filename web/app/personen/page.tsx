@@ -2,21 +2,12 @@ import type { Metadata } from "next";
 import { LocalCount } from "@/components/content/local-date";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
-import { PersonPortrait } from "@/components/entity/person-portrait";
-import { PartyBadge } from "@/components/party-badge";
-import { T, LocalText } from "@/components/i18n/t";
-import { positionEn } from "@/lib/name-gloss";
-import { PeekLink } from "@/components/peek/peek-link";
-import { LabelledNav } from "@/components/entity/labelled-nav";
-import { ShowAllList } from "@/components/news/show-all-list";
-import {
-  getDatasetDate,
-  getPeople,
-  getPositionById,
-  getTenuresForPerson,
-} from "@/lib/data";
+import { T } from "@/components/i18n/t";
+import { PeopleFilters } from "@/components/people/people-filters";
+import { getPeopleIndex } from "@/components/people/people-index";
+import { PersonTile } from "@/components/people/person-tile";
+import { getDatasetDate } from "@/lib/data";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
-import type { Person } from "@/lib/types";
 
 export const metadata: Metadata = pageMetadata({
   title: "Personen",
@@ -26,31 +17,16 @@ export const metadata: Metadata = pageMetadata({
   snapshotDate: getDatasetDate(),
 });
 
-function currentRole(personId: string): string | null {
-  for (const tenure of getTenuresForPerson(personId)) {
-    if (tenure.end !== null) continue;
-    const position = getPositionById(tenure.position);
-    if (position) return position.title;
-  }
-  return null;
-}
+const GRID_ID = "personen-lijst";
 
-type LetterGroup = { letter: string; people: Person[] };
-
-function groupByLetter(people: Person[]): LetterGroup[] {
-  const groups: LetterGroup[] = [];
-  for (const person of people) {
-    const letter = person.name.charAt(0).toUpperCase();
-    const last = groups[groups.length - 1];
-    if (last !== undefined && last.letter === letter) last.people.push(person);
-    else groups.push({ letter, people: [person] });
-  }
-  return groups;
-}
-
+/**
+ * The people index: a sticky filter bar over a dense grid of person cards in
+ * A-Z sections. Every card is in the static HTML; the bar only hides cards.
+ * Sections off screen skip layout and paint (content-visibility), so the page
+ * stays quick with all people on it.
+ */
 export default function PeopleIndexPage() {
-  const people = [...getPeople()].sort((a, b) => a.name.localeCompare(b.name, "nl"));
-  const groups = groupByLetter(people);
+  const { sections, groups, parties, total } = getPeopleIndex();
   const pageUrl = absoluteUrl("/personen/");
 
   return (
@@ -67,80 +43,47 @@ export default function PeopleIndexPage() {
 
       <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: <T area="entity" k="peopleIndexTitle" /> }]} />
 
-      <header className="mt-4">
+      <header className="mt-4 flex items-baseline gap-2">
         <h1 className="text-3xl font-semibold tracking-tight text-ink">
           <T area="entity" k="peopleIndexTitle" />
         </h1>
+        <span className="text-sm tabular-nums text-ink-faint">
+          <LocalCount value={total} />
+        </span>
       </header>
 
-      <LabelledNav area="entity" k="alphabetNavLabel" className="mt-6">
-        <ul className="flex flex-wrap gap-1.5">
-          {groups.map((group) => (
-            <li key={group.letter}>
-              <a
-                href={`#letter-${group.letter}`}
-                className="inline-flex h-7 min-w-7 items-center justify-center rounded-pill border border-line bg-surface px-2 text-xs font-medium text-ink-muted transition-fast hover:border-line-strong hover:text-ink pointer-coarse:h-11 pointer-coarse:min-w-11"
-              >
-                {group.letter}
-                <span className="ms-1 tabular-nums text-ink-faint">
-                  {group.people.length}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </LabelledNav>
+      <PeopleFilters
+        targetId={GRID_ID}
+        groups={groups}
+        parties={parties}
+        letters={sections.map((section) => section.letter)}
+      />
 
-      {groups.map((group) => (
-        <section key={group.letter} aria-labelledby={`letter-${group.letter}`} className="mt-8">
-          <h2
-            id={`letter-${group.letter}`}
-            className="scroll-mt-20 border-b border-line pb-2 text-lg font-semibold tracking-tight text-ink"
+      <div id={GRID_ID}>
+        {sections.map((section) => (
+          <section
+            key={section.letter}
+            data-letter={section.letter}
+            aria-labelledby={`letter-${section.letter}`}
+            className="mt-5 [contain-intrinsic-size:auto_1200px] [content-visibility:auto]"
           >
-            {group.letter}
-            <span className="ms-2 text-sm font-normal tabular-nums text-ink-faint">
-              <LocalCount value={group.people.length} />
-            </span>
-          </h2>
-          <ShowAllList
-            items={group.people}
-            className="mt-3 grid list-none gap-2 p-0 sm:grid-cols-2 xl:grid-cols-3"
-            keyOf={(person) => person.id}
-            render={(person) => {
-              const role = currentRole(person.id);
-              return (
-                <article className="relative flex items-center gap-3 rounded-md border border-line/70 p-2.5 transition-fast hover:border-line-strong">
-                  <PersonPortrait person={person} size={40} morph />
-                  <div className="min-w-0 flex-1">
-                    <h3 className="truncate text-sm font-medium">
-                      <PeekLink
-                        id={person.id}
-                        href={`/personen/${person.slug}/`}
-                        kind="person"
-                        variant="plain"
-                        className="after:absolute after:inset-0 after:rounded-md"
-                      >
-                        {person.name}
-                      </PeekLink>
-                    </h3>
-                    {role !== null ? (
-                      <p className="truncate text-xs text-ink-muted" title={role}>
-                        {/* The established English title on the meta line, as on the power map (ADR 0012). */}
-                        <LocalText nl={role} en={positionEn(role)} />
-                      </p>
-                    ) : null}
-                  </div>
-                  {person.party !== null ? (
-                    <span className="relative z-10 shrink-0">
-                      <PartyBadge party={person.party} />
-                    </span>
-                  ) : null}
-                </article>
-              );
-            }}
-          />
-        </section>
-      ))}
+            <h2
+              id={`letter-${section.letter}`}
+              className="mb-2 scroll-mt-36 text-sm font-semibold tabular-nums text-ink-faint"
+            >
+              {section.letter}
+            </h2>
+            <ul
+              role="list"
+              className="grid list-none grid-cols-[repeat(auto-fill,minmax(8.5rem,1fr))] gap-2 p-0 @lg:grid-cols-[repeat(auto-fill,minmax(9.5rem,1fr))]"
+            >
+              {section.people.map((entry) => (
+                <PersonTile key={entry.id} entry={entry} />
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
     </>
   );
 }

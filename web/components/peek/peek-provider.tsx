@@ -12,6 +12,7 @@ import { prefersReducedMotion } from "@/lib/motion";
 import { SheetHandle } from "./sheet-handle";
 import { useBottomSheet } from "./use-bottom-sheet";
 import { ORG_SUBTYPE_LABELS, ORG_SUBTYPE_LABELS_EN } from "@/lib/labels";
+import { SourceIcon } from "@/components/source-icon";
 import {
   normalizePeekRecord,
   peekShardUrl,
@@ -657,25 +658,17 @@ function PeekBody({
                 {record.news === 1 ? t("peekNewsCountOne") : t("peekNewsCount", { n: record.news })}
               </a>
             ) : null}
+            {record.source ? (
+              <SourceIcon
+                href={record.source.url}
+                title={record.source.publisher || new URL(record.source.url).hostname}
+                retrieved={record.source.retrieved}
+                size={14}
+                className="self-center"
+              />
+            ) : null}
           </p>
 
-          {record.source ? (
-            <p className="text-xs text-ink-faint">
-              {t("peekSource")}:{" "}
-              <a
-                href={record.source.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-ink-muted underline decoration-line-strong underline-offset-2 hover:text-accent-text"
-              >
-                {record.source.publisher || new URL(record.source.url).hostname}
-                <svg aria-hidden="true" viewBox="0 0 20 20" width="10" height="10">
-                  <path d="M6 14 14 6M8 6h6v6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                <span className="sr-only"> {t("opensNewTab")}</span>
-              </a>
-            </p>
-          ) : null}
         </div>
       ) : null}
     </>

@@ -111,7 +111,6 @@ export const COMMON_DICT = {
   peekNewsCount: { nl: "{n} nieuwsberichten", en: "{n} news items" },
   peekNewsCountOne: { nl: "1 nieuwsbericht", en: "1 news item" },
   peekNewsLink: { nl: "Nieuws hierover", en: "News about this" },
-  peekSource: { nl: "Bron", en: "Source" },
   peekDutchDescription: { nl: "Beschrijving", en: "Description (in Dutch)" },
   peekHint: {
     nl: "Tip: cmd- of ctrl-klik opent de pagina direct.",
@@ -131,6 +130,10 @@ export const COMMON_DICT = {
   archiveCopy: { nl: "Archiefkopie", en: "Archive copy" },
   sourcesTitle: { nl: "Bronnen", en: "Sources" },
   unknownSource: { nl: "Onbekende bron ({id})", en: "Unknown source ({id})" },
+  sourceIconLabel: { nl: "Bron: {title}", en: "Source: {title}" },
+  sourceIconLabelRetrieved: { nl: "Bron: {title}, opgehaald op {date}", en: "Source: {title}, retrieved on {date}" },
+  sourcesCountLabel: { nl: "{n} bronnen", en: "{n} sources" },
+  sourcesDisclosure: { nl: "Bronnen ({n})", en: "Sources ({n})" },
 } as const satisfies Record<string, LocString>;
 
 export type DictAreaKey = keyof typeof COMMON_DICT;

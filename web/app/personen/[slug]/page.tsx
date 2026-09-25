@@ -7,6 +7,7 @@ import { PartyBadge } from "@/components/party-badge";
 import { DateT, LocalPeriod } from "@/components/content/local-date";
 import { SourceLink } from "@/components/source-link";
 import { SourceList } from "@/components/source-list";
+import { SourceIcon } from "@/components/source-icon";
 import { NewsPanel } from "@/components/news/news-panel";
 import { Gloss, L, T } from "@/components/i18n/t";
 import { positionEn } from "@/lib/name-gloss";
@@ -156,7 +157,15 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
       key: "born",
       icon: <CalendarIcon />,
       label: <T area="entity" k="factBorn" />,
-      value: birthDate !== null ? <PersonBirth iso={birthDate} /> : null,
+      value:
+        birthDate !== null ? (
+          <span className="inline-flex flex-wrap items-center gap-x-1.5">
+            <PersonBirth iso={birthDate} />
+            {birthSource !== null ? (
+              <SourceIcon href={birthSource.url} title={birthSource.title} retrieved={birthSource.retrieved} />
+            ) : null}
+          </span>
+        ) : null,
     },
     {
       key: "links",
@@ -350,14 +359,6 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
       </div>
 
       <SourceList sources={person.sources} />
-      {birthSource !== null ? (
-        <p className="mt-2 text-xs text-ink-faint">
-          <L nl="Geboortedatum uit:" en="Date of birth from:" />{" "}
-          <SourceLink href={birthSource.url} tone="quiet">
-            {birthSource.title}
-          </SourceLink>
-        </p>
-      ) : null}
     </>
   );
 }

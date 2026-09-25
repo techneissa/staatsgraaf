@@ -1,6 +1,6 @@
 import { PartyPill } from "@/components/party-pill";
 import { KindBadge } from "@/components/kind-badge";
-import { SourceLink } from "@/components/source-link";
+import { SourceIcon } from "@/components/source-icon";
 import { LocalPeriod } from "@/components/content/local-date";
 import { L, T } from "@/components/i18n/t";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
@@ -47,9 +47,7 @@ export function MembershipList({ memberships }: { memberships: Membership[] }) {
                 </span>
               ) : null}
               {source ? (
-                <SourceLink href={source.url} meta={source.publisher} tone="quiet">
-                  <T area="entity" k="sourceLabel" />
-                </SourceLink>
+                <SourceIcon href={source.url} title={source.title} retrieved={membership.source.retrieved} />
               ) : null}
             </p>
           </li>

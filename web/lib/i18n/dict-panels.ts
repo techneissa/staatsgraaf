@@ -46,8 +46,6 @@ export const PANELS_DICT = {
   factPositions: { nl: "Posities", en: "Positions" },
   factMembers: { nl: "Leden", en: "Members" },
   factNews: { nl: "In het nieuws", en: "In the news" },
-  source: { nl: "Bron: {publisher}", en: "Source: {publisher}" },
-  sourceShort: { nl: "bron", en: "source" },
   retrieved: { nl: "opgehaald {date}", en: "retrieved {date}" },
   website: { nl: "Officiële website", en: "Official website" },
   showAll: { nl: "Alle {n} tonen", en: "Show all {n}" },

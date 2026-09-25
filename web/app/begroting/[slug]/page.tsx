@@ -11,12 +11,13 @@ import { T } from "@/components/i18n/t";
 import { DictEmptyState } from "@/components/budget/dict-empty-state";
 import { JsonLd } from "@/components/json-ld";
 import { SourceList } from "@/components/source-list";
+import { SourceIcons } from "@/components/source-icon";
 import {
   budgetDelta,
   getBudgetByOrganizationSlug,
   getBudgetOrganizations,
 } from "@/lib/budget";
-import { getDatasetDate } from "@/lib/data";
+import { getDatasetDate, getSourceById } from "@/lib/data";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -55,6 +56,10 @@ export default async function BudgetOrganizationPage({
   const view = getBudgetByOrganizationSlug(slug);
   if (!view) notFound();
 
+  const figureSources = view.sources.flatMap((ref) => {
+    const source = getSourceById(ref.source);
+    return source ? [{ href: source.url, title: source.title, retrieved: source.retrieved }] : [];
+  });
   const currentYear = view.currentRecord?.fiscalYear ?? null;
   const previousYear = currentYear !== null ? currentYear - 1 : null;
   const delta =
@@ -108,6 +113,7 @@ export default async function BudgetOrganizationPage({
           ) : (
             <T area="news" k="budgetFiguresHeading" />
           )}
+          <SourceIcons sources={figureSources} className="ms-2 align-middle text-base" />
         </h2>
         {view.current !== null ? (
           <>

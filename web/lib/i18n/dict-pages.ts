@@ -42,8 +42,6 @@ export const PAGES_DICT = {
     nl: "Geen kleur met bron opgenomen; er wordt nooit een waarde verzonnen.",
     en: "No sourced colour on record; a value is never invented.",
   },
-  partyColourConfidence: { nl: "Bron", en: "Source" },
-  partyColourRetrieved: { nl: "opgehaald", en: "retrieved" },
   partyOverviewLabel: { nl: "Alle partijen", en: "All parties" },
 
   notFoundTitle: { nl: "Pagina niet gevonden", en: "Page not found" },

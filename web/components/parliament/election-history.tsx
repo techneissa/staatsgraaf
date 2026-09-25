@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import { T } from "@/components/i18n/t";
-import { SourceLink } from "@/components/source-link";
+import { SourceIcon } from "@/components/source-icon";
 import { getSourceById } from "@/lib/data";
 import { electionRow, getElectionsForBody } from "@/lib/elections";
 import { DateT, LocalDate } from "@/components/content/local-date";
@@ -73,14 +73,13 @@ export function ElectionHistory({ organizationId }: { organizationId: string }) 
             .filter((block) => block.seats > 0)
             .map((block) => `${block.label} ${block.seats}`)
             .join(" · ")}
+          {source ? (
+            <>
+              {" "}
+              <SourceIcon href={source.url} title={source.title} retrieved={election.source.retrieved} size={14} className="ms-1" />
+            </>
+          ) : null}
         </p>
-        {source ? (
-          <p className="mt-0.5 text-[11px]">
-            <SourceLink href={source.url} meta={source.publisher} className="text-[11px]">
-              {source.title}
-            </SourceLink>
-          </p>
-        ) : null}
       </li>
     );
   };

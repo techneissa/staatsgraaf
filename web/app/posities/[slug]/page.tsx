@@ -10,6 +10,7 @@ import { DateT } from "@/components/content/local-date";
 import { LocaleLabel } from "@/components/i18n/locale-label";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { SourceList } from "@/components/source-list";
+import { SourceIcon } from "@/components/source-icon";
 import { NewsPanel } from "@/components/news/news-panel";
 import { Gloss, L, T } from "@/components/i18n/t";
 import { positionEn } from "@/lib/name-gloss";
@@ -351,9 +352,7 @@ function HolderRow({ tenure }: { tenure: Tenure }) {
         acting={tenure.acting}
         source={
           source ? (
-            <SourceLink href={source.url} meta={source.publisher} tone="quiet">
-              <T area="entity" k="sourceLabel" />
-            </SourceLink>
+            <SourceIcon href={source.url} title={source.title} retrieved={tenure.source.retrieved} />
           ) : null
         }
       />

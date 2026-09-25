@@ -113,18 +113,16 @@ export function ChangeRow({ change, compact = false }: { change: Change; compact
         />
       )}
       <div className="min-w-0 flex-1">
-        <p className={`text-xs font-semibold leading-4 ${CHANGE_LABEL_TONE[kind]}`}>
+        <p className={`flex items-center gap-1.5 text-xs font-semibold leading-4 ${CHANGE_LABEL_TONE[kind]}`}>
           <T area="home" k={CHANGE_KIND_KEY[kind]} />
+          {source ? (
+            <QuietSource href={source.url} publisher={source.publisher} retrieved={change.source.retrieved} />
+          ) : null}
         </p>
         <p className="mt-0.5 text-sm leading-snug text-ink [overflow-wrap:anywhere]">
           {sentence !== null ? sentence : <span lang="nl">{change.summary}</span>}
         </p>
         <BeforeAfter change={change} kind={kind} />
-        {source ? (
-          <p className="mt-1.5 leading-none">
-            <QuietSource href={source.url} publisher={source.publisher} retrieved={change.source.retrieved} />
-          </p>
-        ) : null}
       </div>
     </article>
   );

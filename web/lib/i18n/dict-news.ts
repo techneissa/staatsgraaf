@@ -64,6 +64,11 @@ export const NEWS_DICT = {
   budgetNetLabel: { nl: "Saldo", en: "Net result" },
   budgetNotReported: { nl: "Niet gerapporteerd", en: "Not reported" },
   budgetFootnoteAria: { nl: "Bron {number}, zie de bronnenlijst onderaan de pagina", en: "Source {number}, see the source list at the bottom of the page" },
+  budgetFootnoteSourceAria: { nl: "Bron {number}: {title}", en: "Source {number}: {title}" },
+  budgetFootnoteSourceAriaRetrieved: {
+    nl: "Bron {number}: {title}, opgehaald op {date}",
+    en: "Source {number}: {title}, retrieved on {date}",
+  },
   budgetOrgActionLink: { nl: "Bekijk de organisatie", en: "View the organization" },
   budgetChangeSince: { nl: "t.o.v. {year}", en: "vs. {year}" },
   budgetFiguresHeading: { nl: "Uitgaven, ontvangsten en saldo", en: "Spending, revenue and net result" },
