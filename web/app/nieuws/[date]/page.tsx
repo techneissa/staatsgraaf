@@ -1,3 +1,4 @@
+import { L } from "@/components/i18n/t";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -75,16 +76,15 @@ export default async function NewsDayPage({ params }: { params: Promise<{ date: 
           <h1 className="text-2xl font-semibold tracking-tight text-ink">
             <NT k="dayHeadingPrefix" /> {label}
           </h1>
-          <Link
-            href={messages.otherLanguageHref}
-            className="text-sm text-accent-text underline-offset-2 hover:underline"
-          >
-            <T area="news" k="newsOtherLanguageEn" />
-          </Link>
         </div>
         <p className="mt-3 text-sm text-ink-muted">
           <LocalCount value={total} />{" "}
           {total === 1 ? <NT k="dayCountWordSingular" /> : <NT k="dayCountWordPlural" />}
+        </p>
+        <p className="mt-1 text-xs text-ink-faint">
+          <a href="/methodiek/#machinevertaling" className="underline decoration-line underline-offset-2 hover:text-ink">
+            <L nl="Anderstalige berichten zijn automatisch vertaald." en="Items in another language are machine translated." />
+          </a>
         </p>
       </header>
 

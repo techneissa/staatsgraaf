@@ -49,12 +49,6 @@ export default function NewsPage() {
       <header className="mt-4 border-b border-line pb-6">
         <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
           <h1 className="text-2xl font-semibold tracking-tight text-ink">{messages.heading}</h1>
-          <Link
-            href={messages.otherLanguageHref}
-            className="text-sm text-accent-text underline-offset-2 hover:underline"
-          >
-            {messages.otherLanguageLabel}
-          </Link>
         </div>
         {datasetDate !== null ? (
           <p className="mt-2 text-xs text-ink-faint">updated {formatNewsDayLabel(datasetDate, "en")}</p>

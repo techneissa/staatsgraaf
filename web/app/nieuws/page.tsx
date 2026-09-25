@@ -52,12 +52,6 @@ export default function NewsPage() {
           <h1 className="text-2xl font-semibold tracking-tight text-ink">
             <L nl={messages.heading} en={en.heading} />
           </h1>
-          <Link
-            href={messages.otherLanguageHref}
-            className="text-sm text-accent-text underline-offset-2 hover:underline"
-          >
-            <T area="news" k="newsOtherLanguageEn" />
-          </Link>
         </div>
         {datasetDate !== null ? (
           <p className="mt-2 text-xs text-ink-faint">

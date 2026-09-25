@@ -61,6 +61,8 @@ export type NewsMessages = {
     /** Quiet label on a machine-translated card, keyed by the original language. */
     translatedFrom: Record<NewsLanguage, string>;
     translatedTitle: string;
+    /** One line above the feed saying items in another language are machine translated. */
+    translationNote: string;
     showOriginal: string;
     showTranslation: string;
     /** Tag on an item shown in its original language, keyed by that language. */
@@ -176,6 +178,7 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
       mentionedShort: "Genoemd",
       translatedFrom: { nl: "Vertaald uit het Nederlands", en: "Vertaald uit het Engels" },
       translatedTitle: "Machinevertaling door een taalmodel. Lees hoe dit werkt op de pagina Over.",
+      translationNote: "Anderstalige berichten zijn automatisch vertaald.",
       showOriginal: "Toon origineel",
       showTranslation: "Toon vertaling",
       originalLanguageTag: { nl: "Nederlands", en: "Engels" },
@@ -291,6 +294,7 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
       mentionedShort: "Mentioned",
       translatedFrom: { nl: "Translated from Dutch", en: "Translated from English" },
       translatedTitle: "Machine translation by a language model. Read how this works on the About page.",
+      translationNote: "Items in another language are machine translated.",
       showOriginal: "Show original",
       showTranslation: "Show translation",
       originalLanguageTag: { nl: "Dutch", en: "English" },

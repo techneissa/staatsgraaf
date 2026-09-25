@@ -151,6 +151,11 @@ export function NewsExplorer({
 
   return (
     <div data-settled={settled ? "" : undefined}>
+      <p className="mb-3 text-xs text-ink-faint">
+        <a href="/methodiek/#machinevertaling" className="underline decoration-line underline-offset-2 hover:text-ink">
+          {messages.card.translationNote}
+        </a>
+      </p>
       <div role="group" aria-label={messages.filtersLabel} className="space-y-3">
         <div
           role="group"
@@ -286,10 +291,6 @@ export function NewsExplorer({
                     {filtered.length === 1 ? messages.itemsWordSingular : messages.itemsWordPlural}
                   </span>
                 </div>
-
-                {truncated && entity === null ? (
-                  <DayLinks days={group.days} archiveBase={archiveBase} language={uiLanguage} />
-                ) : null}
 
                 {filtered.length === 0 ? (
                   <p className="mt-3 text-sm text-ink-faint">

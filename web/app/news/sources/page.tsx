@@ -42,12 +42,6 @@ export default function NewsSourcesPage() {
           <h1 className="text-2xl font-semibold tracking-tight text-ink">
             {messages.sourcesHeading}
           </h1>
-          <Link
-            href={messages.otherLanguageHref}
-            className="text-sm text-accent-text underline-offset-2 hover:underline"
-          >
-            {messages.otherLanguageLabel}
-          </Link>
         </div>
       </header>
 
