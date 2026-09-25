@@ -30,9 +30,9 @@ export const WHEEL_RINGS = {
     [156, 236],
     [242, 322],
   ] as const,
-  decentraal: [334, 404] as const,
-  koninkrijk: [410, 440] as const,
-  frame: [450, 478] as const,
+  decentraal: [334, 400] as const,
+  koninkrijk: [406, 446] as const,
+  frame: [456, 476] as const,
 };
 
 /** What a cell picks when it is clicked, in the selection store's own terms. */
@@ -240,7 +240,7 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
     count: hoge.length,
     branch: hoge[0]?.branch ?? "hoge-colleges",
     r0: n1[0],
-    r1: n2[1],
+    r1: n1[1],
     a0: W.jud[0],
     a1: W.jud[1],
     pick: { kind: "sector", id: "hoge-colleges" },
@@ -261,7 +261,7 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
       title: courtGroups[index].title,
       count: courtLists[index].length,
       branch: "rechterlijke-macht",
-      r0: n3[0],
+      r0: n2[0],
       r1: n3[1],
       a0,
       a1,

@@ -9,7 +9,9 @@ import { useT } from "@/components/i18n/use-t";
 import { glyphPathAt } from "./glyph";
 
 /** Room kept at a cell's outer edge for its curved name. */
-const TITLE_BAND = 14;
+const TITLE_BAND = 16;
+/** The largest step between two marks: one size everywhere, so sparse cells do not blow their shapes up. */
+const MARK_PITCH = 24;
 const TITLE = 9.5;
 const TITLE_MIN = 7.5;
 const CHAR = 0.58;
@@ -64,7 +66,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
       model.cells.map((cell) => {
         const title = cellTitle(cell);
         const shape = bundle.chamberShapes?.[cell.id] ?? null;
-        const marks = shape ? [] : cellMarks(cell, cell.items.map((entry) => entry.id), title ? TITLE_BAND : 3, 40);
+        const marks = shape ? [] : cellMarks(cell, cell.items.map((entry) => entry.id), title ? TITLE_BAND : 3, MARK_PITCH);
         return { cell, title, shape, marks, itemById: new Map(cell.items.map((entry) => [entry.id, entry])) };
       }),
     [model, bundle.chamberShapes],
@@ -138,7 +140,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
           {[0, 1, 2, 3].map((index) => {
             const a = -Math.PI / 2 + (index * Math.PI) / 2;
             const lower = Math.sin(a) > 0.1;
-            return <path key={index} id={`wheel-frame-${index}`} d={arcPath((f0 + f1) / 2 + (lower ? 3.5 : -3.5), a - 0.5, a + 0.5, lower)} />;
+            return <path key={index} id={`wheel-frame-${index}`} d={arcPath((f0 + f1) / 2 + (lower ? 3.4 : -3.4), a - 0.5, a + 0.5, lower)} />;
           })}
           {model.wedges.map((wedge) => {
             const lower = Math.sin((wedge.a0 + wedge.a1) / 2) > 0.1;
@@ -153,10 +155,12 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
           {drawn.map(({ cell, title }) => (title ? <path key={cell.id} id={`wheel-title-${cell.id}`} d={title.path} /> : null))}
         </defs>
         <g transform={`translate(${view.x.toFixed(2)} ${view.y.toFixed(2)}) scale(${view.k.toFixed(3)})`}>
-          {/* The voters as the rim. */}
-          <circle r={(f0 + f1) / 2} fill="none" stroke="var(--t-color-sector-regering)" strokeOpacity={0.55} strokeWidth={f1 - f0} />
+          {/* The voters as the rim: a band with a fine edge on both sides. */}
+          <circle r={(f0 + f1) / 2} fill="none" stroke="var(--t-color-sector-regering)" strokeOpacity={0.32} strokeWidth={f1 - f0} />
+          <circle r={f0} fill="none" stroke="var(--t-color-sector-regering)" strokeOpacity={0.85} strokeWidth={1.2} />
+          <circle r={f1} fill="none" stroke="var(--t-color-sector-regering)" strokeOpacity={0.85} strokeWidth={1.2} />
           {[0, 1, 2, 3].map((index) => (
-            <text key={index} fontSize={11} letterSpacing={3} fontWeight={700} fill="var(--t-color-ink)" opacity={0.85}>
+            <text key={index} fontSize={10} letterSpacing={3} fontWeight={700} fill="var(--t-color-ink)" opacity={0.9}>
               <textPath href={`#wheel-frame-${index}`} startOffset="50%" textAnchor="middle">
                 {t("wheelVoters")}
               </textPath>
@@ -207,9 +211,12 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
                   const markColor = branchColorVar(entry.branch);
                   const isSelected = entry.id === selectedId;
                   const glyph = GLYPH_BY_SUBTYPE[entry.subtype] ?? "dot";
+                  // Long shapes lie along the ring, so they follow their cell instead of cutting across it.
+                  const along = glyph === "capsule" || glyph === "seat" ? ((Math.atan2(mark.y, mark.x) + Math.PI / 2) * 180) / Math.PI : 0;
                   return (
                     <path
                       key={mark.id}
+                      transform={along ? `rotate(${along.toFixed(2)} ${mark.x.toFixed(2)} ${mark.y.toFixed(2)})` : undefined}
                       d={glyphPathAt(glyph, isSelected ? mark.r * 1.25 : mark.r, mark.x, mark.y)}
                       fill={markColor}
                       fillOpacity={isSelected ? 0.9 : 0.45}
