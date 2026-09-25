@@ -379,6 +379,42 @@ if (existsSync(join(DATA_DIR, TRANSLATIONS_FILE))) {
   translationLine = `  ${TRANSLATIONS_FILE.padEnd(22)} ${String(translations.length).padStart(5)} (${stale} stale, hidden until retranslated)`;
 }
 
+// Proposals and motions per person (pipelines/parliament-activity.mjs). The file is
+// optional; when present every record and co-submitter must resolve to a person,
+// every source to a source record, and an item appears once per person.
+const ACTIVITIES_FILE = "activities.json";
+let activitiesLine = null;
+if (existsSync(join(DATA_DIR, ACTIVITIES_FILE))) {
+  const records = loadData(ACTIVITIES_FILE) ?? [];
+  const schema = { $ref: "activity.schema.json#/$defs/personActivity" };
+  records.forEach((record, i) => validate(record, schema, "activity.schema.json", `${ACTIVITIES_FILE}[${i}]`));
+  const seenRecords = new Set();
+  const seenPeople = new Set();
+  let items = 0;
+  for (const record of records) {
+    const w = `${ACTIVITIES_FILE}#${record.id}`;
+    if (seenRecords.has(record.id)) fail(w, "duplicate id");
+    seenRecords.add(record.id);
+    if (seenPeople.has(record.person)) fail(w, `second record for ${record.person}`);
+    seenPeople.add(record.person);
+    refOk(w, record.person, personIds, "person");
+    refOk(w, record.source?.source, srcIds, "source");
+    const seenItems = new Set();
+    for (const item of record.items ?? []) {
+      items += 1;
+      if (seenItems.has(item.id)) fail(w, `item ${item.id} listed twice`);
+      seenItems.add(item.id);
+      if (record.since && item.date < record.since) fail(w, `item ${item.id} dated ${item.date} before since ${record.since}`);
+      if ((record.totals?.[item.kind] ?? 0) < 1) fail(w, `item ${item.id} of kind ${item.kind} but totals.${item.kind} is 0`);
+      for (const co of item.coSubmitters ?? []) {
+        refOk(`${w}/${item.id}`, co.person, personIds, "coSubmitter");
+        if (co.person === record.person) fail(`${w}/${item.id}`, "the person is listed as their own co-submitter");
+      }
+    }
+  }
+  activitiesLine = `  ${ACTIVITIES_FILE.padEnd(22)} ${String(records.length).padStart(5)} (${items} items)`;
+}
+
 for (const topic of byFile["topics.json"]) {
   const w = `topics.json#${topic.id}`;
   for (const o of topic.organizations ?? []) refOk(w, o, orgIds, "organization");
@@ -490,6 +526,7 @@ console.log("Validated data files:");
 for (const [file] of DATA_MAP) console.log(`  ${file.padEnd(22)} ${String(counts[file]).padStart(5)}`);
 console.log(`  ${"total".padEnd(22)} ${String(total).padStart(5)}`);
 if (translationLine) console.log(translationLine);
+if (activitiesLine) console.log(activitiesLine);
 if (RESEARCH_MODE) {
   console.log("\nValidated workstream files:");
   if (researchLines.length === 0) console.log("  (none found)");
