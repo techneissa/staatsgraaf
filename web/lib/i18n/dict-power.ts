@@ -89,5 +89,18 @@ export const POWER_DICT = {
   noLeader: { nl: "Geen fractievoorzitter in de dataset", en: "No parliamentary leader in the dataset" },
   focusMore: { nl: "Alle {n} tonen", en: "Show all {n}" },
   backToHierarchy: { nl: "Terug naar de hiërarchie", en: "Back to the hierarchy" },
+  clusterLegend: { nl: "Beleidsterreinen van de ministeries", en: "Policy areas of the ministries" },
+  seatsRingNote: {
+    nl: "Ring en cirkels naar zetels; bij elke fractie de fractievoorzitter.",
+    en: "Ring and circles by seats; each faction with its parliamentary leader.",
+  },
+  moreIn: { nl: "Nog {n} bij {name}", en: "{n} more in {name}" },
+  partyInCabinet: { nl: "{party} in het kabinet", en: "{party} in the cabinet" },
+  partyInCabinetN: { nl: "{n} in het kabinet", en: "{n} in the cabinet" },
+  ministryN: { nl: "Ministerie, {n} verbonden", en: "Ministry, {n} linked" },
+  showChartFull: { nl: "Als diagram tonen, schermvullend", en: "Show as a chart, full screen" },
+  groupOpen: { nl: "{name}: alle {n} tonen", en: "{name}: show all {n}" },
+  focusLegend: { nl: "Wat de kleuren betekenen", en: "What the colours mean" },
+  focusOn: { nl: "{name} in het midden zetten", en: "Put {name} in the centre" },
   newsItemLabel: { nl: "{title}. {publisher}, {date}.", en: "{title}. {publisher}, {date}." },
 } as const satisfies Record<string, LocString>;
