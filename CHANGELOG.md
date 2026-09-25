@@ -4,6 +4,14 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (25-09-2026, sixth round)
+
+- Connections opens on a hierarchy view (ADR 0018 amendment 2): the kabinet with the minister-president in the centre, the Koning as head of state and one icon hub per ministry with its bewindspersonen; the Tweede Kamer and Eerste Kamer with the chair in the centre and fracties as hubs in party colour. Clicking a person shows their ties as portrait tiles around them. The earlier view stays under "Netwerk".
+- Bewindspersonen carry their party (27 of 28, from their rijksoverheid.nl pages) and the Eerste Kamer fracties their fractievoorzitter (19 of 20, from eerstekamer.nl), carried through the nightly merge (`pipelines/party-affiliation.mjs`).
+- Sources show as one small link icon everywhere instead of "Bron: ..." text; the title and retrieval date are its name and tooltip, and full source lists fold into "Bronnen (n)".
+- The people index is a grid of compact cards in party colour, or a role colour for people without a party (oranje for the Koning, the branch colour otherwise), with search, group and party filters and A-Z sections.
+- New rule in AGENTS.md: no horizontal scrolling on any page from 320 px up; the top bar and the home people strip were fixed to meet it.
+
 ### Changed (25-09-2026, fifth round)
 
 - The power map is renamed "Verbanden / Connections" and redesigned as an ego view (ADR 0018 amendment 1): the pick in the centre with its ties grouped by office, kabinet, fractie and shared news, strength as line weight and a reason on every tie; a list with a strength meter on narrow screens; a ranked overview with nothing picked. Every sitting bewindspersoon now has ties.
