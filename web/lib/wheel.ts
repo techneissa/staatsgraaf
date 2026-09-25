@@ -23,15 +23,21 @@ import type { GraphBundle, WireNode } from "./graph";
 
 export const WHEEL_RADIUS = 480;
 
+/**
+ * The rings, with an open lane between them: a group's name sits in that
+ * lane, outside its background (the national groups on their inner side,
+ * the decentrale and Koninkrijk groups on their outer side, the branch
+ * names between the national rings and the decentrale ring).
+ */
 export const WHEEL_RINGS = {
-  core: 64,
+  core: 56,
   national: [
-    [70, 150],
-    [156, 236],
-    [242, 322],
+    [72, 142],
+    [156, 226],
+    [240, 312],
   ] as const,
-  decentraal: [334, 400] as const,
-  koninkrijk: [406, 446] as const,
+  decentraal: [332, 392] as const,
+  koninkrijk: [406, 440] as const,
   frame: [456, 476] as const,
 };
 
@@ -58,9 +64,29 @@ export type WheelCell = {
   seats?: { color: string | null; seats: number; label: string }[];
   /** A wedge or ring heading rather than a body. */
   heading?: boolean;
+  /** The group whose one background the cell shares; its own id when it stands alone. */
+  group: string;
 };
 
-export type WheelModel = { cells: WheelCell[]; wedges: { id: string; title: string; a0: number; a1: number }[] };
+/**
+ * Cells drawn on one shared background with one name outside it, like the
+ * ministries or the gemeenten per provincie. A group of one cell is the cell.
+ */
+export type WheelGroup = {
+  id: string;
+  title: string;
+  count: number | null;
+  branch: WireNode["branch"];
+  r0: number;
+  r1: number;
+  a0: number;
+  a1: number;
+  /** Which lane the name sits in. */
+  label: "inner" | "outer";
+  cells: string[];
+};
+
+export type WheelModel = { cells: WheelCell[]; groups: WheelGroup[]; wedges: { id: string; title: string; a0: number; a1: number }[] };
 
 const deg = (value: number) => (value * Math.PI) / 180;
 const GAP = deg(0.9);
@@ -103,7 +129,9 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
   });
   /** Bodies with a known abbreviation first (they fit and are recognised), then by connections. */
   const known = (list: WireNode[]) => [...list].sort((a, b) => Number(Boolean(bundle.shortNames?.[b.id])) - Number(Boolean(bundle.shortNames?.[a.id])) || byDegree(a, b));
-  const cells: WheelCell[] = [];
+  const cells: (Omit<WheelCell, "group"> & { group?: string })[] = [];
+  /** Titles of the groups of more than one cell; the others take their cell's. */
+  const groupTitles: Record<string, { title: string; count: number | null }> = {};
   const [n1, n2, n3] = WHEEL_RINGS.national;
 
   // The four branch wedges of the national rings, clockwise from the top.
@@ -122,18 +150,21 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
 
   // Wetgevende macht: the Staten-Generaal, then the two chambers with their seats.
   const sg = inSector("staten-generaal");
+  const commissies = sg.filter((node) => node.subtype === "commissie");
   cells.push({
     id: "staten-generaal",
-    title: "Staten-Generaal",
-    count: null,
+    title: "Commissies",
+    count: commissies.length,
     branch: "staten-generaal",
     r0: n1[0],
     r1: n1[1],
     a0: W.leg[0],
     a1: W.leg[1],
     pick: { kind: "sector", id: "staten-generaal" },
-    items: sg.filter((node) => node.subtype === "commissie").map(item),
+    items: commissies.map(item),
+    group: "staten-generaal",
   });
+  groupTitles["staten-generaal"] = { title: "Staten-Generaal", count: null };
   const chamberIds = ["org:tweede-kamer", "org:eerste-kamer"];
   split(W.leg[0], W.leg[1], [150, 110]).forEach(([a0, a1], index) => {
     const id = chamberIds[index];
@@ -153,6 +184,7 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
       items: [],
       seats: seats?.entries.map((entry) => ({ color: entry.color, seats: entry.seats, label: entry.label })),
       ...(commissies > 0 ? { heading: false } : {}),
+      group: "staten-generaal",
     });
   });
 
@@ -170,21 +202,19 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
     pick: { kind: "sector", id: "regering" },
     items: regering.map(item),
   });
+  // The ministries together, one shield each, in the order of their short names.
   const ministries = inSector("ministeries").sort((a, b) => shortLabel(a, bundle.shortNames).localeCompare(shortLabel(b, bundle.shortNames), "nl"));
-  split(W.exec[0], W.exec[1], ministries.map(() => 1)).forEach(([a0, a1], index) => {
-    const node = ministries[index];
-    cells.push({
-      id: node.id,
-      title: shortLabel(node, bundle.shortNames),
-      count: null,
-      branch: node.branch,
-      r0: n2[0],
-      r1: n2[1],
-      a0,
-      a1,
-      pick: { kind: "org", id: node.id },
-      items: [item(node)],
-    });
+  cells.push({
+    id: "ministeries",
+    title: "Ministeries",
+    count: ministries.length,
+    branch: ministries[0]?.branch ?? "regering",
+    r0: n2[0],
+    r1: n2[1],
+    a0: W.exec[0],
+    a1: W.exec[1],
+    pick: { kind: "sector", id: "ministeries" },
+    items: ministries.map(item),
   });
   const uitvoering = inSector("uitvoering");
   const zelfstandig = inSector("zelfstandig");
@@ -236,7 +266,7 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
   const hoge = inSector("hoge-colleges").sort((a, b) => a.name.localeCompare(b.name, "nl"));
   cells.push({
     id: "hoge-colleges",
-    title: "Hoge Colleges van Staat",
+    title: "Hoge Colleges",
     count: hoge.length,
     branch: hoge[0]?.branch ?? "hoge-colleges",
     r0: n1[0],
@@ -267,8 +297,10 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
       a1,
       pick: { kind: "sector", id: "rechterlijke-macht" },
       items: courtLists[index].map(item),
+      group: "rechtspraak",
     });
   });
+  groupTitles.rechtspraak = { title: "Rechtspraak", count: courts.length };
 
   // Decentrale overheden: one ring around the whole disc, from the top.
   const [d0, d1] = WHEEL_RINGS.decentraal;
@@ -324,8 +356,10 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
       a1,
       pick: { kind: "cluster", id: group.id },
       items: group.members.map(item),
+      group: "gemeenten",
     });
   });
+  groupTitles.gemeenten = { title: "Gemeenten en regio's", count: null };
   cells.push({
     id: "waterschappen",
     title: "Waterschappen",
@@ -377,10 +411,39 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
       a1,
       pick: { kind: "sector", id: "koninkrijk" },
       items: list.map(item),
+      group: "koninkrijk",
     });
   });
+  groupTitles.koninkrijk = { title: "Koninkrijk", count: koninkrijk.length };
 
-  return { cells, wedges };
+  const placed: WheelCell[] = cells.map((cell) => ({ ...cell, group: cell.group ?? cell.id }));
+  const groups: WheelGroup[] = [];
+  for (const cell of placed) {
+    const existing = groups.find((group) => group.id === cell.group);
+    if (existing) {
+      existing.r0 = Math.min(existing.r0, cell.r0);
+      existing.r1 = Math.max(existing.r1, cell.r1);
+      existing.a0 = Math.min(existing.a0, cell.a0);
+      existing.a1 = Math.max(existing.a1, cell.a1);
+      existing.cells.push(cell.id);
+      continue;
+    }
+    const named = groupTitles[cell.group];
+    groups.push({
+      id: cell.group,
+      title: named?.title ?? cell.title,
+      count: named ? named.count : cell.count,
+      branch: cell.branch,
+      r0: cell.r0,
+      r1: cell.r1,
+      a0: cell.a0,
+      a1: cell.a1,
+      label: cell.r0 >= d0 ? "outer" : "inner",
+      cells: [cell.id],
+    });
+  }
+
+  return { cells: placed, groups, wedges };
 }
 
 /** Whether a node is a member of a cluster; members carry the cluster id through the layout only on the client, so decide from the data. */

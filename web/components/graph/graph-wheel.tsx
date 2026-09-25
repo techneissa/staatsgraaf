@@ -3,18 +3,23 @@
 import { useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
 import { GLYPH_BY_SUBTYPE, type GraphBundle } from "@/lib/graph";
 import { branchColorVar } from "@/lib/branch-colors";
-import { buildWheel, cellMarks, WHEEL_RADIUS, WHEEL_RINGS, type WheelCell } from "@/lib/wheel";
+import { buildWheel, cellMarks, WHEEL_RADIUS, WHEEL_RINGS, type WheelCell, type WheelGroup } from "@/lib/wheel";
 import { useSelection } from "@/components/selection/selection-provider";
 import { useT } from "@/components/i18n/use-t";
 import { glyphPathAt } from "./glyph";
 
-/** Room kept at a cell's outer edge for its curved name. */
-const TITLE_BAND = 16;
+/** Room kept at a part's outer edge for its curved name, inside a group of several parts. */
+const TITLE_BAND = 15;
 /** The largest step between two marks: one size everywhere, so sparse cells do not blow their shapes up. */
 const MARK_PITCH = 24;
-const TITLE = 9.5;
-const TITLE_MIN = 7.5;
+const TITLE = 8.5;
+const TITLE_MIN = 6.5;
 const CHAR = 0.58;
+/** A group's name in the lane outside its background: capitals, spaced, in the group's colour. */
+const GROUP = 9;
+const GROUP_MIN = 6.5;
+const GROUP_SPACING = 1.3;
+const GROUP_CHAR = 0.68;
 
 function segment(r0: number, r1: number, a0: number, a1: number): string {
   const p = (r: number, a: number) => `${(Math.cos(a) * r).toFixed(2)} ${(Math.sin(a) * r).toFixed(2)}`;
@@ -27,6 +32,26 @@ function arcPath(r: number, a0: number, a1: number, backwards = false): string {
   const p = (a: number) => `${(Math.cos(a) * r).toFixed(2)} ${(Math.sin(a) * r).toFixed(2)}`;
   const large = a1 - a0 > Math.PI ? 1 : 0;
   return backwards ? `M${p(a1)}A${r} ${r} 0 ${large} 0 ${p(a0)}` : `M${p(a0)}A${r} ${r} 0 ${large} 1 ${p(a1)}`;
+}
+
+/** A group's name in the lane beside it, outside the background, at a size that fits. */
+function groupTitle(group: WheelGroup) {
+  const mid = (group.a0 + group.a1) / 2;
+  const lower = Math.sin(mid) > 0.1;
+  // Upper half: the text rises outward from its baseline; lower half: it hangs toward the core.
+  const radius = group.label === "inner" ? (lower ? group.r0 - 3 : group.r0 - 10.5) : lower ? group.r1 + 10.5 : group.r1 + 3.5;
+  const a0 = Math.max(group.a0, mid - Math.PI * 0.95);
+  const a1 = Math.min(group.a1, mid + Math.PI * 0.95);
+  const length = (a1 - a0) * radius - 6;
+  const text = (group.count !== null ? `${group.title} · ${group.count}` : group.title).toUpperCase();
+  // Tighter spacing before a smaller size, so a short lane still carries the whole name.
+  for (const candidate of [text, group.title.toUpperCase()]) {
+    for (const spacing of [GROUP_SPACING, 0.5]) {
+      const size = Math.min(GROUP, (length / candidate.length - spacing) / GROUP_CHAR);
+      if (size >= GROUP_MIN) return { text: candidate, size, spacing, path: arcPath(radius, a0, a1, lower) };
+    }
+  }
+  return null;
 }
 
 /** A cell's name along its outer edge, at a size that fits, or null when even the smallest does not. */
@@ -61,15 +86,23 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
   const drag = useRef<{ x: number; y: number; vx: number; vy: number; moved: boolean } | null>(null);
   const svgRef = useRef<SVGSVGElement | null>(null);
 
+  const groupOf = useMemo(() => {
+    const out = new Map<string, WheelGroup>();
+    for (const group of model.groups) for (const id of group.cells) out.set(id, group);
+    return out;
+  }, [model]);
+  const groupTitles = useMemo(() => model.groups.map((group) => ({ group, title: groupTitle(group) })), [model]);
   const drawn = useMemo(
     () =>
       model.cells.map((cell) => {
-        const title = cellTitle(cell);
+        const group = groupOf.get(cell.id)!;
+        // A part names itself inside only when its group has several parts; a group of one is named outside.
+        const title = group.cells.length > 1 ? cellTitle(cell) : null;
         const shape = bundle.chamberShapes?.[cell.id] ?? null;
         const marks = shape ? [] : cellMarks(cell, cell.items.map((entry) => entry.id), title ? TITLE_BAND : 3, MARK_PITCH);
-        return { cell, title, shape, marks, itemById: new Map(cell.items.map((entry) => [entry.id, entry])) };
+        return { cell, group, title, shape, marks, itemById: new Map(cell.items.map((entry) => [entry.id, entry])) };
       }),
-    [model, bundle.chamberShapes],
+    [model, groupOf, bundle.chamberShapes],
   );
 
   const selectedId = current && "id" in current ? current.id : null;
@@ -153,6 +186,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
             );
           })}
           {drawn.map(({ cell, title }) => (title ? <path key={cell.id} id={`wheel-title-${cell.id}`} d={title.path} /> : null))}
+          {groupTitles.map(({ group, title }) => (title ? <path key={group.id} id={`wheel-group-${group.id}`} d={title.path} /> : null))}
         </defs>
         <g transform={`translate(${view.x.toFixed(2)} ${view.y.toFixed(2)}) scale(${view.k.toFixed(3)})`}>
           {/* The voters as the rim: a band with a fine edge on both sides. */}
@@ -174,32 +208,77 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
             </text>
           ))}
 
-          {drawn.map(({ cell, title, shape, marks, itemById }) => {
+          {/* One background per group, its name outside it in the lane. */}
+          {groupTitles.map(({ group, title }) => {
+            const color = branchColorVar(group.branch);
+            const lit = hot !== null && group.cells.includes(hot);
+            return (
+              <g key={group.id} pointerEvents="none">
+                <path
+                  d={segment(group.r0, group.r1, group.a0, group.a1)}
+                  fill={color}
+                  fillOpacity={lit ? 0.17 : 0.11}
+                  stroke={color}
+                  strokeOpacity={0.4}
+                  strokeWidth={1}
+                  strokeLinejoin="round"
+                />
+                {title ? (
+                  <text fontSize={title.size} letterSpacing={title.spacing} fontWeight={700} fill={color}>
+                    <textPath href={`#wheel-group-${group.id}`} startOffset="50%" textAnchor="middle">
+                      {title.text}
+                    </textPath>
+                  </text>
+                ) : null}
+              </g>
+            );
+          })}
+
+          {drawn.map(({ cell, group, title, shape, marks, itemById }) => {
             const color = branchColorVar(cell.branch);
             const selected = selectedId !== null && (cell.pick?.id === selectedId || cell.id === selectedId);
             const holdsSelected = selectedId !== null && itemById.has(selectedId);
             const mid = (cell.a0 + cell.a1) / 2;
             const rm = (cell.r0 + cell.r1 - (title ? TITLE_BAND : 0)) / 2;
+            const parts = group.cells.length > 1;
+            // Parts of a group are set apart by a faint dashed line on the sides they share, not by their own boxes.
+            const rimBelow = parts && cell.r0 > group.r0 + 1e-6 ? (cell.r0 + Math.max(...model.cells.filter((other) => other.group === cell.group && other.r1 <= cell.r0).map((other) => other.r1), group.r0)) / 2 : null;
+            const sideLine = parts && cell.a0 > group.a0 + 1e-6 ? cell.a0 - 0.0079 : null;
             return (
               <g
                 key={cell.id}
                 onPointerEnter={() => setHot(cell.id)}
                 onPointerLeave={() => setHot((current) => (current === cell.id ? null : current))}
               >
+                {sideLine !== null ? (
+                  <line
+                    x1={Math.cos(sideLine) * (cell.r0 + 4)}
+                    y1={Math.sin(sideLine) * (cell.r0 + 4)}
+                    x2={Math.cos(sideLine) * (cell.r1 - 4)}
+                    y2={Math.sin(sideLine) * (cell.r1 - 4)}
+                    stroke={color}
+                    strokeOpacity={0.45}
+                    strokeDasharray="2 3"
+                    pointerEvents="none"
+                  />
+                ) : null}
+                {rimBelow !== null ? (
+                  <path d={arcPath(rimBelow, cell.a0 + 0.02, cell.a1 - 0.02)} fill="none" stroke={color} strokeOpacity={0.45} strokeDasharray="2 3" pointerEvents="none" />
+                ) : null}
                 <path
                   d={segment(cell.r0, cell.r1, cell.a0, cell.a1)}
                   fill={color}
-                  fillOpacity={selected ? 0.34 : hot === cell.id || holdsSelected ? 0.22 : 0.1}
-                  stroke={selected ? "var(--t-color-accent)" : color}
-                  strokeOpacity={selected ? 1 : 0.5}
-                  strokeWidth={selected ? 2 : 1}
+                  fillOpacity={selected ? 0.22 : parts && (hot === cell.id || holdsSelected) ? 0.1 : 0}
+                  stroke={selected ? "var(--t-color-accent)" : "none"}
+                  strokeWidth={selected ? 2 : 0}
+                  pointerEvents="all"
                   className={cell.pick ? "cursor-pointer" : undefined}
                   onClick={() => pickCell(cell)}
                 >
                   <title>{cell.count !== null ? `${cell.title}: ${cell.count}` : cell.title}</title>
                 </path>
                 {title ? (
-                  <text fontSize={title.size} fontWeight={700} fill="var(--t-color-ink)" pointerEvents="none">
+                  <text fontSize={title.size} fontWeight={600} fill="var(--t-color-ink-muted)" pointerEvents="none">
                     <textPath href={`#wheel-title-${cell.id}`} startOffset="50%" textAnchor="middle">
                       {title.text}
                     </textPath>
