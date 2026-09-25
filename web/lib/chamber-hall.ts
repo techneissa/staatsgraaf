@@ -82,7 +82,7 @@ export type ChamberHall = {
   seats: HallSeat[];
   /** The chair at the desk (Tweede Kamer); in the Eerste Kamer the chair's seat is in `seats`. */
   chair: { x: number; y: number; r: number; person: string | null } | null;
-  cabinet: { r: number; seats: HallBenchSeat[]; label: PlanPoint };
+  cabinet: { r: number; seats: HallBenchSeat[] };
   /** The hall's furniture as polygons (desks, rostrum, vak-K), drawn faintly under the seats. */
   furniture: { kind: "desk" | "rostrum" | "cabinet" | "other"; points: PlanPoint[] }[];
   total: number;
@@ -197,7 +197,6 @@ export function layoutHall(input: HallInput): ChamberHall {
   let points: PlanPoint[];
   let chairPoint: PlanPoint | null = null;
   let cabinetSeats: HallBenchSeat[] = [];
-  let cabinetLabel: PlanPoint = { x: 0, y: 0 };
   let furniture: ChamberHall["furniture"] = [];
   const benchPitch = 0.86;
   if (plan.coordinates === "pdf-points") {
@@ -218,11 +217,6 @@ export function layoutHall(input: HallInput): ChamberHall {
       if (across.x * toBack.x + across.y * toBack.y < 0) across = { x: -across.x, y: -across.y };
       const perRow = Math.max(4, Math.ceil(Math.hypot(front.from.x - front.to.x, front.from.y - front.to.y) / pitch / benchPitch) + 1);
       cabinetSeats = benchRows(bench, origin, along, across, perRow, benchPitch);
-      // The label sits past the far end of the rows, centred across them.
-      const rows = Math.ceil(bench.length / perRow);
-      const reach = (perRow + 0.6) * benchPitch;
-      const middle = ((rows - 1) / 2) * benchPitch;
-      cabinetLabel = { x: origin.x + along.x * reach + across.x * middle, y: origin.y + along.y * reach + across.y * middle + 0.35 };
     }
   } else {
     points = plan.seats.map(placeGrid);
@@ -247,7 +241,6 @@ export function layoutHall(input: HallInput): ChamberHall {
     const centre = (Math.min(...xs) + Math.max(...xs)) / 2;
     const perRow = Math.max(6, Math.ceil(bench.length / 2));
     const top = Math.min(...points.map((point) => point.y));
-    const rows = Math.ceil(bench.length / perRow);
     const order = (n: number) => Array.from({ length: n }, (_, i) => (i % 2 === 0 ? i / 2 : -(i + 1) / 2));
     cabinetSeats = bench.map((entry, index) => {
       const row = Math.floor(index / perRow);
@@ -257,7 +250,6 @@ export function layoutHall(input: HallInput): ChamberHall {
       const y = top - 2.1 - row * benchPitch + 0.018 * slot * slot;
       return { x, y, person: entry.person, hub: entry.hub };
     });
-    cabinetLabel = { x: centre, y: top - 2.1 - rows * benchPitch - 0.7 };
   }
 
   // Who sits where.
@@ -310,12 +302,10 @@ export function layoutHall(input: HallInput): ChamberHall {
   // Normalise to a box starting at a margin, in pitches.
   const r = 0.43;
   const margin = 0.75;
-  // The label is a chip about a pitch tall and three wide: keep room for it.
-  const labelBox = [-1.5, 1.5].flatMap((dx) => [-0.9, 0.9].map((dy) => ({ x: cabinetLabel.x + dx, y: cabinetLabel.y + dy })));
   // Room under the chair for its label, at the desk or in its seat.
   const chairAt = chairPoint ?? seats.find((seat) => seat.chair && seat.person) ?? null;
   const chairBox = chairAt ? [{ x: chairAt.x, y: chairAt.y + r * 2.3 + 1.1 }] : [];
-  const all: PlanPoint[] = [...seats, ...cabinetSeats, ...chairBox, ...labelBox, ...furniture.flatMap((item) => item.points)];
+  const all: PlanPoint[] = [...seats, ...cabinetSeats, ...chairBox, ...furniture.flatMap((item) => item.points)];
   const minX = Math.min(...all.map((point) => point.x)) - margin;
   const minY = Math.min(...all.map((point) => point.y)) - margin;
   const maxX = Math.max(...all.map((point) => point.x)) + margin;
@@ -332,7 +322,7 @@ export function layoutHall(input: HallInput): ChamberHall {
     r,
     seats: seats.map((seat) => ({ ...seat, ...shift(seat) })),
     chair: chairPoint && plan.coordinates === "pdf-points" ? { ...shift(chairPoint), r: round(r * 2.3), person: input.chair } : null,
-    cabinet: { r: round(r * 0.9), seats: cabinetSeats.map((seat) => ({ ...seat, ...shift(seat) })), label: shift(cabinetLabel) },
+    cabinet: { r: round(r * 0.9), seats: cabinetSeats.map((seat) => ({ ...seat, ...shift(seat) })),  },
     furniture: furniture.map((item) => ({ kind: item.kind, points: item.points.map(shift) })),
     total,
     majority,

@@ -10,8 +10,6 @@ import { clusterOf, clusterVar, type HierarchyBundle, type HierarchyHub, type Hi
 import { formatDutchDate } from "./model";
 import { RingPortrait, SourceIconLink, hubColor, personInfo, rememberTap, roleText, shortRole } from "./hierarchy-parts";
 
-/** Seats of at least this many pixels across show portraits; smaller ones are dots. */
-export const PORTRAIT_SEAT = 24;
 /** From this width the legend stands beside the hall instead of under it. */
 const SIDE_LEGEND = 760;
 
@@ -50,7 +48,7 @@ export function ChamberHallView({
   highlighted,
   onPick,
   onExpand,
-  onShowKabinet,
+  photos,
 }: {
   bundle: HierarchyBundle;
   tree: HierarchyTree;
@@ -60,7 +58,8 @@ export function ChamberHallView({
   highlighted: ReadonlySet<string>;
   onPick: (id: string) => void;
   onExpand: (hub: string | null) => void;
-  onShowKabinet: () => void;
+  /** Faces on the seats (true) or dots in the fractie colour (false). */
+  photos: boolean;
 }) {
   const t = useT("power");
   const hall = tree.hall!;
@@ -95,7 +94,8 @@ export function ChamberHallView({
   const offsetY = (area.height - hall.height * scale) / 2;
   const px = (value: number) => value * scale;
   const at = (point: { x: number; y: number }) => ({ x: offsetX + point.x * scale, y: offsetY + point.y * scale });
-  const portraits = hall.r * 2 * scale >= PORTRAIT_SEAT;
+  /** Faces on every seat unless the reader switched to dots (the photo toggle in the bar). */
+  const portraits = photos;
   /** A label's left edge kept inside the area, for a label about `half` pixels either side of its centre. */
   const inside = (x: number, half: number) => Math.min(Math.max(x, half + 2), Math.max(half + 2, area.width - half - 2));
   // Below the side legend the hall keeps its shape and the column scrolls to the legend.
@@ -404,21 +404,6 @@ export function ChamberHallView({
                   </span>
                 ))
             : null}
-          {scale > 0 && hall.cabinet.seats.length > 0 ? (
-            <button
-              type="button"
-              onClick={onShowKabinet}
-              onPointerUp={(event) => event.stopPropagation()}
-              onPointerEnter={() => legendHot("kabinet")}
-              onPointerLeave={() => legendHot(null)}
-              title={t("hallMinistriesTitle")}
-              className="tap-target absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 whitespace-nowrap rounded-pill border border-line-strong bg-surface px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-ink-muted hover:border-accent hover:text-ink"
-              style={{ left: inside(at(hall.cabinet.label).x, 48), top: at(hall.cabinet.label).y }}
-            >
-              {t("hallBench")}
-              <LucideIcon icon={ChevronRight} size={12} />
-            </button>
-          ) : null}
           {hoverSpot?.person ? (
             <HoverCard
               key={hoverSpot.person}
@@ -476,7 +461,7 @@ export function ChamberHallView({
         </div>
         <p className="flex shrink-0 items-start gap-1 px-1 pb-1 pt-0.5 text-[11px] leading-snug text-ink-faint">
           <span className="min-w-0 flex-1">
-            {basisText} {t("hallBenchNote")}
+            {basisText}
           </span>
           <SourceIconLink source={source} />
         </p>
