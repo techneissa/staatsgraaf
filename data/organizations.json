@@ -1700,6 +1700,43 @@
     }
   },
   {
+    "id": "org:college-financieel-toezicht-curacao-en-sint-maarten",
+    "slug": "college-financieel-toezicht-curacao-en-sint-maarten",
+    "name": "College financieel toezicht Curaçao en Sint Maarten",
+    "aliases": [
+      "Cft",
+      "College financieel toezicht"
+    ],
+    "type": "department",
+    "subtype": "toezichthouder",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "koninkrijk",
+    "parent": null,
+    "partOf": [],
+    "description": "Koninkrijksorgaan dat toezicht houdt op de toepassing van de begrotingsnormen door Curaçao en Sint Maarten; de raad van ministers van het Koninkrijk besluit over de benoeming van de leden (Rijkswet financieel toezicht Curaçao en Sint Maarten art. 2 en 4).",
+    "legalSource": {
+      "label": "Rijkswet financieel toezicht Curaçao en Sint Maarten art. 2",
+      "url": "https://wetten.overheid.nl/BWBR0028132"
+    },
+    "website": "https://www.cft.cw",
+    "established": "2010-10-10",
+    "dissolved": null,
+    "seatsCount": null,
+    "sources": [
+      {
+        "source": "src:rijkswet-financieel-toezicht-curacao-sint-maarten",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      },
+      {
+        "source": "src:cft-organisatie",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "org:college-van-beroep-voor-het-bedrijfsleven",
     "slug": "college-van-beroep-voor-het-bedrijfsleven",
     "name": "College van Beroep voor het bedrijfsleven",
@@ -53314,6 +53351,34 @@
     }
   },
   {
+    "id": "org:interparlementair-koninkrijksoverleg",
+    "slug": "interparlementair-koninkrijksoverleg",
+    "name": "Interparlementair Koninkrijksoverleg",
+    "aliases": [
+      "IPKO",
+      "Interparlementair Koninkrijksoverleg"
+    ],
+    "type": "commission",
+    "subtype": "koninkrijksorgaan",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "koninkrijk",
+    "parent": null,
+    "partOf": [],
+    "description": "Overleg van vier parlementaire delegaties: de Staten van Aruba, van Curaçao en van Sint Maarten en de Staten-Generaal, met leden van de Eerste en de Tweede Kamer.",
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "sources": [
+      {
+        "source": "src:kst-33845-61",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "org:ipo",
     "slug": "ipo",
     "name": "Interprovinciaal Overleg",
@@ -59834,6 +59899,38 @@
       "label": "Regeling agentschappen 2024",
       "url": "https://wetten.overheid.nl/BWBR0050264"
     }
+  },
+  {
+    "id": "org:rijksministerraad",
+    "slug": "rijksministerraad",
+    "name": "Rijksministerraad",
+    "aliases": [
+      "Raad van ministers van het Koninkrijk",
+      "Rijksministerraad"
+    ],
+    "type": "commission",
+    "subtype": "koninkrijksorgaan",
+    "branch": "koninkrijk",
+    "level": "koninkrijk",
+    "country": "koninkrijk",
+    "parent": null,
+    "partOf": [],
+    "description": "De raad van ministers van het Koninkrijk bestaat uit de door de Koning benoemde ministers en de Gevolmachtigde Ministers van Aruba, Curaçao en Sint Maarten, die namens de regering van hun land handelen (Statuut art. 7 en 8).",
+    "legalSource": {
+      "label": "Statuut voor het Koninkrijk art. 7",
+      "url": "https://wetten.overheid.nl/BWBR0002154"
+    },
+    "website": null,
+    "established": null,
+    "dissolved": null,
+    "seatsCount": null,
+    "sources": [
+      {
+        "source": "src:statuut",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      }
+    ]
   },
   {
     "id": "org:rijksorganisatie-beveiliging-en-logistiek",

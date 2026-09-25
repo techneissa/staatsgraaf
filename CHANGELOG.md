@@ -4,6 +4,13 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Added (25-09-2026, ninth round)
+
+- Links for the bodies that had none on either graph form (ADR 0019, workstream V). The landen of the Kingdom are tied to the Kingdom through the new Rijksministerraad, the College financieel toezicht Curaçao en Sint Maarten and the Interparlementair Koninkrijksoverleg. Their Staten are also tied to the Tweede Kamer and the Eerste Kamer on ontwerpen van rijkswet.
+- The Algemene Rekenkamer and the Nationale ombudsman are tied to the regering and the Tweede Kamer. The Dienst van het Koninklijk Huis, the Kabinet van de Koning and the Kanselarij der Nederlandse Orden are tied to their ministry, and the Rijksvertegenwoordiger to the openbare lichamen, the regering and BZK.
+- Every veiligheidsregio, GGD and omgevingsdienst lists the gemeenten and provincies that take part in it, with the join date from the Register van Overheidsorganisaties (898 links). The IPO lists the twelve provincies and the VNG all gemeenten.
+- The wheel draws appointment, voordracht and participation ties, and has a Koninkrijk cell for bodies of the Kingdom as a whole. The Rijksvertegenwoordiger now appears in the Caribisch Nederland cell.
+
 ### Added (25-09-2026, eighth round)
 
 - A second form of the graph, the wheel, behind the icon button at the top right of the graph (owner's concept, after the CivLab Gov Graph): the Grondwet in the centre, the national bodies in four branch wedges, the decentrale overheden and the Koninkrijk around them and the voters as the rim. Every body is a mark in its shape and colour; the Kamers are drawn as their halls. Related bodies share one background with the group's name outside it.
