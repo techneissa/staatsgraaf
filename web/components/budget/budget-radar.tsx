@@ -171,15 +171,12 @@ export function BudgetRadar({ data }: { data: RadarData }) {
   const scaleAngle = axisAngle(count - 0.5, count);
   const badgeCentres = Array.from({ length: count }, (_, index) => polar(cx, cy, radius, axisAngle(index, count)));
   const placedBoxes: { x0: number; y0: number; x1: number; y1: number }[] = [];
-  const across = { x: -Math.sin(scaleAngle), y: Math.cos(scaleAngle) };
-  rings.forEach((ring, ringIndex) => {
+  rings.forEach((ring) => {
     const halfW = estimateTextWidth(ring.label, ringFont) / 2 + 4;
-    const lean = ringIndex % 2 === 0 ? 1 : -1;
-    const nudges = [0, 8, -8, 16, -16, 24, -24, 32, -32, 40, -40, 48, -48].map((step) => step * lean);
-    for (const inset of [0, 6, 12, 18, 24]) {
-      for (const nudge of nudges) {
-        const base = polar(cx, cy, Math.max(0, radius * ring.fraction - inset), scaleAngle);
-        const at = { x: base.x + across.x * nudge, y: base.y + across.y * nudge };
+    // Stay on the line: only slide a little inward or outward along it.
+    for (const shift of [0, -5, 5, -10, 10, -15, 15, -20, 20]) {
+      {
+        const at = polar(cx, cy, Math.max(4, radius * ring.fraction - shift), scaleAngle);
         const box = { x0: at.x - halfW, y0: at.y - ringFont + 2, x1: at.x + halfW, y1: at.y + ringFont - 2 };
         const clearOfBadges = badgeCentres.every((c) => {
           const dx = Math.max(box.x0 - c.x, 0, c.x - box.x1);
