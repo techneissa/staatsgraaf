@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "description-translation.schema.json",
+  "$ref": "#/$defs/descriptionTranslation",
+  "$defs": {
+    "descriptionTranslation": {
+      "type": "object",
+      "description": "Machine translation of the Dutch description of an organization or person. Shown only while sourceHash matches the current description (shared/description-translation-hash.mjs).",
+      "required": ["id", "field", "language", "sourceLanguage", "text", "sourceHash", "engine", "method", "translated"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^(org|person):[a-z0-9][a-z0-9-]*$" },
+        "field": { "type": "string", "enum": ["description"] },
+        "language": { "type": "string", "enum": ["en"] },
+        "sourceLanguage": { "type": "string", "enum": ["nl"] },
+        "text": { "type": "string", "minLength": 1 },
+        "sourceHash": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{12}$",
+          "description": "First 12 hex characters of sha256(description), UTF-8, at translation time."
+        },
+        "engine": { "type": "string", "minLength": 1 },
+        "method": { "type": "string", "enum": ["claude-code-session", "opencode-zen", "deepseek-api", "anthropic-api"] },
+        "translated": { "$ref": "common.schema.json#/$defs/isoDate" }
+      }
+    }
+  }
+}

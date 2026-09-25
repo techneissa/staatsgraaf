@@ -32,6 +32,20 @@
  *                              the result is written back to FILE. Without the
  *                              key: print the backlog, exit 0. Always exits 0.
  *
+ *   desc-status                count current, stale and missing English
+ *                              translations of organization and person
+ *                              descriptions (data/description-translations.json)
+ *   desc-export --dir D [--size N]
+ *                              write missing or stale descriptions to
+ *                              D/descriptions-NN.json as [{id, sourceHash, nl, text: null}]
+ *   desc-merge FILE... [--engine E] [--method M] [--date YYYY-MM-DD]
+ *                              merge filled-in batch files ([{id, text}]); every
+ *                              record is checked (numbers and tags kept, no dash)
+ *   desc-check FILE...         the same checks without writing
+ *   The api subcommand also translates missing or stale descriptions, at most
+ *   --description-max per run (default 100), with the same providers; with
+ *   --cache FILE their cache is description-translations.json next to FILE.
+ *
  * Every subcommand except status prunes orphan records first, so a news run
  * followed by `bun run translate` always leaves a file the validator accepts.
  */
@@ -46,6 +60,7 @@ import {
   translationSourceHash,
   translationTargetLanguage,
 } from "../shared/news-translation-hash.mjs";
+import { descriptionSourceHash } from "../shared/description-translation-hash.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_DATA = join(ROOT, "data");
@@ -416,13 +431,25 @@ export function parseBatchReply(text) {
   return out;
 }
 
-async function requestAnthropic(client, provider, tasks) {
+/**
+ * What a request sends and how its reply is read. The news format is the
+ * default; descriptions use DESCRIPTION_FORMAT further down.
+ */
+export const NEWS_FORMAT = Object.freeze({
+  system: API_SYSTEM_PROMPT,
+  prompt: (tasks) => batchPrompt(tasks),
+  schema: BATCH_SCHEMA,
+  parse: (text) => parseBatchReply(text),
+  maxTokens: (tasks) => maxTokensFor(tasks),
+});
+
+async function requestAnthropic(client, provider, tasks, format = NEWS_FORMAT) {
   const response = await client.messages.create({
     model: provider.model,
     max_tokens: 16000,
-    system: API_SYSTEM_PROMPT,
-    output_config: { format: { type: "json_schema", schema: BATCH_SCHEMA } },
-    messages: [{ role: "user", content: batchPrompt(tasks) }],
+    system: format.system,
+    output_config: { format: { type: "json_schema", schema: format.schema } },
+    messages: [{ role: "user", content: format.prompt(tasks) }],
   });
   if (response.stop_reason === "refusal") throw permanent("refused");
   if (response.stop_reason === "max_tokens") throw permanent("output cut off at max_tokens");
@@ -438,17 +465,17 @@ export function maxTokensFor(tasks) {
   return Math.min(32000, 1024 + Math.ceil(chars / 2));
 }
 
-async function requestOpenAiCompatible(fetchImpl, provider, tasks, { jsonMode = true } = {}) {
+async function requestOpenAiCompatible(fetchImpl, provider, tasks, { jsonMode = true, format = NEWS_FORMAT } = {}) {
   const body = {
     model: provider.model,
     temperature: 0,
-    max_tokens: maxTokensFor(tasks),
+    max_tokens: format.maxTokens(tasks),
     // DeepSeek V4 models reason by default and can spend the whole budget on
     // reasoning_tokens; tested 24-09-2026 on OpenCode Zen: disabled gives a clean answer.
     thinking: { type: "disabled" },
     messages: [
-      { role: "system", content: API_SYSTEM_PROMPT },
-      { role: "user", content: batchPrompt(tasks) },
+      { role: "system", content: format.system },
+      { role: "user", content: format.prompt(tasks) },
     ],
   };
   if (jsonMode) body.response_format = { type: "json_object" };
@@ -488,15 +515,16 @@ export async function translateBatch(provider, tasks, {
   retries = DEFAULT_API_RETRIES,
   sleep = sleepMs,
   baseDelayMs = 2000,
+  format = NEWS_FORMAT,
 } = {}) {
   let jsonMode = true;
   let emptyRetried = false;
   for (let attempt = 0; ; attempt += 1) {
     try {
       const text = provider.kind === "anthropic"
-        ? await requestAnthropic(client, provider, tasks)
-        : await requestOpenAiCompatible(fetchImpl, provider, tasks, { jsonMode });
-      return parseBatchReply(text);
+        ? await requestAnthropic(client, provider, tasks, format)
+        : await requestOpenAiCompatible(fetchImpl, provider, tasks, { jsonMode, format });
+      return format.parse(text);
     } catch (error) {
       // A provider that rejects response_format gets the same request without it, once.
       if (jsonMode && provider.kind === "openai" && error?.status === 400 && /response_format|json_object/i.test(error?.detail ?? "")) {
@@ -562,7 +590,18 @@ export function mergeRecordSets(news, committed, cached) {
   return sortTranslations([...byKey.values()].map((entry) => entry.record));
 }
 
-export async function runApi({
+export async function runApi(options = {}) {
+  const news = await runNewsApi(options);
+  let descriptions = null;
+  try {
+    descriptions = await runDescriptionApi(options);
+  } catch (error) {
+    (options.log ?? console.log)(`translate descriptions: ${error.message}; continuing without new description translations.`);
+  }
+  return { ...news, descriptions };
+}
+
+async function runNewsApi({
   dataDir = DEFAULT_DATA,
   max = DEFAULT_API_MAX,
   batchSize = DEFAULT_API_BATCH,
@@ -675,6 +714,400 @@ export async function runApi({
   return { translated: result.merged, dropped: dropped.length + result.rejected.length, remaining, requests, provider: provider.name };
 }
 
+// ---------- descriptions of organizations and people ----------
+//
+// data/description-translations.json holds one English record per entity whose
+// Dutch `description` is set, in organizations.json or people.json. A record is
+// current while its sourceHash equals descriptionSourceHash(description); the
+// web shows nothing for a stale record. The data refresh never touches it.
+
+export const DESCRIPTIONS_FILE = "description-translations.json";
+export const DESCRIPTION_ENTITY_FILES = Object.freeze(["organizations.json", "people.json"]);
+export const DESCRIPTION_FIELD = "description";
+export const DEFAULT_DESCRIPTION_MAX = 100;
+export const DEFAULT_DESCRIPTION_BATCH = 6;
+
+const descriptionKey = (record) => `${record.id}|${record.field}|${record.language}`;
+
+export function sortDescriptionTranslations(records) {
+  const key = descriptionKey;
+  return [...records].sort((a, b) => (key(a) < key(b) ? -1 : key(a) > key(b) ? 1 : 0));
+}
+
+/** What a translation of this entity's description must translate, and the hash it must carry. */
+export function descriptionTask(entity) {
+  return {
+    id: entity.id,
+    field: DESCRIPTION_FIELD,
+    sourceLanguage: "nl",
+    language: "en",
+    text: entity.description,
+    sourceHash: descriptionSourceHash(entity.description),
+  };
+}
+
+export function descriptionTasks(entities) {
+  return entities
+    .filter((entity) => typeof entity?.description === "string" && entity.description.trim() !== "")
+    .map(descriptionTask)
+    .sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+}
+
+/** Classify every described entity and record: current, stale, missing, orphan. */
+export function descriptionState(entities, records) {
+  const tasks = descriptionTasks(entities);
+  const byKey = new Map(records.map((record) => [descriptionKey(record), record]));
+  const ids = new Set(tasks.map((task) => task.id));
+  const current = [];
+  const stale = [];
+  const missing = [];
+  for (const task of tasks) {
+    const record = byKey.get(descriptionKey(task));
+    if (!record) missing.push(task);
+    else if (record.sourceHash !== task.sourceHash) stale.push(task);
+    else current.push(task);
+  }
+  const orphans = records.filter((record) => !ids.has(record.id));
+  return { current, stale, missing, orphans };
+}
+
+export function pendingDescriptionTasks(entities, records) {
+  const { stale, missing } = descriptionState(entities, records);
+  return [...missing, ...stale].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+}
+
+const numbersOf = (text) => String(text ?? "").match(/[0-9]+/g) ?? [];
+const tagsOf = (text) => String(text ?? "").match(/<[^>]+>/g) ?? [];
+
+/**
+ * Check one translated description against its task. Returns a list of
+ * problems; empty means the record may be merged. Every digit run of the
+ * source must come back (numbers kept exact), markup tags must come back
+ * byte for byte, and no dash may be added.
+ */
+export function checkDescriptionTranslation(task, translated) {
+  const problems = [];
+  const text = translated?.text;
+  if (typeof text !== "string" || text.trim() === "") return ["empty text"];
+  const got = countTags(numbersOf(text));
+  for (const [number, count] of countTags(numbersOf(task.text))) {
+    if ((got.get(number) ?? 0) < count) problems.push(`number not preserved: ${number}`);
+  }
+  const wantTags = countTags(tagsOf(task.text));
+  const gotTags = countTags(tagsOf(text));
+  for (const [tag, count] of wantTags) if (gotTags.get(tag) !== count) problems.push(`tag not preserved: ${tag}`);
+  for (const [tag] of gotTags) if (!wantTags.has(tag)) problems.push(`tag not in source: ${tag}`);
+  if (DASHES.test(text) && !DASHES.test(task.text)) problems.push("dash added");
+  if (/[“”‘’]/.test(text) && !/[“”‘’]/.test(task.text)) problems.push("curly quote added");
+  const ratio = text.length / Math.max(1, task.text.length);
+  if (ratio < 0.5 || ratio > 2) problems.push(`length ratio ${ratio.toFixed(2)} out of range`);
+  return problems;
+}
+
+export function makeDescriptionRecord(task, text, { engine, method, date }) {
+  return {
+    id: task.id,
+    field: task.field,
+    language: task.language,
+    sourceLanguage: task.sourceLanguage,
+    text: text.trim(),
+    sourceHash: task.sourceHash,
+    engine,
+    method,
+    translated: date,
+  };
+}
+
+/** Merge translated entries ([{id, text}]) into the record list. */
+export function mergeDescriptionTranslations({ entities, records, entries, engine, method, date }) {
+  const tasks = new Map(descriptionTasks(entities).map((task) => [task.id, task]));
+  const byKey = new Map(records.map((record) => [descriptionKey(record), record]));
+  const rejected = [];
+  let merged = 0;
+  for (const entry of entries) {
+    const task = tasks.get(entry?.id);
+    if (!task) {
+      rejected.push({ id: entry?.id, problems: ["no such entity with a description"] });
+      continue;
+    }
+    if (entry.language && entry.language !== task.language) {
+      rejected.push({ id: entry.id, problems: [`target language ${entry.language}, expected ${task.language}`] });
+      continue;
+    }
+    if (entry.sourceHash && entry.sourceHash !== task.sourceHash) {
+      rejected.push({ id: entry.id, problems: ["the description changed after export"] });
+      continue;
+    }
+    const problems = checkDescriptionTranslation(task, entry);
+    if (problems.length > 0) {
+      rejected.push({ id: entry.id, problems });
+      continue;
+    }
+    byKey.set(descriptionKey(task), makeDescriptionRecord(task, entry.text, { engine, method, date }));
+    merged += 1;
+  }
+  return { records: sortDescriptionTranslations([...byKey.values()]), merged, rejected };
+}
+
+/**
+ * Committed records against records restored from the CI cache, per id: the
+ * one whose hash matches wins, the committed one on a tie, else the newer.
+ * Records of entities without a description are dropped.
+ */
+export function mergeDescriptionRecordSets(entities, committed, cached) {
+  const current = new Map(descriptionTasks(entities).map((task) => [task.id, task]));
+  const byKey = new Map();
+  const score = (record) => (current.get(record.id)?.sourceHash === record.sourceHash ? 1 : 0);
+  for (const list of [committed, cached]) {
+    for (const record of list ?? []) {
+      if (!record || typeof record.id !== "string" || !current.has(record.id)) continue;
+      const key = descriptionKey(record);
+      const existing = byKey.get(key);
+      if (!existing) {
+        byKey.set(key, record);
+        continue;
+      }
+      const a = score(existing);
+      const b = score(record);
+      if (b > a || (a === 0 && b === 0 && String(record.translated) > String(existing.translated))) byKey.set(key, record);
+    }
+  }
+  return sortDescriptionTranslations([...byKey.values()]);
+}
+
+async function loadDescriptionState(dataDir) {
+  const present = DESCRIPTION_ENTITY_FILES.filter((file) => existsSync(join(dataDir, file)));
+  const entities = [];
+  for (const file of present) entities.push(...(await readJson(join(dataDir, file), [])));
+  const records = await readJson(join(dataDir, DESCRIPTIONS_FILE), []);
+  return { entities, records, available: present.length > 0 };
+}
+
+export async function writeDescriptionTranslations(dataDir, records) {
+  const sorted = sortDescriptionTranslations(records);
+  await writeFile(join(dataDir, DESCRIPTIONS_FILE), `${JSON.stringify(sorted, null, 2)}\n`, "utf8");
+  return sorted;
+}
+
+function summarizeDescriptions(entities, records, log) {
+  const { current, stale, missing, orphans } = descriptionState(entities, records);
+  log(`Description translations: ${current.length} current, ${stale.length} stale, ${missing.length} missing, ${orphans.length} orphan.`);
+}
+
+export async function runDescriptionExport({ dataDir = DEFAULT_DATA, dir, size = 50, limit = Infinity, log = console.log }) {
+  if (!dir) throw new Error("desc-export needs --dir");
+  const { entities, records } = await loadDescriptionState(dataDir);
+  const tasks = pendingDescriptionTasks(entities, records).slice(0, limit);
+  await mkdir(dir, { recursive: true });
+  const files = [];
+  for (let start = 0, batch = 1; start < tasks.length; start += size, batch += 1) {
+    const file = join(dir, `descriptions-${String(batch).padStart(2, "0")}.json`);
+    const items = tasks.slice(start, start + size).map(({ id, sourceHash, text }) => ({ id, sourceHash, nl: text, text: null }));
+    await writeFile(file, `${JSON.stringify(items, null, 2)}\n`, "utf8");
+    files.push(file);
+  }
+  log(`Exported ${tasks.length} description(s) to ${files.length} batch file(s) in ${dir}.`);
+  return files;
+}
+
+async function readEntries(files) {
+  const entries = [];
+  for (const file of files) {
+    const parsed = JSON.parse(await readFile(file, "utf8"));
+    entries.push(...(Array.isArray(parsed) ? parsed : parsed.items ?? []));
+  }
+  return entries;
+}
+
+export async function runDescriptionMerge({
+  dataDir = DEFAULT_DATA,
+  files,
+  engine = SESSION_ENGINE,
+  method = SESSION_METHOD,
+  date = new Date().toISOString().slice(0, 10),
+  dryRun = false,
+  log = console.log,
+}) {
+  const { entities, records } = await loadDescriptionState(dataDir);
+  const kept = records.filter((record) => descriptionTasks(entities).some((task) => task.id === record.id));
+  const result = mergeDescriptionTranslations({ entities, records: kept, entries: await readEntries(files), engine, method, date });
+  if (!dryRun) await writeDescriptionTranslations(dataDir, result.records);
+  log(`${dryRun ? "Checked" : "Merged"} ${result.merged} description translation(s) from ${files.length} file(s); ${result.rejected.length} rejected.`);
+  for (const reject of result.rejected) log(`  rejected ${reject.id}: ${reject.problems.join("; ")}`);
+  summarizeDescriptions(entities, result.records, log);
+  return result;
+}
+
+export const DESCRIPTION_SYSTEM_PROMPT = [
+  "You translate short Dutch descriptions of Dutch government bodies and public office holders into English for a public reference site.",
+  "Translate only. Keep the meaning exact: add nothing, leave nothing out, do not summarise, explain or embellish.",
+  "Keep proper names of bodies, laws, places and people in Dutch, as written in the source; you may translate a generic word around them.",
+  "Keep every number, date, abbreviation, citation and URL exactly as in the source; write digits as digits, as in the source.",
+  "Use plain, neutral English. Use straight quotes. Do not introduce em dashes or en dashes.",
+].join(" ");
+
+const DESCRIPTION_BATCH_SCHEMA = {
+  type: "object",
+  properties: {
+    items: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: { id: { type: "string" }, text: { type: "string" } },
+        required: ["id", "text"],
+        additionalProperties: false,
+      },
+    },
+  },
+  required: ["items"],
+  additionalProperties: false,
+};
+
+function descriptionBatchPrompt(tasks) {
+  const payload = tasks.map((task) => ({ id: task.id, text: task.text }));
+  return `Translate the text of each item from Dutch into English. Return every item with its id unchanged. Reply with a JSON object of the form {"items": [{"id": "...", "text": "..."}]} and nothing else.\n\n${JSON.stringify({ items: payload })}`;
+}
+
+/** Parse a model reply into id -> {text}. */
+export function parseDescriptionReply(text) {
+  let body = String(text ?? "").trim();
+  const fenced = /```(?:json)?\s*([\s\S]*?)```/i.exec(body);
+  if (fenced) body = fenced[1].trim();
+  const open = body.indexOf("{");
+  const close = body.lastIndexOf("}");
+  if (open === -1 || close <= open) throw new SyntaxError("no JSON object in the reply");
+  const parsed = JSON.parse(body.slice(open, close + 1));
+  const out = new Map();
+  for (const item of Array.isArray(parsed?.items) ? parsed.items : []) {
+    if (!item || typeof item.id !== "string" || typeof item.text !== "string") continue;
+    out.set(item.id, { text: item.text });
+  }
+  return out;
+}
+
+export const DESCRIPTION_FORMAT = Object.freeze({
+  system: DESCRIPTION_SYSTEM_PROMPT,
+  prompt: (tasks) => descriptionBatchPrompt(tasks),
+  schema: DESCRIPTION_BATCH_SCHEMA,
+  parse: (text) => parseDescriptionReply(text),
+  maxTokens: (tasks) => Math.min(32000, 1024 + tasks.reduce((sum, task) => sum + task.text.length + task.id.length + 40, 0)),
+});
+
+/** The description cache sits next to the news cache, so the CI cache step carries both. */
+export function descriptionCacheFile(cacheFile) {
+  return cacheFile ? join(dirname(cacheFile), DESCRIPTIONS_FILE) : null;
+}
+
+/**
+ * Translate missing or stale descriptions with the same providers, guardrails,
+ * retries and cache handling as the news. Never throws on a provider failure.
+ */
+export async function runDescriptionApi({
+  dataDir = DEFAULT_DATA,
+  descriptionMax = DEFAULT_DESCRIPTION_MAX,
+  descriptionBatchSize = DEFAULT_DESCRIPTION_BATCH,
+  env = process.env,
+  provider: providerName = null,
+  model = null,
+  client = null,
+  fetchImpl = globalThis.fetch,
+  cacheFile = null,
+  concurrency = 3,
+  retries = DEFAULT_API_RETRIES,
+  sleep = sleepMs,
+  date = new Date().toISOString().slice(0, 10),
+  log = console.log,
+} = {}) {
+  const { entities, records: loaded, available } = await loadDescriptionState(dataDir);
+  if (!available) return { translated: 0, dropped: 0, remaining: 0, requests: 0, provider: null };
+  const descCache = descriptionCacheFile(cacheFile);
+  let records = mergeDescriptionRecordSets(entities, loaded, descCache ? await readJson(descCache, []) : []);
+  const saveCache = async (list) => {
+    if (!descCache) return;
+    await mkdir(dirname(descCache), { recursive: true });
+    await writeFile(descCache, `${JSON.stringify(sortDescriptionTranslations(list), null, 2)}\n`, "utf8");
+  };
+  if (existsSync(join(dataDir, DESCRIPTIONS_FILE)) || records.length > 0) await writeDescriptionTranslations(dataDir, records);
+  const pending = pendingDescriptionTasks(entities, records);
+  if (pending.length === 0) {
+    await saveCache(records);
+    return { translated: 0, dropped: 0, remaining: 0, requests: 0, provider: null };
+  }
+  const provider = client
+    ? { ...PROVIDERS.anthropic, key: "injected", model: model || env.TRANSLATE_MODEL || PROVIDERS.anthropic.defaultModel }
+    : resolveProvider(env, { provider: providerName, model });
+  if (!provider) {
+    log(`No translation key set; ${pending.length} description(s) have no current English translation and show in Dutch.`);
+    await saveCache(records);
+    return { translated: 0, dropped: 0, remaining: pending.length, requests: 0, provider: null };
+  }
+  if (provider.kind === "anthropic" && !client) {
+    const { default: Anthropic } = await import("@anthropic-ai/sdk");
+    client = new Anthropic({ apiKey: provider.key, maxRetries: 2 });
+  }
+  const chunks = [];
+  const tasks = pending.slice(0, descriptionMax);
+  for (let start = 0; start < tasks.length; start += Math.max(1, descriptionBatchSize)) {
+    chunks.push(tasks.slice(start, start + Math.max(1, descriptionBatchSize)));
+  }
+  log(`Translating descriptions with ${provider.name} (${provider.model}), ${pending.length} pending, cap ${descriptionMax}.`);
+  const entries = [];
+  const dropped = [];
+  let requests = 0;
+  let next = 0;
+  let halted = null;
+  const attempt = async (chunk) => {
+    requests += 1;
+    const out = await translateBatch(provider, chunk, { client, fetchImpl, retries, sleep, format: DESCRIPTION_FORMAT });
+    const failed = [];
+    for (const task of chunk) {
+      const translated = out.get(task.id);
+      const problems = translated ? checkDescriptionTranslation(task, translated) : ["missing from the response"];
+      if (problems.length === 0) entries.push({ id: task.id, text: translated.text });
+      else failed.push({ task, problems });
+    }
+    return failed;
+  };
+  async function worker() {
+    while (next < chunks.length && halted === null) {
+      const chunk = chunks[next];
+      next += 1;
+      let failed;
+      try {
+        failed = await attempt(chunk);
+      } catch (error) {
+        if (error?.status === 401 || error?.status === 403) halted = error;
+        failed = chunk.map((task) => ({ task, problems: [error?.message ?? String(error)] }));
+        if (halted) {
+          dropped.push(...failed.map((miss) => ({ id: miss.task.id, problems: miss.problems })));
+          continue;
+        }
+      }
+      for (const { task, problems } of failed) {
+        if (chunk.length === 1 || halted) {
+          dropped.push({ id: task.id, problems });
+          continue;
+        }
+        try {
+          const again = await attempt([task]);
+          for (const miss of again) dropped.push({ id: miss.task.id, problems: miss.problems });
+        } catch (error) {
+          if (error?.status === 401 || error?.status === 403) halted = error;
+          dropped.push({ id: task.id, problems: [error?.message ?? String(error)] });
+        }
+      }
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(concurrency, chunks.length) }, worker));
+  const result = mergeDescriptionTranslations({ entities, records, entries, engine: provider.model, method: provider.method, date });
+  await writeDescriptionTranslations(dataDir, result.records);
+  await saveCache(result.records);
+  const remaining = pendingDescriptionTasks(entities, result.records).length;
+  log(`Translated ${result.merged} description(s) in ${requests} request(s); dropped ${dropped.length + result.rejected.length}; ${remaining} remain in Dutch only.`);
+  for (const drop of [...dropped, ...result.rejected]) log(`  dropped ${drop.id}: ${drop.problems.join("; ")}`);
+  return { translated: result.merged, dropped: dropped.length + result.rejected.length, remaining, requests, provider: provider.name };
+}
+
 function parseArgs(argv) {
   const [command = "status", ...rest] = argv;
   const options = { command, files: [] };
@@ -692,6 +1125,7 @@ function parseArgs(argv) {
     else if (arg === "--cache") options.cacheFile = rest[(i += 1)];
     else if (arg === "--provider") options.provider = rest[(i += 1)];
     else if (arg === "--batch") options.batchSize = Number(rest[(i += 1)]);
+    else if (arg === "--description-max") options.descriptionMax = Number(rest[(i += 1)]);
     else options.files.push(arg);
   }
   return options;
@@ -730,13 +1164,29 @@ async function main() {
       if (result.rejected.length > 0) process.exitCode = 1;
       break;
     }
+    case "desc-status": {
+      const { entities, records } = await loadDescriptionState(dataDir);
+      summarizeDescriptions(entities, records, console.log);
+      break;
+    }
+    case "desc-export":
+      await runDescriptionExport(defined({ dataDir, dir: options.dir, size: options.size, limit: options.limit }));
+      break;
+    case "desc-merge":
+    case "desc-check": {
+      const result = await runDescriptionMerge(
+        defined({ dataDir, files: options.files, engine: options.engine, method: options.method, date: options.date, dryRun: options.command === "desc-check" }),
+      );
+      if (result.rejected.length > 0) process.exitCode = 1;
+      break;
+    }
     case "prune":
       await loadAndPrune(dataDir, console.log);
       break;
     case "api":
       // Translation never fails the build: an untranslated item shows in its own language.
       try {
-        await runApi(defined({ dataDir, max: options.max, model: options.model, provider: options.provider, cacheFile: options.cacheFile, batchSize: options.batchSize }));
+        await runApi(defined({ dataDir, max: options.max, model: options.model, provider: options.provider, cacheFile: options.cacheFile, batchSize: options.batchSize, descriptionMax: options.descriptionMax }));
       } catch (error) {
         console.error(`translate api: ${error.message}; continuing without new translations.`);
       }

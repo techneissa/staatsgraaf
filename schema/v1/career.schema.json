@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "career.schema.json",
+  "$ref": "#/$defs/career",
+  "$defs": {
+    "partialDate": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$",
+      "description": "YYYY, YYYY-MM or YYYY-MM-DD as the source gives it; null when the source gives none."
+    },
+    "career": {
+      "title": "One line of a person's career history",
+      "description": "A previous or current office, job, side job or education of a person, from the Tweede Kamer Gegevensmagazijn (PersoonLoopbaan, PersoonNevenfunctie, PersoonOnderwijs) or Wikidata (P39, P108). Written by pipelines/careers.mjs.",
+      "type": "object",
+      "required": ["id", "person", "title", "organization", "organizationId", "start", "end", "current", "kind", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^career:[a-z0-9][a-z0-9-]*-[0-9]+$" },
+        "person": { "type": "string", "pattern": "^person:" },
+        "title": { "type": "string", "minLength": 1 },
+        "organization": { "type": ["string", "null"], "minLength": 1 },
+        "organizationId": { "$ref": "common.schema.json#/$defs/orgRef" },
+        "start": { "$ref": "#/$defs/partialDate" },
+        "end": { "$ref": "#/$defs/partialDate" },
+        "current": { "type": "boolean", "description": "True only when the source says the role is ongoing." },
+        "kind": { "type": "string", "enum": ["politiek", "loopbaan", "nevenfunctie", "opleiding"] },
+        "source": { "$ref": "common.schema.json#/$defs/sourceRef" }
+      }
+    }
+  }
+}

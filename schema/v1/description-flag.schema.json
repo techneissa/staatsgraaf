@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "description-flag.schema.json",
+  "$ref": "#/$defs/descriptionFlag",
+  "$defs": {
+    "descriptionFlag": {
+      "type": "object",
+      "description": "A description whose only content is where the entity was listed. The web hides it instead of printing it; the description itself is unchanged.",
+      "required": ["id", "provenanceOnly", "reason"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "pattern": "^(org|person):[a-z0-9][a-z0-9-]*$" },
+        "provenanceOnly": { "type": "boolean" },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

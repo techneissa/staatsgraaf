@@ -415,6 +415,87 @@ if (existsSync(join(DATA_DIR, ACTIVITIES_FILE))) {
   activitiesLine = `  ${ACTIVITIES_FILE.padEnd(22)} ${String(records.length).padStart(5)} (${items} items)`;
 }
 
+// Career history per person (pipelines/careers.mjs). Optional file; when present
+// every person, organizationId and source resolves and every date is valid.
+const CAREERS_FILE = "careers.json";
+let careersLine = null;
+if (existsSync(join(DATA_DIR, CAREERS_FILE))) {
+  const records = loadData(CAREERS_FILE) ?? [];
+  const schema = { $ref: "career.schema.json#/$defs/career" };
+  records.forEach((record, i) => validate(record, schema, "career.schema.json", `${CAREERS_FILE}[${i}]`));
+  const partialOk = (value) => {
+    if (value === null) return true;
+    if (/^[0-9]{4}$/.test(value)) return true;
+    if (/^[0-9]{4}-[0-9]{2}$/.test(value)) return Number(value.slice(5)) >= 1 && Number(value.slice(5)) <= 12;
+    return isValidDate(value);
+  };
+  const seen = new Set();
+  const people = new Set();
+  for (const record of records) {
+    const w = `${CAREERS_FILE}#${record.id}`;
+    if (seen.has(record.id)) fail(w, "duplicate id");
+    seen.add(record.id);
+    people.add(record.person);
+    refOk(w, record.person, personIds, "person");
+    refOk(w, record.organizationId, orgIds, "organizationId");
+    refOk(w, record.source?.source, srcIds, "source");
+    const slug = (record.person ?? "").replace(/^person:/, "");
+    if (!record.id?.startsWith(`career:${slug}-`)) fail(w, `id does not belong to ${record.person}`);
+    for (const key of ["start", "end"]) if (!partialOk(record[key])) fail(w, `invalid ${key} ${record[key]}`);
+    if (record.start && record.end) {
+      const n = Math.min(record.start.length, record.end.length);
+      if (record.end.slice(0, n) < record.start.slice(0, n)) fail(w, `end ${record.end} is before start ${record.start}`);
+    }
+  }
+  careersLine = `  ${CAREERS_FILE.padEnd(22)} ${String(records.length).padStart(5)} (${people.size} people)`;
+}
+
+// English translations of descriptions and provenance flags. Optional files;
+// every record must point at an organization or person that has a description.
+const DESCRIPTION_TRANSLATIONS_FILE = "description-translations.json";
+const DESCRIPTION_FLAGS_FILE = "description-flags.json";
+let descriptionLine = null;
+{
+  const described = new Map();
+  for (const e of [...byFile["organizations.json"], ...byFile["people.json"]]) if (e.description) described.set(e.id, e.description);
+  if (existsSync(join(DATA_DIR, DESCRIPTION_TRANSLATIONS_FILE))) {
+    const { descriptionSourceHash } = await import("../shared/description-translation-hash.mjs");
+    const records = loadData(DESCRIPTION_TRANSLATIONS_FILE) ?? [];
+    const schema = { $ref: "description-translation.schema.json#/$defs/descriptionTranslation" };
+    records.forEach((r, i) => validate(r, schema, "description-translation.schema.json", `${DESCRIPTION_TRANSLATIONS_FILE}[${i}]`));
+    const seen = new Set();
+    let previous = "";
+    let stale = 0;
+    for (const record of records) {
+      const key = `${record.id}|${record.field}|${record.language}`;
+      const w = `${DESCRIPTION_TRANSLATIONS_FILE}#${key}`;
+      if (seen.has(key)) fail(w, "duplicate record");
+      seen.add(key);
+      if (key < previous) fail(w, "records are not sorted by id, field and language");
+      previous = key;
+      if (!described.has(record.id)) {
+        fail(w, "no organization or person with a description has this id (run `bun pipelines/translate.mjs desc-merge` to prune)");
+        continue;
+      }
+      if (record.sourceHash !== descriptionSourceHash(described.get(record.id))) stale += 1;
+    }
+    descriptionLine = `  ${DESCRIPTION_TRANSLATIONS_FILE.padEnd(22)} ${String(records.length).padStart(5)} (${stale} stale, hidden until retranslated)`;
+  }
+  if (existsSync(join(DATA_DIR, DESCRIPTION_FLAGS_FILE))) {
+    const flags = loadData(DESCRIPTION_FLAGS_FILE) ?? [];
+    const schema = { $ref: "description-flag.schema.json#/$defs/descriptionFlag" };
+    flags.forEach((r, i) => validate(r, schema, "description-flag.schema.json", `${DESCRIPTION_FLAGS_FILE}[${i}]`));
+    const seen = new Set();
+    for (const flag of flags) {
+      const w = `${DESCRIPTION_FLAGS_FILE}#${flag.id}`;
+      if (seen.has(flag.id)) fail(w, "duplicate id");
+      seen.add(flag.id);
+      if (!described.has(flag.id)) fail(w, "no organization or person with a description has this id");
+    }
+    descriptionLine = `${descriptionLine ?? ""}${descriptionLine ? "\n" : ""}  ${DESCRIPTION_FLAGS_FILE.padEnd(22)} ${String(flags.length).padStart(5)}`;
+  }
+}
+
 for (const topic of byFile["topics.json"]) {
   const w = `topics.json#${topic.id}`;
   for (const o of topic.organizations ?? []) refOk(w, o, orgIds, "organization");
@@ -527,6 +608,8 @@ for (const [file] of DATA_MAP) console.log(`  ${file.padEnd(22)} ${String(counts
 console.log(`  ${"total".padEnd(22)} ${String(total).padStart(5)}`);
 if (translationLine) console.log(translationLine);
 if (activitiesLine) console.log(activitiesLine);
+if (careersLine) console.log(careersLine);
+if (descriptionLine) console.log(descriptionLine);
 if (RESEARCH_MODE) {
   console.log("\nValidated workstream files:");
   if (researchLines.length === 0) console.log("  (none found)");
