@@ -6,6 +6,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (25-09-2026, sixth round)
 
+- The budget radar compares one, two or three years: the second and third year selectors have a "Geen / None" option, and each remaining year keeps its colour.
 - The budget radar's amount scale is linear instead of logarithmic: the log scale put a €23 billion ministry close to the €100 billion ring, which read as a much larger amount. Distance from the centre is now proportional to the money, with rings at round amounts, and the share note says what the share is: a ministry's spending as part of the summed spending of the twelve ministries that year.
 - The Grafiek / Verbanden switch shows two icons instead of words (orbit for the graph, people for Connections), each lit in its own colour when active, with the name as tooltip and accessible label.
 - The Connections hierarchy and person focus are rebuilt after the owner's two concept images: a segmented colour ring, thick bars, outlined icon hubs and labelled members; the person between two group heads with vertical member chains and a legend. Ministries fall into six colour clusters; the canvas can go full screen on desktop.
