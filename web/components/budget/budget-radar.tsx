@@ -122,18 +122,18 @@ export function BudgetRadar({ data }: { data: RadarData }) {
       fraction === null ? null : polar(cx, cy, radius * fraction, axisAngle(index, count)),
     );
 
-  let ringWedge = 0;
-  let ringWedgeFill = Number.POSITIVE_INFINITY;
-  for (let index = 0; index < count; index += 1) {
-    const fill = Math.max(
-      0,
-      ...fractions.flatMap((values) => [values[index] ?? 0, values[(index + 1) % count] ?? 0]),
-    );
-    if (fill < ringWedgeFill - 1e-9) {
-      ringWedge = index;
-      ringWedgeFill = fill;
-    }
-  }
+  // Each ring's value label gets its own gap between two axes, so the numbers
+  // sit at different angles instead of stacking along one line. Gaps where the
+  // data reaches least far come first (the lines cover the label least there),
+  // and no two labels take neighbouring gaps while a free one is further away.
+  const wedgeFill = Array.from({ length: count }, (_, index) =>
+    Math.max(0, ...fractions.flatMap((values) => [values[index] ?? 0, values[(index + 1) % count] ?? 0])),
+  );
+  const byFill = [...wedgeFill.keys()].sort((a, b) => wedgeFill[a] - wedgeFill[b] || a - b);
+  const labelWedges: number[] = [];
+  const apart = (a: number, b: number) => Math.min((a - b + count) % count, (b - a + count) % count) >= 2;
+  for (const wedge of byFill) if (labelWedges.every((taken) => apart(wedge, taken))) labelWedges.push(wedge);
+  for (const wedge of byFill) if (!labelWedges.includes(wedge)) labelWedges.push(wedge);
 
   const rings =
     mode === "share"
@@ -301,18 +301,15 @@ export function BudgetRadar({ data }: { data: RadarData }) {
           })}
 
           {rings.map((ring, ringIndex) => {
-            // Ring values sit halfway between the two neighbouring axes with the
-            // smallest values, where the lines leave the most room. A label that
-            // would come within 12 px of the one inside it is left out, so the
-            // labels never overlap on a small screen; the ring itself stays.
-            const at = polar(cx, cy, radius * ring.fraction, axisAngle(ringWedge + 0.5, count));
-            const previous = ringIndex > 0 ? rings[ringIndex - 1] : null;
-            if (previous && radius * (ring.fraction - previous.fraction) < 12) return null;
+            const wedge = labelWedges[ringIndex % labelWedges.length];
+            const at = polar(cx, cy, radius * ring.fraction, axisAngle(wedge + 0.5, count));
             return (
             <text
               key={`label-${ring.label}`}
-              x={at.x + 2}
-              y={at.y - 2}
+              x={at.x}
+              y={at.y}
+              textAnchor="middle"
+              dominantBaseline="central"
               fontSize="10"
               fill="var(--t-color-ink-faint)"
               stroke="var(--t-color-surface)"
