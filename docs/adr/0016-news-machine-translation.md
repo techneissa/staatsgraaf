@@ -31,3 +31,7 @@ What we translate is already small and already shipped: the headline and the lea
 - Cost: the backlog cost no API spend. Each run translates only the new or changed items; at a few hundred short items a day on a small model this stays in the order of cents per day. Until one of the provider secrets is added, cost is zero and new items stay in their original language.
 - A reader can tell a translation from an original on every card, which `docs/09` section 6 requires.
 - Adding a language later is a new target value, not a new design.
+
+## Amendment 1: descriptions (25-09-2026)
+
+The owner asked on 25-09-2026 for the English version of the site to include the descriptions of organisations and people, not only the news. The same engine, guardrails, disclosure, and hash rule apply. Translations live in `data/description-translations.json`, one record per entity and target language, tied to the Dutch text by the first 12 hex characters of its SHA-256; a changed description hides its translation until a new one exists. The backlog of 341 descriptions was translated once in a Claude Code session; the `bun run translate` step in CI translates new or changed descriptions after that. Descriptions that only say where an entity was listed, instead of what it is, are flagged in `data/description-flags.json` and hidden rather than translated.
