@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useMemo, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
-import { Armchair, ChevronDown, ChevronUp, LayoutList, X } from "lucide";
+import { Armchair, ChevronDown, ChevronUp, CircleUserRound, LayoutList, X } from "lucide";
 import { Morph } from "@/components/icons/morph";
 import { LucideIcon } from "@/components/icons/lucide-icon";
 import { PartyPill } from "@/components/party-pill";
@@ -74,6 +74,31 @@ function useHallChoice() {
   return [choice, choose] as const;
 }
 
+/** Where the reader's choice of faces or dots on the seats is remembered. */
+const PHOTOS_KEY = "staatsgraaf.chamber-photos";
+
+/** Faces on the seats by default; the reader can switch to dots, remembered in the browser. */
+function usePhotos() {
+  const [photos, setPhotos] = useState(true);
+  useEffect(() => {
+    try {
+      if (window.localStorage.getItem(PHOTOS_KEY) === "off") setPhotos(false);
+    } catch {
+      // Storage can be blocked; faces stay on.
+    }
+  }, []);
+  const toggle = () =>
+    setPhotos((current) => {
+      try {
+        window.localStorage.setItem(PHOTOS_KEY, current ? "off" : "on");
+      } catch {
+        // Remembering is a convenience only.
+      }
+      return !current;
+    });
+  return [photos, toggle] as const;
+}
+
 /** People placed around a hub before the rest wait behind its "+n". */
 const AROUND: Record<HierarchyHub["kind"], number> = { ministry: 4, fractie: 1 };
 
@@ -96,7 +121,6 @@ export function HierarchyView({
   onExpand,
   highlighted,
   onPick,
-  onTree,
 }: {
   bundle: HierarchyBundle;
   tree: HierarchyTreeId;
@@ -107,11 +131,10 @@ export function HierarchyView({
   onExpand: (hub: string | null) => void;
   highlighted: ReadonlySet<string>;
   onPick: (id: string) => void;
-  /** Switch to another structure (the hall's kabinet bench opens the kabinet). */
-  onTree?: (tree: HierarchyTreeId) => void;
 }) {
   const t = useT("power");
   const [hallChoice, chooseHall] = useHallChoice();
+  const [photos, togglePhotos] = usePhotos();
   const raw = bundle.trees.find((entry) => entry.id === treeId) ?? bundle.trees[0];
   const tree = useMemo<HierarchyTree | undefined>(
     () => (raw ? { ...raw, hubs: raw.id === "kabinet" ? orderByCluster(raw.hubs) : interleaveBySize(raw.hubs) } : raw),
@@ -151,6 +174,20 @@ export function HierarchyView({
         {hasHall ? (
           <>
             <span className="flex-1" />
+            {hall ? (
+              <button
+                type="button"
+                onClick={togglePhotos}
+                aria-pressed={photos}
+                aria-label={t("hallPhotos")}
+                title={t("hallPhotos")}
+                className={`tap-target flex h-8 w-8 shrink-0 items-center justify-center rounded-sm border transition-colors ${
+                  photos ? "border-line-strong bg-surface-raised text-ink" : "border-line bg-surface text-ink-faint hover:text-ink"
+                }`}
+              >
+                <LucideIcon icon={CircleUserRound} size={16} />
+              </button>
+            ) : null}
             <Segmented
               label={t("hallLabel")}
               value={hall ? "hall" : "list"}
@@ -181,7 +218,7 @@ export function HierarchyView({
               highlighted={highlighted}
               onPick={onPick}
               onExpand={onExpand}
-              onShowKabinet={() => onTree?.("kabinet")}
+              photos={photos}
             />
             {hallHub ? (
               <HubCard

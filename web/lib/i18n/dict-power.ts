@@ -119,19 +119,14 @@ export const POWER_DICT = {
     en: "Every seat as the Senate assigns it (Wie zit waar, {date}).",
   },
   hallBasisFractie: {
-    nl: "Fracties op hun plek volgens de zetelverdeling van de Tweede Kamer ({date}). Binnen een fractie staan de leden op achternaam, niet op hun eigen stoel: die maakt de Kamer niet bekend.",
-    en: "Factions in their places per the House's seating plan ({date}). Within a faction, members are in surname order, not in their own chair: the House does not publish that.",
+    nl: "Fracties op hun plek volgens de zetelverdeling van de Tweede Kamer ({date}).",
+    en: "Factions in their places per the House's seating plan ({date}).",
   },
   hallBasisBlocks: {
     nl: "De plattegrond van {date} klopt niet meer met de huidige leden, dus de fracties staan als blokken, de grootste eerst.",
     en: "The floor plan of {date} no longer matches the sitting members, so the factions are drawn as blocks, largest first.",
   },
-  hallBenchNote: {
-    nl: "De plek van het kabinet komt uit de plattegrond; wie waar zit niet, dus de volgorde op de bank is schematisch.",
-    en: "The cabinet's place is from the floor plan; who sits where is not, so the order on the bench is schematic.",
-  },
-  hallBench: { nl: "Kabinet", en: "Cabinet" },
-  hallMinistriesTitle: { nl: "Het kabinet per ministerie", en: "The cabinet by ministry" },
+  hallPhotos: { nl: "Foto's op de zetels", en: "Photos on the seats" },
   hallChair: { nl: "Voorzitter", en: "Chair" },
   hallChairSeat: { nl: "Zetel van de voorzitter", en: "The chair's seat" },
   hallOpen: { nl: "Profiel openen", en: "Open profile" },

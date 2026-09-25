@@ -91,7 +91,7 @@ export function ConnectionsView({
   const [bodyRef, box] = useBoxSize<HTMLDivElement>();
   const [newsOpen, setNewsOpen] = useState(false);
   const [mode, setMode] = useState<ConnectionsMode>("hierarchy");
-  // The Tweede Kamer's hall opens first: the kabinet sits on its bench there and opens from it.
+  // The Tweede Kamer's hall opens first; the kabinet sits on its bench there.
   const [tree, setTree] = useState<HierarchyTreeId>("tweede-kamer");
   const [expanded, setExpanded] = useState<string | null>(null);
   const hierarchy = useHierarchyBundle(mode === "hierarchy");
@@ -397,10 +397,6 @@ export function ConnectionsView({
         onExpand={closeHub}
         highlighted={highlighted}
         onPick={pick}
-        onTree={(next) => {
-          setExpanded(null);
-          setTree(next);
-        }}
       />
     ) : (
       <div className="flex h-full items-center justify-center p-6">
