@@ -8,3 +8,6 @@ out/
 
 # Derived at build time by scripts/build-peek-index.mjs
 public/peek/
+
+# Derived at build time by scripts/build-panel-index.mjs
+public/panels/

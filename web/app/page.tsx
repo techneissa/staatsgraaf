@@ -24,7 +24,7 @@ import {
 } from "@/lib/home";
 import { getBudgetOverview } from "@/lib/budget";
 import { LocaleLabel } from "@/components/i18n/locale-label";
-import { absoluteUrl, pageMetadata, SCOPE_LABEL, SITE_NAME, SITE_TAGLINE } from "@/lib/site";
+import { absoluteUrl, pageMetadata, SITE_NAME, SITE_TAGLINE } from "@/lib/site";
 import type { OrgBranch, OrgType } from "@/lib/types";
 
 export const metadata: Metadata = pageMetadata({
@@ -35,11 +35,49 @@ export const metadata: Metadata = pageMetadata({
   snapshotDate: getDatasetDate(),
 });
 
-function Eyebrow({ children }: { children: ReactNode }) {
+/** A headline count: a calm label over a figure that never wraps. */
+function OverviewFigure({ label, value }: { label: ReactNode; value: number }) {
   return (
-    <p className="mb-1.5 text-[10px] font-medium uppercase tracking-wider text-accent-text">
-      {children}
-    </p>
+    <div className="min-w-0 rounded-md border border-line bg-surface px-3 py-2.5">
+      <dt className="text-xs leading-snug text-ink-muted">{label}</dt>
+      <dd className="mt-0.5 whitespace-nowrap text-xl font-semibold tabular-nums tracking-tight text-ink @[30rem]:text-2xl">
+        {formatCount(value)}
+      </dd>
+    </div>
+  );
+}
+
+/**
+ * Counts as one column of label and number rows: the number right-aligned in
+ * tabular figures, a hairline bar under each row for its share of the
+ * largest. One column at any width, so a number never runs into the next
+ * label; the two lists sit side by side only where the column is wide.
+ */
+function CountList({
+  title,
+  entries,
+}: {
+  title: ReactNode;
+  entries: { key: string; label: ReactNode; count: number }[];
+}) {
+  const max = Math.max(1, ...entries.map((entry) => entry.count));
+  return (
+    <Card className="min-w-0 px-3 py-3">
+      <h3 className="text-[13px] font-medium text-ink-muted">{title}</h3>
+      <ul className="mt-2 space-y-1.5">
+        {entries.map((entry) => (
+          <li key={entry.key} className="text-[13px]">
+            <div className="flex items-baseline justify-between gap-3">
+              <span className="min-w-0 text-ink">{entry.label}</span>
+              <span className="shrink-0 whitespace-nowrap tabular-nums text-ink-muted">{formatCount(entry.count)}</span>
+            </div>
+            <div aria-hidden="true" className="mt-1 h-0.5 rounded-pill bg-surface-inset">
+              <div className="h-full rounded-pill bg-line-strong" style={{ width: `${Math.max(2, (entry.count / max) * 100)}%` }} />
+            </div>
+          </li>
+        ))}
+      </ul>
+    </Card>
   );
 }
 
@@ -55,7 +93,14 @@ export default function HomePage() {
 
   const panels: ChangeWindowPanel[] = windows.map((window) => ({
     value: window.key,
-    label: window.days === 7 ? "7D" : window.days === 30 ? "30D" : "90D",
+    label:
+      window.days === 7 ? (
+        <L nl="7 dagen" en="7 days" />
+      ) : window.days === 30 ? (
+        <L nl="30 dagen" en="30 days" />
+      ) : (
+        <L nl="90 dagen" en="90 days" />
+      ),
     content: <ChangePanel window={window} />,
   }));
 
@@ -81,7 +126,6 @@ export default function HomePage() {
       />
 
       <section className="border-b border-line pb-6 pt-2">
-        <Eyebrow>{SCOPE_LABEL}</Eyebrow>
         <h1 className="text-2xl font-semibold tracking-tight text-ink">
           <L
             nl="De Nederlandse rijksoverheid in kaart"
@@ -94,9 +138,6 @@ export default function HomePage() {
       </section>
 
       <section aria-labelledby="nieuws-titel" className="border-b border-line py-6">
-        <Eyebrow>
-          <L nl="In het nieuws" en="In the news" />
-        </Eyebrow>
         <h2
           id="nieuws-titel"
           className="text-lg font-semibold tracking-tight text-ink"
@@ -163,57 +204,27 @@ export default function HomePage() {
         <p className="mt-1 text-sm text-ink-muted">
           <L nl="Tellingen op het hoogste niveau voor het Rijk." en="Top-level counts for the national government." />
         </p>
-        <div className="mt-4 grid gap-2">
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-            <Card as="div" className="py-2.5">
-              <p className="text-[10px] font-medium uppercase tracking-wider text-ink-faint">
-                <L nl="Organisaties" en="Organizations" />
-              </p>
-              <p className="text-xl font-semibold tabular-nums text-ink">
-                {formatCount(counts.total)}
-              </p>
-            </Card>
-            <Card as="div" className="py-2.5">
-              <p className="text-[10px] font-medium uppercase tracking-wider text-ink-faint">
-                <L nl="Suborganisaties" en="Sub-organizations" />
-              </p>
-              <p className="text-xl font-semibold tabular-nums text-ink">
-                {formatCount(subOrganizations)}
-              </p>
-            </Card>
-          </div>
-          <div className="grid gap-2 sm:grid-cols-2">
-            <Card>
-              <h3 className="text-[10px] font-medium uppercase tracking-wider text-ink-faint">
-                <L nl="Naar type" en="By type" />
-              </h3>
-              <ul className="mt-2 columns-1 gap-x-4 space-y-1 text-xs sm:columns-2">
-                {counts.byType.map((entry) => (
-                  <li key={entry.key} className="flex items-baseline justify-between gap-2 break-inside-avoid">
-                    <span className="text-ink-muted">
-                      <LocaleLabel kind="type" value={entry.key as OrgType} />
-                    </span>
-                    <span className="tabular-nums text-ink">{formatCount(entry.count)}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
-            <Card>
-              <h3 className="text-[10px] font-medium uppercase tracking-wider text-ink-faint">
-                <L nl="Naar branche" en="By branch" />
-              </h3>
-              <ul className="mt-2 columns-1 gap-x-4 space-y-1 text-xs sm:columns-2">
-                {counts.byBranch.map((entry) => (
-                  <li key={entry.key} className="flex items-baseline justify-between gap-2 break-inside-avoid">
-                    <span className="text-ink-muted">
-                      <LocaleLabel kind="branch" value={entry.key as OrgBranch} />
-                    </span>
-                    <span className="tabular-nums text-ink">{formatCount(entry.count)}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
-          </div>
+        <dl className="mt-4 grid grid-cols-2 gap-2">
+          <OverviewFigure label={<L nl="Organisaties" en="Organizations" />} value={counts.total} />
+          <OverviewFigure label={<L nl="Suborganisaties" en="Sub-organizations" />} value={subOrganizations} />
+        </dl>
+        <div className="mt-3 grid gap-3 @[38rem]:grid-cols-2">
+          <CountList
+            title={<L nl="Naar type" en="By type" />}
+            entries={counts.byType.map((entry) => ({
+              key: entry.key,
+              count: entry.count,
+              label: <LocaleLabel kind="type" value={entry.key as OrgType} />,
+            }))}
+          />
+          <CountList
+            title={<L nl="Naar branche" en="By branch" />}
+            entries={counts.byBranch.map((entry) => ({
+              key: entry.key,
+              count: entry.count,
+              label: <LocaleLabel kind="branch" value={entry.key as OrgBranch} />,
+            }))}
+          />
         </div>
         <p className="mt-3 text-xs text-ink-faint">
           <a href="#over" className="text-accent-text underline-offset-2 hover:underline">

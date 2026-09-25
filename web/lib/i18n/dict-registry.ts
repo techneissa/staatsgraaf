@@ -7,6 +7,7 @@ import { HOME_DICT } from "./dict-home";
 import { NEWS_DICT } from "./dict-news";
 import { ENTITY_DICT } from "./dict-entity";
 import { PAGES_DICT } from "./dict-pages";
+import { PANELS_DICT } from "./dict-panels";
 
 export const DICTS: Record<DictArea, DictTable> = {
   common: COMMON_DICT,
@@ -16,6 +17,7 @@ export const DICTS: Record<DictArea, DictTable> = {
   news: NEWS_DICT,
   entity: ENTITY_DICT,
   pages: PAGES_DICT,
+  panels: PANELS_DICT,
 };
 
 export type { DictArea };

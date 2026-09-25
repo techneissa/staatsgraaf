@@ -65,7 +65,7 @@ export function BudgetBreakdown({
         const captionText = caption(group.type);
         return (
           <div key={group.type} className="mb-5 last:mb-0">
-            <h3 className="text-xs font-medium uppercase tracking-wider text-ink-faint">
+            <h3 className="text-xs font-medium text-ink-faint">
               <T area="news" k={heading} />
               {fiscalYear !== null ? ` ${fiscalYear}` : ""}
             </h3>
@@ -75,10 +75,10 @@ export function BudgetBreakdown({
               </caption>
               <thead>
                 <tr className="border-b border-line text-left">
-                  <th scope="col" className="py-2 pe-3 text-xs uppercase tracking-wider font-medium text-ink-faint">
+                  <th scope="col" className="py-2 pe-3 text-xs font-medium text-ink-faint">
                     <T area="news" k="budgetTableCategory" />
                   </th>
-                  <th scope="col" className="py-2 text-right text-xs uppercase tracking-wider font-medium text-ink-faint">
+                  <th scope="col" className="py-2 text-right text-xs font-medium text-ink-faint">
                     <T area="news" k="budgetTableAmount" />
                   </th>
                   <th scope="col" className="w-24 py-2 pl-3 font-medium text-ink-faint">

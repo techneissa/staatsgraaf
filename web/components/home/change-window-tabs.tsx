@@ -8,12 +8,12 @@ import { useSettled } from "@/components/motion/use-settled";
 
 export type ChangeWindowPanel = {
   value: string;
-  label: string;
+  label: ReactNode;
   content: ReactNode;
 };
 
 const triggerClass =
-  "inline-flex min-h-7 items-center rounded-pill px-3 text-xs font-medium uppercase tabular-nums pointer-coarse:min-h-11 pointer-coarse:px-4 tracking-wide text-ink-muted transition-fast hover:text-ink data-[state=active]:bg-surface data-[state=active]:text-ink data-[state=active]:shadow-sm";
+  "inline-flex min-h-7 items-center whitespace-nowrap rounded-pill px-3 text-xs font-medium tabular-nums pointer-coarse:min-h-11 pointer-coarse:px-4 text-ink-muted transition-fast hover:text-ink data-[state=active]:bg-surface data-[state=active]:text-ink data-[state=active]:shadow-sm";
 
 export function ChangeWindowTabs({
   panels,

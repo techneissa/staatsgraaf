@@ -61,7 +61,7 @@ export function BudgetTile({
       {description !== null ? (
         <p className="mt-1.5 hidden text-xs leading-relaxed text-ink-muted line-clamp-2 sm:block">{description}</p>
       ) : null}
-      <p className="mt-3 text-[10px] font-medium uppercase tracking-widest text-ink-faint">
+      <p className="mt-3 text-[10px] font-medium text-ink-faint">
         <T area="news" k="budgetTileSpendingCaption" vars={{ year: record.fiscalYear }} />
       </p>
       <p className="mt-0.5 text-xl font-semibold tabular-nums tracking-tight text-ink sm:text-2xl">
