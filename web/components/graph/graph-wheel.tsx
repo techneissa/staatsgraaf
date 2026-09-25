@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
 import { GLYPH_BY_SUBTYPE, type GraphBundle } from "@/lib/graph";
 import { branchColorVar } from "@/lib/branch-colors";
 import { buildWheel, cellMarks, OPEN_PITCH, REST_PITCH, tieScale, WHEEL_GUTTER, WHEEL_RADIUS, WHEEL_RINGS, WHEEL_VOTERS, wheelLinks, type WheelCell, type WheelGroup, type WheelLinkType } from "@/lib/wheel";
@@ -23,7 +23,32 @@ const GROUP_CHAR = 0.68;
 
 /** How long the wheel takes to turn a selection to the bottom. */
 const TURN_MS = 700;
-const TURN_EASE = "cubic-bezier(0.4, 0, 0.2, 1)";
+/** Ease in and out, as cubic-bezier(0.4, 0, 0.2, 1) roughly. */
+const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+const reducedMotion = () => typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+/**
+ * Run `frame(k)` from k = 0 to 1 over `ms`, eased; returns a stop function.
+ * The wheel moves its marks and turns itself this way, through the SVG
+ * `transform` attribute, instead of with CSS transforms: Safari hit-tests an
+ * SVG element moved by CSS where it was before it moved, which made marks
+ * nearly impossible to click there.
+ */
+function animate(ms: number, frame: (k: number) => void): () => void {
+  if (reducedMotion()) {
+    frame(1);
+    return () => {};
+  }
+  let id = 0;
+  const start = performance.now();
+  const step = (now: number) => {
+    const t = Math.min(1, (now - start) / ms);
+    frame(ease(t));
+    if (t < 1) id = requestAnimationFrame(step);
+  };
+  id = requestAnimationFrame(step);
+  return () => cancelAnimationFrame(id);
+}
 
 /** How each kind of tie is drawn: dashed for the line of parts, an arrow for the rest. */
 const LINK_STYLE: Record<WheelLinkType, { dash?: string; arrow: "filled" | "open" | "double" | null }> = {
@@ -280,10 +305,56 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
     setTurn((from) => (focusAngle === null ? from - Math.round(from / (2 * Math.PI)) * 2 * Math.PI : turnToBottom(from, focusAngle)));
   }, [focusAngle]);
   const turnDeg = (turn * 180) / Math.PI;
-  const motion = `transform ${TURN_MS}ms ${TURN_EASE}`;
+
+  // The turn, animated on the two turning layers from where they are shown now to the new turn.
+  const turnLayers = useRef<(SVGGElement | null)[]>([]);
+  const shownTurn = useRef(0);
+  useLayoutEffect(() => {
+    const from = shownTurn.current;
+    const to = turnDeg;
+    if (from === to) return;
+    return animate(TURN_MS, (k) => {
+      const at = from + (to - from) * k;
+      shownTurn.current = at;
+      for (const layer of turnLayers.current) layer?.setAttribute("transform", `rotate(${at.toFixed(3)})`);
+    });
+  }, [turnDeg]);
 
   const groupTitles = useMemo(() => model.groups.map((group) => ({ group, title: groupTitle(group, turn) })), [model, turn]);
   const drawn = useMemo(() => placed.map((entry) => ({ ...entry, title: entry.named ? cellTitle(entry.cell, turn) : null })), [placed, turn]);
+
+  // Marks glide from where they are shown to where the new layout puts them.
+  const markRefs = useRef(new Map<string, SVGPathElement>());
+  const shownMarks = useRef(new Map<string, { x: number; y: number; spin: number }>());
+  useLayoutEffect(() => {
+    const moves: { element: SVGPathElement; from: { x: number; y: number; spin: number }; to: { x: number; y: number; spin: number }; id: string }[] = [];
+    const next = new Map<string, { x: number; y: number; spin: number }>();
+    for (const { marks } of placed) {
+      for (const mark of marks) {
+        const to = { x: mark.x, y: mark.y, spin: ((Math.atan2(mark.y, mark.x) + Math.PI / 2) * 180) / Math.PI };
+        next.set(mark.id, to);
+        const from = shownMarks.current.get(mark.id);
+        const element = markRefs.current.get(mark.id);
+        if (from && element && (Math.abs(from.x - to.x) > 0.05 || Math.abs(from.y - to.y) > 0.05)) moves.push({ element, from, to, id: mark.id });
+      }
+    }
+    shownMarks.current = next;
+    if (moves.length === 0) return;
+    const place = (move: (typeof moves)[number], k: number) => {
+      let turn = move.to.spin - move.from.spin;
+      if (turn > 180) turn -= 360;
+      if (turn < -180) turn += 360;
+      const x = move.from.x + (move.to.x - move.from.x) * k;
+      const y = move.from.y + (move.to.y - move.from.y) * k;
+      const spin = move.from.spin + turn * k;
+      move.element.setAttribute("transform", `translate(${x.toFixed(2)} ${y.toFixed(2)}) rotate(${spin.toFixed(2)})`);
+      shownMarks.current.set(move.id, { x, y, spin });
+    };
+    for (const move of moves) place(move, 0);
+    return animate(TURN_MS, (k) => {
+      for (const move of moves) place(move, k);
+    });
+  }, [placed]);
 
   /** The ties of the selection, as curves bent toward the core with an arrow at the end they point to. */
   const linkPaths = useMemo(() => {
@@ -443,18 +514,31 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
           {groupTitles.map(({ group, title }) => (title ? <path key={group.id} id={`wheel-group-${group.id}`} d={title.path} /> : null))}
         </defs>
         <g transform={`translate(${view.x.toFixed(2)} ${view.y.toFixed(2)}) scale(${view.k.toFixed(3)})`}>
-          {/* The voters as the rim: a band with a fine edge on both sides. */}
-          <circle r={(f0 + f1) / 2} fill="none" stroke="var(--t-color-sector-regering)" strokeOpacity={0.32} strokeWidth={f1 - f0} />
-          <circle r={f0} fill="none" stroke="var(--t-color-sector-regering)" strokeOpacity={0.85} strokeWidth={1.2} />
-          <circle r={f1} fill="none" stroke="var(--t-color-sector-regering)" strokeOpacity={0.85} strokeWidth={1.2} />
+          {/* The voters as the rim: one fine line, their name set on it with a gap cut around the letters. */}
+          <circle r={(f0 + f1) / 2} fill="none" stroke="var(--t-color-sector-regering)" strokeOpacity={0.85} strokeWidth={1.4} />
           {[0, 1, 2, 3].map((index) => (
-            <text key={index} fontSize={10} letterSpacing={3} fontWeight={700} fill="var(--t-color-ink)" opacity={0.9}>
+            <text
+              key={index}
+              fontSize={10}
+              letterSpacing={3}
+              fontWeight={700}
+              fill="var(--t-color-ink)"
+              stroke="var(--t-color-canvas)"
+              strokeWidth={6}
+              strokeLinejoin="round"
+              paintOrder="stroke"
+            >
               <textPath href={`#wheel-frame-${index}`} startOffset="50%" textAnchor="middle">
                 {t("wheelVoters")}
               </textPath>
             </text>
           ))}
-          <g style={{ transform: `rotate(${turnDeg.toFixed(3)}deg)`, transition: motion }}>
+          <g
+            ref={(element) => {
+              turnLayers.current[0] = element;
+            }}
+            transform={`rotate(${turnDeg.toFixed(3)})`}
+          >
           {model.wedges.map((wedge) => (
             <text key={wedge.id} fontSize={8.5} letterSpacing={1.6} fontWeight={700} fill="var(--t-color-ink-faint)">
               <textPath href={`#wheel-wedge-${wedge.id}`} startOffset="50%" textAnchor="middle">
@@ -558,8 +642,12 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
                   return (
                     <path
                       key={mark.id}
-                      // Drawn at the origin and moved by a transform, so a mark glides when a family opens or closes.
-                      style={{ transform: `translate(${mark.x.toFixed(2)}px, ${mark.y.toFixed(2)}px) rotate(${spin.toFixed(3)}deg)`, transition: motion }}
+                      // Drawn at the origin and placed by its transform attribute, so it can glide when a family opens or closes.
+                      ref={(element) => {
+                        if (element) markRefs.current.set(mark.id, element);
+                        else markRefs.current.delete(mark.id);
+                      }}
+                      transform={`translate(${mark.x.toFixed(2)} ${mark.y.toFixed(2)}) rotate(${spin.toFixed(2)})`}
                       d={glyphPathAt(glyph, isSelected ? mark.r * 1.25 : mark.r, 0, 0)}
                       fill={markColor}
                       fillOpacity={isSelected ? 0.95 : linkedMark ? 0.8 : faded ? 0.14 : 0.45}
@@ -584,7 +672,13 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
           </g>
 
           {/* The selection's ties, over everything, turning with the wheel. */}
-          <g style={{ transform: `rotate(${turnDeg.toFixed(3)}deg)`, transition: motion }} pointerEvents="none">
+          <g
+            ref={(element) => {
+              turnLayers.current[1] = element;
+            }}
+            transform={`rotate(${turnDeg.toFixed(3)})`}
+            pointerEvents="none"
+          >
             {linkPaths.map((link) => (
               <g key={link.key} className="animate-[sg-fade-in_300ms_ease-out_450ms_both]">
                 <path d={link.d} fill="none" stroke={link.color} strokeWidth={link.width} strokeOpacity={0.85} strokeDasharray={link.dash} strokeLinecap="round" />
