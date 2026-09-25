@@ -146,7 +146,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
   const model = useMemo(() => (openFamily ? buildWheel(bundle, openFamily) : restModel), [bundle, openFamily, restModel]);
   const [hot, setHot] = useState<string | null>(null);
   const [view, setView] = useState({ k: 1, x: 0, y: 0 });
-  const drag = useRef<{ x: number; y: number; vx: number; vy: number; moved: boolean } | null>(null);
+  const drag = useRef<{ x: number; y: number; vx: number; vy: number; moved: boolean; slop: number } | null>(null);
   const svgRef = useRef<SVGSVGElement | null>(null);
 
   const groupOf = useMemo(() => {
@@ -218,7 +218,11 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
     : selectedCell
       ? (selectedCell.a0 + selectedCell.a1) / 2
       : null;
+  // Zoomed in, the wheel holds still: turning would carry the picked body out from under the pointer.
+  const zoomed = useRef(false);
+  zoomed.current = view.k > 1;
   useEffect(() => {
+    if (zoomed.current) return;
     setTurn((from) => (focusAngle === null ? from - Math.round(from / (2 * Math.PI)) * 2 * Math.PI : turnToBottom(from, focusAngle)));
   }, [focusAngle]);
   const turnDeg = (turn * 180) / Math.PI;
@@ -325,14 +329,15 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
     });
   };
   const onPointerDown = (event: ReactPointerEvent<SVGSVGElement>) => {
-    drag.current = { x: event.clientX, y: event.clientY, vx: view.x, vy: view.y, moved: false };
+    drag.current = { x: event.clientX, y: event.clientY, vx: view.x, vy: view.y, moved: false, slop: event.pointerType === "mouse" ? 5 : 12 };
   };
   const onPointerMove = (event: ReactPointerEvent<SVGSVGElement>) => {
     const state = drag.current;
     if (!state || view.k === 1) return;
     const dx = event.clientX - state.x;
     const dy = event.clientY - state.y;
-    if (Math.hypot(dx, dy) > 4) state.moved = true;
+    // A finger wobbles more than a mouse: only a real drag cancels the tap.
+    if (Math.hypot(dx, dy) > state.slop) state.moved = true;
     if (!state.moved) return;
     const upp = unitsPerPixel();
     setView((current) => ({ ...current, x: state.vx + dx * upp, y: state.vy + dy * upp }));
@@ -411,9 +416,9 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
                   d={segment(group.r0, group.r1, group.a0, group.a1, GROUP_ROUND)}
                   fill={color}
                   fillOpacity={chosen ? 0.24 : lit ? 0.17 : 0.11}
-                  stroke={chosen ? "var(--t-color-accent)" : color}
+                  stroke={color}
                   strokeOpacity={chosen ? 1 : 0.45}
-                  strokeWidth={chosen ? 1.8 : 1.1}
+                  strokeWidth={chosen ? 2 : 1.1}
                   strokeLinejoin="round"
                 />
                 {title ? (
