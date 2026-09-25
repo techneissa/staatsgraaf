@@ -26,7 +26,7 @@ The packer's output is a laid-out graph: every node has `angle` (radians), `radi
 
 `graph.json` (schema `nl-graph-bundle-v2`) carries that output on the wire in a compact form: each node ships its plain fields plus `x`, `y`, `angle`, `radius`, `tier`, `sector`, and `hidden`, `arch`, `orbit`, `collapsedInto` only when they are set; `glyph` and `glyphRadius` are derived on the client from `subtype` and `degree`. The bundle also carries `tiers`, `channels`, `coreRadius`, `frameRadius`, `maxRadius`, `viewBox` and `chambers` (section 8). `hydrateLayout` in `graph.ts` turns it back into the layout above without packing anything; `web/lib/graph.test.mjs` proves the hydrated layout equals the packer's output field by field.
 
-`power-map.json` carries `powerMap`, `entityPowerMap` and `personSlugs`, and is fetched only when the machtskaart is shown or a person is in focus.
+`power-map.json` carries `powerMap`, `people`, `bodies`, `news`, `links` and `kabinet`, and is fetched only when the machtskaart is shown or a news item is picked.
 
 Canvas units are abstract. The renderer maps them to pixels with pan and zoom.
 
@@ -191,7 +191,8 @@ The relations of the selection and its path are merged into one path each, in th
 - Static edges are merged into one path per relation type; the highlighted edges are two more. While a cluster is open, the marks of its sector and the edges with an end in it are redrawn per frame (three merged live edge paths; edges that do not touch the selection or the open members refresh every sixth frame). Nothing else is redrawn per frame except the view transform, the tooltip and the labels (at most about 160 text elements).
 - Measured on 19-09-2026 in headless Chrome at 1280 x 900 with software rasterisation (no GPU), sampling `requestAnimationFrame` intervals: idle and wheel zoom 16.7 ms per frame; focusing a ministry under the earlier gather motion (18 summoned marks, 811 stepping back) 17 to 19 ms average, p95 30 to 33 ms, an upper bound for the in-place highlight that replaced it; a full turn of the canvas to a far sector 23 to 24 ms average, p95 34 ms, about 8 frames over 33 ms in a 900 ms turn. The turn cost is the rasterisation of the whole rotated scene and did not move with the element count (merging the marks and hiding the edge layer changed it by under 1 ms), so on a machine with GPU rasterisation it is expected to be well inside the budget; that measurement is still to be taken.
 - `graph.json` budget: under 100 KiB gzip (the uncompressed size is not what the client downloads). Measured for 19-09-2026 with clusters and the 1840 edges of phase 3: 856 KiB, 90 KiB gzip. The coordinates cost about 36 KiB gzip over the packer-free bundle of the previous layout; that is the price of one file every client can draw, and it replaces the packer code the client used to ship.
-- `power-map.json`: 31 KiB, 4.6 KiB gzip, loaded only on demand.
+- On 25-09-2026 the seats became people: every fractie block carries its members in seat order and `seatPeople` their names and portraits, which brought `graph.json` to 894 KiB, 98.9 KiB gzip, just inside the budget.
+- `power-map.json`: 80 KiB, 13.6 KiB gzip on 25-09-2026 (ranking of 25, 43 news items, 121 ties with their evidence, 59 people and 36 bodies), loaded only on demand. Its window and recency run from the newest news item, not from the snapshot date in data/meta.json, which can lag behind the news refresh.
 - The build script prints both sizes on every run.
 
 ## 13. Reproducibility checklist

@@ -1,6 +1,7 @@
 import { getDataset } from "./data";
 import { isSplinterGroup, partyByDataset, partyKeyForDataset, type PartyRecord } from "./parties";
 import type { Membership } from "./types";
+import { seatOrder } from "./seats";
 
 /**
  * Seat arithmetic for elected bodies. The dataset holds one membership per
@@ -102,4 +103,25 @@ export function seatCountsByPartyKey(organizationId: string): Map<string, number
     counts.set(key, (counts.get(key) ?? 0) + 1);
   }
   return counts;
+}
+
+/**
+ * A party's current members per chamber, in seat order (lib/seats.ts: by
+ * surname, because no chamber publishes a seat per member). For server pages;
+ * the client reads the same order from `graph.json` through `partyMembers`.
+ */
+export function partyMembersByChamber(
+  key: string,
+  organizationIds: string[] = ["org:tweede-kamer", "org:eerste-kamer"],
+): { organizationId: string; members: { id: string; name: string; slug: string | null; membership: Membership }[] }[] {
+  const people = new Map(getDataset().people.map((person) => [person.id, person]));
+  return organizationIds
+    .map((organizationId) => {
+      const members = currentMembershipsForPartyKey(key, [organizationId]).map(({ membership }) => {
+        const person = people.get(membership.person);
+        return { id: membership.person, name: person?.name ?? membership.person, slug: person?.slug ?? null, membership };
+      });
+      return { organizationId, members: seatOrder(members) };
+    })
+    .filter((entry) => entry.members.length > 0);
 }

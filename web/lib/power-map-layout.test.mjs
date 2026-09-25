@@ -80,3 +80,31 @@ test("the power map layout is deterministic", () => {
     layout.cards.map((card) => [card.person.person, card.x, card.y]),
   );
 });
+
+test("news bubbles sit at the first card they name, capped per card, and never overlap", async () => {
+  const { placeNewsBubbles, NEWS_BUBBLES_PER_CARD, NEWS_BUBBLE_RADIUS } = await import("./power-map-layout.ts");
+  const anchors = [
+    { id: "person:a", x: 0, y: 0, radius: 30 },
+    { id: "person:b", x: 200, y: 0, radius: 20 },
+  ];
+  const items = [
+    { id: "news:1", people: ["person:b", "person:a"], bodies: [] },
+    { id: "news:2", people: ["person:b"], bodies: ["org:x"] },
+    { id: "news:3", people: ["person:z"], bodies: [] },
+    ...Array.from({ length: 8 }, (_, index) => ({ id: `news:a${index}`, people: ["person:a"], bodies: [] })),
+  ];
+  const placed = placeNewsBubbles(anchors, items);
+  assert.equal(placed.find((bubble) => bubble.id === "news:1").owner, "person:a");
+  assert.equal(placed.find((bubble) => bubble.id === "news:2").owner, "person:b");
+  assert.equal(placed.find((bubble) => bubble.id === "news:3"), undefined);
+  assert.equal(placed.filter((bubble) => bubble.owner === "person:a").length, NEWS_BUBBLES_PER_CARD);
+  for (let i = 0; i < placed.length; i += 1) {
+    for (let j = i + 1; j < placed.length; j += 1) {
+      const gap = Math.hypot(placed[i].x - placed[j].x, placed[i].y - placed[j].y);
+      assert.ok(gap >= 2 * NEWS_BUBBLE_RADIUS, `${placed[i].id} and ${placed[j].id} overlap`);
+    }
+    // Above the name line: never lower than the portrait's centre plus its radius.
+    const owner = anchors.find((anchor) => anchor.id === placed[i].owner);
+    assert.ok(placed[i].y - owner.y < owner.radius, `${placed[i].id} runs into the name`);
+  }
+});

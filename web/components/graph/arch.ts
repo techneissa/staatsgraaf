@@ -32,8 +32,6 @@ export type ArchMark = {
 export type ArchLayout = {
   marks: ArchMark[];
   seatRadius: number;
-  /** Line marking the majority threshold. */
-  majority: { x1: number; y1: number; x2: number; y2: number } | null;
   entries: ChamberSeatEntry[];
   total: number;
   majoritySeats: number;
@@ -63,31 +61,6 @@ export function layoutArch(
     }
   }
 
-  const sign = flip ? -1 : 1;
-  const rowBase = params.r0Steps * pitch;
-  const inner = rowBase - pitch * 0.9;
-  const outer = rowBase + params.rows * pitch - pitch * 0.1;
-  const boundary = seats[chamber.majority - 1];
-  const before = seats[chamber.majority - 2];
-  let majority: ArchLayout["majority"] = null;
-  if (boundary) {
-    if (!boundary.arc && before && !before.arc && Math.sign(boundary.x) === Math.sign(before.x)) {
-      const y = (boundary.y + before.y) / 2;
-      const side = Math.sign(boundary.x) || 1;
-      majority = { x1: side * inner, y1: y, x2: side * outer, y2: y };
-    } else {
-      const ta = boundary.arc ? boundary.t : before?.t ?? boundary.t;
-      const tb = before ? (before.arc ? before.t : boundary.t) : ta;
-      const angle = Math.PI + ((ta + tb) / 2) * Math.PI;
-      majority = {
-        x1: Math.cos(angle) * inner,
-        y1: sign * Math.sin(angle) * inner,
-        x2: Math.cos(angle) * outer,
-        y2: sign * Math.sin(angle) * outer,
-      };
-    }
-  }
-
   const seatRadius = pitch * 0.36;
   let minX = 0;
   let minY = 0;
@@ -103,7 +76,6 @@ export function layoutArch(
   return {
     marks,
     seatRadius,
-    majority,
     entries: chamber.entries,
     total: chamber.total,
     majoritySeats: chamber.majority,
