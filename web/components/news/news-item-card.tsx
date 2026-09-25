@@ -5,6 +5,7 @@ import { LucideIcon } from "@/components/icons/lucide-icon";
 import { useState } from "react";
 import { Avatar } from "@/components/avatar";
 import { useLocale } from "@/components/i18n/language-provider";
+import { topicNameEn } from "@/lib/topic-names";
 import { KindGlyph } from "@/components/kind-glyph";
 import { PeekLink } from "@/components/peek/peek-link";
 import { SourceIcon } from "@/components/source-icon";
@@ -136,7 +137,9 @@ export function NewsItemCard({
                   ) : (
                     <KindGlyph kind={entry.peekKind} size={7} className="mr-1 align-[0.05em]" />
                   )}
-                  {entry.label}
+                  {entry.kind === "topic" && target === "en"
+                    ? topicNameEn(entry.href.split("/").filter(Boolean).pop() ?? "", entry.label)
+                    : entry.label}
                 </PeekLink>
                 {index < item.entities.length - 1 ? (
                   <span aria-hidden="true" className="px-1.5 text-ink-faint">
