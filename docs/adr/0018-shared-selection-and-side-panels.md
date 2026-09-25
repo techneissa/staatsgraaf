@@ -1,0 +1,23 @@
+# ADR 0018: one shared selection, side panels, and seats as people
+
+- Date: 25-09-2026
+- Status: accepted. The owner asked on 25-09-2026 for collapsible and wider side panels, for the page column to describe what is picked on the graph and the power map, for a way back after picking a profile on the power map, for news-based connections between people, and for the seats of the Kamers to be the politicians who hold them.
+
+## Context
+
+Each canvas kept its own idea of what was picked: the graph held the selected body, the fractie, and the open group; the power map held a focused person in the canvas frame; the details panel was drawn inside the graph. The page column could not know what the reader had picked, the power map had no way back, and every new panel would have had to be wired to every canvas.
+
+## Decision
+
+1. **One selection, one seam.** `web/lib/selection.ts` defines what can be picked (organisation, person, group of dots, fractie, sector, news item, topic), which canvas picked it, and a history with a way back, as a pure reducer with its own tests. `web/components/selection/selection-provider.tsx` holds it for the whole page. Canvases publish every pick to it and follow it; panels only read it and pick through it. Neither side imports the other.
+2. **Side panels.** The details panel is its own column beside the canvas instead of part of the drawing. It can be collapsed and resized; the page column can be collapsed to give the canvas the full width. Both choices are remembered in the browser.
+3. **The page column describes the pick.** When something is picked, the top of the page column shows a fuller profile of it than the side panel can hold, with a way back and a way to close it.
+4. **Seats are people.** Each seat of the Tweede Kamer and the Eerste Kamer stands for a member, from `data/memberships.json`. Neither chamber publishes a seat per member (workstream S), so members fill their fractie's block in name order, and the panel says so.
+5. **Connections on the power map are derived, not invented.** Links between people come from shared news items, shared memberships, and tenures in the dataset, each with its reason and the ids that prove it. They show only for the current pick.
+6. **Party programmes are sourced.** A party's programme link appears only when it was found on the party's own site, with the retrieval date; otherwise it is a named gap.
+
+## Consequences
+
+- A new panel or a new canvas needs only the selection interface. That makes the Swift client's port of the same behaviour a matter of one reducer.
+- The graph, the power map and both panels always agree on what is picked, and "back" means the same thing everywhere.
+- Seat order within a fractie is not a real seating plan. It is labelled as such until a chamber publishes one.

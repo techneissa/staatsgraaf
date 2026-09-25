@@ -4,6 +4,25 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (25-09-2026, third round)
+
+- One shared selection for the whole page (ADR 0018, `web/lib/selection.ts`): the graph, the seats, the power map and both side panels read and write the same pick, with a way back.
+- Side panels: the page column and a new details column beside the canvas can each be collapsed, and the details column can be dragged or keyed between 16 and 30rem; the choices are remembered. The details column is redesigned per kind of pick, with a back button, and every row picks in place. With nothing picked it lists the people most in the news, the largest sectors and the latest changes.
+- The page column shows a profile of the pick at the top: description, budget for ministries, key people, news, people named with them in the news and recent changes, with back and close.
+- Seats are politicians: each seat of the Tweede Kamer and the Eerste Kamer is a member, in name order within the fractie because neither chamber publishes a seat per member. Picking a fractie opens a seat loupe with faces, and from a closer zoom the seats themselves can be picked.
+- Parties link to their 2025 election programme where the party's own site publishes one (`web/lib/parties.ts`, retrieved 25-09-2026); OPNL, FNP, Water Natuurlijk and Groep Markuszower are named gaps.
+- The power map has a way back after picking a profile, news bubbles that draw lines to what they name, and connections between people and bodies derived from shared news items, positions, the kabinet and fracties, each with its reason and evidence ids. It now counts news up to the newest item instead of the snapshot date.
+- The home overview, budget totals and change tabs reflow by the column's width: no overlapping numbers and labels. All-caps labels are sentence case across the site.
+
+- The method page is short and plain: what the project is (a personal project that gives a neutral, sourced overview of the Dutch government, inspired by CivLab's Gov Graph), sources, freshness, a short AI section that says AI helped build the project and that news is machine translated without naming a model, corrections, licences and what is still missing, with the portrait count computed from the dataset.
+- The dataset page has one short credit section with an example citation and a single line crediting the portrait sources; the credit per photo is in `media.json` in the download.
+- The privacy statement says that a politician's date of birth is shown when a public source publishes it.
+- The "See also" link lines at the bottom of the dataset, privacy, accessibility and party pages are gone; the footer already links there.
+
+- Party and fractie names in member lists, seat lists and profile headers are pills in the party's own colour, linked to the party page (`web/components/party-pill.tsx`).
+- Portrait credits are no longer printed under photos. The credit stays reachable from every image: as its tooltip and for screen readers, and behind a small info button next to the photo on a profile page, which keeps the attribution that CC BY and CC BY-SA require.
+- The dashed majority line is gone from the Tweede Kamer and Eerste Kamer seat charts; the majority is stated in the caption.
+
 ### Changed (25-09-2026, second round)
 
 - Portraits for 35 more people (455 of 880): Eerste Kamer members through their full names, burgemeesters matched on municipality, and former members through the Tweede Kamer Open Data archive, each matched on a second piece of evidence besides the name (ADR 0014 amendment 2). Three portraits with a disputed licence were replaced or withdrawn. The 425 remaining gaps are named in `research/qa/portraits-25-09-2026.md` and show an initials avatar.
