@@ -294,3 +294,44 @@ test("a research record that sets its own portrait is not overwritten by the pre
   assert.equal(people[0].portrait, "media:portret-official");
   assert.equal(result.stats.enrichmentCarried, 0);
 });
+
+test("a party filled by party-affiliation survives a research record without a party winning the id", async () => {
+  const { researchDir, dataDir, logPath } = await setup();
+  await writeEnvelope(researchDir, "P-live-ambtsdragers.json", envelope("P", {
+    people: [{ id: "person:p1", slug: "p1", name: "P. Een", party: null, sources: [{ source: "src:stcrt", retrieved: "2026-09-25", confidence: "high" }] }],
+    sources: [{ id: "src:stcrt", url: "https://zoek.officielebekendmakingen.nl/stcrt-1", title: "Stcrt", publisher: "Staatscourant", type: "page", retrieved: "2026-09-25" }],
+  }));
+  await writeData(dataDir, "people.json", [{
+    id: "person:p1",
+    slug: "p1",
+    name: "P. Een",
+    party: "D66",
+    sources: [
+      { source: "src:stcrt", retrieved: "2026-09-25", confidence: "high" },
+      { source: "src:k-bewindspersoon-p1", retrieved: "2026-09-25", confidence: "high" },
+    ],
+  }]);
+  await writeData(dataDir, "sources.json", [
+    { id: "src:k-bewindspersoon-p1", url: "https://www.rijksoverheid.nl/regering/bewindspersonen/p1", title: "P1", publisher: "Rijksoverheid", type: "page", retrieved: "2026-09-25" },
+  ]);
+
+  const result = await mergeDataset({ researchDir, dataDir, logPath });
+  const people = await readData(dataDir, "people.json");
+  assert.equal(people[0].party, "D66");
+  assert.deepEqual(people[0].sources.map((ref) => ref.source), ["src:stcrt", "src:k-bewindspersoon-p1"]);
+  assert.equal(result.stats.enrichmentCarried, 1);
+});
+
+test("a party without a party-affiliation source is not carried forward", async () => {
+  const { researchDir, dataDir, logPath } = await setup();
+  await writeEnvelope(researchDir, "D-parlement.json", envelope("D", {
+    people: [{ id: "person:p1", slug: "p1", name: "P. Een", sources: [{ source: "src:tk", retrieved: "2026-09-18", confidence: "high" }] }],
+    sources: [{ id: "src:tk", url: "https://example.org/tk", title: "TK", publisher: "TK", type: "page", retrieved: "2026-09-18" }],
+  }));
+  await writeData(dataDir, "people.json", [{ id: "person:p1", slug: "p1", name: "P. Een", party: "VVD", sources: [{ source: "src:tk", retrieved: "2026-09-18", confidence: "high" }] }]);
+
+  const result = await mergeDataset({ researchDir, dataDir, logPath });
+  const people = await readData(dataDir, "people.json");
+  assert.equal(people[0].party ?? null, null);
+  assert.equal(result.stats.enrichmentCarried, 0);
+});

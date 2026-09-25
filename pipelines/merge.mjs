@@ -4,6 +4,7 @@ import { existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
+import { PARTY_SOURCE_PREFIXES } from "./party-affiliation.mjs";
 import { applyArchiveUrls, applyLicenses, licenseDistribution, writeAttribution } from "./licenses.mjs";
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -132,14 +133,21 @@ function candidateTier(entity, candidate, sourceById, group) {
 }
 
 // Enrichment written into data/ by a pipeline that runs after the merge
-// (pipelines/portraits.mjs). Research envelopes never carry these fields, so a
-// research record that wins the id would silently drop them on the next run.
-// Carry them forward from the previous data/ record unless the winner sets
-// them itself, together with the source refs that back them.
+// (pipelines/portraits.mjs, pipelines/party-affiliation.mjs). Research envelopes
+// never carry these fields, so a research record that wins the id would
+// silently drop them on the next run. Carry them forward from the previous
+// data/ record unless the winner sets them itself, together with the source
+// refs that back them.
 const ENRICHMENT_FIELDS = {
-  people: ["portrait", "wikidata", "wikipedia"],
+  people: ["portrait", "wikidata", "wikipedia", "party"],
 };
-const ENRICHMENT_SOURCE_PREFIXES = ["src:wikidata-", "src:commons-"];
+const ENRICHMENT_SOURCE_PREFIXES = ["src:wikidata-", "src:commons-", ...PARTY_SOURCE_PREFIXES];
+// A field listed here is carried only when the previous record cites a source
+// with one of these prefixes, so a party from a research envelope that a newer
+// envelope drops is not kept alive without its source.
+const ENRICHMENT_FIELD_GATES = {
+  party: PARTY_SOURCE_PREFIXES,
+};
 
 function carryForwardEnrichment(entity, winners, base, stats) {
   const fields = ENRICHMENT_FIELDS[entity];
@@ -149,9 +157,12 @@ function carryForwardEnrichment(entity, winners, base, stats) {
     const before = previous.get(key);
     if (!before || entry.from.startsWith("data/")) continue;
     const record = entry.record;
+    const cited = (before.sources ?? []).filter((ref) => ref && typeof ref.source === "string");
     let carried = false;
     for (const field of fields) {
       if (record[field] != null || before[field] == null) continue;
+      const gate = ENRICHMENT_FIELD_GATES[field];
+      if (gate && !cited.some((ref) => gate.some((prefix) => ref.source.startsWith(prefix)))) continue;
       record[field] = structuredClone(before[field]);
       carried = true;
     }
@@ -159,9 +170,7 @@ function carryForwardEnrichment(entity, winners, base, stats) {
     stats.enrichmentCarried += 1;
     appendSourceRefs(
       record,
-      (before.sources ?? []).filter(
-        (ref) => ref && typeof ref.source === "string" && ENRICHMENT_SOURCE_PREFIXES.some((prefix) => ref.source.startsWith(prefix)),
-      ),
+      cited.filter((ref) => ENRICHMENT_SOURCE_PREFIXES.some((prefix) => ref.source.startsWith(prefix))),
     );
   }
 }
@@ -541,7 +550,7 @@ async function main() {
   console.log(`  id-duplicate                            ${s.idDuplicate}`);
   console.log(`  unmatched legalMappings                 ${s.unmatchedMappings}`);
   console.log(`  aliases skipped (target has no aliases) ${s.skippedAliases}`);
-  console.log(`  enrichment carried forward (portraits)  ${s.enrichmentCarried}`);
+  console.log(`  enrichment carried forward (portraits, party) ${s.enrichmentCarried}`);
   console.log("\nLicenses:");
   for (const [license, count] of Object.entries(result.licenses)) {
     if (count > 0) console.log(`  ${license.padEnd(22)} ${String(count).padStart(6)}`);

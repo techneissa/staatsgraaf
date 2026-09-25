@@ -1419,7 +1419,7 @@
     ],
     "portrait": "media:portret-annet-bertram",
     "birthDate": null,
-    "party": null,
+    "party": "CDA",
     "wikipedia": "https://nl.wikipedia.org/wiki/Annet_Bertram",
     "wikidata": "Q138103377",
     "description": null,
@@ -1443,6 +1443,11 @@
         "source": "src:commons-ea782389",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:k-bewindspersoon-annet-bertram",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
       }
     ]
   },
@@ -2373,7 +2378,7 @@
     ],
     "portrait": "media:portret-bart-van-den-brink",
     "birthDate": null,
-    "party": null,
+    "party": "CDA",
     "wikipedia": null,
     "wikidata": "Q118256135",
     "description": null,
@@ -2395,6 +2400,11 @@
       },
       {
         "source": "src:commons-5c10e03",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      },
+      {
+        "source": "src:k-bewindspersoon-bart-van-den-brink",
         "retrieved": "2026-09-25",
         "confidence": "high"
       }
@@ -3708,14 +3718,14 @@
     ],
     "portrait": "media:portret-claudia-van-bruggen",
     "birthDate": null,
-    "party": null,
+    "party": "D66",
     "wikipedia": "https://nl.wikipedia.org/wiki/Claudia_van_Bruggen",
     "wikidata": "Q138333539",
     "description": null,
     "sources": [
       {
         "source": "src:rijksoverheid-claudia-van-bruggen",
-        "retrieved": "2026-09-17",
+        "retrieved": "2026-09-25",
         "confidence": "high"
       },
       {
@@ -4383,7 +4393,7 @@
     ],
     "portrait": "media:portret-david-van-weel",
     "birthDate": null,
-    "party": null,
+    "party": "VVD",
     "wikipedia": null,
     "wikidata": "Q111051482",
     "description": null,
@@ -4405,6 +4415,11 @@
       },
       {
         "source": "src:commons-9b68cf6a",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      },
+      {
+        "source": "src:k-bewindspersoon-david-van-weel",
         "retrieved": "2026-09-25",
         "confidence": "high"
       }
@@ -4446,14 +4461,14 @@
     ],
     "portrait": "media:portret-derk-boswijk",
     "birthDate": null,
-    "party": null,
+    "party": "CDA",
     "wikipedia": "https://nl.wikipedia.org/wiki/Derk_Boswijk",
     "wikidata": "Q106214765",
     "description": null,
     "sources": [
       {
         "source": "src:rijksoverheid-derk-boswijk",
-        "retrieved": "2026-09-17",
+        "retrieved": "2026-09-25",
         "confidence": "high"
       },
       {
@@ -4543,14 +4558,14 @@
     ],
     "portrait": "media:portret-dilan-yesilgoz-zegerius",
     "birthDate": null,
-    "party": null,
+    "party": "VVD",
     "wikipedia": "https://nl.wikipedia.org/wiki/Dilan_Ye%C5%9Filg%C3%B6z",
     "wikidata": "Q28861002",
     "description": null,
     "sources": [
       {
         "source": "src:rijksoverheid-dilan-yesilgoz-zegerius",
-        "retrieved": "2026-09-17",
+        "retrieved": "2026-09-25",
         "confidence": "high"
       },
       {
@@ -5991,14 +6006,14 @@
     ],
     "portrait": "media:portret-eelco-eerenberg",
     "birthDate": null,
-    "party": null,
+    "party": "D66",
     "wikipedia": "https://nl.wikipedia.org/wiki/Eelco_Eerenberg",
     "wikidata": "Q22677170",
     "description": null,
     "sources": [
       {
         "source": "src:rijksoverheid-eelco-eerenberg",
-        "retrieved": "2026-09-17",
+        "retrieved": "2026-09-25",
         "confidence": "high"
       },
       {
@@ -6027,7 +6042,7 @@
     ],
     "portrait": "media:portret-eelco-heinen",
     "birthDate": null,
-    "party": null,
+    "party": "VVD",
     "wikipedia": "https://nl.wikipedia.org/wiki/Eelco_Heinen",
     "wikidata": "Q106119762",
     "description": null,
@@ -6049,6 +6064,11 @@
       },
       {
         "source": "src:portret-tk-eelco-heinen",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      },
+      {
+        "source": "src:k-bewindspersoon-eelco-heinen",
         "retrieved": "2026-09-25",
         "confidence": "high"
       }
@@ -6125,7 +6145,7 @@
     ],
     "portrait": "media:portret-elanor-boekholt-osullivan",
     "birthDate": null,
-    "party": null,
+    "party": "D66",
     "wikipedia": "https://nl.wikipedia.org/wiki/Elanor_Boekholt-O'Sullivan",
     "wikidata": "Q59623496",
     "description": null,
@@ -6149,6 +6169,11 @@
         "source": "src:commons-4e52da82",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:k-bewindspersoon-elanor-boekholt-osullivan",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
       }
     ]
   },
@@ -6589,7 +6614,7 @@
     ],
     "portrait": "media:portret-eric-van-der-burg",
     "birthDate": null,
-    "party": null,
+    "party": "VVD",
     "wikipedia": "https://nl.wikipedia.org/wiki/Eric_van_der_Burg",
     "wikidata": "Q2084799",
     "description": null,
@@ -6613,6 +6638,11 @@
         "source": "src:commons-a909c0b2",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:k-bewindspersoon-eric-van-der-burg",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
       }
     ]
   },
@@ -9272,7 +9302,7 @@
     ],
     "portrait": "media:portret-hans-vijlbrief",
     "birthDate": null,
-    "party": null,
+    "party": "D66",
     "wikipedia": "https://nl.wikipedia.org/wiki/Hans_Vijlbrief",
     "wikidata": "Q83779218",
     "description": null,
@@ -9296,6 +9326,11 @@
         "source": "src:commons-c81af533",
         "retrieved": "2026-09-24",
         "confidence": "medium"
+      },
+      {
+        "source": "src:k-bewindspersoon-hans-vijlbrief",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
       }
     ]
   },
@@ -9680,7 +9715,7 @@
     ],
     "portrait": "media:portret-heleen-herbert",
     "birthDate": null,
-    "party": null,
+    "party": "CDA",
     "wikipedia": "https://nl.wikipedia.org/wiki/Heleen_Herbert",
     "wikidata": "Q138031180",
     "description": null,
@@ -9704,6 +9739,11 @@
         "source": "src:commons-c90323f3",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:k-bewindspersoon-heleen-herbert",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
       }
     ]
   },
@@ -11216,7 +11256,7 @@
     ],
     "portrait": null,
     "birthDate": null,
-    "party": null,
+    "party": "D66",
     "wikipedia": "https://nl.wikipedia.org/wiki/Jaimi_van_Essen",
     "wikidata": "Q28860889",
     "description": null,
@@ -11235,6 +11275,11 @@
         "source": "src:wikidata-jaimi-van-essen",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:k-bewindspersoon-jaimi-van-essen",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
       }
     ]
   },
@@ -12342,7 +12387,7 @@
     ],
     "portrait": "media:portret-jo-annes-de-bat",
     "birthDate": null,
-    "party": null,
+    "party": "CDA",
     "wikipedia": "https://nl.wikipedia.org/wiki/Jo-Annes_de_Bat",
     "wikidata": "Q23673640",
     "description": null,
@@ -12366,6 +12411,11 @@
         "source": "src:commons-87b64145",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:k-bewindspersoon-jo-annes-de-bat",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
       }
     ]
   },
@@ -13323,7 +13373,7 @@
     ],
     "portrait": "media:portret-judith-tielen",
     "birthDate": null,
-    "party": null,
+    "party": "VVD",
     "wikipedia": "https://nl.wikipedia.org/wiki/Judith_Tielen",
     "wikidata": "Q28861047",
     "description": null,
@@ -13347,6 +13397,11 @@
         "source": "src:commons-4e08e6a7",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:k-bewindspersoon-judith-tielen",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
       }
     ]
   },
@@ -17804,7 +17859,7 @@
     ],
     "portrait": "media:portret-mirjam-sterk",
     "birthDate": null,
-    "party": null,
+    "party": "CDA",
     "wikipedia": "https://nl.wikipedia.org/wiki/Mirjam_Sterk",
     "wikidata": "Q6873597",
     "description": null,
@@ -17828,6 +17883,11 @@
         "source": "src:commons-1ade01f5",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:k-bewindspersoon-mirjam-sterk",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
       }
     ]
   },
@@ -19708,7 +19768,7 @@
     ],
     "portrait": "media:portret-pieter-heerma",
     "birthDate": null,
-    "party": null,
+    "party": "CDA",
     "wikipedia": "https://nl.wikipedia.org/wiki/Pieter_Heerma",
     "wikidata": "Q94234",
     "description": null,
@@ -19732,6 +19792,11 @@
         "source": "src:commons-e2aaea13",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:k-bewindspersoon-pieter-heerma",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
       }
     ]
   },
@@ -20757,7 +20822,7 @@
     ],
     "portrait": "media:portret-rianne-letschert",
     "birthDate": null,
-    "party": null,
+    "party": "D66",
     "wikipedia": "https://nl.wikipedia.org/wiki/Rianne_Letschert",
     "wikidata": "Q23038207",
     "description": null,
@@ -20781,6 +20846,11 @@
         "source": "src:commons-c0291faf",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:k-bewindspersoon-rianne-letschert",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
       }
     ]
   },
@@ -21075,7 +21145,7 @@
     ],
     "portrait": "media:portret-rob-jetten",
     "birthDate": null,
-    "party": null,
+    "party": "D66",
     "wikipedia": "https://nl.wikipedia.org/wiki/Rob_Jetten",
     "wikidata": "Q28860866",
     "description": null,
@@ -21099,6 +21169,11 @@
         "source": "src:commons-b5808005",
         "retrieved": "2026-09-19",
         "confidence": "medium"
+      },
+      {
+        "source": "src:k-bewindspersoon-rob-jetten",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
       }
     ]
   },
@@ -22376,6 +22451,11 @@
         "source": "src:portret-tk-sandra-palmen-schlangen",
         "retrieved": "2026-09-25",
         "confidence": "high"
+      },
+      {
+        "source": "src:k-bewindspersoon-sandra-palmen-schlangen",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
       }
     ]
   },
@@ -22841,7 +22921,7 @@
     ],
     "portrait": "media:portret-silvio-erkens",
     "birthDate": null,
-    "party": null,
+    "party": "VVD",
     "wikipedia": "https://nl.wikipedia.org/wiki/Silvio_Erkens",
     "wikidata": "Q106119766",
     "description": null,
@@ -22864,6 +22944,11 @@
       {
         "source": "src:commons-94890176",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:k-bewindspersoon-silvio-erkens",
+        "retrieved": "2026-09-25",
         "confidence": "high"
       }
     ]
@@ -22994,14 +23079,14 @@
     ],
     "portrait": "media:portret-sjoerd-sjoerdsma",
     "birthDate": null,
-    "party": null,
+    "party": "D66",
     "wikipedia": null,
     "wikidata": "Q516335",
     "description": null,
     "sources": [
       {
         "source": "src:rijksoverheid-sjoerd-sjoerdsma",
-        "retrieved": "2026-09-17",
+        "retrieved": "2026-09-25",
         "confidence": "high"
       },
       {
@@ -23095,7 +23180,7 @@
     ],
     "portrait": "media:portret-sophie-hermans",
     "birthDate": null,
-    "party": null,
+    "party": "VVD",
     "wikipedia": null,
     "wikidata": "Q28860996",
     "description": null,
@@ -23117,6 +23202,11 @@
       },
       {
         "source": "src:portret-tk-sophie-hermans",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
+      },
+      {
+        "source": "src:k-bewindspersoon-sophie-hermans",
         "retrieved": "2026-09-25",
         "confidence": "high"
       }
@@ -23305,7 +23395,7 @@
     ],
     "portrait": "media:portret-stientje-van-veldhoven-van-der-meer",
     "birthDate": null,
-    "party": null,
+    "party": "D66",
     "wikipedia": "https://nl.wikipedia.org/wiki/Stientje_van_Veldhoven",
     "wikidata": "Q5090363",
     "description": null,
@@ -23329,6 +23419,11 @@
         "source": "src:commons-623c3421",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:k-bewindspersoon-stientje-van-veldhoven",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
       }
     ]
   },
@@ -23772,7 +23867,7 @@
     ],
     "portrait": "media:portret-thierry-aartsen",
     "birthDate": null,
-    "party": null,
+    "party": "VVD",
     "wikipedia": "https://nl.wikipedia.org/wiki/Thierry_Aartsen",
     "wikidata": "Q28861067",
     "description": null,
@@ -23796,6 +23891,11 @@
         "source": "src:commons-34882d78",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:k-bewindspersoon-thierry-aartsen",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
       }
     ]
   },
@@ -24067,14 +24167,14 @@
     ],
     "portrait": "media:portret-tom-berendsen",
     "birthDate": null,
-    "party": null,
+    "party": "CDA",
     "wikipedia": "https://nl.wikipedia.org/wiki/Tom_Berendsen",
     "wikidata": "Q64399772",
     "description": null,
     "sources": [
       {
         "source": "src:rijksoverheid-tom-berendsen",
-        "retrieved": "2026-09-17",
+        "retrieved": "2026-09-25",
         "confidence": "high"
       },
       {
@@ -24454,7 +24554,7 @@
     ],
     "portrait": "media:portret-vincent-karremans",
     "birthDate": null,
-    "party": null,
+    "party": "VVD",
     "wikipedia": "https://nl.wikipedia.org/wiki/Vincent_Karremans",
     "wikidata": "Q101579497",
     "description": null,
@@ -24478,6 +24578,11 @@
         "source": "src:commons-8eeca525",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:k-bewindspersoon-vincent-karremans",
+        "retrieved": "2026-09-25",
+        "confidence": "high"
       }
     ]
   },
@@ -24787,14 +24892,14 @@
     ],
     "portrait": "media:portret-willemijn-aerdts",
     "birthDate": null,
-    "party": null,
+    "party": "D66",
     "wikipedia": "https://nl.wikipedia.org/wiki/Willemijn_Aerdts",
     "wikidata": "Q62058121",
     "description": null,
     "sources": [
       {
         "source": "src:rijksoverheid-willemijn-aerdts",
-        "retrieved": "2026-09-17",
+        "retrieved": "2026-09-25",
         "confidence": "high"
       },
       {
