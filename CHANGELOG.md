@@ -4,6 +4,11 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Added (25-09-2026, seventh round)
+
+- The Kamers in Connections are their plenary hall (ADR 0018 amendment 3): every seat where the chamber's own floor plan puts it and each seat the member who holds it, as a face where there is room and as a dot in the fractie colour where there is not. The Tweede Kamer has its benches as a dome, the voorzitter at the desk and the kabinet in vak-K facing them; the Eerste Kamer has its two bench blocks, the voorzitter between them and the regeringstafel opposite. Hover or tap a seat for the member's face and fractie; the legend lists coalition and opposition with seat counts, fractievoorzitters and the majority. The kabinet's "Kabinet" link opens the ministry chart. Phones keep the card overview, with a "Zaal / Overzicht" switch that opens the hall full screen.
+- `data/chamber-plans.json` with schema `chamber-plan.schema.json`: the Eerste Kamer seat of every member from "Wie zit waar" and the Tweede Kamer seat of every fractie from the June 2026 "Zetelverdeling plenaire zaal", extracted by `research/S-zaalindeling-plans.py` (workstream S addendum). The Tweede Kamer seat per member stays a named gap.
+
 ### Changed (25-09-2026, sixth round)
 
 - The budget radar's amount scale is a square-root scale with rings at €1, €10, €25, €50 and €75 mld: the log scale squeezed the large ministries together and overlapped the ring labels, while this one spreads €10 to €75 mld apart and keeps the smallest ministries off the centre. Ring labels never overlap. Each ministry has an icon (`web/components/icons/ministry-icon.tsx`, the same set as the Connections hierarchy) on its radar axis and on its budget card.

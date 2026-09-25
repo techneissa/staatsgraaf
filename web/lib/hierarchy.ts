@@ -14,7 +14,13 @@
  * (web/scripts/build-graph.mjs), which writes `public/hierarchy.json`. The
  * client only reads it. Every person carries the index of the source of the
  * tenure or membership that puts them there.
+ *
+ * A chamber tree also carries its hall (lib/chamber-hall.ts): every seat of
+ * the chamber's sourced floor plan with the member in it, the chair, and the
+ * kabinet on its bench.
  */
+
+import { layoutHall, type ChamberHall, type ChamberPlan } from "./chamber-hall";
 
 export const HIERARCHY_SCHEMA = "staatsgraaf.hierarchy/1";
 
@@ -52,6 +58,8 @@ export type HierarchyHub = {
   color?: string | null;
   /** Seats of a fractie. */
   seats?: number;
+  /** A fractie of a party in the sitting coalition. */
+  coalition?: true;
   people: HierarchyPerson[];
 };
 
@@ -74,6 +82,8 @@ export type HierarchyTree = {
   /** Source of the cabinet record. */
   src?: number;
   hubs: HierarchyHub[];
+  /** The plenary hall of a chamber, when a floor plan is on record. */
+  hall?: ChamberHall;
 };
 
 export type HierarchyBundle = {
@@ -115,6 +125,8 @@ export type HierarchyInput = {
   partyOf: (name: string) => Party;
   /** Members in seat order (lib/seats.ts). */
   seatOrder: <T extends { id: string; name: string }>(members: readonly T[]) => T[];
+  /** Floor plans of the chambers (data/chamber-plans.json); the newest per chamber is drawn. */
+  plans?: readonly ChamberPlan[];
 };
 
 const CABINET_TITLE = /^(minister|staatssecretaris)/i;
@@ -249,6 +261,20 @@ export function buildHierarchy(input: HierarchyInput): HierarchyBundle {
     hubs: ministryHubs,
   });
 
+  // The kabinet on its bench: the minister-president, then the ministers,
+  // then the staatssecretarissen, each group in ring order of the ministries.
+  const benchOrder = orderByCluster(ministryHubs);
+  const bench: { person: string; hub: string }[] = [];
+  if (headEntry) bench.push({ person: headEntry.tenure.person, hub: headEntry.position.organization });
+  for (const pass of [1, 2]) {
+    for (const hub of benchOrder) {
+      for (const person of hub.people) {
+        if (rankRole(person.role ?? "") === pass && !bench.some((entry) => entry.person === person.id)) bench.push({ person: person.id, hub: hub.id });
+      }
+    }
+  }
+  const coalitionKeys = new Set(coalition?.parties ?? []);
+
   // The chambers.
   for (const [treeId, orgId] of [
     ["tweede-kamer", "org:tweede-kamer"],
@@ -270,12 +296,12 @@ export function buildHierarchy(input: HierarchyInput): HierarchyBundle {
       const fractie = fractieOf.get(tenure.person);
       if (fractie && !leaders.has(fractie)) leaders.set(fractie, tenure);
     }
-    const groups = new Map<string, { label: string; name: string; color: string | null; members: Membership[] }>();
+    const groups = new Map<string, { key: string | null; label: string; name: string; color: string | null; members: Membership[] }>();
     for (const membership of seated) {
       const fractie = membership.fractie ?? "";
       const party = fractie ? input.partyOf(fractie) : null;
       const key = party?.key ?? fractie;
-      const group = groups.get(key) ?? { label: party?.abbrev ?? fractie, name: fractie, color: party?.color ?? null, members: [] };
+      const group = groups.get(key) ?? { key: party?.key ?? null, label: party?.abbrev ?? fractie, name: fractie, color: party?.color ?? null, members: [] };
       group.members.push(membership);
       groups.set(key, group);
     }
@@ -303,9 +329,31 @@ export function buildHierarchy(input: HierarchyInput): HierarchyBundle {
           short: group.label,
           color: group.color,
           seats: group.members.length,
+          ...(group.key !== null && coalitionKeys.has(group.key) ? { coalition: true as const } : {}),
           people,
         };
       });
+    const hubOf = (fractie: string) => {
+      const party = fractie ? input.partyOf(fractie) : null;
+      return `fractie:${treeId}:${party?.abbrev ?? fractie}`;
+    };
+    const plan =
+      (input.plans ?? []).filter((entry) => entry.organization === orgId).sort((x, y) => y.asOf.localeCompare(x.asOf))[0] ?? null;
+    const hall = plan
+      ? layoutHall({
+          plan,
+          src: src(plan.source),
+          members: seated.map((membership) => ({
+            person: membership.person,
+            fractie: membership.fractie ?? "",
+            name: personById.get(membership.person)?.name ?? membership.person,
+          })),
+          hubOf,
+          chair: chair?.person ?? null,
+          cabinet: bench,
+          seatOrder: input.seatOrder,
+        })
+      : null;
     trees.push({
       id: treeId,
       org: orgId,
@@ -313,6 +361,7 @@ export function buildHierarchy(input: HierarchyInput): HierarchyBundle {
       head: chair ? personRef(chair.person, chair.source, { role: positionById.get(chair.position)?.title }) : null,
       seats: seated.length,
       hubs,
+      ...(hall ? { hall } : {}),
     });
   }
 
