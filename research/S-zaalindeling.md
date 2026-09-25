@@ -65,3 +65,18 @@
 | gap:s-ek-zetelnummers | `seatNumber` voor alle 75 huidige leden van de Eerste Kamer (75 membership-records) | Plek per lid is gepubliceerd als cel op een interactieve plattegrond, maar zonder zetelnummer in HTML, printversie, script of biografiepagina. Een nummer uit de rij- en kolompositie afleiden zou een eigen nummering zijn. | https://www.eerstekamer.nl/wie_zit_waar |
 
 Hervatten: controleer bij een volgende run of tweedekamer.nl een zaalindeling per lid publiceert of het gegevensmagazijn een zetelproperty toevoegt (vergelijk `$metadata` met de versie van 19-09-2026), en of eerstekamer.nl een nummering aan de cellen van Wie zit waar toevoegt. Als het project zelf rij- en kolomposities wil opnemen, vraagt dat een eigen veld naast `seatNumber` en een ADR.
+
+## Aanvulling 25-09-2026: de plattegronden als data
+
+Op verzoek van de eigenaar (ADR 0018, amendement 3) zijn de plattegronden van beide Kamers opgenomen als eigen record, naast `seatNumber` zoals hierboven bij Hervatten voorgesteld. `seatNumber` blijft null: een rij en kolom zijn de plek in de tekening of opmaak van de bron, geen zetelnummer.
+
+| URL | Opgehaald | Status | Wat het bevatte |
+| --- | --- | --- | --- |
+| https://www.tweedekamer.nl/kamerleden-en-commissies/wie-zit-waar | 25-09-2026 | 200 | Link naar de pdf Zetelverdeling plenaire zaal van juni 2026 (ongewijzigd sinds 19-09-2026). |
+| https://www.tweedekamer.nl/sites/default/files/2026-06/zetelverdeling%20Juni%202026%20NL.pdf | 25-09-2026 | 200 | Vectortekening van 150 zetels in vijf vakken, elke zetel in de kleur van een fractie uit de legenda; legenda 1 t/m 7 voor zaalfuncties. |
+| https://www.eerstekamer.nl/wie_zit_waar | 25-09-2026 | 200 | 75 ledencellen met naam en fractie: linker bankjes 10 rijen (3, 3, dan acht keer 4 cellen, samen 38), rechter bankjes 10 rijen (3, 3, 4, 4, 4, 4, 4, 4, 3, 3, samen 36), 1 cel in het middenblok (de voorzitter). De regeringstafel ('regering chevron') staat midden boven, tegenover de voorzitter. |
+
+- Werkwijze: `research/S-zaalindeling-plans.py` leest de pdf en de pagina zoals gedownload. De pdf wordt op 400 dpi gerasterd en langs de witte lijnen in zetels gesplitst; elke zetel krijgt de fractie waarvan de legendakleur het dichtst bij zijn pixels ligt, en een zetel in twee kleuren (groen en rood) is PRO. Het script stopt als het aantal per fractie afwijkt van de legenda. Uitkomst: 150 zetels, per fractie gelijk aan de legenda en aan de open memberships in `data/memberships.json`.
+- Eerste Kamer: alle 75 namen matchen een open membership (negen na het weglaten van de komma voor een achtervoegsel als 'MA' of 'MSc'); de voorzitter in de middencel is dr. M.L. Vos, gelijk aan de open tenure als voorzitter.
+- Correctie op de telling van 19-09-2026 hierboven: de linker bankjes tellen 3, 3 en daarna acht keer 4 cellen (38), niet 3, 3, zeven keer 4 en 5; met 36 rechts en 1 in het midden is dat 75.
+- Tweede Kamer, zetel per lid: blijft een gap (gap:s-tk-zetelnummers). De factsheet toont per zetel een fractie, geen lid.

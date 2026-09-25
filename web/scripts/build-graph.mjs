@@ -460,6 +460,7 @@ const hierarchy = buildHierarchy({
   portraitOf: (id) => portraitOf(peopleById.get(id)),
   partyOf: (name) => partyByDataset(name),
   seatOrder,
+  plans: readArray("chamber-plans.json"),
 });
 const hierarchyJson = JSON.stringify(hierarchy);
 writeFileSync(HIERARCHY_FILE, hierarchyJson);
@@ -478,6 +479,8 @@ console.log(
 );
 console.log(
   `hierarchy.json: ${Buffer.byteLength(hierarchyJson, "utf8")} bytes, ` +
-    hierarchy.trees.map((tree) => `${tree.id} ${tree.hubs.length} hubs`).join(", ") +
+    hierarchy.trees
+      .map((tree) => `${tree.id} ${tree.hubs.length} hubs${tree.hall ? `, hall ${tree.hall.seats.length} seats (${tree.hall.basis})` : ""}`)
+      .join(", ") +
     `, sources ${hierarchy.sources.length}`,
 );

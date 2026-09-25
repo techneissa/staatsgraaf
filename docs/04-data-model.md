@@ -452,3 +452,27 @@ One kabinet: the parties that formed it, when it was sworn in, when it ended, an
 - `end: null` means sitting. A demissionair kabinet stays open with `demissionairSince` set; `end` is the day the successor is sworn in.
 - A party leaving the coalition mid-term closes the record and opens a new one (a rompkabinet) with `kind: "rompkabinet"`, so the chart shows the majority as it was on each date.
 - Values in the example are placeholders for shape only.
+
+## 23. ChamberPlan
+
+The floor plan of a chamber's plenary hall as the chamber publishes it: where every seat is, which fractie or member sits in it, and where the chair and the kabinet sit. Drives the hall in Connections (ADR 0018, amendment 3). File `data/chamber-plans.json`, schema `schema/v1/chamber-plan.schema.json`.
+
+```json
+{
+  "id": "plan:eerste-kamer-2026-09-25",
+  "organization": "org:eerste-kamer",
+  "asOf": "2026-09-25",
+  "coordinates": "grid",
+  "seatBasis": "person",
+  "seats": [{ "x": 0, "y": 0, "fractie": "SP", "person": "person:example", "block": "left" }],
+  "places": { "chair": { "x": 4, "y": 9 }, "cabinet": [{ "from": { "x": 3, "y": -1 }, "to": { "x": 5, "y": -1 } }] },
+  "notes": null,
+  "source": { "source": "src:ek-wie-zit-waar", "retrieved": "2026-09-25", "confidence": "high" }
+}
+```
+
+- `coordinates`: `pdf-points` are the centres of the drawn shapes in points of the source page (origin top left, y down); `grid` is the row and column of the source's markup. Neither is a seat number, so `memberships.seatNumber` stays null.
+- `seatBasis`: `person` when the source names the member in each seat, `fractie` when it only shows which fractie sits where. `fractie` uses the membership's fractie name.
+- `places.cabinet` is the kabinet's bench as centre lines. Who sits where on it is not published; the app draws it schematically.
+- `asOf` is the edition date of a published plan, or the retrieval date of a live page. The app draws the newest plan per chamber and falls back to fractie blocks when it no longer matches the sitting members; the validator checks only references, because memberships change daily.
+- Values in the example are placeholders for shape only.

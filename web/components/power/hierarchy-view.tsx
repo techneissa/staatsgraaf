@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useMemo, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
-import { ChevronDown, ChevronUp, X } from "lucide";
+import { Armchair, ChevronDown, ChevronUp, LayoutList, X } from "lucide";
 import { Morph } from "@/components/icons/morph";
 import { LucideIcon } from "@/components/icons/lucide-icon";
 import { PartyPill } from "@/components/party-pill";
@@ -37,12 +37,42 @@ import {
   roleText,
   shortRole,
 } from "./hierarchy-parts";
+import { ChamberHallView } from "./chamber-hall";
 
 export const TREE_KEYS: Record<HierarchyTreeId, string> = {
   kabinet: "treeKabinet",
   "tweede-kamer": "treeTweedeKamer",
   "eerste-kamer": "treeEersteKamer",
 };
+
+/** Where the reader's choice between the hall and the overview is remembered. */
+const HALL_KEY = "staatsgraaf.chamber-view";
+
+/**
+ * The chamber form: the hall where it fits, the overview (ring or cards)
+ * where it does not, unless the reader chose; the choice is remembered in
+ * the browser and applies to both Kamers.
+ */
+function useHallChoice() {
+  const [choice, setChoice] = useState<"hall" | "list" | null>(null);
+  useEffect(() => {
+    try {
+      const stored = window.localStorage.getItem(HALL_KEY);
+      if (stored === "hall" || stored === "list") setChoice(stored);
+    } catch {
+      // Storage can be blocked; the default applies.
+    }
+  }, []);
+  const choose = (value: "hall" | "list") => {
+    setChoice(value);
+    try {
+      window.localStorage.setItem(HALL_KEY, value);
+    } catch {
+      // Remembering is a convenience only.
+    }
+  };
+  return [choice, choose] as const;
+}
 
 /** People placed around a hub before the rest wait behind its "+n". */
 const AROUND: Record<HierarchyHub["kind"], number> = { ministry: 4, fractie: 1 };
@@ -66,6 +96,7 @@ export function HierarchyView({
   onExpand,
   highlighted,
   onPick,
+  onTree,
 }: {
   bundle: HierarchyBundle;
   tree: HierarchyTreeId;
@@ -76,8 +107,11 @@ export function HierarchyView({
   onExpand: (hub: string | null) => void;
   highlighted: ReadonlySet<string>;
   onPick: (id: string) => void;
+  /** Switch to another structure (the hall's kabinet bench opens the kabinet). */
+  onTree?: (tree: HierarchyTreeId) => void;
 }) {
   const t = useT("power");
+  const [hallChoice, chooseHall] = useHallChoice();
   const raw = bundle.trees.find((entry) => entry.id === treeId) ?? bundle.trees[0];
   const tree = useMemo<HierarchyTree | undefined>(
     () => (raw ? { ...raw, hubs: raw.id === "kabinet" ? orderByCluster(raw.hubs) : interleaveBySize(raw.hubs) } : raw),
@@ -88,6 +122,9 @@ export function HierarchyView({
   if (!tree) return null;
   const chartHeight = Math.max(0, height - barHeight - legendHeight);
   const chart = orgChartFits(width, chartHeight);
+  const hasHall = Boolean(tree.hall);
+  const hall = hasHall && (hallChoice ?? (chart ? "hall" : "list")) === "hall";
+  const hallHub = hall && expanded ? tree.hubs.find((hub) => hub.id === expanded) ?? null : null;
   const coalition = tree.parties ?? [];
   const clusters = tree.id === "kabinet" ? MINISTRY_CLUSTERS.filter((cluster) => tree.hubs.some((hub) => clusterOf(hub.id).id === cluster.id)) : [];
 
@@ -111,9 +148,59 @@ export function HierarchyView({
             </>
           )}
         </p>
+        {hasHall ? (
+          <>
+            <span className="flex-1" />
+            <Segmented
+              label={t("hallLabel")}
+              value={hall ? "hall" : "list"}
+              options={[
+                { value: "hall", label: t("hallShow"), icon: <LucideIcon icon={Armchair} size={14} /> },
+                { value: "list", label: t("hallList"), icon: <LucideIcon icon={LayoutList} size={14} /> },
+              ]}
+              onChange={(value) => {
+                onExpand(null);
+                chooseHall(value as "hall" | "list");
+                // Where the hall does not fit (a phone's canvas band), choosing it opens the canvas full screen.
+                if (value === "hall" && !chart) window.dispatchEvent(new Event("staatsgraaf:canvas-expand"));
+              }}
+            />
+          </>
+        ) : null}
       </div>
       <div className="relative min-h-0 flex-1">
-        {chart ? (
+        {hall ? (
+          <>
+            <ChamberHallView
+              key={tree.id}
+              bundle={bundle}
+              tree={tree}
+              width={width}
+              height={chartHeight}
+              locale={locale}
+              highlighted={highlighted}
+              onPick={onPick}
+              onExpand={onExpand}
+              onShowKabinet={() => onTree?.("kabinet")}
+            />
+            {hallHub ? (
+              <HubCard
+                bundle={bundle}
+                hub={hallHub}
+                locale={locale}
+                highlighted={highlighted}
+                onPick={onPick}
+                onClose={() => onExpand(null)}
+                style={{
+                  left: Math.max(8, width / 2 - Math.min(170, width / 2 - 8)),
+                  width: Math.min(340, width - 16),
+                  top: 8,
+                  maxHeight: Math.min(460, chartHeight - 16),
+                }}
+              />
+            ) : null}
+          </>
+        ) : chart ? (
           <OrgChart
             key={tree.id}
             bundle={bundle}
@@ -130,8 +217,8 @@ export function HierarchyView({
           <Stacked key={tree.id} bundle={bundle} tree={tree.id === "kabinet" || !raw ? tree : raw} locale={locale} highlighted={highlighted} onPick={onPick} initial={expanded} />
         )}
       </div>
-      <div ref={legendRef} className={chart ? "shrink-0" : "hidden"}>
-        {chart && tree.id === "kabinet" ? (
+      <div ref={legendRef} className={chart && !hall ? "shrink-0" : "hidden"}>
+        {hall ? null : chart && tree.id === "kabinet" ? (
           <ul aria-label={t("clusterLegend")} className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 px-3 pb-1.5 pt-1 text-xs text-ink-muted">
             {clusters.map((cluster) => (
               <li key={cluster.id} className="flex items-center gap-1.5">

@@ -1,0 +1,1362 @@
+[
+  {
+    "id": "plan:eerste-kamer-2026-09-25",
+    "organization": "org:eerste-kamer",
+    "asOf": "2026-09-25",
+    "coordinates": "grid",
+    "seatBasis": "person",
+    "seats": [
+      {
+        "x": 0,
+        "y": 0,
+        "fractie": "SP",
+        "person": "person:r-van-aelst-den-uijl-ma",
+        "block": "left"
+      },
+      {
+        "x": 1,
+        "y": 0,
+        "fractie": "SP",
+        "person": "person:prof-dr-e-b-van-apeldoorn",
+        "block": "left"
+      },
+      {
+        "x": 2,
+        "y": 0,
+        "fractie": "SP",
+        "person": "person:mr-r-a-janssen",
+        "block": "left"
+      },
+      {
+        "x": 0,
+        "y": 1,
+        "fractie": "VVD",
+        "person": "person:s-t-musa",
+        "block": "left"
+      },
+      {
+        "x": 1,
+        "y": 1,
+        "fractie": "PvdD",
+        "person": "person:drs-n-k-koffeman",
+        "block": "left"
+      },
+      {
+        "x": 2,
+        "y": 1,
+        "fractie": "PvdD",
+        "person": "person:prof-mr-p-nicolai",
+        "block": "left"
+      },
+      {
+        "x": 0,
+        "y": 2,
+        "fractie": "VVD",
+        "person": "person:mr-m-n-j-van-der-linden",
+        "block": "left"
+      },
+      {
+        "x": 1,
+        "y": 2,
+        "fractie": "VVD",
+        "person": "person:drs-k-petersen",
+        "block": "left"
+      },
+      {
+        "x": 2,
+        "y": 2,
+        "fractie": "VVD",
+        "person": "person:drs-k-c-j-straus",
+        "block": "left"
+      },
+      {
+        "x": 3,
+        "y": 2,
+        "fractie": "VVD",
+        "person": "person:drs-h-j-meijer",
+        "block": "left"
+      },
+      {
+        "x": 0,
+        "y": 3,
+        "fractie": "VVD",
+        "person": "person:dr-m-j-kaljouw",
+        "block": "left"
+      },
+      {
+        "x": 1,
+        "y": 3,
+        "fractie": "VVD",
+        "person": "person:mr-h-w-vogels",
+        "block": "left"
+      },
+      {
+        "x": 2,
+        "y": 3,
+        "fractie": "VVD",
+        "person": "person:w-t-van-ballekom",
+        "block": "left"
+      },
+      {
+        "x": 3,
+        "y": 3,
+        "fractie": "VVD",
+        "person": "person:drs-t-klip-martin",
+        "block": "left"
+      },
+      {
+        "x": 0,
+        "y": 4,
+        "fractie": "PVV",
+        "person": "person:a-j-m-van-kesteren",
+        "block": "left"
+      },
+      {
+        "x": 1,
+        "y": 4,
+        "fractie": "PVV",
+        "person": "person:mr-i-a-bezaan",
+        "block": "left"
+      },
+      {
+        "x": 2,
+        "y": 4,
+        "fractie": "PVV",
+        "person": "person:ir-drs-g-a-van-strien",
+        "block": "left"
+      },
+      {
+        "x": 3,
+        "y": 4,
+        "fractie": "PVV",
+        "person": "person:a-w-j-a-van-hattem",
+        "block": "left"
+      },
+      {
+        "x": 0,
+        "y": 5,
+        "fractie": "BBB",
+        "person": "person:w-c-p-h-jaspers",
+        "block": "left"
+      },
+      {
+        "x": 1,
+        "y": 5,
+        "fractie": "BBB",
+        "person": "person:a-p-m-van-wijk",
+        "block": "left"
+      },
+      {
+        "x": 2,
+        "y": 5,
+        "fractie": "JA21",
+        "person": "person:dr-r-baumgarten",
+        "block": "left"
+      },
+      {
+        "x": 3,
+        "y": 5,
+        "fractie": "JA21",
+        "person": "person:mr-k-van-bijsterveld",
+        "block": "left"
+      },
+      {
+        "x": 0,
+        "y": 6,
+        "fractie": "BBB",
+        "person": "person:em-prof-dr-f-van-knapen",
+        "block": "left"
+      },
+      {
+        "x": 1,
+        "y": 6,
+        "fractie": "BBB",
+        "person": "person:r-lievense",
+        "block": "left"
+      },
+      {
+        "x": 2,
+        "y": 6,
+        "fractie": "BBB",
+        "person": "person:drs-a-van-langen-visbeek",
+        "block": "left"
+      },
+      {
+        "x": 3,
+        "y": 6,
+        "fractie": "BBB",
+        "person": "person:i-m-lagas-mdr",
+        "block": "left"
+      },
+      {
+        "x": 0,
+        "y": 7,
+        "fractie": "BBB",
+        "person": "person:mr-h-a-marquart-scholtz",
+        "block": "left"
+      },
+      {
+        "x": 1,
+        "y": 7,
+        "fractie": "BBB",
+        "person": "person:ing-m-j-l-goossen",
+        "block": "left"
+      },
+      {
+        "x": 2,
+        "y": 7,
+        "fractie": "BBB",
+        "person": "person:drs-ing-b-kroon",
+        "block": "left"
+      },
+      {
+        "x": 3,
+        "y": 7,
+        "fractie": "BBB",
+        "person": "person:drs-ing-t-panman",
+        "block": "left"
+      },
+      {
+        "x": 0,
+        "y": 8,
+        "fractie": "BBB",
+        "person": "person:g-j-oplaat",
+        "block": "left"
+      },
+      {
+        "x": 1,
+        "y": 8,
+        "fractie": "Fractie-Van de Sanden",
+        "person": "person:mr-c-a-h-van-de-sanden-ll-m",
+        "block": "left"
+      },
+      {
+        "x": 2,
+        "y": 8,
+        "fractie": "Fractie-Visseren-Hamakers",
+        "person": "person:prof-dr-i-j-visseren-hamakers",
+        "block": "left"
+      },
+      {
+        "x": 3,
+        "y": 8,
+        "fractie": "50PLUS",
+        "person": "person:drs-m-j-van-rooijen",
+        "block": "left"
+      },
+      {
+        "x": 0,
+        "y": 9,
+        "fractie": "Fractie-Van Gasteren",
+        "person": "person:mr-r-m-j-van-gasteren-llm",
+        "block": "left"
+      },
+      {
+        "x": 1,
+        "y": 9,
+        "fractie": "Fractie-Beukering",
+        "person": "person:bgen-b-d-drs-a-j-a-beukering",
+        "block": "left"
+      },
+      {
+        "x": 2,
+        "y": 9,
+        "fractie": "Fractie-Walenkamp",
+        "person": "person:drs-p-v-a-walenkamp-ma",
+        "block": "left"
+      },
+      {
+        "x": 3,
+        "y": 9,
+        "fractie": "OPNL",
+        "person": "person:drs-a-sj-van-der-goot",
+        "block": "left"
+      },
+      {
+        "x": 6,
+        "y": 0,
+        "fractie": "FVD",
+        "person": "person:j-dessing",
+        "block": "right"
+      },
+      {
+        "x": 7,
+        "y": 0,
+        "fractie": "FVD",
+        "person": "person:j-c-m-van-den-oetelaar",
+        "block": "right"
+      },
+      {
+        "x": 8,
+        "y": 0,
+        "fractie": "FVD",
+        "person": "person:drs-e-kemperman-mba",
+        "block": "right"
+      },
+      {
+        "x": 6,
+        "y": 1,
+        "fractie": "D66",
+        "person": "person:a-kanis",
+        "block": "right"
+      },
+      {
+        "x": 7,
+        "y": 1,
+        "fractie": "D66",
+        "person": "person:ir-ing-c-p-m-moonen",
+        "block": "right"
+      },
+      {
+        "x": 8,
+        "y": 1,
+        "fractie": "D66",
+        "person": "person:drs-a-griffioen",
+        "block": "right"
+      },
+      {
+        "x": 5,
+        "y": 2,
+        "fractie": "D66",
+        "person": "person:drs-p-h-van-meenen",
+        "block": "right"
+      },
+      {
+        "x": 6,
+        "y": 2,
+        "fractie": "D66",
+        "person": "person:m-karaaslan-mmc",
+        "block": "right"
+      },
+      {
+        "x": 7,
+        "y": 2,
+        "fractie": "D66",
+        "person": "person:mr-b-o-dittrich",
+        "block": "right"
+      },
+      {
+        "x": 8,
+        "y": 2,
+        "fractie": "D66",
+        "person": "person:mr-r-s-croll",
+        "block": "right"
+      },
+      {
+        "x": 5,
+        "y": 3,
+        "fractie": "SGP",
+        "person": "person:p-schalk",
+        "block": "right"
+      },
+      {
+        "x": 6,
+        "y": 3,
+        "fractie": "SGP",
+        "person": "person:prof-dr-m-j-de-vries",
+        "block": "right"
+      },
+      {
+        "x": 7,
+        "y": 3,
+        "fractie": "CDA",
+        "person": "person:mr-drs-h-doornhof",
+        "block": "right"
+      },
+      {
+        "x": 8,
+        "y": 3,
+        "fractie": "CDA",
+        "person": "person:dr-mr-j-bakker-klein",
+        "block": "right"
+      },
+      {
+        "x": 5,
+        "y": 4,
+        "fractie": "CDA",
+        "person": "person:drs-t-j-f-m-bovens",
+        "block": "right"
+      },
+      {
+        "x": 6,
+        "y": 4,
+        "fractie": "CDA",
+        "person": "person:dr-m-m-van-toorenburg",
+        "block": "right"
+      },
+      {
+        "x": 7,
+        "y": 4,
+        "fractie": "CDA",
+        "person": "person:drs-th-w-rietkerk",
+        "block": "right"
+      },
+      {
+        "x": 8,
+        "y": 4,
+        "fractie": "CDA",
+        "person": "person:mr-drs-j-p-m-steenkamp",
+        "block": "right"
+      },
+      {
+        "x": 5,
+        "y": 5,
+        "fractie": "ChristenUnie",
+        "person": "person:j-c-huizinga-heringa",
+        "block": "right"
+      },
+      {
+        "x": 6,
+        "y": 5,
+        "fractie": "ChristenUnie",
+        "person": "person:mr-h-j-j-talsma",
+        "block": "right"
+      },
+      {
+        "x": 7,
+        "y": 5,
+        "fractie": "ChristenUnie",
+        "person": "person:drs-f-w-j-holterhues",
+        "block": "right"
+      },
+      {
+        "x": 8,
+        "y": 5,
+        "fractie": "PRO",
+        "person": "person:dr-d-m-g-roovers",
+        "block": "right"
+      },
+      {
+        "x": 5,
+        "y": 6,
+        "fractie": "PRO",
+        "person": "person:p-rosenmoller",
+        "block": "right"
+      },
+      {
+        "x": 6,
+        "y": 6,
+        "fractie": "PRO",
+        "person": "person:mr-j-recourt",
+        "block": "right"
+      },
+      {
+        "x": 7,
+        "y": 6,
+        "fractie": "PRO",
+        "person": "person:drs-h-a-m-janssen-van-helvoort",
+        "block": "right"
+      },
+      {
+        "x": 8,
+        "y": 6,
+        "fractie": "PRO",
+        "person": "person:drs-f-j-m-crone",
+        "block": "right"
+      },
+      {
+        "x": 5,
+        "y": 7,
+        "fractie": "PRO",
+        "person": "person:drs-s-m-kluit",
+        "block": "right"
+      },
+      {
+        "x": 6,
+        "y": 7,
+        "fractie": "PRO",
+        "person": "person:f-karimi",
+        "block": "right"
+      },
+      {
+        "x": 7,
+        "y": 7,
+        "fractie": "PRO",
+        "person": "person:mr-g-v-m-veldhoen",
+        "block": "right"
+      },
+      {
+        "x": 8,
+        "y": 7,
+        "fractie": "PRO",
+        "person": "person:r-o-martens-msc",
+        "block": "right"
+      },
+      {
+        "x": 6,
+        "y": 8,
+        "fractie": "Volt",
+        "person": "person:g-k-perin-gopie-msc",
+        "block": "right"
+      },
+      {
+        "x": 7,
+        "y": 8,
+        "fractie": "Volt",
+        "person": "person:e-w-hartog",
+        "block": "right"
+      },
+      {
+        "x": 8,
+        "y": 8,
+        "fractie": "PRO",
+        "person": "person:dr-n-c-thijssen",
+        "block": "right"
+      },
+      {
+        "x": 6,
+        "y": 9,
+        "fractie": "PRO",
+        "person": "person:drs-r-van-gurp",
+        "block": "right"
+      },
+      {
+        "x": 7,
+        "y": 9,
+        "fractie": "PRO",
+        "person": "person:drs-m-c-t-fiers",
+        "block": "right"
+      },
+      {
+        "x": 8,
+        "y": 9,
+        "fractie": "PRO",
+        "person": "person:mr-dr-a-ramsodit",
+        "block": "right"
+      },
+      {
+        "x": 4,
+        "y": 9,
+        "fractie": "PRO",
+        "person": "person:dr-m-l-vos",
+        "block": "chair",
+        "chair": true
+      }
+    ],
+    "places": {
+      "chair": {
+        "x": 4,
+        "y": 9
+      },
+      "cabinet": [
+        {
+          "from": {
+            "x": 3,
+            "y": -1
+          },
+          "to": {
+            "x": 5,
+            "y": -1
+          }
+        }
+      ]
+    },
+    "notes": "Rij en kolom van elke ledencel in de linker en rechter bankjes van Wie zit waar (rij 0 aan de kant van de regeringstafel), de voorzitter in de middenkolom. Rij en kolom zijn de plek in de opmaak van de bron, geen zetelnummer. De regeringstafel staat tegenover de voorzitter, midden boven in de tekening.",
+    "source": {
+      "source": "src:ek-wie-zit-waar",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "plan:tweede-kamer-2026-06",
+    "organization": "org:tweede-kamer",
+    "asOf": "2026-06-11",
+    "coordinates": "pdf-points",
+    "seatBasis": "fractie",
+    "seats": [
+      {
+        "x": 404.8,
+        "y": 286.9,
+        "fractie": "PRO"
+      },
+      {
+        "x": 384.2,
+        "y": 287.3,
+        "fractie": "PRO"
+      },
+      {
+        "x": 445.4,
+        "y": 287.4,
+        "fractie": "SP"
+      },
+      {
+        "x": 364.2,
+        "y": 287.8,
+        "fractie": "PRO"
+      },
+      {
+        "x": 425.2,
+        "y": 287.9,
+        "fractie": "PRO"
+      },
+      {
+        "x": 113.5,
+        "y": 288.1,
+        "fractie": "PVV"
+      },
+      {
+        "x": 134.1,
+        "y": 288.3,
+        "fractie": "PVV"
+      },
+      {
+        "x": 154.1,
+        "y": 288.7,
+        "fractie": "PVV"
+      },
+      {
+        "x": 344.8,
+        "y": 288.9,
+        "fractie": "PRO"
+      },
+      {
+        "x": 73,
+        "y": 289,
+        "fractie": "PVV"
+      },
+      {
+        "x": 93.1,
+        "y": 289.3,
+        "fractie": "PVV"
+      },
+      {
+        "x": 173.6,
+        "y": 289.6,
+        "fractie": "PVV"
+      },
+      {
+        "x": 403.6,
+        "y": 299.4,
+        "fractie": "PRO"
+      },
+      {
+        "x": 382.6,
+        "y": 300.2,
+        "fractie": "PRO"
+      },
+      {
+        "x": 114.9,
+        "y": 300.7,
+        "fractie": "PVV"
+      },
+      {
+        "x": 135.9,
+        "y": 301.3,
+        "fractie": "PVV"
+      },
+      {
+        "x": 444.1,
+        "y": 301.4,
+        "fractie": "SP"
+      },
+      {
+        "x": 361.9,
+        "y": 301.6,
+        "fractie": "PRO"
+      },
+      {
+        "x": 156.6,
+        "y": 302.4,
+        "fractie": "PVV"
+      },
+      {
+        "x": 423.8,
+        "y": 302.6,
+        "fractie": "PRO"
+      },
+      {
+        "x": 74.4,
+        "y": 303,
+        "fractie": "PVV"
+      },
+      {
+        "x": 94.7,
+        "y": 304,
+        "fractie": "PVV"
+      },
+      {
+        "x": 340.8,
+        "y": 304.1,
+        "fractie": "PRO"
+      },
+      {
+        "x": 177.7,
+        "y": 304.8,
+        "fractie": "PVV"
+      },
+      {
+        "x": 401,
+        "y": 311.9,
+        "fractie": "PRO"
+      },
+      {
+        "x": 379.3,
+        "y": 313,
+        "fractie": "PRO"
+      },
+      {
+        "x": 117.5,
+        "y": 313.1,
+        "fractie": "PVV"
+      },
+      {
+        "x": 139.3,
+        "y": 314,
+        "fractie": "FVD"
+      },
+      {
+        "x": 357.2,
+        "y": 314.6,
+        "fractie": "PRO"
+      },
+      {
+        "x": 441.6,
+        "y": 315.3,
+        "fractie": "SP"
+      },
+      {
+        "x": 161.3,
+        "y": 315.5,
+        "fractie": "PVV"
+      },
+      {
+        "x": 77,
+        "y": 316.8,
+        "fractie": "PVV"
+      },
+      {
+        "x": 420.8,
+        "y": 317.1,
+        "fractie": "PRO"
+      },
+      {
+        "x": 97.8,
+        "y": 318.5,
+        "fractie": "FVD"
+      },
+      {
+        "x": 397.2,
+        "y": 324,
+        "fractie": "PRO"
+      },
+      {
+        "x": 374.4,
+        "y": 325,
+        "fractie": "PRO"
+      },
+      {
+        "x": 121.5,
+        "y": 325.1,
+        "fractie": "FVD"
+      },
+      {
+        "x": 144.2,
+        "y": 325.9,
+        "fractie": "FVD"
+      },
+      {
+        "x": 438,
+        "y": 328.9,
+        "fractie": "PRO"
+      },
+      {
+        "x": 325.9,
+        "y": 329.4,
+        "fractie": "D66"
+      },
+      {
+        "x": 192.8,
+        "y": 330,
+        "fractie": "JA21"
+      },
+      {
+        "x": 80.7,
+        "y": 330.4,
+        "fractie": "PVV"
+      },
+      {
+        "x": 416.3,
+        "y": 331.2,
+        "fractie": "PRO"
+      },
+      {
+        "x": 102.4,
+        "y": 332.6,
+        "fractie": "FVD"
+      },
+      {
+        "x": 392.3,
+        "y": 335.3,
+        "fractie": "PRO"
+      },
+      {
+        "x": 126.5,
+        "y": 336.5,
+        "fractie": "FVD"
+      },
+      {
+        "x": 343.3,
+        "y": 338.2,
+        "fractie": "D66"
+      },
+      {
+        "x": 175.5,
+        "y": 338.9,
+        "fractie": "JA21"
+      },
+      {
+        "x": 314.9,
+        "y": 340.5,
+        "fractie": "D66"
+      },
+      {
+        "x": 203.9,
+        "y": 341,
+        "fractie": "JA21"
+      },
+      {
+        "x": 433.3,
+        "y": 342.2,
+        "fractie": "50PLUS"
+      },
+      {
+        "x": 85.5,
+        "y": 343.7,
+        "fractie": "PVV"
+      },
+      {
+        "x": 410.5,
+        "y": 344.5,
+        "fractie": "PRO"
+      },
+      {
+        "x": 108.4,
+        "y": 345.8,
+        "fractie": "FVD"
+      },
+      {
+        "x": 360.9,
+        "y": 347.7,
+        "fractie": "D66"
+      },
+      {
+        "x": 158,
+        "y": 348.6,
+        "fractie": "JA21"
+      },
+      {
+        "x": 334.4,
+        "y": 348.9,
+        "fractie": "D66"
+      },
+      {
+        "x": 184.5,
+        "y": 349.5,
+        "fractie": "JA21"
+      },
+      {
+        "x": 427.7,
+        "y": 354.8,
+        "fractie": "50PLUS"
+      },
+      {
+        "x": 289.3,
+        "y": 355.3,
+        "fractie": "CDA"
+      },
+      {
+        "x": 229.8,
+        "y": 355.6,
+        "fractie": "VVD"
+      },
+      {
+        "x": 91.2,
+        "y": 356.2,
+        "fractie": "PVV"
+      },
+      {
+        "x": 378.9,
+        "y": 357.7,
+        "fractie": "D66"
+      },
+      {
+        "x": 323.9,
+        "y": 357.9,
+        "fractie": "D66"
+      },
+      {
+        "x": 353,
+        "y": 358.1,
+        "fractie": "D66"
+      },
+      {
+        "x": 195.1,
+        "y": 358.4,
+        "fractie": "JA21"
+      },
+      {
+        "x": 140.1,
+        "y": 358.7,
+        "fractie": "PVV"
+      },
+      {
+        "x": 165.9,
+        "y": 358.9,
+        "fractie": "JA21"
+      },
+      {
+        "x": 274.1,
+        "y": 359.4,
+        "fractie": "CDA"
+      },
+      {
+        "x": 245,
+        "y": 359.5,
+        "fractie": "VVD"
+      },
+      {
+        "x": 343.8,
+        "y": 367.5,
+        "fractie": "D66"
+      },
+      {
+        "x": 371.6,
+        "y": 367.9,
+        "fractie": "D66"
+      },
+      {
+        "x": 175.3,
+        "y": 368.2,
+        "fractie": "JA21"
+      },
+      {
+        "x": 396.1,
+        "y": 368.8,
+        "fractie": "Volt"
+      },
+      {
+        "x": 147.5,
+        "y": 368.9,
+        "fractie": "VVD"
+      },
+      {
+        "x": 123,
+        "y": 369.9,
+        "fractie": "Groep Markuszower"
+      },
+      {
+        "x": 299.9,
+        "y": 371.6,
+        "fractie": "CDA"
+      },
+      {
+        "x": 219.3,
+        "y": 371.9,
+        "fractie": "VVD"
+      },
+      {
+        "x": 333.6,
+        "y": 375.4,
+        "fractie": "D66"
+      },
+      {
+        "x": 185.5,
+        "y": 376.1,
+        "fractie": "JA21"
+      },
+      {
+        "x": 286.8,
+        "y": 376.4,
+        "fractie": "CDA"
+      },
+      {
+        "x": 232.4,
+        "y": 376.7,
+        "fractie": "VVD"
+      },
+      {
+        "x": 363.2,
+        "y": 377.4,
+        "fractie": "D66"
+      },
+      {
+        "x": 156,
+        "y": 378.3,
+        "fractie": "BBB"
+      },
+      {
+        "x": 413.8,
+        "y": 378.4,
+        "fractie": "PvdD"
+      },
+      {
+        "x": 273.2,
+        "y": 378.9,
+        "fractie": "CDA"
+      },
+      {
+        "x": 246.1,
+        "y": 379,
+        "fractie": "VVD"
+      },
+      {
+        "x": 105.3,
+        "y": 379.7,
+        "fractie": "Groep Markuszower"
+      },
+      {
+        "x": 387.5,
+        "y": 380.7,
+        "fractie": "D66"
+      },
+      {
+        "x": 131.5,
+        "y": 382,
+        "fractie": "Groep Markuszower"
+      },
+      {
+        "x": 353.8,
+        "y": 386,
+        "fractie": "D66"
+      },
+      {
+        "x": 165.4,
+        "y": 386.8,
+        "fractie": "BBB"
+      },
+      {
+        "x": 310.3,
+        "y": 388.7,
+        "fractie": "CDA"
+      },
+      {
+        "x": 209,
+        "y": 389.1,
+        "fractie": "VVD"
+      },
+      {
+        "x": 405.6,
+        "y": 389.9,
+        "fractie": "PvdD"
+      },
+      {
+        "x": 113.5,
+        "y": 391.2,
+        "fractie": "Groep Markuszower"
+      },
+      {
+        "x": 377.6,
+        "y": 391.8,
+        "fractie": "D66"
+      },
+      {
+        "x": 141.5,
+        "y": 393.2,
+        "fractie": "VVD"
+      },
+      {
+        "x": 343.8,
+        "y": 393.3,
+        "fractie": "D66"
+      },
+      {
+        "x": 298.3,
+        "y": 393.7,
+        "fractie": "CDA"
+      },
+      {
+        "x": 175.4,
+        "y": 394,
+        "fractie": "BBB"
+      },
+      {
+        "x": 221.1,
+        "y": 394.1,
+        "fractie": "VVD"
+      },
+      {
+        "x": 285.6,
+        "y": 397.2,
+        "fractie": "CDA"
+      },
+      {
+        "x": 233.8,
+        "y": 397.4,
+        "fractie": "VVD"
+      },
+      {
+        "x": 272.7,
+        "y": 399,
+        "fractie": "CDA"
+      },
+      {
+        "x": 246.7,
+        "y": 399.1,
+        "fractie": "VVD"
+      },
+      {
+        "x": 396.5,
+        "y": 400.7,
+        "fractie": "PvdD"
+      },
+      {
+        "x": 366.7,
+        "y": 401.8,
+        "fractie": "D66"
+      },
+      {
+        "x": 122.7,
+        "y": 401.9,
+        "fractie": "Groep Markuszower"
+      },
+      {
+        "x": 152.7,
+        "y": 403.1,
+        "fractie": "VVD"
+      },
+      {
+        "x": 320.8,
+        "y": 406.4,
+        "fractie": "DENK"
+      },
+      {
+        "x": 198.6,
+        "y": 406.9,
+        "fractie": "VVD"
+      },
+      {
+        "x": 355,
+        "y": 410.4,
+        "fractie": "D66"
+      },
+      {
+        "x": 386.7,
+        "y": 410.7,
+        "fractie": "D66"
+      },
+      {
+        "x": 309.3,
+        "y": 411.5,
+        "fractie": "DENK"
+      },
+      {
+        "x": 164.4,
+        "y": 411.6,
+        "fractie": "VVD"
+      },
+      {
+        "x": 132.6,
+        "y": 411.9,
+        "fractie": "Groep Markuszower"
+      },
+      {
+        "x": 210.1,
+        "y": 412,
+        "fractie": "VVD"
+      },
+      {
+        "x": 297.4,
+        "y": 415.5,
+        "fractie": "DENK"
+      },
+      {
+        "x": 222.2,
+        "y": 415.9,
+        "fractie": "SGP"
+      },
+      {
+        "x": 284.9,
+        "y": 418.2,
+        "fractie": "CDA"
+      },
+      {
+        "x": 234.6,
+        "y": 418.4,
+        "fractie": "SGP"
+      },
+      {
+        "x": 272.6,
+        "y": 419.6,
+        "fractie": "CDA"
+      },
+      {
+        "x": 247,
+        "y": 419.7,
+        "fractie": "SGP"
+      },
+      {
+        "x": 376,
+        "y": 419.8,
+        "fractie": "D66"
+      },
+      {
+        "x": 143.4,
+        "y": 421,
+        "fractie": "Groep Markuszower"
+      },
+      {
+        "x": 330.1,
+        "y": 424.6,
+        "fractie": "D66"
+      },
+      {
+        "x": 189.4,
+        "y": 425.2,
+        "fractie": "VVD"
+      },
+      {
+        "x": 364.8,
+        "y": 427.9,
+        "fractie": "D66"
+      },
+      {
+        "x": 154.6,
+        "y": 429,
+        "fractie": "Lid Keijzer"
+      },
+      {
+        "x": 316.6,
+        "y": 430.6,
+        "fractie": "D66"
+      },
+      {
+        "x": 202.9,
+        "y": 431.1,
+        "fractie": "VVD"
+      },
+      {
+        "x": 302.5,
+        "y": 435.3,
+        "fractie": "CDA"
+      },
+      {
+        "x": 217.1,
+        "y": 435.6,
+        "fractie": "ChristenUnie"
+      },
+      {
+        "x": 288,
+        "y": 438.4,
+        "fractie": "CDA"
+      },
+      {
+        "x": 231.6,
+        "y": 438.7,
+        "fractie": "ChristenUnie"
+      },
+      {
+        "x": 273.6,
+        "y": 440,
+        "fractie": "CDA"
+      },
+      {
+        "x": 246.1,
+        "y": 440.1,
+        "fractie": "ChristenUnie"
+      },
+      {
+        "x": 340.5,
+        "y": 441.8,
+        "fractie": "D66"
+      },
+      {
+        "x": 179.1,
+        "y": 442.5,
+        "fractie": "VVD"
+      },
+      {
+        "x": 327.8,
+        "y": 447.6,
+        "fractie": "D66"
+      },
+      {
+        "x": 192,
+        "y": 448.2,
+        "fractie": "VVD"
+      },
+      {
+        "x": 314.5,
+        "y": 452.4,
+        "fractie": "D66"
+      },
+      {
+        "x": 205.3,
+        "y": 452.9,
+        "fractie": "VVD"
+      },
+      {
+        "x": 300.9,
+        "y": 456.1,
+        "fractie": "CDA"
+      },
+      {
+        "x": 218.9,
+        "y": 456.4,
+        "fractie": "VVD"
+      },
+      {
+        "x": 287,
+        "y": 458.6,
+        "fractie": "CDA"
+      },
+      {
+        "x": 232.8,
+        "y": 458.9,
+        "fractie": "VVD"
+      },
+      {
+        "x": 273.3,
+        "y": 460,
+        "fractie": "CDA"
+      },
+      {
+        "x": 246.5,
+        "y": 460.2,
+        "fractie": "CDA"
+      }
+    ],
+    "places": {
+      "chair": {
+        "x": 205.4,
+        "y": 231.3
+      },
+      "clerk": {
+        "x": 193,
+        "y": 244
+      },
+      "rostrum": {
+        "x": 240.5,
+        "y": 199.5
+      },
+      "cabinet": [
+        {
+          "from": {
+            "x": 284.6,
+            "y": 198.5
+          },
+          "to": {
+            "x": 328.4,
+            "y": 256.5
+          }
+        },
+        {
+          "from": {
+            "x": 315.9,
+            "y": 186.3
+          },
+          "to": {
+            "x": 371.2,
+            "y": 257.8
+          }
+        }
+      ]
+    },
+    "notes": "Middelpunt van elke zetel in de factsheet Zetelverdeling plenaire zaal, juni 2026 (pdf aangemaakt 2026-06-11), in punten van de pdf-pagina. De fractie per zetel is de legendakleur van de zetel; het aantal per fractie is gelijk aan de legenda. De factsheet noemt geen leden per zetel. Voorzitter (1), griffier (2) en spreekgestoelte (5) zijn de plekken van hun nummer; vak-K (3) is de middellijn van de twee grijze banken.",
+    "source": {
+      "source": "src:tk-zetelverdeling-plenaire-zaal-2026-06",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    }
+  }
+]

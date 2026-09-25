@@ -23,6 +23,7 @@ The frozen data contract, derived from `docs/04-data-model.md` and the vocabular
 | `media.schema.json` | `data/media.json` | array |
 | `election.schema.json` | `data/elections.json` | array |
 | `coalition.schema.json` | `data/coalitions.json` | array |
+| `chamber-plan.schema.json` | `data/chamber-plans.json` | array, one floor plan per chamber edition |
 | `activity.schema.json` | `data/activities.json` (optional) | array, one record per person with its items |
 
 Every `data/*.json` file is a plain JSON array. The published contract under `/data/v1/...` and `/api/v1/...` is generated from these arrays at build time.

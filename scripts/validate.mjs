@@ -26,6 +26,7 @@ const DATA_MAP = [
   ["media.json", "media.schema.json", "media"],
   ["elections.json", "election.schema.json", "election"],
   ["coalitions.json", "coalition.schema.json", "coalition"],
+  ["chamber-plans.json", "chamber-plan.schema.json", "chamberPlan"],
 ];
 
 const SUPPORTED = new Set([
@@ -323,6 +324,22 @@ for (const coalition of byFile["coalitions.json"]) {
     fail(w, `demissionairSince ${coalition.demissionairSince} is before start ${coalition.start}`);
   }
   for (const party of coalition.parties ?? []) partyOk(w, party);
+}
+// Floor plans (ADR 0018, amendment 3). Whether a plan still matches the sitting
+// members is not checked here: memberships change daily, and the app falls back
+// to fractie blocks when they no longer match (web/lib/chamber-plan.ts).
+for (const plan of byFile["chamber-plans.json"]) {
+  const w = `chamber-plans.json#${plan.id}`;
+  refOk(w, plan.organization, orgIds, "organization");
+  refOk(w, plan.source?.source, srcIds, "source");
+  const seated = new Set();
+  for (const seat of plan.seats ?? []) {
+    refOk(w, seat.person, personIds, "seat.person");
+    if (seat.person && seated.has(seat.person)) fail(w, `${seat.person} has two seats`);
+    if (seat.person) seated.add(seat.person);
+    if (plan.seatBasis === "person" && !seat.person) fail(w, `seat at ${seat.x},${seat.y} names no member on a person plan`);
+  }
+  if ((plan.seats ?? []).filter((seat) => seat.chair).length > 1) fail(w, "more than one chair seat");
 }
 for (const change of byFile["changes.json"]) {
   const w = `changes.json#${change.id}`;
