@@ -8,7 +8,10 @@ import { edgeTypeOrderIndex } from "./graph/edge-styles";
 import { useT } from "@/components/i18n/use-t";
 import { CanvasControls, type CanvasView } from "./canvas-controls";
 import { GraphCanvas } from "./graph/graph-canvas";
-import { PowerMapView } from "./graph/power-map";
+import { PowerMapView, type NameResolver } from "./graph/power-map";
+import { useSelection } from "./selection/selection-provider";
+import { seatIndex } from "@/lib/seats";
+import type { Selection } from "@/lib/selection";
 import { useGraphBundle, usePowerMapBundle } from "./graph/use-graph-bundle";
 
 export function CanvasFrame() {
@@ -24,103 +27,109 @@ export function CanvasFrame() {
    */
   const [expanded, setExpanded] = useState(false);
   const [view, setView] = useState<CanvasView>("graph");
-  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [hiddenBranches, setHiddenBranches] = useState<Set<string>>(new Set());
   /** The date the relations are drawn for; null is today. Only the dated relations change. */
   const [asOf, setAsOf] = useState<string | null>(null);
   const datedEdges = useMemo(() => bundle?.edges.some((edge) => Boolean(edge.validFrom || edge.validTo)) ?? false, [bundle]);
-  /** Person focused through the callout on the Who's in the news strip. */
-  const [focusPerson, setFocusPerson] = useState<{ slug: string; title: string } | null>(null);
 
-  // The machtskaart bundle is loaded only by the views that show it.
-  const wantsPower =
-    view === "power" || focusPerson !== null || (pathname?.startsWith("/personen/") ?? false);
+  /**
+   * What is picked lives in the selection store (lib/selection.ts), for both
+   * canvases and the panels. The frame only decides which canvas shows it.
+   */
+  const { current, select } = useSelection();
+
+  // The machtskaart bundle is loaded only when it is shown.
+  const wantsPower = view === "power" || current?.kind === "news" || current?.kind === "topic";
   const power = usePowerMapBundle(wantsPower);
-  const personSlugs = power.bundle?.personSlugs ?? null;
 
+  const seats = useMemo(() => (bundle ? seatIndex(bundle.chambers) : new Map()), [bundle]);
+  const personBySlug = useMemo(() => {
+    const map = new Map<string, string>();
+    for (const [id, person] of Object.entries(bundle?.seatPeople ?? {})) map.set(person.slug, id);
+    for (const [id, person] of Object.entries(power.bundle?.people ?? {})) map.set(person.slug, id);
+    return map;
+  }, [bundle, power.bundle]);
+
+  /**
+   * The page's own entity is picked when the page opens: an organisation page
+   * picks its body, a person page its person (and so lights their seat). Once
+   * per path, so a reader who lets the pick go keeps it gone.
+   */
+  const pathPickRef = useRef<{ path: string; selection: Selection | null } | null>(null);
   useEffect(() => {
     if (!bundle || !pathname) return;
+    if (pathPickRef.current?.path === pathname && pathPickRef.current.selection !== null) return;
     const parts = pathname.split("/").filter(Boolean);
+    let selection: Selection | null = null;
     if (parts[0] === "organisaties" && parts[1]) {
-      const node = bundle.nodes.find((candidate) => candidate.slug === parts[1]);
-      if (node) setSelectedId(node.id);
-    }
-  }, [bundle, pathname]);
-
-  /** Entity id behind the current page (org, person or position) for the entity power map. */
-  const currentEntityId = useMemo<string | null>(() => {
-    if (focusPerson) return personSlugs?.[focusPerson.slug] ?? null;
-    if (!bundle || !pathname) return null;
-    const parts = pathname.split("/").filter(Boolean);
-    if (parts.length < 2 || !parts[1]) return null;
-
-    const resolveNodeIdBySlug = (nodeIdPrefix: string, slug: string): string | null => {
-      for (const node of bundle.nodes) {
-        if (node.slug === slug && node.id.startsWith(nodeIdPrefix)) return node.id;
+      const node = bundle.nodes.find((candidate) => candidate.slug === parts[1] && candidate.id.startsWith("org:"));
+      if (node) selection = { kind: "org", id: node.id, surface: "graph" };
+    } else if (parts[0] === "personen" && parts[1]) {
+      const id = personBySlug.get(parts[1]);
+      if (id) {
+        const seat = seats.get(id);
+        selection = seat
+          ? { kind: "person", id, surface: "graph", seat: { chamberId: seat.chamberId, fractieIndex: seat.fractieIndex } }
+          : { kind: "person", id, surface: "power" };
       }
-      return null;
+    }
+    pathPickRef.current = { path: pathname, selection };
+    if (selection) select(selection);
+  }, [bundle, pathname, personBySlug, seats, select]);
+
+  /**
+   * The canvas that can show the pick comes forward: news and topics live on
+   * the power map, groups, fracties and sectors on the graph, a person without
+   * a seat on the power map. A body or a seated person shows on both, so the
+   * reader's choice stands. A pick made by opening a page never switches.
+   */
+  useEffect(() => {
+    if (!current || current === pathPickRef.current?.selection) return;
+    if (current.kind === "news" || current.kind === "topic") setView("power");
+    else if (current.kind === "cluster" || current.kind === "fractie" || current.kind === "sector") setView("graph");
+    else if (current.kind === "person" && !seats.has(current.id)) setView("power");
+  }, [current, seats]);
+
+  /** Names the power map does not carry itself: bodies from the graph, seated members. */
+  const resolveName = useMemo<NameResolver>(() => {
+    const nodes = new Map((bundle?.nodes ?? []).map((node) => [node.id, node]));
+    return (id: string) => {
+      const node = nodes.get(id);
+      if (node) return { name: node.name, image: null, slug: node.slug };
+      const person = bundle?.seatPeople?.[id];
+      return person ? { name: person.name, image: person.image, slug: person.slug } : null;
     };
+  }, [bundle]);
 
-    if (parts[0] === "organisaties") return resolveNodeIdBySlug("org:", parts[1]);
-    if (parts[0] === "personen") return personSlugs?.[parts[1]] ?? null;
-    // Position ids are not in the bundle; the entity power map stays global there.
-    return null;
-  }, [bundle, pathname, focusPerson, personSlugs]);
-
-  const entityPeople = useMemo(() => {
-    if (!power.bundle || currentEntityId === null) return null;
-    const people = power.bundle.entityPowerMap?.[currentEntityId];
-    return Array.isArray(people) && people.length > 0 ? people : null;
-  }, [power.bundle, currentEntityId]);
-
+  /**
+   * Page code that is not on the store yet (the "who is in the news" callout)
+   * asks for a focus with a `staatsgraaf:focus` event. It becomes a pick like
+   * any other; this bridge holds no state of its own.
+   */
   useEffect(() => {
     const handler = (event: Event) => {
-      if (!bundle) return;
-      const detail = (event as CustomEvent<{
-        id?: string;
-        slug?: string;
-        view?: CanvasView;
-        title?: string;
-      }>).detail;
+      const detail = (event as CustomEvent<{ id?: string; slug?: string; view?: CanvasView }>).detail;
       if (!detail) return;
-      if (detail.view === "power") setView("power");
-      if (detail.id && bundle.nodes.some((node) => node.id === detail.id)) {
-        setSelectedId(detail.id);
-        return;
+      if (detail.view) setView(detail.view);
+      const node = bundle?.nodes.find((candidate) => candidate.id === detail.id || candidate.slug === detail.slug);
+      if (node) select({ kind: "org", id: node.id, surface: detail.view === "power" ? "power" : "graph" });
+      else {
+        const id = detail.id ?? (detail.slug ? personBySlug.get(detail.slug) ?? `person:${detail.slug}` : null);
+        if (id) select({ kind: "person", id, surface: "power" });
       }
-      if (detail.slug) {
-        const node = bundle.nodes.find((candidate) => candidate.slug === detail.slug);
-        if (node) {
-          setSelectedId(node.id);
-          return;
-        }
-        // Not a graph node, so a person: it focuses the entity power map. The
-        // id resolves once the machtskaart bundle has loaded.
-        setFocusPerson({ slug: detail.slug, title: detail.title ?? "" });
-        setView("power");
+      // On a phone or tablet the canvas sits above the content: bring it into view.
+      if (window.matchMedia("(max-width: 1023.98px)").matches) {
+        const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        asideRef.current?.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
       }
     };
     window.addEventListener("staatsgraaf:focus", handler);
     return () => window.removeEventListener("staatsgraaf:focus", handler);
-  }, [bundle]);
+  }, [bundle, personBySlug, select]);
 
-  // Navigating away from the page that triggered the callout clears the focus.
   useEffect(() => {
-    setFocusPerson(null);
     setExpanded(false);
   }, [pathname]);
-
-  // A focus request from further down the page (the power map callout) brings
-  // the canvas into view on a phone or tablet, where it sits above the content.
-  useEffect(() => {
-    const reveal = () => {
-      if (!window.matchMedia("(max-width: 1023.98px)").matches) return;
-      const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      asideRef.current?.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
-    };
-    window.addEventListener("staatsgraaf:focus", reveal);
-    return () => window.removeEventListener("staatsgraaf:focus", reveal);
-  }, []);
 
   // Full screen: the page behind stops scrolling and Escape closes it. A menu
   // open inside the canvas handles its own Escape first.
@@ -202,7 +211,7 @@ export function CanvasFrame() {
         {/* On a phone the view switch names the view already; the heading stays for screen readers. */}
         <h2
           id="grafiek-titel"
-          className="sr-only text-xs font-medium uppercase tracking-wider text-ink-muted sm:not-sr-only"
+          className="sr-only text-xs font-medium text-ink-muted sm:not-sr-only"
         >
           {view === "power" ? t("powerTitle") : t("graphTitle")}
         </h2>
@@ -272,13 +281,7 @@ export function CanvasFrame() {
         ) : null}
 
         {status === "ready" && bundle && view === "graph" ? (
-          <GraphCanvas
-            bundle={bundle}
-            selectedId={selectedId}
-            onSelect={setSelectedId}
-            hiddenBranches={hiddenBranches}
-            asOf={asOf}
-          />
+          <GraphCanvas bundle={bundle} hiddenBranches={hiddenBranches} asOf={asOf} />
         ) : null}
 
         {view === "power" && power.status !== "ready" ? (
@@ -290,12 +293,7 @@ export function CanvasFrame() {
         ) : null}
 
         {view === "power" && power.status === "ready" && power.bundle ? (
-          <PowerMapView
-            powerMap={power.bundle.powerMap}
-            entityPeople={entityPeople ?? undefined}
-            entityTitle={focusPerson?.title || undefined}
-            entityHref={focusPerson ? `/personen/${focusPerson.slug}/` : null}
-          />
+          <PowerMapView bundle={power.bundle} resolveName={resolveName} />
         ) : null}
       </div>
     </aside>

@@ -1,5 +1,7 @@
 import type { OrgBranch, OrgLevel, OrgSubtype, OrgType } from "./types";
 import { BENCH_CLEARANCE, type Bench } from "./bench";
+import type { SeatPerson } from "./seats";
+import type { PowerLink } from "./power-connections";
 
 export type { Bench } from "./bench";
 
@@ -147,25 +149,12 @@ export type PowerMap = {
   windowDays: number;
   since: string | null;
   computedAt: string | null;
+  /** ISO date the window and the recency are measured from: the newest news item (lib/power-connections.ts newsReferenceDate). */
+  asOf?: string | null;
   articleCount: number;
   sources: string[];
   people: PowerMapPerson[];
 };
-
-export type EntityPowerPerson = {
-  person: string;
-  slug: string;
-  name: string;
-  job: string | null;
-  party: string | null;
-  image: string | null;
-  total: number;
-  recent: number;
-  latest: { date: string | null; headline: string | null; source: string | null };
-};
-
-/** Per-entity lists of people in the news, ranked by mentions within the window. */
-export type EntityPowerMap = Record<string, EntityPowerPerson[]>;
 
 /** One fractie block of a chamber, resolved through the sourced party registry. */
 export type ChamberSeatEntry = {
@@ -174,6 +163,12 @@ export type ChamberSeatEntry = {
   color: string | null;
   splinter: boolean;
   seats: number;
+  /**
+   * Person ids of the fractie's members in seat order (lib/seats.ts): member
+   * `i` takes seat `i` of the block. Set in `graph.json`; the seat chart on
+   * the chamber pages leaves it out.
+   */
+  members?: string[];
 };
 
 /** Seat arithmetic of an elected chamber, computed by build-graph.mjs. */
@@ -237,6 +232,8 @@ export type GraphBundle = {
   clusters: WireCluster[];
   /** Seat blocks per chamber organization id, for the arches. */
   chambers: Record<string, ChamberSeats>;
+  /** Name, slug and portrait of every person seated in `chambers`, by person id. */
+  seatPeople: Record<string, SeatPerson>;
   tiers: TierInfo[];
   /** Radii of the channels (tier gaps) routed edges travel along, innermost first. */
   channels: number[];
@@ -246,15 +243,49 @@ export type GraphBundle = {
   viewBox: { x: number; y: number; width: number; height: number };
 };
 
+/** A person the power map names: a ranked person, a neighbour, or someone a news item mentions. */
+export type PowerPerson = {
+  name: string;
+  slug: string;
+  /** Title of a current position, when one is on record. */
+  job: string | null;
+  party: string | null;
+  image: string | null;
+};
+
+/** A body the power map names. */
+export type PowerBody = { name: string; slug: string; branch: OrgBranch };
+
+/** A news item on the power map: a bubble beside the people it names. */
+export type PowerNewsItem = {
+  id: string;
+  title: string;
+  /** Machine translation of the title (docs/adr/0016), when there is one. */
+  titleEn?: string;
+  publisher: string | null;
+  /** ISO date of publication. */
+  date: string | null;
+  url: string | null;
+  /** Person ids and organization ids the item names. */
+  people: string[];
+  bodies: string[];
+};
+
 /** `power-map.json`: the machtskaart, loaded only by the views that show it. */
 export type PowerMapBundle = {
   schema: string;
   snapshot: string | null;
   powerMap: PowerMap;
-  /** Maps entity ids (org:, person:, pos:) to their people-in-the-news ranking. */
-  entityPowerMap: EntityPowerMap;
-  /** Maps person slugs to person ids so entity pages can resolve their id. */
-  personSlugs: Record<string, string>;
+  /** Every person the bundle mentions, by id. */
+  people: Record<string, PowerPerson>;
+  /** Every body the bundle mentions, by id. */
+  bodies: Record<string, PowerBody>;
+  /** News items in the window that name a ranked person, newest first. */
+  news: PowerNewsItem[];
+  /** Ties between people and bodies with their reasons and evidence (lib/power-connections.ts). */
+  links: PowerLink[];
+  /** The sitting cabinet, which names the `kabinet` ties. */
+  kabinet: { id: string; name: string; start: string } | null;
 };
 
 export type TierId = "kern" | "politiek" | "ministeries" | "uitvoering" | "decentraal" | "koninkrijk";

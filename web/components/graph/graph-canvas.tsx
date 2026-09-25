@@ -34,8 +34,10 @@ import {
 import { posePosition, sectorPose, type PolarTarget } from "@/lib/pose";
 import { placeLabels, type LabelItem } from "@/lib/label-placement";
 import { benchSeats, type Bench, type BenchBlock } from "@/lib/bench";
-import { GraphDetails, type DetailsTarget } from "./graph-details";
+import { seatIndex } from "@/lib/seats";
+import { avatarTint, initialsFor } from "@/lib/initials";
 import { branchColorVar } from "@/lib/branch-colors";
+import { useSelection } from "@/components/selection/selection-provider";
 
 import { resolveCanvasClick, type CanvasClick } from "@/lib/cluster-click";
 import { useT } from "@/components/i18n/use-t";
@@ -49,12 +51,11 @@ import {
 import { orgEnGloss } from "@/lib/name-gloss";
 import { glyphPath, glyphPathAt, orbitDotsAt } from "./glyph";
 import { GraphList } from "./graph-list";
+import { SeatLoupe } from "./seat-loupe";
 import { benchLabelArc, ringPath, sectorLabelArc, sectorWedge, tierLabelArc, wedgePath } from "./tier-chrome";
 
 type GraphCanvasProps = {
   bundle: GraphBundle;
-  selectedId: string | null;
-  onSelect: (id: string | null) => void;
   hiddenBranches: ReadonlySet<string>;
   /** Draw the relations as they were on this ISO date; null is today. */
   asOf?: string | null;
@@ -90,6 +91,15 @@ function scheduleFrame(callback: (now: number) => void): () => void {
 const MIN_ZOOM = 0.25;
 const MAX_ZOOM = 8;
 const DIM_OPACITY = 0.2;
+/**
+ * Seats take the pointer themselves once they are this far apart on screen,
+ * in CSS pixels; below it the fractie wedge takes the click and the seat loupe
+ * shows the seats at a size a finger can hit. The reader chooses the zoom; a
+ * selection never changes it.
+ */
+const SEAT_HIT_PX = 11;
+/** One seat in the loupe, in CSS pixels. */
+const LOUPE_SEAT_PX = 24;
 /** Most labelled relations of one selection; the placement hides what does not fit. */
 const MAX_LABELS = 80;
 /** Label sizes in CSS pixels on the reader's screen, whatever the zoom. */
@@ -111,7 +121,11 @@ type Hover =
   | { kind: "node"; id: string }
   | { kind: "cluster"; id: string }
   | { kind: "dot"; id: string; cluster: string }
-  | { kind: "fractie"; id: string; chamberId: string; index: number };
+  | { kind: "fractie"; id: string; chamberId: string; index: number }
+  | { kind: "seat"; id: string; chamberId: string; index: number };
+
+/** One seat of a Kamer on the canvas, and who holds it. */
+type SeatMark = { x: number; y: number; r: number; block: number; seat: number; person: string | null; chamberId: string };
 
 /** One thing in flight: where it starts, where it goes, and how big it is at each end. */
 type Flight = { from: PolarTarget & { scale: number }; to: PolarTarget & { scale: number } };
@@ -156,8 +170,31 @@ function dotsPath(layout: ReturnType<typeof hydrateLayout>, cluster: ClusterInfo
  * elements, and every move can be interrupted: each is one spring chasing a
  * target that is a pure function of the selection and the open cluster.
  */
-export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf = null }: GraphCanvasProps) {
+export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvasProps) {
   const layout = useMemo(() => hydrateLayout(bundle), [bundle]);
+  const seats = useMemo(() => seatIndex(bundle.chambers), [bundle]);
+  /**
+   * The canvas is an adapter of the selection store (lib/selection.ts): every
+   * pick goes out through `select`, and everything below renders from
+   * `current`, so a pick made in a panel, a step back or a clear is drawn the
+   * same way as a click here.
+   */
+  const { current, select, clear } = useSelection();
+  const selectedId = current?.kind === "org" && layout.byId.has(current.id) ? current.id : null;
+  const activeSector = current?.kind === "sector" ? current.id : null;
+  /** The seated person picked, wherever they were picked: the build knows every member's seat. */
+  const selectedSeat = current?.kind === "person" ? seats.get(current.id) ?? null : null;
+  const selectedPersonId = selectedSeat && current?.kind === "person" ? current.id : null;
+  /** The fractie whose seats are picked out: picked itself, or the fractie of the picked seat. */
+  const selectedFractie = useMemo(
+    () =>
+      current?.kind === "fractie"
+        ? { chamberId: current.chamberId, index: current.index }
+        : selectedSeat
+          ? { chamberId: selectedSeat.chamberId, index: selectedSeat.fractieIndex }
+          : null,
+    [current, selectedSeat],
+  );
   const drawnEdges = useMemo(() => layout.edges.filter((edge) => edgeAlive(edge, asOf)), [layout, asOf]);
   const router = useRouter();
   const t = useT("graph");
@@ -168,6 +205,9 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   const viewGroupRef = useRef<SVGGElement | null>(null);
   const rotGroupRef = useRef<SVGGElement | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);
+  const loupeRef = useRef<HTMLDivElement | null>(null);
+  const seatHitRef = useRef<SVGGElement | null>(null);
+  const seatHoverRef = useRef<SVGCircleElement | null>(null);
   const labelRefs = useRef(new Map<string, SVGTextElement>());
   /** Text widths at `MEASURE_PX`, measured once per label element. */
   const labelWidths = useRef(new Map<string, number>());
@@ -199,7 +239,6 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   const pinchRef = useRef<{ startDist: number; startK: number; startX: number; startY: number; midX: number; midY: number } | null>(null);
   const pointerMovedRef = useRef(false);
 
-  const [activeSector, setActiveSector] = useState<string | null>(null);
   /**
    * What the pointer is over. It is not React state on purpose: the pointer
    * crosses hundreds of hit targets per second, and a state change here would
@@ -212,11 +251,8 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
   const hoverPathRef = useRef<SVGPathElement | null>(null);
   /** The wedge over each fractie's seats, tinted on hover. */
   const fractieRefs = useRef(new Map<string, SVGPathElement>());
-  /** The open cluster, and the one that is still folding while the next opens. */
-  const [openCluster, setOpenCluster] = useState<string | null>(null);
+  /** The fold of the cluster that was open before, while the next one opens. */
   const [closing, setClosing] = useState<{ id: string; pose: ReturnType<typeof sectorPose> } | null>(null);
-  /** The fractie whose seats are picked out, as chamber id and index in the chamber's blocks. */
-  const [selectedFractie, setSelectedFractie] = useState<{ chamberId: string; index: number } | null>(null);
   const [turnEnabled, setTurnEnabled] = useState(false);
   /**
    * The one orchestrated moment on the site: the first time the canvas draws
@@ -263,20 +299,23 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
 
   const selectedNode = selectedId ? layout.byId.get(selectedId) ?? null : null;
 
+  /**
+   * The open cluster follows the selection: a picked cluster, or the cluster
+   * of the picked body (web/lib/cluster-click.ts maps clicks onto picks so a
+   * click inside an open cluster keeps it open).
+   */
+  const openCluster =
+    current?.kind === "cluster" && layout.clusterById.has(current.id) ? current.id : selectedNode?.cluster ?? null;
+  // When the open cluster changes, the one before it folds. Adjusting state
+  // while rendering is React's way to follow a derived value without an effect.
+  const [previousOpen, setPreviousOpen] = useState<string | null>(openCluster);
+  if (previousOpen !== openCluster) {
+    setPreviousOpen(openCluster);
+    if (previousOpen) setClosing({ id: previousOpen, pose: sectorPose(layout, previousOpen) });
+  }
+
   const pose = useMemo(() => (openCluster ? sectorPose(layout, openCluster) : null), [layout, openCluster]);
   const activeClusterInfo = openCluster ? layout.clusterById.get(openCluster) ?? null : null;
-
-  /** Change the open cluster, remembering the one that has to fold. */
-  const changeOpen = useCallback(
-    (next: string | null) => {
-      setOpenCluster((current) => {
-        if (current === next) return current;
-        if (current) setClosing({ id: current, pose: sectorPose(layout, current) });
-        return next;
-      });
-    },
-    [layout],
-  );
 
   /**
    * Marks that move: the members of the open cluster and the singles of its
@@ -533,14 +572,29 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
    * merged path per fractie, and a wedge per fractie to hover and click.
    */
   const benches = useMemo(() => {
-    const list: { bench: Bench; blocks: (BenchBlock & { d: string; wedge: string })[] }[] = [];
+    const list: { bench: Bench; blocks: (BenchBlock & { d: string; wedge: string })[]; seats: SeatMark[] }[] = [];
     const anchors = new Map<string, { x: number; y: number; r: number }>();
+    /** Where each seated person's seat is, by person id. */
+    const seatAt = new Map<string, SeatMark>();
+    let pitch = Number.POSITIVE_INFINITY;
     for (const sector of layout.sectors) {
       if (hiddenBranches.has(sector.branch)) continue;
       for (const bench of sector.benches) {
         const chamber = chambers[bench.id];
         if (!chamber) continue;
         const { seats, blocks } = benchSeats(bench, chamber.entries);
+        pitch = Math.min(pitch, bench.rowStep, bench.columnAngle * bench.innerRadius);
+        // Seat k of a block is member k of that fractie (lib/seats.ts: the
+        // order is the build's, because no chamber publishes a seat per member).
+        const taken = new Map<number, number>();
+        const marks: SeatMark[] = seats.map((seat) => {
+          const k = taken.get(seat.block) ?? 0;
+          taken.set(seat.block, k + 1);
+          const person = chamber.entries[seat.block]?.members?.[k] ?? null;
+          const mark = { x: seat.x, y: seat.y, block: seat.block, seat: k, person, chamberId: bench.id, r: bench.seatRadius };
+          if (person) seatAt.set(person, mark);
+          return mark;
+        });
         const paths = new Map<number, string[]>();
         for (const seat of seats) {
           const parts = paths.get(seat.block) ?? [];
@@ -562,10 +616,11 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
             d: (paths.get(block.index) ?? []).join(" "),
             wedge: wedgePath(block.startAngle, block.endAngle, bench.innerRadius - 1.5, bench.outerRadius + 1.5),
           })),
+          seats: marks,
         });
       }
     }
-    return { list, anchors };
+    return { list, anchors, seatAt, pitch: Number.isFinite(pitch) ? pitch : 0 };
   }, [layout, chambers, hiddenBranches]);
 
   const fractieKey = (chamberId: string, index: number) => `${chamberId}|${index}`;
@@ -580,11 +635,12 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
    * closure: a loop started before the reader clicked would otherwise keep
    * drawing the previous state until it settled.
    */
-  const frameDataRef = useRef({ layout, liveEdges, labelled, anchors: benches.anchors });
+  const loupeKey = selectedFractieKey;
+  const frameDataRef = useRef({ layout, liveEdges, labelled, anchors: benches.anchors, seatAt: benches.seatAt, pitch: benches.pitch, loupeKey });
   useLayoutEffect(() => {
-    frameDataRef.current = { layout, liveEdges, labelled, anchors: benches.anchors };
+    frameDataRef.current = { layout, liveEdges, labelled, anchors: benches.anchors, seatAt: benches.seatAt, pitch: benches.pitch, loupeKey };
     warmEdgesRef.current = "";
-  }, [layout, liveEdges, labelled, benches]);
+  }, [layout, liveEdges, labelled, benches, loupeKey]);
 
   const measureScreen = useCallback(() => {
     const svg = svgRef.current;
@@ -659,6 +715,40 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       }
     }
 
+    // Seats take the pointer only when the reader has zoomed in far enough to hit one.
+    const seatHits = seatHitRef.current;
+    if (seatHits) {
+      const hittable = viewK.current.value * screenRef.current.scale * data.pitch >= SEAT_HIT_PX;
+      const value = hittable ? "auto" : "none";
+      if (seatHits.getAttribute("pointer-events") !== value) seatHits.setAttribute("pointer-events", value);
+    }
+
+    /** A canvas point and radius as CSS pixels inside the drawing. */
+    const toScreen = (at: { x: number; y: number; r: number }) => {
+      const screen = screenRef.current;
+      const point = project(at.x, at.y);
+      return {
+        x: (point.x - data.layout.viewBox.x) * screen.scale + screen.offsetX,
+        y: (point.y - data.layout.viewBox.y) * screen.scale + screen.offsetY,
+        r: viewK.current.value * at.r * screen.scale,
+      };
+    };
+    /** Above the anchor when there is room, below it otherwise; never off the side. */
+    const placeBeside = (element: HTMLElement, at: { x: number; y: number; r: number }, gapPx: number) => {
+      const screen = screenRef.current;
+      const width = element.offsetWidth;
+      const height = element.offsetHeight;
+      const gap = at.r + gapPx;
+      const above = at.y - gap - height >= 4;
+      const left = Math.min(Math.max(4, at.x - width / 2), Math.max(4, screen.width - width - 4));
+      const top = above ? at.y - gap - height : Math.min(at.y + gap, Math.max(4, screen.height - height - 4));
+      element.style.transform = `translate(${left.toFixed(0)}px, ${top.toFixed(0)}px)`;
+    };
+
+    const loupe = loupeRef.current;
+    const loupeAnchor = data.loupeKey ? data.anchors.get(data.loupeKey) : null;
+    if (loupe && loupeAnchor) placeBeside(loupe, toScreen(loupeAnchor), 8);
+
     const tooltip = tooltipRef.current;
     const hover = hoverRef.current;
     if (hover?.kind === "node" && hoverMarkRef.current) {
@@ -674,6 +764,9 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       if (hover.kind === "fractie") {
         const at = data.anchors.get(hover.id);
         if (at) anchor = { ...project(at.x, at.y), r: viewK.current.value * at.r };
+      } else if (hover.kind === "seat") {
+        const at = data.seatAt.get(hover.id);
+        if (at) anchor = { ...project(at.x, at.y), r: viewK.current.value * (at.r + 1) };
       } else if (hover.kind === "node" || hover.kind === "dot") {
         const node = data.layout.byId.get(hover.id);
         if (node) {
@@ -918,13 +1011,6 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     };
   }, [closing]);
 
-  /** Selecting a dot of a cluster opens that cluster; selecting anything else folds it. */
-  useEffect(() => {
-    if (!selectedNode) return;
-    changeOpen(selectedNode.cluster);
-    setSelectedFractie(null);
-  }, [selectedNode, changeOpen]);
-
   /**
    * Turn the canvas so the selection, or the open cluster, or the selected
    * sector reads straight above the core. The turn is one rigid rotation of
@@ -1132,11 +1218,18 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     }
   };
 
-  /** Apply the pure click rules (web/lib/cluster-click.ts) to the canvas state. */
+  /**
+   * Apply the pure click rules (web/lib/cluster-click.ts) through the store.
+   * The open cluster follows the pick, so "select this member, keep the
+   * cluster open" is a pick of the member, "keep the cluster open with
+   * nothing picked" a pick of the cluster, and "nothing" a clear.
+   */
   const applyClick = (click: CanvasClick) => {
     const result = resolveCanvasClick(click, { selectedId, openCluster });
-    changeOpen(result.open);
-    if (result.select !== undefined) onSelect(result.select);
+    if (result.select === undefined) return;
+    if (result.select !== null) select({ kind: "org", id: result.select, surface: "graph" });
+    else if (result.open !== null) select({ kind: "cluster", id: result.open, surface: "graph" });
+    else clear();
   };
 
   /**
@@ -1169,14 +1262,17 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       pointerMovedRef.current = false;
       return;
     }
-    setActiveSector(null);
-    setSelectedFractie(null);
     applyClick({ kind: "background", nearMember: openMemberAt(event.clientX, event.clientY) });
   };
 
   const targetAt = (event: { target: EventTarget }): Hover | null => {
-    const element = (event.target as Element).closest("[data-node-id],[data-cluster-id],[data-fractie-id]");
+    const element = (event.target as Element).closest("[data-node-id],[data-cluster-id],[data-fractie-id],[data-seat-id]");
     if (!element) return null;
+    const seat = element.getAttribute("data-seat-id");
+    if (seat) {
+      const [chamberId, index, personId] = seat.split("|");
+      return { kind: "seat", id: personId, chamberId, index: Number(index) };
+    }
     const fractie = element.getAttribute("data-fractie-id");
     if (fractie) {
       const [chamberId, index] = fractie.split("|");
@@ -1192,17 +1288,16 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     const target = targetAt(event);
     if (!target) return;
     event.stopPropagation();
-    setActiveSector(null);
-    if (target.kind === "fractie") {
-      applyClick({ kind: "fractie" });
-      setSelectedFractie((current) =>
-        current && current.chamberId === target.chamberId && current.index === target.index
-          ? null
-          : { chamberId: target.chamberId, index: target.index },
-      );
+    if (target.kind === "seat") {
+      pickSeat(target.id);
       return;
     }
-    setSelectedFractie(null);
+    if (target.kind === "fractie") {
+      // A second click on the picked fractie lets it go, like a second click on a body.
+      if (current?.kind === "fractie" && current.chamberId === target.chamberId && current.index === target.index) clear();
+      else select({ kind: "fractie", chamberId: target.chamberId, index: target.index, surface: "graph" });
+      return;
+    }
     if (target.kind === "cluster") {
       // A click on one dot selects that body; a click on the grid's edge opens it.
       applyClick({ kind: "cluster", id: target.id, dot: dotAt(target.id, event.clientX, event.clientY) });
@@ -1260,6 +1355,18 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     if (target?.kind === "fractie") {
       fractieRefs.current.get(target.id)?.setAttribute("fill-opacity", "0.4");
     }
+    const ring = seatHoverRef.current;
+    if (ring) {
+      const at = target?.kind === "seat" ? benches.seatAt.get(target.id) : null;
+      if (at) {
+        ring.setAttribute("cx", at.x.toFixed(2));
+        ring.setAttribute("cy", at.y.toFixed(2));
+        ring.setAttribute("r", (at.r + 1.2).toFixed(2));
+        ring.setAttribute("opacity", "1");
+      } else {
+        ring.setAttribute("opacity", "0");
+      }
+    }
     hoverCardRef.current?.(target);
     placeOverlays();
   };
@@ -1293,10 +1400,20 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
       if (member) applyClick({ kind: "background", nearMember: member });
       return;
     }
-    onSelect(null);
-    changeOpen(null);
-    setSelectedFractie(null);
-    setActiveSector((current) => (current === id ? null : id));
+    if (activeSector === id) clear();
+    else select({ kind: "sector", id, surface: "graph" });
+  };
+
+  /** A seat is its member: the pick is the person, with the seat they were picked by. */
+  const pickSeat = (personId: string) => {
+    const seat = seats.get(personId);
+    if (!seat) return;
+    if (current?.kind === "person" && current.id === personId) {
+      // A second click lets the person go and leaves their fractie picked.
+      select({ kind: "fractie", chamberId: seat.chamberId, index: seat.fractieIndex, surface: "graph" });
+      return;
+    }
+    select({ kind: "person", id: personId, surface: "graph", seat: { chamberId: seat.chamberId, fractieIndex: seat.fractieIndex } });
   };
 
   const onDoubleClick = (event: ReactMouseEvent<SVGSVGElement>) => {
@@ -1313,8 +1430,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     if (walkNodes.length === 0) return;
     const index = selectedId ? walkNodes.findIndex((node) => node.id === selectedId) : -1;
     const next = index === -1 ? (delta > 0 ? 0 : walkNodes.length - 1) : (index + delta + walkNodes.length) % walkNodes.length;
-    setActiveSector(null);
-    onSelect(walkNodes[next].id);
+    select({ kind: "org", id: walkNodes[next].id, surface: "graph" });
   };
 
   const turnBySector = (direction: number) => {
@@ -1336,11 +1452,11 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
         break;
       case "Home":
         event.preventDefault();
-        if (walkNodes[0]) onSelect(walkNodes[0].id);
+        if (walkNodes[0]) select({ kind: "org", id: walkNodes[0].id, surface: "graph" });
         break;
       case "End":
         event.preventDefault();
-        if (walkNodes.length > 0) onSelect(walkNodes[walkNodes.length - 1].id);
+        if (walkNodes.length > 0) select({ kind: "org", id: walkNodes[walkNodes.length - 1].id, surface: "graph" });
         break;
       case "Enter":
         if (selectedNode) {
@@ -1349,11 +1465,9 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
         }
         break;
       case "Escape":
+        if (!current) break;
         event.preventDefault();
-        if (selectedId) onSelect(null);
-        else if (selectedFractie) setSelectedFractie(null);
-        else if (openCluster) changeOpen(null);
-        else setActiveSector(null);
+        clear();
         break;
       case "[":
         event.preventDefault();
@@ -1431,41 +1545,6 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     [],
   );
 
-  /** One target for the details panel: whatever the reader last picked. */
-  const detailsTarget: DetailsTarget = selectedNode
-    ? { kind: "node", id: selectedNode.id }
-    : selectedFractie
-      ? { kind: "fractie", chamberId: selectedFractie.chamberId, index: selectedFractie.index }
-      : activeClusterInfo
-        ? { kind: "cluster", id: activeClusterInfo.id }
-        : activeSector
-          ? { kind: "sector", id: activeSector }
-          : null;
-
-  const pickNode = (id: string | null) => {
-    setActiveSector(null);
-    setSelectedFractie(null);
-    onSelect(id);
-  };
-  const pickCluster = (id: string | null) => {
-    setActiveSector(null);
-    setSelectedFractie(null);
-    onSelect(null);
-    changeOpen(id);
-  };
-  const pickFractie = (chamberId: string, index: number) => {
-    setActiveSector(null);
-    onSelect(null);
-    changeOpen(null);
-    setSelectedFractie({ chamberId, index });
-  };
-  const clearSelection = () => {
-    setActiveSector(null);
-    setSelectedFractie(null);
-    changeOpen(null);
-    onSelect(null);
-  };
-
   /** What a cluster is, in words: whose children, whose oversight, or which kind of body. */
   const clusterLabel = useCallback(
     (cluster: ClusterInfo) => {
@@ -1486,7 +1565,13 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
     [layout, t],
   );
 
-  const statusText = selectedNode
+  const seatPerson = selectedPersonId ? bundle.seatPeople?.[selectedPersonId] ?? null : null;
+  const fractieEntry = selectedFractie ? chambers[selectedFractie.chamberId]?.entries[selectedFractie.index] ?? null : null;
+  const statusText = seatPerson && fractieEntry && selectedSeat
+    ? `${seatPerson.name}, ${fractieEntry.label}, ${layout.byId.get(selectedSeat.chamberId)?.name ?? ""}`
+    : fractieEntry && selectedFractie
+      ? `${fractieEntry.label}, ${t("detailsSeatsOf", { n: fractieEntry.seats, total: chambers[selectedFractie.chamberId]?.total ?? 0 })}, ${layout.byId.get(selectedFractie.chamberId)?.name ?? ""}`
+      : selectedNode
     ? `${selectedNode.name}, ${localized(locale, ORG_SUBTYPE_LABELS_I18N, selectedNode.subtype)}, ${localized(locale, TIER_LABELS_I18N, selectedNode.tier)}. ${t("connections", { n: neighborSet.size })}`
     : activeClusterInfo
       ? t("clusterStatus", { label: clusterLabel(activeClusterInfo) })
@@ -1498,12 +1583,10 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
         : t("noSelection");
 
   return (
-    // The details panel sits beside the drawing when the canvas is at least
-    // 44rem wide and below it otherwise (a phone, the 32rem-plus column on an
-    // iPad in landscape), so the drawing is never squeezed into a sliver.
+    // The details panel is its own layout column now (docs/adr/0018); the
+    // drawing takes the whole canvas.
     <div className="@container h-full min-h-0 w-full">
-    <div className="flex h-full min-h-0 w-full flex-col @min-[44rem]:flex-row">
-      <div ref={containerRef} className="@container/drawing relative flex min-h-0 min-w-0 flex-1 flex-col">
+      <div ref={containerRef} className="@container/drawing relative flex h-full min-h-0 min-w-0 w-full flex-col">
       <p className="sr-only" aria-live="polite">
         {statusText}
       </p>
@@ -1774,7 +1857,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
                           <path
                             d={block.d}
                             fill={color}
-                            fillOpacity={picked ? 1 : dim && !isChamber ? 0.45 : 0.85}
+                            fillOpacity={picked ? 1 : dim && !isChamber ? 0.35 : 0.85}
                             pointerEvents="none"
                           />
                           <path
@@ -1786,9 +1869,10 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
                             data-fractie-id={key}
                             className="cursor-pointer"
                             fill={color}
-                            fillOpacity={picked ? 0.24 : 0}
+                            fillOpacity={picked ? (selectedPersonId ? 0.12 : 0.24) : 0}
                             stroke={picked ? "var(--t-color-accent)" : "transparent"}
-                            strokeWidth={picked ? 1.2 : 0}
+                            strokeOpacity={selectedPersonId ? 0.5 : 1}
+                            strokeWidth={picked ? 1 : 0}
                           />
                         </g>
                       );
@@ -1814,6 +1898,43 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
                   </g>
                 );
               })}
+              {/*
+                One hit target per seat, above the wedges. They take the
+                pointer only once the reader has zoomed in far enough to aim at
+                one (placeOverlays switches them); until then the wedge takes
+                the click and the loupe shows the seats at a size to hit.
+              */}
+              <g ref={seatHitRef} pointerEvents="none">
+                {benches.list.flatMap(({ bench, seats: seatMarks }) =>
+                  seatMarks.map((seat) =>
+                    seat.person ? (
+                      <circle
+                        key={seat.person}
+                        data-seat-id={`${bench.id}|${seat.block}|${seat.person}`}
+                        cx={seat.x}
+                        cy={seat.y}
+                        r={bench.rowStep / 2}
+                        fill="transparent"
+                        className="cursor-pointer"
+                      />
+                    ) : null,
+                  ),
+                )}
+              </g>
+              {/* The picked seat, and the seat under the pointer. */}
+              <g aria-hidden="true" pointerEvents="none">
+                {selectedPersonId && benches.seatAt.get(selectedPersonId) ? (
+                  <circle
+                    cx={benches.seatAt.get(selectedPersonId)!.x}
+                    cy={benches.seatAt.get(selectedPersonId)!.y}
+                    r={benches.seatAt.get(selectedPersonId)!.r + 1.6}
+                    fill="none"
+                    stroke="var(--t-color-accent)"
+                    strokeWidth={1.2}
+                  />
+                ) : null}
+                <circle ref={seatHoverRef} r={0} fill="none" stroke="var(--t-color-ink)" strokeWidth={0.8} opacity={0} />
+              </g>
             </g>
 
             {/* Tier and sector labels. */}
@@ -1924,6 +2045,7 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
         glossOf={glossOf}
         clusterLabel={clusterLabel}
         chambers={chambers}
+        seatPeople={bundle.seatPeople ?? {}}
         openClusterId={activeClusterInfo?.id ?? null}
         tooltipRef={tooltipRef}
         onPlaced={placeOverlays}
@@ -1979,21 +2101,28 @@ export function GraphCanvas({ bundle, selectedId, onSelect, hiddenBranches, asOf
         </button>
       </div>
 
-      <GraphList bundle={bundle} selectedId={selectedId} onSelect={pickNode} hiddenBranches={hiddenBranches} />
-      </div>
+      {selectedFractie && fractieEntry ? (
+        <SeatLoupe
+          loupeRef={loupeRef}
+          chamberName={layout.byId.get(selectedFractie.chamberId)?.name ?? selectedFractie.chamberId}
+          entry={fractieEntry}
+          total={chambers[selectedFractie.chamberId]?.total ?? 0}
+          rows={benches.list.find((entry) => entry.bench.id === selectedFractie.chamberId)?.bench.rows ?? 3}
+          people={bundle.seatPeople ?? {}}
+          selectedPersonId={selectedPersonId}
+          onPick={pickSeat}
+          onClose={clear}
+          onPlaced={placeOverlays}
+        />
+      ) : null}
 
-      <GraphDetails
-        layout={layout}
-        chambers={chambers}
-        target={detailsTarget}
-        openCluster={openCluster}
-        clusterLabel={clusterLabel}
-        onSelectNode={pickNode}
-        onSelectCluster={pickCluster}
-        onSelectFractie={pickFractie}
-        onClear={clearSelection}
+      <GraphList
+        bundle={bundle}
+        selectedId={selectedId}
+        onSelect={(id) => (id ? select({ kind: "org", id, surface: "graph" }) : clear())}
+        hiddenBranches={hiddenBranches}
       />
-    </div>
+      </div>
     </div>
   );
 }
@@ -2055,6 +2184,7 @@ function HoverCard({
   glossOf,
   clusterLabel,
   chambers,
+  seatPeople,
   openClusterId,
   tooltipRef,
   onPlaced,
@@ -2066,6 +2196,7 @@ function HoverCard({
   glossOf: (name: string) => string | null;
   clusterLabel: (cluster: ClusterInfo) => string;
   chambers: GraphBundle["chambers"];
+  seatPeople: GraphBundle["seatPeople"];
   openClusterId: string | null;
   tooltipRef: { current: HTMLDivElement | null };
   onPlaced: () => void;
@@ -2083,6 +2214,40 @@ function HoverCard({
 
   const fractie =
     hover?.kind === "fractie" ? { entry: chambers[hover.chamberId]?.entries[hover.index] ?? null, chamberId: hover.chamberId } : null;
+  const seat =
+    hover?.kind === "seat"
+      ? { person: seatPeople[hover.id] ?? null, entry: chambers[hover.chamberId]?.entries[hover.index] ?? null, chamberId: hover.chamberId }
+      : null;
+  if (seat?.person) {
+    const color = seat.entry?.color ?? null;
+    return (
+      <div
+        ref={tooltipRef}
+        role="tooltip"
+        className="pointer-events-none absolute left-0 top-0 z-10 flex max-w-[18rem] items-center gap-2.5 rounded-md border border-line bg-surface px-2.5 py-2 text-left shadow-lg"
+        style={{ borderLeftWidth: 3, borderLeftColor: color ?? undefined }}
+      >
+        <span
+          className="inline-flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border text-xs font-semibold text-ink"
+          style={avatarTint(seat.person.image ? null : color)}
+        >
+          {seat.person.image ? (
+            <img src={seat.person.image} alt="" className="h-full w-full object-cover" />
+          ) : (
+            <span aria-hidden="true">{initialsFor(seat.person.name)}</span>
+          )}
+        </span>
+        <span className="min-w-0">
+          <span className="block text-sm font-semibold leading-tight text-ink">{seat.person.name}</span>
+          <span className="mt-1 flex items-center gap-1.5 text-[11px] text-ink-muted">
+            <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-full" style={{ background: color ?? "var(--t-color-line-strong)" }} />
+            {seat.entry?.label ?? ""}
+          </span>
+          <span className="mt-0.5 block text-[11px] text-ink-faint">{layout.byId.get(seat.chamberId)?.name ?? seat.chamberId}</span>
+        </span>
+      </div>
+    );
+  }
   const node = hover?.kind === "node" || hover?.kind === "dot" ? layout.byId.get(hover.id) ?? null : null;
   const cluster = hover?.kind === "cluster" ? layout.clusterById.get(hover.id) ?? null : null;
   const dotCluster = hover?.kind === "dot" ? layout.clusterById.get(hover.cluster) ?? null : null;
@@ -2122,12 +2287,12 @@ function HoverCard({
           {glossOf(node.name) ? <p className="text-[11px] text-ink-faint">({glossOf(node.name)})</p> : null}
           <div className="mt-1.5 flex flex-wrap items-center gap-1">
             <span
-              className="rounded-pill border px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide"
+              className="rounded-pill border px-1.5 py-0.5 text-[10px] font-medium"
               style={{ borderColor: branchColorVar(node.branch), color: branchColorVar(node.branch) }}
             >
               {localized(locale, ORG_SUBTYPE_LABELS_I18N, node.subtype)}
             </span>
-            <span className="rounded-pill border border-line px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide text-ink-muted">
+            <span className="rounded-pill border border-line px-1.5 py-0.5 text-[10px] font-medium text-ink-muted">
               {localized(locale, TIER_LABELS_I18N, node.tier)}
             </span>
           </div>
@@ -2141,7 +2306,7 @@ function HoverCard({
           <p className="text-sm font-semibold leading-tight text-ink">{clusterLabel(cluster)}</p>
           <div className="mt-1.5 flex flex-wrap items-center gap-1">
             <span
-              className="rounded-pill border px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide"
+              className="rounded-pill border px-1.5 py-0.5 text-[10px] font-medium"
               style={{ borderColor: branch ? branchColorVar(branch) : undefined, color: branch ? branchColorVar(branch) : undefined }}
             >
               {clusterSubtype(cluster)}

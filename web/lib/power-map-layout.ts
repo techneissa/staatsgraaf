@@ -79,11 +79,11 @@ type CardPlan = {
   labelBottom: number;
 };
 
-function planFor(person: PowerMapPerson, locale: "nl" | "en"): CardPlan {
+function planFor(person: PowerMapPerson, locale: "nl" | "en", thirdLine?: (person: PowerMapPerson) => string): CardPlan {
   const radius = powerMapPortraitRadius(person.rank);
   const name = person.name;
   const meta = powerMapMeta(person, locale);
-  const count = powerMapCountLabel(person.total, locale);
+  const count = thirdLine ? thirdLine(person) : powerMapCountLabel(person.total, locale);
   const halfWidth = Math.max(
     radius,
     (name.length * POWER_NAME_CHAR) / 2,
@@ -151,11 +151,13 @@ function includesHub(
 export function layoutPowerMap(
   people: PowerMapPerson[],
   locale: "nl" | "en" = "nl",
+  /** The card's third line when it is not the article count, so the card is wide enough for it. */
+  thirdLine?: (person: PowerMapPerson) => string,
 ): {
   cards: PowerMapCard[];
   bounds: { minX: number; minY: number; maxX: number; maxY: number };
 } {
-  const plans = people.map((person) => planFor(person, locale));
+  const plans = people.map((person) => planFor(person, locale, thirdLine));
 
   const cards: PowerMapCard[] = [];
   let cursor = POWER_HUB_RADIUS + POWER_HUB_CLEARANCE;
@@ -218,4 +220,54 @@ export function layoutPowerMap(
   }
   includesHub(bounds, 78);
   return { cards, bounds: { ...bounds } };
+}
+
+export const NEWS_BUBBLE_RADIUS = 4.5;
+export const NEWS_BUBBLES_PER_CARD = 6;
+/** Gap between a portrait's edge and the centre of its news bubbles. */
+export const NEWS_BUBBLE_OFFSET = 8;
+
+export type BubbleAnchor = { id: string; x: number; y: number; radius: number };
+export type PlacedBubble = { id: string; owner: string; x: number; y: number };
+
+/**
+ * News bubbles beside the cards they belong to. An item sits at the first card
+ * on the map (in the order given, so the highest ranked) that it names; the
+ * other people and bodies it names get their lines only when it is picked.
+ * Bubbles run clockwise over a card's upper right shoulder, clear of the name
+ * below it, at most `NEWS_BUBBLES_PER_CARD` per card in the order the items
+ * come (newest first). Items that name no card on the map are left out.
+ */
+export function placeNewsBubbles(
+  anchors: readonly BubbleAnchor[],
+  items: readonly { id: string; people: readonly string[]; bodies: readonly string[] }[],
+): PlacedBubble[] {
+  const order = new Map(anchors.map((anchor, index) => [anchor.id, index]));
+  const perOwner = new Map<string, number>();
+  const placed: PlacedBubble[] = [];
+  for (const item of items) {
+    let owner: BubbleAnchor | null = null;
+    let best = Number.POSITIVE_INFINITY;
+    for (const id of [...item.people, ...item.bodies]) {
+      const index = order.get(id);
+      if (index !== undefined && index < best) {
+        best = index;
+        owner = anchors[index];
+      }
+    }
+    if (!owner) continue;
+    const k = perOwner.get(owner.id) ?? 0;
+    if (k >= NEWS_BUBBLES_PER_CARD) continue;
+    perOwner.set(owner.id, k + 1);
+    const angle = -Math.PI / 2 + 0.55 + k * 0.36;
+    const distance = owner.radius + NEWS_BUBBLE_OFFSET;
+    const round = (value: number) => Math.round(value * 100) / 100;
+    placed.push({
+      id: item.id,
+      owner: owner.id,
+      x: round(owner.x + Math.cos(angle) * distance),
+      y: round(owner.y + Math.sin(angle) * distance),
+    });
+  }
+  return placed;
 }

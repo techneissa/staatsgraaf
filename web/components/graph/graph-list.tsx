@@ -93,7 +93,7 @@ export function GraphList({ bundle, selectedId, onSelect, hiddenBranches }: Grap
       className="motion-disclosure absolute left-[max(0.75rem,var(--safe-left))] top-3 max-w-[min(22rem,calc(100%-1.5rem))] rounded-md border border-line bg-surface text-sm"
       onToggle={(event) => setOpen((event.currentTarget as HTMLDetailsElement).open)}
     >
-      <summary className="tap-row flex cursor-pointer items-center gap-1.5 px-3 py-2 text-xs font-medium uppercase tracking-wide text-ink-muted [&::-webkit-details-marker]:hidden">
+      <summary className="tap-row flex cursor-pointer items-center gap-1.5 px-3 py-2 text-xs font-medium text-ink-muted [&::-webkit-details-marker]:hidden">
         <svg aria-hidden="true" viewBox="0 0 20 20" width="12" height="12" className={`shrink-0 transition-fast ${open ? "rotate-90" : ""}`}>
           <path d="M7.5 4.5 13 10l-5.5 5.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
@@ -105,7 +105,7 @@ export function GraphList({ bundle, selectedId, onSelect, hiddenBranches }: Grap
         <div className="max-h-[min(18rem,30dvh)] overflow-y-auto overscroll-contain border-t border-line px-3 py-2 @min-[38rem]/drawing:max-h-72">
           {groups.map((group) => (
             <section key={group.branch} className="mb-3 last:mb-0">
-              <h3 className="mb-1 text-xs font-semibold uppercase tracking-wide text-ink-faint">
+              <h3 className="mb-1 text-xs font-semibold text-ink-faint">
                 {localized(BRANCH_LABELS_I18N, group.branch)} ({group.nodes.length})
               </h3>
               <ul className="space-y-0.5">

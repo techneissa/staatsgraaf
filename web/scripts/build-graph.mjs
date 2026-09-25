@@ -4,6 +4,8 @@ import { fileURLToPath } from "node:url";
 import { GRAPH_LAYOUT, GRAPH_SCHEMA, toWireNode } from "../lib/graph.ts";
 import { computeLayout } from "../lib/graph-layout.ts";
 import { isSplinterGroup, partyByDataset } from "../lib/parties.ts";
+import { seatOrder } from "../lib/seats.ts";
+import { newsReferenceDate, scoreConnections } from "../lib/power-connections.ts";
 
 const DATA_DIR = fileURLToPath(new URL("../../data/", import.meta.url));
 const WINDOW_DAYS = 90;
@@ -42,6 +44,8 @@ const positions = readArray("positions.json");
 const tenures = readArray("tenures.json");
 const relations = readArray("relations.json");
 const news = readArray("news.json");
+const newsTranslations = readArray("news-translations.json");
+const coalitions = readArray("coalitions.json");
 const media = readArray("media.json");
 const meta = readJson("meta.json");
 
@@ -88,11 +92,18 @@ const hubOrg =
   null;
 
 const snapshot = typeof meta.snapshotId === "string" ? meta.snapshotId : null;
+/**
+ * The power map's reference date: the newest news item, so the window and the
+ * recency weights reach the latest story even when the dataset snapshot in
+ * meta.json is older than the news refresh. The snapshot is the fallback only
+ * without news.
+ */
+const newsAsOf = newsReferenceDate(news, snapshot);
 const generatedAt = typeof meta.generatedAt === "string" ? meta.generatedAt : null;
 
 function buildPowerMap() {
-  const windowDays = 90;
-  const snapshotDay = dayNumber(snapshot);
+  const windowDays = WINDOW_DAYS;
+  const snapshotDay = dayNumber(newsAsOf);
   const sinceDay = snapshotDay === null ? null : snapshotDay - windowDays;
   const since = sinceDay === null ? null : new Date(sinceDay * 86400000).toISOString().slice(0, 10);
 
@@ -101,6 +112,8 @@ function buildPowerMap() {
       windowDays,
       since,
       computedAt: generatedAt,
+    asOf: newsAsOf,
+      asOf: newsAsOf,
       articleCount: 0,
       sources: [],
       people: [],
@@ -186,103 +199,141 @@ function buildPowerMap() {
     windowDays,
     since,
     computedAt: generatedAt,
+    asOf: newsAsOf,
     articleCount,
     sources: [...publishers].sort(),
     people: ranked,
   };
 }
 
-function buildEntityPowerMap(entityLimit = 8) {
-  const snapshotDay = dayNumber(snapshot);
+/**
+ * What the power map needs beyond the ranking: the news items that name the
+ * people in it (the bubbles), the connections between people and bodies
+ * (lib/power-connections.ts, every tie with its reason and evidence ids), and
+ * the names behind every id it mentions. Kept small on purpose: only items
+ * that name a ranked person, only the strongest ties per anchor, and only the
+ * people and bodies those reference.
+ */
+function buildPowerExtras(ranked) {
+  const snapshotDay = dayNumber(newsAsOf);
   const sinceDay = snapshotDay === null ? null : snapshotDay - WINDOW_DAYS;
-  if (news.length === 0 || sinceDay === null) return { map: {}, personSlugs: {} };
+  const empty = { people: {}, bodies: {}, news: [], links: [], kabinet: null };
+  if (news.length === 0 || snapshotDay === null || sinceDay === null) return empty;
 
+  const rankedIds = new Set(ranked.map((entry) => entry.person));
+  const inWindow = news.filter((item) => {
+    const day = dayNumber(item.published);
+    return day !== null && day >= sinceDay && day <= snapshotDay;
+  });
+  const titleEn = new Map(
+    newsTranslations
+      .filter((entry) => entry.language === "en" && typeof entry.title === "string")
+      .map((entry) => [entry.id, entry.title]),
+  );
+
+  // The bubbles: items in the window that name a ranked person.
+  const bubbles = [];
+  const anchors = new Set(rankedIds);
+  for (const item of inWindow) {
+    const entities = Array.isArray(item.entities) ? item.entities : [];
+    const people = entities.filter((id) => typeof id === "string" && peopleById.has(id));
+    if (!people.some((id) => rankedIds.has(id))) continue;
+    const bodies = entities.filter((id) => typeof id === "string" && orgIds.has(id));
+    for (const id of bodies) anchors.add(id);
+    const bubble = {
+      id: item.id,
+      title: item.title ?? "",
+      publisher: item.publisher ?? null,
+      date: item.published ? item.published.slice(0, 10) : null,
+      url: item.url ?? null,
+      people: [...new Set(people)],
+      bodies: [...new Set(bodies)],
+    };
+    const en = titleEn.get(item.id);
+    if (en && en !== bubble.title) bubble.titleEn = en;
+    bubbles.push(bubble);
+  }
+  bubbles.sort((a, b) => (a.date === b.date ? (a.id < b.id ? -1 : 1) : (b.date ?? "") < (a.date ?? "") ? -1 : 1));
+
+  const positionsMap = new Map(
+    positions.map((position) => [position.id, { organization: position.organization, title: position.title, type: position.type }]),
+  );
+  const prominence = new Map(ranked.map((entry) => [entry.person, entry.total]));
+  const links = scoreConnections({
+    anchors,
+    news: inWindow.map((item) => ({ id: item.id, published: item.published ?? null, entities: item.entities ?? [] })),
+    memberships,
+    tenures,
+    positions: positionsMap,
+    asOf: newsAsOf,
+    prominence,
+  });
+
+  // Names behind every id the bundle mentions.
   const currentTenure = new Map();
   for (const tenure of tenures) {
     if (tenure.end !== null) continue;
     if (!currentTenure.has(tenure.person)) currentTenure.set(tenure.person, tenure);
   }
-
-  const perEntity = new Map();
-  const personSlugs = {};
-  for (const item of news) {
-    const day = dayNumber(item.published);
-    if (day === null || day < sinceDay) continue;
-    if (snapshotDay !== null && day > snapshotDay) continue;
-    const entities = Array.isArray(item.entities) ? item.entities : [];
-    const personIds = entities.filter(
-      (entity) => typeof entity === "string" && entity.startsWith("person:") && peopleById.has(entity),
-    );
-    if (personIds.length === 0) continue;
-    for (const entity of entities) {
-      if (typeof entity !== "string") continue;
-      if (!isOrgId(entity) && !entity.startsWith("person:") && !entity.startsWith("pos:")) continue;
-      let tally = perEntity.get(entity);
-      if (!tally) {
-        tally = { counts: new Map(), latest: new Map(), weeks: new Map() };
-        perEntity.set(entity, tally);
-      }
-      for (const personId of personIds) {
-        tally.counts.set(personId, (tally.counts.get(personId) ?? 0) + 1);
-        const previous = tally.latest.get(personId);
-        if (!previous || (item.published && item.published > previous.published)) {
-          tally.latest.set(personId, item.published ?? null);
-        }
-        const list = tally.weeks.get(personId) ?? new Array(2).fill(0);
-        const week = Math.min(1, Math.max(0, Math.floor((day - (snapshotDay - 14)) / 7)));
-        list[week] += 1;
-        tally.weeks.set(personId, list);
-      }
-    }
+  const personIds = new Set(rankedIds);
+  const bodyIds = new Set();
+  const note = (id) => {
+    if (peopleById.has(id)) personIds.add(id);
+    else if (orgIds.has(id)) bodyIds.add(id);
+  };
+  for (const bubble of bubbles) {
+    bubble.people.forEach(note);
+    bubble.bodies.forEach(note);
+  }
+  for (const link of links) {
+    note(link.a);
+    note(link.b);
+    for (const id of link.orgs ?? []) note(id);
+  }
+  const people = {};
+  for (const id of [...personIds].sort()) {
+    const person = peopleById.get(id);
+    const tenure = currentTenure.get(id) ?? null;
+    const position = tenure ? positionsById.get(tenure.position) ?? null : null;
+    people[id] = {
+      name: person.name,
+      slug: person.slug,
+      job: position?.title ?? null,
+      party: person.party ?? null,
+      image: portraitOf(person),
+    };
+  }
+  const orgById = new Map(organizations.map((org) => [org.id, org]));
+  const bodies = {};
+  for (const id of [...bodyIds].sort()) {
+    const org = orgById.get(id);
+    bodies[id] = { name: org.name, slug: org.slug, branch: org.branch };
   }
 
-  const map = {};
-  for (const [entity, tally] of perEntity) {
-    const ranked = [...tally.counts.entries()]
-      .map(([personId, total]) => {
-        const person = peopleById.get(personId);
-        if (!person) return null;
-        const slug = person.slug;
-        personSlugs[slug] = personId;
-        const tenure = currentTenure.get(personId) ?? null;
-        const position = tenure ? positionsById.get(tenure.position) ?? null : null;
-        const portraitId = person.portrait;
-        const imageItem = portraitId ? mediaById.get(portraitId) : null;
-        const weekList = tally.weeks.get(personId) ?? [0, 0];
-        const latest = tally.latest.get(personId) ?? null;
-        return {
-          person: personId,
-          slug,
-          name: person.name,
-          job: position?.title ?? null,
-          party: person.party ?? null,
-          image: imageItem?.url ?? null,
-          total,
-          recent: weekList[1] ?? 0,
-          latest: {
-            date: latest ? latest.slice(0, 10) : null,
-            headline: null,
-            source: null,
-          },
-        };
-      })
-      .filter(Boolean)
-      .sort((a, b) => b.total - a.total || b.recent - a.recent || (a.name < b.name ? -1 : 1))
-      .slice(0, entityLimit);
-    if (ranked.length > 0) map[entity] = ranked;
-  }
-  return { map, personSlugs };
+  const current = coalitions.find((coalition) => coalition.end === null && coalition.government === "org:regering") ?? null;
+  const kabinet = current ? { id: current.id, name: current.name, start: current.start } : null;
+  return { people, bodies, news: bubbles, links, kabinet };
 }
 
-const { map: entityPowerMap, personSlugs } = buildEntityPowerMap();
+/** A local portrait URL for a person, or null. */
+function portraitOf(person) {
+  const item = person?.portrait ? mediaById.get(person.portrait) : null;
+  return item?.url ?? null;
+}
 
 /**
  * Seat blocks per chamber from current memberships and the sourced party
  * registry, so the canvas can draw the ∩ arches without loading the dataset.
  * Blocks are sorted largest first, then by label, which is the H6 seat order.
+ *
+ * Each block carries its members in seat order. Named gap (workstream S):
+ * neither chamber publishes a seat per member, `seatNumber` is null on every
+ * membership, so a member gets one of their fractie's seats in the stable
+ * order of lib/seats.ts (by surname), never a real chair.
  */
 function buildChambers() {
   const chambers = {};
+  const seatPeople = {};
   const byOrg = new Map();
   for (const membership of memberships) {
     if (membership.end !== null) continue;
@@ -303,21 +354,28 @@ function buildChambers() {
         color: party?.color ?? null,
         splinter: fractie !== null && isSplinterGroup(fractie),
         seats: 0,
+        people: [],
       };
       entry.seats += 1;
+      const person = peopleById.get(membership.person);
+      entry.people.push({ id: membership.person, name: person?.name ?? membership.person });
+      if (person) seatPeople[person.id] = { name: person.name, slug: person.slug, image: portraitOf(person) };
       grouped.set(key, entry);
     }
-    const entries = [...grouped.values()].sort((a, b) => b.seats - a.seats || (a.label < b.label ? -1 : a.label > b.label ? 1 : 0));
+    const entries = [...grouped.values()]
+      .sort((a, b) => b.seats - a.seats || (a.label < b.label ? -1 : a.label > b.label ? 1 : 0))
+      .map(({ people: members, ...entry }) => ({ ...entry, members: seatOrder(members).map((member) => member.id) }));
     chambers[orgId] = { total: list.length, majority: Math.floor(list.length / 2) + 1, entries };
   }
-  return chambers;
+  const sortedPeople = Object.fromEntries(Object.keys(seatPeople).sort().map((id) => [id, seatPeople[id]]));
+  return { chambers, seatPeople: sortedPeople };
 }
 
 const hub = hubOrg ? { id: hubOrg.id, slug: hubOrg.slug, name: hubOrg.name } : null;
 
 // The layout is computed here, once, and shipped. The client hydrates it and
 // never runs the packer (docs/13-graph-rebuild-plan.md, phase 2).
-const chambers = buildChambers();
+const { chambers, seatPeople } = buildChambers();
 const layout = computeLayout({ hub, nodes, edges, chambers });
 const hubNode = hub ? nodes.find((node) => node.id === hub.id) : null;
 const laidOutNodes = layout.nodes.map(toWireNode);
@@ -357,6 +415,7 @@ const bundle = {
     cols: cluster.cols,
   })),
   chambers,
+  seatPeople,
   tiers: layout.tiers,
   channels: layout.channels,
   coreRadius: layout.coreRadius,
@@ -365,12 +424,12 @@ const bundle = {
   viewBox: layout.viewBox,
 };
 
+const powerMap = buildPowerMap();
 const powerBundle = {
   schema: GRAPH_SCHEMA,
   snapshot,
-  powerMap: buildPowerMap(),
-  entityPowerMap,
-  personSlugs,
+  powerMap,
+  ...buildPowerExtras(powerMap.people),
 };
 
 mkdirSync(OUT_DIR, { recursive: true });
@@ -387,6 +446,7 @@ console.log(
 );
 console.log(
   `power-map.json: ${powerBytes} bytes, ${(powerBytes / 1024).toFixed(1)} KiB, ` +
-    `people ${powerBundle.powerMap.people.length}, entity power maps ${Object.keys(entityPowerMap).length}, ` +
+    `ranked ${powerBundle.powerMap.people.length}, people ${Object.keys(powerBundle.people).length}, ` +
+    `bodies ${Object.keys(powerBundle.bodies).length}, news ${powerBundle.news.length}, links ${powerBundle.links.length}, ` +
     `sources ${powerBundle.powerMap.sources.length}, articles ${powerBundle.powerMap.articleCount}`,
 );
