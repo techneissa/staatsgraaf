@@ -50,6 +50,8 @@ import {
 } from "@/lib/i18n/dict-graph";
 import { orgEnGloss } from "@/lib/name-gloss";
 import { glyphPath, glyphPathAt, orbitDotsAt } from "./glyph";
+import { ICON_SCALE, iconFor } from "@/lib/graph-icons";
+import { iconPathAt } from "@/lib/icon-path";
 import { GraphList } from "./graph-list";
 import { SeatLoupe } from "./seat-loupe";
 import { benchLabelArc, ringPath, sectorLabelArc, sectorWedge, tierLabelArc, wedgePath } from "./tier-chrome";
@@ -91,6 +93,10 @@ function scheduleFrame(callback: (now: number) => void): () => void {
 const MIN_ZOOM = 0.25;
 const MAX_ZOOM = 8;
 const DIM_OPACITY = 0.2;
+/** Icons inside the marks: shown once a mark of this radius (canvas units) is at least ICON_MIN_PX on screen. */
+const ICON_TYPICAL_RADIUS = 8;
+const ICON_MIN_PX = 7;
+const ICON_STROKE = 0.85;
 /**
  * Seats take the pointer themselves once they are this far apart on screen,
  * in CSS pixels; below it the fractie wedge takes the click and the seat loupe
@@ -202,6 +208,14 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
 
   const containerRef = useRef<HTMLDivElement | null>(null);
   const svgRef = useRef<SVGSVGElement | null>(null);
+  /**
+   * The frame rotation the icons are drawn upright for. Icons fade out while
+   * the canvas turns and come back upright once it settles; rebuilding the
+   * merged icon paths every frame of a turn would not fit the frame budget.
+   */
+  const [iconTurn, setIconTurn] = useState(0);
+  const iconTurnRef = useRef(0);
+  iconTurnRef.current = iconTurn;
   const viewGroupRef = useRef<SVGGElement | null>(null);
   const rotGroupRef = useRef<SVGGElement | null>(null);
   const tooltipRef = useRef<HTMLDivElement | null>(null);
@@ -486,6 +500,19 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
     }
     return [...groups.entries()].map(([key, group]) => ({ key, sector: group.sector, branch: group.branch, d: group.d.join(" ") }));
   }, [drawnNodes, dynamicIds]);
+
+  const staticIconGroups = useMemo(() => {
+    const groups = new Map<string, { sector: string; branch: string; d: string[] }>();
+    for (const node of drawnNodes) {
+      if (node.hidden || dynamicIds.has(node.id)) continue;
+      const icon = iconFor(node.subtype);
+      if (!icon) continue;
+      const group = groups.get(node.sector) ?? { sector: node.sector, branch: node.branch, d: [] };
+      group.d.push(iconPathAt(icon, node.x, node.y, node.glyphRadius * ICON_SCALE, -iconTurn));
+      groups.set(node.sector, group);
+    }
+    return [...groups.entries()].map(([key, group]) => ({ key, sector: group.sector, branch: group.branch, d: group.d.join("") }));
+  }, [drawnNodes, dynamicIds, iconTurn]);
 
   const staticHitMarks = useMemo(
     () => drawnNodes.filter((node) => !node.hidden && !dynamicIds.has(node.id)),
@@ -793,6 +820,17 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
         const top = above ? py - gap - height : py + gap;
         tooltip.style.transform = `translate(${left.toFixed(0)}px, ${top.toFixed(0)}px)`;
       }
+    }
+
+    // Icons show once a typical mark is big enough on screen to read one, and not while the canvas turns.
+    const svg = svgRef.current;
+    if (svg) {
+      const turning = !settled(rot.current);
+      const upright = Math.abs(rot.current.value - iconTurnRef.current) < 0.002;
+      if (!turning && !upright) setIconTurn(rot.current.value);
+      const readable = viewK.current.value * screenRef.current.scale * ICON_TYPICAL_RADIUS >= ICON_MIN_PX;
+      const value = readable && !turning && upright ? "1" : "0";
+      if (svg.style.getPropertyValue("--sg-icons") !== value) svg.style.setProperty("--sg-icons", value);
     }
   }, [project]);
 
@@ -1742,6 +1780,22 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
                   }
                 />
               ))}
+              {staticIconGroups.map((group) => {
+                const dim = activeSector ? group.sector !== activeSector : Boolean(selectedId || activeClusterInfo);
+                return (
+                  <path
+                    key={`icon-${group.key}`}
+                    d={group.d}
+                    fill="none"
+                    stroke={branchColorVar(group.branch as OrgBranchName)}
+                    strokeWidth={ICON_STROKE}
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    pointerEvents="none"
+                    style={{ opacity: `calc(var(--sg-icons, 0) * ${dim ? DIM_OPACITY : 0.95})`, transition: "opacity 180ms ease-out" }}
+                  />
+                );
+              })}
             </g>
             <g onClick={onMarkClick} onPointerOver={onMarkOver} onPointerOut={onMarkOut}>
               {staticHitMarks.map((node) => (
@@ -1814,7 +1868,7 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
                               ? "base"
                               : "dim"
                             : "base";
-                return <Mark key={node.id} node={node} state={state} setRef={setMarkRef(node)} />;
+                return <Mark key={node.id} node={node} state={state} setRef={setMarkRef(node)} iconTurn={iconTurn} />;
               })}
             </g>
 
@@ -2132,7 +2186,18 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
  * rings and edges behind it stay visible. The fill deepens as the mark matters
  * more: under the pointer, as a relation, on the path, as the selection.
  */
-function Mark({ node, state, setRef }: { node: LaidOutNode; state: MarkState; setRef: (element: SVGGElement | null) => void }) {
+function Mark({
+  node,
+  state,
+  setRef,
+  iconTurn,
+}: {
+  node: LaidOutNode;
+  state: MarkState;
+  setRef: (element: SVGGElement | null) => void;
+  iconTurn: number;
+}) {
+  const icon = iconFor(node.subtype);
   const color = branchColorVar(node.branch);
   const radius = node.glyphRadius + (state === "selected" ? SELECTED_GROWTH : 0);
   const accent = state === "selected" || state === "path";
@@ -2151,6 +2216,18 @@ function Mark({ node, state, setRef }: { node: LaidOutNode; state: MarkState; se
         <circle r={radius + 3} fill="none" stroke="var(--t-color-accent-text)" strokeWidth={0.8} opacity={0.7} />
       ) : null}
       <path d={glyphPath(node.glyph, radius)} fill={stroke} fillOpacity={fillOpacity} stroke={stroke} strokeWidth={state === "hover" ? 1.3 : 1} strokeLinejoin="round" />
+      {icon ? (
+        <path
+          d={iconPathAt(icon, 0, 0, radius * ICON_SCALE, -iconTurn)}
+          fill="none"
+          stroke={state === "selected" ? "var(--t-color-surface)" : stroke}
+          strokeWidth={ICON_STROKE}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          pointerEvents="none"
+          style={{ opacity: "var(--sg-icons, 0)", transition: "opacity 180ms ease-out" }}
+        />
+      ) : null}
       {node.orbit > 0
         ? Array.from({ length: node.orbit }, (_, index) => {
             const fan = (36 * Math.PI) / 180;

@@ -19,6 +19,7 @@ import {
   FRAME_CLEARANCE,
   FRAME_MARGIN,
   GLYPH_BY_SUBTYPE,
+  BLOOM_MAX_ROWS,
   GLYPH_GAP,
   MAX_DEPTH,
   PUSH_RESERVE,
@@ -577,6 +578,15 @@ export function computeLayout(bundle: LayoutInput): GraphLayout {
         for (const member of item.members) foot = Math.max(foot, glyphFootprint(member));
         const at = placedById.get(item.id);
         if (at) reserved = Math.max(reserved, at.radius + foot);
+        // Opened as a compact block (ring-pack.ts, bloomPack): up to BLOOM_MAX_ROWS rows centred
+        // on the grid, pushed outward when it would cross the sector's inner edge.
+        if (at) {
+          const pitch = 2 * foot + GLYPH_GAP;
+          const rows = Math.min(BLOOM_MAX_ROWS, Math.max(1, Math.ceil(Math.sqrt(item.members.length / 2.2))));
+          const depth = (rows - 1) * pitch;
+          const inner = Math.max(packInner + foot, at.radius - depth / 2);
+          reserved = Math.max(reserved, inner + depth + foot);
+        }
       }
 
       const sectorOuter = Math.max(reserved, tierInner);
