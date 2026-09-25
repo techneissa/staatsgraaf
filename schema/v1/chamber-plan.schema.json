@@ -21,6 +21,19 @@
         "to": { "$ref": "#/$defs/point" }
       }
     },
+    "furniture": {
+      "type": "object",
+      "required": ["kind", "points"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["desk", "rostrum", "cabinet", "other"],
+          "description": "desk: the chair's and griffier's desk; rostrum: the spreekgestoelte; cabinet: a bench of vak-K; other: further furniture of the hall as drawn."
+        },
+        "points": { "type": "array", "minItems": 3, "items": { "$ref": "#/$defs/point" } }
+      }
+    },
     "seat": {
       "type": "object",
       "required": ["x", "y", "fractie"],
@@ -60,7 +73,12 @@
             "chair": { "$ref": "#/$defs/point" },
             "clerk": { "$ref": "#/$defs/point" },
             "rostrum": { "$ref": "#/$defs/point" },
-            "cabinet": { "type": "array", "items": { "$ref": "#/$defs/segment" }, "description": "The benches of the kabinet (vak-K), as centre lines." }
+            "cabinet": { "type": "array", "items": { "$ref": "#/$defs/segment" }, "description": "The benches of the kabinet (vak-K), as centre lines." },
+            "furniture": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/furniture" },
+              "description": "The hall's furniture as the source draws it: polygons in the plan's coordinates."
+            }
           }
         },
         "notes": { "type": ["string", "null"] },

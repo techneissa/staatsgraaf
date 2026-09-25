@@ -25,7 +25,13 @@ type Spot = {
   /** Fractie hub or ministry id. */
   hub: string;
   emptyChair?: boolean;
+  /** The chair's own seat (Eerste Kamer): drawn larger, always with a face. */
+  chairSeat?: boolean;
 };
+
+/** How long the pointer rests on a seat before its popover shows, and before it goes. */
+const HOVER_IN = 110;
+const HOVER_OUT = 90;
 
 /**
  * The plenary hall of a Kamer (ADR 0018, amendment 3): every seat where the
@@ -62,6 +68,13 @@ export function ChamberHallView({
   const side = width >= SIDE_LEGEND;
   const [areaRef, area] = useSize<HTMLDivElement>();
   const [hot, setHot] = useState<string | null>(null);
+  /** Whether `hot` comes from the legend (a strong highlight) or a seat under the pointer (a soft one). */
+  const [hotFromLegend, setHotFromLegend] = useState(false);
+  const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pending = useRef<string | null>(null);
+  useEffect(() => () => {
+    if (hoverTimer.current) clearTimeout(hoverTimer.current);
+  }, []);
   const [hover, setHover] = useState<string | null>(null);
   const [card, setCard] = useState<string | null>(null);
 
@@ -96,10 +109,11 @@ export function ChamberHallView({
       kind: "seat",
       x: seat.x,
       y: seat.y,
-      r: seat.chair && seat.person ? hall.r * 1.25 : hall.r,
+      r: seat.chair && seat.person ? hall.r * 1.8 : hall.r,
       person: seat.person,
       hub: seat.hub,
       emptyChair: Boolean(seat.chair && !seat.person),
+      chairSeat: Boolean(seat.chair && seat.person),
     }));
     hall.cabinet.seats.forEach((seat, index) => list.push({ key: `k${index}`, kind: "bench", x: seat.x, y: seat.y, r: hall.cabinet.r, person: seat.person, hub: seat.hub }));
     if (hall.chair) list.push({ key: "chair", kind: "chair", x: hall.chair.x, y: hall.chair.y, r: hall.chair.r, person: hall.chair.person, hub: "chair" });
@@ -120,6 +134,8 @@ export function ChamberHallView({
     return spot.hub === hot;
   };
   const anyLit = highlighted.size > 0;
+  /** A seat under the pointer only softens the rest; the legend singles its seats out. */
+  const dimTo = hotFromLegend ? 0.22 : 0.5;
 
   /** The spot nearest to a point in the area, within a seat pitch. */
   const nearest = (clientX: number, clientY: number, element: HTMLElement): Spot | null => {
@@ -139,11 +155,28 @@ export function ChamberHallView({
     return best && bestDistance < 0.6 ? best : null;
   };
 
+  /** Hover with a short rest, so passing over the hall does not flash popovers. */
+  const hoverTo = (spot: Spot | null) => {
+    const key = spot?.person ?? null;
+    if (key === pending.current) return;
+    pending.current = key;
+    if (hoverTimer.current) clearTimeout(hoverTimer.current);
+    hoverTimer.current = setTimeout(
+      () => {
+        setHover(key);
+        setHotFromLegend(false);
+        setHot(spot ? (spot.kind === "seat" && !spot.chairSeat ? spot.hub : spot.kind === "bench" ? "kabinet" : null) : null);
+      },
+      key === null ? HOVER_OUT : HOVER_IN,
+    );
+  };
   const onPointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (event.pointerType !== "mouse") return;
-    const spot = nearest(event.clientX, event.clientY, event.currentTarget);
-    setHover(spot?.person ?? null);
-    setHot(spot ? (spot.kind === "seat" ? spot.hub : spot.kind === "bench" ? "kabinet" : null) : null);
+    hoverTo(nearest(event.clientX, event.clientY, event.currentTarget));
+  };
+  const legendHot = (id: string | null) => {
+    setHotFromLegend(id !== null);
+    setHot(id);
   };
   const onPointerUp = (event: ReactPointerEvent<HTMLDivElement>) => {
     const spot = nearest(event.clientX, event.clientY, event.currentTarget);
@@ -195,10 +228,10 @@ export function ChamberHallView({
         <button
           type="button"
           onClick={() => onExpand(hub.id)}
-          onPointerEnter={() => setHot(hub.id)}
-          onPointerLeave={() => setHot((current) => (current === hub.id ? null : current))}
-          onFocus={() => setHot(hub.id)}
-          onBlur={() => setHot((current) => (current === hub.id ? null : current))}
+          onPointerEnter={() => legendHot(hub.id)}
+          onPointerLeave={() => legendHot(null)}
+          onFocus={() => legendHot(hub.id)}
+          onBlur={() => legendHot(null)}
           aria-label={t("hubOpen", { name: hub.name, count: hub.seats === 1 ? t("seats1") : t("seatsN", { n: hub.seats ?? 0 }) })}
           className={`tap-row flex w-full min-w-0 items-center gap-2 rounded-sm px-1.5 text-left hover:bg-surface-raised ${side ? "py-1" : "py-0.5"} ${
             hot !== null && hot !== hub.id && !(hot === "coalition" && hub.coalition) ? "opacity-50" : ""
@@ -224,10 +257,10 @@ export function ChamberHallView({
     <li key={key} className="mt-1 first:mt-0">
       <button
         type="button"
-        onPointerEnter={() => key === "coalition" && setHot("coalition")}
-        onPointerLeave={() => setHot((current) => (current === "coalition" ? null : current))}
-        onFocus={() => key === "coalition" && setHot("coalition")}
-        onBlur={() => setHot((current) => (current === "coalition" ? null : current))}
+        onPointerEnter={() => key === "coalition" && legendHot("coalition")}
+        onPointerLeave={() => legendHot(null)}
+        onFocus={() => key === "coalition" && legendHot("coalition")}
+        onBlur={() => legendHot(null)}
         className="flex w-full items-baseline justify-between gap-2 px-1.5 pb-0.5 text-left text-[11px] font-semibold uppercase tracking-wide text-ink-faint"
       >
         <span>{key === "coalition" ? t("hallCoalition") : t("hallOpposition")}</span>
@@ -280,13 +313,19 @@ export function ChamberHallView({
           className={`relative min-w-0 touch-manipulation select-none ${stacked ? "shrink-0" : "min-h-0 flex-1"}`}
           style={{ height: hallHeight }}
           onPointerMove={onPointerMove}
-          onPointerLeave={() => {
-            setHover(null);
-            setHot(null);
-          }}
+          onPointerLeave={() => hoverTo(null)}
           onPointerUp={onPointerUp}
         >
           <svg aria-hidden="true" width={area.width} height={area.height} className="absolute inset-0">
+            {hall.furniture.map((item, index) => (
+              <polygon
+                key={`f${index}`}
+                points={item.points.map((point) => `${at(point).x},${at(point).y}`).join(" ")}
+                fill={item.kind === "desk" ? "var(--t-color-line-strong)" : "var(--t-color-line)"}
+                opacity={item.kind === "other" ? 0.45 : 0.8}
+                strokeLinejoin="round"
+              />
+            ))}
             {spots.map((spot) => {
               const point = at(spot);
               const color = colorOf(spot);
@@ -307,7 +346,7 @@ export function ChamberHallView({
                   />
                 );
               }
-              if (portraits || spot.kind === "chair") return null;
+              if (portraits || spot.kind === "chair" || spot.chairSeat) return null;
               return (
                 <circle
                   key={spot.key}
@@ -316,7 +355,7 @@ export function ChamberHallView({
                   r={radius}
                   fill={color}
                   className="hv-lift"
-                  opacity={lit ? 1 : 0.25}
+                  opacity={lit ? 1 : dimTo}
                   stroke={peek === spot ? "var(--t-color-ink)" : "none"}
                   strokeWidth={2}
                 />
@@ -324,7 +363,7 @@ export function ChamberHallView({
             })}
           </svg>
           {spots.map((spot) => {
-            if (!spot.person || (!portraits && spot.kind !== "chair")) return null;
+            if (!spot.person || (!portraits && spot.kind !== "chair" && !spot.chairSeat)) return null;
             const entry = people.get(spot.person);
             if (!entry) return null;
             const point = at(spot);
@@ -336,7 +375,7 @@ export function ChamberHallView({
                 key={spot.key}
                 aria-hidden="true"
                 className="hv-lift pointer-events-none absolute"
-                style={{ left: point.x - size / 2, top: point.y - size / 2, opacity: lit ? 1 : 0.3, transform: peek === spot ? "scale(1.12)" : undefined }}
+                style={{ left: point.x - size / 2, top: point.y - size / 2, opacity: lit ? 1 : dimTo, transform: peek === spot ? "scale(1.15)" : undefined, zIndex: peek === spot ? 2 : undefined }}
               >
                 <RingPortrait name={entry.person.name} image={entry.person.image} size={size} color={colorOf(spot)} stroke={Math.max(1.5, size * 0.09)} tint={tint} />
               </span>
@@ -359,7 +398,7 @@ export function ChamberHallView({
                     key="chair-label"
                     aria-hidden="true"
                     className="pointer-events-none absolute -translate-x-1/2 whitespace-nowrap text-[11px] font-semibold text-ink-muted"
-                    style={{ left: inside(at(seat).x, 34), top: at(seat).y + px(hall.r * 1.25) + 2 }}
+                    style={{ left: inside(at(seat).x, 34), top: at(seat).y + px(hall.r * 1.8) + 2 }}
                   >
                     {t("hallChair")}
                   </span>
@@ -370,8 +409,8 @@ export function ChamberHallView({
               type="button"
               onClick={onShowKabinet}
               onPointerUp={(event) => event.stopPropagation()}
-              onPointerEnter={() => setHot("kabinet")}
-              onPointerLeave={() => setHot((current) => (current === "kabinet" ? null : current))}
+              onPointerEnter={() => legendHot("kabinet")}
+              onPointerLeave={() => legendHot(null)}
               title={t("hallMinistriesTitle")}
               className="tap-target absolute flex -translate-x-1/2 -translate-y-1/2 items-center gap-1 whitespace-nowrap rounded-pill border border-line-strong bg-surface px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-ink-muted hover:border-accent hover:text-ink"
               style={{ left: inside(at(hall.cabinet.label).x, 48), top: at(hall.cabinet.label).y }}
@@ -380,30 +419,45 @@ export function ChamberHallView({
               <LucideIcon icon={ChevronRight} size={12} />
             </button>
           ) : null}
-          {peek?.person ? (
-            <SeatCard
-              key={peek.person}
-              spot={peek}
-              person={people.get(peek.person)?.person ?? null}
-              hub={peek.kind === "seat" ? hubById.get(peek.hub) ?? null : people.get(peek.person)?.hub ?? null}
-              chair={peek.kind === "chair" || peek.person === tree.head?.id}
-              sticky={Boolean(cardSpot)}
-              anchor={at(peek)}
-              radius={px(peek.r)}
+          {hoverSpot?.person ? (
+            <HoverCard
+              key={hoverSpot.person}
+              spot={hoverSpot}
+              person={people.get(hoverSpot.person)?.person ?? null}
+              hub={hoverSpot.kind === "seat" ? hubById.get(hoverSpot.hub) ?? null : people.get(hoverSpot.person)?.hub ?? null}
+              chair={hoverSpot.kind === "chair" || hoverSpot.chairSeat === true || hoverSpot.person === tree.head?.id}
+              chamber={tree.id}
+              anchor={at(hoverSpot)}
+              radius={px(hoverSpot.r)}
               area={area}
-              color={colorOf(peek)}
+              color={colorOf(hoverSpot)}
               locale={locale}
-              position={group.indexOf(peek.person)}
+            />
+          ) : null}
+          {cardSpot?.person ? (
+            <SeatCard
+              key={cardSpot.person}
+              spot={cardSpot}
+              person={people.get(cardSpot.person)?.person ?? null}
+              hub={cardSpot.kind === "seat" ? hubById.get(cardSpot.hub) ?? null : people.get(cardSpot.person)?.hub ?? null}
+              chair={cardSpot.kind === "chair" || cardSpot.chairSeat === true || cardSpot.person === tree.head?.id}
+              sticky
+              anchor={at(cardSpot)}
+              radius={px(cardSpot.r)}
+              area={area}
+              color={colorOf(cardSpot)}
+              locale={locale}
+              position={group.indexOf(cardSpot.person)}
               count={group.length}
               onStep={(delta) => {
-                const index = group.indexOf(peek.person!);
+                const index = group.indexOf(cardSpot.person!);
                 const next = group[(index + delta + group.length) % group.length];
                 if (next) setCard(next);
               }}
               onOpen={() => {
-                const point = at(peek);
-                rememberTap(peek.person!, { x: point.x, y: point.y, r: px(peek.r) });
-                onPick(peek.person!);
+                const point = at(cardSpot);
+                rememberTap(cardSpot.person!, { x: point.x, y: point.y, r: px(cardSpot.r) });
+                onPick(cardSpot.person!);
               }}
               onClose={() => setCard(null)}
             />
@@ -428,6 +482,98 @@ export function ChamberHallView({
         </p>
       </div>
       {legend}
+    </div>
+  );
+}
+
+/** Entrance of the hover popover: a short fade and rise, none under reduced motion. */
+const TIP_CSS = `
+@keyframes hall-tip { from { opacity: 0; transform: translateY(var(--tip-rise, 4px)) scale(.97); } to { opacity: 1; transform: none; } }
+.hall-tip { animation: hall-tip 140ms var(--t-ease-decelerate) both; }
+@media (prefers-reduced-motion: reduce) { .hall-tip { animation: none; } }`;
+
+/**
+ * The popover for a seat under the mouse: face, name, one line for fractie
+ * and role, one for how long they have held the seat or post. Read-only and
+ * out of the pointer's way: above the seat with a small pointer to it, or
+ * below when there is no room above.
+ */
+function HoverCard({
+  spot,
+  person,
+  hub,
+  chair,
+  chamber,
+  anchor,
+  radius,
+  area,
+  color,
+  locale,
+}: {
+  spot: Spot;
+  person: HierarchyPerson | null;
+  hub: HierarchyHub | null;
+  chair: boolean;
+  chamber: HierarchyTree["id"];
+  anchor: { x: number; y: number };
+  radius: number;
+  area: { width: number; height: number };
+  color: string;
+  locale: "nl" | "en";
+}) {
+  const t = useT("power");
+  if (!person) return null;
+  const info = personInfo(person, hub?.kind === "fractie" ? hub : null, locale);
+  const role = chair
+    ? t("hallChair")
+    : spot.kind === "bench"
+      ? shortRole(roleText(person, locale))
+      : person.leader
+        ? t("leader")
+        : null;
+  const since = person.since
+    ? spot.kind === "seat" && !chair
+      ? t(chamber === "eerste-kamer" ? "hallSinceSenate" : "hallSinceHouse", { date: formatDutchDate(person.since) })
+      : t("hallSincePost", { date: formatDutchDate(person.since) })
+    : null;
+  const width = Math.min(236, area.width - 16);
+  const height = since ? 74 : 60;
+  const gap = 9;
+  const above = anchor.y - radius - gap - height >= 4;
+  const top = above ? anchor.y - radius - gap - height : Math.min(anchor.y + radius + gap, area.height - height - 4);
+  const left = Math.min(Math.max(8, anchor.x - width / 2), area.width - width - 8);
+  const arrow = Math.min(Math.max(14, anchor.x - left), width - 14);
+  return (
+    <div
+      aria-hidden="true"
+      className="hall-tip pointer-events-none absolute z-20"
+      style={{ left, top, width, ["--tip-rise" as string]: above ? "4px" : "-4px" }}
+    >
+      <style>{TIP_CSS}</style>
+      <div className="flex min-w-0 items-center gap-2.5 rounded-md border border-line-strong bg-surface-raised px-2.5 py-2 shadow-lg">
+        <RingPortrait name={person.name} image={person.image} size={44} color={color} stroke={2.5} tint={info.color} />
+        <div className="flex min-w-0 flex-1 flex-col leading-tight">
+          <span className="truncate text-[13px] font-semibold text-ink">{person.name}</span>
+          <span className="mt-0.5 flex min-w-0 items-center gap-1.5 text-xs text-ink-muted">
+            {info.party ? (
+              <>
+                <span aria-hidden="true" className="h-2 w-2 shrink-0 rounded-pill" style={{ backgroundColor: info.color ?? "var(--t-color-line-strong)" }} />
+                <span className="shrink-0 font-medium text-ink">{info.party}</span>
+              </>
+            ) : null}
+            {role ? <span className="truncate">{info.party ? `· ${role}` : role}</span> : null}
+          </span>
+          {since ? <span className="mt-0.5 truncate text-[11px] text-ink-faint">{since}</span> : null}
+        </div>
+      </div>
+      <span
+        aria-hidden="true"
+        className="absolute h-2.5 w-2.5 rotate-45 border-line-strong bg-surface-raised"
+        style={{
+          left: arrow - 5,
+          ...(above ? { bottom: -4, borderRightWidth: 1, borderBottomWidth: 1 } : { top: -4, borderLeftWidth: 1, borderTopWidth: 1 }),
+        }}
+      />
     </div>
   );
 }

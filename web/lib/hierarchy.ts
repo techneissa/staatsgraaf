@@ -40,6 +40,8 @@ export type HierarchyPerson = {
   party?: string;
   /** Fractievoorzitter of the hub's fractie. */
   leader?: true;
+  /** Start of the seat or post that places the person here (ISO date). */
+  since?: string;
   /** Index into `HierarchyBundle.sources`. */
   src: number;
 };
@@ -98,7 +100,7 @@ type Org = { id: string; slug: string; name: string; aliases?: string[] };
 type Person = { id: string; slug: string; name: string; party?: string | null };
 type Position = { id: string; title: string; organization: string };
 type Tenure = { person: string; position: string; start?: string | null; end: string | null; source?: SourceRef };
-type Membership = { person: string; organization: string; fractie?: string | null; end: string | null; source?: SourceRef };
+type Membership = { person: string; organization: string; fractie?: string | null; start?: string | null; end: string | null; source?: SourceRef };
 type Coalition = {
   id: string;
   government: string;
@@ -240,6 +242,7 @@ export function buildHierarchy(input: HierarchyInput): HierarchyBundle {
       .map((entry) =>
         personRef(entry.tenure.person, entry.tenure.source, {
           role: entry.position.title,
+          ...(entry.tenure.start ? { since: entry.tenure.start } : {}),
           ...(extraTitles.has(entry.tenure.person) ? { extra: extraTitles.get(entry.tenure.person) } : {}),
         }),
       )
@@ -252,7 +255,12 @@ export function buildHierarchy(input: HierarchyInput): HierarchyBundle {
     id: "kabinet",
     org: "org:regering",
     name: coalition?.name ?? "Kabinet",
-    head: headEntry ? personRef(headEntry.tenure.person, headEntry.tenure.source, { role: headEntry.position.title }) : null,
+    head: headEntry
+      ? personRef(headEntry.tenure.person, headEntry.tenure.source, {
+          role: headEntry.position.title,
+          ...(headEntry.tenure.start ? { since: headEntry.tenure.start } : {}),
+        })
+      : null,
     headOfState: kingTenure
       ? personRef(kingTenure.person, kingTenure.source, { role: positionById.get(kingTenure.position)?.title })
       : null,
@@ -313,13 +321,15 @@ export function buildHierarchy(input: HierarchyInput): HierarchyBundle {
           group.members.map((membership) => ({ id: membership.person, name: personById.get(membership.person)?.name ?? membership.person, membership })),
         );
         const people: HierarchyPerson[] = [];
+        const seatSince = (person: string) => group.members.find((membership) => membership.person === person)?.start ?? null;
         if (leader) {
-          const ref = personRef(leader.person, leader.source, { leader: true });
+          const since = seatSince(leader.person);
+          const ref = personRef(leader.person, leader.source, { leader: true, ...(since ? { since } : {}) });
           if (ref) people.push(ref);
         }
         for (const entry of ordered) {
           if (entry.id === leader?.person) continue;
-          const ref = personRef(entry.id, entry.membership.source);
+          const ref = personRef(entry.id, entry.membership.source, entry.membership.start ? { since: entry.membership.start } : {});
           if (ref) people.push(ref);
         }
         return {
@@ -358,7 +368,9 @@ export function buildHierarchy(input: HierarchyInput): HierarchyBundle {
       id: treeId,
       org: orgId,
       name: org.name,
-      head: chair ? personRef(chair.person, chair.source, { role: positionById.get(chair.position)?.title }) : null,
+      head: chair
+        ? personRef(chair.person, chair.source, { role: positionById.get(chair.position)?.title, ...(chair.start ? { since: chair.start } : {}) })
+        : null,
       seats: seated.length,
       hubs,
       ...(hall ? { hall } : {}),

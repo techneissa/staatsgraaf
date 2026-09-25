@@ -111,6 +111,26 @@ def tk_plan(path):
             mid = lambda pair: {"x": round((pair[0][0] + pair[1][0]) / 2, 1), "y": round((pair[0][1] + pair[1][1]) / 2, 1)}
             bars.append({"from": mid(top), "to": mid(bottom)})
     bars.sort(key=lambda bar: bar["from"]["x"])
+    # The grey furniture as polygons; each shape is drawn twice (a shadow copy
+    # offset down and to the right), and only the first of each is kept.
+    furniture = []
+    seen = []
+    for drawing in page.get_drawings():
+        fill, rect = drawing.get("fill"), drawing["rect"]
+        if not fill or abs(fill[0] - 0.773) > 0.02 or rect.y1 > 270 or rect.width < 8 or rect.height < 8:
+            continue
+        points = []
+        for item in drawing["items"]:
+            for pt in item[1:]:
+                if hasattr(pt, "x") and (round(pt.x, 1), round(pt.y, 1)) not in points:
+                    points.append((round(pt.x, 1), round(pt.y, 1)))
+        if len(points) < 3 or any(abs(rect.x0 - x0) < 8 and abs(rect.y0 - y0) < 8 for x0, y0 in seen):
+            continue
+        seen.append((rect.x0, rect.y0))
+        middle_x = (rect.x0 + rect.x1) / 2
+        near = lambda w: rect.x0 - 2 <= (w[0] + w[2]) / 2 <= rect.x1 + 2 and rect.y0 - 2 <= (w[1] + w[3]) / 2 <= rect.y1 + 2
+        kind = "desk" if near(words["1"]) else "rostrum" if near(words["5"]) else "cabinet" if 270 < middle_x < 395 and rect.height > 50 else "other"
+        furniture.append({"kind": kind, "points": [{"x": x, "y": y} for x, y in points]})
     return {
         "seats": seats,
         "places": {
@@ -118,6 +138,7 @@ def tk_plan(path):
             "clerk": centre(words["2"]),
             "rostrum": centre(words["5"]),
             "cabinet": bars,
+            "furniture": furniture,
         },
     }
 

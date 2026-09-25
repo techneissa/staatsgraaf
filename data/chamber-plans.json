@@ -1350,6 +1350,192 @@
             "y": 257.8
           }
         }
+      ],
+      "furniture": [
+        {
+          "kind": "other",
+          "points": [
+            {
+              "x": 88.2,
+              "y": 261.9
+            },
+            {
+              "x": 77.5,
+              "y": 254.4
+            },
+            {
+              "x": 94.2,
+              "y": 230.5
+            },
+            {
+              "x": 104.9,
+              "y": 237.9
+            }
+          ]
+        },
+        {
+          "kind": "rostrum",
+          "points": [
+            {
+              "x": 245.9,
+              "y": 193.3
+            },
+            {
+              "x": 241.3,
+              "y": 197.9
+            },
+            {
+              "x": 236.7,
+              "y": 202.5
+            },
+            {
+              "x": 235,
+              "y": 196.2
+            },
+            {
+              "x": 233.3,
+              "y": 189.9
+            },
+            {
+              "x": 239.6,
+              "y": 191.6
+            }
+          ]
+        },
+        {
+          "kind": "desk",
+          "points": [
+            {
+              "x": 190.8,
+              "y": 256
+            },
+            {
+              "x": 228,
+              "y": 218.5
+            },
+            {
+              "x": 219.2,
+              "y": 209.7
+            },
+            {
+              "x": 173.3,
+              "y": 255.8
+            }
+          ]
+        },
+        {
+          "kind": "other",
+          "points": [
+            {
+              "x": 202.6,
+              "y": 206
+            },
+            {
+              "x": 171.4,
+              "y": 237.3
+            },
+            {
+              "x": 162.6,
+              "y": 228.5
+            },
+            {
+              "x": 193.8,
+              "y": 197.2
+            }
+          ]
+        },
+        {
+          "kind": "other",
+          "points": [
+            {
+              "x": 166.2,
+              "y": 241.6
+            },
+            {
+              "x": 151.8,
+              "y": 256
+            },
+            {
+              "x": 120.6,
+              "y": 256
+            },
+            {
+              "x": 128.3,
+              "y": 245.8
+            },
+            {
+              "x": 144.3,
+              "y": 246
+            },
+            {
+              "x": 157.4,
+              "y": 232.8
+            }
+          ]
+        },
+        {
+          "kind": "other",
+          "points": [
+            {
+              "x": 426.6,
+              "y": 256.3
+            },
+            {
+              "x": 417.6,
+              "y": 265.3
+            },
+            {
+              "x": 397.4,
+              "y": 245.2
+            },
+            {
+              "x": 406.4,
+              "y": 236.2
+            }
+          ]
+        },
+        {
+          "kind": "cabinet",
+          "points": [
+            {
+              "x": 328.4,
+              "y": 256.5
+            },
+            {
+              "x": 275.8,
+              "y": 207.3
+            },
+            {
+              "x": 284.6,
+              "y": 198.5
+            },
+            {
+              "x": 345.6,
+              "y": 256.2
+            }
+          ]
+        },
+        {
+          "kind": "cabinet",
+          "points": [
+            {
+              "x": 371.2,
+              "y": 257.8
+            },
+            {
+              "x": 306.4,
+              "y": 195.8
+            },
+            {
+              "x": 315.9,
+              "y": 186.3
+            },
+            {
+              "x": 389.2,
+              "y": 257.7
+            }
+          ]
+        }
       ]
     },
     "notes": "Middelpunt van elke zetel in de factsheet Zetelverdeling plenaire zaal, juni 2026 (pdf aangemaakt 2026-06-11), in punten van de pdf-pagina. De fractie per zetel is de legendakleur van de zetel; het aantal per fractie is gelijk aan de legenda. De factsheet noemt geen leden per zetel. Voorzitter (1), griffier (2) en spreekgestoelte (5) zijn de plekken van hun nummer; vak-K (3) is de middellijn van de twee grijze banken.",
