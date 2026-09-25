@@ -36,8 +36,8 @@ export const WHEEL_RINGS = {
     [156, 226],
     [240, 312],
   ] as const,
-  decentraal: [332, 392] as const,
-  koninkrijk: [406, 440] as const,
+  decentraal: [332, 400] as const,
+  koninkrijk: [412, 442] as const,
   frame: [456, 476] as const,
 };
 
@@ -66,7 +66,22 @@ export type WheelCell = {
   heading?: boolean;
   /** The group whose one background the cell shares; its own id when it stands alone. */
   group: string;
+  /**
+   * A family: the body at the head of the cell (a ministry, a provincie),
+   * drawn large at the cell's inner edge, with the cell's items as the
+   * bodies that fall under it. At rest they are packed small; the open
+   * family draws them full size and takes more of the ring.
+   */
+  head?: WheelItem;
+  /** Room kept at the inner edge for the head. */
+  headBand?: number;
+  /** Whether this family is open. */
+  open?: boolean;
 };
+
+/** Step between marks of a family at rest, and when it is open. */
+export const REST_PITCH = 10;
+export const OPEN_PITCH = 24;
 
 /**
  * Cells drawn on one shared background with one name outside it, like the
@@ -86,7 +101,65 @@ export type WheelGroup = {
   cells: string[];
 };
 
-export type WheelModel = { cells: WheelCell[]; groups: WheelGroup[]; wedges: { id: string; title: string; a0: number; a1: number }[] };
+export type WheelModel = {
+  cells: WheelCell[];
+  groups: WheelGroup[];
+  wedges: { id: string; title: string; a0: number; a1: number }[];
+  /** For every body in a family, the head of that family; heads map to themselves. */
+  familyOf: Record<string, string>;
+};
+
+/** Angles a family needs: the least (room for its head), at rest, and open. */
+type FamilyNeed = { min: number; rest: number; open: number };
+
+function familyNeed(count: number, r0: number, r1: number, headBand: number, titleBand: number, headPitch: number): FamilyNeed {
+  const inner = r0 + headBand;
+  const depth = r1 - titleBand - inner - 3;
+  const middle = (inner + r1 - titleBand) / 2;
+  const need = (pitch: number) => {
+    if (count === 0) return 0;
+    const rows = Math.max(1, Math.floor(depth / pitch));
+    return (Math.ceil(count / rows) * pitch + 6) / middle;
+  };
+  const min = headPitch > 0 ? (headPitch + 2) / (r0 + headBand / 2) : need(REST_PITCH) * 0.6;
+  return { min, rest: Math.max(min, need(REST_PITCH)), open: Math.max(min, need(OPEN_PITCH)) };
+}
+
+/**
+ * Share [a0, a1] among families, the open one first: it gets what it needs
+ * full size, up to what the others can give while keeping room for their
+ * heads, so opening one family pushes its neighbours aside a little and
+ * never over each other. What is left is shared in proportion.
+ */
+function allocate(a0: number, a1: number, needs: readonly FamilyNeed[], open: number): [number, number][] {
+  const span = a1 - a0 - GAP * Math.max(0, needs.length - 1);
+  const want = needs.map((need, index) => (index === open ? need.open : need.rest));
+  if (open >= 0) {
+    const othersMin = needs.reduce((sum, need, index) => (index === open ? sum : sum + need.min), 0);
+    want[open] = Math.min(want[open], Math.max(needs[open].min, span - othersMin));
+  }
+  let total = want.reduce((sum, value) => sum + value, 0);
+  if (total > span) {
+    // Squeeze the closed families toward their least, evenly.
+    const room = span - (open >= 0 ? want[open] : 0);
+    const closed = needs.map((need, index) => (index === open ? null : need));
+    const least = closed.reduce((sum, need) => sum + (need ? need.min : 0), 0);
+    const spare = closed.reduce((sum, need, index) => sum + (need ? want[index] - need.min : 0), 0);
+    const k = spare > 0 ? Math.max(0, (room - least) / spare) : 0;
+    closed.forEach((need, index) => {
+      if (need) want[index] = need.min + (want[index] - need.min) * Math.min(1, k);
+    });
+    total = want.reduce((sum, value) => sum + value, 0);
+  }
+  const scale = total > 0 ? span / total : 1;
+  const out: [number, number][] = [];
+  let at = a0;
+  for (const value of want) {
+    out.push([at, at + value * scale]);
+    at += value * scale + GAP;
+  }
+  return out;
+}
 
 const deg = (value: number) => (value * Math.PI) / 180;
 const GAP = deg(0.9);
@@ -116,7 +189,22 @@ export function shortLabel(node: Pick<WireNode, "id" | "name">, shortNames: Reco
 
 const byDegree = (a: WireNode, b: WireNode) => b.degree - a.degree || a.name.localeCompare(b.name, "nl");
 
-export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "clusters" | "chambers" | "shortNames">): WheelModel {
+/** Head band and head size of a ministry family, and of a provincie family in the thinner decentrale ring. */
+const MINISTRY_HEAD = { band: 30, pitch: 24 };
+const PROVINCIE_HEAD = { band: 22, pitch: 18 };
+/** Room for a part's name inside a group of several parts (the component draws it there). */
+const PART_TITLE = 15;
+/** Order of kinds inside a ministry family, so like shapes sit together. */
+const FAMILY_ORDER = ["inspectie", "agentschap", "uitvoeringsorganisatie", "zbo", "rwt"];
+
+/**
+ * The wheel for a bundle. `open` is the head of the family to draw open
+ * (a ministry or a provincie id), or null for all families at rest.
+ */
+export function buildWheel(
+  bundle: Pick<GraphBundle, "nodes" | "edges" | "clusters" | "chambers" | "shortNames">,
+  open: string | null = null,
+): WheelModel {
   const nodes = bundle.nodes.filter((node) => node.sector !== "frame" && !node.id.startsWith("org:kiesgerechtigden"));
   const inSector = (sector: string, filter: (node: WireNode) => boolean = () => true) =>
     nodes.filter((node) => node.sector === sector && filter(node)).sort(byDegree);
@@ -127,50 +215,49 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
     subtype: node.subtype,
     branch: node.branch,
   });
-  /** Bodies with a known abbreviation first (they fit and are recognised), then by connections. */
-  const known = (list: WireNode[]) => [...list].sort((a, b) => Number(Boolean(bundle.shortNames?.[b.id])) - Number(Boolean(bundle.shortNames?.[a.id])) || byDegree(a, b));
   const cells: (Omit<WheelCell, "group"> & { group?: string })[] = [];
   /** Titles of the groups of more than one cell; the others take their cell's. */
   const groupTitles: Record<string, { title: string; count: number | null }> = {};
+  const familyOf: Record<string, string> = {};
   const [n1, n2, n3] = WHEEL_RINGS.national;
 
   // The four branch wedges of the national rings, clockwise from the top.
   const W = {
     leg: [deg(-130), deg(-52)] as const,
-    exec: [deg(-50), deg(84)] as const,
-    tox: [deg(86), deg(138)] as const,
+    exec: [deg(-50), deg(104)] as const,
+    adv: [deg(106), deg(138)] as const,
     jud: [deg(140), deg(228)] as const,
   };
   const wedges = [
     { id: "leg", title: "Wetgevende macht", a0: W.leg[0], a1: W.leg[1] },
     { id: "exec", title: "Uitvoerende macht", a0: W.exec[0], a1: W.exec[1] },
-    { id: "tox", title: "Toezicht en advies", a0: W.tox[0], a1: W.tox[1] },
+    { id: "adv", title: "Advies", a0: W.adv[0], a1: W.adv[1] },
     { id: "jud", title: "Rechtspraak en controle", a0: W.jud[0], a1: W.jud[1] },
   ];
 
-  // Wetgevende macht: the Staten-Generaal, then the two chambers with their seats.
+  // Wetgevende macht: the two chambers as their halls, each with its commissies beneath it.
   const sg = inSector("staten-generaal");
-  const commissies = sg.filter((node) => node.subtype === "commissie");
-  cells.push({
-    id: "staten-generaal",
-    title: "Commissies",
-    count: commissies.length,
-    branch: "staten-generaal",
-    r0: n1[0],
-    r1: n1[1],
-    a0: W.leg[0],
-    a1: W.leg[1],
-    pick: { kind: "sector", id: "staten-generaal" },
-    items: commissies.map(item),
-    group: "staten-generaal",
-  });
-  groupTitles["staten-generaal"] = { title: "Staten-Generaal", count: null };
   const chamberIds = ["org:tweede-kamer", "org:eerste-kamer"];
+  const commissiesOf = (id: string, index: number) =>
+    sg.filter((node) => node.subtype === "commissie" && (node.parent === id || (index === 0 && !chamberIds.includes(node.parent ?? ""))));
   split(W.leg[0], W.leg[1], [150, 110]).forEach(([a0, a1], index) => {
     const id = chamberIds[index];
     const node = nodes.find((entry) => entry.id === id);
     const seats = bundle.chambers[id];
-    const commissies = sg.filter((entry) => entry.parent === id).length;
+    const commissies = commissiesOf(id, index);
+    cells.push({
+      id: `commissies-${id}`,
+      title: "Commissies",
+      count: commissies.length,
+      branch: "staten-generaal",
+      r0: n1[0],
+      r1: n1[1],
+      a0,
+      a1,
+      pick: { kind: "org", id },
+      items: commissies.map(item),
+      group: "staten-generaal",
+    });
     cells.push({
       id,
       title: node?.name.replace(/ der Staten-Generaal$/, "") ?? id,
@@ -183,13 +270,16 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
       pick: { kind: "org", id },
       items: [],
       seats: seats?.entries.map((entry) => ({ color: entry.color, seats: entry.seats, label: entry.label })),
-      ...(commissies > 0 ? { heading: false } : {}),
       group: "staten-generaal",
     });
   });
+  groupTitles["staten-generaal"] = { title: "Staten-Generaal", count: null };
 
-  // Uitvoerende macht: the regering, the ministries, then what works under them.
-  const regering = inSector("regering");
+  // Uitvoerende macht: the regering, then every ministry as a family with the bodies that fall under it.
+  const ministries = inSector("ministeries").sort((a, b) => shortLabel(a, bundle.shortNames).localeCompare(shortLabel(b, bundle.shortNames), "nl"));
+  const ministryIds = new Set(ministries.map((node) => node.id));
+  const parentless = nodes.filter((node) => node.sector === "uitvoering" && !(node.parent && ministryIds.has(node.parent)));
+  const regering = [...inSector("regering"), ...parentless.sort(byDegree)];
   cells.push({
     id: "regering",
     title: "Regering",
@@ -202,67 +292,57 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
     pick: { kind: "sector", id: "regering" },
     items: regering.map(item),
   });
-  // The ministries together, one shield each, in the order of their short names.
-  const ministries = inSector("ministeries").sort((a, b) => shortLabel(a, bundle.shortNames).localeCompare(shortLabel(b, bundle.shortNames), "nl"));
-  cells.push({
-    id: "ministeries",
-    title: "Ministeries",
-    count: ministries.length,
-    branch: ministries[0]?.branch ?? "regering",
-    r0: n2[0],
-    r1: n2[1],
-    a0: W.exec[0],
-    a1: W.exec[1],
-    pick: { kind: "sector", id: "ministeries" },
-    items: ministries.map(item),
-  });
-  const uitvoering = inSector("uitvoering");
-  const zelfstandig = inSector("zelfstandig");
-  split(W.exec[0], W.exec[1], [Math.sqrt(uitvoering.length), Math.sqrt(zelfstandig.length)]).forEach(([a0, a1], index) => {
-    const list = index === 0 ? uitvoering : zelfstandig;
+  const kindRank = (node: WireNode) => {
+    const rank = FAMILY_ORDER.indexOf(node.subtype);
+    return rank < 0 ? FAMILY_ORDER.length : rank;
+  };
+  const families = ministries.map((ministry) => ({
+    ministry,
+    members: nodes
+      .filter((node) => node.parent === ministry.id && ["uitvoering", "zelfstandig", "inspecties"].includes(node.sector))
+      .sort((a, b) => kindRank(a) - kindRank(b) || byDegree(a, b)),
+  }));
+  const ministryNeeds = families.map(({ members }) => familyNeed(members.length, n2[0], n3[1], MINISTRY_HEAD.band, PART_TITLE, MINISTRY_HEAD.pitch));
+  const openMinistry = families.findIndex(({ ministry }) => ministry.id === open);
+  allocate(W.exec[0], W.exec[1], ministryNeeds, openMinistry).forEach(([a0, a1], index) => {
+    const { ministry, members } = families[index];
+    familyOf[ministry.id] = ministry.id;
+    for (const member of members) familyOf[member.id] = ministry.id;
     cells.push({
-      id: index === 0 ? "uitvoering" : "zelfstandig",
-      title: index === 0 ? "Agentschappen en diensten" : "Zbo's en rwt's",
-      count: list.length,
-      branch: list[0]?.branch ?? "regering",
-      r0: n3[0],
+      id: `familie:${ministry.id}`,
+      title: shortLabel(ministry, bundle.shortNames),
+      count: members.length,
+      branch: ministry.branch,
+      r0: n2[0],
       r1: n3[1],
       a0,
       a1,
-      pick: { kind: "sector", id: index === 0 ? "uitvoering" : "zelfstandig" },
-      items: known(list).map(item),
+      pick: { kind: "org", id: ministry.id },
+      items: members.map(item),
+      head: item(ministry),
+      headBand: MINISTRY_HEAD.band,
+      open: index === openMinistry,
+      group: "ministeries",
     });
   });
+  groupTitles.ministeries = { title: "Ministeries", count: ministries.length };
 
-  // Toezicht en advies.
-  const inspecties = inSector("inspecties");
+  // Advies: the vaste adviescolleges, the planbureaus and the Kiesraad, independent in what they advise.
   const advies = inSector("advies");
-  cells.push({
-    id: "inspecties",
-    title: "Inspecties",
-    count: inspecties.length,
-    branch: inspecties[0]?.branch ?? "regering",
-    r0: n1[0],
-    r1: n2[1],
-    a0: W.tox[0],
-    a1: W.tox[1],
-    pick: { kind: "sector", id: "inspecties" },
-    items: known(inspecties).map(item),
-  });
   cells.push({
     id: "advies",
     title: "Advies en planbureaus",
     count: advies.length,
     branch: advies[0]?.branch ?? "adviescolleges",
-    r0: n3[0],
+    r0: n1[0],
     r1: n3[1],
-    a0: W.tox[0],
-    a1: W.tox[1],
+    a0: W.adv[0],
+    a1: W.adv[1],
     pick: { kind: "sector", id: "advies" },
-    items: known(advies).map(item),
+    items: advies.map(item),
   });
 
-  // Rechtspraak en controle: the Hoge Colleges, then the courts in four groups.
+  // Rechtspraak en controle: the Hoge Colleges, then the courts by instance.
   const hoge = inSector("hoge-colleges").sort((a, b) => a.name.localeCompare(b.name, "nl"));
   cells.push({
     id: "hoge-colleges",
@@ -302,49 +382,46 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
   });
   groupTitles.rechtspraak = { title: "Rechtspraak", count: courts.length };
 
-  // Decentrale overheden: one ring around the whole disc, from the top.
+  // Decentrale overheden: every provincie with the gemeenten it oversees, then the regional bodies,
+  // the waterschappen and Caribisch Nederland, one ring around the disc from the top.
   const [d0, d1] = WHEEL_RINGS.decentraal;
-  const provincies = inSector("provincies", (node) => node.subtype === "provincie").sort((a, b) => a.name.localeCompare(b.name, "nl"));
   const gemeenteGroups = bundle.clusters
     .filter((cluster) => cluster.sector === "gemeenten")
     .map((cluster) => {
       const members = nodes.filter((node) => node.sector === "gemeenten" && inCluster(bundle, node, cluster.id));
       const parent = cluster.parent ? nodes.find((node) => node.id === cluster.parent) ?? null : null;
-      const title =
-        cluster.kind === "oversight" && parent
-          ? parent.name.replace(/^Provincie /, "")
-          : cluster.subtype === "veiligheidsregio"
-            ? "Veiligheidsregio's"
-            : cluster.subtype === "samenwerkingsverband"
-              ? "Samenwerking"
-              : cluster.id;
-      return { id: cluster.id, title, members: members.sort(byDegree), oversight: cluster.kind === "oversight" };
+      const head = cluster.kind === "oversight" && parent?.subtype === "provincie" ? parent : null;
+      const title = head
+        ? head.name.replace(/^Provincie /, "")
+        : cluster.subtype === "veiligheidsregio"
+          ? "Veiligheidsregio's"
+          : cluster.subtype === "samenwerkingsverband"
+            ? "Samenwerking"
+            : cluster.id;
+      return { id: cluster.id, title, members: members.sort(byDegree), head };
     })
-    .sort((a, b) => Number(b.oversight) - Number(a.oversight) || a.title.localeCompare(b.title, "nl"));
-  const gemeentenCount = gemeenteGroups.filter((group) => group.oversight).reduce((sum, group) => sum + group.members.length, 0);
+    .sort((a, b) => Number(Boolean(b.head)) - Number(Boolean(a.head)) || a.title.localeCompare(b.title, "nl"));
   const waterschappen = inSector("waterschappen", (node) => node.subtype === "waterschap");
   const caribisch = inSector("caribisch", (node) => node.subtype === "openbaar-lichaam-bes");
   const top = deg(-130);
-  const [provArc, gemArc, wsArc, carArc] = split(top, top + Math.PI * 2 - GAP, [
-    Math.sqrt(provincies.length) * 2.2,
-    Math.sqrt(gemeentenCount + 64) * 1.9,
-    Math.sqrt(waterschappen.length) * 2.2,
-    Math.sqrt(caribisch.length) * 2.8,
-  ]);
-  cells.push({
-    id: "provincies",
-    title: "Provincies",
-    count: provincies.length,
-    branch: provincies[0]?.branch ?? "decentraal-provinciaal",
-    r0: d0,
-    r1: d1,
-    a0: provArc[0],
-    a1: provArc[1],
-    pick: { kind: "sector", id: "provincies" },
-    items: provincies.map(item),
-  });
-  split(gemArc[0], gemArc[1], gemeenteGroups.map((group) => Math.sqrt(group.members.length) + 1.2)).forEach(([a0, a1], index) => {
-    const group = gemeenteGroups[index];
+  const decentraalNeeds = [
+    ...gemeenteGroups.map((group) =>
+      familyNeed(group.members.length, d0, d1, group.head ? PROVINCIE_HEAD.band : 0, PART_TITLE, group.head ? PROVINCIE_HEAD.pitch : 0),
+    ),
+    familyNeed(waterschappen.length, d0, d1, 0, 3, 0),
+    familyNeed(caribisch.length, d0, d1, 0, 3, 0),
+  ].map((need, index, list) =>
+    // The single cells carry full-size shapes: give them their full-size room at rest too.
+    index >= list.length - 2 ? { min: need.open, rest: need.open, open: need.open } : need,
+  );
+  const openProvincie = gemeenteGroups.findIndex((group) => group.head?.id === open);
+  const arcs = allocate(top, top + Math.PI * 2 - GAP, decentraalNeeds, openProvincie);
+  gemeenteGroups.forEach((group, index) => {
+    const [a0, a1] = arcs[index];
+    if (group.head) {
+      familyOf[group.head.id] = group.head.id;
+      for (const member of group.members) familyOf[member.id] = group.head.id;
+    }
     cells.push({
       id: group.id,
       title: group.title,
@@ -354,12 +431,14 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
       r1: d1,
       a0,
       a1,
-      pick: { kind: "cluster", id: group.id },
+      pick: group.head ? { kind: "org", id: group.head.id } : { kind: "cluster", id: group.id },
       items: group.members.map(item),
+      ...(group.head ? { head: item(group.head), headBand: PROVINCIE_HEAD.band, open: index === openProvincie } : {}),
       group: "gemeenten",
     });
   });
-  groupTitles.gemeenten = { title: "Gemeenten en regio's", count: null };
+  groupTitles.gemeenten = { title: "Provincies en gemeenten", count: null };
+  const [wsArc, carArc] = arcs.slice(gemeenteGroups.length);
   cells.push({
     id: "waterschappen",
     title: "Waterschappen",
@@ -443,7 +522,7 @@ export function buildWheel(bundle: Pick<GraphBundle, "nodes" | "edges" | "cluste
     });
   }
 
-  return { cells: placed, groups, wedges };
+  return { cells: placed, groups, wedges, familyOf };
 }
 
 /** Whether a node is a member of a cluster; members carry the cluster id through the layout only on the client, so decide from the data. */
