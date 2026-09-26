@@ -109,7 +109,8 @@ export function CanvasFrame() {
     if (!current || current === pathPickRef.current?.selection) return;
     if (current.kind === "news" || current.kind === "topic") setView("power");
     else if (current.kind === "cluster" || current.kind === "fractie" || current.kind === "sector") setView("graph");
-    else if (current.kind === "person" && !seats.has(current.id)) setView("power");
+    // A person picked on the wheel's kabinet bench has no seat but stays on the graph.
+    else if (current.kind === "person" && !seats.has(current.id) && current.surface !== "graph") setView("power");
   }, [current, seats]);
 
   /** Names the connections view does not carry itself: bodies from the graph, seated members. */
@@ -262,6 +263,7 @@ export function CanvasFrame() {
           asOf={asOf}
           onAsOfChange={setAsOf}
           datedEdges={datedEdges}
+          graphForm={graphForm}
         />
         </div>
         <button
@@ -317,7 +319,7 @@ export function CanvasFrame() {
 
         {status === "ready" && bundle && view === "graph" ? (
           <>
-            {graphForm === "wheel" ? <GraphWheel bundle={bundle} /> : <GraphCanvas bundle={bundle} hiddenBranches={hiddenBranches} asOf={asOf} />}
+            {graphForm === "wheel" ? <GraphWheel bundle={bundle} hiddenBranches={hiddenBranches} asOf={asOf} /> : <GraphCanvas bundle={bundle} hiddenBranches={hiddenBranches} asOf={asOf} />}
             <button
               type="button"
               onClick={() => chooseGraphForm(graphForm === "wheel" ? "rings" : "wheel")}

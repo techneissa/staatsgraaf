@@ -496,17 +496,33 @@ bundle.chamberShapes = Object.fromEntries(
           seats: tree.hall.seats.map((seat) => [seat.x, seat.y, colors.indexOf(colorOf.get(seat.hub) ?? null), seat.chair ? 1 : 0]),
           // Who sits in each seat, in the same order, so the wheel can pick a member by their seat.
           people: tree.hall.seats.map((seat) => seat.person ?? null),
+          // The chair at the desk (Tweede Kamer) and the kabinet bench, as the floor plan places them.
+          chair: tree.hall.chair ? [tree.hall.chair.x, tree.hall.chair.y, tree.hall.chair.r, tree.hall.chair.person ?? null] : null,
+          bench: { r: tree.hall.cabinet.r, seats: tree.hall.cabinet.seats.map((seat) => [seat.x, seat.y, seat.person]) },
         },
       ];
     }),
 );
-// Each seated member's current posts outside their own chamber (a commissie
-// seat, a commissie chair, a post such as burgemeester), from tenures.json, so
-// the wheel draws a picked member's ties from their own seat. A commission
-// position is a seat on that body; every other position is a post there.
+// Each person in a hall's current posts outside that chamber (a commissie
+// seat, a commissie chair, a post such as burgemeester or minister), from
+// tenures.json, so the wheel draws a picked person's ties from their own
+// seat. A commission position is a seat on that body; every other position is
+// a post there. The people on the bench and at the chair's desk who are not
+// seated members get their name and portrait in `hallPeople`.
 {
   const seatedIn = new Map();
-  for (const tree of hierarchy.trees) for (const seat of tree.hall?.seats ?? []) if (seat.person) seatedIn.set(seat.person, tree.org);
+  const hallPeople = {};
+  for (const tree of hierarchy.trees) {
+    if (!tree.hall) continue;
+    for (const seat of tree.hall.seats) if (seat.person) seatedIn.set(seat.person, tree.org);
+    const others = [...tree.hall.cabinet.seats.map((seat) => seat.person), tree.hall.chair?.person].filter(Boolean);
+    for (const id of others) {
+      if (!seatedIn.has(id)) seatedIn.set(id, tree.org);
+      const person = peopleById.get(id);
+      if (person && !seatPeople[id]) hallPeople[id] = { name: person.name, slug: person.slug, image: portraitOf(person) };
+    }
+  }
+  bundle.hallPeople = Object.fromEntries(Object.keys(hallPeople).sort().map((id) => [id, hallPeople[id]]));
   const seatTies = {};
   for (const tenure of tenures) {
     if (tenure.end !== null || !seatedIn.has(tenure.person)) continue;

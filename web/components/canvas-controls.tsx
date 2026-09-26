@@ -24,8 +24,10 @@ import { useT } from "@/components/i18n/use-t";
 import { useLocale } from "@/components/i18n/language-provider";
 import { branchColorVar } from "@/lib/branch-colors";
 import type { GlyphClass } from "@/lib/graph";
-import { BRANCH_LABELS_I18N, EDGE_TYPE_LABELS_I18N } from "@/lib/i18n/dict-graph";
+import { BRANCH_LABELS_I18N, EDGE_TYPE_LABELS_I18N, WHEEL_LINK_LABELS_I18N } from "@/lib/i18n/dict-graph";
 import { edgeLine } from "./graph/edge-styles";
+import { WHEEL_LINK_ORDER, WHEEL_LINK_STYLE } from "./graph/wheel-styles";
+import type { WheelLinkType } from "@/lib/wheel";
 import { glyphPath } from "./graph/glyph";
 import type { OrgBranch } from "@/lib/types";
 
@@ -69,6 +71,8 @@ type CanvasControlsProps = {
   onShowAll: () => void;
   /** Display classes for the "as of" date; the frame hides it in the compact phone band. */
   asOfClassName?: string;
+  /** The graph's form: the legend keys the lines of the form on show. */
+  graphForm?: "rings" | "wheel";
 };
 
 function branchLabel(locale: "nl" | "en", branch: string): string {
@@ -115,6 +119,27 @@ function EdgeTypeSample({ type }: { type: string }) {
   );
 }
 
+/** One sample row of the wheel's key: the tie's line as the wheel draws it, dash and arrowhead included. */
+function WheelLinkSample({ type }: { type: WheelLinkType }) {
+  const style = WHEEL_LINK_STYLE[type];
+  const end = style.arrow ? 26 : 33;
+  const head = (tip: number) => `M ${tip - 6} 1.8 L ${tip} 5 L ${tip - 6} 8.2 Z`;
+  return (
+    <svg aria-hidden="true" viewBox="0 0 34 10" width={34} height={10} className="shrink-0 text-ink-muted">
+      <line x1={1} y1={5} x2={end} y2={5} stroke="currentColor" strokeWidth={1.4} strokeDasharray={style.dash} strokeLinecap="round" />
+      {style.arrow ? (
+        <path
+          d={style.arrow === "double" ? `${head(33)} ${head(28.5)}` : head(33)}
+          fill={style.arrow === "open" ? "var(--t-color-surface)" : "currentColor"}
+          stroke="currentColor"
+          strokeWidth={1}
+          strokeLinejoin="round"
+        />
+      ) : null}
+    </svg>
+  );
+}
+
 export function CanvasControls({
   view,
   onViewChange,
@@ -127,6 +152,7 @@ export function CanvasControls({
   onAsOfChange,
   datedEdges = false,
   asOfClassName = "flex",
+  graphForm = "rings",
 }: CanvasControlsProps) {
   const t = useT("common");
   const tg = useT("graph");
@@ -275,7 +301,14 @@ export function CanvasControls({
               aria-label={tg("relationshipLegendTitle")}
               className="px-2 pb-1.5 pt-0.5"
             >
-              {edgeTypes.map(({ type, count }) => (
+              {graphForm === "wheel"
+                ? WHEEL_LINK_ORDER.map((type) => (
+                    <div key={type} role="listitem" className="flex items-center gap-2 py-0.5 text-xs text-ink-muted">
+                      <WheelLinkSample type={type} />
+                      <span className="truncate">{(locale === "en" ? WHEEL_LINK_LABELS_I18N[type]?.en : WHEEL_LINK_LABELS_I18N[type]?.nl) ?? type}</span>
+                    </div>
+                  ))
+                : edgeTypes.map(({ type, count }) => (
                 <div
                   key={type}
                   role="listitem"
