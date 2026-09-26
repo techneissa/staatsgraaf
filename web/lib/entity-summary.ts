@@ -98,7 +98,7 @@ export function personSummary(person: Person): Summary | null {
   const current = getTenuresForPerson(person.id).filter((tenure) => tenure.end === null);
   const memberships = getMembershipsForPerson(person.id)
     .filter((membership) => membership.end === null)
-    .sort((a, b) => a.start.localeCompare(b.start));
+    .sort((a, b) => (a.start ?? "").localeCompare(b.start ?? ""));
 
   type Role = { tenure: Tenure; position: Position; organization: Organization | undefined; rank: number };
   let roles: Role[] = [];
@@ -112,7 +112,7 @@ export function personSummary(person: Person): Summary | null {
   roles = roles.filter(
     (role) => !roles.some((other) => other !== role && role.position.title.startsWith(`${other.position.title} `)),
   );
-  roles.sort((a, b) => a.rank - b.rank || a.tenure.start.localeCompare(b.tenure.start));
+  roles.sort((a, b) => a.rank - b.rank || (a.tenure.start ?? "").localeCompare(b.tenure.start ?? ""));
 
   const membership: Membership | undefined = memberships[0];
   const membershipOrg = membership ? getOrganizationById(membership.organization) : undefined;
@@ -286,7 +286,7 @@ export function organizationSummary(organization: Organization): Summary | null 
 export function positionSummary(position: Position): Summary | null {
   const current = getTenuresForPosition(position.id)
     .filter((tenure) => tenure.end === null)
-    .sort((a, b) => a.start.localeCompare(b.start));
+    .sort((a, b) => (a.start ?? "").localeCompare(b.start ?? ""));
   if (current.length === 0) return null;
   const names = current
     .map((tenure) => getPersonById(tenure.person)?.name)

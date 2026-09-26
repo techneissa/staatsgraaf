@@ -17466,6 +17466,501 @@
     ]
   },
   {
+    "id": "pos:lid-eerste-kamer-commissie-bdo-3",
+    "slug": "lid-eerste-kamer-commissie-bdo-3",
+    "title": "Lid Commissie voor Buitenlandse Zaken, Defensie en Ontwikkelingssamenwerking (BDO)",
+    "organization": "org:eerste-kamer-commissie-bdo-3",
+    "type": "commission",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 29,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-commissie-bdo-3",
+        "retrieved": "2026-09-26",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ],
+    "legalBasis": {
+      "label": "Grondwet art. 71",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk3_Paragraaf2_Artikel71"
+    },
+    "aliases": [
+      "Lid Commissie voor Buitenlandse Zaken, Defensie en Ontwikkelingssamenwerking (BDO)"
+    ]
+  },
+  {
+    "id": "pos:lid-eerste-kamer-commissie-biza",
+    "slug": "lid-eerste-kamer-commissie-biza",
+    "title": "Lid Commissie voor Binnenlandse Zaken (BIZA)",
+    "organization": "org:eerste-kamer-commissie-biza",
+    "type": "commission",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 31,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-commissie-biza",
+        "retrieved": "2026-09-26",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ],
+    "legalBasis": {
+      "label": "Grondwet art. 71",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk3_Paragraaf2_Artikel71"
+    },
+    "aliases": [
+      "Lid Commissie voor Binnenlandse Zaken (BIZA)"
+    ]
+  },
+  {
+    "id": "pos:lid-eerste-kamer-commissie-digi",
+    "slug": "lid-eerste-kamer-commissie-digi",
+    "title": "Lid Commissie voor Digitalisering (DIGI)",
+    "organization": "org:eerste-kamer-commissie-digi",
+    "type": "commission",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 27,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-commissie-digi",
+        "retrieved": "2026-09-26",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ],
+    "legalBasis": {
+      "label": "Grondwet art. 71",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk3_Paragraaf2_Artikel71"
+    },
+    "aliases": [
+      "Lid Commissie voor Digitalisering (DIGI)"
+    ]
+  },
+  {
+    "id": "pos:lid-eerste-kamer-commissie-euza",
+    "slug": "lid-eerste-kamer-commissie-euza",
+    "title": "Lid Commissie voor Europese Zaken (EUZA)",
+    "organization": "org:eerste-kamer-commissie-euza",
+    "type": "commission",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 30,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-commissie-euza",
+        "retrieved": "2026-09-26",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ],
+    "legalBasis": {
+      "label": "Grondwet art. 71",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk3_Paragraaf2_Artikel71"
+    },
+    "aliases": [
+      "Lid Commissie voor Europese Zaken (EUZA)"
+    ]
+  },
+  {
+    "id": "pos:lid-eerste-kamer-commissie-ez-kgg",
+    "slug": "lid-eerste-kamer-commissie-ez-kgg",
+    "title": "Lid Commissie voor Economische Zaken / Klimaat en Groene Groei (EZ/KGG)",
+    "organization": "org:eerste-kamer-commissie-ez-kgg",
+    "type": "commission",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 28,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-commissie-ez-kgg",
+        "retrieved": "2026-09-26",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ],
+    "legalBasis": {
+      "label": "Grondwet art. 71",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk3_Paragraaf2_Artikel71"
+    },
+    "aliases": [
+      "Lid Commissie voor Economische Zaken / Klimaat en Groene Groei (EZ/KGG)"
+    ]
+  },
+  {
+    "id": "pos:lid-eerste-kamer-commissie-fin",
+    "slug": "lid-eerste-kamer-commissie-fin",
+    "title": "Lid Commissie voor Financiën (FIN)",
+    "organization": "org:eerste-kamer-commissie-fin",
+    "type": "commission",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 29,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-commissie-fin",
+        "retrieved": "2026-09-26",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ],
+    "legalBasis": {
+      "label": "Grondwet art. 71",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk3_Paragraaf2_Artikel71"
+    },
+    "aliases": [
+      "Lid Commissie voor Financiën (FIN)"
+    ]
+  },
+  {
+    "id": "pos:lid-eerste-kamer-commissie-i-a-jbz",
+    "slug": "lid-eerste-kamer-commissie-i-a-jbz",
+    "title": "Lid Commissie voor Immigratie & Asiel / JBZ-Raad (I&A/JBZ)",
+    "organization": "org:eerste-kamer-commissie-i-a-jbz",
+    "type": "commission",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 28,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-commissie-i-a-jbz",
+        "retrieved": "2026-09-26",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ],
+    "legalBasis": {
+      "label": "Grondwet art. 71",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk3_Paragraaf2_Artikel71"
+    },
+    "aliases": [
+      "Lid Commissie voor Immigratie & Asiel / JBZ-Raad (I&A/JBZ)"
+    ]
+  },
+  {
+    "id": "pos:lid-eerste-kamer-commissie-i-w-vro",
+    "slug": "lid-eerste-kamer-commissie-i-w-vro",
+    "title": "Lid Commissie voor Infrastructuur en Waterstaat / Volkshuisvesting en Ruimtelijke Ordening (I&W/VRO)",
+    "organization": "org:eerste-kamer-commissie-i-w-vro",
+    "type": "commission",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 32,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-commissie-i-w-vro",
+        "retrieved": "2026-09-26",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ],
+    "legalBasis": {
+      "label": "Grondwet art. 71",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk3_Paragraaf2_Artikel71"
+    },
+    "aliases": [
+      "Lid Commissie voor Infrastructuur en Waterstaat / Volkshuisvesting en Ruimtelijke Ordening (I&W/VRO)"
+    ]
+  },
+  {
+    "id": "pos:lid-eerste-kamer-commissie-j-v",
+    "slug": "lid-eerste-kamer-commissie-j-v",
+    "title": "Lid Commissie voor Justitie en Veiligheid (J&V)",
+    "organization": "org:eerste-kamer-commissie-j-v",
+    "type": "commission",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 29,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-commissie-j-v",
+        "retrieved": "2026-09-26",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ],
+    "legalBasis": {
+      "label": "Grondwet art. 71",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk3_Paragraaf2_Artikel71"
+    },
+    "aliases": [
+      "Lid Commissie voor Justitie en Veiligheid (J&V)"
+    ]
+  },
+  {
+    "id": "pos:lid-eerste-kamer-commissie-korel",
+    "slug": "lid-eerste-kamer-commissie-korel",
+    "title": "Lid Commissie voor Koninkrijksrelaties (KOREL)",
+    "organization": "org:eerste-kamer-commissie-korel",
+    "type": "commission",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 29,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-commissie-korel",
+        "retrieved": "2026-09-26",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ],
+    "legalBasis": {
+      "label": "Grondwet art. 71",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk3_Paragraaf2_Artikel71"
+    },
+    "aliases": [
+      "Lid Commissie voor Koninkrijksrelaties (KOREL)"
+    ]
+  },
+  {
+    "id": "pos:lid-eerste-kamer-commissie-lnv",
+    "slug": "lid-eerste-kamer-commissie-lnv",
+    "title": "Lid Commissie voor Landbouw, Natuur en Voedselkwaliteit (LNV)",
+    "organization": "org:eerste-kamer-commissie-lnv",
+    "type": "commission",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 29,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-commissie-lnv",
+        "retrieved": "2026-09-26",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ],
+    "legalBasis": {
+      "label": "Grondwet art. 71",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk3_Paragraaf2_Artikel71"
+    },
+    "aliases": [
+      "Lid Commissie voor Landbouw, Natuur en Voedselkwaliteit (LNV)"
+    ]
+  },
+  {
+    "id": "pos:lid-eerste-kamer-commissie-ocw",
+    "slug": "lid-eerste-kamer-commissie-ocw",
+    "title": "Lid Commissie voor Onderwijs, Cultuur en Wetenschap (OCW)",
+    "organization": "org:eerste-kamer-commissie-ocw",
+    "type": "commission",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 29,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-commissie-ocw",
+        "retrieved": "2026-09-26",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ],
+    "legalBasis": {
+      "label": "Grondwet art. 71",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk3_Paragraaf2_Artikel71"
+    },
+    "aliases": [
+      "Lid Commissie voor Onderwijs, Cultuur en Wetenschap (OCW)"
+    ]
+  },
+  {
+    "id": "pos:lid-eerste-kamer-commissie-szw",
+    "slug": "lid-eerste-kamer-commissie-szw",
+    "title": "Lid Commissie voor Sociale Zaken en Werkgelegenheid (SZW)",
+    "organization": "org:eerste-kamer-commissie-szw",
+    "type": "commission",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 28,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-commissie-szw",
+        "retrieved": "2026-09-26",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ],
+    "legalBasis": {
+      "label": "Grondwet art. 71",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk3_Paragraaf2_Artikel71"
+    },
+    "aliases": [
+      "Lid Commissie voor Sociale Zaken en Werkgelegenheid (SZW)"
+    ]
+  },
+  {
+    "id": "pos:lid-eerste-kamer-commissie-verzoekschriften",
+    "slug": "lid-eerste-kamer-commissie-verzoekschriften",
+    "title": "Lid Commissie voor de verzoekschriften",
+    "organization": "org:eerste-kamer-commissie-verzoekschriften",
+    "type": "commission",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 7,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-commissie-verzoekschriften",
+        "retrieved": "2026-09-26",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ],
+    "legalBasis": {
+      "label": "Grondwet art. 71",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk3_Paragraaf2_Artikel71"
+    },
+    "aliases": [
+      "Lid Commissie voor de verzoekschriften"
+    ]
+  },
+  {
+    "id": "pos:lid-eerste-kamer-commissie-vws",
+    "slug": "lid-eerste-kamer-commissie-vws",
+    "title": "Lid Commissie voor Volksgezondheid, Welzijn en Sport (VWS)",
+    "organization": "org:eerste-kamer-commissie-vws",
+    "type": "commission",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "benoemd"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 30,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:ek-commissie-vws",
+        "retrieved": "2026-09-26",
+        "confidence": "high"
+      },
+      {
+        "source": "src:grondwet",
+        "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ],
+    "legalBasis": {
+      "label": "Grondwet art. 71",
+      "url": "https://wetten.overheid.nl/BWBR0001840#Hoofdstuk3_Paragraaf2_Artikel71"
+    },
+    "aliases": [
+      "Lid Commissie voor Volksgezondheid, Welzijn en Sport (VWS)"
+    ]
+  },
+  {
     "id": "pos:lid-tweede-kamer",
     "slug": "lid-tweede-kamer",
     "title": "Lid van de Tweede Kamer der Staten-Generaal",
