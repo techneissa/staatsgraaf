@@ -1,10 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
+import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
 import { useRouter } from "next/navigation";
-import { edgeAlive, GLYPH_BY_SUBTYPE, type GraphBundle } from "@/lib/graph";
+import { edgeAlive, GLYPH_BY_SUBTYPE, type GlyphClass, type GraphBundle } from "@/lib/graph";
 import { branchColorVar } from "@/lib/branch-colors";
-import { buildWheel, cellMarks, OPEN_PITCH, REST_PITCH, seatLinks, tieScale, WHEEL_GUTTER, WHEEL_RADIUS, WHEEL_RINGS, WHEEL_VOTERS, wheelLinks, type WheelCell, type WheelGroup } from "@/lib/wheel";
+import { bodySeatLinks, buildWheel, cellMarks, OPEN_PITCH, REST_PITCH, seatLinks, tieScale, WHEEL_GUTTER, WHEEL_RADIUS, WHEEL_RINGS, WHEEL_VOTERS, wheelLinks, type WheelCell, type WheelGroup, type WheelItem, type WheelMark } from "@/lib/wheel";
 import { seatIndex } from "@/lib/seats";
 import { useSelection } from "@/components/selection/selection-provider";
 import { useT } from "@/components/i18n/use-t";
@@ -198,7 +198,7 @@ const NO_BRANCHES: ReadonlySet<string> = new Set();
 /** How long a name stays up after a finger touches a body or seat. */
 const TOUCH_TIP_MS = 1600;
 
-type SeatSpot = { x: number; y: number; r: number; name: string; branch: WheelCell["branch"]; cell: string; person: string; elected: boolean; where: "seat" | "chair" | "bench" };
+type SeatSpot = { x: number; y: number; r: number; name: string; branch: WheelCell["branch"]; cell: string; person: string; elected: boolean; where: "seat" | "chair" | "bench"; hall?: undefined };
 
 export function GraphWheel({
   bundle: fullBundle,
@@ -274,20 +274,22 @@ export function GraphWheel({
         if (cell.head) itemById.set(cell.head.id, cell.head);
         // A branch switched off in the legend keeps its place but not its bodies, as on the rings.
         const shown = marks.filter((mark) => !hiddenBranches.has(itemById.get(mark.id)?.branch ?? cell.branch));
-        return { cell, group, named, shape, marks: shown, itemById };
+        // A hall is fitted once per layout: the search in hallFit is the costliest step of drawing it.
+        const fit = shape ? hallFit(shape, cell, named ? TITLE_BAND : 0) : null;
+        return { cell, group, named, shape, fit, marks: shown, itemById };
       }),
     [model, groupOf, bundle.chamberShapes, hiddenBranches],
   );
 
-  /** Where each drawn body sits: its mark, or for a chamber the middle of its hall. */
+  /**
+   * Where each drawn body sits: its mark, or for a chamber its hall, whose
+   * radius reaches the hall's edge so a tie to the chamber stops at the hall
+   * instead of on the seat in its middle (the Eerste Kamer's chair sits there).
+   */
   const anchors = useMemo(() => {
-    const out = new Map<string, { x: number; y: number; r: number; name: string; branch: WheelCell["branch"]; cell: string }>();
-    for (const { cell, named, shape, marks, itemById } of placed) {
-      if (shape) {
-        const mid = (cell.a0 + cell.a1) / 2;
-        const rm = (cell.r0 + cell.r1 - (named ? TITLE_BAND : 0)) / 2;
-        out.set(cell.id, { x: Math.cos(mid) * rm, y: Math.sin(mid) * rm, r: (cell.r1 - cell.r0) * 0.3, name: cell.title, branch: cell.branch, cell: cell.id });
-      }
+    const out = new Map<string, { x: number; y: number; r: number; name: string; branch: WheelCell["branch"]; cell: string; hall?: boolean }>();
+    for (const { cell, fit, marks, itemById } of placed) {
+      if (fit) out.set(cell.id, { x: fit.center[0], y: fit.center[1], r: fit.radius, name: cell.title, branch: cell.branch, cell: cell.id, hall: true });
       for (const mark of marks) {
         const entry = itemById.get(mark.id)!;
         out.set(mark.id, { x: mark.x, y: mark.y, r: mark.r, name: entry.name, branch: entry.branch, cell: cell.id });
@@ -308,9 +310,8 @@ export function GraphWheel({
   const spots = useMemo(() => {
     const out = new Map<string, SeatSpot[]>();
     const add = (spot: SeatSpot) => out.set(spot.person, [...(out.get(spot.person) ?? []), spot]);
-    for (const { cell, named, shape } of placed) {
-      if (!shape) continue;
-      const fit = hallFit(shape, cell, named ? TITLE_BAND : 0);
+    for (const { cell, shape, fit } of placed) {
+      if (!shape || !fit) continue;
       const at = (x: number, y: number, r: number, person: string, elected: boolean, where: SeatSpot["where"]) => {
         const [wx, wy] = fit.toWheel(x, y);
         add({ x: wx, y: wy, r: r * fit.scale, name: nameOf(person), branch: cell.branch, cell: cell.id, person, elected, where });
@@ -341,16 +342,23 @@ export function GraphWheel({
     const seat = selectedPerson ? spotOf(selectedPerson) : undefined;
     if (selectedPerson && seat) return { self: selectedPerson, links: seatLinks(bundle, selectedPerson, seat.cell, new Set(anchors.keys()), seat.elected) };
     if (!selectedId) return null;
-    const { self, links } = wheelLinks(bundle, selectedId, new Set(anchors.keys()));
-    return self && anchors.has(self) ? { self, links } : null;
-  }, [bundle, selectedId, selectedPerson, anchors, spotOf]);
+    const drawnIds = new Set(anchors.keys());
+    const { self, links } = wheelLinks(bundle, selectedId, drawnIds);
+    if (!self || !anchors.has(self)) return null;
+    // The people whose seats and posts land here: the other end of every tie drawn from a seat.
+    const people = bodySeatLinks(bundle, self, drawnIds).filter((link) => spots.has(link.other));
+    return { self, links: [...links, ...people] };
+  }, [bundle, selectedId, selectedPerson, anchors, spotOf, spots]);
   const pickedSeat = linked && selectedPerson === linked.self ? spotOf(linked.self) ?? null : null;
   /**
-   * The seats that stay bright in a hall while something in it is picked: a
-   * member's or a picked fractie's fellow members, or the whole bench for a
-   * bewindspersoon. Null leaves every seat as it is.
+   * The seats that stay bright, per hall, while something is picked: a
+   * member's or a picked fractie's fellow members, the whole bench for a
+   * bewindspersoon, or the people a picked body is tied to (a commissie's
+   * members). A hall without an entry keeps every seat as it is.
    */
   const bright = useMemo(() => {
+    const out = new Map<string, Set<string>>();
+    const one = (cell: string, people: Iterable<string>) => out.set(cell, new Set(people));
     const fractie =
       current?.kind === "fractie"
         ? { chamberId: current.chamberId, index: current.index }
@@ -358,15 +366,19 @@ export function GraphWheel({
           ? { chamberId: seats.get(selectedPerson)!.chamberId, index: seats.get(selectedPerson)!.fractieIndex }
           : null;
     if (fractie) {
-      const members = bundle.chambers?.[fractie.chamberId]?.entries[fractie.index]?.members ?? [];
-      return { cell: fractie.chamberId, people: new Set(members) };
+      one(fractie.chamberId, bundle.chambers?.[fractie.chamberId]?.entries[fractie.index]?.members ?? []);
+    } else if (pickedSeat?.where === "bench") {
+      one(pickedSeat.cell, (bundle.chamberShapes?.[pickedSeat.cell]?.bench?.seats ?? []).map(([, , person]) => person));
+    } else if (linked && !selectedPerson) {
+      for (const link of linked.links) {
+        const spot = spotOf(link.other);
+        if (!spot) continue;
+        out.set(spot.cell, (out.get(spot.cell) ?? new Set()).add(link.other));
+      }
+      // A picked body with no one in a hall leaves that hall alone.
     }
-    if (pickedSeat?.where === "bench") {
-      const bench = bundle.chamberShapes?.[pickedSeat.cell]?.bench?.seats ?? [];
-      return { cell: pickedSeat.cell, people: new Set(bench.map(([, , person]) => person)) };
-    }
-    return null;
-  }, [current, selectedPerson, seats, bundle.chambers, bundle.chamberShapes, pickedSeat]);
+    return out;
+  }, [current, selectedPerson, seats, bundle.chambers, bundle.chamberShapes, pickedSeat, linked, spotOf]);
   const linkedIds = useMemo(() => new Set(linked ? [linked.self, ...linked.links.map((link) => link.other)] : []), [linked]);
 
   // Turn the wheel so the selection sits at the bottom, the way the reference does; back upright when nothing is picked.
@@ -451,7 +463,7 @@ export function GraphWheel({
     const self = (anchors.get(linked.self) ?? spotOf(linked.self))!;
     const [f0] = WHEEL_RINGS.frame;
     const selfAngle = Math.atan2(self.y, self.x);
-    type End = { x: number; y: number; r: number; branch: WheelCell["branch"] };
+    type End = { x: number; y: number; r: number; branch: WheelCell["branch"]; hall?: boolean };
     // Many ties of one kind into one cell (a provincie's gemeenten, a ministry's zbo's) become one bundle
     // to the middle of those bodies, drawn thicker; the bodies themselves light up.
     const BUNDLE = 12;
@@ -461,10 +473,12 @@ export function GraphWheel({
         buckets.set(link.other, { link, ends: [{ x: Math.cos(selfAngle) * f0, y: Math.sin(selfAngle) * f0, r: 0, branch: "kiesgerechtigden" as WheelCell["branch"] }] });
         continue;
       }
-      const end = anchors.get(link.other);
+      const body = anchors.get(link.other);
+      const end = body ?? spotOf(link.other);
       if (!end) continue;
-      // Ties inside the selection's own cell (an open family) fan out one by one, as in the reference.
-      const key = end.cell === self.cell ? `${link.other}|own` : `${end.cell}|${link.type}|${link.outgoing}`;
+      // Ties inside the selection's own cell (an open family) fan out one by one, as in the reference; so does
+      // every tie to a person, who is picked on their own seat and must be found from both ends.
+      const key = !body ? `${link.other}|seat` : end.cell === self.cell ? `${link.other}|own` : `${end.cell}|${link.type}|${link.outgoing}`;
       const bucket = buckets.get(key) ?? { link, ends: [] };
       bucket.ends.push(end);
       buckets.set(key, bucket);
@@ -476,7 +490,7 @@ export function GraphWheel({
         const y = list.reduce((sum, end) => sum + end.y, 0) / list.length;
         ends.push({ link, other: { x, y, r: 3, branch: list[0].branch }, weight: list.length, key });
       } else {
-        list.forEach((end, index) => ends.push({ link, other: end, weight: 1, key: `${key}|${index}`, own: key.endsWith("|own") }));
+        list.forEach((end, index) => ends.push({ link, other: end, weight: 1, key: `${key}|${index}`, own: key.endsWith("|own") || key.endsWith("|seat") }));
       }
     }
     return ends.flatMap(({ link, other, weight, key, own }) => {
@@ -486,10 +500,17 @@ export function GraphWheel({
       const bend = link.other === WHEEL_VOTERS || own ? 1 : 0.42;
       const cx = ((from.x + to.x) / 2) * bend;
       const cy = ((from.y + to.y) / 2) * bend;
+      // A tie leaving a chamber starts at the hall's edge, not on the seat in its middle.
+      const sx = from.x - cx;
+      const sy = from.y - cy;
+      const startLength = Math.hypot(sx, sy) || 1;
+      const startInset = from.hall ? Math.min(from.r, startLength * 0.5) : 0;
+      const startX = from.x - (sx / startLength) * startInset;
+      const startY = from.y - (sy / startLength) * startInset;
       const dx = to.x - cx;
       const dy = to.y - cy;
       const length = Math.hypot(dx, dy) || 1;
-      const inset = to.r + 2.5;
+      const inset = to.hall ? Math.min(to.r, length * 0.5) : to.r + 2.5;
       const endX = to.x - (dx / length) * inset;
       const endY = to.y - (dy / length) * inset;
       const style = WHEEL_LINK_STYLE[link.type];
@@ -497,7 +518,7 @@ export function GraphWheel({
         {
           key,
           width: weight > 1 ? Math.min(4.5, 1.3 + Math.sqrt(weight) * 0.45) : 1.3,
-          d: `M${from.x.toFixed(2)} ${from.y.toFixed(2)}Q${cx.toFixed(2)} ${cy.toFixed(2)} ${endX.toFixed(2)} ${endY.toFixed(2)}`,
+          d: `M${startX.toFixed(2)} ${startY.toFixed(2)}Q${cx.toFixed(2)} ${cy.toFixed(2)} ${endX.toFixed(2)} ${endY.toFixed(2)}`,
           head: style.arrow ? arrowHead(endX, endY, dx, dy, 5, style.arrow === "double") : null,
           open: style.arrow === "open",
           dash: style.dash,
@@ -510,21 +531,29 @@ export function GraphWheel({
   const [tip, setTip] = useState<{ name: string; x: number; y: number } | null>(null);
   const boxRef = useRef<HTMLDivElement | null>(null);
   const tipTimer = useRef<number | null>(null);
-  const placeTip = (event: ReactPointerEvent, name: string) => {
+  // Stable handlers: the memoised hall and marks keep them across renders.
+  const placeTip = useCallback((event: ReactPointerEvent, name: string) => {
     const box = boxRef.current?.getBoundingClientRect();
     if (box) setTip({ name, x: event.clientX - box.left, y: event.clientY - box.top });
-  };
-  const showTip = (event: ReactPointerEvent, name: string) => {
-    if (event.pointerType !== "mouse") return;
-    placeTip(event, name);
-  };
+  }, []);
+  const showTip = useCallback(
+    (event: ReactPointerEvent, name: string) => {
+      if (event.pointerType !== "mouse") return;
+      placeTip(event, name);
+    },
+    [placeTip],
+  );
   /** A finger has no hover: a touch shows the name for a moment instead, whether or not the tap then picks. */
-  const touchTip = (event: ReactPointerEvent, name: string) => {
-    if (event.pointerType === "mouse") return;
-    placeTip(event, name);
-    if (tipTimer.current !== null) window.clearTimeout(tipTimer.current);
-    tipTimer.current = window.setTimeout(() => setTip(null), TOUCH_TIP_MS);
-  };
+  const touchTip = useCallback(
+    (event: ReactPointerEvent, name: string) => {
+      if (event.pointerType === "mouse") return;
+      placeTip(event, name);
+      if (tipTimer.current !== null) window.clearTimeout(tipTimer.current);
+      tipTimer.current = window.setTimeout(() => setTip(null), TOUCH_TIP_MS);
+    },
+    [placeTip],
+  );
+  const hideTip = useCallback(() => setTip(null), []);
   useEffect(
     () => () => {
       if (tipTimer.current !== null) window.clearTimeout(tipTimer.current);
@@ -536,17 +565,23 @@ export function GraphWheel({
     if (!cell.pick || drag.current?.moved) return;
     select({ kind: cell.pick.kind, id: cell.pick.id, surface: "graph" } as Parameters<typeof select>[0]);
   };
-  const pickBody = (id: string) => {
-    if (drag.current?.moved) return;
-    select({ kind: "org", id, surface: "graph" });
-  };
+  const pickBody = useCallback(
+    (id: string) => {
+      if (drag.current?.moved) return;
+      select({ kind: "org", id, surface: "graph" });
+    },
+    [select],
+  );
   /** A seat is its member, as on the rings: the pick is the person, with the fractie block they sit in. */
-  const pickSeat = (personId: string, hall: string | null = null) => {
-    if (drag.current?.moved) return;
-    const seat = seats.get(personId);
-    setPickedHall(hall ?? seat?.chamberId ?? null);
-    select({ kind: "person", id: personId, surface: "graph", ...(seat ? { seat: { chamberId: seat.chamberId, fractieIndex: seat.fractieIndex } } : {}) });
-  };
+  const pickSeat = useCallback(
+    (personId: string, hall: string | null = null) => {
+      if (drag.current?.moved) return;
+      const seat = seats.get(personId);
+      setPickedHall(hall ?? seat?.chamberId ?? null);
+      select({ kind: "person", id: personId, surface: "graph", ...(seat ? { seat: { chamberId: seat.chamberId, fractieIndex: seat.fractieIndex } } : {}) });
+    },
+    [seats, select],
+  );
 
   /**
    * The keyboard walk (the rings have the same): the two Kamers, the
@@ -556,6 +591,7 @@ export function GraphWheel({
    */
   const bodyWalk = useMemo(() => {
     const out: string[] = [];
+    const seen = new Set<string>();
     const start = model.wedges[0]?.a0 ?? -Math.PI / 2;
     const angle = (x: number, y: number) => (Math.atan2(y, x) - start + 4 * Math.PI + 1e-6) % (2 * Math.PI);
     const band = (cell: WheelCell) => (cell.r1 <= WHEEL_RINGS.national[2][1] + 1 ? 0 : cell.r1 <= WHEEL_RINGS.decentraal[1] + 1 ? 1 : 2);
@@ -563,10 +599,17 @@ export function GraphWheel({
     // The two halls lead, so the Kamers are the first stops.
     const cells = [...placed].sort((a, b) => band(a.cell) - band(b.cell) || Number(Boolean(b.shape)) - Number(Boolean(a.shape)) || mid(a.cell) - mid(b.cell) || a.cell.r0 - b.cell.r0);
     for (const { cell, shape, marks } of cells) {
-      if (shape) out.push(cell.id);
+      if (shape && !seen.has(cell.id)) {
+        seen.add(cell.id);
+        out.push(cell.id);
+      }
       const own = [...marks].sort((a, b) => Math.hypot(a.x, a.y) - Math.hypot(b.x, b.y) || angle(a.x, a.y) - angle(b.x, b.y));
       if (cell.head) own.sort((a, b) => (a.id === cell.head!.id ? -1 : b.id === cell.head!.id ? 1 : 0));
-      for (const mark of own) if (!out.includes(mark.id)) out.push(mark.id);
+      for (const mark of own) {
+        if (seen.has(mark.id)) continue;
+        seen.add(mark.id);
+        out.push(mark.id);
+      }
     }
     return out;
   }, [placed, model.wedges]);
@@ -759,11 +802,13 @@ export function GraphWheel({
               </textPath>
             </text>
           ))}
+          {/* The drawing is for the eye and the pointer; screen readers get the keyboard walk and the live region, as on the rings. */}
           <g
             ref={(element) => {
               turnLayers.current[0] = element;
             }}
             transform={`rotate(${turnDeg.toFixed(3)})`}
+            aria-hidden="true"
           >
           {model.wedges.map((wedge) => (
             <text key={wedge.id} fontSize={8.5} letterSpacing={1.6} fontWeight={700} fill="var(--t-color-ink-faint)">
@@ -800,7 +845,7 @@ export function GraphWheel({
             );
           })}
 
-          {drawn.map(({ cell, group, title, shape, marks, itemById }) => {
+          {drawn.map(({ cell, group, title, shape, fit, marks, itemById }) => {
             const color = branchColorVar(cell.branch);
             // A pick that covers the whole group (a sector like Rechtspraak) lights the group's one outline, not every part.
             const selected = selectedId !== null && (cell.pick?.id === selectedId || cell.id === selectedId) && !groupChosen.has(group.id);
@@ -851,63 +896,48 @@ export function GraphWheel({
                     </textPath>
                   </text>
                 ) : null}
-                {shape ? (
+                {shape && linkedIds.has(cell.id) ? (
+                  // The chamber itself is picked or tied to the pick: its whole cell is outlined, so a tie to the
+                  // chamber reads as a tie to the hall and not to the seat it happens to end beside.
+                  <path
+                    d={segment(cell.r0, cell.r1, cell.a0, cell.a1, PART_ROUND, HALF_GUTTER + 2)}
+                    fill="none"
+                    stroke={color}
+                    strokeWidth={1.4}
+                    strokeDasharray="4 3"
+                    pointerEvents="none"
+                  />
+                ) : null}
+                {shape && fit ? (
                   <Hall
                     shape={shape}
-                    cell={cell}
-                    titleBand={title ? TITLE_BAND : 0}
+                    fit={fit}
                     picked={pickedSeat?.cell === cell.id ? pickedSeat.person : null}
-                    bright={bright?.cell === cell.id ? bright.people : null}
+                    bright={bright.get(cell.id) ?? null}
                     nameOf={nameOf}
-                    onPick={(person) => pickSeat(person, cell.id)}
+                    hallId={cell.id}
+                    onPick={pickSeat}
                     onTip={showTip}
                     onTouchTip={touchTip}
-                    onTipEnd={() => setTip(null)}
+                    onTipEnd={hideTip}
                     benchLabel={t("wheelBench")}
                     chairLabel={t("wheelChair")}
                   />
                 ) : null}
-                {marks.map((mark) => {
-                  const entry = itemById.get(mark.id)!;
-                  const markColor = branchColorVar(entry.branch);
-                  const isSelected = entry.id === selectedId;
-                  const glyph = GLYPH_BY_SUBTYPE[entry.subtype] ?? "dot";
-                  // Long shapes lie along the ring, so they follow their cell instead of cutting across it.
-                  // Every shape faces along its ring, its top toward the rim, and turns with the wheel.
-                  const spin = ((Math.atan2(mark.y, mark.x) + Math.PI / 2) * 180) / Math.PI;
-                  const linkedMark = linkedIds.has(entry.id);
-                  const inOpenFamily = openFamily !== null && model.familyOf[entry.id] === openFamily;
-                  const faded = linked !== null && !linkedMark && !inOpenFamily;
-                  return (
-                    <path
-                      key={mark.id}
-                      // Drawn at the origin and placed by its transform attribute, so it can glide when a family opens or closes.
-                      ref={(element) => {
-                        if (element) markRefs.current.set(mark.id, element);
-                        else markRefs.current.delete(mark.id);
-                      }}
-                      transform={`translate(${mark.x.toFixed(2)} ${mark.y.toFixed(2)}) rotate(${spin.toFixed(2)})`}
-                      d={glyphPathAt(glyph, isSelected ? mark.r * 1.25 : mark.r, 0, 0)}
-                      fill={markColor}
-                      fillOpacity={isSelected ? 0.95 : linkedMark ? 0.8 : faded ? 0.14 : 0.45}
-                      stroke={isSelected ? "var(--t-color-ink)" : markColor}
-                      strokeOpacity={faded ? 0.35 : 1}
-                      strokeWidth={isSelected ? 1.8 : Math.max(0.6, mark.r * 0.14)}
-                      strokeLinejoin="round"
-                      aria-label={entry.name}
-                      className="cursor-pointer transition-[fill-opacity] hover:[fill-opacity:0.85]"
-                      onPointerEnter={(event) => showTip(event, entry.name)}
-                      onPointerLeave={(event) => {
-                        if (event.pointerType === "mouse") setTip(null);
-                      }}
-                      onPointerDown={(event) => touchTip(event, entry.name)}
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        pickBody(entry.id);
-                      }}
-                    />
-                  );
-                })}
+                <CellMarks
+                  marks={marks}
+                  itemById={itemById}
+                  selectedId={selectedId !== null && itemById.has(selectedId) ? selectedId : null}
+                  linkedKey={linkedKeyOf(marks, linkedIds)}
+                  anyLinked={linked !== null}
+                  openFamily={openFamily}
+                  familyOf={model.familyOf}
+                  markRefs={markRefs}
+                  onPick={pickBody}
+                  onTip={showTip}
+                  onTouchTip={touchTip}
+                  onTipEnd={hideTip}
+                />
               </g>
             );
           })}
@@ -920,6 +950,7 @@ export function GraphWheel({
             }}
             transform={`rotate(${turnDeg.toFixed(3)})`}
             pointerEvents="none"
+            aria-hidden="true"
           >
             {linkPaths.map((link) => (
               <g key={link.key} className="animate-[sg-fade-in_300ms_ease-out_450ms_both]">
@@ -990,18 +1021,134 @@ export function GraphWheel({
   );
 }
 
+/** The picked body's ties that land in one cell, as one string: a cell whose ties did not change skips its redraw. */
+function linkedKeyOf(marks: readonly { id: string }[], linkedIds: ReadonlySet<string>): string {
+  if (linkedIds.size === 0) return "";
+  let key = "";
+  for (const mark of marks) if (linkedIds.has(mark.id)) key += `${mark.id}\n`;
+  return key;
+}
+
+/** Glyph outlines by shape and size: the same few hundred paths serve every redraw. */
+const glyphCache = new Map<string, string>();
+function glyphAt(glyph: GlyphClass, radius: number): string {
+  const key = `${glyph}|${radius.toFixed(2)}`;
+  let path = glyphCache.get(key);
+  if (path === undefined) {
+    path = glyphPathAt(glyph, radius, 0, 0);
+    glyphCache.set(key, path);
+  }
+  return path;
+}
+
 /**
- * Where a chamber's hall sits in its cell: scaled to fit the seats between
- * the cell's edges, its top facing outward so the dome opens to the core.
+ * The bodies of one cell as their marks. Memoised on what can change for this
+ * cell alone (its picked body, its ties to the pick, whether anything is
+ * picked), so picking a body redraws the cells it touches, not all of the
+ * wheel's marks.
+ */
+const CellMarks = memo(function CellMarks({
+  marks,
+  itemById,
+  selectedId,
+  linkedKey,
+  anyLinked,
+  openFamily,
+  familyOf,
+  markRefs,
+  onPick,
+  onTip,
+  onTouchTip,
+  onTipEnd,
+}: {
+  marks: readonly WheelMark[];
+  itemById: ReadonlyMap<string, WheelItem>;
+  selectedId: string | null;
+  linkedKey: string;
+  anyLinked: boolean;
+  openFamily: string | null;
+  familyOf: Readonly<Record<string, string>>;
+  markRefs: { current: Map<string, SVGPathElement> };
+  onPick: (id: string) => void;
+  onTip: (event: ReactPointerEvent, name: string) => void;
+  onTouchTip: (event: ReactPointerEvent, name: string) => void;
+  onTipEnd: () => void;
+}) {
+  const linkedIds = useMemo(() => new Set(linkedKey.split("\n")), [linkedKey]);
+  return (
+    <>
+      {marks.map((mark) => {
+        const entry = itemById.get(mark.id)!;
+        const markColor = branchColorVar(entry.branch);
+        const isSelected = entry.id === selectedId;
+        const glyph = GLYPH_BY_SUBTYPE[entry.subtype] ?? "dot";
+        // Every shape faces along its ring, its top toward the rim, and turns with the wheel.
+        const spin = ((Math.atan2(mark.y, mark.x) + Math.PI / 2) * 180) / Math.PI;
+        const linkedMark = linkedIds.has(entry.id);
+        const inOpenFamily = openFamily !== null && familyOf[entry.id] === openFamily;
+        const faded = anyLinked && !linkedMark && !isSelected && !inOpenFamily;
+        return (
+          <path
+            key={mark.id}
+            // Drawn at the origin and placed by its transform attribute, so it can glide when a family opens or closes.
+            ref={(element) => {
+              if (element) markRefs.current.set(mark.id, element);
+              else markRefs.current.delete(mark.id);
+            }}
+            transform={`translate(${mark.x.toFixed(2)} ${mark.y.toFixed(2)}) rotate(${spin.toFixed(2)})`}
+            d={glyphAt(glyph, isSelected ? mark.r * 1.25 : mark.r)}
+            fill={markColor}
+            fillOpacity={isSelected ? 0.95 : linkedMark ? 0.8 : faded ? 0.14 : 0.45}
+            stroke={isSelected ? "var(--t-color-ink)" : markColor}
+            strokeOpacity={faded ? 0.35 : 1}
+            strokeWidth={isSelected ? 1.8 : Math.max(0.6, mark.r * 0.14)}
+            strokeLinejoin="round"
+            data-name={entry.name}
+            className="cursor-pointer transition-[fill-opacity] hover:[fill-opacity:0.85]"
+            onPointerEnter={(event) => onTip(event, entry.name)}
+            onPointerLeave={(event) => {
+              if (event.pointerType === "mouse") onTipEnd();
+            }}
+            onPointerDown={(event) => onTouchTip(event, entry.name)}
+            onClick={(event) => {
+              event.stopPropagation();
+              onPick(entry.id);
+            }}
+          />
+        );
+      })}
+    </>
+  );
+});
+
+/** Room kept between a hall and its cell's edges, in wheel units. */
+const HALL_PAD = 5;
+
+type HallFit = ReturnType<typeof fitHall>;
+
+/**
+ * Where a chamber's hall sits in its cell: its top facing outward so the dome
+ * opens to the core, as large as it can be with every seat, the chair's desk
+ * and the kabinet bench inside the ring segment, clear of the gutters, the
+ * inner edge and the cell's title. A rectangle cannot follow a ring segment,
+ * so the fit tests the seats themselves: a binary search on the scale, and at
+ * each scale a scan of the radius the hall's middle can sit at.
  * `toWheel` maps a point in the hall's seat pitches to wheel units.
  */
-function hallFit(shape: NonNullable<GraphBundle["chamberShapes"]>[string], cell: WheelCell, titleBand: number) {
+const hallFits = new WeakMap<object, Map<string, HallFit>>();
+
+/** `fitHall`, remembered per hall and cell geometry: a family opening elsewhere rebuilds the wheel, not the halls. */
+function hallFit(shape: NonNullable<GraphBundle["chamberShapes"]>[string], cell: WheelCell, titleBand: number): HallFit {
+  const key = `${cell.r0}|${cell.r1}|${cell.a0}|${cell.a1}|${titleBand}`;
+  let byGeometry = hallFits.get(shape);
+  if (!byGeometry) hallFits.set(shape, (byGeometry = new Map()));
+  let fit = byGeometry.get(key);
+  if (!fit) byGeometry.set(key, (fit = fitHall(shape, cell, titleBand)));
+  return fit;
+}
+
+function fitHall(shape: NonNullable<GraphBundle["chamberShapes"]>[string], cell: WheelCell, titleBand: number) {
   const mid = (cell.a0 + cell.a1) / 2;
-  const rm = (cell.r0 + cell.r1 - titleBand) / 2;
-  const depth = cell.r1 - cell.r0 - titleBand - 8;
-  // Width at the hall's middle radius, kept inside the cell's two edges.
-  const width = 2 * (rm - depth / 4) * Math.tan((cell.a1 - cell.a0) / 2) - 10;
-  // Fitted to everything a person sits in: the seats, the chair's desk and the kabinet bench.
   const points: [number, number, number][] = [
     ...shape.seats.map(([x, y]) => [x, y, shape.r] as [number, number, number]),
     ...(shape.chair ? [[shape.chair[0], shape.chair[1], shape.chair[2]] as [number, number, number]] : []),
@@ -1013,16 +1160,57 @@ function hallFit(shape: NonNullable<GraphBundle["chamberShapes"]>[string], cell:
     y0: Math.min(...points.map(([, y, r]) => y - r)),
     y1: Math.max(...points.map(([, y, r]) => y + r)),
   };
-  const scale = Math.min(width / (box.x1 - box.x0), depth / (box.y1 - box.y0));
+  const hx = (box.x0 + box.x1) / 2;
+  const hy = (box.y0 + box.y1) / 2;
+  const r0 = cell.r0 + HALL_PAD;
+  const r1 = cell.r1 - titleBand - HALL_PAD;
+  const half = (cell.a1 - cell.a0) / 2;
+  // Local +x runs along the ring, local +y toward the core.
+  const fits = (scale: number, rm: number) => {
+    for (const [x, y, r] of points) {
+      const along = (x - hx) * scale;
+      const radial = rm - (y - hy) * scale;
+      const size = r * scale;
+      const distance = Math.hypot(along, radial);
+      if (distance - size < r0 || distance + size > r1) return false;
+      const side = Math.asin(Math.min(0.95, (HALF_GUTTER + HALL_PAD) / distance));
+      if (Math.abs(Math.atan2(along, radial)) + Math.asin(Math.min(1, size / distance)) > half - side) return false;
+    }
+    return true;
+  };
+  const STEPS = 48;
+  const place = (scale: number): number | null => {
+    const ok: number[] = [];
+    for (let step = 0; step <= STEPS; step += 1) {
+      const rm = r0 + ((r1 - r0) * step) / STEPS;
+      if (fits(scale, rm)) ok.push(rm);
+    }
+    return ok.length > 0 ? (ok[0] + ok[ok.length - 1]) / 2 : null;
+  };
+  let low = 0;
+  let high = (r1 - r0) / (box.y1 - box.y0);
+  let rm = (r0 + r1) / 2;
+  for (let round = 0; round < 22; round += 1) {
+    const scale = (low + high) / 2;
+    const at = place(scale);
+    if (at === null) high = scale;
+    else {
+      low = scale;
+      rm = at;
+    }
+  }
+  const scale = low;
   const angle = mid + Math.PI / 2;
   const cx = Math.cos(mid) * rm;
   const cy = Math.sin(mid) * rm;
-  const hx = (box.x0 + box.x1) / 2;
-  const hy = (box.y0 + box.y1) / 2;
   const cos = Math.cos(angle);
   const sin = Math.sin(angle);
   return {
     scale,
+    box,
+    center: [cx, cy] as [number, number],
+    /** Half the hall's shorter side: a tie to the chamber ends here, at the hall's edge. */
+    radius: (Math.min(box.x1 - box.x0, box.y1 - box.y0) / 2) * scale,
     transform: `translate(${cx.toFixed(2)} ${cy.toFixed(2)}) rotate(${((angle * 180) / Math.PI).toFixed(2)}) scale(${scale.toFixed(4)}) translate(${(-hx).toFixed(2)} ${(-hy).toFixed(2)})`,
     toWheel: (x: number, y: number): [number, number] => {
       const lx = (x - hx) * scale;
@@ -1036,14 +1224,14 @@ function hallFit(shape: NonNullable<GraphBundle["chamberShapes"]>[string], cell:
  * A chamber drawn as its hall, from its sourced floor plan: the Tweede
  * Kamer's dome of seats with the chair's desk in front, the Eerste Kamer's
  * two blocks with the chair between them, and in both the kabinet bench.
- * Every seat with a person on it picks that person; with someone picked,
- * their seat is ringed and only `bright` (their fractie, or the bench) stays
- * at full strength.
+ * Every seat with a person on it picks that person; while something is
+ * picked, the picked seat is ringed and only `bright` stays at full
+ * strength. Memoised: hovering elsewhere on the wheel does not redraw its seats.
  */
-function Hall({
+const Hall = memo(function Hall({
   shape,
-  cell,
-  titleBand,
+  fit,
+  hallId,
   picked,
   bright,
   nameOf,
@@ -1055,19 +1243,18 @@ function Hall({
   chairLabel,
 }: {
   shape: NonNullable<GraphBundle["chamberShapes"]>[string];
-  cell: WheelCell;
-  titleBand: number;
+  fit: HallFit;
+  hallId: string;
   picked: string | null;
   bright: ReadonlySet<string> | null;
   nameOf: (person: string) => string;
-  onPick: (person: string) => void;
+  onPick: (person: string, hall: string) => void;
   onTip: (event: ReactPointerEvent, name: string) => void;
   onTouchTip: (event: ReactPointerEvent, name: string) => void;
   onTipEnd: () => void;
   benchLabel: string;
   chairLabel: string;
 }) {
-  const fit = hallFit(shape, cell, titleBand);
   const seat = (key: string, x: number, y: number, r: number, person: string | null, fill: string, ring: boolean, label: string | null) => {
     const isPicked = person !== null && person === picked;
     const faded = (bright !== null && (person === null || !bright.has(person)) && !isPicked) || (bright === null && picked !== null && !isPicked);
@@ -1084,7 +1271,7 @@ function Hall({
         strokeWidth={isPicked ? 0.28 : ring ? 0.12 : 0}
         pointerEvents={person ? "all" : "none"}
         className={person ? "cursor-pointer" : undefined}
-        aria-label={name ?? undefined}
+        data-name={name ?? undefined}
         onPointerEnter={name ? (event) => onTip(event, name) : undefined}
         onPointerLeave={
           name
@@ -1098,7 +1285,7 @@ function Hall({
           person
             ? (event) => {
                 event.stopPropagation();
-                onPick(person);
+                onPick(person, hallId);
               }
             : undefined
         }
@@ -1125,4 +1312,4 @@ function Hall({
       )}
     </g>
   );
-}
+});

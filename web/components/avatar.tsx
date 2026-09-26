@@ -5,6 +5,7 @@ import { useT } from "@/components/i18n/use-t";
 import { useLocale } from "@/components/i18n/language-provider";
 import { localizeCredit } from "@/lib/format";
 import { avatarTint, initialsFor } from "@/lib/initials";
+import { thumbUrl } from "@/lib/thumb";
 
 /**
  * A round portrait, or a clean initials disc when no portrait is on record or
@@ -33,13 +34,19 @@ export function Avatar({
 }) {
   const t = useT("entity");
   const locale = useLocale();
+  // Up to 96 px the small WebP copy serves; if it fails, the original, then the initials.
   const [failed, setFailed] = useState(false);
+  const [original, setOriginal] = useState(false);
+  const src = typeof url === "string" && size <= 96 && !original ? thumbUrl(url) : url;
   const imgRef = useRef<HTMLImageElement>(null);
   // An image that failed before hydration never fires onError in React; catch it here.
   useEffect(() => {
     const img = imgRef.current;
-    if (img && img.complete && img.naturalWidth === 0) setFailed(true);
-  }, [url]);
+    if (img && img.complete && img.naturalWidth === 0) {
+      if (src !== url) setOriginal(true);
+      else setFailed(true);
+    }
+  }, [url, src]);
   const showImage = typeof url === "string" && url !== "" && !failed;
   const tint = avatarTint(showImage ? null : color);
   return (
@@ -51,13 +58,13 @@ export function Avatar({
       {showImage ? (
         <img
           ref={imgRef}
-          src={url}
+          src={src ?? undefined}
           alt={labelled ? t("personPortraitAlt", { name }) : ""}
           width={size}
           height={size}
           loading="lazy"
           decoding="async"
-          onError={() => setFailed(true)}
+          onError={() => (src !== url ? setOriginal(true) : setFailed(true))}
           className="h-full w-full object-cover"
         />
       ) : (

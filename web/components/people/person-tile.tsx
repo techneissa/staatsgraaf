@@ -1,3 +1,4 @@
+import { thumbUrl } from "@/lib/thumb";
 import type { CSSProperties } from "react";
 import { LocalText } from "@/components/i18n/t";
 import { PeekLink } from "@/components/peek/peek-link";
@@ -67,7 +68,7 @@ function PortraitSquare({ entry }: { entry: PersonEntry }) {
         // A plain image over the initials: when it fails to load, the empty alt
         // shows nothing and the initials stay visible, without client code.
         <img
-          src={entry.portrait.url}
+          src={thumbUrl(entry.portrait.url)}
           alt=""
           title={entry.portrait.credit}
           width={52}
