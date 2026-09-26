@@ -440,7 +440,8 @@ export function buildWheel(
     })
     .sort((a, b) => Number(Boolean(b.head)) - Number(Boolean(a.head)) || a.title.localeCompare(b.title, "nl"));
   const waterschappen = inSector("waterschappen", (node) => node.subtype === "waterschap");
-  const caribisch = inSector("caribisch", (node) => node.subtype === "openbaar-lichaam-bes");
+  // The openbare lichamen and the Rijksvertegenwoordiger; a raad or bestuurscollege stands in for its openbaar lichaam.
+  const caribisch = inSector("caribisch", (node) => !node.parent);
   const top = deg(-130);
   const decentraalNeeds = [
     ...gemeenteGroups.map((group) =>
@@ -502,19 +503,31 @@ export function buildWheel(
     items: caribisch.map(item),
   });
 
-  // Koninkrijk: one cell per land, from the regering or staten it belongs to.
+  // Koninkrijk: one cell per land, from the regering or staten it belongs to,
+  // and one cell for the bodies of the Kingdom as a whole (the Rijksministerraad).
   const [k0, k1] = WHEEL_RINGS.koninkrijk;
-  const lands = ["Aruba", "Curaçao", "Sint Maarten"];
+  const KINGDOM = "Koninkrijk";
   const koninkrijk = inSector("koninkrijk");
-  const landOf = (node: WireNode): string => {
-    const own = lands.find((land) => node.name.includes(land));
-    if (own) return own;
-    const parent = node.parent ? nodes.find((entry) => entry.id === node.parent) : null;
-    const viaParent = parent ? lands.find((land) => parent.name.includes(land)) : undefined;
-    if (viaParent) return viaParent;
-    return /^Ministry of/.test(node.name) ? "Sint Maarten" : "Aruba";
+  const landNames = ["Aruba", "Curaçao", "Sint Maarten"];
+  const nameLand = (name: string): string | null => {
+    const found = landNames.filter((land) => name.includes(land));
+    return found.length === 1 ? found[0] : null;
   };
-  split(top, top + Math.PI * 2 - GAP, lands.map(() => 1)).forEach(([a0, a1], index) => {
+  const byIdAll = new Map(bundle.nodes.map((node) => [node.id, node]));
+  const landOf = (node: WireNode): string => {
+    const own = nameLand(node.name);
+    if (own) return own;
+    // A ministry of a land belongs to its regering: by the parent line, or by its part_of edge.
+    const wholes = [node.parent, ...bundle.edges.filter((edge) => edge.type === "part_of" && edge.from === node.id).map((edge) => edge.to)];
+    for (const whole of wholes) {
+      const land = whole ? nameLand(byIdAll.get(whole)?.name ?? "") : null;
+      if (land) return land;
+    }
+    return KINGDOM;
+  };
+  const kingdomWide = koninkrijk.some((node) => landOf(node) === KINGDOM);
+  const lands = kingdomWide ? [KINGDOM, ...landNames] : landNames;
+  split(top, top + Math.PI * 2 - GAP, lands.map((land) => (land === KINGDOM ? 0.5 : 1))).forEach(([a0, a1], index) => {
     const land = lands[index];
     const list = koninkrijk.filter((node) => landOf(node) === land);
     cells.push({
@@ -700,7 +713,26 @@ export function cellMarks(
 }
 
 /** How two bodies on the wheel are tied, in the terms of the graph's edges plus the parent line. */
-export type WheelLinkType = "elects" | "oversees" | "advises" | "accountable_to" | "part_of";
+export type WheelLinkType =
+  | "elects"
+  | "oversees"
+  | "advises"
+  | "accountable_to"
+  | "part_of"
+  | "appoints"
+  | "confirms"
+  | "joint_arrangement_member";
+
+const WHEEL_LINK_TYPES: ReadonlySet<string> = new Set<WheelLinkType>([
+  "elects",
+  "oversees",
+  "advises",
+  "accountable_to",
+  "part_of",
+  "appoints",
+  "confirms",
+  "joint_arrangement_member",
+]);
 
 /** One tie of the selected body: the other end (a drawn body, or the voters at the rim) and which way it points. */
 export type WheelLink = { other: string; type: WheelLinkType; outgoing: boolean };
@@ -744,10 +776,13 @@ export function wheelLinks(
     const from = resolve(edge.from);
     const to = resolve(edge.to);
     if (from === to) continue;
-    const type: WheelLinkType = edge.type === "consists_of" ? "part_of" : (edge.type as WheelLinkType);
+    const type = edge.type === "consists_of" ? "part_of" : edge.type;
+    // A type the wheel has no line for is not drawn rather than drawn wrong.
+    if (!WHEEL_LINK_TYPES.has(type)) continue;
+    const kind = type as WheelLinkType;
     // consists_of runs from the whole to its part; part_of from the part to the whole.
-    if (from === self) add(to, type, edge.type !== "consists_of");
-    else if (to === self) add(from, type, edge.type === "consists_of");
+    if (from === self) add(to, kind, edge.type !== "consists_of");
+    else if (to === self) add(from, kind, edge.type === "consists_of");
   }
   // The parent line: the body it falls under, and the bodies that fall under it.
   const parent = byId.get(self)?.parent;
