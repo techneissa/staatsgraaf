@@ -166,7 +166,7 @@ export function getFocusPeople(limit = 10): FocusPerson[] {
     return (
       portraitA - portraitB ||
       focusRank(a.position) - focusRank(b.position) ||
-      b.tenure.start.localeCompare(a.tenure.start)
+      (b.tenure.start ?? "").localeCompare(a.tenure.start ?? "")
     );
   });
 

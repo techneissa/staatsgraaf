@@ -2111,7 +2111,6 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
           chamberName={layout.byId.get(selectedFractie.chamberId)?.name ?? selectedFractie.chamberId}
           entry={fractieEntry}
           total={chambers[selectedFractie.chamberId]?.total ?? 0}
-          rows={benches.list.find((entry) => entry.bench.id === selectedFractie.chamberId)?.bench.rows ?? 3}
           people={bundle.seatPeople ?? {}}
           selectedPersonId={selectedPersonId}
           onPick={pickSeat}
