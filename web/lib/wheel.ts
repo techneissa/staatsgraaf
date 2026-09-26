@@ -250,12 +250,13 @@ export function buildWheel(
   const familyOf: Record<string, string> = {};
   const [n1, n2, n3] = WHEEL_RINGS.national;
 
-  // The four branch wedges of the national rings, clockwise from the top.
+  // The four branch wedges of the national rings, clockwise from the top. The Wetgevende macht is the
+  // widest per body: its two halls draw every seat, so it takes room from Rechtspraak, whose bodies sit sparse.
   const W = {
-    leg: [deg(-130), deg(-51)] as const,
+    leg: [deg(-141), deg(-51)] as const,
     exec: [deg(-51), deg(105)] as const,
     adv: [deg(105), deg(139)] as const,
-    jud: [deg(139), deg(230)] as const,
+    jud: [deg(139), deg(219)] as const,
   };
   const wedges = [
     { id: "leg", title: "Wetgevende macht", a0: W.leg[0], a1: W.leg[1] },
@@ -577,11 +578,31 @@ export function buildWheel(
 }
 
 /** Whether a node is a member of a cluster; members carry the cluster id through the layout only on the client, so decide from the data. */
+/**
+ * The lookups `inCluster` needs, built once per bundle: the clusters by id and
+ * every oversees pair. Without them each gemeente scanned every edge for every
+ * cluster, which cost hundreds of milliseconds on each rebuild of the wheel.
+ */
+const clusterIndex = new WeakMap<object, { clusters: Map<string, GraphBundle["clusters"][number]>; oversees: Set<string> }>();
+
+function indexFor(bundle: Pick<GraphBundle, "edges" | "clusters">) {
+  let index = clusterIndex.get(bundle.edges);
+  if (!index || index.clusters.size !== bundle.clusters.length) {
+    index = {
+      clusters: new Map(bundle.clusters.map((cluster) => [cluster.id, cluster])),
+      oversees: new Set(bundle.edges.filter((edge) => edge.type === "oversees").map((edge) => `${edge.from}\u0000${edge.to}`)),
+    };
+    clusterIndex.set(bundle.edges, index);
+  }
+  return index;
+}
+
 function inCluster(bundle: Pick<GraphBundle, "edges" | "clusters">, node: WireNode, clusterId: string): boolean {
-  const cluster = bundle.clusters.find((entry) => entry.id === clusterId);
+  const index = indexFor(bundle);
+  const cluster = index.clusters.get(clusterId);
   if (!cluster) return false;
   if (cluster.kind === "oversight" && cluster.parent) {
-    return node.subtype === "gemeente" && bundle.edges.some((edge) => edge.type === "oversees" && edge.from === cluster.parent && edge.to === node.id);
+    return node.subtype === "gemeente" && index.oversees.has(`${cluster.parent}\u0000${node.id}`);
   }
   if (cluster.kind === "subtype") return node.subtype === cluster.subtype;
   return node.parent === cluster.parent;
@@ -834,4 +855,29 @@ export function seatLinks(
     if (!known || (known.type === "member_of" && type === "holds_post")) links.set(other, { other, type, outgoing: true });
   }
   return [...links.values()].sort((a, b) => a.other.localeCompare(b.other));
+}
+
+/**
+ * The other side of `seatLinks`: the people in the halls whose seats and
+ * posts land on one drawn body, so a Kamercommissie picked on the wheel shows
+ * its members and a ministry its bewindspersonen. Each person is listed once,
+ * a post outweighing a seat; the tie points from the person to the body.
+ */
+export function bodySeatLinks(
+  bundle: Pick<GraphBundle, "nodes" | "seatTies">,
+  bodyId: string,
+  drawn: ReadonlySet<string>,
+): WheelLink[] {
+  const byId = new Map(bundle.nodes.map((node) => [node.id, node]));
+  const resolve = wheelResolver(byId, drawn);
+  const out = new Map<string, WheelLink>();
+  for (const [person, ties] of Object.entries(bundle.seatTies ?? {})) {
+    for (const [organization, kind] of ties) {
+      if (resolve(organization) !== bodyId) continue;
+      const type: WheelLinkType = kind === "post" ? "holds_post" : "member_of";
+      const known = out.get(person);
+      if (!known || (known.type === "member_of" && type === "holds_post")) out.set(person, { other: person, type, outgoing: false });
+    }
+  }
+  return [...out.values()].sort((a, b) => a.other.localeCompare(b.other));
 }

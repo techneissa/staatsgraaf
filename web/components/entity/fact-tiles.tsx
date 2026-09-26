@@ -25,22 +25,23 @@ export function FactTiles({ facts, className = "" }: { facts: FactTile[]; classN
     <div className={`@container ${className}`.trim()}>
       <dl aria-label={t("factsLabel")} className="flex flex-wrap gap-2">
         {visible.map((fact) => (
+          // A dl group holds its dt and dd directly; the icon sits inside the dt, placed beside both.
           <div
             key={fact.key}
-            className={`flex min-w-0 max-w-full grow items-center gap-2.5 rounded-md border border-line bg-surface px-3 py-2 ${
+            className={`relative min-w-0 max-w-full grow rounded-md border border-line bg-surface py-2 pl-[3.125rem] pr-3 ${
               fact.wide ? "basis-full @2xl:basis-auto" : "basis-[9.5rem] @2xl:grow-0 @2xl:basis-auto"
             }`}
           >
-            <span
-              aria-hidden="true"
-              className="flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-surface-raised text-ink-muted"
-            >
-              {fact.icon}
-            </span>
-            <div className="min-w-0">
-              <dt className="text-[11px] leading-tight text-ink-faint">{fact.label}</dt>
-              <dd className="text-sm leading-snug text-ink break-words">{fact.value}</dd>
-            </div>
+            <dt className="text-[11px] leading-tight text-ink-faint">
+              <span
+                aria-hidden="true"
+                className="absolute left-3 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-sm bg-surface-raised text-ink-muted"
+              >
+                {fact.icon}
+              </span>
+              {fact.label}
+            </dt>
+            <dd className="text-sm leading-snug text-ink break-words">{fact.value}</dd>
           </div>
         ))}
       </dl>

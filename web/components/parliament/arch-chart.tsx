@@ -121,7 +121,8 @@ export function ArchChart({
       ) : null}
       <svg
         viewBox={`${minX.toFixed(1)} ${minY.toFixed(1)} ${width.toFixed(1)} ${height.toFixed(1)}`}
-        role="img"
+        // A group, not an image: its party blocks are links, and an image cannot hold anything to focus.
+        role="group"
         aria-label={`${description}. ${tally.majority}/${tally.total}.`}
         className={`motion-grow ${compact ? "mt-1 h-auto w-full max-w-[220px]" : "mt-2 h-auto w-full max-w-xl"}`}
         data-reveal="pending"

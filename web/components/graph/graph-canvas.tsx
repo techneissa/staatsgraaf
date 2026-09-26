@@ -1,5 +1,6 @@
 "use client";
 
+import { thumbUrl } from "@/lib/thumb";
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties, KeyboardEvent as ReactKeyboardEvent, MouseEvent as ReactMouseEvent, PointerEvent as ReactPointerEvent } from "react";
 import { useRouter } from "next/navigation";
@@ -2235,7 +2236,7 @@ function HoverCard({
           style={avatarTint(seat.person.image ? null : color)}
         >
           {seat.person.image ? (
-            <img src={seat.person.image} alt="" className="h-full w-full object-cover" />
+            <img src={thumbUrl(seat.person.image)} alt="" decoding="async" className="h-full w-full object-cover" />
           ) : (
             <span aria-hidden="true">{initialsFor(seat.person.name)}</span>
           )}

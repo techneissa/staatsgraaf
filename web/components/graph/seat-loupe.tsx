@@ -4,6 +4,7 @@ import { useLayoutEffect, useState, type RefObject } from "react";
 import type { ChamberSeatEntry } from "@/lib/graph";
 import type { SeatPerson } from "@/lib/seats";
 import { avatarTint, initialsFor } from "@/lib/initials";
+import { thumbUrl } from "@/lib/thumb";
 import { PartyPill } from "@/components/party-pill";
 import { useT } from "@/components/i18n/use-t";
 
@@ -116,7 +117,7 @@ export function SeatLoupe({
                   style={{ ...avatarTint(person?.image ? null : color), borderColor: color ?? "var(--t-color-line-strong)" }}
                 >
                   {person?.image ? (
-                    <img src={person.image} alt="" decoding="async" className="h-full w-full object-cover" />
+                    <img src={thumbUrl(person.image)} alt="" decoding="async" className="h-full w-full object-cover" />
                   ) : (
                     <span aria-hidden="true">{initialsFor(name)}</span>
                   )}
