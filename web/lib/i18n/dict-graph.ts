@@ -196,6 +196,16 @@ export const GRAPH_DICT = {
   wheelCoreSub: { nl: "en Statuut", en: "and Charter" },
   wheelReset: { nl: "Passend maken", en: "Fit" },
   wheelLinks: { nl: "{n} verbindingen", en: "{n} connections" },
+  wheelHint: {
+    nl: "De staat als wiel. Gebruik de pijltjestoetsen om te bladeren, Enter om te openen en Escape om te wissen.",
+    en: "The state as a wheel. Use the arrow keys to browse, Enter to open and Escape to clear.",
+  },
+  wheelInstructions: {
+    nl: "Het wiel toont de Grondwet in het midden, de landelijke organen in vier machten eromheen, daarbuiten de decentrale overheden en het Koninkrijk, en de kiesgerechtigden als rand. De Tweede en Eerste Kamer staan er als hun zaal: elke stoel is een Kamerlid, met de voorzitter en de regeringsbank erbij. Klik een orgaan of een stoel om die te selecteren: het wiel draait hem naar onderen en zijn verbindingen worden getekend. Pijl rechts en links bladeren door de organen, pijl omlaag en omhoog door de stoelen van de Kamer die geselecteerd is, Home en End springen naar het eerste en laatste. Enter opent de pagina, Escape wist de selectie, plus en min zoomen, nul maakt het wiel weer passend.",
+    en: "The wheel shows the constitution in the centre, the national bodies in four branches around it, decentral government and the Kingdom beyond them, and the voters as the rim. The Tweede and Eerste Kamer are drawn as their halls: every seat is a member, with the chair and the government bench. Click a body or a seat to select it: the wheel turns it to the bottom and draws its connections. Arrow right and left browse the bodies, arrow down and up the seats of the selected chamber, Home and End jump to the first and last. Enter opens the page, Escape clears the selection, plus and minus zoom, zero fits the wheel again.",
+  },
+  wheelBench: { nl: "Regeringsbank", en: "Government bench" },
+  wheelChair: { nl: "Voorzitter", en: "Chair" },
   canvasCollapse: { nl: "Volledig scherm sluiten", en: "Exit full screen" },
   canvasClose: { nl: "Sluiten", en: "Close" },
   canvasNoScript: {
@@ -317,4 +327,18 @@ export const EDGE_TYPE_LABELS_I18N: Record<string, LocString> = {
   accountable_to: { nl: "is verantwoording verschuldigd aan", en: "is accountable to" },
   succeeded_by: { nl: "wordt opgevolgd door", en: "is succeeded by" },
   joint_arrangement_member: { nl: "doet mee in", en: "takes part in" },
+};
+
+/** Bilingual labels for the ties the wheel draws (lib/wheel.ts WheelLinkType), for the legend's key. */
+export const WHEEL_LINK_LABELS_I18N: Record<string, LocString> = {
+  elects: { nl: "kiest", en: "elects" },
+  oversees: { nl: "houdt toezicht op", en: "oversees" },
+  accountable_to: { nl: "legt verantwoording af aan", en: "is accountable to" },
+  advises: { nl: "adviseert", en: "advises" },
+  appoints: { nl: "benoemt", en: "appoints" },
+  confirms: { nl: "bevestigt", en: "confirms" },
+  part_of: { nl: "maakt deel uit van", en: "is part of" },
+  joint_arrangement_member: { nl: "doet mee in", en: "takes part in" },
+  member_of: { nl: "zit in (commissie)", en: "sits on (committee)" },
+  holds_post: { nl: "bekleedt een functie bij", en: "holds a post at" },
 };
