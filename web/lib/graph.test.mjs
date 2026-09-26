@@ -402,5 +402,7 @@ test("an edge is drawn on a date only while it is in force; undated edges always
   assert.equal(edgeAlive({ validFrom: "2010-10-14" }, null), true);
   const dated = bundle.edges.filter((edge) => edge.validFrom);
   assert.ok(dated.length >= 58, `dated edges in the bundle: ${dated.length}`);
-  assert.ok(dated.every((edge) => !edgeAlive(edge, "2009-01-01")), "before the first besluit no dated edge is in force");
+  // Membership of a gemeenschappelijke regeling carries its register join date, which can be older.
+  const byBesluit = dated.filter((edge) => edge.type !== "joint_arrangement_member");
+  assert.ok(byBesluit.every((edge) => !edgeAlive(edge, "2009-01-01")), "before the first besluit no dated edge is in force");
 });
