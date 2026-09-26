@@ -11,3 +11,6 @@ public/peek/
 
 # Derived at build time by scripts/build-panel-index.mjs
 public/panels/
+
+# Derived at build time by scripts/build-thumbs.mjs
+public/media/portretten/klein/
