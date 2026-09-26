@@ -227,6 +227,11 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
 
   const state = useMemo(() => ({ desktop, pageOpen, detailsOpen }), [desktop, pageOpen, detailsOpen]);
 
+  // Both side columns are `relative` so they are the containing block for
+  // absolutely positioned content inside them (the sr-only labels among it).
+  // Without that, such content is placed against the document, escapes the
+  // column's own scroll box and lets the window scroll past the layout into
+  // blank space on desktop.
   return (
     <PanelStateContext.Provider value={state}>
       <div className="sg-workspace grid min-h-0 flex-1 grid-cols-1">
@@ -247,14 +252,14 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
         />
         <div
           id={PAGE_COLUMN_ID}
-          className="sg-page-col flex min-h-0 min-w-0 flex-col lg:col-start-1 lg:row-start-1 lg:overflow-y-auto lg:overflow-x-hidden"
+          className="sg-page-col relative flex min-h-0 min-w-0 flex-col lg:col-start-1 lg:row-start-1 lg:overflow-y-auto lg:overflow-x-hidden"
         >
           <div className="sg-page-inner flex min-h-full flex-col">{children}</div>
         </div>
         <aside
           id={DETAILS_ID}
           aria-label={t("detailsLabel")}
-          className="sg-details-col hidden min-h-0 min-w-0 overflow-hidden border-s border-line bg-surface lg:col-start-3 lg:row-start-1 lg:flex"
+          className="sg-details-col relative hidden min-h-0 min-w-0 overflow-hidden border-s border-line bg-surface lg:col-start-3 lg:row-start-1 lg:flex"
         >
           <div className="sg-details-inner flex min-h-0 flex-col">
             {desktop ? <DetailsPanel /> : null}
