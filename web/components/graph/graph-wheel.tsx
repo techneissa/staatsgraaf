@@ -272,7 +272,11 @@ export function GraphWheel({
         if (cell.head) {
           const mid = (cell.a0 + cell.a1) / 2;
           const radius = cell.r0 + headBand / 2 + 2;
-          marks.push({ id: cell.head.id, x: Math.cos(mid) * radius, y: Math.sin(mid) * radius, r: (headBand - 6) * 0.42 * tieScale(cell.head.ties, true) });
+          // Sized by the head band, but never wider than the cell leaves room for at that radius: clear of the gutter and
+          // of the cell's sides with a margin, so a ministry's shape does not run up to its edges.
+          const room = radius * Math.sin((cell.a1 - cell.a0) / 2) - HALF_GUTTER - 2.5;
+          const size = Math.min((headBand - 6) * 0.34 * tieScale(cell.head.ties, true), room, (headBand - 8) / 2);
+          marks.push({ id: cell.head.id, x: Math.cos(mid) * radius, y: Math.sin(mid) * radius, r: Math.max(4, size) });
         }
         const itemById = new Map(cell.items.map((entry) => [entry.id, entry]));
         if (cell.head) itemById.set(cell.head.id, cell.head);
@@ -847,9 +851,11 @@ export function GraphWheel({
                 <path
                   d={segment(group.r0, group.r1, group.a0, group.a1, GROUP_ROUND, HALF_GUTTER)}
                   fill={color}
-                  fillOpacity={chosen ? 0.24 : lit ? 0.17 : 0.11}
+                  // Hovering any part lights the whole group, so it reads as one body with its parts, not one part alone.
+                  fillOpacity={chosen ? 0.24 : lit ? 0.2 : 0.11}
+                  className="transition-[fill-opacity] duration-150"
                   stroke={color}
-                  strokeOpacity={chosen ? 1 : 0.45}
+                  strokeOpacity={chosen ? 1 : lit ? 0.75 : 0.45}
                   strokeWidth={chosen ? 2 : 1.1}
                   strokeLinejoin="round"
                 />
@@ -909,7 +915,7 @@ export function GraphWheel({
                 <path
                   d={segment(cell.r0, cell.r1, cell.a0, cell.a1, parts ? PART_ROUND : GROUP_ROUND, HALF_GUTTER)}
                   fill={color}
-                  fillOpacity={selected ? 0.2 : parts && (hot === cell.id || holdsSelected) ? 0.1 : 0}
+                  fillOpacity={selected ? 0.2 : parts && holdsSelected ? 0.1 : 0}
                   stroke="none"
                   pointerEvents="all"
                   className={cell.pick ? "cursor-pointer" : undefined}
