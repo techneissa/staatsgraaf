@@ -257,8 +257,14 @@ export type GraphBundle = {
       seats: [number, number, number, number][];
       /** The person in each seat of `seats`, same order; null for an empty seat. */
       people?: (string | null)[];
+      /** The chair at the desk as [x, y, radius, person] (Tweede Kamer); in the Eerste Kamer the chair's seat is in `seats`. */
+      chair?: [number, number, number, string | null] | null;
+      /** The kabinet bench: seat radius and each bewindspersoon as [x, y, person]. */
+      bench?: { r: number; seats: [number, number, string][] };
     }
   >;
+  /** Name, slug and portrait of the people in a hall who are not seated members (the bench, the chair's desk), by person id. */
+  hallPeople?: Record<string, SeatPerson>;
   /**
    * Each seated member's current posts outside their own chamber, by person
    * id: the body, and whether it is a seat on it ("member", a commissie) or a

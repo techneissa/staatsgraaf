@@ -1,13 +1,16 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
-import { GLYPH_BY_SUBTYPE, type GraphBundle } from "@/lib/graph";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
+import { useRouter } from "next/navigation";
+import { edgeAlive, GLYPH_BY_SUBTYPE, type GraphBundle } from "@/lib/graph";
 import { branchColorVar } from "@/lib/branch-colors";
-import { buildWheel, cellMarks, OPEN_PITCH, REST_PITCH, seatLinks, tieScale, WHEEL_GUTTER, WHEEL_RADIUS, WHEEL_RINGS, WHEEL_VOTERS, wheelLinks, type WheelCell, type WheelGroup, type WheelLinkType } from "@/lib/wheel";
+import { buildWheel, cellMarks, OPEN_PITCH, REST_PITCH, seatLinks, tieScale, WHEEL_GUTTER, WHEEL_RADIUS, WHEEL_RINGS, WHEEL_VOTERS, wheelLinks, type WheelCell, type WheelGroup } from "@/lib/wheel";
 import { seatIndex } from "@/lib/seats";
 import { useSelection } from "@/components/selection/selection-provider";
 import { useT } from "@/components/i18n/use-t";
 import { glyphPathAt } from "./glyph";
+import { SeatLoupe } from "./seat-loupe";
+import { WHEEL_LINK_STYLE } from "./wheel-styles";
 
 /** Room kept at a part's outer edge for its curved name, inside a group of several parts. */
 const TITLE_BAND = 15;
@@ -51,19 +54,6 @@ function animate(ms: number, frame: (k: number) => void): () => void {
   return () => cancelAnimationFrame(id);
 }
 
-/** How each kind of tie is drawn: dashed for the line of parts, an arrow for the rest. */
-const LINK_STYLE: Record<WheelLinkType, { dash?: string; arrow: "filled" | "open" | "double" | null }> = {
-  elects: { arrow: "double" },
-  oversees: { arrow: "filled" },
-  advises: { arrow: "open" },
-  accountable_to: { arrow: "open" },
-  part_of: { dash: "3 3", arrow: null },
-  appoints: { arrow: "filled" },
-  confirms: { arrow: "open" },
-  joint_arrangement_member: { dash: "1 3", arrow: null },
-  member_of: { dash: "1 2.5", arrow: null },
-  holds_post: { arrow: "filled" },
-};
 
 /** The shortest turn that brings `angle` to the bottom of the wheel, starting from `from`. */
 function turnToBottom(from: number, angle: number): number {
@@ -198,12 +188,35 @@ function cellTitle(cell: WheelCell, turn: number) {
  * the Koninkrijk around them and the voters as the rim. Every body is a mark
  * in its shape (the kind of body) and colour (the branch); the Kamers are
  * drawn as their halls, and every seat in a hall picks its member, whose
- * ties then run from that seat. A mark picks its body, a cell its sector or
- * group. Scroll to zoom, drag to pan.
+ * ties then run from that seat; the chair's desk and the kabinet bench are
+ * in the hall too. A mark picks its body, a cell its sector or group. Scroll
+ * to zoom, drag to pan; from the keyboard the arrow keys walk the bodies and
+ * a chamber's seats (see `wheelInstructions`). The legend's branch filter
+ * hides a branch's bodies, and its date draws the ties as they stood then.
  */
-export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
+const NO_BRANCHES: ReadonlySet<string> = new Set();
+/** How long a name stays up after a finger touches a body or seat. */
+const TOUCH_TIP_MS = 1600;
+
+type SeatSpot = { x: number; y: number; r: number; name: string; branch: WheelCell["branch"]; cell: string; person: string; elected: boolean; where: "seat" | "chair" | "bench" };
+
+export function GraphWheel({
+  bundle: fullBundle,
+  hiddenBranches = NO_BRANCHES,
+  asOf = null,
+}: {
+  bundle: GraphBundle;
+  hiddenBranches?: ReadonlySet<string>;
+  asOf?: string | null;
+}) {
   const t = useT("graph");
+  const router = useRouter();
   const { current, select, clear } = useSelection();
+  // The ties as they stood on the legend's date; the bodies stay, as on the rings.
+  const bundle = useMemo(
+    () => (asOf === null ? fullBundle : { ...fullBundle, edges: fullBundle.edges.filter((edge) => edgeAlive(edge, asOf)) }),
+    [fullBundle, asOf],
+  );
   const selectedId = current && "id" in current ? current.id : null;
   const selectedPerson = current?.kind === "person" ? current.id : null;
   // The family on the selection's path opens, like a department in the reference; all others stay packed.
@@ -235,7 +248,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
         const group = groupOf.get(cell.id)!;
         // A part names itself inside only when its group has several parts; a group of one is named outside.
         const named = group.cells.length > 1 && cellTitle(cell, 0) !== null;
-        const shape = bundle.chamberShapes?.[cell.id] ?? null;
+        const shape = hiddenBranches.has(cell.branch) ? null : (bundle.chamberShapes?.[cell.id] ?? null);
         const headBand = cell.head ? (cell.headBand ?? 0) : 0;
         const pitch = cell.head ? (cell.open ? OPEN_PITCH : REST_PITCH) : MARK_PITCH;
         // Families stay packed beside their head, as the reference packs a department's agencies; every other cell
@@ -259,9 +272,11 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
         }
         const itemById = new Map(cell.items.map((entry) => [entry.id, entry]));
         if (cell.head) itemById.set(cell.head.id, cell.head);
-        return { cell, group, named, shape, marks, itemById };
+        // A branch switched off in the legend keeps its place but not its bodies, as on the rings.
+        const shown = marks.filter((mark) => !hiddenBranches.has(itemById.get(mark.id)?.branch ?? cell.branch));
+        return { cell, group, named, shape, marks: shown, itemById };
       }),
-    [model, groupOf, bundle.chamberShapes],
+    [model, groupOf, bundle.chamberShapes, hiddenBranches],
   );
 
   /** Where each drawn body sits: its mark, or for a chamber the middle of its hall. */
@@ -281,32 +296,77 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
     return out;
   }, [placed]);
 
-  /** Where each member sits in the wheel, by person id: their seat in the hall, mapped out of the hall's own units. */
-  const seatAt = useMemo(() => {
-    const out = new Map<string, { x: number; y: number; r: number; name: string; branch: WheelCell["branch"]; cell: string; color: number }>();
+  const nameOf = useCallback(
+    (person: string) => bundle.seatPeople?.[person]?.name ?? bundle.hallPeople?.[person]?.name ?? person,
+    [bundle.seatPeople, bundle.hallPeople],
+  );
+  /**
+   * Every place a person has in a hall, in wheel units: a member's seat, the
+   * chair's desk, a place on the kabinet bench. A bewindspersoon sits on the
+   * bench of both chambers, so a person can have two.
+   */
+  const spots = useMemo(() => {
+    const out = new Map<string, SeatSpot[]>();
+    const add = (spot: SeatSpot) => out.set(spot.person, [...(out.get(spot.person) ?? []), spot]);
     for (const { cell, named, shape } of placed) {
-      if (!shape?.people) continue;
+      if (!shape) continue;
       const fit = hallFit(shape, cell, named ? TITLE_BAND : 0);
-      shape.seats.forEach(([x, y, color], index) => {
-        const person = shape.people?.[index];
-        if (!person) return;
+      const at = (x: number, y: number, r: number, person: string, elected: boolean, where: SeatSpot["where"]) => {
         const [wx, wy] = fit.toWheel(x, y);
-        out.set(person, { x: wx, y: wy, r: shape.r * fit.scale, name: bundle.seatPeople?.[person]?.name ?? person, branch: cell.branch, cell: cell.id, color });
+        add({ x: wx, y: wy, r: r * fit.scale, name: nameOf(person), branch: cell.branch, cell: cell.id, person, elected, where });
+      };
+      shape.seats.forEach(([x, y], index) => {
+        const person = shape.people?.[index];
+        if (person) at(x, y, shape.r, person, true, "seat");
       });
+      if (shape.chair?.[3]) at(shape.chair[0], shape.chair[1], shape.chair[2], shape.chair[3], true, "chair");
+      for (const [x, y, person] of shape.bench?.seats ?? []) at(x, y, shape.bench!.r, person, false, "bench");
     }
     return out;
-  }, [placed, bundle.seatPeople]);
+  }, [placed, nameOf]);
+  /** The hall a seat was picked in, so a bewindspersoon picked on one bench is not drawn from the other. */
+  const [pickedHall, setPickedHall] = useState<string | null>(null);
+  const spotOf = useCallback(
+    (person: string): SeatSpot | undefined => {
+      const list = spots.get(person);
+      if (!list) return undefined;
+      return list.find((spot) => spot.cell === pickedHall) ?? list.find((spot) => spot.where === "seat") ?? list[0];
+    },
+    [spots, pickedHall],
+  );
   const seats = useMemo(() => seatIndex(bundle.chambers ?? {}), [bundle.chambers]);
-  const anchorOf = (id: string) => anchors.get(id) ?? seatAt.get(id);
+  const anchorOf = (id: string) => anchors.get(id) ?? spotOf(id);
 
   const linked = useMemo(() => {
-    const seat = selectedPerson ? seatAt.get(selectedPerson) : undefined;
-    if (selectedPerson && seat) return { self: selectedPerson, links: seatLinks(bundle, selectedPerson, seat.cell, new Set(anchors.keys())) };
+    const seat = selectedPerson ? spotOf(selectedPerson) : undefined;
+    if (selectedPerson && seat) return { self: selectedPerson, links: seatLinks(bundle, selectedPerson, seat.cell, new Set(anchors.keys()), seat.elected) };
     if (!selectedId) return null;
     const { self, links } = wheelLinks(bundle, selectedId, new Set(anchors.keys()));
     return self && anchors.has(self) ? { self, links } : null;
-  }, [bundle, selectedId, selectedPerson, anchors, seatAt]);
-  const pickedSeat = linked ? seatAt.get(linked.self) ?? null : null;
+  }, [bundle, selectedId, selectedPerson, anchors, spotOf]);
+  const pickedSeat = linked && selectedPerson === linked.self ? spotOf(linked.self) ?? null : null;
+  /**
+   * The seats that stay bright in a hall while something in it is picked: a
+   * member's or a picked fractie's fellow members, or the whole bench for a
+   * bewindspersoon. Null leaves every seat as it is.
+   */
+  const bright = useMemo(() => {
+    const fractie =
+      current?.kind === "fractie"
+        ? { chamberId: current.chamberId, index: current.index }
+        : selectedPerson && seats.has(selectedPerson)
+          ? { chamberId: seats.get(selectedPerson)!.chamberId, index: seats.get(selectedPerson)!.fractieIndex }
+          : null;
+    if (fractie) {
+      const members = bundle.chambers?.[fractie.chamberId]?.entries[fractie.index]?.members ?? [];
+      return { cell: fractie.chamberId, people: new Set(members) };
+    }
+    if (pickedSeat?.where === "bench") {
+      const bench = bundle.chamberShapes?.[pickedSeat.cell]?.bench?.seats ?? [];
+      return { cell: pickedSeat.cell, people: new Set(bench.map(([, , person]) => person)) };
+    }
+    return null;
+  }, [current, selectedPerson, seats, bundle.chambers, bundle.chamberShapes, pickedSeat]);
   const linkedIds = useMemo(() => new Set(linked ? [linked.self, ...linked.links.map((link) => link.other)] : []), [linked]);
 
   // Turn the wheel so the selection sits at the bottom, the way the reference does; back upright when nothing is picked.
@@ -388,7 +448,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
   /** The ties of the selection, as curves bent toward the core with an arrow at the end they point to. */
   const linkPaths = useMemo(() => {
     if (!linked) return [];
-    const self = (anchors.get(linked.self) ?? seatAt.get(linked.self))!;
+    const self = (anchors.get(linked.self) ?? spotOf(linked.self))!;
     const [f0] = WHEEL_RINGS.frame;
     const selfAngle = Math.atan2(self.y, self.x);
     type End = { x: number; y: number; r: number; branch: WheelCell["branch"] };
@@ -432,7 +492,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
       const inset = to.r + 2.5;
       const endX = to.x - (dx / length) * inset;
       const endY = to.y - (dy / length) * inset;
-      const style = LINK_STYLE[link.type];
+      const style = WHEEL_LINK_STYLE[link.type];
       return [
         {
           key,
@@ -445,15 +505,32 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
         },
       ];
     });
-  }, [linked, anchors, seatAt]);
+  }, [linked, anchors, spotOf]);
 
   const [tip, setTip] = useState<{ name: string; x: number; y: number } | null>(null);
   const boxRef = useRef<HTMLDivElement | null>(null);
-  const showTip = (event: ReactPointerEvent, name: string) => {
-    if (event.pointerType !== "mouse") return;
+  const tipTimer = useRef<number | null>(null);
+  const placeTip = (event: ReactPointerEvent, name: string) => {
     const box = boxRef.current?.getBoundingClientRect();
     if (box) setTip({ name, x: event.clientX - box.left, y: event.clientY - box.top });
   };
+  const showTip = (event: ReactPointerEvent, name: string) => {
+    if (event.pointerType !== "mouse") return;
+    placeTip(event, name);
+  };
+  /** A finger has no hover: a touch shows the name for a moment instead, whether or not the tap then picks. */
+  const touchTip = (event: ReactPointerEvent, name: string) => {
+    if (event.pointerType === "mouse") return;
+    placeTip(event, name);
+    if (tipTimer.current !== null) window.clearTimeout(tipTimer.current);
+    tipTimer.current = window.setTimeout(() => setTip(null), TOUCH_TIP_MS);
+  };
+  useEffect(
+    () => () => {
+      if (tipTimer.current !== null) window.clearTimeout(tipTimer.current);
+    },
+    [],
+  );
   const selectedName = linked ? anchorOf(linked.self)?.name : selectedCell?.title;
   const pickCell = (cell: WheelCell) => {
     if (!cell.pick || drag.current?.moved) return;
@@ -464,10 +541,95 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
     select({ kind: "org", id, surface: "graph" });
   };
   /** A seat is its member, as on the rings: the pick is the person, with the fractie block they sit in. */
-  const pickSeat = (personId: string) => {
+  const pickSeat = (personId: string, hall: string | null = null) => {
     if (drag.current?.moved) return;
     const seat = seats.get(personId);
+    setPickedHall(hall ?? seat?.chamberId ?? null);
     select({ kind: "person", id: personId, surface: "graph", ...(seat ? { seat: { chamberId: seat.chamberId, fractieIndex: seat.fractieIndex } } : {}) });
+  };
+
+  /**
+   * The keyboard walk (the rings have the same): the two Kamers, the
+   * national bodies clockwise from the start of the Wetgevende macht, then the decentrale overheden, then the
+   * Koninkrijk, a chamber standing for its hall; and, per hall, its seats in
+   * order, then the chair's desk and the bench.
+   */
+  const bodyWalk = useMemo(() => {
+    const out: string[] = [];
+    const start = model.wedges[0]?.a0 ?? -Math.PI / 2;
+    const angle = (x: number, y: number) => (Math.atan2(y, x) - start + 4 * Math.PI + 1e-6) % (2 * Math.PI);
+    const band = (cell: WheelCell) => (cell.r1 <= WHEEL_RINGS.national[2][1] + 1 ? 0 : cell.r1 <= WHEEL_RINGS.decentraal[1] + 1 ? 1 : 2);
+    const mid = (cell: WheelCell) => angle(Math.cos((cell.a0 + cell.a1) / 2), Math.sin((cell.a0 + cell.a1) / 2));
+    // The two halls lead, so the Kamers are the first stops.
+    const cells = [...placed].sort((a, b) => band(a.cell) - band(b.cell) || Number(Boolean(b.shape)) - Number(Boolean(a.shape)) || mid(a.cell) - mid(b.cell) || a.cell.r0 - b.cell.r0);
+    for (const { cell, shape, marks } of cells) {
+      if (shape) out.push(cell.id);
+      const own = [...marks].sort((a, b) => Math.hypot(a.x, a.y) - Math.hypot(b.x, b.y) || angle(a.x, a.y) - angle(b.x, b.y));
+      if (cell.head) own.sort((a, b) => (a.id === cell.head!.id ? -1 : b.id === cell.head!.id ? 1 : 0));
+      for (const mark of own) if (!out.includes(mark.id)) out.push(mark.id);
+    }
+    return out;
+  }, [placed, model.wedges]);
+  const seatWalk = useMemo(() => {
+    const out = new Map<string, string[]>();
+    for (const { cell, shape } of placed) {
+      if (!shape) continue;
+      const list = (shape.people ?? []).filter((person): person is string => Boolean(person));
+      if (shape.chair?.[3] && !list.includes(shape.chair[3])) list.push(shape.chair[3]);
+      for (const [, , person] of shape.bench?.seats ?? []) if (!list.includes(person)) list.push(person);
+      out.set(cell.id, list);
+    }
+    return out;
+  }, [placed]);
+  /** The hall the pick is in: a picked chamber, or the hall of a picked seat. */
+  const hallInFocus = selectedId && seatWalk.has(selectedId) ? selectedId : (pickedSeat?.cell ?? null);
+  const stepBody = (delta: number, jump?: "first" | "last") => {
+    if (bodyWalk.length === 0) return;
+    const at = hallInFocus && !(selectedId && anchors.has(selectedId)) ? bodyWalk.indexOf(hallInFocus) : selectedId ? bodyWalk.indexOf(selectedId) : -1;
+    const next = jump === "first" ? 0 : jump === "last" ? bodyWalk.length - 1 : at === -1 ? (delta > 0 ? 0 : bodyWalk.length - 1) : (at + delta + bodyWalk.length) % bodyWalk.length;
+    setPickedHall(null);
+    select({ kind: "org", id: bodyWalk[next], surface: "graph" });
+  };
+  const stepSeat = (delta: number) => {
+    const hall = hallInFocus;
+    const list = hall ? seatWalk.get(hall) : undefined;
+    if (!hall || !list || list.length === 0) return stepBody(delta);
+    const at = pickedSeat && pickedSeat.cell === hall ? list.indexOf(pickedSeat.person) : -1;
+    const next = at === -1 ? (delta > 0 ? 0 : list.length - 1) : (at + delta + list.length) % list.length;
+    pickSeat(list[next], hall);
+  };
+  const zoomBy = (factor: number) =>
+    setView((current) => {
+      const k = Math.min(5, Math.max(1, current.k * factor));
+      return k === 1 ? { k: 1, x: 0, y: 0 } : { k, x: current.x * (k / current.k), y: current.y * (k / current.k) };
+    });
+  const onKeyDown = (event: ReactKeyboardEvent<SVGSVGElement>) => {
+    const keys: Record<string, () => void> = {
+      ArrowRight: () => stepBody(1),
+      ArrowLeft: () => stepBody(-1),
+      ArrowDown: () => stepSeat(1),
+      ArrowUp: () => stepSeat(-1),
+      Home: () => stepBody(0, "first"),
+      End: () => stepBody(0, "last"),
+      "+": () => zoomBy(1.25),
+      "=": () => zoomBy(1.25),
+      "-": () => zoomBy(0.8),
+      "0": () => setView({ k: 1, x: 0, y: 0 }),
+      Escape: () => clear(),
+      Enter: () => {
+        if (selectedPerson) {
+          const slug = bundle.seatPeople?.[selectedPerson]?.slug ?? bundle.hallPeople?.[selectedPerson]?.slug;
+          if (slug) router.push(`/personen/${slug}/`);
+        } else if (selectedId) {
+          const node = bundle.nodes.find((candidate) => candidate.id === selectedId);
+          if (node) router.push(`/organisaties/${node.slug}/`);
+        }
+      },
+    };
+    const run = keys[event.key];
+    if (!run || (event.key === "Escape" && !current)) return;
+    event.preventDefault();
+    run();
   };
 
   const unitsPerPixel = () => {
@@ -511,14 +673,43 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
   const [f0, f1] = WHEEL_RINGS.frame;
   const size = WHEEL_RADIUS + 10;
 
+  /** The loupe: the picked member's fractie, or a picked fractie, at a size a finger or the Tab key can use. */
+  const loupe = useMemo(() => {
+    const at =
+      current?.kind === "fractie"
+        ? { chamberId: current.chamberId, index: current.index }
+        : selectedPerson && seats.has(selectedPerson)
+          ? { chamberId: seats.get(selectedPerson)!.chamberId, index: seats.get(selectedPerson)!.fractieIndex }
+          : null;
+    const entry = at ? bundle.chambers?.[at.chamberId]?.entries[at.index] : undefined;
+    // Only while the hall is drawn: a branch switched off in the legend takes its hall and loupe with it.
+    const drawn = at !== null && placed.some(({ cell, shape }) => cell.id === at.chamberId && shape !== null);
+    if (!at || !entry || !drawn) return null;
+    return { chamberId: at.chamberId, entry, total: bundle.chambers[at.chamberId]?.total ?? 0 };
+  }, [current, selectedPerson, seats, bundle.chambers, placed]);
+  const loupeRef = useRef<HTMLDivElement | null>(null);
+  // The wheel keeps the loupe in its top left corner, clear of the form switch in the top right.
+  const placeLoupe = useCallback(() => {
+    if (loupeRef.current) loupeRef.current.style.transform = "translate(0.5rem, 0.5rem)";
+  }, []);
+
   return (
     <div ref={boxRef} className="relative h-full w-full">
+      <p id="wiel-instructie" className="sr-only">
+        {t("wheelInstructions")}
+      </p>
+      <p className="sr-only" aria-live="polite">
+        {selectedName ? (linked && linked.links.length > 0 ? `${selectedName}, ${t("wheelLinks", { n: linked.links.length })}` : selectedName) : ""}
+      </p>
       <svg
         ref={svgRef}
         viewBox={`${-size} ${-size} ${2 * size} ${2 * size}`}
-        className="h-full w-full touch-none select-none"
+        className="h-full w-full touch-none select-none outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus"
         role="group"
-        aria-label={t("wheelAria")}
+        tabIndex={0}
+        aria-label={t("wheelHint")}
+        aria-describedby="wiel-instructie"
+        onKeyDown={onKeyDown}
         onWheel={onWheel}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
@@ -588,7 +779,7 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
             const lit = hot !== null && group.cells.includes(hot);
             const chosen = groupChosen.has(group.id);
             return (
-              <g key={group.id} pointerEvents="none">
+              <g key={group.id} pointerEvents="none" opacity={hiddenBranches.has(group.branch) ? 0.35 : 1}>
                 <path
                   d={segment(group.r0, group.r1, group.a0, group.a1, GROUP_ROUND, HALF_GUTTER)}
                   fill={color}
@@ -665,11 +856,15 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
                     shape={shape}
                     cell={cell}
                     titleBand={title ? TITLE_BAND : 0}
-                    picked={pickedSeat?.cell === cell.id ? { person: linked!.self, color: pickedSeat.color } : null}
-                    nameOf={(person) => bundle.seatPeople?.[person]?.name ?? person}
-                    onPick={pickSeat}
+                    picked={pickedSeat?.cell === cell.id ? pickedSeat.person : null}
+                    bright={bright?.cell === cell.id ? bright.people : null}
+                    nameOf={nameOf}
+                    onPick={(person) => pickSeat(person, cell.id)}
                     onTip={showTip}
+                    onTouchTip={touchTip}
                     onTipEnd={() => setTip(null)}
+                    benchLabel={t("wheelBench")}
+                    chairLabel={t("wheelChair")}
                   />
                 ) : null}
                 {marks.map((mark) => {
@@ -702,7 +897,10 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
                       aria-label={entry.name}
                       className="cursor-pointer transition-[fill-opacity] hover:[fill-opacity:0.85]"
                       onPointerEnter={(event) => showTip(event, entry.name)}
-                      onPointerLeave={() => setTip(null)}
+                      onPointerLeave={(event) => {
+                        if (event.pointerType === "mouse") setTip(null);
+                      }}
+                      onPointerDown={(event) => touchTip(event, entry.name)}
                       onClick={(event) => {
                         event.stopPropagation();
                         pickBody(entry.id);
@@ -765,6 +963,20 @@ export function GraphWheel({ bundle }: { bundle: GraphBundle }) {
           </span>
         </div>
       ) : null}
+      {loupe ? (
+        <SeatLoupe
+          loupeRef={loupeRef}
+          chamberName={bundle.nodes.find((node) => node.id === loupe.chamberId)?.name ?? loupe.chamberId}
+          entry={loupe.entry}
+          total={loupe.total}
+          rows={3}
+          people={bundle.seatPeople ?? {}}
+          selectedPersonId={selectedPerson}
+          onPick={(person) => pickSeat(person, loupe.chamberId)}
+          onClose={clear}
+          onPlaced={placeLoupe}
+        />
+      ) : null}
       {view.k > 1 ? (
         <button
           type="button"
@@ -789,10 +1001,18 @@ function hallFit(shape: NonNullable<GraphBundle["chamberShapes"]>[string], cell:
   const depth = cell.r1 - cell.r0 - titleBand - 8;
   // Width at the hall's middle radius, kept inside the cell's two edges.
   const width = 2 * (rm - depth / 4) * Math.tan((cell.a1 - cell.a0) / 2) - 10;
-  // Fitted to the seats only: the hall's box also holds the kabinet bench, which the wheel draws elsewhere.
-  const xs = shape.seats.map((seat) => seat[0]);
-  const ys = shape.seats.map((seat) => seat[1]);
-  const box = { x0: Math.min(...xs) - shape.r, x1: Math.max(...xs) + shape.r, y0: Math.min(...ys) - shape.r, y1: Math.max(...ys) + shape.r };
+  // Fitted to everything a person sits in: the seats, the chair's desk and the kabinet bench.
+  const points: [number, number, number][] = [
+    ...shape.seats.map(([x, y]) => [x, y, shape.r] as [number, number, number]),
+    ...(shape.chair ? [[shape.chair[0], shape.chair[1], shape.chair[2]] as [number, number, number]] : []),
+    ...(shape.bench?.seats ?? []).map(([x, y]) => [x, y, shape.bench!.r] as [number, number, number]),
+  ];
+  const box = {
+    x0: Math.min(...points.map(([x, , r]) => x - r)),
+    x1: Math.max(...points.map(([x, , r]) => x + r)),
+    y0: Math.min(...points.map(([, y, r]) => y - r)),
+    y1: Math.max(...points.map(([, y, r]) => y + r)),
+  };
   const scale = Math.min(width / (box.x1 - box.x0), depth / (box.y1 - box.y0));
   const angle = mid + Math.PI / 2;
   const cx = Math.cos(mid) * rm;
@@ -814,65 +1034,95 @@ function hallFit(shape: NonNullable<GraphBundle["chamberShapes"]>[string], cell:
 
 /**
  * A chamber drawn as its hall, from its sourced floor plan: the Tweede
- * Kamer's dome of seats, the Eerste Kamer's two blocks with the chair
- * between them. Every filled seat picks its member; with a member picked,
- * their seat is ringed and their own fractie stays bright while the rest of
- * the hall steps back.
+ * Kamer's dome of seats with the chair's desk in front, the Eerste Kamer's
+ * two blocks with the chair between them, and in both the kabinet bench.
+ * Every seat with a person on it picks that person; with someone picked,
+ * their seat is ringed and only `bright` (their fractie, or the bench) stays
+ * at full strength.
  */
 function Hall({
   shape,
   cell,
   titleBand,
   picked,
+  bright,
   nameOf,
   onPick,
   onTip,
+  onTouchTip,
   onTipEnd,
+  benchLabel,
+  chairLabel,
 }: {
   shape: NonNullable<GraphBundle["chamberShapes"]>[string];
   cell: WheelCell;
   titleBand: number;
-  picked: { person: string; color: number } | null;
+  picked: string | null;
+  bright: ReadonlySet<string> | null;
   nameOf: (person: string) => string;
   onPick: (person: string) => void;
   onTip: (event: ReactPointerEvent, name: string) => void;
+  onTouchTip: (event: ReactPointerEvent, name: string) => void;
   onTipEnd: () => void;
+  benchLabel: string;
+  chairLabel: string;
 }) {
   const fit = hallFit(shape, cell, titleBand);
+  const seat = (key: string, x: number, y: number, r: number, person: string | null, fill: string, ring: boolean, label: string | null) => {
+    const isPicked = person !== null && person === picked;
+    const faded = (bright !== null && (person === null || !bright.has(person)) && !isPicked) || (bright === null && picked !== null && !isPicked);
+    const name = person ? (label ? `${nameOf(person)}, ${label}` : nameOf(person)) : null;
+    return (
+      <circle
+        key={key}
+        cx={x}
+        cy={y}
+        r={r * (isPicked ? 1.5 : ring ? 1.2 : 1)}
+        fill={fill}
+        fillOpacity={faded ? 0.3 : 1}
+        stroke={isPicked || ring ? "var(--t-color-ink)" : "none"}
+        strokeWidth={isPicked ? 0.28 : ring ? 0.12 : 0}
+        pointerEvents={person ? "all" : "none"}
+        className={person ? "cursor-pointer" : undefined}
+        aria-label={name ?? undefined}
+        onPointerEnter={name ? (event) => onTip(event, name) : undefined}
+        onPointerLeave={
+          name
+            ? (event) => {
+                if (event.pointerType === "mouse") onTipEnd();
+              }
+            : undefined
+        }
+        onPointerDown={name ? (event) => onTouchTip(event, name) : undefined}
+        onClick={
+          person
+            ? (event) => {
+                event.stopPropagation();
+                onPick(person);
+              }
+            : undefined
+        }
+      />
+    );
+  };
   return (
     <g transform={fit.transform}>
-      {shape.seats.map(([x, y, colorIndex, chair], index) => {
-        const color = shape.colors[colorIndex] ?? "var(--t-color-line-strong)";
-        const person = shape.people?.[index] ?? null;
-        const isPicked = picked !== null && person === picked.person;
-        const faded = picked !== null && colorIndex !== picked.color;
-        const name = person ? nameOf(person) : null;
-        return (
-          <circle
-            key={index}
-            cx={x}
-            cy={y}
-            r={shape.r * (isPicked ? 1.5 : chair ? 1.35 : 1)}
-            fill={color}
-            fillOpacity={faded ? 0.3 : 1}
-            stroke={isPicked || chair ? "var(--t-color-ink)" : "none"}
-            strokeWidth={isPicked ? 0.28 : chair ? 0.12 : 0}
-            pointerEvents={person ? "all" : "none"}
-            className={person ? "cursor-pointer" : undefined}
-            aria-label={name ?? undefined}
-            onPointerEnter={name ? (event) => onTip(event, name) : undefined}
-            onPointerLeave={name ? onTipEnd : undefined}
-            onClick={
-              person
-                ? (event) => {
-                    event.stopPropagation();
-                    onPick(person);
-                  }
-                : undefined
-            }
-          />
-        );
-      })}
+      {shape.seats.map(([x, y, colorIndex, chair], index) =>
+        seat(
+          `s${index}`,
+          x,
+          y,
+          chair ? shape.r * 1.12 : shape.r,
+          shape.people?.[index] ?? null,
+          shape.colors[colorIndex] ?? "var(--t-color-line-strong)",
+          Boolean(chair),
+          chair ? chairLabel : null,
+        ),
+      )}
+      {shape.chair ? seat("chair", shape.chair[0], shape.chair[1], shape.chair[2], shape.chair[3], "var(--t-color-ink-muted)", true, chairLabel) : null}
+      {(shape.bench?.seats ?? []).map(([x, y, person], index) =>
+        seat(`b${index}`, x, y, shape.bench!.r, person, "var(--t-color-sector-regering)", false, benchLabel),
+      )}
     </g>
   );
 }
