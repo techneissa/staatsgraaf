@@ -247,7 +247,24 @@ export type GraphBundle = {
    * The chambers' halls from their sourced floor plans (lib/chamber-hall.ts),
    * by chamber org id: seats as [x, y, colour index, chair] in seat pitches.
    */
-  chamberShapes?: Record<string, { width: number; height: number; r: number; colors: (string | null)[]; seats: [number, number, number, number][] }>;
+  chamberShapes?: Record<
+    string,
+    {
+      width: number;
+      height: number;
+      r: number;
+      colors: (string | null)[];
+      seats: [number, number, number, number][];
+      /** The person in each seat of `seats`, same order; null for an empty seat. */
+      people?: (string | null)[];
+    }
+  >;
+  /**
+   * Each seated member's current posts outside their own chamber, by person
+   * id: the body, and whether it is a seat on it ("member", a commissie) or a
+   * post there ("post", a chair or a burgemeester).
+   */
+  seatTies?: Record<string, [string, "member" | "post"][]>;
   tiers: TierInfo[];
   /** Radii of the channels (tier gaps) routed edges travel along, innermost first. */
   channels: number[];
