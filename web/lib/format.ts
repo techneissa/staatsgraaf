@@ -55,12 +55,15 @@ export function formatCount(value: number): string {
   return number.format(value);
 }
 
-export function formatPeriod(start: string, end: string | null): string {
+export function formatPeriod(start: string | null, end: string | null): string {
+  // A start the source does not give (ADR 0020): "Huidig", or only the end.
+  if (start === null) return end === null ? "Huidig" : `Tot ${formatDate(end)}`;
   if (end === null) return `Sinds ${formatDate(start)}`;
   return `${formatDate(start)} tot ${formatDate(end)}`;
 }
 
-export function formatPeriodShort(start: string, end: string | null): string {
+export function formatPeriodShort(start: string | null, end: string | null): string {
+  if (start === null) return end === null ? "Huidig" : `Tot ${formatDateShort(end)}`;
   if (end === null) return `Sinds ${formatDateShort(start)}`;
   return `${formatDateShort(start)} tot ${formatDateShort(end)}`;
 }
@@ -102,11 +105,17 @@ export function formatDateIn(iso: string, locale: FormatLocale, style: "long" | 
 
 /** A period in the site locale: "Sinds 3 jan 2024" or "Since 3 Jan 2024", "A tot B" or "A to B". */
 export function formatPeriodIn(
-  start: string,
+  start: string | null,
   end: string | null,
   locale: FormatLocale,
   style: "long" | "short" = "long",
 ): string {
+  // A start the source does not give (ADR 0020): "Current", or only the end.
+  if (start === null) {
+    if (end === null) return locale === "en" ? "Current" : "Huidig";
+    const until = formatDateIn(end, locale, style);
+    return locale === "en" ? `Until ${until}` : `Tot ${until}`;
+  }
   const from = formatDateIn(start, locale, style);
   if (end === null) return locale === "en" ? `Since ${from}` : `Sinds ${from}`;
   const to = formatDateIn(end, locale, style);

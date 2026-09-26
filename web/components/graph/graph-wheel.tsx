@@ -25,6 +25,9 @@ const GROUP_MIN = 6.5;
 const GROUP_SPACING = 1.3;
 const GROUP_CHAR = 0.68;
 
+/** Half the wheel's viewBox: room around the rim for the voters' name on all four sides, clear of the panel toggles. */
+const WHEEL_VIEW = WHEEL_RADIUS + 28;
+
 /** How long the wheel takes to turn a selection to the bottom. */
 const TURN_MS = 700;
 /** Ease in and out, as cubic-bezier(0.4, 0, 0.2, 1) roughly. */
@@ -200,6 +203,7 @@ const TOUCH_TIP_MS = 1600;
 
 type SeatSpot = { x: number; y: number; r: number; name: string; branch: WheelCell["branch"]; cell: string; person: string; elected: boolean; where: "seat" | "chair" | "bench"; hall?: undefined };
 
+
 export function GraphWheel({
   bundle: fullBundle,
   hiddenBranches = NO_BRANCHES,
@@ -287,9 +291,9 @@ export function GraphWheel({
    * instead of on the seat in its middle (the Eerste Kamer's chair sits there).
    */
   const anchors = useMemo(() => {
-    const out = new Map<string, { x: number; y: number; r: number; name: string; branch: WheelCell["branch"]; cell: string; hall?: boolean }>();
-    for (const { cell, fit, marks, itemById } of placed) {
-      if (fit) out.set(cell.id, { x: fit.center[0], y: fit.center[1], r: fit.radius, name: cell.title, branch: cell.branch, cell: cell.id, hall: true });
+    const out = new Map<string, { x: number; y: number; r: number; name: string; branch: WheelCell["branch"]; cell: string; hall?: CellBounds }>();
+    for (const { cell, named, fit, marks, itemById } of placed) {
+      if (fit) out.set(cell.id, { x: fit.center[0], y: fit.center[1], r: fit.radius, name: cell.title, branch: cell.branch, cell: cell.id, hall: hallBounds(cell, named) });
       for (const mark of marks) {
         const entry = itemById.get(mark.id)!;
         out.set(mark.id, { x: mark.x, y: mark.y, r: mark.r, name: entry.name, branch: entry.branch, cell: cell.id });
@@ -463,7 +467,7 @@ export function GraphWheel({
     const self = (anchors.get(linked.self) ?? spotOf(linked.self))!;
     const [f0] = WHEEL_RINGS.frame;
     const selfAngle = Math.atan2(self.y, self.x);
-    type End = { x: number; y: number; r: number; branch: WheelCell["branch"]; hall?: boolean };
+    type End = { x: number; y: number; r: number; branch: WheelCell["branch"]; hall?: CellBounds };
     // Many ties of one kind into one cell (a provincie's gemeenten, a ministry's zbo's) become one bundle
     // to the middle of those bodies, drawn thicker; the bodies themselves light up.
     const BUNDLE = 12;
@@ -500,25 +504,29 @@ export function GraphWheel({
       const bend = link.other === WHEEL_VOTERS || own ? 1 : 0.42;
       const cx = ((from.x + to.x) / 2) * bend;
       const cy = ((from.y + to.y) / 2) * bend;
-      // A tie leaving a chamber starts at the hall's edge, not on the seat in its middle.
-      const sx = from.x - cx;
-      const sy = from.y - cy;
-      const startLength = Math.hypot(sx, sy) || 1;
-      const startInset = from.hall ? Math.min(from.r, startLength * 0.5) : 0;
-      const startX = from.x - (sx / startLength) * startInset;
-      const startY = from.y - (sy / startLength) * startInset;
-      const dx = to.x - cx;
-      const dy = to.y - cy;
+      // A tie to or from a chamber meets its outline, not a seat in the hall: the chamber is the whole hall.
+      const control = { x: cx, y: cy };
+      const t0 = from.hall ? (outlineCrossing(from, control, to, from.hall, false) ?? 0) : 0;
+      const t1 = to.hall ? (outlineCrossing(from, control, to, to.hall, true) ?? 1) : 1;
+      const start = onCurve(from, control, to, t0);
+      const finish = onCurve(from, control, to, t1);
+      const startX = start.x;
+      const startY = start.y;
+      // The curve cut to [t0, t1] is again a quadratic; its control point follows from the two end tangents.
+      const span = t1 - t0;
+      const midControl = { x: start.x + (start.dx * span) / 2, y: start.y + (start.dy * span) / 2 };
+      const dx = finish.dx;
+      const dy = finish.dy;
       const length = Math.hypot(dx, dy) || 1;
-      const inset = to.hall ? Math.min(to.r, length * 0.5) : to.r + 2.5;
-      const endX = to.x - (dx / length) * inset;
-      const endY = to.y - (dy / length) * inset;
+      const inset = to.hall ? 0 : to.r + 2.5;
+      const endX = finish.x - (dx / length) * inset;
+      const endY = finish.y - (dy / length) * inset;
       const style = WHEEL_LINK_STYLE[link.type];
       return [
         {
           key,
           width: weight > 1 ? Math.min(4.5, 1.3 + Math.sqrt(weight) * 0.45) : 1.3,
-          d: `M${startX.toFixed(2)} ${startY.toFixed(2)}Q${cx.toFixed(2)} ${cy.toFixed(2)} ${endX.toFixed(2)} ${endY.toFixed(2)}`,
+          d: `M${startX.toFixed(2)} ${startY.toFixed(2)}Q${midControl.x.toFixed(2)} ${midControl.y.toFixed(2)} ${endX.toFixed(2)} ${endY.toFixed(2)}`,
           head: style.arrow ? arrowHead(endX, endY, dx, dy, 5, style.arrow === "double") : null,
           open: style.arrow === "open",
           dash: style.dash,
@@ -526,6 +534,17 @@ export function GraphWheel({
         },
       ];
     });
+  }, [linked, anchors, spotOf]);
+
+  /** The cells the pick's ties start or end in: their names are drawn again above the ties. */
+  const tiedCells = useMemo(() => {
+    const out = new Set<string>();
+    if (!linked) return out;
+    for (const id of [linked.self, ...linked.links.map((link) => link.other)]) {
+      const cell = anchors.get(id)?.cell ?? spotOf(id)?.cell;
+      if (cell) out.add(cell);
+    }
+    return out;
   }, [linked, anchors, spotOf]);
 
   const [tip, setTip] = useState<{ name: string; x: number; y: number } | null>(null);
@@ -677,7 +696,7 @@ export function GraphWheel({
 
   const unitsPerPixel = () => {
     const box = svgRef.current?.getBoundingClientRect();
-    return box ? (2 * WHEEL_RADIUS + 20) / Math.min(box.width, box.height) : 1;
+    return box ? (2 * WHEEL_VIEW) / Math.min(box.width, box.height) : 1;
   };
   const onWheel = (event: ReactWheelEvent<SVGSVGElement>) => {
     const factor = Math.exp(-event.deltaY * 0.0015);
@@ -714,7 +733,7 @@ export function GraphWheel({
   };
 
   const [f0, f1] = WHEEL_RINGS.frame;
-  const size = WHEEL_RADIUS + 10;
+  const size = WHEEL_VIEW;
 
   /** The loupe: the picked member's fractie, or a picked fractie, at a size a finger or the Tab key can use. */
   const loupe = useMemo(() => {
@@ -862,10 +881,10 @@ export function GraphWheel({
               >
                 {sideLine !== null ? (
                   <line
-                    x1={Math.cos(sideLine) * (cell.r0 + 4)}
-                    y1={Math.sin(sideLine) * (cell.r0 + 4)}
-                    x2={Math.cos(sideLine) * (cell.r1 - 4)}
-                    y2={Math.sin(sideLine) * (cell.r1 - 4)}
+                    x1={Math.cos(sideLine) * (cell.r0 + 7)}
+                    y1={Math.sin(sideLine) * (cell.r0 + 7)}
+                    x2={Math.cos(sideLine) * (cell.r1 - 7)}
+                    y2={Math.sin(sideLine) * (cell.r1 - 7)}
                     stroke={color}
                     strokeOpacity={0.45}
                     strokeDasharray="2 3"
@@ -873,7 +892,19 @@ export function GraphWheel({
                   />
                 ) : null}
                 {rimBelow !== null ? (
-                  <path d={arcPath(rimBelow, cell.a0 + 0.02, cell.a1 - 0.02)} fill="none" stroke={color} strokeOpacity={0.45} strokeDasharray="2 3" pointerEvents="none" />
+                  // Each end stops short of what it meets: the group's solid edge by the gutter and a margin, a dashed side line by a gap.
+                  <path
+                    d={arcPath(
+                      rimBelow,
+                      cell.a0 + Math.asin(Math.min(0.95, (cell.a0 > group.a0 + 1e-6 ? 3 : HALF_GUTTER + 6) / rimBelow)),
+                      cell.a1 - Math.asin(Math.min(0.95, (cell.a1 < group.a1 - 1e-6 ? 3 : HALF_GUTTER + 6) / rimBelow)),
+                    )}
+                    fill="none"
+                    stroke={color}
+                    strokeOpacity={0.45}
+                    strokeDasharray="2 3"
+                    pointerEvents="none"
+                  />
                 ) : null}
                 <path
                   d={segment(cell.r0, cell.r1, cell.a0, cell.a1, parts ? PART_ROUND : GROUP_ROUND, HALF_GUTTER)}
@@ -896,11 +927,11 @@ export function GraphWheel({
                     </textPath>
                   </text>
                 ) : null}
-                {shape && linkedIds.has(cell.id) ? (
+                {shape && linkedIds.has(cell.id) && anchors.get(cell.id)?.hall ? (
                   // The chamber itself is picked or tied to the pick: its whole cell is outlined, so a tie to the
                   // chamber reads as a tie to the hall and not to the seat it happens to end beside.
                   <path
-                    d={segment(cell.r0, cell.r1, cell.a0, cell.a1, PART_ROUND, HALF_GUTTER + 2)}
+                    d={outlinePath(anchors.get(cell.id)!.hall!)}
                     fill="none"
                     stroke={color}
                     strokeWidth={1.4}
@@ -966,6 +997,25 @@ export function GraphWheel({
                 ) : null}
               </g>
             ))}
+            {/* The names of the cells the ties run through stay readable: drawn again above the ties, with a halo. */}
+            {drawn
+              .filter(({ cell, title }) => title && tiedCells.has(cell.id))
+              .map(({ cell, title }) => (
+                <text
+                  key={cell.id}
+                  fontSize={title!.size}
+                  fontWeight={600}
+                  fill={branchColorVar(cell.branch)}
+                  stroke="var(--t-color-canvas)"
+                  strokeWidth={3}
+                  strokeLinejoin="round"
+                  paintOrder="stroke"
+                >
+                  <textPath href={`#wheel-title-${cell.id}`} startOffset="50%" textAnchor="middle">
+                    {title!.text}
+                  </textPath>
+                </text>
+              ))}
           </g>
 
           {/* The core above the ties, so they pass under the Grondwet instead of over its name. */}
@@ -1000,7 +1050,6 @@ export function GraphWheel({
           chamberName={bundle.nodes.find((node) => node.id === loupe.chamberId)?.name ?? loupe.chamberId}
           entry={loupe.entry}
           total={loupe.total}
-          rows={3}
           people={bundle.seatPeople ?? {}}
           selectedPersonId={selectedPerson}
           onPick={(person) => pickSeat(person, loupe.chamberId)}
@@ -1121,6 +1170,78 @@ const CellMarks = memo(function CellMarks({
   );
 });
 
+/** How far the outline of a picked or tied chamber sits inside its cell, in wheel units; ties to the chamber end on it. */
+const OUTLINE_INSET = 4;
+
+type CellBounds = { r0: number; r1: number; a0: number; a1: number };
+type Point = { x: number; y: number };
+
+/**
+ * The part of a chamber's cell its outline encloses: the cell below the
+ * title band when the cell is named, so the dashed outline runs under the
+ * chamber's name instead of through it and clear of the group's solid edge.
+ */
+function hallBounds(cell: WheelCell, named: boolean): CellBounds {
+  return { r0: cell.r0, r1: cell.r1 - (named ? TITLE_BAND - OUTLINE_INSET : 0), a0: cell.a0, a1: cell.a1 };
+}
+
+/** The dashed outline of a chamber, OUTLINE_INSET inside its bounds on every side. */
+function outlinePath(bounds: CellBounds): string {
+  return segment(bounds.r0 + OUTLINE_INSET, bounds.r1 - OUTLINE_INSET, bounds.a0, bounds.a1, PART_ROUND, HALF_GUTTER + OUTLINE_INSET);
+}
+
+/** Whether a point lies inside a chamber's outline: its cell, drawn in by OUTLINE_INSET on every side. */
+function insideOutline(x: number, y: number, bounds: CellBounds): boolean {
+  const r = Math.hypot(x, y);
+  if (r < bounds.r0 + OUTLINE_INSET || r > bounds.r1 - OUTLINE_INSET) return false;
+  const side = Math.asin(Math.min(0.95, (HALF_GUTTER + OUTLINE_INSET) / r));
+  let offset = Math.atan2(y, x) - (bounds.a0 + bounds.a1) / 2;
+  offset = Math.atan2(Math.sin(offset), Math.cos(offset));
+  return Math.abs(offset) <= (bounds.a1 - bounds.a0) / 2 - side;
+}
+
+/** A point on the quadratic curve p0, c, p1 and its direction there. */
+function onCurve(p0: Point, c: Point, p1: Point, t: number) {
+  const u = 1 - t;
+  return {
+    x: u * u * p0.x + 2 * u * t * c.x + t * t * p1.x,
+    y: u * u * p0.y + 2 * u * t * c.y + t * t * p1.y,
+    dx: 2 * u * (c.x - p0.x) + 2 * t * (p1.x - c.x),
+    dy: 2 * u * (c.y - p0.y) + 2 * t * (p1.y - c.y),
+  };
+}
+
+/**
+ * Where a tie meets a chamber's outline, as the curve's parameter: the first
+ * point inside it when the chamber is the far end (`entering`), the last point
+ * still inside when the tie leaves it. Null when the curve never crosses it.
+ */
+function outlineCrossing(p0: Point, c: Point, p1: Point, bounds: CellBounds, entering: boolean): number | null {
+  const STEPS = 48;
+  const inside = (t: number) => {
+    const point = onCurve(p0, c, p1, t);
+    return insideOutline(point.x, point.y, bounds);
+  };
+  let before = entering ? 0 : 1;
+  for (let step = 1; step <= STEPS; step += 1) {
+    const t = entering ? step / STEPS : 1 - step / STEPS;
+    if (inside(t) === entering) {
+      // The crossing lies between the last step and this one; halve the gap until it is a hair wide.
+      let outside = before;
+      let within = t;
+      if (!entering) [outside, within] = [t, before];
+      for (let round = 0; round < 12; round += 1) {
+        const middle = (outside + within) / 2;
+        if (inside(middle) === entering) within = middle;
+        else outside = middle;
+      }
+      return entering ? within : outside;
+    }
+    before = t;
+  }
+  return null;
+}
+
 /** Room kept between a hall and its cell's edges, in wheel units. */
 const HALL_PAD = 5;
 
@@ -1220,6 +1341,12 @@ function fitHall(shape: NonNullable<GraphBundle["chamberShapes"]>[string], cell:
   };
 }
 
+/** The colour of the chair at the desk: their fractie's, from the empty chair seat in the benches. */
+function chairColor(shape: NonNullable<GraphBundle["chamberShapes"]>[string]): string {
+  const index = shape.seats.findIndex(([, , , chair], seat) => chair && !shape.people?.[seat]);
+  return (index >= 0 ? shape.colors[shape.seats[index][2]] : null) ?? "var(--t-color-ink-muted)";
+}
+
 /**
  * A chamber drawn as its hall, from its sourced floor plan: the Tweede
  * Kamer's dome of seats with the chair's desk in front, the Eerste Kamer's
@@ -1259,16 +1386,20 @@ const Hall = memo(function Hall({
     const isPicked = person !== null && person === picked;
     const faded = (bright !== null && (person === null || !bright.has(person)) && !isPicked) || (bright === null && picked !== null && !isPicked);
     const name = person ? (label ? `${nameOf(person)}, ${label}` : nameOf(person)) : null;
+    // An empty seat is an outline in its fractie's colour: it cannot be picked, so it must not look like a seat that can.
+    const empty = person === null;
     return (
       <circle
         key={key}
         cx={x}
         cy={y}
-        r={r * (isPicked ? 1.5 : ring ? 1.2 : 1)}
-        fill={fill}
+        r={r * (isPicked ? 1.5 : ring ? 1.15 : empty ? 0.85 : 1)}
+        fill={empty ? "none" : fill}
         fillOpacity={faded ? 0.3 : 1}
-        stroke={isPicked || ring ? "var(--t-color-ink)" : "none"}
-        strokeWidth={isPicked ? 0.28 : ring ? 0.12 : 0}
+        // Only the pick is ringed in ink; a chair's seat carries a thin ring in the canvas colour, a size step, not a highlight.
+        stroke={isPicked ? "var(--t-color-ink)" : empty ? fill : ring ? "var(--t-color-canvas)" : "none"}
+        strokeOpacity={empty ? (faded ? 0.3 : 0.7) : 1}
+        strokeWidth={isPicked ? 0.3 : empty ? r * 0.22 : ring ? r * 0.28 : 0}
         pointerEvents={person ? "all" : "none"}
         className={person ? "cursor-pointer" : undefined}
         data-name={name ?? undefined}
@@ -1294,19 +1425,14 @@ const Hall = memo(function Hall({
   };
   return (
     <g transform={fit.transform}>
-      {shape.seats.map(([x, y, colorIndex, chair], index) =>
-        seat(
-          `s${index}`,
-          x,
-          y,
-          chair ? shape.r * 1.12 : shape.r,
-          shape.people?.[index] ?? null,
-          shape.colors[colorIndex] ?? "var(--t-color-line-strong)",
-          Boolean(chair),
-          chair ? chairLabel : null,
-        ),
-      )}
-      {shape.chair ? seat("chair", shape.chair[0], shape.chair[1], shape.chair[2], shape.chair[3], "var(--t-color-ink-muted)", true, chairLabel) : null}
+      {shape.seats.map(([x, y, colorIndex, chair], index) => {
+        const person = shape.people?.[index] ?? null;
+        // In the Tweede Kamer the chair's own fractie seat stays empty while they sit at the desk: an empty seat, not a chair.
+        const chairSeat = Boolean(chair) && person !== null;
+        return seat(`s${index}`, x, y, shape.r, person, shape.colors[colorIndex] ?? "var(--t-color-line-strong)", chairSeat, chairSeat ? chairLabel : null);
+      })}
+      {/* The chair at the desk, the size of a seat and in the colour of the fractie seat they left empty. */}
+      {shape.chair ? seat("chair", shape.chair[0], shape.chair[1], shape.r, shape.chair[3], chairColor(shape), true, chairLabel) : null}
       {(shape.bench?.seats ?? []).map(([x, y, person], index) =>
         seat(`b${index}`, x, y, shape.bench!.r, person, "var(--t-color-sector-regering)", false, benchLabel),
       )}

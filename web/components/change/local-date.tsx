@@ -2,6 +2,7 @@
 
 import { useLocale } from "@/components/i18n/language-provider";
 import { useT } from "@/components/i18n/use-t";
+import { formatPeriodIn } from "@/lib/format";
 
 type DateStyle = "long" | "short" | "dayMonth" | "weekday";
 
@@ -55,12 +56,14 @@ export function PeriodT({
   end,
   style = "long",
 }: {
-  start: string;
+  start: string | null;
   end: string | null;
   style?: DateStyle;
 }) {
   const locale = useLocale();
   const t = useT("home");
+  // A start the source does not give (ADR 0020).
+  if (start === null) return <>{formatPeriodIn(null, end, locale, style === "short" ? "short" : "long")}</>;
   const from = formatIsoDate(start, locale, style);
   if (end === null) return <>{t("periodSince", { start: from })}</>;
   return <>{t("periodRange", { start: from, end: formatIsoDate(end, locale, style) })}</>;

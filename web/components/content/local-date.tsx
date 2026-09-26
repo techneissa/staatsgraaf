@@ -16,7 +16,7 @@ export function LocalDate({ iso, short = false }: { iso: string; short?: boolean
 }
 
 /** "Sinds 3 januari 2024" or "3 januari 2024 tot 5 mei 2025", in the site language. */
-export function LocalPeriod({ start, end, short = false }: { start: string; end: string | null; short?: boolean }) {
+export function LocalPeriod({ start, end, short = false }: { start: string | null; end: string | null; short?: boolean }) {
   const locale = useLocale();
   return <>{formatPeriodIn(start, end, locale, short ? "short" : "long")}</>;
 }

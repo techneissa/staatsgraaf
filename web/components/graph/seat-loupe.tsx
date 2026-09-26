@@ -14,15 +14,15 @@ import { useT } from "@/components/i18n/use-t";
  * On the canvas a seat is a few pixels wide at the zoom most readers leave it
  * at, and the canvas never zooms by itself. The loupe is the zoom on demand:
  * it opens beside the fractie once the fractie or one of its members is
- * picked, and shows every seat as the face or initials of its member, in the
- * block's own columns. The canvas places it (graph-canvas placeOverlays).
+ * picked, and shows every seat as the face or initials of its member, in
+ * surname order in rows as wide as the loupe. The canvas places it
+ * (graph-canvas placeOverlays; the wheel keeps it in its top left corner).
  */
 export function SeatLoupe({
   loupeRef,
   chamberName,
   entry,
   total,
-  rows,
   people,
   selectedPersonId,
   onPick,
@@ -33,7 +33,6 @@ export function SeatLoupe({
   chamberName: string;
   entry: ChamberSeatEntry;
   total: number;
-  rows: number;
   people: Record<string, SeatPerson>;
   selectedPersonId: string | null;
   onPick: (personId: string) => void;
@@ -57,7 +56,7 @@ export function SeatLoupe({
       ref={loupeRef}
       role="group"
       aria-label={t("seatLoupeLabel", { label: entry.label, chamber: chamberName })}
-      className="absolute left-0 top-0 z-20 max-w-[calc(100%-0.5rem)] rounded-md border border-line bg-surface p-2 shadow-lg [--seat:1.5rem] pointer-coarse:[--seat:1.875rem]"
+      className="absolute left-0 top-0 z-20 w-[min(22rem,calc(100%-1rem))] rounded-md border border-line bg-surface p-3 shadow-lg [--seat:2.25rem] pointer-coarse:[--seat:2.75rem]"
       style={{ borderTopWidth: 3, borderTopColor: color ?? undefined }}
       onKeyDown={(event) => {
         if (event.key === "Escape") {
@@ -87,15 +86,9 @@ export function SeatLoupe({
         </button>
       </div>
 
-      <div className="mt-2 overflow-x-auto pb-0.5">
-        <ul
-          className="grid gap-[3px]"
-          style={{
-            gridTemplateRows: `repeat(${Math.max(1, Math.min(rows, members.length))}, var(--seat))`,
-            gridAutoFlow: "column",
-            gridAutoColumns: "var(--seat)",
-          }}
-        >
+      {/* Rows that wrap in surname order, as wide as the loupe: large seats, and the padding keeps the pick's ring inside. */}
+      <div className="-mx-1 mt-2 max-h-[min(15rem,45vh)] overflow-y-auto overscroll-contain">
+        <ul className="flex flex-wrap gap-1.5 p-1">
           {members.map((personId) => {
             const person = people[personId];
             const name = person?.name ?? personId;
@@ -107,12 +100,15 @@ export function SeatLoupe({
                   aria-label={name}
                   aria-pressed={picked}
                   onClick={() => onPick(personId)}
-                  onPointerEnter={() => setHovered(personId)}
+                  // Hover is the mouse's alone: a tap would leave its name up after the finger has gone.
+                  onPointerEnter={(event) => {
+                    if (event.pointerType === "mouse") setHovered(personId);
+                  }}
                   onPointerLeave={() => setHovered((current) => (current === personId ? null : current))}
                   onFocus={() => setHovered(personId)}
                   onBlur={() => setHovered((current) => (current === personId ? null : current))}
-                  className={`flex h-[var(--seat)] w-[var(--seat)] items-center justify-center overflow-hidden rounded-full border-2 text-[9px] font-semibold text-ink transition-fast focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-accent ${
-                    picked ? "outline-2 outline-offset-1 outline-accent" : ""
+                  className={`flex h-[var(--seat)] w-[var(--seat)] shrink-0 items-center justify-center overflow-hidden rounded-full border-2 text-[11px] font-semibold text-ink transition-fast focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+                    picked ? "outline-2 outline-offset-2 outline-accent" : ""
                   }`}
                   style={{ ...avatarTint(person?.image ? null : color), borderColor: color ?? "var(--t-color-line-strong)" }}
                 >
@@ -131,7 +127,8 @@ export function SeatLoupe({
       <p aria-live="polite" className="mt-1.5 min-h-[1.25em] truncate text-xs font-medium text-ink">
         {shownName ?? ""}
       </p>
-      <p className="mt-0.5 max-w-[18rem] text-[10px] leading-snug text-ink-faint">{t("seatOrderNote")}</p>
+      {/* On a phone the loupe already covers much of the canvas; the note waits for a wider screen. */}
+      <p className="mt-0.5 hidden max-w-[18rem] text-[10px] leading-snug text-ink-faint sm:block">{t("seatOrderNote")}</p>
     </div>
   );
 }
