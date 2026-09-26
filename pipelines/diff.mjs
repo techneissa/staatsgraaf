@@ -141,6 +141,8 @@ export async function diffDatasets({ previousDir, currentDir, outPath, snapshotD
 
   for (const tenure of currTenures.values()) {
     if (prevTenures.has(tenure.id)) continue;
+    // An appointment with no known start cannot be placed on the timeline (ADR 0020).
+    if (!tenure.start) continue;
     const source = pickSource(tenure);
     if (!source) continue;
     const position = currPositionsById.get(tenure.position) ?? prevPositionsById.get(tenure.position);

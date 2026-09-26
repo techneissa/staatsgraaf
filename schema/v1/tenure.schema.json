@@ -12,7 +12,7 @@
         "person": { "type": "string", "pattern": "^person:" },
         "position": { "type": "string", "pattern": "^pos:" },
         "seat": { "$ref": "common.schema.json#/$defs/nonNegativeInteger" },
-        "start": { "$ref": "common.schema.json#/$defs/isoDate" },
+        "start": { "$ref": "common.schema.json#/$defs/isoDateOrNull", "description": "Null when the source names the current holder but not when the tenure began (ADR 0020)." },
         "end": { "$ref": "common.schema.json#/$defs/isoDateOrNull" },
         "acting": { "type": "boolean" },
         "entryMode": {

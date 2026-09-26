@@ -145,7 +145,7 @@ function sortTenures(tenures: Tenure[]): Tenure[] {
     const aCurrent = a.end === null ? 0 : 1;
     const bCurrent = b.end === null ? 0 : 1;
     if (aCurrent !== bCurrent) return aCurrent - bCurrent;
-    return b.start.localeCompare(a.start);
+    return (b.start ?? "").localeCompare(a.start ?? "");
   });
 }
 
@@ -154,7 +154,7 @@ function sortMemberships(memberships: Membership[]): Membership[] {
     const aCurrent = a.end === null ? 0 : 1;
     const bCurrent = b.end === null ? 0 : 1;
     if (aCurrent !== bCurrent) return aCurrent - bCurrent;
-    return b.start.localeCompare(a.start);
+    return (b.start ?? "").localeCompare(a.start ?? "");
   });
 }
 

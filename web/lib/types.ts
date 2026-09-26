@@ -151,7 +151,8 @@ export type Tenure = {
   person: string;
   position: string;
   seat: number | null;
-  start: string;
+  /** Null when the source names the holder but not when the tenure began (ADR 0020). */
+  start: string | null;
   end: string | null;
   acting: boolean;
   entryMode: EntryMode | null;

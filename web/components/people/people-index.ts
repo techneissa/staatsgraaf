@@ -129,7 +129,7 @@ export function buildPersonEntry(person: Person): PersonEntry {
     const organization = getOrganizationById(position.organization);
     roles.push({ tenure, position, organization, rank: roleRank(position, organization) });
   }
-  roles.sort((a, b) => a.rank - b.rank || a.tenure.start.localeCompare(b.tenure.start));
+  roles.sort((a, b) => a.rank - b.rank || (a.tenure.start ?? "").localeCompare(b.tenure.start ?? ""));
   const best = roles[0] as Role | undefined;
 
   const membership = getMembershipsForPerson(person.id)

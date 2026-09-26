@@ -9,7 +9,7 @@ The shapes below are illustrative JSON for documentation. They are not code. Do 
 1. **One normalized dataset, one file per entity type**, all validated against one schema.
 2. **Facts carry sources.** Every non-trivial value points to at least one source URL with a retrieval date and a confidence. A fact with no source does not ship.
 3. **Stable ids and slugs.** Ids never change once published. Slug changes get a redirect.
-4. **Time is explicit.** Every tenure has a start, and an end only when it has actually ended. No inferred current state.
+4. **Time is explicit.** Every tenure has a start, and an end only when it has actually ended. No inferred current state. When a source names the current holder but not when the tenure began, `start` is null rather than guessed (ADR 0020).
 5. **Dutch meaning, English keys.** Values that are Dutch institutions keep their Dutch names. Field names are English.
 6. **The graph is derived, not stored twice.** Relations live once, as edges. Adjacency lists are computed at build time.
 
@@ -366,8 +366,8 @@ Everything that cites a source uses the `src:` id. The UI renders a link and, wh
 
 1. Every `org.parent`, `org.partOf`, `pos.organization`, `tenure.person`, `tenure.position`, `membership.organization`, `membership.person`, and relation `from`/`to` resolves to an existing id.
 2. No two organizations, positions, or people share a slug.
-3. Every tenure and membership has a `start`.
-4. Every tenure end is after its start.
+3. Every membership has a `start`. Every tenure has a `start`, which is null only when the source gives none (ADR 0020).
+4. Every tenure end is after its start, where both are known.
 5. Every provenance entry resolves to an existing `src:` id.
 6. No fact that ships lacks at least one source.
 7. `changes` entries reference existing positions and, where present, existing persons and tenures.

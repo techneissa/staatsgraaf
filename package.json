@@ -8,6 +8,7 @@
     "validate": "bun scripts/validate.mjs",
     "research:check": "bun scripts/validate.mjs --research",
     "refresh-official": "bun pipelines/refresh-official.mjs",
+    "ek-commissies": "bun pipelines/ek-commissies.mjs",
     "merge": "bun pipelines/merge.mjs",
     "news": "bun pipelines/news.mjs",
     "translate": "bun pipelines/translate.mjs api",

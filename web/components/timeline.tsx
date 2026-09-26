@@ -14,7 +14,7 @@ export type TimelineItem = {
    * both are given, for callers that still pass a Dutch string.
    */
   period?: ReactNode;
-  start?: string;
+  start?: string | null;
   end?: string | null;
   current: boolean;
   /** Short status labels (acting, entry mode, end reason, fractie). Strings or translated nodes. */
