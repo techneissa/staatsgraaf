@@ -8,14 +8,34 @@ import { edgeTypeOrderIndex } from "./graph/edge-styles";
 import { useT } from "@/components/i18n/use-t";
 import { CanvasControls, type CanvasView } from "./canvas-controls";
 import { GraphCanvas } from "./graph/graph-canvas";
-import { GraphWheel } from "./graph/graph-wheel";
+import dynamic from "next/dynamic";
 import { ChartPie, Orbit } from "lucide";
 import { LucideIcon } from "./icons/lucide-icon";
-import { ConnectionsView, type FractieResolver, type NameResolver } from "./power/connections-view";
+import type { FractieResolver, NameResolver } from "./power/connections-view";
 import { useSelection } from "./selection/selection-provider";
 import { seatIndex } from "@/lib/seats";
 import type { Selection } from "@/lib/selection";
 import { useGraphBundle, usePowerMapBundle } from "./graph/use-graph-bundle";
+
+/**
+ * The wheel and the connections view each show only when the reader picks
+ * them, so their code (together about a third of the canvas) loads then
+ * instead of on every page. The rings, the default form, stay in the page's
+ * own bundle. Both render in the browser only, like the canvas around them.
+ */
+function CanvasLoading() {
+  const t = useT("common");
+  return (
+    <div className="flex h-full items-center justify-center p-6">
+      <p className="text-sm text-ink-muted">{t("graphLoading")}</p>
+    </div>
+  );
+}
+const GraphWheel = dynamic(() => import("./graph/graph-wheel").then((module) => module.GraphWheel), { ssr: false, loading: CanvasLoading });
+const ConnectionsView = dynamic(() => import("./power/connections-view").then((module) => module.ConnectionsView), {
+  ssr: false,
+  loading: CanvasLoading,
+});
 
 export function CanvasFrame() {
   const pathname = usePathname();

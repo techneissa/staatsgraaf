@@ -10,7 +10,8 @@
     "build-dataset": "bun scripts/build-dataset.mjs",
     "build-peek-index": "bun scripts/build-peek-index.mjs",
     "build-panel-index": "bun scripts/build-panel-index.mjs",
-    "prepare-data": "bun run tokens && bun run build-graph && bun run build-search-index && bun run build-peek-index && bun run build-panel-index && bun run build-dataset",
+    "build-thumbs": "bun scripts/build-thumbs.mjs",
+    "prepare-data": "bun run tokens && bun run build-graph && bun run build-search-index && bun run build-peek-index && bun run build-panel-index && bun run build-thumbs && bun run build-dataset",
     "predev": "bun run prepare-data",
     "dev": "next dev",
     "prebuild": "bun run prepare-data",
@@ -32,6 +33,7 @@
     "@types/node": "^26.6.1",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
+    "sharp": "0.35.4",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3"
   },

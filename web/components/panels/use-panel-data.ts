@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { hydrateLayout, type GraphBundle, type GraphLayout } from "@/lib/graph";
+import { loadJsonOnce } from "@/components/graph/use-graph-bundle";
 import {
   PANEL_INDEX_URL,
   normalizePanelRecord,
@@ -84,11 +85,8 @@ export function usePanelIndex(enabled = true): Loaded<PanelIndex> {
 let layoutPromise: Promise<GraphLayout> | null = null;
 
 export function loadGraphLayout(): Promise<GraphLayout> {
-  layoutPromise ??= fetch("/graph.json")
-    .then((response) => {
-      if (!response.ok) throw new Error(String(response.status));
-      return response.json() as Promise<GraphBundle>;
-    })
+  // The same download as the canvas (use-graph-bundle.ts), not a second copy of the file.
+  layoutPromise ??= loadJsonOnce<GraphBundle>("/graph.json")
     .then((bundle) => Object.assign(hydrateLayout(bundle), { chambers: bundle.chambers ?? {}, seatPeople: bundle.seatPeople ?? {} }));
   layoutPromise.catch(() => {
     layoutPromise = null;

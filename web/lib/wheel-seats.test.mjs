@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { seatLinks, WHEEL_VOTERS } from "./wheel.ts";
+import { bodySeatLinks, seatLinks, WHEEL_VOTERS } from "./wheel.ts";
 
 const node = (id, parent = null, subtype = "overig") => ({ id, parent, subtype });
 
@@ -49,4 +49,20 @@ test("a bewindspersoon on the kabinet bench carries only their own posts", () =>
     { other: "org:tk-commissie-def", type: "holds_post", outgoing: true },
     { other: "org:tk-commissie-fin", type: "member_of", outgoing: true },
   ]);
+});
+
+test("a body lists the people whose seats and posts land on it, so every seat tie shows from both ends", () => {
+  const withB = { ...bundle, seatTies: { ...bundle.seatTies, "person:b": [["org:tk-commissie-fin", "member"]] } };
+  assert.deepEqual(bodySeatLinks(withB, "org:tk-commissie-fin", drawn), [
+    { other: "person:a", type: "member_of", outgoing: false },
+    { other: "person:b", type: "member_of", outgoing: false },
+  ]);
+  // A body not drawn on its own stands in through the drawn body it belongs to.
+  assert.deepEqual(bodySeatLinks(withB, "org:gemeente-x", drawn), [{ other: "person:a", type: "holds_post", outgoing: false }]);
+  for (const person of ["person:a", "person:b"]) {
+    for (const link of seatLinks(withB, person, "org:tweede-kamer", drawn)) {
+      if (link.other === WHEEL_VOTERS) continue;
+      assert.ok(bodySeatLinks(withB, link.other, drawn).some((back) => back.other === person), `${link.other} lists ${person}`);
+    }
+  }
 });

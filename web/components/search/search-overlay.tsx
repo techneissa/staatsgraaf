@@ -1,5 +1,6 @@
 "use client";
 
+import { thumbUrl } from "@/lib/thumb";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
@@ -305,7 +306,7 @@ export function SearchOverlay() {
                     {result.kind === "person" ? (
                       <span className="flex h-6 w-6 shrink-0 items-center justify-center overflow-hidden rounded-pill border border-line bg-surface-raised">
                         {result.image ? (
-                          <img src={result.image} alt="" width={24} height={24} loading="lazy" className="h-full w-full object-cover" />
+                          <img src={thumbUrl(result.image)} alt="" width={24} height={24} loading="lazy" className="h-full w-full object-cover" />
                         ) : (
                           <span aria-hidden="true" className="text-[10px] font-medium text-ink-faint">
                             {result.label.charAt(0)}
