@@ -494,10 +494,34 @@ bundle.chamberShapes = Object.fromEntries(
           r: tree.hall.r,
           colors,
           seats: tree.hall.seats.map((seat) => [seat.x, seat.y, colors.indexOf(colorOf.get(seat.hub) ?? null), seat.chair ? 1 : 0]),
+          // Who sits in each seat, in the same order, so the wheel can pick a member by their seat.
+          people: tree.hall.seats.map((seat) => seat.person ?? null),
         },
       ];
     }),
 );
+// Each seated member's current posts outside their own chamber (a commissie
+// seat, a commissie chair, a post such as burgemeester), from tenures.json, so
+// the wheel draws a picked member's ties from their own seat. A commission
+// position is a seat on that body; every other position is a post there.
+{
+  const seatedIn = new Map();
+  for (const tree of hierarchy.trees) for (const seat of tree.hall?.seats ?? []) if (seat.person) seatedIn.set(seat.person, tree.org);
+  const seatTies = {};
+  for (const tenure of tenures) {
+    if (tenure.end !== null || !seatedIn.has(tenure.person)) continue;
+    const position = positionsById.get(tenure.position);
+    if (!position?.organization || position.organization === seatedIn.get(tenure.person)) continue;
+    const kind = position.type === "commission" ? "member" : "post";
+    const ties = (seatTies[tenure.person] ??= []);
+    const same = ties.find(([organization]) => organization === position.organization);
+    // A chair of a commissie is also a member of it: the post wins.
+    if (same) same[1] = same[1] === "post" || kind === "post" ? "post" : "member";
+    else ties.push([position.organization, kind]);
+  }
+  for (const ties of Object.values(seatTies)) ties.sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
+  bundle.seatTies = Object.fromEntries(Object.entries(seatTies).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)));
+}
 const json = JSON.stringify(bundle);
 writeFileSync(OUT_FILE, json);
 

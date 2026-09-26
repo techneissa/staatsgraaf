@@ -721,7 +721,11 @@ export type WheelLinkType =
   | "part_of"
   | "appoints"
   | "confirms"
-  | "joint_arrangement_member";
+  | "joint_arrangement_member"
+  /** A member's seat on a body (a Kamercommissie), drawn only from a picked seat. */
+  | "member_of"
+  /** A member's post at a body (a commissie chair, a burgemeester), drawn only from a picked seat. */
+  | "holds_post";
 
 const WHEEL_LINK_TYPES: ReadonlySet<string> = new Set<WheelLinkType>([
   "elects",
@@ -740,6 +744,21 @@ export type WheelLink = { other: string; type: WheelLinkType; outgoing: boolean 
 /** The id that stands for the voters: their ties are drawn from the rim. */
 export const WHEEL_VOTERS = "voters";
 
+/** The drawn body that stands for `id`: itself, or the nearest drawn body it belongs to; the voters stand for the electorate. */
+function wheelResolver(byId: ReadonlyMap<string, { parent: string | null; subtype: string }>, drawn: ReadonlySet<string>) {
+  return (id: string): string | null => {
+    let at: string | null | undefined = id;
+    for (let step = 0; at && step < 4; step += 1) {
+      if (drawn.has(at)) return at;
+      const node = byId.get(at);
+      if (!node) return null;
+      if (node.subtype === "kiesgerechtigden-nederland") return WHEEL_VOTERS;
+      at = node.parent;
+    }
+    return null;
+  };
+}
+
 /**
  * The ties of one body as the wheel can draw them. A body the wheel does not
  * draw on its own (a gemeenteraad, provinciale staten, a gemeente's
@@ -754,17 +773,7 @@ export function wheelLinks(
   drawn: ReadonlySet<string>,
 ): { self: string | null; links: WheelLink[] } {
   const byId = new Map(bundle.nodes.map((node) => [node.id, node]));
-  const resolve = (id: string): string | null => {
-    let at: string | null | undefined = id;
-    for (let step = 0; at && step < 4; step += 1) {
-      if (drawn.has(at)) return at;
-      const node = byId.get(at);
-      if (!node) return null;
-      if (node.subtype === "kiesgerechtigden-nederland") return WHEEL_VOTERS;
-      at = node.parent;
-    }
-    return null;
-  };
+  const resolve = wheelResolver(byId, drawn);
   const self = resolve(selectedId);
   if (!self || self === WHEEL_VOTERS) return { self, links: [] };
   const links = new Map<string, WheelLink>();
@@ -789,4 +798,35 @@ export function wheelLinks(
   if (parent) add(resolve(parent), "part_of", true);
   for (const node of bundle.nodes) if (node.parent === self) add(resolve(node.id), "part_of", false);
   return { self, links: [...links.values()].sort((a, b) => a.other.localeCompare(b.other)) };
+}
+
+/**
+ * The ties of one member of a Kamer, drawn from their own seat in the hall:
+ * how they got the seat (the chamber's elects ties, from the voters for the
+ * Tweede Kamer and from provinciale staten for the Eerste Kamer) and their
+ * current seats and posts on other bodies (`seatTies` in graph.json), each to
+ * the drawn body that stands for it. A tie to the member's own chamber falls
+ * away, as a body's ties to itself do.
+ */
+export function seatLinks(
+  bundle: Pick<GraphBundle, "nodes" | "edges" | "seatTies">,
+  personId: string,
+  chamberId: string,
+  drawn: ReadonlySet<string>,
+): WheelLink[] {
+  const byId = new Map(bundle.nodes.map((node) => [node.id, node]));
+  const resolve = wheelResolver(byId, drawn);
+  const links = new Map<string, WheelLink>();
+  for (const link of wheelLinks(bundle, chamberId, drawn).links) {
+    if (link.type === "elects" && !link.outgoing) links.set(link.other, link);
+  }
+  for (const [organization, kind] of bundle.seatTies?.[personId] ?? []) {
+    const other = resolve(organization);
+    if (!other || other === chamberId) continue;
+    const type: WheelLinkType = kind === "post" ? "holds_post" : "member_of";
+    const known = links.get(other);
+    // Several bodies standing in for one drawn body: a post outweighs a seat.
+    if (!known || (known.type === "member_of" && type === "holds_post")) links.set(other, { other, type, outgoing: true });
+  }
+  return [...links.values()].sort((a, b) => a.other.localeCompare(b.other));
 }
