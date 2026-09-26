@@ -801,24 +801,29 @@ export function wheelLinks(
 }
 
 /**
- * The ties of one member of a Kamer, drawn from their own seat in the hall:
- * how they got the seat (the chamber's elects ties, from the voters for the
- * Tweede Kamer and from provinciale staten for the Eerste Kamer) and their
- * current seats and posts on other bodies (`seatTies` in graph.json), each to
- * the drawn body that stands for it. A tie to the member's own chamber falls
- * away, as a body's ties to itself do.
+ * The ties of one person in a Kamer's hall, drawn from their own seat: for a
+ * member, how they got the seat (the chamber's elects ties, from the voters
+ * for the Tweede Kamer and from provinciale staten for the Eerste Kamer); for
+ * everyone, their current seats and posts on other bodies (`seatTies` in
+ * graph.json), each to the drawn body that stands for it. A bewindspersoon on
+ * the kabinet bench is not elected to the chamber, so `elected` is false for
+ * them. A tie to the person's own chamber falls away, as a body's ties to
+ * itself do.
  */
 export function seatLinks(
   bundle: Pick<GraphBundle, "nodes" | "edges" | "seatTies">,
   personId: string,
   chamberId: string,
   drawn: ReadonlySet<string>,
+  elected = true,
 ): WheelLink[] {
   const byId = new Map(bundle.nodes.map((node) => [node.id, node]));
   const resolve = wheelResolver(byId, drawn);
   const links = new Map<string, WheelLink>();
-  for (const link of wheelLinks(bundle, chamberId, drawn).links) {
-    if (link.type === "elects" && !link.outgoing) links.set(link.other, link);
+  if (elected) {
+    for (const link of wheelLinks(bundle, chamberId, drawn).links) {
+      if (link.type === "elects" && !link.outgoing) links.set(link.other, link);
+    }
   }
   for (const [organization, kind] of bundle.seatTies?.[personId] ?? []) {
     const other = resolve(organization);

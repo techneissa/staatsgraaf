@@ -42,3 +42,11 @@ test("a member's seat carries how the chamber is elected and their own posts, no
 test("a member without posts on record keeps only the election tie", () => {
   assert.deepEqual(seatLinks(bundle, "person:b", "org:tweede-kamer", drawn), [{ other: WHEEL_VOTERS, type: "elects", outgoing: false }]);
 });
+
+test("a bewindspersoon on the kabinet bench carries only their own posts", () => {
+  assert.deepEqual(seatLinks(bundle, "person:a", "org:tweede-kamer", drawn, false), [
+    { other: "org:gemeente-x", type: "holds_post", outgoing: true },
+    { other: "org:tk-commissie-def", type: "holds_post", outgoing: true },
+    { other: "org:tk-commissie-fin", type: "member_of", outgoing: true },
+  ]);
+});
