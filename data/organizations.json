@@ -192,7 +192,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
     "partOf": [],
-    "description": null,
+    "description": "Het College ter Beoordeling van Geneesmiddelen (CBG-MEB) is de Nederlandse geneesmiddelenautoriteit. Het beoordeelt en bewaakt geneesmiddelen voor mens en dier, verleent handelsvergunningen en houdt toezicht op bijwerkingen.",
     "website": "https://www.cbg-meb.nl/",
     "established": null,
     "dissolved": null,
@@ -223,6 +223,11 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-cbg-meb-nl-02f6ee9c",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -245,7 +250,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-financien",
     "partOf": [],
-    "description": null,
+    "description": "Het Agentschap van de Generale Thesaurie (Dutch State Treasury Agency) is een onderdeel van het ministerie van Financiën. Het financiert de staat door de staatsschuld en het publieke geld in de schatkist te beheren en het betalingsverkeer van het Rijk in te richten.",
     "website": "http://www.dsta.nl/",
     "established": null,
     "dissolved": null,
@@ -266,6 +271,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-dsta-nl-61a02ea6",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -1213,7 +1223,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
     "partOf": [],
-    "description": null,
+    "description": "De Algemene Bestuursdienst (ABD) is onderdeel van het ministerie van Binnenlandse Zaken en Koninkrijksrelaties. Hij werft en plaatst topambtenaren op leidinggevende posities bij het Rijk en ontwikkelt hun leiderschap.",
     "website": "https://www.algemenebestuursdienst.nl/",
     "established": null,
     "dissolved": null,
@@ -1234,6 +1244,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-algemenebestuursdienst-nl-f6ec3a37",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -1302,7 +1317,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-financien",
     "partOf": [],
-    "description": null,
+    "description": "De Auditdienst Rijk is de interne controlerend accountant van de ministeries. Hij controleert financiële processen binnen de departementen, zodat zij een goedgekeurde interne auditverklaring kunnen tonen wanneer de Algemene Rekenkamer onderzoek doet.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -1322,6 +1337,11 @@
       {
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
+        "confidence": "medium"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-76fe8270",
+        "retrieved": "2026-10-01",
         "confidence": "medium"
       }
     ],
@@ -1344,7 +1364,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-financien",
     "partOf": [],
-    "description": null,
+    "description": "De Belastingdienst int en heft belastingen, douanerechten en accijnzen voor de staat. Hij valt organisatorisch onder het ministerie van Financiën.",
     "website": "https://www.belastingdienst.nl",
     "established": null,
     "dissolved": null,
@@ -1369,6 +1389,11 @@
       {
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
+        "confidence": "medium"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-f5c714e2",
+        "retrieved": "2026-10-01",
         "confidence": "medium"
       }
     ],
@@ -1524,7 +1549,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-justitie-en-veiligheid",
     "partOf": [],
-    "description": null,
+    "description": "Het Centraal Justitieel Incassobureau (CJIB) in Leeuwarden valt onder het ministerie van Justitie en Veiligheid. Het int boetes en administratieve kosten, zoals verkeersboetes, en verder opgelegde geldsancties en schadevergoedingen. Het bureau bestaat sinds 1990, na invoering van de Wet administratiefrechtelijke handhaving verkeersvoorschriften.",
     "website": "https://www.cjib.nl/",
     "established": null,
     "dissolved": null,
@@ -1555,6 +1580,11 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-b109b0d4",
+        "retrieved": "2026-10-01",
+        "confidence": "medium"
       }
     ],
     "legalSource": {
@@ -1661,7 +1691,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
     "partOf": [],
-    "description": null,
+    "description": "CIBG is een uitvoeringsorganisatie van het ministerie van Volksgezondheid, Welzijn en Sport. Het beoordeelt, registreert en verstrekt gegevens, zoals het Donorregister, vaak op grond van wettelijke taken.",
     "website": "https://www.cibg.nl/",
     "established": null,
     "dissolved": null,
@@ -1691,6 +1721,11 @@
       {
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-cibg-nl-509690f8",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -18011,7 +18046,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-financien",
     "partOf": [],
-    "description": null,
+    "description": "De Dienst Financieel-Economische Integriteit (DFEI) is een zelfstandige toezichthouder binnen het ministerie van Financiën. Hij bevordert integriteit bij poortwachters en ondernemers en bestrijdt financieel-economische criminaliteit, in Europees en Caribisch Nederland.",
     "website": "https://www.dfei.nl",
     "established": null,
     "dissolved": null,
@@ -18037,6 +18072,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-dfei-nl-cf8da7d4",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -18059,7 +18099,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-economische-zaken-en-klimaat",
     "partOf": [],
-    "description": null,
+    "description": "Dienst ICT Uitvoering (DICTU) is een ICT-dienstverlener van het Rijk, onderdeel van het ministerie van Economische Zaken. Hij ontwikkelt en beheert meer dan 1.500 applicaties, onder meer voor subsidies en identiteitsbeheer.",
     "website": "https://www.dictu.nl",
     "established": "2005-01-01",
     "dissolved": null,
@@ -18090,6 +18130,11 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-dictu-nl-e8ab51fa",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -18112,7 +18157,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-justitie-en-veiligheid",
     "partOf": [],
-    "description": null,
+    "description": "De Dienst Identificatie en Screening Asielzoekers (DISA) identificeert en registreert asielzoekers namens de minister. Zijn medewerkers gebruiken daarbij de bevoegdheden die de Vreemdelingenwet 2000 aan de minister geeft.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -18133,6 +18178,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-zoek-officielebekendmakingen-nl-31ea454a",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -18156,7 +18206,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-justitie-en-veiligheid",
     "partOf": [],
-    "description": null,
+    "description": "De Dienst Justitiële Inrichtingen (DJI) valt onder het ministerie van Justitie en Veiligheid. Hij zorgt dagelijks voor volwassenen en jongeren in zijn inrichtingen en werkt met hen aan terugkeer in de samenleving, op ongeveer 50 locaties.",
     "website": "https://www.dji.nl/",
     "established": null,
     "dissolved": null,
@@ -18187,6 +18237,11 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-dji-nl-3700881d",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -18209,7 +18264,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-algemene-zaken",
     "partOf": [],
-    "description": null,
+    "description": "De Dienst Publiek en Communicatie (DPC) is een onderdeel van het ministerie van Algemene Zaken. Hij adviseert en ondersteunt alle departementen bij hun communicatie met de samenleving, onder meer met campagnes, online diensten en onderzoek.",
     "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken/organisatie/organogram/dienst-publiek-en-communicatie",
     "established": "2006-01-01",
     "dissolved": null,
@@ -18272,7 +18327,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-justitie-en-veiligheid",
     "partOf": [],
-    "description": null,
+    "description": "De Dienst Terugkeer en Vertrek (DT&V) voert het Nederlandse terugkeerbeleid uit. Hij regelt het vertrek van vreemdelingen zonder verblijfsrecht, zoals uitgeprocedeerde asielzoekers. De dienst is sinds januari 2007 operationeel en valt onder het ministerie van Asiel en Migratie.",
     "website": "https://www.dienstterugkeerenvertrek.nl/",
     "established": null,
     "dissolved": null,
@@ -18292,6 +18347,16 @@
       {
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
+        "confidence": "medium"
+      },
+      {
+        "source": "src:desc-dienstterugkeerenvertrek-nl-fc25eac5",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-116a9dcb",
+        "retrieved": "2026-10-01",
         "confidence": "medium"
       }
     ],
@@ -18314,7 +18379,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-financien",
     "partOf": [],
-    "description": null,
+    "description": "Dienst Toeslagen betaalt inkomensafhankelijke toeslagen uit: huurtoeslag, zorgtoeslag, kinderopvangtoeslag en kindgebonden budget. Hij is sinds 01-01-2021 een zelfstandig directoraat-generaal van het ministerie van Financiën. De toeslagen berusten op de Algemene wet inkomensafhankelijke regelingen (Awir).",
     "website": "https://www.overtoeslagen.nl/",
     "established": null,
     "dissolved": null,
@@ -18340,6 +18405,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-1a924e9c",
+        "retrieved": "2026-10-01",
+        "confidence": "medium"
       }
     ],
     "legalSource": {
@@ -18362,7 +18432,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
     "partOf": [],
-    "description": null,
+    "description": "Dienst Uitvoering Onderwijs (DUO) voert taken uit voor het ministerie van Onderwijs, Cultuur en Wetenschap. Hij regelt studiefinanciering, collegegeld, studentenreisproducten, diplomadiensten en staatsexamens, en verwerkt de terugbetaling van studieschulden.",
     "website": "https://www.duo.nl/",
     "established": "2010-01-01",
     "dissolved": null,
@@ -18398,6 +18468,11 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-duo-nl-ad72efc2",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -18420,7 +18495,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
     "partOf": [],
-    "description": null,
+    "description": "Dienst Uitvoering Subsidies aan Instellingen (DUS-I) verwerkt subsidieaanvragen en beheert financieringsregelingen voor de ministeries van Onderwijs, Cultuur en Wetenschap en van Volksgezondheid, Welzijn en Sport.",
     "website": "https://www.dus-i.nl/",
     "established": null,
     "dissolved": null,
@@ -18441,6 +18516,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-dus-i-nl-73396b85",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -18463,7 +18543,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
     "partOf": [],
-    "description": null,
+    "description": "De Huurcommissie is een onpartijdige, onafhankelijke geschillenbeslechter voor huurders en verhuurders. Zij beoordeelt geschillen over onder meer huurprijs, onderhoud en servicekosten aan de hand van de wet en doet bindende uitspraken.",
     "website": "https://www.huurcommissie.nl/",
     "established": null,
     "dissolved": null,
@@ -18488,6 +18568,11 @@
       {
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-huurcommissie-nl-94ec1703",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -18545,7 +18630,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
     "partOf": [],
-    "description": null,
+    "description": "De Algemene Inlichtingen- en Veiligheidsdienst (AIVD) is de Nederlandse inlichtingen- en veiligheidsdienst, onderdeel van het ministerie van Binnenlandse Zaken en Koninkrijksrelaties. Hij beschermt Nederland en de democratie tegen nationale en internationale dreigingen en werkt onder de Wet op de inlichtingen- en veiligheidsdiensten.",
     "website": "https://www.aivd.nl/",
     "established": null,
     "dissolved": null,
@@ -18565,6 +18650,11 @@
       {
         "source": "src:wet-bwbr0039896",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-aivd-nl-6784ad32",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -18588,7 +18678,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-financien",
     "partOf": [],
-    "description": null,
+    "description": "Domeinen Roerende Zaken (DRZ) valt onder het ministerie van Financiën. Het beheert goederen die overheden in beslag nemen en verwerkt overtollige goederen van de Rijksoverheid. De opbrengst van veilingen gaat naar de schatkist of naar slachtoffers.",
     "website": "https://www.domeinenrz.nl/",
     "established": null,
     "dissolved": null,
@@ -18609,6 +18699,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-domeinenrz-nl-f1d5871c",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -18630,7 +18725,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-financien",
     "partOf": [],
-    "description": null,
+    "description": "De Douane is onderdeel van het ministerie van Financiën. Zij behandelt invoer, uitvoer, tarieven, accijnzen en douaneaangiften en controleert de goederenstroom op veiligheid, gezondheid, economie en milieu.",
     "website": "https://www.douane.nl/",
     "established": null,
     "dissolved": null,
@@ -18656,6 +18751,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-douane-nl-5a617249",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -19036,7 +19136,7 @@
     "partOf": [
       "org:eerste-kamer"
     ],
-    "description": null,
+    "description": "De Commissie voor de Geloofsbrieven is een commissie van de Eerste Kamer. Zij onderzoekt de geloofsbrieven van nieuw benoemde leden voordat zij hun zetel innemen.",
     "website": "https://www.eerstekamer.nl/commissies/geloofsbrieven",
     "established": null,
     "dissolved": null,
@@ -19061,6 +19161,11 @@
       {
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:ek-commissies-geloofsbrieven",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -19668,7 +19773,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
     "partOf": [],
-    "description": null,
+    "description": "De Expertise-unit Sociale Stabiliteit (ESS) valt onder het ministerie van Sociale Zaken en Werkgelegenheid. Hij richt zich op maatschappelijke spanningen, polarisatie en preventie van radicalisering, en adviseert jongerenwerkers, gemeenschappen en lokale overheden.",
     "website": "https://www.socialestabiliteit.nl/",
     "established": null,
     "dissolved": null,
@@ -19689,6 +19794,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-socialestabiliteit-nl-b915d8e4",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -19711,7 +19821,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
     "partOf": [],
-    "description": null,
+    "description": "FMHaaglanden is een facilitaire dienstverlener van het ministerie van Binnenlandse Zaken en Koninkrijksrelaties. Hij zorgt voor werkomgeving en voorzieningen voor ruim 40.000 ambtenaren in Den Haag.",
     "website": "https://www.fmhaaglanden.nl/",
     "established": null,
     "dissolved": null,
@@ -19736,6 +19846,11 @@
       {
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-fmhaaglanden-nl-c5cefb89",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -52906,7 +53021,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-justitie-en-veiligheid",
     "partOf": [],
-    "description": null,
+    "description": "De Immigratie- en Naturalisatiedienst (IND) behandelt aanvragen voor verblijfsvergunningen en nationaliteit. Hij voert ook asielprocedures en gezinsherenigingszaken uit.",
     "website": "https://www.ind.nl/",
     "established": null,
     "dissolved": null,
@@ -52937,6 +53052,11 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-ind-nl-f7ad3980",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -52959,7 +53079,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-defensie",
     "partOf": [],
-    "description": null,
+    "description": "De Inspecteur-Generaal der Krijgsmacht (IGK) adviseert de minister van Defensie over alle zaken die de krijgsmacht raken, doet onderzoek en bemiddelt in individuele zaken. Hij is ook inspecteur voor veteranen en reservisten.",
     "website": "https://www.defensie.nl/organisatie/bestuursstaf/bijzondere-organisatie-eenheden/igk",
     "established": null,
     "dissolved": null,
@@ -52985,6 +53105,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-defensie-nl-67348f10",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -53007,7 +53132,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-financien",
     "partOf": [],
-    "description": null,
+    "description": "De Inspectie belastingen, toeslagen en douane is sinds 01-01-2022 een onafhankelijk onderdeel van het ministerie van Financiën. Zij signaleert en onderzoekt problemen in de dienstverlening van de Belastingdienst, Dienst Toeslagen en Douane en stuurt haar rapporten aan beide Kamers.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -53050,7 +53175,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
     "partOf": [],
-    "description": null,
+    "description": "De Inspectie Gezondheidszorg en Jeugd (IGJ) valt onder het ministerie van Volksgezondheid, Welzijn en Sport. Zij houdt toezicht op de kwaliteit en veiligheid van zorg en jeugdhulp en onderzoekt klachten via het Landelijk Meldpunt Zorg.",
     "website": "https://www.igj.nl/",
     "established": null,
     "dissolved": null,
@@ -53070,6 +53195,11 @@
       {
         "source": "src:gezondheidswet",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-igj-nl-4cbd4fd9",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -53093,7 +53223,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-justitie-en-veiligheid",
     "partOf": [],
-    "description": null,
+    "description": "De Inspectie Justitie en Veiligheid valt onder het ministerie van Justitie en Veiligheid. Zij houdt toezicht op onder meer politie, gevangenissen, justitiële jeugdinrichtingen, migratiediensten en brandweer.",
     "website": "https://www.inspectie-jenv.nl",
     "established": "2012-01-01",
     "dissolved": null,
@@ -53141,7 +53271,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-infrastructuur-en-waterstaat",
     "partOf": [],
-    "description": null,
+    "description": "De Inspectie Leefomgeving en Transport (ILT) valt onder het ministerie van Infrastructuur en Waterstaat. Zij houdt toezicht op veiligheid en duurzaamheid in onder meer afval, drinkwater, luchtvaart, spoor, scheepvaart, goederenvervoer en woningcorporaties.",
     "website": "https://www.ilent.nl/",
     "established": null,
     "dissolved": null,
@@ -53162,6 +53292,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-ilent-nl-55eceb50",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -53184,7 +53319,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-defensie",
     "partOf": [],
-    "description": null,
+    "description": "De Inspectie Militaire Gezondheidszorg (IMG) is een onafhankelijke toezichthouder binnen het ministerie van Defensie. Zij ziet toe op de kwaliteit van de militaire gezondheidszorg, ook tijdens uitzendingen. Zij valt rechtstreeks onder de secretaris-generaal.",
     "website": "https://www.defensie.nl/organisatie/bestuursstaf/bijzondere-organisatie-eenheden/img",
     "established": null,
     "dissolved": null,
@@ -53210,6 +53345,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-defensie-nl-27b14840",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -53232,7 +53372,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
     "partOf": [],
-    "description": null,
+    "description": "De Inspectie Overheidsinformatie en Erfgoed valt onder het ministerie van Onderwijs, Cultuur en Wetenschap. Zij houdt toezicht op archeologie, beschermd cultureel erfgoed, de rijkscollectie en de toegankelijkheid van overheidsinformatie, onder meer op grond van de Archiefwet.",
     "website": "https://www.inspectie-oe.nl/",
     "established": null,
     "dissolved": null,
@@ -53253,6 +53393,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-inspectie-oe-nl-a336ada7",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -53274,7 +53419,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
     "partOf": [],
-    "description": null,
+    "description": "De Inspectie van het Onderwijs valt onder het ministerie van Onderwijs, Cultuur en Wetenschap. Zij houdt toezicht op de kwaliteit van het onderwijs, publiceert inspectierapporten en jaarlijks De Staat van het Onderwijs.",
     "website": "https://www.onderwijsinspectie.nl",
     "established": null,
     "dissolved": null,
@@ -53294,6 +53439,11 @@
       {
         "source": "src:wet-bwbr0013800",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-onderwijsinspectie-nl-cb00b0b9",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -53317,7 +53467,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-defensie",
     "partOf": [],
-    "description": null,
+    "description": "De Inspectie Veiligheid Defensie (IVD) is sinds 2018 een onafhankelijke toezichthouder op de fysieke en sociale veiligheid bij Defensie. Zij doet incident-, thema- en systeemonderzoek.",
     "website": "https://www.defensie.nl/organisatie/bestuursstaf/bijzondere-organisatie-eenheden/ivd",
     "established": null,
     "dissolved": null,
@@ -53343,6 +53493,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-rijksinspecties-nl-d0abe49d",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -53427,7 +53582,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-justitie-en-veiligheid",
     "partOf": [],
-    "description": null,
+    "description": "Justis is de screeningsautoriteit van het ministerie van Justitie en Veiligheid. Het geeft als enige organisatie in Nederland de Verklaring Omtrent het Gedrag (VOG) af en behandelt ook onder meer wapenvergunningen en vergunningen voor particuliere beveiliging.",
     "website": "https://www.justis.nl/",
     "established": null,
     "dissolved": null,
@@ -53458,6 +53613,11 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-justis-nl-9bf24232",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -53481,7 +53641,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-justitie-en-veiligheid",
     "partOf": [],
-    "description": null,
+    "description": "De Justitiële ICT Organisatie (JIO) is de ICT-dienstverlener van het ministerie van Justitie en Veiligheid. Zij levert hardware, software, applicaties en beveiligde cloudomgevingen voor werkplekken in heel Nederland.",
     "website": "https://www.justitieleictorganisatie.nl",
     "established": "2022-01-01",
     "dissolved": null,
@@ -53540,7 +53700,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-justitie-en-veiligheid",
     "partOf": [],
-    "description": null,
+    "description": "De Justitiële Informatiedienst (Justid) valt onder het ministerie van Justitie en Veiligheid. Hij beheert en verstrekt justitiële gegevens, zoals strafbladen en identiteitscontroles, aan partners in de straf-, migratie- en jeugdketen.",
     "website": "https://www.justid.nl",
     "established": "2022-01-01",
     "dissolved": null,
@@ -53570,6 +53730,11 @@
       {
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-justid-nl-2fdeb5b9",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -53641,7 +53806,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-algemene-zaken",
     "partOf": [],
-    "description": null,
+    "description": "Het Kabinet Minister-President (KMP) is een onderdeel van het ministerie van Algemene Zaken. Het adviseert en ondersteunt de minister-president, beheert het secretariaat van de ministerraad en bereidt de besluitvorming voor.",
     "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken/organisatie/organogram/kabinet-minister-president-kmp",
     "established": null,
     "dissolved": null,
@@ -53863,7 +54028,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-infrastructuur-en-waterstaat",
     "partOf": [],
-    "description": null,
+    "description": "Het Koninklijk Nederlands Meteorologisch Instituut (KNMI) valt onder het ministerie van Infrastructuur en Waterstaat. Het levert onafhankelijke kennis, advies en waarschuwingen over weer, klimaat en seismologie.",
     "website": "https://www.knmi.nl/",
     "established": null,
     "dissolved": null,
@@ -53894,6 +54059,11 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-knmi-nl-3a89680d",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -53915,7 +54085,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
     "partOf": [],
-    "description": null,
+    "description": "Logius is een digitale dienstverlener van het ministerie van Binnenlandse Zaken en Koninkrijksrelaties. Hij levert voorzieningen voor de hele overheid, zoals DigiD, eHerkenning, Digipoort en MijnOverheid.",
     "website": "https://www.logius.nl",
     "established": null,
     "dissolved": null,
@@ -53941,6 +54111,11 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-logius-nl-79442b8e",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -53963,7 +54138,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-defensie",
     "partOf": [],
-    "description": null,
+    "description": "De Militaire Inlichtingen- en Veiligheidsdienst (MIVD) is de militaire inlichtingendienst, onderdeel van het ministerie van Defensie en opgericht in 2002. Hij verzamelt militaire inlichtingen over het buitenland, verricht veiligheidsonderzoeken en werkt onder de Wet op de inlichtingen- en veiligheidsdiensten 2017.",
     "website": "https://www.defensie.nl/organisatie/bestuursstaf/bijzondere-organisatie-eenheden/mivd",
     "established": null,
     "dissolved": null,
@@ -53984,6 +54159,11 @@
         "source": "src:wet-bwbr0039896",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-8819a797",
+        "retrieved": "2026-10-01",
+        "confidence": "medium"
       }
     ],
     "legalSource": {
@@ -54006,7 +54186,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-defensie",
     "partOf": [],
-    "description": null,
+    "description": "De Militaire Luchtvaart Autoriteit (MLA) is sinds 01-07-2005 een onafhankelijke toezichthouder binnen het ministerie van Defensie. Zij stelt namens de minister regels voor de veiligheid van militaire luchtvaart vast, certificeert personen, materieel en organisaties en ziet toe op naleving.",
     "website": "https://www.defensie.nl/organisatie/bestuursstaf/bijzondere-organisatie-eenheden/mla",
     "established": null,
     "dissolved": null,
@@ -54032,6 +54212,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-defensie-nl-16f6c56b",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -55719,7 +55904,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
     "partOf": [],
-    "description": null,
+    "description": "Het Nationaal Archief is een agentschap van het ministerie van Onderwijs, Cultuur en Wetenschap. Het is het Algemeen Rijksarchief en bewaart en ontsluit de archieven van de Rijksoverheid, onder de Archiefwet.",
     "website": "https://www.nationaalarchief.nl",
     "established": null,
     "dissolved": null,
@@ -55755,6 +55940,16 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-010d12bd",
+        "retrieved": "2026-10-01",
+        "confidence": "medium"
+      },
+      {
+        "source": "src:desc-nationaalarchief-nl-891da8e3",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -55778,7 +55973,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
     "partOf": [],
-    "description": null,
+    "description": "De Nationaal Coördinator Groningen (NCG) werkt aan herstel in het Groningse aardbevingsgebied. Hij laat gebouwen onderzoeken en versterken en biedt financiële steun, tijdelijke huisvesting en schadevergoeding.",
     "website": "https://www.nationaalcoordinatorgroningen.nl/",
     "established": null,
     "dissolved": null,
@@ -55799,6 +55994,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-nationaalcoordinatorgroningen-nl-c49f2fb1",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -55821,7 +56021,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-justitie-en-veiligheid",
     "partOf": [],
-    "description": null,
+    "description": "Het Nationaal Cyber Security Centrum (NCSC) valt onder het ministerie van Justitie en Veiligheid. Het versterkt de digitale weerbaarheid van organisaties met beveiligingsadviezen, hulp bij incidenten en registratie onder de NIS2-regels.",
     "website": "https://www.ncsc.nl/",
     "established": null,
     "dissolved": null,
@@ -55842,6 +56042,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-ncsc-nl-95430ea3",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -55909,7 +56114,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-justitie-en-veiligheid",
     "partOf": [],
-    "description": null,
+    "description": "De Nationale Opvang Organisatie (NOO) is een tijdelijke taakorganisatie, ingesteld bij besluit van de minister van Justitie en Veiligheid van 15-06-2022. Zij zorgt voor voldoende opvanglocaties en basisvoorzieningen voor ontheemden uit Oekraïne en voert de bijbehorende financieringsregelingen uit.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -55930,6 +56135,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-zoek-officielebekendmakingen-nl-750bbad3",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -55952,7 +56162,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-justitie-en-veiligheid",
     "partOf": [],
-    "description": null,
+    "description": "Het Nederlands Forensisch Instituut (NFI) valt onder het ministerie van Justitie en Veiligheid. Volgens de Regeling taken NFI verricht het onafhankelijk forensisch zaakonderzoek, ontwikkelt het nieuwe onderzoeksmethoden en is het een nationaal en internationaal expertisecentrum.",
     "website": "https://www.forensischinstituut.nl/",
     "established": null,
     "dissolved": null,
@@ -55983,6 +56193,11 @@
         "source": "src:wet-bwbr0031558",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-forensischinstituut-nl-b4a93f49",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -56004,7 +56219,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
     "partOf": [],
-    "description": null,
+    "description": "De Nederlandse Arbeidsinspectie valt onder het ministerie van Sociale Zaken en Werkgelegenheid. Zij houdt toezicht op arbeidswetten en sociale zekerheid, onderzoekt arbeidsongevallen, bestrijdt fraude en heeft een eigen opsporingsdienst.",
     "website": "https://www.nlarbeidsinspectie.nl/",
     "established": null,
     "dissolved": null,
@@ -56029,6 +56244,11 @@
       {
         "source": "src:wet-bwbr0010346",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-nlarbeidsinspectie-nl-b51d65ac",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -56123,7 +56343,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
     "partOf": [],
-    "description": null,
+    "description": "De Nederlandse Voedsel- en Warenautoriteit (NVWA) valt onder het ministerie van Landbouw, Visserij, Voedselzekerheid en Natuur. Zij houdt toezicht op de veiligheid van voedsel en consumentenproducten, dierenwelzijn en natuurbescherming.",
     "website": "https://www.nvwa.nl/",
     "established": null,
     "dissolved": null,
@@ -56159,6 +56379,11 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-nvwa-nl-f6a6a917",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -56181,7 +56406,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-economische-zaken-en-klimaat",
     "partOf": [],
-    "description": null,
+    "description": "De Netherlands Foreign Investment Agency (NFIA) is een uitvoerende eenheid van de Rijksdienst voor Ondernemend Nederland, onder verantwoordelijkheid van het ministerie van Economische Zaken. Zij promoot Nederland als vestigingsland en ondersteunt buitenlandse bedrijven die zich hier willen vestigen of uitbreiden.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -56202,6 +56427,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-rijksoverheid-nl-494e6e37",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -57317,7 +57547,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
     "partOf": [],
-    "description": null,
+    "description": "Organisatie en Personeel Rijk (O&P Rijk) is de HR-dienstverlener van de Rijksoverheid, onderdeel van het ministerie van Binnenlandse Zaken en Koninkrijksrelaties. Het biedt onder meer arbeidsjuridisch advies, organisatieadvies, arbeidsmarktpositionering en HR-ICT zoals P-Direkt.",
     "website": "https://www.oprijk.nl/",
     "established": null,
     "dissolved": null,
@@ -57343,6 +57573,11 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-oprijk-nl-ca27ad2c",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -57366,7 +57601,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
     "partOf": [],
-    "description": null,
+    "description": "De Organisatie voor Bedrijfsvoering en Financiën (OBF) is onderdeel van het ministerie van Binnenlandse Zaken en Koninkrijksrelaties. Zij adviseert, ondersteunt en voert bedrijfsvoerings- en financiële processen uit voor Rijksorganisatie ODI, de Rijksinkoopsamenwerking en de Rijksorganisatie voor Beveiliging en Logistiek.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -57382,6 +57617,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-rijksoverheid-nl-751d5cde",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -57403,7 +57643,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-defensie",
     "partOf": [],
-    "description": null,
+    "description": "Paresto is het agentschap van het ministerie van Defensie dat als interne cateraar eten en drinken verzorgt op ongeveer 80 Defensielocaties in Nederland en Duitsland.",
     "website": "https://werkenbijdefensie.nl/paresto",
     "established": null,
     "dissolved": null,
@@ -58743,7 +58983,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-justitie-en-veiligheid",
     "partOf": [],
-    "description": null,
+    "description": "De Raad voor de Kinderbescherming is een dienst van het ministerie van Justitie en Veiligheid. Zij doet beschermingsonderzoeken bij kinderen in een bedreigde situatie, adviseert de rechter over jeugdstrafzaken en over gezag en omgang bij scheiding.",
     "website": "https://www.kinderbescherming.nl",
     "established": null,
     "dissolved": null,
@@ -58763,6 +59003,16 @@
       {
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
+        "confidence": "medium"
+      },
+      {
+        "source": "src:desc-kinderbescherming-nl-b8b7262e",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-eb489ffa",
+        "retrieved": "2026-10-01",
         "confidence": "medium"
       }
     ],
@@ -59576,7 +59826,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-financien",
     "partOf": [],
-    "description": null,
+    "description": "De Rijksacademie voor Financiën, Economie en Bedrijfsvoering is onderdeel van het ministerie van Financiën. Zij biedt opleidingen, trainee-programma's en maatwerktrajecten voor rijksambtenaren en geeft trainingen aan buitenlandse ambtenaren.",
     "website": "https://www.rijksacademie.nl/",
     "established": null,
     "dissolved": null,
@@ -59597,6 +59847,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-rijksacademie-nl-35af6e14",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -59620,7 +59875,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
     "partOf": [],
-    "description": null,
+    "description": "De Rijksdienst voor het Cultureel Erfgoed is een uitvoeringsorganisatie van het ministerie van Onderwijs, Cultuur en Wetenschap. Zij werkt aan archeologie, collecties, monumenten en landschap en beheert het Rijksmonumentenregister.",
     "website": "https://cultureelerfgoed.nl/",
     "established": null,
     "dissolved": null,
@@ -59640,6 +59895,11 @@
       {
         "source": "src:wet-bwbr0043237",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-cultureelerfgoed-nl-8432e1c2",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -59664,7 +59924,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
     "partOf": [],
-    "description": null,
+    "description": "De Rijksdienst voor Identiteitsgegevens is een agentschap van het ministerie van Binnenlandse Zaken en Koninkrijksrelaties. Hij beheert onder meer de Basisregistratie Personen en het stelsel van reisdocumenten en burgerservicenummers.",
     "website": "https://www.rvig.nl/",
     "established": null,
     "dissolved": null,
@@ -59695,6 +59955,11 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-rvig-nl-770e1e07",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -59718,7 +59983,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-economische-zaken-en-klimaat",
     "partOf": [],
-    "description": null,
+    "description": "De Rijksdienst voor Ondernemend Nederland is een agentschap van het ministerie van Economische Zaken. Hij voert in opdracht van ministeries, decentrale overheden en de Europese Unie subsidie- en andere regelingen uit voor ondernemers.",
     "website": "https://www.rvo.nl/",
     "established": "2014-01-01",
     "dissolved": null,
@@ -59749,6 +60014,16 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-rvo-nl-5eb1ce13",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-a33b158b",
+        "retrieved": "2026-10-01",
+        "confidence": "medium"
       }
     ],
     "legalSource": {
@@ -59771,7 +60046,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
     "partOf": [],
-    "description": null,
+    "description": "De Rijksinkoopsamenwerking (RIS) is een shared-service-organisatie voor inkoop binnen het ministerie van Binnenlandse Zaken en Koninkrijksrelaties. Zij koopt in voor meerdere ministeries en voert rijksbrede aanbestedingen uit voor schoonmaak en vervoer en verblijf.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -59787,6 +60062,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-rijksoverheid-nl-6aed4b5b",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -59809,7 +60089,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-economische-zaken-en-klimaat",
     "partOf": [],
-    "description": null,
+    "description": "De Rijksinspectie Digitale Infrastructuur ziet toe op de beschikbaarheid, continuïteit en betrouwbaarheid van it- en communicatienetwerken. Zij handhaaft regels, versterkt de digitale weerbaarheid en geeft vergunningen en registraties voor bepaalde apparatuur uit. Zij valt onder het ministerie van Economische Zaken.",
     "website": "https://www.rdi.nl",
     "established": "2002-07-22",
     "dissolved": null,
@@ -59840,6 +60120,11 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-rdi-nl-61176d09",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -59862,7 +60147,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
     "partOf": [],
-    "description": null,
+    "description": "Het Rijksinstituut voor Volksgezondheid en Milieu (RIVM) valt onder het ministerie van Volksgezondheid, Welzijn en Sport. Het doet onderzoek en monitoring naar volksgezondheid en leefomgeving en adviseert de overheid, onder meer over infectieziekten, bevolkingsonderzoeken en milieu.",
     "website": "https://www.rivm.nl",
     "established": "1984-01-01",
     "dissolved": null,
@@ -59892,6 +60177,11 @@
       {
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-rivm-nl-6ba1a828",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -59947,7 +60237,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
     "partOf": [],
-    "description": null,
+    "description": "De Rijksorganisatie Beveiliging en Logistiek valt onder het ministerie van Binnenlandse Zaken en Koninkrijksrelaties. Zij verzorgt Rijksbeveiliging, onder meer bij vitale rijkslocaties, en Rijkslogistiek, waaronder het wagenpark.",
     "website": "https://www.rijksorganisatiebeveiligingenlogistiek.nl/",
     "established": "2023-01-01",
     "dissolved": null,
@@ -59973,6 +60263,11 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-rijksorganisatiebeveiligingenlogistiek-nl-d53d890b",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -59995,7 +60290,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
     "partOf": [],
-    "description": null,
+    "description": "De Rijksorganisatie voor Informatiehuishouding is het expertise- en dienstencentrum voor de rijksoverheid op het gebied van informatiehuishouding. Zij valt onder het ministerie van Binnenlandse Zaken en Koninkrijksrelaties en beheert projecten, programma's en kennisnetwerken.",
     "website": "https://www.rvihh.nl/",
     "established": null,
     "dissolved": null,
@@ -60011,6 +60306,11 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-rvihh-nl-c0b9ceee",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -60034,7 +60334,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
     "partOf": [],
-    "description": null,
+    "description": "De Rijksorganisatie voor Ontwikkeling, Digitalisering en Innovatie (ODI) valt onder het ministerie van Binnenlandse Zaken en Koninkrijksrelaties. Zij versterkt de overheid tijdelijk bij complexe vraagstukken met kennis over organisatieontwikkeling, digitalisering en innovatie.",
     "website": "https://www.rijksorganisatieodi.nl",
     "established": "2023-01-01",
     "dissolved": null,
@@ -60060,6 +60360,11 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-rijksorganisatieodi-nl-7ffdb40f",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -60082,7 +60387,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
     "partOf": [],
-    "description": null,
+    "description": "Het Rijksvastgoedbedrijf valt onder het ministerie van Binnenlandse Zaken en Koninkrijksrelaties. Het beheert en ontwikkelt het vastgoed en de grond van de Staat, zoals kantoren, gerechtsgebouwen, defensieterreinen en monumenten, en verhuurt of verkoopt dat vastgoed.",
     "website": "https://www.rijksvastgoedbedrijf.nl/",
     "established": "2014-07-01",
     "dissolved": null,
@@ -60112,6 +60417,11 @@
       {
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-rijksvastgoedbedrijf-nl-cf004e85",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -60178,7 +60488,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-algemene-zaken",
     "partOf": [],
-    "description": null,
+    "description": "De Rijksvoorlichtingsdienst (RVD) is onderdeel van het ministerie van Algemene Zaken. Hij verzorgt de woordvoering van de minister-president en het kabinet en de communicatie van het Koninklijk Huis, en zit de Voorlichtingsraad voor.",
     "website": "https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken/organisatie/organogram/rijksvoorlichtingsdienst",
     "established": null,
     "dissolved": null,
@@ -60221,7 +60531,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-infrastructuur-en-waterstaat",
     "partOf": [],
-    "description": null,
+    "description": "Rijkswaterstaat is een onderdeel van het ministerie van Infrastructuur en Waterstaat. Het beheert en onderhoudt de rijkswegen, vaarwegen en het hoofdwatersysteem en werkt aan duurzame leefomgeving, energie en klimaat.",
     "website": "https://www.rijkswaterstaat.nl/",
     "established": null,
     "dissolved": null,
@@ -60256,6 +60566,11 @@
       {
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-rijkswaterstaat-nl-f2778a0d",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -60326,7 +60641,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Bekostigde groene onderwijsinstellingen verzorgen agrarisch en natuuronderwijs en krijgen daarvoor geld van het ministerie van Landbouw. Zij gelden als rechtspersoon met een wettelijke taak (rwt) in de zin van de Comptabiliteitswet 2016.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -60347,6 +60662,16 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-zoek-officielebekendmakingen-nl-90e555c7",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-wetten-overheid-nl-098b4714",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -60372,7 +60697,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Bekostigde instellingen voor primair onderwijs zijn schoolbesturen die basisonderwijs en speciaal onderwijs verzorgen en daarvoor rijksbekostiging krijgen. De Wet op het primair onderwijs regelt hun taken, bekostiging en bestuur.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -60418,7 +60743,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Bekostigde instellingen voor voortgezet onderwijs zijn schoolbesturen die vmbo, havo en vwo verzorgen en daarvoor rijksbekostiging krijgen. De Wet voortgezet onderwijs 2020 regelt hun bekostiging en bestuur. De vorige Wet op het voortgezet onderwijs is in 2022 vervallen.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -60438,6 +60763,11 @@
       {
         "source": "src:wet-bwbr0002399",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-wetten-overheid-nl-47dc0a51",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -60463,7 +60793,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Bekostigde instellingen voor hoger beroepsonderwijs zijn de hogescholen die rijksbekostiging krijgen. De Wet op het hoger onderwijs en wetenschappelijk onderzoek regelt hun bekostiging, toelating, accreditatie en bestuur.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -60508,7 +60838,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Bekostigde instellingen voor middelbaar beroepsonderwijs zijn onder meer de regionale opleidingscentra en vakscholen die rijksbekostiging krijgen. De Wet educatie en beroepsonderwijs regelt beroepsonderwijs en educatie, de bekostiging en het bestuur.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -60553,7 +60883,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Bekostigde instellingen voor wetenschappelijk onderwijs zijn de universiteiten die rijksbekostiging krijgen. De Wet op het hoger onderwijs en wetenschappelijk onderzoek regelt hun bekostiging, toelating, accreditatie en bestuur.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -60642,7 +60972,7 @@
     "partOf": [
       "org:ministerie-van-infrastructuur-en-waterstaat"
     ],
-    "description": null,
+    "description": "De Commissie voor de milieueffectrapportage is een onafhankelijk adviesorgaan, ingesteld in 1986. Zij adviseert bevoegde gezagen over milieueffectrapporten. Artikel 17.5 van de Omgevingswet regelt de instelling van de commissie.",
     "legalSource": {
       "label": "Omgevingswet, artikel 17.5",
       "url": "https://wetten.overheid.nl/BWBR0037885#Hoofdstuk17_Afdeling17.1_Paragraaf17.1.2_Artikel17.5"
@@ -60667,6 +60997,16 @@
         "source": "src:wet-bwbr0037885",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-commissiemer-nl-111cd903",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-wetten-overheid-nl-6d560e79",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ]
   },
@@ -60686,7 +61026,7 @@
     "partOf": [
       "org:ministerie-van-financien"
     ],
-    "description": null,
+    "description": "Het Depositogarantiefonds is het fonds binnen het depositogarantiestelsel, dat De Nederlandsche Bank namens de overheid uitvoert. Bij een bankfaillissement keert het tot 100.000 euro per spaarder per bank uit. De banken betalen het fonds.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -60707,6 +61047,16 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-dnb-nl-5d39190d",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-rijksoverheid-nl-b6364b3c",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -60731,7 +61081,7 @@
     "partOf": [
       "org:ministerie-van-economische-zaken-en-klimaat"
     ],
-    "description": null,
+    "description": "Distributeurs van elektriciteit en drinkwater op Bonaire, Sint Eustatius en Saba leveren deze voorzieningen onder de Wet elektriciteit en drinkwater BES. De wet regelt productie en distributie via vergunningen en aanwijzingen onder toezicht van de ACM.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -60747,6 +61097,11 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-eerstekamer-nl-eee8e7fb",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -60771,7 +61126,7 @@
     "partOf": [
       "org:ministerie-van-economische-zaken-en-klimaat"
     ],
-    "description": null,
+    "description": "Examinerende instanties zijn instellingen die de minister op grond van artikel 19 van de Examenregeling frequentiegebruik 2008 aanwijst om examens af te nemen. De aanwijzing geldt hoogstens vijf jaar en is niet overdraagbaar.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -60787,6 +61142,11 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-wetten-overheid-nl-0b76a779",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -60810,7 +61170,7 @@
     "partOf": [
       "org:ministerie-van-buitenlandse-zaken"
     ],
-    "description": null,
+    "description": "FMO is de Nederlandse ontwikkelingsbank. Zij investeert in meer dan 85 landen in ondernemers in ontwikkelings- en opkomende economieën en staat onder toezicht van De Nederlandsche Bank. De Staat is een van de aandeelhouders.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -60826,6 +61186,16 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-fmo-nl-9e113de1",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-eerstekamer-nl-c7a76649",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -60850,7 +61220,7 @@
     "partOf": [
       "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur"
     ],
-    "description": null,
+    "description": "Gezondheidsdienst voor Dieren B.V. (Royal GD) in Deventer bestrijdt en voorkomt besmettelijke dierziekten. Zij monitort de diergezondheid, voert in opdracht van de overheid verplichte bestrijdingsprogramma's uit en heeft een veterinair laboratorium.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -60865,6 +61235,11 @@
       {
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
+        "confidence": "medium"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-90ba3520",
+        "retrieved": "2026-10-01",
         "confidence": "medium"
       }
     ],
@@ -60889,7 +61264,7 @@
     "partOf": [
       "org:ministerie-van-infrastructuur-en-waterstaat"
     ],
-    "description": null,
+    "description": "Havenbedrijf Amsterdam NV ontwikkelt en beheert het Amsterdamse havengebied en de infrastructuur daarvan. De havenmeesterdivisie regelt en handhaaft het scheepvaartverkeer in het Noordzeekanaalgebied. Aandeelhouders zijn in de bronnen niet vastgesteld.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -60910,6 +61285,11 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-portofamsterdam-com-b299a6aa",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -60933,7 +61313,7 @@
     "partOf": [
       "org:ministerie-van-infrastructuur-en-waterstaat"
     ],
-    "description": null,
+    "description": "Havenbedrijf Rotterdam NV ontwikkelt en beheert het Rotterdamse havengebied en zorgt voor vlotte en veilige scheepvaart. Aandeelhouders zijn de gemeente Rotterdam (70,8 procent) en de Staat (29,2 procent). De havenmeester is ook rijkshavenmeester.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -60954,6 +61334,16 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-b536108f",
+        "retrieved": "2026-10-01",
+        "confidence": "medium"
+      },
+      {
+        "source": "src:desc-varendoejesamen-nl-86f435f8",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -60977,7 +61367,7 @@
     "partOf": [
       "org:ministerie-van-justitie-en-veiligheid"
     ],
-    "description": null,
+    "description": "Het Juridisch Loket geeft burgers gratis juridisch advies en verwijst door. De Wet op de rechtsbijstand regelt de door de overheid bekostigde rechtsbijstand voor mensen met te weinig financiële middelen.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61021,7 +61411,7 @@
     "partOf": [
       "org:ministerie-van-infrastructuur-en-waterstaat"
     ],
-    "description": null,
+    "description": "De HISWA-vereniging is een brancheorganisatie van erkende watersportbedrijven. De Algemene Rekenkamer rekent haar als rechtspersoon met een wettelijke taak (rwt) onder het ministerie van Infrastructuur en Waterstaat.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61037,6 +61427,11 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-hiswa-nl-244bf85e",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -61061,7 +61456,7 @@
     "partOf": [
       "org:ministerie-van-sociale-zaken-en-werkgelegenheid"
     ],
-    "description": null,
+    "description": "Het Inlichtingenbureau (IB) is een stichting uit 2001 met een wettelijke taak onder de Wet SUWI. Het fungeert als gegevensknooppunt voor gemeenten en ondersteunt hen bij de uitvoering van onder meer de Participatiewet. Het valt onder het ministerie van Sociale Zaken.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61077,6 +61472,11 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-zoek-officielebekendmakingen-nl-a0a0efc5",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -61140,7 +61540,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Dit zijn instellingen die de minister op grond van artikel 2.8 van de Erfgoedwet belast met het beheer van museale cultuurgoederen van de Staat. De minister let daarbij op deskundigheid, geschikte voorzieningen en toegankelijkheid voor het publiek.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61184,7 +61584,7 @@
     "partOf": [
       "org:ministerie-van-buitenlandse-zaken"
     ],
-    "description": null,
+    "description": "Invest International B.V. is in 2021 opgericht op grond van de Machtigingswet oprichting Invest International. De Staat bezit 51 procent van de aandelen en FMO 49 procent.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61200,6 +61600,11 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-eerstekamer-nl-c7a76649",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -61223,7 +61628,7 @@
     "partOf": [
       "org:ministerie-van-economische-zaken-en-klimaat"
     ],
-    "description": null,
+    "description": "Invest-NL is een financierings- en ontwikkelinstelling waarvan de Staat alle aandelen bezit. Zij is opgericht op grond van de Machtigingswet oprichting Invest-NL en is sinds 16-01-2020 actief.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61239,6 +61644,16 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-dirkzwager-nl-996d4ed2",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-eerstekamer-nl-c7a76649",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -61262,7 +61677,7 @@
     "partOf": [
       "org:ministerie-van-infrastructuur-en-waterstaat"
     ],
-    "description": null,
+    "description": "Kiwa Register B.V. geeft namens de minister van Infrastructuur en Waterstaat vergunningen uit voor beroepsvervoer in de zeevaart, de binnenvaart en over de weg. De Algemene Rekenkamer rekent haar als rechtspersoon met een wettelijke taak.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61278,6 +61693,11 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-rijksoverheid-nl-4d937be1",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -61301,7 +61721,7 @@
     "partOf": [
       "org:ministerie-van-infrastructuur-en-waterstaat"
     ],
-    "description": null,
+    "description": "Klassebureaus zijn particuliere organisaties die de minister aanwijst op grond van artikel 6 van het Schepenbesluit 1965. Zij stellen technische regels vast voor de bouw en uitrusting van schepen. Schepen mogen daaraan voldoen als alternatief voor de overheidseisen.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61341,7 +61761,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Landelijke omroeporganisaties maken samen met de NPO het landelijke publieke media-aanbod. De Mediawet 2008 regelt de publieke mediaopdracht, de NPO als sturend en samenwerkend orgaan en de erkende omroepen.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61380,7 +61800,7 @@
     "partOf": [
       "org:ministerie-van-justitie-en-veiligheid"
     ],
-    "description": null,
+    "description": "Stichting Leger des Heils Jeugdbescherming & Reclassering voert jeugdbescherming, jeugdreclassering en reclassering van volwassenen uit. Zij is een van de 16 gecertificeerde instellingen en een van drie reclasseringsorganisaties in Nederland.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61400,6 +61820,11 @@
       {
         "source": "src:wet-bwbr0007120",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-strafrechtketen-nl-8b3b5b75",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -61424,7 +61849,7 @@
     "partOf": [
       "org:ministerie-van-infrastructuur-en-waterstaat"
     ],
-    "description": null,
+    "description": "Het loodswezen loodst zeeschepen op Nederlandse vaarwegen. De Loodsenwet regelt de Nederlandse loodsencorporatie en regionale loodsencorporaties van ingeschreven loodsen. Nederlands Loodswezen B.V. faciliteert de loodsen, int de tarieven en regelt het vervoer naar de schepen.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61445,6 +61870,11 @@
         "source": "src:wet-bwbr0004365",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-a2d3df67",
+        "retrieved": "2026-10-01",
+        "confidence": "medium"
       }
     ],
     "legalSource": {
@@ -61468,7 +61898,7 @@
     "partOf": [
       "org:ministerie-van-economische-zaken-en-klimaat"
     ],
-    "description": null,
+    "description": "VSL is het nationale metrologische instituut van Nederland. Het beheert primaire meetstandaarden en referentiematerialen. De Metrologiewet laat de minister een instelling aanwijzen voor de nationale meetstandaard. TNO is aandeelhouder.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61483,6 +61913,11 @@
       {
         "source": "src:wet-bwbr0019517",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-vsl-nl-351894a0",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -61508,7 +61943,7 @@
     "partOf": [
       "org:ministerie-van-financien"
     ],
-    "description": null,
+    "description": "Het Nationaal Resolutiefonds (wettelijk Afwikkelingsfonds) is in 2015 ingesteld. De Nederlandsche Bank kan het als nationale afwikkelingsautoriteit gebruiken om resolutiemaatregelen te financieren. Artikel 3a:72 en 3a:74 van de Wft regelen het fonds.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61524,6 +61959,11 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-dnb-nl-c6eb7208",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -61547,7 +61987,7 @@
     "partOf": [
       "org:ministerie-van-justitie-en-veiligheid"
     ],
-    "description": null,
+    "description": "De Nationale Politie is het landelijke politiekorps uit artikel 25 van de Politiewet 2012, met regionale eenheden, landelijke eenheden en ondersteunende diensten. De politie handhaaft de rechtsorde en helpt wie hulp nodig heeft, onder het bevoegd gezag.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61591,7 +62031,7 @@
     "partOf": [
       "org:ministerie-van-financien"
     ],
-    "description": null,
+    "description": "Het Nederlands Bureau Motorrijtuigverzekeraars (NBM) treedt op bij schade door buitenlandse voertuigen in Nederland en door Nederlandse voertuigen in het buitenland. Het werkt nauw samen met het Waarborgfonds Motorverkeer, dat uit WA-premies wordt gefinancierd.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61607,6 +62047,16 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-waarborgfonds-vereende-nl-1da5d514",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-nlbureau-vereende-nl-76550651",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -61631,7 +62081,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "De Nederlandse Omroep Stichting (NOS) is een publieke omroep die nieuws, sport en grote evenementen uitzendt. De Mediawet 2008 regelt haar positie binnen het landelijke publieke bestel naast de NPO.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61651,6 +62101,11 @@
       {
         "source": "src:wet-bwbr0025028",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-over-nos-nl-a1410d27",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -61676,7 +62131,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Neth-ER is een in 2006 opgerichte vereniging in Brussel van elf Nederlandse organisaties voor onderwijs, onderzoek en innovatie. Zij beïnvloedt het Europese beleid namens de Nederlandse kennisgemeenschap. De Rekenkamer rekent haar onder het ministerie van Onderwijs, Cultuur en Wetenschap.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61697,6 +62152,11 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-lobbyfacts-eu-cf887128",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -61721,7 +62181,7 @@
     "partOf": [
       "org:ministerie-van-justitie-en-veiligheid"
     ],
-    "description": null,
+    "description": "Particuliere forensisch psychiatrische centra zijn niet-staatsinstellingen voor verpleging van mensen met een tbs-maatregel. Zij vallen onder de Beginselenwet verpleging ter beschikking gestelden en de Wet forensische zorg, met een commissie van toezicht.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61762,7 +62222,7 @@
     "partOf": [
       "org:ministerie-van-justitie-en-veiligheid"
     ],
-    "description": null,
+    "description": "Particuliere justitiële jeugdinrichtingen zijn door de minister aangewezen instellingen voor het verblijf en de behandeling van jongeren in jeugddetentie. De Beginselenwet justitiële jeugdinrichtingen (artikel 3b) regelt hun status, bestuur en subsidie.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61885,7 +62345,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Regionale publieke media-instellingen verzorgen publieke mediadiensten voor een bepaalde regio. Titel 2.3 van de Mediawet 2008 (artikelen 2.60a tot 2.74) regelt hun taken en aanwijzing.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61929,7 +62389,7 @@
     "partOf": [
       "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur"
     ],
-    "description": null,
+    "description": "Rendac Son B.V. voert de wettelijke taak uit om kadavers en dierlijke bijproducten van categorie 1 en 2 in te zamelen, te vervoeren en te verwerken. De Wet dieren verplicht houders deze bij Rendac aan te bieden. Het ministerie van Landbouw, Natuur en Voedselkwaliteit sluit de overeenkomst.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61945,6 +62405,11 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-rijksoverheid-nl-1cbf34b7",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -61969,7 +62434,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Samenwerkingsverbanden passend onderwijs in het primair onderwijs stellen ten minste elke vier jaar een ondersteuningsplan vast, verdelen ondersteuningsmiddelen over scholen en beoordelen toelating tot speciaal onderwijs. Artikel 18a van de Wet op het primair onderwijs regelt dit.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -61985,6 +62450,11 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-wetten-overheid-nl-620ebbf1",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -62009,7 +62479,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Regionale samenwerkingsverbanden waarin scholen voor voortgezet onderwijs zich op grond van de Wet passend onderwijs moeten aansluiten. Ze stellen elke vier jaar een ondersteuningsplan vast en moeten sinds 01-01-2025 een ouder- en jeugdsteunpunt inrichten.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62025,6 +62495,16 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-nji-nl-1298d224",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-onderwijsinspectie-nl-55fad632",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -62096,7 +62576,7 @@
     "partOf": [
       "org:ministerie-van-financien"
     ],
-    "description": null,
+    "description": "Stichting die sinds 01-07-2011 namens de Staat de aandelen beheert in genationaliseerde financiële instellingen, zoals ABN AMRO en ASN Bank. De minister van Financiën beslist over verkoop van aandelen; NLFI adviseert hem daarover.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62116,6 +62596,11 @@
       {
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
+        "confidence": "medium"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-b5a8a3ef",
+        "retrieved": "2026-10-01",
         "confidence": "medium"
       }
     ],
@@ -62141,7 +62626,7 @@
     "partOf": [
       "org:ministerie-van-justitie-en-veiligheid"
     ],
-    "description": null,
+    "description": "Onafhankelijke stichting die uitsluitend op verzoek van de bestuursrechter deskundigenadvies geeft in geschillen over de fysieke leefomgeving. Ze is in 1996 ontstaan uit de samenvoeging van twee overheidsbureaus.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62157,6 +62642,16 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-stab-nl-21a437a2",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-omgevingsweb-nl-d5320fa0",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -62182,7 +62677,7 @@
     "partOf": [
       "org:ministerie-van-infrastructuur-en-waterstaat"
     ],
-    "description": null,
+    "description": "Stichting die afval van de beroepsbinnenvaart inzamelt via een landelijk netwerk van ontvangstvoorzieningen en vaardocumenten uitgeeft en controleert. Ze is begin jaren negentig opgericht als nationaal instituut onder het Scheepsafvalstoffenverdrag.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62203,6 +62698,16 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-binnenvaartkennis-nl-58587eb5",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-rijksoverheid-nl-c6f3c473",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -62227,7 +62732,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Stichting in Arnhem die in opdracht van de overheid de wettelijke toetsen en examens voor het primair, voortgezet en middelbaar beroepsonderwijs ontwikkelt (divisie Centrale Toetsen en Examens). De divisie CitoLab doet onderzoek en innovatie.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62248,6 +62753,16 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-cito-nl-3b24b35b",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-stichtingcito2024-jaarverslag-org-ae810403",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -62319,7 +62834,7 @@
     "partOf": [
       "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur"
     ],
-    "description": null,
+    "description": "Onderzoekscomponent van Wageningen University & Research, nu Stichting Wageningen Research, voortgekomen uit de Dienst Landbouwkundig Onderzoek. Ze doet toegepast onderzoek voor overheid, bedrijfsleven en maatschappelijke organisaties; het landbouwministerie financiert het.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62334,6 +62849,11 @@
       {
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
+        "confidence": "medium"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-ff10d4d9",
+        "retrieved": "2026-10-01",
         "confidence": "medium"
       }
     ],
@@ -62406,7 +62926,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Stichting die sinds 1965 de reclamezendtijd op de publieke radio, televisie en digitale kanalen verkoopt. De opbrengst gaat naar het ministerie van OCW, dat de publieke omroep financiert. Reclame mag per jaar niet meer dan 10 procent en per dag niet meer dan 15 procent van de zendtijd beslaan.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62422,6 +62942,11 @@
         "source": "src:wet-bwbr0025028",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-28a27f9d",
+        "retrieved": "2026-10-01",
+        "confidence": "medium"
       }
     ],
     "legalSource": {
@@ -62492,7 +63017,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Nationaal expertisecentrum voor leerplanontwikkeling in het primair, speciaal en voortgezet onderwijs. SLO werkt in opdracht van het ministerie van OCW en ontwikkelt landelijke kerndoelen en examenprogramma's en voorbeeldlesmateriaal samen met scholen.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62512,6 +63037,11 @@
       {
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
+        "confidence": "medium"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-27e374e7",
+        "retrieved": "2026-10-01",
         "confidence": "medium"
       }
     ],
@@ -62537,7 +63067,7 @@
     "partOf": [
       "org:ministerie-van-infrastructuur-en-waterstaat"
     ],
-    "description": null,
+    "description": "Privaatrechtelijke stichting die de Leidingenstraat aanlegt, onderhoudt en beheert: een ondergrondse corridor van circa 80 kilometer tussen de industriegebieden van Rotterdam en Antwerpen, met takken naar Moerdijk en Vlissingen. Petrochemische bedrijven en nutsbedrijven leggen er leidingen en kabels.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62558,6 +63088,16 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-cob-nl-83d9ebb8",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-organisaties-overheid-nl-ba910815",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -62582,7 +63122,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Landelijke publieke omroep zonder leden, met wettelijke taken in de Mediawet voor achtergrondjournalistiek, kunst en cultuur, jeugd, onderwijs en minderheden. NTR bestaat sinds 2010, na de samenvoeging van NPS, Teleac en RVU.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62598,6 +63138,16 @@
         "source": "src:wet-bwbr0025028",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-ntr-nl-54be4432",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-en-wikipedia-org-e74e544f",
+        "retrieved": "2026-10-01",
+        "confidence": "medium"
       }
     ],
     "legalSource": {
@@ -62668,7 +63218,7 @@
     "partOf": [
       "org:ministerie-van-onderwijs-cultuur-en-wetenschap"
     ],
-    "description": null,
+    "description": "Stichting, opgericht door studenten, het hoger onderwijs en het ministerie van OCW, die objectieve studiekeuze-informatie over hbo- en wo-opleidingen verzamelt en verspreidt. Ze houdt jaarlijks de Nationale Studenten Enquête.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62684,6 +63234,11 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-studiekeuze123-nl-a6ec7076",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -62708,7 +63263,7 @@
     "partOf": [
       "org:ministerie-van-justitie-en-veiligheid"
     ],
-    "description": null,
+    "description": "Netwerkorganisatie van verslavingszorginstellingen met een reclasseringserkenning, naast Reclassering Nederland en Leger des Heils Jeugdbescherming & Reclassering. Ze begeleidt verslaafde verdachten en veroordeelden en adviseert rechter en Openbaar Ministerie. De Reclasseringsregeling 1995 regelt de erkenning.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62728,6 +63283,11 @@
       {
         "source": "src:wet-bwbr0007120",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-svg-nl-dfab2f32",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -62753,7 +63313,7 @@
     "partOf": [
       "org:ministerie-van-defensie"
     ],
-    "description": null,
+    "description": "Stichting, opgericht op 10-05-2000, die erkenning en ondersteuning biedt aan veteranen en hun gezinnen, veteranenpassen en -insignes verstrekt en de Nationale Veteranendag organiseert. Het Veteranenloket is het servicepunt voor zorg van Defensie, ABP en andere partners.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62773,6 +63333,11 @@
       {
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
+        "confidence": "medium"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-73fb746c",
+        "retrieved": "2026-10-01",
         "confidence": "medium"
       }
     ],
@@ -62799,7 +63364,7 @@
     "partOf": [
       "org:ministerie-van-financien"
     ],
-    "description": null,
+    "description": "Non-profitstichting die op grond van de Wet aansprakelijkheidsverzekering motorrijtuigen schade vergoedt aan verkeersslachtoffers wanneer de veroorzaker onbekend, onverzekerd of de verzekeraar failliet is. Een opslag op de premie van motorrijtuigenverzekeringen financiert het fonds.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62820,6 +63385,11 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-achmearechtsbijstand-nl-d78c59dd",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -62845,7 +63415,7 @@
     "partOf": [
       "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties"
     ],
-    "description": null,
+    "description": "Onafhankelijke stichting, in 1983 opgericht, die borg staat voor leningen van woningcorporaties, zodat die tegen lagere rente kunnen lenen. Het WSW bewaakt ook de financiele gezondheid van de aangesloten corporaties.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62866,6 +63436,11 @@
         "source": "src:wet-bwbr0005181",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-2e191911",
+        "retrieved": "2026-10-01",
+        "confidence": "medium"
       }
     ],
     "legalSource": {
@@ -62891,7 +63466,7 @@
     "partOf": [
       "org:ministerie-van-defensie"
     ],
-    "description": null,
+    "description": "Stichting, eind 2011 opgericht, die als zelfstandige rechtspersoon het academisch onderwijs en onderzoek van de Faculteit Militaire Wetenschappen van de Nederlandse Defensie Academie draagt. Ze verzorgt bachelor- en masteropleidingen volgens de Wet op het hoger onderwijs en wetenschappelijk onderzoek.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62912,6 +63487,16 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-parlementairemonitor-nl-c4f99700",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-magazines-defensie-nl-61d44da3",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -62937,7 +63522,7 @@
     "partOf": [
       "org:ministerie-van-defensie"
     ],
-    "description": null,
+    "description": "Rechtspersoon met een wettelijke taak die namens Defensie de ziektekostenregeling voor militairen uitvoert. Militairen in actieve dienst zijn uitgezonderd van de Zorgverzekeringswet en verplicht bij de SZVK verzekerd.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -62958,6 +63543,16 @@
         "source": "src:comptabiliteitswet-2016",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-szvk-nl-e8e06612",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-szvk-nl-e542f58e",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -62981,7 +63576,7 @@
     "partOf": [
       "org:ministerie-van-economische-zaken-en-klimaat"
     ],
-    "description": null,
+    "description": "Een van de twee erkende waarborginstellingen in Nederland, gevestigd in Gouda. Ze keurt voorwerpen van platina, goud, palladium en zilver op gehalte en voorziet ze van keurmerken volgens de Waarborgwet 2019. De minister wijst de instelling aan.",
     "legalSource": {
       "label": "Waarborgwet 2019",
       "url": "https://wetten.overheid.nl/BWBR0042284"
@@ -63006,6 +63601,11 @@
         "source": "src:wet-bwbr0042284",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-ewnederland-nl-c734855f",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ]
   },
@@ -63026,7 +63626,7 @@
     "partOf": [
       "org:ministerie-van-volksgezondheid-welzijn-en-sport"
     ],
-    "description": null,
+    "description": "Organisaties die de Wet langdurige zorg uitvoeren. De minister wijst per regio een Wlz-uitvoerder aan als zorgkantoor. Die contracteert zorgaanbieders, regelt dat cliënten de zorg krijgen waar ze recht op hebben en stelt pgb's beschikbaar.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -63041,6 +63641,16 @@
       {
         "source": "src:wet-bwbr0035917",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-regelhulp-nl-c9f8ab1e",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-monitorlangdurigezorg-nl-d7063780",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -63066,7 +63676,7 @@
     "partOf": [
       "org:ministerie-van-volksgezondheid-welzijn-en-sport"
     ],
-    "description": null,
+    "description": "Zorgverzekeraars die de basisverzekering uitvoeren die iedereen van 18 jaar en ouder in Nederland moet afsluiten. De Zorgverzekeringswet verplicht ze iedere aanvrager voor de basisverzekering te accepteren, zonder premieverschil naar gezondheid of leeftijd.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -63081,6 +63691,16 @@
       {
         "source": "src:wet-bwbr0018450",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-rijksoverheid-nl-5fc993a3",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-nza-nl-89e2dc21",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -63104,7 +63724,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-justitie-en-veiligheid",
     "partOf": [],
-    "description": null,
+    "description": "Zelfstandig bestuursorgaan onder het ministerie van Justitie en Veiligheid, opgericht in 1976 op grond van de Wet schadefonds geweldsmisdrijven. Het kent een financiële tegemoetkoming toe aan slachtoffers van ernstige geweldsmisdrijven en zedenmisdrijven met blijvend letsel. Een commissie van onafhankelijke leden stelt het beleid vast.",
     "website": "https://www.schadefonds.nl/",
     "established": null,
     "dissolved": null,
@@ -63124,6 +63744,16 @@
       {
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
+        "confidence": "medium"
+      },
+      {
+        "source": "src:desc-schadefonds-nl-ed8044c2",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-nl-wikipedia-org-f1175e28",
+        "retrieved": "2026-10-01",
         "confidence": "medium"
       }
     ],
@@ -63233,7 +63863,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
     "partOf": [],
-    "description": null,
+    "description": "Agentschap van het ministerie van Binnenlandse Zaken en Koninkrijksrelaties, sinds 01-01-2013 een baten-lastenagentschap. SSC-ICT levert ICT-diensten en servicedesks aan rijksambtenaren in binnen- en buitenland. De Regeling agentschappen bepaalt de bekostiging en het beheer.",
     "website": "https://www.ssc-ict.nl/",
     "established": null,
     "dissolved": null,
@@ -63259,6 +63889,16 @@
         "source": "src:wet-bwbr0050264",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-ssc-ict-nl-ca75b56a",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-rijksfinancien-nl-d7d08554",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -63281,7 +63921,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-economische-zaken-en-klimaat",
     "partOf": [],
-    "description": null,
+    "description": "Onafhankelijke toezichthouder op delfstoffenwinning en energieproductie, onder het ministerie van Klimaat en Groene Groei. Hij houdt toezicht op de veiligheid van mens en milieu bij onder meer gas- en aardwarmtewinning. De taken staan in de Mijnbouwwet en de Gaswet.",
     "website": "https://www.sodm.nl/",
     "established": null,
     "dissolved": null,
@@ -63301,6 +63941,16 @@
       {
         "source": "src:wet-bwbr0014168",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-sodm-nl-3af151eb",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-rijksoverheid-nl-d299d670",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -63520,7 +64170,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Asiel en Migratie. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -63550,6 +64200,11 @@
       {
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -63576,7 +64231,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Buitenlandse Handel en Ontwikkelingssamenwerking. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -63606,6 +64261,11 @@
       {
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -63632,7 +64292,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Binnenlandse Zaken. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -63662,6 +64322,11 @@
       {
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -63688,7 +64353,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Buitenlandse Zaken. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -63718,6 +64383,11 @@
       {
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -63744,7 +64414,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Defensie. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -63775,6 +64445,11 @@
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -63800,7 +64475,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Digitale Zaken. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -63831,6 +64506,11 @@
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -63856,7 +64536,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Europese Zaken. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -63886,6 +64566,11 @@
       {
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -63912,7 +64597,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Economische Zaken. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -63942,6 +64627,11 @@
       {
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -63969,7 +64659,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Financiën. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -63999,6 +64689,11 @@
       {
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -64025,7 +64720,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Infrastructuur en Waterstaat. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -64055,6 +64750,11 @@
       {
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -64081,7 +64781,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Justitie en Veiligheid. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -64112,6 +64812,11 @@
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -64137,7 +64842,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Klimaat en Groene Groei. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -64167,6 +64872,11 @@
       {
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -64193,7 +64903,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Koninkrijksrelaties. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -64223,6 +64933,11 @@
       {
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ],
@@ -64249,7 +64964,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Landbouw, Visserij, Voedselzekerheid en Natuur. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -64280,6 +64995,11 @@
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -64305,7 +65025,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Onderwijs, Cultuur en Wetenschap. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -64336,6 +65056,11 @@
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -64361,7 +65086,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Sociale Zaken en Werkgelegenheid. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -64392,6 +65117,11 @@
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -64417,7 +65147,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Volkshuisvesting en Ruimtelijke Ordening. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -64448,6 +65178,11 @@
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -64473,7 +65208,7 @@
     "partOf": [
       "org:tweede-kamer"
     ],
-    "description": null,
+    "description": "Vaste commissie van de Tweede Kamer voor het beleidsterrein Volksgezondheid, Welzijn en Sport. Een Kamercommissie is een groep Kamerleden die zich met een beleidsterrein van een ministerie of met een specifiek onderwerp bezighoudt. Het Reglement van Orde regelt de vaste commissies.",
     "website": null,
     "established": null,
     "dissolved": null,
@@ -64504,6 +65239,11 @@
         "source": "src:grondwet",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-tweedekamer-nl-30fcaf9d",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -64526,7 +65266,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
     "partOf": [],
-    "description": null,
+    "description": "Onderdeel van de directie Dienstverlening, Samenwerkingsverbanden en Uitvoering van het ministerie van Sociale Zaken en Werkgelegenheid. Het voert (Europese) subsidieregelingen uit, zoals ESF+, en andere complexe opdrachten op het gebied van werk en inkomen.",
     "website": "https://www.uitvoeringvanbeleidszw.nl/",
     "established": null,
     "dissolved": null,
@@ -64547,6 +65287,16 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-uitvoeringvanbeleidszw-nl-2a14e361",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-uitvoeringvanbeleidszw-nl-bf247dc8",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -66818,7 +67568,7 @@
     "country": "nederland",
     "parent": "org:ministerie-van-justitie-en-veiligheid",
     "partOf": [],
-    "description": null,
+    "description": "Onafhankelijk kennisinstituut van het ministerie van Justitie en Veiligheid, sinds 09-2019 een zelfstandige dienst. Het WODC doet of laat onderzoek doen naar justitie en veiligheid, zoals straffen en maatregelen, criminaliteit en de evaluatie van wetgeving en beleid.",
     "website": "https://wodc.nl/",
     "established": null,
     "dissolved": null,
@@ -66839,6 +67589,16 @@
         "source": "src:wet-bwbr0001947",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:desc-wodc-nl-43d6a5f0",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-rijksoverheid-nl-f57b19e7",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ],
     "legalSource": {
@@ -71480,7 +72240,7 @@
     "partOf": [
       "org:ministerie-van-justitie-en-veiligheid"
     ],
-    "description": null,
+    "description": "Nederlands Meetinstituut N.V. (NMi) is in de Regeling meetmiddelen politie aangewezen om politiemeetmiddelen, zoals snelheidsmeters, te onderzoeken en bij goedkeuring een verklaring af te geven. Een verklaring geldt in de regel twee jaar, voor radar één jaar.",
     "legalSource": {
       "label": "Regeling meetmiddelen politie",
       "url": "https://wetten.overheid.nl/BWBR0008821"
@@ -71504,6 +72264,16 @@
       {
         "source": "src:wet-bwbr0008821",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-nmi-nl-6fa8f52f",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-maxius-nl-a6bac348",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ]
@@ -72375,7 +73145,7 @@
     "partOf": [
       "org:ministerie-van-infrastructuur-en-waterstaat"
     ],
-    "description": null,
+    "description": "Een van de vier regionale loodsencorporaties volgens de Loodsenwet, voor de regio Amsterdam-IJmond. De registerloodsen in de regio vormen samen de corporatie, een zelfstandig bestuursorgaan. Ze houdt het aantal loodsen op peil en verzorgt opleiding en bijscholing.",
     "legalSource": {
       "label": "Loodsenwet, artikel 10",
       "url": "https://wetten.overheid.nl/BWBR0004365"
@@ -72400,6 +73170,11 @@
         "source": "src:wet-bwbr0004365",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-loodswezen-nl-58035730",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ]
   },
@@ -72419,7 +73194,7 @@
     "partOf": [
       "org:ministerie-van-infrastructuur-en-waterstaat"
     ],
-    "description": null,
+    "description": "Een van de vier regionale loodsencorporaties volgens de Loodsenwet, voor de regio Noord. De registerloodsen in de regio vormen samen de corporatie, een zelfstandig bestuursorgaan. Ze houdt het aantal loodsen op peil en verzorgt opleiding en bijscholing.",
     "legalSource": {
       "label": "Loodsenwet, artikel 10",
       "url": "https://wetten.overheid.nl/BWBR0004365"
@@ -72444,6 +73219,11 @@
         "source": "src:wet-bwbr0004365",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-loodswezen-nl-58035730",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ]
   },
@@ -72463,7 +73243,7 @@
     "partOf": [
       "org:ministerie-van-infrastructuur-en-waterstaat"
     ],
-    "description": null,
+    "description": "Een van de vier regionale loodsencorporaties volgens de Loodsenwet, voor de regio Rotterdam-Rijnmond. De registerloodsen in de regio vormen samen de corporatie, een zelfstandig bestuursorgaan. Ze houdt het aantal loodsen op peil en verzorgt opleiding en bijscholing.",
     "legalSource": {
       "label": "Loodsenwet, artikel 10",
       "url": "https://wetten.overheid.nl/BWBR0004365"
@@ -72488,6 +73268,11 @@
         "source": "src:wet-bwbr0004365",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:desc-loodswezen-nl-58035730",
+        "retrieved": "2026-10-01",
+        "confidence": "high"
       }
     ]
   },
@@ -72507,7 +73292,7 @@
     "partOf": [
       "org:ministerie-van-infrastructuur-en-waterstaat"
     ],
-    "description": null,
+    "description": "Een van de vier regionale loodsencorporaties volgens de Loodsenwet, voor de regio Scheldemonden. De registerloodsen in de regio vormen samen de corporatie, een zelfstandig bestuursorgaan. Ze houdt het aantal loodsen op peil en verzorgt opleiding en bijscholing.",
     "legalSource": {
       "label": "Loodsenwet, artikel 10",
       "url": "https://wetten.overheid.nl/BWBR0004365"
@@ -72531,6 +73316,11 @@
       {
         "source": "src:wet-bwbr0004365",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:desc-loodswezen-nl-58035730",
+        "retrieved": "2026-10-01",
         "confidence": "high"
       }
     ]

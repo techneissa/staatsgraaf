@@ -55,6 +55,12 @@ export default function MethodPage() {
 
       <div className="mt-2">
         <Section id="over" icon={Info} title={<L nl="Over dit project" en="About this project" />}>
+          <p className="text-base font-medium text-ink">
+            <L nl="De Nederlandse rijksoverheid in kaart" en="The Dutch national government, mapped" />
+          </p>
+          <p>
+            <T area="common" k="brandTagline" />
+          </p>
           <p>
             <L
               nl="Staatsgraaf is een persoonlijk project. Ik bouw het voor mezelf en publiceer het voor iedereen die een algemeen beeld wil krijgen van hoe de Nederlandse overheid in elkaar zit: wie welke functie heeft, welke organisaties er zijn, wat er aan beleid en regelgeving verandert en wat het nieuws erover zegt."
@@ -63,8 +69,8 @@ export default function MethodPage() {
           </p>
           <p>
             <L
-              nl="De inhoud is zo neutraal mogelijk: feiten uit officiële en openbare bronnen, zonder oordeel, met bij elk gegeven de bron."
-              en="The content aims to be as neutral as possible: facts from official and public sources, without judgement, with the source next to every fact."
+              nl="De inhoud is zo neutraal mogelijk: feiten uit officiële en openbare bronnen, zonder oordeel."
+              en="The content aims to be as neutral as possible: facts from official and public sources, without judgement."
             />
           </p>
           <p>
@@ -92,8 +98,8 @@ export default function MethodPage() {
         <Section id="onderhoud" icon={RefreshCw} title={<L nl="Actualiteit" en="Freshness" />}>
           <p>
             <L
-              nl="Bewindspersonen en de leden van beide Kamers worden elke nacht bijgewerkt uit de officiële lijsten. Nieuws wordt overdag elk uur opgehaald. Wijzigingen verschijnen in de wijzigingenfeed, elk met de bron die ze veroorzaakte."
-              en="Ministers and the members of both chambers are updated every night from the official lists. News is fetched every hour during the day. Changes appear in the change feed, each with the source that caused it."
+              nl="Bewindspersonen en de leden van beide Kamers worden elke nacht bijgewerkt uit de officiële lijsten. Nieuws wordt elke vier uur opgehaald. Wijzigingen verschijnen in de wijzigingenfeed, elk met de bron die ze veroorzaakte."
+              en="Ministers and the members of both chambers are updated every night from the official lists. News is fetched every four hours. Changes appear in the change feed, each with the source that caused it."
             />
           </p>
         </Section>

@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { ChartPie, Landmark, Building2 } from "lucide";
+import { SectionHeading } from "@/components/icons/section-heading";
+import { LucideIcon } from "@/components/icons/lucide-icon";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { FootnoteMarkers } from "@/components/budget/footnote-marker";
 import { BudgetRadar } from "@/components/budget/budget-radar";
@@ -47,7 +50,10 @@ export default function BudgetOverviewPage() {
       <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: <T area="common" k="navBudget" /> }]} />
 
       <header className="mt-4 border-b border-line pb-6">
-        <h1 className="text-2xl font-semibold tracking-tight text-ink">
+        <h1 className="flex items-center gap-3 text-2xl font-semibold tracking-tight text-ink">
+          <span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md border border-line bg-surface-inset text-accent-text">
+            <LucideIcon icon={Landmark} size={22} />
+          </span>
           <T area="news" k="budgetHeading" />
         </h1>
         <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
@@ -64,30 +70,30 @@ export default function BudgetOverviewPage() {
       </header>
 
       <section aria-labelledby="totalen-titel" className="border-b border-line py-6">
-        <h2 id="totalen-titel" className="text-lg font-semibold tracking-tight text-ink">
+        <SectionHeading id="totalen-titel" icon={Landmark}>
           <T area="news" k="budgetTotalsHeadingYear" vars={{ year: overview.fiscalYear }} />
           <FootnoteMarkers numbers={allFootnotes} sources={markerSources} />
-        </h2>
+        </SectionHeading>
         <div className="mt-3">
           <BudgetTotals overview={overview} yearInHeading />
         </div>
       </section>
 
       <section aria-labelledby="verdeling-titel" className="border-b border-line py-6">
-        <h2 id="verdeling-titel" className="text-lg font-semibold tracking-tight text-ink">
+        <SectionHeading id="verdeling-titel" icon={ChartPie}>
           <T area="news" k="budgetRadarHeading" />
           <FootnoteMarkers numbers={allFootnotes} sources={markerSources} />
-        </h2>
+        </SectionHeading>
         <div className="mt-3">
           <BudgetRadar data={radar} />
         </div>
       </section>
 
       <section aria-labelledby="ministeries-titel" className="py-6">
-        <h2 id="ministeries-titel" className="text-lg font-semibold tracking-tight text-ink">
+        <SectionHeading id="ministeries-titel" icon={Building2}>
           <T area="news" k="budgetMinistriesHeadingYear" vars={{ year: overview.fiscalYear }} />
           <FootnoteMarkers numbers={itemFootnotes} sources={markerSources} />
-        </h2>
+        </SectionHeading>
         <ul className="mt-3 grid grid-cols-1 gap-2 @[40rem]:grid-cols-2 @[40rem]:gap-3">
           {overview.items.map((item) => (
             <li key={item.organization.id}>

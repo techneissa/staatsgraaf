@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Layers, Wallet } from "lucide";
+import { SectionHeading } from "@/components/icons/section-heading";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
@@ -107,14 +109,14 @@ export default async function BudgetOrganizationPage({
       </header>
 
       <section aria-labelledby="bedragen-titel" className="border-b border-line py-6">
-        <h2 id="bedragen-titel" className="text-lg font-semibold tracking-tight text-ink">
+        <SectionHeading id="bedragen-titel" icon={Wallet}>
           {currentYear !== null ? (
             <T area="news" k="budgetFiguresHeadingYear" vars={{ year: currentYear }} />
           ) : (
             <T area="news" k="budgetFiguresHeading" />
           )}
           <SourceIcons sources={figureSources} className="ms-2 align-middle text-base" />
-        </h2>
+        </SectionHeading>
         {view.current !== null ? (
           <>
             {delta !== null && previousYear !== null ? (
@@ -148,9 +150,9 @@ export default async function BudgetOrganizationPage({
       </section>
 
       <section aria-labelledby="uitsplitsing-titel" className="border-b border-line py-6">
-        <h2 id="uitsplitsing-titel" className="text-lg font-semibold tracking-tight text-ink">
+        <SectionHeading id="uitsplitsing-titel" icon={Layers}>
             <T area="news" k="budgetBreakdownHeading" />
-        </h2>
+        </SectionHeading>
         <div className="mt-3">
           <BudgetBreakdown
             breakdown={view.breakdown}

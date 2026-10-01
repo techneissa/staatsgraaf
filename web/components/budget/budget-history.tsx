@@ -1,3 +1,5 @@
+import { History } from "lucide";
+import { LucideIcon } from "@/components/icons/lucide-icon";
 import { Amount } from "./amount";
 import { L, T } from "@/components/i18n/t";
 import { interpolate } from "@/lib/i18n/locales";
@@ -23,7 +25,8 @@ export function BudgetHistory({ history, unit }: { history: BudgetHistoryRow[]; 
   if (history.length === 0) {
     return (
       <div className="py-3">
-        <h2 className="text-lg font-semibold tracking-tight text-ink">
+        <h2 className="flex items-center gap-2 text-lg font-semibold tracking-tight text-ink">
+          <LucideIcon icon={History} size={18} className="shrink-0 text-ink-muted" />
           <T area="news" k="budgetHistoryHeading" />
         </h2>
         <p className="mt-2 text-sm text-ink-muted">
@@ -58,7 +61,8 @@ export function BudgetHistory({ history, unit }: { history: BudgetHistoryRow[]; 
         >
           <path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
-        <h2 className="text-lg font-semibold tracking-tight text-ink">
+        <h2 className="flex items-center gap-2 text-lg font-semibold tracking-tight text-ink">
+          <LucideIcon icon={History} size={18} className="shrink-0 text-ink-muted" />
           <T area="news" k="budgetHistorySummary" vars={{ from, to }} />
         </h2>
       </summary>

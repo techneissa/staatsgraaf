@@ -125,19 +125,9 @@ export default function HomePage() {
         }}
       />
 
-      <section className="border-b border-line pb-6 pt-2">
-        <h1 className="text-2xl font-semibold tracking-tight text-ink">
-          <L
-            nl="De Nederlandse rijksoverheid in kaart"
-            en="The Dutch national government, mapped"
-          />
-        </h1>
-        <p className="mt-3 max-w-prose text-sm leading-relaxed text-ink-muted">
-          <T area="common" k="brandTagline" />
-        </p>
-      </section>
+      <h1 className="sr-only">{SITE_NAME}</h1>
 
-      <section aria-labelledby="nieuws-titel" className="border-b border-line py-6">
+      <section aria-labelledby="nieuws-titel" className="border-b border-line pb-6 pt-2">
         <h2
           id="nieuws-titel"
           className="text-lg font-semibold tracking-tight text-ink"
