@@ -34,7 +34,7 @@ Validation and tests gate the deploy: a failed step stops the run, so production
 
 ### `news.yml`
 
-Runs every six hours at 30 minutes past the hour, and on demand. It shares the `nightly-refresh` concurrency group, so it never overlaps the nightly run. Steps: checkout, setup Bun, setup Node, restore the Bun and Next.js caches, `bun run news`, `bun run validate`, `bun test pipelines web/lib`, the web build, and the Wrangler deploy. It does not refetch office holders or re-derive the change feed; that is the nightly run's job. To go hourly, change the cron to `0 * * * *`; the cost trade-off is in `docs/adr/0007-news-outlets-and-languages.md`. On failure it opens or comments on one `ops` issue titled "Nieuwsrun mislukt".
+Runs every four hours at 15 minutes past the hour (`15 */4 * * *`), and on demand. It shares the `nightly-refresh` concurrency group, so it never overlaps the nightly run. Steps: checkout, setup Bun, setup Node, restore the Bun and Next.js caches, `bun run news`, `bun run validate`, `bun test pipelines web/lib`, the web build, and the Wrangler deploy. It does not refetch office holders or re-derive the change feed; that is the nightly run's job. To change the cadence, edit the cron; the cost trade-off is in `docs/adr/0007-news-outlets-and-languages.md`. On failure it opens or comments on one `ops` issue titled "Nieuwsrun mislukt".
 
 ### `ci.yml`
 

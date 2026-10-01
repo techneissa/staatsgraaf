@@ -2,13 +2,9 @@ name: news
 
 on:
   schedule:
-    # Hourly during the Dutch day (06:15 to 23:15 CEST) plus one overnight run; the
-    # nightly refresh at 03:00 UTC covers the rest. Not every hour around the clock
-    # because the repository is private and Actions minutes are capped; a run takes
-    # about 3 minutes. Full hourly ("15 * * * *") is one line away once the
-    # repository is public; see docs/adr/0007-news-outlets-and-languages.md.
-    - cron: "15 4-21 * * *"
-    - cron: "15 0 * * *"
+    # Every four hours. The repository is private and Actions minutes are capped; a
+    # run takes about 3 minutes. See docs/adr/0007-news-outlets-and-languages.md.
+    - cron: "15 */4 * * *"
   workflow_dispatch:
 
 permissions:

@@ -1,3 +1,5 @@
+import { HandCoins, Wallet } from "lucide";
+import { LucideIcon } from "@/components/icons/lucide-icon";
 import { Amount } from "./amount";
 import { L } from "@/components/i18n/t";
 import { DictEmptyState } from "./dict-empty-state";
@@ -58,7 +60,8 @@ export function BudgetBreakdown({
         const captionText = caption(group.type);
         return (
           <div key={group.type} className="mb-5 last:mb-0">
-            <h3 className="text-xs font-medium text-ink-faint">
+            <h3 className="flex items-center gap-1.5 text-xs font-medium text-ink-muted">
+              <LucideIcon icon={group.type === "spending" ? Wallet : HandCoins} size={14} className="shrink-0" />
               <T area="news" k={heading} />
             </h3>
             <table className="motion-grow mt-2 w-full border-collapse text-sm" data-reveal="pending">

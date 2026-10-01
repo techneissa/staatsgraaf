@@ -27,7 +27,7 @@ What we translate is already small and already shipped: the headline and the lea
 ## Consequences
 
 - An English reader sees the whole news section, with the original always one click away.
-- Cadence: from 25-09-2026 the news run is hourly from 06:15 to 23:15 Dutch summer time, plus one run at night, next to the nightly refresh. A run takes about three minutes, so full hourly runs would use about 2,160 Actions minutes a month on their own, more than the 2,000 a private repository gets on GitHub's Free plan. Going fully hourly is a one-line cron change once the repository is public.
+- Cadence: from 01-10-2026 the news run is every four hours (`15 */4 * * *`), next to the nightly refresh. It was hourly from 06:15 to 23:15 from 25-09-2026, but that used up the Actions minutes of the private repository. A run takes about three minutes.
 - Cost: the backlog cost no API spend. Each run translates only the new or changed items; at a few hundred short items a day on a small model this stays in the order of cents per day. Until one of the provider secrets is added, cost is zero and new items stay in their original language.
 - A reader can tell a translation from an original on every card, which `docs/09` section 6 requires.
 - Adding a language later is a new target value, not a new design.
