@@ -152,28 +152,23 @@ export function NewsItemCard({
         ) : null}
       </div>
 
-      <div className="col-span-2 mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-ink-faint sm:col-span-1 sm:col-start-1">
-        <p className="min-w-0">
-          <span className="whitespace-nowrap">
-            <span className="inline-flex items-center gap-1.5 font-medium text-ink-muted">
-              {item.publisher}
-              <SourceIcon
-                href={item.url}
-                title={item.publisher}
-                size={14}
-                label={`${messages.card.sourceLabel} ${item.publisher} (${item.host})`}
-              />
-            </span>
-            <span aria-hidden="true" className="px-1.5">·</span>
-          </span>{" "}
-          <span className="whitespace-nowrap">
-            <time dateTime={item.published} className="tabular-nums">
-              {showDate ? DATE_TIME[target].format(new Date(item.published)) : item.time}
-            </time>
-            <span aria-hidden="true" className="px-1.5">·</span>
-          </span>{" "}
-          <span lang={target} className="whitespace-nowrap">{messages.kindBadges[item.kind]}</span>
-        </p>
+      <div className="col-span-2 mt-3 flex items-start justify-between gap-x-3 gap-y-1 text-xs text-ink-faint sm:col-span-1 sm:col-start-1">
+        <div className="flex min-w-0 flex-col gap-0.5">
+          <span className="inline-flex min-w-0 items-center gap-1.5 font-medium text-ink-muted">
+            <span className="min-w-0">{item.publisher}</span>
+            <SourceIcon
+              href={item.url}
+              title={item.publisher}
+              size={14}
+              label={`${messages.card.sourceLabel} ${item.publisher} (${item.host})`}
+            />
+          </span>
+          <span lang={target}>{messages.kindBadges[item.kind]}</span>
+        </div>
+        <div className="flex shrink-0 items-center gap-1.5">
+          <time dateTime={item.published} className="whitespace-nowrap tabular-nums">
+            {showDate ? DATE_TIME[target].format(new Date(item.published)) : item.time}
+          </time>
         {translation !== null ? (
           <button
             type="button"
@@ -185,7 +180,7 @@ export function NewsItemCard({
               setSwitched(true);
               setOriginal((value) => !value);
             }}
-            className={`tap-target -my-1 inline-flex h-7 w-7 items-center justify-center rounded-sm transition-fast hover:bg-surface-raised hover:text-ink ${
+            className={`tap-target -my-1.5 inline-flex h-7 w-7 items-center justify-center rounded-sm transition-fast hover:bg-surface-raised hover:text-ink ${
               original ? "text-accent-text" : "text-ink-faint"
             }`}
           >
@@ -200,6 +195,7 @@ export function NewsItemCard({
             {messages.card.originalLanguageTag[item.language]}
           </span>
         ) : null}
+        </div>
       </div>
     </Tag>
   );
