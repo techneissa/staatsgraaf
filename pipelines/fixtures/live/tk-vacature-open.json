@@ -1,0 +1,29 @@
+{
+ "@odata.count": 1,
+ "value": [
+  {
+   "Id": "386fe20a-807d-4183-a0eb-6e71275e57c1",
+   "FractieZetel_Id": "fff0e65c-c87e-445c-a1fb-d411d05fe79e",
+   "Functie": "Lid",
+   "Van": "2025-02-05T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-02-13T10:22:14.5883786Z",
+   "Verwijderd": false,
+   "FractieZetel": {
+    "Id": "fff0e65c-c87e-445c-a1fb-d411d05fe79e",
+    "Gewicht": 10000,
+    "Fractie_Id": "626555ac-e836-44e3-9978-a6a7f0abc3ce",
+    "Fractie": {
+     "Id": "626555ac-e836-44e3-9978-a6a7f0abc3ce",
+     "Afkorting": "BBB",
+     "NaamNL": "BoerBurgerBeweging",
+     "AantalZetels": 3,
+     "DatumActief": "2021-03-31T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-02-26T09:59:12.1009647Z",
+     "Verwijderd": false
+    }
+   }
+  }
+ ]
+}

@@ -1,7 +1,7 @@
 # ADR 0006: live official sources for office holders and the parliaments
 
 - Date: 18-09-2026
-- Status: accepted
+- Status: accepted. Amended 05-10-2026 (see the last section).
 - Supersedes: none. Extends ADR 0002 (change semantics) and ADR 0004 (the scheduled refresh).
 
 ## Context
@@ -31,3 +31,16 @@ The verified endpoints already exist in `research/00-endpoints.md`: the Rijksove
 ## Verification recorded at decision time
 
 See the first run report `research/qa/refresh-official-18-09-2026.md` and the counts in `CHANGELOG.md`.
+
+## Amendment of 05-10-2026
+
+The owner asked that people, seats and office holders follow the official sources without a manual step. ADR 0024 records the whole design; this section lists what it changes in this ADR.
+
+- **Point 7 is replaced by an event-aware guard.** The fixed stop at "more than a handful" of closures (`DEFAULT_MAX_CLOSURES = 5`) is gone. A source writes only when its own data is consistent (Tweede Kamer: 150 active seats, no duplicate seat or person, every member resolved, every fractie equal to `Fractie.AantalZetels`; Eerste Kamer: 75 members and matching fractie totals; bewindspersonen: 28 plus or minus 3). Up to 5 closures pass on their own; more need an event (a changed fractie, an election day or cabinet swearing-in inside 60 days). A source that fails writes nothing, the run lists it and exits with code 2, and the other sources still apply. The merger of GroenLinks-PvdA into PRO on 09-06-2026, at least 20 closures, is a passing test.
+- **New sources.** The Tweede Kamer fetch now reads closed rows (the official end date `TotEnMet`), `Fractie`, open `FractieZetelVacature` and the Presidium rows, so the fractievoorzitter of each fractie, the Voorzitter and both ondervoorzitters of the Tweede Kamer are tenures. The Eerste Kamer fetch adds the fractie boards and the Voorzitter. Election dates come from the Kiesraad type pages.
+- **Cursor state.** A small committed file, `research/P-live-state.json`, holds the `ApiGewijzigdOp` cursors, the Eerste Kamer page hashes and the map from a Tweede Kamer `Persoon.Id` to a person id. Rows are read by `ApiGewijzigdOp`, never by `Van`, so a late or backdated row is applied with its own dates.
+- **Point 4, identity.** A Tweede Kamer person is keyed on `Persoon.Id` from the first match on. A new person gets a source and the name parts and birth date the source gives. A medium match (same surname and first letter) is created and listed as a possible duplicate in `research/qa/live-review-queue.md` instead of blocking the run.
+- **Point 2, closing.** A closure takes the official end date of the row that closed it; only when none exists does it take the retrieval date, at confidence medium and with a review entry.
+- **News is a trigger only.** A news item may make the official fetchers run early (`pipelines/news-trigger.mjs`); it never writes a fact.
+- **Point 5, order.** `bun run live` replaces the `refresh-official` and `merge` steps of the nightly order for the office holders. It applies the live envelope to `data/` field by field, because a full `merge` is not idempotent on the committed dataset (ADR 0024, section 9).
+- **Point 6, cadence.** The Tweede Kamer count poll is hourly, the Eerste Kamer hash check every 4 hours at most, the register (wave 2) daily; CI decides the schedule.
