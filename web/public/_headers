@@ -4,6 +4,12 @@
 # recorded gap for inline scripts and the SHA-256 hashes of the stable ones.
 # Do not add hashes to script-src alongside 'unsafe-inline': a hash or nonce
 # makes a browser ignore 'unsafe-inline', which would break hydration.
+#
+# Cache-Control lives in the rules below the security block. ADR 0022 explains
+# the numbers. Cloudflare joins the values of every matching rule with a comma,
+# so no path may match two Cache-Control rules and /* must never set one.
+# Anything not listed keeps the Pages default (max-age=0, must-revalidate).
+# Cloudflare Pages Free allows 100 rules in this file; this file uses 27.
 
 /*
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
@@ -12,3 +18,63 @@
   X-Frame-Options: DENY
   Permissions-Policy: accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), usb=(), xr-spatial-tracking=()
   Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: www.montesquieu-instituut.nl redactie.rtl.nl screenshots.rtl.nl static.binnenlandsbestuur.nl images.nrc.nl image.trouw.nl image.volkskrant.nl image.parool.nl images.fd.nl images.ad.nl images.nu.nl images.cdn.nos.nl; font-src 'self'; connect-src 'self'; manifest-src 'self'; upgrade-insecure-requests
+
+# Content-hashed build output: safe to cache for a year.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Portraits and thumbnails are named by slug, not by hash: a day, then reuse while revalidating.
+/media/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Data refreshed every 4 to 6 hours: five minutes fresh, one hour stale-while-revalidate.
+/data/v1/*
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+/graph.json
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+/hierarchy.json
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+/power-map.json
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+/search-index.json
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+/peek/*
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+/panels/*
+  Cache-Control: public, max-age=300, stale-while-revalidate=3600
+
+# HTML and RSC payloads: five minutes, no stale-while-revalidate, because a page that outlives a deploy points at chunks that no longer exist.
+/
+  Cache-Control: public, max-age=300
+/index.txt
+  Cache-Control: public, max-age=300
+/begroting/*
+  Cache-Control: public, max-age=300
+/dataset/*
+  Cache-Control: public, max-age=300
+/methodiek/*
+  Cache-Control: public, max-age=300
+/news/*
+  Cache-Control: public, max-age=300
+/nieuws/*
+  Cache-Control: public, max-age=300
+/onderwerpen/*
+  Cache-Control: public, max-age=300
+/organisaties/*
+  Cache-Control: public, max-age=300
+/partijen/*
+  Cache-Control: public, max-age=300
+/personen/*
+  Cache-Control: public, max-age=300
+/posities/*
+  Cache-Control: public, max-age=300
+/privacy/*
+  Cache-Control: public, max-age=300
+/toegankelijkheid/*
+  Cache-Control: public, max-age=300
+/wijzigingen/*
+  Cache-Control: public, max-age=300
+/robots.txt
+  Cache-Control: public, max-age=300
+/sitemap.xml
+  Cache-Control: public, max-age=300
