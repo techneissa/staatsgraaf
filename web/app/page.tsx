@@ -93,14 +93,7 @@ export default function HomePage() {
 
   const panels: ChangeWindowPanel[] = windows.map((window) => ({
     value: window.key,
-    label:
-      window.days === 7 ? (
-        <L nl="7 dagen" en="7 days" />
-      ) : window.days === 30 ? (
-        <L nl="30 dagen" en="30 days" />
-      ) : (
-        <L nl="90 dagen" en="90 days" />
-      ),
+    days: window.days,
     content: <ChangePanel window={window} />,
   }));
 
@@ -160,13 +153,16 @@ export default function HomePage() {
       ) : null}
 
       <section aria-labelledby="wijzigingen-titel" className="border-b border-line py-6">
-        <h2 id="wijzigingen-titel" className="text-lg font-semibold tracking-tight text-ink">
-          <L nl="Laatste wijzigingen" en="Latest changes" />
-        </h2>
-        <ChangeStatTiles figures={getChangeTileFigures()} className="mt-3" />
-        <div className="mt-3">
-          <ChangeWindowTabs panels={panels} defaultValue="30d" />
-        </div>
+        <ChangeWindowTabs
+          heading={
+            <h2 id="wijzigingen-titel" className="text-lg font-semibold tracking-tight text-ink">
+              <L nl="Laatste wijzigingen" en="Latest changes" />
+            </h2>
+          }
+          chips={<ChangeStatTiles figures={getChangeTileFigures()} className="mt-3" />}
+          panels={panels}
+          defaultValue="30d"
+        />
       </section>
 
       <section aria-labelledby="overzicht-titel" className="border-b border-line py-6">
