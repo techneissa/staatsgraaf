@@ -5,12 +5,12 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties, KeyboardEvent, PointerEvent } from "react";
 import { useLocale } from "@/components/i18n/language-provider";
 import { useT } from "@/components/i18n/use-t";
-import { BAR_KINDS, type BarKind, type HistogramBucket } from "@/lib/change-buckets";
+import { BAR_KINDS, type BarKind, type HistogramBucket } from "@/lib/change-bar-kinds";
 import type { ChangeFilterValue } from "@/lib/change-url-state";
 import { CHANGE_TONE, ChangeKindGlyph } from "./change-glyph";
 import { formatIsoDate } from "./local-date";
 
-export type { HistogramBucket } from "@/lib/change-buckets";
+export type { HistogramBucket } from "@/lib/change-bar-kinds";
 
 const DISPLAY_KIND = {
   appointment: "appointment",
@@ -84,33 +84,30 @@ const Bar = memo(function Bar({ bucket, index, max, gutter, label, active, dimme
     </span>
   );
   const ring = active ? "after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:rounded-pill after:bg-ink" : "";
+  if (empty) {
+    // A quiet day is no control: it stays out of the tab order and the accessibility tree.
+    return (
+      <span aria-hidden="true" data-day={bucket.date} data-empty="" className={COLUMN}>
+        {stack}
+      </span>
+    );
+  }
   const common = {
     "data-day": bucket.date,
     "aria-label": label,
     tabIndex: tabbable ? 0 : -1,
     onFocus: () => onFocusBar(index),
-    className: `${COLUMN} ${empty ? "cursor-default" : "cursor-pointer"} ${ring}`,
+    className: `${COLUMN} cursor-pointer ${ring}`,
   };
   if (href !== null) {
-    return empty ? (
-      <span {...common} role="img" data-empty="">
-        {stack}
-      </span>
-    ) : (
+    return (
       <Link {...common} href={href} scroll={false}>
         {stack}
       </Link>
     );
   }
   return (
-    <button
-      type="button"
-      {...common}
-      aria-pressed={active}
-      aria-disabled={empty ? true : undefined}
-      data-empty={empty ? "" : undefined}
-      onClick={() => (empty ? undefined : onPick(bucket.date))}
-    >
+    <button type="button" {...common} aria-pressed={active} onClick={() => onPick(bucket.date)}>
       {stack}
     </button>
   );

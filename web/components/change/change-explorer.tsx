@@ -163,15 +163,15 @@ export function ChangeExplorer({
   const [filter, setFilter] = useState<ChangeFilterValue>("all");
   const [day, setDay] = useState<string | null>(null);
   const listRef = useRef<HTMLDivElement>(null);
-  const synced = useRef(false);
+  const [synced, setSynced] = useState(false);
 
-  // Write first, so the first run (before the URL has been read) leaves the URL alone.
+  // Waits for the first read of the URL, so the defaults never overwrite a deep link.
   useEffect(() => {
-    if (!synced.current) return;
+    if (!synced) return;
     const query = serializeChangeUrlState({ window: days, kind: filter, day });
     if (query === window.location.search) return;
     window.history.replaceState(window.history.state, "", `${window.location.pathname}${query}${window.location.hash}`);
-  }, [days, filter, day]);
+  }, [synced, days, filter, day]);
 
   useEffect(() => {
     const state = parseChangeUrlState(window.location.search, validDays);
@@ -180,7 +180,7 @@ export function ChangeExplorer({
     setFilter(state.kind);
     // A day only filters the change list, not the vacancy or acting lists.
     setDay(state.kind === "vacancy" || state.kind === "acting" ? null : chosenDay);
-    synced.current = true;
+    setSynced(true);
   }, [validDays, reference]);
 
   const scrollToList = useCallback(() => {
