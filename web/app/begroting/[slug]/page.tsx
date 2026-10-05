@@ -9,16 +9,17 @@ import { BudgetHistory } from "@/components/budget/budget-history";
 import { BudgetOrgName } from "@/components/budget/budget-org-name";
 import { BudgetYearFigures } from "@/components/budget/budget-year-figures";
 import { ChangeIndicator } from "@/components/budget/change-indicator";
-import { T } from "@/components/i18n/t";
+import { L, T } from "@/components/i18n/t";
 import { DictEmptyState } from "@/components/budget/dict-empty-state";
 import { JsonLd } from "@/components/json-ld";
-import { SourceList } from "@/components/source-list";
+import { SourceList, SourceRow } from "@/components/source-list";
 import { SourceIcons } from "@/components/source-icon";
 import {
   budgetDelta,
   getBudgetByOrganizationSlug,
   getBudgetOrganizations,
 } from "@/lib/budget";
+import { budgetComparabilityNote } from "@/lib/budget-notes";
 import { getDatasetDate, getSourceById } from "@/lib/data";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 
@@ -39,8 +40,8 @@ export async function generateMetadata({
   const year = view.currentRecord?.fiscalYear;
   const description =
     year !== undefined && year !== null
-      ? `Begroting van ${view.organization.name} voor ${year}: uitgaven, ontvangsten, saldo en de reeks gerealiseerde bedragen, met een bron per cijfer.`
-      : `Begroting van ${view.organization.name}: uitgaven, ontvangsten en saldo, met een bron per cijfer.`;
+      ? `Begroting van ${view.organization.name} voor ${year}: uitgaven, ontvangsten en de reeks gerealiseerde bedragen, met een bron per cijfer.`
+      : `Begroting van ${view.organization.name}: uitgaven en ontvangsten, met een bron per cijfer.`;
   return pageMetadata({
     title: `Begroting ${view.organization.name}`,
     description,
@@ -68,6 +69,15 @@ export default async function BudgetOrganizationPage({
     view.current !== null && view.previous !== null
       ? budgetDelta(view.current.spendingBudget, view.previous.spendingBudget)
       : null;
+
+  const note = budgetComparabilityNote(view.organization.id);
+  const comparabilityNote =
+    note === null
+      ? null
+      : {
+          ...note,
+          sourceRef: view.currentRecord?.sources.find((ref) => ref.source === note.sourceId) ?? null,
+        };
 
   const pageUrl = absoluteUrl(`/begroting/${view.organization.slug}/`);
 
@@ -127,6 +137,21 @@ export default async function BudgetOrganizationPage({
                 since={previousYear}
                 labelKey="budgetChangeIndicatorLabel"
               />
+            ) : null}
+            {comparabilityNote !== null ? (
+              <aside className="mt-3 rounded-md border border-line bg-surface-inset px-3 py-2.5 text-sm leading-relaxed text-ink-muted">
+                <p className="font-medium text-ink">
+                  <T area="news" k="budgetComparabilityHeading" />
+                </p>
+                <p className="mt-1">
+                  <L nl={comparabilityNote.nl} en={comparabilityNote.en} />
+                </p>
+                {comparabilityNote.sourceRef !== null ? (
+                  <p className="mt-1.5 text-xs">
+                    <SourceRow sourceRef={comparabilityNote.sourceRef} />
+                  </p>
+                ) : null}
+              </aside>
             ) : null}
             <div className="mt-3">
               <BudgetYearFigures

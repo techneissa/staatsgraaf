@@ -58,7 +58,7 @@ export const PANELS_DICT = {
   budgetTitle: { nl: "Begroting {year}", en: "Budget {year}" },
   budgetSpending: { nl: "Uitgaven", en: "Spending" },
   budgetRevenue: { nl: "Ontvangsten", en: "Revenue" },
-  budgetNet: { nl: "Saldo", en: "Balance" },
+  budgetNet: { nl: "Uitgaven min ontvangsten", en: "Spending minus revenue" },
   budgetActual: { nl: "Uitgaven {year}, gerealiseerd", en: "Spending {year}, actual" },
   budgetOpen: { nl: "Hele begroting", en: "Full budget" },
 
