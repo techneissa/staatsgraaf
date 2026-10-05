@@ -94,6 +94,9 @@ export function BudgetYearFigures({
           </tbody>
         </table>
       </div>
+      <p className="mt-2 text-xs leading-relaxed text-ink-faint">
+        <T area="news" k="budgetNetNote" />
+      </p>
     </div>
   );
 }

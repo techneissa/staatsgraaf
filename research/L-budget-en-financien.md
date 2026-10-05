@@ -71,6 +71,14 @@ Alles opgehaald op 18-09-2026. Ruwe snapshots staan onder `research/raw/L/`.
 10. **Historievenster.** `history` bevat 2013 tot en met 2024, `previous` is 2024.
 11. **Parseren van de Miljoenennota-bijlage.** De bijlage is alleen als XLSX beschikbaar. Het bestand is als zip uitgepakt en `xl/worksheets/sheet2.xml` (uitgaven) en `sheet3.xml` (niet-belastingontvangsten) zijn met een korte XML-lezer uitgelezen; de cellen gebruiken inline strings. Er is geen spreadsheetbibliotheek nodig. De ruwe XLSX staat onder `research/raw/L/`.
 
+## Definition of net
+
+`net` in `budgets[]` is uitgaven min ontvangsten, not the reverse. De Begrotingsstaten bevatten geen `net`-veld; het is een afgeleide waarde per `AmountSet`: `spendingActual` min `revenue` voor een afgesloten jaar, en bij ontbrekende realisatie `spendingBudget` min `revenue`. Alle 36 records en hun `previous`-sets voldoen daaraan (gecontroleerd op 05-10-2026, nul afwijkingen). Voorbeeld Defensie 2026: `net` `22899013` is `23335562` min `436549`. Een positief `net` betekent dat het hoofdstuk meer uitgeeft dan het ontvangt; een negatief `net` (bij Financien in de som) betekent dat de ontvangsten hoger zijn. De bron is de Begrotingsstaten (CC0), opnieuw opgehaald op 05-10-2026 van https://www.rijksfinancien.nl/sites/default/files/bestanden/open_data/Begrotingsstaten_2013-2027.csv; de som van de artikelen per hoofdstuk (U voor uitgaven, O voor ontvangsten, na deduplicatie) reproduceert de opgeslagen waarden. De pagina's tonen het getal onder het label "Uitgaven min ontvangsten" (nl) en "Spending minus revenue" (en). Betrouwbaarheid: high. Tot 05-10-2026 stond er "Saldo (ontvangsten min uitgaven)", wat het teken omkeerde.
+
+## Like-for-like check Infrastructuur en Waterstaat
+
+Het begrote bedrag van Infrastructuur en Waterstaat daalt van `14623828` (2025) naar `4100475` (2026). Dat volgt uit de bron zelf, opgehaald op 05-10-2026 uit dezelfde Begrotingsstaten: artikel 26 "Bijdrage investeringsfondsen" staat in 2025 op `10510452` (stand O2) en in 2026 en 2027 op `0`. Zonder dat artikel is 2025 `4113376` tegen `4100475` in 2026. De fondsen staan als eigen hoofdstukken in dezelfde bron (2026, stand SBS: Mobiliteitsfonds `11170936`, Deltafonds `2046028`) en worden volgens besluit 8 niet aan een ministerie toegewezen. De bron noemt geen reden voor het vervallen van artikel 26; dat blijft een benoemde gap. De pagina `/begroting/ministerie-van-infrastructuur-en-waterstaat/` toont dit als noot (`web/lib/budget-notes.ts`). Betrouwbaarheid: high voor de bedragen, geen oordeel over de oorzaak.
+
 ## Gaps
 
 1. **Decentrale begrotingen (provincies, gemeenten, waterschappen).** Buiten de scope van dit werkstream. Endpoint: https://opendata.cbs.nl/ODataApi/OData/86247NED. Herstart: per overheidslaag de begroting en jaarrekening ophalen uit CBS StatLine en het CBS-begrotingsonderzoek.
@@ -78,6 +86,7 @@ Alles opgehaald op 18-09-2026. Ruwe snapshots staan onder `research/raw/L/`.
 3. **Netto tegenover bruto voor hoofdstuk IX (Financien en Nationale Schuld).** De Begrotingsstaten geven de bruto begroting; de Miljoenennota geeft een netto transactiebasis. Endpoint: https://www.rijksfinancien.nl/sites/default/files/bestanden/open_data/Begrotingsstaten_2013-2027.json. Herstart: de financieringsartikelen afsplitsen van de beleidsuitgaven.
 4. **De opgeheven programmaministeries over 2025.** Asiel en Migratie, VRO en Klimaat en Groene Groei bestonden in 2025 en zijn per 23 februari 2026 opgeheven. Endpoint: https://www.officielebekendmakingen.nl/stcrt-2026-8177. Herstart: hoofdstukken XX, XXII en XXIII voor 2025 alsnog als losse organisaties opnemen als het product die entiteiten wil tonen.
 5. **Landbouw 2013-2018.** Landbouw viel tot en met 2018 onder hoofdstuk XIII. Endpoint: https://www.rijksfinancien.nl/sites/default/files/bestanden/open_data/Begrotingsstaten_2013-2027.json. Herstart: de landbouwuitgaven binnen hoofdstuk XIII isoleren met de herindelings-KB's.
+6. **Reden voor het vervallen van artikel 26 "Bijdrage investeringsfondsen" per 2026.** De Begrotingsstaten tonen het verschil maar geven geen reden. Endpoint: https://www.rijksfinancien.nl/sites/default/files/bestanden/open_data/Begrotingsstaten_2013-2027.json. Herstart: de memorie van toelichting van hoofdstuk XII (Infrastructuur en Waterstaat) bij de begroting 2026 op rijksfinancien.nl lezen en de reden met bronvermelding in de noot opnemen.
 
 ## Open questions
 
