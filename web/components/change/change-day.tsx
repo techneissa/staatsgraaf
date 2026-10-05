@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
-import { T } from "@/components/i18n/t";
+import type { EntryCounts } from "@/lib/change-feed";
 import type { ChangeDisplayKind } from "@/lib/changes";
+import { CountsText } from "./counts-text";
 import { ChangeKindGlyph } from "./change-glyph";
 import { DayLabel } from "./local-date";
 import { RailItem, RailList } from "./rail";
@@ -21,16 +22,16 @@ export function ChangeDay({
   date,
   reference,
   items,
-  count,
+  counts,
   sticky = false,
 }: {
   date: string;
   reference: string;
   items: ChangeDayItem[];
-  count?: number;
+  /** The day's changes and people; the item count when omitted. */
+  counts?: EntryCounts;
   sticky?: boolean;
 }) {
-  const n = count ?? items.length;
   const headingId = `dag-${date}`;
   return (
     <section aria-labelledby={headingId}>
@@ -43,7 +44,7 @@ export function ChangeDay({
           <DayLabel date={date} reference={reference} />
         </h3>
         <span className="text-xs tabular-nums text-ink-faint">
-          {n === 1 ? <T area="home" k="dayCountOne" /> : <T area="home" k="dayCount" vars={{ n }} />}
+          <CountsText changes={counts?.changes ?? items.length} people={counts?.people ?? 0} />
         </span>
       </div>
       <RailList className="mt-1">

@@ -1,5 +1,5 @@
 import { PersonCardList, type PersonCardEntry } from "./person-card-list";
-import { PersonTimeline } from "./person-timeline";
+import { PersonTimeline, roleFor } from "./person-timeline";
 import { findSeatFiller, type PersonChangeGroup } from "@/lib/changes";
 
 /**
@@ -11,7 +11,7 @@ import { findSeatFiller, type PersonChangeGroup } from "@/lib/changes";
 export function PersonChangesView({ groups, reference }: { groups: PersonChangeGroup[]; reference: string }) {
   const cards: PersonCardEntry[] = groups.map((group) => ({
     key: group.key,
-    kinds: [...new Set(group.events.map((event) => event.kind))],
+    kinds: [...new Set(group.events.map((event) => roleFor(event, group.personId)))],
     days: [...new Set(group.events.map((event) => event.date))],
     node: <PersonTimeline group={group} reference={reference} filler={findSeatFiller(group, groups)} />,
   }));
