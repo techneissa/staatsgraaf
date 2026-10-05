@@ -142,3 +142,35 @@ export function clampMarkupSentences(markup: string, max = 260): string {
   const kept = (plainMarkupText(out) ?? "").length;
   return cut.clean && kept >= cut.at - 1 ? out : `${out}\u2026`;
 }
+
+/** A plain lead cut at a sentence or a word (see `sentenceCut`); `clamped` says whether anything was left out. */
+export function clampLead(text: string, max: number): { text: string; clamped: boolean } {
+  return { text: clampSentences(text, max), clamped: sentenceCut(text, max) !== null };
+}
+
+/** The same for summary markup; the reader can expand to the whole lead when `clamped`. */
+export function clampLeadMarkup(markup: string, max: number): { markup: string; clamped: boolean } {
+  const plain = plainMarkupText(markup) ?? "";
+  return { markup: clampMarkupSentences(markup, max), clamped: sentenceCut(plain, max) !== null };
+}
+
+export type LeadSegment =
+  | { type: "text"; text: string }
+  /** `first` is true for the first mention of an entity in the lead; later mentions render as plain text. */
+  | { type: "mention"; id: string; text: string; first: boolean };
+
+/** Summary markup as text and mention segments, with the first mention of each entity marked. */
+export function leadSegments(markup: string): LeadSegment[] {
+  const segments: LeadSegment[] = [];
+  const seen = new Set<string>();
+  let cursor = 0;
+  for (const match of markup.matchAll(/<entity id="([^"]+)">([^<]*)<\/entity>/g)) {
+    const index = match.index ?? 0;
+    if (index > cursor) segments.push({ type: "text", text: markup.slice(cursor, index) });
+    segments.push({ type: "mention", id: match[1], text: match[2], first: !seen.has(match[1]) });
+    seen.add(match[1]);
+    cursor = index + match[0].length;
+  }
+  if (cursor < markup.length) segments.push({ type: "text", text: markup.slice(cursor) });
+  return segments;
+}

@@ -1,12 +1,10 @@
 import { formatClockTime } from "@/lib/format";
 import { getMediaItem, mediaCreditLine } from "@/lib/entity";
 import { newsMonogram } from "@/lib/news-preview";
-import { NEWS_MESSAGES } from "@/lib/news-i18n";
 import { stripPublisherPrefix, stripTitleFromMarkup } from "@/lib/news-text";
 import { newsTranslationFor } from "@/lib/news-translations";
 import {
   isRelevantNews,
-  newsDayKey,
   newsKeywords,
   newsKind,
   newsLanguage,
@@ -42,17 +40,10 @@ export type NewsItemView = {
   /** The outlet host, for the source pill, for example "nos.nl". */
   host: string;
   kind: PublisherKind;
-  kindLabel: string;
   language: NewsLanguage;
-  /** The item's own language, named in the interface language. */
-  languageLabel: string;
   published: string;
-  /** Calendar day in Nederland, yyyy-mm-dd. */
-  day: string;
   /** Wall-clock time in Nederland, hh:mm. */
   time: string;
-  /** Full date and time in Nederland. */
-  dateTime: string;
   summary: string | null;
   entities: NewsEntityRef[];
   keywords: string[];
@@ -67,7 +58,7 @@ export type NewsItemView = {
    * present only while its hash matches this item. Null when the item has no
    * valid translation yet; the card then shows the original, tagged with its language.
    */
-  translation: { language: NewsLanguage; title: string; lead: string | null; engine: string; translated: string } | null;
+  translation: { language: NewsLanguage; title: string; lead: string | null } | null;
   /**
    * A licensed preview image stored by the pipeline, when the item carries
    * one. All current feeds are all rights reserved, so this stays null today
@@ -85,33 +76,6 @@ export function hostLabel(url: string): string {
   } catch {
     return url;
   }
-}
-
-/**
- * Full date and wall-clock time in Nederland, in the interface language: the
- * /nieuws route shows Dutch month names, the /news route shows English ones.
- */
-const itemDateTimeFormats: Record<NewsLanguage, Intl.DateTimeFormat> = {
-  nl: new Intl.DateTimeFormat("nl-NL", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    timeZone: "Europe/Amsterdam",
-  }),
-  en: new Intl.DateTimeFormat("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-    timeZone: "Europe/Amsterdam",
-  }),
-};
-
-function formatItemDateTime(iso: string, locale: NewsLanguage): string {
-  return itemDateTimeFormats[locale].format(new Date(iso));
 }
 
 /**
@@ -140,10 +104,10 @@ function usefulSummary(item: NewsItem): string | null {
   return trimmed;
 }
 
-export function toNewsItemView(item: NewsItem, locale: NewsLanguage = "nl"): NewsItemView {
+/** `_locale` is kept for callers; the view carries no interface-language strings. */
+export function toNewsItemView(item: NewsItem, _locale: NewsLanguage = "nl"): NewsItemView {
   const kind = newsKind(item);
   const language = newsLanguage(item);
-  const messages = NEWS_MESSAGES[locale];
   const entities = resolveNewsEntities(item);
   const image = resolveNewsImage(item);
   return {
@@ -153,13 +117,9 @@ export function toNewsItemView(item: NewsItem, locale: NewsLanguage = "nl"): New
     publisher: item.publisher,
     host: hostLabel(item.url),
     kind,
-    kindLabel: messages.kindBadges[kind],
     language,
-    languageLabel: messages.languageLabels[language],
     published: item.published,
-    day: newsDayKey(item.published),
     time: formatClockTime(item.published),
-    dateTime: formatItemDateTime(item.published, locale),
     summary: usefulSummary(item),
     entities,
     keywords: newsKeywords(item),
@@ -174,7 +134,7 @@ export function toNewsItemView(item: NewsItem, locale: NewsLanguage = "nl"): New
       const record = newsTranslationFor(item, target);
       return record === null
         ? null
-        : { language: target, title: record.title, lead: record.lead, engine: record.engine, translated: record.translated };
+        : { language: target, title: record.title, lead: record.lead };
     })(),
     image: image === null || image.remote ? null : { url: image.url, caption: image.caption },
     preview: resolveNewsPreview({ image, entities, publisher: item.publisher, publisherKind: kind }),
