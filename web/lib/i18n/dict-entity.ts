@@ -226,12 +226,12 @@ export const ENTITY_DICT = {
   },
   // Short explanations of jargon, shown under the label or the group title
   glossFillMethod: {
-    nl: "Hoe de positie wordt vervuld, bijvoorbeeld bij koninklijk besluit of door verkiezing.",
-    en: "How the position is filled, for example by royal decree or by election.",
+    nl: "Hoe de positie wordt vervuld.",
+    en: "How the position is filled.",
   },
   glossEntryModes: {
-    nl: "Op welke manieren iemand de positie kan krijgen.",
-    en: "The ways a person can come to hold the position.",
+    nl: "Hoe iemand de positie kan krijgen.",
+    en: "How a person can get the position.",
   },
   glossDeptHead: {
     nl: "De leidende positie van het orgaan.",
@@ -247,8 +247,8 @@ export const ENTITY_DICT = {
   },
   subtypeKoepel: { nl: "koepel", en: "umbrella body" },
   glossKoepel: {
-    nl: "Een overkoepelende vereniging of organisatie van gemeenten, provincies of waterschappen.",
-    en: "An umbrella association of municipalities, provinces or water boards.",
+    nl: "Overkoepelt gemeenten, provincies of waterschappen.",
+    en: "Covers municipalities, provinces or water boards.",
   },
 
   // Party pages: the people linked to a party
@@ -288,6 +288,10 @@ export const ENTITY_DICT = {
     en: "The {n} current members are listed at {body}, not as a separate office.",
   },
   holdersViaMembersLink: { nl: "Bekijk de leden", en: "See the members" },
+  descriptionDateNote: {
+    nl: "Niet elke datum in deze beschrijving staat in de gegevens over functies en lidmaatschappen (bijvoorbeeld {dates}). Voor de periodes gelden de gegevens hieronder.",
+    en: "Not every date in this description appears in the position and membership data (for example {dates}). The periods below are the data of record.",
+  },
   personEmptyNote: {
     nl: "Voor deze persoon zijn nog geen functies of lidmaatschappen vastgelegd.",
     en: "No positions or memberships are recorded for this person yet.",

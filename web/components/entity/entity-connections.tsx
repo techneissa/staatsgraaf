@@ -117,6 +117,8 @@ function groupTitle(group: ConnectionGroup): { nl: string; en: string } | null {
       return incoming ? { nl: "Geadviseerd door", en: "Advised by" } : { nl: "Adviseert", en: "Advises" };
     case "oversees":
       return incoming ? { nl: "Onder toezicht van", en: "Overseen by" } : { nl: "Houdt toezicht op", en: "Oversees" };
+    case "part_of":
+      return incoming ? { nl: "Onderdelen", en: "Parts" } : { nl: "Onderdeel van", en: "Part of" };
     default:
       return GROUP_TITLES[group.type];
   }

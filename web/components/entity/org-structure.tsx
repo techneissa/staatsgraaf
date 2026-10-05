@@ -38,7 +38,7 @@ export function OrgStructure({
             <T area="entity" k="partOfTitle" />
           </span>
           {parents.map((parent) => (
-            <EntityPeekLink key={parent.id} id={parent.id} glyph />
+            <EntityPeekLink key={parent.id} id={parent.id} glyph className="pointer-coarse:inline-block pointer-coarse:py-3" />
           ))}
         </p>
       ) : null}
@@ -56,7 +56,7 @@ export function OrgStructure({
           </span>
           {shown.map(({ tenure, person, position }) => (
             <span key={tenure.id} className="min-w-0">
-              <EntityPeekLink id={person!.id} glyph />
+              <EntityPeekLink id={person!.id} glyph className="pointer-coarse:inline-block pointer-coarse:py-3" />
               <span className="ms-1 text-xs text-ink-faint">{shortRole(position!.title)}</span>
             </span>
           ))}

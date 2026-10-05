@@ -6,7 +6,7 @@ import { EntityTabs } from "@/components/entity-tabs";
 import { JsonLd } from "@/components/json-ld";
 import { NewsPanel } from "@/components/news/news-panel";
 import { PersonCard } from "@/components/person-card";
-import { SourceLink } from "@/components/source-link";
+import { ExternalLink } from "@/components/entity/external-link";
 import { EntityConnections } from "@/components/entity/entity-connections";
 import { ShareButton } from "@/components/share-button";
 import { DateT, LocalDate } from "@/components/content/local-date";
@@ -330,14 +330,14 @@ export default async function OrganizationPage({
         {legalSource !== null || website !== null ? (
           <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
             {legalSource !== null ? (
-              <SourceLink href={legalSource.url}>
+              <ExternalLink href={legalSource.url}>
                 <T area="entity" k="legalSourceLabel" />: {legalSource.label}
-              </SourceLink>
+              </ExternalLink>
             ) : null}
             {website !== null ? (
-              <SourceLink href={website} meta={websiteHost(website)}>
+              <ExternalLink href={website} meta={websiteHost(website)}>
                 <T area="entity" k="websiteLabel" />
-              </SourceLink>
+              </ExternalLink>
             ) : null}
           </div>
         ) : null}
@@ -486,8 +486,8 @@ const CHILD_LIMIT = 8;
 
 function ChildRow({ child }: { child: Organization }) {
   return (
-    <li className="flex min-w-0 flex-wrap items-baseline gap-x-2 border-b border-line/60 py-2 pointer-coarse:py-3 last:border-b-0">
-      <EntityPeekLink id={child.id} variant="plain" glyph className="text-sm font-medium" />
+    <li className="flex min-w-0 flex-wrap items-baseline gap-x-2 border-b border-line/60 py-2 pointer-coarse:py-0 last:border-b-0">
+      <EntityPeekLink id={child.id} variant="plain" glyph className="text-sm font-medium pointer-coarse:inline-block pointer-coarse:py-3" />
       <span className="text-xs text-ink-faint">
         <SubtypeLabel value={child.subtype} />
       </span>

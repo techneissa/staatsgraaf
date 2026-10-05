@@ -16,10 +16,10 @@ const TITLE_KEYS: Record<PartyPeopleGroup["group"], string> = {
 
 function Row({ entry }: { entry: PartyPerson }) {
   return (
-    <li className="flex min-w-0 flex-wrap items-baseline gap-x-2 border-b border-line/60 py-2 pointer-coarse:py-3 last:border-b-0">
-      <EntityPeekLink id={entry.person.id} variant="plain" glyph className="text-sm font-medium" />
+    <li className="flex min-w-0 flex-wrap items-baseline gap-x-2 border-b border-line/60 py-2 pointer-coarse:py-0 last:border-b-0">
+      <EntityPeekLink id={entry.person.id} variant="plain" glyph className="text-sm font-medium pointer-coarse:inline-block pointer-coarse:py-3" />
       {entry.roles.slice(0, 2).map((role) => (
-        <EntityPeekLink key={role.positionId} id={role.positionId} variant="quiet" className="text-xs" />
+        <EntityPeekLink key={role.positionId} id={role.positionId} variant="quiet" className="text-xs pointer-coarse:inline-block pointer-coarse:py-3" />
       ))}
     </li>
   );

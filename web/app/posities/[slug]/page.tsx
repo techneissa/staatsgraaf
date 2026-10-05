@@ -4,7 +4,7 @@ import { Breadcrumb, type BreadcrumbItem } from "@/components/breadcrumb";
 import { EntityTabs } from "@/components/entity-tabs";
 import { JsonLd } from "@/components/json-ld";
 import { PersonCard } from "@/components/person-card";
-import { SourceLink } from "@/components/source-link";
+import { ExternalLink } from "@/components/entity/external-link";
 import { ShareButton } from "@/components/share-button";
 import { DateT } from "@/components/content/local-date";
 import { LocaleLabel } from "@/components/i18n/locale-label";
@@ -22,6 +22,7 @@ import { FactTiles, type FactTile } from "@/components/entity/fact-tiles";
 import { FactGroup } from "@/components/entity/fact-group";
 import { BuildingIcon, ClipboardIcon, ClockIcon, HistoryIcon, KeyIcon, PeopleIcon, SeatIcon } from "@/components/entity/icons";
 import { positionSummary } from "@/lib/entity-summary";
+import { titleNamesBody } from "@/lib/changes";
 import { holderState, positionDescription, positionPageTitle } from "@/lib/entity-page";
 import { vacancyForPosition } from "@/lib/entity-vacancy";
 import { withoutDerived } from "@/lib/entity-rows";
@@ -95,7 +96,7 @@ export async function generateMetadata({
     title: positionMetadataTitle(position),
     description: positionDescription({
       title: position.title,
-      bodyName: organization?.name ?? null,
+      bodyName: organization !== undefined && !titleNamesBody(position.title, organization.name) ? organization.name : null,
       summary: summary?.nl ?? null,
       typeLabel: POSITION_TYPE_LABELS[position.type].nl,
       fillMethodLabel: position.fillMethod != null ? (FILL_METHOD_LABELS[position.fillMethod] ?? null) : null,
@@ -103,6 +104,11 @@ export async function generateMetadata({
       holderCount: tenures.filter((tenure) => tenure.end === null).length,
       tenureCount: tenures.length,
       vacancy: vacancyForPosition(position.id) !== null,
+      memberBody: organization?.name,
+      memberCount:
+        organization !== undefined && /^Lid\b/.test(position.title) && tenures.every((tenure) => tenure.end !== null)
+          ? getMembersForOrganization(organization.id).length
+          : 0,
     }),
     path: `/posities/${position.slug}/`,
     snapshotDate: getDatasetDate(),
@@ -257,9 +263,9 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
         <FactTiles facts={facts} className="mt-4" />
         {legalBasis !== null ? (
           <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
-            <SourceLink href={legalBasis.url}>
+            <ExternalLink href={legalBasis.url}>
               <T area="entity" k="legalBasisLabel" />: {legalBasis.label}
-            </SourceLink>
+            </ExternalLink>
           </div>
         ) : null}
       </header>
@@ -303,6 +309,11 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
                   <HolderRow key={tenure.id} tenure={tenure} />
                 ))}
               </ul>
+              {vacancy !== null ? (
+                <GapNote sources={[vacancy.source]} className="mt-2">
+                  <T area="entity" k="holdersVacant" /> <L nl={vacancy.label.nl} en={vacancy.label.en} />.
+                </GapNote>
+              ) : null}
               {currentHolders.length > HOLDER_LIMIT ? (
                 <details className="motion-disclosure mt-2">
                   <summary className={SUMMARY_CLASS}>
@@ -345,7 +356,8 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
           </FactGroup>
         ) : null}
 
-        {exOfficio.length > 0 ? (
+        {/* The tab already lists these bodies when the sourced relation says the same. */}
+        {exOfficio.some((item) => !connections.some((connection) => connection.type === "ex_officio" && connection.other.id === item.id)) ? (
           <FactGroup icon={<SeatIcon />} title={<T area="entity" k="exOfficioTitle" />} count={exOfficio.length}>
             <ul className="space-y-1.5 text-sm">
               {exOfficio.map((item) => (
