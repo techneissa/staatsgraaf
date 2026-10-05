@@ -1,10 +1,12 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useId } from "react";
 import { useDict } from "@/components/i18n/use-t";
 import { useSelection } from "@/components/selection/selection-provider";
 import { DefaultBody } from "./panel-bodies";
 import { PanelHeader } from "./panel-header";
+import { OpenPageButton } from "./panel-parts";
 import { SelectionBody, selectionKey } from "./selection-body";
 import { useGraphLayout, usePanelIndex } from "./use-panel-data";
 import { useSelectionView } from "./use-selection-view";
@@ -20,6 +22,7 @@ export function DetailsPanel() {
   const view = useSelectionView(current);
   const headingId = useId();
   const t = useDict("panels");
+  const pathname = usePathname();
 
   if (current === null) return <DefaultPanel />;
 
@@ -27,6 +30,12 @@ export function DetailsPanel() {
     <section aria-labelledby={headingId} className="flex min-h-0 flex-1 flex-col">
       <div className="border-b border-line px-4 pb-3 pt-2">
         <PanelHeader meta={view.meta} size="sm" headingId={headingId} />
+        {/* The page of the pick, up here and not at the foot; not on the page it is already. */}
+        {view.meta?.href && view.meta.href.startsWith("/") && view.meta.href !== pathname ? (
+          <div className="mt-3">
+            <OpenPageButton href={view.meta.href} />
+          </div>
+        ) : null}
       </div>
       <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 pb-[max(1.5rem,var(--safe-bottom))] pt-4">
         <div key={selectionKey(current)} className="motion-swap">

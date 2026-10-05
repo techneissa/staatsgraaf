@@ -7,6 +7,10 @@ import { useDict } from "@/components/i18n/use-t";
 import { PartyPill } from "@/components/party-pill";
 import { branchColorVar } from "@/lib/branch-colors";
 import { computeFocusPath } from "@/lib/graph";
+import { MUNICIPALITY_SECTOR, countLayers } from "@/lib/layer-counts";
+import { orgTies } from "@/lib/org-ties";
+import { useT } from "@/components/i18n/use-t";
+import Link from "next/link";
 import { EDGE_TYPE_LABELS_I18N, SECTOR_LABELS_I18N } from "@/lib/i18n/dict-graph";
 import { renderSummaryMarkupWithHrefs } from "@/lib/news-summary";
 import { partySlug, type PartyRecord } from "@/lib/parties";
@@ -397,8 +401,10 @@ export function OrgBody({
 }) {
   const t = useDict("panels");
   const node = layout?.byId.get(id) ?? null;
-  const degree = layout ? (layout.adjacency.get(id)?.length ?? 0) : null;
-  const childCount = layout ? layout.nodes.filter((candidate) => candidate.parent === id).length : null;
+  // One count for every place that says it: relations, the parent and the parts, a body once.
+  const ties = layout ? orgTies(layout, id) : null;
+  const degree = ties ? ties.connections : null;
+  const childCount = ties ? ties.children.length : null;
 
   if (variant === "side") {
     return (
@@ -418,7 +424,8 @@ export function OrgBody({
           </Section>
         ) : null}
         {layout && node ? <OrgStructure id={id} layout={layout} variant="side" /> : null}
-        <Footer source={record?.source ?? null} href={record?.href ?? (node ? `/organisaties/${node.slug}/` : null)} />
+        {/* The page link is at the top of the side panel (details-panel.tsx). */}
+        <Footer source={record?.source ?? null} href={null} />
       </div>
     );
   }
@@ -455,6 +462,7 @@ export function OrgBody({
 
 function Footer({ source, href, website }: { source: PanelOrg["source"]; href: string | null; website?: string | null }) {
   const t = useDict("panels");
+  if (!href && !website && !source) return null;
   return (
     <div className="border-t border-line pt-3">
       <Links>
@@ -576,7 +584,7 @@ export function PersonBody({
         </Section>
       ) : null}
 
-      <Footer source={record.source} href={record.href} />
+      <Footer source={record.source} href={variant === "side" ? null : record.href} />
     </div>
   );
 }
@@ -696,11 +704,18 @@ export function SectorBody({ id, layout, variant }: { id: string; layout: PanelL
         : [],
     [layout, id],
   );
+  const counts = useMemo(() => (layout ? countLayers(layout.nodes) : null), [layout]);
   if (!layout || !sector) return null;
   const clusters = layout.clusters.filter((cluster) => cluster.sector === id);
   return (
     <div className={STACK}>
-      <p className="text-sm font-semibold tabular-nums text-ink">{t("sectorBodies", { n: format.count(sector.count) })}</p>
+      {/* The same organisation count as the legend (lib/layer-counts.ts), and the real gemeenten where the layer holds them. */}
+      <p className="text-sm font-semibold tabular-nums text-ink">
+        {t("sectorOrganisations", { n: format.count(counts?.bySector.get(id) ?? sector.count) })}
+        {id === MUNICIPALITY_SECTOR && counts && counts.municipalities > 0 ? (
+          <span className="font-normal text-ink-muted">, {t("sectorMunicipalities", { m: format.count(counts.municipalities) })}</span>
+        ) : null}
+      </p>
       <Section title={t("sectorLargest")} size={variant === "page" ? "md" : "sm"}>
         <LimitedList
           items={largest}
@@ -802,7 +817,7 @@ export function TopicBody({ record, variant }: { record: PanelTopic | null; vari
           <NewsRows items={variant === "page" ? record.news : record.news.slice(0, 3)} />
         </Section>
       ) : null}
-      <Footer source={record.source} href={record.href} />
+      <Footer source={record.source} href={variant === "side" ? null : record.href} />
     </div>
   );
 }
@@ -815,7 +830,10 @@ export function DefaultBody({ index, layout }: { index: PanelIndex | null; layou
   const t = useDict("panels");
   const format = usePanelFormat();
   const locale = useLocale() === "en" ? "en" : "nl";
-  const sectors = layout ? [...layout.sectors].sort((a, b) => b.count - a.count).slice(0, 6) : [];
+  const th = useT("home");
+  const counts = useMemo(() => (layout ? countLayers(layout.nodes) : null), [layout]);
+  const countOf = (sector: { id: string; count: number }) => counts?.bySector.get(sector.id) ?? sector.count;
+  const sectors = layout ? [...layout.sectors].sort((a, b) => countOf(b) - countOf(a)).slice(0, 6) : [];
   return (
     <div className={STACK}>
       {index && index.inTheNews.length > 0 ? (
@@ -841,16 +859,32 @@ export function DefaultBody({ index, layout }: { index: PanelIndex | null; layou
                   <span className="min-w-0 flex-1 text-[13px] text-ink group-hover:underline decoration-1 underline-offset-2">
                     {SECTOR_LABELS_I18N[sector.id]?.[locale] ?? sector.id}
                   </span>
-                  <span className="shrink-0 text-xs tabular-nums text-ink-muted">{format.count(sector.count)}</span>
+                  <span
+                    className="shrink-0 text-xs tabular-nums text-ink-muted"
+                    title={t("sectorOrganisations", { n: format.count(countOf(sector)) })}
+                  >
+                    {format.count(countOf(sector))}
+                  </span>
                 </SelectLink>
               </li>
             ))}
           </ul>
+          <p className="mt-1 text-xs text-ink-faint">{t("defaultSectorsNote")}</p>
         </Section>
       ) : null}
+      {/* The home page carries the feed at this width; here the panel stays a short pointer to it. */}
       {index && index.changes.length > 0 ? (
         <Section title={t("defaultChanges")}>
-          <ChangeRows changes={index.changes.slice(0, 4)} />
+          <ChangeRows changes={index.changes.slice(0, 3)} />
+          <div className="mt-2 flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+            <Link
+              href="/wijzigingen/"
+              className="tap-row inline-flex min-h-8 items-center text-xs font-medium text-accent-text hover:underline pointer-coarse:min-h-11"
+            >
+              {t("defaultChangesAll")}
+            </Link>
+            {index.snapshot ? <span className="text-xs text-ink-faint">{th("chgSnapshot", { date: format.date(index.snapshot) })}</span> : null}
+          </div>
         </Section>
       ) : null}
     </div>

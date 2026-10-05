@@ -411,7 +411,13 @@ if (existsSync(powerPath)) {
     })
     .slice(0, PEOPLE_LIMIT);
 }
-const index = { version: 1, changes: sortedChanges.slice(0, 6).map(changeRef), inTheNews, newsWindowDays };
+const index = {
+  version: 1,
+  changes: sortedChanges.slice(0, 6).map(changeRef),
+  inTheNews,
+  newsWindowDays,
+  snapshot: dataset.datasetDate ? String(dataset.datasetDate).slice(0, 10) : null,
+};
 
 const shards = new Map();
 for (const record of records) {

@@ -131,6 +131,10 @@ export function applyCanvasState(search: string, state: CanvasUrlState, knownLay
   if (state.asOf !== null) params.set(URL_PARAMS.date, state.asOf);
   const sel = serializeSelection(state.sel);
   if (sel !== null) params.set(URL_PARAMS.sel, sel);
+  return queryOf(params);
+}
+
+function queryOf(params: URLSearchParams): string {
   const text = params.toString().replace(/%3A/gi, ":").replace(/%2C/gi, ",").replace(/%23/g, "#");
   return text === "" ? "" : `?${text}`;
 }
@@ -138,4 +142,14 @@ export function applyCanvasState(search: string, state: CanvasUrlState, knownLay
 /** The state that goes in `shownLayers` for a set of hidden layers. */
 export function shownLayersFor(knownLayers: readonly string[], hidden: ReadonlySet<string>): readonly string[] | null {
   return hidden.size === 0 ? null : knownLayers.filter((layer) => !hidden.has(layer));
+}
+
+/** A query string with some of the canvas's own parameters set (a string) or removed (null); others stay. */
+export function withParams(search: string, patch: Partial<Record<keyof typeof URL_PARAMS, string | null>>): string {
+  const params = new URLSearchParams(search);
+  for (const [name, value] of Object.entries(patch) as [keyof typeof URL_PARAMS, string | null | undefined][]) {
+    if (value === null || value === undefined) params.delete(URL_PARAMS[name]);
+    else params.set(URL_PARAMS[name], value);
+  }
+  return queryOf(params);
 }
