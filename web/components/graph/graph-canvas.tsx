@@ -34,7 +34,6 @@ import {
 } from "@/lib/motion";
 import { posePosition, sectorPose, type PolarTarget } from "@/lib/pose";
 import { placeLabels, type LabelItem } from "@/lib/label-placement";
-import { clampLabelToBounds } from "@/lib/label-clamp";
 import { arrowOf, nearestInDirection } from "@/lib/graph-direction";
 import { summariseAsOf } from "@/lib/graph-asof";
 import { countLayers } from "@/lib/layer-counts";
@@ -757,14 +756,15 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
           width: (widthAtMeasure / MEASURE_PX) * font,
           height: font * 1.2,
           priority: LABEL_PRIORITY[entry.state],
+          keep: entry.state === "selected",
         });
       }
-      const slots = placeLabels(items, 3 * unit);
-      // What the reader can see, in the same units the labels are placed in.
+      // What the reader can see, in the same units the labels are placed in: no label is cut off at its edge.
       const screenBox = screenRef.current;
       const boxLeft = data.layout.viewBox.x - screenBox.offsetX * unit;
       const boxTop = data.layout.viewBox.y - screenBox.offsetY * unit;
-      const visibleBox = { x0: boxLeft, y0: boxTop, x1: boxLeft + screenBox.width * unit, y1: boxTop + screenBox.height * unit };
+      const visibleBox = { x0: boxLeft + 2 * unit, y0: boxTop + 2 * unit, x1: boxLeft + (screenBox.width - 2) * unit, y1: boxTop + (screenBox.height - 2) * unit };
+      const slots = placeLabels(items, 3 * unit, screenBox.width > 0 ? visibleBox : undefined);
       for (const entry of data.labelled) {
         const element = labelRefs.current.get(entry.node.id);
         if (!element) continue;
@@ -774,12 +774,9 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
           continue;
         }
         const font = fonts.get(entry.node.id) ?? LABEL_PX * unit;
-        const widthAtMeasure = labelWidths.current.get(entry.node.id) ?? entry.text.length * MEASURE_PX * 0.55;
-        // A name beside a mark at the edge of the canvas slides inside it instead of being cut off.
-        const placed = clampLabelToBounds(slot, (widthAtMeasure / MEASURE_PX) * font, font * 1.2, visibleBox);
-        element.setAttribute("x", placed.x.toFixed(2));
-        element.setAttribute("y", placed.y.toFixed(2));
-        element.setAttribute("text-anchor", placed.anchor);
+        element.setAttribute("x", slot.x.toFixed(2));
+        element.setAttribute("y", slot.y.toFixed(2));
+        element.setAttribute("text-anchor", slot.anchor);
         element.setAttribute("font-size", font.toFixed(2));
         element.setAttribute("stroke-width", (font * 0.28).toFixed(2));
         element.setAttribute("opacity", "1");

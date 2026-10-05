@@ -106,9 +106,13 @@ export function parseCanvasUrl(search: string, knownLayers: readonly string[], t
   const layerValue = params.get(URL_PARAMS.layer);
   if (layerValue !== null) {
     const known = new Set(knownLayers);
-    const shown = [...new Set(layerValue.split(",").filter((layer) => known.has(layer)))];
+    const tokens = layerValue.split(",").filter(Boolean);
+    // "-a,-b" lists the layers left off (shorter when most are on); "a,b" lists the ones left on.
+    const exclusion = tokens.length > 0 && tokens.every((token) => token.startsWith("-"));
+    const named = [...new Set(tokens.map((token) => (exclusion ? token.slice(1) : token)).filter((layer) => known.has(layer)))];
+    const shown = exclusion ? knownLayers.filter((layer) => !named.includes(layer)) : named;
     // Every layer off is not a view; an unknown-only list is a typo. Both are ignored.
-    if (shown.length > 0) result.shownLayers = shown;
+    if (named.length > 0 && shown.length > 0) result.shownLayers = shown;
   }
   const date = params.get(URL_PARAMS.date);
   if (validAsOf(date, today)) result.asOf = date;
@@ -126,7 +130,7 @@ export function applyCanvasState(search: string, state: CanvasUrlState, knownLay
   for (const name of Object.values(URL_PARAMS)) params.delete(name);
   if (state.view !== "graph") params.set(URL_PARAMS.view, state.view);
   if (state.shownLayers !== null && state.shownLayers.length < knownLayers.length) {
-    params.set(URL_PARAMS.layer, knownLayers.filter((layer) => state.shownLayers?.includes(layer)).join(","));
+    params.set(URL_PARAMS.layer, layerParam(knownLayers, state.shownLayers));
   }
   if (state.asOf !== null) params.set(URL_PARAMS.date, state.asOf);
   const sel = serializeSelection(state.sel);
@@ -137,6 +141,13 @@ export function applyCanvasState(search: string, state: CanvasUrlState, knownLay
 function queryOf(params: URLSearchParams): string {
   const text = params.toString().replace(/%3A/gi, ":").replace(/%2C/gi, ",").replace(/%23/g, "#");
   return text === "" ? "" : `?${text}`;
+}
+
+/** The layers left on, as the shorter of "a,b" (on) and "-c,-d" (off). */
+export function layerParam(knownLayers: readonly string[], shown: readonly string[]): string {
+  const on = knownLayers.filter((layer) => shown.includes(layer));
+  const off = knownLayers.filter((layer) => !shown.includes(layer));
+  return off.length < on.length ? off.map((layer) => `-${layer}`).join(",") : on.join(",");
 }
 
 /** The state that goes in `shownLayers` for a set of hidden layers. */

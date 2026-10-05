@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {
   applyCanvasState,
   isCalendarDay,
+  layerParam,
   parseCanvasUrl,
   parseSelection,
   serializeSelection,
@@ -89,4 +90,15 @@ test("withParams sets and removes only what it is told to", () => {
   assert.equal(withParams("", { view: "power", layer: "regering,staten-generaal" }), "?view=power&layer=regering,staten-generaal");
   assert.equal(withParams("?view=power", { sel: null }), "?view=power");
   assert.equal(withParams("", { sel: null }), "");
+});
+
+test("a layer left off is the short form, a few left on is the long one", () => {
+  const many = ["a", "b", "c", "d", "e"];
+  assert.equal(layerParam(many, ["a", "b", "c", "d"]), "-e");
+  assert.equal(layerParam(many, ["a"]), "a");
+  assert.deepEqual(parseCanvasUrl("?layer=-e", many, today).shownLayers, ["a", "b", "c", "d"]);
+  assert.deepEqual(parseCanvasUrl("?layer=-e,-nope", many, today).shownLayers, ["a", "b", "c", "d"]);
+  assert.equal(parseCanvasUrl("?layer=-nope", many, today).shownLayers, undefined);
+  assert.equal(parseCanvasUrl("?layer=-a,-b,-c,-d,-e", many, today).shownLayers, undefined);
+  assert.equal(applyCanvasState("", { view: "graph", shownLayers: ["a", "b", "c", "d"], asOf: null, sel: null }, many), "?layer=-e");
 });

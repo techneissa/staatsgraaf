@@ -190,7 +190,7 @@ export function CanvasControls({
           style={view === "graph" ? { color: "var(--color-accent-text)" } : undefined}
         >
           <LucideIcon icon={Orbit} size={16} />
-          <span className="hidden sm:inline">{t("viewGraph")}</span>
+          <span className="hidden min-[380px]:inline">{t("viewGraph")}</span>
         </button>
         <button
           type="button"
@@ -202,7 +202,7 @@ export function CanvasControls({
           style={view === "power" ? { color: "var(--t-color-sector-hoge-colleges)" } : undefined}
         >
           <LucideIcon icon={Users} size={16} />
-          <span className="hidden sm:inline">{t("viewPower")}</span>
+          <span className="hidden min-[380px]:inline">{t("viewPower")}</span>
         </button>
       </div>
 
