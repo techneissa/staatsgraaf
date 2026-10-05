@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { PeekLink } from "@/components/peek/peek-link";
-import { peekKindFor } from "@/lib/peek";
 import { L, T } from "@/components/i18n/t";
 import { LocalizedDescription } from "@/components/entity/localized-description";
 import { englishDescription } from "@/lib/description-translations";
@@ -24,12 +22,16 @@ export function TopicCard({
   const restCount = organizations.length - chipOrganizations.length;
 
   return (
-    <article className="flex h-full flex-col rounded-md border border-line bg-surface p-4 transition-fast hover:border-line-strong">
+    <article className="relative flex h-full min-w-0 flex-col rounded-md border border-line bg-surface p-4 transition-fast hover:border-line-strong">
       <div className="flex flex-wrap items-start justify-between gap-2">
-        <h3 className="text-sm font-semibold">
+        {/* The title link stretches over the whole card and goes straight to the topic (ADR 0017; index lists navigate, decision EN-15 of 05-10-2026). */}
+        <h3 className="min-w-0 text-sm font-semibold [overflow-wrap:anywhere]">
           <Link
             href={`/onderwerpen/${topic.slug}/`}
-            className="text-ink underline-offset-2 hover:text-accent-text hover:underline"
+            prefetch={false}
+            // The link covers the card, so the tooltip of the clipped description lives here.
+            title={topic.description !== null ? `${topic.name}\n${topic.description}` : undefined}
+            className="text-ink underline-offset-2 outline-none after:absolute after:inset-0 hover:text-accent-text hover:underline focus-visible:after:outline-2 focus-visible:after:outline-offset-[-2px] focus-visible:after:outline-focus pointer-coarse:flex pointer-coarse:min-h-11 pointer-coarse:min-w-11 pointer-coarse:items-center"
           >
             <L nl={topic.name} en={topicNameEn(topic.slug, topic.name)} />
           </Link>
@@ -41,11 +43,14 @@ export function TopicCard({
         ) : null}
       </div>
       {topic.description !== null ? (
-        <LocalizedDescription
-          nl={topic.description}
-          en={englishDescription(topic.id, topic.description)}
-          className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted"
-        />
+        // The card clips the text; the full Dutch text stays in the tooltip.
+        <div title={topic.description}>
+          <LocalizedDescription
+            nl={topic.description}
+            en={englishDescription(topic.id, topic.description)}
+            className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted [overflow-wrap:anywhere]"
+          />
+        </div>
       ) : null}
       {chipOrganizations.length > 0 ? (
         <LabeledList
@@ -54,16 +59,9 @@ export function TopicCard({
         >
           {chipOrganizations.map((organization, index) => (
             <li key={organization.id} className="inline">
-              <PeekLink
-                id={organization.id}
-                href={`/organisaties/${organization.slug}/`}
-                kind={peekKindFor(organization.id, organization.subtype) ?? "organization"}
-                variant="quiet"
-                glyph
-                lang="nl"
-              >
+              <span lang="nl" title={organization.name}>
                 {organization.name}
-              </PeekLink>
+              </span>
               {index < chipOrganizations.length - 1 || restCount > 0 ? (
                 <span aria-hidden="true" className="px-1.5">
                   ·

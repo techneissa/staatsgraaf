@@ -56,11 +56,13 @@ export default function PartiesIndexPage() {
             <li key={party.key} className="min-w-0">
               <Link
                 href={`/partijen/${partySlug(party)}/`}
-                className="flex h-full min-w-0 flex-col gap-1 rounded-md border border-line border-t-4 bg-surface p-3 transition-fast hover:border-line-strong"
+                prefetch={false}
+                title={party.name.nl}
+                className="flex h-full min-h-11 min-w-0 flex-col gap-1 rounded-md border border-line border-t-4 bg-surface p-3 transition-fast hover:border-line-strong"
                 style={{ borderTopColor: party.color ?? "var(--t-color-line-strong)" }}
               >
-                <span className="text-sm font-semibold leading-snug text-ink">{party.abbrev}</span>
-                <span className="text-xs leading-snug text-ink-muted" lang="nl">
+                <span className="text-sm font-semibold leading-snug text-ink [overflow-wrap:anywhere]">{party.abbrev}</span>
+                <span className="text-xs leading-snug text-ink-muted [overflow-wrap:anywhere]" lang="nl">
                   {party.name.nl !== party.abbrev ? party.name.nl : null}
                 </span>
                 <span className="mt-auto flex items-center gap-3 pt-1 text-xs text-ink-muted">
