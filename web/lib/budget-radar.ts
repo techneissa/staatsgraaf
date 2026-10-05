@@ -103,8 +103,15 @@ export function axisAngle(index: number, count: number): number {
   return -Math.PI / 2 + (2 * Math.PI * index) / count;
 }
 
+/**
+ * A point on a circle, rounded to hundredths of a pixel. The rounding matters
+ * for hydration: the page is rendered by one JavaScript engine and hydrated in
+ * another, and their trigonometry can differ in the last digits, which React
+ * reports as a mismatch.
+ */
 export function polar(cx: number, cy: number, radius: number, angle: number): { x: number; y: number } {
-  return { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) };
+  const round = (value: number) => Math.round(value * 100) / 100;
+  return { x: round(cx + radius * Math.cos(angle)), y: round(cy + radius * Math.sin(angle)) };
 }
 
 export type RadarLabel = {
@@ -186,9 +193,9 @@ export function radarLayout({
     cy,
     radius,
     labels: boxes.map((box) => ({
-      x: cx + box.x,
+      x: Math.round((cx + box.x) * 100) / 100,
       // Baseline of the first line: the block top plus the ascent of the font.
-      y: cy + box.top + (lineHeight + fontSize * 0.7) / 2,
+      y: Math.round((cy + box.top + (lineHeight + fontSize * 0.7) / 2) * 100) / 100,
       anchor: box.anchor,
       lines: box.lines,
     })),
