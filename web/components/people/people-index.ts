@@ -39,6 +39,8 @@ export type PersonEntry = {
   color: string | null;
   colorSource: PersonColorSource | null;
   portrait: { url: string; credit: string } | null;
+  /** Alternative names, for the search field. */
+  aliases: string[];
   /** Lowercase, accent-free text the search field matches against. */
   search: string;
 };
@@ -185,6 +187,7 @@ export function buildPersonEntry(person: Person): PersonEntry {
     color: identity?.color ?? null,
     colorSource: identity?.source ?? null,
     portrait: media ? { url: media.url, credit: mediaCreditLine(media) } : null,
+    aliases: person.aliases,
     search: foldText([person.name, ...person.aliases, party?.label ?? "", role?.nl ?? ""].join(" ")),
   };
 }

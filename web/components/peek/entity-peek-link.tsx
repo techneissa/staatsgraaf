@@ -16,6 +16,7 @@ export function EntityPeekLink({
   glyph = false,
   className,
   fallback,
+  peek = true,
 }: {
   id: string;
   children?: ReactNode;
@@ -23,13 +24,15 @@ export function EntityPeekLink({
   glyph?: boolean;
   className?: string;
   fallback?: ReactNode;
+  /** False on a list that is for navigating: a plain link, no peek (see PeekLink). */
+  peek?: boolean;
 }) {
   const summary = entitySummary(id);
   const subtype = id.startsWith("org:") ? (getOrganizationById(id)?.subtype ?? null) : null;
   const kind = peekKindFor(id, subtype);
   if (summary === null || kind === null) return <>{fallback ?? children ?? null}</>;
   return (
-    <PeekLink id={id} href={summary.href} kind={kind} variant={variant} glyph={glyph} className={className} lang={children === undefined ? "nl" : undefined}>
+    <PeekLink id={id} href={summary.href} kind={kind} variant={variant} glyph={glyph} className={className} peek={peek} lang={children === undefined ? "nl" : undefined}>
       {children ?? summary.label}
     </PeekLink>
   );

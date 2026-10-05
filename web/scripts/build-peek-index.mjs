@@ -7,6 +7,10 @@
  *
  * Every value is copied from the dataset (via the same loaders the pages use);
  * nothing is summarised or generated. Missing values stay null.
+ *
+ * It also writes the compact row lists of the people, organisation and
+ * position index pages to public/peek/lists/ (lib/index-rows.ts); those pages
+ * render only their first screen and fetch the rest from there.
  */
 import { mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -277,3 +281,18 @@ for (let index = 0; index < PEEK_SHARDS; index += 1) {
 console.log(
   `peek index: ${records.length} records in ${PEEK_SHARDS} shards, ${(bytes / 1024).toFixed(1)} KiB total, largest shard ${(largest / 1024).toFixed(1)} KiB`,
 );
+
+// The long index lists (people, organisations, positions): one JSON file each,
+// fetched by the list pages after the first screen. Same loaders as the pages.
+const { buildPeopleRows, buildOrganizationRows, buildPositionRows } = await import("../lib/index-rows.ts");
+const LISTS_DIR = join(OUT_DIR, "lists");
+mkdirSync(LISTS_DIR, { recursive: true });
+for (const [name, rows] of [
+  ["personen", buildPeopleRows().rows],
+  ["organisaties", buildOrganizationRows().rows],
+  ["posities", buildPositionRows().rows],
+]) {
+  const json = JSON.stringify(rows.map((row) => Object.fromEntries(Object.entries(row).filter(([, value]) => value !== null && value !== undefined))));
+  writeFileSync(join(LISTS_DIR, `${name}.json`), json);
+  console.log(`index list ${name}: ${rows.length} rows, ${(Buffer.byteLength(json, "utf8") / 1024).toFixed(1)} KiB`);
+}
