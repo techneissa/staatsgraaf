@@ -413,3 +413,50 @@ test("the Dutch Openbaar Ministerie links when nothing points abroad", () => {
   const result = realLink("Openbaar Ministerie gaat voortaan altijd celstraf eisen na fysiek geweld tegen hulpverleners");
   assert.deepEqual(result.entities, ["org:openbaar-ministerie"]);
 });
+
+test("an outlet is never linked as a mention of itself", () => {
+  const withActor = [
+    ...REAL_GAZETTEER.map((entry) => ({ alias: entry.alias, target: entry.target, confidence: entry.declared })),
+    ...buildTitleAliases(
+      [{ id: "person:eelco-heinen", name: "Eelco Heinen" }],
+      [{ person: "person:eelco-heinen", position: "pos:minister-van-financien", end: null }],
+    ),
+  ];
+  const gazetteer = buildGazetteer(withActor);
+  const title = "Minister Heinen over de begroting";
+  const text = "Dat zei hij tegen de NOS.";
+  const other = linkArticle({ title, text, gazetteer, topicIndex: [], publisher: "NU.nl" });
+  assert.ok(other.entities.includes("org:rwt-nederlandse-omroep-stichting-nos"), JSON.stringify(other.entities));
+  const own = linkArticle({ title, text, gazetteer, topicIndex: [], publisher: "NOS" });
+  assert.deepEqual(own.entities, ["person:eelco-heinen"]);
+});
+
+test("a topic match carries the keywords that produced it", () => {
+  const result = realLink("Hersteloperatie voor gedupeerde ouders loopt vertraging op");
+  assert.ok(result.topics.includes("topic:toeslagen"));
+  assert.ok(result.topicEvidence.includes("gedupeerde ouders"), JSON.stringify(result.topicEvidence));
+  assert.deepEqual(realLink("Niets over de overheid in deze kop").topicEvidence, []);
+});
+
+test("every topic in the result has evidence", () => {
+  for (const title of ["Hersteloperatie voor gedupeerde ouders", "Stikstof blokkeert woningbouw", "Inspectie: onderwijs op scholen en leerlingen"]) {
+    const result = realLink(title);
+    assert.ok(result.topics.length > 0 && result.topicEvidence.length >= result.topics.length, title);
+  }
+});
+
+test("burgemeester plus surname links to the current mayor", () => {
+  const aliases = buildTitleAliases(
+    [{ id: "person:femke-halsema", name: "Femke Halsema" }],
+    [{ person: "person:femke-halsema", position: "pos:burgemeester-amsterdam", end: null }],
+  );
+  assert.deepEqual(aliases.map((entry) => entry.alias), ["burgemeester Halsema"]);
+  assert.deepEqual(
+    linkArticle({ title: "Burgemeester Halsema reageert", gazetteer: buildGazetteer(aliases), topicIndex: [] }).entities,
+    ["person:femke-halsema"],
+  );
+  assert.deepEqual(
+    linkArticle({ title: "Franse burgemeester Halsema reageert", gazetteer: buildGazetteer(aliases), topicIndex: [] }).entities,
+    [],
+  );
+});

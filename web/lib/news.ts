@@ -114,19 +114,20 @@ export function newsKeywords(item: Pick<NewsItem, "keywords">): string[] {
 }
 
 /**
- * An item counts as naming the state when the linker matched at least one
- * entity (person, organisation, position) or topic. Derived at read time from
- * the linker output, so the data holds no extra flag (docs/adr/0021).
+ * An item counts as naming the state when the linker matched at least one entity
+ * (person, organisation, position), or a topic with evidence: the pipeline stores
+ * the keywords that produced each topic in `keywords`, and a topic with an empty
+ * keyword list proves nothing. Items from before the field existed (`keywords`
+ * absent) keep their topics. Derived at read time (docs/adr/0021).
  */
-export function isRelevantNews(item: Pick<NewsItem, "entities" | "topics">): boolean {
-  return (
-    (Array.isArray(item.entities) && item.entities.length > 0) ||
-    (Array.isArray(item.topics) && item.topics.length > 0)
-  );
+export function isRelevantNews(item: Pick<NewsItem, "entities" | "topics"> & { keywords?: string[] }): boolean {
+  if (Array.isArray(item.entities) && item.entities.length > 0) return true;
+  if (!Array.isArray(item.topics) || item.topics.length === 0) return false;
+  return !Array.isArray(item.keywords) || item.keywords.length > 0;
 }
 
 /** How many of the items name the state, and how many there are. */
-export function relevanceCounts(items: Pick<NewsItem, "entities" | "topics">[]): { total: number; relevant: number } {
+export function relevanceCounts(items: Pick<NewsItem, "entities" | "topics" | "keywords">[]): { total: number; relevant: number } {
   return { total: items.length, relevant: items.filter(isRelevantNews).length };
 }
 
@@ -134,7 +135,7 @@ export function relevanceCounts(items: Pick<NewsItem, "entities" | "topics">[]):
  * The newest `limit` relevant items, or the newest `limit` items of any kind when
  * none is relevant, so a band never goes blank because the linker found nothing.
  */
-export function selectRelevantNews<T extends Pick<NewsItem, "entities" | "topics" | "published" | "id">>(
+export function selectRelevantNews<T extends Pick<NewsItem, "entities" | "topics" | "keywords" | "published" | "id">>(
   items: T[],
   limit: number,
 ): T[] {

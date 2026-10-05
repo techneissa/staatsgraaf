@@ -258,7 +258,7 @@ function resolveMentions(found, { haystack, pointsAbroad, governmentOutlet }) {
   });
 }
 
-export function linkArticle({ title = "", text = "", gazetteer = [], topicIndex = [], governmentOutlet = false }) {
+export function linkArticle({ title = "", text = "", gazetteer = [], topicIndex = [], governmentOutlet = false, publisher = "" }) {
   const haystack = [title, text].filter(Boolean).join(" \u2014 ");
   const normalized = normalizeText(haystack);
   const occupied = [];
@@ -281,7 +281,10 @@ export function linkArticle({ title = "", text = "", gazetteer = [], topicIndex 
   }
 
   const pointsAbroad = FOREIGN_CONTEXT.test(haystack) && !DUTCH_CONTEXT.test(haystack);
-  const matches = resolveMentions(found, { haystack, pointsAbroad, governmentOutlet });
+  const ownName = normalizeText(publisher);
+  // An outlet is never a mention of itself: "NOS" in a NOS item is the byline, not the body.
+  const notOwn = ownName === "" ? found : found.filter(({ entry }) => entry.key !== ownName);
+  const matches = resolveMentions(notOwn, { haystack, pointsAbroad, governmentOutlet });
 
   matches.sort((a, b) => a.index - b.index || b.length - a.length || a.entry.alias.localeCompare(b.entry.alias));
 
@@ -304,6 +307,8 @@ export function linkArticle({ title = "", text = "", gazetteer = [], topicIndex 
     summaryMarkup,
     entities,
     topics: topicMatches.map((match) => match.id),
+    // The keywords that attached the topics, so the reader can see why (docs/adr/0021).
+    topicEvidence: [...new Set(topicMatches.flatMap((match) => match.keywords))],
     fallbackTopics,
     matches: matches.map((match) => ({
       alias: match.entry.alias,
@@ -374,6 +379,7 @@ export function buildTitleAliases(people, tenures) {
     else if (/^pos:minister-van-/.test(position)) titles = ["minister"];
     else if (/^pos:staatssecretaris-/.test(position)) titles = ["staatssecretaris"];
     else if (/^pos:fractievoorzitter(-|$)/.test(position)) titles = TITLE_LEADER_FORMS;
+    else if (/^pos:burgemeester-/.test(position)) titles = ["burgemeester"];
     for (const title of titles) {
       for (const surname of surnameForms(person.name)) rows.push({ alias: `${title} ${surname}`, target: person.id });
     }

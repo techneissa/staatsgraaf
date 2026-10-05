@@ -10,6 +10,7 @@ import {
   dedupeItems,
   feedConfigsFromEnvelope,
   isExcludedUrl,
+  itemKeywords,
   keywordsFromMatches,
   makeIdFactory,
   normalizeDate,
@@ -595,4 +596,17 @@ test("the registry blocks RTL boulevard with a stated reason", async () => {
   const rtl = registry.feeds.find((feed) => feed.publisher === "RTL Nieuws");
   const rule = rtl.excludePaths.find((entry) => entry.pattern === "/boulevard/");
   assert.ok(rule && rule.reason.length > 10);
+});
+
+test("itemKeywords lists entity aliases first, then the topic evidence, without duplicates", () => {
+  const link = {
+    matches: [
+      { alias: "minister Heinen", confidence: "high" },
+      { alias: "het kabinet", confidence: "medium" },
+    ],
+    topicEvidence: ["box 3", "minister Heinen", "belasting"],
+  };
+  assert.deepEqual(itemKeywords(link, 3), ["minister Heinen", "box 3", "belasting"]);
+  assert.deepEqual(itemKeywords({ matches: [], topicEvidence: ["azc"] }), ["azc"]);
+  assert.deepEqual(itemKeywords({ matches: [] }), []);
 });

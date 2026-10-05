@@ -335,6 +335,19 @@ export function makeIdFactory(prefix = "news") {
   };
 }
 
+/**
+ * The stored `keywords`: the aliases that produced entity links, then the keywords that
+ * produced topic links, so every link on a card can say why it is there.
+ */
+export function itemKeywords(link, limit = MAX_KEYWORDS) {
+  const keywords = keywordsFromMatches(link?.matches, limit);
+  for (const word of link?.topicEvidence ?? []) {
+    if (keywords.length >= limit) break;
+    if (typeof word === "string" && word !== "" && !keywords.includes(word)) keywords.push(word);
+  }
+  return keywords;
+}
+
 export function keywordsFromMatches(matches, limit = MAX_KEYWORDS) {
   const keywords = [];
   const seen = new Set();
@@ -573,6 +586,7 @@ export async function runNewsPipeline({
       gazetteer,
       topicIndex,
       governmentOutlet: item.publisherKind === "vakmedia",
+      publisher: item.publisher,
     });
     if (link.highMatches > 0) {
       highConfidenceItems += 1;
@@ -645,7 +659,7 @@ export async function runNewsPipeline({
       summaryMarkup: link.summaryMarkup,
       entities: link.entities,
       topics: link.topics,
-      keywords: keywordsFromMatches(link.matches),
+      keywords: itemKeywords(link),
       image: imageId,
       imageUrl: imageUrl ?? null,
       sources: [{ source: srcId, retrieved: now.toISOString().slice(0, 10), confidence: "high" }],
