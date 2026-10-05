@@ -10,7 +10,7 @@ export const PAGES_DICT = {
   scopeLabel: { nl: "NL Rijk", en: "NL national" },
 
   linkHome: { nl: "homepage", en: "homepage" },
-  linkAbout: { nl: "Over", en: "About" },
+  linkAbout: { nl: "Over en methode", en: "About and method" },
   linkPrivacy: { nl: "Privacy", en: "Privacy" },
   linkAccessibility: { nl: "Toegankelijkheid", en: "Accessibility" },
   linkDataset: { nl: "Dataset", en: "Dataset" },
@@ -100,7 +100,7 @@ export const PAGES_DICT = {
   kindPerson: { nl: "Persoon", en: "Person" },
   kindTopic: { nl: "Onderwerp", en: "Topic" },
 
-  aboutTitle: { nl: "Over", en: "About" },
+  aboutTitle: { nl: "Over en methode", en: "About and method" },
   methodIntro: {
     nl: "Staatsgraaf is een open, bronvaste kaart van de Nederlandse overheid. Deze pagina beschrijft hoe de dataset tot stand komt, welke regels voor elke bewering gelden, hoe de wijzigingenfeed werkt, waar taalmodellen wel en niet worden gebruikt, en welke grenzen de data nu hebben.",
     en: "Staatsgraaf is an open, source-backed map of the Dutch government. This page describes how the dataset is built, which rules apply to every claim, how the change feed works, where language models are and are not used, and which limits the data have today.",
