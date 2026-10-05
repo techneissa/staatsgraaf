@@ -79,12 +79,18 @@ export function ChangeIndicator({
           const formatted = formatBudgetAmount(Math.abs(absolute), unit, locale);
           return formatted !== null ? `${sign}${formatted}` : t("budgetChangeUnknown");
         })();
+  // The spoken sentence names the direction in words ("gestegen met"), so it
+  // reads the size without the sign the visible figure carries.
+  const spokenAmount =
+    percent !== null
+      ? formatPercent(Math.abs(percent), locale)
+      : (formatBudgetAmount(Math.abs(absolute), unit, locale) ?? t("budgetChangeUnknown"));
   const srKey =
     direction === "up" ? "budgetChangeSrUp" : direction === "down" ? "budgetChangeSrDown" : "budgetChangeSrFlat";
 
   return (
     <p className={`flex flex-wrap items-center gap-x-1.5 text-xs ${className}`} style={{ color: TONE[direction] }}>
-      <span className="sr-only">{t(srKey, { label: t(labelKey), amount, year: since })}</span>
+      <span className="sr-only">{t(srKey, { label: t(labelKey), amount: spokenAmount, year: since })}</span>
       <TrendArrow direction={direction} />
       <span aria-hidden="true" className="font-medium tabular-nums">
         {amount}
