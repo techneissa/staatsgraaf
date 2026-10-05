@@ -129,7 +129,7 @@ export function TopBar() {
       className="relative z-20 shrink-0 border-b border-line bg-canvas pt-[var(--safe-top)]"
       style={{ viewTransitionName: "site-header" }}
     >
-      <div className="flex items-center gap-1.5 py-2 pl-[max(0.75rem,var(--safe-left))] pr-[max(0.75rem,var(--safe-right))] sm:gap-3 sm:pl-[max(1rem,var(--safe-left))] sm:pr-[max(1rem,var(--safe-right))]">
+      <div className="flex items-center gap-1.5 py-2 pl-[max(0.75rem,var(--safe-left))] pr-[max(0.75rem,var(--safe-right))] sm:gap-3 sm:pl-[max(1rem,var(--safe-left))] sm:pr-[max(1rem,var(--safe-right))] lg:gap-2">
         <BrandLockup />
         <MobileMenu pathname={pathname} />
         <nav aria-label={t("navMain")} className="hidden items-center gap-0.5 text-sm min-[1180px]:flex">
@@ -140,7 +140,7 @@ export function TopBar() {
                 key={item.href}
                 href={sectionHref(item.href, english)}
                 aria-current={current ? "page" : undefined}
-                className={`link-draw tap-row flex items-center whitespace-nowrap rounded-sm px-2 py-1 underline-offset-4 [--link-draw-bottom:calc(50%-0.72em)] [--link-draw-inset:0.5rem] hover:text-ink hover:underline ${
+                className={`link-draw tap-row flex items-center whitespace-nowrap rounded-sm px-1.5 py-1 underline-offset-4 [--link-draw-bottom:calc(50%-0.72em)] [--link-draw-inset:0.375rem] hover:text-ink hover:underline ${
                   current ? "text-ink underline decoration-accent" : "text-ink-muted"
                 }`}
               >
@@ -162,7 +162,8 @@ export function TopBar() {
               </Link>
             </noscript>
           </div>
-          <div className="max-[400px]:hidden">
+          {/* Nine sections fill the bar from 1180 px; the history buttons wait for 1281 px. */}
+          <div className="max-[400px]:hidden min-[1180px]:max-[1280px]:hidden">
             <HistoryControls />
           </div>
           <ThemeToggle />
