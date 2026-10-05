@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { ViewTransition, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import "./globals.css";
 import { LanguageProvider } from "@/components/i18n/language-provider";
 import { CanvasFrame } from "@/components/canvas-frame";
@@ -79,11 +79,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     {/* What is picked on the canvas, above the page; it does not
                         take part in the page transition. */}
                     <SelectionProfileGate />
-                    {/* The page column cross-fades on navigation (globals.css, "Page
-                        transitions"); nothing else on the page takes part. */}
-                    <ViewTransition update="sg-page" default="none">
-                      <div id="sg-page">{children}</div>
-                    </ViewTransition>
+                    {/* The page itself, wrapped and cross-faded by app/template.tsx. */}
+                    {children}
                   </div>
                 </main>
                 <SiteFooter datasetDate={datasetDate} />
