@@ -1,118 +1,123 @@
 # Staatsgraaf
 
-A public, source-backed, explorable graph of the Dutch state, modeled on the CivLab Gov Graph for the United States (https://graph.civlab.org/us). It maps the Rijk and the decentrale overheid, the positions in them, and the people who hold those positions, with every fact traced to an official source.
+Staatsgraaf is a public map of the Dutch state. It shows which bodies exist, who sits in them, how they connect, and what changed recently. Every fact links to the official source it came from.
 
-Staatsgraaf is the public project name. It replaces the earlier working name "NL Overheid Graph"; see `docs/adr/0003-project-name.md`.
+Live site: https://staatsgraaf.pages.dev (Dutch, with an English switch)
 
-## Status
+The idea comes from the CivLab Gov Graph for the United States (https://graph.civlab.org/us). Staatsgraaf does the same for the Netherlands: the Rijk, provinces, gemeenten, waterschappen, the courts, the two Kamers and the cabinet.
 
-Phases 0 to 4 are complete: recon and schema freeze, parallel research, the merged dataset, the web app, and QA. Phase 5 (launch) is in progress.
+## What you can do on the site
 
-- The web app is built and produces a static export from `web/`.
-- The dataset snapshot is `2026-09-18` (`data/meta.json`).
-- The site is live at https://staatsgraaf.pages.dev. `NEXT_PUBLIC_SITE_URL` falls back to that URL, so canonical, `robots.txt`, and `sitemap.xml` carry absolute URLs.
-- The nightly refresh workflow is committed (`.github/workflows/refresh.yml`) and scheduled for 03:00 UTC. A green run from GitHub Actions is not yet confirmed.
-- The repository is not public yet. The public repository URL and correction address are pending and named as gaps.
+- Browse the state as a wheel or a graph, and switch to a second view that shows hierarchy, the cabinet, the Tweede Kamer and Eerste Kamer seat charts, and how bodies relate.
+- Open any person, organisation, position, party or topic. Each page lists who holds the office, since when, who held it before, and the source for each statement.
+- Follow `Wijzigingen` for appointments, departures, vacancies and acting officials. Changes can be filtered by period, kind and day, and read per person.
+- Read `Nieuws` from 14 Dutch and English outlets. By default you see only items that name a real person, body, position or topic from the dataset. A toggle shows the rest.
+- Look through `Begroting`: the 2025 to 2027 budgets per ministry, with the sources.
+- Search with typo tolerance. Press `/` or Cmd+K anywhere.
 
-## Every fact has a source
+## Where the facts come from
 
-Every non-trivial fact carries a source URL, a retrieval date, and a confidence value. The rule is fetch, never recall: no value is written from memory. When a source cannot be reached, the pipeline records a named gap with the endpoint instead of a value. A wrong fact is corrected with a new dataset commit and a changelog entry, never with a silent edit.
+Staatsgraaf has one rule. Every non-trivial fact carries a source URL, a retrieval date and a confidence value. Values are fetched, never written from memory. If a source cannot be reached or does not state a fact, the dataset records a named gap. A gap is allowed. An invented value is not.
 
-Language models may compress, rewrite, and link facts that a source states. They may not add a fact a source does not state. Every description and summary is reviewed against its source. See `docs/09-content-and-ai-policy.md`.
+| Subject | Source |
+| --- | --- |
+| Tweede Kamer members, fracties, seats, chairs | Tweede Kamer open data (CC0) |
+| Eerste Kamer members and fractie boards | eerstekamer.nl pages |
+| Ministers and staatssecretarissen | rijksoverheid.nl |
+| Election dates | Kiesraad |
+| Budgets | Begrotingsstaten from rijksfinancien.nl (CC0) |
+| Portraits | Wikimedia Commons and Tweede Kamer open data, with licence and author recorded |
+| News | RSS feeds of the outlets; only headline, link and time unless the feed allows more |
 
-## Where the data and the research live
+Language models may shorten and rephrase what a source says. They may not add facts. News is never a source for a fact about a person or an office. It can only prompt an early check of the official sources. The rules are in `docs/09-content-and-ai-policy.md`.
 
-- `data/` is the merged dataset and the single source of truth. `data/sources.json` holds every source URL with its retrieval metadata, and `data/meta.json` holds the snapshot date, the counts, and the licenses.
-- `research/` holds the per-workstream output, the raw fetched snapshots under `research/raw/`, the merge decisions in `research/merge-log.md`, the license determination in `research/O-licenses.md`, and the QA and validation reports.
-- `schema/v1/` is the frozen data contract as JSON Schema. `schema/README.md` explains the layout.
+## The data
 
-Counts in the `2026-09-18` snapshot: 1571 organizations, 1428 positions, 867 people, 1235 tenures, 225 memberships, 2338 relations, 12 topics, 36 budgets, 3197 sources, 1268 changes, and 1556 news items. `data/media.json` holds 330 licensed portraits, so 330 of the 867 people show a photo.
+The merged dataset is in `data/` as JSON and is the single source of truth. The contract is `schema/v1/` (JSON Schema), and `bun run validate` checks the data against it, including references between records.
 
-## Repository layout
+Snapshot of 05-10-2026:
+
+| Records | Count |
+| --- | --- |
+| Organisations | 1,644 |
+| Positions | 1,503 |
+| People | 880 |
+| Tenures | 1,716 |
+| Memberships | 225 |
+| Relations | 4,068 |
+| Sources | 4,482 |
+| Changes in the feed | 1,306 |
+| News items | 1,245 |
+| Budgets | 36 |
+| Portraits | 457 |
+
+Dates in the dataset are ISO 8601. Dates in documents are written dd-MM-YYYY.
+
+## How the data stays current
+
+`bun run live` refetches the official sources and applies what changed. It reads the Tweede Kamer by change cursor, checks the Eerste Kamer pages by hash, reads the cabinet list, and parses election dates.
+
+Before it writes anything it checks that the result is consistent: 150 Tweede Kamer seats, 75 Eerste Kamer seats, no seat held twice, every member matched to a person, and fractie totals that add up. A large batch of changes passes only when an event explains it, such as a fractie merger or an election. Otherwise the run stops, writes nothing for that source and reports why. People and closed terms are never deleted. A term is closed with the official end date.
+
+`bun run news` fetches the news feeds and links mentions to records in the dataset. The link step is a dictionary match against real records. A model never writes a link.
+
+The scheduled workflows are in `.github/workflows/`. Decisions about sources and cadence are in `docs/adr/0006-live-official-sources.md` and `docs/adr/0024-live-data-automation.md`.
+
+## Run it yourself
+
+You need Bun 1.4.2 (pinned in `.bun-version`) and Node 20.9 or newer. Next.js runs on Node. The pipelines and tests run on Bun alone.
+
+```sh
+bun test pipelines web/lib   # tests
+bun run validate             # schema and reference checks on data/
+bun run live                 # refetch official sources and apply changes
+bun run news                 # refetch news and relink mentions
+
+cd web
+bun install
+bun run dev                  # http://localhost:3000
+bun run build                # static export in web/out
+```
+
+`web/README.md` covers routes, design tokens and environment settings.
+
+## Layout
 
 | Path | Contents |
 | --- | --- |
-| `AGENTS.md` | Operating law and the route to the right document |
-| `docs/` | The documentation set; start at `docs/00-index.md` |
-| `docs/adr/` | Architecture decision records |
-| `data/` | The merged, normalized JSON dataset |
-| `research/` | Workstream output, raw snapshots, merge log, QA reports |
-| `schema/v1/` | The JSON Schema contract |
-| `pipelines/` | Merge, diff, news, license mapping, and their tests |
-| `scripts/` | The validator, the link checker, and the seed script |
-| `shared/` | The cross-client contract and the design tokens |
-| `web/` | The Next.js client; static export |
-| `web/lib/graph-layout.md` | The documented graph layout both clients follow |
+| `data/` | The merged dataset |
+| `schema/v1/` | JSON Schema contract |
+| `pipelines/` | Fetchers, merge, news, linker, change feed, and their tests |
+| `research/` | Per-topic research output, merge log, licence determination |
+| `web/` | The Next.js site, built as a static export |
+| `shared/` | Design tokens and the cross-client contract |
+| `scripts/` | Validator and link checker |
+| `docs/` | Vision, data model, content policy, accessibility and security notes, decision records in `docs/adr/` |
 
-## How to run the pipelines and the web app
+## Known gaps
 
-The toolchain is Bun 1.2 or newer; `.bun-version` pins 1.4.2. Bun installs packages, runs scripts and tests, and executes the pipelines, the validator, and the web build scripts. The root package has no dependencies, so it has no lockfile and no install step.
+These are named, not filled with guesses.
 
-```sh
-bun run merge      # merge the research files into data/ and regenerate ATTRIBUTION.md
-bun run validate   # validate data/ against schema/v1/ and check referential integrity
-bun test           # run the pipeline tests
-```
+- 841 of 1,503 positions have no recorded holder. Most are seat-bound roles such as raadslid, statenlid and wethouder. A position page says so instead of implying the seat is vacant.
+- 52 of 880 people have neither a role nor a membership on record.
+- 423 people have no portrait. A portrait is used only when its licence allows reuse and a second fact besides the name ties it to the person. The Eerste Kamer and rijksoverheid.nl do not allow reuse of their photos, and many mayors and board members have no freely licensed photo. The decision is in `docs/adr/0014-portrait-sources-and-attribution.md`.
+- Party leaders have no official register. The dataset uses the Tweede Kamer fractievoorzitter as the sourced stand-in.
+- Commissarissen van de Koning have no open register, so their entries are not refreshed automatically.
+- The English interface translates labels and glosses. Page titles and meta descriptions stay Dutch, because the site is a static export with one HTML file per route.
+- The mayor register and Kiesraad candidate lists are planned and not built.
 
-`bun run diff` derives the change feed, and `bun run research:check` runs the validator over the workstream envelopes. The link checker is `bun run check-links`. Any pipeline also runs directly, for example `bun pipelines/news.mjs` or `bun scripts/validate.mjs --research`.
+The full list by phase is in `research/merge-log.md`.
 
-The web app is a separate package with the only lockfile, `web/bun.lock`:
+## Licences
 
-```sh
-cd web
-bun install
-bun run build      # static export in web/out
-```
+The code and the dataset have separate licences. See `LICENSE` for code and `LICENSE-DATA` for data. The data is CC BY 4.0: credit Staatsgraaf, keep each fact's source URL and retrieval date, and state the licence. `ATTRIBUTION.md` lists the licence of every source and is generated from `data/sources.json`. Where a source is all rights reserved, Staatsgraaf uses only the facts, the headline and the link, never the text or images.
 
-Next.js, tsc, and Wrangler still execute on Node.js 20.9 or newer; Bun starts them through their node shebang. So Node is required for `bun run build`, `bun run dev`, `bun run typecheck`, and the deploy step, but not for the pipelines or the tests.
+To cite the data: "Staatsgraaf, dataset version v1, snapshot 05-10-2026. Source: {source-url}, retrieved {YYYY-MM-DD}. Available under CC BY 4.0."
 
-For local development, `cd web && bun run dev` serves the site at http://localhost:3000. See `web/README.md` for the routes, the design tokens, and the environment settings. The toolchain decision is recorded in `docs/adr/0005-bun-toolchain.md`.
+## Corrections and contributing
 
-## Licenses
-
-- Code: MIT. See `LICENSE`.
-- Dataset, descriptions, and summaries: CC BY 4.0. See `LICENSE-DATA`.
-- Per-source attribution and license: `ATTRIBUTION.md`, generated from `data/sources.json` by `pipelines/licenses.mjs`. The per-source determination is in `research/O-licenses.md`.
-
-The CC BY 4.0 grant covers our own contribution: the selection, structure, compilation, descriptions, and summaries. Facts themselves are not copyrightable. On reuse you must credit Staatsgraaf, keep the source URL and retrieval date with the facts they belong to, and state the license. Where a source is all rights reserved, only the facts, the headline, and the deep link are used, not the source prose or images.
-
-## How to cite
-
-Cite the dataset version and the snapshot date, and cite the per-fact source with its retrieval date. Suggested shape, following `research/O-licenses.md` section 3.2:
-
-- English: "Staatsgraaf, dataset version v1, snapshot 18-09-2026. Source: {source-url}, retrieved {YYYY-MM-DD}. Available under CC BY 4.0."
-- Dutch: "Staatsgraaf, datasetversie v1, peildatum 18-09-2026. Bron: {bron-url}, geraadpleegd {YYYY-MM-DD}. Beschikbaar onder CC BY 4.0."
-
-The repository URL and a permanent link are pending while the repository is private.
-
-## Report a correction
-
-A published fact is never silently edited. Every correction is logged with the old value, the new value, the date, and the reason. The correction policy is in `docs/09-content-and-ai-policy.md` section 8, and the process for a contributor is in `CONTRIBUTING.md`.
-
-A public contact address and the public repository URL are not published yet. That is a named gap, and there is currently no public channel for a correction. Until one exists, facts with an unresolved source are shown as a gap rather than a guess.
+A published fact is never edited silently. A correction keeps the old value, the new value, the date and the reason. Read `CONTRIBUTING.md` before you open a pull request, `SECURITY.md` to report a vulnerability, and `CODE_OF_CONDUCT.md` for how we work together.
 
 ## Independence
 
-Staatsgraaf is an independent, open publication about the Dutch government. It is not affiliated with, endorsed by, or connected to the Dutch government or any government body. The Dutch and English statements are in `DISCLAIMER.md`.
-
-## Known data limits
-
-- 843 positions have no tenure with a source yet. They are mostly seat-bound roles such as raadslid, statenlid, wethouder, and gedeputeerde, plus a number of griffiers, secretarissen-generaal, and diensthoofden.
-- Umbrella bodies GGD'en and omgevingsdiensten are not modeled yet. The VNG, IPO, and Unie van Waterschappen are modeled.
-- The three Kingdom countries (Aruba, Curaçao, and Sint Maarten) and their gouverneurs and Gevolmachtigde Ministers are not modeled yet.
-- 537 of the 867 people have no portrait. The 330 portraits that ship come from Wikimedia Commons with a recorded license and credit; the rest stay a named gap (`research/qa/portraits-18-09-2026.md`). News cards carry no article image because no outlet grants an image license; they fall back to a linked person's portrait or the outlet's monogram.
-- Some source hosts refuse automated checks with a 403 response, including `www.hogeraad.nl` and `www.raadvanstate.nl`. The live dataset carries a `web.archive.org` `archiveUrl` for nine of those sources; the remaining sources have `archiveUrl` null and no archive URL was guessed.
-- 52 people have neither a tenure nor a dated membership. Their start date is not published by the source, so they stay as named gaps.
-- Topic records carry no `sources` field in the v1 schema. Their provenance is in the research envelope and markdown, and a schema change is proposed for v1.1.
-- Search disambiguation depends on the curated overlay in `web/data/search-aliases.json`: `Den Haag`, `Utrecht`, and `Groningen` resolve there, but the merged organization records still lack the plain terms. Position aliases are not supported by the v1 position schema.
-- The change feed does not classify memberships of large colleges yet.
-
-These limits are named, not filled with an assumption. The full list, by phase, is in `research/merge-log.md` and `research/validation-report-phase4.md`.
-
-## Contributing and security
-
-Read `CONTRIBUTING.md` before opening a pull request. Report a vulnerability through the path in `SECURITY.md`, and follow `CODE_OF_CONDUCT.md` in every interaction.
-
-## Documentation
-
-`AGENTS.md` routes a task to the right document. `docs/00-index.md` is the map of the set. The phase model is in `docs/07-workflow-and-roadmap.md`, and the acceptance gate is in `docs/08-acceptance-and-qa.md`.
+Staatsgraaf is an independent publication. It is not affiliated with or endorsed by the Dutch government or any government body. See `DISCLAIMER.md`. Check any fact against the official source before you rely on it.
