@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { SourceLink } from "@/components/source-link";
+import { ExternalLink } from "./external-link";
 import { T } from "@/components/i18n/t";
 import { getSourceById } from "@/lib/data";
 import type { SourceRef } from "@/lib/types";
@@ -41,9 +41,9 @@ export function GapNote({
             <T area="entity" k="gapSourceLabel" />
           </span>
           {shown.map((source) => (
-            <SourceLink key={source.url} href={source.url} meta={source.publisher}>
+            <ExternalLink key={source.url} href={source.url} meta={source.publisher}>
               {source.title}
-            </SourceLink>
+            </ExternalLink>
           ))}
         </p>
       ) : null}

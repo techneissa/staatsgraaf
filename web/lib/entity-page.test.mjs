@@ -5,6 +5,7 @@ import {
   commissieRole,
   compareBySurname,
   compareCommissieHolders,
+  descriptionDateConflicts,
   holderState,
   isGenericOrganization,
   sortCareerNewestFirst,
@@ -123,4 +124,11 @@ test("a position without tenures is unknown, not vacant", () => {
   assert.deepEqual(holderState({ ...base, lastEnded: "2025-01-01" }), { kind: "ended", date: "2025-01-01" });
   assert.deepEqual(holderState({ ...base, memberCount: 150 }), { kind: "members", count: 150 });
   assert.deepEqual(holderState({ ...base, currentHolders: 2, vacancy: true }), { kind: "holders" });
+});
+
+test("a description date that no structured date matches is reported", () => {
+  const text = "Fractievoorzitter sinds 23-02-2026, toen zij zich afsplitste. Is Kamerlid sinds 12-11-2025.";
+  assert.deepEqual(descriptionDateConflicts(text, ["2026-02-24", "2025-11-12", null]), ["2026-02-23"]);
+  assert.deepEqual(descriptionDateConflicts("Geen datum.", ["2026-02-24"]), []);
+  assert.deepEqual(descriptionDateConflicts(text, ["2026-02-23T00:00:00Z", "2025-11-12"]), []);
 });

@@ -47,7 +47,7 @@ export function Timeline({ items, label }: { items: TimelineItem[]; label: strin
     <RailList label={label}>
       {items.map((item, index) => {
         const period =
-          item.period ?? (item.start !== undefined ? <PeriodT start={item.start} end={item.end ?? null} /> : null);
+          item.period ?? (item.start !== undefined ? <PeriodT start={item.start} end={item.end ?? null} style="short" /> : null);
         const badges = item.badges ?? [];
         return (
           <RailItem

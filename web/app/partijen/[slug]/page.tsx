@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
-import { SourceLink } from "@/components/source-link";
+import { ExternalLink } from "@/components/entity/external-link";
 import { SourceList } from "@/components/source-list";
 import { SourceIcon } from "@/components/source-icon";
 import { T } from "@/components/i18n/t";
@@ -122,12 +122,12 @@ export default async function PartyPage({
         </div>
         <p className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
           {party.website !== null ? (
-            <SourceLink href={party.website}>
+            <ExternalLink href={party.website}>
               <T area="entity" k="websiteLabel" />
-            </SourceLink>
+            </ExternalLink>
           ) : null}
           {party.wiki !== null ? (
-            <SourceLink href={party.wiki}>Wikipedia</SourceLink>
+            <ExternalLink href={party.wiki}>Wikipedia</ExternalLink>
           ) : null}
         </p>
       </header>

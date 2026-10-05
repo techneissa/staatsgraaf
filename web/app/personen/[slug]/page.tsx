@@ -5,7 +5,7 @@ import { EntityTabs } from "@/components/entity-tabs";
 import { JsonLd } from "@/components/json-ld";
 import { PartyBadge } from "@/components/party-badge";
 import { DateT, LocalPeriod } from "@/components/content/local-date";
-import { SourceLink } from "@/components/source-link";
+import { ExternalLink } from "@/components/entity/external-link";
 import { SourceList } from "@/components/source-list";
 import { SourceIcon } from "@/components/source-icon";
 import { NewsPanel } from "@/components/news/news-panel";
@@ -41,6 +41,7 @@ import { getCareerForPerson } from "@/lib/careers";
 import { descriptionFor } from "@/lib/description-translations";
 import { personSummary } from "@/lib/entity-summary";
 import { sparsePerson } from "@/lib/entity-sparse";
+import { descriptionDateConflicts } from "@/lib/entity-page";
 import { withoutDerived } from "@/lib/entity-rows";
 import { isSplinterGroup, partyByDataset, partySlug } from "@/lib/parties";
 import {
@@ -129,6 +130,13 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
   const birthSource = birthDate !== null ? birthDateSource(person) : null;
 
   const currentTenures = tenures.filter((tenure) => tenure.end === null);
+  const dateConflicts =
+    description !== null
+      ? descriptionDateConflicts(description.nl, [
+          ...tenures.flatMap((tenure) => [tenure.start, tenure.end]),
+          ...memberships.flatMap((membership) => [membership.start, membership.end]),
+        ])
+      : [];
 
   const currentPositions = currentTenures
     .map((tenure) => getPositionById(tenure.position))
@@ -184,9 +192,9 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
       value:
         person.wikipedia != null || person.wikidata != null ? (
           <span className="flex flex-wrap gap-x-3 gap-y-1">
-            {person.wikipedia != null ? <SourceLink href={person.wikipedia}>Wikipedia</SourceLink> : null}
+            {person.wikipedia != null ? <ExternalLink href={person.wikipedia}>Wikipedia</ExternalLink> : null}
             {person.wikidata != null ? (
-              <SourceLink href={`https://www.wikidata.org/wiki/${person.wikidata}`}>Wikidata</SourceLink>
+              <ExternalLink href={`https://www.wikidata.org/wiki/${person.wikidata}`}>Wikidata</ExternalLink>
             ) : null}
           </span>
         ) : null,
@@ -311,6 +319,11 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
             en={description.en}
             className="mt-4 max-w-prose text-sm leading-relaxed text-ink-muted"
           />
+        ) : null}
+        {dateConflicts.length > 0 ? (
+          <p className="mt-2 max-w-prose text-xs leading-relaxed text-ink-faint">
+            <DateT area="entity" k="descriptionDateNote" dates={{ dates: dateConflicts[0] }} short />
+          </p>
         ) : null}
       </header>
 

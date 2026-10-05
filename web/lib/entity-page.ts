@@ -182,6 +182,10 @@ export type PositionFacts = {
   holderCount: number;
   tenureCount: number;
   vacancy: boolean;
+  /** Current members of the body when the position is a plain "Lid ..." seat held through memberships. */
+  memberCount?: number;
+  /** Name of the body the members belong to. */
+  memberBody?: string;
 };
 
 /** Meta description for a position: the holder when known, else exactly what the data says. */
@@ -193,7 +197,9 @@ export function positionDescription(facts: PositionFacts): string {
   if (facts.seatsCount !== null && facts.seatsCount > 1) bits.push(`${facts.seatsCount} zetels`);
   const holders = facts.vacancy
     ? "Volgens de bron is er een vacature."
-    : facts.tenureCount === 0
+    : (facts.memberCount ?? 0) > 0
+      ? `De ${facts.memberCount} huidige leden staan bij ${facts.memberBody ?? facts.bodyName ?? "de organisatie"}.`
+      : facts.tenureCount === 0
       ? "Op dit snapshot staat geen houder in de dataset."
       : "Op dit snapshot is geen huidige houder bekend.";
   return `${facts.title}${where}: ${bits.join(", ")}. ${holders}`;
@@ -258,4 +264,21 @@ export function holderState(input: {
   if (input.memberCount > 0) return { kind: "members", count: input.memberCount };
   if (input.lastEnded !== null) return { kind: "ended", date: input.lastEnded };
   return { kind: "unknown" };
+}
+
+// Description dates -----------------------------------------------------------------
+
+/**
+ * Dates written as dd-MM-yyyy in a description that no structured tenure or
+ * membership date of the person matches. They are returned as ISO dates. The
+ * description is sourced text and stays as it is; the page notes the mismatch.
+ */
+export function descriptionDateConflicts(description: string, structuredDates: Array<string | null | undefined>): string[] {
+  const known = new Set(structuredDates.filter((date): date is string => typeof date === "string").map((date) => date.slice(0, 10)));
+  const found = new Set<string>();
+  for (const match of description.matchAll(/\b(\d{2})-(\d{2})-(\d{4})\b/g)) {
+    const iso = `${match[3]}-${match[2]}-${match[1]}`;
+    if (!known.has(iso)) found.add(iso);
+  }
+  return [...found];
 }
