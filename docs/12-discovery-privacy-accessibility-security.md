@@ -104,7 +104,7 @@ The product is static, which keeps the surface small. The remaining risks are th
 ### The pipeline and the supply chain
 
 - Commit the lockfile. Review dependency updates. Use automated dependency alerts.
-- Only the CI job holds source API keys, per `10-operations-runbook.md` section 3.
+- Only the CI job holds source API keys, per `.github/workflows/README.md` (secrets and variables).
 - Pin fetchers to the domains in the source map in `03-dutch-government-model.md`, so a redirect cannot silently point a fetcher elsewhere.
 - Treat every fetched payload as untrusted input: validate it against the expected shape before it enters the dataset.
 

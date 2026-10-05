@@ -26,7 +26,7 @@ The verified endpoints already exist in `research/00-endpoints.md`: the Rijksove
 - The parliaments are covered at the level of seats and members. Votes, committees, and Kamerstukken remain Phase 7 work on the same OData source.
 - Blocked hosts remain named gaps. Where a page cannot be fetched the previous tenure stays open and the run report says so; nothing is guessed.
 - The tenures the Phase 1 research recorded without an end date are now closed by evidence over time, which reduces the 844 never-tenured positions only where the official source lists a holder.
-- Medium-confidence matches need a human glance. That review queue is part of the Phase 6 operations cadence in `docs/10-operations-runbook.md`.
+- Medium-confidence matches need a human glance. That review queue is part of the Phase 6 operations cadence described in `.github/workflows/README.md`.
 
 ## Verification recorded at decision time
 

@@ -43,7 +43,7 @@ The layout id becomes `nl-tiers-v1`. The motion model (decision 8) is unchanged:
 - A new layout id (`nl-tiers-v1`), a rewritten `web/lib/graph-layout.md`, a replaced `graph-explorer.tsx`, and new invariant tests (node in one tier and sector, sectors disjoint, routed edges clear of the centre, arch seat counts exact).
 - `graph.json` grows by four numbers per node and by the nine relation types now emitted; `power-map.json` is split off. Client JavaScript for the canvas shrinks by the layout code.
 - Three research workstreams (elections, coalitions, zaalindeling) and one data pass (relation dates) precede the seat chart and the temporal view.
-- `AGENTS.md` rule 6 is stale and is proposed for replacement (P4).
+- The documentation-only rule was stale once `web/` existed; it was replaced by "add code only inside a phase of a plan in `docs/`" (P4).
 - The plan, its status board and the pending decisions live in `docs/13-graph-rebuild-plan.md`.
 
 ## Amendment 2 (19-09-2026): no gather, no step back; the turn stays

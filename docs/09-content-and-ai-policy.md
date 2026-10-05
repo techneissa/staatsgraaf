@@ -40,7 +40,7 @@ Entity and position descriptions follow these rules.
 - Content: what the body is, what it does, its legal basis where one exists, and its place in the structure.
 - Sources: the enabling law and the official page are cited. The legal basis appears in the prose, the way the reference writes "established by the Act of ...".
 - No adjectives that sell. No "belangrijk", "toonaangevend", "cruciaal" unless a source states it and it matters.
-- No em dashes, no curly quotes, no headings inside a description. This matches the repo prose rules in `AGENTS.md`.
+- No em dashes, no curly quotes, no headings inside a description. This matches the repo prose rules in `CONTRIBUTING.md` section 6.
 
 ## 5. News summary standards
 
@@ -59,7 +59,7 @@ Entity and position descriptions follow these rules.
 ## 7. Review
 
 - A review step sits between generation and publication for anything that will appear on the homepage: appointments, departures, and structural changes get a quick human or checked-agent pass.
-- The nightly data diff is reviewed before it ships, because an unattended pipeline can confidently publish a wrong appointment. See `10-operations-runbook.md`.
+- The nightly data diff is reviewed before it ships, because an unattended pipeline can confidently publish a wrong appointment. See `.github/workflows/README.md`.
 - Descriptions are confirmed against their cited source once, at the merge gate, and only revisited when the source changes.
 
 ## 8. Corrections and changelog

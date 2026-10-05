@@ -34,7 +34,7 @@ export type GroupView = { kind: TieKind; ties: TieView[] };
 
 type T = (key: string, vars?: Record<string, string | number>) => string;
 
-/** The site writes dates as dd-MM-YYYY in both languages (AGENTS.md rule 8). */
+/** The site writes dates as dd-MM-YYYY in both languages (CONTRIBUTING.md section 6). */
 export function formatDutchDate(iso: string | null | undefined): string {
   if (!iso) return "";
   const [year, month, day] = iso.slice(0, 10).split("-");

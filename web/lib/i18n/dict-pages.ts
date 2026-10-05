@@ -194,8 +194,8 @@ export const PAGES_DICT = {
   },
   methodLicensesTitle: { nl: "Licenties en hergebruik", en: "Licences and reuse" },
   methodLicensesP1: {
-    nl: "De code van Staatsgraaf valt onder de MIT-licentie. De dataset, de beschrijvingen en de samenvattingen vallen onder CC BY 4.0. Hergebruik mag, ook commercieel, zolang de bron wordt genoemd.",
-    en: "The code of Staatsgraaf is under the MIT licence. The dataset, the descriptions and the summaries are under CC BY 4.0. Reuse is allowed, including commercial use, as long as the source is credited.",
+    nl: "De code van Staatsgraaf is source-available onder de PolyForm Noncommercial-licentie 1.0.0 en mag niet-commercieel worden gebruikt. De dataset, de beschrijvingen en de samenvattingen vallen onder CC BY 4.0. Hergebruik van de data mag, ook commercieel, zolang de bron wordt genoemd.",
+    en: "The code of Staatsgraaf is source-available under the PolyForm Noncommercial License 1.0.0 and may be used for noncommercial purposes. The dataset, the descriptions and the summaries are under CC BY 4.0. Reuse of the data is allowed, including commercial use, as long as the source is credited.",
   },
   methodLicensesP2a: {
     nl: "Naamsvermelding verwijst naar Staatsgraaf en naar de onderliggende bron, met de bron-URL en de ophaaldatum. De volledige lijst per bron met licenties en creditregels staat in",
@@ -260,12 +260,12 @@ export const PAGES_DICT = {
   },
   datasetLicenseTitle: { nl: "Licentie", en: "Licence" },
   datasetLicenseP1: {
-    nl: "De dataset, de beschrijvingen en de samenvattingen vallen onder CC BY 4.0. Dat betekent dat hergebruik mag, ook commercieel, zolang je de bron noemt en de licentie vermeldt. De code van deze site valt onder de MIT-licentie. De volledige licentieteksten staan bij de downloads.",
-    en: "The dataset, the descriptions and the summaries are under CC BY 4.0. That means reuse is allowed, including commercial use, as long as you credit the source and state the licence. The code of this site is under the MIT licence. The full licence texts sit with the downloads.",
+    nl: "De dataset, de beschrijvingen en de samenvattingen vallen onder CC BY 4.0. Dat betekent dat hergebruik mag, ook commercieel, zolang je de bron noemt en de licentie vermeldt. De code van deze site is source-available onder de PolyForm Noncommercial-licentie 1.0.0 (niet-commercieel gebruik). De volledige licentieteksten staan bij de downloads.",
+    en: "The dataset, the descriptions and the summaries are under CC BY 4.0. That means reuse is allowed, including commercial use, as long as you credit the source and state the licence. The code of this site is source-available under the PolyForm Noncommercial License 1.0.0 (noncommercial use). The full licence texts sit with the downloads.",
   },
   datasetLicenseData: { nl: "Dataset:", en: "Dataset:" },
   datasetLicenseSee: { nl: "zie ook", en: "see also" },
-  datasetLicenseCode: { nl: "Code: MIT, zie", en: "Code: MIT, see" },
+  datasetLicenseCode: { nl: "Code: PolyForm Noncommercial 1.0.0, zie", en: "Code: PolyForm Noncommercial 1.0.0, see" },
   datasetLicenseFacts: {
     nl: "Feiten zelf zijn niet auteursrechtelijk beschermd. De licentie geldt voor onze eigen bijdrage: de selectie, de structuur, de samenstelling, de beschrijvingen en de samenvattingen.",
     en: "Facts themselves are not protected by copyright. The licence covers our own contribution: the selection, the structure, the composition, the descriptions and the summaries.",

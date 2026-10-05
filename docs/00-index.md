@@ -4,9 +4,7 @@ This is the map of the project documentation. Read in order for a full picture, 
 
 | File | What it is | Read it when |
 | --- | --- | --- |
-| `../AGENTS.md` | Operating law and router | Always, first |
-| `../STAATSGRAAF-PROMPT.md` | The kickoff prompt that starts the project | Starting the whole project |
-| `../NEXT-SESSION-PROMPT.md` | The paste-ready prompt that launches a session of parallel agents | Running the work with parallel subagents |
+| `../CONTRIBUTING.md` | Conventions for every contribution: the source rule, language, dates, checks, licenses | Before changing anything |
 | `01-vision-and-goals.md` | Why we build this, what done looks like, principles | Need direction or a tie-breaker |
 | `02-reference-system-spec.md` | The reference product: pages, look, interactions, data model, stack | Building anything that must match the reference |
 | `03-dutch-government-model.md` | The Dutch state: scope, entities, positions, sources, vocabulary mapping | Researching or modeling Dutch data |
@@ -16,7 +14,7 @@ This is the map of the project documentation. Read in order for a full picture, 
 | `07-workflow-and-roadmap.md` | The whole lifecycle, phase gates, ops after launch | Planning or orchestrating any phase |
 | `08-acceptance-and-qa.md` | The pass or fail gate and the validator protocol | The end of a phase, or QA |
 | `09-content-and-ai-policy.md` | How every sentence ships: descriptions, news summaries, AI use, review, corrections | Writing any reader-facing prose or using a model |
-| `10-operations-runbook.md` | Environments, pipelines, the nightly refresh, monitoring, rollback, incidents | Running or maintaining the live product |
+| `../.github/workflows/README.md` | The scheduled refresh, the push deploy, the CI gate, secrets, rollback | Running or maintaining the live product |
 | `11-delivery-and-collaboration.md` | Git conventions, root files, work tracking, milestones, roles, ADRs | Organizing work, opening a PR, starting a milestone |
 | `12-discovery-privacy-accessibility-security.md` | SEO, analytics and privacy, accessibility target, security, browser support | Building any public-facing surface |
 | `13-graph-rebuild-plan.md` | The graph rebuild: polder layout, motion, seat chart, phases and status board | Any work on the graph canvas or the seat chart |

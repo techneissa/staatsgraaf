@@ -1,6 +1,6 @@
 # Security policy
 
-Staatsgraaf is a static, read-only publication. It has no user accounts, no runtime database, and no server-side request handling, so the attack surface is small. The remaining risks are the build pipeline, the sources it fetches, and any markup derived from those sources. This policy follows `docs/12-discovery-privacy-accessibility-security.md` Part 4 and `docs/10-operations-runbook.md` section 3.
+Staatsgraaf is a static, read-only publication. It has no user accounts, no runtime database, and no server-side request handling, so the attack surface is small. The remaining risks are the build pipeline, the sources it fetches, and any markup derived from those sources. This policy follows `docs/12-discovery-privacy-accessibility-security.md` Part 4 and the secrets rules in `.github/workflows/README.md`.
 
 ## 1. What is in scope
 
@@ -19,7 +19,7 @@ A wrong fact is a data-correctness issue, not a security issue. It follows the c
 
 ## 3. How to report
 
-The repository is private today, and no security contact address is published yet. That is a named gap. Once the repository is public, use the repository's private vulnerability reporting to file a report without opening a public issue.
+Use the repository's private vulnerability reporting (the Security tab, Report a vulnerability) to file a report without opening a public issue. No separate security email address is published; that is a named gap.
 
 Include what you can of the following:
 
