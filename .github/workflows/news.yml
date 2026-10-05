@@ -34,6 +34,7 @@ jobs:
     timeout-minutes: 45
     permissions:
       contents: write # push the data commit; no secret other than the translation keys is in this job
+      issues: write # open the ops issue when a source is stopped by its guard
     outputs:
       changed: ${{ steps.changed.outputs.changed }}
       sha: ${{ steps.commit.outputs.sha }}
@@ -57,14 +58,24 @@ jobs:
           restore-keys: |
             bun-${{ runner.os }}-
 
-      # Refetch the current office holders from the official sites first (ADR 0006), so the
-      # merge below treats them as the freshest authority for tenures and memberships.
-      # research/raw is a local cache of fetched pages; the pipelines create it when it is missing.
-      - name: Refresh office holders from official sources
-        run: bun run refresh-official
-
-      - name: Merge research into the dataset
-        run: bun run merge
+      # One command refetches the official sources and applies what changed (ADR 0006 and
+      # 0024): Tweede Kamer by change cursor, Eerste Kamer by page hash, the cabinet list
+      # and the election dates. It checks the result for consistency before it writes
+      # (150 and 75 seats, no seat twice, every member matched) and stops a source that
+      # fails. Exit codes: 0 fine, also when nothing changed; 2 a source was stopped by
+      # its guard (what passed is written and valid, and an ops issue is opened below);
+      # anything else is a hard error and fails the run. `bun run merge` is not used here:
+      # it is not safe on the committed dataset. research/raw is a local cache that the
+      # pipelines create when it is missing.
+      - name: Refresh official sources
+        id: live
+        run: |
+          set +e
+          bun run live
+          code=$?
+          echo "code=${code}" >> "$GITHUB_OUTPUT"
+          if [ "${code}" -eq 0 ] || [ "${code}" -eq 2 ]; then exit 0; fi
+          exit "${code}"
 
       - name: Refresh news
         run: bun run news
@@ -121,7 +132,7 @@ jobs:
       # count. See scripts/data-changed.mjs for the rule.
       - name: Check for changes
         id: changed
-        run: bun scripts/data-changed.mjs data ATTRIBUTION.md research/P-live-ambtsdragers.json research/P-live-ambtsdragers.md research/merge-log.entries.jsonl
+        run: bun scripts/data-changed.mjs data ATTRIBUTION.md research/P-live-ambtsdragers.json research/P-live-ambtsdragers.md research/P-live-state.json research/qa/live-review-queue.md research/merge-log.entries.jsonl
 
       # Commit to main as the bot. The script rebases and retries the push when another
       # push got there first, and fails on a real conflict (scripts/commit-refresh.sh).
@@ -129,6 +140,28 @@ jobs:
         id: commit
         if: steps.changed.outputs.changed == 'true'
         run: bash scripts/commit-refresh.sh
+
+      # A source stopped by its consistency guard is not a failed run: the other sources
+      # were applied. It needs a person to look, so open or update one ops issue.
+      - name: Report a stopped source
+        if: steps.live.outputs.code == '2'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -uo pipefail
+          marker="Bron gestopt door controle"
+          title="[ops] ${marker}"
+          body="Een officiële bron is door de consistentiecontrole gestopt (zie research/qa/live-run-latest.json in de run-uitvoer en research/qa/live-review-queue.md). De andere bronnen zijn wel verwerkt.
+
+          Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          gh label create ops --force >/dev/null 2>&1 || true
+          existing="$(gh issue list --state open --search "${marker} in:title" --json number --jq '.[0].number // empty' 2>/dev/null || true)"
+          if [ -n "${existing}" ]; then
+            gh issue comment "${existing}" --body "${body}" || printf '%s\n' "${body}"
+          else
+            gh issue create --title "${title}" --label ops --body "${body}" || printf '%s\n' "${body}"
+          fi
 
   deploy:
     name: build and deploy
