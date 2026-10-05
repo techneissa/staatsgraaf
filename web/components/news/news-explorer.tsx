@@ -27,8 +27,11 @@ export type NewsExplorerDay = {
 export type NewsExplorerGroup = {
   key: RecencyGroupKey;
   label: string;
-  /** Per original language: the true total in the dataset and the capped, newest-first items loaded on this page. */
-  languages: Record<NewsLanguage, { total: number; items: NewsItemView[] }>;
+  /**
+   * Per original language: the true totals in the dataset (all items, and those that
+   * name the state) and the capped, newest-first items loaded on this page, of both kinds.
+   */
+  languages: Record<NewsLanguage, { total: number; relevantTotal: number; items: NewsItemView[] }>;
   /** Day archive pages that hold everything in this group. */
   days: NewsExplorerDay[];
 };
@@ -53,10 +56,11 @@ const pill = (active: boolean) =>
   }`;
 
 /**
- * The news section: every item in every original language by default, shown
+ * The news section: items that name the state, in every original language, shown
  * in the interface language with machine translations where they exist
- * (docs/adr/0016). Filters: original language, outlet kind, outlet, and, from
- * a peek popover's news link, one mentioned entity (`?entity=<id>`).
+ * (docs/adr/0016). Items that name nothing in the dataset sit behind a "show all
+ * news" toggle (docs/adr/0021). Filters: original language, outlet kind, outlet,
+ * and, from a peek popover's news link, one mentioned entity (`?entity=<id>`).
  *
  * `fixedLanguage` pins the interface language (the /news/ route is English);
  * without it the section follows the site language.
@@ -80,6 +84,8 @@ export function NewsExplorer({
   const [kind, setKind] = useState<KindFilter>("all");
   const [publisher, setPublisher] = useState<string>(ALL_PUBLISHERS);
   const [entity, setEntity] = useState<EntityFilter | null>(null);
+  const [showAll, setShowAll] = useState(false);
+  const relevantOnly = !showAll;
   const selectId = useId();
   const settled = useSettled();
 
@@ -126,13 +132,17 @@ export function NewsExplorer({
     window.history.replaceState(window.history.state, "", url.toString());
   };
 
-  const totals: Record<LanguageFilter, number> = {
-    all: groups.reduce((sum, group) => sum + group.languages.nl.total + group.languages.en.total, 0),
-    nl: groups.reduce((sum, group) => sum + group.languages.nl.total, 0),
-    en: groups.reduce((sum, group) => sum + group.languages.en.total, 0),
-  };
+  const sumTotals = (pick: (bucket: NewsExplorerGroup["languages"][NewsLanguage]) => number): Record<LanguageFilter, number> => ({
+    all: groups.reduce((sum, group) => sum + pick(group.languages.nl) + pick(group.languages.en), 0),
+    nl: groups.reduce((sum, group) => sum + pick(group.languages.nl), 0),
+    en: groups.reduce((sum, group) => sum + pick(group.languages.en), 0),
+  });
+  const totals = sumTotals((bucket) => bucket.total);
+  const relevantTotals = sumTotals((bucket) => bucket.relevantTotal);
+  const shownTotals = relevantOnly ? relevantTotals : totals;
 
-  const byLanguage = language === "all" ? loaded : loaded.filter((item) => item.language === language);
+  const pool = relevantOnly ? loaded.filter((item) => item.relevant) : loaded;
+  const byLanguage = language === "all" ? pool : pool.filter((item) => item.language === language);
   const byEntity = entity ? byLanguage.filter((item) => item.entities.some((entry) => entry.id === entity.id)) : byLanguage;
   const kindCounts = countBy(byEntity, (item) => item.kind);
   const kindFiltered = kind === "all" ? byEntity : byEntity.filter((item) => item.kind === kind);
@@ -148,6 +158,22 @@ export function NewsExplorer({
     (activePublisher === ALL_PUBLISHERS || item.publisher === activePublisher);
 
   const languageOptions: LanguageFilter[] = ["all", ...NEWS_LANGUAGES];
+
+  // One entry per recency group that has something to show in the current mode and language.
+  const sections = merged
+    .map((entry) => {
+      const inLanguage = language === "all" ? entry.items : entry.group.languages[language].items;
+      const bucketItems = relevantOnly ? inLanguage.filter((item) => item.relevant) : inLanguage;
+      const languages = entry.group.languages;
+      const bucketTotal =
+        language === "all"
+          ? (relevantOnly ? languages.nl.relevantTotal + languages.en.relevantTotal : entry.total)
+          : relevantOnly
+            ? languages[language].relevantTotal
+            : languages[language].total;
+      return { group: entry.group, bucketItems, bucketTotal, filtered: bucketItems.filter(matches) };
+    })
+    .filter(({ bucketItems, filtered }) => bucketItems.length > 0 && !(entity !== null && filtered.length === 0));
 
   return (
     <div data-settled={settled ? "" : undefined}>
@@ -175,7 +201,7 @@ export function NewsExplorer({
               className={pill(language === option)}
             >
               {option === "all" ? messages.allLanguagesLabel : messages.languageFilterLabels[option]}
-              <span className="ml-1.5 tabular-nums text-ink-faint">{formatCountIn(totals[option], uiLanguage)}</span>
+              <span className="ml-1.5 tabular-nums text-ink-faint">{formatCountIn(shownTotals[option], uiLanguage)}</span>
             </button>
           ))}
         </div>
@@ -255,7 +281,6 @@ export function NewsExplorer({
       <noscript>
         <p className="mt-3 text-xs text-ink-faint">{messages.noscript}</p>
       </noscript>
-
       {totals[language] === 0 ? (
         <div className="mt-6">
           <EmptyState
@@ -264,70 +289,83 @@ export function NewsExplorer({
           />
         </div>
       ) : (
-        <div className="mt-6 space-y-8">
-          {merged.map(({ group }) => {
-            const bucketItems =
-              language === "all"
-                ? merged.find((entry) => entry.group === group)?.items ?? []
-                : group.languages[language].items;
-            const bucketTotal =
-              language === "all" ? group.languages.nl.total + group.languages.en.total : group.languages[language].total;
-            const filtered = bucketItems.filter(matches);
-            if (bucketItems.length === 0 || (entity !== null && filtered.length === 0)) return null;
-            const visible = filtered.slice(0, initialVisible);
-            const hidden = filtered.slice(initialVisible);
-            const truncated = bucketTotal > bucketItems.length;
-            const headingId = `groep-${group.key}`;
-            return (
-              <section key={group.key} aria-labelledby={headingId}>
-                <div className="sticky top-0 z-10 -mx-4 flex items-baseline justify-between gap-2 border-b border-line bg-canvas/95 px-4 py-2 backdrop-blur-sm">
-                  <h2 id={headingId} className="text-xs font-semibold text-ink-faint">
-                    {messages.groupLabels[group.key]}
-                  </h2>
-                  <span className="text-xs tabular-nums text-ink-faint">
-                    {!filtering && truncated
-                      ? `${formatCountIn(bucketItems.length, uiLanguage)} ${messages.ofWord} ${formatCountIn(bucketTotal, uiLanguage)}`
-                      : formatCountIn(filtered.length, uiLanguage)}{" "}
-                    {filtered.length === 1 ? messages.itemsWordSingular : messages.itemsWordPlural}
-                  </span>
-                </div>
+        <>
+          <div className="mt-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+            <p role="status" className="text-sm text-ink-muted">
+              {interpolate(NEWS_DICT.newsRelevantCount[uiLanguage], {
+                n: formatCountIn(relevantTotals[language], uiLanguage),
+                total: formatCountIn(totals[language], uiLanguage),
+              })}
+            </p>
+            <button type="button" aria-pressed={showAll} onClick={() => setShowAll((value) => !value)} className={pill(showAll)}>
+              {NEWS_DICT.newsShowAll[uiLanguage]}
+            </button>
+          </div>
 
-                {filtered.length === 0 ? (
-                  <p className="mt-3 text-sm text-ink-faint">
-                    {bucketItems.length === 0 ? messages.noItemsLabel : messages.noItemsFilterLabel}
-                  </p>
-                ) : (
-                  <>
-                    <ol className="mt-3 list-none space-y-2 p-0">
-                      {visible.map((item) => (
-                        <li key={item.id} className="motion-enter">
-                          <NewsItemCard item={item} displayLanguage={uiLanguage} />
-                        </li>
-                      ))}
-                    </ol>
-                    {hidden.length > 0 ? (
-                      <details className="motion-disclosure group mt-3">
-                        <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-pill border border-line bg-surface-raised px-4 text-sm font-medium text-ink transition-fast hover:border-accent/40 hover:bg-accent-soft hover:text-accent-text sm:min-h-9 pointer-coarse:min-h-11 [&::-webkit-details-marker]:hidden">
-                          <span className="group-open:hidden">
-                            {messages.showMoreLabel} ({formatCountIn(hidden.length, uiLanguage)})
-                          </span>
-                          <span className="hidden group-open:inline">{messages.showLessLabel}</span>
-                        </summary>
+          {sections.length === 0 ? (
+            <div className="mt-6">
+              <EmptyState
+                title={NEWS_DICT.newsRelevantEmptyTitle[uiLanguage]}
+                description={NEWS_DICT.newsRelevantEmptyDescription[uiLanguage]}
+              />
+            </div>
+          ) : (
+            <div className="mt-6 space-y-8">
+              {sections.map(({ group, bucketItems, bucketTotal, filtered }) => {
+                const visible = filtered.slice(0, initialVisible);
+                const hidden = filtered.slice(initialVisible);
+                const truncated = bucketTotal > bucketItems.length;
+                const headingId = `groep-${group.key}`;
+                return (
+                  <section key={group.key} aria-labelledby={headingId}>
+                    <div className="sticky top-0 z-10 -mx-4 flex items-baseline justify-between gap-2 border-b border-line bg-canvas/95 px-4 py-2 backdrop-blur-sm">
+                      <h2 id={headingId} className="text-xs font-semibold text-ink-faint">
+                        {messages.groupLabels[group.key]}
+                      </h2>
+                      <span className="text-xs tabular-nums text-ink-faint">
+                        {!filtering && truncated
+                          ? `${formatCountIn(bucketItems.length, uiLanguage)} ${messages.ofWord} ${formatCountIn(bucketTotal, uiLanguage)}`
+                          : formatCountIn(filtered.length, uiLanguage)}{" "}
+                        {filtered.length === 1 ? messages.itemsWordSingular : messages.itemsWordPlural}
+                      </span>
+                    </div>
+
+                    {filtered.length === 0 ? (
+                      <p className="mt-3 text-sm text-ink-faint">{messages.noItemsFilterLabel}</p>
+                    ) : (
+                      <>
                         <ol className="mt-3 list-none space-y-2 p-0">
-                          {hidden.map((item) => (
+                          {visible.map((item) => (
                             <li key={item.id} className="motion-enter">
                               <NewsItemCard item={item} displayLanguage={uiLanguage} />
                             </li>
                           ))}
                         </ol>
-                      </details>
-                    ) : null}
-                  </>
-                )}
-              </section>
-            );
-          })}
-        </div>
+                        {hidden.length > 0 ? (
+                          <details className="motion-disclosure group mt-3">
+                            <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-pill border border-line bg-surface-raised px-4 text-sm font-medium text-ink transition-fast hover:border-accent/40 hover:bg-accent-soft hover:text-accent-text sm:min-h-9 pointer-coarse:min-h-11 [&::-webkit-details-marker]:hidden">
+                              <span className="group-open:hidden">
+                                {messages.showMoreLabel} ({formatCountIn(hidden.length, uiLanguage)})
+                              </span>
+                              <span className="hidden group-open:inline">{messages.showLessLabel}</span>
+                            </summary>
+                            <ol className="mt-3 list-none space-y-2 p-0">
+                              {hidden.map((item) => (
+                                <li key={item.id} className="motion-enter">
+                                  <NewsItemCard item={item} displayLanguage={uiLanguage} />
+                                </li>
+                              ))}
+                            </ol>
+                          </details>
+                        ) : null}
+                      </>
+                    )}
+                  </section>
+                );
+              })}
+            </div>
+          )}
+        </>
       )}
     </div>
   );

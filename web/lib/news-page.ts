@@ -7,9 +7,11 @@ import {
   getAllNews,
   getNewsForDay,
   getNewsReference,
+  isRelevantNews,
   NEWS_GROUP_INITIAL,
   NEWS_GROUP_LIMIT,
   newsDays,
+  relevanceCounts,
 } from "@/lib/news";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
 import type { NewsItem, NewsLanguage } from "@/lib/types";
@@ -38,11 +40,22 @@ export function getNewsItemViews(items: NewsItem[], locale: NewsLanguage): NewsI
   return items.map((item) => toNewsItemView(item, locale));
 }
 
+/**
+ * One language bucket of a group. The explorer shows relevant items by default and
+ * everything behind a toggle, so the page carries the newest `NEWS_GROUP_LIMIT` of
+ * each kind, newest first, plus the true totals for the count line.
+ */
 function languageBucket(items: NewsItem[], lang: NewsLanguage, locale: NewsLanguage) {
   const forLang = byLanguage(items, lang);
+  const { total, relevant } = relevanceCounts(forLang);
+  const carried = [
+    ...forLang.filter(isRelevantNews).slice(0, NEWS_GROUP_LIMIT),
+    ...forLang.filter((item) => !isRelevantNews(item)).slice(0, NEWS_GROUP_LIMIT),
+  ].sort((a, b) => b.published.localeCompare(a.published) || a.id.localeCompare(b.id));
   return {
-    total: forLang.length,
-    items: getNewsItemViews(forLang.slice(0, NEWS_GROUP_LIMIT), locale),
+    total,
+    relevantTotal: relevant,
+    items: getNewsItemViews(carried, locale),
   };
 }
 
@@ -84,6 +97,8 @@ export type NewsDayArchiveHour = {
 export type NewsDayArchive = {
   date: string;
   set: NewsItemView[];
+  /** How many items of the day name the state; the rest sit behind the toggle. */
+  relevantTotal: number;
   hours: NewsDayArchiveHour[];
 };
 
@@ -94,6 +109,7 @@ export function buildNewsDayArchive(date: string, locale: NewsLanguage): NewsDay
   return {
     date,
     set: getNewsItemViews(items, locale),
+    relevantTotal: relevanceCounts(items).relevant,
     hours: byHour(items).map((bucket) => ({
       hour: bucket.hour,
       label: `${bucket.hour}:00 ${messages.hourConnector} ${bucket.hour}:59`,
