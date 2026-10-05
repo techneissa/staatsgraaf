@@ -192,4 +192,55 @@ export const NEWS_DICT = {
   },
   budgetRadarTableMinistry: { nl: "Ministerie", en: "Ministry" },
   budgetShareAria: { nl: "{percent} van het totaal", en: "{percent} of the total" },
+  // Budget redesign: year switch, tiles, ranked bars, trend chart
+  budgetYearSwitchLabel: { nl: "Begrotingsjaar", en: "Budget year" },
+  budgetMinistriesCountLabel: { nl: "Ministeries", en: "Ministries" },
+  budgetMinistriesCountCaption: { nl: "met een begroting", en: "with a budget" },
+  budgetAboutTotals: { nl: "Over deze totalen", en: "About these totals" },
+  budgetBarsHeading: { nl: "Uitgaven per ministerie", en: "Spending per ministry" },
+  budgetBarsAria: {
+    nl: "Begrote uitgaven per ministerie in {year}, van groot naar klein",
+    en: "Budgeted spending per ministry in {year}, largest first",
+  },
+  budgetBarsOther: { nl: "Overige {count} ministeries", en: "{count} other ministries" },
+  budgetBarsShowAll: { nl: "Toon alle ministeries", en: "Show all ministries" },
+  budgetBarsShowLess: { nl: "Toon minder", en: "Show fewer" },
+  budgetBarsNote: {
+    nl: "De balk toont de begrote uitgaven ten opzichte van het grootste ministerie; het percentage is het aandeel in de som van de ministeries. Het pijltje vergelijkt met het jaar ervoor.",
+    en: "The bar shows budgeted spending relative to the largest ministry; the percentage is the share of the ministries' combined spending. The arrow compares with the year before.",
+  },
+  budgetBarsPrevious: { nl: "Begroot in {year}", en: "Budgeted in {year}" },
+  budgetTableCaptionYear: {
+    nl: "Begroting {year} per ministerie: uitgaven, het jaar ervoor, ontvangsten en uitgaven min ontvangsten.",
+    en: "Budget {year} per ministry: spending, the year before, revenue and spending minus revenue.",
+  },
+  budgetTablePreviousYear: { nl: "Begroot {year}", en: "Budgeted {year}" },
+  budgetTableTotal: { nl: "Totaal", en: "Total" },
+  budgetTableMeasure: { nl: "Soort", en: "Type" },
+  budgetTrendHeading: { nl: "Uitgaven door de jaren", en: "Spending over the years" },
+  budgetTrendSelect: { nl: "Toon", en: "Show" },
+  budgetTrendTotal: { nl: "Alle ministeries samen", en: "All ministries combined" },
+  budgetTrendAria: {
+    nl: "Lijndiagram van de uitgaven van {name}, {from} tot en met {to}. De tabel onder het diagram bevat dezelfde cijfers.",
+    en: "Line chart of spending for {name}, {from} to {to}. The table below the chart has the same figures.",
+  },
+  budgetTrendNote: {
+    nl: "Bedragen in euro. Een doorgetrokken lijn is gerealiseerd, een stippellijn is begroot.",
+    en: "Amounts in euros. A solid line is realized, a dashed line is budgeted.",
+  },
+  budgetTrendLateStart: {
+    nl: "Het totaal toont alleen jaren waarin alle ministeries een cijfer hebben: {names} heeft pas vanaf {year} een reeks in de bron.",
+    en: "The total only shows years in which every ministry has a figure: {names} has a series in the source only from {year}.",
+  },
+  budgetTrendTableCaption: {
+    nl: "Uitgaven per jaar van {name}, in euro, gerealiseerd of begroot.",
+    en: "Spending per year for {name}, in euros, realized or budgeted.",
+  },
+  budgetTrendEmpty: {
+    nl: "De bron bevat geen uitgaven per jaar voor deze selectie.",
+    en: "The source has no spending per year for this selection.",
+  },
+  budgetShareChip: { nl: "Aandeel in totaal", en: "Share of total" },
+  budgetFiguresDetailsSummary: { nl: "Alle cijfers als tabel", en: "All figures as a table" },
+  budgetBreakdownGapIntro: { nl: "Uitsplitsing naar categorie", en: "Breakdown by category" },
 } as const satisfies Record<string, LocString>;

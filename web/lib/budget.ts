@@ -2,6 +2,7 @@ import { getDataset, getOrganizationById, getOrganizationBySlug } from "./data";
 import type { AmountSet, Budget, Organization, SourceRef } from "./types";
 import { budgetUnitFactor, formatPercent } from "./budget-format";
 import type { RadarData, RadarYear } from "./budget-radar";
+import { sumTrends, type TrendPoint, type TrendSeries } from "./budget-trend";
 
 export {
   budgetUnitFactor,
@@ -67,6 +68,14 @@ export type BudgetBreakdownRow = {
   type: "spending" | "revenue";
 };
 
+export type BudgetTrends = {
+  /** All ministries combined, only for the years in which every ministry has a figure. */
+  total: TrendSeries;
+  ministries: TrendSeries[];
+  /** Ministries whose own series starts later than the first year any ministry has, with that year. */
+  lateStarters: { id: string; name: string; from: number }[];
+};
+
 export type BudgetOrganizationView = {
   organization: Organization;
   records: Budget[];
@@ -78,6 +87,8 @@ export type BudgetOrganizationView = {
   history: BudgetHistoryRow[];
   earliestHistoryYear: number | null;
   breakdown: BudgetBreakdownRow[];
+  /** Spending per year in euros: realized for closed years, budgeted after. */
+  trend: TrendPoint[];
   sources: SourceRef[];
 };
 
@@ -185,12 +196,29 @@ function groupByOrganization(budgets: Budget[]): Map<string, Budget[]> {
   return map;
 }
 
-export function getBudgetOverview(): BudgetOverview {
+/** The fiscal years that have a budget record, oldest first. */
+export function getBudgetYears(): number[] {
+  return [...new Set(getDataset().budgets.map((budget) => budget.fiscalYear))].sort((a, b) => a - b);
+}
+
+/**
+ * The source list shared by every year's overview: the deduplicated sources of
+ * all budget records, the overview year's first, so a
+ * footnote number means the same source whichever year is selected.
+ */
+export function getBudgetPageSources(): SourceRef[] {
+  const { budgets } = getDataset();
+  return dedupeSources([
+    ...budgets.filter((budget) => budget.fiscalYear === BUDGET_OVERVIEW_YEAR),
+    ...[...budgets].sort((a, b) => a.fiscalYear - b.fiscalYear),
+  ]);
+}
+
+export function getBudgetOverview(year?: number, pageSources?: SourceRef[]): BudgetOverview {
   const { budgets } = getDataset();
   const years = [...new Set(budgets.map((budget) => budget.fiscalYear))].sort((a, b) => b - a);
-  const fiscalYear = years.includes(BUDGET_OVERVIEW_YEAR)
-    ? BUDGET_OVERVIEW_YEAR
-    : (years[0] ?? BUDGET_OVERVIEW_YEAR);
+  const wanted = year ?? BUDGET_OVERVIEW_YEAR;
+  const fiscalYear = years.includes(wanted) ? wanted : (years[0] ?? wanted);
   const previousFiscalYear = fiscalYear - 1;
 
   const items: BudgetOverviewItem[] = [];
@@ -227,7 +255,7 @@ export function getBudgetOverview(): BudgetOverview {
     .map((item) => item.previous)
     .filter((amount): amount is AmountSet => amount !== null);
   const previousTotals = sumAmounts(previousSets);
-  const sources = dedupeSources(items.map((item) => item.record));
+  const sources = pageSources ?? dedupeSources(items.map((item) => item.record));
   const totalSpendingBudget = totals.spendingBudget;
 
   const enriched = items.map((item) => ({
@@ -287,6 +315,57 @@ function mergeHistory(records: Budget[]): BudgetHistoryRow[] {
   return [...byYear.values()].sort((a, b) => a.fiscalYear - b.fiscalYear);
 }
 
+/**
+ * Spending per year for one set of records, in euros. A year with a realized
+ * amount (a record's own spendingActual, or a history row) uses it; a year
+ * with only a budgeted amount uses that and says so. Years the source has no
+ * figure for inside the range stay in the series as gaps.
+ */
+function buildTrend(records: Budget[]): TrendPoint[] {
+  const byYear = new Map<number, TrendPoint>();
+  const put = (year: number, value: number | null | undefined, unit: string | null, measure: TrendPoint["measure"]) => {
+    if (value === null || value === undefined) return;
+    const existing = byYear.get(year);
+    if (existing && (existing.measure === "actual" || measure === "budget")) return;
+    byYear.set(year, { year, value: value * budgetUnitFactor(unit), measure });
+  };
+  for (const record of records) {
+    for (const row of Array.isArray(record.history) ? record.history : []) {
+      put(row.fiscalYear, row.spendingActual, record.unit, "actual");
+    }
+    put(record.fiscalYear, record.current?.spendingActual, record.unit, "actual");
+  }
+  for (const record of records) put(record.fiscalYear, record.current?.spendingBudget, record.unit, "budget");
+  const years = [...byYear.keys()].sort((a, b) => a - b);
+  if (years.length === 0) return [];
+  const points: TrendPoint[] = [];
+  for (let year = years[0]; year <= years[years.length - 1]; year += 1) {
+    points.push(byYear.get(year) ?? { year, value: null, measure: "actual" });
+  }
+  return points;
+}
+
+/** Spending per year for every ministry and for all of them combined; see buildTrend and sumTrends. */
+export function getBudgetTrends(): BudgetTrends {
+  const overview = getBudgetOverview();
+  const byOrganization = groupByOrganization(getDataset().budgets);
+  const ministries: TrendSeries[] = overview.items.map((item) => ({
+    id: item.organization.id,
+    slug: item.organization.slug,
+    name: item.organization.name,
+    points: buildTrend(byOrganization.get(item.organization.id) ?? []),
+  }));
+  const { points, lateStarters } = sumTrends(ministries);
+  return {
+    total: { id: "total", slug: null, name: null, points },
+    ministries,
+    lateStarters: lateStarters.flatMap((entry) => {
+      const ministry = ministries.find((candidate) => candidate.id === entry.id);
+      return ministry?.name ? [{ id: entry.id, name: ministry.name, from: entry.from }] : [];
+    }),
+  };
+}
+
 function collectBreakdown(record: Budget | null): BudgetBreakdownRow[] {
   if (!record) return [];
   const rows = record.breakdown;
@@ -335,6 +414,7 @@ export function getBudgetByOrganizationSlug(slug: string): BudgetOrganizationVie
     history,
     earliestHistoryYear: history.length > 0 ? history[0].fiscalYear : null,
     breakdown: collectBreakdown(currentRecord),
+    trend: buildTrend(records),
     sources: dedupeSources(records),
   };
 }

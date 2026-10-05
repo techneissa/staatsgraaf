@@ -1,16 +1,24 @@
 import type { Metadata } from "next";
-import { ChartPie, Landmark, Building2 } from "lucide";
+import { ChartPie, Landmark, TrendingUp } from "lucide";
 import { SectionHeading } from "@/components/icons/section-heading";
 import { LucideIcon } from "@/components/icons/lucide-icon";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { FootnoteMarkers } from "@/components/budget/footnote-marker";
 import { BudgetRadar } from "@/components/budget/budget-radar";
-import { BudgetTile } from "@/components/budget/budget-tile";
-import { BudgetTotals } from "@/components/budget/budget-totals";
+import { BudgetTrendChart } from "@/components/budget/budget-trend-chart";
+import { BudgetYearPanel } from "@/components/budget/budget-year-panel";
+import { DisclosureChevron } from "@/components/budget/disclosure-chevron";
 import { SourceFootnotes } from "@/components/budget/source-footnotes";
+import { YearSwitch } from "@/components/budget/year-switch";
 import { T } from "@/components/i18n/t";
 import { JsonLd } from "@/components/json-ld";
-import { getBudgetOverview, getBudgetRadarData } from "@/lib/budget";
+import {
+  BUDGET_OVERVIEW_YEAR,
+  getBudgetOverview,
+  getBudgetPageSources,
+  getBudgetRadarData,
+  getBudgetTrends,
+  getBudgetYears,
+} from "@/lib/budget";
 import { getDatasetDate, getSourceById } from "@/lib/data";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 
@@ -23,16 +31,20 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function BudgetOverviewPage() {
-  const overview = getBudgetOverview();
-  const sources = overview.sources;
+  const sources = getBudgetPageSources();
+  const years = getBudgetYears();
+  const defaultYear = years.includes(BUDGET_OVERVIEW_YEAR) ? BUDGET_OVERVIEW_YEAR : years[years.length - 1];
+  const overviews = years.map((year) => getBudgetOverview(year, sources));
+  const headline = overviews[years.indexOf(defaultYear)];
   const pageUrl = absoluteUrl("/begroting/");
-  const allFootnotes = sources.map((_, index) => index + 1);
-  const itemFootnotes = [...new Set(overview.items.flatMap((item) => item.footnotes))].sort((a, b) => a - b);
   const radar = getBudgetRadarData();
+  const trends = getBudgetTrends();
   const markerSources = sources.map((ref) => {
     const source = getSourceById(ref.source);
     return source ? { href: source.url, title: source.title, retrieved: source.retrieved } : null;
   });
+  const lateStarters = trends.lateStarters;
+  const lateFrom = lateStarters.length > 0 ? Math.max(...lateStarters.map((entry) => entry.from)) : null;
 
   return (
     <>
@@ -61,46 +73,61 @@ export default function BudgetOverviewPage() {
             area="news"
             k="budgetIntro"
             vars={{
-              count: overview.totals.expected,
-              year: overview.fiscalYear,
-              previous: overview.previousFiscalYear,
+              count: headline.totals.expected,
+              year: headline.fiscalYear,
+              previous: headline.previousFiscalYear,
             }}
           />
         </p>
       </header>
 
-      <section aria-labelledby="totalen-titel" className="border-b border-line py-6">
-        <SectionHeading id="totalen-titel" icon={Landmark}>
-          <T area="news" k="budgetTotalsHeadingYear" vars={{ year: overview.fiscalYear }} />
-          <FootnoteMarkers numbers={allFootnotes} sources={markerSources} />
-        </SectionHeading>
-        <div className="mt-3">
-          <BudgetTotals overview={overview} yearInHeading />
-        </div>
-      </section>
-
-      <section aria-labelledby="verdeling-titel" className="border-b border-line py-6">
-        <SectionHeading id="verdeling-titel" icon={ChartPie}>
-          <T area="news" k="budgetRadarHeading" />
-          <FootnoteMarkers numbers={allFootnotes} sources={markerSources} />
-        </SectionHeading>
-        <div className="mt-3">
-          <BudgetRadar data={radar} />
-        </div>
-      </section>
-
-      <section aria-labelledby="ministeries-titel" className="py-6">
-        <SectionHeading id="ministeries-titel" icon={Building2}>
-          <T area="news" k="budgetMinistriesHeadingYear" vars={{ year: overview.fiscalYear }} />
-          <FootnoteMarkers numbers={itemFootnotes} sources={markerSources} />
-        </SectionHeading>
-        <ul className="mt-3 grid grid-cols-1 gap-2 @[40rem]:grid-cols-2 @[40rem]:gap-3">
-          {overview.items.map((item) => (
-            <li key={item.organization.id}>
-              <BudgetTile item={item} unit={overview.unit} />
-            </li>
+      <div className="border-b border-line py-6">
+        <YearSwitch
+          years={years}
+          defaultYear={defaultYear}
+          panels={overviews.map((overview) => (
+            <BudgetYearPanel key={overview.fiscalYear} overview={overview} markerSources={markerSources} />
           ))}
-        </ul>
+        />
+      </div>
+
+      <section aria-labelledby="jaren-titel" className="border-b border-line py-6">
+        <SectionHeading id="jaren-titel" icon={TrendingUp}>
+          <T area="news" k="budgetTrendHeading" />
+        </SectionHeading>
+        <div className="mt-3">
+          <BudgetTrendChart
+            series={[trends.total, ...trends.ministries]}
+            defaultId="total"
+            selectable
+            note={
+              lateFrom !== null ? (
+                <p key="late-start" className="mt-1 text-xs leading-relaxed text-ink-faint">
+                  <T
+                    area="news"
+                    k="budgetTrendLateStart"
+                    vars={{ names: lateStarters.map((entry) => entry.name.replace(/^Ministerie van /u, "")).join(", "), year: lateFrom }}
+                  />
+                </p>
+              ) : null
+            }
+          />
+        </div>
+      </section>
+
+      <section aria-labelledby="verdeling-titel" className="py-3">
+        <details className="group">
+          <summary className="flex min-h-11 cursor-pointer list-none items-center gap-2 [&::-webkit-details-marker]:hidden">
+            <DisclosureChevron className="text-ink-muted" />
+            <h2 id="verdeling-titel" className="flex items-center gap-2 text-lg font-semibold tracking-tight text-ink">
+              <LucideIcon icon={ChartPie} size={18} className="shrink-0 text-ink-muted" />
+              <T area="news" k="budgetRadarHeading" />
+            </h2>
+          </summary>
+          <div className="mt-2">
+            <BudgetRadar data={radar} />
+          </div>
+        </details>
       </section>
 
       <SourceFootnotes sources={sources} />
