@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { T } from "@/components/i18n/t";
@@ -48,17 +49,22 @@ export default function TopicsPage() {
           <T area="news" k="topicsAllHeading" />
         </h2>
         {cards.length > 0 ? (
-          <ul className="grid gap-3 sm:grid-cols-2">
+          <ul className="grid list-none grid-cols-1 gap-3 p-0 sm:grid-cols-2">
             {cards.map(({ topic, organizationCount }) => (
-              <li key={topic.id}>
+              <li key={topic.id} className="min-w-0">
                 <TopicCard topic={topic} organizationCount={organizationCount} />
               </li>
             ))}
           </ul>
         ) : (
-          <p className="mt-4 text-sm text-ink-faint">
-            <T area="news" k="topicsEmpty" />
-          </p>
+          <div className="mt-4 flex flex-col items-start gap-2 text-sm">
+            <p className="text-ink-faint">
+              <T area="news" k="topicsEmpty" />
+            </p>
+            <Link href="/organisaties/" className="text-accent-text underline underline-offset-2 pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:items-center">
+              <T area="entity" k="idxTopicsEmptyNext" />
+            </Link>
+          </div>
         )}
       </section>
     </>

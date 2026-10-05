@@ -42,6 +42,7 @@ export function PeekLink({
   className = "",
   lang,
   title,
+  peek = true,
 }: {
   id: string;
   href: string;
@@ -53,13 +54,19 @@ export function PeekLink({
   className?: string;
   lang?: string;
   title?: string;
+  /**
+   * False on an index or list whose purpose is navigation: the link then goes
+   * straight to the page, with no peek (ADR 0017; index lists navigate, decision EN-15 of 05-10-2026). The peek stays for
+   * entity mentions in running text, news and tables.
+   */
+  peek?: boolean;
 }) {
   return (
     <a
       href={href}
-      data-peek={id}
-      data-peek-kind={kind}
-      aria-haspopup="dialog"
+      data-peek={peek ? id : undefined}
+      data-peek-kind={peek ? kind : undefined}
+      aria-haspopup={peek ? "dialog" : undefined}
       lang={lang}
       title={title}
       className={`${VARIANT[variant]} ${DECORATION[kind]} transition-fast ${className}`.trim()}
