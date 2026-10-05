@@ -2,6 +2,7 @@
 import { mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { orgEnGloss } from "../lib/name-gloss.ts";
 
 const WEB_DIR = fileURLToPath(new URL("../", import.meta.url));
 const DATA_DIR = fileURLToPath(new URL("../../data/", import.meta.url));
@@ -108,6 +109,18 @@ function countryExtra(country) {
   return country && country !== "nederland" ? { country } : {};
 }
 
+// English names come from the sourced gloss rules (ADR 0012: official names on
+// government.nl, retrieved 19-09-2026), never from hand-typed search aliases.
+function englishGloss(name) {
+  const gloss = orgEnGloss(name);
+  return gloss ? [gloss] : [];
+}
+
+function englishExtra(name) {
+  const gloss = orgEnGloss(name);
+  return gloss ? { en: gloss } : {};
+}
+
 function applyAliasOverlay(records) {
   const overlay = readJson(OVERLAY_FILE);
   const entries = Array.isArray(overlay.entries) ? overlay.entries : [];
@@ -171,9 +184,10 @@ export function buildIndex() {
   const records = [];
   for (const org of organizations) {
     records.push(
-      makeRecord("organization", org.id, org.name, [org.aliases, gazetteer.get(org.id)], null, {
+      makeRecord("organization", org.id, org.name, [org.aliases, gazetteer.get(org.id), englishGloss(org.name)], null, {
         context: orgContext(org),
         ...countryExtra(org.country),
+        ...englishExtra(org.name),
       }),
     );
   }
