@@ -4,7 +4,7 @@ import { existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
-import { buildGazetteer, buildTopicIndex, linkArticle } from "./link.mjs";
+import { buildGazetteer, buildTopicIndex, linkArticle, loadTitleAliases } from "./link.mjs";
 import { applyLicenses, applyNewsFactsNote } from "./licenses.mjs";
 
 export const DEFAULT_USER_AGENT =
@@ -513,7 +513,7 @@ export async function runNewsPipeline({
       ? JSON.parse(await readFile(aliasPath, "utf8"))
       : { aliases: [] }
     : feedEnvelope;
-  const gazetteer = buildGazetteer(aliasEnvelope.aliases ?? []);
+  const gazetteer = buildGazetteer([...(aliasEnvelope.aliases ?? []), ...(await loadTitleAliases(dataDir))]);
 
   log(`Fetching ${feedConfigs.length} feed(s) with a ${THROTTLE_MS} ms throttle${offline ? " (offline/cache mode)" : ""}`);
   const feedResults = await fetchFeeds({ feedConfigs, cacheDir, userAgent, throttleMs, offline, fetchImpl, now, log });
@@ -566,7 +566,14 @@ export async function runNewsPipeline({
   const imageThrottleState = { count: 0 };
 
   for (const item of kept) {
-    const link = linkArticle({ title: item.title, text: item.lede ?? "", gazetteer, topicIndex });
+    // A trade outlet for public administration (Binnenlands Bestuur) writes "Zuid-Holland" for the province's government.
+    const link = linkArticle({
+      title: item.title,
+      text: item.lede ?? "",
+      gazetteer,
+      topicIndex,
+      governmentOutlet: item.publisherKind === "vakmedia",
+    });
     if (link.highMatches > 0) {
       highConfidenceItems += 1;
       entityHits += link.highMatches;
@@ -679,6 +686,7 @@ export async function runNewsPipeline({
     topicOnlyItems: news.filter((item) => item.entities.length === 0 && item.topics.length > 0).length,
     fallbackTopics,
     noLinkItems: news.filter((item) => item.entities.length === 0 && item.topics.length === 0).length,
+    excludedItems: feedReport.reduce((sum, report) => sum + (report.excludedItems ?? 0), 0),
     sourceRecords: sourceRecords.length,
     registeredSources,
     updatedSources,
@@ -695,6 +703,7 @@ export async function runNewsPipeline({
   log("");
   log(`Kept ${news.length} item(s) published on or after ${since.slice(0, 10)} (${RETENTION_DAYS}-day window).`);
   log(`Entity linker: ${entityHits} high-confidence hit(s) across ${highConfidenceItems} article(s).`);
+  log(`Blocklist: ${stats.excludedItems} item(s) dropped by excludePaths; ${stats.noLinkItems} kept item(s) name nothing and stay behind the show-all toggle.`);
   log(`Topic fallback: ${fallbackTopics} article(s) assigned a topic with no entity; ${stats.topicOnlyItems} article(s) end up topic-only.`);
   log(`Images: ${imagesDownloaded} downloaded, ${imagesReused} reused, ${imagesSkippedForRights} not downloaded (no image license on the feed), ${imagesSkippedForErrors} skipped for errors.`);
   log(`Wrote ${join(dataDir, "news.json")} and ${sourceRecords.length} article source record(s) to ${sourcesOutPath}`);

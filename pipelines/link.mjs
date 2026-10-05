@@ -7,12 +7,85 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_GAZETTEER = join(ROOT, "research", "J-nieuwsbronnen.json");
 const DEFAULT_TOPICS = join(ROOT, "research", "K-topics.json");
+const DEFAULT_DATA = join(ROOT, "data");
 
 export const STOPWORDS = new Set([
   "aan", "af", "al", "als", "bij", "dan", "dat", "de", "den", "der", "des", "die", "dit",
   "een", "en", "er", "het", "in", "is", "je", "kan", "maar", "met", "na", "naar", "niet",
   "of", "om", "onder", "op", "over", "te", "tot", "uit", "voor", "was", "we", "ze",
   "zich", "zij", "zijn", "zo",
+]);
+
+// Precision rules (docs/adr/0021). A match is only a real mention of the Dutch state
+// when nothing in the text points abroad or to a non-government meaning. Every set
+// below was built from headlines the linker got wrong; see pipelines/link.test.mjs.
+
+/** Foreign adjectives, countries and leaders. Used to spot items about another state. */
+const FOREIGN_WORDS = [
+  "Franse", "Duitse", "Britse", "Amerikaanse", "Russische", "Chinese", "Belgische", "Italiaanse", "Spaanse",
+  "Poolse", "Hongaarse", "Oekraïense", "Israëlische", "Iraanse", "Turkse", "Zweedse", "Deense", "Noorse", "Griekse",
+  "Indiase", "Japanse", "Braziliaanse", "Canadese", "Australische", "Oostenrijkse", "Zwitserse", "Portugese",
+  "Finse", "Roemeense", "Syrische", "Egyptische", "Palestijnse", "Mexicaanse", "Argentijnse", "Afghaanse",
+  "Frankrijk", "Duitsland", "Engeland", "Groot-Brittannië", "Verenigd Koninkrijk", "Verenigde Staten", "VS",
+  "Amerika", "Rusland", "China", "België", "Italië", "Spanje", "Polen", "Hongarije", "Oekraïne", "Israël",
+  "Iran", "Turkije", "Zweden", "Denemarken", "Noorwegen", "Griekenland", "India", "Japan", "Brazilië", "Canada",
+  "Australië", "Oostenrijk", "Zwitserland", "Portugal", "Finland", "Roemenië", "Syrië", "Egypte", "Gaza",
+  "Kyiv", "Kiev", "Moskou", "Washington", "Londen", "Parijs", "Berlijn", "Trump", "Poetin", "Putin", "Starmer",
+  "Macron", "Merz", "Netanyahu", "Zelensky", "Zelenski", "Kremlin", "Witte Huis",
+];
+const FOREIGN_ALTERNATION = FOREIGN_WORDS.map(escapeRegExp).join("|");
+export const FOREIGN_CONTEXT = new RegExp(`(?<![\\p{L}\\p{N}])(?:${FOREIGN_ALTERNATION})(?![\\p{L}\\p{N}])`, "u");
+export const DUTCH_CONTEXT =
+  /(?<![\p{L}\p{N}])(?:Nederland|Nederlands\w*|Nederlander\w*|Haag\w*|Den Haag|Tweede Kamer|Eerste Kamer|Binnenhof|Rijksoverheid|Rijk)(?![\p{L}\p{N}])/u;
+/** A foreign adjective directly before a match: "Duitse minister van Defensie". */
+const DEMONYM_BEFORE = new RegExp(`(?:${FOREIGN_WORDS.filter((word) => word.endsWith("e")).map(escapeRegExp).join("|")})\\s+(?:[\\p{L}-]+\\s+)?$`, "iu");
+
+/** Institution names every state has. A hit needs a Dutch anchor when the text points abroad. */
+const GENERIC_INSTITUTIONS = new Set(["regering", "de regering", "kabinet", "het kabinet", "politie", "de politie", "douane", "defensie", "de kamer"]);
+
+/** Broadcasters: linked only next to a state actor, never for entertainment news. */
+const MEDIA_TARGETS = new Set([
+  "org:rwt-nederlandse-omroep-stichting-nos",
+  "org:zbo-nederlandse-publieke-omroep",
+  "org:zbo-stichting-regionale-publieke-omroep",
+  "org:rwt-landelijke-omroeporganisaties",
+  "org:rwt-stichting-ntr",
+]);
+/** Acronyms another organisation also uses. The Dutch body needs its article ("het CBS") or a state actor. */
+const AMBIGUOUS_ACRONYM_CUES = new Map([["CBS", /(?<![\p{L}\p{N}])het CBS(?![\p{L}\p{N}])/iu]]);
+/** A bare place name is a government mention only with a cue that the municipality or province acts. */
+const PLACE_TARGET = /^org:(gemeente|provincie)-/;
+const EXPLICIT_GOVERNMENT_ALIAS = /^(gemeente|provincie|gemeenteraad|burgemeester|college|waterschap|lid gemeenteraad|wethouder)(?![\p{L}])/iu;
+export const GOVERNMENT_CUES =
+  /(?<![\p{L}\p{N}])(?:gemeente\w*|wethouder\w*|burgemeester\w*|raadsle\w+|raadslid|provinci\w+|gedeputeerde\w*|commissaris van de koning|waterschap\w*|college van b&w)/iu;
+
+/**
+ * Topic keywords that are everyday words or place names. One of them alone proves
+ * nothing ("Van Dijk", "auto", "ziekenhuis"); two distinct ones from the same topic do.
+ * Every other keyword is a policy term and attaches the topic by itself.
+ */
+export const GENERIC_TOPIC_KEYWORDS = new Set([
+  "woning", "woningen", "huur", "huurders", "huurwoning", "huurwoningen", "bouw", "daklozen", "woningmarkt", "corporaties",
+  "zorg", "ziekenhuis", "ziekenhuizen", "huisarts", "huisartsen", "verpleeghuis", "medicijn", "pandemie", "kanker", "dementie",
+  "verpleegkundige", "wachtlijst",
+  "kinderopvang", "gedupeerde", "gedupeerde ouders", "compensatie", "schulden", "hersteloperatie",
+  "klimaat", "klimaatverandering", "energie", "energierekening", "gas", "aardgas", "gasprijs", "elektriciteit", "stroom", "stroomnet",
+  "waterstof", "groningen", "zonnepark", "verduurzaming",
+  "opvang", "noodopvang", "opvanglocatie", "opvangcentrum", "vluchteling", "vluchtelingen", "migratie", "uitzetting", "mensenhandel",
+  "onderwijs", "school", "scholen", "basisschool", "leerlingen", "scholieren", "student", "studenten", "universiteit", "universiteiten",
+  "hogeschool", "hogescholen", "mbo", "duo", "studie", "examen", "docent", "leraar", "leraren",
+  "veiligheid", "criminaliteit", "misdaad", "misdrijf", "verdachte", "aanhoudingen", "aangifte", "rechter", "drugs", "drugscriminaliteit",
+  "witwassen", "schietpartij", "terrorisme", "cybercrime", "slachtoffer", "gevangenis",
+  "democratie", "verkiezingen", "debat", "kabinet", "regering", "coalitie", "oppositie", "formatie", "motie", "referendum", "premier",
+  "fractie", "zetels", "burgemeester",
+  "arbeidsmarkt", "werkgelegenheid", "werknemer", "werkgever", "werkenden", "vacature", "vacatures", "banen", "salaris", "loon",
+  "loonsverhoging", "cao", "pensioen", "staking", "vakbond", "fnv", "cnv", "personeelstekorten",
+  "boer", "boeren", "landbouw", "veehouderij", "veehouder", "veehouders", "vee", "mest", "natuur", "natuurgebied", "voedsel", "visserij",
+  "gewas", "veestapel", "landbouwgrond", "bos", "bomen", "wolf", "ganzen",
+  "infrastructuur", "wegen", "snelweg", "verkeer", "trein", "spoor", "spoorlijn", "spoorwegen", "openbaar vervoer", "bus", "metro",
+  "fietspad", "brug", "tunnel", "sluis", "dijk", "auto", "automobilisten", "vrachtwagen", "schiphol", "luchthaven", "luchtvaart",
+  "vliegtuig", "haven", "verkeersveiligheid",
+  "aruba", "curacao", "curaçao", "sint maarten", "sint-maarten", "bonaire", "sint eustatius", "saba", "caribisch",
 ]);
 
 export function normalizeText(value) {
@@ -55,6 +128,13 @@ export function gazetteerConfidence(alias, declared, acronym) {
   return "medium";
 }
 
+function weakKind(entry) {
+  if (MEDIA_TARGETS.has(entry.target)) return "media";
+  if (AMBIGUOUS_ACRONYM_CUES.has(entry.alias)) return "ambiguous";
+  if (PLACE_TARGET.test(entry.target) && !EXPLICIT_GOVERNMENT_ALIAS.test(entry.alias)) return "place";
+  return null;
+}
+
 export function buildGazetteer(aliases) {
   const seen = new Map();
   for (const entry of aliases ?? []) {
@@ -83,6 +163,8 @@ export function buildGazetteer(aliases) {
       acronym,
       caseSensitive,
       confidence,
+      generic: GENERIC_INSTITUTIONS.has(entry.key) || /^pos:/.test(entry.target),
+      weak: weakKind(entry),
       regex: new RegExp(
         `(?<![\\p{L}\\p{N}])${escapeRegExp(entry.alias)}(?![\\p{L}\\p{N}])`,
         caseSensitive ? "gu" : "giu",
@@ -114,6 +196,7 @@ export function buildTopicIndex(topics) {
 
 export function findTopicMatches(text, topicIndex) {
   const normalized = normalizeText(text);
+  const pointsAbroad = FOREIGN_CONTEXT.test(text) && !DUTCH_CONTEXT.test(text);
   const scores = [];
   for (const topic of topicIndex) {
     const hits = [];
@@ -121,17 +204,45 @@ export function findTopicMatches(text, topicIndex) {
       if (normalized.includes(keyword.toLowerCase()) && regex.test(normalized)) hits.push(keyword);
       regex.lastIndex = 0;
     }
-    if (hits.length > 0) scores.push({ id: topic.id, score: hits.length, keywords: [...new Set(hits)].sort(), order: topic.id });
+    const distinct = new Set(hits.map((hit) => hit.toLowerCase().slice(0, 6)));
+    const anchored = hits.some((hit) => !GENERIC_TOPIC_KEYWORDS.has(hit.toLowerCase()));
+    const needed = anchored && !pointsAbroad ? 1 : 2;
+    if (hits.length > 0 && distinct.size >= needed) {
+      scores.push({ id: topic.id, score: hits.length, keywords: [...new Set(hits)].sort(), order: topic.id });
+    }
   }
   scores.sort((a, b) => b.score - a.score || a.order.localeCompare(b.order));
   return scores;
 }
 
-export function linkArticle({ title = "", text = "", gazetteer = [], topicIndex = [] }) {
+/**
+ * Drops matches that are not a real mention of the Dutch state. A generic institution
+ * or a position title is dropped when the text points abroad; a person or position
+ * after a foreign adjective is dropped; a bare place name needs a government cue or a
+ * government outlet; a broadcaster or a shared acronym needs a state actor next to it.
+ */
+function resolveMentions(found, { haystack, pointsAbroad, governmentOutlet }) {
+  const kept = found.filter(({ entry, index }) => {
+    if (entry.generic && pointsAbroad) return false;
+    if (/^(person|pos):/.test(entry.target) || entry.generic) {
+      if (DEMONYM_BEFORE.test(haystack.slice(Math.max(0, index - 40), index))) return false;
+    }
+    return true;
+  });
+  const stateActor = kept.some(({ entry }) => entry.weak === null);
+  return kept.filter(({ entry }) => {
+    if (entry.weak === null) return true;
+    if (entry.weak === "place") return governmentOutlet || GOVERNMENT_CUES.test(haystack);
+    if (entry.weak === "ambiguous") return stateActor || AMBIGUOUS_ACRONYM_CUES.get(entry.alias).test(haystack);
+    return stateActor;
+  });
+}
+
+export function linkArticle({ title = "", text = "", gazetteer = [], topicIndex = [], governmentOutlet = false }) {
   const haystack = [title, text].filter(Boolean).join(" \u2014 ");
   const normalized = normalizeText(haystack);
   const occupied = [];
-  const matches = [];
+  const found = [];
 
   for (const entry of gazetteer) {
     const acronymLike = entry.acronym;
@@ -146,8 +257,11 @@ export function linkArticle({ title = "", text = "", gazetteer = [], topicIndex 
     const end = index + match[0].length;
     if (occupied.some((span) => index < span.end && end > span.start)) continue;
     occupied.push({ start: index, end });
-    matches.push({ entry, index, length: match[0].length, surface: match[0] });
+    found.push({ entry, index, length: match[0].length, surface: match[0] });
   }
+
+  const pointsAbroad = FOREIGN_CONTEXT.test(haystack) && !DUTCH_CONTEXT.test(haystack);
+  const matches = resolveMentions(found, { haystack, pointsAbroad, governmentOutlet });
 
   matches.sort((a, b) => a.index - b.index || b.length - a.length || a.entry.alias.localeCompare(b.entry.alias));
 
@@ -197,10 +311,92 @@ export function applyMarkup(text, highMatches) {
   return result;
 }
 
-export async function loadGazetteer(path = DEFAULT_GAZETTEER) {
+const TITLE_LEADER_FORMS = ["fractievoorzitter", "fractieleider", "partijleider", "leider", "Kamerlid"];
+const CARIBBEAN_POSITION = /-(aruba|curacao|sint-maarten)$/;
+
+function stripDiacritics(value) {
+  return value.normalize("NFD").replace(/\p{M}/gu, "");
+}
+
+/** The surname part of a full name, with its particles, plus the first half of a double-barrelled name. */
+function surnameForms(name) {
+  const tokens = String(name ?? "").split(" ").filter(Boolean);
+  if (tokens.length < 2) return [];
+  let start = tokens.findIndex((token, index) => index > 0 && /^[a-zà-ÿ]/.test(token));
+  if (start === -1) start = tokens.length - 1;
+  const full = tokens.slice(start).join(" ");
+  const forms = new Set([full]);
+  const parts = full.split("-");
+  if (parts.length > 1 && !/^(van|de|der|den)$/i.test(parts[0]) && !/^van /i.test(full)) forms.add(parts[0]);
+  for (const form of [...forms]) {
+    forms.add(stripDiacritics(form));
+    forms.add(form.replace(/’/g, "'"));
+  }
+  return [...forms].filter((form) => form.length >= 4);
+}
+
+/**
+ * Aliases such as "minister Heinen", "premier Jetten" or "PVV-leider Wilders", built from
+ * the current tenures of the dataset so the linker names only people the dataset holds.
+ * An alias that two people share is dropped. Past tenures and acting tenures give none.
+ */
+export function buildTitleAliases(people, tenures) {
+  const byId = new Map((people ?? []).map((person) => [person.id, person]));
+  const rows = [];
+  for (const tenure of tenures ?? []) {
+    if (tenure.end || tenure.acting) continue;
+    const person = byId.get(tenure.person);
+    if (!person) continue;
+    const position = String(tenure.position ?? "");
+    if (CARIBBEAN_POSITION.test(position)) continue;
+    let titles = [];
+    if (position === "pos:minister-president") titles = ["premier", "minister-president", "ministerpresident"];
+    else if (/^pos:minister-van-/.test(position)) titles = ["minister"];
+    else if (/^pos:staatssecretaris-/.test(position)) titles = ["staatssecretaris"];
+    else if (/^pos:fractievoorzitter(-|$)/.test(position)) titles = TITLE_LEADER_FORMS;
+    for (const title of titles) {
+      for (const surname of surnameForms(person.name)) rows.push({ alias: `${title} ${surname}`, target: person.id });
+    }
+  }
+  const targetsByKey = new Map();
+  for (const row of rows) {
+    const key = row.alias.toLowerCase();
+    if (!targetsByKey.has(key)) targetsByKey.set(key, new Set());
+    targetsByKey.get(key).add(row.target);
+  }
+  const seen = new Set();
+  const aliases = [];
+  for (const row of rows) {
+    const key = row.alias.toLowerCase();
+    if (targetsByKey.get(key).size > 1 || seen.has(row.alias)) continue;
+    seen.add(row.alias);
+    aliases.push({ alias: row.alias, target: row.target, confidence: "high" });
+  }
+  return aliases;
+}
+
+async function readDataArray(dataDir, name) {
+  const file = join(dataDir, `${name}.json`);
+  if (!existsSync(file)) return [];
+  const parsed = JSON.parse(await readFile(file, "utf8"));
+  return Array.isArray(parsed) ? parsed : [];
+}
+
+/** Title aliases ("minister Heinen") built from the dataset in `dataDir`. */
+export async function loadTitleAliases(dataDir = DEFAULT_DATA) {
+  const [people, tenures] = await Promise.all([readDataArray(dataDir, "people"), readDataArray(dataDir, "tenures")]);
+  return buildTitleAliases(people, tenures);
+}
+
+/** The curated aliases plus the title aliases built from the dataset's current tenures. */
+export async function loadAliases(path = DEFAULT_GAZETTEER, dataDir = DEFAULT_DATA) {
+  const curated = existsSync(path) ? (JSON.parse(await readFile(path, "utf8")).aliases ?? []) : [];
+  return [...curated, ...(await loadTitleAliases(dataDir))];
+}
+
+export async function loadGazetteer(path = DEFAULT_GAZETTEER, dataDir = DEFAULT_DATA) {
   if (!existsSync(path)) return [];
-  const parsed = JSON.parse(await readFile(path, "utf8"));
-  return buildGazetteer(parsed.aliases ?? []);
+  return buildGazetteer(await loadAliases(path, dataDir));
 }
 
 export async function loadTopicIndex(path = DEFAULT_TOPICS) {
