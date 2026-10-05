@@ -1,12 +1,14 @@
 /**
- * URL state of /wijzigingen/: `?window=7|30|90&kind=...&day=YYYY-MM-DD`. Each
+ * URL state of /wijzigingen/: `?window=7|30|90&kind=...&day=YYYY-MM-DD&view=people`. Each
  * part is checked on its own, so a bad part is ignored and the rest still
  * applies. Kept free of React so a test can run it.
  */
 
 export type ChangeFilterValue = "all" | "appointment" | "departure" | "vacancy" | "acting";
 
-export type ChangeUrlState = { window: number; kind: ChangeFilterValue; day: string | null };
+export type ChangeViewValue = "chronological" | "people";
+
+export type ChangeUrlState = { window: number; kind: ChangeFilterValue; day: string | null; view: ChangeViewValue };
 
 export const CHANGE_FILTER_VALUES: readonly ChangeFilterValue[] = ["all", "appointment", "departure", "vacancy", "acting"];
 
@@ -29,6 +31,7 @@ export function parseChangeUrlState(search: string, validDays: readonly number[]
     window: validDays.includes(requested) ? requested : fallback,
     kind: CHANGE_FILTER_VALUES.find((value) => value === kind) ?? "all",
     day: day !== null && isIsoDay(day) ? day : null,
+    view: params.get("view") === "people" ? "people" : "chronological",
   };
 }
 
@@ -45,6 +48,7 @@ export function serializeChangeUrlState(state: ChangeUrlState): string {
   if (state.window !== DEFAULT_WINDOW) params.set("window", String(state.window));
   if (state.kind !== "all") params.set("kind", state.kind);
   if (state.day !== null) params.set("day", state.day);
+  if (state.view === "people") params.set("view", "people");
   const query = params.toString();
   return query === "" ? "" : `?${query}`;
 }
