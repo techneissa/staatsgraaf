@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { EmptyState } from "@/components/empty-state";
 import { JsonLd } from "@/components/json-ld";
-import { NewsItemCard } from "@/components/news/news-item-card";
-import { ShowAllList } from "@/components/news/show-all-list";
+import { NewsDayList } from "@/components/news/news-day-list";
+import { NewsPageLinks } from "@/components/news/news-links";
 import { getDatasetDate } from "@/lib/data";
 import { formatCountIn } from "@/lib/format";
 import { getNewsDays } from "@/lib/news";
@@ -79,6 +78,7 @@ export default async function NewsDayPage({ params }: { params: Promise<{ date: 
           {formatCountIn(total, "en")}{" "}
           {total === 1 ? messages.dayCountWordSingular : messages.dayCountWordPlural}
         </p>
+        <NewsPageLinks route="en" />
         <p className="mt-1 text-xs text-ink-faint">
           <a href="/methodiek/#machinevertaling" className="underline decoration-line underline-offset-2 hover:text-ink">
             {messages.card.translationNote}
@@ -86,33 +86,15 @@ export default async function NewsDayPage({ params }: { params: Promise<{ date: 
         </p>
       </header>
 
-      {archive.hours.length === 0 ? (
-        <section className="py-6">
-          <EmptyState title={messages.noItemsLabel} />
-        </section>
-      ) : (
-        archive.hours.map((hour) => (
-          <section
-            key={hour.hour}
-            aria-labelledby={`uur-${hour.hour}`}
-            className="border-b border-line py-6"
-          >
-            <h2 id={`uur-${hour.hour}`} className="text-lg font-semibold tracking-tight text-ink">
-              {hour.label}
-            </h2>
-            <ShowAllList
-              as="ol"
-              items={hour.items}
-              initial={8}
-              minHidden={4}
-              locale="en"
-              className="mt-3 list-none space-y-3 p-0"
-              keyOf={(item) => item.id}
-              render={(item) => <NewsItemCard item={item} displayLanguage={messages.locale} />}
-            />
-          </section>
-        ))
-      )}
+      <NewsDayList
+        hours={archive.hours}
+        total={total}
+        relevantTotal={archive.relevantTotal}
+        fixedLanguage="en"
+        previous={archive.previous}
+        next={archive.next}
+        archiveBase="/news"
+      />
     </div>
   );
 }

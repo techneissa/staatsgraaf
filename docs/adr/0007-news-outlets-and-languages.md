@@ -3,6 +3,7 @@
 - Date: 18-09-2026
 - Status: accepted. The owner decided the two open questions on 18-09-2026: a full bilingual news section now, machine translation in a later phase.
 - Supersedes: none. Extends `docs/09-content-and-ai-policy.md` section 5.
+- Amended 05-10-2026: entity links are now filtered for relevance and precision, section blocklists exist, and items without a real mention sit behind a toggle (`docs/adr/0021-news-relevance.md`).
 - Amended: point 4 is superseded by `docs/adr/0016-news-machine-translation.md` (24-09-2026). Headlines and leads are now machine translated, and the news run is hourly during the Dutch day (ADR 0016).
 
 ## Context

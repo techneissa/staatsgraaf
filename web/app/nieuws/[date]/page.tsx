@@ -3,10 +3,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { DictEmptyState } from "@/components/budget/dict-empty-state";
 import { JsonLd } from "@/components/json-ld";
-import { NewsItemCard } from "@/components/news/news-item-card";
-import { ShowAllList } from "@/components/news/show-all-list";
+import { NewsDayList } from "@/components/news/news-day-list";
+import { NewsPageLinks } from "@/components/news/news-links";
 import { getDatasetDate } from "@/lib/data";
 import { LocalCount } from "@/components/content/local-date";
 import { getNewsDays } from "@/lib/news";
@@ -81,6 +80,7 @@ export default async function NewsDayPage({ params }: { params: Promise<{ date: 
           <LocalCount value={total} />{" "}
           {total === 1 ? <NT k="dayCountWordSingular" /> : <NT k="dayCountWordPlural" />}
         </p>
+        <NewsPageLinks route="nl" />
         <p className="mt-1 text-xs text-ink-faint">
           <a href="/methodiek/#machinevertaling" className="underline decoration-line underline-offset-2 hover:text-ink">
             <L nl="Anderstalige berichten zijn automatisch vertaald." en="Items in another language are machine translated." />
@@ -88,28 +88,14 @@ export default async function NewsDayPage({ params }: { params: Promise<{ date: 
         </p>
       </header>
 
-      {archive.hours.length === 0 ? (
-        <section className="py-6">
-          <DictEmptyState titleKey="newsDayEmpty" />
-        </section>
-      ) : (
-        archive.hours.map((hour) => (
-          <section key={hour.hour} aria-labelledby={`uur-${hour.hour}`} className="border-b border-line py-6">
-            <h2 id={`uur-${hour.hour}`} className="text-lg font-semibold tracking-tight text-ink">
-              {hour.hour}:00 <NT k="hourConnector" /> {hour.hour}:59
-            </h2>
-            <ShowAllList
-              as="ol"
-              items={hour.items}
-              initial={8}
-              minHidden={4}
-              className="mt-3 list-none space-y-3 p-0"
-              keyOf={(item) => item.id}
-              render={(item) => <NewsItemCard item={item} />}
-            />
-          </section>
-        ))
-      )}
+      <NewsDayList
+        hours={archive.hours}
+        total={total}
+        relevantTotal={archive.relevantTotal}
+        previous={archive.previous}
+        next={archive.next}
+        archiveBase="/nieuws"
+      />
     </>
   );
 }

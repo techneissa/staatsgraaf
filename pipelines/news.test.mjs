@@ -9,6 +9,8 @@ import {
   buildSummary,
   dedupeItems,
   feedConfigsFromEnvelope,
+  isExcludedUrl,
+  itemKeywords,
   keywordsFromMatches,
   makeIdFactory,
   normalizeDate,
@@ -566,4 +568,45 @@ test("runNewsPipeline leaves pre-existing non-nieuws media records (e.g. Wikidat
 
   const media = JSON.parse(await readFile(join(dataDir, "media.json"), "utf8"));
   assert.deepEqual(media, [portrait]);
+});
+
+test("isExcludedUrl matches a path prefix and nothing else on the same host", () => {
+  const rules = [{ pattern: "/boulevard/", reason: "celebrity news" }];
+  assert.equal(isExcludedUrl("https://www.rtlnieuws.nl/boulevard/artikel/1", rules), true);
+  assert.equal(isExcludedUrl("https://www.rtlnieuws.nl/nieuws/artikel/1", rules), false);
+  assert.equal(isExcludedUrl("https://www.rtlnieuws.nl/nieuws/boulevard/artikel/1", rules), false);
+  assert.equal(isExcludedUrl("https://www.rtlnieuws.nl/boulevardkrant", rules), false);
+  assert.equal(isExcludedUrl("not a url", rules), false);
+  assert.equal(isExcludedUrl("https://www.rtlnieuws.nl/boulevard/artikel/1", []), false);
+  assert.equal(isExcludedUrl("https://www.rtlnieuws.nl/boulevard/artikel/1", undefined), false);
+});
+
+test("feedConfigsFromEnvelope carries excludePaths through to the feed config", () => {
+  const rules = [{ pattern: "/boulevard/", reason: "celebrity news" }];
+  const configs = feedConfigsFromEnvelope({
+    feeds: [{ url: "https://example.nl/rss", publisher: "Voorbeeld", enabled: true, excludePaths: rules }],
+  });
+  assert.deepEqual(configs[0].excludePaths, rules);
+  const bare = feedConfigsFromEnvelope({ feeds: [{ url: "https://example.nl/rss", publisher: "Voorbeeld" }] });
+  assert.deepEqual(bare[0].excludePaths, []);
+});
+
+test("the registry blocks RTL boulevard with a stated reason", async () => {
+  const registry = JSON.parse(await readFile(new URL("./feeds.json", import.meta.url), "utf8"));
+  const rtl = registry.feeds.find((feed) => feed.publisher === "RTL Nieuws");
+  const rule = rtl.excludePaths.find((entry) => entry.pattern === "/boulevard/");
+  assert.ok(rule && rule.reason.length > 10);
+});
+
+test("itemKeywords lists entity aliases first, then the topic evidence, without duplicates", () => {
+  const link = {
+    matches: [
+      { alias: "minister Heinen", confidence: "high" },
+      { alias: "het kabinet", confidence: "medium" },
+    ],
+    topicEvidence: ["box 3", "minister Heinen", "belasting"],
+  };
+  assert.deepEqual(itemKeywords(link, 3), ["minister Heinen", "box 3", "belasting"]);
+  assert.deepEqual(itemKeywords({ matches: [], topicEvidence: ["azc"] }), ["azc"]);
+  assert.deepEqual(itemKeywords({ matches: [] }), []);
 });

@@ -11,6 +11,12 @@ export const NEWS_HOME_LIMIT = 6;
 export const NEWS_PAGE_SIZE = 8;
 /** Items shown per recency group and language on /nieuws/ before the day archive takes over. */
 export const NEWS_GROUP_LIMIT = 30;
+/**
+ * Items that name nothing are cards only up to this many per group and language; the
+ * rest are counted from compact rows and reached through the day archives. Every item
+ * that names the state is always a card, so the default view is complete.
+ */
+export const NEWS_OTHER_CARD_LIMIT = 10;
 /** Items shown per group before the "Toon meer" disclosure. */
 export const NEWS_GROUP_INITIAL = 10;
 /** Items shown on a person page before the count note. */
