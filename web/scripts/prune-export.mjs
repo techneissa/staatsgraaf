@@ -28,6 +28,13 @@ async function walk(dir) {
 const { files, removed } = await walk(outDir);
 console.log(`prune-export: ${files} files before prune, removed ${removed} RSC prefetch payloads, ${files - removed} remain`);
 
+// Cloudflare Pages Free rejects a deployment over 20,000 files. Warn at 15,000
+// so growth shows well before the cap (ADR 0022). New pages add files fast: a
+// route costs one index.html and one index.txt.
+if (files - removed > 15000 && files - removed <= 20000) {
+  console.warn(`prune-export: warning, ${files - removed} files is over 15000; the Cloudflare Pages Free cap is 20000, see docs/adr/0022-delivery-and-caching.md before adding pages`);
+}
+
 if (files - removed > 20000) {
   console.error("prune-export: export still has more than 20000 files, which Cloudflare Pages Free rejects");
   process.exitCode = 1;
