@@ -10,15 +10,16 @@ test("a full valid query parses as given", () => {
     window: 90,
     kind: "vacancy",
     day: "2026-09-20",
+    view: "chronological",
   });
 });
 
 test("no query gives the defaults", () => {
-  assert.deepEqual(parseChangeUrlState("", DAYS), { window: 30, kind: "all", day: null });
+  assert.deepEqual(parseChangeUrlState("", DAYS), { window: 30, kind: "all", day: null, view: "chronological" });
 });
 
 test("an unknown kind falls back to all and keeps the rest", () => {
-  assert.deepEqual(parseChangeUrlState("?kind=bogus&window=7", DAYS), { window: 7, kind: "all", day: null });
+  assert.deepEqual(parseChangeUrlState("?kind=bogus&window=7", DAYS), { window: 7, kind: "all", day: null, view: "chronological" });
 });
 
 test("a window that is not offered falls back to 30", () => {
@@ -48,10 +49,28 @@ test("dayInWindow keeps a day inside the window and drops one outside", () => {
 });
 
 test("serialize writes only the parts that differ from the defaults", () => {
-  assert.equal(serializeChangeUrlState({ window: 30, kind: "all", day: null }), "");
+  assert.equal(serializeChangeUrlState({ window: 30, kind: "all", day: null, view: "chronological" }), "");
   assert.equal(
-    serializeChangeUrlState({ window: 90, kind: "vacancy", day: "2026-09-20" }),
+    serializeChangeUrlState({ window: 90, kind: "vacancy", day: "2026-09-20", view: "chronological" }),
     "?window=90&kind=vacancy&day=2026-09-20",
   );
-  assert.equal(serializeChangeUrlState({ window: 30, kind: "acting", day: null }), "?kind=acting");
+  assert.equal(serializeChangeUrlState({ window: 30, kind: "acting", day: null, view: "chronological" }), "?kind=acting");
+});
+
+test("view=people parses; a bad view is ignored and the rest applies", () => {
+  assert.equal(parseChangeUrlState("?view=people", DAYS).view, "people");
+  assert.deepEqual(parseChangeUrlState("?window=90&view=bogus&kind=bogus", DAYS), {
+    window: 90,
+    kind: "all",
+    day: null,
+    view: "chronological",
+  });
+});
+
+test("serialize writes view=people only when it is not the default", () => {
+  assert.equal(serializeChangeUrlState({ window: 30, kind: "all", day: null, view: "people" }), "?view=people");
+  assert.equal(
+    serializeChangeUrlState({ window: 90, kind: "all", day: null, view: "people" }),
+    "?window=90&view=people",
+  );
 });

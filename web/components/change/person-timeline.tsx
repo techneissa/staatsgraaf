@@ -143,9 +143,10 @@ function SeatBody({ positionId }: { positionId: string }) {
 }
 
 /**
- * The status of a seat, read from the changes themselves: vacant since the
- * date of the earliest vacancy record shown, and filled only when `filler` (a
- * later appointment to the same position in the data) says so.
+ * The status of a seat, read from the changes themselves: the date of the
+ * earliest vacancy record shown ("recorded", since a record carries no start
+ * date and the seat may have been vacant before it), and filled only when
+ * `filler` (a later appointment to the same position in the data) says so.
  */
 function SeatStatus({ group, filler }: { group: PersonChangeGroup; filler: Change | null }) {
   const vacancies = group.events.filter((event) => event.kind === "vacancy");
