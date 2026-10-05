@@ -12,9 +12,11 @@ import {
   newsDays,
   newsKeywords,
   newsKind,
+  newsReferenceAt,
   newsLanguage,
   outlets,
   recencyGroup,
+  recencyGroupDetail,
   relevanceCounts,
   selectRelevantNews,
 } from "./news.ts";
@@ -235,4 +237,23 @@ test("a topic without evidence keywords does not make an item relevant", () => {
   assert.equal(isRelevantNews({ entities: [], topics: ["topic:zorg"], keywords: [] }), false);
   assert.equal(isRelevantNews({ entities: [], topics: ["topic:zorg"], keywords: ["ziekenhuis", "zorg"] }), true);
   assert.equal(isRelevantNews({ entities: ["org:x"], topics: ["topic:zorg"], keywords: [] }), true);
+});
+
+test("recencyGroupDetail names the real date or time behind each relative group", () => {
+  assert.equal(recencyGroupDetail("hour", REFERENCE, [], "nl"), "tot 09:00");
+  assert.equal(recencyGroupDetail("hour", REFERENCE, [], "en"), "until 09:00");
+  assert.equal(recencyGroupDetail("today", REFERENCE, [], "nl"), "vrijdag 18 september");
+  assert.equal(recencyGroupDetail("yesterday", REFERENCE, [], "nl"), "donderdag 17 september");
+  assert.equal(recencyGroupDetail("today", REFERENCE, [], "en"), "Friday 18 September");
+  const week = ["2026-09-14T08:00:00.000Z", "2026-09-12T08:00:00.000Z", "2026-09-16T08:00:00.000Z"];
+  assert.equal(recencyGroupDetail("week", REFERENCE, week, "nl"), "12 sep tot 16 sep");
+  assert.equal(recencyGroupDetail("earlier", REFERENCE, ["2026-09-01T08:00:00.000Z", "2026-09-10T08:00:00.000Z"], "nl"), "tot 10 sep");
+  assert.equal(recencyGroupDetail("earlier", REFERENCE, [], "nl"), "");
+});
+
+test("the recency reference is the build clock, never older than the newest item", () => {
+  const items = [item("a", "2026-09-18T06:00:00.000Z")];
+  assert.equal(newsReferenceAt(items, new Date("2026-09-22T10:00:00.000Z")), "2026-09-22T10:00:00.000Z");
+  assert.equal(newsReferenceAt(items, new Date("2026-09-10T10:00:00.000Z")), "2026-09-18T06:00:00.000Z");
+  assert.equal(newsReferenceAt([], new Date("2026-09-22T10:00:00.000Z")), "2026-09-22T10:00:00.000Z");
 });

@@ -29,7 +29,7 @@ export function NewsBand({ items }: { items: NewsItem[] }) {
       <p className="mt-4 text-sm">
         <Link
           href="/nieuws/"
-          className="inline-flex items-center gap-1 text-sm font-medium text-accent-text underline-offset-2 hover:underline"
+          className="inline-flex items-center gap-1 text-sm font-medium text-accent-text underline-offset-2 hover:underline pointer-coarse:min-h-11"
         >
           <T area="home" k="newsAll" />
           <span aria-hidden="true">&rsaquo;</span>

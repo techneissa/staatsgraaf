@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { NewsExplorer } from "@/components/news/news-explorer";
+import { NewsPageLinks } from "@/components/news/news-links";
 import { L, T } from "@/components/i18n/t";
 import { getDatasetDate } from "@/lib/data";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
@@ -53,6 +54,7 @@ export default function NewsPage() {
             <L nl={messages.heading} en={en.heading} />
           </h1>
         </div>
+        <NewsPageLinks route="nl" />
         {datasetDate !== null ? (
           <p className="mt-2 text-xs text-ink-faint">
             <L

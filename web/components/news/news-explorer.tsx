@@ -22,16 +22,27 @@ export type NewsExplorerDay = {
   date: string;
   label: string;
   count: number;
+  /** How many of the day's items name the state. */
+  relevantCount: number;
 };
+
+/** The filter-relevant facts of an item that is not loaded as a card. */
+export type NewsExplorerRow = [kind: PublisherKind, publisher: string];
 
 export type NewsExplorerGroup = {
   key: RecencyGroupKey;
   label: string;
+  /** The real date or time behind the relative label, for a page that outlives its build. */
+  detail: string;
   /**
    * Per original language: the true totals in the dataset (all items, and those that
-   * name the state) and the capped, newest-first items loaded on this page, of both kinds.
+   * name the state), every relevant item as a card, the newest other items as cards, and
+   * kind and outlet of the other items left out, so every count and filter is complete.
    */
-  languages: Record<NewsLanguage, { total: number; relevantTotal: number; items: NewsItemView[] }>;
+  languages: Record<
+    NewsLanguage,
+    { total: number; relevantTotal: number; items: NewsItemView[]; unloaded: NewsExplorerRow[] }
+  >;
   /** Day archive pages that hold everything in this group. */
   days: NewsExplorerDay[];
 };
@@ -42,9 +53,12 @@ const ALL_PUBLISHERS = "__all__";
 
 type EntityFilter = { id: string; label: string; href: string | null; kind: PeekKind | null };
 
-function countBy<K extends string>(items: NewsItemView[], key: (item: NewsItemView) => K): Map<K, number> {
+/** What a filter needs to know about an item, whether it is loaded as a card or not. */
+type Row = { kind: PublisherKind; publisher: string; language: NewsLanguage };
+
+function countBy<K extends string>(rows: Row[], key: (row: Row) => K): Map<K, number> {
   const map = new Map<K, number>();
-  for (const item of items) map.set(key(item), (map.get(key(item)) ?? 0) + 1);
+  for (const row of rows) map.set(key(row), (map.get(key(row)) ?? 0) + 1);
   return map;
 }
 
@@ -141,39 +155,45 @@ export function NewsExplorer({
   const relevantTotals = sumTotals((bucket) => bucket.relevantTotal);
   const shownTotals = relevantOnly ? relevantTotals : totals;
 
-  const pool = relevantOnly ? loaded.filter((item) => item.relevant) : loaded;
-  const byLanguage = language === "all" ? pool : pool.filter((item) => item.language === language);
-  const byEntity = entity ? byLanguage.filter((item) => item.entities.some((entry) => entry.id === entity.id)) : byLanguage;
-  const kindCounts = countBy(byEntity, (item) => item.kind);
-  const kindFiltered = kind === "all" ? byEntity : byEntity.filter((item) => item.kind === kind);
-  const publisherCounts = countBy(kindFiltered, (item) => item.publisher);
+  // Every relevant item is a card; with "show all" the rest is counted from compact rows.
+  const countUnloaded = showAll && entity === null;
+  const cards = relevantOnly ? loaded.filter((item) => item.relevant) : loaded;
+  const rowsOf = (group: NewsExplorerGroup): Row[] =>
+    countUnloaded
+      ? NEWS_LANGUAGES.flatMap((lang) =>
+          group.languages[lang].unloaded.map(([rowKind, rowPublisher]) => ({ kind: rowKind, publisher: rowPublisher, language: lang })),
+        )
+      : [];
+  const unloadedRows = groups.flatMap(rowsOf);
+  const inLanguage = (row: Row) => language === "all" || row.language === language;
+  const cardRows: Row[] = (entity ? cards.filter((item) => item.entities.some((entry) => entry.id === entity.id)) : cards).filter(inLanguage);
+  const rows: Row[] = [...cardRows, ...unloadedRows.filter(inLanguage)];
+  const kindCounts = countBy(rows, (row) => row.kind);
+  const kindFiltered = kind === "all" ? rows : rows.filter((row) => row.kind === kind);
+  const publisherCounts = countBy(kindFiltered, (row) => row.publisher);
   const publishers = [...publisherCounts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "nl"));
   const activePublisher = publisherCounts.has(publisher) ? publisher : ALL_PUBLISHERS;
   const filtering = kind !== "all" || activePublisher !== ALL_PUBLISHERS || entity !== null;
 
+  const matchesRow = (row: Row) =>
+    inLanguage(row) &&
+    (kind === "all" || row.kind === kind) &&
+    (activePublisher === ALL_PUBLISHERS || row.publisher === activePublisher);
   const matches = (item: NewsItemView) =>
-    (language === "all" || item.language === language) &&
-    (entity === null || item.entities.some((entry) => entry.id === entity.id)) &&
-    (kind === "all" || item.kind === kind) &&
-    (activePublisher === ALL_PUBLISHERS || item.publisher === activePublisher);
+    matchesRow(item) && (entity === null || item.entities.some((entry) => entry.id === entity.id));
 
   const languageOptions: LanguageFilter[] = ["all", ...NEWS_LANGUAGES];
 
-  // One entry per recency group that has something to show in the current mode and language.
+  // One entry per recency group with a match in the current mode, language and filters.
   const sections = merged
     .map((entry) => {
-      const inLanguage = language === "all" ? entry.items : entry.group.languages[language].items;
-      const bucketItems = relevantOnly ? inLanguage.filter((item) => item.relevant) : inLanguage;
-      const languages = entry.group.languages;
-      const bucketTotal =
-        language === "all"
-          ? (relevantOnly ? languages.nl.relevantTotal + languages.en.relevantTotal : entry.total)
-          : relevantOnly
-            ? languages[language].relevantTotal
-            : languages[language].total;
-      return { group: entry.group, bucketItems, bucketTotal, filtered: bucketItems.filter(matches) };
+      const inBucket = language === "all" ? entry.items : entry.group.languages[language].items;
+      const bucketItems = relevantOnly ? inBucket.filter((item) => item.relevant) : inBucket;
+      const filtered = bucketItems.filter(matches);
+      const unloaded = rowsOf(entry.group).filter(matchesRow).length;
+      return { group: entry.group, filtered, unloaded };
     })
-    .filter(({ bucketItems, filtered }) => bucketItems.length > 0 && !(entity !== null && filtered.length === 0));
+    .filter(({ filtered, unloaded }) => filtered.length + unloaded > 0);
 
   return (
     <div data-settled={settled ? "" : undefined}>
@@ -213,7 +233,7 @@ export function NewsExplorer({
         >
           <SlidingIndicator variant="ring" className="rounded-pill border border-accent/40" />
           {(["all", ...PUBLISHER_KINDS] as KindFilter[]).map((option) => {
-            const count = option === "all" ? byEntity.length : (kindCounts.get(option) ?? 0);
+            const count = option === "all" ? rows.length : (kindCounts.get(option) ?? 0);
             if (option !== "all" && count === 0) return null;
             return (
               <button
@@ -268,7 +288,7 @@ export function NewsExplorer({
             </p>
             {entity.href ? (
               <p className="mt-1 text-xs text-ink-faint">
-                {byEntity.length === 0 ? `${messages.entityFilterEmpty} ` : null}
+                {rows.length === 0 ? `${messages.entityFilterEmpty} ` : null}
                 <Link href={entity.href} className="text-accent-text underline-offset-2 hover:underline">
                   {interpolate(NEWS_DICT.newsEntityAllLink[uiLanguage], { name: entity.label })}
                 </Link>
@@ -304,29 +324,34 @@ export function NewsExplorer({
 
           {sections.length === 0 ? (
             <div className="mt-6">
-              <EmptyState
-                title={NEWS_DICT.newsRelevantEmptyTitle[uiLanguage]}
-                description={NEWS_DICT.newsRelevantEmptyDescription[uiLanguage]}
-              />
+              {filtering ? (
+                <EmptyState title={messages.noItemsFilterLabel} />
+              ) : (
+                <EmptyState
+                  title={NEWS_DICT.newsRelevantEmptyTitle[uiLanguage]}
+                  description={NEWS_DICT.newsRelevantEmptyDescription[uiLanguage]}
+                />
+              )}
             </div>
           ) : (
             <div className="mt-6 space-y-8">
-              {sections.map(({ group, bucketItems, bucketTotal, filtered }) => {
+              {sections.map(({ group, filtered, unloaded }) => {
                 const visible = filtered.slice(0, initialVisible);
                 const hidden = filtered.slice(initialVisible);
-                const truncated = bucketTotal > bucketItems.length;
+                const matched = filtered.length + unloaded;
                 const headingId = `groep-${group.key}`;
                 return (
                   <section key={group.key} aria-labelledby={headingId}>
                     <div className="sticky top-0 z-10 -mx-4 flex items-baseline justify-between gap-2 border-b border-line bg-canvas/95 px-4 py-2 backdrop-blur-sm">
                       <h2 id={headingId} className="text-xs font-semibold text-ink-faint">
                         {messages.groupLabels[group.key]}
+                        {group.detail !== "" ? <span className="ms-1.5 font-normal">· {group.detail}</span> : null}
                       </h2>
                       <span className="text-xs tabular-nums text-ink-faint">
-                        {!filtering && truncated
-                          ? `${formatCountIn(bucketItems.length, uiLanguage)} ${messages.ofWord} ${formatCountIn(bucketTotal, uiLanguage)}`
+                        {unloaded > 0
+                          ? `${formatCountIn(filtered.length, uiLanguage)} ${messages.ofWord} ${formatCountIn(matched, uiLanguage)}`
                           : formatCountIn(filtered.length, uiLanguage)}{" "}
-                        {filtered.length === 1 ? messages.itemsWordSingular : messages.itemsWordPlural}
+                        {matched === 1 ? messages.itemsWordSingular : messages.itemsWordPlural}
                       </span>
                     </div>
 
@@ -342,81 +367,136 @@ export function NewsExplorer({
                           ))}
                         </ol>
                         {hidden.length > 0 ? (
-                          <details className="motion-disclosure group mt-3">
-                            <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-pill border border-line bg-surface-raised px-4 text-sm font-medium text-ink transition-fast hover:border-accent/40 hover:bg-accent-soft hover:text-accent-text sm:min-h-9 pointer-coarse:min-h-11 [&::-webkit-details-marker]:hidden">
-                              <span className="group-open:hidden">
-                                {messages.showMoreLabel} ({formatCountIn(hidden.length, uiLanguage)})
-                              </span>
-                              <span className="hidden group-open:inline">{messages.showLessLabel}</span>
-                            </summary>
-                            <ol className="mt-3 list-none space-y-2 p-0">
-                              {hidden.map((item) => (
-                                <li key={item.id} className="motion-enter">
-                                  <NewsItemCard item={item} displayLanguage={uiLanguage} />
-                                </li>
-                              ))}
-                            </ol>
-                          </details>
+                          <MoreItems
+                            items={hidden}
+                            language={uiLanguage}
+                            showMore={`${messages.showMoreLabel} (${formatCountIn(hidden.length, uiLanguage)})`}
+                            showLess={messages.showLessLabel}
+                          />
                         ) : null}
                       </>
                     )}
+                    {unloaded > 0 ? (
+                      <p className="mt-3 text-xs text-ink-faint">
+                        {interpolate(NEWS_DICT.newsTruncatedNote[uiLanguage], { count: formatCountIn(unloaded, uiLanguage) })}{" "}
+                        <a href="#eerdere-dagen" className="text-accent-text underline-offset-2 hover:underline">
+                          {NEWS_DICT.newsEarlierDays[uiLanguage]}
+                        </a>
+                      </p>
+                    ) : null}
                   </section>
                 );
               })}
             </div>
           )}
+          <DayArchiveNav
+            days={groups.flatMap((group) => group.days)}
+            archiveBase={archiveBase}
+            language={uiLanguage}
+            relevantOnly={relevantOnly}
+          />
         </>
       )}
     </div>
   );
 }
 
-/** Days shown before the rest of a group's day archive links fold away. */
+/**
+ * The tail of a group behind a native disclosure. The cards are only built once the
+ * reader opens it, so the page ships and paints the first ten per group, not hundreds.
+ */
+function MoreItems({
+  items,
+  language,
+  showMore,
+  showLess,
+}: {
+  items: NewsItemView[];
+  language: NewsLanguage;
+  showMore: string;
+  showLess: string;
+}) {
+  const [opened, setOpened] = useState(false);
+  return (
+    <details
+      className="motion-disclosure group mt-3"
+      onToggle={(event) => {
+        if (event.currentTarget.open) setOpened(true);
+      }}
+    >
+      <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-pill border border-line bg-surface-raised px-4 text-sm font-medium text-ink transition-fast hover:border-accent/40 hover:bg-accent-soft hover:text-accent-text sm:min-h-9 pointer-coarse:min-h-11 [&::-webkit-details-marker]:hidden">
+        <span className="group-open:hidden">{showMore}</span>
+        <span className="hidden group-open:inline">{showLess}</span>
+      </summary>
+      {opened ? (
+        <ol className="mt-3 list-none space-y-2 p-0">
+          {items.map((item) => (
+            <li key={item.id} className="motion-enter">
+              <NewsItemCard item={item} displayLanguage={language} />
+            </li>
+          ))}
+        </ol>
+      ) : null}
+    </details>
+  );
+}
+
+/** Days shown before the rest of the day archive links fold away. */
 const DAYS_INITIAL = 7;
 
 /**
- * Links to the day archives that hold everything in a recency group, for when
- * the group shows only its newest items. Long runs of days fold behind a
- * toggle so the "earlier" group does not open with a wall of dates.
+ * The way to every item: one link per day archive, newest first, with the number of
+ * items that name the state (or all items, with "show all news" on). Long runs of days
+ * fold behind a toggle so the section does not open with a wall of dates.
  */
-function DayLinks({
+function DayArchiveNav({
   days,
   archiveBase,
   language,
+  relevantOnly,
 }: {
   days: NewsExplorerDay[];
   archiveBase: string;
   language: NewsLanguage;
+  relevantOnly: boolean;
 }) {
   const [open, setOpen] = useState(false);
+  if (days.length === 0) return null;
   const fold = days.length > DAYS_INITIAL + 2;
   const shown = fold && !open ? days.slice(0, DAYS_INITIAL) : days;
   const dict = NEWS_DICT;
   return (
-    <p className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs leading-relaxed text-ink-faint">
-      <span>{dict.newsByDay[language]}</span>
-      {shown.map((day) => (
-        <Link
-          key={day.date}
-          href={`${archiveBase}/${day.date}/`}
-          className="inline-flex items-center text-accent-text underline-offset-2 hover:underline pointer-coarse:min-h-11"
-        >
-          {day.label}
-          <span className="ms-1 tabular-nums text-ink-faint">{formatCountIn(day.count, language)}</span>
-        </Link>
-      ))}
-      {fold ? (
-        <button
-          type="button"
-          aria-expanded={open}
-          onClick={() => setOpen((value) => !value)}
-          className="inline-flex items-center rounded-xs px-1 font-medium text-ink-muted underline-offset-2 hover:text-ink hover:underline pointer-coarse:min-h-11"
-        >
-          {open
-            ? dict.newsFewerDays[language]
-            : interpolate(dict.newsMoreDays[language], { count: formatCountIn(days.length - DAYS_INITIAL, language) })}
-        </button>
-      ) : null}
-    </p>
+    <nav id="eerdere-dagen" aria-labelledby="eerdere-dagen-titel" className="mt-10 border-t border-line pt-5">
+      <h2 id="eerdere-dagen-titel" className="text-sm font-semibold text-ink">
+        {dict.newsEarlierDays[language]}
+      </h2>
+      <ul className="mt-3 flex list-none flex-wrap gap-2 p-0">
+        {shown.map((day) => (
+          <li key={day.date}>
+            <Link
+              href={`${archiveBase}/${day.date}/`}
+              className="inline-flex min-h-11 items-center gap-1.5 rounded-pill border border-line bg-surface-raised px-3 text-sm text-ink-muted transition-fast hover:border-accent/40 hover:text-accent-text sm:min-h-9"
+            >
+              {day.label}
+              <span className="tabular-nums text-ink-faint">{formatCountIn(relevantOnly ? day.relevantCount : day.count, language)}</span>
+            </Link>
+          </li>
+        ))}
+        {fold ? (
+          <li>
+            <button
+              type="button"
+              aria-expanded={open}
+              onClick={() => setOpen((value) => !value)}
+              className="inline-flex min-h-11 items-center rounded-pill px-3 text-sm font-medium text-ink-muted underline-offset-2 hover:text-ink hover:underline sm:min-h-9"
+            >
+              {open
+                ? dict.newsFewerDays[language]
+                : interpolate(dict.newsMoreDays[language], { count: formatCountIn(days.length - DAYS_INITIAL, language) })}
+            </button>
+          </li>
+        ) : null}
+      </ul>
+    </nav>
   );
 }

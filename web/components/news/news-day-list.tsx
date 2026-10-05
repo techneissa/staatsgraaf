@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { NewsItemCard } from "./news-item-card";
 import type { NewsItemView } from "./news-view";
@@ -12,6 +13,52 @@ import { interpolate } from "@/lib/i18n/locales";
 import type { NewsLanguage } from "@/lib/types";
 
 export type NewsDayHour = { hour: string; label: string; items: NewsItemView[] };
+export type NewsDayNavLink = { date: string; label: string };
+
+/** Previous and next day, and the way back to the list of all days. */
+function DayNav({
+  previous,
+  next,
+  archiveBase,
+  lang,
+}: {
+  previous: NewsDayNavLink | null;
+  next: NewsDayNavLink | null;
+  archiveBase: string;
+  lang: NewsLanguage;
+}) {
+  const linkClass =
+    "inline-flex min-h-11 items-center gap-1.5 rounded-pill border border-line bg-surface-raised px-4 text-sm font-medium text-ink-muted transition-fast hover:border-accent/40 hover:text-accent-text";
+  return (
+    <nav aria-label={NEWS_DICT.newsAllDays[lang]} className="flex flex-wrap items-center justify-between gap-2 py-4">
+      {previous !== null ? (
+        <Link href={`${archiveBase}/${previous.date}/`} rel="prev" className={linkClass}>
+          <span aria-hidden="true">&lsaquo;</span>
+          <span>
+            {NEWS_DICT.newsPrevDay[lang]}
+            <span className="ms-1.5 font-normal text-ink-faint">{previous.label}</span>
+          </span>
+        </Link>
+      ) : (
+        <span />
+      )}
+      <Link href={`${archiveBase}/#eerdere-dagen`} className="text-sm text-accent-text underline-offset-2 hover:underline pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:items-center">
+        {NEWS_DICT.newsAllDays[lang]}
+      </Link>
+      {next !== null ? (
+        <Link href={`${archiveBase}/${next.date}/`} rel="next" className={linkClass}>
+          <span>
+            {NEWS_DICT.newsNextDay[lang]}
+            <span className="ms-1.5 font-normal text-ink-faint">{next.label}</span>
+          </span>
+          <span aria-hidden="true">&rsaquo;</span>
+        </Link>
+      ) : (
+        <span />
+      )}
+    </nav>
+  );
+}
 
 /**
  * The hour sections of a day archive. Like the explorer it shows the items that name
@@ -23,21 +70,33 @@ export function NewsDayList({
   total,
   relevantTotal,
   fixedLanguage,
+  previous,
+  next,
+  archiveBase,
 }: {
   hours: NewsDayHour[];
   total: number;
   relevantTotal: number;
   fixedLanguage?: NewsLanguage;
+  previous: NewsDayNavLink | null;
+  next: NewsDayNavLink | null;
+  /** "/nieuws" or "/news". */
+  archiveBase: string;
 }) {
   const siteLocale = useLocale();
   const lang: NewsLanguage = fixedLanguage ?? siteLocale;
   const [showAll, setShowAll] = useState(false);
 
+  const dayNav = <DayNav previous={previous} next={next} archiveBase={archiveBase} lang={lang} />;
+
   if (total === 0) {
     return (
-      <section className="py-6">
-        <EmptyState title={NEWS_DICT.newsDayEmpty[lang]} />
-      </section>
+      <>
+        <section className="py-6">
+          <EmptyState title={NEWS_DICT.newsDayEmpty[lang]} />
+        </section>
+        {dayNav}
+      </>
     );
   }
 
@@ -94,6 +153,7 @@ export function NewsDayList({
           </section>
         ))
       )}
+      {dayNav}
     </>
   );
 }
