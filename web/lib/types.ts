@@ -20,6 +20,7 @@ export type OrgType =
   | "constituency";
 
 export type OrgSubtype =
+  | "koepel"
   | "kiesgerechtigden-nederland"
   | "kiezers-caribisch-nederland"
   | "tweede-kamer"

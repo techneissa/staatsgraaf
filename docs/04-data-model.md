@@ -248,7 +248,7 @@ The dated stream that makes the product feel alive. Each change is derived from 
 
 `language` is the language the outlet published in, `nl` or `en`; absent means `nl`. Nothing is machine-translated. `publisherKind` is the kind of outlet from the feed registry `pipelines/feeds.json`: `publieke-omroep`, `krant`, `commerciele-omroep`, `online`, `video`, `nieuwsbrief`, `blog`, `vakmedia`, or `overheid`; absent means `online`. `keywords` are the alias strings the linker matched, in match order, so a reader can see why an entity was linked. All three were added on 18-09-2026 as optional fields under section 18; older records without them stay valid.
 
-The summary markup is our own, a plain tag with an entity id, so the frontend can render inline links without parsing the reference's `<gov_entities>` syntax.
+The summary markup is our own, a plain tag with an entity id, so the frontend can render inline links from structured markup of our own.
 
 ## 11. Topic
 

@@ -472,12 +472,12 @@ export const MINISTRY_CLUSTERS: readonly MinistryCluster[] = [
 /**
  * How the cluster colours were chosen: the documented categorical hues
  * (blue, aqua, yellow, magenta, violet, red), the light steps darkened in
- * OKLCH to clear 3:1 on the canvas (#EFEEE9) and white, validated with the
+ * OKLCH to clear 3:1 on the inset surface (#F0EFDD) and white, validated with the
  * dataviz validator as a closed ring (the first colour repeated at the end):
  * worst adjacent CVD delta E 8.4 in both modes, normal-vision 16.2 light and
  * 19.3 dark, every colour at least 3:1 on its surface.
  */
-export const CLUSTER_PALETTE_NOTE = "validate_palette.js, ring order, light #EFEEE9/#FFFFFF, dark #0F0F13/#141419";
+export const CLUSTER_PALETTE_NOTE = "validate_palette.js, ring order, light #F0EFDD/#FFFFFF, dark #0F0F13/#141419";
 
 /** The cluster of a ministry; a ministry not listed falls under Bestuur. */
 export function clusterOf(orgId: string): MinistryCluster {

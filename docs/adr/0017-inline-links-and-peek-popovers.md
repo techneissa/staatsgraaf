@@ -19,3 +19,7 @@ News cards, connection lists, and change rows linked every mentioned organisatio
 - Readers can check who or what is meant without leaving a list, and the full page is one tap away.
 - The build gains one generated artifact. It is derived from `data/` like `graph.json` and the search index, so it cannot drift from the pages.
 - A future Swift client can read the same peek shards.
+
+## Amendment 05-10-2026: index lists navigate
+
+Index lists (people, organisations, positions, parties, topics) go straight to the page on click. The peek popover stays for mentions in running text, news cards and tables. A list exists to navigate, and the extra peek step doubled the clicks per person. The index cards carry no `data-peek`, and `PeekLink` and `EntityPeekLink` take a `peek={false}` prop for this. Peek shards are prefetched on hover, focus, pointerdown and touchstart, and on touch also when a link enters the viewport.

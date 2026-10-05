@@ -38,6 +38,7 @@ export const POSITION_TYPE_LABELS: Record<OrgType, { nl: string; en: string }> =
 };
 
 export const ORG_SUBTYPE_LABELS: Record<OrgSubtype, string> = {
+  koepel: "Koepelorganisatie",
   "kiesgerechtigden-nederland": "Kiesgerechtigden Nederland",
   "kiezers-caribisch-nederland": "Kiezers Caribisch Nederland",
   "tweede-kamer": "Tweede Kamer",
@@ -143,6 +144,7 @@ export const ORG_TYPE_LABELS_EN: Record<OrgType, string> = {
 };
 
 export const ORG_SUBTYPE_LABELS_EN: Record<OrgSubtype, string> = {
+  koepel: "Umbrella body",
   "kiesgerechtigden-nederland": "Dutch electorate",
   "kiezers-caribisch-nederland": "Caribbean Netherlands electorate",
   "tweede-kamer": "House of Representatives",

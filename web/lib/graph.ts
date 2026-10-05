@@ -476,6 +476,7 @@ export const GLYPH_BY_SUBTYPE: Record<OrgSubtype, GlyphClass> = {
   veiligheidsregio: "pentagon",
   "openbaar-lichaam-bes": "dot",
   samenwerkingsverband: "octagon",
+  koepel: "octagon",
   koninkrijksorgaan: "star",
   "land-regering": "shield",
   "kiesgerechtigden-nederland": "dot",

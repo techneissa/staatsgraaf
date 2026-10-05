@@ -4,6 +4,16 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (05-10-2026, UX overhaul)
+
+- News shows items that name a real person, body, position or topic by default, with a toggle for the rest. The linker no longer links an item's own publisher, bare place names without a government cue, or topics without evidence. RTL boulevard is excluded at the feed. Day archives are linked and windowed, filters live in the URL, and the sources page shows feed status and named gaps (ADR 0021).
+- The latest-changes block is a slim row of chips with a small period switch at the top right, an interactive stacked histogram, a per-person view, and dates counted from the build day. One person's changes on one day are bundled into one entry.
+- The budget section has icon tiles, a ranked bar chart, a year switch and a trend chart. The net figure is labelled spending minus revenue, and the Infrastructuur en Waterstaat drop is explained with its source (research L).
+- Entity pages show structure first, party pages list their people, positions state what the data says about holders, and sparse pages carry named gaps. Index lists navigate directly (ADR 0017 amendment) and load as compact JSON.
+- Search tolerates typos, shows context lines, ranks Dutch records first and has `/` and Cmd+K shortcuts.
+- The page shell lands navigation at the top, folds the graph on phones, and the graph zooms and pans without long tasks. Cache headers and a cheap prefetch miss are in place (ADR 0022).
+- `bun run live` refetches the official sources behind consistency guards, and the scheduled workflow commits the result (ADR 0024). The repository can go public (ADR 0023).
+
 ### Changed (05-10-2026, code licence)
 
 - The code licence moves from PolyForm Noncommercial 1.0.0 to Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). `LICENSE` carries a short header over the unmodified legal code, and the site, `README.md`, `CONTRIBUTING.md`, `ATTRIBUTION.md`, `data/meta.json` and the package files state the new value. The dataset licence is unchanged: CC BY 4.0 (`LICENSE-DATA`). The reasons and the limits of the licence are in `docs/adr/0001-licenses.md`, amendment 05-10-2026 (second).
