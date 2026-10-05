@@ -34,6 +34,6 @@ On 01-10-2026 only 361 of 1,604 stored news items had an entity link and 643 had
 ## Consequences
 
 - The default news view is smaller and truer: on 01-10-2026, 296 of 1,245 stored items (after the blocklist) are relevant, 259 through an entity.
-- The first paint is lighter than before for the same page: cards are built when a group's "Toon meer" is opened.
+- The page ships fewer cards in its HTML, because a group builds its "Toon meer" cards only when opened. `/nieuws/` is 849 KB of HTML (164 KB gzip) against 973 KB (132 KB gzip) before; the largest day archive fell from 2.5 MB to 0.9 MB.
 - Cabinet changes need no alias edit for title aliases; they follow the tenures. Curated aliases still need a sourced record in `data/`.
 - Stored translations whose source links changed are stale and are retranslated by the next news run.
