@@ -20,6 +20,7 @@ import { Callout } from "@/components/entity/callout";
 import { GapNote } from "@/components/entity/gap-note";
 import { OrgStructure } from "@/components/entity/org-structure";
 import { SourceSlot } from "@/components/entity/source-slot";
+import { SubtypeHint, SubtypeLabel } from "@/components/entity/subtype-label";
 import { ColorDot, FactTiles, type FactTile } from "@/components/entity/fact-tiles";
 import { FactGroup } from "@/components/entity/fact-group";
 import { LocalizedDescription } from "@/components/entity/localized-description";
@@ -230,7 +231,8 @@ export default async function OrganizationPage({
       key: "type",
       icon: <BuildingIcon />,
       label: <T area="entity" k="factType" />,
-      value: summaryNamesType || nameNamesType ? null : <LocaleLabel kind="subtype" value={organization.subtype} />,
+      value: summaryNamesType || nameNamesType ? null : <SubtypeLabel value={organization.subtype} />,
+      hint: <SubtypeHint value={organization.subtype} />,
     },
     {
       key: "branch",
@@ -392,7 +394,7 @@ export default async function OrganizationPage({
         ) : null}
 
         {memberCount > 0 ? (
-          <FactGroup icon={<SeatIcon />} title={<T area="entity" k="membersTitle" />} count={memberCount}>
+          <FactGroup id="leden" icon={<SeatIcon />} title={<T area="entity" k="membersTitle" />} count={memberCount}>
             {/* The count is in the heading; the line says more only when seats and members differ. */}
             {seatsCount !== null && seatsCount !== memberCount ? (
               <p className="text-sm tabular-nums text-ink-muted">
@@ -487,7 +489,7 @@ function ChildRow({ child }: { child: Organization }) {
     <li className="flex min-w-0 flex-wrap items-baseline gap-x-2 border-b border-line/60 py-2 pointer-coarse:py-3 last:border-b-0">
       <EntityPeekLink id={child.id} variant="plain" glyph className="text-sm font-medium" />
       <span className="text-xs text-ink-faint">
-        <LocaleLabel kind="subtype" value={child.subtype} />
+        <SubtypeLabel value={child.subtype} />
       </span>
     </li>
   );

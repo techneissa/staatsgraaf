@@ -5,6 +5,7 @@ import {
   commissieRole,
   compareBySurname,
   compareCommissieHolders,
+  holderState,
   isGenericOrganization,
   sortCareerNewestFirst,
   keyHolderRank,
@@ -113,4 +114,13 @@ test("generic organisation words are recognised", () => {
   assert.equal(isGenericOrganization("Fractie "), true);
   assert.equal(isGenericOrganization("Tweede Kamer"), false);
   assert.equal(isGenericOrganization(null), false);
+});
+
+test("a position without tenures is unknown, not vacant", () => {
+  const base = { currentHolders: 0, lastEnded: null, vacancy: false, memberCount: 0 };
+  assert.deepEqual(holderState(base), { kind: "unknown" });
+  assert.deepEqual(holderState({ ...base, vacancy: true }), { kind: "vacant" });
+  assert.deepEqual(holderState({ ...base, lastEnded: "2025-01-01" }), { kind: "ended", date: "2025-01-01" });
+  assert.deepEqual(holderState({ ...base, memberCount: 150 }), { kind: "members", count: 150 });
+  assert.deepEqual(holderState({ ...base, currentHolders: 2, vacancy: true }), { kind: "holders" });
 });

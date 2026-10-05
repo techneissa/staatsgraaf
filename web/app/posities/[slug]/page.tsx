@@ -14,13 +14,17 @@ import { SourceIcon } from "@/components/source-icon";
 import { NewsPanel } from "@/components/news/news-panel";
 import { Gloss, L, T } from "@/components/i18n/t";
 import { positionEn } from "@/lib/name-gloss";
-import { POSITION_TYPE_LABELS } from "@/lib/labels";
+import { FILL_METHOD_LABELS, POSITION_TYPE_LABELS } from "@/lib/labels";
 import { EntityConnections, SUMMARY_CLASS } from "@/components/entity/entity-connections";
-import { Callout } from "@/components/entity/callout";
+import { GapNote } from "@/components/entity/gap-note";
+import { SourceSlot } from "@/components/entity/source-slot";
 import { FactTiles, type FactTile } from "@/components/entity/fact-tiles";
 import { FactGroup } from "@/components/entity/fact-group";
 import { BuildingIcon, ClipboardIcon, ClockIcon, HistoryIcon, KeyIcon, PeopleIcon, SeatIcon } from "@/components/entity/icons";
 import { positionSummary } from "@/lib/entity-summary";
+import { holderState, positionDescription, positionPageTitle } from "@/lib/entity-page";
+import { vacancyForPosition } from "@/lib/entity-vacancy";
+import { withoutDerived } from "@/lib/entity-rows";
 import { TenureTimeline } from "@/components/entity/tenure-timeline";
 import {
   getDatasetDate,
@@ -34,6 +38,7 @@ import {
 import {
   getConnectionsForEntity,
   getCurrentHoldersForPosition,
+  getMembersForOrganization,
   positionEntryModes,
   positionExOfficioOf,
 } from "@/lib/entity";
@@ -55,18 +60,20 @@ const ambiguousPositionTitles = (() => {
 })();
 
 function positionMetadataTitle(position: Position): string {
-  if (!ambiguousPositionTitles.has(position.title)) return position.title;
   const organization = getOrganizationById(position.organization);
   if (!organization) return position.title;
+  // A commission position is told apart by the body it belongs to, not by the commission itself.
   const parent =
     position.type === "commission" && organization.parent
       ? getOrganizationById(organization.parent)
       : undefined;
   const context = parent ?? organization;
-  const contextName =
-    context.subtype === "gemeente" ? context.name.replace(/^Gemeente\s+/, "") : context.name;
-  if (position.title.includes(contextName)) return position.title;
-  return `${position.title} van ${contextName}`;
+  return positionPageTitle({
+    title: position.title,
+    ambiguous: ambiguousPositionTitles.has(position.title),
+    bodyName: context.name,
+    bodySubtype: context.subtype,
+  });
 }
 
 export function generateStaticParams() {
@@ -83,13 +90,20 @@ export async function generateMetadata({
   if (!position) return {};
   const organization = getOrganizationById(position.organization);
   const summary = positionSummary(position);
-  const fallback =
-    organization !== undefined
-      ? `${position.title} bij ${organization.name}: wettelijke basis en de reeks bekende functionarissen, met bron per gegeven.`
-      : `${position.title}: wettelijke basis en de reeks bekende functionarissen, met bron per gegeven.`;
+  const tenures = getTenuresForPosition(position.id);
   return pageMetadata({
     title: positionMetadataTitle(position),
-    description: summary !== null ? `${position.title}: ${summary.nl}.` : fallback,
+    description: positionDescription({
+      title: position.title,
+      bodyName: organization?.name ?? null,
+      summary: summary?.nl ?? null,
+      typeLabel: POSITION_TYPE_LABELS[position.type].nl,
+      fillMethodLabel: position.fillMethod != null ? (FILL_METHOD_LABELS[position.fillMethod] ?? null) : null,
+      seatsCount: position.seatsCount ?? null,
+      holderCount: tenures.filter((tenure) => tenure.end === null).length,
+      tenureCount: tenures.length,
+      vacancy: vacancyForPosition(position.id) !== null,
+    }),
     path: `/posities/${position.slug}/`,
     snapshotDate: getDatasetDate(),
   });
@@ -113,7 +127,13 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
   const currentHolders = getCurrentHoldersForPosition(position.id);
   const tenures = getTenuresForPosition(position.id);
   const news = getNewsForEntity(position.id);
-  const connections: Connection[] = getConnectionsForEntity(position.id);
+  // Holders are listed in their own sections (current, then the history), so the tab keeps the sourced relations.
+  const connections: Connection[] = withoutDerived(getConnectionsForEntity(position.id), ["holds_position"]);
+  const vacancy = vacancyForPosition(position.id);
+  const bodyMembers =
+    organization !== undefined && /^Lid\b/.test(position.title) && currentHolders.length === 0
+      ? getMembersForOrganization(organization.id).length
+      : 0;
 
   const legalBasis = position.legalBasis ?? null;
   const fillMethod = position.fillMethod ?? null;
@@ -135,7 +155,7 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
         ))
       : null;
 
-  const summary = positionSummary(position);
+  const summary = positionSummary(position, { dateStyle: "short" });
   const lastEnded =
     currentHolders.length === 0
       ? tenures
@@ -157,12 +177,14 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
       icon: <ClipboardIcon />,
       label: <T area="entity" k="factType" />,
       value: <L {...POSITION_TYPE_LABELS[position.type]} />,
+      hint: position.type === "dept_head" ? <T area="entity" k="glossDeptHead" /> : null,
     },
     {
       key: "fill",
       icon: <KeyIcon />,
       label: <T area="entity" k="factFillMethod" />,
       value: fillMethod !== null ? <LocaleLabel kind="fillMethod" value={fillMethod} /> : null,
+      hint: fillMethod !== null ? <T area="entity" k="glossFillMethod" /> : null,
     },
     {
       key: "term",
@@ -183,14 +205,16 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
       // An entry mode that only restates the fill method ("Van rechtswege" twice, "Koninklijk
       // besluit" and "Benoemd bij koninklijk besluit", "Verkiezing" and "Gekozen") is said once.
       value: entryModes.every((mode) => entryRestatesFill(mode, fillMethod)) ? null : entryModeLabel,
+      hint: entryModes.every((mode) => entryRestatesFill(mode, fillMethod)) ? null : <T area="entity" k="glossEntryModes" />,
     },
   ];
 
-  const breadcrumbItems: BreadcrumbItem[] = [{ label: SITE_NAME, href: "/" }];
-  if (organization) {
-    breadcrumbItems.push({ label: organization.name, href: `/organisaties/${organization.slug}/` });
-  }
-  breadcrumbItems.push({ label: position.title });
+  const breadcrumbItems: BreadcrumbItem[] = [
+    { label: SITE_NAME, href: "/" },
+    { label: <T area="common" k="navPositions" />, href: "/posities/" },
+    { label: position.title },
+  ];
+  const state = holderState({ currentHolders: currentHolders.length, lastEnded, vacancy: vacancy !== null, memberCount: bodyMembers });
 
   const organizationUrl = organization
     ? absoluteUrl(`/organisaties/${organization.slug}/`)
@@ -230,13 +254,6 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
             <L nl={summary.nl} en={summary.en} />
           </p>
         ) : null}
-        {lastEnded !== null ? (
-          <div className="mt-3">
-            <Callout>
-              <DateT area="entity" k="noHolderSinceCallout" dates={{ date: lastEnded }} />
-            </Callout>
-          </div>
-        ) : null}
         <FactTiles facts={facts} className="mt-4" />
         {legalBasis !== null ? (
           <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
@@ -249,17 +266,14 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
 
       <div className="mt-6 min-w-0 space-y-4">
         <EntityTabs
+          first="verbindingen"
+          hasNews={news.length > 0}
+          hasConnections={connections.length > 0}
           news={
             <div>
-              {news.length > 0 ? (
-                <div className="mt-3">
-                  <NewsPanel scope="custom" items={news} initialLimit={4} />
-                </div>
-              ) : (
-                <p className="mt-3 text-sm text-ink-faint">
-                  <T area="entity" k="newsEmptyTitle" />
-                </p>
-              )}
+              <div className="mt-3">
+                <NewsPanel scope="custom" items={news} initialLimit={4} />
+              </div>
             </div>
           }
           connections={
@@ -271,32 +285,58 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
           }
         />
 
-        {currentHolders.length > 0 ? (
-          <FactGroup icon={<PeopleIcon />} title={<T area="entity" k="currentOfficials" />} count={currentHolders.length}>
-            {seatsCount !== null && seatsCount > 1 ? (
-              <p className="text-sm tabular-nums text-ink-muted">
-                <DateT area="entity" k="seatsFilled" counts={{ n: currentHolders.length, total: seatsCount }} />
-              </p>
-            ) : null}
-            <ul className="mt-1 divide-y divide-line/60">
-              {currentHolders.slice(0, HOLDER_LIMIT).map((tenure) => (
-                <HolderRow key={tenure.id} tenure={tenure} />
-              ))}
-            </ul>
-            {currentHolders.length > HOLDER_LIMIT ? (
-              <details className="motion-disclosure mt-2">
-                <summary className={SUMMARY_CLASS}>
-                  <T area="common" k="seeAll" vars={{ n: currentHolders.length }} />
-                </summary>
-                <ul className="divide-y divide-line/60">
-                  {currentHolders.slice(HOLDER_LIMIT).map((tenure) => (
-                    <HolderRow key={tenure.id} tenure={tenure} />
-                  ))}
-                </ul>
-              </details>
-            ) : null}
-          </FactGroup>
-        ) : null}
+        <FactGroup id="functionarissen" icon={<PeopleIcon />} title={<T area="entity" k="currentOfficials" />} count={currentHolders.length > 0 ? currentHolders.length : undefined}>
+          {state.kind === "holders" ? (
+            <>
+              {seatsCount !== null && seatsCount > 1 ? (
+                <p className="text-sm tabular-nums text-ink-muted">
+                  <DateT area="entity" k="seatsFilled" counts={{ n: currentHolders.length, total: seatsCount }} />
+                </p>
+              ) : null}
+              {seatsCount !== null && currentHolders.length > seatsCount ? (
+                <p className="text-sm text-ink-faint">
+                  <T area="entity" k="moreHoldersThanSeats" />
+                </p>
+              ) : null}
+              <ul className="mt-1 divide-y divide-line/60">
+                {currentHolders.slice(0, HOLDER_LIMIT).map((tenure) => (
+                  <HolderRow key={tenure.id} tenure={tenure} />
+                ))}
+              </ul>
+              {currentHolders.length > HOLDER_LIMIT ? (
+                <details className="motion-disclosure mt-2">
+                  <summary className={SUMMARY_CLASS}>
+                    <T area="common" k="seeAll" vars={{ n: currentHolders.length }} />
+                  </summary>
+                  <ul className="divide-y divide-line/60">
+                    {currentHolders.slice(HOLDER_LIMIT).map((tenure) => (
+                      <HolderRow key={tenure.id} tenure={tenure} />
+                    ))}
+                  </ul>
+                </details>
+              ) : null}
+            </>
+          ) : state.kind === "vacant" && vacancy !== null ? (
+            <GapNote sources={[vacancy.source]}>
+              <T area="entity" k="holdersVacant" /> <L nl={vacancy.label.nl} en={vacancy.label.en} />.
+            </GapNote>
+          ) : state.kind === "members" && organization ? (
+            <GapNote sources={organization.sources}>
+              <T area="entity" k="holdersViaMembers" vars={{ n: state.count, body: organization.name }} />{" "}
+              <a href={`/organisaties/${organization.slug}/#leden`} className="font-medium text-accent-text underline-offset-2 hover:underline">
+                <T area="entity" k="holdersViaMembersLink" />
+              </a>
+            </GapNote>
+          ) : state.kind === "ended" ? (
+            <GapNote sources={position.sources}>
+              <DateT area="entity" k="holdersNoneEnded" dates={{ date: state.date }} short />
+            </GapNote>
+          ) : (
+            <GapNote sources={position.sources}>
+              <T area="entity" k="holdersNoneUnknown" />
+            </GapNote>
+          )}
+        </FactGroup>
 
         {/* The history repeats the current holders unless it holds someone who left. */}
         {tenures.some((tenure) => tenure.end !== null) ? (
@@ -346,7 +386,9 @@ function HolderRow({ tenure }: { tenure: Tenure }) {
         acting={tenure.acting}
         source={
           source ? (
-            <SourceIcon href={source.url} title={source.title} retrieved={tenure.source.retrieved} />
+            <SourceSlot>
+              <SourceIcon href={source.url} title={source.title} retrieved={tenure.source.retrieved} />
+            </SourceSlot>
           ) : null
         }
       />
