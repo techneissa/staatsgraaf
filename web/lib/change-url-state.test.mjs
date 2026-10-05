@@ -11,15 +11,16 @@ test("a full valid query parses as given", () => {
     kind: "vacancy",
     day: "2026-09-20",
     view: "chronological",
+    now: null,
   });
 });
 
 test("no query gives the defaults", () => {
-  assert.deepEqual(parseChangeUrlState("", DAYS), { window: 30, kind: "all", day: null, view: "chronological" });
+  assert.deepEqual(parseChangeUrlState("", DAYS), { window: 30, kind: "all", day: null, view: "chronological", now: null });
 });
 
 test("an unknown kind falls back to all and keeps the rest", () => {
-  assert.deepEqual(parseChangeUrlState("?kind=bogus&window=7", DAYS), { window: 7, kind: "all", day: null, view: "chronological" });
+  assert.deepEqual(parseChangeUrlState("?kind=bogus&window=7", DAYS), { window: 7, kind: "all", day: null, view: "chronological", now: null });
 });
 
 test("a window that is not offered falls back to 30", () => {
@@ -49,12 +50,12 @@ test("dayInWindow keeps a day inside the window and drops one outside", () => {
 });
 
 test("serialize writes only the parts that differ from the defaults", () => {
-  assert.equal(serializeChangeUrlState({ window: 30, kind: "all", day: null, view: "chronological" }), "");
+  assert.equal(serializeChangeUrlState({ window: 30, kind: "all", day: null, view: "chronological", now: null }), "");
   assert.equal(
-    serializeChangeUrlState({ window: 90, kind: "vacancy", day: "2026-09-20", view: "chronological" }),
+    serializeChangeUrlState({ window: 90, kind: "vacancy", day: "2026-09-20", view: "chronological", now: null }),
     "?window=90&kind=vacancy&day=2026-09-20",
   );
-  assert.equal(serializeChangeUrlState({ window: 30, kind: "acting", day: null, view: "chronological" }), "?kind=acting");
+  assert.equal(serializeChangeUrlState({ window: 30, kind: "acting", day: null, view: "chronological", now: null }), "?kind=acting");
 });
 
 test("view=people parses; a bad view is ignored and the rest applies", () => {
@@ -64,13 +65,32 @@ test("view=people parses; a bad view is ignored and the rest applies", () => {
     kind: "all",
     day: null,
     view: "chronological",
+    now: null,
   });
 });
 
 test("serialize writes view=people only when it is not the default", () => {
-  assert.equal(serializeChangeUrlState({ window: 30, kind: "all", day: null, view: "people" }), "?view=people");
+  assert.equal(serializeChangeUrlState({ window: 30, kind: "all", day: null, view: "people", now: null }), "?view=people");
   assert.equal(
-    serializeChangeUrlState({ window: 90, kind: "all", day: null, view: "people" }),
+    serializeChangeUrlState({ window: 90, kind: "all", day: null, view: "people", now: null }),
     "?window=90&view=people",
+  );
+});
+
+test("now=acting and now=vacancy parse; an unknown now is ignored", () => {
+  assert.equal(parseChangeUrlState("?now=acting", DAYS).now, "acting");
+  assert.equal(parseChangeUrlState("?now=vacancy&window=7", DAYS).now, "vacancy");
+  assert.equal(parseChangeUrlState("?now=bogus", DAYS).now, null);
+  assert.equal(parseChangeUrlState("", DAYS).now, null);
+});
+
+test("a current-state list serializes as now only, without kind, day or view", () => {
+  assert.equal(
+    serializeChangeUrlState({ window: 30, kind: "appointment", day: "2026-09-20", view: "people", now: "acting" }),
+    "?now=acting",
+  );
+  assert.equal(
+    serializeChangeUrlState({ window: 90, kind: "all", day: null, view: "chronological", now: "vacancy" }),
+    "?window=90&now=vacancy",
   );
 });

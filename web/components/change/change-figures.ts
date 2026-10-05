@@ -1,32 +1,24 @@
-import {
-  changeAgeDays,
-  getChangeReferenceDate,
-  getChangeStats,
-  getTimeline,
-  getWindowedChanges,
-} from "@/lib/changes";
-import type { ChangeTileFigures } from "./stat-tiles";
+import { describeRecency, type Recency } from "@/lib/change-clock";
+import { CHANGE_WINDOWS, getChangeReferenceDate, getChangeStats, getSnapshotDate } from "@/lib/changes";
+import type { NowFigures } from "./now-chips";
 
-/** The appointments tile counts this many days back from the reference day. */
-export const APPOINTMENT_DAYS = 30;
+export type ChangeFigures = {
+  now: NowFigures;
+  /** The newest change and its age against the build day; null without changes. */
+  recency: Recency | null;
+  /** The dataset snapshot date, shown quietly; null when the dataset has none. */
+  snapshot: string | null;
+  /** The build day every relative figure counts from. */
+  reference: string;
+};
 
-/**
- * The figures behind the change tiles, from the same functions on the home
- * page and on /wijzigingen/, so both show the same numbers.
- */
-export function getChangeTileFigures(reference = getChangeReferenceDate()): ChangeTileFigures {
+/** The figures behind the "Nu" chips and the recency line, the same on the home page and on /wijzigingen/. */
+export function getChangeFigures(reference = getChangeReferenceDate()): ChangeFigures {
   const stats = getChangeStats(reference);
-  const period = getWindowedChanges(APPOINTMENT_DAYS, reference);
   return {
-    vacantSeats: stats.vacantSeats,
-    actingOfficials: stats.actingOfficials,
-    lastChangeDate: stats.lastChangeDate,
-    lastChangeAge: changeAgeDays(stats.lastChangeDate, reference),
-    appointments: {
-      count: period.filter((change) => change.kind === "appointment").length,
-      days: APPOINTMENT_DAYS,
-      since: getTimeline(period, APPOINTMENT_DAYS, reference)[0]?.date ?? reference,
-      until: reference,
-    },
+    now: { vacantSeats: stats.vacantSeats, actingOfficials: stats.actingOfficials },
+    recency: describeRecency(stats.lastChangeDate, reference, CHANGE_WINDOWS),
+    snapshot: getSnapshotDate(),
+    reference,
   };
 }

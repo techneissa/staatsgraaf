@@ -6,15 +6,18 @@ import type { CSSProperties, KeyboardEvent, MouseEvent, PointerEvent } from "rea
 import { useLocale } from "@/components/i18n/language-provider";
 import { useT } from "@/components/i18n/use-t";
 import { BAR_KINDS, type BarKind, type HistogramBucket } from "@/lib/change-bar-kinds";
+import type { EntryCounts } from "@/lib/change-feed";
 import { nearestActiveIndex } from "@/lib/change-hit";
 import type { ChangeFilterValue } from "@/lib/change-url-state";
 import { CHANGE_TONE, ChangeKindGlyph } from "./change-glyph";
+import { useCountsText } from "./counts-text";
 import { formatIsoDate } from "./local-date";
 
 export type { HistogramBucket } from "@/lib/change-bar-kinds";
 
 const DISPLAY_KIND = {
   appointment: "appointment",
+  acting: "acting",
   departure: "departure",
   vacancy: "vacancy",
   other: "structural",
@@ -22,13 +25,14 @@ const DISPLAY_KIND = {
 
 const KIND_LABEL: Record<BarKind, string> = {
   appointment: "filterAppointments",
+  acting: "filterActing",
   departure: "filterDepartures",
   vacancy: "filterVacancies",
   other: "histKindOther",
 };
 
 /** The kinds the legend can filter on; "other" has no filter. */
-const LEGEND_KINDS = ["appointment", "departure", "vacancy"] as const;
+const LEGEND_KINDS = ["appointment", "acting", "departure", "vacancy"] as const;
 
 const TIP_WIDTH = 224;
 const TIP_EDGE = 8;
@@ -119,13 +123,17 @@ const Bar = memo(function Bar({ bucket, index, max, gutter, label, active, dimme
  * chart height, so a thin bar still has a tall target and the columns touch;
  * hover, focus or a finger dragged along the chart opens a tooltip with the
  * date, the counts and the first names. Selecting a bar sets the day filter,
- * selecting it again clears it; the legend filters by kind. With `linkBase`
- * the bars and legend are links to the changes page instead (home page).
+ * selecting it again clears it; the legend filters by kind, each chip counting
+ * the changes of its kind in the window and disabled when there are none.
+ * With `linkBase` the bars and legend are links to the changes page instead
+ * (home page). The caption names the window; with `shown` it says how many of
+ * the window's changes the list below shows.
  */
 export function ChangeHistogram({
   buckets,
   days,
-  total,
+  counts: windowCounts,
+  shown,
   activeDay = null,
   onSelectDay,
   activeKind = "all",
@@ -134,7 +142,10 @@ export function ChangeHistogram({
 }: {
   buckets: HistogramBucket[];
   days: number;
-  total: number;
+  /** The window's changes and the people they are about. */
+  counts: EntryCounts;
+  /** The changes the list shows after a kind or day filter; omit when nothing is filtered. */
+  shown?: number;
   activeDay?: string | null;
   onSelectDay?: (date: string | null) => void;
   activeKind?: ChangeFilterValue;
@@ -153,8 +164,8 @@ export function ChangeHistogram({
   const max = Math.max(1, ...buckets.map((bucket) => bucket.count));
   const gutter = days <= 14 ? "px-1.5" : days <= 45 ? "px-0.5" : "px-px";
   const kindTotals = useMemo(() => {
-    const sums: Record<BarKind, number> = { appointment: 0, departure: 0, vacancy: 0, other: 0 };
-    for (const bucket of buckets) for (const kind of BAR_KINDS) sums[kind] += bucket.byKind[kind];
+    const sums: Record<BarKind, number> = { appointment: 0, acting: 0, departure: 0, vacancy: 0, other: 0 };
+    for (const bucket of buckets) for (const kind of BAR_KINDS) sums[kind] += bucket.changesByKind[kind];
     return sums;
   }, [buckets]);
 
@@ -167,16 +178,18 @@ export function ChangeHistogram({
     return -1;
   }, [roving, activeDay, buckets]);
 
+  const withPeople = useCountsText();
+
   const labels = useMemo(
     () =>
       buckets.map((bucket) => {
         const date = formatIsoDate(bucket.date, locale, "short");
         if (bucket.count === 0) return `${date}: ${t("histEmptyDay")}`;
-        const head = bucket.count === 1 ? t("srChangesEntryOne", { date }) : t("srChangesEntry", { date, n: bucket.count });
+        const head = `${date}: ${withPeople(bucket.changes, bucket.people)}`;
         const names = bucket.names.join(", ");
         return names === "" ? head : `${head}. ${names}${bucket.more > 0 ? ` ${t("vacancyCalloutMore", { n: bucket.more })}` : ""}`;
       }),
-    [buckets, locale, t],
+    [buckets, locale, t, withPeople],
   );
 
   const hrefFor = useCallback(
@@ -275,6 +288,12 @@ export function ChangeHistogram({
   ];
   const tipBucket = tip ? buckets[tip.index] : null;
 
+  const caption =
+    shown === undefined
+      ? t("chgCaptionPeriod", { counts: withPeople(windowCounts.changes, windowCounts.people), days })
+      : t(windowCounts.changes === 1 ? "chgCaptionOfOne" : "chgCaptionOf", { n: shown, all: windowCounts.changes, days });
+  const noneText = t("chgNoneInPeriod", { days });
+
   const legendClass = (pressed: boolean) =>
     `inline-flex min-h-8 items-center gap-1.5 rounded-pill border px-2.5 text-xs font-medium tabular-nums transition-fast pointer-coarse:min-h-11 ${
       pressed ? "border-accent/40 bg-accent-soft text-accent-text" : "border-line text-ink-muted hover:border-line-strong hover:text-ink"
@@ -282,20 +301,28 @@ export function ChangeHistogram({
 
   return (
     <figure className="min-w-0">
-      <figcaption className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
-        <span className="text-sm tabular-nums text-ink-muted">
-          {total === 1 ? t("dayCountOne") : t("dayCount", { n: total })}
-        </span>
+      <figcaption className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+        <span className="text-sm tabular-nums text-ink-muted">{caption}</span>
         <div role="group" aria-label={t("filterGroupAria")} className="flex flex-wrap gap-1.5">
           {LEGEND_KINDS.map((kind) => {
             const pressed = activeKind === kind;
+            const none = kindTotals[kind] === 0;
             const content = (
               <>
                 <ChangeKindGlyph kind={DISPLAY_KIND[kind]} size={12} />
                 <span>{t(KIND_LABEL[kind])}</span>
                 <span className="text-ink-faint">{kindTotals[kind]}</span>
+                {none ? <span className="sr-only">{noneText}</span> : null}
               </>
             );
+            if (none && !pressed) {
+              // An empty kind is no filter: it says why, to a pointer and to a screen reader.
+              return (
+                <button key={kind} type="button" disabled title={noneText} className={`${legendClass(false)} cursor-not-allowed opacity-50`}>
+                  {content}
+                </button>
+              );
+            }
             return linkBase !== undefined ? (
               <Link key={kind} href={hrefFor(`&kind=${kind}`) ?? linkBase} className={legendClass(false)}>
                 {content}
@@ -361,12 +388,13 @@ export function ChangeHistogram({
             <p className="font-semibold text-ink">
               <time dateTime={tipBucket.date}>{formatIsoDate(tipBucket.date, locale, "long")}</time>
             </p>
+            <p className="mt-0.5 text-ink-muted">{withPeople(tipBucket.changes, tipBucket.people)}</p>
             <ul className="mt-1 space-y-0.5">
-              {BAR_KINDS.filter((kind) => tipBucket.byKind[kind] > 0).map((kind) => (
+              {BAR_KINDS.filter((kind) => tipBucket.changesByKind[kind] > 0).map((kind) => (
                 <li key={kind} className="flex items-center gap-1.5 text-ink-muted">
                   <ChangeKindGlyph kind={DISPLAY_KIND[kind]} size={11} />
                   <span className="min-w-0 flex-1 truncate">{t(KIND_LABEL[kind])}</span>
-                  <span className="tabular-nums text-ink">{tipBucket.byKind[kind]}</span>
+                  <span className="tabular-nums text-ink">{tipBucket.changesByKind[kind]}</span>
                 </li>
               ))}
             </ul>
