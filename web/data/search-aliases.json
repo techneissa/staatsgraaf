@@ -50,6 +50,78 @@
       "target": "org:gemeente-groningen",
       "terms": ["Groningen"],
       "reason": "Bare Groningen must resolve to the gemeente, not to Provincie Groningen, the provinciale staten, the veiligheidsregio or Gemeente Midden-Groningen, which all word-match."
+    },
+    {
+      "target": "org:ministerie-van-algemene-zaken",
+      "terms": ["Ministry of General Affairs"],
+      "lang": "en",
+      "reason": "English name of the ministerie as used on government.nl, so the English interface finds it by that name. A search aid only, not a source-backed statement."
+    },
+    {
+      "target": "org:ministerie-van-binnenlandse-zaken-en-koninkrijksrelaties",
+      "terms": ["Ministry of the Interior and Kingdom Relations"],
+      "lang": "en",
+      "reason": "English name of the ministerie as used on government.nl, so the English interface finds it by that name. A search aid only, not a source-backed statement."
+    },
+    {
+      "target": "org:ministerie-van-buitenlandse-zaken",
+      "terms": ["Ministry of Foreign Affairs"],
+      "lang": "en",
+      "reason": "English name of the ministerie as used on government.nl, so the English interface finds it by that name. A search aid only, not a source-backed statement."
+    },
+    {
+      "target": "org:ministerie-van-defensie",
+      "terms": ["Ministry of Defence"],
+      "lang": "en",
+      "reason": "English name of the ministerie as used on government.nl, so the English interface finds it by that name. A search aid only, not a source-backed statement."
+    },
+    {
+      "target": "org:ministerie-van-economische-zaken-en-klimaat",
+      "terms": ["Ministry of Economic Affairs and Climate Policy"],
+      "lang": "en",
+      "reason": "English name of the ministerie as used on government.nl, so the English interface finds it by that name. A search aid only, not a source-backed statement."
+    },
+    {
+      "target": "org:ministerie-van-financien",
+      "terms": ["Ministry of Finance"],
+      "lang": "en",
+      "reason": "English name of the ministerie as used on government.nl, so the English interface finds it by that name. A search aid only, not a source-backed statement."
+    },
+    {
+      "target": "org:ministerie-van-infrastructuur-en-waterstaat",
+      "terms": ["Ministry of Infrastructure and Water Management"],
+      "lang": "en",
+      "reason": "English name of the ministerie as used on government.nl, so the English interface finds it by that name. A search aid only, not a source-backed statement."
+    },
+    {
+      "target": "org:ministerie-van-justitie-en-veiligheid",
+      "terms": ["Ministry of Justice and Security"],
+      "lang": "en",
+      "reason": "English name of the ministerie as used on government.nl, so the English interface finds it by that name. A search aid only, not a source-backed statement."
+    },
+    {
+      "target": "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur",
+      "terms": ["Ministry of Agriculture, Fisheries, Food Security and Nature"],
+      "lang": "en",
+      "reason": "English name of the ministerie as used on government.nl, so the English interface finds it by that name. A search aid only, not a source-backed statement."
+    },
+    {
+      "target": "org:ministerie-van-onderwijs-cultuur-en-wetenschap",
+      "terms": ["Ministry of Education, Culture and Science"],
+      "lang": "en",
+      "reason": "English name of the ministerie as used on government.nl, so the English interface finds it by that name. A search aid only, not a source-backed statement."
+    },
+    {
+      "target": "org:ministerie-van-sociale-zaken-en-werkgelegenheid",
+      "terms": ["Ministry of Social Affairs and Employment"],
+      "lang": "en",
+      "reason": "English name of the ministerie as used on government.nl, so the English interface finds it by that name. A search aid only, not a source-backed statement."
+    },
+    {
+      "target": "org:ministerie-van-volksgezondheid-welzijn-en-sport",
+      "terms": ["Ministry of Health, Welfare and Sport"],
+      "lang": "en",
+      "reason": "English name of the ministerie as used on government.nl, so the English interface finds it by that name. A search aid only, not a source-backed statement."
     }
   ]
 }
