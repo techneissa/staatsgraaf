@@ -22,17 +22,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:12e3cf9d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "This digital sports amusement park is meant to get children moving again",
-    "lead": "Jumping, hanging, running, falling and getting back up. In the new sports amusement park Sparkx in <entity id=\"org:gemeente-nieuwegein\">Nieuwegein</entity>, it is not about roller coasters but about movement. Children can choose from some 50 'figital' attractions, a combination of physical activities and digital games. It is a concept already known in Belgium and now coming to the Netherlands. For sixteen euros, children can try out all kinds of different sports for an hour.",
-    "sourceHash": "1eaf80119ab4",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:1367a83e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -99,17 +88,6 @@
     "translated": "2026-09-24"
   },
   {
-    "id": "news:15e242b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cabinet's social and care measures hit more than 4 million households",
-    "lead": "In the years 2027-2030 some 4.3 million households will face negative income effects from cabinet measures in the field of care and social security. This is shown by research by the ministry of Health, Welfare and Sport and the ministry of Social Affairs and Employment.",
-    "sourceHash": "2098a4108c4f",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:167b7a73",
     "language": "en",
     "sourceLanguage": "nl",
@@ -132,17 +110,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:18103abb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "A prison officer is always alert, even outside the prison walls. 'It wears me out completely'",
-    "lead": "More responsibility, more work, with fewer people. That has been the reality for prison officers for years. In addition to new austerity measures, the violent death of a colleague in <entity id=\"org:gemeente-amsterdam\">Amsterdam</entity> has caused dismay. \"I see aggression toward colleagues and me increasing.\"",
-    "sourceHash": "f440e63472a0",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:1831e115",
     "language": "en",
     "sourceLanguage": "nl",
@@ -152,17 +119,6 @@
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
-  },
-  {
-    "id": "news:1844697c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Amsterdam knew that Jeanne (72) was wrongly given parking fines, but still sent a debt collection agency after her: 'Completely absurd'",
-    "lead": null,
-    "sourceHash": "743647385dd4",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
   },
   {
     "id": "news:1ad6ff63",
@@ -198,34 +154,12 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:1bfe1cc5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Utrecht student convicted of rapes does not have to return to prison",
-    "lead": "The court of appeal in <entity id=\"org:gemeente-arnhem\">Arnhem</entity> ruled on Thursday that 25-year-old Sam van Z. does not have to go back to prison in a Utrecht rape case. In assessing the case, the court departed from the approach in similar cases.",
-    "sourceHash": "0956c84350d5",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:1cd4bc68",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "The earth will be fine, it is humans who have made things considerably harder for themselves",
     "lead": null,
     "sourceHash": "6f8cbb5e4984",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:1cffc81f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Rick Engelkes looks back on a character trait he regrets: 'Hurt people unnecessarily'",
-    "lead": "Rick Engelkes (66) looks back on his life and the choices he has made in a conversation with Nouveau. By his own account, the actor, entrepreneur and producer has achieved a lot by taking risks and above all by following his own course. Still, there is also a character trait he is less proud of: his tendency to sometimes be too preoccupied with himself in the past.",
-    "sourceHash": "a763c5318612",
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
@@ -308,17 +242,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:21a4ebd2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Minister Heinen's box 3 mission ends in a quick slip-up",
-    "lead": null,
-    "sourceHash": "fe67520f20c3",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:21e5526b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -352,34 +275,12 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:23d24d31",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Suzan & Freek release new album on 13 November",
-    "lead": "Suzan & Freek are releasing their new album 'Pijnstiller' on 13 November, the duo announced on Thursday. The new single of the same name can now be listened to.",
-    "sourceHash": "709882924a46",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:244a6e5",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Maternity care assistants think they earn too little and go to court",
     "lead": null,
     "sourceHash": "c03d6f8fd3dc",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
-    "id": "news:24c9828",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Provinces want more money, including for infrastructure",
-    "lead": "The provinces believe that <entity id=\"org:kabinet\">het kabinet</entity> should invest more money, including in infrastructure. 'We must prevent the Netherlands from grinding to a halt', says chair <entity id=\"person:ina-adema\">Ina Adema</entity> of the Interprovinciaal Overleg (IPO). 'Without concrete financial resources, the ambitions for an accessible and future-proof Netherlands remain out of reach.'",
-    "sourceHash": "bc243ba60830",
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
@@ -451,34 +352,12 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:2b58750b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Floris Göbel wants to make children less afraid of sea life with new book",
-    "lead": "Floris Göbel (28) has already released his third children's book: 'Expeditie Walvis'. The animal expert presents his latest adventure at the Scheepvaartmuseum. To RTL Boulevard, Floris tells where he got the inspiration for the book and what he hopes to give young readers with it.",
-    "sourceHash": "bc75407762ec",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:2c4f902d",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Captain Van Dijk starts 99th international against Greece",
     "lead": "On Thursday, in the Dutch national team's away match against Greece in the Nations League, Virgil van Dijk starts his 99th international. The 35-year-old captain can join the 'Club van Honderd' at Oranje this coming Sunday in the home match against Serbia.",
     "sourceHash": "6900294b0c51",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:2d7a89c8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "British-Iranian man arrested on suspicion of preparing terrorist acts, after incident at Fairford air base",
-    "lead": "The British <entity id=\"org:politie\">politie</entity> have arrested a new suspect in connection with the security incident that took place last weekend at a military base also used by the United States. Earlier, British prime minister Andy Burnham had already said he had \"strong indications\" of Iranian involvement.",
-    "sourceHash": "c6253344b314",
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
@@ -583,39 +462,6 @@
     "translated": "2026-09-24"
   },
   {
-    "id": "news:320ff4a0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Roxy and Casper are 'friends with benefits' after Bondgenoten adventure",
-    "lead": "Roxy and Casper are getting very cozy with each other outside the warehouse of 'De Bondgenoten'. So cozy, in fact, that their bond now goes beyond mere friendship.",
-    "sourceHash": "4f161ad1246b",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:3266128c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Corrupt football world",
-    "lead": "After this week's unpalatable fuss over box 3 plans in <entity id=\"org:gemeente-s-gravenhage\">Den Haag</entity> and fraud at Manchester City, you would almost burst into the classic cabaret song De schuld van het kapitaal...",
-    "sourceHash": "d3e1ed30f33c",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:332be0c1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Video | State secretary Boswijk gets a note during debate: 'Please keep it shorter'",
-    "lead": null,
-    "sourceHash": "30ccfe30beb2",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:334a1366",
     "language": "en",
     "sourceLanguage": "nl",
@@ -633,17 +479,6 @@
     "title": "FTC and Florida train their sights on OpenAI and Anthropic over AI risks to consumers",
     "lead": "In recent months, great concern has arisen about artificial intelligence, and especially about the safety of the technology.",
     "sourceHash": "29ea7a5e8ae0",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:34ce2416",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Christina Curry is open to a second season of Adam's Family: 'There is still much of our story to share'",
-    "lead": "Christina Curry (36) is open to a second season of the reality series 'Adam's Family: 25 Jaar Later'. In conversation with LINDA. she looks back on the first season and looks ahead to the future.",
-    "sourceHash": "2379974d8050",
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
@@ -737,17 +572,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:3b5f733d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Hefty austerity package must reduce French budget deficit, but is it enough?",
-    "lead": "The budget that the French <entity id=\"org:regering\">regering</entity> presents on Thursday offers a little relief, but is still insufficient to stabilise the debt, according to an ING analyst. Prime Minister Lecornu wants to cut €54 billion.",
-    "sourceHash": "72f346e4cabf",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:3bdd8854",
     "language": "en",
     "sourceLanguage": "nl",
@@ -757,28 +581,6 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
-  },
-  {
-    "id": "news:3c24b670",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Verdict in Marengo trial long in coming: 'Judge cannot say anything about Nabil B.'",
-    "lead": "Three murders in his immediate circle, a years-long fight over his protection and that of his loved ones and family. According to lawyer Peter Schouten, his client, key witness Nabil B., pays a high price for his cooperation with the judiciary. On Thursday Schouten pleaded in the appeal of the Marengo trial.",
-    "sourceHash": "eef436c44959",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:3cf52a4e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "British-Iranian man arrested after incident at military base in UK",
-    "lead": "The British authorities have arrested a British-Iranian man in London after last weekend's incident at the Fairford air base. The 27-year-old is suspected of preparing an act of terror, the <entity id=\"org:politie\">politie</entity> report.",
-    "sourceHash": "a57f8e40e346",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
   },
   {
     "id": "news:3d1d4d9c",
@@ -803,45 +605,12 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:3dc7b58",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Roundabout 3 comes into view and he feels: nice, I'm home again",
-    "lead": "NRC asked photographers to capture the summer close to home. What happens if you take the familiar as a starting point? Lars van den Brink moved from <entity id=\"org:gemeente-amsterdam\">Amsterdam</entity> to <entity id=\"org:gemeente-amersfoort\">Amersfoort</entity> and gained sixteen roundabouts. Number 9 is the only one with a work of art.",
-    "sourceHash": "231e39a78dc1",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
-    "id": "news:3e55e5a1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Four ministries simplify rules",
-    "lead": "Four ministries are getting to work on simplifying their rules. But in the end it is a joint assignment, writes state secretary Eric van der Burg (VVD).",
-    "sourceHash": "13e038be06b3",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:3f3ba112",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Thibaut Courtois: 'In a sense, City has distorted the competition', British prime minister also weighs in",
     "lead": "Manchester City has been found guilty by the Premier League on 115 charges of serious breaches of financial rules. The English top club faces a heavy punishment. In this liveblog you can keep up with all developments and reactions.",
     "sourceHash": "05209fcbdcc7",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:3fd2ff77",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Rape of Utrecht female students proven, but man (25) does not have to go back to prison",
-    "lead": "The 25-year-old Sam van Z. no longer has to go back to prison. The court of appeal in <entity id=\"org:gemeente-arnhem\">Arnhem</entity> declared it proven that Van Z. raped two female students in <entity id=\"org:gemeente-utrecht\">Utrecht</entity> in 2022 and imposed a prison sentence of thirty months, of which 23 months suspended. The prosecution had demanded well over four years in prison.",
-    "sourceHash": "4d9db7569c5a",
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
@@ -968,17 +737,6 @@
     "translated": "2026-09-24"
   },
   {
-    "id": "news:47a86df4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Soundos still suffers from her jet ski accident",
-    "lead": "Soundos El Ahmadi still suffers from an accident with a jet ski that she had years ago. \"I just think it's stupid. I have always had so much love for the water and that was taken from me by the accident\", says the cabaret artist during a boat trip in the RTL programme Casa di Beau.",
-    "sourceHash": "8c81799a2905",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:48051ae4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1040,28 +798,6 @@
     "title": "Heavily pregnant Anne Hathaway apologises after 'terrible' viral moment on the red carpet",
     "lead": "All eyes are on the heavily pregnant Anne Hathaway (43), who keeps stealing the show at premieres. Recently, though, she cringed with embarrassment. The actress went into 'mother mode' and, in her own words, created a 'terrible' viral red carpet moment. On The Tonight Show she offers her apologies.",
     "sourceHash": "3d684c00dc42",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:4b1ffd06",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "British-Iranian man arrested after incident at air base",
-    "lead": "The authorities in the United Kingdom have arrested a British-Iranian man after last weekend's incident at the Fairford air base. The 27-year-old is suspected of preparing an act of terror, the <entity id=\"org:politie\">politie</entity> report.",
-    "sourceHash": "f43eeda1ab13",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:4b2fcb4b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Amin D. (37), who shot prison officer Marcel dead, turned out to have been feared for a very long time in Amsterdam-Noord",
-    "lead": null,
-    "sourceHash": "65919f37c295",
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
@@ -1210,17 +946,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:53f04202",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Driver in Limburg rams police car, crashes and is arrested",
-    "lead": "On Thursday evening a driver rammed a police car on the A79 near <entity id=\"org:gemeente-meerssen\">Meerssen</entity> in Limburg, after ignoring a stop signal. The man eventually ran off the road on the A2 near <entity id=\"org:gemeente-maastricht\">Maastricht</entity>. He has been arrested.",
-    "sourceHash": "ded084712a8d",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:53f6b10e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1265,17 +990,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:58fa9cd4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Avatar actor Cliff Curtis in hospital after car accident",
-    "lead": "The New Zealand actor Cliff Curtis is in hospital after having a car accident in his home country last week. New Zealand media reported this on Thursday. The 58-year-old Curtis is known, among other things, for his role as Tonowari in the last two Avatar films.",
-    "sourceHash": "09bb48c81b5e",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:590279b7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1309,17 +1023,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:5a4ec7f5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Anne Hathaway prepares for quiet final weeks of pregnancy",
-    "lead": "Anne Hathaway (43) is preparing for the arrival of her third child. After a busy period full of work and promotion, the actress is taking it a bit easier for now and enjoying the last weeks of her pregnancy.",
-    "sourceHash": "16f68899ec7d",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:5b286480",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1342,34 +1045,12 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:5be19fe9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "School student protests spread like wildfire across France. 'They don't take us seriously because we are fifteen, but the police don't scare us'",
-    "lead": "French secondary school students have been demonstrating for a week against the poor state of education in France. More and more students are joining them. In several places the protest is getting out of hand.",
-    "sourceHash": "1cd36e4c7b79",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:5c28c514",
     "language": "nl",
     "sourceLanguage": "en",
     "title": "Nederlandse musea trokken vorig jaar meer dan 30 miljoen bezoekers",
     "lead": "Meer dan 30 miljoen mensen bezochten in 2025 een museum in Nederland, een stijging van 2,5% ten opzichte van het jaar ervoor,...",
     "sourceHash": "cd69af84e787",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:5c4700f5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Minister Sjoerdsma stands firm: no reception of sick and wounded Gazan children in the Netherlands",
-    "lead": null,
-    "sourceHash": "c0aa93b7aa6f",
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
@@ -1386,17 +1067,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:5c631420",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Swedish Sami are entitled to an apology and land after centuries of injustice, says truth commission",
-    "lead": "It is time for the Swedish <entity id=\"org:regering\">regering</entity> to apologize for how the Sami population was treated in the past and how that continues to have an effect today. A truth commission states this in a report to the government after years of talks.",
-    "sourceHash": "9b6c1ee5a442",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:5c97b91e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1406,17 +1076,6 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
-  },
-  {
-    "id": "news:5d1b33c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The royal throne makes a trip to the place where it was once made",
-    "lead": "The throne on which <entity id=\"person:willem-alexander\">koning Willem-Alexander</entity> sits when he reads out the Speech from the Throne on Prinsjesdag is temporarily in <entity id=\"org:gemeente-roermond\">Roermond</entity>. The royal seat from the Ridderzaal is on loan until June next year to the Cuypershuis, the place where the throne was made in 1904. Because of the renovation of the Binnenhof, the Ridderzaal is not in use for the time being. Since 2022 the king has therefore addressed the members of the Eerste and <entity id=\"org:tweede-kamer\">Tweede Kamer</entity> in the Koninklijke Schouwburg in <entity id=\"org:gemeente-s-gravenhage\">Den Haag</entity>, where the throne then also stands. According to regional broadcaster L1 Nieuws, the 300-kilo throne was transported to the museum by truck. Four specialized carriers accompanied the journey. In Cuypers' studio The well-known architect Pierre Cuypers designed the throne and had it built in his studio in Roermond in 1904. Cuypers is best known for the Rijksmuseum and Centraal Station in <entity id=\"org:gemeente-amsterdam\">Amsterdam</entity>. The architect was involved in the renovation of the Ridderzaal in 1900. He had good contacts with the royal house and received the commission to make the throne. Cuypers designed a high seat of dark oak with some gold in a few places. In 1904 the then queen Wilhelmina read out the Speech from the Throne for the first time in the restored Ridderzaal. The architect based his design on the seat of Philip the Good, duke and count in the fifteenth century. In 2005 the throne was completely reupholstered. The original design was exactly reconstructed in the process. Beautiful Museum director Martin Hendriks finds it \"beautiful\" that the throne is back at the place where it was created. \"My proposal would be to keep the seat in Roermond forever and lend it out once a year for the Speech from the Throne, but they probably won't fall for that.\" The renovation of the Binnenhof began in 2021 and is expected to last until 2031.",
-    "sourceHash": "99c0e9542821",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
   },
   {
     "id": "news:5d1b33d",
@@ -1436,39 +1095,6 @@
     "title": "EU ministers want even stricter migration policy for emergencies at the border",
     "lead": "The ink on the EU migration pact has barely dried, and yet work is already under way on new measures to get even more of a grip on migration to the European Union. During a meeting in Luxembourg, almost all European asylum ministers argue for extra options to prevent a situation like the one in Ceuta this summer. Emergency measures Hopes rest, among other things, on an announced package of measures for emergencies and on an expansion of the mandate of the European border agency Frontex. \"The events of this summer make clear that we must have more options,\" said European Commission President Ursula von der Leyen during her annual speech to the European Parliament. A frequently mentioned option as a crisis measure is to temporarily relieve countries of the obligation to process an asylum application in the event of a sudden mass influx. 'Unique situations' Migration Minister Van den Brink thinks it is a good idea. \"I think that is the only way to deal with this. Because such a large group of people crossing a border, in fact storming a border, simply means a breach of the border. You have to repair it immediately by putting that group straight back.\" Van den Brink does not object to people thus no longer getting a chance to apply for asylum. \"These are truly unique situations. For those unique moments when that happens, you need something in your toolbox to be able to respond.\" Now it is a matter of waiting for a concrete crisis proposal from the European Commission. Only when that arrives will it become clear whether this idea makes it to the finish line. It will also be discussed with the heads of government of the EU member states at the next EU summit. In a few weeks the European Commission will also come with a proposal to give the Frontex border guards more options. The Commission has wanted more staff at the agency for some time and now also wants to give it a role in deporting migrants to countries outside the EU. Frontex should also start monitoring social media for signs of new crisis situations at the EU's external border. Success? Meanwhile, the European Commission leaves no opportunity unused to stress that the migration pact that entered into force last June is a success. The main evidence cited is the sharp drop in asylum figures, even though that drop had already begun before the pact took effect. That the statistics do not tell the whole story anyway was proven by the situation in the Spanish exclave of Ceuta. The number of migrants who arrived there within a few days exceeded anything the EU had prepared for, but is seen as an exception. Even so, the situation made clear that solidarity among EU member states on asylum policy is anything but a given. That, while the migration pact is supposed to ensure, besides a better asylum procedure, more solidarity among members. The asylum ministers received an oral explanation today on how the Migration Pact is going, but an official report, which the Commission had earlier promised for the coming EU summit, has been postponed and will probably come shortly after it. It shows that the European Commission wants to prevent countries from finding a reason to start pointing fingers at each other again, as right after Ceuta. Return hubs Ahead of the EU asylum meeting, the Netherlands also held a separate meeting with Austria, Germany, Greece and Denmark. This so-called 'leading group' of EU countries has the ambition to set up deportation centers outside the European Union as soon as possible and has met several times over the past year. The countries want to send rejected asylum seekers to those centers if they cannot be deported to their country of origin. A frequently mentioned option for a country where a return center could be located is Rwanda, but today's meeting did not yet produce a concrete announcement.",
     "sourceHash": "31987426354e",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:5d1b340",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Research into the colonial past of the Oranges: 'Almost every researcher discovered something'",
-    "lead": "He had mentioned it a few times, researcher Gert Oostindie. That it was high time the king commissioned research into the role of the royal family in the colonial history of the Netherlands. Not long after, a phone call came from the king. Would he like to come by to talk about it? Then, at the end of 2022, Oostindie was asked whether he wanted to carry out that research. \"An offer you can't refuse.\" Tomorrow the results of this years-long research will be presented to <entity id=\"person:willem-alexander\">koning Willem-Alexander</entity>. He commissioned the research himself, and paid for it too. According to lead researcher Oostindie, the Dutch king is progressive in this. \"It is really King Willem-Alexander who wanted this looked into. It is this king who no longer uses the golden coach, who has apologized for the Dutch slavery past and for the Dutch violence in Indonesia.\" The research assignment was clear: find out what the role of the House of Orange-Nassau has been in the colonial past, from 1600 to the present. The committee led by Oostindie then received complete freedom. \"No interference along the way, only presenting the books at the end. That is how the king wanted it too. It was perfectly clear to both of us that we had to keep complete distance, all to safeguard the independence of the research. That doesn't work if, so to speak, you have to come over for tea all the time. So that did not happen.\" \"In recent years the king has been remarkably preoccupied with the painful sides of his family history,\" says Royal House reporter Simone Tukker in the podcast De Monarchie. Asked by the <entity id=\"org:rwt-nederlandse-omroep-stichting-nos\">NOS</entity> why the king does this, he said earlier: \"I think it is important to look at history openly. Things that happened should not be hidden.\" According to Tukker, you see that attitude in various subjects. For example, he spoke critically about the conduct of his great-grandmother Wilhelmina, \"because in his view she paid too little attention to the fate of the Jews during the Second World War\". During the commemoration of the slavery past in 2023, the king went even further. He not only repeated the apologies of <entity id=\"org:regering\">de regering</entity>, but also asked forgiveness for the actions of his predecessors. He also initiated the major research into the role of his family in colonial history. \"The king wants to be transparent, but that is not only a personal consideration. It is also in his own interest: to secure the future of the monarchy, the royal family has to move with the spirit of the times,\" says Tukker. Sixty researchers Whether all the facts will come to light during the presentation tomorrow morning in the Academiegebouw in <entity id=\"org:gemeente-leiden\">Leiden</entity>? \"It is never finished, but we have done such thorough research with so many researchers that the core is now in place,\" says Oostindie. Together with researchers Esther Captain, Kathleen Ferrier and Henk ten Velde he formed a committee, which then brought in sixty researchers. That it has yielded something is certain, concludes the lead researcher. \"Almost every researcher discovered something new, an enormous amount has been brought up that had not been seen before.\" Reparation in the broad sense Bianca Groen Gallant has been the new director of the Nationaal Instituut Nederlands slavernijverleden en erfenis (NiNsee) for half a year. She will attend the presentation of the research tomorrow. \"I greatly appreciate that the king had this independent research carried out and opened the royal archives for it. The research does justice to the structural injustice that took place over a long period and with violence.\" Once this research has been presented, a start can be made on reparatory justice, or reparation and justice, says Groen Gallant. Reparation begins with establishing the truth, she says, but we must move toward equal opportunities, in education but also economically. She says it is important that history is corrected where necessary and becomes part of the story of the Netherlands. \"This too is our history.\" The NiNsee hopes that the king will take up that gauntlet and take the lead in holding those conversations. \"What then prime minister Rutte began, with the apologies and his remark about 'after the decimal point', it is now time to follow that up.\" Want to see and hear more? You can listen to the new episode of the podcast De Monarchie via <entity id=\"org:zbo-nederlandse-publieke-omroep\">NPO</entity> Luister and all other podcast apps. This evening we look ahead to the research into the colonial past of the House of Orange-Nassau from 21:15 on NPO 2 and on NOS.nl. The presentation of the research can be watched on Friday 2 October from 11:10 on NPO1 and on NOS.nl.",
-    "sourceHash": "9d3ad0418455",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:5d1b341",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Podcast De Dag: what is the Spekman effect?",
-    "lead": "A victory for the left-wing parties and the trade unions: the cuts to social security are off the table for now. The success is largely attributed to the relatively new chair of the FNV, Hans Spekman. Want to listen? Want to listen? You can listen to this episode of De Dag via <entity id=\"org:zbo-nederlandse-publieke-omroep\">NPO</entity> Luister and all other podcast apps. Enjoying it? Then don't forget to subscribe. What makes Spekman such a true trade unionist? Former minister and former PvdA chair Lilianne Ploumen knows, as she knows him well from their time together in that party. And Roeland Müller of the <entity id=\"org:rwt-nederlandse-omroep-stichting-nos\">NOS</entity> economics desk looks into the question: is there such a thing as a Spekman effect? Want to respond? Email dedag@nos.nl Presentation and editing: Dieuwke Teertstra Editor: Judith van de Hulsbeek",
-    "sourceHash": "73de09e56f14",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:5d1b382",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "After visit to Amsterdam, the ship Batavia is put on dry land for good",
-    "lead": "The ship Batavia began its last voyage this morning. After a week and a half, the ship left Amsterdam, where it was prepared in a dry dock to be put ashore. Because of wood rot, the reconstruction of the historic VOC ship will be permanently placed on dry land. The Batavia lay in the water for thirty years, writes Omroep <entity id=\"org:provincie-flevoland\">Flevoland</entity> . The part that was always in the water had been suffering from wood rot for some time. Experts concluded that the ship could no longer stay in the water. A week and a half ago the ship went to the NDSM shipyard in Amsterdam. There the ship was placed in a metal structure. That is needed to put the ship ashore. The Batavia was then placed on a pontoon (a floating platform). Tugboats pulled the pontoon to <entity id=\"org:gemeente-lelystad\">Lelystad</entity>. Towing the ship drew onlookers: Tomorrow the ship will be driven from the pontoon over the dyke and set down next to Museum Batavialand. The Batavia is a reconstruction of the VOC ship that was wrecked on its first voyage 400 years ago. In 1628 the ship left Texel bound for Java. It sailed too far, however, and ran aground on the reefs of the Houtman Abrolhos islands in Australia. In 1985 work began on the reconstruction of the ship. Ten years later the Batavia was christened by the then Queen Beatrix.",
-    "sourceHash": "87fb4f08783b",
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
@@ -1507,127 +1133,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:5d1b697",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "British-Iranian man arrested over incident at British air base",
-    "lead": "The British <entity id=\"org:politie\">politie</entity> have arrested a man with British and Iranian nationality on suspicion of preparing acts of terror at the air base at Fairford. The 27-year-old man was arrested in the Westminster district of London, British counter-terrorism police say in a statement. According to the British authorities, two properties in the same area were also searched. A 26-year-old Briton was also questioned in the investigation. Last Sunday, five British men, aged between 23 and 25, were arrested near the Royal Air Force base at Fairford in Gloucestershire. They are suspected of preparing a terrorist attack. Besides British troops, American troops and bombers are also stationed at the air base. That air base is used in the war against Iran. Counter-terrorism police say they are investigating all possible scenarios, including whether foreign interference is involved. Earlier, US President Trump and <entity id=\"pos:minister-van-buitenlandse-zaken\">minister van Buitenlandse Zaken</entity> Rubio pointed to Iran. British Prime Minister Burnham also said this week that there are \"strong indications\" that the country played a role in the incident. Iran's Islamic Revolutionary Guard Corps warned earlier that any base involved in the war will be regarded as a legitimate target. The country denies, however, having been involved in the incident at the air base in Fairford. Suspect called police The five men arrested earlier were released on bail on Monday. It was initially thought that the five were arrested after a local resident alerted the police. It later emerged that the British police had been called an hour earlier by one of the suspects himself , British media report.",
-    "sourceHash": "4f894dd3ba16",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:5d1b698",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Mixed reactions to minister stepping in: 'Registration does not make an expert estate agent'",
-    "lead": "Estate agents and home buyers have mixed reactions to the minister stepping in on the estate agent sector. While for some it is better late than never, others fear that the announced measures will come at the expense of the quality of the estate agent profession. Minister Boekholt-O'Sullivan announced today that she wants to take over supervision of the entire estate agent sector. Through a professional register and a complaints desk, she hopes to give home buyers more transparency and clarity about the buying process. In this way the profession of estate agent will be registered nationally. As a result, estate agents will have to be bound by statutory standards of conduct. If an estate agent fails to comply with them, they can be removed from the profession. Negative experiences The minister is stepping in after signals from buyers about abuses in the estate agent sector. Since August, more than 900 people have contacted the reporting desk of Vereniging Eigen Huis (VEH) with complaints about estate agents. The <entity id=\"org:rwt-nederlandse-omroep-stichting-nos\">NOS</entity> also spoke to house hunters and home buyers who had negative experiences with an estate agent. For example, many buyers are pressured into making a higher bid on a house without knowing whether that is even necessary. Because of the tight housing market, they often feel compelled to follow the estate agent's advice to bid higher. In addition, some buyers find that buying and selling agents sometimes make mutual arrangements behind the buyers' backs. Several buyers tell the NOS that laying down rules would bring more calm to the buying process. Vereniging Eigen Huis sees the minister's intervention as a recognition of the problems of many home buyers. \"Consumers must no longer be the victims of an opaque buying process. Clear rules and a professional estate agent sector are indispensable for a healthy housing market,\" writes the VEH. Reputational damage Estate agent associations also initially react positively to the announcement of fixed rules of conduct in the sector. \"At every estate agent, a consumer must be able to trust a clear and transparent bidding process,\" says Tristan Bons of Vastgoed Nederland. The trade association is mainly pleased with the registration requirement, which establishes who practises the estate agent profession in the Netherlands. At the moment, an estate agent who is suspended or expelled from one association can simply carry on independently. In future, an estate agent who is removed from the register after a disciplinary ruling will no longer be able to continue. Bons does say he regrets that the legislation seems to be coming only now. \"Consumers could have been spared a lot of misery. A small group that is not so strict about the rules can damage trust in an entire profession.\" Training or no training The NVM also says it supports the registration requirement for estate agents. The estate agents' association considers it important that the minister still works out in the plans how the quality of the estate agent profession remains guaranteed, for example with training requirements. \"A registration or a bidding log does not make someone an expert estate agent,\" says NVM chair Lana Goutsmits-Gerssen. Estate agent associations such as the NVM and Vastgoed Nederland currently require their members to complete various courses and training. Goutsmits-Gerssen hopes that the minister will include in the rules that an estate agent must also complete those courses and training when registering. \"A statutory register creates the expectation that an estate agent is qualified. Without professional competence requirements, you do not live up to that expectation. That is false certainty. Consumers deserve a statutory quality guarantee that has substance,\" says Goutsmits-Gerssen. Bart-Jan Mutters, an estate agent in Leerdam, is not keen on even more training. \"I think it is good that there will be more transparency for consumers, but we hope the training burden will not increase, because we already do so much training ourselves here,\" he says. In the coming period the minister will talk with the estate agent sector and then work out the plans. She hopes to come up with concrete proposals in early 2027.",
-    "sourceHash": "591ea9772ec9",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:5d1b699",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Russian drones hit school in Kyiv, children escape with a scare",
-    "lead": "A school in the Ukrainian capital Kyiv was hit by Russian drones. Nobody was injured. \"At the time of the attack, more than 100 pupils and about 60 members of school staff were in a bomb shelter,\" the <entity id=\"org:politie\">politie</entity> of Kyiv writes on Telegram . The shelter is sturdily built, so none of the children or staff members were injured,\" school principal Valentyna Chorna told the news agency Reuters. \"They just carried on with their lessons.\" The facade of the school building was damaged and a fire broke out. An important bridge over the Dnieper river in Kyiv was also hit by two Russian drones. Public transport over the bridge was temporarily halted. Road traffic was eventually able to resume. The bridge that was hit, also called the Pivdennyi Bridge or South Bridge, is an important artery connecting the western and eastern parts of Kyiv. Local authorities report that no critical damage to the structure has been found so far.",
-    "sourceHash": "7b34721ffd42",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:5d1b6b6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "New pumping station Afsluitdijk: a swimming pool full of water from the IJsselmeer every 9 seconds",
-    "lead": "One of the largest pumping stations in Europe has been opened at the Afsluitdijk. The new complex with six pumps, each almost 12 metres high, is meant to prevent flooding. The pumping station at the Afsluitdijk near Den Oever is part of large-scale renovation and reinforcement works on the Afsluitdijk that have been under way for years. Discharging The IJsselmeer serves as one of the most important freshwater buffers of the Netherlands. In principle the aim is to retain as much water as possible in the IJsselmeer. In drought that water can then be used for drinking water, agriculture and horticulture, to hold back salinisation and to keep the water in canals and lakes at height for shipping. If the water rises too fast, the six pumps must make sure the water can be removed quickly enough. This is done by discharging water from the IJsselmeer through 25 culverts in the Afsluitdijk to the Waddenzee. That process is called 'spuien'. At full power the new discharge pumping station can discharge 275,000 litres of water per second from the IJsselmeer to the Waddenzee. That is an Olympic swimming pool full every nine seconds. That makes the new pumping station one of the largest in Europe. During a storm the pumping station must prevent water from the Waddenzee flowing into the IJsselmeer. Dry feet Technical manager Bram Beijer of <entity id=\"org:rijkswaterstaat\">Rijkswaterstaat</entity> believes the Netherlands can look ahead for the next 100 years with this pumping station. It will not be easy: \"The sea level is rising and the supply from the rivers towards the IJsselmeer is becoming more and more erratic. So it is becoming ever harder to control the level with existing means.\" Beijer therefore expects the new pumps to be used more and more often. \"If these six pumps pump for a day, the level of the IJsselmeer is lowered by about two centimetres\", he told Omroep <entity id=\"org:provincie-fryslan\">Friesland</entity> . That does not seem like much, but according to Beijer it makes a big difference: \"If you do that for a week, it can be just the difference between dry feet or not.\"",
-    "sourceHash": "f131967fa6ec",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:5d1b6b7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Breakthrough in clitoris reconstruction surgery exposes gap in women's healthcare",
-    "lead": "\"It is incredible, we also do not understand why it took so long\", says Mieke ten Eikelder, gynaecological oncologist at the Radboud UMC. Forty years after a technique was developed for men with penile cancer to restore the glans, there is now also a clitoris reconstruction for women. That the clitoris reconstruction took so long has several reasons. According to Ten Eikelder, it plays a part that in the consulting room women now talk more freely about sexuality and that the taboo on it has lessened. 'Drastic' Together with plastic surgeon Tim Nijhuis, who specialises in gender surgery, Ten Eikelder set to work on reconstructing a clitoris, after a patient asked whether that was possible. The idea that her clitoris would be completely gone after the operation, she found drastic. Of the roughly 450 women who get vulvar cancer in the Netherlands each year, according to Ten Eikelder 130 to 150 have a tumour in or around the clitoris. In them, the tip of the clitoris and the associated nerves have to be removed during the operation, after which the area is closed with a layer of skin. \"What happened afterwards to the sensation in the clitoris, we actually do not know well. Some women had less sensation or no sensation at all anymore, but hardly any attention was paid to that.\" The remaining nerves end up deep under the skin. 15 minutes extra time Vulva reconstruction already exists, but apparently nobody had ever sat down to develop this for the clitoris too. \"Whereas it is actually not a complicated operation at all\", says Ten Eikelder. Removing the tumour and reconstructing the clitoris can happen at the same time. \"It takes about 15 minutes of extra operating time.\" Ten Eikelder calls the first results promising. The first operation has meanwhile also been performed in London. \"We are going to teach all nine hospitals in the Netherlands that treat vulvar cancer how to carry out this procedure themselves. That is going to help a great many women.\" <entity id=\"org:rwt-nederlandse-omroep-stichting-nos\">NOS</entity> op 3 investigated why we know so little about the clitoris: That women's healthcare lags behind that for men is not new. For years, women-specific health problems received less attention in research and treatment. That picture is now starting to shift somewhat and there is increasing attention for women's health. Judith Huirne is professor of gynaecology at <entity id=\"org:gemeente-amsterdam\">Amsterdam</entity> UMC. She sees women with a wide range of complaints every day. What stands out most to her is that many women sometimes walk around with complaints for years before seeking help. \"And even then it is often a long search before the right diagnosis is finally made.\" Women-specific conditions are, for example, cycle disorders, hormonal problems such as menopausal complaints and pelvic floor problems. Making this kind of diagnosis often takes between 8 and 12 years, says Huirne, with women seeing five to eight care providers in that time. For conditions that occur in both men and women, the diagnosis is made on average four years later in women, a large Danish study showed last year. That women's complaints are taken less seriously, or that women feel their complaints are not taken seriously, has several causes. There is a lack of knowledge and GPs do not have enough resources to make a proper diagnosis. Blind spot Women-specific conditions and complaints are a blind spot, says Huirne. For instance, according to her considerably more money is invested in research into erectile disorders than into endometriosis, worldwide an estimated twenty times as much. Knowledge about conditions that cause severe menstrual pain is also lacking, she says. \"We know less about them. As a result care falls short and good treatments have often not yet been developed. That is because for a long time there was insufficient attention for it. Why a reconstruction exists for the glans and not for the clitoris fits the same story.\" Quality of life At Amsterdam UMC a women's clinic specifically for its own staff was opened a year and a half ago. Of the 9000 women who work at the academic hospital, almost 1000 staff members have now come forward. The academic hospital saw that many women with women-specific conditions were dropping out of work. \"We thought: we can solve that. That is why we started that clinic. And it works extremely well.\" For 89 percent of these women the diagnosis can be made after just one consultation or scan. And according to Huirne that has a great impact on women's quality of life. \"If you do not have a good diagnosis, you cannot get good treatment either.\"",
-    "sourceHash": "cfa9c7497a30",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:5d1b6b8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Rivers are now so low that skippers must judge for themselves whether sailing is still possible",
-    "lead": "Water levels in the east of the Netherlands are now so low that it is unclear whether ships can still sail there. On the IJssel, the Nederrijn and a large part of the Waal it can no longer be properly measured whether it is still safe to sail. <entity id=\"org:rijkswaterstaat\">Rijkswaterstaat</entity> says this to the <entity id=\"org:rwt-nederlandse-omroep-stichting-nos\">NOS</entity>. Inland shipping skippers will now have to decide for themselves whether they can sail safely or not. The problem also affects the Pannerdensch Kanaal. In some places it is now shallower than 125 centimetres and most of the vessels with which Rijkswaterstaat takes measurements draw more than that. They simply can no longer get there. There are still three that draw less, but they also have to be deployed in other regions. As a result it is not possible for the time being to properly determine the so-called least sounded depth. That is the depth of the shallowest point in the fairway. Rijkswaterstaat takes these soundings so that skippers can determine how much cargo they can take without running aground. Skippers can also get this kind of measurement data through subscriptions with commercial parties, but not everyone has such a subscription. Problems for a long time \"This is very worrying\", responds Fiona Oomen, regional coordinator for Central and Eastern Netherlands at Koninklijke Binnenvaart Nederland, who also sails on Rijkswaterstaat's data. She says that recently it has been \"impossible to cope\" for inland shipping. \"It is terrible. All transport is under pressure: on the road it is under pressure, on the waterways it is under pressure. What if the water drops even further, then what? Where is everything supposed to go?\" The problems on the rivers have been in the news for months. In August there was a lot of attention for the Rhine, which then dropped below the lowest discharge ever measured at Lobith. That was 614 cubic metres per second at the time. Since then there has been almost no improvement. At the moment the discharge there even fluctuates around 545 cubic metres per second, so the new record has already been broken by a wide margin. Last weekend it already became clear that the Rhine at Cologne and Kaub, in Germany, was again struggling with exceptionally low water levels . It was a matter of time before that problem would also occur downstream, in the Netherlands. Logically, this is also noticeable on the IJssel, the Waal and the Nederrijn. There too, inland shipping has been struggling with problems for a long time. Rain needed Rijkswaterstaat cannot yet say how long the problems in the east of the Netherlands will last. \"We need rain in the catchment area\", a spokesperson says. That would have to fall mainly outside the Netherlands. \"If we go by the discharge forecast it will not get worse, but also not much better. We do know the rain will come at some point, because it has always happened, but the question is when.\" In short, the east of the country will have to \"sit it out for a while\", says the Rijkswaterstaat spokesperson. \"But when it is over, we will get the next problem. Then we will get high water again.\" He points out that the sea is currently exceptionally warm, which means the autumn could turn out very wet again. More intense dry and wet periods are part of a changing climate in the Netherlands and this year's extremes are therefore not unexpected. Even so, water experts have been expressing their surprise to the NOS for months about the scale and severity of it in recent times. Because of greenhouse gas emissions the earth will warm up further. That makes water challenges for the Netherlands ever more pressing .",
-    "sourceHash": "75830d46ad6a",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:5d1b6bb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Shipbuilder Damen wants billions from German government for cancelling order",
-    "lead": "Shipbuilder Damen is demanding compensation of nearly 4.7 billion euros from the German <entity id=\"org:regering\">regering</entity> for cancelling the order for frigates. This is stated in a letter from Damen's lawyer, seen by the <entity id=\"org:rwt-nederlandse-omroep-stichting-nos\">NOS</entity>. It had already emerged earlier that Damen Schelde Naval Shipbuilding, the full name of the company, wants compensation from the Germans. The letter now shows that this involves billions. The amount is not confirmed by Damen, but the company does say it sent the letter. At the end of June the German <entity id=\"pos:minister-van-defensie\">minister van Defensie</entity>, Boris Pistorius, cancelled the order for six frigates. According to Damen this was completely unexpected. Instead of the six F126 frigates, eight other frigates are now being ordered from the German ThyssenKrupp Marine Systems. Itself responsible The contract to build the ships was originally given to the Dutch Damen, but last year the German government already decided that Damen could no longer be the main contractor of the project. That contract was to be given to the German shipbuilder NVL, part of the large Rheinmetall. Damen then remained involved in the project. In June Pistorius definitively pulled the plug on the project at Damen. According to him, the construction threatened to run years behind schedule and costs were getting out of hand. The letter, addressed to Pistorius, shows that according to Damen the German government itself is responsible for the delay. Damen also accuses the German government of breach of contract. Among other things, the letter says that Damen has carried out a study into the damage the company would have suffered after the cancellation of the German order. From this the company concludes that, among other things, the yards where the ships would be built had already incurred many costs. Parts of the ships were already ready to be joined together, but will no longer be used. According to Damen, most of the damage lay there. Setbacks A few months ago it emerged that the Belgian government is also considering withdrawing an order for two frigates from the Dutch shipbuilder. Belgium has ordered two frigates from Damen, but Defence minister Francken also thinks the delivery is taking too long and the ships are becoming too expensive.",
-    "sourceHash": "7679bf37ae82",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:5d1b6bd",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Van Weel's remarks about Bolle Jos cause irritation in Brussels",
-    "lead": "Remarks by minister Van Weel about the halting of payments to Sierra Leone are causing irritation within the European Commission. This morning the minister said that the payments from the Commission have been stopped because Sierra Leone is not cooperating in the extradition of drug criminal Bolle Jos. The <entity id=\"org:rwt-nederlandse-omroep-stichting-nos\">NOS</entity> was told that within the European Commission it was decided to \"push back hard on this\". Conversations show that the decision was officially a purely technical matter, which should not be presented externally as a sanction against those in power in Sierra Leone. Bolle Jos, or actually Jos L., has close ties with those in power, including the president. Long pressed Minister Van Weel has wanted for some time for the European Commission to take steps against the country that shields the Dutch drug criminal by refusing to extradite him. Sierra Leone was still due to receive 18 million euros in budget support from Brussels this year. That money is intended for, for example, food programmes, education and infrastructure in the extremely poor country. Van Weel paints the picture that the Commission is using money meant for development aid as a means of coercion to make Sierra Leone cooperate in the extradition of Jos L., much to the irritation of the Commission. Behind the scenes the Commission offers a different interpretation. It is even said that the minister is putting out misleading information by linking the halting of the support to the extradition of Bolle Jos. According to the Commission, the decision was taken because of \"administrative errors\". The discussion shows how sensitive this matter is and how great the interests are. In today's meeting Minister Van Weel once more stressed that combating drugs is a matter of national security for the Netherlands. European Commissioner Brunner maintains that the budget support was suspended for technical reasons. At the same time he also explicitly says that the EU believes action is needed against countries outside the EU that harbour major drug lords. \"We need the cooperation of Sierra Leone. That is what this is about\", he says. In doing so he implicitly acknowledges that this reason played a part in the suspension of the budget support. Legally not permitted Brunner cannot admit that this decision was also taken for political reasons: stopping aid because of political interests such as not extraditing a drug criminal is legally not allowed. The agreements made around budget support are laid down contractually and the extradition of Bolle Jos is not included in any of the conditions. Meanwhile the Commission is working on new ways to be able to impose sanctions on countries that do not cooperate in the prosecution of drug criminals. Minister Van Weel assumes that the budget support to Sierra Leone will only be resumed once Jos L. has been extradited, sources tell the NOS. Otherwise a new head-on collision between the Netherlands and the Commission threatens, it is said behind the scenes. Remarks by minister Van Weel about the suspension of budget support to Sierra Leone are causing irritation within the European Commission.",
-    "sourceHash": "65c5239e2aa5",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:5d1b6d6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cabinet sits down with unions and employers again on Wednesday after months of delay",
-    "lead": "Next Wednesday the trade unions and employers will sit down at a table with <entity id=\"org:kabinet\">het kabinet</entity> for the first time in months to talk about the future of social security. The cabinet has invited six organisations, VNO-NCW, MKB NL, LTO, FNV, CNV and VCP, to come to the Catshuis on Wednesday. On behalf of the cabinet, prime minister Jetten and the three most closely involved ministers Vijlbrief (Social Affairs), Aartsen (Work and Participation) and Herbert (<entity id=\"org:tweede-kamer-commissie-ez\">Economische Zaken</entity>) will attend. The unions FNV and CNV are coming to <entity id=\"org:gemeente-s-gravenhage\">Den Haag</entity>, the organisations say. That makes it likely that the other organisations will also accept the invitation. Since the end of May the unions have not been talking to the cabinet about the scaling back of social security, the arrangements that exist to help Dutch people who cannot work or are retired. In May there was a Catshuis meeting about this, but opinions turned out to differ so much that it stayed at one conversation. Talks would only resume, the unions made clear time and again, if the Jetten cabinet scrapped the planned spending cuts. The unions also announced actions. Cutbacks The Jetten cabinet initially wanted to save some 6 billion euros through a faster increase of the AOW age, and cutbacks in WW and WIA (disability) schemes. The cabinet had already withdrawn the AOW plan earlier, but the unions, supported by the largest opposition party Pro, kept insisting on their demand that all cuts to social security be withdrawn. The cabinet did so after all earlier this week and now the talks with the 'polder' are being restarted. Long term The unions, like the employers and the cabinet, acknowledge that the problems have to be solved, especially with the WIA, the Wet Werk en Inkomen naar Arbeidsvermogen. Around 60,000 people flow into the WIA every year, often young people and women with mental health problems. There is a large shortage of insurance doctors and the waiting lists are long. \"We should not wait until people drop out for the long term, but prevent that\", the unions FNV, CNV and VCP wrote in a joint press release earlier this week.",
-    "sourceHash": "b802dd2d60f2",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:5d1b6d7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Meta glasses no longer on sale at Hans Anders with immediate effect",
-    "lead": "Hans Anders is stopping the sale of Meta camera glasses with immediate effect. The company confirmed this to the news agency ANP following reporting by the AD . The reason is the unrest that has arisen over the privacy risks of the glasses. Hans Anders wants to wait for the discussion about the smart glasses and will then decide whether and how the glasses will be sold again. The Meta glasses look like normal glasses, but have a built-in camera and an AI assistant. They have been on sale in the Netherlands since September 2025, including at opticians. The glasses are also called 'peeping glasses', because it is easy to film or photograph people without them noticing. That happens often . There is resistance to the glasses from all kinds of sectors, such as hospitals and the armed forces. The <entity id=\"org:zbo-autoriteit-persoonsgegevens\">Autoriteit Persoonsgegevens</entity> warned a few weeks ago that footage made with the glasses may not simply be made public. The Consumentenbond had already argued once for banning the glasses, and announced on Tuesday that, together with a number of other organisations, it would bring a lawsuit if Meta does not stop selling the glasses within two weeks. Changing rooms and toilets The subject is also alive in politics. Last week the Tweede Kamer asked for a clear ban on camera glasses. What is done with the glasses is in fact already prohibited under various privacy laws. Secretly filming in changing rooms and toilets, for example, is already punishable. In practice that turns out not to be enough, <entity id=\"org:tweede-kamer\">de Kamer</entity> believes. <entity id=\"org:kabinet\">Het kabinet</entity> is waiting for European advice on camera and AI glasses, which is expected this autumn. Hans Anders, one of the largest opticians in the Netherlands, is therefore not selling the glasses until something has been decided about how to deal with them. At other shops and web shops they are still on sale.",
-    "sourceHash": "3870434d31ab",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:5d1b6da",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Failed execution of Christa Pike was 'torture', says her lawyer",
-    "lead": "Death row inmate Christa Pike is still alive and is receiving \"life-saving medical care\", one of her lawyers, Randy Spivey, has announced. The 50-year-old American woman was due to be executed yesterday in the state of Tennessee, but that failed dramatically. Spivey describes the execution as \"torture\". Pike's lawyer says he has no clear picture yet of her current state of health. She is being treated in a hospital in Nashville. Pike was convicted in 1995, at the age of 18, of the murder of 19-year-old Colleen Slemmer. She was to be the first woman in 200 years to be put to death in Tennessee. 'Strange feeling' The woman was given two injections but survived them. According to journalists who witnessed her execution, Pike was still snoring an hour after the first injection. Pike also complained of a strange feeling in her arm. According to one of the journalists, she said she felt as if her arm was about to burst open. Seven needles Steve Ferrell, Pike's other lawyer, says his client feared complications during her execution because of a blood disorder she has suffered from all her life. Because of this, according to the lawyer, it is difficult to insert needles into her veins. \"She always told us she had trouble with blood draws\", Ferrell said. Lawyer Spivey says he counted at least seven needles used on her left arm alone. During the execution Pike reportedly gave instructions on where the IV lines could be placed on her body. \"She kept saying: please try higher up on my shoulder\", Spivey said. Investigation Governor Lee called the incident \"very troubling\". On Monday he rejected a clemency request to commute her death sentence to life imprisonment. Lee has ordered an investigation into what went wrong. Further executions in Tennessee have been suspended for the time being.",
-    "sourceHash": "a61158a4a958",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:5d2f618d",
     "language": "nl",
     "sourceLanguage": "en",
@@ -1637,28 +1142,6 @@
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
-  },
-  {
-    "id": "news:5e15677",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "VNG disappoints with assessment framework for social media",
-    "lead": "The Vereniging van Nederlandse Gemeenten (VNG) promised to advise its members on how to deal with social media. Now there is an assessment framework in which municipalities may set the sliders themselves.",
-    "sourceHash": "c50580f13be8",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
-    "id": "news:5eeb9856",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Miljoenennota 2027, budgets and accompanying documents",
-    "lead": "Below you will find the Miljoenennota 2027, the Rijksbegroting 2027, the Belastingplan 2027 and all accompanying documents. These documents were presented to the Tweede Kamer on 15 September 2026.",
-    "sourceHash": "631cfcd3848b",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
   },
   {
     "id": "news:5f893591",
@@ -1678,17 +1161,6 @@
     "title": "Get your diary out: these will be the cultural highlights of the coming season",
     "lead": "What can we look forward to in the coming cultural season? The NRC culture desk guides you through what is on offer in the autumn of 2026.",
     "sourceHash": "0419b5f2f588",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
-    "id": "news:5f9768f5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The government on the market: where is the line?",
-    "lead": "Under what conditions may a municipality engage in commercial activities? Market and government are diametrically opposed. And so the Tweede Kamer will soon, ten years after a critical evaluation of the competition rules, have to make a decision.",
-    "sourceHash": "c55117ec1d41",
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
@@ -1727,28 +1199,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:604afa84",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Doctors Without Borders worker with Ebola is being treated in Leiden",
-    "lead": "A Doctors Without Borders worker infected with Ebola is being treated at the Leids Universitair Medisch Centrum. The worker was infected while working in the Democratic Republic of Congo, where a deadly Ebola outbreak has been raging since May.",
-    "sourceHash": "07e72b1a5c33",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:60981061",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Mayor Holslag: 'I am an enormously bad politician'",
-    "lead": "The Vereniging van Nederlandse Gemeenten (VNG) has invited an atypical mayor to its annual congress: Jonathan Holslag. The former professor is at the helm of the Belgian municipality of Tienen. His heart's desire: to loosen up civic spirit, because 'a democracy that is not rooted in responsible citizens goes to perdition.'",
-    "sourceHash": "6b907d3df146",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:61004997",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1766,17 +1216,6 @@
     "title": "Screen ban in UvA lectures should help students learn better, but De Slimste Mens beckons under the table",
     "lead": null,
     "sourceHash": "e2adc7878ca1",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:61495b8c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Influencer Victoria Vermeer open about her own experience with 'fatshaming'",
-    "lead": "Victoria Vermeer (27) knows from her own experience how hard comments about your body can hit. The influencer faced 'fatshaming' and speaks out about its impact and the changing beauty ideal.",
-    "sourceHash": "068528166da0",
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
@@ -1804,17 +1243,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:62057d4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'Without municipalities it simply does not work'",
-    "lead": "Municipalities were mentioned at various moments in the King's Speech, noted VNG chair and <entity id=\"pos:burgemeester-utrecht\">burgemeester van Utrecht</entity> <entity id=\"person:sharon-dijksma\">Sharon Dijksma</entity>. And at the end of the speech even 'the cooperation agenda we fought so hard for was addressed', she says in a reaction to Binnenlands Bestuur. 'I am very pleased about that.'",
-    "sourceHash": "a437afcc3536",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:62abb4b2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1824,17 +1252,6 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
-  },
-  {
-    "id": "news:645d5382",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Family of woman shot dead by ICE sues Trump administration",
-    "lead": "The family of Renée Good, the woman who was shot dead by immigration service ICE earlier this year, is taking the administration of US President Donald Trump to court. They believe that ICE agents were negligent and violated civil rights.",
-    "sourceHash": "c02132c5c23a",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
   },
   {
     "id": "news:652bba85",
@@ -1881,17 +1298,6 @@
     "translated": "2026-09-24"
   },
   {
-    "id": "news:6781d5bc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Rekenkamer misses choices to reduce number of civil servants",
-    "lead": "To make the government cost less money, clear choices are needed. But those choices are missing from the budgets proposed by <entity id=\"org:kabinet\">het kabinet</entity>-Jetten, the Algemene Rekenkamer warns in a letter to the Tweede Kamer.",
-    "sourceHash": "840a8c275d19",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:69e4747a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1912,17 +1318,6 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
-  },
-  {
-    "id": "news:6a5723a2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Stabbing weapon on flydubai aircraft raises questions: 'Pilots are screened too'",
-    "lead": "Israel is going to tighten security checks on pilots flying to the country, the Israeli <entity id=\"org:regering\">regering</entity> reports on Thursday. On board an aircraft of the airline flydubai, a co-pilot stabbed the pilot on Wednesday. The question is how the stabbing weapon got on board.",
-    "sourceHash": "753b1f7e46aa",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
   },
   {
     "id": "news:6a6a9b90",
@@ -1947,34 +1342,12 @@
     "translated": "2026-09-24"
   },
   {
-    "id": "news:6af9ab71",
-    "language": "nl",
-    "sourceLanguage": "en",
-    "title": "Amsterdamse museumbezoeken dalen 5,2% omdat bezoekers minder uitgeven en korter in de stad blijven",
-    "lead": "In de eerste helft van dit jaar trokken Amsterdamse musea 5,2 procent minder bezoekers dan in dezelfde periode een jaar eerder.",
-    "sourceHash": "88f8fc8524ab",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:6b0e3e82",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Cockpits are built to keep danger out, but what if a pilot means harm?",
     "lead": null,
     "sourceHash": "bab5366ceb90",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:6b2da8af",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Does Christa Pike escape the death penalty after failed execution? This is where things stand",
-    "lead": "The execution of Christa Pike in the American state of Tennessee overnight went disastrously. The 50-year-old woman was given a lethal dose of poison twice, but did not die. A day later there are still many questions about how the death row inmate is doing.",
-    "sourceHash": "333a06995967",
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
@@ -2077,28 +1450,6 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
-  },
-  {
-    "id": "news:762bfcad",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Inspectorate: secondary schools must take new pupils' level of knowledge into account",
-    "lead": "When a pupil moves from primary to secondary school, a 'warm handover' usually takes place, in which schools exchange information. But too little is done with that knowledge about the pupil, says the Inspectie van het Onderwijs.",
-    "sourceHash": "f72c9f6eed09",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:78532ba8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Rick Ross arrested on suspicion of domestic violence",
-    "lead": "American rapper Rick Ross (50) was arrested in Miami Beach on Thursday on suspicion of domestic violence. American media, including <entity id=\"org:zbo-centraal-bureau-voor-de-statistiek\">CBS</entity> News, report this.",
-    "sourceHash": "ced75dcbba47",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
   },
   {
     "id": "news:788af21f",
@@ -2211,17 +1562,6 @@
     "translated": "2026-09-24"
   },
   {
-    "id": "news:7c2d29d7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Foundation problem in Amsterdam probably bigger than thought: 'Going to collapse like a house of cards'",
-    "lead": null,
-    "sourceHash": "a66cad3b61f6",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:7cc982e3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2231,17 +1571,6 @@
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
-  },
-  {
-    "id": "news:7d2194ad",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Asylum children exposed to unsafe living conditions",
-    "lead": "Children in emergency asylum shelters are now structurally 'exposed to unsafe living conditions that pose serious risks to their development', writes the Onderzoeksraad voor Veiligheid (<entity id=\"org:zbo-onderzoeksraad-voor-veiligheid\">OVV</entity>) in the report 'Kinderen in nood' published on Monday. The OVV therefore calls on the minister of Asiel en Migratie to improve the situation of these children in emergency asylum shelters within six months.",
-    "sourceHash": "8383e02b7ad6",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
   },
   {
     "id": "news:7d361371",
@@ -2310,17 +1639,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:80714cf",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Seriously ill Esther from B&B Vol Liefde arrives at Paul's: 'Really a mini holiday'",
-    "lead": "Esther from 'B&B Vol Liefde' has arrived at Paul's in Spain. She tells 'Shownieuws' that the B&B participant is enjoying a special week, which she is trying to make as cosy and homely as possible.",
-    "sourceHash": "18b60fb0ab68",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:81e27cda",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2363,28 +1681,6 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
-  },
-  {
-    "id": "news:84152e42",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Minister Van Weel and Brussels at each other's throats over 'Bolle Jos'",
-    "lead": null,
-    "sourceHash": "f2dd6062912f",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:8466f6d8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "New developments in mysterious murder case of chicken farmer Jan van Mullekom",
-    "lead": "Four years after the murder of chicken farmer Jan van Mullekom there is new hope of a breakthrough. Crime journalist Mick van Wely (54) fills us in on the intensive DNA investigation, new witnesses and the possibility of a case of mistaken identity.",
-    "sourceHash": "d74d58007586",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
   },
   {
     "id": "news:84ddb45c",
@@ -2486,45 +1782,12 @@
     "translated": "2026-09-24"
   },
   {
-    "id": "news:896fb953",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Peter Gillis holiday parks under the hammer: 27 million euros bid",
-    "lead": "The three holiday parks of reality star Peter Gillis (64) that are being sold under duress could bring in more than 27 million euros. That is the total amount bid on Thursday at auctions for the parks, which are being sold by creditor Marc van Rooi. This meat entrepreneur lent millions in 2023 to Peter's holiday park company Oostappen Groep, which has not paid interest since January 2025.",
-    "sourceHash": "6ae092481a21",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:898b25b9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "VNG: more money and clear frameworks from national government needed for youth care reform",
-    "lead": "Youth care in the Netherlands is not doing well, according to piles of studies and reports. To improve youth care structurally, the Hervormingsagenda Jeugd was established in 2023. The VNG examined where municipalities now stand when it comes to achieving that agenda. What is needed to bring this to a successful conclusion in 2028? From the national government more money and clear frameworks are needed, at regional and municipal level mainly more people and better…",
-    "sourceHash": "9285cfbef3d8",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:89bfb3a4",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Paulien Cornelisse brought life, even with her gaze on death",
     "lead": null,
     "sourceHash": "6b6646e7da0e",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:89d75c7f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Finnish police investigate series of burglaries at homes of members of parliament",
-    "lead": "Several homes of Finnish members of parliament have been targeted by burglaries over the past week. The burglars left traces, but remarkably nothing was stolen and no belongings were damaged.",
-    "sourceHash": "7a5edafec077",
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
@@ -2558,17 +1821,6 @@
     "title": "Burnham: appropriate consequences if misconduct by City is established",
     "lead": "LONDON (ANP/RTR) - According to British prime minister Andy Burnham, Manchester City must \"face appropriate consequences if misconduct is established\". A spokesperson for the prime minister said so on Thursday, after the prime minister had said a day earlier that he hoped the owners would not sell the club.",
     "sourceHash": "cb8eeed01926",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:8c28043",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Accusations of cheating cause tension in the warehouse",
-    "lead": "Tempers run high in the warehouse of 'De Bondgenoten'. When suspicion arises that someone has cheated, the argument breaks out. Accusations fly back and forth and cause considerable tension among the participants. 'De Bondgenoten' can be seen Monday through Saturday at 19:30 on SBS6.",
-    "sourceHash": "c332fad80148",
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
@@ -2651,17 +1903,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:93161a2f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The Amsterdam of Volt group leader Juliet Broersen: 'Too many nightlife venues are disappearing from the city, that is such a shame'",
-    "lead": null,
-    "sourceHash": "707506c1240e",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:9376f65d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2695,17 +1936,6 @@
     "translated": "2026-09-24"
   },
   {
-    "id": "news:94fc2384",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Amsterdam’s foundation crisis is probably far worse than we thought: ‘This will collapse like a house of cards, sooner or later’",
-    "lead": null,
-    "sourceHash": "f388482de2f5",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:954c10d5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2726,17 +1956,6 @@
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
-  },
-  {
-    "id": "news:96edc289",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Aerdts must scale back ambitions for NDS",
-    "lead": "Due to a lack of extra funds, the ambitions for the Nederlandse Digitaliseringsstrategie (NDS) must be scaled back. State secretary Aerdts (Digitale Economie en Soevereiniteit, D66) writes this in a letter to the Tweede Kamer.",
-    "sourceHash": "c72aed7e745f",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
   },
   {
     "id": "news:984be01f",
@@ -2772,45 +1991,12 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:9a72330f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Vulnerable households hit by cabinet policy: 'Government must provide clarity quickly'",
-    "lead": "More than four million households are hit by the accumulation of cabinet measures in the field of care and social security, according to research by the ministry of Health, Welfare and Sport (<entity id=\"org:ministerie-van-volksgezondheid-welzijn-en-sport\">VWS</entity>) and the ministry of Social Affairs and Employment (<entity id=\"org:ministerie-van-sociale-zaken-en-werkgelegenheid\">SZW</entity>). 'The groups that are hit are really too large', PRO MP Wimar Bolhuis tells Binnenlands Bestuur.",
-    "sourceHash": "c4e7646b124d",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:9a9f129e",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Enexis does not have immediate capacity for 86,000 new homes",
     "lead": "Grid operator Enexis lacks grid capacity for about 86,000 homes whose construction is due to start in the next three years. The grid operator received requests for grid connections for the construction of some 140,000 new-build homes, but for the majority of these homes there is no immediate room on the electricity grid. Enexis reported this on Thursday.",
     "sourceHash": "e02506f508f2",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
-    "id": "news:9bded488",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Kamer: only transfer tasks to municipalities with sufficient money",
-    "lead": "The Tweede Kamer is once again calling on <entity id=\"org:kabinet\">het kabinet</entity> 'always to provide structurally sufficient funds' when transferring tasks to municipalities.",
-    "sourceHash": "aba5ad34b7f1",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
-    "id": "news:9c04f9f6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Municipalities prepare for disruption",
-    "lead": "Whether it concerns sabotage of the railway, a flood or cyberattacks on vital infrastructure, relatively little is needed to disrupt Dutch society. It is up to municipalities to prepare as well as possible for moments when resilience and recovery capacity are what counts. Fortunately the VNG has just published a renewed Handreiking Weerbaarheid en veerkracht op lokaal niveau 2.0.",
-    "sourceHash": "33e835c4e257",
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
@@ -2866,17 +2052,6 @@
     "title": "19 earlier executions have failed, Erik Mouthaan on Christa Pike",
     "lead": "More and more states in America are against the death penalty because of the failed execution of Christa Pike. Even so, Tennessee ultimately still wants to put Pike to death. Correspondent Erik Mouthaan tells more about the execution attempt.",
     "sourceHash": "6c2c537fd368",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:a1d3be0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Aaf Brandt Corstius commemorates friend Paulien Cornelisse: 'Forever in my broken heart'",
-    "lead": "Aaf Brandt Corstius (51) on Thursday paused on Instagram to remember the death of her good friend Paulien Cornelisse. 'Forever in my broken heart,' writes the columnist alongside a childhood photo showing her together with Paulien.",
-    "sourceHash": "c4abc26f1697",
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
@@ -2981,34 +2156,12 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:ab515872",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Amsterdam sets aside 17 million euros for renewed city shipyards, still 6 million needed",
-    "lead": null,
-    "sourceHash": "fab256a34055",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:ac074042",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "'Baby boom' in September: can you plan your baby's birthday?",
     "lead": "September is the month with the most birthdays in the Netherlands, while relatively few candles are blown out on public holidays. Can you determine on which day your baby is born?",
     "sourceHash": "c4c16a2962b6",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:ac4d2c1e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Paulien Cornelisse's husband writes personal column about their 16-year marriage",
-    "lead": "Paulien Cornelisse's husband pauses in a column in De Volkskrant to remember the death of his wife. He writes about their life together and the special bond they shared. He also says that her favourite column has since been given a place in his study. The text hangs there framed on the wall, as a lasting memory of Paulien.",
-    "sourceHash": "bd5d06458e7a",
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
@@ -3025,56 +2178,12 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:ae2aece2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Anna Drijver celebrates her birthday and Koen Pieter van Dijk buys his first home",
-    "lead": "What did the Dutch celebrities get up to today? You can see the most striking, funniest and most talked-about posts in Bouleviraal.",
-    "sourceHash": "bb6f07a326be",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:af8f8c35",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Making wise decisions: what should you check before you make a really important decision?",
     "lead": "\"But Ben, what do you actually think of it yourself?\" When I give a seminar in which a lot of research comes up, that question is often asked.",
     "sourceHash": "c54b314b8bca",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
-    "id": "news:af9f7a63",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cabinet has hefty cuts in store for AP",
-    "lead": "The <entity id=\"org:zbo-autoriteit-persoonsgegevens\">Autoriteit Persoonsgegevens</entity> (AP) is getting more money this year compared with the budget drawn up during Prinsjesdag 2025. From 2029, however, the budget for the privacy regulator goes down considerably.",
-    "sourceHash": "7033df68dbe4",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
-    "id": "news:b06e1780",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sylvie Meis explains why she hasn't found the one yet",
-    "lead": "Anyone who thinks they can score with Sylvie Meis (48) with a birth year close to hers will be disappointed. The presenter has now been single for a year and sometimes simply finds men her own age too old. She herself still feels very young, so a peer is not automatically a good match. She tells this to the German magazine Bild.",
-    "sourceHash": "23fa501aa6c6",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:b12bc38e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "What are we talking about when 'the Netherlands is not meeting its climate targets'?",
-    "lead": "The Netherlands is not meeting its climate targets. That is the core message going around in the media after the Planbureau voor de Leefomgeving published its annual Klimaat- en Energieverkenning (KEV) on Monday. But which climate targets are involved? And what does the Netherlands achieve?",
-    "sourceHash": "805e2a49de9f",
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
@@ -3190,17 +2299,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:b6db8f4a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Raad van State: cabinet names problems, but does not solve them",
-    "lead": "<entity id=\"org:kabinet\">Het kabinet</entity> makes a good analysis of the economic problems, but that is not yet translated into the policy in the Miljoenennota. The Raad van State writes this in its advice on the documents presented this Prinsjesdag.",
-    "sourceHash": "2a89a6eb0457",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:b7a7999a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3223,34 +2321,12 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:b9abef4f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cabinet reserves 30 million euros for tackling femicide",
-    "lead": "<entity id=\"org:kabinet\">Het kabinet</entity> is allocating 10 million euros annually from 2027 for Filomena, an approach for victims of gender-related violence. The funding applies to the years 2027 up to and including 2029. No budget has been booked for 2030 and 2031. The cabinet wants to work out the funding further 'in the coming period'.",
-    "sourceHash": "3b4b5b597363",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:ba010de0",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "French student protest spreads to dozens of universities, ministers hold crisis talks",
     "lead": null,
     "sourceHash": "9629e927dfb6",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:ba4d5f9d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Viewers have mixed feelings about Dutch version of Love is Blind",
-    "lead": "The Dutch version of the Netflix hit 'Love is Blind' is keeping the show's fans busy. On social media, viewers are sharing plenty of opinions about the dating experiment. While some are enthusiastic about the episodes and the budding romances, there is also criticism of the participants.",
-    "sourceHash": "6bee50573976",
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
@@ -3289,17 +2365,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:bd992670",
-    "language": "nl",
-    "sourceLanguage": "en",
-    "title": "24-jarige man overleden na steekpartij bij asielopvang in Alkmaar",
-    "lead": "Op woensdag vond een dodelijke steekpartij plaats bij de opvanglocatie van het <entity id=\"org:zbo-centraal-orgaan-opvang-asielzoekers\">COA</entity> aan de Robonsbosweg in Alkmaar.",
-    "sourceHash": "9abf6b551556",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:bd99324f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3328,17 +2393,6 @@
     "title": "A Prinsjesdag full of fashion statements",
     "lead": "Prinsjesdag has been used for years to make political statements through the choice of clothing. Never let a chance to make your point go unused: members of the Tweede Kamer are good at it, from left to right, women and men.",
     "sourceHash": "71e8e9638ed2",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
-    "id": "news:beea2785",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "VNG: Financial concerns remain after Prinsjesdag plans",
-    "lead": "<entity id=\"org:kabinet\">Het kabinet</entity> met the wishes of municipalities on a number of points on Prinsjesdag. The Vereniging van Nederlandse Gemeenten (VNG) makes that observation in an extensive letter to its members. But the financial position of municipalities does not improve as a result, the VNG warns. 'Without structurally adequate funding, the implementation of social tasks and statutory duties will come under further pressure.'",
-    "sourceHash": "ec5080c918f6",
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
@@ -3388,17 +2442,6 @@
     "translated": "2026-09-24"
   },
   {
-    "id": "news:c2149f9e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The schools have started again",
-    "lead": "All over the country the schools have started again. And so hundreds of thousands of children get on their bikes, on the bus or into the back of the car to make the journey to school. A primary school is always nearby, according to the most recent figures from Statistics Netherlands (<entity id=\"org:zbo-centraal-bureau-voor-de-statistiek\">CBS</entity>). But to get to a havo and vwo school, pupils travel for longer.",
-    "sourceHash": "701504858920",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:c24cd94c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3432,45 +2475,12 @@
     "translated": "2026-09-24"
   },
   {
-    "id": "news:c3787390",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Marius Borg Høiby in pretrial detention for at least another month",
-    "lead": "The pretrial detention of Marius Borg Høiby (29) has been extended again. The son of Norwegian Queen Mette-Marit (53) will therefore remain under electronic monitoring in his own home until at least early November, Norwegian media report.",
-    "sourceHash": "4a8bb7dd5839",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:c384fecf",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Millions ready to tackle overcrowded truck parks",
-    "lead": "The ministerie van Infrastructuur en Waterstaat has 43 million euros available to provide 'more and better' parking spaces for lorries in the coming years. Plans for this are being made with provinces and the transport sector, according to a spokeswoman. The <entity id=\"org:provincie-overijssel\">provincie Overijssel</entity> this week called on central government to provide extra parking spaces along motorways.",
-    "sourceHash": "5feb26ea86d7",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:c51d7af2",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "AI and standardisation the magic words for an effective government",
     "lead": "In the context of the effective government, <entity id=\"org:kabinet\">het kabinet</entity> wants to cut costs by streamlining and standardising more. In addition, the focus is on more use of AI applications, preferably existing ones.",
     "sourceHash": "9f367a026f49",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
-    "id": "news:c702e8d7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Rob Kemps asked sick mother on her deathbed for permission for honeymoon",
-    "lead": "Rob Kemps (41) talks in a new episode of 'Casa di Beau' about an emotional moment with his mother. Before he left on honeymoon with the love of his life Stephanie Klaver, he asked her for permission. Rob and Stephanie wanted to make the trip before they married, while his mother was already staying in a hospice at that time.",
-    "sourceHash": "b2ace73e48a8",
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
@@ -3529,28 +2539,6 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
-  },
-  {
-    "id": "news:c9e62b73",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cabinet puts seven billion extra into housebuilding up to and including 2035",
-    "lead": "Housing association umbrella organisation Aedes is pleased that <entity id=\"org:kabinet\">het kabinet</entity> is scrapping, from 2028, part of the corporate income tax that housing associations still have to pay. That is a long-cherished wish of the sector. It gives the associations six billion euros of extra investment room, the umbrella organisation says in an initial reaction to the draft budget of the ministry of Housing. With that, 22,000 homes could be built. But Aedes wants more, namely a full abolition of this...",
-    "sourceHash": "a0a5421be4b9",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
-    "id": "news:ca1d6cc1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Weak Oranje takes a fresh blow just before half-time: Greeks score after sloppy loss of possession",
-    "lead": "Oranje began the era under national coach Xavi with a draw against Germany and a win over Serbia. Tonight in Thessaloniki the match against Greece, who lead with six points, is on the programme. Follow our liveblog here.",
-    "sourceHash": "168c161f2a67",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
   },
   {
     "id": "news:ca34dbb4",
@@ -3630,17 +2618,6 @@
     "translated": "2026-09-24"
   },
   {
-    "id": "news:d2d1f184",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Maria Tailor clear about her feelings for Jan-Hein Schouten: 'I'm very much in love'",
-    "lead": "Maria Tailor (42) and entrepreneur Jan-Hein Schouten are no longer just dating. During the live show of her podcast '#GeenFilter', the reality star said she is by now head over heels in love with him, De Telegraaf notes on Thursday. An expensive gift from Jan-Hein recently caused quite a bit of stress, though: she lost the bracelet he gave her.",
-    "sourceHash": "bd7a151e756a",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:d3170882",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3696,17 +2673,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:d6d5e534",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Aartsen on freelancer law: 'The client only has to determine the 'what''",
-    "lead": "The new Zelfstandigenwet is meant to give freelancers clarity about entrepreneurship and false self-employment. That will take some getting used to, says Minister Aartsen (Work and Participation) as well. \"If you want someone who listens to you 100 percent, then yes, you have to hire them.\"",
-    "sourceHash": "5c8b9809e502",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:d76f93c3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3740,17 +2706,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:d88da7c5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "De slimste mens contestants remember Paulien Cornelisse: these are their loveliest memories",
-    "lead": "It was a great shock: the loss of Paulien Cornelisse. She was only 50 when she died on Wednesday and that news is still hardly possible to take in. Not even for her 'De slimste mens' colleague Herman van der Zandt (52), who stood in the studio with her a few months ago for the last recordings.",
-    "sourceHash": "1dae54a0f0a1",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:d8cbe936",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3768,39 +2723,6 @@
     "title": "France and the United Kingdom end mutual 'one in, one out' deportations",
     "lead": null,
     "sourceHash": "65879bb7e9a4",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:d8fab179",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Peter Gillis still not out of debt despite million-euro bid on holiday parks: 'Really a letdown'",
-    "lead": "Cha-ching! Peter Gillis's (64) holiday parks went under the hammer today. The highest bids together came to 27.3 million euros. Volume is cash, but for Peter that is not yet enough.",
-    "sourceHash": "55c4b85111b2",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:d9861bd",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Delano and Hannah clash hard in De Bondgenoten",
-    "lead": "Tension is rising between Delano and Hannah in 'De Bondgenoten'. The two clearly disagree and make no secret of it. What starts as a difference of opinion quickly turns into a fierce argument. 'You have had such a big mouth.' 'De Bondgenoten' can be seen Monday to Saturday at 19:30 on SBS6.",
-    "sourceHash": "206fab72fcb2",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:da77c696",
-    "language": "nl",
-    "sourceLanguage": "en",
-    "title": "Meer jongvolwassenen gebruiken drugs in het Amsterdamse uitgaansleven, niet alcohol; gokken neemt toe",
-    "lead": "Jongvolwassenen van 18 tot 27 jaar die in Amsterdam uitgaan, drinken minder alcohol maar gebruiken meer drugs, zoals ketamine of 3-MMC, volgens een nieuw rapport van",
-    "sourceHash": "e85638779f7c",
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
@@ -3837,17 +2759,6 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
-  },
-  {
-    "id": "news:dcf87193",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Camera, set, action! Jutta Leerdam changes careers and starts vlogging",
-    "lead": "Jutta Leerdam (27) recently announced that she is hanging up her skates for the time being, but what she will do with all that free time remained a mystery. Until now. The blonde has taken a first step as a professional vlogger and in her first video all sorts of things pass in review.",
-    "sourceHash": "008facb38a81",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
   },
   {
     "id": "news:dd5d647b",
@@ -3927,17 +2838,6 @@
     "translated": "2026-09-24"
   },
   {
-    "id": "news:e0dee9d1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Love is Blind contestant causes uproar in first episode: 'This is just racism'",
-    "lead": "The Dutch version of 'Love is Blind' has only been online since Wednesday, but it is already getting quite hot and steamy. The series shoots straight to number one and outside the 'pods', where the contestants date, the search for love is also causing heated reactions.",
-    "sourceHash": "1dfd20277113",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:e21154f6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3982,17 +2882,6 @@
     "translated": "2026-09-24"
   },
   {
-    "id": "news:e47c2859",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Portugal ahead in Denmark, striker Gonçalo Ramos important with goal and assist",
-    "lead": "A bombshell has gone off at Portugal: star player Cristiano Ronaldo has angrily left the training camp. Tonight the side of national coach Jorge Jesus plays away at Denmark in the Nations League. In the same group, Norway face Wales. Follow it live here from 20:45.",
-    "sourceHash": "f0d4174a40a2",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:e534bc5a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4002,28 +2891,6 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
-  },
-  {
-    "id": "news:e535365c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "ABP invests 1 billion in fast-growing companies",
-    "lead": "ABP, the largest pension fund in the Netherlands, expects to invest approximately 1 billion euros in young, promising European companies over the next three years. ABP confirms this following reports by the FD and the <entity id=\"org:rwt-nederlandse-omroep-stichting-nos\">NOS</entity>. Initially, the pension fund will put 250 million euros into the Scaleup Europe Fund, a fund focused on investments in European technology companies.",
-    "sourceHash": "51adf6f490bf",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
-    "id": "news:e543b708",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Janine's secret threatens to come out and tension between Bing and Vesper rises in GTST",
-    "lead": "Plenty is set to happen again next month in 'Goede Tijden, Slechte Tijden'. The October monthly trailer promises secrets threatening to come out, old acquaintances returning and tensions rising sharply. Janine Elschot (Caroline de Bruijn, 64) in particular seems set for a hard time.",
-    "sourceHash": "17e23052c67e",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
   },
   {
     "id": "news:e5b7201c",
@@ -4246,45 +3113,12 @@
     "translated": "2026-09-24"
   },
   {
-    "id": "news:f254d7ce",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "At the first Islamic primary school in the northern Netherlands, Muslims do not have to explain anything. 'Children here are more self-assured'",
-    "lead": null,
-    "sourceHash": "eeaf7a6a8aee",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:f26701ce",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "British-Iranian man arrested for preparing attack at air base",
     "lead": "A British counter-terrorism unit on Thursday arrested a British-Iranian man after last weekend's incident at the Fairford air base. Five people were arrested there because of suspicious activity. They were later released on bail.",
     "sourceHash": "b8a6bf4087fc",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:f27f285e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Live Nations League | Oranje in problemen in Griekenland na dramatische eerste helft",
-    "lead": "Good evening and welcome to this liveblog! Suus ten Kate and Lieve Wils will keep you up to date on the Nations League matches, with the focus on Greece-Netherlands. Enjoy!",
-    "sourceHash": "fc48c67be90e",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:f31df577",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Youp van 't Hek and Frits Spits remember Paulien Cornelisse",
-    "lead": "Youp van 't Hek (72) and Frits Spits (78) paused on Thursday in the programme Eva to remember the death of Paulien Cornelisse. In a video, both read out a self-written column in memory of the writer and cabaret artist who died on Wednesday. Cornelisse wrote columns for NRC and de Volkskrant for years.",
-    "sourceHash": "0ad8ce951390",
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
@@ -4307,28 +3141,6 @@
     "title": "First one and a half billion from the nitrogen fund released",
     "lead": "The agriculture ministry is putting most of the 20 billion euros that <entity id=\"org:kabinet\">het kabinet</entity>-Jetten has reserved for the nitrogen approach up to and including 2035 into the new Fonds voor stikstof, landbouw en natuur. Next year the ministry will spend the first 1.5 billion euros of this.",
     "sourceHash": "04aca38968f0",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
-    "id": "news:f3c112e1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "As the debate goes on, minister Heinen gets more and more cranky. 'I really object to this!'",
-    "lead": "On the second day of the debate on the budget, minister Heinen of <entity id=\"org:ministerie-van-financien\">Financiën</entity> was asked many questions about his plans. Not only by the opposition, coalition partner D66 also has doubts about the consequences for the national debt.",
-    "sourceHash": "866040a233a8",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
-  },
-  {
-    "id": "news:f3e4b51c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "VNG board advises against 'grip on asylum flow' motion",
-    "lead": "The board of the Vereniging van Nederlandse Gemeenten (VNG) does not go along with the motion 'Grip on asylum flow' that the <entity id=\"org:gemeente-stichtse-vecht\">gemeente Stichtse Vecht</entity> wants to submit next Wednesday during the General Members' Meeting (ALV) at the VNG annual congress in Oost-Gelre and <entity id=\"org:gemeente-winterswijk\">Winterswijk</entity>. For all other motions, the preliminary advice is indeed 'adopt'.",
-    "sourceHash": "af22ca969059",
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
@@ -4411,17 +3223,6 @@
     "translated": "2026-10-01"
   },
   {
-    "id": "news:f82ff4dd",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cabinet allocates hundreds of millions extra for security",
-    "lead": "The ministry is allocating 231 million euros extra for security for 2027. From 2030 that amount rises to 462 million euros. More community police officers is an important spearhead, according to the Miljoenennota.",
-    "sourceHash": "4b6a0082a1db",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:f865f0b0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4442,17 +3243,6 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
-  },
-  {
-    "id": "news:fb5d5ea1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Paulien Cornelisse's funeral to be held in private",
-    "lead": "The funeral of Paulien Cornelisse (50) will take place in private. The management of the late writer and cabaret performer announced this on Thursday. Paulien died on Wednesday from the effects of cancer.",
-    "sourceHash": "fc0ca0337a6f",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
   },
   {
     "id": "news:fb6be13e",
@@ -4488,17 +3278,6 @@
     "translated": "2026-09-24"
   },
   {
-    "id": "news:fefcd28e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "We will have to get used to postponement",
-    "lead": "Anyone who reads the coalition agreement Aan de slag of D66, VVD and CDA can hardly miss the message: the relationship between central government and the decentralised governments must improve. 'The success of this cabinet stands or falls with the willingness to work together with the Tweede and <entity id=\"org:eerste-kamer\">Eerste Kamer</entity>, other tiers of government and civil society organisations', the government agreement reads. And: 'The relationship with the other tiers of government will have to be restored. Good intergovernmental relations are essential to the major...",
-    "sourceHash": "df86a70d5278",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:ff584b44",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4508,16 +3287,5 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
-  },
-  {
-    "id": "news:ff5f12f4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Suzan & Freek emotional about new album: 'Kind of day at the psychologist'",
-    "lead": "Thursday is certainly not a 'Blauwe dag' for Suzan & Freek. The two are treating us not only to their new single 'Pijnstiller', but are also immediately announcing an album of the same name. And that title carries extra weight, because over the past year and a half music also felt like a real painkiller to them.",
-    "sourceHash": "0fa0ff00156d",
-    "engine": "claude-sonnet-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-10-01"
   }
 ]
