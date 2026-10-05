@@ -340,3 +340,26 @@ export function groupChangesByPerson(changes: Change[]): PersonChangeGroup[] {
   for (const group of result) group.events.sort(newestFirst);
   return result.sort((a, b) => newestFirst(a.events[0], b.events[0]));
 }
+
+/**
+ * The appointment that fills a vacant seat, only when the data holds one: the
+ * earliest appointment to the same position dated after the seat's earliest
+ * vacancy record, taken from the person groups. Null otherwise; nothing is
+ * inferred from seat counts.
+ */
+export function findSeatFiller(seat: PersonChangeGroup, groups: PersonChangeGroup[]): Change | null {
+  if (seat.kind !== "seat" || seat.positionId === null) return null;
+  const vacancyDates = seat.events.filter((event) => event.kind === "vacancy").map((event) => event.date);
+  if (vacancyDates.length === 0) return null;
+  const since = vacancyDates.reduce((earliest, date) => (date < earliest ? date : earliest));
+  let filler: Change | null = null;
+  for (const group of groups) {
+    if (group.kind !== "person") continue;
+    for (const event of group.events) {
+      if (event.kind !== "appointment" || event.position !== seat.positionId) continue;
+      if (!event.in?.person || event.date <= since) continue;
+      if (filler === null || event.date < filler.date) filler = event;
+    }
+  }
+  return filler;
+}

@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { groupChangesByPerson } from "./changes.ts";
+import { findSeatFiller, groupChangesByPerson } from "./changes.ts";
 import { getDataset } from "./data.ts";
 
 const source = { source: "src:test", retrieved: "2026-10-01" };
@@ -51,4 +51,15 @@ test("groups sort by their newest event, newest first", () => {
   const mk = (id, date, p) => change(id, date, "appointment", { in: { tenure: null, person: p.id, label: p.name } });
   const groups = groupChangesByPerson([mk("c6", "2026-07-01", a), mk("c7", "2026-09-01", b), mk("c8", "2026-08-01", a)]);
   assert.deepEqual(groups.map((group) => group.personId), [b.id, a.id]);
+});
+
+test("a seat is filled only by a later appointment to the same position", () => {
+  const person = realPersonId();
+  const vacancy = change("c9", "2026-09-10", "vacancy", { position: "pos:seat" });
+  const later = change("c10", "2026-09-20", "appointment", { position: "pos:seat", in: { tenure: null, person, label: "A" } });
+  const earlier = change("c11", "2026-09-01", "appointment", { position: "pos:seat", in: { tenure: null, person, label: "A" } });
+  const other = change("c12", "2026-09-25", "appointment", { position: "pos:elders", in: { tenure: null, person, label: "A" } });
+  const seat = groupChangesByPerson([vacancy]).find((group) => group.kind === "seat");
+  assert.equal(findSeatFiller(seat, groupChangesByPerson([vacancy, earlier, other])), null);
+  assert.equal(findSeatFiller(seat, groupChangesByPerson([vacancy, later, other]))?.id, "c10");
 });
