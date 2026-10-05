@@ -63,8 +63,13 @@ function useJsonBundle<T>(path: string, enabled: boolean): BundleState<T> {
   return state;
 }
 
-export function useGraphBundle(): BundleState<GraphBundle> {
-  return useJsonBundle<GraphBundle>("/graph.json", true);
+/**
+ * The graph, fetched once `enabled` (the canvas is on screen). On a phone, on a
+ * page other than the home page, the canvas is folded and the file is not
+ * fetched until the reader opens it or picks something that needs it.
+ */
+export function useGraphBundle(enabled = true): BundleState<GraphBundle> {
+  return useJsonBundle<GraphBundle>("/graph.json", enabled);
 }
 
 export function usePowerMapBundle(enabled: boolean): BundleState<PowerMapBundle> {

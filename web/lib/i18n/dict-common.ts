@@ -134,6 +134,26 @@ export const COMMON_DICT = {
   sourceIconLabelRetrieved: { nl: "Bron: {title}, opgehaald op {date}", en: "Source: {title}, retrieved on {date}" },
   sourcesCountLabel: { nl: "{n} bronnen", en: "{n} sources" },
   sourcesDisclosure: { nl: "Bronnen ({n})", en: "Sources ({n})" },
+
+  // Page frame: menus, landmarks, the collapsible graph band and the footer licence line
+  navAbout: { nl: "Over en methode", en: "About and method" },
+  navMenuLabel: { nl: "Hoofdmenu", en: "Main menu" },
+  footerNavigation: { nl: "Voettekstnavigatie", en: "Footer navigation" },
+  canvasShow: { nl: "Toon grafiek", en: "Show graph" },
+  canvasHide: { nl: "Verberg grafiek", en: "Hide graph" },
+  footerLicenseData: { nl: "Gegevens: CC BY 4.0", en: "Data: CC BY 4.0" },
+  footerLicenseCode: { nl: "Broncode: MIT", en: "Source code: MIT" },
+  footerSourceNote: { nl: "Elk feit heeft een bron.", en: "Every fact has a source." },
+  footerDatasetLink: { nl: "Dataset en bronvermelding", en: "Dataset and credit" },
+  notFoundSections: { nl: "Ga naar een onderdeel", en: "Go to a section" },
+  notFoundDescription: {
+    nl: "Deze pagina bestaat niet of is verplaatst. Kies een onderdeel van Staatsgraaf.",
+    en: "This page does not exist or has moved. Choose a section of Staatsgraaf.",
+  },
+  notFoundSearchHint: {
+    nl: "Of zoek met de knop Zoeken bovenaan de pagina.",
+    en: "Or use the Search button at the top of the page.",
+  },
 } as const satisfies Record<string, LocString>;
 
 export type DictAreaKey = keyof typeof COMMON_DICT;

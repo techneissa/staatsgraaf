@@ -7,21 +7,25 @@ import type { OrgBranch } from "@/lib/types";
 import { edgeTypeOrderIndex } from "./graph/edge-styles";
 import { useT } from "@/components/i18n/use-t";
 import { CanvasControls, type CanvasView } from "./canvas-controls";
-import { GraphCanvas } from "./graph/graph-canvas";
 import dynamic from "next/dynamic";
-import { ChartPie, Orbit } from "lucide";
+import { preload } from "react-dom";
+import { ChartPie, ChevronUp, Orbit } from "lucide";
 import { LucideIcon } from "./icons/lucide-icon";
 import type { FractieResolver, NameResolver } from "./power/connections-view";
 import { useSelection } from "./selection/selection-provider";
 import { seatIndex } from "@/lib/seats";
 import type { Selection } from "@/lib/selection";
 import { useGraphBundle, usePowerMapBundle } from "./graph/use-graph-bundle";
+import { readCanvasOpen, writeCanvasOpen } from "@/lib/canvas-prefs";
+import { usePanelState } from "./panels/workspace";
 
 /**
- * The wheel and the connections view each show only when the reader picks
- * them, so their code (together about a third of the canvas) loads then
- * instead of on every page. The rings, the default form, stay in the page's
- * own bundle. Both render in the browser only, like the canvas around them.
+ * The canvases are the heaviest code on the site and many routes never show
+ * one (a phone on a page other than the home page keeps the graph folded), so
+ * none of them is in the shared bundle. The rings, the default form, load as
+ * soon as the canvas is on screen, in parallel with graph.json; the wheel and
+ * the connections view load only when the reader picks them. All render in the
+ * browser only, like the frame around them.
  */
 function CanvasLoading() {
   const t = useT("common");
@@ -31,7 +35,10 @@ function CanvasLoading() {
     </div>
   );
 }
-const GraphWheel = dynamic(() => import("./graph/graph-wheel").then((module) => module.GraphWheel), { ssr: false, loading: CanvasLoading });
+const loadRings = () => import("./graph/graph-canvas").then((module) => module.GraphCanvas);
+const GraphCanvas = dynamic(loadRings, { ssr: false, loading: CanvasLoading });
+const loadWheel = () => import("./graph/graph-wheel").then((module) => module.GraphWheel);
+const GraphWheel = dynamic(loadWheel, { ssr: false, loading: CanvasLoading });
 const ConnectionsView = dynamic(() => import("./power/connections-view").then((module) => module.ConnectionsView), {
   ssr: false,
   loading: CanvasLoading,
@@ -39,7 +46,27 @@ const ConnectionsView = dynamic(() => import("./power/connections-view").then((m
 
 export function CanvasFrame() {
   const pathname = usePathname();
-  const { bundle, status } = useGraphBundle();
+  /** The home page is the graph; every other route is a page that shares the workspace with it. */
+  const isHome = pathname === "/";
+  // The first thing the home page shows is the graph, so its data starts
+  // downloading with the HTML, before any script has run.
+  if (isHome) preload("/graph.json", { as: "fetch", crossOrigin: "anonymous" });
+  const { desktop } = usePanelState();
+  /**
+   * Below lg a page other than the home page folds the canvas to one toolbar
+   * row so its own content starts on the first screen; this opens it. The
+   * choice lasts for the visit (lib/canvas-prefs.ts) and is mirrored on <html>
+   * where globals.css reads it before hydration.
+   */
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    setOpen(readCanvasOpen());
+  }, []);
+  const toggleOpen = () => {
+    const next = !open;
+    setOpen(next);
+    writeCanvasOpen(next);
+  };
   const t = useT("common");
   const tg = useT("graph");
   const tp = useT("power");
@@ -51,6 +78,10 @@ export function CanvasFrame() {
    * needs more room than the column gives.
    */
   const [expanded, setExpanded] = useState(false);
+  /** Whether the canvas is on screen: always on the home page and from lg, else when the reader opened it. */
+  const visible = isHome || desktop || open || expanded;
+  // The graph is fetched when the canvas is on screen; folded, it costs nothing.
+  const { bundle, status } = useGraphBundle(visible);
   const [view, setView] = useState<CanvasView>("graph");
   /** The graph's form: the tier map (rings) or the wheel of labelled cells; the reader's choice is remembered. */
   const [graphForm, setGraphForm] = useState<"rings" | "wheel">("rings");
@@ -61,6 +92,17 @@ export function CanvasFrame() {
       // Storage can be blocked; the rings stay.
     }
   }, []);
+  // The form's code is requested with the graph data, not after it.
+  useEffect(() => {
+    if (!visible || view !== "graph") return;
+    let wheel = false;
+    try {
+      wheel = window.localStorage.getItem("staatsgraaf.graph.form") === "wheel";
+    } catch {
+      // Storage can be blocked; the rings load.
+    }
+    void (wheel ? loadWheel() : loadRings());
+  }, [visible, view]);
   const chooseGraphForm = (form: "rings" | "wheel") => {
     setGraphForm(form);
     try {
@@ -81,7 +123,7 @@ export function CanvasFrame() {
   const { current, select } = useSelection();
 
   // The connections bundle (power-map.json) is loaded only when it is shown.
-  const wantsPower = view === "power" || current?.kind === "news" || current?.kind === "topic";
+  const wantsPower = visible && (view === "power" || current?.kind === "news" || current?.kind === "topic");
   const power = usePowerMapBundle(wantsPower);
 
   const seats = useMemo(() => (bundle ? seatIndex(bundle.chambers) : new Map()), [bundle]);
@@ -173,8 +215,11 @@ export function CanvasFrame() {
         const id = detail.id ?? (detail.slug ? personBySlug.get(detail.slug) ?? `person:${detail.slug}` : null);
         if (id) select({ kind: "person", id, surface: "power" });
       }
-      // On a phone or tablet the canvas sits above the content: bring it into view.
+      // On a phone or tablet the canvas sits above the content: open it if it
+      // is folded, and bring it into view.
       if (window.matchMedia("(max-width: 1023.98px)").matches) {
+        setOpen(true);
+        writeCanvasOpen(true);
         const smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         asideRef.current?.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
       }
@@ -253,8 +298,10 @@ export function CanvasFrame() {
   return (
     <aside
       ref={asideRef}
-      aria-labelledby="grafiek-titel"
+      aria-label={view === "power" ? tp("viewName") : t("graphTitle")}
       data-canvas-frame
+      data-route={isHome ? "home" : "page"}
+      data-expanded={expanded ? "" : undefined}
       className={`flex min-w-0 flex-col [--canvas-bottom:0px] lg:[--canvas-bottom:var(--safe-bottom)] border-b border-line bg-surface-inset lg:col-start-2 lg:row-start-1 lg:h-auto lg:min-h-0 lg:border-b-0 lg:border-s lg:border-t-0 ${
         expanded
           ? "fixed inset-0 z-40 h-dvh border-b-0 [--canvas-bottom:var(--safe-bottom)] lg:border-s-0"
@@ -262,32 +309,43 @@ export function CanvasFrame() {
       }`}
     >
       <div
-        className={`flex items-start gap-2 border-b border-line py-2 pl-[max(0.75rem,var(--safe-left))] pr-[max(0.75rem,var(--safe-right))] sm:items-center sm:pl-[max(1rem,var(--safe-left))] sm:pr-[max(1rem,var(--safe-right))] ${
+        className={`flex flex-wrap items-start gap-2 border-b border-line py-2 pl-[max(0.75rem,var(--safe-left))] pr-[max(0.75rem,var(--safe-right))] sm:items-center sm:pl-[max(1rem,var(--safe-left))] sm:pr-[max(1rem,var(--safe-right))] lg:flex-nowrap ${
           expanded ? "pt-[max(0.5rem,var(--safe-top))]" : ""
         }`}
       >
-        <div className="flex min-w-0 flex-1 flex-wrap items-center justify-between gap-x-3 gap-y-2">
-        {/* The view switch names the view already; the heading stays for screen readers. */}
-        <h2 id="grafiek-titel" className="sr-only">
-          {view === "power" ? tp("viewName") : t("graphTitle")}
-        </h2>
-        <CanvasControls
-          asOfClassName={expanded ? "flex" : "hidden sm:flex"}
-          view={view}
-          onViewChange={setView}
-          branches={branches}
-          edgeTypes={edgeTypes}
-          hiddenBranches={hiddenBranches}
-          onToggleBranch={toggleBranch}
-          onShowAll={() => setHiddenBranches(new Set())}
-          asOf={asOf}
-          onAsOfChange={setAsOf}
-          datedEdges={datedEdges}
-          graphForm={graphForm}
-        />
+        {/* A page other than the home page folds this band to this one row below
+            lg (globals.css, "Graph band"); a native button, remembered for the visit. */}
+        {isHome || expanded ? null : (
+          <button
+            type="button"
+            onClick={toggleOpen}
+            aria-expanded={open}
+            aria-controls="sg-canvas-body"
+            className="tap-target flex min-h-11 w-full items-center gap-2 rounded-sm border border-line bg-surface px-3 text-sm font-medium text-ink transition-fast hover:border-line-strong lg:hidden"
+          >
+            <LucideIcon icon={open ? ChevronUp : Orbit} size={16} />
+            <span>{open ? t("canvasHide") : t("canvasShow")}</span>
+          </button>
+        )}
+        <div data-canvas-tools className="flex min-w-0 flex-1 flex-wrap items-center justify-between gap-x-3 gap-y-2">
+          <CanvasControls
+            asOfClassName={expanded ? "flex" : "hidden sm:flex"}
+            view={view}
+            onViewChange={setView}
+            branches={branches}
+            edgeTypes={edgeTypes}
+            hiddenBranches={hiddenBranches}
+            onToggleBranch={toggleBranch}
+            onShowAll={() => setHiddenBranches(new Set())}
+            asOf={asOf}
+            onAsOfChange={setAsOf}
+            datedEdges={datedEdges}
+            graphForm={graphForm}
+          />
         </div>
         <button
           type="button"
+          data-canvas-tools
           onClick={() => setExpanded((current) => !current)}
           aria-pressed={expanded}
           aria-label={expanded ? tg("canvasCollapse") : tg("canvasExpand")}
@@ -321,8 +379,8 @@ export function CanvasFrame() {
         <p className="px-4 py-3 text-sm text-ink-muted">{tg("canvasNoScript")}</p>
       </noscript>
 
-      <div data-canvas-body className="relative min-h-0 flex-1">
-        {status === "loading" ? (
+      <div id="sg-canvas-body" data-canvas-body className="relative min-h-0 flex-1">
+        {status === "loading" || status === "idle" ? (
           <div className="flex h-full items-center justify-center p-6">
             <p className="text-sm text-ink-muted">{t("graphLoading")}</p>
           </div>
