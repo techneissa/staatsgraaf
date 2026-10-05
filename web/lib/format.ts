@@ -141,6 +141,7 @@ const CREDIT_PHRASES_EN: Array<[RegExp, string]> = [
   [/vrijgegeven door/, "released by"],
   [/hergebruik volgens/, "reuse under"],
   [/Houder van het auteursrecht/, "Copyright holder"],
+  [/, verkleind en bijgesneden$/, ", resized and cropped"],
 ];
 
 export function localizeCredit(credit: string, locale: FormatLocale): string {
