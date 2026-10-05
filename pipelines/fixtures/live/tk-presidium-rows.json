@@ -1,0 +1,131 @@
+{
+ "@odata.count": 7,
+ "value": [
+  {
+   "Id": "a99103af-aead-49be-943b-684a75f132a3",
+   "Functie": "Lid",
+   "Van": "2025-11-20T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-08-25T07:42:19.8423017Z",
+   "Verwijderd": false,
+   "Persoon_Id": "973da897-66c7-4010-a98d-505e0e97a60c",
+   "Persoon": {
+    "Id": "973da897-66c7-4010-a98d-505e0e97a60c",
+    "Nummer": 48735,
+    "Initialen": "I.J.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Michon-Derkzen",
+    "Voornamen": "Ingrid Johanna Maria",
+    "Geboortedatum": "1976-09-14"
+   }
+  },
+  {
+   "Id": "57841bc0-bd69-46db-bfac-6d555b2657ce",
+   "Functie": "Lid",
+   "Van": "2025-11-20T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-08-25T07:41:22.4998502Z",
+   "Verwijderd": false,
+   "Persoon_Id": "c6e26bd3-724f-45d3-93af-ef431e6fcd42",
+   "Persoon": {
+    "Id": "c6e26bd3-724f-45d3-93af-ef431e6fcd42",
+    "Nummer": 2274,
+    "Initialen": "B.J.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Eerdmans",
+    "Voornamen": "Bernard Johannes",
+    "Geboortedatum": "1971-01-09"
+   }
+  },
+  {
+   "Id": "5923ca07-43be-4daa-8491-70c47cdd0ca0",
+   "Functie": "Lid",
+   "Van": "2026-07-02T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-08-25T07:41:22.5436537Z",
+   "Verwijderd": false,
+   "Persoon_Id": "6d33b9bc-7d3a-4a60-b2d7-c2b70cd11ab1",
+   "Persoon": {
+    "Id": "6d33b9bc-7d3a-4a60-b2d7-c2b70cd11ab1",
+    "Nummer": 1057,
+    "Initialen": "G.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Wilders",
+    "Voornamen": "Geert",
+    "Geboortedatum": "1963-09-06"
+   }
+  },
+  {
+   "Id": "52d6a130-2c19-4d2e-8151-b716c2641f8c",
+   "Functie": "EersteOndVzTk",
+   "Van": "2025-11-20T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-20T14:29:11.3198389Z",
+   "Verwijderd": false,
+   "Persoon_Id": "d89044ef-b7df-4a15-be10-d342fe381664",
+   "Persoon": {
+    "Id": "d89044ef-b7df-4a15-be10-d342fe381664",
+    "Nummer": 48774,
+    "Initialen": "W.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Paulusma",
+    "Voornamen": "Wieke",
+    "Geboortedatum": "1978-12-05"
+   }
+  },
+  {
+   "Id": "fde43112-2938-4fcc-84c1-bbfa2f44b228",
+   "Functie": "Voorzitter",
+   "Van": "2025-11-18T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-19T15:36:13.4292027Z",
+   "Verwijderd": false,
+   "Persoon_Id": "bf494e35-c009-4c74-a5c6-3cb2cd26bb51",
+   "Persoon": {
+    "Id": "bf494e35-c009-4c74-a5c6-3cb2cd26bb51",
+    "Nummer": 48732,
+    "Initialen": "A.A.H.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Campen",
+    "Voornamen": "Anthony Albertus Hermance",
+    "Geboortedatum": "1990-01-18"
+   }
+  },
+  {
+   "Id": "47669492-cedf-480d-abc5-ca0c0fb820d2",
+   "Functie": "TweedeOndVzTk",
+   "Van": "2026-07-02T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-07-02T12:30:12.9030316Z",
+   "Verwijderd": false,
+   "Persoon_Id": "d32c6620-c63d-41d7-8762-a1dc31ecb882",
+   "Persoon": {
+    "Id": "d32c6620-c63d-41d7-8762-a1dc31ecb882",
+    "Nummer": 65186,
+    "Initialen": "M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Moorman",
+    "Voornamen": "Marjolein",
+    "Geboortedatum": "1974-03-01"
+   }
+  },
+  {
+   "Id": "25be270a-5060-4600-be79-d9960823b20e",
+   "Functie": "Lid",
+   "Van": "2025-11-20T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-08-25T07:41:22.4041091Z",
+   "Verwijderd": false,
+   "Persoon_Id": "36ed934d-56c7-4903-a0a8-a9f186d5a96f",
+   "Persoon": {
+    "Id": "36ed934d-56c7-4903-a0a8-a9f186d5a96f",
+    "Nummer": 48766,
+    "Initialen": "H.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Krul",
+    "Voornamen": "Harmen Marinus",
+    "Geboortedatum": "1994-05-19"
+   }
+  }
+ ]
+}

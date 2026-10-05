@@ -1,0 +1,13 @@
+{
+ "@odata.context": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/$metadata#Commissie(Id,Afkorting,NaamNL,DatumActief,DatumInactief,ApiGewijzigdOp)",
+ "value": [
+  {
+   "Id": "0ac066f2-84a6-45ea-91aa-b1b6957b8870",
+   "Afkorting": "PRES",
+   "NaamNL": "Presidium",
+   "DatumActief": null,
+   "DatumInactief": null,
+   "ApiGewijzigdOp": "2024-10-23T07:10:28.9929417Z"
+  }
+ ]
+}

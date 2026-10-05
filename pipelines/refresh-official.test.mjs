@@ -1,20 +1,24 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 
 import {
-  ClosureThresholdError,
   buildPersonIndex,
-  enforceClosureThreshold,
   matchBewindspersoonPosition,
   normalizeName,
   parseEersteKamerLeden,
   parseRijksoverheidBewindspersonen,
-  parseTweedeKamerOData,
+  parseRijksoverheidCabinet,
   planRefresh,
   resolvePerson,
   runRefresh,
   slugify,
 } from "./refresh-official.mjs";
+import { parseEkFracties } from "./ek-live.mjs";
+
+function html(name) {
+  return readFileSync(new URL(`./fixtures/live/${name}`, import.meta.url), "utf8");
+}
 
 const RIJKSOVERHEID_HTML = `
 <main>
@@ -51,69 +55,8 @@ const EERSTE_KAMER_HTML = `
   </li>
 </ul>`;
 
-const TK_ODATA = {
-  value: [
-    {
-      Id: "row-1",
-      Persoon_Id: "p-1",
-      FractieZetel_Id: "fz-1",
-      Functie: "Lid",
-      Van: "2025-11-12T00:00:00+01:00",
-      TotEnMet: null,
-      Verwijderd: false,
-      Persoon: { Id: "p-1", Voornamen: "Ahlam", Tussenvoegsel: null, Achternaam: "Oualhadj", Fractielabel: null },
-      FractieZetel: { Id: "fz-1", Fractie_Id: "f-1", Fractie: { Afkorting: "D66", NaamNL: "Democraten 66" } },
-    },
-    {
-      Id: "row-2",
-      Persoon_Id: "p-2",
-      FractieZetel_Id: "fz-2",
-      Functie: "Fractievoorzitter",
-      Van: "2023-12-06T00:00:00+01:00",
-      TotEnMet: null,
-      Verwijderd: false,
-      Persoon: { Id: "p-2", Voornamen: "Stephan Ruben Tobias", Tussenvoegsel: "van", Achternaam: "Baarle", Fractielabel: null },
-      FractieZetel: { Id: "fz-2", Fractie_Id: "f-2", Fractie: { Afkorting: "DENK", NaamNL: "DENK" } },
-    },
-    {
-      Id: "row-3",
-      Persoon_Id: null,
-      FractieZetel_Id: null,
-      Functie: null,
-      Van: null,
-      TotEnMet: null,
-      Verwijderd: true,
-    },
-  ],
-};
-
-function emptyFetched(overrides = {}) {
-  return {
-    generatedAt: "2026-09-18T00:00:00.000Z",
-    endpointsUsed: [],
-    gaps: [],
-    rawFiles: [],
-    bodies: {
-      bewindspersonen: { ok: false, status: 500, url: "https://example.org/rijk", items: [], error: "HTTP 500" },
-      eersteKamer: { ok: false, status: 500, url: "https://example.org/ek", items: [], error: "HTTP 500" },
-      tweedeKamer: { ok: false, status: 500, url: "https://example.org/tk", items: [], error: "HTTP 500" },
-      ...overrides,
-    },
-  };
-}
-
-function tkMembership(index, person) {
-  return {
-    id: `membership:tweede-kamer-${person}`,
-    organization: "org:tweede-kamer",
-    person: `person:${person}`,
-    seatNumber: null,
-    fractie: "XX",
-    start: "2021-03-31",
-    end: null,
-    source: { source: "src:tk-odata-fractiezetelpersonen", retrieved: "2026-09-17", confidence: "high" },
-  };
-}
+const TODAY = "2026-10-05";
+const OLD = { source: "src:old", retrieved: "2026-09-17", confidence: "high" };
 
 test("parseRijksoverheidBewindspersonen reads name, role and url and skips the cabinet overview", () => {
   const items = parseRijksoverheidBewindspersonen(RIJKSOVERHEID_HTML);
@@ -128,6 +71,16 @@ test("parseRijksoverheidBewindspersonen reads name, role and url and skips the c
   assert.equal(items[1].role, "Minister van Defensie, 1e viceminister-president");
 });
 
+test("a card of any cabinet is skipped as a person and read as the cabinet slug", () => {
+  const html2 = RIJKSOVERHEID_HTML.replaceAll("kabinet-jetten", "kabinet-nieuw").replace("Kabinet-Jetten", "Kabinet-Nieuw");
+  assert.equal(parseRijksoverheidBewindspersonen(html2).length, 2);
+  assert.deepEqual(parseRijksoverheidCabinet(html2), { slug: "kabinet-nieuw", name: "Kabinet-Nieuw" });
+  assert.equal(parseRijksoverheidCabinet("<main></main>"), null);
+  // today's page has no cabinet card: the slug comes from the image paths, the most frequent one wins
+  const images = '"contentUrl":"https://www.rijksoverheid.nl/site/binaries/content/gallery/regering/bewindspersonen/kabinet-jetten/rob-jetten/a.jpg","x":"/bewindspersonen/kabinet-jetten/b/b.jpg","y":"/bewindspersonen/kabinet-schoof/c/c.jpg"';
+  assert.deepEqual(parseRijksoverheidCabinet(`<main>${images}</main>`), { slug: "kabinet-jetten", name: null });
+});
+
 test("parseEersteKamerLeden reads name, party, days and url", () => {
   const items = parseEersteKamerLeden(EERSTE_KAMER_HTML);
   assert.equal(items.length, 2);
@@ -140,36 +93,6 @@ test("parseEersteKamerLeden reads name, party, days and url", () => {
   });
   assert.equal(items[1].party, "CDA");
   assert.equal(items[1].ancienniteitDays, 1193);
-});
-
-test("parseTweedeKamerOData builds names, fractie and Van-date and drops tombstones", () => {
-  const items = parseTweedeKamerOData(TK_ODATA);
-  assert.equal(items.length, 2);
-  assert.deepEqual(items[0], {
-    odataId: "row-1",
-    personId: "p-1",
-    name: "Ahlam Oualhadj",
-    fractie: "D66",
-    start: "2025-11-12",
-    functie: "Lid",
-  });
-  assert.equal(items[1].name, "Stephan Ruben Tobias van Baarle");
-  assert.equal(items[1].functie, "Fractievoorzitter");
-});
-
-test("parseTweedeKamerOData also accepts separate lookup maps", () => {
-  const personenById = new Map([["p-1", { Id: "p-1", Voornamen: "Ahlam", Tussenvoegsel: null, Achternaam: "Oualhadj" }]]);
-  const fractieZetelsById = new Map([["fz-1", { Id: "fz-1", Fractie_Id: "f-1" }]]);
-  const fractiesById = new Map([["f-1", { Afkorting: "D66" }]]);
-  const items = parseTweedeKamerOData({
-    value: [TK_ODATA.value[0]],
-    personenById,
-    fractieZetelsById,
-    fractiesById,
-  });
-  assert.equal(items.length, 1);
-  assert.equal(items[0].name, "Ahlam Oualhadj");
-  assert.equal(items[0].fractie, "D66");
 });
 
 test("resolvePerson reuses the id on an exact normalized name or alias", () => {
@@ -204,74 +127,238 @@ test("matchBewindspersoonPosition maps roles by slug, title and the minister-pre
   assert.equal(matchBewindspersoonPosition("Minister van Ruimtevaart", positions), null);
 });
 
-test("planRefresh closes absent holders and opens a genuinely new member", () => {
-  const dataset = {
-    organizations: [{ id: "org:tweede-kamer" }],
-    positions: [],
-    people: [{ id: "person:blijver", name: "Blijver", aliases: [] }],
-    tenures: [],
-    memberships: [tkMembership(1, "blijver"), tkMembership(2, "vertrekker")],
-    sources: [{ id: "src:tk-odata-fractiezetelpersonen", url: "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$filter=Verwijderd eq false and TotEnMet eq null", title: "oud", publisher: "TK", type: "api", retrieved: "2026-09-17" }],
-  };
-  const fetched = emptyFetched({
-    tweedeKamer: {
-      ok: true,
-      status: 200,
-      url: "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon",
-      items: [
-        { personId: "p-1", name: "Blijver", fractie: "XX", start: "2021-03-31", functie: "Lid" },
-        { personId: "p-2", name: "Nieuweling", fractie: "YY", start: "2026-09-01", functie: "Lid" },
-      ],
-    },
-  });
-
-  const plan = planRefresh({ fetched, dataset, today: "2026-09-18", maxClosures: 5 });
-  assert.equal(plan.closures.length, 1);
-  assert.equal(plan.closures[0].record.person, "person:vertrekker");
-  assert.equal(plan.closures[0].record.end, "2026-09-18");
-  assert.equal(plan.stats.opened, 1);
-  assert.equal(plan.stats.newPeople, 1);
-  const nieuweling = plan.envelope.memberships.find((m) => m.fractie === "YY");
-  assert.equal(nieuweling.start, "2026-09-01");
-  const blijver = plan.envelope.memberships.find((m) => m.person === "person:blijver");
-  assert.equal(blijver.source.source, "src:tk-odata-fractiezetelpersonen-expand");
+test("a role with a comma in its title matches the whole title, and a same-named Caribbean position is never taken", () => {
+  const positions = [
+    { id: "pos:minister-onderwijs-sport-aruba", title: "Minister van Onderwijs", organization: "org:land-aruba" },
+    { id: "pos:minister-van-onderwijs-cultuur-en-wetenschap", title: "Minister van Onderwijs, Cultuur en Wetenschap", organization: "org:ministerie-van-onderwijs-cultuur-en-wetenschap" },
+  ];
+  assert.equal(matchBewindspersoonPosition("Minister van Onderwijs, Cultuur en Wetenschap", positions), "pos:minister-van-onderwijs-cultuur-en-wetenschap");
 });
 
-test("the closure threshold aborts without writing the envelope", async () => {
-  const dataset = {
-    organizations: [{ id: "org:tweede-kamer" }],
-    positions: [],
-    people: [],
-    tenures: [],
-    memberships: Array.from({ length: 6 }, (_, index) => tkMembership(index + 1, `p${index + 1}`)),
-    sources: [],
-  };
-  const fetched = emptyFetched({
-    tweedeKamer: { ok: true, status: 200, url: "https://example.org/tk", items: [] },
-  });
-
-  assert.throws(() => enforceClosureThreshold([{}, {}, {}, {}, {}, {}], 5), ClosureThresholdError);
-
-  const writes = [];
-  await assert.rejects(
-    runRefresh({
-      fetched,
-      dataset,
-      today: "2026-09-18",
-      now: new Date("2026-09-18T00:00:00Z"),
-      maxClosures: 5,
-      io: {
-        writeFile: async (path) => writes.push(path),
-        mkdir: async () => {},
-      },
-      log: () => {},
-    }),
-    ClosureThresholdError,
-  );
-  assert.deepEqual(writes, []);
+test("planRefresh keeps the Aruba position out of the bewindspersonen match", async () => {
+  const { items } = cabinet(28);
+  const dataset = bwDataset(28);
+  dataset.positions.push({ id: "pos:minister-test-0-aruba", slug: "minister-test-0-aruba", title: "Minister van Test 0", organization: "org:ministerie-test-0-aruba" });
+  dataset.organizations.push({ id: "org:ministerie-test-0-aruba", level: "koninkrijk", country: "aruba" });
+  dataset.tenures.push({ id: "tenure:aruba-0", person: "person:aruba-0", position: "pos:minister-test-0-aruba", start: "2025-01-01", end: null, source: OLD });
+  dataset.positions.reverse();
+  const plan = await planRefresh({ fetched: bwFetched(items), dataset, today: TODAY });
+  assert.equal(plan.openings.length, 0);
+  assert.equal(plan.closures.length, 0);
 });
 
 test("slugify produces schema-safe ids", () => {
   assert.equal(slugify("Elanor Boekholt-O’Sullivan"), "elanor-boekholt-o-sullivan");
   assert.equal(slugify("A.J.M. van Kesteren"), "a-j-m-van-kesteren");
+});
+
+// ----- bewindspersonen -----
+
+function cabinet(count) {
+  const items = Array.from({ length: count }, (_, index) => ({
+    slug: `persoon-${index}`,
+    name: `Persoon ${index}`,
+    role: `Minister van Test ${index}`,
+    url: `https://www.rijksoverheid.nl/regering/bewindspersonen/persoon-${index}`,
+  }));
+  const positions = items.map((item, index) => ({
+    id: `pos:minister-van-test-${index}`,
+    slug: `minister-van-test-${index}`,
+    title: `Minister van Test ${index}`,
+    organization: `org:ministerie-test-${index}`,
+  }));
+  return { items, positions };
+}
+
+function bwDataset(count, { without = [] } = {}) {
+  const { items, positions } = cabinet(count);
+  const people = items.map((item, index) => ({ id: `person:persoon-${index}`, name: item.name, sources: [OLD] }));
+  const tenures = items
+    .map((item, index) => ({
+      id: `tenure:minister-van-test-${index}-persoon-${index}`,
+      person: `person:persoon-${index}`,
+      position: `pos:minister-van-test-${index}`,
+      start: "2026-02-23",
+      end: null,
+      source: OLD,
+    }))
+    .filter((_, index) => !without.includes(index));
+  const organizations = positions.map((position) => ({ id: position.organization, level: "rijk", country: "nederland" }));
+  return { organizations, positions, people, tenures, memberships: [], relations: [], sources: [], elections: [], coalitions: [] };
+}
+
+function bwFetched(items, extra = {}) {
+  return {
+    generatedAt: "2026-10-05T00:00:00.000Z",
+    endpointsUsed: [],
+    gaps: [],
+    rawFiles: [],
+    bodies: {
+      bewindspersonen: { ok: true, status: 200, url: "https://www.rijksoverheid.nl/regering/bewindspersonen", items, cabinet: { slug: "kabinet-jetten", name: "Kabinet-Jetten" }, ...extra },
+      tweedeKamer: { ok: true, skipped: true, items: [] },
+      eersteKamer: { ok: true, skipped: true, items: [] },
+    },
+  };
+}
+
+test("a new bewindspersoon gets an unknown start (ADR 0020), a sourced new person and a review entry", async () => {
+  const { items } = cabinet(28);
+  const dataset = bwDataset(28);
+  // person 27 is new: not in people, no tenure
+  dataset.people = dataset.people.filter((person) => person.id !== "person:persoon-27");
+  dataset.tenures = dataset.tenures.filter((tenure) => tenure.person !== "person:persoon-27");
+  const plan = await planRefresh({ fetched: bwFetched(items), dataset, today: TODAY });
+  assert.deepEqual(plan.stopped, []);
+  const opened = plan.openings.find((entry) => entry.record.position === "pos:minister-van-test-27");
+  assert.equal(opened.record.start, null);
+  assert.equal(opened.record.person, "person:persoon-27");
+  assert.equal(opened.record.source.source, "src:rijksoverheid-bewindspersoon-persoon-27");
+  const created = plan.envelope.people.find((person) => person.id === "person:persoon-27");
+  assert.equal(created.sources[0].source, "src:rijksoverheid-bewindspersoon-persoon-27");
+  assert.ok(plan.envelope.sources.some((source) => source.url === "https://www.rijksoverheid.nl/regering/bewindspersonen/persoon-27"));
+  assert.ok(plan.review.some((entry) => entry.kind === "unknown-start"));
+  assert.equal(plan.stats.closed, 0);
+});
+
+test("a bewindspersoon no longer listed is closed on the retrieval date at medium confidence", async () => {
+  const { items } = cabinet(28);
+  const dataset = bwDataset(28);
+  const plan = await planRefresh({ fetched: bwFetched(items.slice(0, 27)), dataset, today: TODAY });
+  assert.equal(plan.closures.length, 1);
+  assert.equal(plan.closures[0].record.end, TODAY);
+  assert.equal(plan.closures[0].record.source.confidence, "medium");
+  assert.ok(plan.review.some((entry) => entry.kind === "closed-without-official-end"));
+});
+
+test("a list of 24 bewindspersonen is refused and the previous records stay", async () => {
+  const { items } = cabinet(24);
+  const dataset = bwDataset(28);
+  const prevEnvelope = { tenures: dataset.tenures.slice(0, 3), memberships: [], people: [], positions: [], relations: [], sources: [] };
+  const plan = await planRefresh({ fetched: bwFetched(items), dataset, today: TODAY, prevEnvelope });
+  assert.equal(plan.stopped.length, 1);
+  assert.equal(plan.stopped[0].source, "bewindspersonen");
+  assert.match(plan.stopped[0].reasons[0], /list-size/);
+  assert.equal(plan.closures.length, 0);
+  assert.equal(plan.envelope.tenures.length, 3, "the previous envelope tenures of the stopped source stay");
+});
+
+test("more than 3 bewindspersonen leaving at once is refused without a cabinet event and allowed with one", async () => {
+  const { items } = cabinet(31);
+  const dataset = bwDataset(31);
+  const kept = items.slice(0, 27);
+  const refused = await planRefresh({ fetched: bwFetched(kept), dataset, today: TODAY });
+  assert.equal(refused.stopped.length, 1);
+  assert.match(refused.stopped[0].reasons[0], /4 sluitingen/);
+  const state = { bewindspersonen: { cabinetSlug: "kabinet-oud" } };
+  const allowed = await planRefresh({ fetched: bwFetched(kept), dataset, today: TODAY, state });
+  assert.deepEqual(allowed.stopped, []);
+  assert.equal(allowed.closures.length, 4);
+  assert.ok(allowed.review.some((entry) => entry.kind === "bulk-event"));
+});
+
+// ----- Eerste Kamer -----
+
+function ekFetched({ members, fracties }) {
+  return {
+    generatedAt: "2026-10-05T00:00:00.000Z",
+    endpointsUsed: [],
+    gaps: [],
+    rawFiles: [],
+    bodies: {
+      bewindspersonen: { ok: true, skipped: true, items: [] },
+      tweedeKamer: { ok: true, skipped: true, items: [] },
+      eersteKamer: { ok: true, status: 200, url: "https://www.eerstekamer.nl/alle_leden", items: members, fracties, boards: null, memberSince: {} },
+    },
+  };
+}
+
+function ekDataset(members) {
+  const people = members.map((item) => ({ id: `person:${slugify(item.name)}`, name: item.name, sources: [OLD] }));
+  const memberships = members.map((item) => ({
+    id: `membership:eerste-kamer-${slugify(item.name)}`,
+    organization: "org:eerste-kamer",
+    person: `person:${slugify(item.name)}`,
+    seatNumber: null,
+    fractie: item.party,
+    start: "2023-06-13",
+    end: null,
+    source: OLD,
+  }));
+  return { organizations: [{ id: "org:eerste-kamer" }], positions: [], people, tenures: [], memberships, relations: [], sources: [], elections: [], coalitions: [] };
+}
+
+test("75 consistent Eerste Kamer members plan no change and carry every membership", async () => {
+  const members = parseEersteKamerLeden(html("ek-alle-leden.html"));
+  const plan = await planRefresh({ fetched: ekFetched({ members, fracties: parseEkFracties(html("ek-fracties.html")) }), dataset: ekDataset(members), today: TODAY });
+  assert.deepEqual(plan.stopped, []);
+  assert.equal(plan.closures.length, 0);
+  assert.equal(plan.stats.bodies.eersteKamer.fetched, 75);
+  assert.equal(plan.envelope.memberships.length, 75);
+});
+
+test("74 Eerste Kamer members are refused and nothing of that source is planned", async () => {
+  const members = parseEersteKamerLeden(html("ek-alle-leden.html"));
+  const dataset = ekDataset(members);
+  const plan = await planRefresh({ fetched: ekFetched({ members: members.slice(0, 74), fracties: parseEkFracties(html("ek-fracties.html")) }), dataset, today: TODAY });
+  assert.equal(plan.stopped[0].source, "eersteKamer");
+  assert.ok(plan.stopped[0].reasons.some((reason) => reason.startsWith("member-total")));
+  assert.equal(plan.closures.length, 0);
+  assert.deepEqual(plan.planned, []);
+});
+
+test("a new senator is created with a source and dated from the member page", async () => {
+  const members = parseEersteKamerLeden(html("ek-alle-leden.html"));
+  const dataset = ekDataset(members);
+  const target = members[10];
+  dataset.people = dataset.people.filter((person) => person.name !== target.name);
+  dataset.memberships = dataset.memberships.filter((membership) => membership.person !== `person:${slugify(target.name)}`);
+  const fetched = ekFetched({ members, fracties: parseEkFracties(html("ek-fracties.html")) });
+  fetched.bodies.eersteKamer.memberSince = { [target.slug]: "2026-09-29" };
+  const plan = await planRefresh({ fetched, dataset, today: TODAY });
+  assert.deepEqual(plan.stopped, []);
+  const opened = plan.openings.find((entry) => entry.entity === "memberships");
+  assert.equal(opened.record.start, "2026-09-29");
+  assert.equal(opened.record.person, `person:${slugify(target.name)}`);
+  const created = plan.envelope.people.find((person) => person.id === opened.record.person);
+  assert.equal(created.sources[0].source, `src:ek-persoon-${slugify(target.slug)}`);
+  assert.ok(plan.envelope.sources.some((source) => source.url === target.url && source.retrieved === TODAY));
+  // without a start date on the page there is no membership, only a named gap
+  fetched.bodies.eersteKamer.memberSince = {};
+  const noDate = await planRefresh({ fetched, dataset, today: TODAY });
+  assert.equal(noDate.openings.length, 0);
+  assert.ok(noDate.gaps.some((gap) => gap.what.includes("Startdatum")));
+});
+
+// ----- carry-forward and the closed ledger -----
+
+test("closed records of the previous envelope stay, so an older research envelope cannot reopen them", async () => {
+  const closed = { id: "membership:tweede-kamer-x", organization: "org:tweede-kamer", person: "person:x", seatNumber: null, fractie: "A", start: "2021-03-31", end: "2026-06-09", source: OLD };
+  const open = { ...closed, id: "membership:tweede-kamer-y", person: "person:y", end: null };
+  const plan = await planRefresh({
+    fetched: bwFetched([]),
+    dataset: { organizations: [], positions: [], people: [], tenures: [], memberships: [], relations: [], sources: [], elections: [], coalitions: [] },
+    today: TODAY,
+    prevEnvelope: { memberships: [closed, open], tenures: [], people: [], positions: [], relations: [], sources: [] },
+  });
+  // no source was planned: the open one stays as carried for the stopped owner, the closed one stays as ledger
+  assert.ok(plan.envelope.memberships.some((membership) => membership.id === "membership:tweede-kamer-x" && membership.end === "2026-06-09"));
+});
+
+test("runRefresh writes no envelope when every planned source was stopped, but still writes the run report", async () => {
+  const { items } = cabinet(24);
+  const writes = [];
+  const result = await runRefresh({
+    fetched: bwFetched(items),
+    dataset: bwDataset(28),
+    state: {},
+    prevEnvelope: null,
+    today: TODAY,
+    now: new Date("2026-10-05T00:00:00Z"),
+    root: "/nonexistent-root",
+    io: { writeFile: async (path) => writes.push(path), mkdir: async () => {} },
+    log: () => {},
+  });
+  assert.equal(result.stopped.length, 1);
+  assert.ok(writes.every((path) => !path.endsWith("P-live-ambtsdragers.json")));
+  assert.ok(writes.some((path) => path.includes("refresh-official-05-10-2026.md")));
 });
