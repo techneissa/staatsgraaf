@@ -125,6 +125,29 @@ export function isRelevantNews(item: Pick<NewsItem, "entities" | "topics">): boo
   );
 }
 
+/** How many of the items name the state, and how many there are. */
+export function relevanceCounts(items: Pick<NewsItem, "entities" | "topics">[]): { total: number; relevant: number } {
+  return { total: items.length, relevant: items.filter(isRelevantNews).length };
+}
+
+/**
+ * The newest `limit` relevant items, or the newest `limit` items of any kind when
+ * none is relevant, so a band never goes blank because the linker found nothing.
+ */
+export function selectRelevantNews<T extends Pick<NewsItem, "entities" | "topics" | "published" | "id">>(
+  items: T[],
+  limit: number,
+): T[] {
+  const sorted = sortNews(items as unknown as NewsItem[]) as unknown as T[];
+  const relevant = sorted.filter(isRelevantNews);
+  return (relevant.length > 0 ? relevant : sorted).slice(0, limit);
+}
+
+/** The home band: the newest items that name the state, with the all-items fallback. */
+export function getHomeNewsRelevant(limit = NEWS_HOME_LIMIT): NewsItem[] {
+  return selectRelevantNews(getAllNews(), limit);
+}
+
 export function byLanguage<T extends Pick<NewsItem, "language">>(items: T[], language: NewsLanguage): T[] {
   return items.filter((item) => newsLanguage(item) === language);
 }

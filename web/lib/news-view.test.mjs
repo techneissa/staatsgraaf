@@ -67,3 +67,23 @@ test("toNewsItemView exposes a feed image as a remote preview and keeps image nu
     remote: true,
   });
 });
+
+test("toNewsItemView flags an item as relevant only when it names an entity or a topic", () => {
+  const raw = {
+    id: "news:flag",
+    title: "Kabinet presenteert plan",
+    url: "https://example.org/nieuws/plan",
+    publisher: "Voorbeeldkrant",
+    published: "2026-09-18T08:00:00.000Z",
+    summary: null,
+    summaryMarkup: null,
+    entities: [],
+    topics: [],
+    keywords: [],
+    image: null,
+    imageUrl: null,
+    sources: [{ source: "src:voorbeeld", retrieved: "2026-09-18", confidence: "high" }],
+  };
+  assert.equal(toNewsItemView(raw, "nl").relevant, false);
+  assert.equal(toNewsItemView({ ...raw, topics: ["topic:wonen"] }, "nl").relevant, true);
+});

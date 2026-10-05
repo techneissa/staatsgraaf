@@ -15,6 +15,8 @@ import {
   newsLanguage,
   outlets,
   recencyGroup,
+  relevanceCounts,
+  selectRelevantNews,
 } from "./news.ts";
 
 // Reference: 18 September 2026, 07:00 UTC, which is 09:00 in Nederland (CEST).
@@ -203,4 +205,28 @@ test("isRelevantNews needs a matched entity or a topic", () => {
   assert.equal(isRelevantNews({ entities: ["org:x"], topics: [] }), true);
   assert.equal(isRelevantNews({ entities: [], topics: ["topic:y"] }), true);
   assert.equal(isRelevantNews({ entities: ["org:x"], topics: ["topic:y"] }), true);
+});
+
+test("relevanceCounts splits a list into relevant and other items", () => {
+  const items = [
+    item("a", REFERENCE, { entities: ["org:x"] }),
+    item("b", REFERENCE, { topics: ["topic:y"] }),
+    item("c", REFERENCE),
+  ];
+  assert.deepEqual(relevanceCounts(items), { total: 3, relevant: 2 });
+  assert.deepEqual(relevanceCounts([]), { total: 0, relevant: 0 });
+});
+
+test("selectRelevantNews keeps the newest relevant items and falls back to all when none is relevant", () => {
+  const items = [
+    item("new-plain", "2026-09-18T07:00:00.000Z"),
+    item("mid-hit", "2026-09-18T06:00:00.000Z", { entities: ["org:x"] }),
+    item("old-hit", "2026-09-17T06:00:00.000Z", { topics: ["topic:y"] }),
+    item("older-plain", "2026-09-16T06:00:00.000Z"),
+  ];
+  assert.deepEqual(selectRelevantNews(items, 2).map((entry) => entry.id), ["news:mid-hit", "news:old-hit"]);
+  assert.deepEqual(selectRelevantNews(items, 1).map((entry) => entry.id), ["news:mid-hit"]);
+  const nothing = [item("p1", "2026-09-18T07:00:00.000Z"), item("p2", "2026-09-18T06:00:00.000Z")];
+  assert.deepEqual(selectRelevantNews(nothing, 5).map((entry) => entry.id), ["news:p1", "news:p2"]);
+  assert.deepEqual(selectRelevantNews([], 3), []);
 });
