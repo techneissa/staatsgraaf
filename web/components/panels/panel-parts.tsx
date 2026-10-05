@@ -359,6 +359,25 @@ export function OpenPageLink({ href, label }: { href: string; label?: string }) 
   );
 }
 
+/**
+ * The way to the full page, as a button at the top of a panel: it is what most
+ * readers pick a body for, so it does not wait at the foot of the list.
+ */
+export function OpenPageButton({ href, label }: { href: string; label?: string }) {
+  const t = useDict("panels");
+  return (
+    <a
+      href={href}
+      className="tap-target inline-flex min-h-9 items-center justify-center gap-1.5 rounded-sm border border-line bg-surface px-3 text-[13px] font-medium text-accent-text transition-fast hover:border-line-strong hover:bg-surface-inset pointer-coarse:min-h-11"
+    >
+      {label ?? t("openPageTop")}
+      <svg aria-hidden="true" viewBox="0 0 12 12" width="11" height="11">
+        <path d="M4 2.5 7.5 6 4 9.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </a>
+  );
+}
+
 /** Placeholder bars while a record loads, announced once to screen readers. */
 export function PanelSkeleton({ rows = 4 }: { rows?: number }) {
   const t = useDict("panels");

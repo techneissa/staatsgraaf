@@ -8,6 +8,7 @@ import {
   serializeSelection,
   shownLayersFor,
   validAsOf,
+  withParams,
 } from "./canvas-url.ts";
 
 const layers = ["regering", "staten-generaal", "decentraal-lokaal"];
@@ -80,4 +81,12 @@ test("all layers on is no layer parameter", () => {
   assert.equal(applyCanvasState("", state, layers), "");
   assert.equal(shownLayersFor(layers, new Set()), null);
   assert.deepEqual(shownLayersFor(layers, new Set(["regering"])), ["staten-generaal", "decentraal-lokaal"]);
+});
+
+test("withParams sets and removes only what it is told to", () => {
+  assert.equal(withParams("?utm=x&sel=org:a", { sel: "org:b" }), "?utm=x&sel=org:b");
+  assert.equal(withParams("?utm=x&sel=org:a", { sel: null }), "?utm=x");
+  assert.equal(withParams("", { view: "power", layer: "regering,staten-generaal" }), "?view=power&layer=regering,staten-generaal");
+  assert.equal(withParams("?view=power", { sel: null }), "?view=power");
+  assert.equal(withParams("", { sel: null }), "");
 });

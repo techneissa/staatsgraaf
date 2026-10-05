@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { countLayers } from "./layer-counts.ts";
+import { countLayers, legendLayers } from "./layer-counts.ts";
 
 const node = (branch, sector, subtype) => ({ branch, sector, subtype });
 
@@ -43,4 +43,17 @@ test("the real dataset: 342 gemeenten in a layer of 1091 organisations", async (
   const counts = countLayers(bundle.nodes);
   assert.equal(counts.municipalities, 342);
   assert.equal(counts.bySector.get("gemeenten"), counts.byBranch.get("decentraal-lokaal"));
+});
+
+test("the legend lists the layers in order, with the gemeenten noted on their own layer", () => {
+  const rows = legendLayers(nodes, ["staten-generaal", "regering", "decentraal-lokaal"]);
+  assert.deepEqual(rows.map((row) => row.branch), ["staten-generaal", "regering", "decentraal-lokaal"]);
+  assert.equal(rows[2].count, 4);
+  assert.equal(rows[2].municipalities, 2);
+  assert.equal(rows[0].municipalities, undefined);
+});
+
+test("a branch outside the order follows it alphabetically", () => {
+  const rows = legendLayers([...nodes, node("zzz", "x", "a"), node("aaa", "y", "b")], ["regering"]);
+  assert.deepEqual(rows.map((row) => row.branch), ["regering", "aaa", "decentraal-lokaal", "staten-generaal", "zzz"]);
 });

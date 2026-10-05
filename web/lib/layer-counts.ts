@@ -39,3 +39,23 @@ export function countLayers(nodes: readonly CountableNode[]): LayerCounts {
 /** The sector that carries the gemeenten, where the note about real gemeenten belongs. */
 export const MUNICIPALITY_SECTOR = "gemeenten";
 export const MUNICIPALITY_BRANCH = "decentraal-lokaal";
+
+export type LegendLayer = { branch: string; count: number; municipalities?: number };
+
+/**
+ * The legend's rows: one per branch that has organisations, in `order` (the
+ * layout's sector order) with unknown branches after it alphabetically. Each
+ * count comes from `countLayers`, the same function the sector panel reads.
+ */
+export function legendLayers(nodes: readonly CountableNode[], order: readonly string[]): LegendLayer[] {
+  const { byBranch, municipalities } = countLayers(nodes);
+  const branches = [
+    ...order.filter((branch) => byBranch.has(branch)),
+    ...[...byBranch.keys()].filter((branch) => !order.includes(branch)).sort(),
+  ];
+  return branches.map((branch) => ({
+    branch,
+    count: byBranch.get(branch) ?? 0,
+    ...(branch === MUNICIPALITY_BRANCH && municipalities > 0 ? { municipalities } : {}),
+  }));
+}

@@ -103,11 +103,32 @@ export function PanelHeader({
   meta,
   size,
   headingId,
+  compact = false,
 }: {
   meta: SelectionMeta | null;
   size: "sm" | "md";
   headingId?: string;
+  /**
+   * The details panel beside the canvas already carries the mark, the way back
+   * and the close button; the page column then keeps only the kind and the name
+   * so the two never open with the same block.
+   */
+  compact?: boolean;
 }) {
+  if (compact) {
+    return (
+      <div className="min-w-0">
+        <p className="text-xs leading-snug text-ink-muted">{meta?.kindLabel ?? " "}</p>
+        <h2
+          id={headingId}
+          lang={meta && (meta.mark === "org" || meta.mark === "person" || meta.mark === "fractie" || meta.mark === "topic") ? "nl" : undefined}
+          className="mt-0.5 text-lg font-semibold leading-tight tracking-tight text-ink [overflow-wrap:anywhere]"
+        >
+          {meta?.name ?? <span className="sg-skeleton inline-block h-4 w-40 rounded-sm align-middle" />}
+        </h2>
+      </div>
+    );
+  }
   const { canGoBack, clear } = useSelection();
   const t = useDict("panels");
   const markSize = size === "md" ? 56 : 40;
