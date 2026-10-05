@@ -24,6 +24,13 @@ import {
   resolveReviewed,
   fetchWikipediaImage,
   ENWIKI_API,
+  reviewEvidenceKinds,
+  checkReviewEntry,
+  commonsFileNamesPerson,
+  evaluateCommonsCandidate,
+  discoverCommonsCandidates,
+  currentMunicipality,
+  fetchCommonsImage,
 } from "./portraits.mjs";
 
 const person = {
@@ -363,7 +370,7 @@ test("resolveReviewed turns a disputed Commons file into a gap, never another fi
   });
   const result = await resolveReviewed(
     { id: "person:x", slug: "x", name: "X" },
-    { kind: "commons", file: "X.jpg", wikidata: "Q1", identity: "test", confidence: "high" },
+    { kind: "commons", file: "X.jpg", wikidata: "Q1", identity: "test", evidence: ["office"], confidence: "high" },
     { fetchImpl },
   );
   assert.equal(result.image, null);
@@ -387,4 +394,178 @@ test("resolveReviewed applies a TK photo only when name and birth date agree", a
     { fetchImpl },
   );
   assert.equal(wrong.image, null);
+});
+
+// Third pass (05-10-2026): licences, namesakes and the second-evidence rule.
+
+function commonsFile({ title, licenseShort, categories = [], description = "", artist = "Foto X", width = 640, height = 800 }) {
+  return {
+    query: {
+      pages: {
+        1: {
+          title: `File:${title}`,
+          categories: categories.map((name) => ({ title: `Category:${name}` })),
+          imageinfo: [{
+            thumburl: "https://upload.example/t.jpg",
+            thumbwidth: 320,
+            thumbheight: 400,
+            width,
+            height,
+            extmetadata: {
+              LicenseShortName: { value: licenseShort },
+              Artist: { value: artist },
+              ImageDescription: { value: description },
+            },
+          }],
+        },
+      },
+    },
+  };
+}
+
+test("mapLicense refuses NonCommercial, NoDerivatives and unlicensed values", () => {
+  for (const raw of ["CC BY-NC 4.0", "CC BY-NC-SA 3.0", "CC BY-ND 2.0", "CC BY-NC-ND 4.0", "All rights reserved", "Fair use"]) {
+    assert.equal(mapLicense({ licenseRaw: raw }), null, raw);
+  }
+  assert.equal(mapLicense({ licenseRaw: "CC BY 4.0" }), "CC-BY-4.0");
+  assert.equal(mapLicense({ licenseRaw: "CC BY-SA 4.0" }), "CC-BY-SA-4.0");
+});
+
+test("reviewEvidenceKinds counts only office, municipality and birth date", () => {
+  assert.deepEqual(reviewEvidenceKinds({ evidence: ["office", "depicts", "name", "office", "municipality"] }), ["office", "municipality"]);
+  assert.deepEqual(reviewEvidenceKinds({ identity: "naam gelijk" }), []);
+  assert.deepEqual(reviewEvidenceKinds({ kind: "tk", birthDate: "1954-05-18" }), ["birthDate"]);
+});
+
+test("checkReviewEntry needs a second piece of evidence besides the name", () => {
+  const mayor = { id: "person:jan-de-vries", name: "Jan de Vries" };
+  assert.equal(checkReviewEntry(mayor, { kind: "commons", file: "X.jpg" }).ok, false);
+  assert.equal(checkReviewEntry(mayor, { kind: "commons", file: "X.jpg", evidence: ["depicts"] }).ok, false);
+  assert.match(checkReviewEntry(mayor, { kind: "commons", file: "X.jpg", evidence: ["name"] }).reason, /tweede bewijs/);
+  assert.equal(checkReviewEntry(mayor, { kind: "commons", file: "X.jpg", evidence: ["municipality"] }).ok, true);
+  assert.equal(checkReviewEntry(mayor, { kind: "withdraw" }).ok, true);
+});
+
+test("checkReviewEntry refuses a namesake with another birth date", () => {
+  const mayor = { id: "person:hans-teunissen", name: "Hans Teunissen", birthDate: "1963-04-11" };
+  const check = checkReviewEntry(mayor, { kind: "commons", file: "Hans Teunissen - D66.jpg", evidence: ["birthDate"], birthDate: "1984-01-01" });
+  assert.equal(check.ok, false);
+  assert.match(check.reason, /naamgenoot/);
+  assert.equal(checkReviewEntry(mayor, { kind: "commons", file: "X.jpg", evidence: ["birthDate"], birthDate: "1963-04-11" }).ok, true);
+});
+
+test("commonsFileNamesPerson needs every name token in the title, description or categories", () => {
+  const commons = { description: "Burgemeester Jan de Vries in het raadhuis van Sliedrecht", categories: ["Sliedrecht"] };
+  assert.equal(commonsFileNamesPerson(commons, "Jan de Vries burgemeester Sliedrecht.jpg", { name: "Jan de Vries" }), true);
+  assert.equal(commonsFileNamesPerson({ description: "Een fiets", categories: [] }, "Fiets.jpg", { name: "Jan de Vries" }), false);
+  // Another person's file never passes on a shared first name.
+  assert.equal(commonsFileNamesPerson({ description: "Jan Muller zingt", categories: [] }, "Jan Muller.jpg", { name: "Jan de Vries" }), false);
+});
+
+test("commonsFileNamesPerson uses the reviewed full name for an initials-only person", () => {
+  const senator = { name: "dr. M.L. Vos" };
+  const commons = { description: "", categories: [] };
+  assert.equal(commonsFileNamesPerson(commons, "20. Mei Li Vos.jpg", senator), false);
+  assert.equal(commonsFileNamesPerson(commons, "20. Mei Li Vos.jpg", senator, { fullName: "Mei Li Vos" }), true);
+});
+
+test("resolveReviewed refuses an NC licence, a missing second evidence and a file that names someone else", async () => {
+  const mayor = { id: "person:jan-de-vries", slug: "jan-de-vries", name: "Jan de Vries" };
+  const entry = { kind: "commons", file: "Jan de Vries burgemeester Sliedrecht.jpg", identity: "burgemeester van Sliedrecht", evidence: ["municipality"], confidence: "high" };
+  const serve = (body) => async () => jsonResponse(body);
+
+  const ok = await resolveReviewed(mayor, entry, {
+    fetchImpl: serve(commonsFile({ title: entry.file, licenseShort: "CC BY 4.0", description: "Burgemeester Jan de Vries in het raadhuis van Sliedrecht", artist: "Foto Kloet" })),
+  });
+  assert.equal(ok.image.license, "CC-BY-4.0");
+  assert.equal(ok.image.author, "Foto Kloet");
+  assert.deepEqual(ok.evidence, ["municipality"]);
+
+  const nc = await resolveReviewed(mayor, entry, {
+    fetchImpl: serve(commonsFile({ title: entry.file, licenseShort: "CC BY-NC 4.0", description: "Burgemeester Jan de Vries" })),
+  });
+  assert.equal(nc.image, null);
+  assert.match(nc.gaps[0].reason, /licentie niet herkend/);
+
+  const bare = await resolveReviewed(mayor, { ...entry, evidence: undefined }, {
+    fetchImpl: serve(commonsFile({ title: entry.file, licenseShort: "CC BY 4.0", description: "Burgemeester Jan de Vries" })),
+  });
+  assert.equal(bare.image, null);
+  assert.match(bare.gaps[0].reason, /tweede bewijs/);
+
+  const other = await resolveReviewed(mayor, { ...entry, file: "Jan Muller.jpg" }, {
+    fetchImpl: serve(commonsFile({ title: "Jan Muller.jpg", licenseShort: "CC BY 4.0", description: "Zanger Jan Muller" })),
+  });
+  assert.equal(other.image, null);
+  assert.match(other.gaps[0].reason, /noemt de persoon niet/);
+
+  const tiny = await resolveReviewed(mayor, entry, {
+    fetchImpl: serve(commonsFile({ title: entry.file, licenseShort: "CC0", description: "Burgemeester Jan de Vries", width: 89, height: 105 })),
+  });
+  assert.equal(tiny.image, null);
+  assert.match(tiny.gaps[0].reason, /te klein/);
+});
+
+test("evaluateCommonsCandidate is eligible only with a licence, the name and evidence in the file text", async () => {
+  const mayor = { id: "person:jan-de-vries", name: "Jan de Vries", aliases: ["Jan de Vries"] };
+  const fetchFor = (body) => async () => jsonResponse(body);
+  const fetchedOk = await fetchCommonsImage("Jan de Vries burgemeester Sliedrecht.jpg", {
+    fetchImpl: fetchFor(commonsFile({ title: "Jan de Vries burgemeester Sliedrecht.jpg", licenseShort: "CC BY 4.0", description: "Burgemeester Jan de Vries in het raadhuis van Sliedrecht" })),
+  });
+  const ok = evaluateCommonsCandidate(fetchedOk, "Jan de Vries burgemeester Sliedrecht.jpg", mayor, { municipality: "Sliedrecht" });
+  assert.equal(ok.eligible, true);
+  assert.deepEqual(ok.evidence, ["municipality", "office"]);
+
+  const fetchedNc = await fetchCommonsImage("Jan de Vries.jpg", {
+    fetchImpl: fetchFor(commonsFile({ title: "Jan de Vries.jpg", licenseShort: "CC BY-NC 2.0", description: "Burgemeester Jan de Vries Sliedrecht" })),
+  });
+  const nc = evaluateCommonsCandidate(fetchedNc, "Jan de Vries.jpg", mayor, { municipality: "Sliedrecht" });
+  assert.equal(nc.eligible, false);
+  assert.match(nc.reasons[0], /licentie/);
+
+  // A namesake motorcyclist: the name matches, but nothing in the file ties it to the mayor.
+  const fetchedBike = await fetchCommonsImage("Jan de Vries (1971).jpg", {
+    fetchImpl: fetchFor(commonsFile({ title: "Jan de Vries (1971).jpg", licenseShort: "CC0", description: "Motorrijder Jan de Vries" })),
+  });
+  const bike = evaluateCommonsCandidate(fetchedBike, "Jan de Vries (1971).jpg", mayor, { municipality: "Sliedrecht" });
+  assert.equal(bike.eligible, false);
+  assert.match(bike.reasons.join(";"), /geen tweede bewijs/);
+});
+
+test("discoverCommonsCandidates searches by name and municipality and applies nothing", async () => {
+  const seen = [];
+  const fetchImpl = async (url) => {
+    const params = new URL(url).searchParams;
+    seen.push(params.get("srsearch") ?? params.get("titles"));
+    if (params.get("list") === "search") {
+      return jsonResponse({ query: { search: [{ title: "File:Jan de Vries burgemeester Sliedrecht.jpg" }, { title: "File:Jan de Vries interview.webm" }, { title: "File:Jan de Vries.pdf" }] } });
+    }
+    return jsonResponse(commonsFile({ title: "Jan de Vries burgemeester Sliedrecht.jpg", licenseShort: "CC BY 4.0", description: "Burgemeester Jan de Vries in het raadhuis van Sliedrecht" }));
+  };
+  const found = await discoverCommonsCandidates(
+    { id: "person:jan-de-vries", name: "Jan de Vries", aliases: ["Jan de Vries"] },
+    { context: { municipality: "Sliedrecht" }, fetchImpl, throttleMs: 0 },
+  );
+  assert.ok(seen.includes('"Jan de Vries"'));
+  assert.ok(seen.includes("burgemeester Sliedrecht Vries"));
+  // Videos and PDFs never become candidates.
+  assert.equal(found.candidates.length, 1);
+  assert.equal(found.candidates[0].eligible, true);
+  assert.equal(found.candidates[0].page, "https://commons.wikimedia.org/wiki/File:Jan_de_Vries_burgemeester_Sliedrecht.jpg");
+});
+
+test("currentMunicipality reads the municipality of a current mayor tenure", () => {
+  const ctx = {
+    tenures: [
+      { person: "person:a", position: "pos:b", end: null },
+      { person: "person:a", position: "pos:old", end: "2020-01-01" },
+    ],
+    positions: [
+      { id: "pos:b", title: "Burgemeester van Winterswijk", organization: "org:w" },
+      { id: "pos:old", title: "Burgemeester van Ede", organization: "org:e" },
+    ],
+    organizations: [{ id: "org:w", name: "Gemeente Winterswijk" }, { id: "org:e", name: "Gemeente Ede" }],
+  };
+  assert.equal(currentMunicipality({ id: "person:a" }, ctx), "Winterswijk");
+  assert.equal(currentMunicipality({ id: "person:z" }, ctx), null);
 });

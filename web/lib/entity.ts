@@ -5,6 +5,7 @@ import {
   getPersonById,
   getPositionById,
   getTenuresForPerson,
+  getSourceById,
   getTenuresForPosition,
 } from "./data";
 import type {
@@ -19,6 +20,7 @@ import type {
   Position,
   Relation,
   RelationType,
+  Source,
   SourceRef,
   Tenure,
 } from "./types";
@@ -158,6 +160,87 @@ export function mediaCreditLine(media: Pick<MediaItem, "credit" | "license">): s
   if (credit === "") return license;
   if (license === "" || credit.toLowerCase().includes(license.toLowerCase())) return credit;
   return `${credit} (${license})`;
+}
+
+/** What the (i) of a portrait shows: who made it, under which licence, and the page it came from. */
+export type MediaCreditInfo = {
+  /** The credit line, as recorded. */
+  credit: string;
+  /** The author, or the publisher of the source when none is recorded; null when neither is. */
+  author: string | null;
+  /** The licence as recorded in media.json (for example `CC-BY-SA-4.0`). */
+  license: string;
+  /** The licence in its usual spelling (`CC BY-SA 4.0`). */
+  licenseLabel: string;
+  /** The licence text, or null when the value has no single page (`Attribution`, public domain). */
+  licenseUrl: string | null;
+  /** The source site by name ("Wikimedia Commons", "Tweede Kamer Open Data"), or null without a source record. */
+  siteName: string | null;
+  /** The page the image came from, or null without a source record. */
+  sourceUrl: string | null;
+  /** The date the source was fetched (ISO), or null. */
+  retrieved: string | null;
+};
+
+const CC_LICENSE = /^CC-(BY(?:-SA)?)-(\d\.\d)$/;
+
+/** Label and licence-text link for the licence values the portrait pipeline records. */
+export function licenseInfo(license: string): { label: string; url: string | null } {
+  const value = license.trim();
+  if (value === "CC0-1.0") return { label: "CC0 1.0", url: "https://creativecommons.org/publicdomain/zero/1.0/" };
+  const cc = CC_LICENSE.exec(value);
+  if (cc) {
+    return {
+      label: `CC ${cc[1]} ${cc[2]}`,
+      url: `https://creativecommons.org/licenses/${cc[1].toLowerCase()}/${cc[2]}/`,
+    };
+  }
+  if (value === "European Parliament") return { label: value, url: "https://www.europarl.europa.eu/legal-notice/en/" };
+  if (value === "Copyrighted free use") {
+    return { label: value, url: "https://commons.wikimedia.org/wiki/Template:Copyrighted_free_use" };
+  }
+  return { label: value, url: null };
+}
+
+const SOURCE_SITES: Record<string, string> = {
+  "commons.wikimedia.org": "Wikimedia Commons",
+  "gegevensmagazijn.tweedekamer.nl": "Tweede Kamer Open Data",
+  "opendata.tweedekamer.nl": "Tweede Kamer Open Data",
+  "www.europarl.europa.eu": "European Parliament",
+};
+
+/** A readable site name for a source URL: a known site by name, else the publisher, else the host. */
+export function sourceSiteName(url: string, publisher: string | null = null): string {
+  try {
+    const host = new URL(url).hostname;
+    return SOURCE_SITES[host] ?? (publisher && publisher.trim() !== "" ? publisher.trim() : host.replace(/^www\./, ""));
+  } catch {
+    return publisher && publisher.trim() !== "" ? publisher.trim() : url;
+  }
+}
+
+/**
+ * The author, licence and source of a portrait for the info popover. Everything
+ * comes from media.json and its source record in sources.json, never from the
+ * credit text, so a link always points at the page the record cites.
+ */
+export function mediaCreditInfo(
+  media: Pick<MediaItem, "credit" | "license" | "author" | "source">,
+  source: Pick<Source, "url" | "publisher" | "retrieved"> | null | undefined = getSourceById(media.source),
+): MediaCreditInfo {
+  const { label, url } = licenseInfo(media.license ?? "");
+  const author = typeof media.author === "string" && media.author.trim() !== "" ? media.author.trim() : null;
+  const publisher = source && source.publisher.trim() !== "" ? source.publisher.trim() : null;
+  return {
+    credit: mediaCreditLine(media),
+    author: author ?? publisher,
+    license: media.license ?? "",
+    licenseLabel: label,
+    licenseUrl: url,
+    siteName: source ? sourceSiteName(source.url, source.publisher) : null,
+    sourceUrl: source?.url ?? null,
+    retrieved: source?.retrieved ?? null,
+  };
 }
 
 export function organizationPartOf(organization: Organization): string[] {

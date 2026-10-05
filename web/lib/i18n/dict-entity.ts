@@ -304,6 +304,16 @@ export const ENTITY_DICT = {
     nl: "Meer houders dan zetels: de bron noemt meer huidige houders dan het aantal zetels dat hij opgeeft.",
     en: "More holders than seats: the source names more current holders than the number of seats it gives.",
   },
+
+  // Portrait credit popover (the (i) on a person page)
+  creditButton: { nl: "Foto-informatie: {credit}", en: "Photo information: {credit}" },
+  creditHeading: { nl: "Foto-informatie", en: "Photo information" },
+  creditAuthor: { nl: "Auteur", en: "Author" },
+  creditAuthorUnknown: { nl: "niet vermeld", en: "not stated" },
+  creditLicense: { nl: "Licentie", en: "Licence" },
+  creditPublicDomain: { nl: "Publiek domein", en: "Public domain" },
+  creditSource: { nl: "Bron", en: "Source" },
+  creditRetrieved: { nl: "Opgehaald op", en: "Retrieved on" },
 } as const satisfies Record<string, LocString>;
 
 export type EntityDictKey = keyof typeof ENTITY_DICT;

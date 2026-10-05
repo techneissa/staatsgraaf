@@ -19,6 +19,13 @@
 // licentie gecontroleerd en via de cache toegepast; afgewezen kandidaten staan
 // daar met reden en verschijnen als benoemde gap.
 //
+// Derde pas (05-10-2026): elke beoordeelde regel moet een tweede bewijs naast de
+// naam dragen (ambt, gemeente of geboortedatum, veld `evidence`), een afwijkende
+// geboortedatum (naamgenoot) weigert, en het Commons-bestand moet de persoon zelf
+// noemen. `--discover` zoekt kandidaten op Commons en schrijft ze naar
+// research/raw/portraits/deep/; het past er nooit een toe, dat blijft handwerk
+// via review.json (docs/adr/0014, amendement 3).
+//
 // No dependencies. Node ESM only.
 
 import { readFile, writeFile, mkdir, stat, rm, rename } from "node:fs/promises";
@@ -36,6 +43,8 @@ export const SEARCH_LIMIT = 5;
 export const MAX_NAME_FORMS = 3;
 export const THUMB_WIDTH = 320;
 export const MAX_IMAGE_BYTES = 2_500_000;
+// A Commons original narrower than this is too small to show (Baukje Dijkstra, 89 px, 25-09-2026).
+export const MIN_ORIGINAL_WIDTH = 200;
 export const WIKIDATA_API = "https://www.wikidata.org/w/api.php";
 export const COMMONS_API = "https://commons.wikimedia.org/w/api.php";
 export const NLWIKI_API = "https://nl.wikipedia.org/w/api.php";
@@ -485,6 +494,9 @@ export async function fetchCommonsImage(filename, {
     thumbUrl: typeof info.thumburl === "string" ? info.thumburl : info.url ?? null,
     width: Number.isFinite(info.thumbwidth) ? info.thumbwidth : Number.isFinite(info.width) ? info.width : null,
     height: Number.isFinite(info.thumbheight) ? info.thumbheight : Number.isFinite(info.height) ? info.height : null,
+    // Commons returns an upscaled thumbnail for a small original; the true size decides.
+    originalWidth: Number.isFinite(info.width) ? info.width : null,
+    originalHeight: Number.isFinite(info.height) ? info.height : null,
     licenseRaw: text("LicenseShortName"),
     licenseCode: raw("License"),
     usageTerms: text("UsageTerms"),
@@ -1014,6 +1026,128 @@ export function reviewKey(entry) {
   return hashString(JSON.stringify(entry));
 }
 
+/** Tweede bewijs naast de naam dat een review-regel mag dragen (ADR 0014, amendement 2 en 3). */
+export const REVIEW_EVIDENCE_KINDS = Object.freeze(["office", "municipality", "birthDate"]);
+
+/** The accepted kinds of second evidence on a review entry; unknown kinds ("depicts", "name") do not count. */
+export function reviewEvidenceKinds(entry) {
+  const list = Array.isArray(entry?.evidence) ? [...entry.evidence] : [];
+  // A TK photo is only applied when name and birth date both match the TK record.
+  if (entry?.kind === "tk" && entry.birthDate) list.push("birthDate");
+  return [...new Set(list.filter((kind) => REVIEW_EVIDENCE_KINDS.includes(kind)))];
+}
+
+/**
+ * Toets een review-regel aan de persoon voordat er iets wordt opgehaald.
+ * Een naam alleen is geen bewijs; een Commons "depicts"-tag ook niet. Een
+ * afwijkende geboortedatum betekent een naamgenoot. Een intrekking mag altijd.
+ */
+export function checkReviewEntry(person, entry) {
+  if (entry?.kind === "withdraw") return { ok: true, kinds: [] };
+  const kinds = reviewEvidenceKinds(entry);
+  if (kinds.length === 0) {
+    return { ok: false, kinds, reason: "geen tweede bewijs naast de naam (ambt, gemeente of geboortedatum); een naam of een Commons-depicts-tag alleen is niet genoeg" };
+  }
+  const known = typeof entry?.birthDate === "string" ? entry.birthDate : null;
+  if (known && person?.birthDate && !birthDatesAgree(person.birthDate, known)) {
+    return { ok: false, kinds, reason: `naamgenoot: geboortedatum ${known} van de kandidaat wijkt af van ${person.birthDate} in de dataset` };
+  }
+  return { ok: true, kinds };
+}
+
+/** Significant name tokens (no forms of address, no one-letter initials) of one name. */
+function significantTokens(value) {
+  return nameTokens(value).filter((token) => token.length > 1);
+}
+
+/**
+ * Does the Commons file name the person? Every significant token of the person's
+ * name (or of the reviewed `fullName`, needed for initials-only names) must occur in the file title, description or
+ * categories. The check protects against a review entry that points at the wrong
+ * file; it does not replace looking at the photo.
+ */
+export function commonsFileNamesPerson(commons, filename, person, entry = null) {
+  const hay = new Set(
+    nameTokens([String(filename ?? ""), commons?.description ?? "", ...(commons?.categories ?? [])].join(" ")),
+  );
+  const names = [entry?.fullName, entry?.expectName, person?.name, ...(person?.aliases ?? [])].filter(Boolean);
+  return names.some((name) => {
+    const tokens = significantTokens(name);
+    return tokens.length >= 2 && tokens.every((token) => hay.has(token));
+  });
+}
+
+const IMAGE_FILE = /\.(jpe?g|png|gif|webp|tiff?)$/i;
+
+const OFFICE_WORDS = /burgemeester|gezaghebber|commissaris|dijkgraaf|minister|staatssecretaris|kamerlid|senator|president|voorzitter|directeur|mayor|member of|chair/i;
+
+/**
+ * Beoordeel een Commons-bestand als kandidaat voor een persoon, zonder iets toe te passen.
+ * eligible betekent: herkende licentie, geen verwijder- of permissiecategorie, het bestand
+ * noemt de persoon en de bestandstekst draagt zelf een tweede bewijs (gemeente of ambt).
+ * Alles daarbuiten is refused met de reden; een mens beslist daarna over review.json.
+ */
+export function evaluateCommonsCandidate(commons, filename, person, context = {}) {
+  const reasons = [];
+  const license = commons?.ok ? mapLicense(commons) : null;
+  if (!commons?.ok) reasons.push(commons?.reason ?? "bestand niet op te halen");
+  else if (isBlockedFile(commons)) reasons.push("betwiste licentie op Commons (verwijderverzoek, geen toestemming of geen licentie)");
+  else if (!license) reasons.push(`licentie niet toegestaan of niet herkend (${commons.licenseRaw ?? "geen licentie vermeld"})`);
+  const names = commons?.ok ? commonsFileNamesPerson(commons, filename, person) : false;
+  if (commons?.ok && !names) reasons.push("het bestand noemt de persoon niet bij naam");
+  const text = normalizeName([String(filename ?? ""), commons?.description ?? "", ...(commons?.categories ?? [])].join(" "));
+  const evidence = [];
+  const place = normalizeName(context.municipality ?? "");
+  if (place !== "" && text.includes(place)) evidence.push("municipality");
+  if (OFFICE_WORDS.test(text)) evidence.push("office");
+  if (commons?.ok && license && names && evidence.length === 0) reasons.push("geen tweede bewijs in de bestandstekst (ambt of gemeente)");
+  if (commons?.ok && Number.isFinite(commons.originalWidth) && commons.originalWidth < MIN_ORIGINAL_WIDTH) {
+    reasons.push(`afbeelding te klein (${commons.originalWidth} px breed)`);
+  }
+  return { filename, license, eligible: reasons.length === 0, evidence, reasons };
+}
+
+/** Search Commons for files that may show a person. Candidates only; nothing is applied. */
+export async function discoverCommonsCandidates(person, {
+  context = {},
+  fetchImpl = globalThis.fetch,
+  userAgent = USER_AGENT,
+  throttleMs = THROTTLE_MS,
+  sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+  perQuery = 10,
+} = {}) {
+  const queries = [];
+  for (const form of nameForms(person)) {
+    if (significantTokens(form).length >= 2) queries.push(`"${form}"`);
+  }
+  const surname = String(person?.name ?? "").replace(/\([^)]*\)/g, " ").trim().split(/\s+/).filter(Boolean).pop();
+  if (context.municipality && surname) queries.push(`burgemeester ${context.municipality} ${surname}`);
+  const titles = new Set();
+  const failures = [];
+  for (const query of queries) {
+    try {
+      const body = await apiGet(fetchImpl, COMMONS_API, {
+        action: "query", list: "search", srsearch: query, srnamespace: "6", srlimit: String(perQuery), format: "json",
+      }, { userAgent });
+      // Only still images can become a portrait; videos, audio and PDFs are skipped.
+      for (const hit of body?.query?.search ?? []) {
+        const title = String(hit.title).replace(/^File:/, "");
+        if (IMAGE_FILE.test(title)) titles.add(title);
+      }
+    } catch (error) {
+      failures.push(`${query}: ${error.message}`);
+    }
+    if (throttleMs > 0) await sleep(throttleMs);
+  }
+  const candidates = [];
+  for (const filename of titles) {
+    const commons = await fetchCommonsImage(filename, { fetchImpl, userAgent });
+    candidates.push({ page: filePageUrl(filename), ...evaluateCommonsCandidate(commons, filename, person, context), author: commons.author ?? null });
+    if (throttleMs > 0) await sleep(throttleMs);
+  }
+  return { person: person.id, queries, failures, candidates };
+}
+
 /** TK Persoon-record ophalen en toetsen aan de verwachte naam en geboortedatum. */
 export async function fetchTkPersoon(tkId, { fetchImpl = globalThis.fetch, userAgent = USER_AGENT } = {}) {
   const recordUrl = `${TK_ODATA}/Persoon(${tkId})`;
@@ -1058,6 +1192,7 @@ export async function resolveReviewed(person, entry, { fetchImpl = globalThis.fe
     reviewed: true,
     reviewKey: reviewKey(entry),
     identity: entry.identity ?? null,
+    evidence: reviewEvidenceKinds(entry),
     confidence: entry.confidence ?? "medium",
     candidates: [],
     chosen: entry.wikidata
@@ -1074,10 +1209,18 @@ export async function resolveReviewed(person, entry, { fetchImpl = globalThis.fe
     reason: null,
     gaps: [],
   };
+  const check = checkReviewEntry(person, entry);
+  if (!check.ok) return { ...base, gaps: [{ what: "portret", reason: `beoordeling geweigerd: ${check.reason}` }] };
   if (entry.kind === "commons") {
     const commons = await fetchCommonsImage(entry.file, { fetchImpl, userAgent });
     if (!commons.ok) return { ...base, gaps: [{ what: "portret", reason: `beoordeeld bestand ${entry.file}: ${commons.reason}` }] };
     if (isBlockedFile(commons)) return { ...base, gaps: [{ what: "portret", reason: `beoordeeld bestand ${entry.file}: betwiste licentie op Commons` }] };
+    if (Number.isFinite(commons.originalWidth) && commons.originalWidth < MIN_ORIGINAL_WIDTH) {
+      return { ...base, gaps: [{ what: "portret", reason: `beoordeeld bestand ${entry.file}: te klein (${commons.originalWidth} px breed)` }] };
+    }
+    if (!commonsFileNamesPerson(commons, entry.file, person, entry)) {
+      return { ...base, gaps: [{ what: "portret", reason: `beoordeeld bestand ${entry.file}: het bestand noemt de persoon niet bij naam; mogelijk een naamgenoot` }] };
+    }
     const license = mapLicense(commons);
     if (!license) return { ...base, gaps: [{ what: "portret", reason: `beoordeeld bestand ${entry.file}: licentie niet herkend (${commons.licenseRaw ?? "geen"})` }] };
     return {
@@ -1589,7 +1732,11 @@ export async function runPortraits(options = {}) {
   // Handmatig bekeken en afgewezen kandidaten maken de gap specifieker.
   for (const gap of gaps) {
     const slug = String(gap.person).replace(/^person:/, "");
-    if (rejected[slug]) gap.reason = `${gap.reason}; beoordeeld 25-09-2026: ${rejected[slug]}`;
+    const verdict = rejected[slug];
+    if (!verdict) continue;
+    // A plain string is a verdict of the second pass (25-09-2026); newer ones carry their own date.
+    const { reason, reviewed } = typeof verdict === "string" ? { reason: verdict, reviewed: "2026-09-25" } : verdict;
+    gap.reason = `${gap.reason}; beoordeeld ${formatDateNL(reviewed)}: ${reason}`;
   }
 
   // Een media:portret-* record dat geen enkele persoon meer aanwijst is een wees: de
@@ -1634,6 +1781,56 @@ export async function runPortraits(options = {}) {
   return { stats, gaps, licenseCounts, qaPath };
 }
 
+/** Municipality of a person's current mayor tenure ("Gemeente Winterswijk" gives "Winterswijk"), or null. */
+export function currentMunicipality(person, { tenures, positions, organizations }) {
+  for (const tenure of tenures) {
+    if (tenure.person !== person.id || tenure.end) continue;
+    const position = positions.find((entry) => entry.id === tenure.position);
+    if (!position || !/burgemeester|gezaghebber/i.test(position.title ?? "")) continue;
+    const organization = organizations.find((entry) => entry.id === position.organization);
+    if (organization?.name) return organization.name.replace(/^Gemeente\s+/i, "").replace(/\s*\(.*\)\s*$/, "");
+  }
+  return null;
+}
+
+/**
+ * Zoek Commons-kandidaten voor personen zonder portret en schrijf ze naar
+ * research/raw/portraits/deep/discovery-<datum>.json. Past niets toe: een kandidaat
+ * wordt pas een portret als iemand de foto bekijkt en een regel in review.json zet.
+ */
+export async function runDiscover(options = {}) {
+  const root = options.root ?? REPO_ROOT;
+  const dataDir = options.dataDir ?? join(root, "data");
+  const today = options.today ?? new Date().toISOString().slice(0, 10);
+  const log = options.log ?? console.log;
+  const read = async (name) => JSON.parse(await readFile(join(dataDir, name), "utf8"));
+  const [people, tenures, positions, organizations] = await Promise.all([
+    read("people.json"), read("tenures.json"), read("positions.json"), read("organizations.json"),
+  ]);
+  let selected = people.filter((person) => !person.portrait);
+  if (options.only) selected = selected.filter((person) => options.only.has(person.slug));
+  if (options.limit) selected = selected.slice(0, options.limit);
+  const results = [];
+  for (const person of selected) {
+    const context = { municipality: currentMunicipality(person, { tenures, positions, organizations }) };
+    const found = await discoverCommonsCandidates(person, {
+      context,
+      fetchImpl: options.fetchImpl,
+      userAgent: options.userAgent,
+      throttleMs: options.throttleMs ?? THROTTLE_MS,
+      sleep: options.sleep,
+    });
+    results.push({ slug: person.slug, name: person.name, municipality: context.municipality, ...found });
+    log(`  ontdekt: ${person.name}: ${found.candidates.filter((c) => c.eligible).length} geschikt van ${found.candidates.length}`);
+  }
+  const outDir = join(root, "research", "raw", "portraits", "deep");
+  await mkdir(outDir, { recursive: true });
+  const file = join(outDir, `discovery-${today}.json`);
+  await writeFile(file, `${JSON.stringify({ retrieved: today, note: "Kandidaten, niets toegepast. Zie ADR 0014, amendement 3.", results }, null, 2)}\n`, "utf8");
+  log(`Wrote ${file}`);
+  return { file, results };
+}
+
 function parseArgs(argv) {
   const options = { offline: false, limit: null, only: null, throttleMs: THROTTLE_MS };
   for (let i = 0; i < argv.length; i += 1) {
@@ -1651,6 +1848,7 @@ function parseArgs(argv) {
     else if (argv[i] === "--hints") options.hintsPath = argv[(i += 1)];
     else if (argv[i] === "--no-tk") options.tk = false;
     else if (argv[i] === "--no-review") options.review = false;
+    else if (argv[i] === "--discover") options.discover = true;
     else if (argv[i] === "--today") options.today = argv[(i += 1)];
   }
   return options;
@@ -1661,7 +1859,8 @@ async function main() {
   if (options.hintsPath) {
     options.hints = JSON.parse(await readFile(options.hintsPath, "utf8"));
   }
-  await runPortraits(options);
+  if (options.discover) await runDiscover(options);
+  else await runPortraits(options);
 }
 
 const invokedDirectly = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
