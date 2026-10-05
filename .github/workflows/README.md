@@ -1,55 +1,63 @@
 # Workflow operator notes
 
-Four GitHub Actions workflows run the pipeline, the news cadence, the push deploy, and the gate. Host and deploy path are fixed in `docs/adr/0004-hosting-ci-and-analytics.md`: Cloudflare Pages, project `staatsgraaf`, production branch `main`, Wrangler deploy from GitHub Actions.
+Four GitHub Actions workflows run the refresh, the push deploy, the CI gate, and the weekly link check. Host and deploy path are fixed in `docs/adr/0004-hosting-ci-and-analytics.md` (including its amendment of 05-10-2026): Cloudflare Pages, project `staatsgraaf`, production branch `main`, Wrangler deploy from GitHub Actions.
+
+The repository is public, so GitHub Actions minutes on standard runners are free. Every third-party action is pinned to a full commit SHA with its version in a comment; bump them by hand or with Dependabot.
 
 ## Workflows
 
+### `news.yml` (the scheduled refresh)
+
+The only scheduled workflow besides the weekly link check. It runs every 3 hours at 15 minutes past (`15 */3 * * *`) and on demand with **Run workflow**. The file keeps its old name; it now does the whole refresh. It never runs on a fork, and it only publishes from `main`.
+
+Job `refresh` (permission: `contents: write`):
+
+1. checkout, setup Bun (`.bun-version`), restore the Bun package cache
+2. `bun run refresh-official` (office holders from Rijksoverheid, Tweede Kamer, and Eerste Kamer; `docs/adr/0006-live-official-sources.md`)
+3. `bun run merge`
+4. `bun run news`
+5. restore the translation cache, `bun install --frozen-lockfile`, `bun run translate` (never fails the run), save the cache
+6. `bun run changes`
+7. `bun run validate`, then `bun test pipelines web/lib`
+8. `bun scripts/data-changed.mjs ...`: is there a real change? Differences in `generatedAt` alone do not count
+9. only if something changed: `bash scripts/commit-refresh.sh` commits `data/`, `ATTRIBUTION.md`, `research/P-live-ambtsdragers.json`, `research/P-live-ambtsdragers.md`, and `research/merge-log.entries.jsonl` to `main` as `github-actions[bot]` with the message `data: refresh <ISO date> [skip ci]`. If the push loses a race it rebases with `git pull --rebase` and retries, up to 5 times. A rebase conflict fails the run and publishes nothing; the next run starts from the new `main`.
+
+Job `deploy` (permission: `contents: read`, runs only when job `refresh` committed a change): checks out the pushed commit, restores the Bun and Next.js caches, validates again, builds the web app (with `NEXT_PUBLIC_SITE_URL`), runs the contract check on `web/out/data/v1`, makes sure the Pages project `staatsgraaf` exists, and deploys with `bunx wrangler pages deploy web/out --project-name=staatsgraaf --branch=main`. When nothing changed, the whole run ends after step 8 with a green result: no commit, no build, no deploy.
+
+Job `report-failure` (permission: `issues: write`): on any failure it opens or comments on one `ops` issue titled "Refresh mislukt"; if the issue API is unreachable it prints the same summary in the log.
+
+The `nightly-refresh` concurrency group is shared with `deploy.yml`: two deployments never overlap, a queued run waits, and GitHub keeps only the newest pending run. The nightly `refresh.yml` was removed on 05-10-2026 because the 3-hourly run does everything it did.
+
 ### `deploy.yml`
 
-Runs on every push to `main` and on demand. This is the fast path: it builds and deploys the committed dataset and does not refetch office holders or news. Steps: checkout, setup Bun, setup Node, restore the Bun and Next.js caches, `bun run validate`, `bun test pipelines web/lib`, the web build, and the Wrangler deploy. It shares the `nightly-refresh` concurrency group with the other deploy workflows, so two deployments never overlap. A push that changes only the site code or the committed data reaches production in about a minute instead of waiting for the nightly or six-hourly run.
-
-### `refresh.yml`
-
-Runs nightly at 03:00 UTC, and on demand with **Run workflow**. Steps run in this fixed order:
-
-1. checkout
-2. setup Bun (`oven-sh/setup-bun@v2`, version from `.bun-version`)
-3. setup Node 24 (`actions/setup-node@v4`, for Next.js and Wrangler only)
-4. restore the Bun package cache and the Next.js build cache
-5. `bun run refresh-official` (office holders from Rijksoverheid, Tweede Kamer, and Eerste Kamer; `docs/adr/0006-live-official-sources.md`)
-6. `bun run merge`
-7. `bun run news`
-8. `bun run changes`
-9. `bun run validate`
-10. `bun test pipelines web/lib`
-11. `cd web && bun install --frozen-lockfile && bun run build` (with `NEXT_PUBLIC_SITE_URL`)
-12. ensure the Pages project `staatsgraaf` exists with `bunx wrangler pages project list`, creating it with `bunx wrangler pages project create` if it is missing
-13. `bunx wrangler pages deploy web/out --project-name=staatsgraaf --branch=main`
-
-Every deploy workflow caches `~/.bun/install/cache` (keyed on `web/bun.lock`) and `web/.next/cache` (keyed on `web/bun.lock` and the `data/` hash, with a data-independent restore key). The Next.js cache is safe to reuse across data changes: Next invalidates only the pages whose inputs actually changed, so a warm cache skips work that is still current and never serves a stale page.
-
-There is no root install step: the root package has no dependencies, so Bun runs the pipelines, the validator, and the tests straight from the checkout. `web/bun.lock` is the only lockfile, and `bun install --frozen-lockfile` in `web/` fails if it is out of date. The toolchain choice is recorded in `docs/adr/0005-bun-toolchain.md`.
-
-Validation and tests gate the deploy: a failed step stops the run, so production stays on the last good deployment. The job has `timeout-minutes: 60`, and the `nightly-refresh` concurrency group prevents two runs from overlapping (a new run waits; it does not cancel an active one). On any failure the job opens or comments on one `ops` issue; if the issue API is unreachable it prints the same summary in the log.
-
-### `news.yml`
-
-Runs every four hours at 15 minutes past the hour (`15 */4 * * *`), and on demand. It shares the `nightly-refresh` concurrency group, so it never overlaps the nightly run. Steps: checkout, setup Bun, setup Node, restore the Bun and Next.js caches, `bun run news`, `bun run validate`, `bun test pipelines web/lib`, the web build, and the Wrangler deploy. It does not refetch office holders or re-derive the change feed; that is the nightly run's job. To change the cadence, edit the cron; the cost trade-off is in `docs/adr/0007-news-outlets-and-languages.md`. On failure it opens or comments on one `ops` issue titled "Nieuwsrun mislukt".
+Runs on a push to `main` and on demand. This is the fast path: it builds and deploys the committed dataset and does not refetch office holders or news. Steps: checkout, setup Bun and Node, restore the Bun and Next.js caches, `bun run validate`, `bun test pipelines web/lib`, the web build, the contract check, and the Wrangler deploy. It ignores pushes that only touch `docs/**`, `research/qa/**`, markdown files, or the workflow README (`paths-ignore`). It does not ignore `research/*.json` (the search index build reads it) or `LICENSE*` (the build serves them as `/data/v1/LICENSE*.txt`). The data commits that `news.yml` pushes do not start this workflow: GitHub does not create workflow runs for events caused by `GITHUB_TOKEN`, so the refresh run deploys its own commit.
 
 ### `ci.yml`
 
 Runs on every pull request and on pushes to `main`. Steps:
 
-1. checkout
-2. setup Bun (`oven-sh/setup-bun@v2`, version from `.bun-version`)
-3. setup Node 24 (`actions/setup-node@v4`, for Next.js and tsc only)
-4. `bun run validate`
-5. `python3 scripts/format-dates.py --check` over every markdown file outside `research/raw/` and `ATTRIBUTION.md` (AGENTS.md rule 8: dates in documents are dd-MM-YYYY)
-6. `bun run research:check`
-7. `bun test pipelines web/lib`
-8. `cd web && bun install --frozen-lockfile && bun run typecheck`
+1. checkout, setup Bun and Node 24 (Node only for Next.js and tsc)
+2. `bun run validate`
+3. `python3 scripts/format-dates.py --check` over every markdown file outside `research/raw/` and `ATTRIBUTION.md` (`CONTRIBUTING.md` section 6: dates in documents are dd-MM-YYYY)
+4. `bun run research:check`
+5. `bun test pipelines web/lib`
+6. `cd web && bun install --frozen-lockfile && bun run typecheck && bun run build`
+7. `bun run contract web/public/data/v1`
 
-No deploy. This is the required status check to protect `main`.
+No deploy, no secrets. It is the required status check to protect `main`.
+
+### `link-check.yml`
+
+Runs weekly (Mondays 04:23 UTC) and on demand. It builds the site and checks every internal link in the export and every source URL in `data/sources.json`. Reports go to the run artifacts; a persistent failure opens an `ops` issue. A moved source means the fetcher gets fixed, not that the fact is dropped.
+
+## Caches
+
+The Bun package cache is keyed on `web/bun.lock`. The Next.js build cache (`web/.next/cache`) is keyed on `web/bun.lock` plus the ISO week, with the lockfile-only and the bare prefixes as restore keys. It is restored and saved only in the job that builds. The reason, from the GitHub Actions documentation (docs.github.com, "Dependency caching reference", read 05-10-2026):
+
+- a cache cannot be changed once its key exists ("You cannot change the contents of an existing cache"), so a key made only of the lockfile hash would freeze the cache at its first build;
+- the cache total is capped at 10 GB per repository by default, and entries not accessed for 7 days are evicted, so a key per run (8 runs a day) would fill the cap and evict the translation cache.
+
+One entry per week keeps the cache fresh and the total small. The data hash is deliberately not in the key: `data/` changes on almost every refresh, and Next invalidates only the pages whose inputs changed.
 
 ## Secrets and variables
 
@@ -59,29 +67,51 @@ Set these in **Settings > Secrets and variables > Actions**.
 | --- | --- | --- |
 | `CLOUDFLARE_API_TOKEN` | repository secret | Wrangler deploy. Cloudflare API token with Pages edit permission. |
 | `CLOUDFLARE_ACCOUNT_ID` | repository secret | Cloudflare account for the Pages project. |
-| `NEXT_PUBLIC_SITE_URL` | repository variable | Absolute base URL for canonical, `robots.txt`, and `sitemap.xml`. |
-| `GITHUB_TOKEN` | automatic | Used by the failure step to open or comment on the `ops` issue. Do not set it yourself. |
+| `OPENCODE_API_KEY` | repository secret | News translation through OpenCode Zen (first choice). |
+| `DEEPSEEK_API_KEY` | repository secret | News translation through DeepSeek direct (second choice). |
+| `ANTHROPIC_API_KEY` | repository secret | News translation through Anthropic (third choice). |
+| `NEXT_PUBLIC_SITE_URL` | repository variable | Absolute base URL for canonical, `robots.txt`, and `sitemap.xml`. Falls back to `https://staatsgraaf.pages.dev`. |
+| `TRANSLATE_PROVIDER` | repository variable | Optional override of the translation provider. |
+| `TRANSLATE_MODEL` | repository variable | Optional override of the translation model. |
+| `GITHUB_TOKEN` | automatic | Pushes the data commit and opens the `ops` issue. Do not set it yourself. |
 
-`NEXT_PUBLIC_SITE_URL` is optional: if the variable is unset, the workflow falls back to `https://staatsgraaf.pages.dev`, which is the live production URL. Set the repository variable to that URL, or rely on the fallback, so canonical, `robots.txt`, and `sitemap.xml` use absolute URLs.
+Never echo a secret. The workflows pass secrets only as step-level environment variables, and no step prints them. The Cloudflare credentials appear only in the Pages steps of the `deploy` job, which has read-only repository access.
 
-Never echo a secret. The workflows pass Cloudflare credentials only as step-level environment variables, and no step prints them.
+## Repository settings the workflows rely on
+
+- **Actions > General > Workflow permissions:** read and write for `GITHUB_TOKEN` (the refresh job asks for `contents: write`, the report jobs for `issues: write`; every workflow starts from `permissions: {}`).
+- **Branch protection on `main`:** require the `ci` check on pull requests, and allow `github-actions[bot]` to push without a pull request (the refresh commits straight to `main`).
+- **Fork pull requests:** require approval for all outside contributors before their workflows run.
+- Scheduled workflows on a public repository are automatically disabled when the repository has no activity for 60 days (GitHub documentation, "Disable and enable workflows", read 05-10-2026). The documentation does not say whether a commit pushed with `GITHUB_TOKEN` counts as activity, so this is not verified here. The refresh commits to `main` on most runs, which is the expected keep-alive; if the schedule is ever found disabled, enable it again under **Actions > refresh > Enable workflow** and look at the **Actions** tab banner.
 
 ## Run a manual refresh
 
 1. Go to **Actions > refresh**.
 2. Choose **Run workflow**, select `main`, and confirm.
-3. Watch the run. On green the site is redeployed; on red read the failure summary and the `ops` issue.
+3. Watch the run. On green with a deploy job the site is redeployed; on green without one nothing changed; on red read the failure summary and the `ops` issue.
 
-To publish a code or data change without refetching, push to `main` (the `deploy` workflow runs) or use **Actions > deploy > Run workflow**. The `deploy` run skips the fetchers and takes about a minute with a warm cache.
+To publish a code or data change without refetching, push to `main` (the `deploy` workflow runs) or use **Actions > deploy > Run workflow**.
 
 ## Roll back
 
 Cloudflare Pages keeps every deployment as an immutable artifact. Two paths:
 
-- **Redeploy the previous artifact.** Cloudflare dashboard > Pages > `staatsgraaf` > Deployments, find the last good deployment, and **Rollback to this deployment** (or redeploy it). This is the fastest path and does not touch the repo.
-- **Restore the previous data commit.** Revert the data change with a new commit (`git revert <sha>`), then run the refresh workflow to rebuild and redeploy from that dataset. A bad fact is corrected with a new commit and a changelog entry, never a silent edit (`docs/10` section 5, `docs/09` section 8).
+- **Redeploy the previous artifact.** Cloudflare dashboard > Pages > `staatsgraaf` > Deployments, find the last good deployment, and **Rollback to this deployment** (or redeploy it). This is the fastest path and does not touch the repo. The next scheduled run deploys the current `main` again, so also fix `main`.
+- **Restore the previous data commit.** Revert the data change with a new commit (`git revert <sha>`); the push runs the `deploy` workflow. A bad fact is corrected with a new commit and a changelog entry, never a silent edit (`docs/09-content-and-ai-policy.md` section 8).
+
+## Cloudflare Pages Free limits that matter
+
+From https://developers.cloudflare.com/pages/platform/limits/ (page dated 05-09-2026, read 05-10-2026):
+
+| Limit | Free plan | This project |
+| --- | --- | --- |
+| Builds per month | 500 | Cloudflare documents this for builds Pages runs from a Git push. This project deploys prebuilt output with Wrangler (direct upload), so Cloudflare runs no build. Worst case for the count anyway: 8 refresh deploys a day is about 248 a month, plus code pushes. |
+| Files per site | 20,000 | 9,621 after `web/scripts/prune-export.mjs` (measured 05-10-2026; 26,165 before the prune). |
+| File size | 25 MiB per file | The largest exported file is `personen/index.html` at 4.3 MiB (measured 05-10-2026). |
+| `_headers` rules | 100 | `web/public/_headers` has 1 rule (`/*`). |
 
 ## Named gaps
 
-1. **No confirmed green workflow run.** The workflows are committed and the scripts they call pass locally, but a green `ci` or `refresh` run in GitHub Actions is not yet confirmed.
-2. **Repository secrets and variables are not verifiable from the checkout.** The Cloudflare account and the Pages project `staatsgraaf` exist and the site is live at https://staatsgraaf.pages.dev, but this checkout cannot confirm that `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`, and `NEXT_PUBLIC_SITE_URL` are set in the repository.
+1. **No confirmed green workflow run in the public repository.** The scripts the workflows call pass locally and `actionlint` passes; a green run in GitHub Actions is not yet confirmed.
+2. **Secrets and variables are not verifiable from a checkout.** The table above lists the names; the values live only in the repository settings.
+3. **The refresh is not a fixed point yet.** On 05-10-2026 two consecutive local runs of `refresh-official`, `merge`, `news`, and `changes` produced different tenures for two ministers (closed, then open again). Until that is fixed in `pipelines/`, a refresh can commit on every run.

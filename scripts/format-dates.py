@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rewrite ISO dates in markdown prose to dd-MM-YYYY (AGENTS.md rule 8).
+"""Rewrite ISO dates in markdown prose to dd-MM-YYYY (CONTRIBUTING.md section 6).
 
 Skips fenced code blocks, inline code, URLs and paths, and ISO date-times
 (anything followed by 'T' and a time), because those are data or identifiers.

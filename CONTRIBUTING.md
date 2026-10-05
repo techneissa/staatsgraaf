@@ -1,8 +1,8 @@
 # Contributing to Staatsgraaf
 
-Staatsgraaf is a public, source-backed graph of the Dutch state. It takes contributions to the dataset, the documentation, the pipelines, and the web app. This document states the conventions a contribution must follow. Read `AGENTS.md` and `docs/11-delivery-and-collaboration.md` first; they are the operating law.
+Staatsgraaf is a public, source-backed graph of the Dutch state. It takes contributions to the dataset, the documentation, the pipelines, and the web app. This document states the conventions a contribution must follow. Read `docs/11-delivery-and-collaboration.md` first; the rules below summarise it.
 
-The repository is private today, so there is no public issue tracker or contact address yet. That is a named gap. The rules below apply from the moment the repository opens.
+The repository is public. Report a wrong fact, a broken source, or a proposal in an issue; send a change as a pull request. Security reports go through `SECURITY.md`.
 
 ## 1. The source rule
 
@@ -40,8 +40,8 @@ Examples: `data: add all 342 gemeenten organisations`, `schema: add ex_officio r
 ## 5. One writer per file
 
 - Parallel workstreams and build areas own disjoint files. Never edit another owner's file.
-- The orchestrator alone edits shared files, including `docs/`, `AGENTS.md`, and `README.md`.
-- File ownership is listed in `AGENTS.md` and in `docs/06-build-plan.md` section 5.
+- A maintainer alone edits shared files, including `docs/` and `README.md`.
+- File ownership is listed in `docs/06-build-plan.md` section 5.
 - Resolve a conflict in the merge gate and record it, never concurrently.
 
 ## 6. Language rule
@@ -50,7 +50,11 @@ Examples: `data: add all 342 gemeenten organisations`, `schema: add ex_officio r
 - Field names, slugs, ids, and code are English.
 - UI strings are Dutch.
 - Data stays ISO for dates and numbers; format as `nl-NL` only at render.
-- Prose is Dutch in the product and English in the repository docs. Sentence case, straight quotes, no em dashes.
+- Prose is Dutch in the product and English in the repository docs. Sentence case headings, active voice, straight quotes, no em dashes. Keep it plain and specific.
+- Write every date in documents (prose, tables, headings, changelog entries) as dd-MM-YYYY, for example 18-09-2026. Data files, ids, slugs, URLs, JSON, and code keep ISO 8601. A value quoted from the data stays as it is, in backticks. CI runs `python3 scripts/format-dates.py --check` over the markdown.
+- The name is Staatsgraaf: the project, the package names, the storage keys, and the credit line.
+- Anything marked `(verify)` is unknown until it is confirmed against an official source. Anything marked `(decide)` is an owner choice with a proposed default; the choice is recorded in `docs/adr/` and the marker is dropped.
+- Every page fits every screen. No horizontal scrolling from a 320 px phone to a desktop, long names wrap or truncate with a tooltip, tables become stacked rows on narrow screens, and touch targets are at least 44 px. Check a UI change at 390 px, 820 px, and 1440 px wide.
 
 ## 7. How to add or change data
 
@@ -89,7 +93,7 @@ bun run build
 
 Next.js and tsc still run on Node.js 20.9 or newer, so `bun run typecheck` and `bun run build` need Node installed. The pipelines and tests do not. See `docs/adr/0005-bun-toolchain.md`.
 
-A pull request does not merge while any check fails. The CI order and the link check are in `docs/10-operations-runbook.md` section 2.
+A pull request does not merge while any check fails. The CI order, the scheduled refresh, and the link check are in `.github/workflows/README.md`.
 
 ## 10. Pull request expectations
 
@@ -110,3 +114,10 @@ A schema change follows the process in `docs/04-data-model.md` section 18. A wor
 - A published fact is never silently edited. A correction is logged with the old value, the new value, the date, and the reason, per `docs/09-content-and-ai-policy.md` section 8.
 - Follow `CODE_OF_CONDUCT.md` in every interaction.
 - Report a vulnerability through `SECURITY.md`. A wrong fact is a data-correctness issue, not a security issue.
+
+## 13. License of contributions
+
+- Code, scripts, workflows, and web app contributions are licensed under the PolyForm Noncommercial License 1.0.0, the same source-available license as the rest of the code (`LICENSE`).
+- Data, descriptions, summaries, and documentation contributions are licensed under CC BY 4.0, the same license as the dataset (`LICENSE-DATA`).
+- By opening a pull request you confirm that you wrote the change or have the right to submit it under these terms, and that it carries no third-party text, image, or data without a recorded license and credit.
+- The reasons for this split, and what is and is not public in the repository, are in `docs/adr/0023-public-repository.md`.

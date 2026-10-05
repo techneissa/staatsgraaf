@@ -27,7 +27,7 @@ Constraints that shape the answer: the site is a static export with no runtime f
 
 - Readers get one page for Dutch government news across outlet kinds, with every mentioned person, organisation, place, and topic one click away.
 - The outlet list is transparent on `/nieuws/bronnen/` and `/news/sources/`, including what is taken from each outlet and under which rights.
-- The six-hourly build adds roughly five deploys a day. Cost stays within the free tier while the repository is private; going hourly is a scheduling change, not a design change.
+- The six-hourly build adds roughly five deploys a day. Cost stays within the free tier (the repository is public since 05-10-2026, so Actions minutes are free, ADR 0023); going hourly is a scheduling change, not a design change.
 - Machine translation stays an open future phase. It is no longer an open question about whether, only about engine, cost, and disclosure, which a later ADR will record.
 
 ## Verification recorded at decision time

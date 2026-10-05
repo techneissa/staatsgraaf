@@ -1,76 +1,83 @@
-name: news
+name: refresh
 
+# The single scheduled workflow. Every 3 hours it refetches office holders and
+# news, merges, translates, derives the change feed, validates and tests, and then:
+#   - nothing changed: it stops here, successfully. No commit, no build, no deploy.
+#   - something changed: it commits data/ to main as github-actions[bot] and, only
+#     after that commit succeeded, builds and deploys to Cloudflare Pages.
+# The file keeps the name news.yml; the nightly refresh.yml it replaces did nothing
+# this run does not do (docs/adr/0004-hosting-ci-and-analytics.md, amendment 05-10-2026).
+#
+# Third-party actions are pinned to full commit SHAs, with the version they resolve
+# to in a comment, because this repository is public.
 on:
   schedule:
-    # Every four hours. The repository is private and Actions minutes are capped; a
-    # run takes about 3 minutes. See docs/adr/0007-news-outlets-and-languages.md.
-    - cron: "15 */4 * * *"
+    # Every 3 hours, at 15 minutes past. GitHub documents that scheduled runs can be
+    # delayed at the start of the hour, so the minute is not 0.
+    - cron: "15 */3 * * *"
   workflow_dispatch:
 
-permissions:
-  contents: read
-  issues: write
+# Least privilege by default; each job asks for what it needs.
+permissions: {}
 
-# A news run never overlaps with itself or with the nightly refresh.
+# A refresh never overlaps a deploy, a push deploy, or itself. A queued run waits.
 concurrency:
   group: nightly-refresh
   cancel-in-progress: false
 
 jobs:
-  news:
-    name: news, validate, build, deploy
+  refresh:
+    name: refresh, validate, commit
+    # Forks never run it, and it only publishes from the default branch.
+    if: ${{ !github.event.repository.fork && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    permissions:
+      contents: write # push the data commit; no secret other than the translation keys is in this job
+    outputs:
+      changed: ${{ steps.changed.outputs.changed }}
+      sha: ${{ steps.commit.outputs.sha }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
+      # Bun installs packages and runs the pipelines, the validator, and the tests.
+      # Node is not needed here; only the deploy job builds the site.
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
         with:
           bun-version-file: .bun-version
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "24"
-
       # Warm the Bun package cache so `bun install` stays a few seconds.
       - name: Cache Bun packages
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: ~/.bun/install/cache
           key: bun-${{ runner.os }}-${{ hashFiles('web/bun.lock') }}
           restore-keys: |
             bun-${{ runner.os }}-
 
-      # Reuse Next.js build artifacts. The restore key ignores the data hash on
-      # purpose: a news run changes news data every time, and Next invalidates only
-      # the pages whose inputs actually changed.
-      - name: Cache the Next.js build
-        uses: actions/cache@v4
-        with:
-          path: web/.next/cache
-          key: next-${{ runner.os }}-${{ hashFiles('web/bun.lock') }}-${{ hashFiles('data/**') }}
-          restore-keys: |
-            next-${{ runner.os }}-${{ hashFiles('web/bun.lock') }}-
-            next-${{ runner.os }}-
+      # Refetch the current office holders from the official sites first (ADR 0006), so the
+      # merge below treats them as the freshest authority for tenures and memberships.
+      # research/raw is a local cache of fetched pages; the pipelines create it when it is missing.
+      - name: Refresh office holders from official sources
+        run: bun run refresh-official
 
-      # Only the news feeds are refetched. Office holders and the change feed are the
-      # nightly refresh's job, so this run stays short and cheap.
+      - name: Merge research into the dataset
+        run: bun run merge
+
       - name: Refresh news
         run: bun run news
 
-      # Machine translation of new or changed news items (ADR 0016). Translations
-      # made here are not committed, so they persist between runs in the Actions
-      # cache: restore the newest copy, merge it with the committed file, send only
-      # items whose hash does not match yet, and save the result under a new key.
-      # Provider: OpenCode Zen (OPENCODE_API_KEY, DeepSeek), else DeepSeek direct
-      # (DEEPSEEK_API_KEY), else Anthropic (ANTHROPIC_API_KEY); vars.TRANSLATE_PROVIDER
-      # and vars.TRANSLATE_MODEL override. Without any key the step logs the backlog and exits 0;
-      # a translation failure never fails the run.
+      # Machine translation of new or changed news items (ADR 0016). The result lands
+      # in data/ and is committed below; the Actions cache only seeds the next run
+      # with items that were translated but not yet committed. Provider: OpenCode Zen
+      # (OPENCODE_API_KEY, DeepSeek), else DeepSeek direct (DEEPSEEK_API_KEY), else
+      # Anthropic (ANTHROPIC_API_KEY); vars.TRANSLATE_PROVIDER and vars.TRANSLATE_MODEL
+      # override. Without any key the step logs the backlog and exits 0; a translation
+      # failure never fails the run.
       - name: Restore news translations cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: pipelines/.cache/translations
           key: news-translations-${{ github.run_id }}-${{ github.run_attempt }}
@@ -93,16 +100,99 @@ jobs:
       - name: Save news translations cache
         if: always()
         continue-on-error: true
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
         with:
           path: pipelines/.cache/translations
           key: news-translations-${{ github.run_id }}-${{ github.run_attempt }}
 
+      - name: Refresh the change feed
+        run: bun run changes
+
+      # From here the dataset must be valid before anything is committed. A failure
+      # below stops the run: nothing is committed, nothing is deployed, and production
+      # stays on the last good deployment.
       - name: Validate the dataset
         run: bun run validate
 
       - name: Run tests
         run: bun test pipelines web/lib
+
+      # Did anything change that matters? Timestamp-only differences (generatedAt) do not
+      # count. See scripts/data-changed.mjs for the rule.
+      - name: Check for changes
+        id: changed
+        run: bun scripts/data-changed.mjs data ATTRIBUTION.md research/P-live-ambtsdragers.json research/P-live-ambtsdragers.md research/merge-log.entries.jsonl
+
+      # Commit to main as the bot. The script rebases and retries the push when another
+      # push got there first, and fails on a real conflict (scripts/commit-refresh.sh).
+      - name: Commit the refreshed data
+        id: commit
+        if: steps.changed.outputs.changed == 'true'
+        run: bash scripts/commit-refresh.sh
+
+  deploy:
+    name: build and deploy
+    needs: refresh
+    if: ${{ needs.refresh.outputs.changed == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read # no write access to the repository while the site is built
+    steps:
+      # The commit the refresh job just pushed, so the site is built from what is on main.
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ needs.refresh.outputs.sha }}
+          persist-credentials: false
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+        with:
+          bun-version-file: .bun-version
+
+      # Next.js and Wrangler still execute on Node.
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "24"
+
+      - name: Cache Bun packages
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: ~/.bun/install/cache
+          key: bun-${{ runner.os }}-${{ hashFiles('web/bun.lock') }}
+          restore-keys: |
+            bun-${{ runner.os }}-
+
+      # The Next.js build cache. The key has no data hash on purpose: a refresh changes
+      # data/ on almost every run, and Next invalidates only the pages whose inputs
+      # changed, so an older cache is still mostly valid. GitHub documents two limits
+      # that shape this (docs.github.com, "Dependency caching reference", read
+      # 05-10-2026): a cache is never rewritten once its key exists ("You cannot change
+      # the contents of an existing cache"), and the repository cap is 10 GB, with
+      # entries not accessed for 7 days evicted. A key of only the lockfile hash would
+      # freeze the cache at its first build, and a key per run would fill the 10 GB cap
+      # and evict the translation cache. So the key adds the ISO week: one fresh entry
+      # per week, older weeks serve as the restore-keys fallback. The step runs only in
+      # this job, so a cache is saved only when a build actually ran.
+      - name: Compute the cache week
+        id: week
+        run: echo "week=$(date -u +%G-W%V)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache the Next.js build
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: web/.next/cache
+          key: next-${{ runner.os }}-${{ hashFiles('web/bun.lock') }}-${{ steps.week.outputs.week }}
+          restore-keys: |
+            next-${{ runner.os }}-${{ hashFiles('web/bun.lock') }}-
+            next-${{ runner.os }}-
+
+      # The checkout may include commits that landed after the refresh job validated
+      # (the push rebases on newer ones), so validate the tree that is actually built.
+      - name: Validate the dataset
+        run: bun run validate
 
       - name: Build the web app
         run: cd web && bun install --frozen-lockfile && bun run build
@@ -110,9 +200,20 @@ jobs:
           NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL || 'https://staatsgraaf.pages.dev' }}
 
       # The built /data/v1 artifact is the contract every client decodes. A break
-      # here stops the news run before anything is published.
+      # here stops the run before anything is published.
       - name: Contract check on the built dataset
         run: bun run contract web/out/data/v1
+
+      - name: Ensure the Cloudflare Pages project exists
+        run: |
+          if bunx wrangler pages project list | grep -q 'staatsgraaf'; then
+            echo "Pages project staatsgraaf already exists"
+          else
+            bunx wrangler pages project create staatsgraaf --production-branch=main
+          fi
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Deploy to Cloudflare Pages
         run: bunx wrangler pages deploy web/out --project-name=staatsgraaf --branch=main
@@ -120,15 +221,26 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
-      - name: Report news failure
-        if: failure()
+  # On any failure above, open or comment on a single ops issue. If the issue API is
+  # unavailable, print the same summary so the failure is still visible in the log.
+  report-failure:
+    name: report failure
+    needs: [refresh, deploy]
+    if: ${{ failure() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    steps:
+      - name: Report refresh failure
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
         run: |
           set -uo pipefail
-          marker="Nieuwsrun mislukt"
+          marker="Refresh mislukt"
           title="[ops] ${marker}"
-          body="De nieuwsrun is mislukt.
+          body="De geplande refresh is mislukt.
 
           Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           Ref: ${{ github.ref }}

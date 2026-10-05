@@ -4,6 +4,12 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (05-10-2026, public repository)
+
+- The repository becomes public (ADR 0023). The code moves from MIT to the PolyForm Noncommercial License 1.0.0 (source-available); the dataset stays CC BY 4.0 (ADR 0001, amendment 05-10-2026). `data/meta.json`, the dataset manifest, the `/dataset/` and `/methodiek/` pages, and `CONTRIBUTING.md` state the new terms.
+- Agent and prompt files, the local fetch cache `research/raw/` (except the licence evidence and the hand review under `research/raw/portraits/`), the internal plans and audits, and the operations runbook leave the repository and its history. Links to them were removed or pointed at public documents.
+- One scheduled workflow (`news.yml`, every 3 hours) now runs the whole refresh, commits changed data to `main` as `github-actions[bot]`, and builds and deploys only when something changed. `refresh.yml` is removed. `deploy.yml` skips documentation-only pushes. Third-party actions are pinned to commit SHAs (ADR 0004, amendment 05-10-2026).
+
 ### Added (25-09-2026, ninth round)
 
 - Links for the bodies that had none on either graph form (ADR 0019, workstream V). The landen of the Kingdom are tied to the Kingdom through the new Rijksministerraad, the College financieel toezicht Curaçao en Sint Maarten and the Interparlementair Koninkrijksoverleg. Their Staten are also tied to the Tweede Kamer and the Eerste Kamer on ontwerpen van rijkswet.
@@ -43,7 +49,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 - Bewindspersonen carry their party (27 of 28, from their rijksoverheid.nl pages) and the Eerste Kamer fracties their fractievoorzitter (19 of 20, from eerstekamer.nl), carried through the nightly merge (`pipelines/party-affiliation.mjs`).
 - Sources show as one small link icon everywhere instead of "Bron: ..." text; the title and retrieval date are its name and tooltip, and full source lists fold into "Bronnen (n)".
 - The people index is a grid of compact cards in party colour, or a role colour for people without a party (oranje for the Koning, the branch colour otherwise), with search, group and party filters and A-Z sections.
-- New rule in AGENTS.md: no horizontal scrolling on any page from 320 px up; the top bar and the home people strip were fixed to meet it.
+- New contributor rule (`CONTRIBUTING.md`): no horizontal scrolling on any page from 320 px up; the top bar and the home people strip were fixed to meet it.
 
 ### Changed (25-09-2026, fifth round)
 
@@ -200,8 +206,8 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed
 
-- The project, package, and storage names are Staatsgraaf everywhere: `package.json` names `staatsgraaf` and `staatsgraaf-web`, the theme key `staatsgraaf-theme`, the canvas event `staatsgraaf:focus`, the license credit lines, and the kickoff prompt `STAATSGRAAF-PROMPT.md`. Readers who chose a theme before this change see the default theme once and choose again.
-- Dates in documents are written as dd-MM-YYYY (AGENTS.md rule 8). The markdown under `docs/` and `research/` was converted with `scripts/format-dates.py`, and CI now fails a pull request that leaves an ISO date in checked prose. Data files, ids, URLs, and quoted data values keep ISO 8601. Generated `ATTRIBUTION.md` and the frozen snapshots under `research/raw/` are excluded on purpose: they quote data values.
+- The project, package, and storage names are Staatsgraaf everywhere: `package.json` names `staatsgraaf` and `staatsgraaf-web`, the theme key `staatsgraaf-theme`, the canvas event `staatsgraaf:focus`, and the license credit lines. Readers who chose a theme before this change see the default theme once and choose again.
+- Dates in documents are written as dd-MM-YYYY (`CONTRIBUTING.md` section 6). The markdown under `docs/` and `research/` was converted with `scripts/format-dates.py`, and CI now fails a pull request that leaves an ISO date in checked prose. Data files, ids, URLs, and quoted data values keep ISO 8601. Generated `ATTRIBUTION.md` and the frozen snapshots under `research/raw/` are excluded on purpose: they quote data values.
 - The owner accepted code MIT and dataset CC BY 4.0 on 18-09-2026, recorded in `docs/adr/0001-licenses.md`.
 - The public name is Staatsgraaf, replacing the working name "NL Overheid Graph", recorded in `docs/adr/0003-project-name.md`.
 - The toolchain moved from npm and Node to Bun for packages, scripts, tests, and pipelines. Next.js is still built on Node. `web/bun.lock` is the only lockfile and the `package-lock.json` files are gone. Decided on 18-09-2026, recorded in `docs/adr/0005-bun-toolchain.md`.
