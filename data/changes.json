@@ -920,6 +920,29 @@
     "id": "change:2015-06-01-appointment-burgemeester-borger-odoorn"
   },
   {
+    "date": "2015-06-09",
+    "kind": "appointment",
+    "summary": "Benoeming: P. Schalk wordt Fractievoorzitter SGP.",
+    "source": {
+      "source": "src:ek-fractie-staatkundig-gereformeerde-partij",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-sgp",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-sgp-p-schalk-20150609",
+      "person": "person:p-schalk",
+      "label": "P. Schalk - Fractievoorzitter SGP"
+    },
+    "id": "change:2015-06-09-appointment-ek-fractievoorzitter-sgp"
+  },
+  {
     "date": "2015-09-01",
     "kind": "appointment",
     "summary": "Benoeming: Marco Brugmans wordt Plaatsvervangend bestuursvoorzitter Autoriteit Nucleaire Veiligheid en Stralingsbescherming.",
@@ -3335,6 +3358,29 @@
     "id": "change:2019-06-11-appointment-burgemeester-kerkrade"
   },
   {
+    "date": "2019-06-11",
+    "kind": "appointment",
+    "summary": "Benoeming: drs. M.J. van Rooijen wordt Fractievoorzitter 50PLUS.",
+    "source": {
+      "source": "src:ek-fractie-50plus",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-50plus",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-50plus-drs-m-j-van-rooijen-20190611",
+      "person": "person:drs-m-j-van-rooijen",
+      "label": "drs. M.J. van Rooijen - Fractievoorzitter 50PLUS"
+    },
+    "id": "change:2019-06-11-appointment-ek-fractievoorzitter-50plus"
+  },
+  {
     "date": "2019-06-14",
     "kind": "appointment",
     "summary": "Benoeming: Jean Paul Gebben wordt Burgemeester van Dronten.",
@@ -5568,6 +5614,29 @@
   {
     "date": "2021-04-06",
     "kind": "appointment",
+    "summary": "Benoeming: J.C. Huizinga-Heringa wordt Fractievoorzitter ChristenUnie.",
+    "source": {
+      "source": "src:ek-fractie-christenunie",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-christenunie",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-christenunie-j-c-huizinga-heringa-20210406",
+      "person": "person:j-c-huizinga-heringa",
+      "label": "J.C. Huizinga-Heringa - Fractievoorzitter ChristenUnie"
+    },
+    "id": "change:2021-04-06-appointment-ek-fractievoorzitter-christenunie"
+  },
+  {
+    "date": "2021-04-06",
+    "kind": "appointment",
     "summary": "Benoeming: Stephan Ruben Tobias van Baarle wordt Lid Vaste commissie voor Binnenlandse Zaken.",
     "source": {
       "source": "src:tk-odata-commissiezetels",
@@ -7360,6 +7429,29 @@
     "id": "change:2022-01-17-appointment-burgemeester-pijnacker-nootdorp"
   },
   {
+    "date": "2022-01-25",
+    "kind": "appointment",
+    "summary": "Benoeming: mr. R.A. Janssen wordt Fractievoorzitter SP.",
+    "source": {
+      "source": "src:ek-fractie-socialistische-partij",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-sp",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-sp-mr-r-a-janssen-20220125",
+      "person": "person:mr-r-a-janssen",
+      "label": "mr. R.A. Janssen - Fractievoorzitter SP"
+    },
+    "id": "change:2022-01-25-appointment-ek-fractievoorzitter-sp"
+  },
+  {
     "date": "2022-02-01",
     "kind": "appointment",
     "summary": "Benoeming: Roelof Bleker wordt Burgemeester van Enschede.",
@@ -7565,6 +7657,29 @@
       "label": "Gerhard van den Top - Burgemeester van Hilversum"
     },
     "id": "change:2022-02-16-appointment-burgemeester-hilversum"
+  },
+  {
+    "date": "2022-03-31",
+    "kind": "appointment",
+    "summary": "Benoeming: J. Dessing wordt Fractievoorzitter FVD.",
+    "source": {
+      "source": "src:ek-fractie-forum-voor-democratie",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-fvd",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-fvd-j-dessing-20220331",
+      "person": "person:j-dessing",
+      "label": "J. Dessing - Fractievoorzitter FVD"
+    },
+    "id": "change:2022-03-31-appointment-ek-fractievoorzitter-fvd"
   },
   {
     "date": "2022-04-01",
@@ -9267,6 +9382,121 @@
       "label": "Marijke van Beukering - Burgemeester van Nieuwegein"
     },
     "id": "change:2023-06-05-appointment-burgemeester-nieuwegein"
+  },
+  {
+    "date": "2023-06-13",
+    "kind": "appointment",
+    "summary": "Benoeming: I.M. Lagas MDR wordt Fractievoorzitter BBB.",
+    "source": {
+      "source": "src:ek-fractie-boerburgerbeweging",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-bbb",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-bbb-i-m-lagas-mdr-20230613",
+      "person": "person:i-m-lagas-mdr",
+      "label": "I.M. Lagas MDR - Fractievoorzitter BBB"
+    },
+    "id": "change:2023-06-13-appointment-ek-fractievoorzitter-bbb"
+  },
+  {
+    "date": "2023-06-13",
+    "kind": "appointment",
+    "summary": "Benoeming: drs. T.J.F.M. Bovens wordt Fractievoorzitter CDA.",
+    "source": {
+      "source": "src:ek-fractie-christen-democratisch-appel",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-cda",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-cda-drs-t-j-f-m-bovens-20230613",
+      "person": "person:drs-t-j-f-m-bovens",
+      "label": "drs. T.J.F.M. Bovens - Fractievoorzitter CDA"
+    },
+    "id": "change:2023-06-13-appointment-ek-fractievoorzitter-cda"
+  },
+  {
+    "date": "2023-06-13",
+    "kind": "appointment",
+    "summary": "Benoeming: drs. P.H. van Meenen wordt Fractievoorzitter D66.",
+    "source": {
+      "source": "src:ek-fractie-democraten-1966",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-d66",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-d66-drs-p-h-van-meenen-20230613",
+      "person": "person:drs-p-h-van-meenen",
+      "label": "drs. P.H. van Meenen - Fractievoorzitter D66"
+    },
+    "id": "change:2023-06-13-appointment-ek-fractievoorzitter-d66"
+  },
+  {
+    "date": "2023-06-13",
+    "kind": "appointment",
+    "summary": "Benoeming: drs. A.Sj. van der Goot wordt Fractievoorzitter OPNL.",
+    "source": {
+      "source": "src:ek-fractie-onafhankelijke-politiek-nederland",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-opnl",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-opnl-drs-a-sj-van-der-goot-20230613",
+      "person": "person:drs-a-sj-van-der-goot",
+      "label": "drs. A.Sj. van der Goot - Fractievoorzitter OPNL"
+    },
+    "id": "change:2023-06-13-appointment-ek-fractievoorzitter-opnl"
+  },
+  {
+    "date": "2023-06-13",
+    "kind": "appointment",
+    "summary": "Benoeming: G.K. Perin-Gopie MSc wordt Fractievoorzitter Volt.",
+    "source": {
+      "source": "src:ek-fractie-volt",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-volt",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-volt-g-k-perin-gopie-msc-20230613",
+      "person": "person:g-k-perin-gopie-msc",
+      "label": "G.K. Perin-Gopie MSc - Fractievoorzitter Volt"
+    },
+    "id": "change:2023-06-13-appointment-ek-fractievoorzitter-volt"
   },
   {
     "date": "2023-06-15",
@@ -12073,6 +12303,29 @@
       "label": "Hans Beenakker - Burgemeester van Krimpenerwaard"
     },
     "id": "change:2024-01-08-appointment-burgemeester-krimpenerwaard"
+  },
+  {
+    "date": "2024-01-16",
+    "kind": "appointment",
+    "summary": "Benoeming: A.W.J.A. van Hattem wordt Fractievoorzitter PVV.",
+    "source": {
+      "source": "src:ek-fractie-partij-voor-de-vrijheid",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-pvv",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-pvv-a-w-j-a-van-hattem-20240116",
+      "person": "person:a-w-j-a-van-hattem",
+      "label": "A.W.J.A. van Hattem - Fractievoorzitter PVV"
+    },
+    "id": "change:2024-01-16-appointment-ek-fractievoorzitter-pvv"
   },
   {
     "date": "2024-01-16",
@@ -15412,6 +15665,29 @@
   {
     "date": "2025-01-01",
     "kind": "appointment",
+    "summary": "Benoeming: drs. T. Klip-Martin wordt Fractievoorzitter VVD.",
+    "source": {
+      "source": "src:ek-fractie-volkspartij-voor-vrijheid-en",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-vvd",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-vvd-drs-t-klip-martin-20250101",
+      "person": "person:drs-t-klip-martin",
+      "label": "drs. T. Klip-Martin - Fractievoorzitter VVD"
+    },
+    "id": "change:2025-01-01-appointment-ek-fractievoorzitter-vvd"
+  },
+  {
+    "date": "2025-01-01",
+    "kind": "appointment",
     "summary": "Benoeming: Karien Stronks wordt Voorzitter Gezondheidsraad.",
     "source": {
       "source": "src:gezondheidsraad-stronks",
@@ -16928,6 +17204,29 @@
     "id": "change:2025-09-22-appointment-burgemeester-ijsselstein"
   },
   {
+    "date": "2025-09-23",
+    "kind": "appointment",
+    "summary": "Benoeming: drs. P.V.A. Walenkamp MA wordt Fractievoorzitter Fractie-Walenkamp.",
+    "source": {
+      "source": "src:ek-fractie-walenkamp",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-fractie-walenkamp",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-fractie-walenkamp-drs-p-v-a-walenkamp-ma-20250923",
+      "person": "person:drs-p-v-a-walenkamp-ma",
+      "label": "drs. P.V.A. Walenkamp MA - Fractievoorzitter Fractie-Walenkamp"
+    },
+    "id": "change:2025-09-23-appointment-ek-fractievoorzitter-fractie-walenkamp"
+  },
+  {
     "date": "2025-09-29",
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Tytsy Willemsma als Burgemeester van Ameland.",
@@ -17064,6 +17363,29 @@
       "label": "dr. M.L. Vos - Voorzitter van de Eerste Kamer der Staten-Generaal"
     },
     "id": "change:2025-10-07-appointment-voorzitter-eerste-kamer"
+  },
+  {
+    "date": "2025-10-08",
+    "kind": "appointment",
+    "summary": "Benoeming: mr. C.A.H. van de Sanden LL.M. wordt Fractievoorzitter Fractie-Van de Sanden.",
+    "source": {
+      "source": "src:ek-fractie-van-de-sanden",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-fractie-van-de-sanden",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-fractie-van-de-sanden-mr-c-a-h-van-de-sanden-ll-m-20251008",
+      "person": "person:mr-c-a-h-van-de-sanden-ll-m",
+      "label": "mr. C.A.H. van de Sanden LL.M. - Fractievoorzitter Fractie-Van de Sanden"
+    },
+    "id": "change:2025-10-08-appointment-ek-fractievoorzitter-fractie-van-de-sanden"
   },
   {
     "date": "2025-10-13",
@@ -17248,6 +17570,75 @@
       "label": "Mauritsz de Kort - Gouverneur van Curaçao"
     },
     "id": "change:2025-11-04-departure-gouverneur-curacao"
+  },
+  {
+    "date": "2025-11-06",
+    "kind": "appointment",
+    "summary": "Benoeming: mr. K. van Bijsterveld wordt Fractievoorzitter JA21.",
+    "source": {
+      "source": "src:ek-fractie-ja21",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-ja21",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-ja21-mr-k-van-bijsterveld-20251106",
+      "person": "person:mr-k-van-bijsterveld",
+      "label": "mr. K. van Bijsterveld - Fractievoorzitter JA21"
+    },
+    "id": "change:2025-11-06-appointment-ek-fractievoorzitter-ja21"
+  },
+  {
+    "date": "2025-11-10",
+    "kind": "appointment",
+    "summary": "Benoeming: prof. dr. I.J. Visseren-Hamakers wordt Fractievoorzitter Fractie-Visseren-Hamakers.",
+    "source": {
+      "source": "src:ek-fractie-visseren-hamakers",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-fractie-visseren-hamakers",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-fractie-visseren-hamakers-prof-dr-i-j-visseren-hamakers-20251110",
+      "person": "person:prof-dr-i-j-visseren-hamakers",
+      "label": "prof. dr. I.J. Visseren-Hamakers - Fractievoorzitter Fractie-Visseren-Hamakers"
+    },
+    "id": "change:2025-11-10-appointment-ek-fractievoorzitter-fractie-visseren-hamakers"
+  },
+  {
+    "date": "2025-11-10",
+    "kind": "appointment",
+    "summary": "Benoeming: prof. mr. P. Nicolaï wordt Fractievoorzitter PvdD.",
+    "source": {
+      "source": "src:ek-fractie-partij-voor-de-dieren",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-pvdd",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-pvdd-prof-mr-p-nicolai-20251110",
+      "person": "person:prof-mr-p-nicolai",
+      "label": "prof. mr. P. Nicolaï - Fractievoorzitter PvdD"
+    },
+    "id": "change:2025-11-10-appointment-ek-fractievoorzitter-pvdd"
   },
   {
     "date": "2025-11-12",
@@ -17524,6 +17915,29 @@
       "label": "Cornelis van der Werf - Bestuursvoorzitter Huis voor Klokkenluiders"
     },
     "id": "change:2025-11-15-appointment-zbo-huis-voor-klokkenluiders-bestuursvoorzitter"
+  },
+  {
+    "date": "2025-11-18",
+    "kind": "appointment",
+    "summary": "Benoeming: Bgen (b.d.) drs. A.J.A. Beukering wordt Fractievoorzitter Fractie-Beukering.",
+    "source": {
+      "source": "src:ek-fractie-beukering",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-fractie-beukering",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-fractie-beukering-bgen-b-d-drs-a-j-a-beukering-20251118",
+      "person": "person:bgen-b-d-drs-a-j-a-beukering",
+      "label": "Bgen (b.d.) drs. A.J.A. Beukering - Fractievoorzitter Fractie-Beukering"
+    },
+    "id": "change:2025-11-18-appointment-ek-fractievoorzitter-fractie-beukering"
   },
   {
     "date": "2025-11-18",
@@ -23920,6 +24334,29 @@
     "id": "change:2025-11-20-appointment-burgemeester-katwijk"
   },
   {
+    "date": "2025-11-20",
+    "kind": "appointment",
+    "summary": "Benoeming: Wieke Paulusma wordt Eerste ondervoorzitter van de Tweede Kamer der Staten-Generaal.",
+    "source": {
+      "source": "src:tk-odata-presidium",
+      "retrieved": "2026-10-05",
+      "confidence": "high"
+    },
+    "position": "pos:eerste-ondervoorzitter-tweede-kamer",
+    "organization": "org:tweede-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:eerste-ondervoorzitter-tweede-kamer-wieke-paulusma-20251120",
+      "person": "person:wieke-paulusma",
+      "label": "Wieke Paulusma - Eerste ondervoorzitter van de Tweede Kamer der Staten-Generaal"
+    },
+    "id": "change:2025-11-20-appointment-eerste-ondervoorzitter-tweede-kamer"
+  },
+  {
     "date": "2025-11-25",
     "kind": "appointment",
     "summary": "Benoeming: Harmen Marinus Krul wordt Lid Vaste commissie voor Asiel en Migratie.",
@@ -29095,6 +29532,29 @@
     "id": "change:2026-07-01-appointment-zbo-dienst-voor-het-kadaster-en-de-openbare-registers-voorzitter"
   },
   {
+    "date": "2026-07-02",
+    "kind": "appointment",
+    "summary": "Benoeming: Marjolein Moorman wordt Tweede ondervoorzitter van de Tweede Kamer der Staten-Generaal.",
+    "source": {
+      "source": "src:tk-odata-presidium",
+      "retrieved": "2026-10-05",
+      "confidence": "high"
+    },
+    "position": "pos:tweede-ondervoorzitter-tweede-kamer",
+    "organization": "org:tweede-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:tweede-ondervoorzitter-tweede-kamer-marjolein-moorman-20260702",
+      "person": "person:marjolein-moorman",
+      "label": "Marjolein Moorman - Tweede ondervoorzitter van de Tweede Kamer der Staten-Generaal"
+    },
+    "id": "change:2026-07-02-appointment-tweede-ondervoorzitter-tweede-kamer"
+  },
+  {
     "date": "2026-07-15",
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Carla Breuer als Burgemeester van Zoeterwoude.",
@@ -29300,6 +29760,29 @@
       "label": "Iem Al Biyati - Lid Vaste commissie voor Financiën"
     },
     "id": "change:2026-09-01-appointment-lid-tweede-kamer-commissie-fin"
+  },
+  {
+    "date": "2026-09-09",
+    "kind": "appointment",
+    "summary": "Benoeming: P. Rosenmöller wordt Fractievoorzitter PRO.",
+    "source": {
+      "source": "src:ek-fractie-progressief-nederland-pro",
+      "retrieved": "2026-09-25",
+      "confidence": "high"
+    },
+    "position": "pos:ek-fractievoorzitter-pro",
+    "organization": "org:eerste-kamer",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:fvp-ek-fractievoorzitter-pro-p-rosenmoller-20260909",
+      "person": "person:p-rosenmoller",
+      "label": "P. Rosenmöller - Fractievoorzitter PRO"
+    },
+    "id": "change:2026-09-09-appointment-ek-fractievoorzitter-pro"
   },
   {
     "date": "2026-09-09",
@@ -29532,7 +30015,7 @@
     "id": "change:2026-09-09-appointment-voorzitter-tweede-kamer-commissie-am"
   },
   {
-    "date": "2026-09-19",
+    "date": "2026-10-05",
     "kind": "vacancy",
     "summary": "Vacature: Procureur-generaal (lid van het College van procureurs-generaal) bij Openbaar Ministerie heeft één onvervulde zetel.",
     "source": {
@@ -29552,6 +30035,6 @@
       "person": null,
       "label": "1 vacante zetel"
     },
-    "id": "change:2026-09-19-vacancy-procureur-generaal-lid-college"
+    "id": "change:2026-10-05-vacancy-procureur-generaal-lid-college"
   }
 ]

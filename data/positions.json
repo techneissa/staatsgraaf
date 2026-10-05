@@ -14092,6 +14092,30 @@
     ]
   },
   {
+    "id": "pos:eerste-ondervoorzitter-tweede-kamer",
+    "slug": "eerste-ondervoorzitter-tweede-kamer",
+    "title": "Eerste ondervoorzitter van de Tweede Kamer der Staten-Generaal",
+    "organization": "org:tweede-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:tk-odata-presidium",
+        "retrieved": "2026-10-05",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Eerste ondervoorzitter van de Tweede Kamer der Staten-Generaal"
+    ]
+  },
+  {
     "id": "pos:eilandgedeputeerde-bonaire",
     "slug": "eilandgedeputeerde-bonaire",
     "title": "Eilandgedeputeerde van Bonaire",
@@ -34558,6 +34582,30 @@
     },
     "aliases": [
       "Thesaurier-Generaal"
+    ]
+  },
+  {
+    "id": "pos:tweede-ondervoorzitter-tweede-kamer",
+    "slug": "tweede-ondervoorzitter-tweede-kamer",
+    "title": "Tweede ondervoorzitter van de Tweede Kamer der Staten-Generaal",
+    "organization": "org:tweede-kamer",
+    "type": "elected",
+    "fillMethod": "benoeming-door-college",
+    "entryModes": [
+      "gekozen"
+    ],
+    "termLengthMonths": null,
+    "seatsCount": 1,
+    "exOfficioOf": [],
+    "sources": [
+      {
+        "source": "src:tk-odata-presidium",
+        "retrieved": "2026-10-05",
+        "confidence": "high"
+      }
+    ],
+    "aliases": [
+      "Tweede ondervoorzitter van de Tweede Kamer der Staten-Generaal"
     ]
   },
   {

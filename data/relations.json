@@ -46111,6 +46111,19 @@
     }
   },
   {
+    "id": "rel:office-eerste-ondervoorzitter-tweede-kamer",
+    "from": "pos:eerste-ondervoorzitter-tweede-kamer",
+    "to": "org:tweede-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:tk-odata-presidium",
+      "retrieved": "2026-10-05",
+      "confidence": "high"
+    }
+  },
+  {
     "id": "rel:office-ek-fractievoorzitter-50plus",
     "from": "pos:ek-fractievoorzitter-50plus",
     "to": "org:eerste-kamer",
@@ -47238,6 +47251,19 @@
     "source": {
       "source": "src:rijksoverheid-fin-ambtelijke-leiding",
       "retrieved": "2026-09-18",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "rel:office-tweede-ondervoorzitter-tweede-kamer",
+    "from": "pos:tweede-ondervoorzitter-tweede-kamer",
+    "to": "org:tweede-kamer",
+    "type": "office",
+    "metadata": {},
+    "seatsAppointed": 0,
+    "source": {
+      "source": "src:tk-odata-presidium",
+      "retrieved": "2026-10-05",
       "confidence": "high"
     }
   },

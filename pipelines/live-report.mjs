@@ -14,6 +14,7 @@ const QUEUE_HEADER = [
   "",
   "Entries the live run (`bun run live`, ADR 0024) lists for a weekly human glance: medium-confidence identity matches, bulk events applied, new persons, new parties and positions, closures without an official end date, and named gaps. No entry blocks the data: the run applies what the guard allows and lists it here. The file is appended and deduplicated by the key in the comment at the end of each line; tick a box when reviewed.",
   "",
+  "",
 ].join("\n");
 
 const KIND_LABEL = {

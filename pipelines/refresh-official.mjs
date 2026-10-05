@@ -833,7 +833,7 @@ export function renderReport({ stats, fetched, today, gaps = [] }) {
   } else {
     let number = 1;
     for (const gap of all) {
-      lines.push(`${number}. ${gap.what} (${gap.endpoint}). ${gap.why} Vervolg: ${gap.resume}`);
+      lines.push(`${number}. ${gap.what} (${gap.endpoint}): ${gap.why.replace(/\.$/, "")}. Vervolg: ${gap.resume}`);
       number += 1;
     }
   }
@@ -888,7 +888,7 @@ export function renderQaReport({ stats, fetched, today, stopped = [], gaps = [],
   lines.push(`Aantal gaps: ${gaps.length}.`);
   let number = 1;
   for (const gap of gaps) {
-    lines.push(`${number}. ${gap.what}. Bron: ${gap.endpoint}. ${gap.why} Vervolg: ${gap.resume}`);
+    lines.push(`${number}. ${gap.what} (${gap.endpoint}): ${gap.why.replace(/\.$/, "")}. Vervolg: ${gap.resume}`);
     number += 1;
   }
   lines.push("");
