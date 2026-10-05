@@ -1,7 +1,7 @@
 # ADR 0023: public repository, source-available code, open data
 
 - Date: 05-10-2026
-- Status: accepted (owner decision 05-10-2026)
+- Status: accepted (owner decision 05-10-2026; amended 05-10-2026: code licence CC BY-NC-SA 4.0)
 - Amends: ADR 0001 (licenses), ADR 0004 (hosting and CI)
 
 ## Context
@@ -50,3 +50,18 @@ GitHub keeps old commit SHAs reachable through `refs/pull/*` and forks even afte
 - Reports of wrong facts and security issues come in through the repository's issues and private vulnerability reporting (`CONTRIBUTING.md`, `SECURITY.md`).
 - Links in public documents to the removed files were replaced by links to public documents. Mentions of `research/raw/` paths inside research reports and in `data/sources.json` notes name the local cache and are provenance, not links.
 - Open question for the owner `(decide)`: whether to accept contributions only with a sign-off or a contributor licence agreement, if commercial licences for the code are ever offered.
+
+## Amendment 05-10-2026: code licence is CC BY-NC-SA 4.0, not PolyForm Noncommercial
+
+Point 2 of the decision and the section "Why this licence" named PolyForm Noncommercial 1.0.0. The owner replaced it on 05-10-2026 with CC BY-NC-SA 4.0 (SPDX `CC-BY-NC-SA-4.0`; legal code from https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt, in `LICENSE` below a short header). The repository is still public with source-available code and open data. Everything else in this ADR stands: the data licence (CC BY 4.0), the paths kept out of the repository, and the migration plan. Contributions (point 4) now come in under CC BY-NC-SA 4.0 for code and CC BY 4.0 for data and documents (`CONTRIBUTING.md` section 13). The manifest field `licenses.code` is now `CC-BY-NC-SA-4.0`.
+
+Reason for the change. The owner wants nobody to fork the code to make a private or sold version, and wants credit when someone takes something. PolyForm Noncommercial restricted commercial use but required no credit beyond a notice line and had no ShareAlike term. CC BY-NC-SA 4.0 adds credit and requires adaptations to stay under the same licence.
+
+What the licence does and does not do:
+
+- GitHub allows a fork of any public repository regardless of licence. The licence does not prevent a fork. It limits what the fork may be used for and requires attribution and ShareAlike.
+- Creative Commons advises against its licences for software: no patent grant and no source-code provisions. PolyForm was written for software. The owner accepted that trade for the credit and ShareAlike terms.
+- CC BY-NC-SA 4.0 is not OSI open source, and the repository, README and site keep saying "source-available".
+- Not legal advice. A lawyer should confirm the points listed in `docs/adr/0001-licenses.md`, second amendment of 05-10-2026, including whether ShareAlike data sources (378 CC BY-SA 4.0 source records) affect the compiled dataset. The data licence is not changed by this amendment.
+
+Alternatives not taken: keep PolyForm Noncommercial (no credit or ShareAlike term), or PolyForm Shield, AGPL-3.0 or MIT (all allow commercial use). The consequence "no commercial licences are offered" stands. Offering one later needs a contributor licence agreement or each contributor's consent, as before.

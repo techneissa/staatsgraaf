@@ -112,7 +112,7 @@ The full list by phase is in `research/merge-log.md`.
 
 The code and the data have separate licences.
 
-- Code: source-available under the PolyForm Noncommercial License 1.0.0. You may use, change and share it for any noncommercial purpose, including personal, research, charitable, educational and government use. Commercial use needs a separate licence from the project. See `LICENSE`.
+- Code: CC BY-NC-SA 4.0 (Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International, SPDX `CC-BY-NC-SA-4.0`). You may share and adapt it for noncommercial purposes. Credit "Staatsgraaf (https://github.com/techneissa/staatsgraaf), CC BY-NC-SA 4.0", say if you changed it, and share your adaptations under the same licence. Commercial use is not allowed. The code is source-available, not open source in the OSI sense, and this is not legal advice. See `LICENSE` and `docs/adr/0001-licenses.md`.
 - Data: CC BY 4.0. Credit Staatsgraaf, keep each fact's source URL and retrieval date, and state the licence. See `LICENSE-DATA`.
 
 `ATTRIBUTION.md` groups the sources by publisher and licence, with a link to each one's terms. The licence of every single source is in `data/sources.json`, and the author, licence and source of every photo are in `data/media.json` and in the (i) next to the photo. Where a source is all rights reserved, Staatsgraaf uses only the facts, the headline and the link, never the text or images.

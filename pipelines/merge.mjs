@@ -491,7 +491,7 @@ export async function mergeDataset({
     snapshotId,
     generatedAt: now.toISOString(),
     sources: { earliest, latest },
-    licenses: { code: "PolyForm-Noncommercial-1.0.0", data: "CC-BY-4.0" },
+    licenses: { code: "CC-BY-NC-SA-4.0", data: "CC-BY-4.0" },
     datasetLicenseUrl: "https://creativecommons.org/licenses/by/4.0/",
   };
   await writeJson(join(dataDir, "meta.json"), meta);
