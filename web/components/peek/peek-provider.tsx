@@ -41,6 +41,8 @@ import {
  */
 
 const shardCache = new Map<string, Promise<PeekShard>>();
+/** Shards that have arrived, so a peek whose shard was warmed opens with its content in the first frame. */
+const shardReady = new Map<string, PeekShard>();
 
 export function loadPeekRecord(id: string): Promise<PeekRecord | null> {
   const url = peekShardUrl(id);
@@ -50,7 +52,10 @@ export function loadPeekRecord(id: string): Promise<PeekRecord | null> {
       if (!response.ok) throw new Error(String(response.status));
       return response.json() as Promise<PeekShard>;
     });
-    promise.catch(() => shardCache.delete(url));
+    promise.then(
+      (shard) => shardReady.set(url, shard),
+      () => shardCache.delete(url),
+    );
     shardCache.set(url, promise);
   }
   return promise.then((shard) => {
@@ -58,6 +63,22 @@ export function loadPeekRecord(id: string): Promise<PeekRecord | null> {
     return raw ? normalizePeekRecord(raw) : null;
   });
 }
+
+/** The record when its shard is already here, else undefined. */
+function cachedPeekRecord(id: string): PeekRecord | null | undefined {
+  const shard = shardReady.get(peekShardUrl(id));
+  if (!shard) return undefined;
+  const raw = shard.records[id];
+  return raw ? normalizePeekRecord(raw) : null;
+}
+
+/** Fetches the shard of a link ahead of its click; the result lands in the cache. */
+function warmPeek(id: string | undefined) {
+  if (id) loadPeekRecord(id).catch(() => {});
+}
+
+/** Shards a phone may warm by scrolling past links, per page: each is tens of KB. */
+const VIEWPORT_WARM_BUDGET = 6;
 
 type OpenState = {
   id: string;
@@ -114,9 +135,78 @@ export function PeekProvider() {
     return () => document.removeEventListener("click", onClick);
   }, []);
 
+  // Warm the shard before the click: on hover, focus or a finger going down,
+  // and on a touch screen also when a link scrolls into view, because a
+  // finger gives no hover. Opening a peek then needs no request.
+  useEffect(() => {
+    const onIntent = (event: Event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      warmPeek(target?.closest<HTMLAnchorElement>("a[data-peek]")?.dataset.peek);
+    };
+    document.addEventListener("pointerover", onIntent, true);
+    document.addEventListener("pointerdown", onIntent, true);
+    document.addEventListener("focusin", onIntent);
+
+    let observer: IntersectionObserver | null = null;
+    let mutations: MutationObserver | null = null;
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    if (matchMedia("(pointer: coarse)").matches && connection?.saveData !== true && typeof IntersectionObserver !== "undefined") {
+      const warmed = new Map<string, Set<string>>();
+      const idle = (task: () => void) => (typeof window.requestIdleCallback === "function" ? window.requestIdleCallback(task, { timeout: 1500 }) : window.setTimeout(task, 200));
+      observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          observer?.unobserve(entry.target);
+          const id = (entry.target as HTMLElement).dataset.peek;
+          if (!id) continue;
+          const page = location.pathname;
+          const urls = warmed.get(page) ?? new Set<string>();
+          warmed.set(page, urls);
+          const url = peekShardUrl(id);
+          if (urls.has(url) || urls.size >= VIEWPORT_WARM_BUDGET) continue;
+          urls.add(url);
+          idle(() => warmPeek(id));
+        }
+      });
+      const scan = (root: ParentNode) => {
+        for (const anchor of root.querySelectorAll("a[data-peek]")) observer?.observe(anchor);
+      };
+      scan(document);
+      mutations = new MutationObserver((records) => {
+        for (const record of records) {
+          for (const node of record.addedNodes) {
+            if (!(node instanceof Element)) continue;
+            if (node.matches("a[data-peek]")) observer?.observe(node);
+            else scan(node);
+          }
+        }
+      });
+      mutations.observe(document.body, { childList: true, subtree: true });
+    }
+
+    return () => {
+      document.removeEventListener("pointerover", onIntent, true);
+      document.removeEventListener("pointerdown", onIntent, true);
+      document.removeEventListener("focusin", onIntent);
+      observer?.disconnect();
+      mutations?.disconnect();
+    };
+  }, []);
+
+  // A warmed shard fills the peek before the first paint, so it opens with
+  // its content and no skeleton flash.
+  useLayoutEffect(() => {
+    if (!open) return;
+    const hit = cachedPeekRecord(open.id);
+    if (hit === undefined) return;
+    setRecord(hit);
+    setStatus(hit ? "ready" : "error");
+  }, [open]);
+
   useEffect(() => {
     if (!open) return;
     let cancelled = false;
+    if (cachedPeekRecord(open.id) !== undefined) return;
     setRecord(null);
     setStatus("loading");
     loadPeekRecord(open.id)
@@ -219,6 +309,13 @@ function PeekDialog({
     const height = panel.offsetHeight;
     const viewportWidth = document.documentElement.clientWidth;
     const viewportHeight = window.innerHeight;
+    // The popover follows its link while the page scrolls; once the link has
+    // left the screen there is nothing to point at, so it closes instead of
+    // hanging at the edge.
+    if (rect.bottom < 0 || rect.top > viewportHeight || rect.right < 0 || rect.left > viewportWidth) {
+      onClose(false);
+      return;
+    }
     const below = viewportHeight - rect.bottom - GAP - MARGIN;
     const above = rect.top - GAP - MARGIN;
     const top = below >= height || below >= above ? rect.bottom + GAP : Math.max(MARGIN, rect.top - GAP - height);
@@ -279,6 +376,18 @@ function PeekDialog({
       const target = event.target as Node | null;
       if (!target || panel?.contains(target) || open.anchor.contains(target)) return;
       onClose(false);
+      // The press moves focus when it lands on something that takes it; when
+      // it lands on plain page text focus would fall to the page, so hand it
+      // back to the link that opened the peek (ADR 0017).
+      const anchor = open.anchor;
+      window.setTimeout(() => {
+        const active = document.activeElement;
+        const takesFocus =
+          active instanceof HTMLElement &&
+          active !== document.body &&
+          active.matches('a[href], button, input, select, textarea, summary, [contenteditable="true"], [role="button"], [tabindex]:not([tabindex="-1"])');
+        if (!takesFocus && anchor.isConnected) anchor.focus({ preventScroll: true });
+      }, 0);
     };
     document.addEventListener("keydown", onKey);
     document.addEventListener("pointerdown", onPointer);
@@ -307,7 +416,7 @@ function PeekDialog({
           event.preventDefault();
           go(open.href);
         }}
-        className="inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-sm bg-accent px-3 text-sm font-semibold text-accent-ink transition-fast hover:brightness-110 sm:min-h-9"
+        className="inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-sm bg-accent px-3 text-sm font-semibold text-accent-ink transition-fast hover:brightness-110 sm:min-h-9 pointer-coarse:sm:min-h-11"
       >
         <svg aria-hidden="true" viewBox="0 0 20 20" width="15" height="15">
           <path
@@ -321,7 +430,7 @@ function PeekDialog({
         </svg>
         {t("peekOpenPage")}
       </a>
-      <ShareButton href={open.href} title={record?.name ?? open.label} compact />
+      <ShareButton href={open.href} title={record?.name ?? open.label} compact className="min-w-11 pointer-coarse:sm:min-h-11" />
     </div>
   );
 
@@ -331,7 +440,7 @@ function PeekDialog({
       onClick={() => onClose(true)}
       aria-label={t("peekClose")}
       title={t("peekClose")}
-      className="-mr-1.5 -mt-1.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-sm text-ink-muted transition-fast hover:bg-surface-inset hover:text-ink sm:h-8 sm:w-8"
+      className="-mr-1.5 -mt-1.5 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-sm text-ink-muted transition-fast hover:bg-surface-inset hover:text-ink sm:h-8 sm:w-8 pointer-coarse:sm:h-11 pointer-coarse:sm:w-11"
     >
       <svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16">
         <path d="m5.5 5.5 9 9m0-9-9 9" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
@@ -508,7 +617,7 @@ function PeekBody({
         event.preventDefault();
         onNavigate(ref.href);
       }}
-      className="text-ink underline decoration-line-strong decoration-1 underline-offset-[3px] transition-fast hover:decoration-2"
+      className="text-ink underline decoration-line-strong decoration-1 underline-offset-[3px] transition-fast hover:decoration-2 pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:min-w-11 pointer-coarse:items-center"
     >
       {ref.name}
       {extra}
@@ -653,7 +762,7 @@ function PeekBody({
                   event.preventDefault();
                   onNavigate(newsHref(record));
                 }}
-                className="text-accent-text underline-offset-2 hover:underline"
+                className="text-accent-text underline-offset-2 hover:underline pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:items-center"
               >
                 {record.news === 1 ? t("peekNewsCountOne") : t("peekNewsCount", { n: record.news })}
               </a>
@@ -664,7 +773,7 @@ function PeekBody({
                 title={record.source.publisher || new URL(record.source.url).hostname}
                 retrieved={record.source.retrieved}
                 size={14}
-                className="self-center"
+                className="self-center pointer-coarse:min-h-11 pointer-coarse:min-w-11"
               />
             ) : null}
           </p>

@@ -209,6 +209,34 @@ export const ENTITY_DICT = {
   termYears: { nl: "{n} jaar", en: "{n} years" },
   termMonthOne: { nl: "{n} maand", en: "{n} month" },
   termMonths: { nl: "{n} maanden", en: "{n} months" },
+  // Index lists (people, organisations, positions, topics): search, counts, empty states
+  idxSearchPeople: { nl: "Zoek personen", en: "Search people" },
+  idxSearchPeoplePlaceholder: { nl: "Naam, partij of functie", en: "Name, party or position" },
+  idxSearchOrganizations: { nl: "Zoek organisaties", en: "Search organizations" },
+  idxSearchOrganizationsPlaceholder: { nl: "Naam van een organisatie", en: "Name of an organization" },
+  idxSearchPositions: { nl: "Zoek posities", en: "Search positions" },
+  idxSearchPositionsPlaceholder: { nl: "Titel of organisatie", en: "Title or organization" },
+  idxFilterLabel: { nl: "Filter op groep of partij", en: "Filter by group or party" },
+  idxTypeFilterLabel: { nl: "Filter op type", en: "Filter by type" },
+  idxAlphabet: { nl: "Alfabet", en: "Alphabet" },
+  idxCountPeople: { nl: "{shown} van {total} personen", en: "{shown} of {total} people" },
+  idxCountOrganizations: { nl: "{shown} van {total} organisaties", en: "{shown} of {total} organizations" },
+  idxCountPositions: { nl: "{shown} van {total} posities", en: "{shown} of {total} positions" },
+  idxNoPeople: { nl: "Geen personen gevonden", en: "No people found" },
+  idxNoOrganizations: { nl: "Geen organisaties gevonden", en: "No organizations found" },
+  idxNoPositions: { nl: "Geen posities gevonden", en: "No positions found" },
+  idxNoResultsHelp: {
+    nl: "Probeer een andere spelling, een kortere zoekterm of wis de filters.",
+    en: "Try another spelling, a shorter search or clear the filters.",
+  },
+  idxClearFilters: { nl: "Wis filters", en: "Clear filters" },
+  idxLoading: { nl: "Lijst laden", en: "Loading the list" },
+  idxLoadFailed: {
+    nl: "De volledige lijst kon niet worden geladen. De eerste items staan hierboven.",
+    en: "The full list could not be loaded. The first items are shown above.",
+  },
+  idxRetry: { nl: "Opnieuw proberen", en: "Try again" },
+  idxTopicsEmptyNext: { nl: "Bekijk de organisaties", en: "Browse the organizations" },
 } as const satisfies Record<string, LocString>;
 
 export type EntityDictKey = keyof typeof ENTITY_DICT;

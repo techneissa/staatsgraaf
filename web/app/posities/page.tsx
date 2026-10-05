@@ -2,20 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
-import { Gloss, T } from "@/components/i18n/t";
-import { positionEn } from "@/lib/name-gloss";
-import { branchColorVar } from "@/lib/branch-colors";
-import {
-  getDatasetDate,
-  getOrganizationById,
-  getPositions,
-} from "@/lib/data";
-import { LocaleLabel } from "@/components/i18n/locale-label";
-import { ShowAllList } from "@/components/news/show-all-list";
-import { EntityPeekLink } from "@/components/peek/entity-peek-link";
-import { DateT, LocalCount } from "@/components/content/local-date";
+import { T } from "@/components/i18n/t";
+import { PositionsIndexView } from "@/components/index-list/positions-index-view";
+import { LocalCount } from "@/components/content/local-date";
+import { preload } from "react-dom";
+import { getDatasetDate } from "@/lib/data";
+import { buildPositionRows } from "@/lib/index-rows";
+import { INDEX_FIRST_SCREEN, indexListUrl } from "@/lib/index-lists";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
-import type { OrgType, Position } from "@/lib/types";
 
 export const metadata: Metadata = pageMetadata({
   title: "Posities",
@@ -25,26 +19,14 @@ export const metadata: Metadata = pageMetadata({
   snapshotDate: getDatasetDate(),
 });
 
-const TYPE_ORDER: OrgType[] = ["elected", "dept_head", "commission"];
-
-type TypeGroup = { type: OrgType; positions: Position[] };
-
-function groupByType(positions: Position[]): TypeGroup[] {
-  const map = new Map<string, Position[]>();
-  for (const position of positions) {
-    const list = map.get(position.type);
-    if (list) list.push(position);
-    else map.set(position.type, [position]);
-  }
-  const order = [...TYPE_ORDER, ...[...map.keys()].filter((type) => !TYPE_ORDER.includes(type as OrgType))];
-  return order
-    .filter((type) => map.has(type))
-    .map((type) => ({ type: type as OrgType, positions: map.get(type) ?? [] }));
-}
-
+/**
+ * The positions index. The page carries the first screen of cards; the whole
+ * list is one JSON file (/peek/lists/posities.json) that the view fetches at
+ * once, searches and windows on the client.
+ */
 export default function PositionsIndexPage() {
-  const positions = [...getPositions()].sort((a, b) => a.title.localeCompare(b.title, "nl"));
-  const groups = groupByType(positions);
+  const { rows, groups, total } = buildPositionRows();
+  preload(indexListUrl("posities"), { as: "fetch", crossOrigin: "anonymous" });
   const pageUrl = absoluteUrl("/posities/");
 
   return (
@@ -61,73 +43,16 @@ export default function PositionsIndexPage() {
 
       <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: <T area="entity" k="positionsIndexTitle" /> }]} />
 
-      <header className="mt-4">
+      <header className="mt-4 flex items-baseline gap-2">
         <h1 className="text-3xl font-semibold tracking-tight text-ink">
           <T area="entity" k="positionsIndexTitle" />
         </h1>
+        <span className="text-sm tabular-nums text-ink-faint">
+          <LocalCount value={total} />
+        </span>
       </header>
 
-      {groups.map((group) => (
-        <section
-          key={group.type}
-          aria-labelledby={`type-${group.type}`}
-          className="mt-8"
-        >
-          <h2
-            id={`type-${group.type}`}
-            className="scroll-mt-20 border-b border-line pb-2 text-lg font-semibold tracking-tight text-ink"
-          >
-            <LocaleLabel kind="type" value={group.type} />
-            <span className="ms-2 text-sm font-normal tabular-nums text-ink-faint">
-              <LocalCount value={group.positions.length} />
-            </span>
-          </h2>
-          <ShowAllList
-            items={group.positions}
-            className="mt-3 grid list-none gap-2 p-0 sm:grid-cols-2 xl:grid-cols-3"
-            keyOf={(position) => position.id}
-            render={(position) => {
-              const organization = getOrganizationById(position.organization);
-              const accent = organization ? branchColorVar(organization.branch) : null;
-              return (
-                <article className="relative flex h-full flex-col overflow-hidden rounded-md border border-line bg-surface p-3 pl-4 transition-fast hover:border-line-strong">
-                  {accent !== null ? (
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-y-0 left-0 w-1"
-                      style={{ backgroundColor: accent }}
-                    />
-                  ) : null}
-                  <h3 className="text-sm font-medium">
-                    <Link
-                      href={`/posities/${position.slug}/`}
-                      className="text-ink underline-offset-2 hover:text-accent-text hover:underline"
-                    >
-                      {position.title}
-                    </Link>
-                  </h3>
-                  <Gloss text={positionEn(position.title)} className="block text-xs text-ink-faint" />
-                  {organization ? (
-                    <p className="mt-0.5 truncate text-xs text-ink-muted">
-                      <EntityPeekLink id={organization.id} variant="quiet" />
-                    </p>
-                  ) : null}
-                  {/* A single seat is the norm; the count only says something when there are more. */}
-                  {position.seatsCount !== null && position.seatsCount > 1 ? (
-                    <p className="mt-auto pt-1.5 text-xs tabular-nums text-ink-faint">
-                      <DateT
-                        area="entity"
-                        k={position.seatsCount === 1 ? "seatOne" : "seatMany"}
-                        counts={{ n: position.seatsCount }}
-                      />
-                    </p>
-                  ) : null}
-                </article>
-              );
-            }}
-          />
-        </section>
-      ))}
+      <PositionsIndexView initial={rows.slice(0, INDEX_FIRST_SCREEN.posities)} groups={groups} total={total} />
     </>
   );
 }

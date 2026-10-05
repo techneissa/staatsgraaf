@@ -3,10 +3,11 @@ import { LocalCount } from "@/components/content/local-date";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { T } from "@/components/i18n/t";
-import { PeopleFilters } from "@/components/people/people-filters";
-import { getPeopleIndex } from "@/components/people/people-index";
-import { PersonTile } from "@/components/people/person-tile";
+import { preload } from "react-dom";
+import { PeopleIndexView } from "@/components/people/people-index-view";
 import { getDatasetDate } from "@/lib/data";
+import { buildPeopleRows } from "@/lib/index-rows";
+import { INDEX_FIRST_SCREEN, indexListUrl } from "@/lib/index-lists";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -17,16 +18,16 @@ export const metadata: Metadata = pageMetadata({
   snapshotDate: getDatasetDate(),
 });
 
-const GRID_ID = "personen-lijst";
-
 /**
  * The people index: a sticky filter bar over a dense grid of person cards in
- * A-Z sections. Every card is in the static HTML; the bar only hides cards.
- * Sections off screen skip layout and paint (content-visibility), so the page
- * stays quick with all people on it.
+ * A-Z sections. The page carries the first screen of cards; the whole list is
+ * one small JSON file (/peek/lists/personen.json) that the view fetches at
+ * once and filters on the client, so the page weighs about as much as any
+ * other and every person is still one search away.
  */
 export default function PeopleIndexPage() {
-  const { sections, groups, parties, total } = getPeopleIndex();
+  const { rows, groups, parties, letters, total } = buildPeopleRows();
+  preload(indexListUrl("personen"), { as: "fetch", crossOrigin: "anonymous" });
   const pageUrl = absoluteUrl("/personen/");
 
   return (
@@ -52,38 +53,7 @@ export default function PeopleIndexPage() {
         </span>
       </header>
 
-      <PeopleFilters
-        targetId={GRID_ID}
-        groups={groups}
-        parties={parties}
-        letters={sections.map((section) => section.letter)}
-      />
-
-      <div id={GRID_ID}>
-        {sections.map((section) => (
-          <section
-            key={section.letter}
-            data-letter={section.letter}
-            aria-labelledby={`letter-${section.letter}`}
-            className="mt-5 [contain-intrinsic-size:auto_1200px] [content-visibility:auto]"
-          >
-            <h2
-              id={`letter-${section.letter}`}
-              className="mb-2 scroll-mt-36 text-sm font-semibold tabular-nums text-ink-faint"
-            >
-              {section.letter}
-            </h2>
-            <ul
-              role="list"
-              className="grid list-none grid-cols-[repeat(auto-fill,minmax(8.5rem,1fr))] gap-2 p-0 @lg:grid-cols-[repeat(auto-fill,minmax(9.5rem,1fr))]"
-            >
-              {section.people.map((entry) => (
-                <PersonTile key={entry.id} entry={entry} />
-              ))}
-            </ul>
-          </section>
-        ))}
-      </div>
+      <PeopleIndexView initial={rows.slice(0, INDEX_FIRST_SCREEN.personen)} groups={groups} parties={parties} letters={letters} total={total} />
     </>
   );
 }

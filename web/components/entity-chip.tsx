@@ -18,7 +18,7 @@ export function EntityChip({
   return (
     <Link
       href={href}
-      className={`inline-flex items-center gap-1.5 rounded-pill border border-line bg-surface py-1 pr-3 text-sm text-ink transition-fast hover:border-line-strong hover:text-accent-text ${
+      className={`inline-flex items-center gap-1.5 rounded-pill border border-line bg-surface py-1 pr-3 text-sm text-ink transition-fast hover:border-line-strong hover:text-accent-text pointer-coarse:min-h-11 ${
         icon ? "pl-1" : dot ? "pl-2.5" : "pl-3"
       }`}
     >

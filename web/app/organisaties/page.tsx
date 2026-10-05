@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
-import { EntityCard } from "@/components/entity-card";
 import { EnglishOnly, T } from "@/components/i18n/t";
-import { LabelledNav } from "@/components/entity/labelled-nav";
-import { ShowAllList } from "@/components/news/show-all-list";
-import { branchColorVar } from "@/lib/branch-colors";
-import { getDatasetDate, getOrganizations } from "@/lib/data";
-import { LocalCount } from "@/components/content/local-date";
-import { SECTOR_ORDER } from "@/lib/graph";
-import { LocaleLabel } from "@/components/i18n/locale-label";
+import { OrganizationsIndexView } from "@/components/index-list/organizations-index-view";
+import { preload } from "react-dom";
+import { getDatasetDate } from "@/lib/data";
+import { buildOrganizationRows } from "@/lib/index-rows";
+import { INDEX_FIRST_SCREEN, indexListUrl } from "@/lib/index-lists";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
-import type { Organization, OrgBranch } from "@/lib/types";
 
 export const metadata: Metadata = pageMetadata({
   title: "Organisaties",
@@ -21,28 +17,14 @@ export const metadata: Metadata = pageMetadata({
   snapshotDate: getDatasetDate(),
 });
 
-type BranchGroup = { branch: OrgBranch; organizations: Organization[] };
-
-function groupByBranch(organizations: Organization[]): BranchGroup[] {
-  const map = new Map<string, Organization[]>();
-  for (const organization of organizations) {
-    const list = map.get(organization.branch);
-    if (list) list.push(organization);
-    else map.set(organization.branch, [organization]);
-  }
-  const known = SECTOR_ORDER.filter((branch) => map.has(branch));
-  const rest = [...map.keys()]
-    .filter((branch) => !SECTOR_ORDER.includes(branch as OrgBranch))
-    .sort((a, b) => a.localeCompare(b, "nl"));
-  return [...known, ...(rest as OrgBranch[])].map((branch) => ({
-    branch,
-    organizations: map.get(branch) ?? [],
-  }));
-}
-
+/**
+ * The organisations index. The page carries the first screen of cards; the
+ * whole list is one JSON file (/peek/lists/organisaties.json) that the view
+ * fetches at once, searches and windows on the client.
+ */
 export default function OrganizationsIndexPage() {
-  const organizations = [...getOrganizations()].sort((a, b) => a.name.localeCompare(b.name, "nl"));
-  const groups = groupByBranch(organizations);
+  const { rows, groups, total } = buildOrganizationRows();
+  preload(indexListUrl("organisaties"), { as: "fetch", crossOrigin: "anonymous" });
   const pageUrl = absoluteUrl("/organisaties/");
 
   return (
@@ -70,52 +52,7 @@ export default function OrganizationsIndexPage() {
         </EnglishOnly>
       </header>
 
-      <LabelledNav area="entity" k="groupNavLabel" className="mt-6">
-        <ul className="flex flex-wrap gap-2">
-          {groups.map((group) => (
-            <li key={group.branch}>
-              <a
-                href={`#groep-${group.branch}`}
-                className="inline-flex items-center gap-1.5 rounded-pill border border-line bg-surface px-3 py-1 text-xs font-medium text-ink-muted transition-fast hover:border-line-strong hover:text-ink pointer-coarse:min-h-11"
-              >
-                <span
-                  aria-hidden="true"
-                  className="inline-block h-2.5 w-2.5 shrink-0 rounded-full ring-1 ring-line"
-                  style={{ backgroundColor: branchColorVar(group.branch) }}
-                />
-                <LocaleLabel kind="branch" value={group.branch} />
-                <span className="tabular-nums text-ink-faint">
-                  <LocalCount value={group.organizations.length} />
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
-      </LabelledNav>
-
-      {groups.map((group) => (
-        <section
-          key={group.branch}
-          aria-labelledby={`groep-${group.branch}`}
-          className="mt-8"
-        >
-          <h2
-            id={`groep-${group.branch}`}
-            className="scroll-mt-20 border-b border-line pb-2 text-lg font-semibold tracking-tight text-ink"
-          >
-            <LocaleLabel kind="branch" value={group.branch} />
-            <span className="ms-2 text-sm font-normal tabular-nums text-ink-faint">
-              <LocalCount value={group.organizations.length} />
-            </span>
-          </h2>
-          <ShowAllList
-            items={group.organizations}
-            className="mt-3 grid list-none gap-3 p-0 sm:grid-cols-2 xl:grid-cols-3"
-            keyOf={(organization) => organization.id}
-            render={(organization) => <EntityCard organization={organization} />}
-          />
-        </section>
-      ))}
+      <OrganizationsIndexView initial={rows.slice(0, INDEX_FIRST_SCREEN.organisaties)} groups={groups} total={total} />
     </>
   );
 }
