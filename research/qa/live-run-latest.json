@@ -1,0 +1,63 @@
+{
+  "generatedAt": "2026-10-05T16:00:35.462Z",
+  "today": "2026-10-05",
+  "outcome": "unchanged",
+  "exitCode": 0,
+  "forced": false,
+  "trigger": {
+    "run": false,
+    "reason": null,
+    "matches": []
+  },
+  "sources": {
+    "tweedeKamer": {
+      "checked": true,
+      "counts": {
+        "fzp": 0,
+        "fractie": 0,
+        "vacature": 0,
+        "presidium": 0
+      },
+      "changed": false
+    },
+    "eersteKamer": {
+      "checked": true,
+      "hashChanged": false,
+      "full": false
+    },
+    "bewindspersonen": {
+      "full": false
+    },
+    "electionDates": {
+      "full": false
+    }
+  },
+  "counts": {
+    "closures": 0,
+    "openings": 0,
+    "newPeople": 0,
+    "newPositions": 0,
+    "gaps": 0,
+    "reviewEntries": 0
+  },
+  "closures": [],
+  "openings": [],
+  "stoppedByGuard": [],
+  "gaps": [],
+  "reviewEntries": [],
+  "requests": {
+    "total": 7,
+    "byHost": {
+      "www.rijksoverheid.nl": 1,
+      "gegevensmagazijn.tweedekamer.nl": 4,
+      "www.eerstekamer.nl": 2
+    }
+  },
+  "merge": null,
+  "validate": null,
+  "files": {
+    "envelopeChanged": false,
+    "upcomingChanged": false,
+    "stateChanged": false
+  }
+}

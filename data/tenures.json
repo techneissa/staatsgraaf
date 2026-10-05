@@ -7185,6 +7185,25 @@
     }
   },
   {
+    "id": "tenure:eerste-ondervoorzitter-tweede-kamer-wieke-paulusma-20251120",
+    "person": "person:wieke-paulusma",
+    "position": "pos:eerste-ondervoorzitter-tweede-kamer",
+    "seat": null,
+    "start": "2025-11-20",
+    "end": null,
+    "acting": false,
+    "entryMode": "gekozen",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:tk-odata-presidium",
+      "retrieved": "2026-10-05",
+      "confidence": "high"
+    }
+  },
+  {
     "id": "tenure:elffers-voorzitter-onderwijsraad-2024",
     "person": "person:louise-elffers",
     "position": "pos:voorzitter-onderwijsraad",
@@ -29494,6 +29513,25 @@
     "source": {
       "source": "src:gezondheidsraad-stronks",
       "retrieved": "2026-09-18",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:tweede-ondervoorzitter-tweede-kamer-marjolein-moorman-20260702",
+    "person": "person:marjolein-moorman",
+    "position": "pos:tweede-ondervoorzitter-tweede-kamer",
+    "seat": null,
+    "start": "2026-07-02",
+    "end": null,
+    "acting": false,
+    "entryMode": "gekozen",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:tk-odata-presidium",
+      "retrieved": "2026-10-05",
       "confidence": "high"
     }
   },
