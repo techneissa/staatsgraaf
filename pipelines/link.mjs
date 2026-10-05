@@ -24,12 +24,12 @@ export const STOPWORDS = new Set([
 const FOREIGN_WORDS = [
   "Franse", "Duitse", "Britse", "Amerikaanse", "Russische", "Chinese", "Belgische", "Italiaanse", "Spaanse",
   "Poolse", "Hongaarse", "Oekraïense", "Israëlische", "Iraanse", "Turkse", "Zweedse", "Deense", "Noorse", "Griekse",
-  "Indiase", "Japanse", "Braziliaanse", "Canadese", "Australische", "Oostenrijkse", "Zwitserse", "Portugese",
+  "Indiase", "Japanse", "Braziliaanse", "Canadese", "Australische", "Oostenrijkse", "Zwitserse", "Portugese", "Vlaamse", "Waalse", "Gentse", "Antwerpse", "Brusselse", "Indonesische", "Zuid-Afrikaanse", "Marokkaanse", "Thaise",
   "Finse", "Roemeense", "Syrische", "Egyptische", "Palestijnse", "Mexicaanse", "Argentijnse", "Afghaanse",
   "Frankrijk", "Duitsland", "Engeland", "Groot-Brittannië", "Verenigd Koninkrijk", "Verenigde Staten", "VS",
   "Amerika", "Rusland", "China", "België", "Italië", "Spanje", "Polen", "Hongarije", "Oekraïne", "Israël",
   "Iran", "Turkije", "Zweden", "Denemarken", "Noorwegen", "Griekenland", "India", "Japan", "Brazilië", "Canada",
-  "Australië", "Oostenrijk", "Zwitserland", "Portugal", "Finland", "Roemenië", "Syrië", "Egypte", "Gaza",
+  "Australië", "Oostenrijk", "Zwitserland", "Portugal", "Vlaanderen", "Wallonië", "Indonesië", "Marokko", "Thailand", "Zuid-Afrika", "Finland", "Roemenië", "Syrië", "Egypte", "Gaza",
   "Kyiv", "Kiev", "Moskou", "Washington", "Londen", "Parijs", "Berlijn", "Trump", "Poetin", "Putin", "Starmer",
   "Macron", "Merz", "Netanyahu", "Zelensky", "Zelenski", "Kremlin", "Witte Huis",
 ];
@@ -68,14 +68,15 @@ export const GOVERNMENT_CUES =
 
 /**
  * Topic keywords that are everyday words or place names. One of them alone proves
- * nothing ("Van Dijk", "auto", "ziekenhuis"); two distinct ones from the same topic do.
- * Every other keyword is a policy term and attaches the topic by itself.
+ * nothing ("Van Dijk", "auto", "ziekenhuis"); three distinct ones from the same topic
+ * do. Every other keyword is a policy term and attaches the topic by itself, unless the
+ * text points abroad, when it needs a second one.
  */
 export const GENERIC_TOPIC_KEYWORDS = new Set([
   "woning", "woningen", "huur", "huurders", "huurwoning", "huurwoningen", "bouw", "daklozen", "woningmarkt", "corporaties",
   "zorg", "ziekenhuis", "ziekenhuizen", "huisarts", "huisartsen", "verpleeghuis", "medicijn", "pandemie", "kanker", "dementie",
   "verpleegkundige", "wachtlijst",
-  "kinderopvang", "gedupeerde", "gedupeerde ouders", "compensatie", "schulden", "hersteloperatie",
+  "kinderopvang", "gedupeerde", "compensatie", "schulden", "hersteloperatie",
   "klimaat", "klimaatverandering", "energie", "energierekening", "gas", "aardgas", "gasprijs", "elektriciteit", "stroom", "stroomnet",
   "waterstof", "groningen", "zonnepark", "verduurzaming",
   "opvang", "noodopvang", "opvanglocatie", "opvangcentrum", "vluchteling", "vluchtelingen", "migratie", "uitzetting", "mensenhandel",
@@ -213,7 +214,7 @@ export function findTopicMatches(text, topicIndex) {
     }
     const distinct = new Set(hits.map((hit) => hit.toLowerCase().slice(0, 6)));
     const anchored = hits.some((hit) => !GENERIC_TOPIC_KEYWORDS.has(hit.toLowerCase()));
-    const needed = anchored && !pointsAbroad ? 1 : 2;
+    const needed = anchored ? (pointsAbroad ? 2 : 1) : 3;
     if (hits.length > 0 && distinct.size >= needed) {
       scores.push({ id: topic.id, score: hits.length, keywords: [...new Set(hits)].sort(), order: topic.id });
     }
