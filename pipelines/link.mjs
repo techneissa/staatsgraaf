@@ -30,13 +30,14 @@ const FOREIGN_WORDS = [
   "Amerika", "Rusland", "China", "België", "Italië", "Spanje", "Polen", "Hongarije", "Oekraïne", "Israël",
   "Iran", "Turkije", "Zweden", "Denemarken", "Noorwegen", "Griekenland", "India", "Japan", "Brazilië", "Canada",
   "Australië", "Oostenrijk", "Zwitserland", "Portugal", "Vlaanderen", "Wallonië", "Indonesië", "Marokko", "Thailand", "Zuid-Afrika", "Finland", "Roemenië", "Syrië", "Egypte", "Gaza",
-  "Kyiv", "Kiev", "Moskou", "Washington", "Londen", "Parijs", "Berlijn", "Trump", "Poetin", "Putin", "Starmer",
+  "Kyiv", "Kiev", "Moskou", "Washington", "Londen", "Parijs", "Berlijn", "Trump", "Trumps",
+  "Mississippi", "Massachusetts", "Texas", "Florida", "Californië", "New York", "Alabama", "Louisiana", "Minnesota", "Ohio", "Poetin", "Putin", "Starmer",
   "Macron", "Merz", "Netanyahu", "Zelensky", "Zelenski", "Kremlin", "Witte Huis",
 ];
 const FOREIGN_ALTERNATION = FOREIGN_WORDS.map(escapeRegExp).join("|");
 export const FOREIGN_CONTEXT = new RegExp(`(?<![\\p{L}\\p{N}])(?:${FOREIGN_ALTERNATION})(?![\\p{L}\\p{N}])`, "u");
 export const DUTCH_CONTEXT =
-  /(?<![\p{L}\p{N}])(?:Nederland|Nederlands\w*|Nederlander\w*|Haag\w*|Den Haag|Tweede Kamer|Eerste Kamer|Binnenhof|Rijksoverheid|Rijk)(?![\p{L}\p{N}])/u;
+  /(?<![\p{L}\p{N}])(?:Nederland|Nederlands\w*|Nederlander\w*|Haagse|Tweede Kamer|Eerste Kamer|Binnenhof|Rijksoverheid|Rijk)(?![\p{L}\p{N}])/u;
 /** A foreign adjective directly before a match: "Duitse minister van Defensie". */
 const DEMONYM_FORMS = [
   ...FOREIGN_WORDS.filter((word) => word.endsWith("e")),
@@ -48,7 +49,11 @@ const DEMONYM_FORMS = [
 const DEMONYM_BEFORE = new RegExp(`(?:${DEMONYM_FORMS.map(escapeRegExp).join("|")})\\s+(?:[\\p{L}-]+\\s+)?$`, "iu");
 
 /** Institution names every state has. A hit needs a Dutch anchor when the text points abroad. */
-const GENERIC_INSTITUTIONS = new Set(["regering", "de regering", "kabinet", "het kabinet", "politie", "de politie", "douane", "defensie", "de kamer"]);
+const GENERIC_INSTITUTIONS = new Set([
+  "regering", "de regering", "kabinet", "het kabinet", "politie", "de politie", "douane", "defensie", "de kamer",
+  "openbaar ministerie", "raad van state", "rekenkamer", "justitie", "parlement",
+]);
+const GENERIC_INSTITUTION_PREFIX = /^ministerie van /;
 
 /** Broadcasters: linked only next to a state actor, never for entertainment news. */
 const MEDIA_TARGETS = new Set([
@@ -171,7 +176,7 @@ export function buildGazetteer(aliases) {
       acronym,
       caseSensitive,
       confidence,
-      generic: GENERIC_INSTITUTIONS.has(entry.key) || /^pos:/.test(entry.target),
+      generic: GENERIC_INSTITUTIONS.has(entry.key) || GENERIC_INSTITUTION_PREFIX.test(entry.key) || /^pos:/.test(entry.target),
       weak: weakKind(entry),
       regex: new RegExp(
         `(?<![\\p{L}\\p{N}])${escapeRegExp(entry.alias)}(?![\\p{L}\\p{N}])`,

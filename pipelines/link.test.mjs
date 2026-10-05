@@ -395,3 +395,21 @@ test("VNG, the Vereniging van Nederlandse Gemeenten and the IPO link to their re
   assert.deepEqual(realLink("Provincies verlangen meer geld", "Het Interprovinciaal Overleg (IPO) wil extra budget.").entities, ["org:ipo"]);
   assert.deepEqual(realLink("Beursgang: IPO van techbedrijf succesvol").entities, []);
 });
+
+test("a foreign prosecutor, police force or ministry is not the Dutch one", () => {
+  assert.deepEqual(
+    realLink("Bijna duizend kinderen misbruikt door priesters in VS", "In de Amerikaanse staat Massachusetts maakte het Openbaar Ministerie (OM) van de staat dit bekend.").entities,
+    [],
+  );
+  assert.deepEqual(realLink("Politie Mississippi: zwarte vrouw was al dood", "Dat concludeert de politie in Mississippi.").entities, []);
+  assert.deepEqual(
+    realLink("Russische Tu-95-bommenwerper stort neer", "Zes bemanningsleden van een Russisch militair vliegtuig zijn omgekomen, meldt het ministerie van Defensie.").entities,
+    [],
+  );
+  assert.deepEqual(realLink("Waarom haat Trump het Internationaal Strafhof?", "Trumps regering wil het Internationaal Strafhof in Den Haag afbreken.").entities, []);
+});
+
+test("the Dutch Openbaar Ministerie links when nothing points abroad", () => {
+  const result = realLink("Openbaar Ministerie gaat voortaan altijd celstraf eisen na fysiek geweld tegen hulpverleners");
+  assert.deepEqual(result.entities, ["org:openbaar-ministerie"]);
+});
