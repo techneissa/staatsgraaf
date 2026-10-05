@@ -1,18 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { ViewTransition, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import "./globals.css";
 import { LanguageProvider } from "@/components/i18n/language-provider";
 import { CanvasFrame } from "@/components/canvas-frame";
 import { SelectionProvider } from "@/components/selection/selection-provider";
-import { SelectionProfile } from "@/components/panels/selection-profile";
+import { SelectionProfileGate } from "@/components/selection/selection-profile-gate";
 import { Workspace } from "@/components/panels/workspace";
 import { PANELS_INIT_SCRIPT } from "@/components/panels/panel-prefs";
+import { NavScroll } from "@/components/nav-scroll";
 import { PeekProvider } from "@/components/peek/peek-provider";
 import { RevealObserver } from "@/components/reveal-observer";
 import { SiteFooter } from "@/components/site-footer";
 import { SkipLink } from "@/components/skip-link";
 import { TopBar } from "@/components/top-bar";
 import { getDatasetDate } from "@/lib/data";
+import { CANVAS_INIT_SCRIPT } from "@/lib/canvas-prefs";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL, THEME_INIT_SCRIPT } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -54,6 +56,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <script dangerouslySetInnerHTML={{ __html: PANELS_INIT_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{ __html: CANVAS_INIT_SCRIPT }} />
       </head>
       <body>
         <LanguageProvider>
@@ -75,17 +78,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                   <div className="mx-auto w-full max-w-[44rem] lg:mx-0 lg:max-w-none">
                     {/* What is picked on the canvas, above the page; it does not
                         take part in the page transition. */}
-                    <SelectionProfile />
-                    {/* The page column cross-fades on navigation (globals.css, "Page
-                        transitions"); nothing else on the page takes part. */}
-                    <ViewTransition update="sg-page" default="none">
-                      <div>{children}</div>
-                    </ViewTransition>
+                    <SelectionProfileGate />
+                    {/* The page itself, wrapped and cross-faded by app/template.tsx. */}
+                    {children}
                   </div>
                 </main>
                 <SiteFooter datasetDate={datasetDate} />
               </Workspace>
             </div>
+            <NavScroll />
           </SelectionProvider>
           <PeekProvider />
           <RevealObserver />

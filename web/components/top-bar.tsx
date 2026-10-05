@@ -11,21 +11,20 @@ import { LanguageToggle } from "./language-toggle";
 import { SearchOverlay } from "./search/search-overlay";
 import { ThemeToggle } from "./theme-toggle";
 import { useT } from "./i18n/use-t";
+import { ABOUT, MAIN_NAV, SECTIONS } from "@/lib/site-nav";
+import { languageTwin } from "@/lib/language-routes";
+import { useLocale } from "./i18n/language-provider";
 
-const NAV = [
-  { href: "/wijzigingen/", label: "navChanges" },
-  { href: "/nieuws/", label: "navNews" },
-  { href: "/onderwerpen/", label: "navTopics" },
-  { href: "/begroting/", label: "navBudget" },
-  { href: "/organisaties/", label: "navOrganizations" },
-  { href: "/personen/", label: "navPeople" },
-  { href: "/partijen/", label: "navParties" },
-] as const;
+/** A section that exists in both languages links to the twin in the reader's language. */
+function sectionHref(href: string, english: boolean): string {
+  return english ? (languageTwin(href)?.en ?? href) : href;
+}
 
 function isCurrent(pathname: string | null, href: string): boolean {
   if (pathname === null) return false;
   const path = pathname.endsWith("/") ? pathname : `${pathname}/`;
-  return path.startsWith(href);
+  const twin = languageTwin(href);
+  return path.startsWith(href) || (twin !== null && path.startsWith(twin.en));
 }
 
 /**
@@ -36,6 +35,7 @@ function isCurrent(pathname: string | null, href: string): boolean {
  */
 function MobileMenu({ pathname }: { pathname: string | null }) {
   const t = useT("common");
+  const english = useLocale() === "en";
   const ref = useRef<HTMLDetailsElement>(null);
   const [open, setOpen] = useState(false);
 
@@ -74,16 +74,16 @@ function MobileMenu({ pathname }: { pathname: string | null }) {
         <span className="max-[400px]:sr-only">{t("menu")}</span>
       </summary>
       <nav
-        aria-label={t("navMain")}
+        aria-label={t("navMenuLabel")}
         className="motion-pop absolute inset-x-0 top-full z-30 mx-[max(0.75rem,var(--safe-left))] mt-1.5 rounded-md border border-line bg-surface p-1.5 shadow-xl sm:inset-x-auto sm:left-0 sm:mx-0 sm:w-64"
       >
         <ul className="flex flex-col">
-          {NAV.map((item) => {
+          {SECTIONS.map((item) => {
             const current = isCurrent(pathname, item.href);
             return (
               <li key={item.href}>
                 <Link
-                  href={item.href}
+                  href={sectionHref(item.href, english)}
                   aria-current={current ? "page" : undefined}
                   onClick={() => {
                     if (ref.current) ref.current.open = false;
@@ -98,6 +98,22 @@ function MobileMenu({ pathname }: { pathname: string | null }) {
             );
           })}
         </ul>
+        <ul className="mt-1 flex flex-col border-t border-line pt-1">
+          <li>
+            <Link
+              href={ABOUT.href}
+              aria-current={isCurrent(pathname, ABOUT.href) ? "page" : undefined}
+              onClick={() => {
+                if (ref.current) ref.current.open = false;
+              }}
+              className={`flex min-h-11 items-center rounded-sm px-3 text-base transition-fast hover:bg-surface-raised hover:text-ink sm:text-sm sm:pointer-fine:min-h-9 ${
+                isCurrent(pathname, ABOUT.href) ? "font-medium text-accent-text" : "text-ink-muted"
+              }`}
+            >
+              {t(ABOUT.label)}
+            </Link>
+          </li>
+        </ul>
       </nav>
     </details>
   );
@@ -105,6 +121,7 @@ function MobileMenu({ pathname }: { pathname: string | null }) {
 
 export function TopBar() {
   const t = useT("common");
+  const english = useLocale() === "en";
   const pathname = usePathname();
 
   return (
@@ -112,18 +129,18 @@ export function TopBar() {
       className="relative z-20 shrink-0 border-b border-line bg-canvas pt-[var(--safe-top)]"
       style={{ viewTransitionName: "site-header" }}
     >
-      <div className="flex items-center gap-1.5 py-2 pl-[max(0.75rem,var(--safe-left))] pr-[max(0.75rem,var(--safe-right))] sm:gap-3 sm:pl-[max(1rem,var(--safe-left))] sm:pr-[max(1rem,var(--safe-right))]">
+      <div className="flex items-center gap-1.5 py-2 pl-[max(0.75rem,var(--safe-left))] pr-[max(0.75rem,var(--safe-right))] sm:gap-3 sm:pl-[max(1rem,var(--safe-left))] sm:pr-[max(1rem,var(--safe-right))] lg:gap-2">
         <BrandLockup />
         <MobileMenu pathname={pathname} />
         <nav aria-label={t("navMain")} className="hidden items-center gap-0.5 text-sm min-[1180px]:flex">
-          {NAV.map((item) => {
+          {MAIN_NAV.map((item) => {
             const current = isCurrent(pathname, item.href);
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                href={sectionHref(item.href, english)}
                 aria-current={current ? "page" : undefined}
-                className={`link-draw tap-row flex items-center whitespace-nowrap rounded-sm px-2 py-1 underline-offset-4 [--link-draw-bottom:calc(50%-0.72em)] [--link-draw-inset:0.5rem] hover:text-ink hover:underline ${
+                className={`link-draw tap-row flex items-center whitespace-nowrap rounded-sm px-1.5 py-1 underline-offset-4 [--link-draw-bottom:calc(50%-0.72em)] [--link-draw-inset:0.375rem] hover:text-ink hover:underline ${
                   current ? "text-ink underline decoration-accent" : "text-ink-muted"
                 }`}
               >
@@ -145,7 +162,8 @@ export function TopBar() {
               </Link>
             </noscript>
           </div>
-          <div className="max-[400px]:hidden">
+          {/* Nine sections fill the bar from 1180 px; the history buttons wait for 1281 px. */}
+          <div className="max-[400px]:hidden min-[1180px]:max-[1280px]:hidden">
             <HistoryControls />
           </div>
           <ThemeToggle />

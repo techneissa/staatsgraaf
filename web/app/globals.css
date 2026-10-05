@@ -640,3 +640,20 @@ html[data-panels-resizing] {
   cursor: col-resize;
   user-select: none;
 }
+
+/*
+ * Graph band (components/canvas-frame.tsx). Below lg the canvas sits above the
+ * page in the one-column stack. On the home page it is the page. On every
+ * other route it folds to one toolbar row ("Toon grafiek") so the page's own
+ * content starts on the first screen; the reader's choice arrives on <html> as
+ * data-canvas-open before first paint (CANVAS_INIT_SCRIPT), so an open graph
+ * does not shut and open again between pages. From lg nothing folds.
+ */
+@media (max-width: 63.999rem) {
+  html:not([data-canvas-open]) [data-canvas-frame][data-route="page"]:not([data-expanded]) {
+    height: auto;
+  }
+  html:not([data-canvas-open]) [data-canvas-frame][data-route="page"]:not([data-expanded]) :is([data-canvas-body], [data-canvas-tools]) {
+    display: none;
+  }
+}
