@@ -1,0 +1,8 @@
+# Next 16 prefetches every Link as /<route>/__next._tree.txt, but prune-export
+# deletes the segment files to stay under the 20,000 file cap (ADR 0022).
+# Answer those requests with a 1 byte file instead of the 36 KB 404 page.
+# Routes are at most two segments deep. Cloudflare Pages allows one splat per
+# line and no splat mid-path, so use placeholders.
+/__next._tree.txt /__prefetch-miss.txt 200
+/:a/__next._tree.txt /__prefetch-miss.txt 200
+/:a/:b/__next._tree.txt /__prefetch-miss.txt 200
