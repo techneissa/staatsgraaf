@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { EMPTY_SELECTION, SELECTION_HISTORY_LIMIT, currentSelection, sameSelection, selectionReducer } from "./selection.ts";
+import { EMPTY_SELECTION, SELECTION_HISTORY_LIMIT, currentSelection, sameSelection, selectionOwnsPath, selectionReducer } from "./selection.ts";
 
 const org = (id) => ({ kind: "org", id, surface: "graph" });
 const run = (...actions) => actions.reduce(selectionReducer, EMPTY_SELECTION);
@@ -40,5 +40,30 @@ describe("selection history", () => {
   test("history is capped", () => {
     const actions = Array.from({ length: SELECTION_HISTORY_LIMIT + 5 }, (_, i) => ({ type: "select", selection: org(String(i)) }));
     expect(run(...actions).stack.length).toBe(SELECTION_HISTORY_LIMIT);
+  });
+});
+
+describe("selection and the page", () => {
+  const own = { kind: "org", id: "org:gemeente-amsterdam", surface: "graph" };
+  test("the page's own entity is the page, not a pick for the URL", () => {
+    expect(selectionOwnsPath(own, "/organisaties/gemeente-amsterdam/")).toBe(true);
+    expect(selectionOwnsPath(org("org:provincie-noord-holland"), "/organisaties/gemeente-amsterdam/")).toBe(false);
+    expect(selectionOwnsPath({ kind: "person", id: "person:rob-jetten", surface: "graph" }, "/personen/rob-jetten/")).toBe(true);
+    expect(selectionOwnsPath({ kind: "sector", id: "gemeenten", surface: "graph" }, "/")).toBe(false);
+    expect(selectionOwnsPath(null, "/")).toBe(false);
+  });
+  test("moving to another page drops a canvas pick, so no stale profile sits above it", () => {
+    const state = run({ type: "select", selection: org("org:ministerie-van-defensie") });
+    expect(currentSelection(selectionReducer(state, { type: "navigate", pathname: "/posities/minister-van-financien/" }))).toBe(null);
+  });
+  test("moving to the picked entity's own page keeps the pick, and drops the rest", () => {
+    const state = run({ type: "select", selection: org("org:provincie-noord-holland") }, { type: "select", selection: own });
+    const next = selectionReducer(state, { type: "navigate", pathname: "/organisaties/gemeente-amsterdam/" });
+    expect(next.stack.map((entry) => entry.id)).toEqual(["org:gemeente-amsterdam"]);
+  });
+  test("nothing to drop is the same state", () => {
+    expect(selectionReducer(EMPTY_SELECTION, { type: "navigate", pathname: "/begroting/" })).toBe(EMPTY_SELECTION);
+    const state = run({ type: "select", selection: own });
+    expect(selectionReducer(state, { type: "navigate", pathname: "/organisaties/gemeente-amsterdam/" })).toBe(state);
   });
 });
