@@ -4,6 +4,11 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { useT } from "./i18n/use-t";
 
+/**
+ * One step of the trail. Every step except the last takes an `href`, which
+ * makes it a link ("Staatsgraaf / Personen / Rob Jetten" links the first two);
+ * the last step is the current page and never a link.
+ */
 export type BreadcrumbItem = {
   label: ReactNode;
   href?: string;
@@ -22,12 +27,14 @@ export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
               {item.href !== undefined && !isLast ? (
                 <Link
                   href={item.href}
-                  className="underline-offset-2 hover:text-ink hover:underline"
+                  className="tap-target inline-flex items-center underline-offset-2 hover:text-ink hover:underline"
                 >
                   {item.label}
                 </Link>
               ) : (
-                <span aria-current={isLast ? "page" : undefined}>{item.label}</span>
+                <span aria-current={isLast ? "page" : undefined} className="tap-row inline-flex items-center">
+                  {item.label}
+                </span>
               )}
               {!isLast ? (
                 <span aria-hidden="true" className="text-ink-faint">
