@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
 import { NewsExplorer } from "@/components/news/news-explorer";
+import { NewsPageLinks } from "@/components/news/news-links";
 import { getDatasetDate } from "@/lib/data";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
 import { buildNewsExplorerGroups, formatNewsDayLabel } from "@/lib/news-page";
@@ -50,6 +51,7 @@ export default function NewsPage() {
         <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
           <h1 className="text-2xl font-semibold tracking-tight text-ink">{messages.heading}</h1>
         </div>
+        <NewsPageLinks route="en" />
         {datasetDate !== null ? (
           <p className="mt-2 text-xs text-ink-faint">updated {formatNewsDayLabel(datasetDate, "en")}</p>
         ) : null}

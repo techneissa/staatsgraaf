@@ -460,3 +460,25 @@ test("burgemeester plus surname links to the current mayor", () => {
     [],
   );
 });
+
+test("a proper name with a connector word links, but only in its written capitalisation", () => {
+  const result = realLink("Hulpverleners schoten ernstig tekort", "Dat oordeel velt de Inspectie Gezondheidszorg en Jeugd vandaag in een rapport.");
+  assert.ok(result.entities.includes("org:inspectie-gezondheidszorg-en-jeugd"), JSON.stringify(result.entities));
+  const lower = realLink("Rapport", "Dat oordeel velt de inspectie gezondheidszorg en jeugd vandaag.");
+  assert.deepEqual(lower.entities, []);
+  const phrase = realLink("Nieuw beleid voor asiel en migratie", "Er komen meer opvangplekken voor asiel en migratie in de regio.");
+  assert.ok(!phrase.entities.includes("org:ministerie-van-asiel-en-migratie"), JSON.stringify(phrase.entities));
+});
+
+test("gazetteer confidence keeps a lowercase phrase with connector words generic", () => {
+  assert.equal(gazetteerConfidence("de man van het", "medium", false), "medium");
+  assert.equal(gazetteerConfidence("Autoriteit Consument en Markt", "high", false), "high");
+});
+
+test("abroad, everyday topic keywords never attach a topic", () => {
+  const french = realLink("Scholieren in Frankrijk in actie tegen lange dagen", "Franse scholieren voeren actie tegen personeelstekorten en bezuinigingen in het onderwijs op scholen.");
+  assert.deepEqual(french.topics, []);
+  const madrid = realLink("Demonstranten kamperen in centrum Madrid", "Zij protesteren tegen de huur en het woningtekort.");
+  assert.deepEqual(madrid.topics, []);
+  assert.ok(realLink("Scholen krijgen minder leraren", "Op scholen is een lerarentekort, zeggen leerlingen en onderwijs.").topics.includes("topic:onderwijs"));
+});

@@ -35,7 +35,9 @@ const FOREIGN_WORDS = [
   "Zwitserland", "Portugal", "Finland", "Roemenië", "Syrië", "Egypte", "Gaza", "Vlaanderen", "Wallonië", "Indonesië",
   "Marokko", "Thailand", "Zuid-Afrika",
   // capitals and US states that stand for a foreign government or police
-  "Kyiv", "Kiev", "Moskou", "Washington", "Londen", "Parijs", "Berlijn", "Mississippi", "Massachusetts", "Texas",
+  "Kyiv", "Kiev", "Moskou", "Washington", "Londen", "Parijs", "Berlijn", "Madrid", "Rome", "Athene", "Wenen", "Warschau",
+  "Boedapest", "Praag", "Stockholm", "Kopenhagen", "Oslo", "Helsinki", "Lissabon", "Dublin", "Peking", "Tokio", "Caïro",
+  "Teheran", "Jeruzalem", "Tel Aviv", "Sydney", "Toronto", "Mississippi", "Massachusetts", "Texas",
   "Florida", "Californië", "New York", "Alabama", "Louisiana", "Minnesota", "Ohio",
   // leaders and seats of power
   "Trump", "Trumps", "Poetin", "Putin", "Starmer", "Macron", "Merz", "Netanyahu", "Zelensky", "Zelenski", "Kremlin",
@@ -125,9 +127,21 @@ export function isAcronymAlias(alias) {
   return letters.length >= 2 && letters.length <= 6 && alias === alias.toUpperCase() && /[A-Z]/.test(alias);
 }
 
+/**
+ * A name written with two or more capitalised words ("Inspectie Gezondheidszorg en
+ * Jeugd", "Alphen aan den Rijn") is a proper name even when it holds a connector word.
+ */
+export function isProperNameWithConnectors(alias) {
+  const tokens = alias.split(" ").filter(Boolean);
+  if (tokens.length < 3) return false;
+  const capitalised = tokens.filter((token) => /^[A-ZÀ-Þ]/.test(token)).length;
+  return capitalised >= 2 && tokens.some((token) => token.length < 3 || STOPWORDS.has(token.toLowerCase()));
+}
+
 export function isGenericMultiToken(alias) {
   const tokens = alias.split(" ").filter(Boolean);
   if (tokens.length < 3) return false;
+  if (isProperNameWithConnectors(alias)) return false;
   return tokens.some((token) => token.length < 3 || STOPWORDS.has(token.toLowerCase()));
 }
 
@@ -177,7 +191,10 @@ export function buildGazetteer(aliases) {
     const confidence = gazetteerConfidence(entry.alias, entry.declared, acronym);
     const singleToken = entry.alias.split(" ").filter(Boolean).length === 1;
     const capitalized = /^[A-ZÀ-Þ]/.test(entry.alias);
-    const caseSensitive = acronym || (singleToken && capitalized && entry.declared === "medium");
+    // A proper name with connector words matches only as written, so "asiel en migratie" the
+    // phrase is not "Asiel en Migratie" the ministry.
+    const caseSensitive =
+      acronym || (singleToken && capitalized && entry.declared === "medium") || isProperNameWithConnectors(entry.alias);
     return {
       ...entry,
       acronym,
@@ -224,10 +241,12 @@ export function findTopicMatches(text, topicIndex) {
       if (normalized.includes(keyword.toLowerCase()) && regex.test(normalized)) hits.push(keyword);
       regex.lastIndex = 0;
     }
-    const distinct = new Set(hits.map((hit) => hit.toLowerCase().slice(0, 6)));
-    const anchored = hits.some((hit) => !GENERIC_TOPIC_KEYWORDS.has(hit.toLowerCase()));
-    const needed = anchored ? (pointsAbroad ? 2 : 1) : 3;
-    if (hits.length > 0 && distinct.size >= needed) {
+    const stem = (hit) => hit.toLowerCase().slice(0, 6);
+    const distinct = new Set(hits.map(stem));
+    const policyTerms = new Set(hits.filter((hit) => !GENERIC_TOPIC_KEYWORDS.has(hit.toLowerCase())).map(stem));
+    // At home one policy term, or three everyday words, attach a topic. Abroad it takes two policy terms.
+    const enough = pointsAbroad ? policyTerms.size >= 2 : policyTerms.size >= 1 || distinct.size >= 3;
+    if (hits.length > 0 && enough) {
       scores.push({ id: topic.id, score: hits.length, keywords: [...new Set(hits)].sort(), order: topic.id });
     }
   }
