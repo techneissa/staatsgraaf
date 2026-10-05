@@ -5,7 +5,7 @@ import { useT } from "@/components/i18n/use-t";
 /**
  * The callout button under a person bubble in the Who's in the news strip. It
  * focuses that person's constellation in the power map canvas without a page
- * load, matching the reference behavior of the strip feeding the power map.
+ * load, so the strip of people feeds the connections view.
  */
 export function PowerMapCallout({
   slug,
