@@ -96,8 +96,8 @@ export const GRAPH_DICT = {
     en: "under {parent}",
   },
   sectorStatus: {
-    nl: "{name} geselecteerd, {n} organen.",
-    en: "{name} selected, {n} bodies.",
+    nl: "{name} geselecteerd, {n} organisaties.",
+    en: "{name} selected, {n} organizations.",
   },
   noSelection: {
     nl: "Geen organisatie geselecteerd.",
@@ -215,6 +215,31 @@ export const GRAPH_DICT = {
   listTitleShort: { nl: "Lijst", en: "List" },
   detailsHintShort: { nl: "Kies een orgaan voor details", en: "Pick a body to see its details" },
   searchCloseShort: { nl: "Sluiten", en: "Close" },
+  // Fix wave 05-10-2026: touch mode, the date note, the legend counts.
+  exploreLabel: { nl: "Verken", en: "Explore" },
+  exploreTitle: {
+    nl: "Verken de grafiek: sleep met één vinger. Uit: veeg om de pagina te scrollen.",
+    en: "Explore the graph: drag with one finger. Off: swipe to scroll the page.",
+  },
+  touchHint: {
+    nl: "Veeg om de pagina te scrollen. Knijp met twee vingers om te zoomen, of kies Verken om de grafiek met één vinger te slepen.",
+    en: "Swipe to scroll the page. Pinch with two fingers to zoom, or choose Explore to drag the graph with one finger.",
+  },
+  touchHintClose: { nl: "Begrepen", en: "Got it" },
+  asOfNoteHidden: {
+    nl: "De datum filtert alleen verbindingen: {hidden} verborgen. Organisaties en functionarissen staan zoals nu.",
+    en: "The date only filters connections: {hidden} hidden. Organizations and office holders are shown as they are now.",
+  },
+  asOfNoteNone: {
+    nl: "De datum filtert alleen verbindingen met een begin- of einddatum; op deze datum is er geen verborgen. Organisaties en functionarissen staan zoals nu.",
+    en: "The date only filters connections that have a start or end date; none is hidden on this date. Organizations and office holders are shown as they are now.",
+  },
+  graphOnlyNote: { nl: "Alleen beschikbaar in de grafiek", en: "Only available in the graph" },
+  layerCountNote: { nl: "Aantal organisaties per laag", en: "Organizations per layer" },
+  layerCountTitle: { nl: "{n} organisaties", en: "{n} organizations" },
+  layerMunicipalitiesTitle: { nl: "{n} organisaties, waarvan {m} gemeenten", en: "{n} organizations, of which {m} municipalities" },
+  layerMunicipalitiesNote: { nl: "waarvan {m} gemeenten", en: "of which {m} municipalities" },
+  sectorOrganisations: { nl: "{n} organisaties", en: "{n} organizations" },
 } as const satisfies Record<string, LocString>;
 
 export type DictAreaKey = keyof typeof GRAPH_DICT;
