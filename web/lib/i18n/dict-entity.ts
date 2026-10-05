@@ -212,6 +212,22 @@ export const ENTITY_DICT = {
 
   // Fix wave 05-10-2026: connection rows
   formerPosition: { nl: "eerder", en: "former" },
+
+  // Fix wave 05-10-2026: organisation structure, gaps
+  gapSourceLabel: { nl: "Bron:", en: "Source:" },
+  childrenCountOne: { nl: "{n} organisatie onder zich", en: "{n} organization under it" },
+  childrenCountMany: { nl: "{n} organisaties onder zich", en: "{n} organizations under it" },
+  childrenTitle: { nl: "Organisaties onder zich", en: "Organizations under it" },
+  keyHoldersLabel: { nl: "Aan het hoofd", en: "Led by" },
+  holdersMore: { nl: "en {n} anderen", en: "and {n} more" },
+  orgEmptyNote: {
+    nl: "Voor deze organisatie zijn nog geen functionarissen, leden, verbindingen of nieuwsberichten vastgelegd. Wat de dataset wel heeft staat hierboven.",
+    en: "No office holders, members, connections or news are recorded for this organization yet. What the dataset does hold is shown above.",
+  },
+  moreHoldersThanSeats: {
+    nl: "Meer houders dan zetels: de bron noemt meer huidige houders dan het aantal zetels dat hij opgeeft.",
+    en: "More holders than seats: the source names more current holders than the number of seats it gives.",
+  },
 } as const satisfies Record<string, LocString>;
 
 export type EntityDictKey = keyof typeof ENTITY_DICT;

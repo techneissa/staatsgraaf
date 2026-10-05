@@ -1,4 +1,4 @@
-import type { Connection, ConnectionDirection, EntityRef } from "./entity";
+import type { Connection, ConnectionDirection, ConnectionType, EntityRef } from "./entity";
 
 /** One position a person holds (or held) at the page's entity, behind a connection row. */
 export type ConnectionVia = { positionId: string; current: boolean };
@@ -43,4 +43,13 @@ export function mergeConnectionRows(
     row.via.sort((a, b) => Number(b.current) - Number(a.current));
   }
   return [...rows.values()];
+}
+
+/**
+ * Connections a page does not repeat in a tab because a section of its own
+ * lists them with more detail: the tenures and memberships derived from the
+ * records (`derived:` ids), not the sourced relations.
+ */
+export function withoutDerived(connections: Connection[], types: ConnectionType[]): Connection[] {
+  return connections.filter((connection) => !(connection.id.startsWith("derived:") && types.includes(connection.type)));
 }
