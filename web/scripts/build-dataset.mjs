@@ -29,7 +29,7 @@ function sha256(buffer) {
 const SOURCE_REPOSITORY_URL = "https://github.com/techneissa/staatsgraaf";
 const SOURCE_REPOSITORY_NOTE =
   "De repository met de pipelines en de ruwe bronbestanden is openbaar. Elke bron " +
-  "met URL en ophaaldatum staat in sources.json; de creditregels per bron staan in ATTRIBUTION.md.";
+  "met URL en ophaaldatum staat in sources.json; de licentie per bron staat erbij en ATTRIBUTION.md groepeert de bronnen per uitgever en licentie.";
 
 mkdirSync(OUT_DIR, { recursive: true });
 

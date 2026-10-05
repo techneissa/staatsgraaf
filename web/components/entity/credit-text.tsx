@@ -6,16 +6,25 @@ import { useT } from "@/components/i18n/use-t";
 import { formatDateIn, localizeCredit } from "@/lib/format";
 import type { MediaCreditInfo } from "@/lib/entity";
 
+/** The closing statement of changes `mediaCreditLine` writes (lib/entity.ts, MEDIA_CHANGES_NL). A runtime import of lib/entity would pull the dataset reader into the client bundle. */
+const CHANGES_SUFFIX = /, verkleind en bijgesneden$/;
+
+/** A credit line in the site language, including the closing statement of changes. */
+export function localizeMediaCredit(credit: string, locale: "nl" | "en"): string {
+  const text = localizeCredit(credit, locale);
+  return locale === "en" ? text.replace(CHANGES_SUFFIX, ", resized and cropped") : text;
+}
+
 /** A portrait credit in the site language: only the fixed words of the credit pattern change. */
 export function CreditText({ credit }: { credit: string }) {
   const locale = useLocale();
-  return <>{localizeCredit(credit, locale)}</>;
+  return <>{localizeMediaCredit(credit, locale)}</>;
 }
 
 /** The info button of a portrait credit, named by the credit in the site language. */
 export function CreditSummary({ credit, className, children }: { credit: string; className?: string; children: ReactNode }) {
   const locale = useLocale();
-  const text = localizeCredit(credit, locale);
+  const text = localizeMediaCredit(credit, locale);
   return (
     <summary aria-label={text} title={text} className={className}>
       {children}
@@ -53,7 +62,7 @@ export function CreditPopover({ info }: { info: MediaCreditInfo }) {
       document.removeEventListener("pointerdown", onPress);
     };
   }, []);
-  const credit = localizeCredit(info.credit, locale);
+  const credit = localizeMediaCredit(info.credit, locale);
   const license = info.license === "publiek-domein" ? t("creditPublicDomain") : info.licenseLabel;
   return (
     <details ref={ref} className="group relative inline-block">
@@ -92,6 +101,12 @@ export function CreditPopover({ info }: { info: MediaCreditInfo }) {
               </dd>
             </>
           ) : null}
+          {info.changed ? (
+            <>
+              <dt className="text-ink-faint">{t("creditChanges")}</dt>
+              <dd className="break-words">{t("creditChangesText")}</dd>
+            </>
+          ) : null}
           {info.retrieved !== null ? (
             <>
               <dt className="text-ink-faint">{t("creditRetrieved")}</dt>
@@ -101,6 +116,16 @@ export function CreditPopover({ info }: { info: MediaCreditInfo }) {
             </>
           ) : null}
         </dl>
+        {info.shareAlike ? (
+          <p className="mt-1.5 break-words">
+            {t("creditShareAlike", { license: info.licenseLabel })}{" "}
+            {info.licenseUrl !== null ? (
+              <a href={info.licenseUrl} target="_blank" rel="noopener noreferrer" className={`${LINK} inline-flex items-center pointer-coarse:min-h-11`}>
+                {t("creditShareAlikeLink")}
+              </a>
+            ) : null}
+          </p>
+        ) : null}
       </div>
     </details>
   );

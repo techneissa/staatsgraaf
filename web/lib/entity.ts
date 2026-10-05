@@ -150,16 +150,48 @@ export function getMediaItem(id: string | null | undefined): MediaItem | null {
 }
 
 /**
+ * The change statement every served portrait carries (ADR 0025). The stored
+ * originals are scaled down to about 320 px (pipelines/portraits.mjs), the
+ * 160 px WebP copies are scaled down again (scripts/build-thumbs.mjs), and the
+ * tiles and the person page show them cut to a frame (CSS object-fit: cover).
+ */
+export const MEDIA_CHANGES_NL = "verkleind en bijgesneden";
+
+/** Licences that put no condition on reuse, so no statement of changes is owed. */
+const NO_CHANGE_NOTE = new Set(["CC0-1.0", "publiek-domein"]);
+
+/** True when the licence asks that changes are indicated (CC BY, CC BY-SA, Attribution, European Parliament, free use). */
+export function mediaNeedsChangeNote(license: string | null | undefined): boolean {
+  const value = typeof license === "string" ? license.trim() : "";
+  return value !== "" && !NO_CHANGE_NOTE.has(value);
+}
+
+/** True for CC BY-SA files: the resized and cropped copy is shared under the same licence. */
+export function mediaIsShareAlike(license: string | null | undefined): boolean {
+  return typeof license === "string" && /^CC-BY-SA-\d\.\d$/.test(license.trim());
+}
+
+/** True when the credit already names the licence, by its recorded value (`CC-BY-4.0`) or its usual spelling (`CC0 1.0`). */
+function creditNamesLicense(credit: string, license: string): boolean {
+  const text = credit.toLowerCase();
+  return text.includes(license.toLowerCase()) || text.includes(licenseInfo(license).label.toLowerCase());
+}
+
+/**
  * Credit line for an image. The portrait pipeline writes the license into the
  * credit itself ("Foto: auteur, licentie, via Wikimedia Commons"), so the
- * license is appended only when the credit does not already name it.
+ * license is appended only when the credit does not already name it. Where the
+ * licence asks for it, the line ends with the statement of changes
+ * ("verkleind en bijgesneden"); media.json itself stays as recorded.
  */
 export function mediaCreditLine(media: Pick<MediaItem, "credit" | "license">): string {
   const credit = typeof media.credit === "string" ? media.credit.trim() : "";
   const license = typeof media.license === "string" ? media.license.trim() : "";
-  if (credit === "") return license;
-  if (license === "" || credit.toLowerCase().includes(license.toLowerCase())) return credit;
-  return `${credit} (${license})`;
+  let line = credit;
+  if (credit === "") line = license;
+  else if (license !== "" && !creditNamesLicense(credit, license)) line = `${credit} (${license})`;
+  if (line === "" || !mediaNeedsChangeNote(license) || line.includes(MEDIA_CHANGES_NL)) return line;
+  return `${line}, ${MEDIA_CHANGES_NL}`;
 }
 
 /** What the (i) of a portrait shows: who made it, under which licence, and the page it came from. */
@@ -180,6 +212,10 @@ export type MediaCreditInfo = {
   sourceUrl: string | null;
   /** The date the source was fetched (ISO), or null. */
   retrieved: string | null;
+  /** True when the licence asks for the change statement (the copy is resized and cropped). */
+  changed: boolean;
+  /** True for CC BY-SA: the resized and cropped copy is shared under the same licence. */
+  shareAlike: boolean;
 };
 
 const CC_LICENSE = /^CC-(BY(?:-SA)?)-(\d\.\d)$/;
@@ -240,6 +276,8 @@ export function mediaCreditInfo(
     siteName: source ? sourceSiteName(source.url, source.publisher) : null,
     sourceUrl: source?.url ?? null,
     retrieved: source?.retrieved ?? null,
+    changed: mediaNeedsChangeNote(media.license),
+    shareAlike: mediaIsShareAlike(media.license),
   };
 }
 
