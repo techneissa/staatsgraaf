@@ -770,7 +770,10 @@ export function GraphWheel({
       <svg
         ref={svgRef}
         viewBox={`${-size} ${-size} ${2 * size} ${2 * size}`}
-        className="h-full w-full touch-none select-none outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus"
+        className={`h-full w-full select-none outline-none focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-focus ${
+          // Until it is zoomed there is nothing to drag, so a swipe over the wheel scrolls the page.
+          view.k > 1 ? "touch-none" : "touch-pan-y"
+        }`}
         role="group"
         tabIndex={0}
         aria-label={t("wheelHint")}

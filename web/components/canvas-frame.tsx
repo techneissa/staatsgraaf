@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { SECTOR_ORDER } from "@/lib/graph";
+import { legendLayers } from "@/lib/layer-counts";
 import type { OrgBranch } from "@/lib/types";
 import { edgeTypeOrderIndex } from "./graph/edge-styles";
 import { useT } from "@/components/i18n/use-t";
@@ -270,18 +271,11 @@ export function CanvasFrame() {
     };
   }, [expanded]);
 
-  const branches = useMemo(() => {
-    if (!bundle) return [] as { branch: OrgBranch; count: number }[];
-    const counts = new Map<OrgBranch, number>();
-    for (const node of bundle.nodes) {
-      counts.set(node.branch, (counts.get(node.branch) ?? 0) + 1);
-    }
-    const order = [
-      ...SECTOR_ORDER.filter((branch) => counts.has(branch)),
-      ...[...counts.keys()].filter((branch) => !SECTOR_ORDER.includes(branch)).sort(),
-    ];
-    return order.map((branch) => ({ branch, count: counts.get(branch) ?? 0 }));
-  }, [bundle]);
+  // One counting function for the legend and the sector panel (lib/layer-counts.ts).
+  const branches = useMemo(
+    () => (bundle ? (legendLayers(bundle.nodes, SECTOR_ORDER) as { branch: OrgBranch; count: number; municipalities?: number }[]) : []),
+    [bundle],
+  );
 
   const edgeTypes = useMemo(() => {
     if (!bundle) return [] as { type: string; count: number }[];

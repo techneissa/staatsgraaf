@@ -104,6 +104,11 @@ export const PANELS_DICT = {
   defaultInTheNewsWindow: { nl: "Laatste {n} dagen", en: "Last {n} days" },
   defaultSectors: { nl: "Grootste sectoren", en: "Largest sectors" },
   defaultChanges: { nl: "Laatste wijzigingen", en: "Latest changes" },
+  defaultSectorsNote: { nl: "Aantal organisaties per sector", en: "Organizations per sector" },
+  defaultChangesAll: { nl: "Alle wijzigingen", en: "All changes" },
+  sectorOrganisations: { nl: "{n} organisaties", en: "{n} organizations" },
+  sectorMunicipalities: { nl: "waarvan {m} gemeenten", en: "of which {m} municipalities" },
+  openPageTop: { nl: "Pagina openen", en: "Open page" },
 } satisfies Record<string, { nl: string; en: string }>;
 
 export type PanelsKey = keyof typeof PANELS_DICT;
