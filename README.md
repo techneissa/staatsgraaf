@@ -11,8 +11,8 @@ Phases 0 to 4 are complete: recon and schema freeze, parallel research, the merg
 - The web app is built and produces a static export from `web/`.
 - The dataset snapshot is `2026-09-18` (`data/meta.json`).
 - The site is live at https://staatsgraaf.pages.dev. `NEXT_PUBLIC_SITE_URL` falls back to that URL, so canonical, `robots.txt`, and `sitemap.xml` carry absolute URLs.
-- The nightly refresh workflow is committed (`.github/workflows/refresh.yml`) and scheduled for 03:00 UTC. A green run from GitHub Actions is not yet confirmed.
-- The repository is not public yet. The public repository URL and correction address are pending and named as gaps.
+- The refresh workflow is committed (`.github/workflows/news.yml`) and scheduled every 3 hours. A green run from GitHub Actions is not yet confirmed.
+- The repository is public (`docs/adr/0023-public-repository.md`). Corrections go through the repository issues.
 
 ## Every fact has a source
 
@@ -23,7 +23,7 @@ Language models may compress, rewrite, and link facts that a source states. They
 ## Where the data and the research live
 
 - `data/` is the merged dataset and the single source of truth. `data/sources.json` holds every source URL with its retrieval metadata, and `data/meta.json` holds the snapshot date, the counts, and the licenses.
-- `research/` holds the per-workstream output, the raw fetched snapshots under `research/raw/`, the merge decisions in `research/merge-log.md`, the license determination in `research/O-licenses.md`, and the QA and validation reports.
+- `research/` holds the per-workstream output, the merge decisions in `research/merge-log.md`, the license determination in `research/O-licenses.md`, and the QA and validation reports.
 - `schema/v1/` is the frozen data contract as JSON Schema. `schema/README.md` explains the layout.
 
 Counts in the `2026-09-18` snapshot: 1571 organizations, 1428 positions, 867 people, 1235 tenures, 225 memberships, 2338 relations, 12 topics, 36 budgets, 3197 sources, 1268 changes, and 1556 news items. `data/media.json` holds 330 licensed portraits, so 330 of the 867 people show a photo.
@@ -32,11 +32,10 @@ Counts in the `2026-09-18` snapshot: 1571 organizations, 1428 positions, 867 peo
 
 | Path | Contents |
 | --- | --- |
-| `AGENTS.md` | Operating law and the route to the right document |
 | `docs/` | The documentation set; start at `docs/00-index.md` |
 | `docs/adr/` | Architecture decision records |
 | `data/` | The merged, normalized JSON dataset |
-| `research/` | Workstream output, raw snapshots, merge log, QA reports |
+| `research/` | Workstream output, merge log, QA reports. The local fetch cache `research/raw/` is not published; only `research/raw/portraits/licences/` (licence evidence) and `research/raw/portraits/review.json` (hand review) are |
 | `schema/v1/` | The JSON Schema contract |
 | `pipelines/` | Merge, diff, news, license mapping, and their tests |
 | `scripts/` | The validator, the link checker, and the seed script |
@@ -70,7 +69,7 @@ For local development, `cd web && bun run dev` serves the site at http://localho
 
 ## Licenses
 
-- Code: MIT. See `LICENSE`.
+- Code: source-available under the PolyForm Noncommercial License 1.0.0 (`PolyForm-Noncommercial-1.0.0`). You may use, change, and share it for any noncommercial purpose, including personal, research, charitable, educational, and government use. Commercial use needs a separate licence from the project. See `LICENSE` and `docs/adr/0023-public-repository.md`.
 - Dataset, descriptions, and summaries: CC BY 4.0. See `LICENSE-DATA`.
 - Per-source attribution and license: `ATTRIBUTION.md`, generated from `data/sources.json` by `pipelines/licenses.mjs`. The per-source determination is in `research/O-licenses.md`.
 
@@ -83,7 +82,7 @@ Cite the dataset version and the snapshot date, and cite the per-fact source wit
 - English: "Staatsgraaf, dataset version v1, snapshot 18-09-2026. Source: {source-url}, retrieved {YYYY-MM-DD}. Available under CC BY 4.0."
 - Dutch: "Staatsgraaf, datasetversie v1, peildatum 18-09-2026. Bron: {bron-url}, geraadpleegd {YYYY-MM-DD}. Beschikbaar onder CC BY 4.0."
 
-The repository URL and a permanent link are pending while the repository is private.
+The repository is https://github.com/techneissa/staatsgraaf.
 
 ## Report a correction
 
@@ -115,4 +114,4 @@ Read `CONTRIBUTING.md` before opening a pull request. Report a vulnerability thr
 
 ## Documentation
 
-`AGENTS.md` routes a task to the right document. `docs/00-index.md` is the map of the set. The phase model is in `docs/07-workflow-and-roadmap.md`, and the acceptance gate is in `docs/08-acceptance-and-qa.md`.
+`docs/00-index.md` is the map of the set. The phase model is in `docs/07-workflow-and-roadmap.md`, and the acceptance gate is in `docs/08-acceptance-and-qa.md`.
