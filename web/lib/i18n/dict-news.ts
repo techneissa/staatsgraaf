@@ -38,6 +38,53 @@ export const NEWS_DICT = {
     en: "In this selection no item names a person, organization, position or topic from the dataset. Show all news to see everything.",
   },
 
+  // Filter bar, result count, translation disclosure, day windows (news follow-up, 05-10-2026)
+  newsFilterMore: { nl: "Soort en bron", en: "Kind and source" },
+  newsFilterActiveLabel: { nl: "Actieve filters", en: "Active filters" },
+  newsFilterRemove: { nl: "Filter verwijderen: {name}", en: "Remove filter: {name}" },
+  newsFilterResultCount: { nl: "{n} met dit filter", en: "{n} match the filters" },
+  newsFilterCountWord: { nl: "{n} berichten", en: "{n} items" },
+  newsFilterCountWordOne: { nl: "{n} bericht", en: "{n} item" },
+  newsTranslatedCount: {
+    nl: "{translated} van {total} Engelstalige berichten zijn automatisch vertaald; de rest staat in het origineel.",
+    en: "{translated} of {total} Dutch items are machine translated; the rest show in the original language.",
+  },
+  newsTranslatedMethodLink: { nl: "Hoe vertalen we?", en: "How do we translate?" },
+  newsEntityPageLink: { nl: "Pagina van {name}", en: "Page of {name}" },
+  newsEntityResultCount: { nl: "{n} berichten over deze vermelding", en: "{n} items mention this" },
+  newsDayShown: { nl: "{shown} van {total} berichten getoond", en: "Showing {shown} of {total} items" },
+  newsDayMore: { nl: "Toon nog {n} berichten", en: "Show {n} more items" },
+  newsLeadMore: { nl: "Toon de rest", en: "Show the rest" },
+  newsLeadLess: { nl: "Toon minder", en: "Show less" },
+
+  // Sources page (/nieuws/bronnen/, /news/sources/)
+  newsSourcesIntro: {
+    nl: "Elk bericht komt van een uitgever uit dit register. We nemen de kop, een link naar het artikel, de tijd en, voor zover de feed het toestaat, de inleiding over. Beeld en artikeltekst blijven bij de uitgever.",
+    en: "Every item comes from a publisher in this registry. We take the headline, a link to the article, the time and, where the feed allows it, the lead. Images and article text stay with the publisher.",
+  },
+  newsSourcesPublishersHeading: { nl: "Uitgevers", en: "Publishers" },
+  newsSourcesFeedsHeading: { nl: "Feeds en bekende gaten", en: "Feeds and named gaps" },
+  newsSourcesWebsite: { nl: "Website van {name}", en: "Website of {name}" },
+  newsSourcesViewItems: { nl: "Berichten van {name}", en: "Items from {name}" },
+  newsSourcesCountLabel: { nl: "Berichten", en: "Items" },
+  newsSourcesRelevantLabel: { nl: "Noemen de overheid", en: "Mention the government" },
+  newsSourcesLatestLabel: { nl: "Laatste bericht", en: "Latest item" },
+  newsSourcesLicenseLabel: { nl: "Licentie", en: "Licence" },
+  newsSourcesFeedLabel: { nl: "Nieuwsfeed", en: "News feed" },
+  newsSourcesFeedOn: { nl: "Actief", en: "Active" },
+  newsSourcesFeedOff: { nl: "Niet actief", en: "Not active" },
+  newsSourcesFeedStatus: { nl: "HTTP {status}, gecontroleerd op {date}", en: "HTTP {status}, checked on {date}" },
+  newsSourcesFeedChecked: { nl: "Gecontroleerd op {date}", en: "Checked on {date}" },
+  newsSourcesNoFeed: { nl: "Geen feed in het register", en: "No feed in the registry" },
+  newsSourcesGapHeading: { nl: "Bekend gat", en: "Named gap" },
+  newsSourcesGapWhy: { nl: "Waarom", en: "Why" },
+  newsSourcesGapResume: { nl: "Hervatten", en: "To resume" },
+  newsSourcesSourceNote: { nl: "Notitie", en: "Note" },
+  newsSourcesRegistryNote: {
+    nl: "Het register staat in pipelines/feeds.json. Een feed die niet te bereiken is, blijft daar uitgeschakeld staan met zijn status.",
+    en: "The registry is pipelines/feeds.json. A feed that cannot be fetched stays there, disabled, with its status.",
+  },
+
   // Topics: cards, responsible list, topic news
   topicsHeading: { nl: "Onderwerpen", en: "Topics" },
   topicsAllHeading: { nl: "Alle onderwerpen", en: "All topics" },

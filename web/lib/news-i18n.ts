@@ -69,6 +69,9 @@ export type NewsMessages = {
     originalLanguageTag: Record<NewsLanguage, string>;
     originalLanguageTitle: Record<NewsLanguage, string>;
     sourceLinkTitle: string;
+    /** Opens the rest of a lead that was cut at a sentence or word. */
+    leadMore: string;
+    leadLess: string;
   };
   backLabel: string;
   /** Sits between the start and end of an hour range, for example "09:00 tot 09:59". */
@@ -187,6 +190,8 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
         en: "Dit bericht is in het Engels gepubliceerd en nog niet vertaald.",
       },
       sourceLinkTitle: "Lees het originele bericht bij de uitgever",
+      leadMore: "Toon de rest",
+      leadLess: "Toon minder",
     },
     backLabel: "Terug naar nieuws",
     hourConnector: "tot",
@@ -303,6 +308,8 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
         en: "This item was published in English.",
       },
       sourceLinkTitle: "Read the original article at the publisher",
+      leadMore: "Show the rest",
+      leadLess: "Show less",
     },
     backLabel: "Back to news",
     hourConnector: "to",
@@ -337,3 +344,17 @@ const LICENSE_LABELS: Record<string, Record<NewsLanguage, string>> = {
 export function licenseLabel(value: string, locale: NewsLanguage): string {
   return LICENSE_LABELS[value]?.[locale] ?? value;
 }
+
+/**
+ * The named gaps of the feed registry (pipelines/feeds.json) are written in Dutch there.
+ * Where an English rendering exists it is kept here, by the gap's URL, so the English
+ * sources page can show it; any other gap shows as recorded, marked as Dutch. The
+ * renderings add no fact the registry does not state.
+ */
+export const GAP_TEXT_EN: Record<string, { why: string; resume: string }> = {
+  "https://www.youtube.com/@NOS": {
+    why: "No video feed has been verified: the YouTube channel RSS endpoint https://www.youtube.com/feeds/videos.xml?channel_id=<ID> returned HTTP 404 on 18-09-2026, even for a known channel id (MrBeast, UCX6OQ3DkcsbYNE6H8uQQuVA), so the endpoint is not usable from this environment. The @NOS channel did load and the page names the channel id UC5xziMuoFAOpX9mwUVhe2Jw, but that id has not been confirmed through the feed.",
+    resume:
+      "Try the channel RSS endpoint from a network where it returns 200, then confirm the real channel id of NOS, or use the YouTube Data API (with a key) and record the working endpoint and its status.",
+  },
+};
