@@ -268,7 +268,7 @@
       "Afelonne J.M. Doek",
       "Afelonne Doek"
     ],
-    "portrait": null,
+    "portrait": "media:portret-afelonne-doek",
     "birthDate": null,
     "party": null,
     "wikipedia": null,
@@ -279,6 +279,11 @@
         "source": "src:register-71889",
         "retrieved": "2026-09-17",
         "confidence": "high"
+      },
+      {
+        "source": "src:commons-530a7052",
+        "retrieved": "2026-10-05",
+        "confidence": "medium"
       }
     ]
   },
@@ -12265,7 +12270,7 @@
     "aliases": [
       "Jan de Vries"
     ],
-    "portrait": null,
+    "portrait": "media:portret-jan-de-vries",
     "birthDate": null,
     "party": "CDA",
     "wikipedia": null,
@@ -12276,6 +12281,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:commons-8e16d29b",
+        "retrieved": "2026-10-05",
+        "confidence": "high"
       }
     ]
   },

@@ -1,7 +1,7 @@
 # ADR 0014: Portrait sources and the Attribution licence
 
 Date: 19-09-2026
-Status: accepted, amended 25-09-2026 (amendments 1 and 2)
+Status: accepted, amended 25-09-2026 (amendments 1 and 2) and 05-10-2026 (amendment 3)
 
 ## Context
 
@@ -35,3 +35,14 @@ Result: 420 of 880 people have a portrait (149 Tweede Kamer Open Data, 271 Commo
 5. **Tweede Kamer photos of former members.** The Tweede Kamer Open Data archive (CC0) is searched for all members, not only current ones. A photo is used only when the full name and the birth date match exactly.
 
 Result: 455 of 880 people have a portrait (296 Commons, 159 Tweede Kamer Open Data). The 425 remaining gaps are named per person in `research/qa/portraits-25-09-2026.md`: mostly burgemeesters and college, ZBO and court members for whom no free photo exists, and Eerste Kamer members whose own chamber does not allow reuse of its photos.
+
+## Amendment 3: third pass, evidence rules in code, source information in the (i) (05-10-2026)
+
+The owner agreed on 05-10-2026 that more portraits of missing people may be added when they are open and do not affect the project's licences, with the source and the website named in the (i) of each portrait.
+
+1. **Search again, with the same sources.** All 425 people without a portrait were searched on Wikidata (P18 and sitelinks of every Wikipedia), Wikimedia Commons (full name, municipality plus surname, the Commons category of the entity), the Tweede Kamer Open Data archive and the pageimages of every linked Wikipedia. No new source with a stated free licence turned up: Eerste Kamer and Rijksoverheid.nl stay excluded (amendment 1), the municipal sites sampled on 25-09-2026 state no licence on their photos (on 05-10-2026 the copyright, disclaimer and colophon paths of the 12 provincial sites were tried: Utrecht reserves its copyright and the other 11 had no page at those paths; waterschap and court sites were not checked and stay a named gap), and no gap person has a European Parliament id. Two portraits were added (Jan de Vries, burgemeester van Sliedrecht, CC BY 4.0; Afelonne Doek, directeur van het Nationaal Archief, CC BY 2.0). Every candidate with its reason is in `research/qa/portraits-05-10-2026.md`.
+2. **The evidence rules are now code.** A review entry in `research/raw/portraits/review.json` needs `evidence`, a list of the kinds of second evidence beside the name (`office`, `municipality`, `birthDate`), and `evidenceUrl` for new entries. A Commons depicts tag or the name alone does not count. A candidate birth date that differs from the dataset marks a namesake and the entry is refused. The Commons file must name the person (`fullName` supplies the full name for people the dataset only knows by initials), and an original narrower than 200 px is refused. `pipelines/portraits.test.mjs` holds a fixture for each rule, plus a fixture for a refused licence (NonCommercial, NoDerivatives).
+3. **A discovery mode that applies nothing.** `bun pipelines/portraits.mjs --discover` searches Commons for people without a portrait and writes the candidates, each marked eligible or refused with reasons, to `research/raw/portraits/deep/discovery-2026-10-05.json`. A person looks at each eligible photo and adds a line to `review.json`; the pipeline then checks the licence live and applies it.
+4. **Licences unchanged.** The accepted licences are those of amendments 1 and 2. CC BY and CC BY-SA files are accepted because every portrait carries its author, licence and source page in `data/media.json` and `data/sources.json`, and `ATTRIBUTION.md` lists the source page and licence of each file, which is what LICENSE-DATA requires. CC BY-SA files keep their share-alike term with the file, not with the dataset.
+5. **The (i) shows the source.** The info button on a person page opens a popover with the author, the licence linked to its text, and the source page as a site name and link ("Wikimedia Commons", "Tweede Kamer Open Data") with the retrieval date. It opens by keyboard, by touch and by click, closes with Escape or a press outside, and has a 44 px hit area on touch. In lists the credit stays in the image tooltip and in text for screen readers.
+
