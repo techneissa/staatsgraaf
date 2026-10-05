@@ -1,0 +1,564 @@
+{
+ "value": [
+  {
+   "Id": "5d1d51de-d132-4937-b2ac-25ce062198d3",
+   "FractieZetel_Id": "585cab38-4d78-4724-a451-776a4b56bd5b",
+   "Persoon_Id": "e70c3ee3-cca2-4521-abea-b124dcec0952",
+   "Functie": "Lid",
+   "Van": "2023-10-27T00:00:00+02:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:42:11.1927492Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "e70c3ee3-cca2-4521-abea-b124dcec0952",
+    "Nummer": 48801,
+    "Tussenvoegsel": "de",
+    "Achternaam": "Hoop",
+    "Voornamen": "Habtamu Emke"
+   },
+   "FractieZetel": {
+    "Id": "585cab38-4d78-4724-a451-776a4b56bd5b",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "f1513eb1-b282-4921-82bf-3a689a182b90",
+   "FractieZetel_Id": "1857f3f8-8c60-47c2-ab4b-f92e45ab51c3",
+   "Persoon_Id": "75a44c3a-5914-4c8e-9ca4-d987853f5844",
+   "Functie": "Lid",
+   "Van": "2023-10-27T00:00:00+02:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:41:11.3441351Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "75a44c3a-5914-4c8e-9ca4-d987853f5844",
+    "Nummer": 4962,
+    "Tussenvoegsel": "van der",
+    "Achternaam": "Lee",
+    "Voornamen": "Tom"
+   },
+   "FractieZetel": {
+    "Id": "1857f3f8-8c60-47c2-ab4b-f92e45ab51c3",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "7b7d34dd-7ca2-4116-800d-437cc55ee69c",
+   "FractieZetel_Id": "ac412632-1c7b-4761-81d6-4b371de252fb",
+   "Persoon_Id": "3dd43fe1-c99a-4826-b08f-4ed3fc0dd9ba",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:43:16.1466237Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "3dd43fe1-c99a-4826-b08f-4ed3fc0dd9ba",
+    "Nummer": 58747,
+    "Tussenvoegsel": null,
+    "Achternaam": "Patijn",
+    "Voornamen": "Maria Henriëtte"
+   },
+   "FractieZetel": {
+    "Id": "ac412632-1c7b-4761-81d6-4b371de252fb",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "e80977f3-92de-484e-8fe0-47c15ebfb666",
+   "FractieZetel_Id": "17696049-cf6a-4e66-a269-da6af7171aa2",
+   "Persoon_Id": "89d70a20-bd10-46ed-866a-2c79362a0559",
+   "Functie": "Lid",
+   "Van": "2023-10-27T00:00:00+02:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:42:11.1531378Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "89d70a20-bd10-46ed-866a-2c79362a0559",
+    "Nummer": 4965,
+    "Tussenvoegsel": null,
+    "Achternaam": "Kröger",
+    "Voornamen": "Suzanne Caroline"
+   },
+   "FractieZetel": {
+    "Id": "17696049-cf6a-4e66-a269-da6af7171aa2",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "8562a918-14a3-4863-b29c-47cbe6f3b33d",
+   "FractieZetel_Id": "eed104af-a930-4744-8fb0-d3296a060b06",
+   "Persoon_Id": "a824c21d-055a-49ed-a060-a1c7af3262df",
+   "Functie": "Lid",
+   "Van": "2023-10-27T00:00:00+02:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:43:16.0864147Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "a824c21d-055a-49ed-a060-a1c7af3262df",
+    "Nummer": 48803,
+    "Tussenvoegsel": null,
+    "Achternaam": "Bushoff",
+    "Voornamen": "Thomas Julian"
+   },
+   "FractieZetel": {
+    "Id": "eed104af-a930-4744-8fb0-d3296a060b06",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "a6db2698-59c2-4f40-bd15-549372308564",
+   "FractieZetel_Id": "c1f1acb3-13de-40b6-878c-a46c9510a2bd",
+   "Persoon_Id": "a6a6861d-5972-4650-bc4f-38ba958c6bdc",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:45:13.1880144Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "a6a6861d-5972-4650-bc4f-38ba958c6bdc",
+    "Nummer": 65230,
+    "Tussenvoegsel": null,
+    "Achternaam": "Vliegenthart",
+    "Voornamen": "Lisa"
+   },
+   "FractieZetel": {
+    "Id": "c1f1acb3-13de-40b6-878c-a46c9510a2bd",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "620c511a-c8ca-445a-aaf1-5b937ace3d81",
+   "FractieZetel_Id": "e97482f3-34d2-48f3-aef0-9ccd88ecd088",
+   "Persoon_Id": "a437e923-725f-415e-a01d-5588a7af933e",
+   "Functie": "Lid",
+   "Van": "2023-10-27T00:00:00+02:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:43:15.9593459Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "a437e923-725f-415e-a01d-5588a7af933e",
+    "Nummer": 48798,
+    "Tussenvoegsel": null,
+    "Achternaam": "Piri",
+    "Voornamen": "Katalin Piroska"
+   },
+   "FractieZetel": {
+    "Id": "e97482f3-34d2-48f3-aef0-9ccd88ecd088",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "a384aac6-e84c-4fbc-b3bd-647dc35b98a7",
+   "FractieZetel_Id": "e82edf29-4574-4a9f-aaee-f7c3d2a82dd3",
+   "Persoon_Id": "c7822b58-103f-4612-87ef-648be97192c6",
+   "Functie": "Lid",
+   "Van": "2023-10-27T00:00:00+02:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:42:11.14774Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "c7822b58-103f-4612-87ef-648be97192c6",
+    "Nummer": 4967,
+    "Tussenvoegsel": null,
+    "Achternaam": "Westerveld",
+    "Voornamen": "Elisabeth Marij"
+   },
+   "FractieZetel": {
+    "Id": "e82edf29-4574-4a9f-aaee-f7c3d2a82dd3",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "2d427daf-8139-44e7-91f9-6a5ab3a1f5e5",
+   "FractieZetel_Id": "8292b1cc-cfb7-4372-91b9-55579ccbb541",
+   "Persoon_Id": "68d64b36-9e16-4f0f-9a78-6f22b3aa093a",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:45:11.1476933Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "68d64b36-9e16-4f0f-9a78-6f22b3aa093a",
+    "Nummer": 65226,
+    "Tussenvoegsel": null,
+    "Achternaam": "Abdi",
+    "Voornamen": "Fatihya"
+   },
+   "FractieZetel": {
+    "Id": "8292b1cc-cfb7-4372-91b9-55579ccbb541",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "bada9e2c-dde9-4b3b-8622-7e4016364c0c",
+   "FractieZetel_Id": "dcf11b06-b173-485a-aecd-4de0cf29d470",
+   "Persoon_Id": "b8e78559-8f69-4ec6-89ce-17645a5eecdb",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:44:13.0883132Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "b8e78559-8f69-4ec6-89ce-17645a5eecdb",
+    "Nummer": 48807,
+    "Tussenvoegsel": null,
+    "Achternaam": "Tseggai",
+    "Voornamen": "Mikal"
+   },
+   "FractieZetel": {
+    "Id": "dcf11b06-b173-485a-aecd-4de0cf29d470",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "9303c3c5-e429-465a-9935-80a6b4ddfec6",
+   "FractieZetel_Id": "5a8f0e7f-3f2d-41df-8ce8-b4303a7fdadd",
+   "Persoon_Id": "ccea26dd-dcae-4174-8945-ec5cb568e951",
+   "Functie": "Lid",
+   "Van": "2023-10-27T00:00:00+02:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:42:11.166467Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "ccea26dd-dcae-4174-8945-ec5cb568e951",
+    "Nummer": 4968,
+    "Tussenvoegsel": null,
+    "Achternaam": "Bromet",
+    "Voornamen": "Laura"
+   },
+   "FractieZetel": {
+    "Id": "5a8f0e7f-3f2d-41df-8ce8-b4303a7fdadd",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "f89aaaea-1208-4c36-8fb8-8dc034fec1e1",
+   "FractieZetel_Id": "37feca30-7152-4553-8984-2bea65de6fd1",
+   "Persoon_Id": "71c301a1-74a2-433b-9810-c1f15bf86736",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T08:22:17.2831554Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "71c301a1-74a2-433b-9810-c1f15bf86736",
+    "Nummer": 58742,
+    "Tussenvoegsel": null,
+    "Achternaam": "Lahlah",
+    "Voornamen": "Asmah"
+   },
+   "FractieZetel": {
+    "Id": "37feca30-7152-4553-8984-2bea65de6fd1",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "f05d02aa-899d-4904-878b-9b44b77e9653",
+   "FractieZetel_Id": "8d563059-7568-49c3-b538-5214788ae709",
+   "Persoon_Id": "0d036fcf-a456-4798-9b76-3f44eb74a451",
+   "Functie": "Fractievoorzitter",
+   "Van": "2025-11-03T00:00:00+01:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:41:11.3570749Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "0d036fcf-a456-4798-9b76-3f44eb74a451",
+    "Nummer": 2572,
+    "Tussenvoegsel": null,
+    "Achternaam": "Klaver",
+    "Voornamen": "Jesse Feras"
+   },
+   "FractieZetel": {
+    "Id": "8d563059-7568-49c3-b538-5214788ae709",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "04628f01-3bc7-436f-a774-a1909f83ff27",
+   "FractieZetel_Id": "0934b874-f0b3-40eb-98f2-0e85a7fce19e",
+   "Persoon_Id": "7a727f46-0e36-493f-8779-736d3250fb27",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:44:10.6502791Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "7a727f46-0e36-493f-8779-736d3250fb27",
+    "Nummer": 58775,
+    "Tussenvoegsel": null,
+    "Achternaam": "Stultiens",
+    "Voornamen": "Luc Cornelis Joseph"
+   },
+   "FractieZetel": {
+    "Id": "0934b874-f0b3-40eb-98f2-0e85a7fce19e",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "1a52b3b0-9554-403d-8988-a91efe1972c9",
+   "FractieZetel_Id": "9fd03cc5-459b-4199-96da-38bfecb8956c",
+   "Persoon_Id": "b7a52679-bac9-4e00-9dfd-06a22a7cf088",
+   "Functie": "Lid",
+   "Van": "2023-10-27T00:00:00+02:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:42:11.1581579Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "b7a52679-bac9-4e00-9dfd-06a22a7cf088",
+    "Nummer": 2687,
+    "Tussenvoegsel": null,
+    "Achternaam": "Mohandis",
+    "Voornamen": "Mohamed"
+   },
+   "FractieZetel": {
+    "Id": "9fd03cc5-459b-4199-96da-38bfecb8956c",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "ff96fa45-2bec-45a0-8d44-d577f5743795",
+   "FractieZetel_Id": "7be31287-7dd8-43f9-8991-4239ae9b682c",
+   "Persoon_Id": "8f38a474-1b0a-4fcc-a727-28531df173a6",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:45:11.1590903Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "8f38a474-1b0a-4fcc-a727-28531df173a6",
+    "Nummer": 65193,
+    "Tussenvoegsel": "van",
+    "Achternaam": "Oosterhout",
+    "Voornamen": "Anna Sjoukje"
+   },
+   "FractieZetel": {
+    "Id": "7be31287-7dd8-43f9-8991-4239ae9b682c",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "ccb10e1a-d6ab-4016-94a9-e848cbb442a5",
+   "FractieZetel_Id": "8993f72a-9fd6-4352-913f-b8bb4a84dc87",
+   "Persoon_Id": "9f855643-68a2-409e-b4fe-81b92547212a",
+   "Functie": "Lid",
+   "Van": "2023-10-27T00:00:00+02:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:43:16.0229193Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "9f855643-68a2-409e-b4fe-81b92547212a",
+    "Nummer": 48802,
+    "Tussenvoegsel": null,
+    "Achternaam": "Mutluer",
+    "Voornamen": "Songül"
+   },
+   "FractieZetel": {
+    "Id": "8993f72a-9fd6-4352-913f-b8bb4a84dc87",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "b02c30e4-cb90-488f-a5b9-f2936a949213",
+   "FractieZetel_Id": "fe071c15-f8ee-4a88-a6e1-f019db0499c2",
+   "Persoon_Id": "9e79de98-e914-4dc8-8dc7-6d7cb09b93d7",
+   "Functie": "Lid",
+   "Van": "2023-10-27T00:00:00+02:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:43:12.8985598Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "9e79de98-e914-4dc8-8dc7-6d7cb09b93d7",
+    "Nummer": 48800,
+    "Tussenvoegsel": null,
+    "Achternaam": "Kathmann",
+    "Voornamen": "Barbara Catharina"
+   },
+   "FractieZetel": {
+    "Id": "fe071c15-f8ee-4a88-a6e1-f019db0499c2",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "ce528229-36a3-4e20-910e-f3d3d093780c",
+   "FractieZetel_Id": "58e16d12-ac9c-42de-9fb3-e4cef8b228f3",
+   "Persoon_Id": "6f8efc5e-726c-4919-98d8-c6f1cd6b0b2b",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:45:13.2350291Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "6f8efc5e-726c-4919-98d8-c6f1cd6b0b2b",
+    "Nummer": 65198,
+    "Tussenvoegsel": null,
+    "Achternaam": "Zalinyan",
+    "Voornamen": "Ani"
+   },
+   "FractieZetel": {
+    "Id": "58e16d12-ac9c-42de-9fb3-e4cef8b228f3",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  },
+  {
+   "Id": "4e413d4e-ebaa-4aa4-a328-fd255d80e3ca",
+   "FractieZetel_Id": "e08ec70d-c1ae-4ec7-8557-edfe703ccee9",
+   "Persoon_Id": "d32c6620-c63d-41d7-8762-a1dc31ecb882",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": "2026-06-09T00:00:00+02:00",
+   "ApiGewijzigdOp": "2026-06-09T13:45:11.1533174Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "d32c6620-c63d-41d7-8762-a1dc31ecb882",
+    "Nummer": 65186,
+    "Tussenvoegsel": null,
+    "Achternaam": "Moorman",
+    "Voornamen": "Marjolein"
+   },
+   "FractieZetel": {
+    "Id": "e08ec70d-c1ae-4ec7-8557-edfe703ccee9",
+    "Gewicht": 10000,
+    "Fractie_Id": "0208097d-ef04-438a-8c29-eebb84956204",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "0208097d-ef04-438a-8c29-eebb84956204",
+     "Afkorting": "GroenLinks-PvdA",
+     "AantalZetels": 20
+    }
+   }
+  }
+ ]
+}
