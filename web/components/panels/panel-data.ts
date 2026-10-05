@@ -187,6 +187,8 @@ export type PanelIndex = {
   inTheNews: (PanelPerson & { count: number })[];
   /** The news window the counts cover, in days, or null. */
   newsWindowDays: number | null;
+  /** The date of the dataset snapshot behind the lists ("Gegevens per"), when the build knows it. */
+  snapshot?: string | null;
 };
 
 const EMPTY_LISTS = [

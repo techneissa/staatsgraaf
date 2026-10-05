@@ -417,9 +417,14 @@ export function ConnectionsView({
       ref={rootRef}
       role="region"
       aria-label={personFocus ? t("focusAria", { name: personFocus.name }) : newsFocus ? t("newsFocusAria") : hierarchyMode ? t("modeHierarchy") : t("overviewAria")}
+      data-power-view=""
       className="flex h-full min-h-0 w-full flex-col"
     >
       <style>{`
+        /* Below lg the frame is a band; Verbanden is a list or a chart that needs the height, so the band grows for it. */
+        @media (max-width: 63.999rem) {
+          [data-canvas-frame]:not([data-expanded]):has([data-power-view]) { height: max(30rem, 82dvh); }
+        }
         @keyframes verbanden-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
         .verbanden-in { animation: verbanden-in 180ms var(--t-ease-standard, ease-out) both; }
         @media (prefers-reduced-motion: reduce) { .verbanden-in { animation: none; } }

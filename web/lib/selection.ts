@@ -45,10 +45,26 @@ export type SelectionAction =
   /** Step back to the previous pick, or to nothing. */
   | { type: "back" }
   /** Drop every pick. */
-  | { type: "clear" };
+  | { type: "clear" }
+  /** The reader moved to another page: only what is that page's own entity stays picked. */
+  | { type: "navigate"; pathname: string };
 
 /** The way back keeps this many steps; older steps fall off. */
 export const SELECTION_HISTORY_LIMIT = 30;
+
+/**
+ * Whether a selection is the page's own entity (the organisation page picks its
+ * body, a person page its person). That pick is the page itself: it never goes
+ * in the URL and it does not survive a move to another page.
+ */
+export function selectionOwnsPath(selection: Selection | null, pathname: string | null): boolean {
+  if (selection === null || !pathname) return false;
+  const parts = pathname.split("/").filter(Boolean);
+  if (parts.length < 2) return false;
+  if (selection.kind === "org") return parts[0] === "organisaties" && selection.id === `org:${parts[1]}`;
+  if (selection.kind === "person") return parts[0] === "personen" && selection.id === `person:${parts[1]}`;
+  return false;
+}
 
 export const EMPTY_SELECTION: SelectionState = { stack: [] };
 
@@ -84,5 +100,9 @@ export function selectionReducer(state: SelectionState, action: SelectionAction)
       return state.stack.length === 0 ? state : { stack: state.stack.slice(0, -1) };
     case "clear":
       return state.stack.length === 0 ? state : EMPTY_SELECTION;
+    case "navigate": {
+      const kept = state.stack.filter((entry) => selectionOwnsPath(entry, action.pathname));
+      return kept.length === state.stack.length ? state : kept.length === 0 ? EMPTY_SELECTION : { stack: kept };
+    }
   }
 }

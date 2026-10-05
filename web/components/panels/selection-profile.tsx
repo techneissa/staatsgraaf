@@ -36,7 +36,12 @@ export function SelectionProfile() {
   const key = selectionKey(current);
 
   const onOwnPage = Boolean(view.meta?.href && pathname && view.meta.href === pathname);
-  const shown = current !== null && !onOwnPage;
+  // A group of dots or a sector has no page of its own: the details panel says all
+  // there is to say, and a copy of it above the page would push the page down.
+  const panelOnly = current?.kind === "cluster" || current?.kind === "sector";
+  const shown = current !== null && !onOwnPage && !panelOnly;
+  // With the details column open beside the canvas the header is not repeated here.
+  const sideBySide = desktop && detailsOpen;
 
   // A new pick: bring the profile up when the reader is near the top of the column.
   useEffect(() => {
@@ -89,7 +94,7 @@ export function SelectionProfile() {
         aria-labelledby={headingId}
         className="@container mb-6 scroll-mt-4 border-b border-line pb-6"
       >
-        <PanelHeader meta={view.meta} size="md" headingId={headingId} />
+        <PanelHeader meta={view.meta} size="md" headingId={headingId} compact={sideBySide} />
         <div key={key} className="motion-swap mt-5">
           <SelectionBody selection={current} view={view} variant="page" withStructure={!desktop || !detailsOpen} />
         </div>

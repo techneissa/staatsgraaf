@@ -30,6 +30,9 @@ import { WHEEL_LINK_ORDER, WHEEL_LINK_STYLE } from "./graph/wheel-styles";
 import type { WheelLinkType } from "@/lib/wheel";
 import { glyphPath } from "./graph/glyph";
 import type { OrgBranch } from "@/lib/types";
+import { amsterdamDay } from "@/lib/change-clock";
+import { EARLIEST_AS_OF } from "@/lib/canvas-url";
+import { useCanvasUrlState } from "./use-canvas-url-state";
 
 const segmentClass =
   "tap-target rounded-sm px-2.5 py-1 text-xs font-medium text-ink-muted transition-fast pointer-coarse:text-sm";
@@ -60,7 +63,8 @@ export type CanvasView = "graph" | "power";
 type CanvasControlsProps = {
   view: CanvasView;
   onViewChange: (view: CanvasView) => void;
-  branches: { branch: OrgBranch; count: number }[];
+  /** Organisations per layer (lib/layer-counts.ts), with the real gemeenten where the layer holds them. */
+  branches: { branch: OrgBranch; count: number; municipalities?: number }[];
   edgeTypes: { type: string; count: number }[];
   hiddenBranches: ReadonlySet<string>;
   onToggleBranch: (branch: OrgBranch, visible: boolean) => void;
@@ -157,6 +161,16 @@ export function CanvasControls({
   const t = useT("common");
   const tg = useT("graph");
   const locale = useLocale();
+  const today = amsterdamDay(new Date());
+  useCanvasUrlState({
+    view,
+    onViewChange,
+    layers: branches.map((entry) => entry.branch),
+    hiddenLayers: hiddenBranches,
+    onToggleLayer: (layer, visible) => onToggleBranch(layer as OrgBranch, visible),
+    asOf,
+    onAsOfChange: (date) => onAsOfChange?.(date),
+  });
 
   return (
     <div className="flex flex-wrap items-center gap-x-2 gap-y-2">
@@ -172,10 +186,11 @@ export function CanvasControls({
           aria-label={t("viewGraph")}
           title={t("viewGraph")}
           onClick={() => onViewChange("graph")}
-          className={`${segmentClass} ${view === "graph" ? segmentActive : "hover:text-ink"}`}
+          className={`${segmentClass} flex items-center gap-1.5 ${view === "graph" ? segmentActive : "hover:text-ink"}`}
           style={view === "graph" ? { color: "var(--color-accent-text)" } : undefined}
         >
           <LucideIcon icon={Orbit} size={16} />
+          <span className="hidden min-[380px]:inline">{t("viewGraph")}</span>
         </button>
         <button
           type="button"
@@ -183,20 +198,25 @@ export function CanvasControls({
           aria-label={t("viewPower")}
           title={t("viewPower")}
           onClick={() => onViewChange("power")}
-          className={`${segmentClass} ${view === "power" ? segmentActive : "hover:text-ink"}`}
+          className={`${segmentClass} flex items-center gap-1.5 ${view === "power" ? segmentActive : "hover:text-ink"}`}
           style={view === "power" ? { color: "var(--t-color-sector-hoge-colleges)" } : undefined}
         >
           <LucideIcon icon={Users} size={16} />
+          <span className="hidden min-[380px]:inline">{t("viewPower")}</span>
         </button>
       </div>
 
       {datedEdges && onAsOfChange ? (
-        <label className={`${asOf !== null ? "flex" : asOfClassName} items-center gap-1.5 text-xs text-ink-muted`}>
+        <label
+          className={`${asOf !== null ? "flex" : asOfClassName} items-center gap-1.5 text-xs text-ink-muted`}
+          title={view !== "graph" ? tg("graphOnlyNote") : tg("asOfTitle")}
+        >
           <span>{t("asOfLabel")}</span>
           <input
             type="date"
             value={asOf ?? ""}
-            min="1945-01-01"
+            min={EARLIEST_AS_OF}
+            max={today}
             onChange={(event) => onAsOfChange(event.target.value === "" ? null : event.target.value)}
             disabled={view !== "graph"}
             aria-label={t("asOfLabel")}
@@ -218,6 +238,7 @@ export function CanvasControls({
         <DropdownMenu.Trigger
           disabled={view !== "graph"}
           aria-label={t("legendAndFilters")}
+          title={view !== "graph" ? tg("graphOnlyNote") : t("legendAndFilters")}
           className="tap-target flex items-center justify-center gap-1 rounded-sm border border-line px-2.5 py-1 text-xs font-medium text-ink-muted disabled:cursor-not-allowed disabled:opacity-60 pointer-coarse:text-sm"
         >
           {t("legendLabel")}
@@ -239,10 +260,11 @@ export function CanvasControls({
               collisionPadding={8}
               className="motion-menu z-50 max-h-[min(26rem,var(--radix-dropdown-menu-content-available-height))] w-72 max-w-[calc(100vw-1rem)] overflow-y-auto overscroll-contain rounded-md border border-line bg-surface p-1 shadow-xl"
             >
-            <DropdownMenu.Label className="px-2 py-1.5 text-xs font-semibold text-ink-faint">
+            <DropdownMenu.Label className="px-2 pb-0 pt-1.5 text-xs font-semibold text-ink-faint">
               {t("layerTitle")}
             </DropdownMenu.Label>
-            {branches.map(({ branch, count }) => (
+            <p className="px-2 pb-1 text-[11px] text-ink-faint">{tg("layerCountNote")}</p>
+            {branches.map(({ branch, count, municipalities }) => (
               <DropdownMenu.CheckboxItem
                 key={branch}
                 checked={!hiddenBranches.has(branch)}
@@ -258,8 +280,14 @@ export function CanvasControls({
                     <circle r={8} fill={branchColorVar(branch)} />
                   </svg>
                   {branchLabel(locale, branch)}
+                  {municipalities ? <span className="text-[11px] text-ink-faint">({tg("layerMunicipalitiesNote", { m: municipalities })})</span> : null}
                 </span>
-                <span className="text-ink-faint">{count}</span>
+                <span
+                  className="text-ink-faint"
+                  title={municipalities ? tg("layerMunicipalitiesTitle", { n: count, m: municipalities }) : tg("layerCountTitle", { n: count })}
+                >
+                  {count}
+                </span>
               </DropdownMenu.CheckboxItem>
             ))}
             <DropdownMenu.Separator className="my-1 h-px bg-line" />

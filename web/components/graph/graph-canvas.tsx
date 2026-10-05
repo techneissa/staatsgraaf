@@ -34,6 +34,10 @@ import {
 } from "@/lib/motion";
 import { posePosition, sectorPose, type PolarTarget } from "@/lib/pose";
 import { placeLabels, type LabelItem } from "@/lib/label-placement";
+import { arrowOf, nearestInDirection } from "@/lib/graph-direction";
+import { summariseAsOf } from "@/lib/graph-asof";
+import { countLayers } from "@/lib/layer-counts";
+import { orgTies } from "@/lib/org-ties";
 import { benchSeats, type Bench, type BenchBlock } from "@/lib/bench";
 import { seatIndex } from "@/lib/seats";
 import { avatarTint, initialsFor } from "@/lib/initials";
@@ -110,6 +114,10 @@ const LABEL_PX_SELECTED = 13.5;
 const MEASURE_PX = 12;
 /** The reader's choice whether the canvas turns to the selection. */
 const TURN_STORAGE_KEY = "staatsgraaf.graph.turn.v2";
+/** The one-time hint about scrolling past the graph on a touch screen has been read. */
+const TOUCH_HINT_KEY = "staatsgraaf.graph.touchhint.v1";
+/** How long after the last zoom or pan the drawing's text comes back, in milliseconds. */
+const SETTLE_MS = 140;
 /** Session flag: the home page intro of the canvas has run in this tab. */
 const INTRO_STORAGE_KEY = "staatsgraaf.graph.intro.v1";
 
@@ -197,6 +205,10 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
     [current, selectedSeat],
   );
   const drawnEdges = useMemo(() => layout.edges.filter((edge) => edgeAlive(edge, asOf)), [layout, asOf]);
+  /** What the date changed: only relations carry dates (lib/graph-asof.ts). */
+  const asOfSummary = useMemo(() => (asOf === null ? null : summariseAsOf(layout.edges, asOf)), [layout, asOf]);
+  /** The same organisation counts the legend and the details panel show (lib/layer-counts.ts). */
+  const layerCounts = useMemo(() => countLayers(layout.nodes), [layout]);
   const router = useRouter();
   const t = useT("graph");
   const locale = useLocale();
@@ -216,7 +228,7 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
   const clusterRefs = useRef(new Map<string, SVGGElement>());
   const liveEdgeRefs = useRef<Record<"base" | "neighbour" | "path", SVGPathElement | null>>({ base: null, neighbour: null, path: null });
   /** CSS pixels per viewBox unit and the svg's box, refreshed when the svg is resized. */
-  const screenRef = useRef({ scale: 1, offsetX: 0, offsetY: 0, width: 0, height: 0 });
+  const screenRef = useRef({ scale: 1, offsetX: 0, offsetY: 0, width: 0, height: 0, left: 0, top: 0, scrollX: 0, scrollY: 0 });
   /** Where every moving mark is this frame; anything absent is at rest. */
   const positionsRef = useRef(new Map<string, { x: number; y: number }>());
 
@@ -234,6 +246,24 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
   const frameCountRef = useRef(0);
   const warmEdgesRef = useRef("");
 
+  /**
+   * While the reader zooms or pans, the arc text of the rings and sectors is
+   * hidden (`data-moving` on the svg). SVG text is laid out again whenever the
+   * scale it sits in changes, which cost 1.4 s of layout in 3 s of wheel zoom
+   * (a frame of 50 ms and more); the text comes back once the view has been
+   * still for SETTLE_MS. Selection flights and turns do not hide it.
+   */
+  const viewMovingRef = useRef(false);
+  const settleTimerRef = useRef<number | null>(null);
+  const markMoving = useCallback(() => {
+    viewMovingRef.current = true;
+    if (settleTimerRef.current !== null) {
+      window.clearTimeout(settleTimerRef.current);
+      settleTimerRef.current = null;
+    }
+    const svg = svgRef.current;
+    if (svg && !svg.hasAttribute("data-moving")) svg.setAttribute("data-moving", "");
+  }, []);
   const dragRef = useRef<{ pointerId: number; startX: number; startY: number; x: number; y: number } | null>(null);
   const dialRef = useRef<{ pointerId: number; angle: number } | null>(null);
   const pointersRef = useRef(new Map<number, { x: number; y: number }>());
@@ -255,6 +285,33 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
   /** The fold of the cluster that was open before, while the next one opens. */
   const [closing, setClosing] = useState<{ id: string; pose: ReturnType<typeof sectorPose> } | null>(null);
   const [turnEnabled, setTurnEnabled] = useState(false);
+  /**
+   * Touch: by default the graph does not take a one-finger swipe, so the page
+   * scrolls when a swipe starts on it (`touch-action: pan-y`); two fingers
+   * pinch and pan it. "Verken" is the visible switch that gives the graph the
+   * one-finger drag (`touch-action: none`). Full screen has no page to scroll,
+   * so the graph always takes the drag there (the class below).
+   */
+  const [explore, setExplore] = useState(false);
+  const exploreRef = useRef(false);
+  exploreRef.current = explore;
+  const [touchHint, setTouchHint] = useState(false);
+  useEffect(() => {
+    if (!window.matchMedia("(pointer: coarse)").matches) return;
+    try {
+      if (window.localStorage.getItem(TOUCH_HINT_KEY) !== "seen") setTouchHint(true);
+    } catch {
+      setTouchHint(true);
+    }
+  }, []);
+  const dismissTouchHint = () => {
+    setTouchHint(false);
+    try {
+      window.localStorage.setItem(TOUCH_HINT_KEY, "seen");
+    } catch {
+      // The hint may show again next visit; harmless.
+    }
+  };
   /**
    * The one orchestrated moment on the site: the first time the canvas draws
    * on the home page in a session, the rings settle in from the centre
@@ -655,6 +712,10 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
       offsetY: (rect.height - vb.height * scale) / 2,
       width: rect.width,
       height: rect.height,
+      left: rect.left,
+      top: rect.top,
+      scrollX: window.scrollX,
+      scrollY: window.scrollY,
     };
   }, [layout.viewBox]);
 
@@ -695,9 +756,15 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
           width: (widthAtMeasure / MEASURE_PX) * font,
           height: font * 1.2,
           priority: LABEL_PRIORITY[entry.state],
+          keep: entry.state === "selected",
         });
       }
-      const slots = placeLabels(items, 3 * unit);
+      // What the reader can see, in the same units the labels are placed in: no label is cut off at its edge.
+      const screenBox = screenRef.current;
+      const boxLeft = data.layout.viewBox.x - screenBox.offsetX * unit;
+      const boxTop = data.layout.viewBox.y - screenBox.offsetY * unit;
+      const visibleBox = { x0: boxLeft + 2 * unit, y0: boxTop + 2 * unit, x1: boxLeft + (screenBox.width - 2) * unit, y1: boxTop + (screenBox.height - 2) * unit };
+      const slots = placeLabels(items, 3 * unit, screenBox.width > 0 ? visibleBox : undefined);
       for (const entry of data.labelled) {
         const element = labelRefs.current.get(entry.node.id);
         if (!element) continue;
@@ -882,6 +949,13 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
 
       const done =
         settled(rot.current) && settled(move.current) && settled(viewK.current) && settled(viewX.current) && settled(viewY.current);
+      if (done && viewMovingRef.current && settleTimerRef.current === null) {
+        settleTimerRef.current = window.setTimeout(() => {
+          settleTimerRef.current = null;
+          viewMovingRef.current = false;
+          svgRef.current?.removeAttribute("data-moving");
+        }, SETTLE_MS);
+      }
       if (!done) cancelFrameRef.current = scheduleFrame(tick);
     };
     cancelFrameRef.current = scheduleFrame(tick);
@@ -893,6 +967,7 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
     () => () => {
       cancelFrameRef.current?.();
       cancelFrameRef.current = null;
+      if (settleTimerRef.current !== null) window.clearTimeout(settleTimerRef.current);
     },
     [],
   );
@@ -916,13 +991,18 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
     if (!svg) return;
     measureScreen();
     placeOverlays();
-    if (typeof ResizeObserver === "undefined") return;
+    // Scrolling moves the svg's box without resizing it; the pointer maths reads the measured box.
+    window.addEventListener("scroll", measureScreen, { passive: true, capture: true });
+    if (typeof ResizeObserver === "undefined") return () => window.removeEventListener("scroll", measureScreen, { capture: true });
     const observer = new ResizeObserver(() => {
       measureScreen();
       placeOverlays();
     });
     observer.observe(svg);
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", measureScreen, { capture: true });
+    };
   }, [measureScreen, placeOverlays]);
 
   /** A new set of labels is placed at once, before the reader sees it unplaced. */
@@ -1039,13 +1119,15 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
 
   const toUserPoint = useCallback(
     (clientX: number, clientY: number) => {
-      const svg = svgRef.current;
-      if (!svg) return { x: 0, y: 0 };
-      const rect = svg.getBoundingClientRect();
+      // The svg's box is measured when it is resized or the page scrolls, not
+      // here: reading it per wheel tick or pointer move forces a layout while the
+      // frame is still dirty.
       const screen = screenRef.current;
+      const left = screen.left + screen.scrollX - window.scrollX;
+      const top = screen.top + screen.scrollY - window.scrollY;
       return {
-        x: (clientX - rect.left - screen.offsetX) / screen.scale + layout.viewBox.x,
-        y: (clientY - rect.top - screen.offsetY) / screen.scale + layout.viewBox.y,
+        x: (clientX - left - screen.offsetX) / screen.scale + layout.viewBox.x,
+        y: (clientY - top - screen.offsetY) / screen.scale + layout.viewBox.y,
       };
     },
     [layout.viewBox],
@@ -1094,9 +1176,10 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
       viewX.current.target = point.x - (point.x - viewX.current.target) * ratio;
       viewY.current.target = point.y - (point.y - viewY.current.target) * ratio;
       viewK.current.target = k;
+      markMoving();
       kick();
     },
-    [kick],
+    [kick, markMoving],
   );
 
   const zoomByCentre = useCallback((factor: number) => zoomAt({ x: 0, y: 0 }, factor), [zoomAt]);
@@ -1104,12 +1187,30 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
   useEffect(() => {
     const svg = svgRef.current;
     if (!svg) return;
+    // Wheel ticks are summed and applied once per frame: a trackpad fires several
+    // per frame, and each one moving the target and asking for a frame is work
+    // the screen never shows. The listener must stay non-passive to keep the
+    // page from scrolling under a zoom.
+    let pending: { delta: number; x: number; y: number } | null = null;
+    let cancelFrame: (() => void) | null = null;
+    const apply = () => {
+      cancelFrame = null;
+      if (!pending) return;
+      const { delta, x, y } = pending;
+      pending = null;
+      zoomAt(toUserPoint(x, y), Math.exp(-delta * 0.0015));
+    };
     const onWheel = (event: WheelEvent) => {
       event.preventDefault();
-      zoomAt(toUserPoint(event.clientX, event.clientY), Math.exp(-event.deltaY * 0.0015));
+      const scale = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? 400 : 1;
+      pending = { delta: (pending?.delta ?? 0) + event.deltaY * scale, x: event.clientX, y: event.clientY };
+      if (cancelFrame === null) cancelFrame = scheduleFrame(apply);
     };
     svg.addEventListener("wheel", onWheel, { passive: false });
-    return () => svg.removeEventListener("wheel", onWheel);
+    return () => {
+      svg.removeEventListener("wheel", onWheel);
+      cancelFrame?.();
+    };
   }, [toUserPoint, zoomAt]);
 
   const onPointerDown = (event: ReactPointerEvent<SVGSVGElement>) => {
@@ -1117,6 +1218,7 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
     event.currentTarget.setPointerCapture(event.pointerId);
     pointersRef.current.set(event.pointerId, { x: event.clientX, y: event.clientY });
     pointerMovedRef.current = false;
+    if (touchHint && event.pointerType === "touch") dismissTouchHint();
 
     if (pointersRef.current.size === 2) {
       const [a, b] = [...pointersRef.current.values()];
@@ -1134,6 +1236,9 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
       return;
     }
     if (pointersRef.current.size > 2) return;
+    // A single finger on a touch screen leaves the drag to the page unless the reader chose Verken.
+    const inFullScreen = svgRef.current?.closest("[data-expanded]") != null;
+    if (event.pointerType === "touch" && !exploreRef.current && !inFullScreen) return;
 
     // Outside the outermost tier the canvas is a dial: dragging turns it.
     const user = toUserPoint(event.clientX, event.clientY);
@@ -1168,6 +1273,7 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
       const ratio = k / pinch.startK;
       const midX = (a.x + b.x) / 2;
       const midY = (a.y + b.y) / 2;
+      markMoving();
       viewK.current.target = k;
       viewX.current.target = pinch.startX * ratio + (midX - pinch.midX) / scale;
       viewY.current.target = pinch.startY * ratio + (midY - pinch.midY) / scale;
@@ -1190,6 +1296,7 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
       if (delta > Math.PI) delta -= 2 * Math.PI;
       if (delta < -Math.PI) delta += 2 * Math.PI;
       dial.angle = angle;
+      markMoving();
       rot.current.target += delta;
       snap(rot.current, rot.current.target);
       pointerMovedRef.current = true;
@@ -1202,6 +1309,7 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
     const dx = event.clientX - drag.startX;
     const dy = event.clientY - drag.startY;
     if (Math.abs(dx) + Math.abs(dy) > 3) pointerMovedRef.current = true;
+    markMoving();
     viewX.current.target = drag.x + dx / scale;
     viewY.current.target = drag.y + dy / scale;
     snap(viewX.current, viewX.current.target);
@@ -1427,6 +1535,30 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
     }
   };
 
+  /**
+   * An arrow key goes to the nearest mark in that direction on screen
+   * (lib/graph-direction.ts), measured from the selected mark. With nothing
+   * picked, or a pick that is not a body, it starts from the ends of the list.
+   */
+  const moveInDirection = (key: string) => {
+    const arrow = arrowOf(key);
+    if (!arrow || walkNodes.length === 0) return;
+    if (!selectedNode) {
+      moveSelection(arrow === "right" || arrow === "down" ? 1 : -1);
+      return;
+    }
+    const at = (node: LaidOutNode) => positionsRef.current.get(node.id) ?? node;
+    const from = at(selectedNode);
+    const target = nearestInDirection(
+      from,
+      walkNodes.map((node) => ({ id: node.id, x: at(node).x, y: at(node).y })),
+      arrow,
+      rot.current.value,
+      selectedNode.id,
+    );
+    if (target) select({ kind: "org", id: target, surface: "graph" });
+  };
+
   const moveSelection = (delta: number) => {
     if (walkNodes.length === 0) return;
     const index = selectedId ? walkNodes.findIndex((node) => node.id === selectedId) : -1;
@@ -1443,13 +1575,10 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
     switch (event.key) {
       case "ArrowRight":
       case "ArrowDown":
-        event.preventDefault();
-        moveSelection(1);
-        break;
       case "ArrowLeft":
       case "ArrowUp":
         event.preventDefault();
-        moveSelection(-1);
+        moveInDirection(event.key);
         break;
       case "Home":
         event.preventDefault();
@@ -1490,6 +1619,7 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
         break;
       case "0":
         event.preventDefault();
+        markMoving();
         viewK.current.target = 1;
         viewX.current.target = 0;
         viewY.current.target = 0;
@@ -1573,13 +1703,13 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
     : fractieEntry && selectedFractie
       ? `${fractieEntry.label}, ${t("detailsSeatsOf", { n: fractieEntry.seats, total: chambers[selectedFractie.chamberId]?.total ?? 0 })}, ${layout.byId.get(selectedFractie.chamberId)?.name ?? ""}`
       : selectedNode
-    ? `${selectedNode.name}, ${localized(locale, ORG_SUBTYPE_LABELS_I18N, selectedNode.subtype)}, ${localized(locale, TIER_LABELS_I18N, selectedNode.tier)}. ${t("connections", { n: neighborSet.size })}`
+    ? `${selectedNode.name}, ${localized(locale, ORG_SUBTYPE_LABELS_I18N, selectedNode.subtype)}, ${localized(locale, TIER_LABELS_I18N, selectedNode.tier)}. ${t("connections", { n: orgTies(layout, selectedNode.id).connections })}`
     : activeClusterInfo
       ? t("clusterStatus", { label: clusterLabel(activeClusterInfo) })
       : activeSector
         ? t("sectorStatus", {
             name: sectorLabel(layout.sectors.find((sector) => sector.id === activeSector) as SectorInfo),
-            n: layout.sectors.find((sector) => sector.id === activeSector)?.count ?? 0,
+            n: layerCounts.bySector.get(activeSector) ?? 0,
           })
         : t("noSelection");
 
@@ -1598,7 +1728,10 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
         tabIndex={0}
         aria-label={t("graphHint")}
         aria-describedby="grafiek-instructie"
-        className="h-full w-full cursor-grab touch-none select-none active:cursor-grabbing"
+        data-explore={explore ? "" : undefined}
+        className={`h-full w-full cursor-grab select-none active:cursor-grabbing [&[data-moving]_.sg-chrome-text]:hidden [[data-expanded]_&]:touch-none ${
+          explore ? "touch-none" : "touch-pan-y"
+        }`}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
@@ -1891,6 +2024,7 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
                     />
                     <text
                       aria-hidden="true"
+                      className="sg-chrome-text"
                       pointerEvents="none"
                       fill={isChamber ? "var(--t-color-accent-text)" : "var(--color-ink-muted)"}
                       style={{ fontSize: 8.5, letterSpacing: "0.1em", fontWeight: 600 }}
@@ -1948,6 +2082,7 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
                 .map((tier) => (
                   <text
                     key={`tier-label-${tier.id}`}
+                    className="sg-chrome-text"
                     fill="var(--color-ink-faint)"
                     style={{ fontSize: 10, letterSpacing: "0.14em", fontWeight: 600 }}
                   >
@@ -1962,6 +2097,7 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
                 return (
                   <text
                     key={`sector-label-${sector.id}`}
+                    className="sg-chrome-text"
                     fill={branchColorVar(sector.branch)}
                     fillOpacity={activeSector === sector.id ? 1 : 0.85}
                     style={{ fontSize: 9, letterSpacing: "0.08em", fontWeight: 600 }}
@@ -1977,7 +2113,7 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
             {/* The core: the constitution every tier radiates from. */}
             <g aria-hidden="true" pointerEvents="none">
               <circle r={layout.coreRadius} fill="var(--t-color-surface)" stroke="var(--t-color-ink)" strokeOpacity={0.45} strokeWidth={1.2} />
-              <text textAnchor="middle" fill="var(--t-color-ink)" style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em" }}>
+              <text className="sg-chrome-text" textAnchor="middle" fill="var(--t-color-ink)" style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em" }}>
                 <tspan x={0} dy={-2}>
                   {t("coreTitle")}
                 </tspan>
@@ -2001,6 +2137,7 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
                   onClick={onMarkClick}
                 />
                 <text
+                  className="sg-chrome-text"
                   y={-layout.frameRadius - 12}
                   textAnchor="middle"
                   fill="var(--t-color-accent)"
@@ -2058,6 +2195,31 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
         }}
       />
 
+      {asOfSummary ? (
+        <p
+          role="status"
+          className="pointer-events-none absolute left-[max(0.75rem,var(--safe-left))] top-3 z-10 max-w-[calc(100%-4.5rem)] rounded-sm border border-line bg-surface/95 px-2.5 py-1.5 text-xs leading-snug text-ink-muted shadow-sm"
+        >
+          {asOfSummary.hidden > 0 ? t("asOfNoteHidden", { hidden: asOfSummary.hidden }) : t("asOfNoteNone")}
+        </p>
+      ) : null}
+
+      {touchHint ? (
+        <div
+          role="note"
+          className="pointer-coarse:flex absolute inset-x-3 bottom-16 z-10 hidden items-start gap-2 rounded-md border border-line bg-surface px-3 py-2 text-xs leading-snug text-ink shadow-lg @min-[44rem]/drawing:left-16"
+        >
+          <p className="min-w-0 flex-1">{t("touchHint")}</p>
+          <button
+            type="button"
+            onClick={dismissTouchHint}
+            className="tap-target shrink-0 rounded-sm border border-line px-2 py-1 text-xs font-medium text-ink hover:border-line-strong"
+          >
+            {t("touchHintClose")}
+          </button>
+        </div>
+      ) : null}
+
       {/* A row where the drawing is narrow (a phone, a stacked iPad column) so the
           buttons never reach the list toggle at the top; a column beside the rings otherwise. */}
       <div className="absolute bottom-3 left-[max(0.75rem,var(--safe-left))] flex flex-row gap-1 @min-[44rem]/drawing:flex-col @min-[44rem]:bottom-[calc(0.75rem+var(--canvas-bottom,0px))]">
@@ -2065,6 +2227,7 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
           type="button"
           onClick={() => zoomByCentre(1.25)}
           aria-label={t("zoomIn")}
+          title={t("zoomIn")}
           className="tap-target flex h-8 w-8 items-center justify-center rounded-sm border border-line bg-surface text-sm text-ink-muted hover:text-ink"
         >
           +
@@ -2073,6 +2236,7 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
           type="button"
           onClick={() => zoomByCentre(0.8)}
           aria-label={t("zoomOut")}
+          title={t("zoomOut")}
           className="tap-target flex h-8 w-8 items-center justify-center rounded-sm border border-line bg-surface text-sm text-ink-muted hover:text-ink"
         >
           -
@@ -2080,6 +2244,7 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
         <button
           type="button"
           onClick={() => {
+            markMoving();
             viewK.current.target = 1;
             viewX.current.target = 0;
             viewY.current.target = 0;
@@ -2087,9 +2252,12 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
             kick();
           }}
           aria-label={t("zoomReset")}
-          className="tap-target flex h-8 w-8 items-center justify-center rounded-sm border border-line bg-surface text-[10px] font-medium text-ink-muted hover:text-ink"
+          title={t("zoomReset")}
+          className="tap-target flex h-8 w-8 items-center justify-center rounded-sm border border-line bg-surface text-ink-muted hover:text-ink"
         >
-          0
+          <svg aria-hidden="true" viewBox="0 0 20 20" width="14" height="14">
+            <path d="M4 8V4h4M16 8V4h-4M4 12v4h4M16 12v4h-4" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </button>
         <button
           type="button"
@@ -2102,6 +2270,17 @@ export function GraphCanvas({ bundle, hiddenBranches, asOf = null }: GraphCanvas
           }`}
         >
           ↻
+        </button>
+        <button
+          type="button"
+          onClick={() => setExplore((value) => !value)}
+          aria-pressed={explore}
+          title={t("exploreTitle")}
+          className={`tap-target pointer-coarse:flex hidden h-8 items-center justify-center rounded-sm border bg-surface px-2 text-xs font-medium ${
+            explore ? "border-accent text-accent-text" : "border-line text-ink-muted"
+          }`}
+        >
+          {t("exploreLabel")}
         </button>
       </div>
 
@@ -2257,7 +2436,7 @@ function HoverCard({
   if (!node && !cluster && !fractie?.entry) return null;
   const branch = node?.branch ?? (cluster ? layout.sectors.find((sector) => sector.id === cluster.sector)?.branch ?? null : null);
   const parent = node?.parent ? layout.byId.get(node.parent) ?? null : null;
-  const connections = node ? (layout.adjacency.get(node.id) ?? []).length : 0;
+  const connections = node ? orgTies(layout, node.id).connections : 0;
   const chamber = node ? chambers[node.id] ?? null : null;
   const clusterSubtype = (entry: ClusterInfo) => {
     const counts = new Map<string, number>();

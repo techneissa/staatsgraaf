@@ -1,12 +1,14 @@
 "use client";
 
-import { createContext, useContext, useMemo, useReducer, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
+import { createContext, useContext, useEffect, useMemo, useReducer, useRef, type ReactNode } from "react";
 import {
   EMPTY_SELECTION,
   currentSelection,
   selectionReducer,
   type Selection,
 } from "@/lib/selection";
+import { SelectionUrlSync } from "./selection-url-sync";
 
 export type SelectionApi = {
   /** The current pick, or null when nothing is picked. */
@@ -29,6 +31,15 @@ const SelectionContext = createContext<SelectionApi | null>(null);
 /** Holds the reader's selection for the whole page, above both the canvas and the page column. */
 export function SelectionProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(selectionReducer, EMPTY_SELECTION);
+  // A pick belongs to the page it was made on: moving to another page drops it,
+  // unless it is that page's own entity (lib/selection.ts, "navigate").
+  const pathname = usePathname();
+  const lastPath = useRef(pathname);
+  useEffect(() => {
+    if (lastPath.current === pathname) return;
+    lastPath.current = pathname;
+    dispatch({ type: "navigate", pathname: pathname ?? "/" });
+  }, [pathname]);
   const api = useMemo<SelectionApi>(
     () => ({
       current: currentSelection(state),
@@ -41,7 +52,12 @@ export function SelectionProvider({ children }: { children: ReactNode }) {
     }),
     [state],
   );
-  return <SelectionContext.Provider value={api}>{children}</SelectionContext.Provider>;
+  return (
+    <SelectionContext.Provider value={api}>
+      {children}
+      <SelectionUrlSync />
+    </SelectionContext.Provider>
+  );
 }
 
 export function useSelection(): SelectionApi {
