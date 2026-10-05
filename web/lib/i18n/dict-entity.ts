@@ -209,6 +209,9 @@ export const ENTITY_DICT = {
   termYears: { nl: "{n} jaar", en: "{n} years" },
   termMonthOne: { nl: "{n} maand", en: "{n} month" },
   termMonths: { nl: "{n} maanden", en: "{n} months" },
+
+  // Fix wave 05-10-2026: connection rows
+  formerPosition: { nl: "eerder", en: "former" },
 } as const satisfies Record<string, LocString>;
 
 export type EntityDictKey = keyof typeof ENTITY_DICT;

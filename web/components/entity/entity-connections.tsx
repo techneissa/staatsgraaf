@@ -5,7 +5,7 @@ import { PartyBadge } from "@/components/party-badge";
 import { LocaleLabel } from "@/components/i18n/locale-label";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { PeekLink } from "@/components/peek/peek-link";
-import { getOrganizationById, getPersonById, getPositionById, getSourceById } from "@/lib/data";
+import { getDataset, getOrganizationById, getPersonById, getPositionById, getSourceById } from "@/lib/data";
 import { peekKindFor, type PeekKind } from "@/lib/peek";
 import { PersonPortrait } from "./person-portrait";
 import {
@@ -14,7 +14,9 @@ import {
   type Connection,
   type ConnectionGroup,
 } from "@/lib/entity";
+import { mergeConnectionRows, type ConnectionRowModel, type ConnectionVia } from "@/lib/entity-rows";
 import { FactGroup } from "./fact-group";
+import { SourceSlot } from "./source-slot";
 import {
   AdviceIcon,
   BuildingIcon,
@@ -153,28 +155,78 @@ function ContextLine({ connection, selfId }: { connection: Connection; selfId?: 
   return person?.party ? <PartyBadge party={person.party} /> : null;
 }
 
+let tenureIndex: Map<string, { position: string; end: string | null }> | null = null;
+
+/** The position (and whether it is still held) behind a derived tenure connection. */
+function tenureVia(connection: Connection): ConnectionVia | null {
+  if (!connection.id.startsWith("derived:tenure:")) return null;
+  if (tenureIndex === null) {
+    tenureIndex = new Map();
+    for (const tenure of getDataset().tenures) tenureIndex.set(`derived:${tenure.id}`, { position: tenure.position, end: tenure.end });
+  }
+  const tenure = tenureIndex.get(connection.id);
+  return tenure === undefined ? null : { positionId: tenure.position, current: tenure.end === null };
+}
+
+/** The positions a person holds at the page's entity, newest context first; past ones are marked. */
+function ViaLine({ via, selfId }: { via: ConnectionVia[]; selfId?: string }) {
+  const shown = via.filter((entry) => getPositionById(entry.positionId) !== undefined);
+  if (shown.length === 0) return null;
+  return (
+    <ul className="mt-0.5 space-y-0.5 text-xs text-ink-muted">
+      {shown.map((entry) => {
+        const position = getPositionById(entry.positionId);
+        if (position === undefined) return null;
+        return (
+          <li key={entry.positionId} className="flex flex-wrap items-baseline gap-x-1.5">
+            <EntityPeekLink id={entry.positionId} variant="quiet" />
+            {position.organization !== selfId ? (
+              <span className="text-ink-faint">
+                <L nl="bij" en="at" /> <EntityPeekLink id={position.organization} variant="quiet" />
+              </span>
+            ) : null}
+            {!entry.current ? (
+              <span className="text-ink-faint">
+                (<T area="entity" k="formerPosition" />)
+              </span>
+            ) : null}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+/**
+ * One connection row. The name and the source icon are separate flex
+ * children that never overlap: the name keeps the whole text column, the
+ * source icon sits in its own slot (44 px on touch), so a tap on a name
+ * always reaches the peek, never the external source.
+ */
 function ConnectionRow({
-  connection,
+  row,
   showDirection,
   selfId,
 }: {
-  connection: Connection;
+  row: ConnectionRowModel;
   showDirection: boolean;
   selfId?: string;
 }) {
+  const connection = row.connections[0];
   const source = getSourceById(connection.source.source);
-  const seats = seatLine(connection);
+  const seats = row.connections.length === 1 ? seatLine(connection) : null;
   const kind = peekKindOf(connection);
   const person = connection.other.kind === "person" ? getPersonById(connection.other.id) : undefined;
+  const hasVia = row.via.length > 0;
   return (
-    <div className="flex items-start gap-2.5 py-2">
-      <span className="flex h-6 w-6 shrink-0 items-center justify-center" aria-hidden="true">
+    <div className="flex items-start gap-2">
+      <span className="mt-2 flex h-6 w-6 shrink-0 items-center justify-center pointer-coarse:mt-[11px]" aria-hidden="true">
         {person ? <PersonPortrait person={person} size={24} /> : <KindGlyph kind={kind} size={9} />}
       </span>
-      <div className="min-w-0 flex-1">
-        <p className="text-sm leading-snug">
+      <div className="min-w-0 flex-1 py-2 pointer-coarse:py-0">
+        <p className="flex items-start gap-1 text-sm leading-snug">
           {showDirection ? (
-            <span aria-hidden="true" className="me-1 text-ink-faint">
+            <span aria-hidden="true" className="shrink-0 text-ink-faint pointer-coarse:py-3.5">
               {connection.direction === "outgoing" ? "\u2192" : "\u2190"}
             </span>
           ) : null}
@@ -192,13 +244,14 @@ function ConnectionRow({
             href={connection.other.href}
             kind={kind}
             variant="plain"
-            className="font-medium"
+            className="min-w-0 break-words font-medium pointer-coarse:py-3.5"
           >
             {connection.other.name}
           </PeekLink>
         </p>
-        <p className="mt-0.5 flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-xs text-ink-faint">
-          <ContextLine connection={connection} selfId={selfId} />
+        {hasVia ? <ViaLine via={row.via} selfId={selfId} /> : null}
+        <p className="mt-0.5 flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-xs text-ink-faint pointer-coarse:pb-2">
+          {!hasVia ? <ContextLine connection={connection} selfId={selfId} /> : person?.party ? <PartyBadge party={person.party} /> : null}
           {seats !== null ? (
             <span className="tabular-nums">
               {seats.total !== null ? (
@@ -208,11 +261,13 @@ function ConnectionRow({
               )}
             </span>
           ) : null}
-          {source ? (
-            <SourceIcon href={source.url} title={source.title} retrieved={connection.source.retrieved} className="self-center" />
-          ) : null}
         </p>
       </div>
+      {source ? (
+        <SourceSlot>
+          <SourceIcon href={source.url} title={source.title} retrieved={connection.source.retrieved} />
+        </SourceSlot>
+      ) : null}
     </div>
   );
 }
@@ -232,21 +287,22 @@ function ConnectionGroupBlock({
     }
     return a.other.name.localeCompare(b.other.name, "nl");
   });
-  const visible = connections.slice(0, GROUP_LIMIT);
-  const rest = connections.slice(GROUP_LIMIT);
+  const rows = mergeConnectionRows(connections, tenureVia);
+  const visible = rows.slice(0, GROUP_LIMIT);
+  const rest = rows.slice(GROUP_LIMIT);
   const title = groupTitle(group) ?? GROUP_TITLES[group.type];
   return (
     <FactGroup
       icon={iconFor(group.type)}
       title={<L nl={title.nl} en={title.en} />}
-      count={connections.length}
+      count={rows.length}
       plain
     >
       {visible.length > 0 ? (
         <ul className={LIST_CLASS}>
-          {visible.map((connection) => (
-            <li key={connection.id} className="border-b border-line/60 last:border-b-0">
-              <ConnectionRow connection={connection} showDirection={showDirection} selfId={selfId} />
+          {visible.map((row) => (
+            <li key={row.key} className="border-b border-line/60 last:border-b-0">
+              <ConnectionRow row={row} showDirection={showDirection} selfId={selfId} />
             </li>
           ))}
         </ul>
@@ -254,12 +310,12 @@ function ConnectionGroupBlock({
       {rest.length > 0 ? (
         <details className="motion-disclosure mt-2">
           <summary className={SUMMARY_CLASS}>
-            <T area="common" k="seeAll" vars={{ n: group.connections.length }} />
+            <T area="common" k="seeAll" vars={{ n: rows.length }} />
           </summary>
           <ul className={`mt-1 ${LIST_CLASS}`}>
-            {rest.map((connection) => (
-              <li key={connection.id} className="border-b border-line/60 last:border-b-0">
-                <ConnectionRow connection={connection} showDirection={showDirection} selfId={selfId} />
+            {rest.map((row) => (
+              <li key={row.key} className="border-b border-line/60 last:border-b-0">
+                <ConnectionRow row={row} showDirection={showDirection} selfId={selfId} />
               </li>
             ))}
           </ul>
