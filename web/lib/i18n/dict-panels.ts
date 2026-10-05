@@ -103,7 +103,7 @@ export const PANELS_DICT = {
   defaultInTheNews: { nl: "Meest in het nieuws", en: "Most in the news" },
   defaultInTheNewsWindow: { nl: "Laatste {n} dagen", en: "Last {n} days" },
   defaultSectors: { nl: "Grootste sectoren", en: "Largest sectors" },
-  defaultChanges: { nl: "Laatste wijzigingen", en: "Latest changes" },
+  defaultChanges: { nl: "Recente wijzigingen", en: "Recent changes" },
   defaultSectorsNote: { nl: "Aantal organisaties per sector", en: "Organizations per sector" },
   defaultChangesAll: { nl: "Alle wijzigingen", en: "All changes" },
   sectorOrganisations: { nl: "{n} organisaties", en: "{n} organizations" },

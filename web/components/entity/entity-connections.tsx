@@ -97,7 +97,7 @@ const GROUP_TITLES: Record<ConnectionGroup["type"], { nl: string; en: string }> 
   joint_arrangement_member: { nl: "Gemeenschappelijke regeling", en: "Joint arrangement" },
 };
 
-/** CivLab-style viewpoint-aware group title: "Gekozen door", "Benoemt", and so on. */
+/** Viewpoint-aware group title: "Bekleed door", "Lid van", and so on. */
 function groupTitle(group: ConnectionGroup): { nl: string; en: string } | null {
   const directions = new Set(group.connections.map((connection) => connection.direction));
   if (directions.size !== 1) return null;

@@ -118,7 +118,7 @@ export default function HomePage() {
           id="nieuws-titel"
           className="text-lg font-semibold tracking-tight text-ink"
         >
-          <L nl="Laatste nieuws" en="Latest news" />
+          <L nl="Recent nieuws" en="Recent news" />
         </h2>
         <p className="mt-1 text-xs text-ink-faint">
           <a href="/methodiek/#machinevertaling" className="underline decoration-line underline-offset-2 hover:text-ink">
@@ -134,7 +134,7 @@ export default function HomePage() {
         <section aria-labelledby="mensen-titel" className="border-b border-line py-6">
           <h2 id="mensen-titel" className="text-lg font-semibold tracking-tight text-ink">
             {news.length > 0 ? (
-              <L nl="Wie in het nieuws" en="Who is in the news" />
+              <L nl="Mensen in het nieuws" en="People in the news" />
             ) : (
               <L nl="Huidige functionarissen" en="Current office holders" />
             )}
@@ -147,7 +147,7 @@ export default function HomePage() {
 
       <section aria-labelledby="wijzigingen-titel" className="border-b border-line py-6">
         <h2 id="wijzigingen-titel" className="text-lg font-semibold tracking-tight text-ink">
-          <L nl="Laatste wijzigingen" en="Latest changes" />
+          <L nl="Recente wijzigingen" en="Recent changes" />
         </h2>
         <ChangePanel />
       </section>

@@ -6,7 +6,7 @@ This is the map of the project documentation. Read in order for a full picture, 
 | --- | --- | --- |
 | `../CONTRIBUTING.md` | Conventions for every contribution: the source rule, language, dates, checks, licenses | Before changing anything |
 | `01-vision-and-goals.md` | Why we build this, what done looks like, principles | Need direction or a tie-breaker |
-| `02-reference-system-spec.md` | The reference product: pages, look, interactions, data model, stack | Building anything that must match the reference |
+| `02-reference-system-spec.md` | The reference product: pages, information architecture, interactions, data model, stack | Studying the reference's information architecture (not its look or text) |
 | `03-dutch-government-model.md` | The Dutch state: scope, entities, positions, sources, vocabulary mapping | Researching or modeling Dutch data |
 | `04-data-model.md` | The canonical schema and integrity rules | Writing or reading data, changing the schema |
 | `05-research-workstreams.md` | The parallel research plan, 15 workstreams | Running Phase 1 |

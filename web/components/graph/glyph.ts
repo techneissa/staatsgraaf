@@ -99,9 +99,9 @@ export function orbitDotsAt(count: number, radius: number, cx: number, cy: numbe
 }
 
 /**
- * Jagged sun-burst for the graph hub, in the spirit of the reference product's
- * hub mark. Alternate long and short spikes so the shape does not read as a
- * plain star.
+ * Jagged sun-burst for a hub mark, generated from its radius. Alternate long
+ * and short spikes so the shape does not read as a plain star. Only the
+ * variant sketches under research/graph-variants draw it.
  */
 export function hubBurstPath(radius: number, spikes = 14): string {
   const inner = radius * 0.82;
