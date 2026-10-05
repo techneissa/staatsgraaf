@@ -7,6 +7,10 @@
  *
  * Every value is copied from the dataset (via the same loaders the pages use);
  * nothing is summarised or generated. Missing values stay null.
+ *
+ * It also writes the compact row lists of the people, organisation and
+ * position index pages to public/peek/lists/ (lib/index-rows.ts); those pages
+ * render only their first screen and fetch the rest from there.
  */
 import { mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";

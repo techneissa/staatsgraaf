@@ -33,7 +33,7 @@ export function PersonTile({ row }: { row: PersonRow }) {
           <Link
             href={`/personen/${row.s}/`}
             prefetch={false}
-            title={row.n}
+            title={role ? `${row.n}\n${role}` : row.n}
             className="text-ink no-underline outline-none after:absolute after:inset-0 after:rounded-lg hover:underline focus-visible:after:outline-2 focus-visible:after:outline-offset-2 focus-visible:after:outline-focus"
           >
             {row.n}

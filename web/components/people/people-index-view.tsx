@@ -3,6 +3,7 @@
 import { useDeferredValue, useMemo } from "react";
 import { GroupedList, type ListGroup } from "@/components/index-list/grouped-list";
 import { ListStatus } from "@/components/index-list/list-status";
+import { NoScriptNote } from "@/components/index-list/no-script-note";
 import { useAnchorJump } from "@/components/index-list/use-anchor-jump";
 import { useIndexParams } from "@/components/index-list/use-index-params";
 import { useIndexRows } from "@/components/index-list/use-index-rows";
@@ -93,6 +94,7 @@ export function PeopleIndexView({ initial, groups, parties, letters, total }: Pr
         onClear={clear}
         onRetry={retry}
       />
+      <NoScriptNote />
       <div id={LIST_ID}>
         <GroupedList
           listId={LIST_ID}

@@ -9,6 +9,7 @@ import { positionSearchText, searchTerms, type PositionRow } from "@/lib/index-l
 import type { OrgType } from "@/lib/types";
 import { GroupedList, type ListGroup } from "./grouped-list";
 import { ListStatus } from "./list-status";
+import { NoScriptNote } from "./no-script-note";
 import { PositionCard } from "./position-card";
 import { IndexSearchField } from "./search-field";
 import { useIndexParams } from "./use-index-params";
@@ -125,6 +126,7 @@ export function PositionsIndexView({
         onRetry={retry}
       />
 
+      <NoScriptNote />
       <GroupedList
         listId={LIST_ID}
         signature={`${query.trim()}|${values.groep}`}

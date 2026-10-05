@@ -10,6 +10,7 @@ import { branchColorVar } from "@/lib/branch-colors";
 import { organizationSearchText, searchTerms, type OrganizationRow } from "@/lib/index-lists";
 import type { OrgBranch } from "@/lib/types";
 import { GroupedList, type ListGroup } from "./grouped-list";
+import { NoScriptNote } from "./no-script-note";
 import { ListStatus } from "./list-status";
 import { IndexSearchField } from "./search-field";
 import { useAnchorJump } from "./use-anchor-jump";
@@ -126,6 +127,7 @@ export function OrganizationsIndexView({
         onRetry={retry}
       />
 
+      <NoScriptNote />
       <GroupedList
         listId={LIST_ID}
         signature={query.trim()}
