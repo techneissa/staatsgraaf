@@ -4,6 +4,7 @@ import { ChangeRow } from "@/components/change-row";
 import { ChangeExplorer } from "@/components/change/change-explorer";
 import { Callout } from "@/components/change/callout";
 import { ChangeKindGlyph } from "@/components/change/change-glyph";
+import { PersonChangesView } from "@/components/change/person-changes-view";
 import { getChangeTileFigures } from "@/components/change/change-figures";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { ActingList } from "@/components/change/acting-list";
@@ -19,6 +20,7 @@ import {
   getVacantSeats,
   getWindowedChanges,
   groupChangesByDay,
+  groupChangesByPerson,
 } from "@/lib/changes";
 import { getDatasetDate } from "@/lib/data";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
@@ -53,7 +55,8 @@ export default function ChangesPage() {
         node: <ChangeRow key={change.id} change={change} />,
       })),
     }));
-    return { days, total: changes.length, histogram, groups };
+    const people = <PersonChangesView groups={groupChangesByPerson(changes)} reference={reference} />;
+    return { days, total: changes.length, histogram, groups, people };
   });
 
   return (

@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { CSSProperties, KeyboardEvent, PointerEvent } from "react";
+import type { CSSProperties, KeyboardEvent, MouseEvent, PointerEvent } from "react";
 import { useLocale } from "@/components/i18n/language-provider";
 import { useT } from "@/components/i18n/use-t";
 import { BAR_KINDS, type BarKind, type HistogramBucket } from "@/lib/change-bar-kinds";
+import { nearestActiveIndex } from "@/lib/change-hit";
 import type { ChangeFilterValue } from "@/lib/change-url-state";
 import { CHANGE_TONE, ChangeKindGlyph } from "./change-glyph";
 import { formatIsoDate } from "./local-date";
@@ -218,11 +219,33 @@ export function ChangeHistogram({
     [showTip],
   );
 
+  const counts = useMemo(() => buckets.map((bucket) => bucket.count), [buckets]);
+
+  /** The day a pointer means: the nearest day with changes within a finger's reach. */
+  const indexAt = (event: { clientX: number }, target: HTMLElement) => {
+    const rect = target.getBoundingClientRect();
+    return nearestActiveIndex(counts, event.clientX - rect.left, rect.width);
+  };
+
   const onPointer = (event: PointerEvent<HTMLDivElement>) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    if (rect.width === 0) return;
-    const index = Math.floor(((event.clientX - rect.left) / rect.width) * buckets.length);
-    showTip(Math.min(buckets.length - 1, Math.max(0, index)));
+    const index = indexAt(event, event.currentTarget);
+    if (index === null) setTip(null);
+    else showTip(index);
+  };
+
+  // A thin bar is a hard target, so a pointer click forwards to the nearest bar
+  // in reach. Keyboard activation (detail 0) and the forwarded click itself
+  // already hit the right bar.
+  const onClickCapture = (event: MouseEvent<HTMLDivElement>) => {
+    if (event.detail === 0) return;
+    const index = indexAt(event, event.currentTarget);
+    const hit = (event.target as HTMLElement).closest<HTMLElement>("[data-day]");
+    if (index === null) return;
+    const wanted = groupRef.current?.querySelector<HTMLElement>(`[data-day="${buckets[index].date}"]`);
+    if (!wanted || wanted === hit) return;
+    event.preventDefault();
+    event.stopPropagation();
+    wanted.click();
   };
 
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -300,6 +323,7 @@ export function ChangeHistogram({
           className="motion-grow flex h-16 touch-pan-y items-end border-b border-line"
           data-reveal="pending"
           onKeyDown={onKeyDown}
+          onClickCapture={onClickCapture}
           onPointerEnter={onPointer}
           onPointerMove={onPointer}
           onPointerDown={onPointer}
