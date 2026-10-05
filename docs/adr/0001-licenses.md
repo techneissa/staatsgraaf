@@ -1,7 +1,7 @@
 # ADR 0001: Licenses for code and data
 
 Date: 17-09-2026
-Status: accepted (owner decision 18-09-2026: code MIT, dataset CC BY 4.0)
+Status: accepted (owner decision 18-09-2026: code MIT, dataset CC BY 4.0; amended 05-10-2026: code PolyForm Noncommercial 1.0.0)
 
 ## Context
 
@@ -29,3 +29,9 @@ No license files ship until the owner decides. Facts themselves are not copyrigh
 ## Consequences
 
 Once decided, `LICENSE` and `LICENSE-DATA` ship and the README states the terms. Workstream O's table (`research/O-licenses.md`) informs the per-source application; the launch gate stays blocked until that application fills `data/sources.json` and 2129 `license: null` records are resolved.
+
+## Amendment 05-10-2026: code moves to PolyForm Noncommercial
+
+The owner decided on 05-10-2026 to make the repository public with source-available code and open data. The code license changes from MIT to the PolyForm Noncommercial License 1.0.0 (`PolyForm-Noncommercial-1.0.0`); `LICENSE` carries `Required Notice: Copyright (c) 2026 Staatsgraaf contributors`. The dataset license does not change: CC BY 4.0, because the sources are CC0 or CC BY.
+
+Reason: MIT lets anyone resell the code as a commercial product; the owner wants the code readable and reusable for noncommercial purposes (personal, research, charitable, educational, government) and wants commercial use to need a separate agreement. The data stays free for any use because the project does not own the facts and the sources are open. Contributions follow the same split (`CONTRIBUTING.md` section 13). Copies of the code obtained under MIT before 05-10-2026 keep that license for the version obtained. What is and is not in the public repository, and the alternatives that were weighed, are in `docs/adr/0023-public-repository.md`.
