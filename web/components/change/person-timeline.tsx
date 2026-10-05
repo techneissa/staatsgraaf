@@ -30,7 +30,7 @@ const SENTENCE_KEY: Partial<Record<ChangeDisplayKind, string>> = {
 };
 
 /** How a change reads for one person: the one who came in, or the one who went out. */
-function roleFor(change: Change, personId: string | null): ChangeDisplayKind {
+export function roleFor(change: Change, personId: string | null): ChangeDisplayKind {
   if (personId !== null && change.out?.person === personId && change.in?.person !== personId) return "departure";
   return changeDisplayKind(change);
 }

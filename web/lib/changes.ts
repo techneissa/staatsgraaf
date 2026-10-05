@@ -1,7 +1,9 @@
+import { amsterdamDay, resolveReferenceDay } from "./change-clock";
+import type { ChangeFilterValue } from "./change-url-state";
+import { countItems, sortActing, type EntryCounts } from "./change-feed";
 import { getDataset, getDatasetDate, getPersonById } from "./data";
 import type {
   Change,
-  ChangeKind,
   Organization,
   Person,
   Position,
@@ -11,8 +13,6 @@ import type {
 
 export const CHANGE_WINDOWS = [7, 30, 90] as const;
 export type ChangeWindow = (typeof CHANGE_WINDOWS)[number];
-
-export type ChangeFilter = "all" | ChangeKind;
 
 export type VacancySummary = {
   position: Position;
@@ -71,13 +71,18 @@ function capitalize(value: string): string {
   return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
-export function getChangeReferenceDate(): string {
-  const datasetDate = getDatasetDate();
-  if (datasetDate) return datasetDate.slice(0, 10);
-  const dates = getDataset()
-    .changes.map((change) => change.date)
-    .sort();
-  return dates.length > 0 ? dates[dates.length - 1] : new Date().toISOString().slice(0, 10);
+/**
+ * The day every relative figure counts from: the day of the build (the site is
+ * rebuilt every four hours), not the dataset snapshot. `now` is a parameter so
+ * a test can fix the clock.
+ */
+export function getChangeReferenceDate(now: Date = new Date()): string {
+  return resolveReferenceDay(amsterdamDay(now), getLastChangeDate());
+}
+
+/** The date of the dataset snapshot, shown quietly as "Gegevens per". Null when the dataset has none. */
+export function getSnapshotDate(): string | null {
+  return getDatasetDate()?.slice(0, 10) ?? null;
 }
 
 export function getAllChanges(): Change[] {
@@ -95,10 +100,6 @@ export function getWindowedChanges(days: number, reference = getChangeReferenceD
     .sort((a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id));
 }
 
-export function filterChangesByKind(changes: Change[], filter: ChangeFilter): Change[] {
-  if (filter === "all") return changes;
-  return changes.filter((change) => change.kind === filter);
-}
 
 export function getWindowCounts(reference = getChangeReferenceDate()): Record<ChangeWindow, number> {
   const counts = { 7: 0, 30: 0, 90: 0 } as Record<ChangeWindow, number>;
@@ -160,7 +161,11 @@ export function getActingOfficials(): ActingOfficial[] {
       organization: organizationsById.get(position.organization),
     });
   }
-  return officials.sort((a, b) => a.person.name.localeCompare(b.person.name, "nl"));
+  return sortActing(officials, "newest", actingKey);
+}
+
+function actingKey(official: ActingOfficial): { start: string | null; name: string } {
+  return { start: official.tenure.start, name: official.person.name };
 }
 
 export function getChangeStats(reference = getChangeReferenceDate()): ChangeStats {
@@ -294,6 +299,94 @@ export function vacancySeatCounts(change: Change): { filled: number; seats: numb
   const seats = Number(before[2]);
   if (!Number.isFinite(filled) || !Number.isFinite(seats) || seats < filled) return null;
   return { filled, seats, vacant: seats - filled };
+}
+
+/**
+ * One line of the feed: a single change, or every change one person got on one
+ * day in the same role (a bulk import of committee seats), which reads as one
+ * entry that expands to its changes.
+ */
+export type FeedEntry = {
+  key: string;
+  date: string;
+  displayKind: ChangeDisplayKind;
+  /** The person the entry is about; null for a vacancy or a structural change. */
+  personId: string | null;
+  /** Newest first, as given. One change for a single entry. */
+  changes: Change[];
+};
+
+function subjectPersonId(change: Change, kind: ChangeDisplayKind): string | null {
+  if (kind === "departure") return change.out?.person ?? null;
+  if (kind === "appointment" || kind === "acting") return change.in?.person ?? null;
+  return null;
+}
+
+/**
+ * Folds the changes of one person on one day, in the same role (appointment,
+ * acting or departure), into one entry. Everything else stays a single entry.
+ * The order of the input is kept: an entry sits where its first change was.
+ */
+export function groupChangesIntoEntries(changes: readonly Change[]): FeedEntry[] {
+  const entries: FeedEntry[] = [];
+  const bundles = new Map<string, FeedEntry>();
+  for (const change of changes) {
+    const displayKind = changeDisplayKind(change);
+    const personId = subjectPersonId(change, displayKind);
+    if (personId === null) {
+      entries.push({ key: change.id, date: change.date, displayKind, personId, changes: [change] });
+      continue;
+    }
+    const key = `${change.date}|${personId}|${displayKind}`;
+    const existing = bundles.get(key);
+    if (existing) {
+      existing.changes.push(change);
+      continue;
+    }
+    const entry: FeedEntry = { key: change.id, date: change.date, displayKind, personId, changes: [change] };
+    bundles.set(key, entry);
+    entries.push(entry);
+  }
+  return entries;
+}
+
+/** The underlying changes in some entries, and how many different people they are about. */
+export function countEntries(entries: readonly FeedEntry[]): EntryCounts {
+  return countItems(entries.map((entry) => ({ changes: entry.changes.length, personId: entry.personId })));
+}
+
+/**
+ * Changes per chip, for one window: every chip counts the changes shown under
+ * its own label, so a chip, the caption and the list always agree.
+ */
+export function countChangesByFilter(entries: readonly FeedEntry[]): Record<ChangeFilterValue, number> {
+  const counts: Record<ChangeFilterValue, number> = { all: 0, appointment: 0, acting: 0, departure: 0, vacancy: 0 };
+  for (const entry of entries) {
+    counts.all += entry.changes.length;
+    if (entry.displayKind === "appointment" || entry.displayKind === "acting" || entry.displayKind === "departure" || entry.displayKind === "vacancy") {
+      counts[entry.displayKind] += entry.changes.length;
+    }
+  }
+  return counts;
+}
+
+export type EntryDay = { date: string; entries: FeedEntry[] };
+
+/** Entries per day, newest day first; entries keep their order within a day. */
+export function groupEntriesByDay(entries: readonly FeedEntry[]): EntryDay[] {
+  const days = new Map<string, FeedEntry[]>();
+  for (const entry of entries) {
+    const list = days.get(entry.date);
+    if (list) list.push(entry);
+    else days.set(entry.date, [entry]);
+  }
+  return [...days.entries()].sort((a, b) => b[0].localeCompare(a[0])).map(([date, list]) => ({ date, entries: list }));
+}
+
+/** The newest `limit` entries, whatever their age, with bundles kept whole. */
+export function getNewestEntries(limit: number): FeedEntry[] {
+  const newest = [...getAllChanges()].sort((a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id));
+  return groupChangesIntoEntries(newest).slice(0, limit);
 }
 
 export type PersonChangeGroup = {

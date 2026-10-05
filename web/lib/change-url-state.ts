@@ -1,14 +1,26 @@
 /**
- * URL state of /wijzigingen/: `?window=7|30|90&kind=...&day=YYYY-MM-DD&view=people`. Each
- * part is checked on its own, so a bad part is ignored and the rest still
- * applies. Kept free of React so a test can run it.
+ * URL state of /wijzigingen/: `?window=7|30|90&kind=...&day=YYYY-MM-DD&view=people`,
+ * or `?now=acting|vacancy` for the lists of the current state, which do not
+ * follow the period. Each part is checked on its own, so a bad part is ignored
+ * and the rest still applies. Kept free of React so a test can run it.
  */
 
 export type ChangeFilterValue = "all" | "appointment" | "departure" | "vacancy" | "acting";
 
 export type ChangeViewValue = "chronological" | "people";
 
-export type ChangeUrlState = { window: number; kind: ChangeFilterValue; day: string | null; view: ChangeViewValue };
+/** The lists of the state right now (acting officials, vacant seats), apart from the changes of a period. */
+export type NowValue = "acting" | "vacancy";
+
+export type ChangeUrlState = {
+  window: number;
+  kind: ChangeFilterValue;
+  day: string | null;
+  view: ChangeViewValue;
+  now: NowValue | null;
+};
+
+const NOW_VALUES: readonly NowValue[] = ["acting", "vacancy"];
 
 export const CHANGE_FILTER_VALUES: readonly ChangeFilterValue[] = ["all", "appointment", "departure", "vacancy", "acting"];
 
@@ -27,11 +39,13 @@ export function parseChangeUrlState(search: string, validDays: readonly number[]
   const fallback = validDays.includes(DEFAULT_WINDOW) ? DEFAULT_WINDOW : (validDays[0] ?? DEFAULT_WINDOW);
   const kind = params.get("kind");
   const day = params.get("day");
+  const now = params.get("now");
   return {
     window: validDays.includes(requested) ? requested : fallback,
     kind: CHANGE_FILTER_VALUES.find((value) => value === kind) ?? "all",
     day: day !== null && isIsoDay(day) ? day : null,
     view: params.get("view") === "people" ? "people" : "chronological",
+    now: NOW_VALUES.find((value) => value === now) ?? null,
   };
 }
 
@@ -46,9 +60,14 @@ export function dayInWindow(day: string | null, days: number, reference: string)
 export function serializeChangeUrlState(state: ChangeUrlState): string {
   const params = new URLSearchParams();
   if (state.window !== DEFAULT_WINDOW) params.set("window", String(state.window));
-  if (state.kind !== "all") params.set("kind", state.kind);
-  if (state.day !== null) params.set("day", state.day);
-  if (state.view === "people") params.set("view", "people");
+  if (state.now !== null) {
+    // A current-state list has no kind, day or view of its own.
+    params.set("now", state.now);
+  } else {
+    if (state.kind !== "all") params.set("kind", state.kind);
+    if (state.day !== null) params.set("day", state.day);
+    if (state.view === "people") params.set("view", "people");
+  }
   const query = params.toString();
   return query === "" ? "" : `?${query}`;
 }
