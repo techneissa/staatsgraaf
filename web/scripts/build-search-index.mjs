@@ -66,7 +66,21 @@ function detectAbbreviation(terms) {
   return null;
 }
 
-function makeRecord(kind, id, label, aliasGroups, image = null) {
+const BRANCH_CONTEXT = {
+  regering: "Regering",
+  "staten-generaal": "Staten-Generaal",
+  "rechterlijke-macht": "Rechterlijke macht",
+  "hoge-colleges": "Hoge Colleges van Staat",
+  adviescolleges: "Adviescollege",
+  zelfstandig: "Zelfstandig bestuursorgaan",
+  waterschap: "Waterschap",
+  "decentraal-lokaal": "Lokaal bestuur",
+  "decentraal-provinciaal": "Provinciaal bestuur",
+  koninkrijk: "Koninkrijk",
+  "caribisch-nederland": "Caribisch Nederland",
+};
+
+function makeRecord(kind, id, label, aliasGroups, image = null, extra = {}) {
   const href = entityHref(id);
   // A missing href means the entity has no route yet; it is a named gap, not a fact.
   if (!href) return null;
@@ -83,7 +97,15 @@ function makeRecord(kind, id, label, aliasGroups, image = null) {
     abbreviation: kind === "organization" ? detectAbbreviation(list) : null,
     image,
     terms: list,
+    ...extra,
+    context: extra.context || undefined,
   };
+}
+
+// "country" is only set for records outside the Dutch state, so Dutch records
+// pay no bytes for it and ranking can tell them apart.
+function countryExtra(country) {
+  return country && country !== "nederland" ? { country } : {};
 }
 
 function applyAliasOverlay(records) {
@@ -100,6 +122,8 @@ function applyAliasOverlay(records) {
     const terms = new Set(record.terms);
     for (const term of stringList(entry.terms)) terms.add(term.trim());
     record.terms = [...terms];
+    // An English alias is shown next to the Dutch name in the English interface.
+    if (entry.lang === "en") record.en = stringList(entry.terms)[0]?.trim() || undefined;
   }
   return skipped;
 }
@@ -110,21 +134,65 @@ export function buildIndex() {
   const positions = readArray("positions.json");
   const topics = readArray("topics.json");
   const media = readArray("media.json");
+  const tenures = readArray("tenures.json");
+  const memberships = readArray("memberships.json");
   const meta = readJson(join(DATA_DIR, "meta.json"));
+  const orgById = new Map(organizations.map((org) => [org.id, org]));
+  const positionById = new Map(positions.map((position) => [position.id, position]));
+
+  // Context line: where an entity sits, so equal names stay apart in the list.
+  const latestTenure = new Map();
+  for (const tenure of tenures) {
+    const held = latestTenure.get(tenure.person);
+    const rank = (item) => (item.end ? item.end : "9999-12-31");
+    if (!held || rank(tenure) > rank(held) || (rank(tenure) === rank(held) && (tenure.start ?? "") > (held.start ?? ""))) {
+      latestTenure.set(tenure.person, tenure);
+    }
+  }
+  const membershipOrg = new Map();
+  for (const membership of memberships) {
+    if (!membership.end || !membershipOrg.has(membership.person)) membershipOrg.set(membership.person, membership.organization);
+  }
+  const orgContext = (org) => {
+    const parent = org.parent ? orgById.get(org.parent) : null;
+    return parent ? parent.name : (BRANCH_CONTEXT[org.branch] ?? "");
+  };
+  const personContext = (person) => {
+    const tenure = latestTenure.get(person.id);
+    const title = tenure ? positionById.get(tenure.position)?.title : null;
+    if (title) return title;
+    const orgId = membershipOrg.get(person.id);
+    return orgId ? (orgById.get(orgId)?.name ?? "") : "";
+  };
   // Portrait URLs come from media.json, the only place a licensed image lives.
   const portraitUrl = new Map(media.filter((item) => item.type === "portrait").map((item) => [item.id, item.url]));
   const gazetteer = collectGazetteerAliases();
 
   const records = [];
   for (const org of organizations) {
-    records.push(makeRecord("organization", org.id, org.name, [org.aliases, gazetteer.get(org.id)]));
+    records.push(
+      makeRecord("organization", org.id, org.name, [org.aliases, gazetteer.get(org.id)], null, {
+        context: orgContext(org),
+        ...countryExtra(org.country),
+      }),
+    );
   }
   for (const person of people) {
     const image = typeof person.portrait === "string" ? (portraitUrl.get(person.portrait) ?? null) : null;
-    records.push(makeRecord("person", person.id, person.name, [person.aliases, gazetteer.get(person.id)], image));
+    records.push(
+      makeRecord("person", person.id, person.name, [person.aliases, gazetteer.get(person.id)], image, {
+        context: personContext(person),
+      }),
+    );
   }
   for (const position of positions) {
-    records.push(makeRecord("position", position.id, position.title, [gazetteer.get(position.id)]));
+    const org = orgById.get(position.organization);
+    records.push(
+      makeRecord("position", position.id, position.title, [gazetteer.get(position.id)], null, {
+        context: org ? org.name : "",
+        ...countryExtra(org?.country),
+      }),
+    );
   }
   for (const topic of topics) {
     records.push(makeRecord("topic", topic.id, topic.name, [topic.keywords]));
