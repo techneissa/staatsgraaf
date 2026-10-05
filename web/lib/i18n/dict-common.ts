@@ -142,7 +142,7 @@ export const COMMON_DICT = {
   canvasShow: { nl: "Toon grafiek", en: "Show graph" },
   canvasHide: { nl: "Verberg grafiek", en: "Hide graph" },
   footerLicenseData: { nl: "Gegevens: CC BY 4.0", en: "Data: CC BY 4.0" },
-  footerLicenseCode: { nl: "Broncode: MIT", en: "Source code: MIT" },
+  footerLicenseCode: { nl: "Broncode: CC BY-NC-SA 4.0", en: "Source code: CC BY-NC-SA 4.0" },
   footerSourceNote: { nl: "Elk feit heeft een bron.", en: "Every fact has a source." },
   footerDatasetLink: { nl: "Dataset en bronvermelding", en: "Dataset and credit" },
   notFoundSections: { nl: "Ga naar een onderdeel", en: "Go to a section" },

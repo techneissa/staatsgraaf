@@ -610,12 +610,16 @@ export function buildAttribution(sources, media = null) {
   lines.push("## The data licence");
   lines.push("");
   lines.push(
-    "The dataset (the compiled data, the descriptions and the summaries) is licensed CC BY 4.0, see `LICENSE-DATA`. The code is MIT, see `LICENSE`. Facts are not copyrightable: the licence covers our selection, structure and own wording. On reuse you must:",
+    "The dataset (the compiled data, the descriptions and the summaries) is licensed CC BY 4.0, see `LICENSE-DATA`. The code is CC BY-NC-SA 4.0, see `LICENSE`. Facts are not copyrightable: the data licence covers our selection, structure and own wording. On reuse you must:",
   );
   lines.push("");
   lines.push('1. credit the project as "Staatsgraaf" and link to this repository;');
   lines.push("2. keep the source, the retrieval date and the licence next to the facts they belong to, as `data/sources.json` records them; and");
   lines.push("3. state the licence and link to it, and keep the independence statement in `LICENSE-DATA`.");
+  lines.push("");
+  lines.push(
+    "The code has its own licence, CC BY-NC-SA 4.0 (`CC-BY-NC-SA-4.0`), see `LICENSE`. To reuse the code, credit \"Staatsgraaf (https://github.com/techneissa/staatsgraaf), CC BY-NC-SA 4.0\", use it for noncommercial purposes only, and share your adaptations under the same licence. The data licence above does not change that.",
+  );
   lines.push("");
   lines.push(
     "Photos are not under the dataset licence. Each one keeps the licence its author gave it, see Portraits below. The per-source licence decisions, with evidence and retrieval dates, are in `research/O-licenses.md`.",
