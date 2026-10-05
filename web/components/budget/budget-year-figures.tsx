@@ -77,10 +77,10 @@ export function BudgetYearFigures({
                 <th scope="row" className="py-2 pe-3 text-left font-normal text-ink-muted">
                   <T area="news" k={row.k} />
                 </th>
-                <td className="whitespace-nowrap py-2 pe-3 text-right">
+                <td className="py-2 pe-3 text-right">
                   <Cell value={current[row.key]} unit={unit} />
                 </td>
-                <td className="whitespace-nowrap py-2 text-right">
+                <td className="py-2 text-right">
                   {previous !== null ? (
                     <Cell value={previous[row.key]} unit={unit} />
                   ) : (
