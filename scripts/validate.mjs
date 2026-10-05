@@ -550,7 +550,8 @@ if (RESEARCH_MODE) {
     elections: "election",
     coalitions: "coalition",
   };
-  const researchFiles = readdirSync(RESEARCH_DIR).filter((f) => f.endsWith(".json")).sort();
+  // Files ending in -state.json hold pipeline cursors and hashes (research/P-live-state.json), not workstream envelopes.
+  const researchFiles = readdirSync(RESEARCH_DIR).filter((f) => f.endsWith(".json") && !f.endsWith("-state.json")).sort();
   const parsedFiles = new Map();
   for (const f of researchFiles) {
     try {
