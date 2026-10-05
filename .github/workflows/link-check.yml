@@ -1,19 +1,17 @@
 name: link-check
 
-# Weekly source health check (docs/10 section 7). The checker verifies every
+# Weekly source health check (.github/workflows/README.md). The checker verifies every
 # internal href in the built export and every source URL in data/sources.json.
 # It never evades a block: allowlisted hosts are reported as WARN, not FAIL.
 # A FAIL means a source died or moved; the fetcher gets fixed, the fact keeps
 # its source or gets a replacement with a note.
 on:
   schedule:
-    # Mondays 04:00 UTC, after the nightly refresh window.
-    - cron: "0 4 * * 1"
+    # Mondays 04:23 UTC (not on the hour: GitHub delays scheduled runs at the start of the hour).
+    - cron: "23 4 * * 1"
   workflow_dispatch:
 
-permissions:
-  contents: read
-  issues: write
+permissions: {}
 
 concurrency:
   group: link-check
@@ -22,19 +20,24 @@ concurrency:
 jobs:
   check:
     name: internal and external links
+    if: ${{ !github.event.repository.fork }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    permissions:
+      contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
 
       - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
         with:
           bun-version-file: .bun-version
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: "24"
 
@@ -57,15 +60,24 @@ jobs:
 
       - name: Upload the reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: link-check-${{ github.run_id }}
           path: research/qa/link-check-*.md
 
+  report-failure:
+    name: report link failures
+    needs: check
+    if: ${{ failure() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    steps:
       - name: Report link failures
-        if: failure()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
         run: |
           set -uo pipefail
           marker="Linkcontrole mislukt"
