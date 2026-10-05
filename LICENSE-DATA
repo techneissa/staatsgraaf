@@ -16,7 +16,7 @@ On reuse you must:
 2. keep the source attribution with the facts it belongs to, including the source URL and the retrieval date; and
 3. state the license and link to it.
 
-Per-source credit lines are listed in `ATTRIBUTION.md`. A source may require a specific credit, a share-alike term, or may permit facts only. Those terms sit next to the source in `ATTRIBUTION.md` and in the `license` and `notes` fields of `data/sources.json`. Where a source is all rights reserved, only the facts, the headline, and the deep link are used, not the source's prose or images. Where a source's license is not established, the record is marked `unknown` and named as a gap with its endpoint.
+`ATTRIBUTION.md` groups the sources by publisher and licence, with a link to each publisher's terms. A source may require a specific credit, a share-alike term, or may permit facts only. Those terms sit with the source in the `license` and `notes` fields of `data/sources.json`, and with each photo in `data/media.json`. Where a source is all rights reserved, only the facts, the headline, and the deep link are used, not the source's prose or images. Where a source's license is not established, the record is marked `unknown` and named as a gap with its endpoint.
 
 The project's own independence statement applies to every reuse:
 
@@ -37,7 +37,7 @@ Bij hergebruik moet u:
 2. de bronvermelding bij de feiten laten staan, met de bron-URL en de raadpleegdatum; en
 3. de licentie vermelden en ernaar linken.
 
-De verplichte vermeldingen per bron staan in `ATTRIBUTION.md`. Een bron kan een specifieke vermelding, een share-alike-voorwaarde of alleen feitengebruik vereisen. Die voorwaarden staan bij de bron in `ATTRIBUTION.md` en in de velden `license` en `notes` van `data/sources.json`. Waar een bron alle rechten voorbehouden heeft, gebruiken we alleen de feiten, de kop en de deep link, niet de tekst of het beeld van de bron. Waar de licentie van een bron niet vaststaat, is het record gemarkeerd als `unknown` en als leemte met endpoint benoemd.
+`ATTRIBUTION.md` groepeert de bronnen per uitgever en licentie, met een link naar de voorwaarden van elke uitgever. Een bron kan een specifieke vermelding, een share-alike-voorwaarde of alleen feitengebruik vereisen. Die voorwaarden staan bij de bron in de velden `license` en `notes` van `data/sources.json`, en bij elke foto in `data/media.json`. Waar een bron alle rechten voorbehouden heeft, gebruiken we alleen de feiten, de kop en de deep link, niet de tekst of het beeld van de bron. Waar de licentie van een bron niet vaststaat, is het record gemarkeerd als `unknown` en als leemte met endpoint benoemd.
 
 De onafhankelijkheidsverklaring van het project geldt bij elk hergebruik, zie hierboven.
 

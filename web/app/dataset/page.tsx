@@ -375,7 +375,8 @@ export default function DatasetPage() {
             {citation}
           </p>
           <p className="text-xs text-ink-faint">
-            <T area="pages" k="datasetPhotoCredits" />
+            <T area="pages" k="datasetPhotoCredits" />{" "}
+            <T area="pages" k="photoCreditsDatasetNote" />
           </p>
         </Section>
 
