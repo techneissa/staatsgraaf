@@ -50,7 +50,7 @@ run_in "$work/c2" "$work/log2" "$work/out2"
 check "clean push lands on the remote" "[ \"\$(git -C $bare rev-list --count main)\" = 2 ]"
 check "commit message has the date and [skip ci]" "[ \"\$(git -C $bare log -1 --format=%s main)\" = 'data: refresh 2026-10-05 [skip ci]' ]"
 check "commit author is github-actions[bot]" "[ \"\$(git -C $bare log -1 --format=%an main)\" = 'github-actions[bot]' ]"
-check "files outside the path list are not committed" "! git -C $bare ls-tree -r --name-only main | grep -q untracked-qa"
+check "files outside the path list are not committed" "[ \"\$(git -C $bare ls-tree -r --name-only main | grep -c untracked-qa)\" = 0 ]"
 check "committed=true and the sha are written" "grep -q 'committed=true' $work/out2 && grep -q \"sha=\$(git -C $bare rev-parse main)\" $work/out2"
 
 # 3. Lost race, no conflict: the owner pushes a different file after the bot cloned.
@@ -64,7 +64,7 @@ for mode in full shallow; do
   before="$(git -C "$bare" rev-list --count main)"
   run_in "$work/c3$mode" "$work/log3$mode" "$work/out3$mode"
   check "[$mode] race: push retried after a rebase" "grep -q 'rebasing' $work/log3$mode"
-  check "[$mode] race: owner commit and bot commit both on the remote" "[ \"\$(git -C $bare rev-list --count main)\" = $((before + 1)) ] && git -C $bare log --format=%s main | grep -q 'owner edit $mode'"
+  check "[$mode] race: owner commit and bot commit both on the remote" "[ \"\$(git -C $bare rev-list --count main)\" = $((before + 1)) ] && [ \"\$(git -C $bare log --format=%s main | grep -c 'owner edit $mode')\" = 1 ]"
   check "[$mode] race: history stays linear" "[ -z \"\$(git -C $bare rev-list --merges main)\" ]"
   check "[$mode] race: reported sha is the remote head" "grep -q \"sha=\$(git -C $bare rev-parse main)\" $work/out3$mode"
 done
