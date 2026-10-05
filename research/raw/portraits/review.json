@@ -1,62 +1,102 @@
 {
-  "reviewed": "2026-09-25",
+  "reviewed": "2026-10-05",
   "reviewer": "build area K",
-  "rules": "Handmatig beoordeelde portretten (ADR 0014). Een regel komt alleen hier als de identiteit met naam plus ambt, gemeente of geboortedatum uit een tweede bron vaststaat en de foto zelf is bekeken (een persoon, portret). De licentie wordt bij elke run live op de Commons-bestandspagina of in het TK-Gegevensmagazijn gecontroleerd; een bestand in een verwijder- of permissiecategorie wordt geweigerd.",
+  "rules": "Handmatig beoordeelde portretten (ADR 0014). Een regel komt alleen hier als de identiteit met naam plus ambt, gemeente of geboortedatum uit een tweede bron vaststaat en de foto zelf is bekeken (een persoon, portret). De licentie wordt bij elke run live op de Commons-bestandspagina of in het TK-Gegevensmagazijn gecontroleerd; een bestand in een verwijder- of permissiecategorie wordt geweigerd. Derde pas (05-10-2026): elke regel draagt `evidence`, een lijst met de soorten tweede bewijs (office, municipality, birthDate) naast de naam, en `evidenceUrl` met de bron daarvan; een Commons-depicts-tag of de naam alleen telt niet, een afwijkende geboortedatum is een naamgenoot, het bestand moet de persoon bij naam noemen en minstens 200 px breed zijn.",
   "people": {
     "bgen-b-d-drs-a-j-a-beukering": {
       "kind": "commons",
       "file": "T. Beukering (1958).jpg",
       "wikidata": "Q64667224",
+      "fullName": "Toine Beukering",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Toine Beukering\" op de EK-ledenpagina, geboortedatum 1958-11-28 op de EK-ledenpagina; Wikidata-geboortedatum gelijk",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "dr-m-l-vos": {
       "kind": "commons",
       "file": "20. Mei Li Vos.jpg",
       "wikidata": "Q2343224",
+      "fullName": "Mei Li Vos",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Mei Li Vos\" op de EK-ledenpagina, geboortedatum 1970-03-31 op de EK-ledenpagina; Wikidata-geboortedatum gelijk",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "drs-a-sj-van-der-goot": {
       "kind": "commons",
       "file": "Auke van der Goot, May 2025.jpg",
       "wikidata": "Q117233744",
+      "fullName": "Auke van der Goot",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Auke van der Goot\" op de EK-ledenpagina, geboortedatum 1952-01-29 op de EK-ledenpagina",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "drs-f-w-j-holterhues": {
       "kind": "commons",
       "file": "Senator Eric Holterhues 2 (cropped).jpg",
       "wikidata": "Q118869821",
+      "fullName": "Eric Holterhues",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Eric Holterhues\" op de EK-ledenpagina, geboortedatum 1972-05-16 op de EK-ledenpagina",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "drs-h-j-meijer": {
       "kind": "commons",
       "file": "Henk Jan Meijer vierkant.jpg",
       "wikidata": "Q2311677",
+      "fullName": "Henk Jan Meijer",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Henk Jan Meijer\" op de EK-ledenpagina, geboortedatum 1951-08-05 op de EK-ledenpagina; Wikidata-geboortedatum gelijk",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "drs-k-c-j-straus": {
       "kind": "commons",
       "file": "Karin-straus-1306849879.jpg",
       "wikidata": "Q2052110",
+      "fullName": "Karin Straus",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Karin Straus\" op de EK-ledenpagina, geboortedatum 1971-04-06 op de EK-ledenpagina; Wikidata-geboortedatum gelijk",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "drs-m-c-t-fiers": {
       "kind": "commons",
       "file": "Mary Fiers 2022 (52160092794).jpg",
       "wikidata": "Q2682088",
+      "fullName": "Mary Fiers",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Mary Fiers\" op de EK-ledenpagina, geboortedatum 1968-10-05 op de EK-ledenpagina; Wikidata-geboortedatum gelijk; recentste van de twee P18-bestanden",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "drs-n-k-koffeman": {
       "kind": "commons",
       "file": "Niko Koffeman (cropped).jpg",
       "wikidata": "Q1938630",
+      "fullName": "Niko Koffeman",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Niko Koffeman\" op de EK-ledenpagina, geboortedatum 1958-05-12 op de EK-ledenpagina; Wikidata-geboortedatum gelijk",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high",
       "licenseNote": "Copyrighted free use met afgeronde licentiereview (LicenseReview, 03-06-2012) van de toestemming op de site van de Partij voor de Dieren",
       "author": "auteur niet vermeld, vrijgegeven door de Partij voor de Dieren"
@@ -65,63 +105,108 @@
       "kind": "commons",
       "file": "Roel van Gurp (53099647151) (cropped).jpg",
       "wikidata": "Q65028329",
+      "fullName": "Roel van Gurp",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Roel van Gurp\" op de EK-ledenpagina, geboortedatum 1956-09-22 op de EK-ledenpagina; Wikidata-geboortedatum gelijk",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "drs-s-m-kluit": {
       "kind": "commons",
       "file": "Saskia Kluit.jpg",
       "wikidata": "Q65037345",
+      "fullName": "Saskia Kluit",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Saskia Kluit\" op de EK-ledenpagina, geboortedatum 1973-05-26 op de EK-ledenpagina; Wikidata-geboortedatum gelijk",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "ir-drs-g-a-van-strien": {
       "kind": "commons",
       "file": "Gom van Strien.jpg",
       "wikidata": "Q2529406",
+      "fullName": "Gom van Strien",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Gom van Strien\" op de EK-ledenpagina, geboortedatum 1951-06-10 op de EK-ledenpagina; Wikidata-geboortedatum gelijk",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "mr-c-a-h-van-de-sanden-ll-m": {
       "kind": "commons",
       "file": "Cees van de Sanden, May 2025.jpg",
       "wikidata": "Q122621682",
+      "fullName": "Cees van de Sanden",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Cees van de Sanden\" op de EK-ledenpagina, geboortedatum 1962-12-11 op de EK-ledenpagina",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "mr-g-v-m-veldhoen": {
       "kind": "commons",
       "file": "Gala Veldhoen (53099647691) (cropped).jpg",
       "wikidata": "Q65055093",
+      "fullName": "Gala Veldhoen",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Gala Veldhoen\" op de EK-ledenpagina, geboortedatum 1971-03-25 op de EK-ledenpagina; Wikidata-geboortedatum gelijk",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "mr-h-j-j-talsma": {
       "kind": "commons",
       "file": "Senator Hendrik-Jan Talsma (cropped).jpg",
       "wikidata": "Q106408195",
+      "fullName": "Hendrik-Jan Talsma",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Hendrik-Jan Talsma\" op de EK-ledenpagina, geboortedatum 1978-07-08 op de EK-ledenpagina; Wikidata-geboortedatum gelijk",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "prof-dr-i-j-visseren-hamakers": {
       "kind": "commons",
       "file": "Ingrid Visseren-Hamakers, May 2025.jpg",
       "wikidata": "Q91931832",
+      "fullName": "Ingrid Visseren-Hamakers",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Ingrid Visseren-Hamakers\" op de EK-ledenpagina, geboortedatum 1970-02-03 op de EK-ledenpagina; Wikidata-geboortedatum gelijk",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "r-o-martens-msc": {
       "kind": "commons",
       "file": "Randy Martens.jpg",
       "wikidata": "Q105944683",
+      "fullName": "Randy Martens",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Randy Martens\" op de EK-ledenpagina, geboortedatum 1987-12-13 op de EK-ledenpagina; geboortejaar 1987 gelijk",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "mr-h-w-vogels": {
       "kind": "commons",
       "file": "Rian Vogels (Netherlands) at the EOM North Macedonia, Parliamentary Briefings, 7 May 2024 (53705298100).jpg",
       "wikidata": "Q117228919",
+      "fullName": "Rian Vogels",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Rian Vogels\" op de EK-ledenpagina, geboortedatum 1970-02-24 op de EK-ledenpagina; bestandstitel noemt Rian Vogels (Netherlands), OSCE PA-verkiezingswaarneming 2024; foto gecontroleerd: een persoon in beeld",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "hans-janssen": {
@@ -129,6 +214,10 @@
       "file": "Hans Janssen at the 136th Plenary Session of the European Committee of the Regions (48874102378).jpg",
       "wikidata": "Q2360341",
       "identity": "Wikidata P6/P39: burgemeester van Oisterwijk, naam gelijk aan de registervermelding; P18 van die entiteit",
+      "evidence": [
+        "municipality",
+        "office"
+      ],
       "confidence": "high"
     },
     "jan-de-boer": {
@@ -136,6 +225,10 @@
       "file": "Jan de Boer - Burgemeester van Den Helder.jpg",
       "wikidata": "Q13736050",
       "identity": "Wikidata P6/P39: burgemeester van Den Helder, naam gelijk aan de registervermelding; bestandstitel noemt het ambt",
+      "evidence": [
+        "municipality",
+        "office"
+      ],
       "confidence": "high"
     },
     "marijke-van-beukering": {
@@ -143,6 +236,10 @@
       "file": "Marijke van Beukering-Huijbregts.png",
       "wikidata": "Q28860879",
       "identity": "Wikidata P6/P39: burgemeester van Nieuwegein, naam gelijk aan de registervermelding (label Marijke van Beukering-Huijbregts)",
+      "evidence": [
+        "municipality",
+        "office"
+      ],
       "confidence": "high"
     },
     "anja-haga": {
@@ -150,6 +247,9 @@
       "file": "Member of the European Parliament Anja Haga.jpg",
       "wikidata": "Q28861598",
       "identity": "nl.wikipedia (Anja Haga, Q28861598): \"Sinds 2024 is ze waarnemend burgemeester van Dantumadeel\"; Wikidata-omschrijving Nederlands politica; officieel EP-portret uit 2023",
+      "evidence": [
+        "municipality"
+      ],
       "confidence": "high"
     },
     "tom-berendsen": {
@@ -157,6 +257,9 @@
       "file": "1718705118441 20240617 BERENDSEN Tom NL 009.jpg",
       "wikidata": "Q64399772",
       "identity": "Wikidata-entiteit Tom Berendsen (eerdere resolutie op naam); officieel portret van MEP Tom Berendsen (EP, 2024)",
+      "evidence": [
+        "office"
+      ],
       "confidence": "medium"
     },
     "bart-van-den-brink": {
@@ -164,6 +267,10 @@
       "file": "Bart van den Brink, March 2016.jpg",
       "wikidata": "Q118256135",
       "identity": "gelijke stand opgelost op ambt: alleen Q118256135 heeft P39 minister van Asiel en Migratie en viceminister-president; geboortedatum 1978-10-23 gelijk aan het TK-Gegevensmagazijn",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "chris-van-dam": {
@@ -171,6 +278,9 @@
       "file": "Chris van Dam (2017) (cropped).jpg",
       "wikidata": "Q28861150",
       "identity": "gelijke stand opgelost op ambt: nl.wikipedia (Q28861150) \"Sinds 2023 is hij voorzitter van de Onderzoeksraad voor Veiligheid\"; bestand uit Category:Chris van Dam, bijsnede van een portret uit 2017 (zelfde persoon als de P18-opname uit 2017)",
+      "evidence": [
+        "office"
+      ],
       "confidence": "high"
     },
     "david-van-weel": {
@@ -178,6 +288,9 @@
       "file": "Security Summit 2022 (52476373851) (cropped).jpg",
       "wikidata": "Q111051482",
       "identity": "gelijke stand opgelost op ambt: alleen Q111051482 heeft P39 minister van Justitie en Veiligheid",
+      "evidence": [
+        "office"
+      ],
       "confidence": "high"
     },
     "sjoerd-sjoerdsma": {
@@ -185,6 +298,9 @@
       "file": "Portretfoto's minister Sjoerdsma - 55213495155 (cropped).jpg",
       "wikidata": "Q516335",
       "identity": "gelijke stand opgelost op ambt: alleen Q516335 heeft P39 minister van Buitenlandse Handel en Ontwikkelingssamenwerking; officiele portretfoto van BZ (Flickr, CC BY-SA 4.0, FlickreviewR geslaagd)",
+      "evidence": [
+        "office"
+      ],
       "confidence": "high"
     },
     "sybrand-van-haersma-buma": {
@@ -192,6 +308,9 @@
       "file": "Sybrand van Haersma Buma 2012.jpg",
       "wikidata": "Q377266",
       "identity": "gelijke stand opgelost op ambt: nl.wikipedia \"Sinds 1 juli 2026 is hij vice-president van de Raad van State\"; de andere kandidaat is geboren in 1830",
+      "evidence": [
+        "office"
+      ],
       "confidence": "high"
     },
     "a-w-j-a-van-hattem": {
@@ -201,6 +320,10 @@
       "birthDate": "1983-06-06",
       "wikidata": "Q20088078",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Alexander van Hattem\" op de EK-ledenpagina, geboortedatum 1983-06-06 op de EK-ledenpagina; TK-Persoon zelfde naam en geboortedatum",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "drs-th-w-rietkerk": {
@@ -210,6 +333,10 @@
       "birthDate": "1962-10-18",
       "wikidata": "Q1917082",
       "identity": "Wikidata P39 lid van de Eerste Kamer (Q19305384); label gelijk aan de volledige naam \"Theo Rietkerk\" op de EK-ledenpagina, geboortedatum 1962-10-18 op de EK-ledenpagina; TK-Persoon zelfde naam en geboortedatum",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "j-c-huizinga-heringa": {
@@ -219,6 +346,9 @@
       "birthDate": "1960-02-16",
       "wikidata": null,
       "identity": "EK-ledenpagina: volledige naam \"Tineke Huizinga-Heringa\" (1960); geboortedatum 1960-02-16 in de dataset gelijk aan TK-Persoon",
+      "evidence": [
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "elly-blanksma-van-den-heuvel": {
@@ -228,6 +358,11 @@
       "birthDate": "1959-09-24",
       "wikidata": "Q2270173",
       "identity": "Wikidata P6/P39: burgemeester van Someren, naam gelijk aan de registervermelding; Wikidata-geboortedatum gelijk aan TK-Persoon",
+      "evidence": [
+        "municipality",
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "maarten-haverkamp": {
@@ -237,6 +372,11 @@
       "birthDate": "1974-03-15",
       "wikidata": "Q5014200",
       "identity": "Wikidata P6/P39: burgemeester van De Bilt, naam gelijk aan de registervermelding; Wikidata-geboortedatum gelijk aan TK-Persoon",
+      "evidence": [
+        "municipality",
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "michiel-van-veen": {
@@ -246,6 +386,11 @@
       "birthDate": "1971-03-20",
       "wikidata": "Q1532040",
       "identity": "Wikidata P6/P39: burgemeester van Gemert-Bakel, naam gelijk aan de registervermelding; Wikidata-geboortedatum gelijk aan TK-Persoon",
+      "evidence": [
+        "municipality",
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "rikus-jager": {
@@ -255,6 +400,10 @@
       "birthDate": "1954-05-18",
       "wikidata": "Q1922264",
       "identity": "nl.wikipedia (Q1922264, Henderikus Jager): waarnemend burgemeester van Dalfsen sinds 2024; Wikidata-geboortedatum gelijk aan TK-Persoon",
+      "evidence": [
+        "municipality",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "sandra-palmen-schlangen": {
@@ -264,6 +413,10 @@
       "birthDate": "1972-02-17",
       "wikidata": "Q123174045",
       "identity": "Wikidata Q123174045 (omschrijving: staatssecretaris van Herstel en Toeslagen); Wikidata-geboortedatum gelijk aan TK-Persoon",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "sophie-hermans": {
@@ -273,6 +426,10 @@
       "birthDate": "1981-05-01",
       "wikidata": "Q28860996",
       "identity": "gelijke stand opgelost op ambt: alleen Q28860996 heeft P39 minister van Klimaat en Groene Groei en van VWS; Wikidata-geboortedatum gelijk aan TK-Persoon. Het P18-bestand op Commons heeft een lopend verwijderverzoek en is daarom niet gebruikt",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "eelco-heinen": {
@@ -282,6 +439,10 @@
       "birthDate": "1981-04-27",
       "wikidata": "Q106119762",
       "identity": "eerder gekozen Wikidata-entiteit Q106119762 (minister van Financien), geboortedatum 1981-04-27 gelijk aan TK-Persoon; vervangt File:Eelco Heinen, July 2024.jpg: het Commons-bestand is een foto van de Raad van de EU (newsroom.consilium.europa.eu) met een lopend verwijderverzoek (Deletion requests June 2026): de licentie staat bewerkingen mogelijk niet toe",
+      "evidence": [
+        "office",
+        "birthDate"
+      ],
       "confidence": "high"
     },
     "fleur-graper": {
@@ -289,6 +450,10 @@
       "file": "Fleur Gräper, 2014 (cropped).jpg",
       "wikidata": "Q15875293",
       "identity": "Wikidata P39 burgemeester van Tilburg (vanaf 21-01-2026); bestand uit Category:Fleur Gräper (D66-voorzitter, 2014); vervangt File:Fleur Gräper, May 2024.jpg: het Commons-bestand is een foto van de Raad van de EU (newsroom.consilium.europa.eu) met een lopend verwijderverzoek (Deletion requests June 2026): de licentie staat bewerkingen mogelijk niet toe",
+      "evidence": [
+        "municipality",
+        "office"
+      ],
       "confidence": "high"
     },
     "jaimi-van-essen": {
@@ -297,6 +462,29 @@
       "reason": "File:Jaimi van Essen, March 2026.jpg ingetrokken: het Commons-bestand is een foto van de Raad van de EU (newsroom.consilium.europa.eu) met een lopend verwijderverzoek (Deletion requests June 2026): de licentie staat bewerkingen mogelijk niet toe; geen ander vrij portret gevonden (TK-Gegevensmagazijn heeft geen Persoon-record)",
       "identity": "eerder gekozen Wikidata-entiteit Q28860889",
       "confidence": "high"
+    },
+    "jan-de-vries": {
+      "kind": "commons",
+      "file": "Jan de Vries burgemeester Sliedrecht -©Kloet.jpg",
+      "wikidata": null,
+      "identity": "bestandstitel en beschrijving noemen \"Burgemeester Jan de Vries in het raadhuis van Sliedrecht\" (opname 09-04-2021, vier dagen voor de start op 13-04-2021 van de burgemeesterstermijn in de dataset, tenure:burgemeester-sliedrecht); de eerder gevonden naamgenoten (taalkundige, motorcoureur, hoogleraar) hebben een ander ambt; de foto zelf is bekeken: een man met ambtsketen in het raadhuis",
+      "evidence": [
+        "municipality",
+        "office"
+      ],
+      "evidenceUrl": "https://commons.wikimedia.org/wiki/File:Jan_de_Vries_burgemeester_Sliedrecht_-%C2%A9Kloet.jpg",
+      "confidence": "high"
+    },
+    "afelonne-doek": {
+      "kind": "commons",
+      "file": "AfelonneDoek2015.jpg",
+      "wikidata": null,
+      "identity": "bestandstitel en beschrijving noemen \"Afelonne Doek (IISG)\" (Week van het Digitaal Erfgoed, 12-03-2015); de eigen mededeling van het Nationaal Archief (https://www.nationaalarchief.nl/archiveren/nieuws/nieuwe-directie-nationaal-archief, gelezen 05-10-2026) noemt haar als algemeen directeur en algemeen rijksarchivaris van het Nationaal Archief, voorheen directeur van het Internationaal Instituut voor Sociale Geschiedenis (IISG); de dataset noemt haar bij het Nationaal Archief (src:register-71889); de foto zelf is bekeken: een vrouw achter een katheder",
+      "evidence": [
+        "office"
+      ],
+      "evidenceUrl": "https://www.nationaalarchief.nl/archiveren/nieuws/nieuwe-directie-nationaal-archief",
+      "confidence": "medium"
     }
   },
   "rejected": {
@@ -305,7 +493,10 @@
     "martijn-snoep": "alleen EC-foto's (CC BY 4.0) waarop hij van achteren of in een groep staat; geen bruikbaar portret",
     "anita-van-den-ende": "alleen handdrukfoto's met een tweede persoon op Commons",
     "ellen-van-selm": "alleen groepsfoto's (EMA-bezoek aan de Europese Commissie) op Commons",
-    "johannes-kramer": "alleen een groepsfoto (Koningsdag Dokkum 2026) op Commons",
+    "johannes-kramer": {
+      "reviewed": "2026-10-05",
+      "reason": "File:Koningsdag Dokkum.jpg (CC0, 27-04-2026): groepsfoto van het koningspaar en kroonprinses met burgemeester Johannes Kramer in de hoek; geen portret"
+    },
     "drs-ing-b-kroon": "alleen een groepsfoto (gesprek met Amerikaanse senatoren) op Commons",
     "drs-ing-t-panman": "alleen een groepsfoto van EK-leden bij de Europese Commissie (mei 2025) op Commons",
     "e-w-hartog": "alleen een groepsfoto van EK-leden bij de Europese Commissie (mei 2025) op Commons",
@@ -313,6 +504,53 @@
     "jan-ten-kate": "Commons-bestanden met deze naam tonen kunstschilder Jan Jacob Lodewijk ten Kate (1920), niet de burgemeester van Staphorst",
     "jan-de-vries": "Commons-bestanden met deze naam tonen naamgenoten (motorcoureur, hoogleraar); geen foto van de burgemeester van Sliedrecht",
     "mark-de-man": "Commons-bestand met deze naam toont een Belgische voetballer",
-    "jan-bonjer": "enige Commons-bestand (Het Utrechts Archief, CC BY 4.0) is een getekend portret uit 2005 van Jan Bonjer als hoofdredacteur van het AD, geen foto; niet gebruikt"
+    "jan-bonjer": {
+      "reviewed": "2026-10-05",
+      "reason": "File:HUA-32972-Portret van Jan Bonjer ... Algemeen Dagblad NieuwsMedia (2005, CC BY 4.0): hoofdredacteur van het AD, geen aanwijzing dat dit de dijkgraaf van Waterschap Hollandse Delta is; naamgenoot, identiteit niet vastgesteld"
+    },
+    "john-soliano": {
+      "reviewed": "2026-10-05",
+      "reason": "File:De voorzitter (rechts) tijdens een overleg met de aankomend gezaghebber van Bonaire, de heer J.R.E. Soliano.jpg (CC0) is een foto van twee mannen met een vlag; de beschrijving noemt Soliano alleen als gesprekspartner, geen portret"
+    },
+    "greet-buter": {
+      "reviewed": "2026-10-05",
+      "reason": "File:Oorlogsmonument vliegtuigcrash 16 april 1942 in Deurne onthuld op 26 september 2024.jpg (CC0): burgemeester Greet Buter legt bloemen bij een monument, groepsopname waarop zij klein en van opzij staat; geen portret"
+    },
+    "marko-hekkert": {
+      "reviewed": "2026-10-05",
+      "reason": "File:Robert Tieman, July 2025.png (CC BY 3.0, PBL): de bestandstitel noemt minister Tieman; de beschrijving noemt Hekkert alleen als overhandiger van een studie. Wie in beeld is staat niet vast"
+    },
+    "gea-van-craaikamp": {
+      "reviewed": "2026-10-05",
+      "reason": "File:Oud bewindslieden bezoe Plein 4.jpg (CC0, Ministerie van Defensie) is een groepsfoto van oud-bewindspersonen"
+    },
+    "martijn-ridderbos": {
+      "reviewed": "2026-10-05",
+      "reason": "File:Official opening of the Herta Mohr Building ... -07.jpg (CC BY-SA 4.0): spreker van afstand, en de beschrijving noemt hem vicevoorzitter van het College van Bestuur van de Universiteit Leiden terwijl de dataset hem bij de ACM noemt; identiteit niet vastgesteld"
+    },
+    "brenda-penninx": {
+      "reviewed": "2026-10-05",
+      "reason": "alleen een video (KNAW-webinar, webm); het vrije paginabeeld op fiwiki is die video, geen portret"
+    },
+    "hans-oosters": {
+      "reviewed": "2026-10-05",
+      "reason": "de Commons-treffers zijn foto's van gemaal Verdoold waarvan de beschrijving zijn naam noemt; geen portret"
+    },
+    "han-weber": {
+      "reviewed": "2026-10-05",
+      "reason": "de Commons-treffers zijn foto's van gemaal Verdoold waarvan de beschrijving zijn naam noemt; geen portret"
+    },
+    "frank-de-vries": {
+      "reviewed": "2026-10-05",
+      "reason": "File:LennartDeVries1960.jpg (CC BY 4.0) toont een voorzitter van de Utrechtse Kring in 1960, niet de vicevoorzitter van de Toelatingsorganisatie Kwaliteitsborging Bouw; naamgenoot"
+    },
+    "harry-scholten": {
+      "reviewed": "2026-10-05",
+      "reason": "enige treffer is een Anefo-groepsfoto (Burgemeester Schols, Breytenbach en de voorzitter van de Jan Campertstichting) waarop de naam niet staat; geen portret"
+    },
+    "wim-wouters": {
+      "reviewed": "2026-10-05",
+      "reason": "de Anefo-foto's (CHIO Rotterdam, Wouters van den Oudenweijer) betreffen een naamgenoot; geen portret van de burgemeester van Eersel"
+    }
   }
 }
