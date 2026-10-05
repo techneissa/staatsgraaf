@@ -125,7 +125,7 @@ export function BudgetTotals({
       </dl>
 
       <p className="mt-3 text-xs leading-relaxed text-ink-faint">
-        <T area="news" k="budgetTotalsNote" />
+        <T area="news" k="budgetTotalsNote" /> <T area="news" k="budgetNetNote" />
         {partial ? (
           <>
             {" "}
