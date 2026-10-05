@@ -1,0 +1,5705 @@
+{
+ "@odata.count": 150,
+ "value": [
+  {
+   "Id": "93850b46-aaea-4f72-b457-013d17c6d44f",
+   "FractieZetel_Id": "fa45982e-8a1d-4cec-b478-7fab61082499",
+   "Persoon_Id": "cf6c0969-6741-4130-bd75-ee65ad71ad1d",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:31.2222249Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "cf6c0969-6741-4130-bd75-ee65ad71ad1d",
+    "Nummer": 65381,
+    "Initialen": "D.R.F.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Clemminck",
+    "Voornamen": "Danny Ranjith Franciscus",
+    "Roepnaam": "Ranjith",
+    "Geboortedatum": "1986-01-12",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "fa45982e-8a1d-4cec-b478-7fab61082499",
+    "Gewicht": 6,
+    "Fractie_Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+     "Afkorting": "JA21",
+     "NaamNL": "JA21",
+     "AantalZetels": 9,
+     "DatumActief": "2021-03-31T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:33:11.1036441Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "0baf5282-26e0-4cbd-b424-017eafa12816",
+   "FractieZetel_Id": "45a76891-88f6-4cfc-997d-76fe49e6ae06",
+   "Persoon_Id": "a8ec9ff1-6a91-4063-9a8d-c3af07a11a0d",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:24.2990613Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "a8ec9ff1-6a91-4063-9a8d-c3af07a11a0d",
+    "Nummer": 65410,
+    "Initialen": "A.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Oualhadj",
+    "Voornamen": "Ahlam",
+    "Roepnaam": "Ouafa",
+    "Geboortedatum": "1990-02-26",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "45a76891-88f6-4cfc-997d-76fe49e6ae06",
+    "Gewicht": 20,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "44b710d5-d0c5-45b6-a63e-0200396fe561",
+   "FractieZetel_Id": "1fd988ec-ef6c-45d2-8675-e6e6eebba884",
+   "Persoon_Id": "a437e923-725f-415e-a01d-5588a7af933e",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:11.6981113Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "a437e923-725f-415e-a01d-5588a7af933e",
+    "Nummer": 48798,
+    "Initialen": "K.P.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Piri",
+    "Voornamen": "Katalin Piroska",
+    "Roepnaam": "Kati",
+    "Geboortedatum": "1979-04-08",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "1fd988ec-ef6c-45d2-8675-e6e6eebba884",
+    "Gewicht": 9,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "a88bdaf1-1f41-4e8e-ada2-02eab50e6021",
+   "FractieZetel_Id": "1e3aa823-0f24-4584-bce5-3d7ddeddb509",
+   "Persoon_Id": "75a44c3a-5914-4c8e-9ca4-d987853f5844",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:11.633903Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "75a44c3a-5914-4c8e-9ca4-d987853f5844",
+    "Nummer": 4962,
+    "Initialen": "T.M.T.",
+    "Tussenvoegsel": "van der",
+    "Achternaam": "Lee",
+    "Voornamen": "Tom",
+    "Roepnaam": "Tom",
+    "Geboortedatum": "1964-07-09",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "1e3aa823-0f24-4584-bce5-3d7ddeddb509",
+    "Gewicht": 2,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "f030dab8-c044-4830-a62a-042e61a518dd",
+   "FractieZetel_Id": "b4af9eeb-9b75-4413-a69f-2b649bed0563",
+   "Persoon_Id": "2bea63db-715f-401f-b710-e91c7650df0c",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-06T13:51:13.4566728Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "2bea63db-715f-401f-b710-e91c7650df0c",
+    "Nummer": 48821,
+    "Initialen": "A.J.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Flach",
+    "Voornamen": "Andreas Johannes",
+    "Roepnaam": "André",
+    "Geboortedatum": "1976-04-23",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "b4af9eeb-9b75-4413-a69f-2b649bed0563",
+    "Gewicht": 3,
+    "Fractie_Id": "77f9b6f1-b1a9-4d1b-a05e-9936e79d8fa5",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "77f9b6f1-b1a9-4d1b-a05e-9936e79d8fa5",
+     "Afkorting": "SGP",
+     "NaamNL": "Staatkundig Gereformeerde Partij",
+     "AantalZetels": 3,
+     "DatumActief": "1922-04-30T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-26T14:23:10.7615925Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "7878ad7f-216a-4a16-a04c-07423a1a2ff2",
+   "FractieZetel_Id": "d59ecc9d-1415-4ee9-87ec-8c9f214ff421",
+   "Persoon_Id": "c7822b58-103f-4612-87ef-648be97192c6",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:11.6452694Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "c7822b58-103f-4612-87ef-648be97192c6",
+    "Nummer": 4967,
+    "Initialen": "E.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Westerveld",
+    "Voornamen": "Elisabeth Marij",
+    "Roepnaam": "Lisa",
+    "Geboortedatum": "1981-11-16",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "d59ecc9d-1415-4ee9-87ec-8c9f214ff421",
+    "Gewicht": 3,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "a210929a-1e4e-4560-a22c-07cf3eb467d8",
+   "FractieZetel_Id": "c5110793-0a1b-4e1a-b4fe-ea5142d7b559",
+   "Persoon_Id": "45e9917b-95cc-428c-b8a0-9d50cff58a59",
+   "Functie": "Lid",
+   "Van": "2026-01-20T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-01-20T13:53:16.742759Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "45e9917b-95cc-428c-b8a0-9d50cff58a59",
+    "Nummer": 65143,
+    "Initialen": "J.M.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Schilder",
+    "Voornamen": "Johanna Margaretha Maria",
+    "Roepnaam": "Shanna",
+    "Geboortedatum": "1988-01-31",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "c5110793-0a1b-4e1a-b4fe-ea5142d7b559",
+    "Gewicht": 6,
+    "Fractie_Id": "848c3fca-8931-4236-8fe9-33b6a598fa4d",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "848c3fca-8931-4236-8fe9-33b6a598fa4d",
+     "Afkorting": "Groep Markuszower",
+     "NaamNL": "Groep Markuszower",
+     "AantalZetels": 7,
+     "DatumActief": "2026-01-20T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-02-04T09:47:11.359621Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "43bcd1b6-e684-4be2-89e4-095cdd9d7797",
+   "FractieZetel_Id": "733e6d16-525f-49a9-89b7-5d98dd4da6c7",
+   "Persoon_Id": "9039e7f6-d05b-40a7-b0af-9a4f98fc03ae",
+   "Functie": "Lid",
+   "Van": "2026-02-25T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-25T09:44:13.7310623Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "9039e7f6-d05b-40a7-b0af-9a4f98fc03ae",
+    "Nummer": 65327,
+    "Initialen": "A.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Poortman",
+    "Voornamen": "Andries",
+    "Roepnaam": "André",
+    "Geboortedatum": "1987-09-27",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "733e6d16-525f-49a9-89b7-5d98dd4da6c7",
+    "Gewicht": 17,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "a0fa150b-c66f-4310-a73e-09ee89f4c934",
+   "FractieZetel_Id": "8742b6f6-f263-431e-84da-60ffbca22fb6",
+   "Persoon_Id": "859e1824-cc60-4304-9293-dca932ebbed2",
+   "Functie": "Fractievoorzitter",
+   "Van": "2023-08-03T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T14:37:36.8162722Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "859e1824-cc60-4304-9293-dca932ebbed2",
+    "Nummer": 48823,
+    "Initialen": "S.R.T.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Baarle",
+    "Voornamen": "Stephan Ruben Tobias",
+    "Roepnaam": "Stephan",
+    "Geboortedatum": "1991-08-25",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "8742b6f6-f263-431e-84da-60ffbca22fb6",
+    "Gewicht": 1,
+    "Fractie_Id": "deb74bb5-63a9-4ffc-98ed-af577167452e",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "deb74bb5-63a9-4ffc-98ed-af577167452e",
+     "Afkorting": "DENK",
+     "NaamNL": "DENK",
+     "AantalZetels": 3,
+     "DatumActief": "2017-03-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:12.4122776Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "5b4f89a5-f501-4383-8b38-0e794f8d05ba",
+   "FractieZetel_Id": "0c668f35-5de7-4c72-a3db-4e7cd92ec5cd",
+   "Persoon_Id": "59f4fe08-4b7e-42a0-9551-082b07c5945a",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:20.2771823Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "59f4fe08-4b7e-42a0-9551-082b07c5945a",
+    "Nummer": 56915,
+    "Initialen": "F.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Belhirch",
+    "Voornamen": "Fatimazhra",
+    "Roepnaam": "Fatimazhra",
+    "Geboortedatum": "1975-10-09",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "0c668f35-5de7-4c72-a3db-4e7cd92ec5cd",
+    "Gewicht": 10,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "5d45a746-e10b-404b-af7b-0ebc901321ca",
+   "FractieZetel_Id": "01a36e1f-dd9c-449e-be26-1f1d5eab89ac",
+   "Persoon_Id": "e5f316f0-e4e7-4cf0-a064-ed9321737487",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:14.4752251Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "e5f316f0-e4e7-4cf0-a064-ed9321737487",
+    "Nummer": 4890,
+    "Initialen": "V.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Maeijer",
+    "Voornamen": "Vicky",
+    "Roepnaam": "Vicky",
+    "Geboortedatum": "1986-09-07",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "01a36e1f-dd9c-449e-be26-1f1d5eab89ac",
+    "Gewicht": 8,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "88534c35-3aec-4389-8288-112081103b6f",
+   "FractieZetel_Id": "77cc4514-a647-441d-a01e-ef8fa598b452",
+   "Persoon_Id": "bf494e35-c009-4c74-a5c6-3cb2cd26bb51",
+   "Functie": "Lid",
+   "Van": "2021-03-31T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T14:10:24.1962108Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "bf494e35-c009-4c74-a5c6-3cb2cd26bb51",
+    "Nummer": 48732,
+    "Initialen": "A.A.H.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Campen",
+    "Voornamen": "Anthony Albertus Hermance",
+    "Roepnaam": "Thom",
+    "Geboortedatum": "1990-01-18",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "77cc4514-a647-441d-a01e-ef8fa598b452",
+    "Gewicht": 2,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "fa8ce0c7-e7ba-4d77-99d3-1174ebe3f50b",
+   "FractieZetel_Id": "61eb41f5-1baa-4c03-9653-71324a7df4d8",
+   "Persoon_Id": "89d70a20-bd10-46ed-866a-2c79362a0559",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:11.6529607Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "89d70a20-bd10-46ed-866a-2c79362a0559",
+    "Nummer": 4965,
+    "Initialen": "S.C.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Kröger",
+    "Voornamen": "Suzanne Caroline",
+    "Roepnaam": "Suzanne",
+    "Geboortedatum": "1976-06-06",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "61eb41f5-1baa-4c03-9653-71324a7df4d8",
+    "Gewicht": 4,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "c961a59c-64a4-47c8-ab8f-15a3ea27370d",
+   "FractieZetel_Id": "6185ec03-052d-46b2-82d1-c4e614c054a3",
+   "Persoon_Id": "e0ccfbe3-9f51-4eaa-8ed6-c1ba3f6236b5",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-06T13:51:03.7754257Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "e0ccfbe3-9f51-4eaa-8ed6-c1ba3f6236b5",
+    "Nummer": 58457,
+    "Initialen": "A.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Kisteman",
+    "Voornamen": "Arend",
+    "Roepnaam": "Arend",
+    "Geboortedatum": "1984-05-13",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "6185ec03-052d-46b2-82d1-c4e614c054a3",
+    "Gewicht": 12,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "c84c14ab-552d-4477-bd90-15c42a04b183",
+   "FractieZetel_Id": "54fe860b-3a53-4954-993a-9ec0aea1fa24",
+   "Persoon_Id": "3dd43fe1-c99a-4826-b08f-4ed3fc0dd9ba",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:11.7263809Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "3dd43fe1-c99a-4826-b08f-4ed3fc0dd9ba",
+    "Nummer": 58747,
+    "Initialen": "M.H.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Patijn",
+    "Voornamen": "Maria Henriëtte",
+    "Roepnaam": "Mariëtte",
+    "Geboortedatum": "1966-12-29",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "54fe860b-3a53-4954-993a-9ec0aea1fa24",
+    "Gewicht": 12,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "b5938136-92a1-4c1a-b4be-1806de2152a0",
+   "FractieZetel_Id": "69e38b4d-ea5e-4853-a842-3c08ee0ea9a1",
+   "Persoon_Id": "034829b1-019f-4ee2-8961-83e82ac2eaa3",
+   "Functie": "Lid",
+   "Van": "2006-11-30T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T13:27:28.6017167Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "034829b1-019f-4ee2-8961-83e82ac2eaa3",
+    "Nummer": 2482,
+    "Initialen": "M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Bosma",
+    "Voornamen": "Martin",
+    "Roepnaam": "Martin",
+    "Geboortedatum": "1964-07-16",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "69e38b4d-ea5e-4853-a842-3c08ee0ea9a1",
+    "Gewicht": 2,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "330d5600-6830-4ecc-9d5f-184a57621f62",
+   "FractieZetel_Id": "1e0df189-2632-4de0-bec9-c10349078c11",
+   "Persoon_Id": "7a799770-dff0-40ef-9d63-c0a8ed5b0a7a",
+   "Functie": "Lid",
+   "Van": "2026-02-25T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-25T09:44:13.7485969Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "7a799770-dff0-40ef-9d63-c0a8ed5b0a7a",
+    "Nummer": 68813,
+    "Initialen": "R.M.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Leijen",
+    "Voornamen": "Robin Matthijs",
+    "Roepnaam": "Robin",
+    "Geboortedatum": "1985-08-02",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "1e0df189-2632-4de0-bec9-c10349078c11",
+    "Gewicht": 24,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "42b03a7b-3e4f-42a9-a9c9-19f86bd3a5d0",
+   "FractieZetel_Id": "0254b063-b231-49ae-b626-562c8b5f6ecb",
+   "Persoon_Id": "98f026ef-74d5-4b6e-80ae-4a76e9ec7e81",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:30.9254253Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "98f026ef-74d5-4b6e-80ae-4a76e9ec7e81",
+    "Nummer": 65376,
+    "Initialen": "D.J.",
+    "Tussenvoegsel": "van den",
+    "Achternaam": "Berg",
+    "Voornamen": "Daniël Juriën",
+    "Roepnaam": "Daniël",
+    "Geboortedatum": "1991-10-17",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "0254b063-b231-49ae-b626-562c8b5f6ecb",
+    "Gewicht": 4,
+    "Fractie_Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+     "Afkorting": "JA21",
+     "NaamNL": "JA21",
+     "AantalZetels": 9,
+     "DatumActief": "2021-03-31T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:33:11.1036441Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "89693174-1c43-4af6-92a2-1cf84c80c883",
+   "FractieZetel_Id": "a136155a-e4cc-4329-a45e-f26e47268c9c",
+   "Persoon_Id": "5f70fd14-3d7a-4936-9667-d76b0d524a61",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:24.2058391Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "5f70fd14-3d7a-4936-9667-d76b0d524a61",
+    "Nummer": 65442,
+    "Initialen": "H.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Oosterhuis",
+    "Voornamen": "Hendrik",
+    "Roepnaam": "Henk-Jan",
+    "Geboortedatum": "1985-01-18",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "a136155a-e4cc-4329-a45e-f26e47268c9c",
+    "Gewicht": 19,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "f7914b61-566d-4ec7-91d8-1d7ba9610daa",
+   "FractieZetel_Id": "c742f641-1426-40c3-83a1-3634ccddaf48",
+   "Persoon_Id": "51036c88-5a8f-4842-8867-0a460bbb611e",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:18.1349545Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "51036c88-5a8f-4842-8867-0a460bbb611e",
+    "Nummer": 65252,
+    "Initialen": "R.",
+    "Tussenvoegsel": "den",
+    "Achternaam": "Hollander",
+    "Voornamen": "Renate",
+    "Roepnaam": "Renate",
+    "Geboortedatum": "1977-03-22",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "c742f641-1426-40c3-83a1-3634ccddaf48",
+    "Gewicht": 16,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "8fe7898e-5f37-4653-99ef-1e0df0eddda9",
+   "FractieZetel_Id": "c1dcd5a7-be50-4586-bb13-5ea796f60943",
+   "Persoon_Id": "8a152678-92d8-41f4-9002-62ee62d2f7b0",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:21.8384922Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "8a152678-92d8-41f4-9002-62ee62d2f7b0",
+    "Nummer": 65549,
+    "Initialen": "D.J.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Huidekooper",
+    "Voornamen": "Dion Julian",
+    "Roepnaam": "Dion",
+    "Geboortedatum": "1993-10-17",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "c1dcd5a7-be50-4586-bb13-5ea796f60943",
+    "Gewicht": 14,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "ad0d94f7-ea21-427f-9d42-1e274528f58d",
+   "FractieZetel_Id": "a5fea518-fe51-4b51-8e87-00095827eedb",
+   "Persoon_Id": "f3ebacbe-ae1d-4ee9-bf9f-cef7d9e0f489",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-06T13:50:16.1109833Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "f3ebacbe-ae1d-4ee9-bf9f-cef7d9e0f489",
+    "Nummer": 59038,
+    "Initialen": "M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Vondeling",
+    "Voornamen": "Marina",
+    "Roepnaam": "Marina",
+    "Geboortedatum": "1986-07-14",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "a5fea518-fe51-4b51-8e87-00095827eedb",
+    "Gewicht": 14,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "d28e821a-a0f4-459f-b7db-225970a91373",
+   "FractieZetel_Id": "e838c80e-dc43-4dfb-be3b-54c02ba9bb2c",
+   "Persoon_Id": "83886cc3-def7-45bb-bea6-e10200c1cd9e",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:18.1841034Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "83886cc3-def7-45bb-bea6-e10200c1cd9e",
+    "Nummer": 65256,
+    "Initialen": "B.A.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Schutz",
+    "Voornamen": "Björn Aljosja",
+    "Roepnaam": "Björn",
+    "Geboortedatum": "1971-11-12",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "e838c80e-dc43-4dfb-be3b-54c02ba9bb2c",
+    "Gewicht": 18,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "8340b82d-ccf1-4e41-bf3e-2299d2cc8ee7",
+   "FractieZetel_Id": "e6ef1447-ce44-4ffa-8a77-eae998d6a86d",
+   "Persoon_Id": "33290394-05f7-44c4-9187-7c6ec6059c27",
+   "Functie": "Lid",
+   "Van": "2026-01-20T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-01-20T13:54:13.1880686Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "33290394-05f7-44c4-9187-7c6ec6059c27",
+    "Nummer": 59040,
+    "Initialen": "H.D.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Heutink",
+    "Voornamen": "Hidde Derek",
+    "Roepnaam": "Hidde",
+    "Geboortedatum": "1993-07-01",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "e6ef1447-ce44-4ffa-8a77-eae998d6a86d",
+    "Gewicht": 3,
+    "Fractie_Id": "848c3fca-8931-4236-8fe9-33b6a598fa4d",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "848c3fca-8931-4236-8fe9-33b6a598fa4d",
+     "Afkorting": "Groep Markuszower",
+     "NaamNL": "Groep Markuszower",
+     "AantalZetels": 7,
+     "DatumActief": "2026-01-20T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-02-04T09:47:11.359621Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "849797cf-2a5d-48c5-9d9f-23b159d558b7",
+   "FractieZetel_Id": "65df63ff-2431-4c0b-a319-8566413f7626",
+   "Persoon_Id": "dc8f53b8-8247-4797-908d-fa11cb4116e6",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:27.181408Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "dc8f53b8-8247-4797-908d-fa11cb4116e6",
+    "Nummer": 65304,
+    "Initialen": "M.R.H.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Lanschot",
+    "Voornamen": "Maes Reinier Hugo",
+    "Roepnaam": "Maes",
+    "Geboortedatum": "1986-08-31",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "65df63ff-2431-4c0b-a319-8566413f7626",
+    "Gewicht": 11,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "2e567a42-fe22-4b33-88ee-23d14751076e",
+   "FractieZetel_Id": "005769ab-32fa-49fd-a911-26f403528496",
+   "Persoon_Id": "950c21d2-8a14-406d-b3af-877360bbd0ab",
+   "Functie": "Lid",
+   "Van": "2021-09-07T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T14:22:29.4442753Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "950c21d2-8a14-406d-b3af-877360bbd0ab",
+    "Nummer": 52691,
+    "Initialen": "A.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Podt",
+    "Voornamen": "Anne-Marijke",
+    "Roepnaam": "Anne-Marijke",
+    "Geboortedatum": "1975-01-16",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "005769ab-32fa-49fd-a911-26f403528496",
+    "Gewicht": 4,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "91616b28-45c8-4d26-bbc6-244fdc54f1db",
+   "FractieZetel_Id": "f9ac95f4-c8f4-4e97-9213-e326542cd522",
+   "Persoon_Id": "13d5095e-c5df-4cbb-a2f4-c0bb142e9397",
+   "Functie": "Lid",
+   "Van": "2026-09-02T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-09-02T13:39:19.6078662Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "13d5095e-c5df-4cbb-a2f4-c0bb142e9397",
+    "Nummer": 48751,
+    "Initialen": "R.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Verkuijlen",
+    "Voornamen": "Rudolf",
+    "Roepnaam": "Ruud",
+    "Geboortedatum": "1960-10-13",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "f9ac95f4-c8f4-4e97-9213-e326542cd522",
+    "Gewicht": 9,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "7634c62d-45b4-4cc2-a40f-257910281b0a",
+   "FractieZetel_Id": "f7cce185-5e3c-46aa-a338-a176380626e5",
+   "Persoon_Id": "5222c31a-b0b0-496b-8f74-55988b1b8dda",
+   "Functie": "Lid",
+   "Van": "2026-01-20T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-01-20T13:53:14.490963Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "5222c31a-b0b0-496b-8f74-55988b1b8dda",
+    "Nummer": 48759,
+    "Initialen": "N.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Moinat",
+    "Voornamen": "Nicole",
+    "Roepnaam": "Nicole",
+    "Geboortedatum": "1984-12-06",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "f7cce185-5e3c-46aa-a338-a176380626e5",
+    "Gewicht": 4,
+    "Fractie_Id": "848c3fca-8931-4236-8fe9-33b6a598fa4d",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "848c3fca-8931-4236-8fe9-33b6a598fa4d",
+     "Afkorting": "Groep Markuszower",
+     "NaamNL": "Groep Markuszower",
+     "AantalZetels": 7,
+     "DatumActief": "2026-01-20T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-02-04T09:47:11.359621Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "082e8348-c775-4333-adf1-2660c1ba26aa",
+   "FractieZetel_Id": "e708e964-e6a8-466c-8839-2ee5b5d616f0",
+   "Persoon_Id": "a0b48551-42b7-4c55-9556-6b997d978ff2",
+   "Functie": "Lid",
+   "Van": "2021-03-31T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T14:10:24.5399627Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "a0b48551-42b7-4c55-9556-6b997d978ff2",
+    "Nummer": 48738,
+    "Initialen": "P.C.",
+    "Tussenvoegsel": "de",
+    "Achternaam": "Groot",
+    "Voornamen": "Peter Christiaan",
+    "Roepnaam": "Peter",
+    "Geboortedatum": "1980-05-09",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "e708e964-e6a8-466c-8839-2ee5b5d616f0",
+    "Gewicht": 4,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "ae69cab3-5376-4c26-acd1-2a4972a4d7b5",
+   "FractieZetel_Id": "10471b45-6871-4144-ab4a-3a44d9987b0d",
+   "Persoon_Id": "c4082506-df19-49de-a2e2-ccee0c5c7a81",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:24.5525689Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "c4082506-df19-49de-a2e2-ccee0c5c7a81",
+    "Nummer": 65663,
+    "Initialen": "M.C.A.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Vellinga-Beemsterboer",
+    "Voornamen": "Maria Corina Anna",
+    "Roepnaam": "Marieke",
+    "Geboortedatum": "1986-05-27",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "10471b45-6871-4144-ab4a-3a44d9987b0d",
+    "Gewicht": 22,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "da1c9436-0fea-4707-91d3-305b52b7ed0e",
+   "FractieZetel_Id": "de4658c9-139a-44ed-865e-7b4127e8b967",
+   "Persoon_Id": "28982db2-a196-4026-9cfb-43aace37f150",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:18.1745699Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "28982db2-a196-4026-9cfb-43aace37f150",
+    "Nummer": 65249,
+    "Initialen": "J.N.J.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Nobel",
+    "Voornamen": "Jurgen Norbert Jeroen",
+    "Roepnaam": "Jurgen",
+    "Geboortedatum": "1988-12-07",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "de4658c9-139a-44ed-865e-7b4127e8b967",
+    "Gewicht": 17,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "19feb9c5-5829-4451-b919-307d101e2768",
+   "FractieZetel_Id": "0eff146e-20fc-4784-9f47-76d1da65cc37",
+   "Persoon_Id": "ebb3123c-6520-45ad-9045-d78dd5313b30",
+   "Functie": "Lid",
+   "Van": "2026-02-25T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-25T09:43:14.8264081Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "ebb3123c-6520-45ad-9045-d78dd5313b30",
+    "Nummer": 68807,
+    "Initialen": "N.C.J.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Maes",
+    "Voornamen": "Nicole Christina Johanna",
+    "Roepnaam": "Nicole",
+    "Geboortedatum": "1974-03-19",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "0eff146e-20fc-4784-9f47-76d1da65cc37",
+    "Gewicht": 21,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "bd44fdea-d9bc-4807-8377-35a157fccb46",
+   "FractieZetel_Id": "b274bec5-c851-44cf-8c29-c0a5e792b56f",
+   "Persoon_Id": "fe1727e3-35bc-4b62-869b-be60b0c861f7",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:12.4178947Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "fe1727e3-35bc-4b62-869b-be60b0c861f7",
+    "Nummer": 48758,
+    "Initialen": "M.H.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Faber",
+    "Voornamen": "Marjolein Hillegonda Monica",
+    "Roepnaam": "Marjolein",
+    "Geboortedatum": "1960-06-16",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "b274bec5-c851-44cf-8c29-c0a5e792b56f",
+    "Gewicht": 16,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "6a31e96f-497e-4775-8f3f-39d6093c6815",
+   "FractieZetel_Id": "a8eea7ed-f58a-4f5b-b8e0-95100f97537d",
+   "Persoon_Id": "a824c21d-055a-49ed-a060-a1c7af3262df",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:11.7185211Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "a824c21d-055a-49ed-a060-a1c7af3262df",
+    "Nummer": 48803,
+    "Initialen": "T.J.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Bushoff",
+    "Voornamen": "Thomas Julian",
+    "Roepnaam": "Julian",
+    "Geboortedatum": "1997-03-21",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "a8eea7ed-f58a-4f5b-b8e0-95100f97537d",
+    "Gewicht": 11,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "bbf3d372-f3a9-4701-880e-41a29abe1ad6",
+   "FractieZetel_Id": "840d90b8-2ef6-4f9d-8c4f-a9462543c302",
+   "Persoon_Id": "d38ca3cf-9803-48dc-8592-c67c4430168e",
+   "Functie": "Lid",
+   "Van": "2021-03-31T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T14:10:36.9608251Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "d38ca3cf-9803-48dc-8592-c67c4430168e",
+    "Nummer": 48811,
+    "Initialen": "P.A.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Grinwis",
+    "Voornamen": "Pieter Aren",
+    "Roepnaam": "Pieter",
+    "Geboortedatum": "1979-10-12",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "840d90b8-2ef6-4f9d-8c4f-a9462543c302",
+    "Gewicht": 2,
+    "Fractie_Id": "d720f5af-0516-408a-b830-0b6ffb8a581c",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d720f5af-0516-408a-b830-0b6ffb8a581c",
+     "Afkorting": "ChristenUnie",
+     "NaamNL": "ChristenUnie",
+     "AantalZetels": 3,
+     "DatumActief": "2001-03-15T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:29:10.5210336Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "916c68f1-200a-4a80-b109-41cb04dfa08e",
+   "FractieZetel_Id": "a0ec0c13-3132-437b-8c75-13ce087ebc3d",
+   "Persoon_Id": "e70c3ee3-cca2-4521-abea-b124dcec0952",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:11.6799257Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "e70c3ee3-cca2-4521-abea-b124dcec0952",
+    "Nummer": 48801,
+    "Initialen": "H.E.",
+    "Tussenvoegsel": "de",
+    "Achternaam": "Hoop",
+    "Voornamen": "Habtamu Emke",
+    "Roepnaam": "Habtamu",
+    "Geboortedatum": "1998-04-16",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "a0ec0c13-3132-437b-8c75-13ce087ebc3d",
+    "Gewicht": 7,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "d4e231e5-1d27-4ee7-ad4e-43ef6e16668d",
+   "FractieZetel_Id": "fb1f1534-cf83-49c1-a9aa-f742440e6a21",
+   "Persoon_Id": "1b823081-5a38-41cf-9d21-63a635df7b06",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:28.2911371Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "1b823081-5a38-41cf-9d21-63a635df7b06",
+    "Nummer": 65298,
+    "Initialen": "J.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Zwinkels",
+    "Voornamen": "Johanna Maria",
+    "Roepnaam": "Jantine",
+    "Geboortedatum": "1990-05-28",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "fb1f1534-cf83-49c1-a9aa-f742440e6a21",
+    "Gewicht": 15,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "a1719e35-a082-4ead-b0bb-45a9c3d71253",
+   "FractieZetel_Id": "1bc9673b-500c-4245-aced-faa7c5ae0732",
+   "Persoon_Id": "21cc8db0-5084-4e4d-a083-99df36fa6170",
+   "Functie": "Lid",
+   "Van": "2023-12-13T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-13T13:55:18.3910837Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "21cc8db0-5084-4e4d-a083-99df36fa6170",
+    "Nummer": 48797,
+    "Initialen": "S.E.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Dobbe",
+    "Voornamen": "Sarah Esperanza Maria",
+    "Roepnaam": "Sarah",
+    "Geboortedatum": "1979-04-05",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "1bc9673b-500c-4245-aced-faa7c5ae0732",
+    "Gewicht": 3,
+    "Fractie_Id": "a3689bb6-3914-4d5c-a6a8-42e24582e299",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "a3689bb6-3914-4d5c-a6a8-42e24582e299",
+     "Afkorting": "SP",
+     "NaamNL": "Socialistische Partij",
+     "AantalZetels": 3,
+     "DatumActief": "1994-05-17T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:36:11.539259Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "4dee4dc2-91f5-4d18-9383-4b428816fc9c",
+   "FractieZetel_Id": "1f912b13-75e7-4862-bba0-69658d9dfd0f",
+   "Persoon_Id": "71653caa-dc3a-4441-80cb-34f6a737ee1e",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-06T13:50:15.876579Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "71653caa-dc3a-4441-80cb-34f6a737ee1e",
+    "Nummer": 4904,
+    "Initialen": "E.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Vlottes",
+    "Voornamen": "Elmar",
+    "Roepnaam": "Elmar",
+    "Geboortedatum": "1989-08-03",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "1f912b13-75e7-4862-bba0-69658d9dfd0f",
+    "Gewicht": 13,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "3afab384-695e-4041-bdef-4b4fa5bbd31b",
+   "FractieZetel_Id": "32b000b4-10f1-4ae8-94a6-a6e333d5fa80",
+   "Persoon_Id": "9e79de98-e914-4dc8-8dc7-6d7cb09b93d7",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:11.6886579Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "9e79de98-e914-4dc8-8dc7-6d7cb09b93d7",
+    "Nummer": 48800,
+    "Initialen": "B.C.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Kathmann",
+    "Voornamen": "Barbara Catharina",
+    "Roepnaam": "Barbara",
+    "Geboortedatum": "1978-05-12",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "32b000b4-10f1-4ae8-94a6-a6e333d5fa80",
+    "Gewicht": 8,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "b01c5250-01a3-4088-abe1-4bc1c95e7a34",
+   "FractieZetel_Id": "d9e43051-a6bf-491e-a82b-ac0f8cb190ad",
+   "Persoon_Id": "819764fa-3a17-467b-8327-30899ed083b6",
+   "Functie": "Lid",
+   "Van": "2006-11-30T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T13:27:29.2892279Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "819764fa-3a17-467b-8327-30899ed083b6",
+    "Nummer": 2466,
+    "Initialen": "D.J.G.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Graus",
+    "Voornamen": "Dion Jean Gilbert",
+    "Roepnaam": "Dion",
+    "Geboortedatum": "1967-03-19",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "d9e43051-a6bf-491e-a82b-ac0f8cb190ad",
+    "Gewicht": 4,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "e08bf62e-09b2-4d5d-8d06-50f2f3ac7450",
+   "FractieZetel_Id": "180dcb6f-c5d5-40b9-bcbf-cbecf29d8333",
+   "Persoon_Id": "4acb1921-a68d-40af-9f14-35112c020da5",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:27.1936735Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "4acb1921-a68d-40af-9f14-35112c020da5",
+    "Nummer": 58798,
+    "Initialen": "H.S.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Steen",
+    "Voornamen": "Hanneke Susan",
+    "Roepnaam": "Hanneke",
+    "Geboortedatum": "1983-03-29",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "180dcb6f-c5d5-40b9-bcbf-cbecf29d8333",
+    "Gewicht": 12,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "33f870c2-9019-42f1-a157-536a00120e5a",
+   "FractieZetel_Id": "ba8b27b1-4e0f-45d4-aa8c-de893fd25a6e",
+   "Persoon_Id": "7a727f46-0e36-493f-8779-736d3250fb27",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:13.7619186Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "7a727f46-0e36-493f-8779-736d3250fb27",
+    "Nummer": 58775,
+    "Initialen": "L.C.J.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Stultiens",
+    "Voornamen": "Luc Cornelis Joseph",
+    "Roepnaam": "Luc",
+    "Geboortedatum": "1993-07-17",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "ba8b27b1-4e0f-45d4-aa8c-de893fd25a6e",
+    "Gewicht": 13,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "834dd8a7-d939-427d-9bf5-573d1f141bd3",
+   "FractieZetel_Id": "25a07053-1155-400d-88e5-8313bb1b8603",
+   "Persoon_Id": "01be9ad7-0444-483a-9983-5f66f1402f6a",
+   "Functie": "Lid",
+   "Van": "2026-09-01T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-09-01T13:15:24.7058804Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "01be9ad7-0444-483a-9983-5f66f1402f6a",
+    "Nummer": 69889,
+    "Initialen": "I.",
+    "Tussenvoegsel": "Al",
+    "Achternaam": "Biyati",
+    "Voornamen": "Iem",
+    "Roepnaam": null,
+    "Geboortedatum": null,
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "25a07053-1155-400d-88e5-8313bb1b8603",
+    "Gewicht": 7,
+    "Fractie_Id": "e0b7b638-de3c-47cc-85bd-341dd65ea33d",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "e0b7b638-de3c-47cc-85bd-341dd65ea33d",
+     "Afkorting": "FVD",
+     "NaamNL": "Forum voor Democratie",
+     "AantalZetels": 7,
+     "DatumActief": "2017-03-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:31:11.2457292Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "baede519-49c2-46ac-bb6f-59893448956b",
+   "FractieZetel_Id": "1bfbffbd-3d13-4b46-85d6-ae6b212363a7",
+   "Persoon_Id": "68d64b36-9e16-4f0f-9a78-6f22b3aa093a",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:13.7783239Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "68d64b36-9e16-4f0f-9a78-6f22b3aa093a",
+    "Nummer": 65226,
+    "Initialen": "F.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Abdi",
+    "Voornamen": "Fatihya",
+    "Roepnaam": "Fatihya",
+    "Geboortedatum": "1991-03-12",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "1bfbffbd-3d13-4b46-85d6-ae6b212363a7",
+    "Gewicht": 15,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "16a2aec6-1044-450f-95a3-59b4dff70b4c",
+   "FractieZetel_Id": "86b653da-2b79-4775-8808-2c9f45c028df",
+   "Persoon_Id": "6f8efc5e-726c-4919-98d8-c6f1cd6b0b2b",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:13.8111048Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "6f8efc5e-726c-4919-98d8-c6f1cd6b0b2b",
+    "Nummer": 65198,
+    "Initialen": "A.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Zalinyan",
+    "Voornamen": "Ani",
+    "Roepnaam": "Ani",
+    "Geboortedatum": "1993-06-03",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "86b653da-2b79-4775-8808-2c9f45c028df",
+    "Gewicht": 19,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "541547e1-c9ff-4602-93e0-59e91aff5146",
+   "FractieZetel_Id": "7e1c7d48-94c5-4609-8ba9-4983fdd0ee61",
+   "Persoon_Id": "e5c4753f-d2d8-4a4a-ae9d-62118892a731",
+   "Functie": "Fractievoorzitter",
+   "Van": "2026-02-23T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-25T09:40:11.4334933Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "e5c4753f-d2d8-4a4a-ae9d-62118892a731",
+    "Nummer": 48742,
+    "Initialen": "R.P.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Brekelmans",
+    "Voornamen": "Ruben Pieter",
+    "Roepnaam": "Ruben",
+    "Geboortedatum": "1986-07-18",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "7e1c7d48-94c5-4609-8ba9-4983fdd0ee61",
+    "Gewicht": 8,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "343cf9b2-f1ae-4b4e-bc4f-5ae6dcbf1f9d",
+   "FractieZetel_Id": "0a55d334-6f8e-4632-9dc9-04cb7c1bbc9e",
+   "Persoon_Id": "8c5a8186-8f46-4bca-956d-06d4fa521635",
+   "Functie": "Fractievoorzitter",
+   "Van": "2026-02-24T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-24T11:02:11.0908859Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "8c5a8186-8f46-4bca-956d-06d4fa521635",
+    "Nummer": 2643,
+    "Initialen": "M.C.G.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Keijzer",
+    "Voornamen": "Maria Cornelia Gezina",
+    "Roepnaam": "Mona",
+    "Geboortedatum": "1968-10-09",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "0a55d334-6f8e-4632-9dc9-04cb7c1bbc9e",
+    "Gewicht": 1,
+    "Fractie_Id": "65b21c25-91e8-4844-a67c-bc5866e457b5",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65b21c25-91e8-4844-a67c-bc5866e457b5",
+     "Afkorting": "Lid Keijzer",
+     "NaamNL": "Lid Keijzer",
+     "AantalZetels": 1,
+     "DatumActief": "2026-02-24T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-03-09T15:15:10.1645088Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "62f626c9-aea2-49e2-89a4-5b4eca739d3c",
+   "FractieZetel_Id": "1830fce1-7d75-4066-a863-c3e0ccb99cb4",
+   "Persoon_Id": "3c429d84-fe37-4f2a-8d25-8bc2f764b870",
+   "Functie": "Lid",
+   "Van": "2026-02-25T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-25T09:44:13.7403432Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "3c429d84-fe37-4f2a-8d25-8bc2f764b870",
+    "Nummer": 65331,
+    "Initialen": "J.B.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Lohman",
+    "Voornamen": "Joris Bartho",
+    "Roepnaam": "Joris",
+    "Geboortedatum": "1985-11-10",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "1830fce1-7d75-4066-a863-c3e0ccb99cb4",
+    "Gewicht": 18,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "2318e164-71e4-436e-a389-5c8907e14f5a",
+   "FractieZetel_Id": "a8246bb1-d57b-47c1-a34c-418f805b6949",
+   "Persoon_Id": "6d33b9bc-7d3a-4a60-b2d7-c2b70cd11ab1",
+   "Functie": "Fractievoorzitter",
+   "Van": "2006-11-30T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T13:27:27.3978851Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "6d33b9bc-7d3a-4a60-b2d7-c2b70cd11ab1",
+    "Nummer": 1057,
+    "Initialen": "G.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Wilders",
+    "Voornamen": "Geert",
+    "Roepnaam": "Geert",
+    "Geboortedatum": "1963-09-06",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "a8246bb1-d57b-47c1-a34c-418f805b6949",
+    "Gewicht": 1,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "77a6a276-6c08-4606-a12f-5cfb2ecd6fb4",
+   "FractieZetel_Id": "1792694f-0f7a-4f78-8a01-2c60c47a8f1c",
+   "Persoon_Id": "36ed934d-56c7-4903-a0a8-a9f186d5a96f",
+   "Functie": "Lid",
+   "Van": "2023-02-07T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T14:33:31.7960407Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "36ed934d-56c7-4903-a0a8-a9f186d5a96f",
+    "Nummer": 48766,
+    "Initialen": "H.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Krul",
+    "Voornamen": "Harmen Marinus",
+    "Roepnaam": "Harmen",
+    "Geboortedatum": "1994-05-19",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "1792694f-0f7a-4f78-8a01-2c60c47a8f1c",
+    "Gewicht": 3,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "bd4358f2-2eac-4843-9eb0-5e378cf6c5ac",
+   "FractieZetel_Id": "d00cb7fc-0eb7-4364-9251-079bc5bc3f8a",
+   "Persoon_Id": "c6e26bd3-724f-45d3-93af-ef431e6fcd42",
+   "Functie": "Fractievoorzitter",
+   "Van": "2021-03-31T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T14:10:38.1175103Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "c6e26bd3-724f-45d3-93af-ef431e6fcd42",
+    "Nummer": 2274,
+    "Initialen": "B.J.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Eerdmans",
+    "Voornamen": "Bernard Johannes",
+    "Roepnaam": "Joost",
+    "Geboortedatum": "1971-01-09",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "d00cb7fc-0eb7-4364-9251-079bc5bc3f8a",
+    "Gewicht": 1,
+    "Fractie_Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+     "Afkorting": "JA21",
+     "NaamNL": "JA21",
+     "AantalZetels": 9,
+     "DatumActief": "2021-03-31T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:33:11.1036441Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "95130529-e28c-4280-983b-5e5ddcd77cf1",
+   "FractieZetel_Id": "ce8d1980-3fe3-405e-b92f-14504094b90a",
+   "Persoon_Id": "ed5b0339-d627-4d4e-8d65-4a9eb88cb6b0",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:24.8586396Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "ed5b0339-d627-4d4e-8d65-4a9eb88cb6b0",
+    "Nummer": 49114,
+    "Initialen": "F.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Wiersma",
+    "Voornamen": "Femke Marije",
+    "Roepnaam": "Femke",
+    "Geboortedatum": "1984-12-29",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "ce8d1980-3fe3-405e-b92f-14504094b90a",
+    "Gewicht": 3,
+    "Fractie_Id": "626555ac-e836-44e3-9978-a6a7f0abc3ce",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "626555ac-e836-44e3-9978-a6a7f0abc3ce",
+     "Afkorting": "BBB",
+     "NaamNL": "BoerBurgerBeweging",
+     "AantalZetels": 3,
+     "DatumActief": "2021-03-31T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-02-26T09:59:12.1009647Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "14f8de53-c285-417b-bc2c-5e95004751e7",
+   "FractieZetel_Id": "48a3d825-7f66-41bd-a9db-c829fe27a175",
+   "Persoon_Id": "6616f1dc-73e5-4753-b259-c10856ee7e4d",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:18.201609Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "6616f1dc-73e5-4753-b259-c10856ee7e4d",
+    "Nummer": 65405,
+    "Initialen": "R.J.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Asten",
+    "Voornamen": "Robert Jacobus",
+    "Roepnaam": "Robert",
+    "Geboortedatum": "1978-11-30",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "48a3d825-7f66-41bd-a9db-c829fe27a175",
+    "Gewicht": 9,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "a472ba2b-7b9d-434c-a987-60828ed7c7af",
+   "FractieZetel_Id": "eb17e8f1-e5a8-4485-9221-59b3f326970d",
+   "Persoon_Id": "98aa8bde-85b0-49ed-9795-e2eeb206e3b8",
+   "Functie": "Fractievoorzitter",
+   "Van": "2023-09-05T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-09-05T13:26:18.3871964Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "98aa8bde-85b0-49ed-9795-e2eeb206e3b8",
+    "Nummer": 4974,
+    "Initialen": "C.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Stoffer",
+    "Voornamen": "Christiaan",
+    "Roepnaam": "Chris",
+    "Geboortedatum": "1974-09-19",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "eb17e8f1-e5a8-4485-9221-59b3f326970d",
+    "Gewicht": 1,
+    "Fractie_Id": "77f9b6f1-b1a9-4d1b-a05e-9936e79d8fa5",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "77f9b6f1-b1a9-4d1b-a05e-9936e79d8fa5",
+     "Afkorting": "SGP",
+     "NaamNL": "Staatkundig Gereformeerde Partij",
+     "AantalZetels": 3,
+     "DatumActief": "1922-04-30T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-26T14:23:10.7615925Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "bf85e868-6e45-4869-b8ed-60c88c3b4b29",
+   "FractieZetel_Id": "d3d89b1f-b4df-474f-b55b-6e8eddab1c6b",
+   "Persoon_Id": "1c16919b-5c3f-486c-9cc7-bdd00e29e9a4",
+   "Functie": "Lid",
+   "Van": "2026-06-04T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T14:14:12.2838116Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "1c16919b-5c3f-486c-9cc7-bdd00e29e9a4",
+    "Nummer": 2481,
+    "Initialen": "E.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Ouwehand",
+    "Voornamen": "Esther",
+    "Roepnaam": "Esther",
+    "Geboortedatum": "1976-06-10",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "d3d89b1f-b4df-474f-b55b-6e8eddab1c6b",
+    "Gewicht": 1,
+    "Fractie_Id": "d3b4d880-ef37-4ce6-99ec-4940266ac466",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d3b4d880-ef37-4ce6-99ec-4940266ac466",
+     "Afkorting": "PvdD",
+     "NaamNL": "Partij voor de Dieren",
+     "AantalZetels": 3,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:34:11.1459808Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "7fbfc6de-34a2-4f1e-88f8-6189440e14af",
+   "FractieZetel_Id": "332a2d7d-3c98-4563-8e5b-e20fc850f92f",
+   "Persoon_Id": "0ea8e29d-3bfe-4982-8594-9350b527d553",
+   "Functie": "Lid",
+   "Van": "2017-03-23T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T13:28:33.7067312Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "0ea8e29d-3bfe-4982-8594-9350b527d553",
+    "Nummer": 4921,
+    "Initialen": "S.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Beckerman",
+    "Voornamen": "Sandra Mariët",
+    "Roepnaam": "Sandra",
+    "Geboortedatum": "1983-03-31",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "332a2d7d-3c98-4563-8e5b-e20fc850f92f",
+    "Gewicht": 1,
+    "Fractie_Id": "a3689bb6-3914-4d5c-a6a8-42e24582e299",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "a3689bb6-3914-4d5c-a6a8-42e24582e299",
+     "Afkorting": "SP",
+     "NaamNL": "Socialistische Partij",
+     "AantalZetels": 3,
+     "DatumActief": "1994-05-17T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:36:11.539259Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "0335f52e-a3c6-4d3e-8949-6259450da10c",
+   "FractieZetel_Id": "a004e3ab-5e0e-4b7c-b4d6-640c38e42b6b",
+   "Persoon_Id": "80d02106-9cf3-473d-9b4f-3951f48f57ef",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:27.0570121Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "80d02106-9cf3-473d-9b4f-3951f48f57ef",
+    "Nummer": 65312,
+    "Initialen": "L.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Boelsma-Hoekstra",
+    "Voornamen": "Lubbrigje",
+    "Roepnaam": "Luciënne",
+    "Geboortedatum": "1972-07-17",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "a004e3ab-5e0e-4b7c-b4d6-640c38e42b6b",
+    "Gewicht": 5,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "ae02ed2d-44bc-4ecb-b9b6-62de8077cc6c",
+   "FractieZetel_Id": "1b81b5f7-c05a-4a7d-b1dd-fc3d0e7e4c9d",
+   "Persoon_Id": "4b6348d0-bf6d-4086-983b-48eb3834efff",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:18.1933303Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "4b6348d0-bf6d-4086-983b-48eb3834efff",
+    "Nummer": 65254,
+    "Initialen": "H.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Wendel",
+    "Voornamen": "Hilde",
+    "Roepnaam": "Hilde",
+    "Geboortedatum": "1996-05-22",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "1b81b5f7-c05a-4a7d-b1dd-fc3d0e7e4c9d",
+    "Gewicht": 19,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "8a495745-30ab-444f-8431-635cb993a1b5",
+   "FractieZetel_Id": "d003d1e6-0827-4417-876c-f050b88d0770",
+   "Persoon_Id": "a4eb6b9e-dd6c-4cc8-a95c-ccb76860b162",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:31.5284103Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "a4eb6b9e-dd6c-4cc8-a95c-ccb76860b162",
+    "Nummer": 58800,
+    "Initialen": "A.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Nanninga",
+    "Voornamen": "Annabella",
+    "Roepnaam": "Annabel",
+    "Geboortedatum": "1977-11-06",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "d003d1e6-0827-4417-876c-f050b88d0770",
+    "Gewicht": 9,
+    "Fractie_Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+     "Afkorting": "JA21",
+     "NaamNL": "JA21",
+     "AantalZetels": 9,
+     "DatumActief": "2021-03-31T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:33:11.1036441Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "924643d5-7eda-4ee9-b670-63650fcaa19c",
+   "FractieZetel_Id": "d55b12d9-3c3a-4658-99a1-76bdffe17909",
+   "Persoon_Id": "3c96ed5d-f7bf-4cae-9ec7-a5a29f5299da",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:14.4587425Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "3c96ed5d-f7bf-4cae-9ec7-a5a29f5299da",
+    "Nummer": 4897,
+    "Initialen": "C.A.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Jansen",
+    "Voornamen": "Christiaan Anton",
+    "Roepnaam": "Chris",
+    "Geboortedatum": "1966-10-27",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "d55b12d9-3c3a-4658-99a1-76bdffe17909",
+    "Gewicht": 15,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "c176c8a3-ae29-4d6b-bd8e-64c4f98e609e",
+   "FractieZetel_Id": "af52fd50-7a22-46d7-950b-86fee1bf18c4",
+   "Persoon_Id": "dd85a3cc-916a-4f94-aaed-cb341eb6a036",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-06T13:51:13.4722993Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "dd85a3cc-916a-4f94-aaed-cb341eb6a036",
+    "Nummer": 5142,
+    "Initialen": "D.J.H.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Dijk",
+    "Voornamen": "Dirk Jacob Huibert",
+    "Roepnaam": "Diederik",
+    "Geboortedatum": "1971-11-22",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "af52fd50-7a22-46d7-950b-86fee1bf18c4",
+    "Gewicht": 2,
+    "Fractie_Id": "77f9b6f1-b1a9-4d1b-a05e-9936e79d8fa5",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "77f9b6f1-b1a9-4d1b-a05e-9936e79d8fa5",
+     "Afkorting": "SGP",
+     "NaamNL": "Staatkundig Gereformeerde Partij",
+     "AantalZetels": 3,
+     "DatumActief": "1922-04-30T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-26T14:23:10.7615925Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "6a7fa191-fe23-427f-bb56-65fbfc7d844a",
+   "FractieZetel_Id": "5f685ae4-114c-46c3-b482-344f96e0a4ce",
+   "Persoon_Id": "8767e9de-869e-4e8a-940f-1a63d15eab3c",
+   "Functie": "Lid",
+   "Van": "2021-03-31T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T14:10:24.3681254Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "8767e9de-869e-4e8a-940f-1a63d15eab3c",
+    "Nummer": 48741,
+    "Initialen": "A.H.J.",
+    "Tussenvoegsel": "de",
+    "Achternaam": "Kort",
+    "Voornamen": "Adriaan Harry John",
+    "Roepnaam": "Daan",
+    "Geboortedatum": "1992-07-15",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "5f685ae4-114c-46c3-b482-344f96e0a4ce",
+    "Gewicht": 5,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "8e23ef16-9396-4fae-9f66-668ad98e39b5",
+   "FractieZetel_Id": "db4bb956-f451-47e3-ab0e-b6ebcd76e8d6",
+   "Persoon_Id": "b4bbefe3-6926-4d81-b8a4-b1bb6ae2e3c6",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-06T13:50:15.9547025Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "b4bbefe3-6926-4d81-b8a4-b1bb6ae2e3c6",
+    "Nummer": 59030,
+    "Initialen": "J.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Mooiman",
+    "Voornamen": "Jeremy",
+    "Roepnaam": "Jeremy",
+    "Geboortedatum": "1995-11-22",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "db4bb956-f451-47e3-ab0e-b6ebcd76e8d6",
+    "Gewicht": 12,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "c5d48e12-b037-4438-bfd2-669637d57141",
+   "FractieZetel_Id": "84e20684-e476-4aca-aa4a-c18ce10955e7",
+   "Persoon_Id": "da9f33b0-80ca-49eb-a1ec-def3b46538d9",
+   "Functie": "Lid",
+   "Van": "2017-10-31T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T13:31:27.4266315Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "da9f33b0-80ca-49eb-a1ec-def3b46538d9",
+    "Nummer": 4954,
+    "Initialen": "J.C.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Sneller",
+    "Voornamen": "Joost Caspar",
+    "Roepnaam": "Joost",
+    "Geboortedatum": "1982-07-24",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "84e20684-e476-4aca-aa4a-c18ce10955e7",
+    "Gewicht": 2,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "ed84e068-91c2-4662-a604-66c51a86e7e4",
+   "FractieZetel_Id": "c98ec173-946f-4f4f-99a0-33dbc3e4898f",
+   "Persoon_Id": "de44b333-86c1-4af7-9439-a0c186d6f2e3",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:27.1515199Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "de44b333-86c1-4af7-9439-a0c186d6f2e3",
+    "Nummer": 65287,
+    "Initialen": "H.G.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Jumelet",
+    "Voornamen": "Henk Gabriël",
+    "Roepnaam": "Henk",
+    "Geboortedatum": "1962-03-17",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "c98ec173-946f-4f4f-99a0-33dbc3e4898f",
+    "Gewicht": 9,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "b353dc1b-8078-4ec7-ab57-6b60ec323d94",
+   "FractieZetel_Id": "01bc0486-1e14-4a31-9afe-876006219eca",
+   "Persoon_Id": "60a80b41-2618-47c0-8212-2feb0f67c221",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:24.9571365Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "60a80b41-2618-47c0-8212-2feb0f67c221",
+    "Nummer": 65288,
+    "Initialen": "A.F.J.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Ark",
+    "Voornamen": "Alice Francisca Johanna",
+    "Roepnaam": "Elles",
+    "Geboortedatum": "1981-10-20",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "01bc0486-1e14-4a31-9afe-876006219eca",
+    "Gewicht": 4,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "6c072a3a-90ed-489b-a6a6-6b93785d2ab6",
+   "FractieZetel_Id": "232eedda-a049-423f-b5e0-fbf5c0ccce83",
+   "Persoon_Id": "77c541d2-49e3-483f-869d-134df420c5ea",
+   "Functie": "Lid",
+   "Van": "2017-03-23T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T13:27:36.8593967Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "77c541d2-49e3-483f-869d-134df420c5ea",
+    "Nummer": 4893,
+    "Initialen": "A.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Kops",
+    "Voornamen": "Alexander",
+    "Roepnaam": "Alexander",
+    "Geboortedatum": "1984-11-23",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "232eedda-a049-423f-b5e0-fbf5c0ccce83",
+    "Gewicht": 7,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "63c65435-625f-410e-96e1-6eb72a9776ee",
+   "FractieZetel_Id": "3bd5c7f2-c89e-441a-a0cb-c59c50112fae",
+   "Persoon_Id": "6a54c095-9872-4322-81be-114b74233d40",
+   "Functie": "Lid",
+   "Van": "2024-03-29T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2024-03-28T23:00:22.5818102Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "6a54c095-9872-4322-81be-114b74233d40",
+    "Nummer": 48770,
+    "Initialen": "J.J.",
+    "Tussenvoegsel": "van der",
+    "Achternaam": "Werf",
+    "Voornamen": "Johanna Jantina",
+    "Roepnaam": "Hanneke",
+    "Geboortedatum": "1984-11-29",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "3bd5c7f2-c89e-441a-a0cb-c59c50112fae",
+    "Gewicht": 5,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "c441abad-5358-498f-9ccf-6f5ad815826e",
+   "FractieZetel_Id": "c4df7d35-7aa1-414b-a4d0-06d279f677b2",
+   "Persoon_Id": "64f39510-b420-4b01-8b5e-2b2f2b0aad91",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:30.7683773Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "64f39510-b420-4b01-8b5e-2b2f2b0aad91",
+    "Nummer": 48830,
+    "Initialen": "P.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Houwelingen",
+    "Voornamen": "Pepijn",
+    "Roepnaam": "Pepijn",
+    "Geboortedatum": "1980-02-24",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "c4df7d35-7aa1-414b-a4d0-06d279f677b2",
+    "Gewicht": 2,
+    "Fractie_Id": "e0b7b638-de3c-47cc-85bd-341dd65ea33d",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "e0b7b638-de3c-47cc-85bd-341dd65ea33d",
+     "Afkorting": "FVD",
+     "NaamNL": "Forum voor Democratie",
+     "AantalZetels": 7,
+     "DatumActief": "2017-03-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:31:11.2457292Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "ac14b2ff-481c-4527-bffb-716a5a1e7d86",
+   "FractieZetel_Id": "ff44dff9-78e5-488a-bcfd-2394b62fbe39",
+   "Persoon_Id": "0004fa63-2652-43fe-9866-4130ca4652d8",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-06T13:50:15.7984464Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "0004fa63-2652-43fe-9866-4130ca4652d8",
+    "Nummer": 4913,
+    "Initialen": "M.C.H.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Boon",
+    "Voornamen": "Maikel Christiaan Hendrikus",
+    "Roepnaam": "Maikel",
+    "Geboortedatum": "1982-05-11",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "ff44dff9-78e5-488a-bcfd-2394b62fbe39",
+    "Gewicht": 11,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "26111a0e-2a7d-44b9-b9f8-72760c36f53c",
+   "FractieZetel_Id": "b1da3849-eba2-4558-9c43-6e1fe4759f24",
+   "Persoon_Id": "b29c0e00-7ac2-4c28-ab4f-8fceb156337b",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:32.7071538Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "b29c0e00-7ac2-4c28-ab4f-8fceb156337b",
+    "Nummer": 4978,
+    "Initialen": "C.M.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Brenk",
+    "Voornamen": "Cornelia Maria",
+    "Roepnaam": "Corrie",
+    "Geboortedatum": "1960-09-16",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "b1da3849-eba2-4558-9c43-6e1fe4759f24",
+    "Gewicht": 1,
+    "Fractie_Id": "a9e74299-15f9-455c-8330-b84f176d1a7e",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "a9e74299-15f9-455c-8330-b84f176d1a7e",
+     "Afkorting": "50PLUS",
+     "NaamNL": "50PLUS",
+     "AantalZetels": 2,
+     "DatumActief": "2025-11-12T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:54:09.5383671Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "f08c6f3a-962c-49cd-bc58-73396c29ea22",
+   "FractieZetel_Id": "8eb3e760-fbc6-4cbb-ba53-730bbfaf6a9d",
+   "Persoon_Id": "9f855643-68a2-409e-b4fe-81b92547212a",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:11.7089111Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "9f855643-68a2-409e-b4fe-81b92547212a",
+    "Nummer": 48802,
+    "Initialen": "S.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Mutluer",
+    "Voornamen": "Songül",
+    "Roepnaam": "Songül",
+    "Geboortedatum": "1979-12-11",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "8eb3e760-fbc6-4cbb-ba53-730bbfaf6a9d",
+    "Gewicht": 10,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "022c7096-b9fa-4afc-859a-734d3ed4d89d",
+   "FractieZetel_Id": "0d21d703-6474-49ed-936c-e66231fb33fa",
+   "Persoon_Id": "d89044ef-b7df-4a15-be10-d342fe381664",
+   "Functie": "Lid",
+   "Van": "2021-04-15T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T14:19:34.8960997Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "d89044ef-b7df-4a15-be10-d342fe381664",
+    "Nummer": 48774,
+    "Initialen": "W.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Paulusma",
+    "Voornamen": "Wieke",
+    "Roepnaam": "Wieke",
+    "Geboortedatum": "1978-12-05",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "0d21d703-6474-49ed-936c-e66231fb33fa",
+    "Gewicht": 3,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "f348dc9a-3569-40b9-84fa-75056c90449a",
+   "FractieZetel_Id": "28631276-014f-4671-8289-b7a41a276853",
+   "Persoon_Id": "81552958-ef83-4fab-8a92-6e5b1975c9ef",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-06T13:50:15.6109443Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "81552958-ef83-4fab-8a92-6e5b1975c9ef",
+    "Nummer": 4895,
+    "Initialen": "E.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Dijk",
+    "Voornamen": "Emiel",
+    "Roepnaam": "Emiel",
+    "Geboortedatum": "1985-03-22",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "28631276-014f-4671-8289-b7a41a276853",
+    "Gewicht": 9,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "7abd4163-3248-4cdf-a034-770739d92c25",
+   "FractieZetel_Id": "9b0dbd87-623e-4af1-9fdd-f0e1afac84cc",
+   "Persoon_Id": "3817ddd8-9797-4b14-8d75-77c909b711e0",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:22.9677499Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "3817ddd8-9797-4b14-8d75-77c909b711e0",
+    "Nummer": 65404,
+    "Initialen": "F.C.O.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Klos",
+    "Voornamen": "Felix Constantijn Olivier",
+    "Roepnaam": "Felix",
+    "Geboortedatum": "1992-03-03",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "9b0dbd87-623e-4af1-9fdd-f0e1afac84cc",
+    "Gewicht": 16,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "24643aaa-57e0-46bf-8e28-771509b245ef",
+   "FractieZetel_Id": "21ea1cd8-8171-4b0e-b049-88d3664121c8",
+   "Persoon_Id": "2690bccc-5463-459a-b1df-cb93e222b348",
+   "Functie": "Fractievoorzitter",
+   "Van": "2026-02-10T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-11T09:59:13.0025817Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "2690bccc-5463-459a-b1df-cb93e222b348",
+    "Nummer": 4944,
+    "Initialen": "J.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Paternotte",
+    "Voornamen": "Jan Maarten",
+    "Roepnaam": "Jan",
+    "Geboortedatum": "1984-02-26",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "21ea1cd8-8171-4b0e-b049-88d3664121c8",
+    "Gewicht": 1,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "2cbeaac0-7680-4f9e-ac56-7a4599bce4fd",
+   "FractieZetel_Id": "62a1aa60-fee0-4105-9c19-c5c73616edc8",
+   "Persoon_Id": "d0ddd0c4-ece0-4b75-85b7-d2396a05f921",
+   "Functie": "Lid",
+   "Van": "2026-05-19T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-05-19T14:05:12.079647Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "d0ddd0c4-ece0-4b75-85b7-d2396a05f921",
+    "Nummer": 69583,
+    "Initialen": "M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Schenk",
+    "Voornamen": "Milan",
+    "Roepnaam": "Milan",
+    "Geboortedatum": "2000-10-13",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "62a1aa60-fee0-4105-9c19-c5c73616edc8",
+    "Gewicht": 6,
+    "Fractie_Id": "e0b7b638-de3c-47cc-85bd-341dd65ea33d",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "e0b7b638-de3c-47cc-85bd-341dd65ea33d",
+     "Afkorting": "FVD",
+     "NaamNL": "Forum voor Democratie",
+     "AantalZetels": 7,
+     "DatumActief": "2017-03-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:31:11.2457292Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "2a045c63-1eaf-4b20-a718-7ca1071a5886",
+   "FractieZetel_Id": "c33fc8d1-bc13-4919-8835-2ac1aa1138e3",
+   "Persoon_Id": "209ce05e-66ee-4999-928c-00f152b40ead",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-06T13:51:10.0901012Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "209ce05e-66ee-4999-928c-00f152b40ead",
+    "Nummer": 58699,
+    "Initialen": "I.",
+    "Tussenvoegsel": "el",
+    "Achternaam": "Abassi",
+    "Voornamen": "Ismail",
+    "Roepnaam": "Ismail",
+    "Geboortedatum": "1983-02-27",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "c33fc8d1-bc13-4919-8835-2ac1aa1138e3",
+    "Gewicht": 3,
+    "Fractie_Id": "deb74bb5-63a9-4ffc-98ed-af577167452e",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "deb74bb5-63a9-4ffc-98ed-af577167452e",
+     "Afkorting": "DENK",
+     "NaamNL": "DENK",
+     "AantalZetels": 3,
+     "DatumActief": "2017-03-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:12.4122776Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "266d58f5-b1d7-4d93-a285-7d6170c29898",
+   "FractieZetel_Id": "8136e891-2ede-4ecd-9799-3bfac0a797ae",
+   "Persoon_Id": "ea21d788-7cfe-41ff-b22f-0664397139af",
+   "Functie": "Lid",
+   "Van": "2021-03-31T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T14:10:24.5087158Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "ea21d788-7cfe-41ff-b22f-0664397139af",
+    "Nummer": 48737,
+    "Initialen": "U.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Ellian",
+    "Voornamen": "Ulysse",
+    "Roepnaam": "Ulysse",
+    "Geboortedatum": "1988-09-17",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "8136e891-2ede-4ecd-9799-3bfac0a797ae",
+    "Gewicht": 3,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "8b397526-6b40-4d36-9236-800ad3538686",
+   "FractieZetel_Id": "262c9890-e241-43d6-a729-1057f0b26c00",
+   "Persoon_Id": "f177383d-2044-4a7b-b6bb-2b45ff30e972",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:27.2122792Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "f177383d-2044-4a7b-b6bb-2b45ff30e972",
+    "Nummer": 65315,
+    "Initialen": "E.S.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Tijmstra",
+    "Voornamen": "Eveline Sylvia",
+    "Roepnaam": "Eveline",
+    "Geboortedatum": "1979-12-02",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "262c9890-e241-43d6-a729-1057f0b26c00",
+    "Gewicht": 14,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "8b934b98-9c58-422d-94eb-880fe1e87080",
+   "FractieZetel_Id": "c2da4d16-66db-4abb-a5c3-04a52b3e2edc",
+   "Persoon_Id": "557f8bd5-9f66-4bed-9b5f-86746bb0600a",
+   "Functie": "Lid",
+   "Van": "2025-04-02T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-04-22T14:50:11.1190868Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "557f8bd5-9f66-4bed-9b5f-86746bb0600a",
+    "Nummer": 48828,
+    "Initialen": "G.F.C.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Meijeren",
+    "Voornamen": "Gideon Frederik Cornelis",
+    "Roepnaam": "Gideon",
+    "Geboortedatum": "1988-05-27",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "c2da4d16-66db-4abb-a5c3-04a52b3e2edc",
+    "Gewicht": 1,
+    "Fractie_Id": "e0b7b638-de3c-47cc-85bd-341dd65ea33d",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "e0b7b638-de3c-47cc-85bd-341dd65ea33d",
+     "Afkorting": "FVD",
+     "NaamNL": "Forum voor Democratie",
+     "AantalZetels": 7,
+     "DatumActief": "2017-03-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:31:11.2457292Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "c4f8675b-9571-45cf-abc6-883bca9a35eb",
+   "FractieZetel_Id": "a4f6f735-c1ab-43ba-b86f-64bcb31ae4c0",
+   "Persoon_Id": "973da897-66c7-4010-a98d-505e0e97a60c",
+   "Functie": "Lid",
+   "Van": "2021-03-31T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T14:10:24.6337239Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "973da897-66c7-4010-a98d-505e0e97a60c",
+    "Nummer": 48735,
+    "Initialen": "I.J.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Michon-Derkzen",
+    "Voornamen": "Ingrid Johanna Maria",
+    "Roepnaam": "Ingrid",
+    "Geboortedatum": "1976-09-14",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "a4f6f735-c1ab-43ba-b86f-64bcb31ae4c0",
+    "Gewicht": 6,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "7d4a2207-9c33-4d34-8712-8bd8d6ab3bac",
+   "FractieZetel_Id": "29b6cf24-b31c-456c-9f3e-fcabe9e41175",
+   "Persoon_Id": "a396ae20-6309-456b-a5ae-e4068dea8a67",
+   "Functie": "Lid",
+   "Van": "2006-11-30T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T13:27:27.8666528Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "a396ae20-6309-456b-a5ae-e4068dea8a67",
+    "Nummer": 2443,
+    "Initialen": "A.P.C.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Dijck",
+    "Voornamen": "Antoine Pierre Cornelis",
+    "Roepnaam": "Tony",
+    "Geboortedatum": "1963-09-13",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "29b6cf24-b31c-456c-9f3e-fcabe9e41175",
+    "Gewicht": 3,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "08009167-8108-418d-bc65-8c3b72e73405",
+   "FractieZetel_Id": "0a57ddce-806c-4114-a754-f9813e8d5c2a",
+   "Persoon_Id": "14642402-bfc5-4471-9246-7fb6742a35e8",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:24.4742915Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "14642402-bfc5-4471-9246-7fb6742a35e8",
+    "Nummer": 58732,
+    "Initialen": "M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Synhaeve",
+    "Voornamen": "Marijke",
+    "Roepnaam": "Marijke",
+    "Geboortedatum": "1989-11-05",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "0a57ddce-806c-4114-a754-f9813e8d5c2a",
+    "Gewicht": 8,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "6a1a2ef1-06c0-4052-897b-8c40c2a0fbd3",
+   "FractieZetel_Id": "88dda914-9395-46fd-babc-c26169691f3a",
+   "Persoon_Id": "d58f3da8-94f6-4b03-ac9f-67ec50e12bf3",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:15.6450205Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "d58f3da8-94f6-4b03-ac9f-67ec50e12bf3",
+    "Nummer": 48760,
+    "Initialen": "T.S.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Stöteler",
+    "Voornamen": "Thomas Sebastiaan Matthias",
+    "Roepnaam": "Sebastiaan",
+    "Geboortedatum": "1983-11-18",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "88dda914-9395-46fd-babc-c26169691f3a",
+    "Gewicht": 19,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "81ee7cdb-ab31-48aa-8fcb-8dc92f962f2d",
+   "FractieZetel_Id": "ddbd9bc8-7381-416b-8c6c-5d4500a656ab",
+   "Persoon_Id": "10c4f889-d7de-48bb-a0b7-9a7125f1fc98",
+   "Functie": "Lid",
+   "Van": "2026-01-20T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-01-20T13:53:16.7348148Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "10c4f889-d7de-48bb-a0b7-9a7125f1fc98",
+    "Nummer": 65144,
+    "Initialen": "A.N.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Lammers",
+    "Voornamen": "Anna Naomi",
+    "Roepnaam": "Annelotte",
+    "Geboortedatum": "1993-04-12",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "ddbd9bc8-7381-416b-8c6c-5d4500a656ab",
+    "Gewicht": 5,
+    "Fractie_Id": "848c3fca-8931-4236-8fe9-33b6a598fa4d",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "848c3fca-8931-4236-8fe9-33b6a598fa4d",
+     "Afkorting": "Groep Markuszower",
+     "NaamNL": "Groep Markuszower",
+     "AantalZetels": 7,
+     "DatumActief": "2026-01-20T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-02-04T09:47:11.359621Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "fc41b429-e83c-4269-86a4-92b240736585",
+   "FractieZetel_Id": "620a47f2-d896-4beb-a691-49f9308a39cc",
+   "Persoon_Id": "a08790d3-915b-44d3-9556-6c53048917a0",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:31.3305142Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "a08790d3-915b-44d3-9556-6c53048917a0",
+    "Nummer": 65370,
+    "Initialen": "I.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Coenradie",
+    "Voornamen": "Ingrid",
+    "Roepnaam": "Ingrid",
+    "Geboortedatum": "1987-12-21",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "620a47f2-d896-4beb-a691-49f9308a39cc",
+    "Gewicht": 7,
+    "Fractie_Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+     "Afkorting": "JA21",
+     "NaamNL": "JA21",
+     "AantalZetels": 9,
+     "DatumActief": "2021-03-31T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:33:11.1036441Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "65972350-6844-4da8-b161-97d4978d2c57",
+   "FractieZetel_Id": "e67845cd-7287-48c2-8c0b-4d467a8f1a57",
+   "Persoon_Id": "de1735dc-a542-4e58-8c06-9effd9005686",
+   "Functie": "Lid",
+   "Van": "2026-02-25T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-25T09:42:13.0748085Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "de1735dc-a542-4e58-8c06-9effd9005686",
+    "Nummer": 58459,
+    "Initialen": "W.J.H.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Meulenkamp",
+    "Voornamen": "Wim Johannes Hendricus",
+    "Roepnaam": "Wim",
+    "Geboortedatum": "1975-01-03",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "e67845cd-7287-48c2-8c0b-4d467a8f1a57",
+    "Gewicht": 13,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "c172c13b-b6f6-4c47-b0a1-9831b2fe7694",
+   "FractieZetel_Id": "c2f336dd-edee-4a46-a671-256707b7ca2c",
+   "Persoon_Id": "48d02bab-281c-4bd0-8a50-26bf90a38cc0",
+   "Functie": "Lid",
+   "Van": "2017-03-23T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T13:27:36.9062732Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "48d02bab-281c-4bd0-8a50-26bf90a38cc0",
+    "Nummer": 4892,
+    "Initialen": "E.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Mulder",
+    "Voornamen": "Edgar",
+    "Roepnaam": "Edgar",
+    "Geboortedatum": "1961-11-22",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "c2f336dd-edee-4a46-a671-256707b7ca2c",
+    "Gewicht": 6,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "ced17006-c20a-43bb-8d57-99a24fce7fab",
+   "FractieZetel_Id": "1815b910-8187-4bdd-af76-e3c00902db03",
+   "Persoon_Id": "48108814-4f16-4de8-85b2-e20e75294676",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:27.1636688Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "48108814-4f16-4de8-85b2-e20e75294676",
+    "Nummer": 65313,
+    "Initialen": "J.C.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Koorevaar",
+    "Voornamen": "Jan Cornelis",
+    "Roepnaam": "Jan Arie",
+    "Geboortedatum": "1979-08-03",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "1815b910-8187-4bdd-af76-e3c00902db03",
+    "Gewicht": 10,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "254c5074-c0bd-4ffd-aee4-9a894dd81cfe",
+   "FractieZetel_Id": "a1c77f59-8435-467d-bf8a-439020e703f4",
+   "Persoon_Id": "a9b2e7ac-3f50-4f60-bea6-4d78d3d2aefa",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:27.1099396Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "a9b2e7ac-3f50-4f60-bea6-4d78d3d2aefa",
+    "Nummer": 65283,
+    "Initialen": "J.G.L.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Bühler",
+    "Voornamen": "Judith Gerarda Lambertina Maria",
+    "Roepnaam": "Judith",
+    "Geboortedatum": "1972-03-03",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "a1c77f59-8435-467d-bf8a-439020e703f4",
+    "Gewicht": 7,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "403e021e-845d-4caf-bfd3-9d1ac8c91924",
+   "FractieZetel_Id": "de021825-e0f1-4080-ab39-23430ce9e89f",
+   "Persoon_Id": "e71290ca-7a53-4466-889b-fe1d113005ec",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:28.4242954Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "e71290ca-7a53-4466-889b-fe1d113005ec",
+    "Nummer": 65320,
+    "Initialen": "E.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Armut",
+    "Voornamen": "Etkin",
+    "Roepnaam": "Etkin",
+    "Geboortedatum": "1998-08-17",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "de021825-e0f1-4080-ab39-23430ce9e89f",
+    "Gewicht": 16,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "d38d6d34-21d4-4c5b-86cc-9dc157336a46",
+   "FractieZetel_Id": "1a0f8022-5f49-4c37-8e92-6c397a8b2b35",
+   "Persoon_Id": "9e16daf1-18e6-4563-b371-aa50c31b79f6",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-06T13:51:13.4566728Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "9e16daf1-18e6-4563-b371-aa50c31b79f6",
+    "Nummer": 58450,
+    "Initialen": "I.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Kostić",
+    "Voornamen": "Ines",
+    "Roepnaam": "Ines",
+    "Geboortedatum": "1984-10-21",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "1a0f8022-5f49-4c37-8e92-6c397a8b2b35",
+    "Gewicht": 3,
+    "Fractie_Id": "d3b4d880-ef37-4ce6-99ec-4940266ac466",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d3b4d880-ef37-4ce6-99ec-4940266ac466",
+     "Afkorting": "PvdD",
+     "NaamNL": "Partij voor de Dieren",
+     "AantalZetels": 3,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:34:11.1459808Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "5ddb3727-876f-4f2c-89e5-9e064fe6c14b",
+   "FractieZetel_Id": "45c28964-1798-4492-9342-a796cf4b630a",
+   "Persoon_Id": "67261924-770e-4746-88d3-22e85bf217ed",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:22.8730826Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "67261924-770e-4746-88d3-22e85bf217ed",
+    "Nummer": 65417,
+    "Initialen": "R.A.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Huizenga",
+    "Voornamen": "Renilde Annet",
+    "Roepnaam": "Renilde",
+    "Geboortedatum": "1970-09-07",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "45c28964-1798-4492-9342-a796cf4b630a",
+    "Gewicht": 15,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "3b0474f6-2913-473f-8e43-a18b000ec2be",
+   "FractieZetel_Id": "72c871a6-616a-4112-a9f9-5c4cbb6f434d",
+   "Persoon_Id": "f94a1293-6e79-40b5-b796-5ad73d1d6aff",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-10T14:16:11.5584599Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "f94a1293-6e79-40b5-b796-5ad73d1d6aff",
+    "Nummer": 65202,
+    "Initialen": "W.D.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Bolhuis",
+    "Voornamen": "Wimar Daniel",
+    "Roepnaam": "Wimar",
+    "Geboortedatum": "1986-08-10",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "72c871a6-616a-4112-a9f9-5c4cbb6f434d",
+    "Gewicht": 20,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "740d440a-2591-4568-b980-a29fb1a5681e",
+   "FractieZetel_Id": "aded25c5-42de-41fc-8d17-a885eae6465f",
+   "Persoon_Id": "9d29cdee-6873-41d1-b4f5-61940ef11cb7",
+   "Functie": "Lid",
+   "Van": "2026-01-15T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-01-15T12:30:09.2815247Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "9d29cdee-6873-41d1-b4f5-61940ef11cb7",
+    "Nummer": 58671,
+    "Initialen": "T.K.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Russcher",
+    "Voornamen": "Tom Kristian",
+    "Roepnaam": "Tom",
+    "Geboortedatum": "1992-12-11",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "aded25c5-42de-41fc-8d17-a885eae6465f",
+    "Gewicht": 5,
+    "Fractie_Id": "e0b7b638-de3c-47cc-85bd-341dd65ea33d",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "e0b7b638-de3c-47cc-85bd-341dd65ea33d",
+     "Afkorting": "FVD",
+     "NaamNL": "Forum voor Democratie",
+     "AantalZetels": 7,
+     "DatumActief": "2017-03-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:31:11.2457292Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "243d5ecc-d7a2-4594-a80a-a3f08d7519d1",
+   "FractieZetel_Id": "838dfe9e-a916-43b4-92ee-b6ab06741b91",
+   "Persoon_Id": "942a29b8-057f-4dba-a8cd-3c35e5a81aaf",
+   "Functie": "Fractievoorzitter",
+   "Van": "2023-09-05T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-09-05T13:25:17.6392628Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "942a29b8-057f-4dba-a8cd-3c35e5a81aaf",
+    "Nummer": 48765,
+    "Initialen": "H.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Bontenbal",
+    "Voornamen": "Hendrik",
+    "Roepnaam": "Henri",
+    "Geboortedatum": "1982-11-10",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "838dfe9e-a916-43b4-92ee-b6ab06741b91",
+    "Gewicht": 2,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "b179f874-bcf4-40d3-9633-a7624785a82c",
+   "FractieZetel_Id": "56b8805f-477d-4c31-89c2-4f0c47c6914d",
+   "Persoon_Id": "4bf69aa9-29a7-44db-b7ee-8bfa40e343dd",
+   "Functie": "Lid",
+   "Van": "2026-07-21T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-07-29T12:16:34.7896254Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "4bf69aa9-29a7-44db-b7ee-8bfa40e343dd",
+    "Nummer": 48729,
+    "Initialen": "Q.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Rajkowski",
+    "Voornamen": "Queeny-Aimée Magdalena",
+    "Roepnaam": "Queeny",
+    "Geboortedatum": "1988-11-17",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "56b8805f-477d-4c31-89c2-4f0c47c6914d",
+    "Gewicht": 7,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "5689ac47-dcdd-4c9b-8375-ad977c582f30",
+   "FractieZetel_Id": "c99a90c1-3ff1-4b55-a8e0-84c051897a3f",
+   "Persoon_Id": "d081e81a-72b1-4c57-9d25-2f34292da0cf",
+   "Functie": "Lid",
+   "Van": "2026-02-25T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-25T11:00:11.873615Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "d081e81a-72b1-4c57-9d25-2f34292da0cf",
+    "Nummer": 58680,
+    "Initialen": "B.T.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Bikkers",
+    "Voornamen": "Bart Timothy",
+    "Roepnaam": "Bart",
+    "Geboortedatum": "1984-11-23",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "c99a90c1-3ff1-4b55-a8e0-84c051897a3f",
+    "Gewicht": 14,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "130ace90-5f91-469c-bea2-af2ae98197eb",
+   "FractieZetel_Id": "6edf87c5-c9ee-4ae5-933e-b29b7288ab59",
+   "Persoon_Id": "c60c655f-40ba-47b0-8e93-a2c8d1ff4743",
+   "Functie": "Lid",
+   "Van": "2012-01-31T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T13:27:28.9454792Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "c60c655f-40ba-47b0-8e93-a2c8d1ff4743",
+    "Nummer": 2451,
+    "Initialen": "R.",
+    "Tussenvoegsel": "de",
+    "Achternaam": "Roon",
+    "Voornamen": "Raymond",
+    "Roepnaam": "Raymond",
+    "Geboortedatum": "1952-09-01",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "6edf87c5-c9ee-4ae5-933e-b29b7288ab59",
+    "Gewicht": 5,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "9fb4ac13-41e7-4be0-80e9-b17d8de6423b",
+   "FractieZetel_Id": "e6a85212-07cc-4500-9c2d-6fa90f3659c5",
+   "Persoon_Id": "a6a6861d-5972-4650-bc4f-38ba958c6bdc",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:13.8034578Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "a6a6861d-5972-4650-bc4f-38ba958c6bdc",
+    "Nummer": 65230,
+    "Initialen": "L.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Vliegenthart",
+    "Voornamen": "Lisa",
+    "Roepnaam": "Lisa",
+    "Geboortedatum": "1993-09-07",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "e6a85212-07cc-4500-9c2d-6fa90f3659c5",
+    "Gewicht": 18,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "d664ff4d-d2b4-45e3-b100-b1b6c7c1e98b",
+   "FractieZetel_Id": "addd4147-6674-4c63-816f-8bd35f107767",
+   "Persoon_Id": "1ee767b9-67f3-47e5-9e28-045da1c37b05",
+   "Functie": "Lid",
+   "Van": "2021-03-31T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T14:10:25.1499946Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "1ee767b9-67f3-47e5-9e28-045da1c37b05",
+    "Nummer": 48762,
+    "Initialen": "I.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Dijk",
+    "Voornamen": "Inge",
+    "Roepnaam": "Inge",
+    "Geboortedatum": "1975-05-06",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "addd4147-6674-4c63-816f-8bd35f107767",
+    "Gewicht": 1,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "c4156c33-c4dc-4c82-8faa-b25c2a411db3",
+   "FractieZetel_Id": "defb435a-50b5-49f5-9bc0-84812ced5e76",
+   "Persoon_Id": "707d820c-5453-4ca5-a193-15e40c1d3f98",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:24.1146496Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "707d820c-5453-4ca5-a193-15e40c1d3f98",
+    "Nummer": 65464,
+    "Initialen": "S.J.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Neijenhuis",
+    "Voornamen": "Stephanus Johannes",
+    "Roepnaam": "Stephan",
+    "Geboortedatum": "1993-05-31",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "defb435a-50b5-49f5-9bc0-84812ced5e76",
+    "Gewicht": 18,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "e6b020ca-859c-4bb4-a4d9-b29f11eb68c2",
+   "FractieZetel_Id": "01c5eec3-4ab2-42cc-be67-1cb85294ab81",
+   "Persoon_Id": "6edaeec8-fad8-4c2c-8103-7aae8594e772",
+   "Functie": "Lid",
+   "Van": "2026-02-25T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-25T09:42:13.0813023Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "6edaeec8-fad8-4c2c-8103-7aae8594e772",
+    "Nummer": 58476,
+    "Initialen": "M.E.E.",
+    "Tussenvoegsel": "de",
+    "Achternaam": "Beer",
+    "Voornamen": "Martin Engelbert Elisabeth",
+    "Roepnaam": "Martin",
+    "Geboortedatum": "1980-02-08",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "01c5eec3-4ab2-42cc-be67-1cb85294ab81",
+    "Gewicht": 15,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "55cb6923-b33e-4329-8294-b74aa78f6277",
+   "FractieZetel_Id": "f243977e-0675-49b5-b1ad-1833b5d2a3de",
+   "Persoon_Id": "754f2d87-8990-4b77-8181-54d8df8fa63a",
+   "Functie": "Fractievoorzitter",
+   "Van": "2026-01-20T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-04T09:38:10.2957256Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "754f2d87-8990-4b77-8181-54d8df8fa63a",
+    "Nummer": 2671,
+    "Initialen": "G.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Markuszower",
+    "Voornamen": "Gideon",
+    "Roepnaam": "Gidi",
+    "Geboortedatum": "1977-10-27",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "f243977e-0675-49b5-b1ad-1833b5d2a3de",
+    "Gewicht": 1,
+    "Fractie_Id": "848c3fca-8931-4236-8fe9-33b6a598fa4d",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "848c3fca-8931-4236-8fe9-33b6a598fa4d",
+     "Afkorting": "Groep Markuszower",
+     "NaamNL": "Groep Markuszower",
+     "AantalZetels": 7,
+     "DatumActief": "2026-01-20T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-02-04T09:47:11.359621Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "c78e01db-0b93-4ed8-b854-b8ea133ad523",
+   "FractieZetel_Id": "53b0426c-79f1-41de-ad98-1e40373da976",
+   "Persoon_Id": "3322191a-8ca5-4a69-bb2f-d516086c28ae",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:31.4137442Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "3322191a-8ca5-4a69-bb2f-d516086c28ae",
+    "Nummer": 48836,
+    "Initialen": "M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Goudzwaard",
+    "Voornamen": "Maarten",
+    "Roepnaam": "Maarten",
+    "Geboortedatum": "1979-08-28",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "53b0426c-79f1-41de-ad98-1e40373da976",
+    "Gewicht": 3,
+    "Fractie_Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+     "Afkorting": "JA21",
+     "NaamNL": "JA21",
+     "AantalZetels": 9,
+     "DatumActief": "2021-03-31T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:33:11.1036441Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "bbb1efd5-a7ba-42bf-af77-ba8c5b547a2a",
+   "FractieZetel_Id": "37bd0571-d5ed-496c-807a-6f6a5cede5ca",
+   "Persoon_Id": "a4e91a4e-3bc4-4dbc-af65-f5770d2eafcb",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:27.2026826Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "a4e91a4e-3bc4-4dbc-af65-f5770d2eafcb",
+    "Nummer": 65278,
+    "Initialen": "J.C.G.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Straatman",
+    "Voornamen": "Jeltje Christiana Gerarda",
+    "Roepnaam": "Jeltje",
+    "Geboortedatum": "1996-02-25",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "37bd0571-d5ed-496c-807a-6f6a5cede5ca",
+    "Gewicht": 13,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "5574c569-eb70-473f-854d-ba94bee8278d",
+   "FractieZetel_Id": "7b193486-13b2-4cc5-b3e4-00faf73380ef",
+   "Persoon_Id": "8f38a474-1b0a-4fcc-a727-28531df173a6",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:13.7954931Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "8f38a474-1b0a-4fcc-a727-28531df173a6",
+    "Nummer": 65193,
+    "Initialen": "A.S.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Oosterhout",
+    "Voornamen": "Anna Sjoukje",
+    "Roepnaam": "Sjoukje",
+    "Geboortedatum": "1993-04-29",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "7b193486-13b2-4cc5-b3e4-00faf73380ef",
+    "Gewicht": 17,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "6c587f66-1ede-4432-b221-bc81bcc959ab",
+   "FractieZetel_Id": "357d1ef9-1815-4387-b7c7-662d988a5022",
+   "Persoon_Id": "4e24b3c9-966c-48bf-947d-231d3feb649d",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:20.4481435Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "4e24b3c9-966c-48bf-947d-231d3feb649d",
+    "Nummer": 65415,
+    "Initialen": "A.N.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Biekman",
+    "Voornamen": "Anouschka Naomi",
+    "Roepnaam": "Anouschka",
+    "Geboortedatum": "1980-06-07",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "357d1ef9-1815-4387-b7c7-662d988a5022",
+    "Gewicht": 11,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "aa936701-f8d8-43ea-95d9-bf5a1313b0aa",
+   "FractieZetel_Id": "e715f942-b975-4295-95eb-83098fe89f70",
+   "Persoon_Id": "34fc7be9-6938-4163-8c47-f95c5f87e6b5",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:27.0961369Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "34fc7be9-6938-4163-8c47-f95c5f87e6b5",
+    "Nummer": 65294,
+    "Initialen": "T.A.",
+    "Tussenvoegsel": "van den",
+    "Achternaam": "Brink",
+    "Voornamen": "Tijs Aalt",
+    "Roepnaam": "Tijs",
+    "Geboortedatum": "1970-08-05",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "e715f942-b975-4295-95eb-83098fe89f70",
+    "Gewicht": 6,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "ed56bc16-ea24-492c-99c1-c279bfed6da3",
+   "FractieZetel_Id": "7dac1984-0c44-4c29-abab-68c9ac25f428",
+   "Persoon_Id": "0079c245-1bd8-45fb-8cb8-afa4b7bc5d36",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:20.5846949Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "0079c245-1bd8-45fb-8cb8-afa4b7bc5d36",
+    "Nummer": 65437,
+    "Initialen": "H.L.O.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Dijk",
+    "Voornamen": "Heera Liza Olga",
+    "Roepnaam": "Heera",
+    "Geboortedatum": "1979-11-05",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "7dac1984-0c44-4c29-abab-68c9ac25f428",
+    "Gewicht": 12,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "69eb0577-4d3e-4966-9618-c4b2e1b24aab",
+   "FractieZetel_Id": "84c10e29-0d35-4e7a-8452-984210172ea0",
+   "Persoon_Id": "7da5d1c6-58a0-4a40-89c0-cc5fc3aff9c4",
+   "Functie": "Lid",
+   "Van": "2026-02-25T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-25T09:43:14.9532158Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "7da5d1c6-58a0-4a40-89c0-cc5fc3aff9c4",
+    "Nummer": 68808,
+    "Initialen": "E.J.",
+    "Tussenvoegsel": "van der",
+    "Achternaam": "Maas",
+    "Voornamen": "Erik Jan",
+    "Roepnaam": "Erik",
+    "Geboortedatum": "1968-11-19",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "84c10e29-0d35-4e7a-8452-984210172ea0",
+    "Gewicht": 22,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "a19d036a-e338-4f75-b140-c58caf154ad7",
+   "FractieZetel_Id": "810b1965-2a37-4c2e-b663-03e782959dc7",
+   "Persoon_Id": "d36d9afd-613a-4dbe-bfef-785967a9b807",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:24.6513911Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "d36d9afd-613a-4dbe-bfef-785967a9b807",
+    "Nummer": 65472,
+    "Initialen": "M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Vervuurt",
+    "Voornamen": "Marc",
+    "Roepnaam": "Marc",
+    "Geboortedatum": "1993-12-24",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "810b1965-2a37-4c2e-b663-03e782959dc7",
+    "Gewicht": 23,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "19714e3d-926b-44b2-8ff2-c6e042371dee",
+   "FractieZetel_Id": "54a0f9d3-3e59-4ced-8d15-c5ce4c8c9987",
+   "Persoon_Id": "3b3c7923-b604-4902-97c1-210aa85182c1",
+   "Functie": "Lid",
+   "Van": "2026-02-25T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-25T09:42:13.0408614Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "3b3c7923-b604-4902-97c1-210aa85182c1",
+    "Nummer": 68806,
+    "Initialen": "A.S.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Müller",
+    "Voornamen": "Alisha Suzanna",
+    "Roepnaam": "Alisha",
+    "Geboortedatum": "1993-06-25",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "54a0f9d3-3e59-4ced-8d15-c5ce4c8c9987",
+    "Gewicht": 20,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "51778962-aab3-4918-aa98-c86a13519024",
+   "FractieZetel_Id": "c8b229e1-5b5b-43bd-8ff9-046655b1dc31",
+   "Persoon_Id": "d4b77771-411c-4d3d-a893-767f38e07c67",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-06T13:51:10.0432253Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "d4b77771-411c-4d3d-a893-767f38e07c67",
+    "Nummer": 58725,
+    "Initialen": "P.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Bamenga",
+    "Voornamen": "Panzu",
+    "Roepnaam": "Mpanzu",
+    "Geboortedatum": "1985-07-12",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "c8b229e1-5b5b-43bd-8ff9-046655b1dc31",
+    "Gewicht": 6,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "04816671-a661-45a4-b0c5-c9cda5927797",
+   "FractieZetel_Id": "6378e991-08e0-4592-8c3a-73d41c0a5445",
+   "Persoon_Id": "0f5bdaad-ea3e-4d01-a85f-46010d9fb514",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-06T13:50:07.2346935Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "0f5bdaad-ea3e-4d01-a85f-46010d9fb514",
+    "Nummer": 58885,
+    "Initialen": "R.F.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Meetelen",
+    "Voornamen": "Rachel Francis",
+    "Roepnaam": "Rachel",
+    "Geboortedatum": "1975-03-12",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "6378e991-08e0-4592-8c3a-73d41c0a5445",
+    "Gewicht": 10,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "40d691b1-e1a4-41b7-ab66-ccaed39d1c13",
+   "FractieZetel_Id": "0c8714ad-6b94-4e9b-b033-bc9edc5dca3c",
+   "Persoon_Id": "ffcac8a5-952b-42e8-975a-09860c123d3f",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:20.7369537Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "ffcac8a5-952b-42e8-975a-09860c123d3f",
+    "Nummer": 65439,
+    "Initialen": "S.",
+    "Tussenvoegsel": "El",
+    "Achternaam": "Boujdaini",
+    "Voornamen": "Sarah",
+    "Roepnaam": "Sarah",
+    "Geboortedatum": "1993-10-28",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "0c8714ad-6b94-4e9b-b033-bc9edc5dca3c",
+    "Gewicht": 13,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "54c3798a-2a39-4932-8fa4-cd535ce44cff",
+   "FractieZetel_Id": "f4035b62-554e-4796-b75f-8b906a923894",
+   "Persoon_Id": "dc160d87-fc55-486d-9b55-a307330e4da0",
+   "Functie": "Lid",
+   "Van": "2026-02-25T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-25T09:45:14.0720574Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "dc160d87-fc55-486d-9b55-a307330e4da0",
+    "Nummer": 68814,
+    "Initialen": "M.H.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Jagtenberg",
+    "Voornamen": "Michelle Helena",
+    "Roepnaam": "Michelle",
+    "Geboortedatum": "1992-11-06",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "f4035b62-554e-4796-b75f-8b906a923894",
+    "Gewicht": 25,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "5d62cd32-82a7-4585-8554-d364306a5022",
+   "FractieZetel_Id": "93373819-b9b0-4939-8af7-041773933d6d",
+   "Persoon_Id": "14fbb153-c31c-4ffd-ac58-2e6314388a38",
+   "Functie": "Lid",
+   "Van": "2026-01-20T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-01-20T13:54:15.2116288Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "14fbb153-c31c-4ffd-ac58-2e6314388a38",
+    "Nummer": 65146,
+    "Initialen": "T.",
+    "Tussenvoegsel": "ten",
+    "Achternaam": "Hove",
+    "Voornamen": "Tamara",
+    "Roepnaam": "Tamara",
+    "Geboortedatum": "1981-11-10",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "93373819-b9b0-4939-8af7-041773933d6d",
+    "Gewicht": 7,
+    "Fractie_Id": "848c3fca-8931-4236-8fe9-33b6a598fa4d",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "848c3fca-8931-4236-8fe9-33b6a598fa4d",
+     "Afkorting": "Groep Markuszower",
+     "NaamNL": "Groep Markuszower",
+     "AantalZetels": 7,
+     "DatumActief": "2026-01-20T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-02-04T09:47:11.359621Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "b86d3316-8877-4094-a269-d3a8662d87af",
+   "FractieZetel_Id": "0fffefc1-4724-4187-8a7b-40731fe8c754",
+   "Persoon_Id": "02da66c7-029f-4207-a00d-21babf0d3cc6",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-06T13:51:10.1525974Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "02da66c7-029f-4207-a00d-21babf0d3cc6",
+    "Nummer": 58697,
+    "Initialen": "D.A.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Ergin",
+    "Voornamen": "Doğukan Arif",
+    "Roepnaam": "Doğukan",
+    "Geboortedatum": "1992-03-27",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "0fffefc1-4724-4187-8a7b-40731fe8c754",
+    "Gewicht": 2,
+    "Fractie_Id": "deb74bb5-63a9-4ffc-98ed-af577167452e",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "deb74bb5-63a9-4ffc-98ed-af577167452e",
+     "Afkorting": "DENK",
+     "NaamNL": "DENK",
+     "AantalZetels": 3,
+     "DatumActief": "2017-03-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:12.4122776Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "3fd809ad-496c-4199-9691-d5fb2f7457c2",
+   "FractieZetel_Id": "effd572d-6b9f-4937-b4c2-73607e26b946",
+   "Persoon_Id": "08ad50b1-831e-4f50-bed4-97d9d42b0752",
+   "Functie": "Fractievoorzitter",
+   "Van": "2026-08-06T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-08-31T10:04:20.6849598Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "08ad50b1-831e-4f50-bed4-97d9d42b0752",
+    "Nummer": 55363,
+    "Initialen": "R.J.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Dekker",
+    "Voornamen": "Roelof Jan",
+    "Roepnaam": "Ralf",
+    "Geboortedatum": "1957-02-18",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "effd572d-6b9f-4937-b4c2-73607e26b946",
+    "Gewicht": 3,
+    "Fractie_Id": "e0b7b638-de3c-47cc-85bd-341dd65ea33d",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "e0b7b638-de3c-47cc-85bd-341dd65ea33d",
+     "Afkorting": "FVD",
+     "NaamNL": "Forum voor Democratie",
+     "AantalZetels": 7,
+     "DatumActief": "2017-03-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:31:11.2457292Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "b533faf7-04e6-46c9-b680-d626628463bf",
+   "FractieZetel_Id": "267d4efa-f2a7-4a5c-8377-6e03c7c5a99c",
+   "Persoon_Id": "e48a9b77-8c42-4369-a967-7262e8facb29",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:15.590745Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "e48a9b77-8c42-4369-a967-7262e8facb29",
+    "Nummer": 65147,
+    "Initialen": "E.C.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Prickaertz",
+    "Voornamen": "Erwin Christiaan",
+    "Roepnaam": "Erwin",
+    "Geboortedatum": "1969-05-29",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "267d4efa-f2a7-4a5c-8377-6e03c7c5a99c",
+    "Gewicht": 17,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "9a9aaec8-a586-4c99-9ee8-d71f3aef7327",
+   "FractieZetel_Id": "a249ccb6-e640-4452-9573-ddcedb7bbadf",
+   "Persoon_Id": "510ebeb6-5625-4a9f-9853-36bcd54728e0",
+   "Functie": "Lid",
+   "Van": "2026-01-20T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-01-20T13:53:16.6197838Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "510ebeb6-5625-4a9f-9853-36bcd54728e0",
+    "Nummer": 58887,
+    "Initialen": "R.A.B.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Claassen",
+    "Voornamen": "René Adrianus Bernardus",
+    "Roepnaam": "René",
+    "Geboortedatum": "1971-07-13",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "a249ccb6-e640-4452-9573-ddcedb7bbadf",
+    "Gewicht": 2,
+    "Fractie_Id": "848c3fca-8931-4236-8fe9-33b6a598fa4d",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "848c3fca-8931-4236-8fe9-33b6a598fa4d",
+     "Afkorting": "Groep Markuszower",
+     "NaamNL": "Groep Markuszower",
+     "AantalZetels": 7,
+     "DatumActief": "2026-01-20T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-02-04T09:47:11.359621Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "6865149d-5aa6-482b-89d7-d7e9ffbe84c2",
+   "FractieZetel_Id": "a8197f81-6faa-4b3a-8bd2-775dddbe9570",
+   "Persoon_Id": "71a23ba5-15b7-4057-9349-70bf28be58c4",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:30.654285Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "71a23ba5-15b7-4057-9349-70bf28be58c4",
+    "Nummer": 65496,
+    "Initialen": "P.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Duijvenvoorde",
+    "Voornamen": "Peter",
+    "Roepnaam": "Peter",
+    "Geboortedatum": "1988-08-05",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "a8197f81-6faa-4b3a-8bd2-775dddbe9570",
+    "Gewicht": 4,
+    "Fractie_Id": "e0b7b638-de3c-47cc-85bd-341dd65ea33d",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "e0b7b638-de3c-47cc-85bd-341dd65ea33d",
+     "Afkorting": "FVD",
+     "NaamNL": "Forum voor Democratie",
+     "AantalZetels": 7,
+     "DatumActief": "2017-03-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:31:11.2457292Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "4bc1bf74-8461-44cb-8679-d99923c97a25",
+   "FractieZetel_Id": "03d15094-c218-4dd1-9fe2-b1e53d384a04",
+   "Persoon_Id": "b41b2403-9f06-4d55-adc5-b0777373ca7e",
+   "Functie": "Lid",
+   "Van": "2026-02-24T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-24T11:25:10.6998548Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "b41b2403-9f06-4d55-adc5-b0777373ca7e",
+    "Nummer": 49108,
+    "Initialen": "C.A.M.",
+    "Tussenvoegsel": "van der",
+    "Achternaam": "Plas",
+    "Voornamen": "Caroline Ann Maria",
+    "Roepnaam": "Caroline",
+    "Geboortedatum": "1967-06-06",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "03d15094-c218-4dd1-9fe2-b1e53d384a04",
+    "Gewicht": 1,
+    "Fractie_Id": "626555ac-e836-44e3-9978-a6a7f0abc3ce",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "626555ac-e836-44e3-9978-a6a7f0abc3ce",
+     "Afkorting": "BBB",
+     "NaamNL": "BoerBurgerBeweging",
+     "AantalZetels": 3,
+     "DatumActief": "2021-03-31T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-02-26T09:59:12.1009647Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "eb6b2fa3-c341-4036-8f7a-da8bce6b9be5",
+   "FractieZetel_Id": "2230dcee-1308-4556-8dff-c8f2d24e5cc0",
+   "Persoon_Id": "059453a7-a169-477c-9f89-54dda55b6d40",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-06T13:51:01.3378699Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "059453a7-a169-477c-9f89-54dda55b6d40",
+    "Nummer": 58455,
+    "Initialen": "C.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Martens-America",
+    "Voornamen": "Claire",
+    "Roepnaam": "Claire",
+    "Geboortedatum": "1987-09-19",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "2230dcee-1308-4556-8dff-c8f2d24e5cc0",
+    "Gewicht": 11,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "e2474074-9db9-4e34-a0f4-db8363a8990f",
+   "FractieZetel_Id": "36ac0587-91ab-44b6-abe2-6562df5f44d9",
+   "Persoon_Id": "385c9a11-79c5-428f-9d84-72a49c94bb9a",
+   "Functie": "Lid",
+   "Van": "2026-02-25T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-25T09:45:14.1946394Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "385c9a11-79c5-428f-9d84-72a49c94bb9a",
+    "Nummer": 68816,
+    "Initialen": "M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Mathlouti",
+    "Voornamen": "Mahjoub",
+    "Roepnaam": "Mahjoub",
+    "Geboortedatum": "1988-04-13",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "36ac0587-91ab-44b6-abe2-6562df5f44d9",
+    "Gewicht": 26,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "2737d8b0-c19f-4adf-a386-de623209caae",
+   "FractieZetel_Id": "20e910e5-c722-4ffc-9473-f8cd77b97665",
+   "Persoon_Id": "05c9a6b8-4642-449a-9a1e-1df4aca70b10",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:24.4057253Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "05c9a6b8-4642-449a-9a1e-1df4aca70b10",
+    "Nummer": 65452,
+    "Initialen": "J.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Schoonis",
+    "Voornamen": "Jan",
+    "Roepnaam": "Jan",
+    "Geboortedatum": "1981-03-13",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "20e910e5-c722-4ffc-9473-f8cd77b97665",
+    "Gewicht": 21,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "530df671-d74e-4b42-a179-debb68262388",
+   "FractieZetel_Id": "10fb10e7-e78d-4970-abde-d1c8168a126d",
+   "Persoon_Id": "b8e78559-8f69-4ec6-89ce-17645a5eecdb",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:13.7689815Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "b8e78559-8f69-4ec6-89ce-17645a5eecdb",
+    "Nummer": 48807,
+    "Initialen": "M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Tseggai",
+    "Voornamen": "Mikal",
+    "Roepnaam": "Mikal",
+    "Geboortedatum": "1995-02-02",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "10fb10e7-e78d-4970-abde-d1c8168a126d",
+    "Gewicht": 14,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "fadd91e8-202e-4518-8621-df9b8489008e",
+   "FractieZetel_Id": "cc396906-2324-4489-855c-d31af9b38daf",
+   "Persoon_Id": "c9f8c464-6703-49e3-96af-366d76b161f6",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:27.123459Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "c9f8c464-6703-49e3-96af-366d76b161f6",
+    "Nummer": 65316,
+    "Initialen": "S.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Hamstra",
+    "Voornamen": "Sarath",
+    "Roepnaam": "Sarath",
+    "Geboortedatum": "1986-08-26",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "cc396906-2324-4489-855c-d31af9b38daf",
+    "Gewicht": 8,
+    "Fractie_Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "62c1a13c-85ff-40ed-90f7-a9546d61f869",
+     "Afkorting": "CDA",
+     "NaamNL": "Christen-Democratisch Appèl",
+     "AantalZetels": 18,
+     "DatumActief": "1980-10-11T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:28:10.5527754Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "15cbd277-0c34-4f62-86fc-e14e7b9e99eb",
+   "FractieZetel_Id": "8f408abe-3d7f-44c1-bb23-20766b8d7d61",
+   "Persoon_Id": "990b2d9b-0b83-4dde-ab04-5cd5d8c5c4d3",
+   "Functie": "Fractievoorzitter",
+   "Van": "2023-12-13T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-13T13:00:15.3349042Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "990b2d9b-0b83-4dde-ab04-5cd5d8c5c4d3",
+    "Nummer": 48792,
+    "Initialen": "J.P.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Dijk",
+    "Voornamen": "Jimmy Pieter",
+    "Roepnaam": "Jimmy",
+    "Geboortedatum": "1985-11-03",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "8f408abe-3d7f-44c1-bb23-20766b8d7d61",
+    "Gewicht": 2,
+    "Fractie_Id": "a3689bb6-3914-4d5c-a6a8-42e24582e299",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "a3689bb6-3914-4d5c-a6a8-42e24582e299",
+     "Afkorting": "SP",
+     "NaamNL": "Socialistische Partij",
+     "AantalZetels": 3,
+     "DatumActief": "1994-05-17T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:36:11.539259Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "09f0d10a-0d4f-419a-a907-e22d7cec0da8",
+   "FractieZetel_Id": "530368d0-d465-410c-995e-20abe96375e4",
+   "Persoon_Id": "ccea26dd-dcae-4174-8945-ec5cb568e951",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:11.6691552Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "ccea26dd-dcae-4174-8945-ec5cb568e951",
+    "Nummer": 4968,
+    "Initialen": "L.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Bromet",
+    "Voornamen": "Laura",
+    "Roepnaam": "Laura",
+    "Geboortedatum": "1970-01-17",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "530368d0-d465-410c-995e-20abe96375e4",
+    "Gewicht": 6,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "45047f9e-190a-433d-8267-e2737f05d107",
+   "FractieZetel_Id": "aa4f00a1-434a-48df-86a3-0bcb690bd7a1",
+   "Persoon_Id": "0d036fcf-a456-4798-9b76-3f44eb74a451",
+   "Functie": "Fractievoorzitter",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:11.6190152Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "0d036fcf-a456-4798-9b76-3f44eb74a451",
+    "Nummer": 2572,
+    "Initialen": "J.F.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Klaver",
+    "Voornamen": "Jesse Feras",
+    "Roepnaam": "Jesse",
+    "Geboortedatum": "1986-05-01",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "aa4f00a1-434a-48df-86a3-0bcb690bd7a1",
+    "Gewicht": 1,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "8e3a4351-9f01-41ee-a18a-e92c7efb156c",
+   "FractieZetel_Id": "da24938a-e1f5-4b87-9615-0d1901a198b0",
+   "Persoon_Id": "b53f74bf-e57c-4e01-8d65-de2f319f44db",
+   "Functie": "Fractievoorzitter",
+   "Van": "2023-01-17T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T14:32:39.1417448Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "b53f74bf-e57c-4e01-8d65-de2f319f44db",
+    "Nummer": 48810,
+    "Initialen": "M.H.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Bikker",
+    "Voornamen": "Mirjam Hannah",
+    "Roepnaam": "Mirjam",
+    "Geboortedatum": "1982-09-08",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "da24938a-e1f5-4b87-9615-0d1901a198b0",
+    "Gewicht": 3,
+    "Fractie_Id": "d720f5af-0516-408a-b830-0b6ffb8a581c",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d720f5af-0516-408a-b830-0b6ffb8a581c",
+     "Afkorting": "ChristenUnie",
+     "NaamNL": "ChristenUnie",
+     "AantalZetels": 3,
+     "DatumActief": "2001-03-15T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:29:10.5210336Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "d8fccf2c-15ef-480f-bec5-ebcb339fc9ed",
+   "FractieZetel_Id": "a768549e-da71-4494-b7b5-d8a609a94ee2",
+   "Persoon_Id": "02fab128-a8d3-4010-b936-5500a53caf27",
+   "Functie": "Fractievoorzitter",
+   "Van": "2026-02-24T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-02-24T11:26:10.8560927Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "02fab128-a8d3-4010-b936-5500a53caf27",
+    "Nummer": 58501,
+    "Initialen": "H.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Vermeer",
+    "Voornamen": "Hendrik",
+    "Roepnaam": "Henk",
+    "Geboortedatum": "1966-08-21",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "a768549e-da71-4494-b7b5-d8a609a94ee2",
+    "Gewicht": 2,
+    "Fractie_Id": "626555ac-e836-44e3-9978-a6a7f0abc3ce",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "626555ac-e836-44e3-9978-a6a7f0abc3ce",
+     "Afkorting": "BBB",
+     "NaamNL": "BoerBurgerBeweging",
+     "AantalZetels": 3,
+     "DatumActief": "2021-03-31T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-02-26T09:59:12.1009647Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "8d3c3f07-d259-43ee-ad73-ecad1a44d4b0",
+   "FractieZetel_Id": "82ec384e-38c9-4e33-9bd5-5e2be0024b6f",
+   "Persoon_Id": "50b2f0b4-0fd9-473e-bcde-17bdff81fc73",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:15.6126461Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "50b2f0b4-0fd9-473e-bcde-17bdff81fc73",
+    "Nummer": 65148,
+    "Initialen": "A.J.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Raijer",
+    "Voornamen": "Antoinetta Johanna",
+    "Roepnaam": "Annette",
+    "Geboortedatum": "1968-11-26",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "82ec384e-38c9-4e33-9bd5-5e2be0024b6f",
+    "Gewicht": 18,
+    "Fractie_Id": "65129918-f256-4975-9da4-488da34d6695",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "65129918-f256-4975-9da4-488da34d6695",
+     "Afkorting": "PVV",
+     "NaamNL": "Partij voor de Vrijheid",
+     "AantalZetels": 19,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-01-20T16:00:10.3272019Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "b65e22cf-c5c4-4de3-ae89-ecfd09b56911",
+   "FractieZetel_Id": "b53be8ab-ba7e-4a76-8d92-94429db0c393",
+   "Persoon_Id": "6938f6a4-a336-4f91-bd93-deed5f45e3f0",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:31.4766286Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "6938f6a4-a336-4f91-bd93-deed5f45e3f0",
+    "Nummer": 65371,
+    "Initialen": "M.P.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Hoogeveen",
+    "Voornamen": "Michiel Pieter",
+    "Roepnaam": "Michiel",
+    "Geboortedatum": "1989-07-06",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "b53be8ab-ba7e-4a76-8d92-94429db0c393",
+    "Gewicht": 8,
+    "Fractie_Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+     "Afkorting": "JA21",
+     "NaamNL": "JA21",
+     "AantalZetels": 9,
+     "DatumActief": "2021-03-31T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:33:11.1036441Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "5b6fc281-299a-495e-93e8-f2b140a7b390",
+   "FractieZetel_Id": "abe55f0c-c283-4e72-8e90-3b445080019a",
+   "Persoon_Id": "1a02adff-bc47-4d06-bc1e-fec2d3ed193d",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:31.1181571Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "1a02adff-bc47-4d06-bc1e-fec2d3ed193d",
+    "Nummer": 58802,
+    "Initialen": "S.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Ceulemans",
+    "Voornamen": "Simon",
+    "Roepnaam": "Simon",
+    "Geboortedatum": "1989-05-21",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "abe55f0c-c283-4e72-8e90-3b445080019a",
+    "Gewicht": 5,
+    "Fractie_Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+     "Afkorting": "JA21",
+     "NaamNL": "JA21",
+     "AantalZetels": 9,
+     "DatumActief": "2021-03-31T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:33:11.1036441Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "963b2536-046c-41ab-8122-f552d55193c2",
+   "FractieZetel_Id": "2549b213-da8c-4ac3-a5cf-2a9871a5486b",
+   "Persoon_Id": "05ca01ed-8f7f-4e1c-850e-3a480c38e775",
+   "Functie": "Lid",
+   "Van": "2023-12-06T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-12-06T13:51:01.3066608Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "05ca01ed-8f7f-4e1c-850e-3a480c38e775",
+    "Nummer": 58453,
+    "Initialen": "W.P.J.",
+    "Tussenvoegsel": "van",
+    "Achternaam": "Eijk",
+    "Voornamen": "Wendy Petrus Johanna",
+    "Roepnaam": "Wendy",
+    "Geboortedatum": "1973-02-14",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "2549b213-da8c-4ac3-a5cf-2a9871a5486b",
+    "Gewicht": 10,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "5656deef-d5e6-439e-a12d-f565211f8b41",
+   "FractieZetel_Id": "db6a05e1-b0ae-4ff0-8831-81d93d5d6851",
+   "Persoon_Id": "5c9533b7-a733-480e-bb38-711e96129684",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:31.0260006Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "5c9533b7-a733-480e-bb38-711e96129684",
+    "Nummer": 58593,
+    "Initialen": "D.T.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Boomsma",
+    "Voornamen": "Diederik Thomas",
+    "Roepnaam": "Diederik",
+    "Geboortedatum": "1978-06-22",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "db6a05e1-b0ae-4ff0-8831-81d93d5d6851",
+    "Gewicht": 2,
+    "Fractie_Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "fab6e7e1-9d63-446a-a6e1-e1c74e3f679e",
+     "Afkorting": "JA21",
+     "NaamNL": "JA21",
+     "AantalZetels": 9,
+     "DatumActief": "2021-03-31T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:33:11.1036441Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "658ff04f-18e8-4906-8d4b-f66e437c7cbc",
+   "FractieZetel_Id": "f00f33d0-9eec-4938-a359-781f74ce87c7",
+   "Persoon_Id": "7cbb2d95-46b2-4fcb-b129-9505f56e7f07",
+   "Functie": "Lid",
+   "Van": "2021-03-31T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T14:10:37.1795784Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "7cbb2d95-46b2-4fcb-b129-9505f56e7f07",
+    "Nummer": 4959,
+    "Initialen": "D.G.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Ceder",
+    "Voornamen": "Don Guno Maria",
+    "Roepnaam": "Don",
+    "Geboortedatum": "1989-10-20",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "f00f33d0-9eec-4938-a359-781f74ce87c7",
+    "Gewicht": 1,
+    "Fractie_Id": "d720f5af-0516-408a-b830-0b6ffb8a581c",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d720f5af-0516-408a-b830-0b6ffb8a581c",
+     "Afkorting": "ChristenUnie",
+     "NaamNL": "ChristenUnie",
+     "AantalZetels": 3,
+     "DatumActief": "2001-03-15T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:29:10.5210336Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "64b4b56f-1332-4a51-8b49-f896fe565a00",
+   "FractieZetel_Id": "205e97fd-cd57-4f96-9633-3f1549f32583",
+   "Persoon_Id": "a68468b6-51ea-440c-9387-b44ba10ad8b6",
+   "Functie": "Fractievoorzitter",
+   "Van": "2021-03-31T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T14:10:38.1952226Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "a68468b6-51ea-440c-9387-b44ba10ad8b6",
+    "Nummer": 48840,
+    "Initialen": "L.A.J.M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Dassen",
+    "Voornamen": "Laurens Antonius Josephus Maria",
+    "Roepnaam": "Laurens",
+    "Geboortedatum": "1985-10-19",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "205e97fd-cd57-4f96-9633-3f1549f32583",
+    "Gewicht": 1,
+    "Fractie_Id": "ae48391e-ce4d-47e0-86e3-ee310282f66f",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "ae48391e-ce4d-47e0-86e3-ee310282f66f",
+     "Afkorting": "Volt",
+     "NaamNL": "Volt",
+     "AantalZetels": 1,
+     "DatumActief": "2021-03-31T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.704429Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "34a45bfc-936d-411b-a10e-fac1b84d36b7",
+   "FractieZetel_Id": "856f4aec-bde3-41e6-8042-7bd7b742c675",
+   "Persoon_Id": "c055003b-034e-4d30-ae78-dd271b00dcbf",
+   "Functie": "Lid",
+   "Van": "2024-03-29T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2024-03-28T23:00:23.0037025Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "c055003b-034e-4d30-ae78-dd271b00dcbf",
+    "Nummer": 58718,
+    "Initialen": "I.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Rooderkerk",
+    "Voornamen": "Ilana",
+    "Roepnaam": "Ilana",
+    "Geboortedatum": "1987-05-04",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "856f4aec-bde3-41e6-8042-7bd7b742c675",
+    "Gewicht": 7,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "e28b5c59-564b-43e0-87de-fc60e3537d8a",
+   "FractieZetel_Id": "9ef93916-dca5-4d66-b21a-24940a20f9b9",
+   "Persoon_Id": "21674d1a-d86e-46e4-bff5-7cc3e4c7d270",
+   "Functie": "Fractievoorzitter",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:31.6160128Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "21674d1a-d86e-46e4-bff5-7cc3e4c7d270",
+    "Nummer": 65425,
+    "Initialen": "J.A.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Struijs",
+    "Voornamen": "Jan Albert",
+    "Roepnaam": "Jan",
+    "Geboortedatum": "1961-08-08",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "9ef93916-dca5-4d66-b21a-24940a20f9b9",
+    "Gewicht": 2,
+    "Fractie_Id": "a9e74299-15f9-455c-8330-b84f176d1a7e",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "a9e74299-15f9-455c-8330-b84f176d1a7e",
+     "Afkorting": "50PLUS",
+     "NaamNL": "50PLUS",
+     "AantalZetels": 2,
+     "DatumActief": "2025-11-12T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:54:09.5383671Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "809d6e3a-5312-4f38-bd2c-fd8d0b5aeda6",
+   "FractieZetel_Id": "ee6e8498-b127-4db3-8081-67900de09c80",
+   "Persoon_Id": "7564c685-2691-4796-9159-ebd5df4fdc8d",
+   "Functie": "Fractievoorzitter",
+   "Van": "2026-06-05T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T14:13:10.6324165Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "7564c685-2691-4796-9159-ebd5df4fdc8d",
+    "Nummer": 41517,
+    "Initialen": "C.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Teunissen",
+    "Voornamen": "Christine",
+    "Roepnaam": "Christine",
+    "Geboortedatum": "1985-09-06",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "ee6e8498-b127-4db3-8081-67900de09c80",
+    "Gewicht": 2,
+    "Fractie_Id": "d3b4d880-ef37-4ce6-99ec-4940266ac466",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d3b4d880-ef37-4ce6-99ec-4940266ac466",
+     "Afkorting": "PvdD",
+     "NaamNL": "Partij voor de Dieren",
+     "AantalZetels": 3,
+     "DatumActief": "2006-11-30T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:34:11.1459808Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "33e53cc0-96d1-4063-a216-fe5cf13cde12",
+   "FractieZetel_Id": "8fdb2ac7-7f37-4a7b-95c3-71583dd29c6f",
+   "Persoon_Id": "d32c6620-c63d-41d7-8762-a1dc31ecb882",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:13.7873897Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "d32c6620-c63d-41d7-8762-a1dc31ecb882",
+    "Nummer": 65186,
+    "Initialen": "M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Moorman",
+    "Voornamen": "Marjolein",
+    "Roepnaam": "Marjolein",
+    "Geboortedatum": "1974-03-01",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "8fdb2ac7-7f37-4a7b-95c3-71583dd29c6f",
+    "Gewicht": 16,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "1f944a61-b9d7-4da4-94c3-fe641050fab2",
+   "FractieZetel_Id": "cebcda5a-9a53-4413-ba68-b17e568a58b8",
+   "Persoon_Id": "12d92cdf-9eb4-4e5c-8d1b-b2fa2b00a8ab",
+   "Functie": "Lid",
+   "Van": "2025-11-12T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2025-11-12T13:00:23.0327872Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "12d92cdf-9eb4-4e5c-8d1b-b2fa2b00a8ab",
+    "Nummer": 65469,
+    "Initialen": "U.I.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Köse",
+    "Voornamen": "Ulaş Irfan",
+    "Roepnaam": "Ulaş",
+    "Geboortedatum": "1997-12-03",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "cebcda5a-9a53-4413-ba68-b17e568a58b8",
+    "Gewicht": 17,
+    "Fractie_Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "4e9f6f5b-2544-4667-8134-6b85c4ebb4e0",
+     "Afkorting": "D66",
+     "NaamNL": "Democraten 66",
+     "AantalZetels": 26,
+     "DatumActief": "1966-10-13T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:30:10.193107Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "d147101d-68d4-4387-85f9-fe6d054f0de3",
+   "FractieZetel_Id": "091b0f0b-09da-4a47-a1d5-9bb3cb7f2e9e",
+   "Persoon_Id": "a962ffcb-a300-45e1-8850-70c7173c233e",
+   "Functie": "Lid",
+   "Van": "2022-11-28T00:00:00+01:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2023-08-29T14:31:37.8149702Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "a962ffcb-a300-45e1-8850-70c7173c233e",
+    "Nummer": 4866,
+    "Initialen": "B.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Becker",
+    "Voornamen": "Bente",
+    "Roepnaam": "Bente",
+    "Geboortedatum": "1985-08-12",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "091b0f0b-09da-4a47-a1d5-9bb3cb7f2e9e",
+    "Gewicht": 1,
+    "Fractie_Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "7476e97a-3243-4122-9df6-ba7d82a5279b",
+     "Afkorting": "VVD",
+     "NaamNL": "Volkspartij voor Vrijheid en Democratie",
+     "AantalZetels": 22,
+     "DatumActief": "1948-01-23T00:00:00+01:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2025-11-12T12:37:11.8104744Z",
+     "Verwijderd": false
+    }
+   }
+  },
+  {
+   "Id": "18e64795-5a4c-4daa-b0f6-fec00ef57f30",
+   "FractieZetel_Id": "0475caa1-f923-4ccb-a6d1-75e6baaaca22",
+   "Persoon_Id": "b7a52679-bac9-4e00-9dfd-06a22a7cf088",
+   "Functie": "Lid",
+   "Van": "2026-06-10T00:00:00+02:00",
+   "TotEnMet": null,
+   "ApiGewijzigdOp": "2026-06-09T22:02:11.6603043Z",
+   "Verwijderd": false,
+   "Persoon": {
+    "Id": "b7a52679-bac9-4e00-9dfd-06a22a7cf088",
+    "Nummer": 2687,
+    "Initialen": "M.",
+    "Tussenvoegsel": null,
+    "Achternaam": "Mohandis",
+    "Voornamen": "Mohamed",
+    "Roepnaam": "Mohammed",
+    "Geboortedatum": "1985-06-28",
+    "Fractielabel": null,
+    "Verwijderd": false
+   },
+   "FractieZetel": {
+    "Id": "0475caa1-f923-4ccb-a6d1-75e6baaaca22",
+    "Gewicht": 5,
+    "Fractie_Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+    "Verwijderd": false,
+    "Fractie": {
+     "Id": "d60f373a-5bb2-477f-9979-a8f3a0514e6b",
+     "Afkorting": "PRO",
+     "NaamNL": "Progressief Nederland",
+     "AantalZetels": 20,
+     "DatumActief": "2026-06-09T00:00:00+02:00",
+     "DatumInactief": null,
+     "ApiGewijzigdOp": "2026-06-23T07:15:12.2663106Z",
+     "Verwijderd": false
+    }
+   }
+  }
+ ]
+}
