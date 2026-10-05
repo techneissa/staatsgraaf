@@ -209,6 +209,16 @@ export const ENTITY_DICT = {
   termYears: { nl: "{n} jaar", en: "{n} years" },
   termMonthOne: { nl: "{n} maand", en: "{n} month" },
   termMonths: { nl: "{n} maanden", en: "{n} months" },
+
+  // Portrait credit popover (the (i) on a person page)
+  creditButton: { nl: "Foto-informatie: {credit}", en: "Photo information: {credit}" },
+  creditHeading: { nl: "Foto-informatie", en: "Photo information" },
+  creditAuthor: { nl: "Auteur", en: "Author" },
+  creditAuthorUnknown: { nl: "niet vermeld", en: "not stated" },
+  creditLicense: { nl: "Licentie", en: "Licence" },
+  creditPublicDomain: { nl: "Publiek domein", en: "Public domain" },
+  creditSource: { nl: "Bron", en: "Source" },
+  creditRetrieved: { nl: "Opgehaald op", en: "Retrieved on" },
 } as const satisfies Record<string, LocString>;
 
 export type EntityDictKey = keyof typeof ENTITY_DICT;
