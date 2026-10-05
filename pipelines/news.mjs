@@ -271,6 +271,22 @@ export function buildSummary({ publisher, title, lede, ledeUsed = true }) {
   return truncate(sentences.join(" "));
 }
 
+/**
+ * True when an item URL falls under a feed's `excludePaths` blocklist. A rule
+ * is a URL path prefix such as `/boulevard/`; the match is anchored at the
+ * start of the path, so `/nieuws/boulevard/` and `/boulevardkrant` do not match.
+ */
+export function isExcludedUrl(url, rules) {
+  if (!Array.isArray(rules) || rules.length === 0) return false;
+  let path;
+  try {
+    path = new URL(url).pathname;
+  } catch {
+    return false;
+  }
+  return rules.some((rule) => typeof rule?.pattern === "string" && rule.pattern !== "" && path.startsWith(rule.pattern));
+}
+
 export function dedupeItems(items) {
   const byUrl = new Map();
   for (const item of items) {
@@ -512,13 +528,19 @@ export async function runNewsPipeline({
       error: result.error,
       itemCount: result.items.length,
     };
+    let excluded = 0;
     for (const item of result.items) {
+      if (isExcludedUrl(item.url, result.excludePaths)) {
+        excluded += 1;
+        continue;
+      }
       allItems.push({
         ...item,
         language: result.language ?? DEFAULT_FEED_LANGUAGE,
         publisherKind: result.publisherKind ?? DEFAULT_PUBLISHER_KIND,
       });
     }
+    report.excludedItems = excluded;
     feedReport.push(report);
   }
 
@@ -772,6 +794,7 @@ export function feedConfigsFromEnvelope(envelope) {
         license: feed.license ?? null,
         imageLicense: feed.imageLicense ?? null,
         imageCredit: feed.imageCredit ?? null,
+        excludePaths: Array.isArray(feed.excludePaths) ? feed.excludePaths : [],
       }));
   }
   return (envelope?.endpointsUsed ?? []).map((entry) => ({
@@ -783,6 +806,7 @@ export function feedConfigsFromEnvelope(envelope) {
     license: null,
     imageLicense: null,
     imageCredit: null,
+    excludePaths: [],
   }));
 }
 

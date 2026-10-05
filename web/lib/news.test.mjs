@@ -6,6 +6,7 @@ import {
   byHour,
   byKind,
   byLanguage,
+  isRelevantNews,
   latestPublished,
   newsDayKey,
   newsDays,
@@ -195,4 +196,11 @@ test("outlets aggregate kind, languages, count, and licences per publisher", () 
       latest: REFERENCE,
     },
   ]);
+});
+
+test("isRelevantNews needs a matched entity or a topic", () => {
+  assert.equal(isRelevantNews({ entities: [], topics: [] }), false);
+  assert.equal(isRelevantNews({ entities: ["org:x"], topics: [] }), true);
+  assert.equal(isRelevantNews({ entities: [], topics: ["topic:y"] }), true);
+  assert.equal(isRelevantNews({ entities: ["org:x"], topics: ["topic:y"] }), true);
 });
