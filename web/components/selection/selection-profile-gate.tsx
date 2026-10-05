@@ -1,8 +1,6 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect } from "react";
-import { usePanelState } from "@/components/panels/workspace";
 import { useSelection } from "./selection-provider";
 
 /**
@@ -15,12 +13,9 @@ import { useSelection } from "./selection-provider";
  */
 const loadProfile = () => import("@/components/panels/selection-profile").then((module) => module.SelectionProfile);
 const SelectionProfile = dynamic(loadProfile, { ssr: false });
+if (typeof window !== "undefined" && window.matchMedia("(min-width: 64rem)").matches) void loadProfile();
 
 export function SelectionProfileGate() {
   const { current } = useSelection();
-  const { desktop } = usePanelState();
-  useEffect(() => {
-    if (desktop) void loadProfile();
-  }, [desktop]);
   return current === null ? null : <SelectionProfile />;
 }

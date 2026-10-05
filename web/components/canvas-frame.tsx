@@ -35,10 +35,29 @@ function CanvasLoading() {
     </div>
   );
 }
+const GRAPH_FORM_KEY = "staatsgraaf.graph.form";
 const loadRings = () => import("./graph/graph-canvas").then((module) => module.GraphCanvas);
 const GraphCanvas = dynamic(loadRings, { ssr: false, loading: CanvasLoading });
 const loadWheel = () => import("./graph/graph-wheel").then((module) => module.GraphWheel);
 const GraphWheel = dynamic(loadWheel, { ssr: false, loading: CanvasLoading });
+
+/** The code of the form the reader last used (the rings by default). */
+function loadGraphForm() {
+  let wheel = false;
+  try {
+    wheel = window.localStorage.getItem(GRAPH_FORM_KEY) === "wheel";
+  } catch {
+    // Storage can be blocked; the rings load.
+  }
+  return wheel ? loadWheel() : loadRings();
+}
+
+// Where the canvas is on screen from the first paint (the home page, and the
+// middle column from lg), its code starts downloading as this module runs,
+// before React has hydrated; a phone on any other page leaves it alone.
+if (typeof window !== "undefined" && (window.location.pathname === "/" || window.matchMedia("(min-width: 64rem)").matches)) {
+  void loadGraphForm();
+}
 const ConnectionsView = dynamic(() => import("./power/connections-view").then((module) => module.ConnectionsView), {
   ssr: false,
   loading: CanvasLoading,
@@ -48,9 +67,10 @@ export function CanvasFrame() {
   const pathname = usePathname();
   /** The home page is the graph; every other route is a page that shares the workspace with it. */
   const isHome = pathname === "/";
-  // The first thing the home page shows is the graph, so its data starts
-  // downloading with the HTML, before any script has run.
-  if (isHome) preload("/graph.json", { as: "fetch", crossOrigin: "anonymous" });
+  // The graph is the first thing the home page shows, and from lg the middle
+  // column of every page, so its data starts downloading with the HTML, before
+  // any script has run. A phone on any other page folds the graph and skips it.
+  preload("/graph.json", { as: "fetch", crossOrigin: "anonymous", ...(isHome ? {} : { media: "(min-width: 64rem)" }) });
   const { desktop } = usePanelState();
   /**
    * Below lg a page other than the home page folds the canvas to one toolbar
@@ -87,26 +107,19 @@ export function CanvasFrame() {
   const [graphForm, setGraphForm] = useState<"rings" | "wheel">("rings");
   useEffect(() => {
     try {
-      if (window.localStorage.getItem("staatsgraaf.graph.form") === "wheel") setGraphForm("wheel");
+      if (window.localStorage.getItem(GRAPH_FORM_KEY) === "wheel") setGraphForm("wheel");
     } catch {
       // Storage can be blocked; the rings stay.
     }
   }, []);
   // The form's code is requested with the graph data, not after it.
   useEffect(() => {
-    if (!visible || view !== "graph") return;
-    let wheel = false;
-    try {
-      wheel = window.localStorage.getItem("staatsgraaf.graph.form") === "wheel";
-    } catch {
-      // Storage can be blocked; the rings load.
-    }
-    void (wheel ? loadWheel() : loadRings());
+    if (visible && view === "graph") void loadGraphForm();
   }, [visible, view]);
   const chooseGraphForm = (form: "rings" | "wheel") => {
     setGraphForm(form);
     try {
-      window.localStorage.setItem("staatsgraaf.graph.form", form);
+      window.localStorage.setItem(GRAPH_FORM_KEY, form);
     } catch {
       // Remembering is a convenience only.
     }

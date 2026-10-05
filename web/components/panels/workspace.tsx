@@ -30,7 +30,11 @@ import { useSelection } from "@/components/selection/selection-provider";
 // The panel bodies are large and a phone never shows the column, so each
 // surface loads when it is on screen: the column from lg, the sheet when
 // something is picked below it.
-const DetailsPanel = dynamic(() => import("./details-panel").then((module) => module.DetailsPanel), { ssr: false });
+const loadDetailsPanel = () => import("./details-panel").then((module) => module.DetailsPanel);
+const DetailsPanel = dynamic(loadDetailsPanel, { ssr: false });
+// From lg the column is on screen from the first paint: its code starts
+// downloading as this module runs, before React has hydrated.
+if (typeof window !== "undefined" && window.matchMedia("(min-width: 64rem)").matches) void loadDetailsPanel();
 const DetailsSheet = dynamic(() => import("./details-sheet").then((module) => module.DetailsSheet), { ssr: false });
 
 export const PAGE_COLUMN_ID = "sg-page-column";
