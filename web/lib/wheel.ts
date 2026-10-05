@@ -50,14 +50,13 @@ export type WheelItem = {
   name: string;
   subtype: WireNode["subtype"];
   branch: WireNode["branch"];
-  /** Bodies it is tied to: its edges, its parent and the bodies under it (the reference's connected nodes). */
+  /** Bodies it is tied to: its edges, its parent and the bodies under it (its connected nodes). */
   ties: number;
 };
 
 /**
- * How much larger a mark is drawn for its ties, in three steps as in the
- * reference (whose departments are 14, 19.5 or 25 units by connected
- * bodies): a body tied to many others reads as a hub at a glance.
+ * How much larger a mark is drawn for its ties, in three steps by the
+ * number of bodies it is tied to: a body tied to many others reads as a hub at a glance.
  */
 export function tieScale(ties: number, head = false): number {
   if (head) return ties >= 40 ? 1.2 : ties >= 15 ? 1 : 0.82;
@@ -618,8 +617,7 @@ export type WheelMark = { id: string; x: number; y: number; r: number };
  * edge for the cell's name.
  */
 /**
- * Marks spread over the whole cell, the way the reference spreads its
- * commissions evenly along a ring: as many rows as keep the step along the
+ * Marks spread evenly over the whole cell: as many rows as keep the step along the
  * ring close to the step across it, each row filled end to end. Null when
  * the count does not fit at `pitch`.
  */

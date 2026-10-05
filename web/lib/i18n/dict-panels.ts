@@ -103,7 +103,7 @@ export const PANELS_DICT = {
   defaultInTheNews: { nl: "Meest in het nieuws", en: "Most in the news" },
   defaultInTheNewsWindow: { nl: "Laatste {n} dagen", en: "Last {n} days" },
   defaultSectors: { nl: "Grootste sectoren", en: "Largest sectors" },
-  defaultChanges: { nl: "Laatste wijzigingen", en: "Latest changes" },
+  defaultChanges: { nl: "Recente wijzigingen", en: "Recent changes" },
 } satisfies Record<string, { nl: string; en: string }>;
 
 export type PanelsKey = keyof typeof PANELS_DICT;

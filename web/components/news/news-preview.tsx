@@ -17,7 +17,7 @@ type TileSize = "sm" | "md" | "lg";
 
 /**
  * Responsive tile boxes: small on phones, larger on wider screens, so the
- * preview reads like the reference product instead of a stamp. The inline
+ * preview reads as a picture beside the text instead of a stamp. The inline
  * style is only used by the fixed-size callers; responsive callers get classes.
  */
 const RESPONSIVE_FRAMES: Record<TileSize, string> = {

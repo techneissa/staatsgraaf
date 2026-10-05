@@ -4,7 +4,7 @@ This document says what we are building, why, and what done looks like. It is th
 
 ## 1. The one-sentence goal
 
-Build a public, source-backed, explorable graph of the Dutch state, modeled the way the CivLab Gov Graph models the United States federal government, so anyone can see who governs, who they answer to, how power flows between bodies, and what changed today.
+Build a public, source-backed, explorable graph of the Dutch state, inspired by the CivLab Gov Graph, which maps the United States federal government, so anyone can see who governs, who they answer to, how power flows between bodies, and what changed today.
 
 ## 2. The reference and the gap
 
@@ -54,7 +54,7 @@ Done is a live public URL where:
 - Not a government service and not affiliated with the Dutch government.
 - Not a real-time system. Near-real-time at daily cadence is the target.
 - Not a user-generated or editable wiki. The pipeline and the sources are the authority.
-- Not a pixel clone of the reference. We match the information architecture and interactions, not the exact art.
+- Not a copy of the reference. We learn from its information architecture and its interaction ideas; we do not reproduce its markup, styling, assets, text or data. See `docs/adr/0026-reference-product-and-credit.md`.
 - Not a scraper that republishes copyrighted prose or images. We write original descriptions and use open media.
 
 ## 7. Who it is for
@@ -78,12 +78,12 @@ When two options are close, pick the one that keeps facts sourced, keeps time ex
 
 ## 10. Working name and identity
 
-The project needs a name before launch. The reference reads "CivLab / US Gov" in the top-left lockup, with the scope ("US Gov", "SF Gov") as a switchable label. Ours follows the same pattern: a brand line and a scope label.
+The project needs a name before launch. The reference's top-left lockup is a brand line with a switchable scope label. Ours has the same kind of structure, a brand line and a scope label, with our own name and art.
 
 - Name: Staatsgraaf, decided on 18-09-2026 in `docs/adr/0003-project-name.md`. "NL Overheid Graph" was the working name.
 - Domain: not chosen `(decide)`. Pick a name that is clearly independent and clearly not a government service.
 - Scope label: "NL Rijk" for the central tier, to be joined later by "NL Decentraal", "Caribisch Nederland", and the Kingdom countries.
-- Lockup: brand line plus scope label, mirroring the reference's structure but with original art.
+- Lockup: brand line plus scope label, with original art.
 - Logo and glyph direction are part of workstream M in `05-research-workstreams.md`, not a separate project.
 
 Two naming rules follow from the principles. The name must not imply government affiliation, and it must not pin the product to one tier or one country, because the schema is built to grow to more scopes.

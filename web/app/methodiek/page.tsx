@@ -82,7 +82,11 @@ export default function MethodPage() {
             <a href="https://www.civlab.org/" className={LINK} rel="noopener noreferrer">
               CivLab
             </a>
-            .
+            .{" "}
+            <L
+              nl="Dank aan CivLab voor het idee. Staatsgraaf is niet verbonden aan CivLab en gebruikt niets van CivLab."
+              en="Thanks to CivLab for the idea. Staatsgraaf is not affiliated with CivLab and uses nothing from CivLab."
+            />
           </p>
         </Section>
 

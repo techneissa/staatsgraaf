@@ -223,7 +223,7 @@ export function GraphWheel({
   );
   const selectedId = current && "id" in current ? current.id : null;
   const selectedPerson = current?.kind === "person" ? current.id : null;
-  // The family on the selection's path opens, like a department in the reference; all others stay packed.
+  // The family on the selection's path opens; all others stay packed.
   const restModel = useMemo(() => buildWheel(bundle), [bundle]);
   const parentOf = useMemo(() => new Map(bundle.nodes.map((node) => [node.id, node.parent])), [bundle]);
   const openFamily = useMemo(() => {
@@ -255,7 +255,7 @@ export function GraphWheel({
         const shape = hiddenBranches.has(cell.branch) ? null : (bundle.chamberShapes?.[cell.id] ?? null);
         const headBand = cell.head ? (cell.headBand ?? 0) : 0;
         const pitch = cell.head ? (cell.open ? OPEN_PITCH : REST_PITCH) : MARK_PITCH;
-        // Families stay packed beside their head, as the reference packs a department's agencies; every other cell
+        // Families stay packed beside their head; every other cell
         // spreads its bodies over its whole area instead of bunching them in the middle.
         const marks = shape
           ? []
@@ -389,7 +389,7 @@ export function GraphWheel({
   }, [current, selectedPerson, seats, bundle.chambers, bundle.chamberShapes, pickedSeat, linked, spotOf]);
   const linkedIds = useMemo(() => new Set(linked ? [linked.self, ...linked.links.map((link) => link.other)] : []), [linked]);
 
-  // Turn the wheel so the selection sits at the bottom, the way the reference does; back upright when nothing is picked.
+  // Turn the wheel so the selection sits at the bottom; back upright when nothing is picked.
   const [turn, setTurn] = useState(0);
   const selectedCell = selectedId ? model.cells.find((cell) => cell.pick?.id === selectedId || cell.id === selectedId) : undefined;
   const groupChosen = useMemo(() => {
@@ -484,7 +484,7 @@ export function GraphWheel({
       const body = anchors.get(link.other);
       const end = body ?? spotOf(link.other);
       if (!end) continue;
-      // Ties inside the selection's own cell (an open family) fan out one by one, as in the reference; so does
+      // Ties inside the selection's own cell (an open family) fan out one by one; so does
       // every tie to a person, who is picked on their own seat and must be found from both ends.
       const key = !body ? `${link.other}|seat` : end.cell === self.cell ? `${link.other}|own` : `${end.cell}|${link.type}|${link.outgoing}`;
       const bucket = buckets.get(key) ?? { link, ends: [] };

@@ -2,6 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 
 import {
+  INSPIRATION_CREDIT,
   SOURCE_FAMILIES,
   buildAttribution,
   recordedLicense,
@@ -88,6 +89,17 @@ test("buildAttribution states the code licence as CC BY-NC-SA 4.0 and the data l
   assert.ok(!/\bMIT\b|PolyForm/.test(text), "no stale code licence");
 });
 
+test("buildAttribution credits CivLab as the inspiration and states independence", () => {
+  const text = buildAttribution(SOURCES, MEDIA);
+  const section = text.split("## Inspiration\n")[1].split("\n## ")[0];
+  assert.ok(section.includes("inspired by the Gov Graph (https://graph.civlab.org/us) by CivLab"));
+  assert.ok(section.includes("We thank CivLab for the idea."));
+  assert.ok(section.includes("not affiliated with or endorsed by CivLab"));
+  assert.ok(section.includes("uses none of CivLab's code, data, text or images"));
+  assert.ok(section.includes("from the sources listed in this file"));
+  assert.equal(section.trim(), INSPIRATION_CREDIT);
+});
+
 test("buildAttribution headings are fixed text, never a licence value or a sentence", () => {
   const headings = buildAttribution(SOURCES, MEDIA).split("\n").filter((line) => line.startsWith("#"));
   assert.deepEqual(headings, [
@@ -97,6 +109,7 @@ test("buildAttribution headings are fixed text, never a licence value or a sente
     "## Portraits",
     "## News",
     "## Sources with no established licence",
+    "## Inspiration",
     "## Where the detail lives",
   ]);
 });

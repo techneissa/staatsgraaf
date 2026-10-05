@@ -587,6 +587,15 @@ function licenseCell(counts, family) {
   return family.note ? `${text} (recorded as such; ${family.note})` : text;
 }
 
+/**
+ * The credit to the project that inspired Staatsgraaf. English, fixed text:
+ * the README and the method page carry the same statement in their own
+ * wording. The claim of independence is true only while no CivLab code, data,
+ * text or image is in the repository (docs/adr/0026-reference-product-and-credit.md).
+ */
+export const INSPIRATION_CREDIT =
+  "Staatsgraaf was inspired by the Gov Graph (https://graph.civlab.org/us) by CivLab, which maps the United States federal government. We thank CivLab for the idea. Staatsgraaf is an independent project: it is not affiliated with or endorsed by CivLab, and it uses none of CivLab's code, data, text or images. The Dutch data, the layout and the wording are our own, from the sources listed in this file.";
+
 export function buildAttribution(sources, media = null) {
   const summary = summarizeSources(sources);
   const rows = [];
@@ -662,6 +671,10 @@ export function buildAttribution(sources, media = null) {
   lines.push(
     `${number(summary.unknown)} sources have no established licence (\`unknown\` or empty in \`data/sources.json\`). They supply facts only, never text or images. The full list, with each endpoint, is in \`data/sources.json\`.`,
   );
+  lines.push("");
+  lines.push("## Inspiration");
+  lines.push("");
+  lines.push(INSPIRATION_CREDIT);
   lines.push("");
   lines.push("## Where the detail lives");
   lines.push("");
