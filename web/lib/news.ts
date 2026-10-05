@@ -113,6 +113,18 @@ export function newsKeywords(item: Pick<NewsItem, "keywords">): string[] {
   return Array.isArray(item.keywords) ? item.keywords.filter((word) => word.length > 0) : [];
 }
 
+/**
+ * An item counts as naming the state when the linker matched at least one
+ * entity (person, organisation, position) or topic. Derived at read time from
+ * the linker output, so the data holds no extra flag (docs/adr/0021).
+ */
+export function isRelevantNews(item: Pick<NewsItem, "entities" | "topics">): boolean {
+  return (
+    (Array.isArray(item.entities) && item.entities.length > 0) ||
+    (Array.isArray(item.topics) && item.topics.length > 0)
+  );
+}
+
 export function byLanguage<T extends Pick<NewsItem, "language">>(items: T[], language: NewsLanguage): T[] {
   return items.filter((item) => newsLanguage(item) === language);
 }
