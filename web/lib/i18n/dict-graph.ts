@@ -240,6 +240,10 @@ export const GRAPH_DICT = {
   layerMunicipalitiesTitle: { nl: "{n} organisaties, waarvan {m} gemeenten", en: "{n} organizations, of which {m} municipalities" },
   layerMunicipalitiesNote: { nl: "waarvan {m} gemeenten", en: "of which {m} municipalities" },
   sectorOrganisations: { nl: "{n} organisaties", en: "{n} organizations" },
+  asOfTitle: {
+    nl: "Toon de verbindingen zoals ze op deze datum waren. Alleen verbindingen met een begin- of einddatum veranderen.",
+    en: "Show the connections as they were on this date. Only connections with a start or end date change.",
+  },
   hallPhotosShort: { nl: "Foto's", en: "Photos" },
 } as const satisfies Record<string, LocString>;
 

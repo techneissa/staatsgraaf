@@ -209,7 +209,7 @@ export function CanvasControls({
       {datedEdges && onAsOfChange ? (
         <label
           className={`${asOf !== null ? "flex" : asOfClassName} items-center gap-1.5 text-xs text-ink-muted`}
-          title={view !== "graph" ? tg("graphOnlyNote") : undefined}
+          title={view !== "graph" ? tg("graphOnlyNote") : tg("asOfTitle")}
         >
           <span>{t("asOfLabel")}</span>
           <input
