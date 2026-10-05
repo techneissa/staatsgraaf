@@ -314,6 +314,13 @@ export const ENTITY_DICT = {
   creditPublicDomain: { nl: "Publiek domein", en: "Public domain" },
   creditSource: { nl: "Bron", en: "Source" },
   creditRetrieved: { nl: "Opgehaald op", en: "Retrieved on" },
+  creditChanges: { nl: "Wijzigingen", en: "Changes" },
+  creditChangesText: { nl: "Verkleind en bijgesneden door Staatsgraaf", en: "Resized and cropped by Staatsgraaf" },
+  creditShareAlike: {
+    nl: "Deze verkleinde en bijgesneden versie wordt gedeeld onder dezelfde licentie, {license}.",
+    en: "This resized and cropped version is shared under the same licence, {license}.",
+  },
+  creditShareAlikeLink: { nl: "Licentietekst", en: "Licence deed" },
 
   // Index lists (people, organisations, positions, topics): search, counts, empty states
   idxSearchPeople: { nl: "Zoek personen", en: "Search people" },

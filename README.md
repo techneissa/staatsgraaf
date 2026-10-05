@@ -115,7 +115,7 @@ The code and the data have separate licences.
 - Code: source-available under the PolyForm Noncommercial License 1.0.0. You may use, change and share it for any noncommercial purpose, including personal, research, charitable, educational and government use. Commercial use needs a separate licence from the project. See `LICENSE`.
 - Data: CC BY 4.0. Credit Staatsgraaf, keep each fact's source URL and retrieval date, and state the licence. See `LICENSE-DATA`.
 
-`ATTRIBUTION.md` credits the sources the data comes from. Where a source is all rights reserved, Staatsgraaf uses only the facts, the headline and the link, never the text or images.
+`ATTRIBUTION.md` groups the sources by publisher and licence, with a link to each one's terms. The licence of every single source is in `data/sources.json`, and the author, licence and source of every photo are in `data/media.json` and in the (i) next to the photo. Where a source is all rights reserved, Staatsgraaf uses only the facts, the headline and the link, never the text or images.
 
 To cite the data: "Staatsgraaf, dataset version v1, snapshot 05-10-2026. Source: {source-url}, retrieved {YYYY-MM-DD}. Available under CC BY 4.0."
 

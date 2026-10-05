@@ -301,6 +301,10 @@ export const PAGES_DICT = {
     nl: "Portretten: Tweede Kamer der Staten-Generaal (CC0) en Wikimedia Commons (licentie per bestand). De credit en licentie per foto staan in media.json in de download.",
     en: "Portraits: Tweede Kamer der Staten-Generaal (CC0) and Wikimedia Commons (licence per file). The credit and licence per photo are in media.json in the download.",
   },
+  photoCreditsDatasetNote: {
+    nl: "Bij elke foto op een personenpagina staan de auteur, de licentie en de bronpagina in de (i) naast de foto. De foto's zijn verkleind en bijgesneden; waar de licentie dat vraagt, staat dat in de credit.",
+    en: "On a person page, each photo's author, licence and source page are in the (i) next to the photo. The photos are resized and cropped; where the licence asks for it, the credit says so.",
+  },
   datasetCiteTitle: { nl: "Citeer de dataset", en: "Cite the dataset" },
   datasetCiteIntro: {
     nl: "Gebruik bijvoorbeeld deze verwijzing:",
