@@ -5,6 +5,7 @@ import { NEWS_MESSAGES } from "@/lib/news-i18n";
 import { stripPublisherPrefix, stripTitleFromMarkup } from "@/lib/news-text";
 import { newsTranslationFor } from "@/lib/news-translations";
 import {
+  isRelevantNews,
   newsDayKey,
   newsKeywords,
   newsKind,
@@ -53,13 +54,10 @@ export type NewsItemView = {
   /** Full date and time in Nederland. */
   dateTime: string;
   summary: string | null;
-  /**
-   * The pipeline's entity-linked summary, kept as markup so the card can link
-   * the mentioned people. Null when the pipeline wrote none.
-   */
-  summaryMarkup: string | null;
   entities: NewsEntityRef[];
   keywords: string[];
+  /** True when the item names an entity or a topic from the dataset (docs/adr/0021). */
+  relevant: boolean;
   /** The lead as published: summary markup with the headline prefix removed, or null. */
   lead: string | null;
   /** The plain summary without the publisher-and-headline prefix, for items without markup. */
@@ -163,9 +161,9 @@ export function toNewsItemView(item: NewsItem, locale: NewsLanguage = "nl"): New
     time: formatClockTime(item.published),
     dateTime: formatItemDateTime(item.published, locale),
     summary: usefulSummary(item),
-    summaryMarkup: item.summaryMarkup,
     entities,
     keywords: newsKeywords(item),
+    relevant: isRelevantNews(item),
     lead: stripTitleFromMarkup(item.summaryMarkup, item.title),
     plainLead: (() => {
       const plain = stripPublisherPrefix(item.summary, item.title);

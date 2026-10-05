@@ -113,6 +113,42 @@ export function newsKeywords(item: Pick<NewsItem, "keywords">): string[] {
   return Array.isArray(item.keywords) ? item.keywords.filter((word) => word.length > 0) : [];
 }
 
+/**
+ * An item counts as naming the state when the linker matched at least one entity
+ * (person, organisation, position), or a topic with evidence: the pipeline stores
+ * the keywords that produced each topic in `keywords`, and a topic with an empty
+ * keyword list proves nothing. Items from before the field existed (`keywords`
+ * absent) keep their topics. Derived at read time (docs/adr/0021).
+ */
+export function isRelevantNews(item: Pick<NewsItem, "entities" | "topics"> & { keywords?: string[] }): boolean {
+  if (Array.isArray(item.entities) && item.entities.length > 0) return true;
+  if (!Array.isArray(item.topics) || item.topics.length === 0) return false;
+  return !Array.isArray(item.keywords) || item.keywords.length > 0;
+}
+
+/** How many of the items name the state, and how many there are. */
+export function relevanceCounts(items: Pick<NewsItem, "entities" | "topics" | "keywords">[]): { total: number; relevant: number } {
+  return { total: items.length, relevant: items.filter(isRelevantNews).length };
+}
+
+/**
+ * The newest `limit` relevant items, or the newest `limit` items of any kind when
+ * none is relevant, so a band never goes blank because the linker found nothing.
+ */
+export function selectRelevantNews<T extends Pick<NewsItem, "entities" | "topics" | "keywords" | "published" | "id">>(
+  items: T[],
+  limit: number,
+): T[] {
+  const sorted = sortNews(items as unknown as NewsItem[]) as unknown as T[];
+  const relevant = sorted.filter(isRelevantNews);
+  return (relevant.length > 0 ? relevant : sorted).slice(0, limit);
+}
+
+/** The home band: the newest items that name the state, with the all-items fallback. */
+export function getHomeNewsRelevant(limit = NEWS_HOME_LIMIT): NewsItem[] {
+  return selectRelevantNews(getAllNews(), limit);
+}
+
 export function byLanguage<T extends Pick<NewsItem, "language">>(items: T[], language: NewsLanguage): T[] {
   return items.filter((item) => newsLanguage(item) === language);
 }
@@ -134,8 +170,69 @@ export function latestPublished(items: Pick<NewsItem, "published">[]): string | 
   return latest;
 }
 
-export function getNewsReference(): string | null {
-  return latestPublished(getAllNews());
+/**
+ * The moment recency is measured from: the build clock, so a stale build says
+ * "Eerder" instead of "Afgelopen uur" (NW-4). Never earlier than the newest item,
+ * which guards against a skewed clock putting an item in the future.
+ */
+export function newsReferenceAt(items: Pick<NewsItem, "published">[], now: Date): string {
+  const latest = latestPublished(items);
+  const clock = now.toISOString();
+  return latest !== null && latest > clock ? latest : clock;
+}
+
+export function getNewsReference(): string {
+  return newsReferenceAt(getAllNews(), new Date());
+}
+
+const detailDayFormats: Record<NewsLanguage, Intl.DateTimeFormat> = {
+  nl: new Intl.DateTimeFormat("nl-NL", { weekday: "long", day: "numeric", month: "long", timeZone: NEWS_TIME_ZONE }),
+  en: new Intl.DateTimeFormat("en-GB", { weekday: "long", day: "numeric", month: "long", timeZone: NEWS_TIME_ZONE }),
+};
+const detailShortFormats: Record<NewsLanguage, Intl.DateTimeFormat> = {
+  nl: new Intl.DateTimeFormat("nl-NL", { day: "numeric", month: "short", timeZone: NEWS_TIME_ZONE }),
+  en: new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", timeZone: NEWS_TIME_ZONE }),
+};
+const detailClockFormat = new Intl.DateTimeFormat("nl-NL", {
+  hour: "2-digit",
+  minute: "2-digit",
+  hourCycle: "h23",
+  timeZone: NEWS_TIME_ZONE,
+});
+
+const stripWeekdayComma = (value: string) => value.replace(",", "");
+const stripShortDot = (value: string) => value.replace(".", "");
+
+/**
+ * The real date or time behind a relative group label, so a page that outlives its
+ * build still tells the truth: "Vandaag" gets the weekday and date of the build day,
+ * "Afgelopen uur" the clock time it ends, "Deze week" and "Eerder" their date range.
+ * Empty when the group has nothing to name.
+ */
+export function recencyGroupDetail(
+  key: RecencyGroupKey,
+  reference: string,
+  published: string[],
+  locale: NewsLanguage,
+): string {
+  const referenceMs = Date.parse(reference);
+  switch (key) {
+    case "hour":
+      return `${locale === "nl" ? "tot" : "until"} ${detailClockFormat.format(new Date(referenceMs))}`;
+    case "today":
+      return stripWeekdayComma(detailDayFormats[locale].format(new Date(referenceMs)));
+    case "yesterday":
+      return stripWeekdayComma(detailDayFormats[locale].format(new Date(referenceMs - DAY_MS)));
+    case "week":
+    case "earlier": {
+      if (published.length === 0) return "";
+      const sorted = [...published].sort();
+      const short = (iso: string) => stripShortDot(detailShortFormats[locale].format(new Date(iso)));
+      const newest = short(sorted[sorted.length - 1]);
+      if (key === "earlier") return `${locale === "nl" ? "tot" : "up to"} ${newest}`;
+      return `${short(sorted[0])} ${locale === "nl" ? "tot" : "to"} ${newest}`;
+    }
+  }
 }
 
 /** Calendar day (yyyy-mm-dd) in Nederland for an ISO timestamp. */

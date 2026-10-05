@@ -19,7 +19,24 @@ export const NEWS_DICT = {
   newsFewerDays: { nl: "Minder dagen", en: "Fewer days" },
   newsDayEmpty: { nl: "Geen berichten op deze dag.", en: "No items on this day." },
   newsSourcesEmpty: { nl: "Nog geen nieuwsbronnen opgenomen.", en: "No news sources included yet." },
+  newsEarlierDays: { nl: "Eerdere dagen", en: "Earlier days" },
+  newsTruncatedNote: {
+    nl: "{count} oudere berichten uit deze groep staan alleen in het dagarchief.",
+    en: "{count} older items from this group are only in the day archive.",
+  },
+  newsSourcesLink: { nl: "Bronnen en licenties", en: "Sources and licences" },
+  newsPrevDay: { nl: "Vorige dag", en: "Previous day" },
+  newsNextDay: { nl: "Volgende dag", en: "Next day" },
+  newsAllDays: { nl: "Alle dagen", en: "All days" },
   newsEntityAllLink: { nl: "Alle berichten over {name}", en: "All items about {name}" },
+  // Relevance filter (docs/adr/0021): items that name nothing in the dataset sit behind a toggle.
+  newsShowAll: { nl: "Toon al het nieuws", en: "Show all news" },
+  newsRelevantCount: { nl: "{n} van {total} berichten noemen de overheid", en: "{n} of {total} items mention the government" },
+  newsRelevantEmptyTitle: { nl: "Geen bericht noemt de overheid", en: "No item mentions the government" },
+  newsRelevantEmptyDescription: {
+    nl: "In deze selectie noemt geen bericht een persoon, organisatie, positie of onderwerp uit de dataset. Toon al het nieuws om alles te zien.",
+    en: "In this selection no item names a person, organization, position or topic from the dataset. Show all news to see everything.",
+  },
 
   // Topics: cards, responsible list, topic news
   topicsHeading: { nl: "Onderwerpen", en: "Topics" },

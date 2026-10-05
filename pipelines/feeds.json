@@ -117,7 +117,13 @@
       "status": 200,
       "retrieved": "2026-09-18",
       "enabled": true,
-      "notes": null
+      "notes": null,
+      "excludePaths": [
+        {
+          "pattern": "/boulevard/",
+          "reason": "Celebrity and entertainment news; 360 of 854 stored RTL items on 01-10-2026, none about the Dutch state (ADR 0021)."
+        }
+      ]
     },
     {
       "url": "https://www.binnenlandsbestuur.nl/feeds/articles.rss",
