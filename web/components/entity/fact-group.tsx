@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 
 /**
- * A CivLab-style fact group card: one bounded, bordered block with an icon,
- * a title and a count, containing chips, seat cards, or a timeline.
+ * A fact group card: one bounded, bordered block with an icon, a title and
+ * a count, containing chips, seat cards, or a timeline.
  */
 export function FactGroup({
   icon,

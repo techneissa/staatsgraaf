@@ -52,6 +52,10 @@ The site shows scaled-down and cropped copies, and says so in the credit. For CC
 
 331 sources have no established licence (`unknown` or empty in `data/sources.json`). They supply facts only, never text or images. The full list, with each endpoint, is in `data/sources.json`.
 
+## Inspiration
+
+Staatsgraaf was inspired by the Gov Graph (https://graph.civlab.org/us) by CivLab, which maps the United States federal government. We thank CivLab for the idea. Staatsgraaf is an independent project: it is not affiliated with or endorsed by CivLab, and it uses none of CivLab's code, data, text or images. The Dutch data, the layout and the wording are our own, from the sources listed in this file.
+
 ## Where the detail lives
 
 - `data/sources.json`: every source, with its URL, publisher, licence and retrieval date.

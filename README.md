@@ -4,7 +4,7 @@ Staatsgraaf is a public map of the Dutch state. It shows which bodies exist, who
 
 Live site: https://staatsgraaf.pages.dev (Dutch, with an English switch)
 
-The idea comes from the CivLab Gov Graph for the United States (https://graph.civlab.org/us). Staatsgraaf does the same for the Netherlands: the Rijk, provinces, gemeenten, waterschappen, the courts, the two Kamers and the cabinet.
+The idea comes from the CivLab Gov Graph for the United States (https://graph.civlab.org/us). Staatsgraaf applies the idea to the Netherlands: the Rijk, provinces, gemeenten, waterschappen, the courts, the two Kamers and the cabinet.
 
 ## What you can do on the site
 
@@ -122,6 +122,10 @@ To cite the data: "Staatsgraaf, dataset version v1, snapshot 05-10-2026. Source:
 ## Corrections and contributing
 
 A published fact is never edited silently. A correction keeps the old value, the new value, the date and the reason. To report a wrong fact or a missing source, open an issue in the repository. Read `CONTRIBUTING.md` before you open a pull request, `SECURITY.md` to report a vulnerability, and `CODE_OF_CONDUCT.md` for how we work together.
+
+## Inspiration
+
+Staatsgraaf was inspired by the Gov Graph (https://graph.civlab.org/us) by CivLab, which maps the United States federal government. We thank CivLab for the idea. Staatsgraaf is an independent project: it is not affiliated with or endorsed by CivLab, and it uses none of CivLab's code, data, text or images. The Dutch data, the layout and the wording are our own, from the sources listed in [ATTRIBUTION.md](ATTRIBUTION.md).
 
 ## Independence
 

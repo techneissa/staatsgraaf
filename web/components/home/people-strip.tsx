@@ -40,7 +40,7 @@ function PersonBubble({ entry, side }: { entry: StripPerson; side: "left" | "rig
 }
 
 /**
- * CivLab-style avatar strip: overlapping rounded portraits. A tap or click
+ * Avatar strip of overlapping rounded portraits. A tap or click
  * opens the person's peek (name, role, party, Open page); on devices that
  * hover, hover or keyboard focus also reveals a callout with the name and a button that focuses
  * that person in the power map canvas. Callouts on the right half open to the
