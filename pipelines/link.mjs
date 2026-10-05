@@ -20,25 +20,27 @@ export const STOPWORDS = new Set([
 // when nothing in the text points abroad or to a non-government meaning. Every set
 // below was built from headlines the linker got wrong; see pipelines/link.test.mjs.
 
-/** Foreign adjectives, countries and leaders. Used to spot items about another state. */
+/** Foreign adjectives, countries, places and leaders. Used to spot items about another state. */
 const FOREIGN_WORDS = [
-  "Franse", "Duitse", "Britse", "Amerikaanse", "Russische", "Chinese", "Belgische", "Italiaanse", "Spaanse",
-  "Poolse", "Hongaarse", "Oekraïense", "Israëlische", "Iraanse", "Turkse", "Zweedse", "Deense", "Noorse", "Griekse",
-  "Indiase", "Japanse", "Braziliaanse", "Canadese", "Australische", "Oostenrijkse", "Zwitserse", "Portugese", "Vlaamse", "Waalse", "Gentse", "Antwerpse", "Brusselse", "Indonesische", "Zuid-Afrikaanse", "Marokkaanse", "Thaise",
-  "Finse", "Roemeense", "Syrische", "Egyptische", "Palestijnse", "Mexicaanse", "Argentijnse", "Afghaanse",
-  "Frankrijk", "Duitsland", "Engeland", "Groot-Brittannië", "Verenigd Koninkrijk", "Verenigde Staten", "VS",
-  "Amerika", "Rusland", "China", "België", "Italië", "Spanje", "Polen", "Hongarije", "Oekraïne", "Israël",
-  "Iran", "Turkije", "Zweden", "Denemarken", "Noorwegen", "Griekenland", "India", "Japan", "Brazilië", "Canada",
-  "Australië", "Oostenrijk", "Zwitserland", "Portugal", "Vlaanderen", "Wallonië", "Indonesië", "Marokko", "Thailand", "Zuid-Afrika", "Finland", "Roemenië", "Syrië", "Egypte", "Gaza",
-  "Kyiv", "Kiev", "Moskou", "Washington", "Londen", "Parijs", "Berlijn", "Trump", "Trumps",
-  "Mississippi", "Massachusetts", "Texas", "Florida", "Californië", "New York", "Alabama", "Louisiana", "Minnesota", "Ohio", "Poetin", "Putin", "Starmer",
-  "Macron", "Merz", "Netanyahu", "Zelensky", "Zelenski", "Kremlin", "Witte Huis",
+  // adjectives (-e form, used before a de-word)
+  "Franse", "Duitse", "Britse", "Amerikaanse", "Russische", "Chinese", "Belgische", "Italiaanse", "Spaanse", "Poolse",
+  "Hongaarse", "Oekraïense", "Israëlische", "Iraanse", "Turkse", "Zweedse", "Deense", "Noorse", "Griekse", "Indiase",
+  "Japanse", "Braziliaanse", "Canadese", "Australische", "Oostenrijkse", "Zwitserse", "Portugese", "Finse", "Roemeense",
+  "Syrische", "Egyptische", "Palestijnse", "Mexicaanse", "Argentijnse", "Afghaanse", "Vlaamse", "Waalse", "Gentse",
+  "Antwerpse", "Brusselse", "Indonesische", "Zuid-Afrikaanse", "Marokkaanse", "Thaise",
+  // countries and regions
+  "Frankrijk", "Duitsland", "Engeland", "Groot-Brittannië", "Verenigd Koninkrijk", "Verenigde Staten", "VS", "Amerika",
+  "Rusland", "China", "België", "Italië", "Spanje", "Polen", "Hongarije", "Oekraïne", "Israël", "Iran", "Turkije",
+  "Zweden", "Denemarken", "Noorwegen", "Griekenland", "India", "Japan", "Brazilië", "Canada", "Australië", "Oostenrijk",
+  "Zwitserland", "Portugal", "Finland", "Roemenië", "Syrië", "Egypte", "Gaza", "Vlaanderen", "Wallonië", "Indonesië",
+  "Marokko", "Thailand", "Zuid-Afrika",
+  // capitals and US states that stand for a foreign government or police
+  "Kyiv", "Kiev", "Moskou", "Washington", "Londen", "Parijs", "Berlijn", "Mississippi", "Massachusetts", "Texas",
+  "Florida", "Californië", "New York", "Alabama", "Louisiana", "Minnesota", "Ohio",
+  // leaders and seats of power
+  "Trump", "Trumps", "Poetin", "Putin", "Starmer", "Macron", "Merz", "Netanyahu", "Zelensky", "Zelenski", "Kremlin",
+  "Witte Huis",
 ];
-const FOREIGN_ALTERNATION = FOREIGN_WORDS.map(escapeRegExp).join("|");
-export const FOREIGN_CONTEXT = new RegExp(`(?<![\\p{L}\\p{N}])(?:${FOREIGN_ALTERNATION})(?![\\p{L}\\p{N}])`, "u");
-export const DUTCH_CONTEXT =
-  /(?<![\p{L}\p{N}])(?:Nederland|Nederlands\w*|Nederlander\w*|Haagse|Tweede Kamer|Eerste Kamer|Binnenhof|Rijksoverheid|Rijk)(?![\p{L}\p{N}])/u;
-/** A foreign adjective directly before a match: "Duitse minister van Defensie". */
 const DEMONYM_FORMS = [
   ...FOREIGN_WORDS.filter((word) => word.endsWith("e")),
   // Before a het-word such as "kabinet" the adjective has no -e: "Brits kabinet".
@@ -46,6 +48,11 @@ const DEMONYM_FORMS = [
   "Oekraïens", "Israëlisch", "Iraans", "Turks", "Zweeds", "Deens", "Noors", "Grieks", "Indiaas", "Japans", "Braziliaans",
   "Canadees", "Australisch", "Oostenrijks", "Zwitsers", "Portugees", "Fins", "Roemeens", "Syrisch", "Egyptisch",
 ];
+const FOREIGN_ALTERNATION = [...FOREIGN_WORDS, ...DEMONYM_FORMS.filter((word) => word !== "Frans")].map(escapeRegExp).join("|");
+export const FOREIGN_CONTEXT = new RegExp(`(?<![\\p{L}\\p{N}])(?:${FOREIGN_ALTERNATION})(?![\\p{L}\\p{N}])`, "u");
+export const DUTCH_CONTEXT =
+  /(?<![\p{L}\p{N}])(?:Nederland|Nederlands\w*|Nederlander\w*|Haagse|Tweede Kamer|Eerste Kamer|Binnenhof|Rijksoverheid|Rijk)(?![\p{L}\p{N}])/u;
+/** A foreign adjective directly before a match: "Duitse minister van Defensie". */
 const DEMONYM_BEFORE = new RegExp(`(?:${DEMONYM_FORMS.map(escapeRegExp).join("|")})\\s+(?:[\\p{L}-]+\\s+)?$`, "iu");
 
 /** Institution names every state has. A hit needs a Dutch anchor when the text points abroad. */
