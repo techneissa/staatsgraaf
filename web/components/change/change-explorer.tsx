@@ -11,11 +11,14 @@ import {
   parseChangeUrlState,
   serializeChangeUrlState,
   type ChangeFilterValue,
+  type ChangeViewValue,
 } from "@/lib/change-url-state";
 import { ChangeDay } from "./change-day";
 import { ChangeHistogram, type HistogramBucket } from "./change-histogram";
 import { formatIsoDate } from "./local-date";
+import { PersonCardFilterProvider } from "./person-card-list";
 import { ChangeStatTiles, type ChangeTileFigures, type ChipId } from "./stat-tiles";
+import { ViewToggle } from "./view-toggle";
 import { WindowTabsList } from "./window-tabs-list";
 import type { ChangeDisplayKind } from "@/lib/changes";
 import type { ChangeKind } from "@/lib/types";
@@ -39,6 +42,8 @@ export type ChangePane = {
   total: number;
   histogram: HistogramBucket[];
   groups: ChangeGroupData[];
+  /** The per person view of this window, built on the server. */
+  people: ReactNode;
 };
 
 const INITIAL_VISIBLE = 10;
@@ -162,22 +167,24 @@ export function ChangeExplorer({
   const [days, setDays] = useState(() => parseChangeUrlState("", validDays).window);
   const [filter, setFilter] = useState<ChangeFilterValue>("all");
   const [day, setDay] = useState<string | null>(null);
+  const [view, setView] = useState<ChangeViewValue>("chronological");
   const listRef = useRef<HTMLDivElement>(null);
   const [synced, setSynced] = useState(false);
 
   // Waits for the first read of the URL, so the defaults never overwrite a deep link.
   useEffect(() => {
     if (!synced) return;
-    const query = serializeChangeUrlState({ window: days, kind: filter, day });
+    const query = serializeChangeUrlState({ window: days, kind: filter, day, view });
     if (query === window.location.search) return;
     window.history.replaceState(window.history.state, "", `${window.location.pathname}${query}${window.location.hash}`);
-  }, [synced, days, filter, day]);
+  }, [synced, days, filter, day, view]);
 
   useEffect(() => {
     const state = parseChangeUrlState(window.location.search, validDays);
     const chosenDay = dayInWindow(state.day, state.window, reference);
     setDays(state.window);
     setFilter(state.kind);
+    setView(state.view);
     // A day only filters the change list, not the vacancy or acting lists.
     setDay(state.kind === "vacancy" || state.kind === "acting" ? null : chosenDay);
     setSynced(true);
@@ -247,9 +254,12 @@ export function ChangeExplorer({
 
   return (
     <Tabs.Root value={String(days)} onValueChange={selectWindow} data-settled={settled ? "" : undefined}>
-      <div className="mt-4 flex items-center justify-between gap-3">
+      <div className="mt-4 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
         {heading}
-        <WindowTabsList windows={panes.map((pane) => ({ value: String(pane.days), days: pane.days }))} />
+        <div className="flex flex-wrap items-center justify-end gap-2">
+          <ViewToggle value={view} onChange={setView} />
+          <WindowTabsList windows={panes.map((pane) => ({ value: String(pane.days), days: pane.days }))} />
+        </div>
       </div>
 
       <ChangeStatTiles className="mt-3" figures={figures} mode="control" pressed={pressed} onSelect={onChip} />
@@ -270,6 +280,7 @@ export function ChangeExplorer({
               reference={reference}
               filter={filter}
               day={day}
+              view={view}
               vacancies={vacancies}
               acting={acting}
               onSelectDay={selectDay}
@@ -290,6 +301,7 @@ function PaneBody({
   reference,
   filter,
   day,
+  view,
   vacancies,
   acting,
   onSelectDay,
@@ -301,6 +313,7 @@ function PaneBody({
   reference: string;
   filter: ChangeFilterValue;
   day: string | null;
+  view: ChangeViewValue;
   vacancies: ReactNode;
   acting: ReactNode;
   onSelectDay: (date: string | null) => void;
@@ -311,6 +324,7 @@ function PaneBody({
   const t = useT("home");
   const groups = useMemo(() => filterGroups(pane.groups, filter, day), [pane.groups, filter, day]);
   const showLists = filter === "vacancy" || filter === "acting";
+  const cardFilter = useMemo(() => ({ kind: filter, day }), [filter, day]);
   return (
     <>
       <ChangeHistogram
@@ -331,14 +345,18 @@ function PaneBody({
         </p>
       ) : null}
       <div ref={listRef} className="mt-4 scroll-mt-16">
-        <ChangeList
-          groups={groups}
-          reference={reference}
-          day={day}
-          filter={filter}
-          vacancies={vacancies}
-          acting={acting}
-        />
+        {view === "people" && !showLists ? (
+          <PersonCardFilterProvider value={cardFilter}>{pane.people}</PersonCardFilterProvider>
+        ) : (
+          <ChangeList
+            groups={groups}
+            reference={reference}
+            day={day}
+            filter={filter}
+            vacancies={vacancies}
+            acting={acting}
+          />
+        )}
       </div>
     </>
   );
