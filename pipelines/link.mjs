@@ -38,7 +38,14 @@ export const FOREIGN_CONTEXT = new RegExp(`(?<![\\p{L}\\p{N}])(?:${FOREIGN_ALTER
 export const DUTCH_CONTEXT =
   /(?<![\p{L}\p{N}])(?:Nederland|Nederlands\w*|Nederlander\w*|Haag\w*|Den Haag|Tweede Kamer|Eerste Kamer|Binnenhof|Rijksoverheid|Rijk)(?![\p{L}\p{N}])/u;
 /** A foreign adjective directly before a match: "Duitse minister van Defensie". */
-const DEMONYM_BEFORE = new RegExp(`(?:${FOREIGN_WORDS.filter((word) => word.endsWith("e")).map(escapeRegExp).join("|")})\\s+(?:[\\p{L}-]+\\s+)?$`, "iu");
+const DEMONYM_FORMS = [
+  ...FOREIGN_WORDS.filter((word) => word.endsWith("e")),
+  // Before a het-word such as "kabinet" the adjective has no -e: "Brits kabinet".
+  "Frans", "Duits", "Brits", "Amerikaans", "Russisch", "Chinees", "Belgisch", "Italiaans", "Spaans", "Pools", "Hongaars",
+  "Oekraïens", "Israëlisch", "Iraans", "Turks", "Zweeds", "Deens", "Noors", "Grieks", "Indiaas", "Japans", "Braziliaans",
+  "Canadees", "Australisch", "Oostenrijks", "Zwitsers", "Portugees", "Fins", "Roemeens", "Syrisch", "Egyptisch",
+];
+const DEMONYM_BEFORE = new RegExp(`(?:${DEMONYM_FORMS.map(escapeRegExp).join("|")})\\s+(?:[\\p{L}-]+\\s+)?$`, "iu");
 
 /** Institution names every state has. A hit needs a Dutch anchor when the text points abroad. */
 const GENERIC_INSTITUTIONS = new Set(["regering", "de regering", "kabinet", "het kabinet", "politie", "de politie", "douane", "defensie", "de kamer"]);

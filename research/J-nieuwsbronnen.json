@@ -11869,7 +11869,12 @@
       "confidence": "high"
     },
     {
-      "alias": "Kabinet",
+      "alias": "Interprovinciaal Overleg",
+      "target": "org:ipo",
+      "confidence": "high"
+    },
+    {
+      "alias": "kabinet",
       "target": "org:kabinet",
       "confidence": "medium"
     },
@@ -25954,6 +25959,11 @@
       "confidence": "high"
     },
     {
+      "alias": "Vereniging van Nederlandse Gemeenten",
+      "target": "org:vereniging-van-nederlandse-gemeenten",
+      "confidence": "high"
+    },
+    {
       "alias": "Verslavingsreclassering GGZ",
       "target": "org:rwt-stichting-verslavingsreclassering-ggz",
       "confidence": "low"
@@ -26086,6 +26096,11 @@
     {
       "alias": "Vlissingen",
       "target": "org:gemeente-vlissingen",
+      "confidence": "medium"
+    },
+    {
+      "alias": "VNG",
+      "target": "org:vereniging-van-nederlandse-gemeenten",
       "confidence": "medium"
     },
     {
