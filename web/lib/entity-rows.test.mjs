@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { mergeConnectionRows } from "./entity-rows.ts";
+import { mergeConnectionRows, withoutDerived } from "./entity-rows.ts";
 
 const person = (id) => ({ id, kind: "person", slug: id, name: id, href: `/personen/${id}/` });
 const conn = (id, other, direction = "incoming") => ({
@@ -39,4 +39,13 @@ test("directions stay separate rows", () => {
   const a = person("person:a");
   const rows = mergeConnectionRows([conn("x1", a, "incoming"), conn("x2", a, "outgoing")]);
   assert.equal(rows.length, 2);
+});
+
+test("derived tenures leave the tab, sourced relations stay", () => {
+  const a = person("person:a");
+  const kept = conn("rel:1", a);
+  const derived = conn("derived:tenure:1", a);
+  const member = { ...conn("derived:membership:1", a), type: "member_of" };
+  assert.deepEqual(withoutDerived([kept, derived, member], ["holds_position"]), [kept, member]);
+  assert.deepEqual(withoutDerived([kept, derived, member], ["holds_position", "member_of"]), [kept]);
 });

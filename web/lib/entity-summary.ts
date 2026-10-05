@@ -231,7 +231,10 @@ export function childOrganizations(id: string): Organization[] {
   return childIndex.get(id) ?? [];
 }
 
-export function organizationSummary(organization: Organization): Summary | null {
+export function organizationSummary(
+  organization: Organization,
+  options: { omitChildren?: boolean } = {},
+): Summary | null {
   const subtypeNl = ORG_SUBTYPE_LABELS[organization.subtype] ?? organization.subtype;
   const subtypeEn = ORG_SUBTYPE_LABELS_EN[organization.subtype] ?? subtypeNl;
   // "Tweede Kamer der Staten-Generaal" already says "Tweede Kamer"; lead with the kind of body instead.
@@ -253,7 +256,7 @@ export function organizationSummary(organization: Organization): Summary | null 
   const extras: Summary[] = [];
   const childList = childOrganizations(organization.id);
   const children = childList.length;
-  if (children > 0) {
+  if (children > 0 && options.omitChildren !== true) {
     const committees = childList.every((child) => child.type === "commission" && child.subtype === "commissie");
     extras.push(
       committees
