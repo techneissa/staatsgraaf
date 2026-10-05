@@ -122,8 +122,8 @@ export default function MethodPage() {
         <Section id="licenties" icon={Scale} title={<L nl="Licenties" en="Licences" />}>
           <p>
             <L
-              nl="De code is source-available onder de PolyForm Noncommercial-licentie 1.0.0 (niet-commercieel gebruik), de dataset onder CC BY 4.0. Portretten komen van de Tweede Kamer (CC0) en Wikimedia Commons (onder de licentie van elk bestand); de credit per foto staat in de dataset."
-              en="The code is source-available under the PolyForm Noncommercial License 1.0.0 (noncommercial use), the dataset under CC BY 4.0. Portraits come from the Tweede Kamer (CC0) and Wikimedia Commons (under each file's licence); the credit per photo is in the dataset."
+              nl="De code is source-available onder de licentie CC BY-NC-SA 4.0 (niet-commercieel gebruik, met naamsvermelding en onder dezelfde licentie), de dataset onder CC BY 4.0. Portretten komen van de Tweede Kamer (CC0) en Wikimedia Commons (onder de licentie van elk bestand); de credit per foto staat in de dataset."
+              en="The code is source-available under the CC BY-NC-SA 4.0 licence (noncommercial use, with credit and under the same licence), the dataset under CC BY 4.0. Portraits come from the Tweede Kamer (CC0) and Wikimedia Commons (under each file's licence); the credit per photo is in the dataset."
             />
           </p>
         </Section>

@@ -64,7 +64,7 @@ const manifest = {
   snapshotId: typeof meta.snapshotId === "string" ? meta.snapshotId : null,
   generatedAt: typeof meta.generatedAt === "string" ? meta.generatedAt : null,
   licenses: {
-    code: typeof meta.licenses?.code === "string" ? meta.licenses.code : "PolyForm-Noncommercial-1.0.0",
+    code: typeof meta.licenses?.code === "string" ? meta.licenses.code : "CC-BY-NC-SA-4.0",
     data: typeof meta.licenses?.data === "string" ? meta.licenses.data : "CC-BY-4.0",
   },
   licenseUrl:
