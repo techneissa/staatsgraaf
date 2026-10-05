@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { JsonLd } from "@/components/json-ld";
-import { SourceLink } from "@/components/source-link";
+import { ExternalLink } from "@/components/entity/external-link";
 import { SourceList } from "@/components/source-list";
 import { SourceIcon } from "@/components/source-icon";
 import { T } from "@/components/i18n/t";
@@ -17,6 +17,9 @@ import { currentMembershipsForPartyKey, seatTallyForOrganization } from "@/lib/p
 import { ArchChart } from "@/components/parliament/arch-chart";
 import { SeatSparkline } from "@/components/parliament/seat-sparkline";
 import { PARTIES, partyBySlug, partySlug } from "@/lib/parties";
+import { partyPeople } from "@/lib/entity-party";
+import { PartyPeople } from "@/components/entity/party-people";
+import { GapNote } from "@/components/entity/gap-note";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 import type { SourceRef } from "@/lib/types";
 
@@ -38,9 +41,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const party = partyBySlug(slug);
   if (!party) return {};
+  const tk = partyMembers(party.key, TK_ID).length;
+  const ek = partyMembers(party.key, EK_ID).length;
+  const seats = tk + ek > 0 ? `${tk} zetels in de Tweede Kamer en ${ek} in de Eerste Kamer` : "geen zetels in de Kamers op dit snapshot";
+  const people = partyPeople(party.key).reduce((sum, group) => sum + group.people.length, 0);
   return pageMetadata({
-    title: `${party.name.nl} (${party.abbrev})`,
-    description: `${party.name.nl} (${party.abbrev}): officiële naam in het Nederlands en Engels, kleur met bron, website en huidige zetels in de Tweede en Eerste Kamer, met een bron per gegeven.`,
+    title: party.name.nl === party.abbrev ? party.name.nl : `${party.name.nl} (${party.abbrev})`,
+    description: `${party.name.nl}${party.name.nl === party.abbrev ? "" : ` (${party.abbrev})`}: ${seats}; ${people} ${people === 1 ? "gekoppelde persoon" : "gekoppelde personen"}, met een bron per gegeven.`,
     path: `/partijen/${partySlug(party)}/`,
     snapshotDate: getDatasetDate(),
   });
@@ -69,6 +76,9 @@ export default async function PartyPage({
   }
 
   const pageUrl = absoluteUrl(`/partijen/${partySlug(party)}/`);
+  const chamberMemberIds = new Set([...tkMembers, ...ekMembers].map((entry) => entry.person.id));
+  const peopleGroups = partyPeople(party.key, chamberMemberIds);
+  const peopleCount = peopleGroups.reduce((sum, group) => sum + group.people.length, 0);
 
   return (
     <>
@@ -112,12 +122,12 @@ export default async function PartyPage({
         </div>
         <p className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
           {party.website !== null ? (
-            <SourceLink href={party.website}>
+            <ExternalLink href={party.website}>
               <T area="entity" k="websiteLabel" />
-            </SourceLink>
+            </ExternalLink>
           ) : null}
           {party.wiki !== null ? (
-            <SourceLink href={party.wiki}>Wikipedia</SourceLink>
+            <ExternalLink href={party.wiki}>Wikipedia</ExternalLink>
           ) : null}
         </p>
       </header>
@@ -140,6 +150,12 @@ export default async function PartyPage({
           },
         ]}
       />
+
+      {tkMembers.length + ekMembers.length > 0 ? (
+        <p className="mt-6 text-sm tabular-nums text-ink-muted">
+          <T area="entity" k="partySeatsLine" vars={{ tk: tkMembers.length, ek: ekMembers.length }} />
+        </p>
+      ) : null}
 
       <section aria-labelledby="party-tk" className="mt-6">
         <h2 id="party-tk" className="border-b border-line pb-2 text-lg font-semibold tracking-tight text-ink">
@@ -174,6 +190,17 @@ export default async function PartyPage({
           </div>
         </section>
       ) : null}
+
+      <PartyPeople groups={peopleGroups} />
+      {peopleCount === 0 && tkMembers.length + ekMembers.length === 0 ? (
+        <GapNote sources={[]} className="mt-6">
+          <T area="entity" k="partyNoPeople" />
+        </GapNote>
+      ) : (
+        <p className="mt-4 max-w-prose text-xs leading-relaxed text-ink-faint">
+          <T area="entity" k="partyPeopleNote" />
+        </p>
+      )}
 
       {memberSourceRefs.length > 0 ? (
         <SourceList sources={memberSourceRefs} />

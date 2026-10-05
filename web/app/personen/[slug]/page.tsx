@@ -5,7 +5,7 @@ import { EntityTabs } from "@/components/entity-tabs";
 import { JsonLd } from "@/components/json-ld";
 import { PartyBadge } from "@/components/party-badge";
 import { DateT, LocalPeriod } from "@/components/content/local-date";
-import { SourceLink } from "@/components/source-link";
+import { ExternalLink } from "@/components/entity/external-link";
 import { SourceList } from "@/components/source-list";
 import { SourceIcon } from "@/components/source-icon";
 import { NewsPanel } from "@/components/news/news-panel";
@@ -16,6 +16,7 @@ import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { MembershipList } from "@/components/entity/membership-list";
 import { EntityConnections } from "@/components/entity/entity-connections";
 import { Callout } from "@/components/entity/callout";
+import { GapNote } from "@/components/entity/gap-note";
 import { CareerTimeline } from "@/components/entity/career-timeline";
 import { FactTiles, type FactTile } from "@/components/entity/fact-tiles";
 import { FactGroup } from "@/components/entity/fact-group";
@@ -39,6 +40,10 @@ import { getPersonActivityView } from "@/lib/activities";
 import { getCareerForPerson } from "@/lib/careers";
 import { descriptionFor } from "@/lib/description-translations";
 import { personSummary } from "@/lib/entity-summary";
+import { sparsePerson } from "@/lib/entity-sparse";
+import { descriptionDateConflicts } from "@/lib/entity-page";
+import { withoutDerived } from "@/lib/entity-rows";
+import { isSplinterGroup, partyByDataset, partySlug } from "@/lib/parties";
 import {
   getConnectionsForEntity,
   personBirthDate,
@@ -85,12 +90,13 @@ export async function generateMetadata({
     getTenuresForPerson(person.id)
       .map((tenure) => getPositionById(tenure.position)?.title)
       .filter((title): title is string => title !== undefined)[0] ?? null;
+  const summary = personSummary(person)?.nl;
   const description =
-    personSummary(person)?.nl ??
+    (summary !== undefined ? `${person.name}: ${summary}.` : undefined) ??
     descriptionFor(person.id, person.description)?.nl ??
     (role !== null
       ? `${person.name} is ${role.charAt(0).toLowerCase()}${role.slice(1)}. Bekijk de functies, lidmaatschappen en bronnen.`
-      : `Functies, lidmaatschappen en bronnen van ${person.name}.`);
+      : sparsePerson(person).description);
   return pageMetadata({
     title: person.name,
     description,
@@ -106,19 +112,31 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
 
   const tenures = getTenuresForPerson(person.id);
   const memberships = getMembershipsForPerson(person.id);
-  const connections: Connection[] = getConnectionsForEntity(person.id);
+  // Tenures and memberships are listed with their periods in the sections below, so the tab keeps only sourced relations.
+  const connections: Connection[] = withoutDerived(getConnectionsForEntity(person.id), ["holds_position", "member_of"]);
   const news = getNewsForEntity(person.id);
   const activity = getPersonActivityView(person.id);
 
-  const party = personParty(person);
+  // A one-member fractie ("Lid Keijzer", "Fractie-Beukering") is not a party: show only a party the registry knows.
+  const partyRecord = partyByDataset(personParty(person));
+  const party = partyRecord !== null && !isSplinterGroup(personParty(person)) ? personParty(person) : null;
   const birthDate = personBirthDate(person);
   const description = descriptionFor(person.id, person.description);
-  const summary = personSummary(person);
+  const summary = personSummary(person, { dateStyle: "short" });
+  const sparse = tenures.length === 0 && memberships.length === 0 ? sparsePerson(person) : null;
+  const fractie = partyRecord !== null && party !== null ? { label: partyRecord.abbrev, href: `/partijen/${partySlug(partyRecord)}/` } : null;
   const career = getCareerForPerson(person.id);
   const careerCount = career.reduce((sum, group) => sum + group.items.length, 0);
   const birthSource = birthDate !== null ? birthDateSource(person) : null;
 
   const currentTenures = tenures.filter((tenure) => tenure.end === null);
+  const dateConflicts =
+    description !== null
+      ? descriptionDateConflicts(description.nl, [
+          ...tenures.flatMap((tenure) => [tenure.start, tenure.end]),
+          ...memberships.flatMap((membership) => [membership.start, membership.end]),
+        ])
+      : [];
 
   const currentPositions = currentTenures
     .map((tenure) => getPositionById(tenure.position))
@@ -174,9 +192,9 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
       value:
         person.wikipedia != null || person.wikidata != null ? (
           <span className="flex flex-wrap gap-x-3 gap-y-1">
-            {person.wikipedia != null ? <SourceLink href={person.wikipedia}>Wikipedia</SourceLink> : null}
+            {person.wikipedia != null ? <ExternalLink href={person.wikipedia}>Wikipedia</ExternalLink> : null}
             {person.wikidata != null ? (
-              <SourceLink href={`https://www.wikidata.org/wiki/${person.wikidata}`}>Wikidata</SourceLink>
+              <ExternalLink href={`https://www.wikidata.org/wiki/${person.wikidata}`}>Wikidata</ExternalLink>
             ) : null}
           </span>
         ) : null,
@@ -205,7 +223,13 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
         }}
       />
 
-      <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: person.name }]} />
+      <Breadcrumb
+        items={[
+          { label: SITE_NAME, href: "/" },
+          { label: <T area="common" k="navPeople" />, href: "/personen/" },
+          { label: person.name },
+        ]}
+      />
 
       <header className="mt-4">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
@@ -238,7 +262,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
                     <Callout key={tenure.id}>
                       <DateT area="entity" k="actingCallout" vars={{ title: position.title }} />{" "}
                       <span className="text-ink-muted">
-                        (<LocalPeriod start={tenure.start} end={null} />)
+                        (<LocalPeriod start={tenure.start} end={null} short />)
                       </span>
                     </Callout>
                   );
@@ -296,24 +320,22 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
             className="mt-4 max-w-prose text-sm leading-relaxed text-ink-muted"
           />
         ) : null}
+        {dateConflicts.length > 0 ? (
+          <p className="mt-2 max-w-prose text-xs leading-relaxed text-ink-faint">
+            <DateT area="entity" k="descriptionDateNote" dates={{ dates: dateConflicts[0] }} short />
+          </p>
+        ) : null}
       </header>
 
       <div className="mt-6 min-w-0 space-y-4">
         <EntityTabs
+          hasNews={news.length > 0}
+          hasConnections={connections.length > 0}
           news={
             <div>
-              <h2 id="nieuws-paneel-titel" className="sr-only">
-                <T area="entity" k="tabNews" />
-              </h2>
-              {news.length > 0 ? (
-                <div className="mt-3">
-                  <NewsPanel scope="custom" items={news} initialLimit={4} />
-                </div>
-              ) : (
-                <p className="mt-3 text-sm text-ink-faint">
-                  <T area="entity" k="newsEmptyTitle" />
-                </p>
-              )}
+              <div className="mt-3">
+                <NewsPanel scope="custom" items={news} initialLimit={4} />
+              </div>
             </div>
           }
           extra={
@@ -329,15 +351,31 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
           }
           connections={
             <div>
-              <h2 id="verbindingen-paneel-titel" className="sr-only">
-                <T area="entity" k="whosConnected" />
-              </h2>
               <div className="mt-3">
                 <EntityConnections connections={connections} selfId={person.id} />
               </div>
             </div>
           }
         />
+
+        {sparse !== null ? (
+          <GapNote sources={person.sources}>
+            <T area="entity" k="personEmptyNote" />
+            {sparse.organizations.length > 0 ? (
+              <>
+                {" "}
+                <T area="entity" k="personNamedWith" />{" "}
+                {sparse.organizations.map((organization, index) => (
+                  <span key={organization.id}>
+                    {index > 0 ? ", " : null}
+                    <EntityPeekLink id={organization.id} />
+                  </span>
+                ))}
+                .
+              </>
+            ) : null}
+          </GapNote>
+        ) : null}
 
         {tenures.length > 0 ? (
           <FactGroup id="posities-titel" icon={<HistoryIcon />} title={<T area="entity" k="rolesTitle" />} count={tenures.length}>
@@ -347,7 +385,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
 
         {careerCount > 0 ? (
           <FactGroup id="loopbaan" icon={<BriefcaseIcon />} title={<T area="entity" k="careerTitle" />} count={careerCount}>
-            <CareerTimeline groups={career} />
+            <CareerTimeline groups={career} fractie={fractie} />
           </FactGroup>
         ) : null}
 
