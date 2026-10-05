@@ -1,116 +1,19 @@
 import type { Metadata } from "next";
-import { LocalCount } from "@/components/content/local-date";
-import Link from "next/link";
-import { Breadcrumb } from "@/components/breadcrumb";
-import { DictEmptyState } from "@/components/budget/dict-empty-state";
-import { getDatasetDate } from "@/lib/data";
-import { getNewsOutlets } from "@/lib/news";
+import { NewsSourcesView } from "@/components/news/news-sources-view";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
-import { NT, NTKind, NTLanguage, NTLicense } from "@/components/news/news-t";
-import { T } from "@/components/i18n/t";
-import { pageMetadata } from "@/lib/site";
+import { newsPageMetadata } from "@/lib/news-page";
 
 export const dynamic = "force-static";
 
 const messages = NEWS_MESSAGES.nl;
 
-export const metadata: Metadata = pageMetadata({
+export const metadata: Metadata = newsPageMetadata({
+  route: "nl",
   title: messages.sourcesHeading,
   description: messages.sourcesIntro,
   path: "/nieuws/bronnen/",
-  snapshotDate: getDatasetDate(),
 });
 
 export default function NewsSourcesPage() {
-  const outlets = getNewsOutlets();
-
-  return (
-    <>
-      <Breadcrumb
-        items={[
-          { label: <NT k="breadcrumbHome" />, href: "/" },
-          { label: <NT k="heading" />, href: "/nieuws/" },
-          { label: <NT k="sourcesHeading" /> },
-        ]}
-      />
-
-      <header className="mt-4 border-b border-line pb-6">
-        <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
-          <h1 className="text-2xl font-semibold tracking-tight text-ink">
-            <NT k="sourcesHeading" />
-          </h1>
-        </div>
-      </header>
-
-      <section className="py-6">
-        {outlets.length === 0 ? (
-          <DictEmptyState titleKey="newsSourcesEmpty" />
-        ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse text-sm">
-              <caption className="sr-only"><NT k="sourcesHeading" /></caption>
-              <thead>
-                <tr className="border-b border-line text-left text-xs text-ink-faint">
-                  <th scope="col" className="py-2 pr-3 font-medium">
-                    <NT k="sourcesTablePublisher" />
-                  </th>
-                  <th scope="col" className="hidden py-2 pr-3 font-medium sm:table-cell">
-                    <NT k="sourcesTableKind" />
-                  </th>
-                  <th scope="col" className="hidden py-2 pr-3 font-medium sm:table-cell">
-                    <NT k="sourcesTableLanguages" />
-                  </th>
-                  <th scope="col" className="py-2 pr-3 text-right font-medium">
-                    <NT k="sourcesTableCount" />
-                  </th>
-                  <th scope="col" className="py-2 font-medium">
-                    <NT k="sourcesTableLicense" />
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {outlets.map((outlet) => (
-                  <tr key={outlet.publisher} className="border-b border-line align-top">
-                    <th scope="row" className="py-2 pr-3 text-left font-medium text-ink">
-                      {outlet.publisher}
-                      <span className="mt-0.5 block text-xs font-normal text-ink-faint sm:hidden">
-                        <NTKind kind={outlet.kind} /> · {outlet.languages.map((language, index) => (
-                        <span key={language}>
-                          {index > 0 ? ", " : null}
-                          <NTLanguage language={language} />
-                        </span>
-                      ))}
-                      </span>
-                    </th>
-                    <td className="hidden py-2 pr-3 text-ink-muted sm:table-cell"><NTKind kind={outlet.kind} /></td>
-                    <td className="hidden py-2 pr-3 text-ink-muted sm:table-cell">
-                      {outlet.languages.map((language, index) => (
-                        <span key={language}>
-                          {index > 0 ? ", " : null}
-                          <NTLanguage language={language} />
-                        </span>
-                      ))}
-                    </td>
-                    <td className="py-2 pr-3 text-right tabular-nums text-ink-muted">
-                      <LocalCount value={outlet.count} />
-                    </td>
-                    <td className="py-2 text-ink-muted">
-                      {outlet.licenses.length > 0
-                        ? outlet.licenses.map((license, index) => (
-                            <span key={license}>
-                              {index > 0 ? ", " : null}
-                              <NTLicense value={license} />
-                            </span>
-                          ))
-                        : <NT k="licenseNone" />}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </section>
-    </>
-  );
+  return <NewsSourcesView route="nl" />;
 }
