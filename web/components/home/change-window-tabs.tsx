@@ -2,41 +2,38 @@
 
 import * as Tabs from "@radix-ui/react-tabs";
 import type { ReactNode } from "react";
-import { useT } from "@/components/i18n/use-t";
-import { SlidingIndicator } from "@/components/motion/sliding-indicator";
+import { WindowTabsList } from "@/components/change/window-tabs-list";
 import { useSettled } from "@/components/motion/use-settled";
 
 export type ChangeWindowPanel = {
   value: string;
-  label: ReactNode;
+  days: number;
   content: ReactNode;
 };
 
-const triggerClass =
-  "inline-flex min-h-7 items-center whitespace-nowrap rounded-pill px-3 text-xs font-medium tabular-nums pointer-coarse:min-h-11 pointer-coarse:px-4 text-ink-muted transition-fast hover:text-ink data-[state=active]:bg-surface data-[state=active]:text-ink data-[state=active]:shadow-sm";
-
+/**
+ * The section header with the 7/30/90 switch top right, level with the title,
+ * then an optional row (the figure chips) and the panel of the chosen window.
+ */
 export function ChangeWindowTabs({
+  heading,
+  chips,
   panels,
   defaultValue,
 }: {
+  heading: ReactNode;
+  chips?: ReactNode;
   panels: ChangeWindowPanel[];
   defaultValue: string;
 }) {
-  const t = useT("home");
   const settled = useSettled();
   return (
     <Tabs.Root defaultValue={defaultValue} data-settled={settled ? "" : undefined}>
-      <Tabs.List
-        aria-label={t("windowTabsLabel")}
-        className="inline-flex items-center gap-0.5 rounded-pill border border-line bg-surface-inset p-0.5"
-      >
-        <SlidingIndicator className="rounded-pill bg-surface shadow-sm" />
-        {panels.map((panel) => (
-          <Tabs.Trigger key={panel.value} value={panel.value} className={triggerClass}>
-            {panel.label}
-          </Tabs.Trigger>
-        ))}
-      </Tabs.List>
+      <div className="flex items-center justify-between gap-3">
+        {heading}
+        <WindowTabsList windows={panels} />
+      </div>
+      {chips}
       {panels.map((panel) => (
         <Tabs.Content
           key={panel.value}
