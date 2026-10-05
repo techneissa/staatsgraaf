@@ -203,12 +203,12 @@ export function HierarchyView({
                 aria-pressed={photos}
                 aria-label={t("hallPhotos")}
                 title={t("hallPhotos")}
-                className={`tap-target flex h-8 min-w-8 shrink-0 items-center justify-center gap-1.5 rounded-sm border px-2 text-xs font-medium transition-colors max-lg:px-0 ${
+                className={`tap-target flex h-8 min-w-8 shrink-0 items-center justify-center gap-1.5 rounded-sm border px-2 text-xs font-medium transition-colors max-md:px-0 ${
                   photos ? "border-line-strong bg-surface-raised text-ink" : "border-line bg-surface text-ink-faint hover:text-ink"
                 }`}
               >
                 <LucideIcon icon={CircleUserRound} size={16} />
-                <span className="hidden lg:inline">{tg("hallPhotosShort")}</span>
+                <span className="hidden md:inline">{tg("hallPhotosShort")}</span>
               </button>
             ) : null}
             <Segmented
@@ -321,7 +321,7 @@ export function Segmented({
   value: string;
   /**
    * With `compact`, the label shows from the sm breakpoint and is read by screen readers below it.
-   * With `iconOnly`, only the icon shows below lg (the label is the tooltip and the accessible name there); from lg the label shows too.
+   * With `iconOnly`, only the icon shows below md (the label is the tooltip and the accessible name there); from md the label shows too.
    */
   options: { value: string; label: string; icon?: React.ReactNode; compact?: boolean; iconOnly?: boolean }[];
   onChange: (value: string) => void;
@@ -342,7 +342,7 @@ export function Segmented({
             }`}
           >
             {option.icon}
-            <span className={option.iconOnly ? "max-lg:sr-only" : option.compact ? "max-sm:sr-only" : undefined}>{option.label}</span>
+            <span className={option.iconOnly ? "max-md:sr-only" : option.compact ? "max-sm:sr-only" : undefined}>{option.label}</span>
           </button>
         );
       })}
