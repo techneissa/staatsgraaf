@@ -12,7 +12,7 @@ export function NewsPageLinks({ route }: { route: NewsLanguage }) {
   const messages = NEWS_MESSAGES[route];
   const sourcesHref = route === "nl" ? "/nieuws/bronnen/" : "/news/sources/";
   const linkClass =
-    "inline-flex min-h-11 items-center text-accent-text underline-offset-2 hover:underline sm:min-h-0";
+    "inline-flex min-h-6 items-center text-accent-text underline-offset-2 hover:underline pointer-coarse:min-h-11";
   return (
     <nav aria-label={messages.heading} className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm">
       <Link href={sourcesHref} className={linkClass}>

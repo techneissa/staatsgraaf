@@ -1,3 +1,4 @@
+import { NewsEntityLink } from "./news-entity-link";
 import { NewsCard } from "@/components/news-card";
 import { T } from "@/components/i18n/t";
 import { DateT } from "@/components/content/local-date";
@@ -8,11 +9,14 @@ export function NewsList({
   initialLimit = 6,
   emptyTitle,
   emptyDescription,
+  entity,
 }: {
   items: NewsItem[];
   initialLimit?: number;
   emptyTitle?: string;
   emptyDescription?: string;
+  /** The person, organisation or position the list is about: adds a link to the complete news list on it (NW-9). */
+  entity?: { id: string; name: string };
 }) {
   if (items.length === 0) {
     return (
@@ -57,6 +61,11 @@ export function NewsList({
             ))}
           </ol>
         </details>
+      ) : null}
+      {entity !== undefined ? (
+        <p className="mt-3">
+          <NewsEntityLink id={entity.id} name={entity.name} />
+        </p>
       ) : null}
     </div>
   );

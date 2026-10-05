@@ -6,6 +6,8 @@ type NewsPanelProps = {
   initialLimit?: number;
   emptyTitle?: string;
   emptyDescription?: string;
+  /** Adds "all items about X" under the list, linking to /nieuws/?entity=<id> (NW-9). */
+  entity?: { id: string; name: string };
 } & (
   | { scope: "home"; items?: never }
   | { scope: "entity"; id: string; items?: never }
@@ -14,7 +16,7 @@ type NewsPanelProps = {
 );
 
 export function NewsPanel(props: NewsPanelProps) {
-  const { initialLimit = 6, emptyTitle, emptyDescription } = props;
+  const { initialLimit = 6, emptyTitle, emptyDescription, entity } = props;
   let list: NewsItem[];
   switch (props.scope) {
     case "home":
@@ -37,6 +39,7 @@ export function NewsPanel(props: NewsPanelProps) {
       initialLimit={initialLimit}
       emptyTitle={emptyTitle}
       emptyDescription={emptyDescription}
+      entity={entity}
     />
   );
 }

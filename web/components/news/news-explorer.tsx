@@ -1,18 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useMemo, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import { NewsFilterBar, pillClass } from "./news-filter-bar";
 import { NewsItemCard } from "./news-item-card";
 import type { NewsItemView } from "./news-view";
+import { CARD_ITEM_CLASS, NEWS_WINDOW_STEP, ShowMoreButton } from "./windowed-cards";
+import { useNewsFilters } from "./use-news-filters";
 import { EmptyState } from "@/components/empty-state";
 import { useLocale } from "@/components/i18n/language-provider";
 import { KindGlyph } from "@/components/kind-glyph";
-import { SlidingIndicator } from "@/components/motion/sliding-indicator";
 import { useSettled } from "@/components/motion/use-settled";
 import { loadPeekRecord } from "@/components/peek/peek-provider";
 import { formatCountIn } from "@/lib/format";
-import { NEWS_LANGUAGES, PUBLISHER_KINDS, type RecencyGroupKey } from "@/lib/news-meta";
+import { newsFacets, rowMatches, type FacetRow } from "@/lib/news-facets";
+import { NEWS_LANGUAGES, type RecencyGroupKey } from "@/lib/news-meta";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
+import { readEntryState, writeEntryState } from "@/lib/news-entry-state";
+import { sumBuckets, translationSummary, type LanguageCounts } from "@/lib/news-stats";
 import { NEWS_DICT } from "@/lib/i18n/dict-news";
 import { interpolate } from "@/lib/i18n/locales";
 import type { PeekKind } from "@/lib/peek";
@@ -41,33 +46,15 @@ export type NewsExplorerGroup = {
    */
   languages: Record<
     NewsLanguage,
-    { total: number; relevantTotal: number; items: NewsItemView[]; unloaded: NewsExplorerRow[] }
+    LanguageCounts & { items: NewsItemView[]; unloaded: NewsExplorerRow[] }
   >;
   /** Day archive pages that hold everything in this group. */
   days: NewsExplorerDay[];
 };
 
 type LanguageFilter = "all" | NewsLanguage;
-type KindFilter = "all" | PublisherKind;
-const ALL_PUBLISHERS = "__all__";
 
 type EntityFilter = { id: string; label: string; href: string | null; kind: PeekKind | null };
-
-/** What a filter needs to know about an item, whether it is loaded as a card or not. */
-type Row = { kind: PublisherKind; publisher: string; language: NewsLanguage };
-
-function countBy<K extends string>(rows: Row[], key: (row: Row) => K): Map<K, number> {
-  const map = new Map<K, number>();
-  for (const row of rows) map.set(key(row), (map.get(key(row)) ?? 0) + 1);
-  return map;
-}
-
-const pill = (active: boolean) =>
-  `inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-pill border px-3 text-sm font-medium transition-fast sm:min-h-8 ${
-    active
-      ? "border-accent/40 bg-accent-soft text-accent-text"
-      : "border-line bg-surface-raised text-ink-muted hover:text-ink"
-  }`;
 
 /**
  * The news section: items that name the state, in every original language, shown
@@ -94,13 +81,11 @@ export function NewsExplorer({
   const siteLocale = useLocale();
   const uiLanguage: NewsLanguage = fixedLanguage ?? siteLocale;
   const messages = NEWS_MESSAGES[uiLanguage];
-  const [language, setLanguage] = useState<LanguageFilter>("all");
-  const [kind, setKind] = useState<KindFilter>("all");
-  const [publisher, setPublisher] = useState<string>(ALL_PUBLISHERS);
-  const [entity, setEntity] = useState<EntityFilter | null>(null);
-  const [showAll, setShowAll] = useState(false);
+  const { filters, update, ready } = useNewsFilters();
+  const { language, kind } = filters;
+  const showAll = filters.showAll;
   const relevantOnly = !showAll;
-  const selectId = useId();
+  const [entityMeta, setEntityMeta] = useState<Omit<EntityFilter, "id"> | null>(null);
   const settled = useSettled();
 
   const merged = useMemo(
@@ -116,73 +101,59 @@ export function NewsExplorer({
   );
   const loaded = useMemo(() => merged.flatMap((entry) => entry.items), [merged]);
 
-  // ?entity=<id> from a peek popover: filter on one mentioned entity.
+  // ?entity=<id>: the label of the mentioned entity, from a loaded card or the peek index.
+  const entityId = filters.entity;
   useEffect(() => {
-    const read = () => {
-      const id = new URLSearchParams(window.location.search).get("entity");
-      if (!id) {
-        setEntity(null);
-        return;
-      }
-      const mention = loaded.flatMap((item) => item.entities).find((entry) => entry.id === id);
-      setEntity({ id, label: mention?.label ?? id, href: mention?.href ?? null, kind: mention?.peekKind ?? null });
-      if (!mention) {
-        loadPeekRecord(id)
-          .then((record) => {
-            if (record) setEntity({ id, label: record.name, href: record.href, kind: record.kind });
-          })
-          .catch(() => {});
-      }
+    if (entityId === null) {
+      setEntityMeta(null);
+      return;
+    }
+    const mention = loaded.flatMap((item) => item.entities).find((entry) => entry.id === entityId);
+    setEntityMeta({ label: mention?.label ?? entityId, href: mention?.href ?? null, kind: mention?.peekKind ?? null });
+    if (mention) return;
+    let cancelled = false;
+    loadPeekRecord(entityId)
+      .then((record) => {
+        if (!cancelled && record) setEntityMeta({ label: record.name, href: record.href, kind: record.kind });
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
     };
-    read();
-    window.addEventListener("popstate", read);
-    return () => window.removeEventListener("popstate", read);
-  }, [loaded]);
+  }, [entityId, loaded]);
+  const entity: EntityFilter | null = entityId === null ? null : { id: entityId, ...(entityMeta ?? { label: entityId, href: null, kind: null }) };
 
-  const clearEntity = () => {
-    setEntity(null);
-    const url = new URL(window.location.href);
-    url.searchParams.delete("entity");
-    window.history.replaceState(window.history.state, "", url.toString());
+  const buckets = useMemo(() => sumBuckets(groups.map((group) => group.languages)), [groups]);
+  const totals: Record<LanguageFilter, number> = { all: buckets.nl.total + buckets.en.total, nl: buckets.nl.total, en: buckets.en.total };
+  const relevantTotals: Record<LanguageFilter, number> = {
+    all: buckets.nl.relevantTotal + buckets.en.relevantTotal,
+    nl: buckets.nl.relevantTotal,
+    en: buckets.en.relevantTotal,
   };
-
-  const sumTotals = (pick: (bucket: NewsExplorerGroup["languages"][NewsLanguage]) => number): Record<LanguageFilter, number> => ({
-    all: groups.reduce((sum, group) => sum + pick(group.languages.nl) + pick(group.languages.en), 0),
-    nl: groups.reduce((sum, group) => sum + pick(group.languages.nl), 0),
-    en: groups.reduce((sum, group) => sum + pick(group.languages.en), 0),
-  });
-  const totals = sumTotals((bucket) => bucket.total);
-  const relevantTotals = sumTotals((bucket) => bucket.relevantTotal);
   const shownTotals = relevantOnly ? relevantTotals : totals;
 
   // Every relevant item is a card; with "show all" the rest is counted from compact rows.
   const countUnloaded = showAll && entity === null;
   const cards = relevantOnly ? loaded.filter((item) => item.relevant) : loaded;
-  const rowsOf = (group: NewsExplorerGroup): Row[] =>
+  const rowsOf = (group: NewsExplorerGroup): FacetRow[] =>
     countUnloaded
       ? NEWS_LANGUAGES.flatMap((lang) =>
-          group.languages[lang].unloaded.map(([rowKind, rowPublisher]) => ({ kind: rowKind, publisher: rowPublisher, language: lang })),
+          group.languages[lang].unloaded.map(([rowKind, rowPublisher]): FacetRow => ({ kind: rowKind, publisher: rowPublisher, language: lang })),
         )
       : [];
   const unloadedRows = groups.flatMap(rowsOf);
-  const inLanguage = (row: Row) => language === "all" || row.language === language;
-  const cardRows: Row[] = (entity ? cards.filter((item) => item.entities.some((entry) => entry.id === entity.id)) : cards).filter(inLanguage);
-  const rows: Row[] = [...cardRows, ...unloadedRows.filter(inLanguage)];
-  const kindCounts = countBy(rows, (row) => row.kind);
-  const kindFiltered = kind === "all" ? rows : rows.filter((row) => row.kind === kind);
-  const publisherCounts = countBy(kindFiltered, (row) => row.publisher);
-  const publishers = [...publisherCounts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "nl"));
-  const activePublisher = publisherCounts.has(publisher) ? publisher : ALL_PUBLISHERS;
-  const filtering = kind !== "all" || activePublisher !== ALL_PUBLISHERS || entity !== null;
+  const entityCards = entity ? cards.filter((item) => item.entities.some((entry) => entry.id === entity.id)) : cards;
+  const { languageRows: rows, kindCounts, publishers, activePublisher } = newsFacets([...entityCards, ...unloadedRows], filters);
+  const filtering = kind !== "all" || activePublisher !== null || entity !== null;
 
-  const matchesRow = (row: Row) =>
-    inLanguage(row) &&
-    (kind === "all" || row.kind === kind) &&
-    (activePublisher === ALL_PUBLISHERS || row.publisher === activePublisher);
+  // An outlet in the address that no longer applies (a typo, or another mode) is dropped from it.
+  useEffect(() => {
+    if (ready && filters.publisher !== null && activePublisher === null) update({ publisher: null });
+  }, [ready, filters.publisher, activePublisher, update]);
+
+  const matchesRow = (row: FacetRow) => rowMatches(row, filters, activePublisher);
   const matches = (item: NewsItemView) =>
     matchesRow(item) && (entity === null || item.entities.some((entry) => entry.id === entity.id));
-
-  const languageOptions: LanguageFilter[] = ["all", ...NEWS_LANGUAGES];
 
   // One entry per recency group with a match in the current mode, language and filters.
   const sections = merged
@@ -194,109 +165,70 @@ export function NewsExplorer({
       return { group: entry.group, filtered, unloaded };
     })
     .filter(({ filtered, unloaded }) => filtered.length + unloaded > 0);
+  const resultCount = sections.reduce((sum, { filtered, unloaded }) => sum + filtered.length + unloaded, 0);
+
+  const translated = translationSummary(buckets, uiLanguage, language, relevantOnly);
+  const countWord = (count: number) =>
+    interpolate(count === 1 ? NEWS_DICT.newsFilterCountWordOne[uiLanguage] : NEWS_DICT.newsFilterCountWord[uiLanguage], {
+      n: formatCountIn(count, uiLanguage),
+    });
 
   return (
     <div data-settled={settled ? "" : undefined}>
       <p className="mb-3 text-xs text-ink-faint">
+        {translated !== null ? (
+          <>
+            {interpolate(NEWS_DICT.newsTranslatedCount[uiLanguage], {
+              translated: formatCountIn(translated.translated, uiLanguage),
+              total: formatCountIn(translated.total, uiLanguage),
+            })}{" "}
+          </>
+        ) : null}
         <a href="/methodiek/#machinevertaling" className="underline decoration-line underline-offset-2 hover:text-ink">
-          {messages.card.translationNote}
+          {translated !== null ? NEWS_DICT.newsTranslatedMethodLink[uiLanguage] : messages.card.translationNote}
         </a>
       </p>
-      <div role="group" aria-label={messages.filtersLabel} className="space-y-3">
-        <div
-          role="group"
-          aria-label={messages.languageTabsLabel}
-          className="scroll-row -mx-4 gap-2 px-4 sm:mx-0 sm:flex-wrap sm:px-0 sm:[mask-image:none]"
-        >
-          <SlidingIndicator variant="ring" className="rounded-pill border border-accent/40" />
-          {languageOptions.map((option) => (
+
+      <NewsFilterBar
+        uiLanguage={uiLanguage}
+        filters={filters}
+        update={update}
+        languageCounts={shownTotals}
+        kindCounts={kindCounts}
+        rowCount={rows.length}
+        publishers={publishers}
+        activePublisher={activePublisher}
+      />
+
+      {entity !== null ? (
+        <div className="mt-2 rounded-md border border-line bg-surface-inset p-3 text-sm">
+          <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span className="text-ink-muted">{messages.entityFilterLabel}</span>
+            <span lang="nl" className="inline-flex min-w-0 items-center gap-1.5 font-medium text-ink">
+              {entity.kind ? <KindGlyph kind={entity.kind} /> : null}
+              <span className="min-w-0 break-words">{entity.label}</span>
+            </span>
             <button
-              key={option}
               type="button"
-              aria-pressed={language === option}
-              onClick={() => {
-                setLanguage(option);
-                setPublisher(ALL_PUBLISHERS);
-              }}
-              className={pill(language === option)}
+              onClick={() => update({ entity: null })}
+              className="ml-auto inline-flex min-h-8 items-center rounded-sm border border-line bg-surface px-3 text-sm font-medium text-ink-muted hover:text-ink pointer-coarse:min-h-11"
             >
-              {option === "all" ? messages.allLanguagesLabel : messages.languageFilterLabels[option]}
-              <span className="ml-1.5 tabular-nums text-ink-faint">{formatCountIn(shownTotals[option], uiLanguage)}</span>
+              {messages.entityFilterClear}
             </button>
-          ))}
-        </div>
-
-        <div
-          role="group"
-          aria-label={messages.kindFilterLabel}
-          className="scroll-row -mx-4 gap-2 px-4 sm:mx-0 sm:flex-wrap sm:px-0 sm:[mask-image:none]"
-        >
-          <SlidingIndicator variant="ring" className="rounded-pill border border-accent/40" />
-          {(["all", ...PUBLISHER_KINDS] as KindFilter[]).map((option) => {
-            const count = option === "all" ? rows.length : (kindCounts.get(option) ?? 0);
-            if (option !== "all" && count === 0) return null;
-            return (
-              <button
-                key={option}
-                type="button"
-                aria-pressed={kind === option}
-                onClick={() => setKind(option)}
-                className={pill(kind === option)}
-              >
-                {option === "all" ? messages.allKindsLabel : messages.kindLabels[option]}
-              </button>
-            );
-          })}
-        </div>
-
-        <div className="flex flex-wrap items-center gap-2 text-sm">
-          <label htmlFor={selectId} className="font-medium text-ink-muted">
-            {messages.publisherSelectLabel}
-          </label>
-          <select
-            id={selectId}
-            value={activePublisher}
-            onChange={(event) => setPublisher(event.target.value)}
-            className="min-h-11 min-w-0 max-w-full flex-1 rounded-sm border border-line bg-surface-raised px-2 text-sm text-ink sm:min-h-9 sm:flex-none"
-          >
-            <option value={ALL_PUBLISHERS}>
-              {messages.allPublishersLabel}
-            </option>
-            {publishers.map(([name]) => (
-              <option key={name} value={name}>
-                {name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {entity !== null ? (
-          <div className="rounded-md border border-line bg-surface-inset p-3 text-sm">
-            <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
-              <span className="text-ink-muted">{messages.entityFilterLabel}</span>
-              <span lang="nl" className="inline-flex items-center gap-1.5 font-medium text-ink">
-                {entity.kind ? <KindGlyph kind={entity.kind} /> : null}
-                {entity.label}
-              </span>
-              <button
-                type="button"
-                onClick={clearEntity}
-                className="ml-auto inline-flex min-h-11 items-center rounded-sm border border-line bg-surface px-3 text-sm font-medium text-ink-muted hover:text-ink sm:min-h-8"
-              >
-                {messages.entityFilterClear}
-              </button>
-            </p>
+          </p>
+          <p className="mt-1 text-xs text-ink-faint">
+            {interpolate(NEWS_DICT.newsEntityResultCount[uiLanguage], { n: formatCountIn(resultCount, uiLanguage) })}
             {entity.href ? (
-              <p className="mt-1 text-xs text-ink-faint">
-                {rows.length === 0 ? `${messages.entityFilterEmpty} ` : null}
-                <Link href={entity.href} className="text-accent-text underline-offset-2 hover:underline">
-                  {interpolate(NEWS_DICT.newsEntityAllLink[uiLanguage], { name: entity.label })}
+              <>
+                {" "}
+                <Link href={entity.href} className="inline-flex text-accent-text underline-offset-2 hover:underline pointer-coarse:min-h-11 pointer-coarse:items-center">
+                  {interpolate(NEWS_DICT.newsEntityPageLink[uiLanguage], { name: entity.label })}
                 </Link>
-              </p>
+              </>
             ) : null}
-          </div>
-        ) : null}
-      </div>
+          </p>
+        </div>
+      ) : null}
 
       <noscript>
         <p className="mt-3 text-xs text-ink-faint">{messages.noscript}</p>
@@ -311,13 +243,16 @@ export function NewsExplorer({
       ) : (
         <>
           <div className="mt-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
-            <p role="status" className="text-sm text-ink-muted">
+            <p role="status" aria-atomic="true" className="text-sm text-ink-muted">
               {interpolate(NEWS_DICT.newsRelevantCount[uiLanguage], {
                 n: formatCountIn(relevantTotals[language], uiLanguage),
                 total: formatCountIn(totals[language], uiLanguage),
               })}
+              {filtering
+                ? ` · ${resultCount === 0 ? messages.noItemsFilterLabel : interpolate(NEWS_DICT.newsFilterResultCount[uiLanguage], { n: countWord(resultCount) })}`
+                : ""}
             </p>
-            <button type="button" aria-pressed={showAll} onClick={() => setShowAll((value) => !value)} className={pill(showAll)}>
+            <button type="button" aria-pressed={showAll} onClick={() => update({ showAll: !showAll })} className={pillClass(showAll)}>
               {NEWS_DICT.newsShowAll[uiLanguage]}
             </button>
           </div>
@@ -361,13 +296,14 @@ export function NewsExplorer({
                       <>
                         <ol className="mt-3 list-none space-y-2 p-0">
                           {visible.map((item) => (
-                            <li key={item.id} className="motion-enter">
+                            <li key={item.id} className={CARD_ITEM_CLASS}>
                               <NewsItemCard item={item} displayLanguage={uiLanguage} />
                             </li>
                           ))}
                         </ol>
                         {hidden.length > 0 ? (
                           <MoreItems
+                            groupKey={group.key}
                             items={hidden}
                             language={uiLanguage}
                             showMore={`${messages.showMoreLabel} (${formatCountIn(hidden.length, uiLanguage)})`}
@@ -403,39 +339,73 @@ export function NewsExplorer({
 
 /**
  * The tail of a group behind a native disclosure. The cards are only built once the
- * reader opens it, so the page ships and paints the first ten per group, not hundreds.
+ * reader opens it, and then in windows of `NEWS_WINDOW_STEP`, so the page ships and paints
+ * the first ten per group, not hundreds. Which groups are open is kept with the history
+ * entry, so Back returns to a list that is as long as it was (NW-8).
  */
 function MoreItems({
+  groupKey,
   items,
   language,
   showMore,
   showLess,
 }: {
+  groupKey: RecencyGroupKey;
   items: NewsItemView[];
   language: NewsLanguage;
   showMore: string;
   showLess: string;
 }) {
   const [opened, setOpened] = useState(false);
+  const [shown, setShown] = useState(NEWS_WINDOW_STEP);
+  const [restored, setRestored] = useState(false);
+  useLayoutEffect(() => {
+    const entry = readEntryState();
+    const open = Array.isArray(entry.open) ? (entry.open as string[]) : [];
+    const count = typeof entry[`shown-${groupKey}`] === "number" ? (entry[`shown-${groupKey}`] as number) : NEWS_WINDOW_STEP;
+    if (open.includes(groupKey)) {
+      setOpened(true);
+      setShown(Math.max(NEWS_WINDOW_STEP, count));
+      setRestored(true);
+    }
+  }, [groupKey]);
+  const rest = items.length - shown;
   return (
     <details
       className="motion-disclosure group mt-3"
+      open={restored ? true : undefined}
       onToggle={(event) => {
-        if (event.currentTarget.open) setOpened(true);
+        const open = event.currentTarget.open;
+        if (open) setOpened(true);
+        const entry = readEntryState();
+        const list = (Array.isArray(entry.open) ? (entry.open as string[]) : []).filter((key) => key !== groupKey);
+        writeEntryState({ open: open ? [...list, groupKey] : list });
       }}
     >
-      <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 rounded-pill border border-line bg-surface-raised px-4 text-sm font-medium text-ink transition-fast hover:border-accent/40 hover:bg-accent-soft hover:text-accent-text sm:min-h-9 pointer-coarse:min-h-11 [&::-webkit-details-marker]:hidden">
+      <summary className="inline-flex min-h-9 cursor-pointer list-none items-center gap-1.5 rounded-pill border border-line bg-surface-raised px-4 text-sm font-medium text-ink transition-fast hover:border-accent/40 hover:bg-accent-soft hover:text-accent-text pointer-coarse:min-h-11 [&::-webkit-details-marker]:hidden">
         <span className="group-open:hidden">{showMore}</span>
         <span className="hidden group-open:inline">{showLess}</span>
       </summary>
       {opened ? (
-        <ol className="mt-3 list-none space-y-2 p-0">
-          {items.map((item) => (
-            <li key={item.id} className="motion-enter">
-              <NewsItemCard item={item} displayLanguage={language} />
-            </li>
-          ))}
-        </ol>
+        <>
+          <ol className="mt-3 list-none space-y-2 p-0">
+            {items.slice(0, shown).map((item) => (
+              <li key={item.id} className={CARD_ITEM_CLASS}>
+                <NewsItemCard item={item} displayLanguage={language} />
+              </li>
+            ))}
+          </ol>
+          {rest > 0 ? (
+            <ShowMoreButton
+              label={interpolate(NEWS_DICT.newsDayMore[language], { n: formatCountIn(Math.min(rest, NEWS_WINDOW_STEP), language) })}
+              onClick={() => {
+                const next = shown + NEWS_WINDOW_STEP;
+                setShown(next);
+                writeEntryState({ [`shown-${groupKey}`]: next });
+              }}
+            />
+          ) : null}
+        </>
       ) : null}
     </details>
   );
@@ -475,7 +445,7 @@ function DayArchiveNav({
           <li key={day.date}>
             <Link
               href={`${archiveBase}/${day.date}/`}
-              className="inline-flex min-h-11 items-center gap-1.5 rounded-pill border border-line bg-surface-raised px-3 text-sm text-ink-muted transition-fast hover:border-accent/40 hover:text-accent-text sm:min-h-9"
+              className="inline-flex min-h-9 items-center gap-1.5 rounded-pill border border-line bg-surface-raised px-3 text-sm text-ink-muted transition-fast hover:border-accent/40 hover:text-accent-text pointer-coarse:min-h-11"
             >
               {day.label}
               <span className="tabular-nums text-ink-faint">{formatCountIn(relevantOnly ? day.relevantCount : day.count, language)}</span>
@@ -488,7 +458,7 @@ function DayArchiveNav({
               type="button"
               aria-expanded={open}
               onClick={() => setOpen((value) => !value)}
-              className="inline-flex min-h-11 items-center rounded-pill px-3 text-sm font-medium text-ink-muted underline-offset-2 hover:text-ink hover:underline sm:min-h-9"
+              className="inline-flex min-h-9 items-center rounded-pill px-3 text-sm font-medium text-ink-muted underline-offset-2 hover:text-ink hover:underline pointer-coarse:min-h-11"
             >
               {open
                 ? dict.newsFewerDays[language]
