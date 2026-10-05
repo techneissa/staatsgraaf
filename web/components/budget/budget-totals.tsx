@@ -1,52 +1,11 @@
 import type { ReactNode } from "react";
-import { HandCoins, PiggyBank, Scale, Wallet, type IconNode } from "lucide";
-import { LucideIcon } from "@/components/icons/lucide-icon";
+import { Building2, HandCoins, Scale, Wallet } from "lucide";
 import { Amount } from "./amount";
 import { ChangeIndicator } from "./change-indicator";
+import { StatTile } from "./stat-tile";
+import { DisclosureChevron } from "./disclosure-chevron";
 import { T } from "@/components/i18n/t";
 import type { BudgetOverview, BudgetTotals as Totals } from "@/lib/budget";
-
-/**
- * One total. The amount never breaks across lines; the tiles reflow by the
- * width of the column they sit in (container queries), not the screen, so a
- * 32rem page column beside the canvas gets two tiles a row, like a phone.
- */
-function StatTile({
-  icon,
-  tone,
-  label,
-  value,
-  caption,
-  extra,
-}: {
-  icon: IconNode;
-  tone: string;
-  label: ReactNode;
-  value: ReactNode;
-  caption: string | null;
-  extra?: ReactNode;
-}) {
-  return (
-    <div className="flex min-w-0 flex-col rounded-md border border-line bg-surface px-3 py-2.5 @[40rem]:px-4 @[40rem]:py-3">
-      <dt className="flex items-start gap-2 text-xs leading-snug text-ink-muted">
-        <span
-          aria-hidden="true"
-          className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-sm bg-surface-inset ${tone}`}
-        >
-          <LucideIcon icon={icon} size={15} />
-        </span>
-        <span className="min-w-0 pt-1">
-          {label}
-          {caption !== null ? <span className="text-ink-faint"> · {caption}</span> : null}
-        </span>
-      </dt>
-      <dd className="mt-1 whitespace-nowrap text-lg font-semibold tracking-tight text-ink @[26rem]:text-xl">
-        {value}
-      </dd>
-      {extra !== undefined ? <dd>{extra}</dd> : null}
-    </div>
-  );
-}
 
 function totalValue(
   totals: Totals,
@@ -64,30 +23,24 @@ function totalValue(
 }
 
 /**
- * The summed totals of the ministry budgets. Where a heading above already
- * names the budget year, pass `yearInHeading` so the tiles only mark the one
- * figure from another year.
+ * The summed totals of the ministry budgets as four headline tiles: spending
+ * with its change, revenue, spending minus revenue and the number of
+ * ministries. The year sits in the heading above, so the tiles do not repeat
+ * it. The long explanations (what the sum includes, how the net is
+ * calculated, last year's realized spending) sit in one disclosure.
  */
-export function BudgetTotals({
-  overview,
-  yearInHeading = false,
-}: {
-  overview: BudgetOverview;
-  yearInHeading?: boolean;
-}) {
-  const { totals, previousTotals, spendingDelta, unit, fiscalYear, previousFiscalYear } = overview;
+export function BudgetTotals({ overview }: { overview: BudgetOverview }) {
+  const { totals, previousTotals, spendingDelta, unit, previousFiscalYear } = overview;
   const partial = totals.spendingBudgetCounted < totals.expected;
-  const currentCaption = yearInHeading ? null : String(fiscalYear);
 
   return (
     <div className="@container">
-      <dl className="grid grid-cols-1 gap-2 @[18rem]:grid-cols-2 @[44rem]:grid-cols-4 @[44rem]:gap-3">
+      <dl className="grid grid-cols-2 gap-2 @[44rem]:grid-cols-4 @[44rem]:gap-3">
         <StatTile
           icon={Wallet}
-          tone="text-accent-text"
+          tone="sector-regering"
           label={<T area="news" k="budgetSpendingLabel" />}
           value={totalValue(totals, "spendingBudget", unit)}
-          caption={currentCaption}
           extra={
             spendingDelta !== null ? (
               <ChangeIndicator
@@ -102,37 +55,47 @@ export function BudgetTotals({
           }
         />
         <StatTile
-          icon={PiggyBank}
-          tone="text-ink-muted"
-          label={<T area="news" k="budgetSpendingActualLabel" />}
-          value={totalValue(previousTotals, "spendingActual", unit)}
-          caption={String(previousFiscalYear)}
-        />
-        <StatTile
           icon={HandCoins}
-          tone="text-accent-text"
+          tone="sector-decentraal-provinciaal"
           label={<T area="news" k="budgetRevenueLabel" />}
           value={totalValue(totals, "revenue", unit)}
-          caption={currentCaption}
         />
         <StatTile
           icon={Scale}
-          tone="text-ink-muted"
+          tone="sector-hoge-colleges"
           label={<T area="news" k="budgetNetLabel" />}
           value={totalValue(totals, "net", unit)}
-          caption={currentCaption}
+        />
+        <StatTile
+          icon={Building2}
+          tone="sector-waterschap"
+          label={<T area="news" k="budgetMinistriesCountLabel" />}
+          value={<span className="tabular-nums">{totals.expected}</span>}
+          caption={<T area="news" k="budgetMinistriesCountCaption" />}
         />
       </dl>
 
-      <p className="mt-3 text-xs leading-relaxed text-ink-faint">
-        <T area="news" k="budgetTotalsNote" /> <T area="news" k="budgetNetNote" />
-        {partial ? (
-          <>
-            {" "}
-            <T area="news" k="budgetTotalsPartialNote" />
-          </>
-        ) : null}
-      </p>
+      <details className="group mt-2">
+        <summary className="flex min-h-11 cursor-pointer list-none items-center gap-1.5 text-sm font-medium text-accent-text [&::-webkit-details-marker]:hidden">
+          <DisclosureChevron />
+          <T area="news" k="budgetAboutTotals" />
+        </summary>
+        <div className="space-y-2 pb-2 text-xs leading-relaxed text-ink-faint">
+          <p>
+            <T area="news" k="budgetSpendingActualLabel" /> {previousFiscalYear}:{" "}
+            <span className="font-medium text-ink-muted">{totalValue(previousTotals, "spendingActual", unit)}</span>
+          </p>
+          <p>
+            <T area="news" k="budgetTotalsNote" /> <T area="news" k="budgetNetNote" />
+            {partial ? (
+              <>
+                {" "}
+                <T area="news" k="budgetTotalsPartialNote" />
+              </>
+            ) : null}
+          </p>
+        </div>
+      </details>
     </div>
   );
 }

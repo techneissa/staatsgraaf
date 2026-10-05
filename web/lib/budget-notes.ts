@@ -33,3 +33,31 @@ const NOTES: Record<string, BudgetComparabilityNote> = {
 export function budgetComparabilityNote(organizationId: string): BudgetComparabilityNote | null {
   return NOTES[organizationId] ?? null;
 }
+
+/**
+ * A series that starts later than the others because the source has no own
+ * chapter before that year. A named gap, shown instead of an empty chart
+ * stretch. Source: research/L-budget-en-financien.md, gap 5.
+ */
+export type BudgetSeriesGap = {
+  nl: string;
+  en: string;
+  /** Source id in data/sources.json that backs the note. */
+  sourceId: string;
+};
+
+const SERIES_GAPS: Record<string, BudgetSeriesGap> = {
+  "org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur": {
+    nl:
+      "De reeks begint in 2019. Tot en met 2018 viel landbouw onder begrotingshoofdstuk XIII; " +
+      "de bron heeft voor die jaren geen eigen reeks, dus Staatsgraaf toont geen cijfers.",
+    en:
+      "The series starts in 2019. Up to and including 2018 agriculture fell under budget chapter XIII; " +
+      "the source has no series of its own for those years, so Staatsgraaf shows no figures.",
+    sourceId: "src:rijksfinancien-begrotingsstaten-2013-2027",
+  },
+};
+
+export function budgetSeriesGap(organizationId: string): BudgetSeriesGap | null {
+  return SERIES_GAPS[organizationId] ?? null;
+}
