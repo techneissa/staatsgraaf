@@ -10,6 +10,8 @@ export type FactTile = {
   value: ReactNode;
   /** A long value such as a list of aliases takes a whole row. */
   wide?: boolean;
+  /** A short explanation of jargon, shown quietly under the value. */
+  hint?: ReactNode;
 };
 
 /**
@@ -41,7 +43,10 @@ export function FactTiles({ facts, className = "" }: { facts: FactTile[]; classN
               </span>
               {fact.label}
             </dt>
-            <dd className="text-sm leading-snug text-ink break-words">{fact.value}</dd>
+            <dd className="text-sm leading-snug text-ink break-words">
+              {fact.value}
+              {fact.hint ? <span className="mt-0.5 block text-[11px] leading-snug text-ink-faint">{fact.hint}</span> : null}
+            </dd>
           </div>
         ))}
       </dl>

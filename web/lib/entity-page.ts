@@ -232,3 +232,30 @@ export function sortCareerNewestFirst<T extends CareerSortable>(items: T[]): T[]
       Number(b.current) - Number(a.current),
   );
 }
+
+// Position holders ----------------------------------------------------------------
+
+export type HolderState =
+  | { kind: "holders" }
+  | { kind: "vacant" }
+  | { kind: "members"; count: number }
+  | { kind: "ended"; date: string }
+  | { kind: "unknown" };
+
+/**
+ * What a position page says about its holder. Vacant only when a source says
+ * so; a position with no tenure on record is "unknown", never "vacant".
+ */
+export function holderState(input: {
+  currentHolders: number;
+  lastEnded: string | null;
+  vacancy: boolean;
+  /** Current members of the body when the position is a plain "Lid ..." seat. */
+  memberCount: number;
+}): HolderState {
+  if (input.currentHolders > 0) return { kind: "holders" };
+  if (input.vacancy) return { kind: "vacant" };
+  if (input.memberCount > 0) return { kind: "members", count: input.memberCount };
+  if (input.lastEnded !== null) return { kind: "ended", date: input.lastEnded };
+  return { kind: "unknown" };
+}

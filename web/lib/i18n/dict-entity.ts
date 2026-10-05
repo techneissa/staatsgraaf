@@ -224,6 +224,70 @@ export const ENTITY_DICT = {
     nl: "Voor deze organisatie zijn nog geen functionarissen, leden, verbindingen of nieuwsberichten vastgelegd. Wat de dataset wel heeft staat hierboven.",
     en: "No office holders, members, connections or news are recorded for this organization yet. What the dataset does hold is shown above.",
   },
+  // Short explanations of jargon, shown under the label or the group title
+  glossFillMethod: {
+    nl: "Hoe de positie wordt vervuld, bijvoorbeeld bij koninklijk besluit of door verkiezing.",
+    en: "How the position is filled, for example by royal decree or by election.",
+  },
+  glossEntryModes: {
+    nl: "Op welke manieren iemand de positie kan krijgen.",
+    en: "The ways a person can come to hold the position.",
+  },
+  glossDeptHead: {
+    nl: "De leidende positie van het orgaan.",
+    en: "The leading position of the body.",
+  },
+  glossExOfficio: {
+    nl: "Posities die automatisch bij een andere functie horen.",
+    en: "Positions that come automatically with another office.",
+  },
+  glossMainPosition: {
+    nl: "De positie die aan het hoofd van de organisatie staat.",
+    en: "The position that heads the organization.",
+  },
+  subtypeKoepel: { nl: "koepel", en: "umbrella body" },
+  glossKoepel: {
+    nl: "Een overkoepelende vereniging of organisatie van gemeenten, provincies of waterschappen.",
+    en: "An umbrella association of municipalities, provinces or water boards.",
+  },
+
+  // Party pages: the people linked to a party
+  partyGroupBewind: { nl: "Bewindspersonen", en: "Cabinet members" },
+  partyGroupFractie: { nl: "Fractievoorzitters", en: "Parliamentary group leaders" },
+  partyGroupMayors: { nl: "Burgemeesters", en: "Mayors" },
+  partyGroupBoards: { nl: "Bestuurders", en: "Regional and local officials" },
+  partyGroupOthers: { nl: "Andere personen met deze partij", en: "Other people with this party" },
+  partySeatsLine: {
+    nl: "{tk} zetels in de Tweede Kamer, {ek} in de Eerste Kamer.",
+    en: "{tk} seats in the Tweede Kamer, {ek} in the Eerste Kamer.",
+  },
+  partyPeopleNote: {
+    nl: "Personen die de dataset aan deze partij koppelt (het veld partij van de persoon, met een bron per persoon). Voor de fractie bestaat nog geen eigen organisatiepagina.",
+    en: "People the dataset links to this party (the party field of each person, with a source per person). The parliamentary group has no organization page of its own yet.",
+  },
+  partyNoPeople: {
+    nl: "De dataset koppelt op dit snapshot geen personen aan deze partij.",
+    en: "On this snapshot the dataset links no people to this party.",
+  },
+
+  // Position holders: what the data says when nobody is listed
+  holdersNoneUnknown: {
+    nl: "Op dit snapshot staat in de dataset geen houder van deze positie. Dat betekent niet dat de positie vacant is: de bronnen noemen er nog geen.",
+    en: "On this snapshot the dataset lists no holder of this position. That does not mean the position is vacant: the sources name none yet.",
+  },
+  holdersNoneEnded: {
+    nl: "Op dit snapshot geen huidige houder in de dataset. De laatste bekende periode eindigde op {date}.",
+    en: "No current holder in the dataset on this snapshot. The last known period ended on {date}.",
+  },
+  holdersVacant: {
+    nl: "Vacant volgens de bron:",
+    en: "Vacant according to the source:",
+  },
+  holdersViaMembers: {
+    nl: "De {n} huidige leden staan bij {body}, niet als apart ambt.",
+    en: "The {n} current members are listed at {body}, not as a separate office.",
+  },
+  holdersViaMembersLink: { nl: "Bekijk de leden", en: "See the members" },
   personEmptyNote: {
     nl: "Voor deze persoon zijn nog geen functies of lidmaatschappen vastgelegd.",
     en: "No positions or memberships are recorded for this person yet.",

@@ -2,7 +2,7 @@ import { SourceIcon } from "@/components/source-icon";
 import { L, T } from "@/components/i18n/t";
 import { KindGlyph } from "@/components/kind-glyph";
 import { PartyBadge } from "@/components/party-badge";
-import { LocaleLabel } from "@/components/i18n/locale-label";
+import { SubtypeLabel } from "./subtype-label";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { PeekLink } from "@/components/peek/peek-link";
 import { getOrganizationById, getPersonById, getPositionById, getSourceById } from "@/lib/data";
@@ -70,6 +70,12 @@ function iconFor(type: ConnectionGroup["type"]) {
       return <BuildingIcon />;
   }
 }
+
+/** Groups whose title is jargon get one plain sentence under it. */
+const GROUP_HINTS: Partial<Record<ConnectionGroup["type"], string>> = {
+  dept_head: "glossMainPosition",
+  ex_officio: "glossExOfficio",
+};
 
 const GROUP_TITLES: Record<ConnectionGroup["type"], { nl: string; en: string }> = {
   holds_position: { nl: "Positie", en: "Position" },
@@ -149,7 +155,7 @@ function ContextLine({ connection, selfId }: { connection: Connection; selfId?: 
   }
   if (connection.other.kind === "organization") {
     const organization = getOrganizationById(connection.other.id);
-    return organization ? <LocaleLabel kind="subtype" value={organization.subtype} /> : null;
+    return organization ? <SubtypeLabel value={organization.subtype} /> : null;
   }
   const person = getPersonById(connection.other.id);
   return person?.party ? <PartyBadge party={person.party} /> : null;
@@ -254,6 +260,11 @@ function ConnectionGroupBlock({
       count={rows.length}
       plain
     >
+      {GROUP_HINTS[group.type] !== undefined ? (
+        <p className="mb-1 text-xs text-ink-faint">
+          <T area="entity" k={GROUP_HINTS[group.type] as string} />
+        </p>
+      ) : null}
       {visible.length > 0 ? (
         <ul className={LIST_CLASS}>
           {visible.map((row) => (

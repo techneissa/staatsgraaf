@@ -243,12 +243,16 @@ export function childOrganizations(id: string): Organization[] {
   return childIndex.get(id) ?? [];
 }
 
+/** Subtypes the shared label tables do not translate (labels.ts is not owned here). */
+const SUBTYPE_OVERRIDES: Record<string, Summary> = { koepel: { nl: "koepel", en: "umbrella body" } };
+
 export function organizationSummary(
   organization: Organization,
   options: { omitChildren?: boolean } = {},
 ): Summary | null {
-  const subtypeNl = ORG_SUBTYPE_LABELS[organization.subtype] ?? organization.subtype;
-  const subtypeEn = ORG_SUBTYPE_LABELS_EN[organization.subtype] ?? subtypeNl;
+  const override = SUBTYPE_OVERRIDES[organization.subtype];
+  const subtypeNl = override?.nl ?? ORG_SUBTYPE_LABELS[organization.subtype] ?? organization.subtype;
+  const subtypeEn = override?.en ?? ORG_SUBTYPE_LABELS_EN[organization.subtype] ?? subtypeNl;
   // "Tweede Kamer der Staten-Generaal" already says "Tweede Kamer"; lead with the kind of body instead.
   const nameRepeatsSubtype =
     subtypeNl.includes(" ") && organization.name.toLowerCase().startsWith(subtypeNl.toLowerCase());
