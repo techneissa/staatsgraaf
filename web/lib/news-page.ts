@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { toNewsItemView, type NewsItemView } from "@/components/news/news-view";
 import type { NewsExplorerGroup, NewsExplorerRow } from "@/components/news/news-explorer";
 import {
@@ -17,7 +18,11 @@ import {
   recencyGroupDetail,
   relevanceCounts,
 } from "@/lib/news";
+import { getDatasetDate } from "@/lib/data";
+import { languageTwin } from "@/lib/language-routes";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
+import { pageMetadata } from "@/lib/site";
+import { newsTranslationFor } from "@/lib/news-translations";
 import type { NewsItem, NewsLanguage } from "@/lib/types";
 
 const dayLabelFormats: Record<NewsLanguage, Intl.DateTimeFormat> = {
@@ -55,12 +60,16 @@ function languageBucket(items: NewsItem[], lang: NewsLanguage, locale: NewsLangu
   const forLang = byLanguage(items, lang);
   const { total, relevant } = relevanceCounts(forLang);
   const others = forLang.filter((item) => !isRelevantNews(item));
+  // Items in the other interface language that have a valid machine translation (NW-12).
+  const translatedItems = forLang.filter((item) => newsTranslationFor(item, locale) !== null);
   const carried = [...forLang.filter(isRelevantNews), ...others.slice(0, NEWS_OTHER_CARD_LIMIT)].sort(
     (a, b) => b.published.localeCompare(a.published) || a.id.localeCompare(b.id),
   );
   return {
     total,
     relevantTotal: relevant,
+    translated: translatedItems.length,
+    relevantTranslated: translatedItems.filter(isRelevantNews).length,
     items: getNewsItemViews(carried, locale),
     unloaded: others.slice(NEWS_OTHER_CARD_LIMIT).map((item): NewsExplorerRow => [newsKind(item), item.publisher]),
   };
@@ -141,5 +150,49 @@ export function buildNewsDayArchive(date: string, locale: NewsLanguage): NewsDay
       label: `${bucket.hour}:00 ${messages.hourConnector} ${bucket.hour}:59`,
       items: getNewsItemViews(bucket.items, locale),
     })),
+  };
+}
+
+const ROUTE_BASE: Record<NewsLanguage, string> = { nl: "/nieuws", en: "/news" };
+
+/** The path prefix of a news route: "/nieuws" for Dutch, "/news" for English. */
+export function newsRouteBase(route: NewsLanguage): string {
+  return ROUTE_BASE[route];
+}
+
+/** The inLanguage value of a news route's JSON-LD and the hreflang of its page. */
+export const NEWS_IN_LANGUAGE: Record<NewsLanguage, string> = { nl: "nl-NL", en: "en-GB" };
+
+/**
+ * Metadata of a news page in either language: title, description, canonical and the
+ * hreflang pair of the two routes (NW-10). The English route says so in `og:locale`
+ * and names the Dutch one as the alternate, and the other way round.
+ */
+export function newsPageMetadata({
+  route,
+  title,
+  description,
+  path,
+}: {
+  route: NewsLanguage;
+  title: string;
+  description: string;
+  path: string;
+}): Metadata {
+  const twin = languageTwin(path);
+  const base = pageMetadata({
+    title,
+    description,
+    path,
+    snapshotDate: getDatasetDate(),
+    alternateLanguages: twin ?? undefined,
+  });
+  return {
+    ...base,
+    openGraph: {
+      ...(base.openGraph ?? {}),
+      locale: route === "en" ? "en_GB" : "nl_NL",
+      alternateLocale: route === "en" ? ["nl_NL"] : ["en_GB"],
+    },
   };
 }
