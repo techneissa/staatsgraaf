@@ -45,15 +45,16 @@ export function EntityTabs({
   const t = useT("entity");
   const settled = useSettled();
 
-  const tabs: { value: EntityTabValue; label: ReactNode; content: ReactNode }[] = [];
-  const newsTab = hasNews ? { value: "nieuws", label: t("tabNews"), content: news } : null;
-  const connectionsTab = hasConnections
-    ? { value: "verbindingen", label: t("whosConnected"), content: connections }
+  type Tab = { value: EntityTabValue; label: ReactNode; content: ReactNode; heading: boolean };
+  const tabs: Tab[] = [];
+  const newsTab: Tab | null = hasNews ? { value: "nieuws", label: t("tabNews"), content: news, heading: true } : null;
+  const connectionsTab: Tab | null = hasConnections
+    ? { value: "verbindingen", label: t("whosConnected"), content: connections, heading: true }
     : null;
   for (const tab of first === "verbindingen" ? [connectionsTab, newsTab] : [newsTab, connectionsTab]) {
     if (tab !== null) tabs.push(tab);
   }
-  for (const tab of extra) tabs.push(tab);
+  for (const tab of extra) tabs.push({ ...tab, heading: true });
 
   const values = tabs.map((tab) => tab.value);
   const fallback = values[0] ?? "nieuws";
@@ -63,8 +64,13 @@ export function EntityTabs({
   // Read the hash after hydration (the server cannot see it) and follow back/forward.
   useEffect(() => {
     const fromHash = () => {
-      const hash = decodeURIComponent(window.location.hash.replace(/^#/, ""));
+      const raw = decodeURIComponent(window.location.hash.replace(/^#/, ""));
+      // A link to a panel heading (the news link in a peek) selects the panel it sits in.
+      const hash = raw.replace(/-paneel-titel$/, "");
       setValue(values.includes(hash) ? hash : fallback);
+      if (raw !== hash && values.includes(hash)) {
+        requestAnimationFrame(() => document.getElementById(raw)?.scrollIntoView({ block: "start" }));
+      }
     };
     fromHash();
     window.addEventListener("popstate", fromHash);
@@ -88,6 +94,22 @@ export function EntityTabs({
 
   if (tabs.length === 0) return empty === null ? null : <div className="mt-6">{empty}</div>;
 
+  // One panel needs no tab bar: its title stands as a heading instead.
+  if (tabs.length === 1) {
+    const only = tabs[0];
+    return (
+      <section className="mt-6 min-w-0" aria-labelledby={`${only.value}-paneel-titel`}>
+        <h2
+          id={`${only.value}-paneel-titel`}
+          className="border-b border-line pb-2 text-sm font-semibold tracking-tight text-ink"
+        >
+          {only.label}
+        </h2>
+        <div className="pt-4">{only.content}</div>
+      </section>
+    );
+  }
+
   return (
     <Tabs.Root value={value} onValueChange={select} className="mt-6" data-settled={settled ? "" : undefined}>
       <Tabs.List aria-label={t("panelLabel")} className="scroll-row items-stretch gap-1 border-b border-line">
@@ -100,6 +122,11 @@ export function EntityTabs({
       </Tabs.List>
       {tabs.map((tab) => (
         <Tabs.Content key={tab.value} value={tab.value} className={panelClass}>
+          {tab.heading ? (
+            <h2 id={`${tab.value}-paneel-titel`} className="sr-only">
+              {tab.label}
+            </h2>
+          ) : null}
           {tab.content}
         </Tabs.Content>
       ))}

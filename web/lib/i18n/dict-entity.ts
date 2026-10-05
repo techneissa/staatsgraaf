@@ -224,6 +224,14 @@ export const ENTITY_DICT = {
     nl: "Voor deze organisatie zijn nog geen functionarissen, leden, verbindingen of nieuwsberichten vastgelegd. Wat de dataset wel heeft staat hierboven.",
     en: "No office holders, members, connections or news are recorded for this organization yet. What the dataset does hold is shown above.",
   },
+  personEmptyNote: {
+    nl: "Voor deze persoon zijn nog geen functies of lidmaatschappen vastgelegd.",
+    en: "No positions or memberships are recorded for this person yet.",
+  },
+  personNamedWith: {
+    nl: "Dezelfde bron staat bij:",
+    en: "The same source is cited for:",
+  },
   moreHoldersThanSeats: {
     nl: "Meer houders dan zetels: de bron noemt meer huidige houders dan het aantal zetels dat hij opgeeft.",
     en: "More holders than seats: the source names more current holders than the number of seats it gives.",

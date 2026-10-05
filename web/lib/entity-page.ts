@@ -198,3 +198,37 @@ export function positionDescription(facts: PositionFacts): string {
       : "Op dit snapshot is geen huidige houder bekend.";
   return `${facts.title}${where}: ${bits.join(", ")}. ${holders}`;
 }
+
+// Career ------------------------------------------------------------------------
+
+/** Generic words a career entry uses where an organisation should stand. */
+const GENERIC_ORGANIZATIONS = new Set(["fractie", "partij", "kamer", "kabinet", "commissie", "raad"]);
+
+export function isGenericOrganization(label: string | null): boolean {
+  return label !== null && GENERIC_ORGANIZATIONS.has(label.trim().toLowerCase());
+}
+
+type CareerSortable = { years: { nl: string } | null; current: boolean };
+
+/** The latest year a career entry names; Infinity for "nu" and "sinds ..." entries, -Infinity when it names none. */
+function latestYear(item: CareerSortable): number {
+  if (item.years === null) return Number.NEGATIVE_INFINITY;
+  if (/^(nu|sinds)\b/i.test(item.years.nl)) return Number.POSITIVE_INFINITY;
+  const years = item.years.nl.match(/\d{4}/g);
+  return years === null ? Number.NEGATIVE_INFINITY : Math.max(...years.map(Number));
+}
+
+function earliestYear(item: CareerSortable): number {
+  const years = item.years?.nl.match(/\d{4}/g);
+  return years === null || years === undefined ? Number.NEGATIVE_INFINITY : Math.min(...years.map(Number));
+}
+
+/** Newest first by the latest year shown, then by the later start; entries with no year last. */
+export function sortCareerNewestFirst<T extends CareerSortable>(items: T[]): T[] {
+  return [...items].sort(
+    (a, b) =>
+      (latestYear(b) === latestYear(a) ? 0 : latestYear(b) > latestYear(a) ? 1 : -1) ||
+      (earliestYear(b) === earliestYear(a) ? 0 : earliestYear(b) > earliestYear(a) ? 1 : -1) ||
+      Number(b.current) - Number(a.current),
+  );
+}
