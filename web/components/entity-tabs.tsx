@@ -1,7 +1,7 @@
 "use client";
 
 import * as Tabs from "@radix-ui/react-tabs";
-import type { ReactNode } from "react";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { SlidingIndicator } from "./motion/sliding-indicator";
 import { useSettled } from "./motion/use-settled";
 import { useT } from "./i18n/use-t";
@@ -15,41 +15,118 @@ const panelClass =
 /** An extra section tab after the default two, for example a person's proposals and motions. */
 export type EntityExtraTab = { value: string; label: ReactNode; content: ReactNode };
 
+export type EntityTabValue = "nieuws" | "verbindingen" | (string & {});
+
+/**
+ * Tabs for the news and the connections of an entity. A tab with nothing to
+ * show is left out (`hasNews`, `hasConnections`); when both are empty the
+ * `empty` note stands in their place. The selected tab lives in the URL hash
+ * (`#verbindingen`), so a tab can be linked and the back button restores it.
+ * `first` picks the default tab and the tab order: connections lead on pages
+ * where structure matters more than news.
+ */
 export function EntityTabs({
   news,
   connections,
   extra = [],
+  hasNews = true,
+  hasConnections = true,
+  first = "nieuws",
+  empty = null,
 }: {
   news: ReactNode;
   connections: ReactNode;
   extra?: EntityExtraTab[];
+  hasNews?: boolean;
+  hasConnections?: boolean;
+  first?: "nieuws" | "verbindingen";
+  empty?: ReactNode;
 }) {
   const t = useT("entity");
   const settled = useSettled();
+
+  type Tab = { value: EntityTabValue; label: ReactNode; content: ReactNode; heading: boolean };
+  const tabs: Tab[] = [];
+  const newsTab: Tab | null = hasNews ? { value: "nieuws", label: t("tabNews"), content: news, heading: true } : null;
+  const connectionsTab: Tab | null = hasConnections
+    ? { value: "verbindingen", label: t("whosConnected"), content: connections, heading: true }
+    : null;
+  for (const tab of first === "verbindingen" ? [connectionsTab, newsTab] : [newsTab, connectionsTab]) {
+    if (tab !== null) tabs.push(tab);
+  }
+  for (const tab of extra) tabs.push({ ...tab, heading: true });
+
+  const values = tabs.map((tab) => tab.value);
+  const fallback = values[0] ?? "nieuws";
+  const [value, setValue] = useState<EntityTabValue>(fallback);
+  const valuesKey = values.join("|");
+
+  // Read the hash after hydration (the server cannot see it) and follow back/forward.
+  useEffect(() => {
+    const fromHash = () => {
+      const raw = decodeURIComponent(window.location.hash.replace(/^#/, ""));
+      // A link to a panel heading (the news link in a peek) selects the panel it sits in.
+      const hash = raw.replace(/-paneel-titel$/, "");
+      setValue(values.includes(hash) ? hash : fallback);
+      if (raw !== hash && values.includes(hash)) {
+        requestAnimationFrame(() => document.getElementById(raw)?.scrollIntoView({ block: "start" }));
+      }
+    };
+    fromHash();
+    window.addEventListener("popstate", fromHash);
+    window.addEventListener("hashchange", fromHash);
+    return () => {
+      window.removeEventListener("popstate", fromHash);
+      window.removeEventListener("hashchange", fromHash);
+    };
+    // values is derived from valuesKey
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [valuesKey, fallback]);
+
+  const select = useCallback(
+    (next: string) => {
+      setValue(next);
+      const url = `${window.location.pathname}${window.location.search}#${next}`;
+      if (window.location.hash !== `#${next}`) window.history.pushState(window.history.state, "", url);
+    },
+    [],
+  );
+
+  if (tabs.length === 0) return empty === null ? null : <div className="mt-6">{empty}</div>;
+
+  // One panel needs no tab bar: its title stands as a heading instead.
+  if (tabs.length === 1) {
+    const only = tabs[0];
+    return (
+      <section className="mt-6 min-w-0" aria-labelledby={`${only.value}-paneel-titel`}>
+        <h2
+          id={`${only.value}-paneel-titel`}
+          className="border-b border-line pb-2 text-sm font-semibold tracking-tight text-ink"
+        >
+          {only.label}
+        </h2>
+        <div className="pt-4">{only.content}</div>
+      </section>
+    );
+  }
+
   return (
-    <Tabs.Root defaultValue="nieuws" className="mt-6" data-settled={settled ? "" : undefined}>
+    <Tabs.Root value={value} onValueChange={select} className="mt-6" data-settled={settled ? "" : undefined}>
       <Tabs.List aria-label={t("panelLabel")} className="scroll-row items-stretch gap-1 border-b border-line">
         <SlidingIndicator variant="underline" className="bg-accent" />
-        <Tabs.Trigger value="nieuws" className={triggerClass}>
-          {t("tabNews")}
-        </Tabs.Trigger>
-        <Tabs.Trigger value="verbindingen" className={triggerClass}>
-          {t("whosConnected")}
-        </Tabs.Trigger>
-        {extra.map((tab) => (
+        {tabs.map((tab) => (
           <Tabs.Trigger key={tab.value} value={tab.value} className={triggerClass}>
             {tab.label}
           </Tabs.Trigger>
         ))}
       </Tabs.List>
-      <Tabs.Content value="nieuws" className={panelClass}>
-        {news}
-      </Tabs.Content>
-      <Tabs.Content value="verbindingen" className={panelClass}>
-        {connections}
-      </Tabs.Content>
-      {extra.map((tab) => (
+      {tabs.map((tab) => (
         <Tabs.Content key={tab.value} value={tab.value} className={panelClass}>
+          {tab.heading ? (
+            <h2 id={`${tab.value}-paneel-titel`} className="sr-only">
+              {tab.label}
+            </h2>
+          ) : null}
           {tab.content}
         </Tabs.Content>
       ))}

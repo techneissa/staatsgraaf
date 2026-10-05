@@ -2,7 +2,7 @@ import { SourceIcon } from "@/components/source-icon";
 import { L, T } from "@/components/i18n/t";
 import { KindGlyph } from "@/components/kind-glyph";
 import { PartyBadge } from "@/components/party-badge";
-import { LocaleLabel } from "@/components/i18n/locale-label";
+import { SubtypeLabel } from "./subtype-label";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { PeekLink } from "@/components/peek/peek-link";
 import { getOrganizationById, getPersonById, getPositionById, getSourceById } from "@/lib/data";
@@ -14,7 +14,9 @@ import {
   type Connection,
   type ConnectionGroup,
 } from "@/lib/entity";
+import { mergeConnectionRows, type ConnectionRowModel } from "@/lib/entity-rows";
 import { FactGroup } from "./fact-group";
+import { SourceSlot } from "./source-slot";
 import {
   AdviceIcon,
   BuildingIcon,
@@ -69,6 +71,12 @@ function iconFor(type: ConnectionGroup["type"]) {
   }
 }
 
+/** Groups whose title is jargon get one plain sentence under it. */
+const GROUP_HINTS: Partial<Record<ConnectionGroup["type"], string>> = {
+  dept_head: "glossMainPosition",
+  ex_officio: "glossExOfficio",
+};
+
 const GROUP_TITLES: Record<ConnectionGroup["type"], { nl: string; en: string }> = {
   holds_position: { nl: "Positie", en: "Position" },
   member_of: { nl: "Lidmaatschap", en: "Membership" },
@@ -109,6 +117,8 @@ function groupTitle(group: ConnectionGroup): { nl: string; en: string } | null {
       return incoming ? { nl: "Geadviseerd door", en: "Advised by" } : { nl: "Adviseert", en: "Advises" };
     case "oversees":
       return incoming ? { nl: "Onder toezicht van", en: "Overseen by" } : { nl: "Houdt toezicht op", en: "Oversees" };
+    case "part_of":
+      return incoming ? { nl: "Onderdelen", en: "Parts" } : { nl: "Onderdeel van", en: "Part of" };
     default:
       return GROUP_TITLES[group.type];
   }
@@ -147,34 +157,41 @@ function ContextLine({ connection, selfId }: { connection: Connection; selfId?: 
   }
   if (connection.other.kind === "organization") {
     const organization = getOrganizationById(connection.other.id);
-    return organization ? <LocaleLabel kind="subtype" value={organization.subtype} /> : null;
+    return organization ? <SubtypeLabel value={organization.subtype} /> : null;
   }
   const person = getPersonById(connection.other.id);
   return person?.party ? <PartyBadge party={person.party} /> : null;
 }
 
+/**
+ * One connection row. The name and the source icon are separate flex
+ * children that never overlap: the name keeps the whole text column, the
+ * source icon sits in its own slot (44 px on touch), so a tap on a name
+ * always reaches the peek, never the external source.
+ */
 function ConnectionRow({
-  connection,
+  row,
   showDirection,
   selfId,
 }: {
-  connection: Connection;
+  row: ConnectionRowModel;
   showDirection: boolean;
   selfId?: string;
 }) {
+  const connection = row.connections[0];
   const source = getSourceById(connection.source.source);
-  const seats = seatLine(connection);
+  const seats = row.connections.length === 1 ? seatLine(connection) : null;
   const kind = peekKindOf(connection);
   const person = connection.other.kind === "person" ? getPersonById(connection.other.id) : undefined;
   return (
-    <div className="flex items-start gap-2.5 py-2">
-      <span className="flex h-6 w-6 shrink-0 items-center justify-center" aria-hidden="true">
+    <div className="flex items-start gap-2">
+      <span className="mt-2 flex h-6 w-6 shrink-0 items-center justify-center pointer-coarse:mt-[11px]" aria-hidden="true">
         {person ? <PersonPortrait person={person} size={24} /> : <KindGlyph kind={kind} size={9} />}
       </span>
-      <div className="min-w-0 flex-1">
-        <p className="text-sm leading-snug">
+      <div className="min-w-0 flex-1 py-2 pointer-coarse:py-0">
+        <p className="flex items-start gap-1 text-sm leading-snug">
           {showDirection ? (
-            <span aria-hidden="true" className="me-1 text-ink-faint">
+            <span aria-hidden="true" className="shrink-0 text-ink-faint pointer-coarse:py-3.5">
               {connection.direction === "outgoing" ? "\u2192" : "\u2190"}
             </span>
           ) : null}
@@ -192,12 +209,12 @@ function ConnectionRow({
             href={connection.other.href}
             kind={kind}
             variant="plain"
-            className="font-medium"
+            className="min-w-0 break-words font-medium pointer-coarse:py-3.5"
           >
             {connection.other.name}
           </PeekLink>
         </p>
-        <p className="mt-0.5 flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-xs text-ink-faint">
+        <p className="mt-0.5 flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-xs text-ink-faint pointer-coarse:pb-2">
           <ContextLine connection={connection} selfId={selfId} />
           {seats !== null ? (
             <span className="tabular-nums">
@@ -208,11 +225,13 @@ function ConnectionRow({
               )}
             </span>
           ) : null}
-          {source ? (
-            <SourceIcon href={source.url} title={source.title} retrieved={connection.source.retrieved} className="self-center" />
-          ) : null}
         </p>
       </div>
+      {source ? (
+        <SourceSlot>
+          <SourceIcon href={source.url} title={source.title} retrieved={connection.source.retrieved} />
+        </SourceSlot>
+      ) : null}
     </div>
   );
 }
@@ -232,21 +251,27 @@ function ConnectionGroupBlock({
     }
     return a.other.name.localeCompare(b.other.name, "nl");
   });
-  const visible = connections.slice(0, GROUP_LIMIT);
-  const rest = connections.slice(GROUP_LIMIT);
+  const rows = mergeConnectionRows(connections);
+  const visible = rows.slice(0, GROUP_LIMIT);
+  const rest = rows.slice(GROUP_LIMIT);
   const title = groupTitle(group) ?? GROUP_TITLES[group.type];
   return (
     <FactGroup
       icon={iconFor(group.type)}
       title={<L nl={title.nl} en={title.en} />}
-      count={connections.length}
+      count={rows.length}
       plain
     >
+      {GROUP_HINTS[group.type] !== undefined ? (
+        <p className="mb-1 text-xs text-ink-faint">
+          <T area="entity" k={GROUP_HINTS[group.type] as string} />
+        </p>
+      ) : null}
       {visible.length > 0 ? (
         <ul className={LIST_CLASS}>
-          {visible.map((connection) => (
-            <li key={connection.id} className="border-b border-line/60 last:border-b-0">
-              <ConnectionRow connection={connection} showDirection={showDirection} selfId={selfId} />
+          {visible.map((row) => (
+            <li key={row.key} className="border-b border-line/60 last:border-b-0">
+              <ConnectionRow row={row} showDirection={showDirection} selfId={selfId} />
             </li>
           ))}
         </ul>
@@ -254,12 +279,12 @@ function ConnectionGroupBlock({
       {rest.length > 0 ? (
         <details className="motion-disclosure mt-2">
           <summary className={SUMMARY_CLASS}>
-            <T area="common" k="seeAll" vars={{ n: group.connections.length }} />
+            <T area="common" k="seeAll" vars={{ n: rows.length }} />
           </summary>
           <ul className={`mt-1 ${LIST_CLASS}`}>
-            {rest.map((connection) => (
-              <li key={connection.id} className="border-b border-line/60 last:border-b-0">
-                <ConnectionRow connection={connection} showDirection={showDirection} selfId={selfId} />
+            {rest.map((row) => (
+              <li key={row.key} className="border-b border-line/60 last:border-b-0">
+                <ConnectionRow row={row} showDirection={showDirection} selfId={selfId} />
               </li>
             ))}
           </ul>

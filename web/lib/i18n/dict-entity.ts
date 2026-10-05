@@ -209,6 +209,101 @@ export const ENTITY_DICT = {
   termYears: { nl: "{n} jaar", en: "{n} years" },
   termMonthOne: { nl: "{n} maand", en: "{n} month" },
   termMonths: { nl: "{n} maanden", en: "{n} months" },
+
+  // Fix wave 05-10-2026: connection rows
+  formerPosition: { nl: "eerder", en: "former" },
+
+  // Fix wave 05-10-2026: organisation structure, gaps
+  gapSourceLabel: { nl: "Bron:", en: "Source:" },
+  childrenCountOne: { nl: "{n} organisatie onder zich", en: "{n} organization under it" },
+  childrenCountMany: { nl: "{n} organisaties onder zich", en: "{n} organizations under it" },
+  childrenTitle: { nl: "Organisaties onder zich", en: "Organizations under it" },
+  keyHoldersLabel: { nl: "Aan het hoofd", en: "Led by" },
+  holdersMore: { nl: "en {n} anderen", en: "and {n} more" },
+  orgEmptyNote: {
+    nl: "Voor deze organisatie zijn nog geen functionarissen, leden, verbindingen of nieuwsberichten vastgelegd. Wat de dataset wel heeft staat hierboven.",
+    en: "No office holders, members, connections or news are recorded for this organization yet. What the dataset does hold is shown above.",
+  },
+  // Short explanations of jargon, shown under the label or the group title
+  glossFillMethod: {
+    nl: "Hoe de positie wordt vervuld.",
+    en: "How the position is filled.",
+  },
+  glossEntryModes: {
+    nl: "Hoe iemand de positie kan krijgen.",
+    en: "How a person can get the position.",
+  },
+  glossDeptHead: {
+    nl: "De leidende positie van het orgaan.",
+    en: "The leading position of the body.",
+  },
+  glossExOfficio: {
+    nl: "Posities die automatisch bij een andere functie horen.",
+    en: "Positions that come automatically with another office.",
+  },
+  glossMainPosition: {
+    nl: "De positie die aan het hoofd van de organisatie staat.",
+    en: "The position that heads the organization.",
+  },
+  subtypeKoepel: { nl: "koepel", en: "umbrella body" },
+  glossKoepel: {
+    nl: "Overkoepelt gemeenten, provincies of waterschappen.",
+    en: "Covers municipalities, provinces or water boards.",
+  },
+
+  // Party pages: the people linked to a party
+  partyGroupBewind: { nl: "Bewindspersonen", en: "Cabinet members" },
+  partyGroupFractie: { nl: "Fractievoorzitters", en: "Parliamentary group leaders" },
+  partyGroupMayors: { nl: "Burgemeesters", en: "Mayors" },
+  partyGroupBoards: { nl: "Bestuurders", en: "Regional and local officials" },
+  partyGroupOthers: { nl: "Andere personen met deze partij", en: "Other people with this party" },
+  partySeatsLine: {
+    nl: "{tk} zetels in de Tweede Kamer, {ek} in de Eerste Kamer.",
+    en: "{tk} seats in the Tweede Kamer, {ek} in the Eerste Kamer.",
+  },
+  partyPeopleNote: {
+    nl: "Personen die de dataset aan deze partij koppelt (het veld partij van de persoon, met een bron per persoon). Voor de fractie bestaat nog geen eigen organisatiepagina.",
+    en: "People the dataset links to this party (the party field of each person, with a source per person). The parliamentary group has no organization page of its own yet.",
+  },
+  partyNoPeople: {
+    nl: "De dataset koppelt op dit snapshot geen personen aan deze partij.",
+    en: "On this snapshot the dataset links no people to this party.",
+  },
+
+  // Position holders: what the data says when nobody is listed
+  holdersNoneUnknown: {
+    nl: "Op dit snapshot staat in de dataset geen houder van deze positie. Dat betekent niet dat de positie vacant is: de bronnen noemen er nog geen.",
+    en: "On this snapshot the dataset lists no holder of this position. That does not mean the position is vacant: the sources name none yet.",
+  },
+  holdersNoneEnded: {
+    nl: "Op dit snapshot geen huidige houder in de dataset. De laatste bekende periode eindigde op {date}.",
+    en: "No current holder in the dataset on this snapshot. The last known period ended on {date}.",
+  },
+  holdersVacant: {
+    nl: "Vacant volgens de bron:",
+    en: "Vacant according to the source:",
+  },
+  holdersViaMembers: {
+    nl: "De {n} huidige leden staan bij {body}, niet als apart ambt.",
+    en: "The {n} current members are listed at {body}, not as a separate office.",
+  },
+  holdersViaMembersLink: { nl: "Bekijk de leden", en: "See the members" },
+  descriptionDateNote: {
+    nl: "Niet elke datum in deze beschrijving staat in de gegevens over functies en lidmaatschappen (bijvoorbeeld {dates}). Voor de periodes gelden de gegevens hieronder.",
+    en: "Not every date in this description appears in the position and membership data (for example {dates}). The periods below are the data of record.",
+  },
+  personEmptyNote: {
+    nl: "Voor deze persoon zijn nog geen functies of lidmaatschappen vastgelegd.",
+    en: "No positions or memberships are recorded for this person yet.",
+  },
+  personNamedWith: {
+    nl: "Dezelfde bron staat bij:",
+    en: "The same source is cited for:",
+  },
+  moreHoldersThanSeats: {
+    nl: "Meer houders dan zetels: de bron noemt meer huidige houders dan het aantal zetels dat hij opgeeft.",
+    en: "More holders than seats: the source names more current holders than the number of seats it gives.",
+  },
 } as const satisfies Record<string, LocString>;
 
 export type EntityDictKey = keyof typeof ENTITY_DICT;

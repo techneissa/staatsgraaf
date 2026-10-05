@@ -237,9 +237,6 @@ export function PersonActivity({ view }: { view: PersonActivityView }) {
   const total = view.groups.reduce((sum, group) => sum + group.total, 0);
   return (
     <div>
-      <h2 id="voorstellen-paneel-titel" className="sr-only">
-        <L nl="Voorstellen en moties" en="Proposals and motions" />
-      </h2>
       <p className="mt-1 flex flex-wrap items-center gap-x-1.5 text-xs text-ink-faint">
         {total > 0 ? (
           <span>

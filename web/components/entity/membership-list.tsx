@@ -5,6 +5,7 @@ import { LocalPeriod } from "@/components/content/local-date";
 import { L, T } from "@/components/i18n/t";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { getSourceById } from "@/lib/data";
+import { SourceSlot } from "./source-slot";
 import type { Membership } from "@/lib/types";
 
 /**
@@ -47,7 +48,9 @@ export function MembershipList({ memberships }: { memberships: Membership[] }) {
                 </span>
               ) : null}
               {source ? (
-                <SourceIcon href={source.url} title={source.title} retrieved={membership.source.retrieved} />
+                <SourceSlot>
+                  <SourceIcon href={source.url} title={source.title} retrieved={membership.source.retrieved} />
+                </SourceSlot>
               ) : null}
             </p>
           </li>

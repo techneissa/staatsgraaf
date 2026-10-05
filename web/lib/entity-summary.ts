@@ -10,6 +10,7 @@ import {
 } from "./data";
 import { titleNamesBody } from "./changes";
 import { formatCountIn, formatDateIn } from "./format";
+import { isSplinterGroup } from "./parties";
 import { ORG_SUBTYPE_LABELS, ORG_SUBTYPE_LABELS_EN } from "./labels";
 import type { Membership, Organization, OrgType, Person, Position, Tenure } from "./types";
 
@@ -27,13 +28,24 @@ function joinList(items: string[], word: string): string {
   return `${items.slice(0, -1).join(", ")} ${word} ${items[items.length - 1]}`;
 }
 
-function since(start: string | null, locale: "nl" | "en"): string {
+export type SummaryOptions = {
+  /** "short" matches the lists on the page ("10 jun 2026"); the default spells the month out. */
+  dateStyle?: "long" | "short";
+};
+
+function since(start: string | null, locale: "nl" | "en", style: "long" | "short" = "long"): string {
   if (start === null) return "";
-  return locale === "en" ? ` since ${formatDateIn(start, "en")}` : ` sinds ${formatDateIn(start, "nl")}`;
+  return locale === "en" ? ` since ${formatDateIn(start, "en", style)}` : ` sinds ${formatDateIn(start, "nl", style)}`;
+}
+
+/** The party a fractie label stands for; a one-member fractie ("Lid Keijzer", "Fractie-Beukering") is not a party. */
+function realParty(label: string | null | undefined): string | null {
+  if (typeof label !== "string" || label === "" || isSplinterGroup(label)) return null;
+  return label;
 }
 
 /** Clauses that share a start date read as one: "A en B sinds 23 februari 2026". */
-function composeClauses(clauses: Clause[]): Summary | null {
+function composeClauses(clauses: Clause[], style: "long" | "short" = "long"): Summary | null {
   if (clauses.length === 0) return null;
   const groups: Clause[][] = [];
   for (const clause of clauses) {
@@ -45,7 +57,7 @@ function composeClauses(clauses: Clause[]): Summary | null {
     groups
       .map((group) => {
         const labels = group.map((clause) => clause[locale]);
-        return `${joinList(labels, locale === "en" ? "and" : "en")}${since(group[0].start, locale)}`;
+        return `${joinList(labels, locale === "en" ? "and" : "en")}${since(group[0].start, locale, style)}`;
       })
       .join("; ");
   return { nl: render("nl"), en: render("en") };
@@ -94,7 +106,7 @@ function roleLabel(position: Position, organization: Organization | undefined): 
   return { nl: `${position.title} bij ${organization.name}`, en: `${titleEn} at ${organization.name}` };
 }
 
-export function personSummary(person: Person): Summary | null {
+export function personSummary(person: Person, options: SummaryOptions = {}): Summary | null {
   const current = getTenuresForPerson(person.id).filter((tenure) => tenure.end === null);
   const memberships = getMembershipsForPerson(person.id)
     .filter((membership) => membership.end === null)
@@ -120,7 +132,7 @@ export function personSummary(person: Person): Summary | null {
   const clauses: Clause[] = [];
   const leading = roles.filter((role) => role.rank <= 3);
   const trailing = roles.filter((role) => role.rank > 3 && role.rank < 9);
-  const partyAbbrev = membership?.fractie ?? person.party ?? null;
+  const partyAbbrev = realParty(membership?.fractie) ?? realParty(person.party);
 
   for (const role of leading.slice(0, 2)) {
     const label = roleLabel(role.position, role.organization);
@@ -129,7 +141,7 @@ export function personSummary(person: Person): Summary | null {
 
   if (membership && membershipOrg) {
     const label = membershipLabel(membershipOrg);
-    const fractie = membership.fractie;
+    const fractie = realParty(membership.fractie);
     clauses.push({
       nl: fractie ? `${label.nl} voor ${partyWithArticle(fractie)}` : label.nl,
       en: fractie ? `${label.en} for ${fractie}` : label.en,
@@ -159,7 +171,7 @@ export function personSummary(person: Person): Summary | null {
   if (clauses.length > 0 && !membership && partyAbbrev !== null) {
     clauses[0] = { ...clauses[0], nl: `${clauses[0].nl} (${partyAbbrev})`, en: `${clauses[0].en} (${partyAbbrev})` };
   }
-  return composeClauses(clauses);
+  return composeClauses(clauses, options.dateStyle);
 }
 
 // Organisations ----------------------------------------------------------------
@@ -231,9 +243,16 @@ export function childOrganizations(id: string): Organization[] {
   return childIndex.get(id) ?? [];
 }
 
-export function organizationSummary(organization: Organization): Summary | null {
-  const subtypeNl = ORG_SUBTYPE_LABELS[organization.subtype] ?? organization.subtype;
-  const subtypeEn = ORG_SUBTYPE_LABELS_EN[organization.subtype] ?? subtypeNl;
+/** Subtypes the shared label tables do not translate (labels.ts is not owned here). */
+const SUBTYPE_OVERRIDES: Record<string, Summary> = { koepel: { nl: "koepel", en: "umbrella body" } };
+
+export function organizationSummary(
+  organization: Organization,
+  options: { omitChildren?: boolean } = {},
+): Summary | null {
+  const override = SUBTYPE_OVERRIDES[organization.subtype];
+  const subtypeNl = override?.nl ?? ORG_SUBTYPE_LABELS[organization.subtype] ?? organization.subtype;
+  const subtypeEn = override?.en ?? ORG_SUBTYPE_LABELS_EN[organization.subtype] ?? subtypeNl;
   // "Tweede Kamer der Staten-Generaal" already says "Tweede Kamer"; lead with the kind of body instead.
   const nameRepeatsSubtype =
     subtypeNl.includes(" ") && organization.name.toLowerCase().startsWith(subtypeNl.toLowerCase());
@@ -253,7 +272,7 @@ export function organizationSummary(organization: Organization): Summary | null 
   const extras: Summary[] = [];
   const childList = childOrganizations(organization.id);
   const children = childList.length;
-  if (children > 0) {
+  if (children > 0 && options.omitChildren !== true) {
     const committees = childList.every((child) => child.type === "commission" && child.subtype === "commissie");
     extras.push(
       committees
@@ -283,7 +302,7 @@ export function organizationSummary(organization: Organization): Summary | null 
 
 // Positions ------------------------------------------------------------------
 
-export function positionSummary(position: Position): Summary | null {
+export function positionSummary(position: Position, options: SummaryOptions = {}): Summary | null {
   const current = getTenuresForPosition(position.id)
     .filter((tenure) => tenure.end === null)
     .sort((a, b) => (a.start ?? "").localeCompare(b.start ?? ""));
@@ -297,12 +316,12 @@ export function positionSummary(position: Position): Summary | null {
     const tenure = current[0];
     return tenure.acting
       ? {
-          nl: `Waargenomen door ${names[0]}${since(tenure.start, "nl")}`,
-          en: `Held in an acting capacity by ${names[0]}${since(tenure.start, "en")}`,
+          nl: `Waargenomen door ${names[0]}${since(tenure.start, "nl", options.dateStyle)}`,
+          en: `Held in an acting capacity by ${names[0]}${since(tenure.start, "en", options.dateStyle)}`,
         }
       : {
-          nl: `Bekleed door ${names[0]}${since(tenure.start, "nl")}`,
-          en: `Held by ${names[0]}${since(tenure.start, "en")}`,
+          nl: `Bekleed door ${names[0]}${since(tenure.start, "nl", options.dateStyle)}`,
+          en: `Held by ${names[0]}${since(tenure.start, "en", options.dateStyle)}`,
         };
   }
   if (names.length <= 3) {
