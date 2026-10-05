@@ -110,7 +110,7 @@ The full list by phase is in `research/merge-log.md`.
 
 ## Licences
 
-The code and the dataset have separate licences. See `LICENSE` for code and `LICENSE-DATA` for data. The data is CC BY 4.0: credit Staatsgraaf, keep each fact's source URL and retrieval date, and state the licence. `ATTRIBUTION.md` lists the licence of every source and is generated from `data/sources.json`. Where a source is all rights reserved, Staatsgraaf uses only the facts, the headline and the link, never the text or images.
+The code and the dataset have separate licences. See `LICENSE` for code and `LICENSE-DATA` for data. The data is CC BY 4.0: credit Staatsgraaf, keep each fact's source URL and retrieval date, and state the licence. `ATTRIBUTION.md` groups the sources by publisher and licence with a link to each one's terms and is generated from `data/sources.json`; the licence of every single source is in `data/sources.json`, and the author, licence and source of every photo are in `data/media.json` and in the (i) next to the photo. Where a source is all rights reserved, Staatsgraaf uses only the facts, the headline and the link, never the text or images.
 
 To cite the data: "Staatsgraaf, dataset version v1, snapshot 05-10-2026. Source: {source-url}, retrieved {YYYY-MM-DD}. Available under CC BY 4.0."
 

@@ -360,60 +360,323 @@ export async function applyArchiveUrls({
 
 // ---------------------------------------------------------------------------
 // ATTRIBUTION.md generator
+//
+// A general document, not a per-URL table: the data licence and what reuse
+// requires, one row per source family, one paragraph each for portraits, news
+// and sources with no established licence. Counts come from data/sources.json
+// and data/media.json; nothing in the output depends on the date or the run, so
+// the same data always gives the same file. The per-source detail stays in
+// data/sources.json and the per-photo detail in data/media.json.
 // ---------------------------------------------------------------------------
 
 function escapeCell(value) {
   return String(value ?? "").replace(/\|/g, "\\|").replace(/\s+/g, " ").trim();
 }
 
-export function buildAttribution(sources) {
+const LICENSE_LABELS = Object.freeze({
+  "CC0-1.0": "CC0 1.0",
+  "CC-BY-4.0": "CC BY 4.0",
+  "CC-BY-3.0-NL": "CC BY 3.0 NL",
+  "CC-BY-SA-4.0": "CC BY-SA 4.0",
+  "all-rights-reserved": "all rights reserved",
+  unknown: "not established",
+  // Per-file values the portrait pipeline records for Commons file pages (ADR 0014).
+  "publiek-domein": "public domain",
+  "European Parliament": "European Parliament legal notice",
+  "Copyrighted free use": "Commons free use",
+  Attribution: "CC BY (version not stated)",
+});
+
+const CC_VALUE = /^CC-(BY(?:-SA)?)-(\d\.\d)(?:-NL)?$/;
+
+// The news-outlet records of DutchNews and NL Times carry the sentence "Koppen en deep links; geen overname
+// van artikeltekst of beeld." as their licence: a links-only note, so all rights reserved.
+const LINKS_ONLY = /deep links/i;
+
+/** The licence of a source as recorded; an empty value or `unknown` is `unknown`; free text is `unknown`, unless it is a links-only note or sits on a news record. */
+export function recordedLicense(source) {
+  const value = typeof source?.license === "string" ? source.license.trim() : "";
+  if (value === "" || value === "unknown") return "unknown";
+  if (LICENSE_LABELS[value] || CC_VALUE.test(value)) return value;
+  return source?.type === "news" || LINKS_ONLY.test(value) ? "all-rights-reserved" : "unknown";
+}
+
+function licenseLabel(license) {
+  if (LICENSE_LABELS[license]) return LICENSE_LABELS[license];
+  const cc = CC_VALUE.exec(license);
+  return cc ? `CC ${cc[1]} ${cc[2]}` : license;
+}
+
+/**
+ * The source families of the table, in reading order. A source belongs to the
+ * first family that lists its hostname; news records and records with no
+ * established licence are counted in their own paragraphs, and everything else
+ * falls into "Other public bodies". `terms` is the page that states the licence
+ * (research/O-licenses.md has the evidence and retrieval date for each).
+ */
+export const SOURCE_FAMILIES = Object.freeze([
+  {
+    name: "Tweede Kamer open data",
+    hosts: ["gegevensmagazijn.tweedekamer.nl"],
+    use: "Members, factions, committees, activities, official photos",
+    terms: "https://data.overheid.nl/dataset/open-data-portaal-van-de-tweede-kamer-der-staten-generaal",
+  },
+  {
+    name: "Wikidata",
+    hosts: ["www.wikidata.org"],
+    use: "Identifiers, birth dates, links to photos",
+    terms: "https://www.wikidata.org/wiki/Wikidata:Licensing",
+  },
+  {
+    name: "Rijksoverheid and other central government sites",
+    hosts: [
+      "www.rijksoverheid.nl", "regering.nl", "www.regering.nl", "government.nl", "www.government.nl",
+      "www.koninklijkhuis.nl", "www.rijksdienstcn.com", "www.rijksfinancien.nl", "www.om.nl", "www.dji.nl",
+      "www.inspectie-jenv.nl", "www.justitieleictorganisatie.nl", "www.algemenebestuursdienst.nl",
+      "www.rekenkamer.nl", "www.wrr.nl", "www.raadopenbaarbestuur.nl", "www.onderwijsraad.nl",
+      "www.gezondheidsraad.nl", "www.raadrvs.nl", "www.adviesraadinternationalevraagstukken.nl",
+      "www.adviesraadmigratie.nl", "www.awti.nl", "www.scp.nl",
+    ],
+    use: "Offices, office holders, organisation structure",
+    terms: "https://www.rijksoverheid.nl/service/copyright",
+  },
+  {
+    name: "Laws and official gazettes (overheid.nl)",
+    hosts: ["wetten.overheid.nl", "repository.overheid.nl", "www.officielebekendmakingen.nl", "zoek.officielebekendmakingen.nl", "staatsblad.overheid.nl"],
+    use: "Legal bases, appointments, decrees",
+    terms: "https://www.overheid.nl/help/officiele-bekendmakingen/bestanden-en-hergebruik",
+  },
+  {
+    name: "Register van Overheidsorganisaties (KOOP)",
+    hosts: ["organisaties.overheid.nl"],
+    use: "Public bodies and their managers",
+    terms: "https://data.overheid.nl/dataset/overheidsorganisaties-xml",
+  },
+  {
+    name: "Eerste Kamer",
+    hosts: ["www.eerstekamer.nl"],
+    use: "Members, committees (facts only, no photos)",
+    terms: "https://www.eerstekamer.nl/begrip/colofon",
+    note: "custom reuse right: source URL, extraction date and annotation",
+  },
+  {
+    name: "Rechtspraak",
+    hosts: ["www.rechtspraak.nl", "uitspraken.rechtspraak.nl"],
+    use: "Courts and judges (facts only, no photos)",
+    terms: "https://www.rechtspraak.nl/colofon",
+    note: "custom attribution right: name the source, imply no endorsement",
+  },
+  {
+    name: "Kiesraad and verkiezingsuitslagen.nl",
+    hosts: ["www.kiesraad.nl", "www.verkiezingsuitslagen.nl"],
+    use: "Election results and dates",
+    terms: "https://www.kiesraad.nl/service/copyright",
+  },
+  {
+    name: "Centraal Bureau voor de Statistiek",
+    hosts: ["opendata.cbs.nl"],
+    use: "Statistics",
+    terms: "https://www.cbs.nl/nl-nl/over-ons/website/copyright",
+  },
+  {
+    name: "CPB",
+    hosts: ["www.cpb.nl"],
+    use: "Publications and figures",
+    terms: "https://www.cpb.nl/copyright",
+  },
+  {
+    name: "PBL",
+    hosts: ["www.pbl.nl"],
+    use: "Publications and figures",
+    terms: "https://www.pbl.nl/over-het-pbl/copyright",
+  },
+  {
+    name: "Wikipedia",
+    hosts: ["nl.wikipedia.org", "en.wikipedia.org"],
+    use: "Lists of mayors and dijkgraven (facts)",
+    terms: "https://nl.wikipedia.org/wiki/Wikipedia:Auteursrechten",
+  },
+  {
+    name: "Wikimedia Commons",
+    hosts: ["commons.wikimedia.org"],
+    use: "Photo file pages (the source of each portrait)",
+    terms: "https://commons.wikimedia.org/wiki/Commons:Licensing",
+    perFile: true,
+  },
+  {
+    name: "Parlement.com and overheid.nl site pages",
+    hosts: ["www.parlement.com", "www.overheid.nl", "overheid.nl"],
+    use: "Cross-checks (facts only)",
+    terms: "https://www.parlement.com/over-deze-site",
+  },
+]);
+
+const OTHER_FAMILY = Object.freeze({
+  name: "Other public bodies",
+  use: "Offices and office holders from the body's own site",
+  terms: "the site's own copyright page; see research/O-licenses.md",
+});
+
+function familyOf(host) {
+  if (!host) return null;
+  const bare = host.replace(/^www\./, "");
+  return (
+    SOURCE_FAMILIES.find((family) => family.hosts.some((candidate) => candidate === host || candidate.replace(/^www\./, "") === bare)) ?? null
+  );
+}
+
+/** Count sources into families, news and unknown. Pure, so the test can feed it a fixture. */
+export function summarizeSources(sources) {
   const records = (sources ?? []).filter((source) => source && typeof source.url === "string");
-  const groups = new Map();
+  const families = new Map([...SOURCE_FAMILIES, OTHER_FAMILY].map((family) => [family.name, new Map()]));
+  const summary = { total: records.length, news: 0, unknown: 0, families };
   for (const source of records) {
-    const license = source.license ?? "unknown";
-    if (!groups.has(license)) groups.set(license, []);
-    groups.get(license).push(source);
+    const license = recordedLicense(source);
+    const family = familyOf(hostOf(source.url));
+    if (license === "unknown") {
+      summary.unknown += 1;
+    } else if (source.type === "news" || (license === "all-rights-reserved" && family === null)) {
+      summary.news += 1;
+    } else {
+      const counts = families.get((family ?? OTHER_FAMILY).name);
+      counts.set(license, (counts.get(license) ?? 0) + 1);
+    }
   }
-  const ordered = [
-    ...SPDX_LICENSES.filter((license) => groups.has(license)),
-    ...[...groups.keys()].filter((license) => !SPDX_LICENSES.includes(license)).sort(),
-  ];
+  return summary;
+}
+
+/** Portrait counts per licence family from data/media.json: CC0, CC BY, CC BY-SA and the rest. */
+export function summarizePortraits(media) {
+  const portraits = (media ?? []).filter((item) => item && item.type === "portrait");
+  const counts = { total: portraits.length, cc0: 0, by: 0, byAttributionOnly: 0, bySa: 0, publicDomain: 0, other: new Map() };
+  for (const item of portraits) {
+    const license = typeof item.license === "string" ? item.license.trim() : "";
+    if (license === "CC0-1.0") counts.cc0 += 1;
+    else if (/^CC-BY-\d\.\d$/.test(license)) counts.by += 1;
+    else if (license === "Attribution") {
+      counts.by += 1;
+      counts.byAttributionOnly += 1;
+    } else if (/^CC-BY-SA-\d\.\d$/.test(license)) counts.bySa += 1;
+    else if (license === "publiek-domein") counts.publicDomain += 1;
+    else counts.other.set(license || "no licence", (counts.other.get(license || "no licence") ?? 0) + 1);
+  }
+  return counts;
+}
+
+function portraitCountLine(counts) {
+  const parts = [];
+  if (counts.cc0) parts.push(`${counts.cc0} CC0 1.0`);
+  if (counts.by) {
+    const note = counts.byAttributionOnly ? ` (${counts.byAttributionOnly} marked only "Attribution" on Commons)` : "";
+    parts.push(`${counts.by} CC BY${note}`);
+  }
+  if (counts.bySa) parts.push(`${counts.bySa} CC BY-SA`);
+  if (counts.publicDomain) parts.push(`${counts.publicDomain} public domain`);
+  for (const [license, count] of [...counts.other].sort((a, b) => a[0].localeCompare(b[0]))) parts.push(`${count} ${license}`);
+  return parts.join(", ");
+}
+
+function number(value) {
+  return new Intl.NumberFormat("en-GB").format(value);
+}
+
+function licenseCell(counts, family) {
+  if (family.perFile) return "Per file (CC0, CC BY, CC BY-SA, public domain)";
+  const order = [...counts.keys()].sort((a, b) => licenseLabel(a).localeCompare(licenseLabel(b)));
+  const text = order.map((license) => licenseLabel(license)).join(", ");
+  return family.note ? `${text} (recorded as such; ${family.note})` : text;
+}
+
+export function buildAttribution(sources, media = null) {
+  const summary = summarizeSources(sources);
+  const rows = [];
+  let tabled = 0;
+  for (const family of [...SOURCE_FAMILIES, OTHER_FAMILY]) {
+    const counts = summary.families.get(family.name);
+    const count = [...counts.values()].reduce((sum, value) => sum + value, 0);
+    if (count === 0) continue;
+    tabled += count;
+    const terms = /^https?:/.test(family.terms) ? `<${family.terms}>` : family.terms;
+    rows.push(`| ${escapeCell(family.name)} | ${escapeCell(family.use)} | ${escapeCell(licenseCell(counts, family))} | ${terms} | ${number(count)} |`);
+  }
 
   const lines = [];
   lines.push("# Attribution");
   lines.push("");
   lines.push(
-    "This file lists every source in `data/sources.json` with its URL, publisher, license, and the credit line that license requires. It is generated from `data/sources.json` by `pipelines/licenses.mjs` during `bun run merge`. Do not edit by hand.",
+    "What you must credit when you reuse Staatsgraaf, and where each source's terms are. Generated from `data/sources.json` and `data/media.json` by `pipelines/licenses.mjs` (`bun run merge`). Do not edit by hand.",
+  );
+  lines.push("");
+  lines.push("## The data licence");
+  lines.push("");
+  lines.push(
+    "The dataset (the compiled data, the descriptions and the summaries) is licensed CC BY 4.0, see `LICENSE-DATA`. The code is MIT, see `LICENSE`. Facts are not copyrightable: the licence covers our selection, structure and own wording. On reuse you must:",
+  );
+  lines.push("");
+  lines.push('1. credit the project as "Staatsgraaf" and link to this repository;');
+  lines.push("2. keep the source, the retrieval date and the licence next to the facts they belong to, as `data/sources.json` records them; and");
+  lines.push("3. state the licence and link to it, and keep the independence statement in `LICENSE-DATA`.");
+  lines.push("");
+  lines.push(
+    "Photos are not under the dataset licence. Each one keeps the licence its author gave it, see Portraits below. The per-source licence decisions, with evidence and retrieval dates, are in `research/O-licenses.md`.",
+  );
+  lines.push("");
+  lines.push("## Source families");
+  lines.push("");
+  lines.push(
+    `Where facts come from, grouped by publisher and licence. ${number(summary.total)} sources are recorded in all: ${number(tabled)} in the table, ${number(summary.news)} news links and ${number(summary.unknown)} with no established licence (each below).`,
+  );
+  lines.push("");
+  lines.push("| Publisher or website | What we use it for | Licence | Terms | Sources |");
+  lines.push("| --- | --- | --- | --- | ---: |");
+  lines.push(...rows);
+  lines.push("");
+  lines.push(
+    "Where a licence asks for a credit (CC BY and CC BY-SA, the Eerste Kamer, Rechtspraak), the credit is the publisher's name plus the source URL and retrieval date from `data/sources.json`. Where a source is licensed CC0, no credit is owed, but the dataset still names it. Do not imply that any publisher endorses Staatsgraaf.",
+  );
+  lines.push("");
+  lines.push("## Portraits");
+  lines.push("");
+  const portraits = media ? summarizePortraits(media) : null;
+  const countLine = portraits && portraits.total > 0 ? ` ${number(portraits.total)} portraits are on record: ${portraitCountLine(portraits)}.` : "";
+  lines.push(
+    `Photos come from Wikimedia Commons and the Tweede Kamer open data, never from a source with no stated licence. The author, licence and source page of each photo are shown in the (i) next to the photo on its person page, and stored with the photo in \`data/media.json\` (credit, author, licence, source) and \`data/sources.json\` (source page, retrieval date).${countLine}`,
   );
   lines.push("");
   lines.push(
-    "Licenses follow the per-source determination in `research/O-licenses.md`, which cites the terms page and retrieval date for each source. The dataset license is CC BY 4.0; see `LICENSE-DATA`. Facts are not copyrightable, and this dataset carries facts, codes, dates, and our own summaries, not source prose or images.",
+    "The site shows scaled-down and cropped copies, and says so in the credit. For CC BY-SA photos the copy is shared under the same licence. The decision and the licence texts it rests on are in `docs/adr/0025-photo-credits.md`.",
   );
   lines.push("");
-  for (const license of ordered) {
-    const group = groups
-      .get(license)
-      .slice()
-      .sort((a, b) => a.url.localeCompare(b.url) || String(a.id).localeCompare(String(b.id)));
-    lines.push(`## ${license} (${group.length})`);
-    lines.push("");
-    lines.push("| url | publisher | license | required credit line |");
-    lines.push("| --- | --- | --- | --- |");
-    for (const source of group) {
-      const credit = source.license === "unknown" ? gapNoteForSource(source) : creditForSource(source) ?? "-";
-      lines.push(
-        `| ${escapeCell(source.url)} | ${escapeCell(source.publisher)} | ${escapeCell(source.license)} | ${escapeCell(credit)} |`,
-      );
-    }
-    lines.push("");
-  }
+  lines.push("## News");
+  lines.push("");
+  lines.push(
+    `${number(summary.news)} sources are news articles or news-outlet pages. Their publishers keep all rights, so Staatsgraaf links to them and shows only the headline and the link, never the article text or its images. No credit is owed beyond naming the outlet, which every link does.`,
+  );
+  lines.push("");
+  lines.push("## Sources with no established licence");
+  lines.push("");
+  lines.push(
+    `${number(summary.unknown)} sources have no established licence (\`unknown\` or empty in \`data/sources.json\`). They supply facts only, never text or images. The full list, with each endpoint, is in \`data/sources.json\`.`,
+  );
+  lines.push("");
+  lines.push("## Where the detail lives");
+  lines.push("");
+  lines.push("- `data/sources.json`: every source, with its URL, publisher, licence and retrieval date.");
+  lines.push("- `data/media.json`: every photo, with its credit, author, licence and source.");
+  lines.push("- `research/O-licenses.md`: the licence determination per publisher, with the terms page and the date it was read.");
+  lines.push("");
   return `${lines.join("\n").replace(/\n+$/, "")}\n`;
 }
 
-export async function writeAttribution(sources, outPath) {
+export async function writeAttribution(sources, outPath, media) {
   const dir = dirname(outPath);
   if (!existsSync(dir)) await mkdir(dir, { recursive: true });
-  await writeFile(outPath, buildAttribution(sources), "utf8");
+  let portraits = media;
+  if (portraits === undefined) {
+    const mediaPath = join(dir, "data", "media.json");
+    portraits = existsSync(mediaPath) ? JSON.parse(await readFile(mediaPath, "utf8")) : null;
+  }
+  await writeFile(outPath, buildAttribution(sources, portraits), "utf8");
   return outPath;
 }
 
@@ -437,7 +700,8 @@ function parseArgs(argv) {
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   const sources = JSON.parse(await readFile(join(options.dataDir, "sources.json"), "utf8"));
-  const outPath = await writeAttribution(sources, options.outPath);
+  const media = JSON.parse(await readFile(join(options.dataDir, "media.json"), "utf8"));
+  const outPath = await writeAttribution(sources, options.outPath, media);
   const counts = licenseDistribution(sources);
   console.log(`Wrote ${outPath} (${sources.length} source(s))`);
   for (const [license, count] of Object.entries(counts)) {
