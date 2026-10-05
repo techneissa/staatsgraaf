@@ -98,8 +98,8 @@ export default function MethodPage() {
         <Section id="onderhoud" icon={RefreshCw} title={<L nl="Actualiteit" en="Freshness" />}>
           <p>
             <L
-              nl="Bewindspersonen en de leden van beide Kamers worden elke nacht bijgewerkt uit de officiële lijsten. Nieuws wordt elke vier uur opgehaald. Wijzigingen verschijnen in de wijzigingenfeed, elk met de bron die ze veroorzaakte."
-              en="Ministers and the members of both chambers are updated every night from the official lists. News is fetched every four hours. Changes appear in the change feed, each with the source that caused it."
+              nl="Elke drie uur worden de officiële bronnen gecontroleerd en het nieuws opgehaald: bewindspersonen, de leden van beide Kamers, de fractievoorzitters en de voorzitters van de Tweede Kamer. De gegevens worden pas aangepast als het resultaat klopt, bijvoorbeeld 150 zetels in de Tweede Kamer en 75 in de Eerste Kamer. Nieuws kan een extra controle van de bronnen starten, maar wijzigt zelf nooit een gegeven. Wijzigingen verschijnen in de wijzigingenfeed, elk met de bron die ze veroorzaakte."
+              en="Every three hours the official sources are checked and the news is fetched: ministers, the members of both chambers, the fractie chairs and the chairs of the Tweede Kamer. Data is changed only when the result is consistent, for example 150 seats in the Tweede Kamer and 75 in the Eerste Kamer. News can start an extra check of the sources, but never changes a fact itself. Changes appear in the change feed, each with the source that caused it."
             />
           </p>
         </Section>
