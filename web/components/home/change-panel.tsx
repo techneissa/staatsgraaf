@@ -1,78 +1,83 @@
 import Link from "next/link";
 import { ChangeDay } from "@/components/change/change-day";
+import { getChangeFigures } from "@/components/change/change-figures";
 import { ChangeHistogram } from "@/components/change/change-histogram";
 import { EmptyStateT } from "@/components/change/empty-state-t";
+import { EntryRow } from "@/components/change/entry-row";
+import { LastChangeLine } from "@/components/change/last-change-line";
+import { NowChips } from "@/components/change/now-chips";
 import { T } from "@/components/i18n/t";
 import { buildHistogramBuckets } from "@/lib/change-buckets";
-import { changeDisplayKind } from "@/lib/changes";
-import { DateT } from "@/components/content/local-date";
-import type { ChangeWindow } from "@/lib/home";
-import { ChangeCard } from "./change-card";
+import {
+  countEntries,
+  getAllChanges,
+  getChangeReferenceDate,
+  getNewestEntries,
+  getWindowedChanges,
+  groupChangesIntoEntries,
+  groupEntriesByDay,
+} from "@/lib/changes";
 
 /** The home page shows the newest few; the full feed lives on /wijzigingen/. */
-const HOME_LIMIT = 5;
+const HOME_LIMIT = 3;
+/** The chart covers one fixed window; the period switch lives on the feed page. */
+const HOME_WINDOW = 30;
 
-export function ChangePanel({ window }: { window: ChangeWindow }) {
-  if (!window.ready || window.until === null) {
-    return <EmptyStateT title="noChangesYet" />;
-  }
-  const reference = window.until;
-  const buckets = buildHistogramBuckets(
-    window.groups.flatMap((group) => group.changes),
-    window.days,
-    reference,
-  );
+/**
+ * The home page's changes block, kept short: what holds right now (chips), the
+ * last 30 days as a chart, the three newest entries whatever their age, and
+ * one link to the feed. Every relative figure counts from the build day.
+ */
+export function ChangePanel() {
+  if (getAllChanges().length === 0) return <EmptyStateT title="noChangesYet" />;
 
-  let remaining = HOME_LIMIT;
-  const groups = [];
-  for (const group of window.groups) {
-    if (remaining <= 0) break;
-    const changes = group.changes.slice(0, remaining);
-    remaining -= changes.length;
-    groups.push({ date: group.date, total: group.changes.length, changes });
-  }
+  const figures = getChangeFigures(getChangeReferenceDate());
+  const { reference } = figures;
+  const windowed = getWindowedChanges(HOME_WINDOW, reference);
+  const newest = getNewestEntries(HOME_LIMIT);
+  const days = groupEntriesByDay(newest).map((day) => {
+    const whole = groupChangesIntoEntries(getAllChanges().filter((change) => change.date === day.date));
+    return { date: day.date, entries: day.entries, counts: countEntries(whole) };
+  });
 
   return (
     <div>
-      <ChangeHistogram
-        buckets={buckets}
-        days={window.days}
-        total={window.count}
-        linkBase="/wijzigingen/"
-      />
+      <NowChips figures={figures.now} className="mt-3" />
+      <LastChangeLine className="mt-2" recency={figures.recency} snapshot={figures.snapshot} />
 
-      {groups.length === 0 ? (
+      {windowed.length > 0 ? (
         <div className="mt-4">
-          <EmptyStateT title="noChangesInWindow" />
+          <ChangeHistogram
+            buckets={buildHistogramBuckets(windowed, HOME_WINDOW, reference)}
+            days={HOME_WINDOW}
+            counts={countEntries(groupChangesIntoEntries(windowed))}
+            linkBase="/wijzigingen/"
+          />
         </div>
-      ) : (
-        <div className="mt-4 space-y-3">
-          {groups.map((group) => (
-            <ChangeDay
-              key={group.date}
-              date={group.date}
-              reference={reference}
-              count={group.total}
-              items={group.changes.map((change) => ({
-                id: change.id,
-                displayKind: changeDisplayKind(change),
-                node: <ChangeCard change={change} />,
-              }))}
-            />
-          ))}
-        </div>
-      )}
+      ) : null}
+
+      <div className="mt-4 space-y-3">
+        {days.map((day) => (
+          <ChangeDay
+            key={day.date}
+            date={day.date}
+            reference={reference}
+            counts={day.counts}
+            items={day.entries.map((entry) => ({
+              id: entry.key,
+              displayKind: entry.displayKind,
+              node: <EntryRow entry={entry} compact />,
+            }))}
+          />
+        ))}
+      </div>
 
       <p className="mt-3">
         <Link
           href="/wijzigingen/"
           className="inline-flex min-h-8 items-center gap-1 text-sm font-medium text-accent-text underline-offset-2 hover:underline pointer-coarse:min-h-11"
         >
-          {window.count > HOME_LIMIT ? (
-            <DateT area="home" k="seeAllChanges" counts={{ n: window.count }} />
-          ) : (
-            <T area="home" k="seeChangesPage" />
-          )}
+          <T area="home" k="seeChangesPage" />
           <span aria-hidden="true">→</span>
         </Link>
       </p>

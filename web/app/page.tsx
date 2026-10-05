@@ -4,12 +4,6 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Card } from "@/components/card";
 import { ChangePanel } from "@/components/home/change-panel";
-import { ChangeStatTiles } from "@/components/change/stat-tiles";
-import { getChangeTileFigures } from "@/components/change/change-figures";
-import {
-  ChangeWindowTabs,
-  type ChangeWindowPanel,
-} from "@/components/home/change-window-tabs";
 import { NewsBand } from "@/components/home/news-band";
 import { PeopleStrip } from "@/components/home/people-strip";
 import { BudgetTotals } from "@/components/budget/budget-totals";
@@ -17,12 +11,7 @@ import { L, T } from "@/components/i18n/t";
 import { JsonLd } from "@/components/json-ld";
 import { getDatasetDate, getOrganizationCounts } from "@/lib/data";
 import { formatCount } from "@/lib/format";
-import {
-  getChangeWindows,
-  getFocusPeople,
-  getHomeNews,
-  getSubOrganizationCount,
-} from "@/lib/home";
+import { getFocusPeople, getHomeNews, getSubOrganizationCount } from "@/lib/home";
 import { getBudgetOverview } from "@/lib/budget";
 import { LocaleLabel } from "@/components/i18n/locale-label";
 import { absoluteUrl, pageMetadata, SITE_NAME, SITE_TAGLINE } from "@/lib/site";
@@ -87,15 +76,8 @@ export default function HomePage() {
   const counts = getOrganizationCounts();
   const news = getHomeNews(3);
   const people = getFocusPeople(12);
-  const windows = getChangeWindows();
   const subOrganizations = getSubOrganizationCount();
   const budget = getBudgetOverview();
-
-  const panels: ChangeWindowPanel[] = windows.map((window) => ({
-    value: window.key,
-    days: window.days,
-    content: <ChangePanel window={window} />,
-  }));
 
   return (
     <>
@@ -118,7 +100,18 @@ export default function HomePage() {
         }}
       />
 
-      <h1 className="sr-only">{SITE_NAME}</h1>
+      <header className="border-b border-line pb-4">
+        <h1 className="text-2xl font-semibold tracking-tight text-ink">{SITE_NAME}</h1>
+        <p className="mt-1 max-w-prose text-sm leading-snug text-ink-muted">
+          <T area="home" k="chgIntro" />{" "}
+          <Link
+            href="/methodiek/"
+            className="inline-flex min-h-8 items-center whitespace-nowrap font-medium text-accent-text underline-offset-2 hover:underline pointer-coarse:min-h-11"
+          >
+            <T area="home" k="chgIntroLink" />
+          </Link>
+        </p>
+      </header>
 
       <section aria-labelledby="nieuws-titel" className="border-b border-line pb-6 pt-2">
         <h2
@@ -153,16 +146,10 @@ export default function HomePage() {
       ) : null}
 
       <section aria-labelledby="wijzigingen-titel" className="border-b border-line py-6">
-        <ChangeWindowTabs
-          heading={
-            <h2 id="wijzigingen-titel" className="text-lg font-semibold tracking-tight text-ink">
-              <L nl="Laatste wijzigingen" en="Latest changes" />
-            </h2>
-          }
-          chips={<ChangeStatTiles figures={getChangeTileFigures()} className="mt-3" />}
-          panels={panels}
-          defaultValue="30d"
-        />
+        <h2 id="wijzigingen-titel" className="text-lg font-semibold tracking-tight text-ink">
+          <L nl="Laatste wijzigingen" en="Latest changes" />
+        </h2>
+        <ChangePanel />
       </section>
 
       <section aria-labelledby="overzicht-titel" className="border-b border-line py-6">
