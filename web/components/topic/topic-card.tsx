@@ -29,6 +29,8 @@ export function TopicCard({
           <Link
             href={`/onderwerpen/${topic.slug}/`}
             prefetch={false}
+            // The link covers the card, so the tooltip of the clipped description lives here.
+            title={topic.description !== null ? `${topic.name}\n${topic.description}` : undefined}
             className="text-ink underline-offset-2 outline-none after:absolute after:inset-0 hover:text-accent-text hover:underline focus-visible:after:outline-2 focus-visible:after:outline-offset-[-2px] focus-visible:after:outline-focus pointer-coarse:flex pointer-coarse:min-h-11 pointer-coarse:min-w-11 pointer-coarse:items-center"
           >
             <L nl={topic.name} en={topicNameEn(topic.slug, topic.name)} />
@@ -41,11 +43,14 @@ export function TopicCard({
         ) : null}
       </div>
       {topic.description !== null ? (
-        <LocalizedDescription
-          nl={topic.description}
-          en={englishDescription(topic.id, topic.description)}
-          className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted [overflow-wrap:anywhere]"
-        />
+        // The card clips the text; the full Dutch text stays in the tooltip.
+        <div title={topic.description}>
+          <LocalizedDescription
+            nl={topic.description}
+            en={englishDescription(topic.id, topic.description)}
+            className="mt-2 line-clamp-3 text-sm leading-normal text-ink-muted [overflow-wrap:anywhere]"
+          />
+        </div>
       ) : null}
       {chipOrganizations.length > 0 ? (
         <LabeledList

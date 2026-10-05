@@ -28,6 +28,8 @@ export function EntityCard({ row }: { row: OrganizationRow }) {
         <Link
           href={`/organisaties/${row.s}/`}
           prefetch={false}
+          // The link covers the card, so the tooltip of the clipped description lives here.
+          title={description !== null ? `${row.n}\n${description}` : undefined}
           className="text-ink underline-offset-2 outline-none after:absolute after:inset-0 hover:text-accent-text hover:underline focus-visible:after:outline-2 focus-visible:after:outline-offset-[-2px] focus-visible:after:outline-focus pointer-coarse:flex pointer-coarse:min-h-11 pointer-coarse:min-w-11 pointer-coarse:items-center"
         >
           {row.n}
