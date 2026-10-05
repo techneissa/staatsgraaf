@@ -3,6 +3,7 @@ import { ChangeDay } from "@/components/change/change-day";
 import { ChangeHistogram } from "@/components/change/change-histogram";
 import { EmptyStateT } from "@/components/change/empty-state-t";
 import { T } from "@/components/i18n/t";
+import { buildHistogramBuckets } from "@/lib/change-buckets";
 import { changeDisplayKind } from "@/lib/changes";
 import { DateT } from "@/components/content/local-date";
 import type { ChangeWindow } from "@/lib/home";
@@ -16,6 +17,11 @@ export function ChangePanel({ window }: { window: ChangeWindow }) {
     return <EmptyStateT title="noChangesYet" />;
   }
   const reference = window.until;
+  const buckets = buildHistogramBuckets(
+    window.groups.flatMap((group) => group.changes),
+    window.days,
+    reference,
+  );
 
   let remaining = HOME_LIMIT;
   const groups = [];
@@ -28,7 +34,12 @@ export function ChangePanel({ window }: { window: ChangeWindow }) {
 
   return (
     <div>
-      <ChangeHistogram buckets={window.buckets} days={window.days} total={window.count} />
+      <ChangeHistogram
+        buckets={buckets}
+        days={window.days}
+        total={window.count}
+        linkBase="/wijzigingen/"
+      />
 
       {groups.length === 0 ? (
         <div className="mt-4">

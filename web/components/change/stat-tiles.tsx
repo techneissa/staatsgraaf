@@ -1,6 +1,11 @@
+"use client";
+
+import Link from "next/link";
+import { useId } from "react";
 import type { ReactNode } from "react";
 import { LocalCount } from "@/components/content/local-date";
 import { T } from "@/components/i18n/t";
+import { useT } from "@/components/i18n/use-t";
 import { ChangeKindGlyph } from "./change-glyph";
 import { LocalDate } from "./local-date";
 import { TemplateT } from "./template-t";
@@ -15,56 +20,133 @@ export type ChangeTileFigures = {
   appointments: { count: number; days: number; since: string; until: string };
 };
 
+export type ChipId = "vacancy" | "acting" | "last" | "appointment";
+
+/** Where each chip goes on the home page, where it links to the changes page. */
+const CHIP_HREF: Record<ChipId, string> = {
+  vacancy: "/wijzigingen/?kind=vacancy",
+  acting: "/wijzigingen/?kind=acting",
+  last: "/wijzigingen/",
+  appointment: "/wijzigingen/?kind=appointment",
+};
+
 function ClockIcon() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 16 16" width="15" height="15" className="block text-ink-muted">
+    <svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14" className="block text-ink-muted">
       <circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
       <path d="M8 4.6V8l2.3 1.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
 
-function Tile({ icon, value, label, context }: { icon: ReactNode; value: ReactNode; label: ReactNode; context?: ReactNode }) {
-  return (
-    <li className="flex min-w-0 items-center gap-3 rounded-md border border-line bg-surface px-3 py-2.5">
-      <span
-        aria-hidden="true"
-        className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-sm bg-surface-inset [--color-canvas:var(--t-color-surface-inset)]"
-      >
+type ChipProps = {
+  id: ChipId;
+  icon: ReactNode;
+  value: ReactNode;
+  label: ReactNode;
+  context?: ReactNode;
+  /** What the chip counts, shown on hover, focus and tap, and read as its description. */
+  hint: ReactNode;
+  /** Where the hint sits so it stays inside a narrow column. */
+  tipAlign: string;
+  mode: "link" | "control";
+  pressed: boolean;
+  onSelect?: (id: ChipId) => void;
+};
+
+const CHIP =
+  "flex min-h-11 w-full min-w-0 items-center gap-2 rounded-md border px-3 py-1.5 text-left transition-fast focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus";
+
+function Chip({ id, icon, value, label, context, hint, tipAlign, mode, pressed, onSelect }: ChipProps) {
+  const tipId = useId();
+  const body = (
+    <>
+      <span aria-hidden="true" className="inline-flex h-5 w-5 shrink-0 items-center justify-center [--color-canvas:var(--t-color-surface)]">
         {icon}
       </span>
-      <p className="min-w-0 leading-tight">
-        {context ? <span className="sr-only">{context} </span> : null}
-        <span className="block whitespace-nowrap text-2xl font-semibold tabular-nums tracking-tight text-ink">{value}</span>
-        <span className="mt-0.5 block text-xs leading-snug text-ink-muted">{label}</span>
-      </p>
+      {context ? <span className="sr-only">{context} </span> : null}
+      <span className="min-w-0 text-xs leading-tight text-ink-muted">
+        <span className="mr-1 text-base font-semibold tabular-nums tracking-tight text-ink">{value}</span>
+        {label}
+      </span>
+    </>
+  );
+  const tone = pressed
+    ? "border-accent/40 bg-accent-soft"
+    : "border-line bg-surface hover:border-line-strong";
+  return (
+    <li className="group relative min-w-0">
+      {mode === "link" ? (
+        <Link href={CHIP_HREF[id]} aria-describedby={tipId} className={`${CHIP} ${tone}`}>
+          {body}
+        </Link>
+      ) : (
+        <button type="button" aria-pressed={pressed} aria-describedby={tipId} onClick={() => onSelect?.(id)} className={`${CHIP} ${tone}`}>
+          {body}
+        </button>
+      )}
+      <div
+        id={tipId}
+        role="tooltip"
+        className={`pointer-events-none invisible absolute top-full z-30 mt-1 w-64 max-w-[calc(100vw-2rem)] rounded-md border border-line-strong bg-surface px-3 py-2 text-xs leading-snug text-ink-muted opacity-0 shadow-lg transition-opacity duration-150 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100 ${tipAlign}`}
+      >
+        {hint}
+      </div>
     </li>
   );
 }
 
 /**
- * The change figures as four compact tiles: an icon, the number, a short
- * label. The dates and what each figure counts sit in one details row under
- * the tiles. Two tiles a row in a narrow column, four side by side from
- * about 40rem of container width.
+ * The change figures as one slim row of four chips: icon, number, short
+ * label. Each chip is a link to the changes page (home) or a button that
+ * sets the explorer's filter (`mode="control"`, on /wijzigingen/). What a
+ * figure counts shows as a tooltip on hover, keyboard focus and tap. Two chips
+ * a row in a narrow column, four from about 40rem of container width.
  */
-export function ChangeStatTiles({ figures, className = "" }: { figures: ChangeTileFigures; className?: string }) {
-  const { vacantSeats, actingOfficials, lastChangeDate, lastChangeAge, appointments } = figures;
-  const age = lastChangeAge;
+export function ChangeStatTiles({
+  figures,
+  className = "",
+  mode = "link",
+  pressed = null,
+  onSelect,
+}: {
+  figures: ChangeTileFigures;
+  className?: string;
+  mode?: "link" | "control";
+  pressed?: ChipId | null;
+  onSelect?: (id: ChipId) => void;
+}) {
+  const t = useT("home");
+  const { vacantSeats, actingOfficials, lastChangeDate, lastChangeAge: age, appointments } = figures;
+  const shared = { mode, onSelect } as const;
   return (
     <div className={`@container ${className}`.trim()}>
-      <ul className="grid grid-cols-2 gap-2 @[40rem]:grid-cols-4">
-        <Tile
-          icon={<ChangeKindGlyph kind="vacancy" size={16} />}
+      <ul aria-label={t("keyFigures")} className="grid grid-cols-2 gap-2 @[40rem]:grid-cols-4">
+        <Chip
+          {...shared}
+          id="vacancy"
+          pressed={pressed === "vacancy"}
+          tipAlign="left-0"
+          icon={<ChangeKindGlyph kind="vacancy" size={15} />}
           value={vacantSeats === null ? "-" : <LocalCount value={vacantSeats} />}
           label={<T area="home" k={vacantSeats === 1 ? "tileVacancyOne" : "tileVacancies"} />}
+          hint={<T area="home" k={vacantSeats === null ? "statVacantUnknownSub" : "detailVacancy"} />}
         />
-        <Tile
-          icon={<ChangeKindGlyph kind="acting" size={16} />}
+        <Chip
+          {...shared}
+          id="acting"
+          pressed={pressed === "acting"}
+          tipAlign="right-0 @[40rem]:left-0"
+          icon={<ChangeKindGlyph kind="acting" size={15} />}
           value={<LocalCount value={actingOfficials} />}
           label={<T area="home" k="tileActing" />}
+          hint={<T area="home" k="detailActing" />}
         />
-        <Tile
+        <Chip
+          {...shared}
+          id="last"
+          pressed={false}
+          tipAlign="left-0 @[40rem]:right-0"
           icon={<ClockIcon />}
           context={<T area="home" k="statLastChangeLabel" />}
           value={age === null ? "-" : age === 0 ? <T area="home" k="dayToday" /> : <LocalCount value={age} />}
@@ -77,9 +159,20 @@ export function ChangeStatTiles({ figures, className = "" }: { figures: ChangeTi
               <T area="home" k={age === 1 ? "tileDayAgo" : "tileDaysAgo"} />
             )
           }
+          hint={
+            lastChangeDate ? (
+              <TemplateT k="detailLastChange" slots={{ date: <LocalDate iso={lastChangeDate} /> }} />
+            ) : (
+              <T area="home" k="statLastChangeNone" />
+            )
+          }
         />
-        <Tile
-          icon={<ChangeKindGlyph kind="appointment" size={16} />}
+        <Chip
+          {...shared}
+          id="appointment"
+          pressed={pressed === "appointment"}
+          tipAlign="right-0"
+          icon={<ChangeKindGlyph kind="appointment" size={15} />}
           value={<LocalCount value={appointments.count} />}
           label={
             <T
@@ -88,29 +181,7 @@ export function ChangeStatTiles({ figures, className = "" }: { figures: ChangeTi
               vars={{ days: appointments.days }}
             />
           }
-        />
-      </ul>
-
-      <details className="group motion-disclosure mt-1.5 text-xs text-ink-muted">
-        <summary className="inline-flex min-h-8 cursor-pointer list-none items-center gap-1 rounded-sm text-ink-faint transition-fast hover:text-ink pointer-coarse:min-h-11 [&::-webkit-details-marker]:hidden">
-          <svg aria-hidden="true" viewBox="0 0 12 12" width="10" height="10" className="transition-fast group-open:rotate-90">
-            <path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-          <T area="home" k="tileDetails" />
-        </summary>
-        <ul className="mt-1 space-y-1 pb-1 leading-snug">
-          <li>
-            <T area="home" k={vacantSeats === null ? "statVacantUnknownSub" : "detailVacancy"} />
-          </li>
-          <li>
-            <T area="home" k="detailActing" />
-          </li>
-          {lastChangeDate ? (
-            <li>
-              <TemplateT k="detailLastChange" slots={{ date: <LocalDate iso={lastChangeDate} /> }} />
-            </li>
-          ) : null}
-          <li>
+          hint={
             <TemplateT
               k="detailAppointments"
               slots={{
@@ -118,9 +189,9 @@ export function ChangeStatTiles({ figures, className = "" }: { figures: ChangeTi
                 end: <LocalDate iso={appointments.until} />,
               }}
             />
-          </li>
-        </ul>
-      </details>
+          }
+        />
+      </ul>
     </div>
   );
 }
