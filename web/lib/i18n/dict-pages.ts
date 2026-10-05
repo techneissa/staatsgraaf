@@ -280,8 +280,8 @@ export const PAGES_DICT = {
     en: "The full credit rules per source are in",
   },
   datasetAttributionP2b: {
-    nl: ". Dat bestand staat in de repository, die nog niet openbaar is. Deze verwijzing is daarom voorlopig een bestandsnaam zonder host en nog niet aanklikbaar in de browser. Dat is een benoemde leemte. Dezelfde licentie- en broninformatie staat in",
-    en: ". That file is in the repository, which is not public yet. This reference is therefore for now a file name without a host and is not clickable in the browser. That is a named gap. The same licence and source information is in",
+    nl: ". Dat bestand staat in de openbare repository. Dezelfde licentie- en broninformatie staat in",
+    en: ". That file is in the public repository. The same licence and source information is in",
   },
   datasetPhotoCredits: {
     nl: "Portretten: Tweede Kamer der Staten-Generaal (CC0) en Wikimedia Commons (licentie per bestand). De credit en licentie per foto staan in media.json in de download.",
