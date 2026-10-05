@@ -120,6 +120,11 @@ export function OrgStructure({ id, layout, variant }: { id: string; layout: Pane
     [layout, id],
   );
 
+  // A body grouped under the one that oversees it (a gemeente under its provincie): that body is
+  // named on its own row, so a click on its name picks it and not the group of dots.
+  const groupOf = node?.cluster ? layout.clusterById.get(node.cluster) ?? null : null;
+  const overseer = groupOf?.kind === "oversight" && groupOf.parent && groupOf.parent !== node?.parent && layout.byId.has(groupOf.parent) ? groupOf.parent : null;
+
   const relationGroups = useMemo(() => {
     const groups = new Map<string, { verb: string; ids: string[] }>();
     for (const edge of layout.edges) {
@@ -129,6 +134,7 @@ export function OrgStructure({ id, layout, variant }: { id: string; layout: Pane
       if (!layout.byId.has(other)) continue;
       // Parent and parts are listed on their own.
       if (edge.type === "part_of" && (other === node?.parent || children.includes(other))) continue;
+      if (other === overseer && edge.type === "oversees") continue;
       const verb = EDGE_TYPE_LABELS_I18N[edge.type]?.[locale] ?? edge.type;
       const key = `${outgoing ? "out" : "in"}:${edge.type}`;
       const label = outgoing ? verb : t("relationIncoming", { verb });
@@ -139,7 +145,7 @@ export function OrgStructure({ id, layout, variant }: { id: string; layout: Pane
     return [...groups.values()]
       .map((group) => ({ ...group, ids: group.ids.sort((a, b) => (layout.byId.get(a)?.name ?? "").localeCompare(layout.byId.get(b)?.name ?? "", "nl")) }))
       .sort((a, b) => b.ids.length - a.ids.length || a.verb.localeCompare(b.verb));
-  }, [layout, id, locale, node?.parent, children]);
+  }, [layout, id, locale, node?.parent, children, overseer]);
 
   const path = useMemo(() => computeFocusPath(layout, id).slice(1), [layout, id]);
   const chamber = layout.chambers[id];
@@ -153,6 +159,7 @@ export function OrgStructure({ id, layout, variant }: { id: string; layout: Pane
       {/* Where it sits: parent, group and sector, each a pick. */}
       <ul className="-mx-1.5">
         {node.parent ? <OrgRowById layout={layout} id={node.parent} /> : null}
+        {overseer ? <OrgRowById layout={layout} id={overseer} /> : null}
         {cluster ? (
           <li>
             <SelectLink

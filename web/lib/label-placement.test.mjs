@@ -48,3 +48,24 @@ test("a label falls back to the left, above and below in that order", () => {
   const placed = placeLabels([blocker, target]);
   assert.equal(placed.get("t")?.anchor, "end");
 });
+
+test("a slot that would leave the view is not taken: the label flips to the free side", () => {
+  const bounds = { x0: 0, y0: 0, x1: 100, y1: 60 };
+  const it = item("edge", 90, 30, 1, 60);
+  const slot = placeLabels([it], 3, bounds).get("edge");
+  assert.equal(slot.anchor, "end");
+  const rect = rectOf(it, slot);
+  assert.ok(rect.x0 >= bounds.x0 && rect.x1 <= bounds.x1);
+});
+
+test("a kept label that fits nowhere is pulled inside, an ordinary one is hidden", () => {
+  const bounds = { x0: 0, y0: 0, x1: 70, y1: 60 };
+  const kept = { ...item("kept", 35, 30, 5, 100), keep: true };
+  const other = item("other", 35, 12, 1, 100);
+  const placed = placeLabels([kept, other], 3, bounds);
+  const slot = placed.get("kept");
+  assert.ok(slot, "the kept label is shown");
+  const rect = rectOf(kept, slot);
+  assert.ok(rect.x0 >= bounds.x0 + 2);
+  assert.equal(placed.has("other"), false);
+});

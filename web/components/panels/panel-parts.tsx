@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useId, useState, type ReactNode } from "react";
 import { Avatar } from "@/components/avatar";
 import { KindGlyph } from "@/components/kind-glyph";
@@ -347,7 +348,7 @@ export function SourceLine({ source }: { source: PanelSource | null | undefined 
 export function OpenPageLink({ href, label }: { href: string; label?: string }) {
   const t = useDict("panels");
   return (
-    <a
+    <Link
       href={href}
       className="tap-row inline-flex min-h-8 items-center gap-1.5 rounded-sm text-xs font-medium text-accent-text hover:underline"
     >
@@ -355,7 +356,7 @@ export function OpenPageLink({ href, label }: { href: string; label?: string }) 
       <svg aria-hidden="true" viewBox="0 0 12 12" width="10" height="10">
         <path d="M4 2.5 7.5 6 4 9.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-    </a>
+    </Link>
   );
 }
 
@@ -366,7 +367,7 @@ export function OpenPageLink({ href, label }: { href: string; label?: string }) 
 export function OpenPageButton({ href, label }: { href: string; label?: string }) {
   const t = useDict("panels");
   return (
-    <a
+    <Link
       href={href}
       className="tap-target inline-flex min-h-9 items-center justify-center gap-1.5 rounded-sm border border-line bg-surface px-3 text-[13px] font-medium text-accent-text transition-fast hover:border-line-strong hover:bg-surface-inset pointer-coarse:min-h-11"
     >
@@ -374,7 +375,7 @@ export function OpenPageButton({ href, label }: { href: string; label?: string }
       <svg aria-hidden="true" viewBox="0 0 12 12" width="11" height="11">
         <path d="M4 2.5 7.5 6 4 9.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-    </a>
+    </Link>
   );
 }
 
