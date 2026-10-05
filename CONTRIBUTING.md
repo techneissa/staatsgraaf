@@ -117,7 +117,7 @@ A schema change follows the process in `docs/04-data-model.md` section 18. A wor
 
 ## 13. License of contributions
 
-- Code, scripts, workflows, and web app contributions are licensed under the PolyForm Noncommercial License 1.0.0, the same source-available license as the rest of the code (`LICENSE`).
+- Code, scripts, workflows, and web app contributions are licensed under CC BY-NC-SA 4.0, the same license as the rest of the code (`LICENSE`).
 - Data, descriptions, summaries, and documentation contributions are licensed under CC BY 4.0, the same license as the dataset (`LICENSE-DATA`).
 - By opening a pull request you confirm that you wrote the change or have the right to submit it under these terms, and that it carries no third-party text, image, or data without a recorded license and credit.
 - The reasons for this split, and what is and is not public in the repository, are in `docs/adr/0023-public-repository.md`.

@@ -80,6 +80,14 @@ test("buildAttribution is a general document: no per-URL rows, no endpoints, det
   assert.ok(first.split("\n").length < 120);
 });
 
+test("buildAttribution states the code licence as CC BY-NC-SA 4.0 and the data licence as CC BY 4.0", () => {
+  const text = buildAttribution(SOURCES, MEDIA);
+  assert.ok(text.includes("The code is CC BY-NC-SA 4.0, see `LICENSE`"), "code licence named");
+  assert.ok(text.includes("Staatsgraaf (https://github.com/techneissa/staatsgraaf), CC BY-NC-SA 4.0"), "code credit line");
+  assert.ok(text.includes("licensed CC BY 4.0, see `LICENSE-DATA`"), "data licence named");
+  assert.ok(!/\bMIT\b|PolyForm/.test(text), "no stale code licence");
+});
+
 test("buildAttribution headings are fixed text, never a licence value or a sentence", () => {
   const headings = buildAttribution(SOURCES, MEDIA).split("\n").filter((line) => line.startsWith("#"));
   assert.deepEqual(headings, [

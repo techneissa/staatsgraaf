@@ -2,7 +2,7 @@
   "name": "staatsgraaf-web",
   "version": "0.1.0",
   "private": true,
-  "license": "PolyForm-Noncommercial-1.0.0",
+  "license": "CC-BY-NC-SA-4.0",
   "type": "module",
   "scripts": {
     "tokens": "bun scripts/build-tokens.mjs",

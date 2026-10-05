@@ -118,7 +118,7 @@ export async function applyEnvelopeToData({ dataDir, envelope, now = new Date(),
     try {
       meta = JSON.parse(await readFile(metaPath, "utf8"));
     } catch {
-      meta = { datasetVersion: "v1", licenses: { code: "MIT", data: "CC-BY-4.0" }, datasetLicenseUrl: "https://creativecommons.org/licenses/by/4.0/" };
+      meta = { datasetVersion: "v1", licenses: { code: "CC-BY-NC-SA-4.0", data: "CC-BY-4.0" }, datasetLicenseUrl: "https://creativecommons.org/licenses/by/4.0/" };
     }
     meta.snapshotId = retrieved[retrieved.length - 1] ?? now.toISOString().slice(0, 10);
     meta.generatedAt = now.toISOString();
