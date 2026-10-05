@@ -85,5 +85,6 @@ test("toNewsItemView flags an item as relevant only when it names an entity or a
     sources: [{ source: "src:voorbeeld", retrieved: "2026-09-18", confidence: "high" }],
   };
   assert.equal(toNewsItemView(raw, "nl").relevant, false);
-  assert.equal(toNewsItemView({ ...raw, topics: ["topic:wonen"] }, "nl").relevant, true);
+  assert.equal(toNewsItemView({ ...raw, topics: ["topic:wonen"] }, "nl").relevant, false, "a topic without evidence");
+  assert.equal(toNewsItemView({ ...raw, topics: ["topic:wonen"], keywords: ["woningbouw"] }, "nl").relevant, true);
 });

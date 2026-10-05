@@ -230,3 +230,9 @@ test("selectRelevantNews keeps the newest relevant items and falls back to all w
   assert.deepEqual(selectRelevantNews(nothing, 5).map((entry) => entry.id), ["news:p1", "news:p2"]);
   assert.deepEqual(selectRelevantNews([], 3), []);
 });
+
+test("a topic without evidence keywords does not make an item relevant", () => {
+  assert.equal(isRelevantNews({ entities: [], topics: ["topic:zorg"], keywords: [] }), false);
+  assert.equal(isRelevantNews({ entities: [], topics: ["topic:zorg"], keywords: ["ziekenhuis", "zorg"] }), true);
+  assert.equal(isRelevantNews({ entities: ["org:x"], topics: ["topic:zorg"], keywords: [] }), true);
+});
