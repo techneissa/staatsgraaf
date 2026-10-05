@@ -5,6 +5,8 @@ import {
   commissieRole,
   compareBySurname,
   compareCommissieHolders,
+  isGenericOrganization,
+  sortCareerNewestFirst,
   keyHolderRank,
   nameWithoutTitles,
   partyRoleGroup,
@@ -90,4 +92,25 @@ test("a short role drops the body", () => {
   assert.equal(shortRole("Minister van Financiën"), "Minister");
   assert.equal(shortRole("Staatssecretaris Herstel Toeslagen"), "Staatssecretaris Herstel Toeslagen");
   assert.equal(shortRole("Lid Gemeenteraad"), "Lid");
+});
+
+test("a career reads newest first by the latest year shown", () => {
+  const item = (id, nl, current = false) => ({ id, years: nl === null ? null : { nl }, current });
+  const sorted = sortCareerNewestFirst([
+    item("a", "2018"),
+    item("b", "2023 – 2026"),
+    item("c", "2026"),
+    item("d", "2024"),
+    item("e", "2023"),
+    item("f", null),
+    item("g", "sinds 2023", true),
+  ]);
+  assert.deepEqual(sorted.map((entry) => entry.id), ["g", "c", "b", "d", "e", "a", "f"]);
+});
+
+test("generic organisation words are recognised", () => {
+  assert.equal(isGenericOrganization("fractie"), true);
+  assert.equal(isGenericOrganization("Fractie "), true);
+  assert.equal(isGenericOrganization("Tweede Kamer"), false);
+  assert.equal(isGenericOrganization(null), false);
 });

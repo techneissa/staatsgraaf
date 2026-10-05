@@ -355,9 +355,6 @@ export default async function OrganizationPage({
           }
           news={
             <div>
-              <h2 id="nieuws-paneel-titel" className="sr-only">
-                <T area="entity" k="tabNews" />
-              </h2>
               <div className="mt-3">
                 <NewsPanel scope="custom" items={news} initialLimit={4} />
               </div>
@@ -365,9 +362,6 @@ export default async function OrganizationPage({
           }
           connections={
             <div>
-              <h2 id="verbindingen-paneel-titel" className="sr-only">
-                <T area="entity" k="whosConnected" />
-              </h2>
               <div className="mt-3">
                 <EntityConnections connections={connections} selfId={organization.id} />
               </div>

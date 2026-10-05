@@ -251,9 +251,6 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
         <EntityTabs
           news={
             <div>
-              <h2 id="nieuws-paneel-titel" className="sr-only">
-                <T area="entity" k="tabNews" />
-              </h2>
               {news.length > 0 ? (
                 <div className="mt-3">
                   <NewsPanel scope="custom" items={news} initialLimit={4} />
@@ -267,9 +264,6 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
           }
           connections={
             <div>
-              <h2 id="verbindingen-paneel-titel" className="sr-only">
-                <T area="entity" k="whosConnected" />
-              </h2>
               <div className="mt-3">
                 <EntityConnections connections={connections} selfId={position.organization} />
               </div>

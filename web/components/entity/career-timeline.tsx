@@ -1,8 +1,10 @@
+import Link from "next/link";
 import { QuietSource } from "@/components/change/quiet-source";
 import { SourceIcons } from "@/components/source-icon";
 import { L, T } from "@/components/i18n/t";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { SUMMARY_CLASS } from "./entity-connections";
+import { isGenericOrganization, sortCareerNewestFirst } from "@/lib/entity-page";
 import type { CareerGroupView, CareerItemView } from "@/lib/careers";
 import type { CareerKind } from "@/lib/types";
 
@@ -25,7 +27,14 @@ const KIND_COLOR: Record<CareerKind, string> = {
   opleiding: "var(--t-color-sector-adviescolleges)",
 };
 
-function CareerRow({ item }: { item: CareerItemView }) {
+/** The party a generic "fractie" entry stands for, when the person's party is on record. */
+export type CareerFractie = { label: string; href: string };
+
+function CareerRow({ item, fractie }: { item: CareerItemView; fractie: CareerFractie | null }) {
+  // "fractie" alone says nothing: name the person's party when the data has it, else say nothing.
+  const generic = item.organizationId === null && isGenericOrganization(item.organization);
+  const organization = generic ? null : item.organization;
+  const fractieLink = generic ? fractie : null;
   return (
     <li className="relative ps-5 pb-3 last:pb-0">
       <span
@@ -41,14 +50,18 @@ function CareerRow({ item }: { item: CareerItemView }) {
       <p className="text-sm leading-snug text-ink break-words" lang="nl">
         {item.title}
       </p>
-      {item.organization !== null || item.source !== null ? (
+      {organization !== null || fractieLink !== null || item.source !== null ? (
         <p className="mt-0.5 flex flex-wrap items-center gap-x-3 gap-y-0.5 text-xs text-ink-muted">
           {item.organizationId !== null ? (
             <EntityPeekLink id={item.organizationId} variant="quiet">
               {item.organization ?? undefined}
             </EntityPeekLink>
-          ) : item.organization !== null ? (
-            <span lang="nl">{item.organization}</span>
+          ) : fractieLink !== null ? (
+            <Link href={fractieLink.href} className="underline underline-offset-[3px] hover:text-ink">
+              {fractieLink.label}
+            </Link>
+          ) : organization !== null ? (
+            <span lang="nl">{organization}</span>
           ) : null}
           {item.source !== null ? (
             <QuietSource href={item.source.url} publisher={item.source.publisher} retrieved={item.source.retrieved} />
@@ -59,11 +72,11 @@ function CareerRow({ item }: { item: CareerItemView }) {
   );
 }
 
-function Rail({ items }: { items: CareerItemView[] }) {
+function Rail({ items, fractie }: { items: CareerItemView[]; fractie: CareerFractie | null }) {
   return (
     <ol className="ms-1 border-s border-line">
       {items.map((item) => (
-        <CareerRow key={item.id} item={item} />
+        <CareerRow key={item.id} item={item} fractie={fractie} />
       ))}
     </ol>
   );
@@ -101,14 +114,15 @@ function OccupationTags({ items }: { items: CareerItemView[] }) {
  * positions, education): the years, the title, the organisation as a peek
  * link when it is in the dataset, and the source of each step.
  */
-export function CareerTimeline({ groups }: { groups: CareerGroupView[] }) {
+export function CareerTimeline({ groups, fractie = null }: { groups: CareerGroupView[]; fractie?: CareerFractie | null }) {
   if (groups.length === 0) return null;
   return (
     <div className="space-y-5">
       {groups.map((group) => {
         if (group.kind === "beroep") return <OccupationTags key={group.kind} items={group.items} />;
-        const visible = group.items.slice(0, INITIAL_ROWS);
-        const rest = group.items.slice(INITIAL_ROWS);
+        const sorted = sortCareerNewestFirst(group.items);
+        const visible = sorted.slice(0, INITIAL_ROWS);
+        const rest = sorted.slice(INITIAL_ROWS);
         return (
           <section key={group.kind}>
             <h3 className="mb-2 flex items-center gap-2 text-xs font-medium text-ink-muted">
@@ -120,14 +134,14 @@ export function CareerTimeline({ groups }: { groups: CareerGroupView[] }) {
               <L nl={CAREER_KIND_LABEL[group.kind].nl} en={CAREER_KIND_LABEL[group.kind].en} />
               <span className="tabular-nums text-ink-faint">({group.items.length})</span>
             </h3>
-            <Rail items={visible} />
+            <Rail items={visible} fractie={fractie} />
             {rest.length > 0 ? (
               <details className="motion-disclosure mt-2">
                 <summary className={SUMMARY_CLASS}>
                   <T area="common" k="seeAll" vars={{ n: group.items.length }} />
                 </summary>
                 <div className="mt-2">
-                  <Rail items={rest} />
+                  <Rail items={rest} fractie={fractie} />
                 </div>
               </details>
             ) : null}
