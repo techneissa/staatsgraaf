@@ -363,10 +363,12 @@ test("an everyday word that is also a topic keyword does not attach a topic on i
   assert.deepEqual(realLink("Aanvoerder Van Dijk begint tegen Griekenland aan 99e interland").topics, []);
   assert.deepEqual(realLink("Peter Gillis nog niet uit de schulden ondanks miljoenenbod op vakantieparken").topics, []);
   assert.deepEqual(realLink("Steeds meer premier league clubs kopen auto's").topics, []);
+  assert.deepEqual(realLink("Vlaamse influencer belaagd, Gentse politie onderzoekt zaak").topics, []);
 });
 
-test("two keywords of one topic, or one policy keyword, still attach the topic", () => {
-  assert.deepEqual(realLink("Inspectie: scholen moeten rekening houden met kennisniveau van leerlingen").topics, ["topic:onderwijs"]);
+test("three everyday keywords of one topic, or one policy keyword, still attach the topic", () => {
+  assert.deepEqual(realLink("Inspectie: onderwijs op scholen moet rekening houden met kennisniveau van leerlingen").topics, ["topic:onderwijs"]);
+  assert.deepEqual(realLink("Audi wil Chinese AUDI niet op Europese wegen zien", "Het merk maakt auto's.").topics, []);
   assert.ok(realLink("Hersteloperatie voor gedupeerde ouders loopt vertraging op").topics.includes("topic:toeslagen"));
   assert.ok(realLink("Stikstof blokkeert nieuwe woningbouw").topics.includes("topic:stikstof-en-landbouw"));
 });
