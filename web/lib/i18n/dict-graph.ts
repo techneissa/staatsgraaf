@@ -240,6 +240,7 @@ export const GRAPH_DICT = {
   layerMunicipalitiesTitle: { nl: "{n} organisaties, waarvan {m} gemeenten", en: "{n} organizations, of which {m} municipalities" },
   layerMunicipalitiesNote: { nl: "waarvan {m} gemeenten", en: "of which {m} municipalities" },
   sectorOrganisations: { nl: "{n} organisaties", en: "{n} organizations" },
+  hallPhotosShort: { nl: "Foto's", en: "Photos" },
 } as const satisfies Record<string, LocString>;
 
 export type DictAreaKey = keyof typeof GRAPH_DICT;

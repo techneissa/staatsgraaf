@@ -155,6 +155,7 @@ export function HierarchyView({
   onPick: (id: string) => void;
 }) {
   const t = useT("power");
+  const tg = useT("graph");
   const [hallChoice, chooseHall] = useHallChoice();
   const [photos, togglePhotos] = usePhotos();
   const raw = bundle.trees.find((entry) => entry.id === treeId) ?? bundle.trees[0];
@@ -177,7 +178,7 @@ export function HierarchyView({
     <div className="hv-root flex h-full min-h-0 w-full flex-col">
       <style>{CLUSTER_CSS + MOTION_CSS}</style>
       <div ref={barRef} className="flex shrink-0 flex-wrap items-center gap-x-3 gap-y-1.5 px-3 pb-1 pt-1.5 sm:px-4">
-        <p className="flex min-w-0 flex-wrap items-center gap-1.5 text-xs text-ink-muted">
+        <p className="flex min-w-0 flex-1 basis-40 flex-wrap items-center gap-1.5 text-xs text-ink-muted">
           {tree.id === "kabinet" ? (
             <>
               <span className="font-medium text-ink">{tree.name}</span>
@@ -195,7 +196,6 @@ export function HierarchyView({
         </p>
         {hasHall ? (
           <>
-            <span className="flex-1" />
             {hall ? (
               <button
                 type="button"
@@ -203,11 +203,12 @@ export function HierarchyView({
                 aria-pressed={photos}
                 aria-label={t("hallPhotos")}
                 title={t("hallPhotos")}
-                className={`tap-target flex h-8 w-8 shrink-0 items-center justify-center rounded-sm border transition-colors ${
+                className={`tap-target flex h-8 min-w-8 shrink-0 items-center justify-center gap-1.5 rounded-sm border px-2 text-xs font-medium transition-colors max-lg:px-0 ${
                   photos ? "border-line-strong bg-surface-raised text-ink" : "border-line bg-surface text-ink-faint hover:text-ink"
                 }`}
               >
                 <LucideIcon icon={CircleUserRound} size={16} />
+                <span className="hidden lg:inline">{tg("hallPhotosShort")}</span>
               </button>
             ) : null}
             <Segmented
@@ -320,7 +321,7 @@ export function Segmented({
   value: string;
   /**
    * With `compact`, the label shows from the sm breakpoint and is read by screen readers below it.
-   * With `iconOnly`, only the icon shows; the label is the tooltip and the accessible name.
+   * With `iconOnly`, only the icon shows below lg (the label is the tooltip and the accessible name there); from lg the label shows too.
    */
   options: { value: string; label: string; icon?: React.ReactNode; compact?: boolean; iconOnly?: boolean }[];
   onChange: (value: string) => void;
@@ -341,7 +342,7 @@ export function Segmented({
             }`}
           >
             {option.icon}
-            <span className={option.iconOnly ? "sr-only" : option.compact ? "max-sm:sr-only" : undefined}>{option.label}</span>
+            <span className={option.iconOnly ? "max-lg:sr-only" : option.compact ? "max-sm:sr-only" : undefined}>{option.label}</span>
           </button>
         );
       })}
@@ -854,7 +855,6 @@ function Stacked({
   const head = tree.head;
   const king = tree.headOfState ?? null;
   const baseId = useId();
-  const leaderWord = t("leader");
   const toggle = (id: string) =>
     setOpen((current) => {
       const next = new Set(current);
@@ -866,11 +866,11 @@ function Stacked({
     <div className="absolute inset-0 overflow-y-auto overscroll-contain px-3 pb-3 sm:px-4">
       <ExpandHint />
       {head ? (
-        <div className="hv-pop flex min-w-0 items-center gap-3 rounded-md border border-line bg-surface p-2.5">
+        <div className="hv-pop flex min-w-0 items-center gap-3 rounded-md border border-line bg-surface p-2">
           <button type="button" onClick={() => onPick(head.id)} className="relative shrink-0 rounded-pill" aria-label={[head.name, roleText(head, locale)].filter(Boolean).join(", ")}>
-            <span className="flex h-[84px] w-[84px] items-center justify-center rounded-pill" style={{ background: ringGradient(tree) }}>
-              <span className="flex h-[70px] w-[70px] items-center justify-center rounded-pill bg-surface">
-                <RingPortrait name={head.name} image={head.image} size={64} color="var(--t-color-line)" stroke={1} />
+            <span className="flex h-[68px] w-[68px] items-center justify-center rounded-pill" style={{ background: ringGradient(tree) }}>
+              <span className="flex h-[56px] w-[56px] items-center justify-center rounded-pill bg-surface">
+                <RingPortrait name={head.name} image={head.image} size={50} color="var(--t-color-line)" stroke={1} />
               </span>
             </span>
           </button>
@@ -891,7 +891,7 @@ function Stacked({
           <SourceIconLink source={bundle.sources[head.src] ?? null} />
         </div>
       ) : null}
-      <ul className="mt-2 flex flex-col gap-2">
+      <ul className="mt-2 flex flex-col gap-1.5">
         {tree.hubs.map((hub, index) => {
           const isOpen = open.has(hub.id);
           const color = hubColor(hub);
@@ -909,12 +909,12 @@ function Stacked({
                 aria-expanded={isOpen}
                 aria-controls={panelId}
                 onClick={() => toggle(hub.id)}
-                className="tap-row flex w-full min-w-0 items-center gap-2.5 px-2.5 py-2 text-left hover:bg-surface-raised"
+                className="tap-row flex w-full min-w-0 items-center gap-2.5 px-2.5 py-1.5 text-left hover:bg-surface-raised"
                 style={{ boxShadow: `inset 4px 0 0 ${color}` }}
               >
-                <RingBadge size={40} color={color} stroke={3.5}>
+                <RingBadge size={36} color={color} stroke={3.5}>
                   {hub.kind === "ministry" ? (
-                    <HubIcon hub={hub} size={19} strokeWidth={2} />
+                    <HubIcon hub={hub} size={17} strokeWidth={2} />
                   ) : (
                     <span className="text-xs font-bold tabular-nums text-ink">{hub.seats}</span>
                   )}
@@ -925,36 +925,16 @@ function Stacked({
                   </span>
                   <span className="truncate text-xs text-ink-faint">{countText(t, hub)}</span>
                 </span>
+                {/* Who sits there, as a small stack of faces in the header, so a collapsed card is one row and the list shows many of them. */}
+                {!isOpen ? (
+                  <span aria-hidden="true" className="flex shrink-0 -space-x-2">
+                    {preview.slice(0, 3).map((person) => (
+                      <RingPortrait key={person.id} name={person.name} image={person.image} size={28} color={color} stroke={2} />
+                    ))}
+                  </span>
+                ) : null}
                 <Morph icon={isOpen ? ChevronUp : ChevronDown} size={16} className="shrink-0 text-ink-faint" />
               </button>
-              {!isOpen ? (
-                <ul className="grid min-w-0 grid-cols-[repeat(auto-fill,minmax(9.5rem,1fr))] gap-x-3 gap-y-1.5 border-t border-line px-2.5 py-2">
-                  {preview.map((person) => (
-                    <li key={person.id} className="min-w-0">
-                      <button type="button" onClick={() => onPick(person.id)} className="tap-row flex w-full min-w-0 items-center gap-1.5 text-left">
-                        <RingPortrait name={person.name} image={person.image} size={30} color={color} stroke={2.5} />
-                        <span className="flex min-w-0 flex-col leading-tight">
-                          <span className="truncate text-xs font-bold text-ink">{person.name}</span>
-                          <span className="truncate text-[11px] text-ink-faint">{memberRole(person, hub, locale, leaderWord) ?? ""}</span>
-                        </span>
-                      </button>
-                    </li>
-                  ))}
-                  {hub.people.length > preview.length ? (
-                    <li>
-                      <button
-                        type="button"
-                        onClick={() => toggle(hub.id)}
-                        className="tap-target flex h-[30px] min-w-[30px] items-center justify-center rounded-pill border px-1.5 text-[11px] font-semibold text-ink-muted"
-                        style={{ borderColor: color }}
-                        aria-label={t("moreIn", { n: hub.people.length - preview.length, name })}
-                      >
-                        +{hub.people.length - preview.length}
-                      </button>
-                    </li>
-                  ) : null}
-                </ul>
-              ) : null}
               <div id={panelId} hidden={!isOpen}>
                 {isOpen ? (
                   <ul className="border-t border-line px-2 py-0.5">
