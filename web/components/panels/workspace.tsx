@@ -24,8 +24,18 @@ import {
   parseOpen,
   widthAfterKey,
 } from "./panel-prefs";
-import { DetailsPanel } from "./details-panel";
-import { DetailsSheet } from "./details-sheet";
+import dynamic from "next/dynamic";
+import { useSelection } from "@/components/selection/selection-provider";
+
+// The panel bodies are large and a phone never shows the column, so each
+// surface loads when it is on screen: the column from lg, the sheet when
+// something is picked below it.
+const loadDetailsPanel = () => import("./details-panel").then((module) => module.DetailsPanel);
+const DetailsPanel = dynamic(loadDetailsPanel, { ssr: false });
+// From lg the column is on screen from the first paint: its code starts
+// downloading as this module runs, before React has hydrated.
+if (typeof window !== "undefined" && window.matchMedia("(min-width: 64rem)").matches) void loadDetailsPanel();
+const DetailsSheet = dynamic(() => import("./details-sheet").then((module) => module.DetailsSheet), { ssr: false });
 
 export const PAGE_COLUMN_ID = "sg-page-column";
 const DETAILS_ID = "sg-details";
@@ -225,6 +235,7 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
     if (commit) store(PANEL_STORAGE.detailsWidth, String(next));
   }, []);
 
+  const { current } = useSelection();
   const state = useMemo(() => ({ desktop, pageOpen, detailsOpen }), [desktop, pageOpen, detailsOpen]);
 
   // Both side columns are `relative` so they are the containing block for
@@ -267,7 +278,7 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
         </aside>
         {detailsOpen ? <ResizeHandle width={width} onWidth={setWidth} /> : null}
       </div>
-      {desktop ? null : <DetailsSheet />}
+      {desktop || current === null ? null : <DetailsSheet />}
     </PanelStateContext.Provider>
   );
 }
