@@ -1,4 +1,4 @@
-import { getDataset, getDatasetDate } from "./data";
+import { getDataset, getDatasetDate, getPersonById } from "./data";
 import type {
   Change,
   ChangeKind,
@@ -294,4 +294,49 @@ export function vacancySeatCounts(change: Change): { filled: number; seats: numb
   const seats = Number(before[2]);
   if (!Number.isFinite(filled) || !Number.isFinite(seats) || seats < filled) return null;
   return { filled, seats, vacant: seats - filled };
+}
+
+export type PersonChangeGroup = {
+  key: string;
+  kind: "person" | "seat";
+  personId: string | null;
+  positionId: string | null;
+  /** Newest first. */
+  events: Change[];
+};
+
+function newestFirst(a: Change, b: Change): number {
+  return b.date.localeCompare(a.date) || b.id.localeCompare(a.id);
+}
+
+/**
+ * Groups changes by the person they are about (in or out), newest event first.
+ * A change whose people do not resolve in the dataset, or that has none (a
+ * vacancy), goes to a seat group keyed by its position; with no position it
+ * gets a group of its own keyed `unknown:<change id>`. A handover between two
+ * people appears under both. Groups sort by their newest event.
+ */
+export function groupChangesByPerson(changes: Change[]): PersonChangeGroup[] {
+  const groups = new Map<string, PersonChangeGroup>();
+  const add = (key: string, group: Omit<PersonChangeGroup, "key" | "events">, change: Change) => {
+    const existing = groups.get(key);
+    if (existing) existing.events.push(change);
+    else groups.set(key, { key, ...group, events: [change] });
+  };
+  for (const change of changes) {
+    const ids = new Set<string>();
+    for (const id of [change.in?.person, change.out?.person]) {
+      if (id && getPersonById(id)) ids.add(id);
+    }
+    if (ids.size > 0) {
+      for (const id of ids) add(`person:${id}`, { kind: "person", personId: id, positionId: change.position }, change);
+    } else if (change.position) {
+      add(`seat:${change.position}`, { kind: "seat", personId: null, positionId: change.position }, change);
+    } else {
+      add(`unknown:${change.id}`, { kind: "seat", personId: null, positionId: null }, change);
+    }
+  }
+  const result = [...groups.values()];
+  for (const group of result) group.events.sort(newestFirst);
+  return result.sort((a, b) => newestFirst(a.events[0], b.events[0]));
 }
