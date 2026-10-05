@@ -379,3 +379,17 @@ test("the gazetteer only points at records that exist in the dataset", async () 
   const dangling = envelope.aliases.filter((entry) => !ids.has(entry.target)).map((entry) => `${entry.alias} -> ${entry.target}`);
   assert.deepEqual(dangling, []);
 });
+
+test("a bare kabinet links, a Brits kabinet does not", () => {
+  const dutch = realLink("Sociale- en zorgmaatregelen kabinet raken ruim 4 miljoen huishoudens");
+  assert.ok(dutch.entities.includes("org:kabinet"), JSON.stringify(dutch.entities));
+  assert.deepEqual(realLink("Brits kabinet wil nieuwe energiebelasting").entities, []);
+});
+
+test("VNG, the Vereniging van Nederlandse Gemeenten and the IPO link to their records", () => {
+  assert.deepEqual(realLink("VNG: gemeenten moeten afhankelijkheid van grote techleveranciers afbouwen").entities, [
+    "org:vereniging-van-nederlandse-gemeenten",
+  ]);
+  assert.deepEqual(realLink("Provincies verlangen meer geld", "Het Interprovinciaal Overleg (IPO) wil extra budget.").entities, ["org:ipo"]);
+  assert.deepEqual(realLink("Beursgang: IPO van techbedrijf succesvol").entities, []);
+});
