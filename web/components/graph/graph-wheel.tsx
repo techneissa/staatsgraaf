@@ -9,6 +9,8 @@ import { seatIndex } from "@/lib/seats";
 import { useSelection } from "@/components/selection/selection-provider";
 import { useT } from "@/components/i18n/use-t";
 import { glyphPathAt } from "./glyph";
+import { summariseAsOf } from "@/lib/graph-asof";
+import { GraphList } from "./graph-list";
 import { SeatLoupe } from "./seat-loupe";
 import { WHEEL_LINK_STYLE } from "./wheel-styles";
 
@@ -221,6 +223,7 @@ export function GraphWheel({
     () => (asOf === null ? fullBundle : { ...fullBundle, edges: fullBundle.edges.filter((edge) => edgeAlive(edge, asOf)) }),
     [fullBundle, asOf],
   );
+  const asOfSummary = useMemo(() => (asOf === null ? null : summariseAsOf(fullBundle.edges, asOf)), [fullBundle, asOf]);
   const selectedId = current && "id" in current ? current.id : null;
   const selectedPerson = current?.kind === "person" ? current.id : null;
   // The family on the selection's path opens; all others stay packed.
@@ -754,9 +757,9 @@ export function GraphWheel({
     return { chamberId: at.chamberId, entry, total: bundle.chambers[at.chamberId]?.total ?? 0 };
   }, [current, selectedPerson, seats, bundle.chambers, placed]);
   const loupeRef = useRef<HTMLDivElement | null>(null);
-  // The wheel keeps the loupe in its top left corner, clear of the form switch in the top right.
+  // The wheel keeps the loupe in its top left corner, under the folded list of bodies.
   const placeLoupe = useCallback(() => {
-    if (loupeRef.current) loupeRef.current.style.transform = "translate(0.5rem, 0.5rem)";
+    if (loupeRef.current) loupeRef.current.style.transform = "translate(0.75rem, 3.75rem)";
   }, []);
 
   return (
@@ -1075,6 +1078,20 @@ export function GraphWheel({
           {t("wheelReset")}
         </button>
       ) : null}
+      {asOfSummary ? (
+        <p
+          role="status"
+          className="pointer-events-none absolute bottom-3 right-3 z-10 max-w-[min(20rem,calc(100%-1.5rem))] rounded-sm border border-line bg-surface/95 px-2.5 py-1.5 text-xs leading-snug text-ink-muted shadow-sm"
+        >
+          {asOfSummary.hidden > 0 ? t("asOfNoteHidden", { hidden: asOfSummary.hidden }) : t("asOfNoteNone")}
+        </p>
+      ) : null}
+      <GraphList
+        bundle={bundle}
+        selectedId={selectedId}
+        onSelect={(id) => (id ? select({ kind: "org", id, surface: "graph" }) : clear())}
+        hiddenBranches={hiddenBranches}
+      />
     </div>
   );
 }

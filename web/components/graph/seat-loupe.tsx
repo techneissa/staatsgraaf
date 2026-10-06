@@ -15,8 +15,8 @@ import { useT } from "@/components/i18n/use-t";
  * at, and the canvas never zooms by itself. The loupe is the zoom on demand:
  * it opens beside the fractie once the fractie or one of its members is
  * picked, and shows every seat as the face or initials of its member, in
- * surname order in rows as wide as the loupe. The canvas places it
- * (graph-canvas placeOverlays; the wheel keeps it in its top left corner).
+ * surname order in rows as wide as the loupe. The wheel places it
+ * in its top left corner, under the list of bodies.
  */
 export function SeatLoupe({
   loupeRef,

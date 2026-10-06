@@ -101,10 +101,9 @@
  * Motion system.
  *
  * Motion here answers something the reader did (opened, switched, expanded,
- * copied) or shows what changed; it never decorates. The one orchestrated
- * moment is the first load of the graph canvas on the home page, once per
- * session (components/graph/graph-canvas.tsx). The canvas itself runs on
- * springs (lib/motion.ts); everything else runs on these tokens.
+ * copied) or shows what changed; it never decorates. Everything runs on
+ * these tokens; the springs in lib/motion.ts serve the few interactions that
+ * need one.
  *
  * Durations: fast for feedback (a press, a colour), base for things that open
  * or switch, slow for things that travel or grow. Curves: `--ease-out` for
@@ -228,14 +227,6 @@
   from {
     outline-offset: 5px;
     outline-color: transparent;
-  }
-}
-
-/* The graph's first load: a ring settles onto its radius as it fades in. */
-@keyframes sg-settle {
-  from {
-    opacity: 0;
-    transform: scale(0.94);
   }
 }
 
@@ -482,14 +473,6 @@
     background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--t-color-ink) 7%, transparent), transparent);
     transform: translateX(-100%);
     animation: sg-shimmer 1.2s ease-in-out infinite;
-  }
-
-  /* The first load of the graph canvas, ring by ring from the centre. */
-  .sg-intro .sg-intro-ring {
-    animation: sg-settle var(--motion-slow) var(--ease-out) calc(var(--ring, 0) * 60ms) backwards;
-  }
-  .sg-intro .sg-intro-fade {
-    animation: sg-fade-in var(--motion-slow) var(--ease-out) calc(var(--ring, 0) * 60ms) backwards;
   }
 
   /*
