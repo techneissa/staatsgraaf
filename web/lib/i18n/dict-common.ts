@@ -145,6 +145,13 @@ export const COMMON_DICT = {
   footerLicenseCode: { nl: "Broncode: CC BY-NC-SA 4.0", en: "Source code: CC BY-NC-SA 4.0" },
   footerSourceNote: { nl: "Elk feit heeft een bron.", en: "Every fact has a source." },
   footerDatasetLink: { nl: "Dataset en bronvermelding", en: "Dataset and credit" },
+  errorTitle: { nl: "Deze pagina kon niet worden geladen", en: "This page could not be loaded" },
+  errorBody: {
+    nl: "Er ging iets mis bij het laden. Laad de pagina opnieuw; dat lost het meestal op, ook als de site net is bijgewerkt terwijl dit tabblad openstond.",
+    en: "Something went wrong while loading. Reload the page; that usually fixes it, also when the site was updated while this tab was open.",
+  },
+  errorReload: { nl: "Pagina opnieuw laden", en: "Reload the page" },
+  errorHome: { nl: "Naar de startpagina", en: "Go to the home page" },
   notFoundSections: { nl: "Ga naar een onderdeel", en: "Go to a section" },
   notFoundDescription: {
     nl: "Deze pagina bestaat niet of is verplaatst. Kies een onderdeel van Staatsgraaf.",
