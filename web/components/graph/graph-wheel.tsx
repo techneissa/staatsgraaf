@@ -8,6 +8,8 @@ import { bodySeatLinks, buildWheel, cellMarks, OPEN_PITCH, REST_PITCH, seatLinks
 import { seatIndex } from "@/lib/seats";
 import { useSelection } from "@/components/selection/selection-provider";
 import { useT } from "@/components/i18n/use-t";
+import { useLocale } from "@/components/i18n/language-provider";
+import { localizeWheelModel } from "@/lib/wheel-labels";
 import { glyphPathAt } from "./glyph";
 import { summariseAsOf } from "@/lib/graph-asof";
 import { GraphList } from "./graph-list";
@@ -24,8 +26,8 @@ const CHAR = 0.58;
 /** A group's name in the lane outside its background: capitals, spaced, in the group's colour. */
 const GROUP = 9;
 const GROUP_MIN = 6.5;
-const GROUP_SPACING = 1.3;
-const GROUP_CHAR = 0.68;
+const GROUP_SPACING = 0.5;
+const GROUP_CHAR = 0.6;
 
 /** Half the wheel's viewBox: room around the rim for the voters' name on all four sides, clear of the panel toggles. */
 const WHEEL_VIEW = WHEEL_RADIUS + 28;
@@ -161,10 +163,10 @@ function groupTitle(group: WheelGroup, turn: number) {
   const a0 = Math.max(group.a0, mid - Math.PI * 0.95);
   const a1 = Math.min(group.a1, mid + Math.PI * 0.95);
   const length = (a1 - a0) * radius - 6;
-  const text = (group.count !== null ? `${group.title} · ${group.count}` : group.title).toUpperCase();
+  const text = group.count !== null ? `${group.title} · ${group.count}` : group.title;
   // Tighter spacing before a smaller size, so a short lane still carries the whole name.
-  for (const candidate of [text, group.title.toUpperCase()]) {
-    for (const spacing of [GROUP_SPACING, 0.5]) {
+  for (const candidate of [text, group.title]) {
+    for (const spacing of [GROUP_SPACING, 0.2]) {
       const size = Math.min(GROUP, (length / candidate.length - spacing) / GROUP_CHAR);
       if (size >= GROUP_MIN) return { text: candidate, size, spacing, path: arcPath(radius, a0, a1, lower) };
     }
@@ -238,7 +240,11 @@ export function GraphWheel({
     }
     return null;
   }, [selectedId, restModel, parentOf]);
-  const model = useMemo(() => (openFamily ? buildWheel(bundle, openFamily) : restModel), [bundle, openFamily, restModel]);
+  const locale = useLocale();
+  const model = useMemo(
+    () => localizeWheelModel(openFamily ? buildWheel(bundle, openFamily) : restModel, locale),
+    [bundle, openFamily, restModel, locale],
+  );
   const [hot, setHot] = useState<string | null>(null);
   const [view, setView] = useState({ k: 1, x: 0, y: 0 });
   const drag = useRef<{ x: number; y: number; vx: number; vy: number; moved: boolean; slop: number } | null>(null);
@@ -818,7 +824,7 @@ export function GraphWheel({
             <text
               key={index}
               fontSize={10}
-              letterSpacing={3}
+              letterSpacing={0.8}
               fontWeight={700}
               fill="var(--t-color-ink)"
               stroke="var(--t-color-canvas)"
@@ -840,9 +846,9 @@ export function GraphWheel({
             aria-hidden="true"
           >
           {model.wedges.map((wedge) => (
-            <text key={wedge.id} fontSize={8.5} letterSpacing={1.6} fontWeight={700} fill="var(--t-color-ink-faint)">
+            <text key={wedge.id} fontSize={9} letterSpacing={0.4} fontWeight={700} fill="var(--t-color-ink-faint)">
               <textPath href={`#wheel-wedge-${wedge.id}`} startOffset="50%" textAnchor="middle">
-                {wedge.title.toUpperCase()}
+                {wedge.title}
               </textPath>
             </text>
           ))}
@@ -1033,7 +1039,7 @@ export function GraphWheel({
           {/* The core above the ties, so they pass under the Grondwet instead of over its name. */}
           <circle r={WHEEL_RINGS.core} fill="var(--t-color-surface)" stroke="var(--t-color-sector-regering)" strokeOpacity={0.7} strokeWidth={1.5} />
           <text y={-4} textAnchor="middle" fontSize={15} fontWeight={800} fill="var(--t-color-ink)">
-            Grondwet
+            {t("coreTitle")}
           </text>
           <text y={13} textAnchor="middle" fontSize={10} fill="var(--t-color-ink-muted)">
             {t("wheelCoreSub")}

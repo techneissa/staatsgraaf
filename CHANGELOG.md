@@ -20,6 +20,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 - The Eerste Kamer hall centres the kabinet bench on the chair and the aisle (it sat half a seat to the left).
 - The ministries on the budget page are one ranked list with a row each (the "other ministries" roll-up is gone). A ministry's budget page and a party page now pick their entity in the graph, as organisation and person pages already did, so the graph and the side panel show what the page is about.
 - Hierarchie: the lines in the wheel now meet the ring, hubs and people square on with small rounded corners, no stubs or notches, and one-seat parties keep a ring segment wide enough for their bar.
+- Wheel: the Koninkrijk ring leaves a visible seam where it closes instead of running into itself; ring, group and rim labels are in normal capitalisation instead of all capitals; the centre reads "Constitution and Charter" in English, and the wheel's structural labels (branches, groups, courts) are translated.
 - The Freshness section of the About page is removed, and so is the seat-order note on the About page, the seat loupe and the party panel.
 
 ### Changed (06-10-2026, the wheel is the graph)

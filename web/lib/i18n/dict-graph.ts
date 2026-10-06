@@ -190,7 +190,7 @@ export const GRAPH_DICT = {
     nl: "De Nederlandse overheid als wiel: de Grondwet in het midden, de landelijke organen in vier machten, de decentrale overheden en het Koninkrijk eromheen, de kiesgerechtigden als rand.",
     en: "The Dutch state as a wheel: the constitution in the centre, national bodies in four branches, decentral government and the Kingdom around them, the voters as the rim.",
   },
-  wheelVoters: { nl: "KIESGERECHTIGDEN", en: "VOTERS" },
+  wheelVoters: { nl: "Kiesgerechtigden", en: "Voters" },
   wheelCoreSub: { nl: "en Statuut", en: "and Charter" },
   wheelReset: { nl: "Passend maken", en: "Fit" },
   wheelLinks: { nl: "{n} verbindingen", en: "{n} connections" },
