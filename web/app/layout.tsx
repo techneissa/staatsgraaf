@@ -7,6 +7,7 @@ import { SelectionProvider } from "@/components/selection/selection-provider";
 import { SelectionProfileGate } from "@/components/selection/selection-profile-gate";
 import { Workspace } from "@/components/panels/workspace";
 import { PANELS_INIT_SCRIPT } from "@/components/panels/panel-prefs";
+import { NavRecovery } from "@/components/nav-recovery";
 import { NavScroll } from "@/components/nav-scroll";
 import { PeekProvider } from "@/components/peek/peek-provider";
 import { RevealObserver } from "@/components/reveal-observer";
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body>
         <LanguageProvider>
           <SkipLink />
+          <NavRecovery />
           <SelectionProvider>
             <div className="flex min-h-dvh flex-col lg:h-dvh lg:min-h-0 lg:overflow-hidden">
               <TopBar />
