@@ -129,6 +129,18 @@ test("the Tweede Kamer kabinet sits on the plan's tables and its seats keep apar
   }
 });
 
+test("the Eerste Kamer kabinet is centred on the aisle and the chair, row by row", () => {
+  const full = Array.from({ length: 28 }, (_, i) => ({ person: `person:bench-${i}`, hub: "org:ministerie-van-financien" }));
+  const hall = hallFor("org:eerste-kamer", { cabinet: full });
+  const chair = hall.seats.find((seat) => seat.chair);
+  assert.equal(hall.cabinet.seats.length, 28);
+  for (const row of [hall.cabinet.seats.slice(0, 14), hall.cabinet.seats.slice(14)]) {
+    const xs = row.map((seat) => seat.x);
+    const mid = (Math.min(...xs) + Math.max(...xs)) / 2;
+    assert.ok(Math.abs(mid - chair.x) < 0.02, `a bench row is centred at ${mid}, the chair at ${chair.x}`);
+  }
+});
+
 test("seats never overlap and everything lies inside the box", () => {
   for (const orgId of ["org:tweede-kamer", "org:eerste-kamer"]) {
     const hall = hallFor(orgId);
