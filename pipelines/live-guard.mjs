@@ -173,3 +173,57 @@ export function decideBulk({ closures, fractieChanged = false, events = [], maxQ
       `de drempel is ${maxQuiet}`,
   };
 }
+
+// ---------- provincies, gemeenten, waterschappen (ADR 0027) ----------
+
+/** Plausible counts of current bodies per level; a source outside its range writes nothing. */
+export const DEFAULT_BOUNDS = Object.freeze({
+  gemeenten: [300, 400],
+  provincies: [12, 12],
+  waterschappen: [15, 30],
+});
+
+function difference(a, b) {
+  return [...a].filter((value) => !b.has(value)).sort();
+}
+
+/**
+ * The bodies of one level must agree across independent reads: the TOOI set (codes with no end date),
+ * the register export and, for gemeenten and provincies, the CBS table. The same codes, a count in the plausible
+ * range, and for gemeenten the same province in TOOI and CBS.
+ */
+export function evaluateBodyInvariants({ level, tooiCodes, registerCodes, cbsCodes = null, tooiProvince = null, cbsProvince = null, bounds = DEFAULT_BOUNDS[level] }) {
+  const failures = [];
+  const tooi = new Set(tooiCodes);
+  const register = new Set(registerCodes);
+  const [low, high] = bounds;
+  if (tooi.size < low || tooi.size > high) failures.push(failure("count-range", `${tooi.size} ${level} in TOOI, verwacht ${low === high ? low : `${low} tot en met ${high}`}`));
+  const regOnly = difference(register, tooi);
+  const tooiOnly = difference(tooi, register);
+  if (regOnly.length + tooiOnly.length > 0) {
+    failures.push(failure("register-vs-tooi", `TOOI en het register noemen niet dezelfde ${level} (alleen register: ${regOnly.slice(0, 5).join(", ") || "geen"}; alleen TOOI: ${tooiOnly.slice(0, 5).join(", ") || "geen"})`));
+  }
+  if (cbsCodes) {
+    const cbs = new Set(cbsCodes);
+    const cbsOnly = difference(cbs, tooi);
+    const tooiNotCbs = difference(tooi, cbs);
+    if (cbsOnly.length + tooiNotCbs.length > 0) {
+      failures.push(failure("cbs-vs-tooi", `CBS en TOOI noemen niet dezelfde ${level} (alleen CBS: ${cbsOnly.slice(0, 5).join(", ") || "geen"}; alleen TOOI: ${tooiNotCbs.slice(0, 5).join(", ") || "geen"}); rond 1 januari kan een van beide een paar dagen voorlopen`));
+    }
+  }
+  if (tooiProvince && cbsProvince) {
+    const wrong = [];
+    for (const [code, province] of cbsProvince) if (tooiProvince.get(code) && province && tooiProvince.get(code) !== province) wrong.push(code);
+    if (wrong.length > 0) failures.push(failure("province", `${wrong.length} gemeenten met een andere provincie in TOOI dan in CBS (${wrong.slice(0, 5).join(", ")})`));
+  }
+  return { ok: failures.length === 0, failures, stats: { tooi: tooi.size, register: register.size, cbs: cbsCodes ? new Set(cbsCodes).size : null } };
+}
+
+/** The register file must name a head (burgemeester, dijkgraaf) for nearly every body, or it is truncated or restructured. */
+export function evaluateHolderInvariants({ level, bodies, withHead, expectsHeads = true, minRatio = 0.97 }) {
+  const failures = [];
+  if (expectsHeads && bodies > 0 && withHead / bodies < minRatio) {
+    failures.push(failure("heads-missing", `het register noemt een hoofd voor ${withHead} van ${bodies} ${level}; ten minste ${Math.round(minRatio * 100)} procent is nodig`));
+  }
+  return { ok: failures.length === 0, failures, stats: { bodies, withHead } };
+}

@@ -135,8 +135,8 @@ export default function MethodPage() {
             </li>
             <li>
               <L
-                nl="Provincies, gemeenten en waterschappen hebben nog geen live bron en worden minder vaak bijgewerkt."
-                en="Provinces, municipalities and water boards have no live source yet and are updated less often."
+                nl="Provincies, gemeenten en waterschappen worden dagelijks bijgewerkt uit officiële bronnen (TOOI, het Register van Overheidsorganisaties, CBS en Rijksoverheid): de lichamen, hun zetels, de burgemeesters, dijkgraven en commissarissen van de Koning. Wethouders, raadsleden, gedeputeerden en de besturen van waterschappen staan er nog niet in."
+                en="Provinces, municipalities and water boards are refreshed daily from official sources (TOOI, the Register of Government Organisations, CBS and Rijksoverheid): the bodies, their council seats, the mayors, dijkgraven and Commissioners of the King. Aldermen, councillors, gedeputeerden and water board councils are not in yet."
               />
             </li>
           </ul>

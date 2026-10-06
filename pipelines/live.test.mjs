@@ -105,7 +105,8 @@ function router({ rows = null, counts = 0 } = {}) {
 
 async function run(root, scenario, extra = {}) {
   const { fetchImpl, requested } = router(scenario);
-  const result = await runLive({ root, now: NOW, fetchImpl, minIntervalMs: 0, validate: false, log: () => {}, ...extra });
+  // the decentral sources have their own test (live-decentral.test.mjs); here they are off so the request counts stay about the five older sources
+  const result = await runLive({ root, now: NOW, fetchImpl, minIntervalMs: 0, validate: false, log: () => {}, skipDecentral: true, ...extra });
   return { ...result, requested };
 }
 

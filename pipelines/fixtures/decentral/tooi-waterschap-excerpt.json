@@ -1,0 +1,521 @@
+[
+ {
+  "@id": "https://identifier.overheid.nl/tooi/id/waterschap",
+  "@graph": [
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0152",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Waterschap"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+     {
+      "@value": "waterschap Rijn en IJssel"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiesoort": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/def/thes/kern/c_b5326808"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamExclSoort": [
+     {
+      "@value": "Rijn en IJssel"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamSorteer": [
+     {
+      "@value": "rijn en ijssel"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiecode": [
+     {
+      "@value": "ws0152"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/owmsId": [
+     {
+      "@value": "http://standaarden.overheid.nl/owms/terms/Waterschap_Rijn_en_IJssel",
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamExclSoort": [
+     {
+      "@value": "Rijn en IJssel"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamSorteer": [
+     {
+      "@value": "rijn en ijssel"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamInclSoort": [
+     {
+      "@value": "waterschap Rijn en IJssel"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamInclSoort": [
+     {
+      "@value": "waterschap Rijn en IJssel"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/waterschapscode": [
+     {
+      "@value": "0152"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0155",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Waterschap"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+     {
+      "@value": "waterschap Amstel, Gooi en Vecht"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/begindatum": [
+     {
+      "@value": "2017-01-01",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+     }
+    ],
+    "http://www.w3.org/ns/prov#generatedAtTime": [
+     {
+      "@value": "2017-01-01T00:00:00+01:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiesoort": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/def/thes/kern/c_b5326808"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamExclSoort": [
+     {
+      "@value": "Amstel, Gooi en Vecht"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamSorteer": [
+     {
+      "@value": "amstel, gooi en vecht"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiecode": [
+     {
+      "@value": "ws0155"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/owmsId": [
+     {
+      "@value": "http://standaarden.overheid.nl/owms/terms/Hoogheemraadschap_Amstel,_Gooi_en_Vecht",
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+     },
+     {
+      "@value": "http://standaarden.overheid.nl/owms/terms/wsagv",
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamExclSoort": [
+     {
+      "@value": "Amstel, Gooi en Vecht"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamSorteer": [
+     {
+      "@value": "amstel, gooi en vecht"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamInclSoort": [
+     {
+      "@value": "waterschap Amstel, Gooi en Vecht"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamInclSoort": [
+     {
+      "@value": "waterschap Amstel, Gooi en Vecht"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/waterschapscode": [
+     {
+      "@value": "0155"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0524",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Waterschap"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+     {
+      "@value": "waterschap Zeeuws-Vlaanderen"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/einddatum": [
+     {
+      "@value": "2010-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiesoort": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/def/thes/kern/c_b5326808"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamExclSoort": [
+     {
+      "@value": "Zeeuws-Vlaanderen"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamSorteer": [
+     {
+      "@value": "zeeuws-vlaanderen"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiecode": [
+     {
+      "@value": "ws0524"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/owmsId": [
+     {
+      "@value": "http://standaarden.overheid.nl/owms/terms/Waterschap_Zeeuws-Vlaanderen",
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamExclSoort": [
+     {
+      "@value": "Zeeuws-Vlaanderen"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamSorteer": [
+     {
+      "@value": "zeeuws-vlaanderen"
+     }
+    ],
+    "http://www.w3.org/ns/prov#invalidatedAtTime": [
+     {
+      "@value": "2011-01-01T00:00:00+01:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamInclSoort": [
+     {
+      "@value": "waterschap Zeeuws-Vlaanderen"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamInclSoort": [
+     {
+      "@value": "waterschap Zeeuws-Vlaanderen"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/waterschapscode": [
+     {
+      "@value": "0524"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0536",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Waterschap"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+     {
+      "@value": "waterschap Zeeuwse Eilanden"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/einddatum": [
+     {
+      "@value": "2010-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiesoort": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/def/thes/kern/c_b5326808"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamExclSoort": [
+     {
+      "@value": "Zeeuwse Eilanden"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamSorteer": [
+     {
+      "@value": "zeeuwse eilanden"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiecode": [
+     {
+      "@value": "ws0536"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/owmsId": [
+     {
+      "@value": "http://standaarden.overheid.nl/owms/terms/Waterschap_Zeeuwse_Eilanden",
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamExclSoort": [
+     {
+      "@value": "Zeeuwse Eilanden"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamSorteer": [
+     {
+      "@value": "zeeuwse eilanden"
+     }
+    ],
+    "http://www.w3.org/ns/prov#invalidatedAtTime": [
+     {
+      "@value": "2011-01-01T00:00:00+01:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamInclSoort": [
+     {
+      "@value": "waterschap Zeeuwse Eilanden"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamInclSoort": [
+     {
+      "@value": "waterschap Zeeuwse Eilanden"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/waterschapscode": [
+     {
+      "@value": "0536"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0661",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Waterschap"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+     {
+      "@value": "waterschap Scheldestromen"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/begindatum": [
+     {
+      "@value": "2011-01-01",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+     }
+    ],
+    "http://www.w3.org/ns/prov#generatedAtTime": [
+     {
+      "@value": "2011-01-01T00:00:00+01:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiesoort": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/def/thes/kern/c_b5326808"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamExclSoort": [
+     {
+      "@value": "Scheldestromen"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamSorteer": [
+     {
+      "@value": "scheldestromen"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiecode": [
+     {
+      "@value": "ws0661"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/owmsId": [
+     {
+      "@value": "http://standaarden.overheid.nl/owms/terms/Waterschap_Scheldestromen",
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamExclSoort": [
+     {
+      "@value": "Scheldestromen"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamSorteer": [
+     {
+      "@value": "scheldestromen"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamInclSoort": [
+     {
+      "@value": "waterschap Scheldestromen"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamInclSoort": [
+     {
+      "@value": "waterschap Scheldestromen"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/waterschapscode": [
+     {
+      "@value": "0661"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/waterschap/wzg_01194343",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Samenvoeging"
+    ],
+    "http://www.w3.org/ns/prov#generated": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0661"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/tijdstipWijziging": [
+     {
+      "@value": "2011-01-01T00:00:00+01:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+     }
+    ],
+    "http://www.w3.org/ns/prov#invalidated": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0524"
+     },
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0536"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/waterschap/wzg_02670819",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Samenvoeging"
+    ],
+    "http://www.w3.org/ns/prov#generated": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0664"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/tijdstipWijziging": [
+     {
+      "@value": "2016-01-01T00:00:00+01:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+     }
+    ],
+    "http://www.w3.org/ns/prov#invalidated": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0151"
+     },
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0648"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/waterschap/wzg_04966013",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Samenvoeging"
+    ],
+    "http://www.w3.org/ns/prov#generated": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0662"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/tijdstipWijziging": [
+     {
+      "@value": "2013-01-01T00:00:00+01:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+     }
+    ],
+    "http://www.w3.org/ns/prov#invalidated": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0153"
+     },
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0154"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/waterschap/wzg_06021904",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Samenvoeging"
+    ],
+    "http://www.w3.org/ns/prov#generated": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0665"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/tijdstipWijziging": [
+     {
+      "@value": "2017-01-01T00:00:00+01:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+     }
+    ],
+    "http://www.w3.org/ns/prov#invalidated": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0585"
+     },
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0638"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/waterschap/wzg_06093400",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Samenvoeging"
+    ],
+    "http://www.w3.org/ns/prov#generated": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0663"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/tijdstipWijziging": [
+     {
+      "@value": "2014-01-01T00:00:00+01:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+     }
+    ],
+    "http://www.w3.org/ns/prov#invalidated": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0201"
+     },
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0649"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/waterschap/wzg_91736108",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Toestandswijziging"
+    ],
+    "http://www.w3.org/ns/prov#used": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0155"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/heeftJuridischeGrondslag": [
+     {
+      "@id": "https://zoek.officielebekendmakingen.nl/prb-2016-6722.html"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/tijdstipWijziging": [
+     {
+      "@value": "2017-01-01T00:00:00+01:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+     }
+    ],
+    "http://www.w3.org/ns/prov#invalidated": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/waterschap/ws0155_hv04193490"
+     }
+    ]
+   }
+  ]
+ }
+]

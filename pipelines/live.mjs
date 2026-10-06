@@ -3,7 +3,8 @@
 // with the official sources, unattended (ADR 0006 amended, ADR 0024).
 //
 // Order: news trigger check, Tweede Kamer change check and fetch, Eerste Kamer hash
-// check, bewindspersonen, election dates, apply (merge), changes, validate. It is fast when
+// check, bewindspersonen, the decentral sources (gemeenten, provincies, waterschappen,
+// commissarissen: daily, ADR 0027), election dates, apply (merge), changes, validate. It is fast when
 // nothing changed: counts and hashes only, one request per second per host. A run that
 // changes data validates it and restores the previous data if validation fails.
 //
@@ -29,11 +30,14 @@ import { fetchNewsSitemap, shouldRunEarly } from "./news-trigger.mjs";
 import { loadDataset, runRefresh } from "./refresh-official.mjs";
 import { writeChanges } from "./changes.mjs";
 import { bootstrapSince, computeCursors, fetchTkCounts } from "./tk-fetch.mjs";
+import { DECENTRAL_KEYS } from "./decentral-plan.mjs";
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 export const DAILY_HOURS = 24;
 export const WEEKLY_HOURS = 24 * 7;
+/** A source of provincies, gemeenten or waterschappen stopped by its guard or failed is read again after this many hours (ADR 0027). */
+export const DECENTRAL_RETRY_HOURS = 6;
 
 async function readJson(path, fallback) {
   try {
@@ -166,7 +170,7 @@ export async function runLive(options = {}) {
     const early = force || trigger.run;
 
     // ----- 2. which sources are due -----
-    const which = { bewindspersonen: false, tweedeKamer: false, eersteKamer: false };
+    const which = { bewindspersonen: false, tweedeKamer: false, eersteKamer: false, ...Object.fromEntries(DECENTRAL_KEYS.map((key) => [key, false])) };
     let tkCounts = null;
     const tkState = state.tk;
     const tkDaily = !tkState.lastFullRun || hoursSinceIso(tkState.lastFullRun, now) >= DAILY_HOURS;
@@ -192,10 +196,19 @@ export async function runLive(options = {}) {
     which.bewindspersonen = early || !state.bewindspersonen.lastRun || hoursSinceIso(state.bewindspersonen.lastRun, now) >= DAILY_HOURS;
     summary.sources.bewindspersonen = { full: which.bewindspersonen };
 
+    // provincies, gemeenten, waterschappen, commissarissen: no change signal, so one read a day (six hours after a stop)
+    for (const key of DECENTRAL_KEYS) {
+      const entry = state.decentral[key];
+      const retry = Boolean(entry.pendingGuard || entry.pendingRetry);
+      const due = !options.skipDecentral && (force || hoursSinceIso(entry.lastAttempt, now) >= (retry ? DECENTRAL_RETRY_HOURS : DAILY_HOURS));
+      which[key] = due;
+      summary.sources[key] = { full: due };
+    }
+
     const electionsDue = force || !state.electionDates.lastRun || hoursSinceIso(state.electionDates.lastRun, now) >= WEEKLY_HOURS;
     summary.sources.electionDates = { full: electionsDue };
 
-    const nothingDue = !which.tweedeKamer && !which.eersteKamer && !which.bewindspersonen && !electionsDue;
+    const nothingDue = !which.tweedeKamer && !which.eersteKamer && !which.bewindspersonen && !DECENTRAL_KEYS.some((key) => which[key]) && !electionsDue;
     if (nothingDue) {
       summary.outcome = "unchanged";
       return await finish(0);
@@ -240,6 +253,7 @@ export async function runLive(options = {}) {
         dataset: datasetWithEvents,
         state: nextState,
         registeredFractieKeys,
+        decentral: options.decentral ?? { wethouders: process.env.STAATSGRAAF_LIVE_WETHOUDERS === "1" },
         extraSources,
         fractiesHtml: which.eersteKamer ? ekHash.pages.fracties : null,
         tkSince: nextState.tk.cursors?.fzp ? null : bootstrapSince(dataset.sources, today),
@@ -279,7 +293,7 @@ export async function runLive(options = {}) {
         guard: plan.guards.tweedeKamer ?? null,
       };
     }
-    for (const key of ["bewindspersonen", "eersteKamer"]) {
+    for (const key of ["bewindspersonen", "eersteKamer", ...DECENTRAL_KEYS]) {
       if (plan.guards[key]) summary.sources[key] = { ...summary.sources[key], fetched: !stopped.has(key), stopped: stopped.has(key), guard: plan.guards[key] };
     }
     for (const entry of plan.stopped) {
@@ -310,6 +324,18 @@ export async function runLive(options = {}) {
         lastRun: nowIso,
       };
     }
+    for (const key of DECENTRAL_KEYS) {
+      if (!which[key]) continue;
+      const previous = nextState.decentral[key];
+      const body = bodies[key];
+      if (plan.planned.includes(key)) {
+        nextState.decentral[key] = { ...previous, ...(plan.decentralState[key] ?? {}), lastRun: nowIso, lastAttempt: nowIso, pendingGuard: null, pendingRetry: false };
+      } else if (stopped.has(key)) {
+        nextState.decentral[key] = { ...previous, lastAttempt: nowIso, pendingGuard: plan.stopped.find((entry) => entry.source === key).reasons, pendingRetry: false };
+      } else if (body && body.ok === false) {
+        nextState.decentral[key] = { ...previous, lastAttempt: nowIso, pendingRetry: true };
+      }
+    }
     if (trigger.run || which.tweedeKamer || which.eersteKamer || which.bewindspersonen) nextState.news.lastRun = nowIso;
 
     // ----- 7. apply, changes, validate (restore on failure) -----
@@ -322,6 +348,7 @@ export async function runLive(options = {}) {
         envelope,
         now,
         attributionPath: join(root, "ATTRIBUTION.md"),
+        sourceUpgrades: new Set(plan.sourceUpgrades ?? []),
       });
       const changes = await writeChanges({ dataDir: join(root, "data") });
       summary.merge = { mode: "apply-envelope", changedFiles: applied.changedFiles, counts: applied.counts, changes: changes.changes.length };

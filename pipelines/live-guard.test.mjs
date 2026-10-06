@@ -4,7 +4,10 @@ import assert from "node:assert/strict";
 import {
   GuardError,
   decideBulk,
+  DEFAULT_BOUNDS,
   evaluateBewindspersonenInvariants,
+  evaluateBodyInvariants,
+  evaluateHolderInvariants,
   evaluateEkInvariants,
   evaluateTkInvariants,
   recentEvents,
@@ -153,4 +156,42 @@ test("GuardError carries the source and the reasons", () => {
   assert.equal(error.name, "GuardError");
   assert.equal(error.source, "tweedeKamer");
   assert.match(error.message, /149 zetels/);
+});
+
+const codes = (n, prefix = "gm") => Array.from({ length: n }, (_, i) => `${prefix}${String(i + 1).padStart(4, "0")}`);
+
+test("bodies: 342 gemeenten that TOOI, the register and CBS all name pass, with the same province", () => {
+  const list = codes(342);
+  const province = new Map(list.map((code) => [code, "pv22"]));
+  const verdict = evaluateBodyInvariants({ level: "gemeenten", tooiCodes: list, registerCodes: list, cbsCodes: list, tooiProvince: province, cbsProvince: province });
+  assert.equal(verdict.ok, true);
+  assert.deepEqual(verdict.stats, { tooi: 342, register: 342, cbs: 342 });
+});
+
+test("bodies: a count outside the range, a code only one source knows and a different province each fail", () => {
+  const list = codes(342);
+  assert.equal(evaluateBodyInvariants({ level: "gemeenten", tooiCodes: codes(200), registerCodes: codes(200), cbsCodes: codes(200) }).failures[0].code, "count-range");
+  const register = evaluateBodyInvariants({ level: "gemeenten", tooiCodes: list, registerCodes: list.slice(1), cbsCodes: list });
+  assert.deepEqual(register.failures.map((failure) => failure.code), ["register-vs-tooi"]);
+  assert.match(register.failures[0].detail, /gm0001/);
+  const cbs = evaluateBodyInvariants({ level: "gemeenten", tooiCodes: list, registerCodes: list, cbsCodes: [...list.slice(1), "gm9999"] });
+  assert.deepEqual(cbs.failures.map((failure) => failure.code), ["cbs-vs-tooi"]);
+  const tooiProvince = new Map(list.map((code) => [code, "pv22"]));
+  const cbsProvince = new Map(list.map((code, i) => [code, i === 0 ? "pv25" : "pv22"]));
+  assert.equal(evaluateBodyInvariants({ level: "gemeenten", tooiCodes: list, registerCodes: list, cbsCodes: list, tooiProvince, cbsProvince }).failures[0].code, "province");
+});
+
+test("bodies: twelve provincies exactly, and waterschappen between 15 and 30 that TOOI and the register share", () => {
+  assert.equal(evaluateBodyInvariants({ level: "provincies", tooiCodes: codes(12, "pv"), registerCodes: codes(12, "pv"), cbsCodes: codes(12, "pv") }).ok, true);
+  assert.equal(evaluateBodyInvariants({ level: "provincies", tooiCodes: codes(13, "pv"), registerCodes: codes(13, "pv"), cbsCodes: codes(13, "pv") }).failures[0].code, "count-range");
+  assert.equal(evaluateBodyInvariants({ level: "waterschappen", tooiCodes: codes(21, "ws"), registerCodes: codes(21, "ws") }).ok, true);
+  assert.equal(evaluateBodyInvariants({ level: "waterschappen", tooiCodes: codes(21, "ws"), registerCodes: codes(20, "ws") }).failures[0].code, "register-vs-tooi");
+  assert.deepEqual(DEFAULT_BOUNDS.provincies, [12, 12]);
+});
+
+test("holders: the register names a head for at least 97 percent of the bodies", () => {
+  assert.equal(evaluateHolderInvariants({ level: "gemeenten", bodies: 342, withHead: 342 }).ok, true);
+  assert.equal(evaluateHolderInvariants({ level: "gemeenten", bodies: 342, withHead: 330 }).ok, false, "12 missing is 3.5 percent");
+  assert.equal(evaluateHolderInvariants({ level: "gemeenten", bodies: 342, withHead: 333 }).ok, true, "9 missing is 2.6 percent");
+  assert.equal(evaluateHolderInvariants({ level: "provincies", bodies: 12, withHead: 0, expectsHeads: false }).ok, true);
 });

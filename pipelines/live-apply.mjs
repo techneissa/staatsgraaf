@@ -8,7 +8,10 @@
 //  - tenures and memberships: inserted when new, replaced only on a substantive
 //    difference (same fields as merge), otherwise left as they are;
 //  - people: inserted when new, otherwise only missing source references are added;
-//  - positions and relations: inserted when new;
+//  - organisations (ADR 0027): inserted when new; an existing one changes only in the fields the live sources own
+//    (name, aliases, seats, established, dissolved, website) and gains missing source references;
+//  - positions and relations: inserted when new; an existing one changes only its seats (`seatsCount`,
+//    `seatsAppointed`) and the end of a relation (`validTo`);
 //  - sources: inserted when new (license and credit note resolved as merge does),
 //    otherwise the retrieval date moves forward.
 
@@ -23,11 +26,19 @@ const SUBSTANTIVE = {
   memberships: ["organization", "person", "seatNumber", "fractie", "start", "end"],
 };
 
+// Fields of an existing record the live sources may change; everything else is left alone.
+const PATCH_FIELDS = {
+  organizations: ["name", "aliases", "seatsCount", "established", "dissolved", "website"],
+  positions: ["seatsCount"],
+  relations: ["seatsAppointed", "validTo"],
+};
+
 // Tenures and memberships first: the people pass needs to know whose records changed.
 const FILES = {
   tenures: "tenures.json",
   memberships: "memberships.json",
   people: "people.json",
+  organizations: "organizations.json",
   positions: "positions.json",
   relations: "relations.json",
   sources: "sources.json",
@@ -48,7 +59,11 @@ function sortById(records) {
   return records.sort((a, b) => String(a.id).localeCompare(String(b.id)));
 }
 
-export async function applyEnvelopeToData({ dataDir, envelope, now = new Date(), attributionPath = null }) {
+/**
+ * `sourceUpgrades`: ids of tenures whose only change is the source (a secondary source replaced by the official one);
+ * they are rewritten once, so the dataset cites the source that now confirms them.
+ */
+export async function applyEnvelopeToData({ dataDir, envelope, now = new Date(), attributionPath = null, sourceUpgrades = new Set() }) {
   const counts = {};
   const next = {};
   const changedFiles = new Set();
@@ -71,7 +86,8 @@ export async function applyEnvelopeToData({ dataDir, envelope, now = new Date(),
         continue;
       }
       if (entity === "tenures" || entity === "memberships") {
-        if (substantiveDiff(entity, existing, incoming)) {
+        const upgrade = sourceUpgrades.has(incoming.id) && existing.source?.source !== incoming.source?.source;
+        if (substantiveDiff(entity, existing, incoming) || upgrade) {
           byId.set(incoming.id, structuredClone(incoming));
           tally.updated += 1;
           touchedPeople.add(incoming.person);
@@ -96,6 +112,32 @@ export async function applyEnvelopeToData({ dataDir, envelope, now = new Date(),
           existing.retrieved = incoming.retrieved;
           tally.updated += 1;
         } else tally.unchanged += 1;
+        continue;
+      }
+      if (PATCH_FIELDS[entity]) {
+        let changed = false;
+        for (const field of PATCH_FIELDS[entity]) {
+          if (incoming[field] === undefined) continue;
+          if (JSON.stringify(existing[field] ?? null) !== JSON.stringify(incoming[field] ?? null)) {
+            existing[field] = structuredClone(incoming[field]);
+            changed = true;
+          }
+        }
+        if (entity === "organizations") {
+          for (const ref of incoming.sources ?? []) {
+            if (!ref) continue;
+            const have = (existing.sources ?? []).find((entry) => entry && entry.source === ref.source);
+            if (!have) {
+              existing.sources = [...(existing.sources ?? []), structuredClone(ref)];
+              changed = true;
+            } else if (ref.retrieved && ref.retrieved > (have.retrieved ?? "")) {
+              have.retrieved = ref.retrieved;
+              changed = true;
+            }
+          }
+        }
+        if (changed) tally.updated += 1;
+        else tally.unchanged += 1;
         continue;
       }
       tally.unchanged += 1;
