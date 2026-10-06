@@ -4,9 +4,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Roland van Benthem wordt Burgemeester van Eemnes.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-eemnes",
     "organization": "org:gemeente-eemnes",
@@ -27,9 +27,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Frits Naafs wordt Burgemeester van Utrechtse Heuvelrug.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-utrechtse-heuvelrug",
     "organization": "org:gemeente-utrechtse-heuvelrug",
@@ -96,9 +96,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Stefan Kuks wordt Dijkgraaf van Waterschap Vechtstromen.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-vechtstromen",
     "organization": "org:waterschap-vechtstromen",
@@ -117,11 +117,11 @@
   {
     "date": "2009-01-01",
     "kind": "appointment",
-    "summary": "Waarnemend benoemd: Hans Janssen als Burgemeester van Oisterwijk.",
+    "summary": "Benoeming: Hans Janssen wordt Burgemeester van Oisterwijk.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-oisterwijk",
     "organization": "org:gemeente-oisterwijk",
@@ -142,9 +142,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Toine Poppelaars wordt Dijkgraaf van Waterschap Scheldestromen.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-scheldestromen",
     "organization": "org:waterschap-scheldestromen",
@@ -211,9 +211,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Lucas Bolsius wordt Burgemeester van Amersfoort.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-amersfoort",
     "organization": "org:gemeente-amersfoort",
@@ -234,9 +234,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marjolein van der Meer Mohr wordt Burgemeester van Rucphen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-rucphen",
     "organization": "org:gemeente-rucphen",
@@ -257,9 +257,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Mark Röell wordt Burgemeester van Baarn.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-baarn",
     "organization": "org:gemeente-baarn",
@@ -280,9 +280,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Hein Pieper wordt Dijkgraaf van Waterschap Rijn en IJssel.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-rijn-en-ijssel",
     "organization": "org:waterschap-rijn-en-ijssel",
@@ -303,9 +303,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Henk Lambooij wordt Burgemeester van Putten.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-putten",
     "organization": "org:gemeente-putten",
@@ -324,11 +324,11 @@
   {
     "date": "2011-07-01",
     "kind": "appointment",
-    "summary": "Waarnemend benoemd: Jos Hessels als Burgemeester van Echt-Susteren.",
+    "summary": "Benoeming: Jos Hessels wordt Burgemeester van Echt-Susteren.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-echt-susteren",
     "organization": "org:gemeente-echt-susteren",
@@ -349,8 +349,8 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Lies Spruit als Burgemeester van Lisse.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-lisse",
@@ -372,9 +372,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Hubert Bruls wordt Burgemeester van Nijmegen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-nijmegen",
     "organization": "org:gemeente-nijmegen",
@@ -395,9 +395,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Sander Schelberg wordt Burgemeester van Hengelo (O.).",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-hengelo-o",
     "organization": "org:gemeente-hengelo-o",
@@ -418,9 +418,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Antoin Scholten wordt Burgemeester van Venlo.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-venlo",
     "organization": "org:gemeente-venlo",
@@ -487,9 +487,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ellen Nauta-van Moorsel wordt Burgemeester van Hof van Twente.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-hof-van-twente",
     "organization": "org:gemeente-hof-van-twente",
@@ -510,8 +510,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Monique de Boer-Beerta wordt Burgemeester van Roerdalen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-roerdalen",
@@ -533,9 +533,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ada Grootenboer-Dubbelman wordt Burgemeester van Goeree-Overflakkee.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-goeree-overflakkee",
     "organization": "org:gemeente-goeree-overflakkee",
@@ -556,9 +556,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Arend van Hout wordt Burgemeester van Westervoort.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-westervoort",
     "organization": "org:gemeente-westervoort",
@@ -579,9 +579,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marion Leurs-Mordang wordt Burgemeester van Stein (L.).",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-stein-l",
     "organization": "org:gemeente-stein-l",
@@ -602,9 +602,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marjan van Kampen-Nouwen wordt Burgemeester van Schagen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-schagen",
     "organization": "org:gemeente-schagen",
@@ -625,9 +625,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Steven Adriaansen wordt Burgemeester van Woensdrecht.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-woensdrecht",
     "organization": "org:gemeente-woensdrecht",
@@ -648,9 +648,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Hetty Klavers wordt Dijkgraaf van Waterschap Zuiderzeeland.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-zuiderzeeland",
     "organization": "org:waterschap-zuiderzeeland",
@@ -694,9 +694,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Rob Metz wordt Burgemeester van Soest.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-soest",
     "organization": "org:gemeente-soest",
@@ -717,8 +717,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Annette Bronsvoort wordt Burgemeester van Oost Gelre.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-oost-gelre",
@@ -740,9 +740,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Joost van Oostrum wordt Burgemeester van Berkelland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-berkelland",
     "organization": "org:gemeente-berkelland",
@@ -763,9 +763,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marco Out wordt Burgemeester van Assen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-assen",
     "organization": "org:gemeente-assen",
@@ -786,9 +786,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marcel Thijsen wordt Burgemeester van Tynaarlo.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-tynaarlo",
     "organization": "org:gemeente-tynaarlo",
@@ -809,8 +809,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Mirjam Clermonts-Aretz wordt Burgemeester van Meerssen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-meerssen",
@@ -832,9 +832,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Paul Depla wordt Burgemeester van Breda.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-breda",
     "organization": "org:gemeente-breda",
@@ -855,9 +855,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Erik Boog wordt Burgemeester van Diemen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-diemen",
     "organization": "org:gemeente-diemen",
@@ -878,9 +878,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marjon de Hoon-Veelenturf wordt Burgemeester van Baarle-Nassau.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-baarle-nassau",
     "organization": "org:gemeente-baarle-nassau",
@@ -901,9 +901,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jan Seton wordt Burgemeester van Borger-Odoorn.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-borger-odoorn",
     "organization": "org:gemeente-borger-odoorn",
@@ -970,9 +970,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Mark Slinkman wordt Burgemeester van Berg en Dal.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-berg-en-dal",
     "organization": "org:gemeente-berg-en-dal",
@@ -993,9 +993,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Klaas Smid wordt Burgemeester van Noordenveld.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-noordenveld",
     "organization": "org:gemeente-noordenveld",
@@ -1014,11 +1014,11 @@
   {
     "date": "2015-11-01",
     "kind": "appointment",
-    "summary": "Waarnemend benoemd: Jaap Kuin als Burgemeester van Pekela.",
+    "summary": "Benoeming: Jaap Kuin wordt Burgemeester van Pekela.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-pekela",
     "organization": "org:gemeente-pekela",
@@ -1062,9 +1062,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ruud van den Belt wordt Burgemeester van Steenbergen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-steenbergen",
     "organization": "org:gemeente-steenbergen",
@@ -1085,8 +1085,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Arinda Callewaert wordt Burgemeester van Bergeijk.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-bergeijk",
@@ -1108,9 +1108,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Emile Jaensch wordt Burgemeester van Oegstgeest.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-oegstgeest",
     "organization": "org:gemeente-oegstgeest",
@@ -1131,9 +1131,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Christine van Basten-Boddin wordt Burgemeester van Beek (L.).",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-beek-l",
     "organization": "org:gemeente-beek-l",
@@ -1200,9 +1200,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Frank Dales wordt Burgemeester van Velsen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-velsen",
     "organization": "org:gemeente-velsen",
@@ -1223,9 +1223,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Bas van den Tillaar wordt Burgemeester van Vlissingen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-vlissingen",
     "organization": "org:gemeente-vlissingen",
@@ -1246,9 +1246,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jan Nieuwenburg wordt Burgemeester van Hoorn.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-hoorn",
     "organization": "org:gemeente-hoorn",
@@ -1292,9 +1292,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jos Wienen wordt Burgemeester van Haarlem.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-haarlem",
     "organization": "org:gemeente-haarlem",
@@ -1315,9 +1315,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Mark van Stappershoef wordt Burgemeester van Goirle.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-goirle",
     "organization": "org:gemeente-goirle",
@@ -1361,9 +1361,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Dirk Heijkoop wordt Burgemeester van Hardinxveld-Giessendam.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-hardinxveld-giessendam",
     "organization": "org:gemeente-hardinxveld-giessendam",
@@ -1384,9 +1384,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Michiel van Veen wordt Burgemeester van Gemert-Bakel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-gemert-bakel",
     "organization": "org:gemeente-gemert-bakel",
@@ -1407,8 +1407,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Lieke Sievers wordt Burgemeester van Edam-Volendam.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-edam-volendam",
@@ -1476,9 +1476,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Han ter Heegde wordt Burgemeester van Gooise Meren.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-gooise-meren",
     "organization": "org:gemeente-gooise-meren",
@@ -1522,9 +1522,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Eric van Oosterhout wordt Burgemeester van Emmen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-emmen",
     "organization": "org:gemeente-emmen",
@@ -1591,9 +1591,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jan Kottelenberg wordt Burgemeester van Neder-Betuwe.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-neder-betuwe",
     "organization": "org:gemeente-neder-betuwe",
@@ -1637,9 +1637,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Nicole Ramaekers-Rutjens wordt Burgemeester van Gulpen-Wittem.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-gulpen-wittem",
     "organization": "org:gemeente-gulpen-wittem",
@@ -1660,8 +1660,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Agnes Schaap wordt Burgemeester van Renkum.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-renkum",
@@ -1683,9 +1683,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Mark Boumans wordt Burgemeester van Doetinchem.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-doetinchem",
     "organization": "org:gemeente-doetinchem",
@@ -1706,9 +1706,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Gerben Dijksterhuis wordt Burgemeester van Borsele.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-borsele",
     "organization": "org:gemeente-borsele",
@@ -1729,9 +1729,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ronald Wortelboer wordt Burgemeester van Stede Broec.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-stede-broec",
     "organization": "org:gemeente-stede-broec",
@@ -1752,9 +1752,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Geert-Jan ten Brink wordt Dijkgraaf van Waterschap Hunze en Aa's.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-hunze-en-aas",
     "organization": "org:waterschap-hunze-en-aas",
@@ -1775,9 +1775,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Reinie Melissant-Briene wordt Burgemeester van Gorinchem.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-gorinchem",
     "organization": "org:gemeente-gorinchem",
@@ -1798,9 +1798,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ahmed Marcouch wordt Burgemeester van Arnhem.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-arnhem",
     "organization": "org:gemeente-arnhem",
@@ -1821,9 +1821,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Rogier van der Sande wordt Dijkgraaf van Hoogheemraadschap van Rijnland.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-van-rijnland",
     "organization": "org:waterschap-van-rijnland",
@@ -1844,9 +1844,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Gerolf Bouwmeester wordt Burgemeester van Leusden.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-leusden",
     "organization": "org:gemeente-leusden",
@@ -1867,9 +1867,9 @@
     "kind": "appointment",
     "summary": "Benoeming: René Verhulst wordt Burgemeester van Ede.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-ede",
     "organization": "org:gemeente-ede",
@@ -1913,8 +1913,8 @@
     "kind": "appointment",
     "summary": "Benoeming: José van Egmond wordt Burgemeester van Reimerswaal.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-reimerswaal",
@@ -1936,9 +1936,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jan Hamming wordt Burgemeester van Zaanstad.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-zaanstad",
     "organization": "org:gemeente-zaanstad",
@@ -1982,9 +1982,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Judith Keijzers wordt Burgemeester van Oirschot.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-oirschot",
     "organization": "org:gemeente-oirschot",
@@ -2005,9 +2005,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marga Vermue-Vermue wordt Burgemeester van Sluis.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-sluis",
     "organization": "org:gemeente-sluis",
@@ -2028,9 +2028,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jack Mikkers wordt Burgemeester van 's-Hertogenbosch.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-s-hertogenbosch",
     "organization": "org:gemeente-s-hertogenbosch",
@@ -2051,9 +2051,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Evert Jan Nieuwenhuis wordt Burgemeester van Waddinxveen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-waddinxveen",
     "organization": "org:gemeente-waddinxveen",
@@ -2074,9 +2074,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Kees van Rooij wordt Burgemeester van Meierijstad.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-meierijstad",
     "organization": "org:gemeente-meierijstad",
@@ -2097,9 +2097,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Vincent van Neerbos wordt Burgemeester van West Maas en Waal.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-west-maas-en-waal",
     "organization": "org:gemeente-west-maas-en-waal",
@@ -2166,9 +2166,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Anton Stapelkamp wordt Burgemeester van Aalten.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-aalten",
     "organization": "org:gemeente-aalten",
@@ -2235,9 +2235,9 @@
     "kind": "appointment",
     "summary": "Benoeming: John Joosten wordt Burgemeester van Dinkelland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-dinkelland",
     "organization": "org:gemeente-dinkelland",
@@ -2258,9 +2258,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Carol van Eert wordt Burgemeester van Rheden.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-rheden",
     "organization": "org:gemeente-rheden",
@@ -2279,11 +2279,11 @@
   {
     "date": "2018-01-15",
     "kind": "appointment",
-    "summary": "Waarnemend benoemd: Daphne Bergman als Burgemeester van Beuningen.",
+    "summary": "Benoeming: Daphne Bergman wordt Burgemeester van Beuningen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-beuningen",
     "organization": "org:gemeente-beuningen",
@@ -2325,11 +2325,11 @@
   {
     "date": "2018-03-01",
     "kind": "appointment",
-    "summary": "Waarnemend benoemd: Pieter Heiliegers als Burgemeester van Uithoorn.",
+    "summary": "Benoeming: Pieter Heiliegers wordt Burgemeester van Uithoorn.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-uithoorn",
     "organization": "org:gemeente-uithoorn",
@@ -2373,9 +2373,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Piet-Hein Daverveldt wordt Dijkgraaf van Hoogheemraadschap van Delfland.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-van-delfland",
     "organization": "org:waterschap-van-delfland",
@@ -2440,11 +2440,11 @@
   {
     "date": "2018-07-11",
     "kind": "appointment",
-    "summary": "Waarnemend benoemd: Ron König als Burgemeester van Deventer.",
+    "summary": "Benoeming: Ron König wordt Burgemeester van Deventer.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-deventer",
     "organization": "org:gemeente-deventer",
@@ -2488,9 +2488,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Femke Halsema wordt Burgemeester van Amsterdam.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-amsterdam",
     "organization": "org:gemeente-amsterdam",
@@ -2603,9 +2603,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jannewietske de Vries wordt Burgemeester van Súdwest-Fryslân.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-sudwest-fryslan",
     "organization": "org:gemeente-sudwest-fryslan",
@@ -2649,9 +2649,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Willemijn van Hees wordt Burgemeester van Heusden.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-heusden",
     "organization": "org:gemeente-heusden",
@@ -2672,9 +2672,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ruud van Bennekom wordt Burgemeester van Bunnik.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-bunnik",
     "organization": "org:gemeente-bunnik",
@@ -2695,9 +2695,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Roland van Kessel wordt Burgemeester van Cranendonck.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-cranendonck",
     "organization": "org:gemeente-cranendonck",
@@ -2718,9 +2718,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marcel Delhez wordt Burgemeester van Veldhoven.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-veldhoven",
     "organization": "org:gemeente-veldhoven",
@@ -2764,9 +2764,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Patrick Welman wordt Burgemeester van Oldenzaal.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-oldenzaal",
     "organization": "org:gemeente-oldenzaal",
@@ -2787,9 +2787,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Bouke Arends wordt Burgemeester van Westland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-westland",
     "organization": "org:gemeente-westland",
@@ -2810,9 +2810,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jaap Velema wordt Burgemeester van Westerwolde.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-westerwolde",
     "organization": "org:gemeente-westerwolde",
@@ -2833,9 +2833,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Luciën van Riswijk wordt Burgemeester van Zevenaar.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-zevenaar",
     "organization": "org:gemeente-zevenaar",
@@ -2971,9 +2971,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Gert-Jan Kats wordt Burgemeester van Veenendaal.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-veenendaal",
     "organization": "org:gemeente-veenendaal",
@@ -2994,9 +2994,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Cora-Yfke Sikkema wordt Burgemeester van Oldambt.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-oldambt",
     "organization": "org:gemeente-oldambt",
@@ -3063,9 +3063,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Rian van Dam wordt Burgemeester van Hollands Kroon.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-hollands-kroon",
     "organization": "org:gemeente-hollands-kroon",
@@ -3109,9 +3109,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ryan Palmen wordt Burgemeester van Horst aan de Maas.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-horst-aan-de-maas",
     "organization": "org:gemeente-horst-aan-de-maas",
@@ -3132,9 +3132,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Tanja Cuppen wordt Dijkgraaf van Waterschap Rivierenland.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-rivierenland",
     "organization": "org:waterschap-rivierenland",
@@ -3155,9 +3155,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Gido Oude Kotte wordt Burgemeester van Aalsmeer.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-aalsmeer",
     "organization": "org:gemeente-aalsmeer",
@@ -3178,8 +3178,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Rob Welten wordt Burgemeester van Haaksbergen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-haaksbergen",
@@ -3201,9 +3201,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Patricia Hoytink-Roubos wordt Burgemeester van Overbetuwe.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-overbetuwe",
     "organization": "org:gemeente-overbetuwe",
@@ -3224,9 +3224,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Erik de Ridder wordt Dijkgraaf van Waterschap De Dommel.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-de-dommel",
     "organization": "org:waterschap-de-dommel",
@@ -3247,9 +3247,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Tjapko Poppens wordt Burgemeester van Amstelveen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-amstelveen",
     "organization": "org:gemeente-amstelveen",
@@ -3339,9 +3339,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Petra Dassen-Housen wordt Burgemeester van Kerkrade.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-kerkrade",
     "organization": "org:gemeente-kerkrade",
@@ -3385,9 +3385,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jean Paul Gebben wordt Burgemeester van Dronten.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-dronten",
     "organization": "org:gemeente-dronten",
@@ -3408,8 +3408,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Doret Tigchelaar-van Oene wordt Burgemeester van Wierden.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-wierden",
@@ -3431,9 +3431,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Wim Wouters wordt Burgemeester van Eersel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-eersel",
     "organization": "org:gemeente-eersel",
@@ -3454,8 +3454,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Jolanda de Witte wordt Burgemeester van Albrandswaard.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-albrandswaard",
@@ -3477,8 +3477,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Gilbert Isabella wordt Burgemeester van Houten.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-houten",
@@ -3500,9 +3500,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Joyce Vermue wordt Burgemeester van Zundert.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-zundert",
     "organization": "org:gemeente-zundert",
@@ -3523,9 +3523,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marianne Schuurmans-Wijdeven wordt Burgemeester van Haarlemmermeer.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-haarlemmermeer",
     "organization": "org:gemeente-haarlemmermeer",
@@ -3546,9 +3546,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Leendert de Lange wordt Burgemeester van Wassenaar.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-wassenaar",
     "organization": "org:gemeente-wassenaar",
@@ -3569,9 +3569,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Birgit Op de Laak wordt Burgemeester van Nederweert.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-nederweert",
     "organization": "org:gemeente-nederweert",
@@ -3592,9 +3592,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Eric Geurts wordt Burgemeester van Beekdaelen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-beekdaelen",
     "organization": "org:gemeente-beekdaelen",
@@ -3615,9 +3615,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jeroen Haan wordt Dijkgraaf van Hoogheemraadschap De Stichtse Rijnlanden.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-de-stichtse-rijnlanden",
     "organization": "org:waterschap-de-stichtse-rijnlanden",
@@ -3661,9 +3661,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Désirée Schmalschläger wordt Burgemeester van Leudal.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-leudal",
     "organization": "org:gemeente-leudal",
@@ -3684,9 +3684,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Anno Wietze Hiemstra wordt Burgemeester van Aa en Hunze.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-aa-en-hunze",
     "organization": "org:gemeente-aa-en-hunze",
@@ -3707,9 +3707,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Peter Snijders wordt Burgemeester van Zwolle.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-zwolle",
     "organization": "org:gemeente-zwolle",
@@ -3730,9 +3730,9 @@
     "kind": "appointment",
     "summary": "Benoeming: David Moolenburgh wordt Burgemeester van Zandvoort.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-zandvoort",
     "organization": "org:gemeente-zandvoort",
@@ -3753,8 +3753,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Nanning Mol wordt Burgemeester van Laren (NH.).",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-laren-nh",
@@ -3776,9 +3776,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Han Weber wordt Burgemeester van Zuidplas.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-zuidplas",
     "organization": "org:gemeente-zuidplas",
@@ -3799,9 +3799,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ard van der Tuuk wordt Burgemeester van Westerkwartier.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-westerkwartier",
     "organization": "org:gemeente-westerkwartier",
@@ -3822,9 +3822,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Tanja Haseloop-Amsing wordt Burgemeester van Oldebroek.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-oldebroek",
     "organization": "org:gemeente-oldebroek",
@@ -3845,9 +3845,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Pieter Verhoeve wordt Burgemeester van Gouda.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-gouda",
     "organization": "org:gemeente-gouda",
@@ -3868,9 +3868,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Sjors Fröhlich wordt Burgemeester van Vijfheerenlanden.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-vijfheerenlanden",
     "organization": "org:gemeente-vijfheerenlanden",
@@ -3891,9 +3891,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Servaas Stoop wordt Burgemeester van West Betuwe.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-west-betuwe",
     "organization": "org:gemeente-west-betuwe",
@@ -3914,9 +3914,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ronald van Meygaarden wordt Burgemeester van Boxtel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-boxtel",
     "organization": "org:gemeente-boxtel",
@@ -3937,9 +3937,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jos van Bree wordt Burgemeester van Geldrop-Mierlo.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-geldrop-mierlo",
     "organization": "org:gemeente-geldrop-mierlo",
@@ -3960,9 +3960,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Egbert Lichtenberg wordt Burgemeester van Altena.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-altena",
     "organization": "org:gemeente-altena",
@@ -3983,9 +3983,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Annemieke van de Ven wordt Burgemeester van Reusel-De Mierden.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-reusel-de-mierden",
     "organization": "org:gemeente-reusel-de-mierden",
@@ -4006,9 +4006,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ton Heerts wordt Burgemeester van Apeldoorn.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-apeldoorn",
     "organization": "org:gemeente-apeldoorn",
@@ -4029,9 +4029,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Tom Horn wordt Burgemeester van Epe.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-epe",
     "organization": "org:gemeente-epe",
@@ -4052,9 +4052,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Loes Meeuwisse wordt Burgemeester van Noord-Beveland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-noord-beveland",
     "organization": "org:gemeente-noord-beveland",
@@ -4098,9 +4098,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Johannes Kramer wordt Burgemeester van Noardeast-Fryslân.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-noardeast-fryslan",
     "organization": "org:gemeente-noardeast-fryslan",
@@ -4121,9 +4121,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Theo Segers wordt Burgemeester van Molenlanden.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-molenlanden",
     "organization": "org:gemeente-molenlanden",
@@ -4144,9 +4144,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Harry Leunessen wordt Burgemeester van Vaals.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-vaals",
     "organization": "org:gemeente-vaals",
@@ -4167,8 +4167,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Wendy Verkleij-Eimers wordt Burgemeester van Noordwijk.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-noordwijk",
@@ -4190,9 +4190,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jan Pierik wordt Burgemeester van Borne.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-borne",
     "organization": "org:gemeente-borne",
@@ -4213,9 +4213,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Luzette Kroon wordt Dijkgraaf van Wetterskip Fryslân.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-wetterskip-fryslan",
     "organization": "org:waterschap-wetterskip-fryslan",
@@ -4282,9 +4282,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Robbert-Jan van Duijn wordt Burgemeester van Nieuwkoop.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-nieuwkoop",
     "organization": "org:gemeente-nieuwkoop",
@@ -4305,9 +4305,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ap Reinders wordt Burgemeester van Stichtse Vecht.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-stichtse-vecht",
     "organization": "org:gemeente-stichtse-vecht",
@@ -4328,9 +4328,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Huub Hieltjes wordt Burgemeester van Duiven.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-duiven",
     "organization": "org:gemeente-duiven",
@@ -4397,9 +4397,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Wilma van der Rijt wordt Burgemeester van Brunssum.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-brunssum",
     "organization": "org:gemeente-brunssum",
@@ -4420,9 +4420,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Hans Verheijen wordt Burgemeester van Sittard-Geleen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-sittard-geleen",
     "organization": "org:gemeente-sittard-geleen",
@@ -4489,9 +4489,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Derk Alssema wordt Burgemeester van Gilze en Rijen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-gilze-en-rijen",
     "organization": "org:gemeente-gilze-en-rijen",
@@ -4512,9 +4512,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Judith Michel-de Jong wordt Burgemeester van Wormerland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-wormerland",
     "organization": "org:gemeente-wormerland",
@@ -4558,9 +4558,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jan Bonjer wordt Dijkgraaf van Waterschap Hollandse Delta.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-hollandse-delta",
     "organization": "org:waterschap-hollandse-delta",
@@ -4581,9 +4581,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jack van der Hoek wordt Burgemeester van Schouwen-Duiveland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-schouwen-duiveland",
     "organization": "org:gemeente-schouwen-duiveland",
@@ -4627,9 +4627,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jan van Zanen wordt Burgemeester van 's-Gravenhage.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-s-gravenhage",
     "organization": "org:gemeente-s-gravenhage",
@@ -4650,9 +4650,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Dirk-Siert Schoonman wordt Dijkgraaf van Waterschap Drents Overijsselse Delta.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-drents-overijsselse-delta",
     "organization": "org:waterschap-drents-overijsselse-delta",
@@ -4742,9 +4742,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Sebastiaan Nieuwland wordt Burgemeester van Uitgeest.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-uitgeest",
     "organization": "org:gemeente-uitgeest",
@@ -4765,9 +4765,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marleen Sanderse wordt Burgemeester van Hattem.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-hattem",
     "organization": "org:gemeente-hattem",
@@ -4788,9 +4788,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Nelly Kalfs wordt Burgemeester van Lingewaard.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-lingewaard",
     "organization": "org:gemeente-lingewaard",
@@ -4811,9 +4811,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Maarten Offinga wordt Burgemeester van Hardenberg.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-hardenberg",
     "organization": "org:gemeente-hardenberg",
@@ -4834,9 +4834,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Roel Wever wordt Burgemeester van Heerlen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-heerlen",
     "organization": "org:gemeente-heerlen",
@@ -4857,9 +4857,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Michel Bezuijen wordt Burgemeester van Zoetermeer.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-zoetermeer",
     "organization": "org:gemeente-zoetermeer",
@@ -4926,9 +4926,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Hans Teunissen wordt Burgemeester van Gennep.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-gennep",
     "organization": "org:gemeente-gennep",
@@ -4949,8 +4949,8 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Jan Willem Wiggers als Burgemeester van Heerde.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-heerde",
@@ -4995,9 +4995,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marleen Sijbers wordt Burgemeester van Tholen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-tholen",
     "organization": "org:gemeente-tholen",
@@ -5018,8 +5018,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Danny de Vries wordt Burgemeester van Oudewater.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-oudewater",
@@ -5110,9 +5110,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Sharon Dijksma wordt Burgemeester van Utrecht.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-utrecht",
     "organization": "org:gemeente-utrecht",
@@ -5179,9 +5179,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Anke van Extel-van Katwijk wordt Burgemeester van Asten.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-asten",
     "organization": "org:gemeente-asten",
@@ -5202,9 +5202,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Klaas Sloots wordt Burgemeester van Stadskanaal.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-stadskanaal",
     "organization": "org:gemeente-stadskanaal",
@@ -5225,9 +5225,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Greet Buter wordt Burgemeester van Deurne.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-deurne",
     "organization": "org:gemeente-deurne",
@@ -5294,9 +5294,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marijn Ornstein wordt Dijkgraaf van Waterschap Vallei en Veluwe.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-vallei-en-veluwe",
     "organization": "org:waterschap-vallei-en-veluwe",
@@ -5363,9 +5363,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jan de Boer wordt Burgemeester van Den Helder.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-den-helder",
     "organization": "org:gemeente-den-helder",
@@ -5386,9 +5386,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marian van der Weele wordt Burgemeester van Waterland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-waterland",
     "organization": "org:gemeente-waterland",
@@ -5524,9 +5524,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Mario Jacobs wordt Dijkgraaf van Waterschap Aa en Maas.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-aa-en-maas",
     "organization": "org:waterschap-aa-en-maas",
@@ -5593,9 +5593,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Daan Prevoo wordt Burgemeester van Valkenburg aan de Geul.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-valkenburg-aan-de-geul",
     "organization": "org:gemeente-valkenburg-aan-de-geul",
@@ -6076,9 +6076,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jan de Vries wordt Burgemeester van Sliedrecht.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-sliedrecht",
     "organization": "org:gemeente-sliedrecht",
@@ -6145,8 +6145,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Erik van Merrienboer wordt Burgemeester van Terneuzen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-terneuzen",
@@ -6191,9 +6191,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Michiel Schrier wordt Burgemeester van Vlieland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-vlieland",
     "organization": "org:gemeente-vlieland",
@@ -6237,9 +6237,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Léon de Lange wordt Burgemeester van Landsmeer.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-landsmeer",
     "organization": "org:gemeente-landsmeer",
@@ -6260,9 +6260,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Nadine Stemerdink wordt Burgemeester van Voorschoten.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-voorschoten",
     "organization": "org:gemeente-voorschoten",
@@ -6283,9 +6283,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Raymond Vlecken wordt Burgemeester van Weert.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-weert",
     "organization": "org:gemeente-weert",
@@ -6329,9 +6329,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jan ten Kate wordt Burgemeester van Staphorst.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-staphorst",
     "organization": "org:gemeente-staphorst",
@@ -6352,9 +6352,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ina Sjerps wordt Burgemeester van Harlingen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-harlingen",
     "organization": "org:gemeente-harlingen",
@@ -6375,9 +6375,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Caroline van den Elsen wordt Burgemeester van Boekel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-boekel",
     "organization": "org:gemeente-boekel",
@@ -6398,9 +6398,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Roger de Groot wordt Burgemeester van Noordoostpolder.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-noordoostpolder",
     "organization": "org:gemeente-noordoostpolder",
@@ -6421,9 +6421,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marvin Polak wordt Burgemeester van Oostzaan.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-oostzaan",
     "organization": "org:gemeente-oostzaan",
@@ -6467,9 +6467,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Aart-Jan Moerkerke wordt Burgemeester van Moerdijk.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-moerdijk",
     "organization": "org:gemeente-moerdijk",
@@ -6490,9 +6490,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Floor Vermeulen wordt Burgemeester van Wageningen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-wageningen",
     "organization": "org:gemeente-wageningen",
@@ -6513,9 +6513,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Anja Schouten wordt Burgemeester van Alkmaar.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-alkmaar",
     "organization": "org:gemeente-alkmaar",
@@ -6536,9 +6536,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Mieke Baltus wordt Burgemeester van Lelystad.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-lelystad",
     "organization": "org:gemeente-lelystad",
@@ -6582,8 +6582,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Gerard van den Hengel wordt Burgemeester van Opmeer.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-opmeer",
@@ -6605,9 +6605,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Mascha ten Bruggencate wordt Burgemeester van Heiloo.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-heiloo",
     "organization": "org:gemeente-heiloo",
@@ -6628,9 +6628,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Sacha Ausems wordt Burgemeester van Waalwijk.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-waalwijk",
     "organization": "org:gemeente-waalwijk",
@@ -6766,9 +6766,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Renze Bergsma wordt Burgemeester van Coevorden.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-coevorden",
     "organization": "org:gemeente-coevorden",
@@ -6789,9 +6789,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Sander de Rouwe wordt Burgemeester van Kampen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-kampen",
     "organization": "org:gemeente-kampen",
@@ -6812,8 +6812,8 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Harry de Vries als Burgemeester van Montferland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-montferland",
@@ -6927,9 +6927,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Astrid Heijstee-Bolt wordt Burgemeester van Kaag en Braassem.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-kaag-en-braassem",
     "organization": "org:gemeente-kaag-en-braassem",
@@ -6950,9 +6950,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Richard de Boer wordt Burgemeester van Landgraaf.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-landgraaf",
     "organization": "org:gemeente-landgraaf",
@@ -7042,9 +7042,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Inge Nieuwenhuizen wordt Burgemeester van De Wolden.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-de-wolden",
     "organization": "org:gemeente-de-wolden",
@@ -7065,9 +7065,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jorrit Eijbersen wordt Burgemeester van Hellendoorn.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-hellendoorn",
     "organization": "org:gemeente-hellendoorn",
@@ -7272,9 +7272,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Magda Jansen-van Harten wordt Burgemeester van Woudenberg.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-woudenberg",
     "organization": "org:gemeente-woudenberg",
@@ -7364,9 +7364,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Joerie Minses wordt Burgemeester van Heumen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-heumen",
     "organization": "org:gemeente-heumen",
@@ -7387,9 +7387,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ben Visser wordt Burgemeester van Eemsdelta.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-eemsdelta",
     "organization": "org:gemeente-eemsdelta",
@@ -7410,9 +7410,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Björn Lugthart wordt Burgemeester van Pijnacker-Nootdorp.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-pijnacker-nootdorp",
     "organization": "org:gemeente-pijnacker-nootdorp",
@@ -7456,9 +7456,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Roelof Bleker wordt Burgemeester van Enschede.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-enschede",
     "organization": "org:gemeente-enschede",
@@ -7617,9 +7617,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Paula Jorritsma wordt Burgemeester van Voorst.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-voorst",
     "organization": "org:gemeente-voorst",
@@ -7640,9 +7640,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Gerhard van den Top wordt Burgemeester van Hilversum.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-hilversum",
     "organization": "org:gemeente-hilversum",
@@ -7914,11 +7914,11 @@
   {
     "date": "2022-06-13",
     "kind": "appointment",
-    "summary": "Waarnemend benoemd: Céline Blom als Burgemeester van Nunspeet.",
+    "summary": "Benoeming: Céline Blom wordt Burgemeester van Nunspeet.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-nunspeet",
     "organization": "org:gemeente-nunspeet",
@@ -7939,9 +7939,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Roeland van der Schaaf wordt Dijkgraaf van Waterschap Noorderzijlvest.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-noorderzijlvest",
     "organization": "org:waterschap-noorderzijlvest",
@@ -8031,9 +8031,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Maarten Poorter wordt Burgemeester van Dijk en Waard.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-dijk-en-waard",
     "organization": "org:gemeente-dijk-en-waard",
@@ -8100,9 +8100,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jeroen Dijsselbloem wordt Burgemeester van Eindhoven.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-eindhoven",
     "organization": "org:gemeente-eindhoven",
@@ -8169,9 +8169,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ellen van Selm wordt Burgemeester van Purmerend.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-purmerend",
     "organization": "org:gemeente-purmerend",
@@ -8192,9 +8192,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ilona Jense-van Haarst wordt Burgemeester van Hulst.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-hulst",
     "organization": "org:gemeente-hulst",
@@ -8215,9 +8215,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Constantijn Jansen op de Haar wordt Burgemeester van Kapelle.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-kapelle",
     "organization": "org:gemeente-kapelle",
@@ -8307,9 +8307,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Joyce Sylvester wordt Dijkgraaf van Waterschap Amstel, Gooi en Vecht.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-amstel-gooi-en-vecht",
     "organization": "org:waterschap-amstel-gooi-en-vecht",
@@ -8353,9 +8353,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Renske Helmer-Englebert wordt Burgemeester van Wijchen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-wijchen",
     "organization": "org:gemeente-wijchen",
@@ -8399,9 +8399,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Hans van Daalen wordt Burgemeester van Ermelo.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-ermelo",
     "organization": "org:gemeente-ermelo",
@@ -8422,9 +8422,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marcel Oosterveer wordt Burgemeester van Waalre.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-waalre",
     "organization": "org:gemeente-waalre",
@@ -8445,9 +8445,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Huri Sahin wordt Burgemeester van Rijswijk (ZH.).",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-rijswijk-zh",
     "organization": "org:gemeente-rijswijk-zh",
@@ -8468,9 +8468,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Alexander Luijten wordt Burgemeester van Heemskerk.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-heemskerk",
     "organization": "org:gemeente-heemskerk",
@@ -8514,9 +8514,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Boy Scholtze wordt Burgemeester van Drimmelen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-drimmelen",
     "organization": "org:gemeente-drimmelen",
@@ -8813,9 +8813,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Lieke Schuitmaker wordt Burgemeester van Alphen-Chaam.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-alphen-chaam",
     "organization": "org:gemeente-alphen-chaam",
@@ -8836,9 +8836,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Michiel Grauss wordt Burgemeester van Bodegraven-Reeuwijk.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-bodegraven-reeuwijk",
     "organization": "org:gemeente-bodegraven-reeuwijk",
@@ -8905,9 +8905,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marieke Moorman wordt Burgemeester van Land van Cuijk.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-land-van-cuijk",
     "organization": "org:gemeente-land-van-cuijk",
@@ -8928,9 +8928,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Frederiek Schouwenaar wordt Burgemeester van Veere.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-veere",
     "organization": "org:gemeente-veere",
@@ -8949,11 +8949,11 @@
   {
     "date": "2023-02-01",
     "kind": "appointment",
-    "summary": "Waarnemend benoemd: Wimar Jaeger als Burgemeester van Zutphen.",
+    "summary": "Benoeming: Wimar Jaeger wordt Burgemeester van Zutphen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-zutphen",
     "organization": "org:gemeente-zutphen",
@@ -8974,9 +8974,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Remco Bosma wordt Dijkgraaf van Hoogheemraadschap Hollands Noorderkwartier.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-hollands-noorderkwartier",
     "organization": "org:waterschap-hollands-noorderkwartier",
@@ -8997,9 +8997,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Barbara de Reijke wordt Burgemeester van Blaricum.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-blaricum",
     "organization": "org:gemeente-blaricum",
@@ -9020,9 +9020,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Margreet van Driel wordt Burgemeester van Papendrecht.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-papendrecht",
     "organization": "org:gemeente-papendrecht",
@@ -9043,9 +9043,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jacco van der Tak wordt Burgemeester van Barneveld.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-barneveld",
     "organization": "org:gemeente-barneveld",
@@ -9066,9 +9066,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Martijn Vroom wordt Burgemeester van Leidschendam-Voorburg.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-leidschendam-voorburg",
     "organization": "org:gemeente-leidschendam-voorburg",
@@ -9089,9 +9089,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Hein van der Loo wordt Burgemeester van Almere.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-almere",
     "organization": "org:gemeente-almere",
@@ -9112,9 +9112,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jurgen van Houdt wordt Burgemeester van Rijssen-Holten.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-rijssen-holten",
     "organization": "org:gemeente-rijssen-holten",
@@ -9135,9 +9135,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Hans Martijn Ostendorp wordt Burgemeester van Buren.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-buren",
     "organization": "org:gemeente-buren",
@@ -9158,9 +9158,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Alain Krijnen wordt Burgemeester van Eijsden-Margraten.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-eijsden-margraten",
     "organization": "org:gemeente-eijsden-margraten",
@@ -9181,9 +9181,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jan Willem Boersma wordt Burgemeester van Alblasserdam.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-alblasserdam",
     "organization": "org:gemeente-alblasserdam",
@@ -9204,9 +9204,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Sigrid Sengers wordt Burgemeester van Druten.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-druten",
     "organization": "org:gemeente-druten",
@@ -9227,9 +9227,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Suzanne Otters-Bruijnen wordt Burgemeester van Son en Breugel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-son-en-breugel",
     "organization": "org:gemeente-son-en-breugel",
@@ -9250,9 +9250,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jack Werkman wordt Burgemeester van Ooststellingwerf.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-ooststellingwerf",
     "organization": "org:gemeente-ooststellingwerf",
@@ -9319,9 +9319,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marco Oosterwijk wordt Burgemeester van Ridderkerk.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-ridderkerk",
     "organization": "org:gemeente-ridderkerk",
@@ -9365,9 +9365,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marijke van Beukering wordt Burgemeester van Nieuwegein.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-nieuwegein",
     "organization": "org:gemeente-nieuwegein",
@@ -9503,9 +9503,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ronald Schneider wordt Burgemeester van Barendrecht.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-barendrecht",
     "organization": "org:gemeente-barendrecht",
@@ -9595,9 +9595,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Wim Hillenaar wordt Burgemeester van Maastricht.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-maastricht",
     "organization": "org:gemeente-maastricht",
@@ -9802,9 +9802,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Margo Mulder wordt Burgemeester van Bergen op Zoom.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-bergen-op-zoom",
     "organization": "org:gemeente-bergen-op-zoom",
@@ -9825,9 +9825,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Michiel Uitdehaag wordt Burgemeester van Venray.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-venray",
     "organization": "org:gemeente-venray",
@@ -9848,9 +9848,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Dion Schneider wordt Burgemeester van Maasgouw.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-maasgouw",
     "organization": "org:gemeente-maasgouw",
@@ -9871,9 +9871,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Susanne Scheepers wordt Burgemeester van Simpelveld.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-simpelveld",
     "organization": "org:gemeente-simpelveld",
@@ -10099,11 +10099,11 @@
   {
     "date": "2023-09-05",
     "kind": "appointment",
-    "summary": "Waarnemend benoemd: Jeroen Joon als Burgemeester van Harderwijk.",
+    "summary": "Benoeming: Jeroen Joon wordt Burgemeester van Harderwijk.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-harderwijk",
     "organization": "org:gemeente-harderwijk",
@@ -10124,9 +10124,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jan Zwiers wordt Burgemeester van Midden-Drenthe.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-midden-drenthe",
     "organization": "org:gemeente-midden-drenthe",
@@ -10193,9 +10193,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Yolanda Hoogtanders wordt Burgemeester van Roermond.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-roermond",
     "organization": "org:gemeente-roermond",
@@ -10216,9 +10216,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Andries Bouwman wordt Burgemeester van Opsterland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-opsterland",
     "organization": "org:gemeente-opsterland",
@@ -10239,9 +10239,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marina Starmans-Gelijns wordt Burgemeester van Etten-Leur.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-etten-leur",
     "organization": "org:gemeente-etten-leur",
@@ -10262,9 +10262,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Michiel Pijl wordt Burgemeester van Medemblik.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-medemblik",
     "organization": "org:gemeente-medemblik",
@@ -10308,9 +10308,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Anko Postma wordt Burgemeester van Tubbergen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-tubbergen",
     "organization": "org:gemeente-tubbergen",
@@ -10400,9 +10400,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Avine Fokkens-Kelder wordt Burgemeester van Heerenveen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-heerenveen",
     "organization": "org:gemeente-heerenveen",
@@ -10423,9 +10423,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Maurits van den Bosch wordt Burgemeester van Bladel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-bladel",
     "organization": "org:gemeente-bladel",
@@ -10607,9 +10607,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Tjarda Struik wordt Burgemeester van Leiderdorp.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-leiderdorp",
     "organization": "org:gemeente-leiderdorp",
@@ -10630,9 +10630,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Patrick van der Giessen wordt Burgemeester van Hendrik-Ido-Ambacht.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-hendrik-ido-ambacht",
     "organization": "org:gemeente-hendrik-ido-ambacht",
@@ -11872,9 +11872,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Fenna Noordermeer wordt Burgemeester van Midden-Delfland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-midden-delfland",
     "organization": "org:gemeente-midden-delfland",
@@ -12056,9 +12056,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Mark Pol wordt Burgemeester van Texel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-texel",
     "organization": "org:gemeente-texel",
@@ -12263,9 +12263,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Roel Cazemier als Burgemeester van Terschelling.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-terschelling",
     "organization": "org:gemeente-terschelling",
@@ -12286,9 +12286,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Hans Beenakker wordt Burgemeester van Krimpenerwaard.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-krimpenerwaard",
     "organization": "org:gemeente-krimpenerwaard",
@@ -12401,9 +12401,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Mark de Man wordt Burgemeester van Bernheze.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-bernheze",
     "organization": "org:gemeente-bernheze",
@@ -12424,9 +12424,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Joyce Langenacker wordt Burgemeester van Zeist.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-zeist",
     "organization": "org:gemeente-zeist",
@@ -12470,9 +12470,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Cees van den Bos wordt Burgemeester van Goes.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-goes",
     "organization": "org:gemeente-goes",
@@ -12493,9 +12493,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Teun Heldens wordt Burgemeester van Heeze-Leende.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-heeze-leende",
     "organization": "org:gemeente-heeze-leende",
@@ -12516,9 +12516,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Saskia Borgers wordt Dijkgraaf van Waterschap Limburg.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-limburg",
     "organization": "org:waterschap-limburg",
@@ -12585,9 +12585,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Sietske Poepjes wordt Burgemeester van Olst-Wijhe.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-olst-wijhe",
     "organization": "org:gemeente-olst-wijhe",
@@ -12654,8 +12654,8 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Mirjam Maasdam-Hoevers als Burgemeester van Oude IJsselstreek.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-oude-ijsselstreek",
@@ -12677,9 +12677,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Hans van der Pas wordt Burgemeester van Maashorst.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-maashorst",
     "organization": "org:gemeente-maashorst",
@@ -12700,9 +12700,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Harald Bergmann wordt Burgemeester van Schiedam.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-schiedam",
     "organization": "org:gemeente-schiedam",
@@ -12746,9 +12746,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ben Tap wordt Burgemeester van Castricum.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-castricum",
     "organization": "org:gemeente-castricum",
@@ -12769,9 +12769,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Mark Verheijen als Burgemeester van Wijdemeren.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-wijdemeren",
     "organization": "org:gemeente-wijdemeren",
@@ -12815,9 +12815,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Michael Rauner wordt Burgemeester van Bergen (L.).",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-bergen-l",
     "organization": "org:gemeente-bergen-l",
@@ -12838,9 +12838,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Martijn Breukelman wordt Burgemeester van Hoogeveen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-hoogeveen",
     "organization": "org:gemeente-hoogeveen",
@@ -12976,9 +12976,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Falgun Binnendijk wordt Burgemeester van Heemstede.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-heemstede",
     "organization": "org:gemeente-heemstede",
@@ -12999,9 +12999,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Leon Anink wordt Burgemeester van Zwijndrecht.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-zwijndrecht",
     "organization": "org:gemeente-zwijndrecht",
@@ -13045,9 +13045,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Eiko Smid wordt Burgemeester van Sint-Michielsgestel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-sint-michielsgestel",
     "organization": "org:gemeente-sint-michielsgestel",
@@ -13068,9 +13068,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jouke Spoelstra wordt Burgemeester van Westerveld.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-westerveld",
     "organization": "org:gemeente-westerveld",
@@ -13137,9 +13137,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Inge van Dijk wordt Burgemeester van Mook en Middelaar.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-mook-en-middelaar",
     "organization": "org:gemeente-mook-en-middelaar",
@@ -13160,9 +13160,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Hans Slagboom wordt Burgemeester van Dongen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-dongen",
     "organization": "org:gemeente-dongen",
@@ -13183,9 +13183,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jack de Vries wordt Burgemeester van Maassluis.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-maassluis",
     "organization": "org:gemeente-maassluis",
@@ -13206,9 +13206,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Rob Zuidema wordt Burgemeester van Raalte.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-raalte",
     "organization": "org:gemeente-raalte",
@@ -13252,8 +13252,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Mark Buijs wordt Burgemeester van Roosendaal.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-roosendaal",
@@ -13275,9 +13275,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Richard Korteland wordt Burgemeester van Almelo.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-almelo",
     "organization": "org:gemeente-almelo",
@@ -13298,9 +13298,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Antoine Walraven wordt Burgemeester van Maasdriel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-maasdriel",
     "organization": "org:gemeente-maasdriel",
@@ -13942,8 +13942,8 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Rikus Jager als Burgemeester van Dalfsen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-dalfsen",
@@ -13965,9 +13965,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Erica van Lente wordt Burgemeester van Midden-Groningen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-midden-groningen",
     "organization": "org:gemeente-midden-groningen",
@@ -13988,9 +13988,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Arno Scheepers wordt Burgemeester van Voorne aan Zee.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-voorne-aan-zee",
     "organization": "org:gemeente-voorne-aan-zee",
@@ -14011,9 +14011,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Marnix Bakermans als Burgemeester van Zaltbommel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-zaltbommel",
     "organization": "org:gemeente-zaltbommel",
@@ -14103,9 +14103,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Yvonne van Mastrigt wordt Burgemeester van Middelburg (Z.).",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-middelburg-z",
     "organization": "org:gemeente-middelburg-z",
@@ -14149,8 +14149,8 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Erik Ronnes als Burgemeester van Loon op Zand.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-loon-op-zand",
@@ -14356,8 +14356,8 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Bort Koelewijn als Burgemeester van Bunschoten.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-bunschoten",
@@ -14678,9 +14678,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Annelies Pleyte wordt Burgemeester van Veendam.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-veendam",
     "organization": "org:gemeente-veendam",
@@ -15069,9 +15069,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Peter Heijkoop wordt Burgemeester van Leiden.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-leiden",
     "organization": "org:gemeente-leiden",
@@ -15092,8 +15092,8 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Peter van der Velden als Burgemeester van Dordrecht.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-dordrecht",
@@ -15115,9 +15115,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Joost Manusama wordt Burgemeester van Capelle aan den IJssel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-capelle-aan-den-ijssel",
     "organization": "org:gemeente-capelle-aan-den-ijssel",
@@ -15184,9 +15184,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Bob Vostermans wordt Burgemeester van Peel en Maas.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-peel-en-maas",
     "organization": "org:gemeente-peel-en-maas",
@@ -15276,9 +15276,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Bart Jaspers Faijer wordt Burgemeester van Urk.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-urk",
     "organization": "org:gemeente-urk",
@@ -15299,9 +15299,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Michel Rog wordt Burgemeester van Bloemendaal.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-bloemendaal",
     "organization": "org:gemeente-bloemendaal",
@@ -15322,9 +15322,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Carola Schouten wordt Burgemeester van Rotterdam.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-rotterdam",
     "organization": "org:gemeente-rotterdam",
@@ -15345,9 +15345,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jeroen Diepemaat wordt Burgemeester van Losser.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-losser",
     "organization": "org:gemeente-losser",
@@ -15368,9 +15368,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Sjoerd Potters wordt Burgemeester van Helmond.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-helmond",
     "organization": "org:gemeente-helmond",
@@ -15391,9 +15391,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Roberto ter Hark wordt Burgemeester van Hillegom.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-hillegom",
     "organization": "org:gemeente-hillegom",
@@ -15414,8 +15414,8 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Marjan van Kampen-Nouwen als Burgemeester van Bergen (NH.).",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-bergen-nh",
@@ -15437,9 +15437,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Anja Haga als Burgemeester van Dantumadiel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-dantumadiel",
     "organization": "org:gemeente-dantumadiel",
@@ -15460,9 +15460,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Fred Veenstra wordt Burgemeester van Smallingerland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-smallingerland",
     "organization": "org:gemeente-smallingerland",
@@ -15483,9 +15483,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Géran Kaai wordt Burgemeester van Rhenen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-rhenen",
     "organization": "org:gemeente-rhenen",
@@ -15552,9 +15552,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Lianne van der Aa wordt Burgemeester van Laarbeek.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-laarbeek",
     "organization": "org:gemeente-laarbeek",
@@ -15575,9 +15575,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Daniël Joppe wordt Burgemeester van Voerendaal.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-voerendaal",
     "organization": "org:gemeente-voerendaal",
@@ -15598,9 +15598,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jeltje Hoekstra-Sikkema wordt Burgemeester van Enkhuizen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-enkhuizen",
     "organization": "org:gemeente-enkhuizen",
@@ -15621,9 +15621,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Tinet de Jonge-Ruitenbeek wordt Burgemeester van Nijkerk.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-nijkerk",
     "organization": "org:gemeente-nijkerk",
@@ -15644,9 +15644,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Susanne de Roy van Zuidewijn-Rive wordt Burgemeester van Ouder-Amstel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-ouder-amstel",
     "organization": "org:gemeente-ouder-amstel",
@@ -15805,9 +15805,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Patrick van Domburg wordt Burgemeester van Bronckhorst.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-bronckhorst",
     "organization": "org:gemeente-bronckhorst",
@@ -15828,9 +15828,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Harriët Westerdijk wordt Burgemeester van Krimpen aan den IJssel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-krimpen-aan-den-ijssel",
     "organization": "org:gemeente-krimpen-aan-den-ijssel",
@@ -15851,9 +15851,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Gerdo van Grootheest wordt Burgemeester van Oosterhout.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-oosterhout",
     "organization": "org:gemeente-oosterhout",
@@ -15874,9 +15874,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Bram Harmsma wordt Burgemeester van Zeewolde.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-zeewolde",
     "organization": "org:gemeente-zeewolde",
@@ -15920,9 +15920,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Jouke Douwe de Vries wordt Burgemeester van Achtkarspelen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-achtkarspelen",
     "organization": "org:gemeente-achtkarspelen",
@@ -15989,8 +15989,8 @@
     "kind": "appointment",
     "summary": "Benoeming: Pieter van de Stadt wordt Dijkgraaf van Hoogheemraadschap van Schieland en Krimpenerwaard.",
     "source": {
-      "source": "src:hhsk-van-de-stadt",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
       "confidence": "high"
     },
     "position": "pos:dijkgraaf-van-schieland-en-krimpenerwaard",
@@ -16012,9 +16012,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Rianne Donders-de Leest als Burgemeester van Best.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-best",
     "organization": "org:gemeente-best",
@@ -16035,9 +16035,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Anne Mulder als Burgemeester van Halderberge.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-halderberge",
     "organization": "org:gemeente-halderberge",
@@ -16127,9 +16127,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Monique Bonsen-Lemmers wordt Burgemeester van Woerden.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-woerden",
     "organization": "org:gemeente-woerden",
@@ -16196,9 +16196,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Frans Backhuijs als Burgemeester van Lochem.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-lochem",
     "organization": "org:gemeente-lochem",
@@ -16219,8 +16219,8 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Elly Blanksma-van den Heuvel als Burgemeester van Someren.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
       "confidence": "medium"
     },
     "position": "pos:burgemeester-someren",
@@ -16265,9 +16265,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Arjen Maathuis wordt Burgemeester van Meppel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-meppel",
     "organization": "org:gemeente-meppel",
@@ -16334,9 +16334,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Chantal Nijkerken-de Haan wordt Burgemeester van Vught.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-vught",
     "organization": "org:gemeente-vught",
@@ -16380,9 +16380,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Martijn Derks wordt Burgemeester van Beesel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-beesel",
     "organization": "org:gemeente-beesel",
@@ -16403,9 +16403,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: André van de Nadort als Burgemeester van Waadhoeke.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-waadhoeke",
     "organization": "org:gemeente-waadhoeke",
@@ -16426,9 +16426,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Pieter van Maaren als Burgemeester van Koggenland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-koggenland",
     "organization": "org:gemeente-koggenland",
@@ -16541,9 +16541,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Stieneke van der Graaf als Burgemeester van Weststellingwerf.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-weststellingwerf",
     "organization": "org:gemeente-weststellingwerf",
@@ -16587,9 +16587,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: José van Egmond als Burgemeester van Tiel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-tiel",
     "organization": "org:gemeente-tiel",
@@ -16633,9 +16633,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Bram Diepstraten wordt Burgemeester van Drechterland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-drechterland",
     "organization": "org:gemeente-drechterland",
@@ -16656,9 +16656,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Froukje de Jonge wordt Burgemeester van Oss.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-oss",
     "organization": "org:gemeente-oss",
@@ -16679,9 +16679,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Maarten Haverkamp wordt Burgemeester van De Bilt.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-de-bilt",
     "organization": "org:gemeente-de-bilt",
@@ -16794,9 +16794,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Roelien Kamminga wordt Burgemeester van Groningen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-groningen",
     "organization": "org:gemeente-groningen",
@@ -16863,9 +16863,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Gerrit Jan Gorter als Burgemeester van Twenterand.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-twenterand",
     "organization": "org:gemeente-twenterand",
@@ -16886,9 +16886,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Hans Broekhuizen wordt Burgemeester van Het Hogeland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-het-hogeland",
     "organization": "org:gemeente-het-hogeland",
@@ -17024,9 +17024,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Alexander Pechtold wordt Burgemeester van Delft.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-delft",
     "organization": "org:gemeente-delft",
@@ -17093,9 +17093,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Madeleine van Toorenburg als Burgemeester van Geertruidenberg.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-geertruidenberg",
     "organization": "org:gemeente-geertruidenberg",
@@ -17116,9 +17116,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marian Witte wordt Burgemeester van Hoeksche Waard.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-hoeksche-waard",
     "organization": "org:gemeente-hoeksche-waard",
@@ -17139,9 +17139,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Cor Lamers als Burgemeester van Nissewaard.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-nissewaard",
     "organization": "org:gemeente-nissewaard",
@@ -17162,9 +17162,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Leo Pieter Stoel wordt Burgemeester van De Fryske Marren.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-de-fryske-marren",
     "organization": "org:gemeente-de-fryske-marren",
@@ -17185,9 +17185,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Ester Weststeijn-Vermaat wordt Burgemeester van IJsselstein.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-ijsselstein",
     "organization": "org:gemeente-ijsselstein",
@@ -17231,9 +17231,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Tytsy Willemsma als Burgemeester van Ameland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-ameland",
     "organization": "org:gemeente-ameland",
@@ -17254,9 +17254,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Ingrid Timmer als Burgemeester van Rozendaal.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-rozendaal",
     "organization": "org:gemeente-rozendaal",
@@ -17277,9 +17277,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Renate Westerlaken-Loos als Burgemeester van Lopik.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-lopik",
     "organization": "org:gemeente-lopik",
@@ -17300,9 +17300,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Joris Bengevoord wordt Dijkgraaf van Waterschap Brabantse Delta.",
     "source": {
-      "source": "src:wiki-dijkgraven",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-waterschappen",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:dijkgraaf-brabantse-delta",
     "organization": "org:waterschap-brabantse-delta",
@@ -17392,9 +17392,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Erik van Heijningen als Burgemeester van Alphen aan den Rijn.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-alphen-aan-den-rijn",
     "organization": "org:gemeente-alphen-aan-den-rijn",
@@ -17415,9 +17415,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Erik de Groot wordt Burgemeester van Steenwijkerland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-steenwijkerland",
     "organization": "org:gemeente-steenwijkerland",
@@ -23602,9 +23602,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Corine van Overdijk wordt Burgemeester van Valkenswaard.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-valkenswaard",
     "organization": "org:gemeente-valkenswaard",
@@ -24315,9 +24315,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Nathanaël Middelkoop wordt Burgemeester van Katwijk.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-katwijk",
     "organization": "org:gemeente-katwijk",
@@ -24522,9 +24522,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Rosan Kocken wordt Burgemeester van De Ronde Venen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-de-ronde-venen",
     "organization": "org:gemeente-de-ronde-venen",
@@ -24614,9 +24614,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Marinka Mulder wordt Burgemeester van Culemborg.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-culemborg",
     "organization": "org:gemeente-culemborg",
@@ -24660,9 +24660,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Aukje Treep-Van Hoeckel als Burgemeester van Montfoort.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-montfoort",
     "organization": "org:gemeente-montfoort",
@@ -24683,9 +24683,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Rik van der Linden wordt Burgemeester van Lansingerland.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-lansingerland",
     "organization": "org:gemeente-lansingerland",
@@ -24775,9 +24775,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Maarten Houben als Burgemeester van Hilvarenbeek.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-hilvarenbeek",
     "organization": "org:gemeente-hilvarenbeek",
@@ -24798,9 +24798,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Serge Ferraro wordt Burgemeester van Huizen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-huizen",
     "organization": "org:gemeente-huizen",
@@ -24821,9 +24821,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Kanter Breuker wordt Burgemeester van Tytsjerksteradiel.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-tytsjerksteradiel",
     "organization": "org:gemeente-tytsjerksteradiel",
@@ -24890,9 +24890,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Fleur Gräper wordt Burgemeester van Tilburg.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-tilburg",
     "organization": "org:gemeente-tilburg",
@@ -24913,9 +24913,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Hendri Meendering wordt Burgemeester van Schiermonnikoog.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-schiermonnikoog",
     "organization": "org:gemeente-schiermonnikoog",
@@ -24936,9 +24936,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Frederik Zevenbergen wordt Burgemeester van Vlaardingen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-vlaardingen",
     "organization": "org:gemeente-vlaardingen",
@@ -25396,9 +25396,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Jan Nathan Rozendaal als Burgemeester van Brummen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-brummen",
     "organization": "org:gemeente-brummen",
@@ -27236,9 +27236,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Petra Doornenbal als Burgemeester van Wijk bij Duurstede.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-wijk-bij-duurstede",
     "organization": "org:gemeente-wijk-bij-duurstede",
@@ -28041,9 +28041,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Harm-Jan van Schaik als Burgemeester van Elburg.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-elburg",
     "organization": "org:gemeente-elburg",
@@ -28961,9 +28961,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Rob Bats als Burgemeester van Doesburg.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-doesburg",
     "organization": "org:gemeente-doesburg",
@@ -28984,9 +28984,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Annemiek Jetten als Burgemeester van Ommen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-ommen",
     "organization": "org:gemeente-ommen",
@@ -29007,9 +29007,9 @@
     "kind": "appointment",
     "summary": "Benoeming: Baukje Dijkstra wordt Burgemeester van Winterswijk.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-winterswijk",
     "organization": "org:gemeente-winterswijk",
@@ -29053,9 +29053,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Mariëtte Pennarts als Burgemeester van Renswoude.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-renswoude",
     "organization": "org:gemeente-renswoude",
@@ -29398,9 +29398,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Foort van Oosten als Burgemeester van Leeuwarden.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-leeuwarden",
     "organization": "org:gemeente-leeuwarden",
@@ -29559,9 +29559,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Carla Breuer als Burgemeester van Zoeterwoude.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-zoeterwoude",
     "organization": "org:gemeente-zoeterwoude",
@@ -29651,9 +29651,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Wendy Verkleij-Eimers als Burgemeester van Beverwijk.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-beverwijk",
     "organization": "org:gemeente-beverwijk",
@@ -29674,9 +29674,9 @@
     "kind": "appointment",
     "summary": "Waarnemend benoemd: Frank Rijkaart als Burgemeester van Teylingen.",
     "source": {
-      "source": "src:wiki-burgemeesters",
-      "retrieved": "2026-09-18",
-      "confidence": "medium"
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "high"
     },
     "position": "pos:burgemeester-teylingen",
     "organization": "org:gemeente-teylingen",
@@ -30013,6 +30013,627 @@
       "label": "Queeny-Aimée Magdalena Rajkowski - Voorzitter Vaste commissie voor Asiel en Migratie"
     },
     "id": "change:2026-09-09-appointment-voorzitter-tweede-kamer-commissie-am"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Jolanda de Witte vertrekt als Burgemeester van Albrandswaard.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-albrandswaard",
+    "organization": "org:gemeente-albrandswaard",
+    "out": {
+      "tenure": "tenure:burgemeester-albrandswaard",
+      "person": "person:jolanda-de-witte",
+      "label": "Jolanda de Witte - Burgemeester van Albrandswaard"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-albrandswaard-pille",
+      "person": "person:pille-albrandswaard",
+      "label": "Pille - Burgemeester van Albrandswaard"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-albrandswaard"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Arinda Callewaert vertrekt als Burgemeester van Bergeijk.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-bergeijk",
+    "organization": "org:gemeente-bergeijk",
+    "out": {
+      "tenure": "tenure:burgemeester-bergeijk",
+      "person": "person:arinda-callewaert",
+      "label": "Arinda Callewaert - Burgemeester van Bergeijk"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-bergeijk-w-j-g-delissen-van-tongerlo",
+      "person": "person:w-j-g-delissen-van-tongerlo",
+      "label": "W.J.G. Delissen-van Tongerlo - Burgemeester van Bergeijk"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-bergeijk"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Marjan van Kampen-Nouwen vertrekt als Burgemeester van Bergen (NH.).",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-bergen-nh",
+    "organization": "org:gemeente-bergen-nh",
+    "out": {
+      "tenure": "tenure:burgemeester-bergen-nh",
+      "person": "person:marjan-van-kampen-nouwen",
+      "label": "Marjan van Kampen-Nouwen - Burgemeester van Bergen (NH.)"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-bergen-nh-bond",
+      "person": "person:bond-bergen-nh",
+      "label": "Bond - Burgemeester van Bergen (NH.)"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-bergen-nh"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Bort Koelewijn vertrekt als Burgemeester van Bunschoten.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-bunschoten",
+    "organization": "org:gemeente-bunschoten",
+    "out": {
+      "tenure": "tenure:burgemeester-bunschoten",
+      "person": "person:bort-koelewijn",
+      "label": "Bort Koelewijn - Burgemeester van Bunschoten"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-bunschoten-j-l-geurts",
+      "person": "person:j-l-geurts",
+      "label": "J.L. Geurts - Burgemeester van Bunschoten"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-bunschoten"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Rikus Jager vertrekt als Burgemeester van Dalfsen.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-dalfsen",
+    "organization": "org:gemeente-dalfsen",
+    "out": {
+      "tenure": "tenure:burgemeester-dalfsen",
+      "person": "person:rikus-jager",
+      "label": "Rikus Jager - Burgemeester van Dalfsen"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-dalfsen-m-sijbom",
+      "person": "person:m-sijbom",
+      "label": "M. Sijbom - Burgemeester van Dalfsen"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-dalfsen"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Peter van der Velden vertrekt als Burgemeester van Dordrecht.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-dordrecht",
+    "organization": "org:gemeente-dordrecht",
+    "out": {
+      "tenure": "tenure:burgemeester-dordrecht",
+      "person": "person:peter-van-der-velden",
+      "label": "Peter van der Velden - Burgemeester van Dordrecht"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-dordrecht-n-mol",
+      "person": "person:nanning-mol",
+      "label": "Nanning Mol - Burgemeester van Dordrecht"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-dordrecht"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Lieke Sievers vertrekt als Burgemeester van Edam-Volendam.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-edam-volendam",
+    "organization": "org:gemeente-edam-volendam",
+    "out": {
+      "tenure": "tenure:burgemeester-edam-volendam",
+      "person": "person:lieke-sievers",
+      "label": "Lieke Sievers - Burgemeester van Edam-Volendam"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-edam-volendam-r-j-beukers",
+      "person": "person:r-j-beukers",
+      "label": "R.J. Beukers - Burgemeester van Edam-Volendam"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-edam-volendam"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Rob Welten vertrekt als Burgemeester van Haaksbergen.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-haaksbergen",
+    "organization": "org:gemeente-haaksbergen",
+    "out": {
+      "tenure": "tenure:burgemeester-haaksbergen",
+      "person": "person:rob-welten",
+      "label": "Rob Welten - Burgemeester van Haaksbergen"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-haaksbergen-van-den-hengel",
+      "person": "person:gerard-van-den-hengel",
+      "label": "Gerard van den Hengel - Burgemeester van Haaksbergen"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-haaksbergen"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Jan Willem Wiggers vertrekt als Burgemeester van Heerde.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-heerde",
+    "organization": "org:gemeente-heerde",
+    "out": {
+      "tenure": "tenure:burgemeester-heerde",
+      "person": "person:jan-willem-wiggers",
+      "label": "Jan Willem Wiggers - Burgemeester van Heerde"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-heerde-o-g-prinsen",
+      "person": "person:o-g-prinsen",
+      "label": "O.G. Prinsen - Burgemeester van Heerde"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-heerde"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Gilbert Isabella vertrekt als Burgemeester van Houten.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-houten",
+    "organization": "org:gemeente-houten",
+    "out": {
+      "tenure": "tenure:burgemeester-houten",
+      "person": "person:gilbert-isabella",
+      "label": "Gilbert Isabella - Burgemeester van Houten"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-houten-h-c-heerschop",
+      "person": "person:h-c-heerschop",
+      "label": "H.C. Heerschop - Burgemeester van Houten"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-houten"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Nanning Mol vertrekt als Burgemeester van Laren (NH.).",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-laren-nh",
+    "organization": "org:gemeente-laren-nh",
+    "out": {
+      "tenure": "tenure:burgemeester-laren-nh",
+      "person": "person:nanning-mol",
+      "label": "Nanning Mol - Burgemeester van Laren (NH.)"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-laren-nh-r-k-van-rijn",
+      "person": "person:r-k-van-rijn",
+      "label": "R.K. van Rijn - Burgemeester van Laren (NH.)"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-laren-nh"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Lies Spruit vertrekt als Burgemeester van Lisse.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-lisse",
+    "organization": "org:gemeente-lisse",
+    "out": {
+      "tenure": "tenure:burgemeester-lisse",
+      "person": "person:lies-spruit",
+      "label": "Lies Spruit - Burgemeester van Lisse"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-lisse-j-nieuwenhuizen",
+      "person": "person:j-nieuwenhuizen",
+      "label": "J. Nieuwenhuizen - Burgemeester van Lisse"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-lisse"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Erik Ronnes vertrekt als Burgemeester van Loon op Zand.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-loon-op-zand",
+    "organization": "org:gemeente-loon-op-zand",
+    "out": {
+      "tenure": "tenure:burgemeester-loon-op-zand",
+      "person": "person:erik-ronnes",
+      "label": "Erik Ronnes - Burgemeester van Loon op Zand"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-loon-op-zand-jansen",
+      "person": "person:jansen-loon-op-zand",
+      "label": "Jansen - Burgemeester van Loon op Zand"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-loon-op-zand"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Mirjam Clermonts-Aretz vertrekt als Burgemeester van Meerssen.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-meerssen",
+    "organization": "org:gemeente-meerssen",
+    "out": {
+      "tenure": "tenure:burgemeester-meerssen",
+      "person": "person:mirjam-clermonts-aretz",
+      "label": "Mirjam Clermonts-Aretz - Burgemeester van Meerssen"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-meerssen-niederer",
+      "person": "person:niederer-meerssen",
+      "label": "Niederer - Burgemeester van Meerssen"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-meerssen"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Harry de Vries vertrekt als Burgemeester van Montferland.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-montferland",
+    "organization": "org:gemeente-montferland",
+    "out": {
+      "tenure": "tenure:burgemeester-montferland",
+      "person": "person:harry-de-vries",
+      "label": "Harry de Vries - Burgemeester van Montferland"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-montferland-a-c-v-fellinger",
+      "person": "person:a-c-v-fellinger",
+      "label": "A.C.V. Fellinger - Burgemeester van Montferland"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-montferland"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Wendy Verkleij-Eimers vertrekt als Burgemeester van Noordwijk.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-noordwijk",
+    "organization": "org:gemeente-noordwijk",
+    "out": {
+      "tenure": "tenure:burgemeester-noordwijk",
+      "person": "person:wendy-verkleij-eimers",
+      "label": "Wendy Verkleij-Eimers - Burgemeester van Noordwijk"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-noordwijk-b-b-schneiders",
+      "person": "person:b-b-schneiders",
+      "label": "B.B. Schneiders - Burgemeester van Noordwijk"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-noordwijk"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Annette Bronsvoort vertrekt als Burgemeester van Oost Gelre.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-oost-gelre",
+    "organization": "org:gemeente-oost-gelre",
+    "out": {
+      "tenure": "tenure:burgemeester-oost-gelre",
+      "person": "person:annette-bronsvoort",
+      "label": "Annette Bronsvoort - Burgemeester van Oost Gelre"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-oost-gelre-g-hofstede",
+      "person": "person:g-hofstede",
+      "label": "G. Hofstede - Burgemeester van Oost Gelre"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-oost-gelre"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Gerard van den Hengel vertrekt als Burgemeester van Opmeer.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-opmeer",
+    "organization": "org:gemeente-opmeer",
+    "out": {
+      "tenure": "tenure:burgemeester-opmeer",
+      "person": "person:gerard-van-den-hengel",
+      "label": "Gerard van den Hengel - Burgemeester van Opmeer"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-opmeer-h-wiersema",
+      "person": "person:h-wiersema",
+      "label": "H. Wiersema - Burgemeester van Opmeer"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-opmeer"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Mirjam Maasdam-Hoevers vertrekt als Burgemeester van Oude IJsselstreek.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-oude-ijsselstreek",
+    "organization": "org:gemeente-oude-ijsselstreek",
+    "out": {
+      "tenure": "tenure:burgemeester-oude-ijsselstreek",
+      "person": "person:mirjam-maasdam-hoevers",
+      "label": "Mirjam Maasdam-Hoevers - Burgemeester van Oude IJsselstreek"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-oude-ijsselstreek-werger",
+      "person": "person:werger-oude-ijsselstreek",
+      "label": "Werger - Burgemeester van Oude IJsselstreek"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-oude-ijsselstreek"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Danny de Vries vertrekt als Burgemeester van Oudewater.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-oudewater",
+    "organization": "org:gemeente-oudewater",
+    "out": {
+      "tenure": "tenure:burgemeester-oudewater",
+      "person": "person:danny-de-vries",
+      "label": "Danny de Vries - Burgemeester van Oudewater"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-oudewater-a-jongerius",
+      "person": "person:a-jongerius",
+      "label": "A. Jongerius - Burgemeester van Oudewater"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-oudewater"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "José van Egmond vertrekt als Burgemeester van Reimerswaal.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-reimerswaal",
+    "organization": "org:gemeente-reimerswaal",
+    "out": {
+      "tenure": "tenure:burgemeester-reimerswaal",
+      "person": "person:jose-van-egmond",
+      "label": "José van Egmond - Burgemeester van Reimerswaal"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-reimerswaal-j-j-luteijn",
+      "person": "person:j-j-luteijn",
+      "label": "J.J. Luteijn - Burgemeester van Reimerswaal"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-reimerswaal"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Agnes Schaap vertrekt als Burgemeester van Renkum.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-renkum",
+    "organization": "org:gemeente-renkum",
+    "out": {
+      "tenure": "tenure:burgemeester-renkum",
+      "person": "person:agnes-schaap",
+      "label": "Agnes Schaap - Burgemeester van Renkum"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-renkum-franzel",
+      "person": "person:franzel-renkum",
+      "label": "Fränzel - Burgemeester van Renkum"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-renkum"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Monique de Boer-Beerta vertrekt als Burgemeester van Roerdalen.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-roerdalen",
+    "organization": "org:gemeente-roerdalen",
+    "out": {
+      "tenure": "tenure:burgemeester-roerdalen",
+      "person": "person:monique-de-boer-beerta",
+      "label": "Monique de Boer-Beerta - Burgemeester van Roerdalen"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-roerdalen-van-agtmaal",
+      "person": "person:van-agtmaal-roerdalen",
+      "label": "van Agtmaal - Burgemeester van Roerdalen"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-roerdalen"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Mark Buijs vertrekt als Burgemeester van Roosendaal.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-roosendaal",
+    "organization": "org:gemeente-roosendaal",
+    "out": {
+      "tenure": "tenure:burgemeester-roosendaal",
+      "person": "person:mark-buijs",
+      "label": "Mark Buijs - Burgemeester van Roosendaal"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-roosendaal-h-j-a-van-merrienboer",
+      "person": "person:h-j-a-van-merrienboer",
+      "label": "H.J.A. van Merrienboer - Burgemeester van Roosendaal"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-roosendaal"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Elly Blanksma-van den Heuvel vertrekt als Burgemeester van Someren.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-someren",
+    "organization": "org:gemeente-someren",
+    "out": {
+      "tenure": "tenure:burgemeester-someren",
+      "person": "person:elly-blanksma-van-den-heuvel",
+      "label": "Elly Blanksma-van den Heuvel - Burgemeester van Someren"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-someren-d-blok",
+      "person": "person:d-blok",
+      "label": "D. Blok - Burgemeester van Someren"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-someren"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Erik van Merrienboer vertrekt als Burgemeester van Terneuzen.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-terneuzen",
+    "organization": "org:gemeente-terneuzen",
+    "out": {
+      "tenure": "tenure:burgemeester-terneuzen",
+      "person": "person:erik-van-merrienboer",
+      "label": "Erik van Merrienboer - Burgemeester van Terneuzen"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-terneuzen-f-m-weerwind",
+      "person": "person:f-m-weerwind",
+      "label": "F.M. Weerwind - Burgemeester van Terneuzen"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-terneuzen"
+  },
+  {
+    "date": "2026-10-06",
+    "kind": "departure",
+    "summary": "Doret Tigchelaar-van Oene vertrekt als Burgemeester van Wierden.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-10-06",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-wierden",
+    "organization": "org:gemeente-wierden",
+    "out": {
+      "tenure": "tenure:burgemeester-wierden",
+      "person": "person:doret-tigchelaar-van-oene",
+      "label": "Doret Tigchelaar-van Oene - Burgemeester van Wierden"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-wierden-hubers",
+      "person": "person:hubers-wierden",
+      "label": "Hubers - Burgemeester van Wierden"
+    },
+    "id": "change:2026-10-06-departure-burgemeester-wierden"
   },
   {
     "date": "2026-10-06",

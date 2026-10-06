@@ -16,7 +16,7 @@ Photos are not under the dataset licence. Each one keeps the licence its author 
 
 ## Source families
 
-Where facts come from, grouped by publisher and licence. 4,482 sources are recorded in all: 2,845 in the table, 1,306 news links and 331 with no established licence (each below).
+Where facts come from, grouped by publisher and licence. 4,454 sources are recorded in all: 2,849 in the table, 1,271 news links and 334 with no established licence (each below).
 
 | Publisher or website | What we use it for | Licence | Terms | Sources |
 | --- | --- | --- | --- | ---: |
@@ -24,11 +24,11 @@ Where facts come from, grouped by publisher and licence. 4,482 sources are recor
 | Wikidata | Identifiers, birth dates, links to photos | CC0 1.0 | <https://www.wikidata.org/wiki/Wikidata:Licensing> | 688 |
 | Rijksoverheid and other central government sites | Offices, office holders, organisation structure | CC0 1.0 | <https://www.rijksoverheid.nl/service/copyright> | 279 |
 | Laws and official gazettes (overheid.nl) | Legal bases, appointments, decrees | CC0 1.0 | <https://www.overheid.nl/help/officiele-bekendmakingen/bestanden-en-hergebruik> | 201 |
-| Register van Overheidsorganisaties (KOOP) | Public bodies and their managers | CC0 1.0 | <https://data.overheid.nl/dataset/overheidsorganisaties-xml> | 150 |
+| Register van Overheidsorganisaties (KOOP) | Public bodies and their managers | CC0 1.0 | <https://data.overheid.nl/dataset/overheidsorganisaties-xml> | 153 |
 | Eerste Kamer | Members, committees (facts only, no photos) | CC BY 4.0 (recorded as such; custom reuse right: source URL, extraction date and annotation) | <https://www.eerstekamer.nl/begrip/colofon> | 133 |
 | Rechtspraak | Courts and judges (facts only, no photos) | CC BY 4.0 (recorded as such; custom attribution right: name the source, imply no endorsement) | <https://www.rechtspraak.nl/colofon> | 21 |
 | Kiesraad and verkiezingsuitslagen.nl | Election results and dates | CC0 1.0 | <https://www.kiesraad.nl/service/copyright> | 29 |
-| Centraal Bureau voor de Statistiek | Statistics | CC BY 4.0 | <https://www.cbs.nl/nl-nl/over-ons/website/copyright> | 23 |
+| Centraal Bureau voor de Statistiek | Statistics | CC BY 4.0 | <https://www.cbs.nl/nl-nl/over-ons/website/copyright> | 24 |
 | CPB | Publications and figures | CC BY 3.0 NL | <https://www.cpb.nl/copyright> | 4 |
 | PBL | Publications and figures | CC BY 4.0 | <https://www.pbl.nl/over-het-pbl/copyright> | 3 |
 | Wikipedia | Lists of mayors and dijkgraven (facts) | CC BY-SA 4.0 | <https://nl.wikipedia.org/wiki/Wikipedia:Auteursrechten> | 228 |
@@ -46,11 +46,11 @@ The site shows scaled-down and cropped copies, and says so in the credit. For CC
 
 ## News
 
-1,306 sources are news articles or news-outlet pages. Their publishers keep all rights, so Staatsgraaf links to them and shows only the headline and the link, never the article text or its images. No credit is owed beyond naming the outlet, which every link does.
+1,271 sources are news articles or news-outlet pages. Their publishers keep all rights, so Staatsgraaf links to them and shows only the headline and the link, never the article text or its images. No credit is owed beyond naming the outlet, which every link does.
 
 ## Sources with no established licence
 
-331 sources have no established licence (`unknown` or empty in `data/sources.json`). They supply facts only, never text or images. The full list, with each endpoint, is in `data/sources.json`.
+334 sources have no established licence (`unknown` or empty in `data/sources.json`). They supply facts only, never text or images. The full list, with each endpoint, is in `data/sources.json`.
 
 ## Inspiration
 
