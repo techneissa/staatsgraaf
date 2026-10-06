@@ -1,43 +1,45 @@
 /**
  * How the lines of the hierarchy chart (lib/hierarchy-layout.ts) are drawn.
- * Pure geometry, so tests and a later Swift client draw the same joins.
+ * Pure geometry, so tests and a later Swift client draw the same joins. The
+ * line language itself (a soft, bowed, tapering brush stroke) lives in
+ * lib/sketch-line.ts and is shared with the person focus.
  *
- * A line in the chart is a stroke between two circles: the ring and a hub, or
- * a hub and one of its people. Every join follows the same three rules.
+ * A line in the chart runs between two circles: the ring and a hub, or a hub
+ * and one of its people. Each runs on under the outline of the circle it
+ * reaches, which has the same colour, so no hairline, stub or flat end shows.
+ * A line swells a little where it meets a circle, and tapers toward the far
+ * end, so the joins read as grown and not as pasted on.
  *
- * 1. A line meets a circle square on: it leaves the ring along the radius, and
- *    it arrives at a hub or a person heading for its centre. The flat end of
- *    the stroke then lies flush on the circle's edge, with no notch.
- * 2. The stroke runs on under the circle's outline, which has the same colour,
- *    so no hairline shows between the line and the circle, and nothing pokes
- *    out through the node.
- * 3. The two corners where the line meets the circle are rounded with a small
- *    fillet, drawn as a filled sliver beside the stroke. Where the ring
- *    segment or a neighbouring line leaves no room, the fillet shrinks or is
- *    left out; the stroke never shows beside its segment.
- *
- * A hub's line to the ring is a spoke: radial at the ring, radial at the hub,
- * and a gentle S between them when the hub does not sit on the same radius.
+ * A hub's line to the ring is a spoke: it leaves the ring along the radius,
+ * arrives at the hub heading for its centre, and bends in one soft S between
+ * them when the hub does not sit on the same radius. On the radius it is a
+ * gently bowed stroke.
  */
 
-export type Pt = { x: number; y: number };
+import {
+  brushStroke,
+  cubicAt,
+  sketchBetween,
+  sketchCurve,
+  type Bounds,
+  type Cubic,
+  type Pt,
+} from "./sketch-line";
+
+export type { Pt };
 type Disc = Pt & { r: number };
 
 const TAU = Math.PI * 2;
 const round = (value: number) => Math.round(value * 10) / 10;
 const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
-const fmt = (p: Pt) => `${round(p.x)} ${round(p.y)}`;
 
 /** A stroke that starts this far inside the shape it leaves, so the two overlap without a seam. */
 const OVERLAP = 0.6;
 
-/** The straight run a spoke keeps at each end, a little longer than a fillet reaches. */
-const STUB = 9;
-
 export type Spoke = {
-  /** The stroke's path, from just inside the ring to just inside the hub's outline. */
+  /** The centreline's path, from just inside the ring to just inside the hub's outline. */
   d: string;
-  /** Its length in px, for the draw-in animation. */
+  /** Its length in px. */
   length: number;
   /** The same line as a polyline, for collision checks and for placing a chip on it. */
   points: Pt[];
@@ -45,14 +47,18 @@ export type Spoke = {
   leave: Pt;
   /** The unit direction it arrives at the hub in: toward the hub's centre. */
   arrive: Pt;
+  /** The centreline as a cubic Bezier. */
+  cubic: Cubic;
 };
 
 /**
  * The spoke from the ring to a hub: leaves the ring radially at `angle`,
  * arrives at the hub heading for its centre, and ends `inset` px inside the
- * hub's edge (under its outline). Straight when the hub sits on the radius.
+ * hub's edge (under its outline). One soft S when the hub is off the radius,
+ * a gentle bow when it is on it. The seed (default from the geometry) fixes
+ * the bow's side and the wobble, so the same chart draws the same lines.
  */
-export function spokeCurve(o: { centre: Pt; ringOuter: number; angle: number; hub: Disc; inset: number }): Spoke {
+export function spokeCurve(o: { centre: Pt; ringOuter: number; angle: number; hub: Disc; inset: number; seed?: string }): Spoke {
   const leave = { x: Math.cos(o.angle), y: Math.sin(o.angle) };
   const p0 = { x: o.centre.x + (o.ringOuter - OVERLAP) * leave.x, y: o.centre.y + (o.ringOuter - OVERLAP) * leave.y };
   const dx = o.hub.x - p0.x;
@@ -61,30 +67,30 @@ export function spokeCurve(o: { centre: Pt; ringOuter: number; angle: number; hu
   const arrive = { x: dx / dist, y: dy / dist };
   const reach = Math.max(0, o.hub.r - o.inset);
   const p3 = { x: o.hub.x - arrive.x * reach, y: o.hub.y - arrive.y * reach };
-  const length = Math.hypot(p3.x - p0.x, p3.y - p0.y);
   const bend = Math.abs(leave.x * arrive.y - leave.y * arrive.x);
-  if (bend < 0.004) {
-    return { d: `M${fmt(p0)} L${fmt(p3)}`, length: Math.max(1, Math.round(length)), points: [p0, p3], leave, arrive };
-  }
-  // A straight run at each end, as long as the fillets reach, then the S between them.
-  const stub = Math.min(STUB, length * 0.25);
-  const q0 = { x: p0.x + leave.x * stub, y: p0.y + leave.y * stub };
-  const q3 = { x: p3.x - arrive.x * stub, y: p3.y - arrive.y * stub };
-  const k = Math.hypot(q3.x - q0.x, q3.y - q0.y) * 0.38;
-  const q1 = { x: q0.x + leave.x * k, y: q0.y + leave.y * k };
-  const q2 = { x: q3.x - arrive.x * k, y: q3.y - arrive.y * k };
-  const points: Pt[] = [p0];
-  const steps = 16;
-  for (let i = 0; i <= steps; i += 1) {
-    const t = i / steps;
-    const u = 1 - t;
-    points.push({
-      x: u * u * u * q0.x + 3 * u * u * t * q1.x + 3 * u * t * t * q2.x + t * t * t * q3.x,
-      y: u * u * u * q0.y + 3 * u * u * t * q1.y + 3 * u * t * t * q2.y + t * t * t * q3.y,
-    });
-  }
-  points.push(p3);
-  return { d: `M${fmt(p0)} L${fmt(q0)} C${fmt(q1)} ${fmt(q2)} ${fmt(q3)} L${fmt(p3)}`, length: Math.max(1, Math.round(polylineLength(points))), points, leave, arrive };
+  const seed = o.seed ?? `spoke:${round(o.angle * 1000)}:${round(o.hub.x)}:${round(o.hub.y)}`;
+  // Off the radius the S already bends the line; on it, a bow stands in.
+  const cubic = sketchCurve(p0, p3, {
+    seed,
+    startDir: leave,
+    endDir: arrive,
+    bowScale: 1 - clamp(bend * 7, 0, 1),
+    bowMax: 5,
+    bowFrac: 0.045,
+    handle: bend > 0.004 ? 0.38 : undefined,
+  });
+  const steps = 20;
+  const points: Pt[] = [];
+  for (let i = 0; i <= steps; i += 1) points.push(i === 0 ? p0 : i === steps ? p3 : cubicAt(cubic, i / steps));
+  const length = polylineLength(points);
+  return {
+    d: `M${round(p0.x)} ${round(p0.y)} C${round(cubic.p1.x)} ${round(cubic.p1.y)} ${round(cubic.p2.x)} ${round(cubic.p2.y)} ${round(p3.x)} ${round(p3.y)}`,
+    length: Math.max(1, Math.round(length)),
+    points,
+    leave,
+    arrive,
+    cubic,
+  };
 }
 
 export function polylineLength(points: readonly Pt[]): number {
@@ -123,51 +129,6 @@ export function distanceToPolyline(p: Pt, points: readonly Pt[]): number {
   return best;
 }
 
-/**
- * The two fillets where a straight stroke of `width` leaves the outside of a
- * circle along `dir` (a unit vector from the circle's centre): one sliver per
- * side, filling the cusp between the circle and the stroke up to a quarter
- * round of radius `f`. `room` is how far, in px beyond the stroke's own edge,
- * each side may reach (a ring segment ends, a neighbour is near). Returns an
- * empty string when the fillet would be smaller than a pixel.
- */
-export function filletPath(circle: Disc, dir: Pt, width: number, f: number, room: readonly [number, number] = [Infinity, Infinity]): string {
-  const half = width / 2;
-  const R = circle.r;
-  if (half >= R - 1) return "";
-  const normal = { x: -dir.y, y: dir.x };
-  const parts: string[] = [];
-  [-1, 1].forEach((side, index) => {
-    const size = Math.min(f, room[index]);
-    if (!(size >= 1)) return;
-    const at = (u: number, v: number): Pt => ({ x: circle.x + dir.x * u + normal.x * side * v, y: circle.y + dir.y * u + normal.y * side * v });
-    const vc = half + size;
-    const uc = Math.sqrt(Math.max(0, (R + size) ** 2 - vc * vc));
-    const tangentStroke = at(uc, half);
-    const k = R / (R + size);
-    const tangentCircle = at(uc * k, vc * k);
-    const corner = at(Math.sqrt(R * R - half * half), half);
-    // Tuck the two ends that rest on the circle a hair inside it, so no seam shows.
-    const tuck = (p: Pt): Pt => {
-      const d = Math.hypot(p.x - circle.x, p.y - circle.y) || 1;
-      const s = (R - OVERLAP) / d;
-      return { x: circle.x + (p.x - circle.x) * s, y: circle.y + (p.y - circle.y) * s };
-    };
-    const sweep = (centre: Pt, from: Pt, to: Pt) => ((from.x - centre.x) * (to.y - centre.y) - (from.y - centre.y) * (to.x - centre.x) > 0 ? 1 : 0);
-    const c1 = tuck(corner);
-    const c2 = tuck(tangentCircle);
-    const fc = at(uc, vc);
-    parts.push(
-      `M${fmt(c1)} A${round(R - OVERLAP)} ${round(R - OVERLAP)} 0 0 ${sweep(circle, c1, c2)} ${fmt(c2)}` +
-        ` A${round(size)} ${round(size)} 0 0 ${sweep(fc, tangentCircle, tangentStroke)} ${fmt(tangentStroke)} Z`,
-    );
-  });
-  return parts.join(" ");
-}
-
-/** The fillet size for a stroke of this width. */
-export const filletFor = (width: number) => round(clamp(width * 0.55, 1.8, 4.5));
-
 // ---------------------------------------------------------------------------
 // The chart's connectors
 
@@ -181,12 +142,16 @@ type LayoutLike = {
 };
 
 export type Connector = {
-  /** The stroke path. */
+  /** The brush stroke: a closed outline to fill. */
   d: string;
-  /** Its length, for the draw-in animation. */
+  /** The centreline, for the reveal mask that draws the stroke in. */
+  centre: string;
+  /** The centreline's length, for the draw-in animation. */
   length: number;
-  /** The fillets at both ends, as one filled path; empty when there are none. */
-  fillets: string;
+  /** The widest the stroke is; the reveal mask strokes the centreline wider than this. */
+  widest: number;
+  /** A box around the stroke and its halo, for the mask's region. */
+  bounds: Bounds;
 };
 
 export type ChartConnectors = {
@@ -208,64 +173,48 @@ const wrapFrom = (angle: number, from: number) => {
 };
 
 /**
- * The strokes and fillets for every hub spoke and every member bar of a
- * layout. A spoke's fillets at the ring reach no further than its ring
- * segment or halfway to the next spoke on the same segment.
+ * The brush strokes for every hub spoke and every member line of a layout.
+ * Spokes taper from the ring to the hub, member lines from the hub to the
+ * person; both swell a little where they meet a circle.
  */
 export function chartConnectors(layout: LayoutLike): ChartConnectors {
-  const { centre, ring, stroke } = layout;
-  const ringOuter = ring.r + ring.width / 2;
+  const { stroke } = layout;
   const hubs = new Map<string, Connector>();
   const members = new Map<string, Connector>();
 
-  // Where each spoke meets the ring, with the room each side of it.
-  const anchors = layout.hubs.map((hub) => {
-    const angle = Math.atan2(hub.bar.a.y - centre.y, hub.bar.a.x - centre.x);
-    const segment = layout.segments.find((entry) => wrapFrom(angle, entry.start - 0.005) <= entry.end + 0.005);
-    return { hub, angle, segment };
-  });
-  const half = stroke.hubBar / 2;
-  const f = filletFor(stroke.hubBar);
-  anchors.forEach(({ hub, angle, segment }, index) => {
-    const room: [number, number] = [f, f];
-    if (segment) {
-      const a = wrapFrom(angle, segment.start - 0.005);
-      room[0] = Math.min(room[0], (a - segment.start) * ringOuter - half - 0.5);
-      room[1] = Math.min(room[1], (segment.end - a) * ringOuter - half - 0.5);
-    }
-    anchors.forEach((other, otherIndex) => {
-      if (otherIndex === index || other.segment !== segment) return;
-      const delta = wrapFrom(other.angle - angle + Math.PI, 0) - Math.PI;
-      const side = delta < 0 ? 0 : 1;
-      room[side] = Math.min(room[side], (Math.abs(delta) * ringOuter - stroke.hubBar) / 2 - 0.5);
+  for (const hub of layout.hubs) {
+    const brush = brushStroke(hub.spoke.cubic, {
+      widthA: stroke.hubBar,
+      widthB: stroke.hubBar * 0.72,
+      insetA: OVERLAP,
+      insetB: stroke.hub / 2,
+      flareA: 0.2,
+      flareB: 0.24,
+      flareLength: 12,
     });
-    const ringFillets = filletPath({ x: centre.x, y: centre.y, r: ringOuter }, hub.spoke.leave, stroke.hubBar, f, room);
-    // At the hub the spoke arrives heading for its centre, so the fillets sit square to the rim.
-    const hubFillets = filletPath(hub, { x: -hub.spoke.arrive.x, y: -hub.spoke.arrive.y }, stroke.hubBar, f);
-    hubs.set(hub.id, { d: hub.spoke.d, length: hub.spoke.length, fillets: [ringFillets, hubFillets].filter(Boolean).join(" ") });
-  });
+    hubs.set(hub.id, { d: brush.d, centre: brush.centre, length: brush.length, widest: brush.widest, bounds: brush.bounds });
+  }
 
   const hubById = new Map(layout.hubs.map((hub) => [hub.id, hub]));
-  const fm = filletFor(stroke.memberBar);
   for (const member of layout.members) {
     const hub = hubById.get(member.hub);
     if (!hub) continue;
-    const out = unit({ x: member.x - hub.x, y: member.y - hub.y });
-    const a = { x: hub.x + out.x * (hub.r - stroke.hub / 2), y: hub.y + out.y * (hub.r - stroke.hub / 2) };
-    const b = { x: member.x - out.x * (member.r - stroke.member / 2), y: member.y - out.y * (member.r - stroke.member / 2) };
-    const fillets = [filletPath(hub, out, stroke.memberBar, fm), filletPath(member, { x: -out.x, y: -out.y }, stroke.memberBar, fm)].filter(Boolean).join(" ");
-    members.set(memberKey(member.hub, member.id), {
-      d: `M${fmt(a)} L${fmt(b)}`,
-      length: Math.max(1, Math.round(Math.hypot(b.x - a.x, b.y - a.y))),
-      fillets,
+    const brush = sketchBetween(hub, member, {
+      seed: `${member.hub}>${member.id}`,
+      widthA: stroke.memberBar * 1.05,
+      widthB: stroke.memberBar * 0.75,
+      insetA: stroke.hub / 2,
+      insetB: stroke.member / 2,
+      flareA: 0.22,
+      flareB: 0.28,
+      flareLength: 9,
+      bowMax: 4,
+      bowFrac: 0.07,
+      wobble: 0.7,
     });
+    members.set(memberKey(member.hub, member.id), { d: brush.d, centre: brush.centre, length: brush.length, widest: brush.widest, bounds: brush.bounds });
   }
   return { hubs, members };
-}
-
-function unit(v: Pt): Pt {
-  const d = Math.hypot(v.x, v.y) || 1;
-  return { x: v.x / d, y: v.y / d };
 }
 
 /**
