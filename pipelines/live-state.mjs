@@ -12,14 +12,25 @@ export function emptyState() {
   return {
     version: STATE_VERSION,
     note:
-      "State of `bun run live` (ADR 0024). Cursors are Tweede Kamer ApiGewijzigdOp values; personMap maps a Tweede Kamer Persoon.Id to a person id in data/people.json. Written by the pipeline, not by hand.",
+      "State of `bun run live` (ADR 0024). Cursors are Tweede Kamer ApiGewijzigdOp values; personMap maps a Tweede Kamer Persoon.Id to a person id in data/people.json; decentral holds, per source of provincies, gemeenten and waterschappen, the code to org id map (ADR 0027). Written by the pipeline, not by hand.",
     tk: { cursors: {}, presidiumId: null, personMap: {}, lastFullRun: null, lastCounts: null },
     ek: { hashes: {}, lastFullRun: null, colofon: null },
     bewindspersonen: { cabinetSlug: null, slugsHash: null, lastRun: null },
     news: { lastRun: null, sitemapLastmod: null },
     electionDates: { lastRun: null, items: [], gaps: [] },
+    decentral: emptyDecentral(),
     lastRun: null,
   };
+}
+
+/**
+ * Provincies, gemeenten, waterschappen and the commissarissen (ADR 0027): per source the last attempt and
+ * run, the retry flag after a guard stop or a failed read, and for the three levels the map from an official
+ * code (gm0363, ws0654, pv22) to an org id, the official name last seen per code, and the bootstrap dates.
+ */
+export function emptyDecentral() {
+  const level = () => ({ lastRun: null, lastAttempt: null, pendingGuard: null, pendingRetry: false, codes: {}, names: {}, holdersBootstrapped: null, lastCounts: null, cbsTable: null });
+  return { gemeenten: level(), provincies: level(), waterschappen: level(), commissarissen: { lastRun: null, lastAttempt: null, pendingGuard: null, pendingRetry: false, lastCounts: null } };
 }
 
 function sortKeys(value) {
@@ -42,6 +53,12 @@ export function normalizeState(raw) {
     bewindspersonen: { ...base.bewindspersonen, ...(state.bewindspersonen ?? {}) },
     news: { ...base.news, ...(state.news ?? {}) },
     electionDates: { ...base.electionDates, ...(state.electionDates ?? {}) },
+    decentral: Object.fromEntries(
+      Object.entries(base.decentral).map(([key, value]) => [
+        key,
+        { ...value, ...(state.decentral?.[key] ?? {}), ...(value.codes ? { codes: { ...(state.decentral?.[key]?.codes ?? {}) }, names: { ...(state.decentral?.[key]?.names ?? {}) } } : {}) },
+      ]),
+    ),
   };
 }
 

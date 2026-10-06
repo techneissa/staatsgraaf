@@ -1,0 +1,519 @@
+[
+ {
+  "@id": "https://identifier.overheid.nl/tooi/id/gemeente",
+  "@graph": [
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/gemeente/wzg_22487576",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Uitbreiding"
+    ],
+    "http://www.w3.org/ns/prov#used": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/gemeente/gm0757"
+     },
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/gemeente/gm0824"
+     },
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/gemeente/gm0855"
+     },
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/gemeente/gm0865"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/tijdstipWijziging": [
+     {
+      "@value": "2021-01-01T00:00:00+01:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+     }
+    ],
+    "http://www.w3.org/ns/prov#invalidated": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/gemeente/gm0788"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/gemeente/gm0757",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Gemeente"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+     {
+      "@value": "gemeente Boxtel"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/gemeentecode": [
+     {
+      "@value": "0757"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/ligtInProvincie": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/provincie/pv30"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiesoort": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/def/thes/kern/c_49ea8180"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamExclSoort": [
+     {
+      "@value": "Boxtel"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamSorteer": [
+     {
+      "@value": "boxtel"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiecode": [
+     {
+      "@value": "gm0757"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/owmsId": [
+     {
+      "@value": "http://standaarden.overheid.nl/owms/terms/Boxtel_(gemeente)",
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamExclSoort": [
+     {
+      "@value": "Boxtel"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamSorteer": [
+     {
+      "@value": "boxtel"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamInclSoort": [
+     {
+      "@value": "gemeente Boxtel"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamInclSoort": [
+     {
+      "@value": "gemeente Boxtel"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/gemeente/gm0824",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Gemeente"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+     {
+      "@value": "gemeente Oisterwijk"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/gemeentecode": [
+     {
+      "@value": "0824"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/ligtInProvincie": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/provincie/pv30"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiesoort": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/def/thes/kern/c_49ea8180"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamExclSoort": [
+     {
+      "@value": "Oisterwijk"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamSorteer": [
+     {
+      "@value": "oisterwijk"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiecode": [
+     {
+      "@value": "gm0824"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/owmsId": [
+     {
+      "@value": "http://standaarden.overheid.nl/owms/terms/Oisterwijk_(gemeente)",
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamExclSoort": [
+     {
+      "@value": "Oisterwijk"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamSorteer": [
+     {
+      "@value": "oisterwijk"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamInclSoort": [
+     {
+      "@value": "gemeente Oisterwijk"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamInclSoort": [
+     {
+      "@value": "gemeente Oisterwijk"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/gemeente/gm0855",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Gemeente"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+     {
+      "@value": "gemeente Tilburg"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/gemeentecode": [
+     {
+      "@value": "0855"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/ligtInProvincie": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/provincie/pv30"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiesoort": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/def/thes/kern/c_49ea8180"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamExclSoort": [
+     {
+      "@value": "Tilburg"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamSorteer": [
+     {
+      "@value": "tilburg"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiecode": [
+     {
+      "@value": "gm0855"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/owmsId": [
+     {
+      "@value": "http://standaarden.overheid.nl/owms/terms/Tilburg_(gemeente)",
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamExclSoort": [
+     {
+      "@value": "Tilburg"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamSorteer": [
+     {
+      "@value": "tilburg"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamInclSoort": [
+     {
+      "@value": "gemeente Tilburg"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamInclSoort": [
+     {
+      "@value": "gemeente Tilburg"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/gemeente/gm0865",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Gemeente"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+     {
+      "@value": "gemeente Vught"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/gemeentecode": [
+     {
+      "@value": "0865"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/ligtInProvincie": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/provincie/pv30"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiesoort": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/def/thes/kern/c_49ea8180"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamExclSoort": [
+     {
+      "@value": "Vught"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamSorteer": [
+     {
+      "@value": "vught"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiecode": [
+     {
+      "@value": "gm0865"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/owmsId": [
+     {
+      "@value": "http://standaarden.overheid.nl/owms/terms/Vught_(gemeente)",
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamExclSoort": [
+     {
+      "@value": "Vught"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamSorteer": [
+     {
+      "@value": "vught"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamInclSoort": [
+     {
+      "@value": "gemeente Vught"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamInclSoort": [
+     {
+      "@value": "gemeente Vught"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/gemeente/gm0788",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Gemeente"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+     {
+      "@value": "gemeente Haaren"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/einddatum": [
+     {
+      "@value": "2020-12-31",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/gemeentecode": [
+     {
+      "@value": "0788"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/ligtInProvincie": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/provincie/pv30"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiesoort": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/def/thes/kern/c_49ea8180"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamExclSoort": [
+     {
+      "@value": "Haaren"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamSorteer": [
+     {
+      "@value": "haaren"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiecode": [
+     {
+      "@value": "gm0788"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/owmsId": [
+     {
+      "@value": "http://standaarden.overheid.nl/owms/terms/Haaren_(gemeente)",
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamExclSoort": [
+     {
+      "@value": "Haaren"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamSorteer": [
+     {
+      "@value": "haaren"
+     }
+    ],
+    "http://www.w3.org/ns/prov#invalidatedAtTime": [
+     {
+      "@value": "2021-01-01T00:00:00+01:00",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamInclSoort": [
+     {
+      "@value": "gemeente Haaren"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamInclSoort": [
+     {
+      "@value": "gemeente Haaren"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/gemeente/gm0373",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Gemeente"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+     {
+      "@value": "gemeente Bergen (NH)"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/gemeentecode": [
+     {
+      "@value": "0373"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/ligtInProvincie": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/provincie/pv27"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiesoort": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/def/thes/kern/c_49ea8180"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamExclSoort": [
+     {
+      "@value": "Bergen (NH)"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamSorteer": [
+     {
+      "@value": "bergen (nh)"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiecode": [
+     {
+      "@value": "gm0373"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/owmsId": [
+     {
+      "@value": "http://standaarden.overheid.nl/owms/terms/Bergen_(NH)",
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamExclSoort": [
+     {
+      "@value": "Bergen (NH)"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamSorteer": [
+     {
+      "@value": "bergen (nh)"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamInclSoort": [
+     {
+      "@value": "gemeente Bergen (NH)"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamInclSoort": [
+     {
+      "@value": "gemeente Bergen (NH)"
+     }
+    ]
+   },
+   {
+    "@id": "https://identifier.overheid.nl/tooi/id/gemeente/gm1680",
+    "@type": [
+     "https://identifier.overheid.nl/tooi/def/ont/Gemeente"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+     {
+      "@value": "gemeente Aa en Hunze"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/gemeentecode": [
+     {
+      "@value": "1680"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/ligtInProvincie": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/id/provincie/pv22"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiesoort": [
+     {
+      "@id": "https://identifier.overheid.nl/tooi/def/thes/kern/c_49ea8180"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamExclSoort": [
+     {
+      "@value": "Aa en Hunze"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamSorteer": [
+     {
+      "@value": "aa en hunze"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/organisatiecode": [
+     {
+      "@value": "gm1680"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/owmsId": [
+     {
+      "@value": "http://standaarden.overheid.nl/owms/terms/Aa_en_Hunze",
+      "@type": "http://www.w3.org/2001/XMLSchema#anyURI"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamExclSoort": [
+     {
+      "@value": "Aa en Hunze"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamSorteer": [
+     {
+      "@value": "aa en hunze"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/officieleNaamInclSoort": [
+     {
+      "@value": "gemeente Aa en Hunze"
+     }
+    ],
+    "https://identifier.overheid.nl/tooi/def/ont/voorkeursnaamInclSoort": [
+     {
+      "@value": "gemeente Aa en Hunze"
+     }
+    ]
+   }
+  ]
+ }
+]

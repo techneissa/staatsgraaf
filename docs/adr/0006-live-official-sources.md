@@ -43,4 +43,4 @@ The owner asked that people, seats and office holders follow the official source
 - **Point 2, closing.** A closure takes the official end date of the row that closed it; only when none exists does it take the retrieval date, at confidence medium and with a review entry.
 - **News is a trigger only.** A news item may make the official fetchers run early (`pipelines/news-trigger.mjs`); it never writes a fact.
 - **Point 5, order.** `bun run live` replaces the `refresh-official` and `merge` steps of the nightly order for the office holders. It applies the live envelope to `data/` field by field, because a full `merge` is not idempotent on the committed dataset (ADR 0024, section 9).
-- **Point 6, cadence.** The Tweede Kamer count poll is hourly, the Eerste Kamer hash check every 4 hours at most, the register (wave 2) daily; CI decides the schedule.
+- **Point 6, cadence.** The Tweede Kamer count poll is hourly, the Eerste Kamer hash check every 4 hours at most, the register daily (live since 06-10-2026, ADR 0027); CI decides the schedule.

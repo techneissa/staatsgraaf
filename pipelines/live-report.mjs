@@ -29,6 +29,12 @@ const KIND_LABEL = {
   "identity-ambiguous": "identiteit dubbelzinnig",
   gap: "gap",
   "stopped-by-guard": "gestopt door de bewaking",
+  "name-change": "naamswijziging",
+  "seat-change": "zetelwijziging",
+  dissolved: "opgeheven",
+  "new-gemeente": "nieuwe gemeente",
+  "acting-changed": "waarnemend gewijzigd",
+  "source-difference": "bronverschil",
 };
 
 export function reviewKey(entry) {

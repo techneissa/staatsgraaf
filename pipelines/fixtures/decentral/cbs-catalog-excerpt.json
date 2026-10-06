@@ -1,0 +1,29 @@
+{
+ "odata.metadata": "https://opendata.cbs.nl/ODataCatalog/$metadata#Tables&$select=Identifier,Title,Modified,Period",
+ "value": [
+  {
+   "Identifier": "86247NED",
+   "Title": "Gebieden in Nederland 2026",
+   "Modified": "2026-07-14T02:00:00",
+   "Period": "2026"
+  },
+  {
+   "Identifier": "86059NED",
+   "Title": "Gebieden in Nederland 2025",
+   "Modified": "2025-09-30T02:00:00",
+   "Period": "2025"
+  },
+  {
+   "Identifier": "85755NED",
+   "Title": "Gebieden in Nederland 2024",
+   "Modified": "2025-02-25T02:00:00",
+   "Period": "2024"
+  },
+  {
+   "Identifier": "85385NED",
+   "Title": "Gebieden in Nederland 2023",
+   "Modified": "2025-02-25T02:00:00",
+   "Period": "2023"
+  }
+ ]
+}

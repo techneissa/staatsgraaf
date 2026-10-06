@@ -40,6 +40,8 @@ import {
   sourceRef,
 } from "./live-util.mjs";
 import { loadState, saveState } from "./live-state.mjs";
+import { DECENTRAL_KEYS, planCommissarissen, planDecentral } from "./decentral-plan.mjs";
+import { failureGap, fetchDecentral } from "./decentral-fetch.mjs";
 import { TK_OPEN_URL, TK_SOURCE_DEFS, planTweedeKamer } from "./tk-changes.mjs";
 import { fetchPresidiumId, fetchTkSnapshot, makeClosedRowLookup, readWindowStart } from "./tk-fetch.mjs";
 
@@ -80,7 +82,7 @@ const SOURCE_DEFS = {
   },
 };
 
-const SOURCE_KEYS = ["bewindspersonen", "tweedeKamer", "eersteKamer"];
+const SOURCE_KEYS = ["bewindspersonen", "tweedeKamer", "eersteKamer", ...DECENTRAL_KEYS];
 
 export function parseRijksoverheidBewindspersonen(html) {
   if (typeof html !== "string" || html === "") return [];
@@ -241,6 +243,15 @@ function sortById(records) {
   return records.sort((a, b) => String(a.id).localeCompare(String(b.id)));
 }
 
+/** The decentral source that owns an organisation id (gemeente, college, waterschap, provincie), by the id pattern. */
+export function decentralOwnerOfOrg(orgId) {
+  if (typeof orgId !== "string") return null;
+  if (/^org:(gemeente|gemeenteraad|college-van-bw)-/.test(orgId)) return "gemeenten";
+  if (/^org:(waterschap|algemeen-bestuur|dagelijks-bestuur)-/.test(orgId)) return "waterschappen";
+  if (/^org:provincie-/.test(orgId)) return "commissarissen";
+  return null;
+}
+
 function ownerOf(entity, record, positionsById) {
   if (entity === "memberships") {
     if (record.organization === "org:tweede-kamer") return "tweedeKamer";
@@ -251,7 +262,7 @@ function ownerOf(entity, record, positionsById) {
   if (organization === "org:tweede-kamer") return "tweedeKamer";
   if (organization === EK_ORG) return "eersteKamer";
   if (typeof organization === "string" && organization.startsWith("org:ministerie-")) return "bewindspersonen";
-  return null;
+  return decentralOwnerOfOrg(organization);
 }
 
 /**
@@ -269,6 +280,7 @@ export async function planRefresh({
   lookupClosedRow = async () => null,
   registeredFractieKeys = null,
   extraSources = [],
+  options = {},
 }) {
   const bodies = fetched.bodies ?? {};
   const gaps = [...(fetched.gaps ?? [])];
@@ -290,6 +302,7 @@ export async function planRefresh({
   const coalitions = dataset.coalitions ?? [];
 
   const out = {
+    organizations: new Map(),
     people: new Map(),
     positions: new Map(),
     relations: new Map(),
@@ -298,6 +311,16 @@ export async function planRefresh({
     memberships: new Map(),
   };
   const newPersonIds = new Set();
+  const decentralState = {};
+  const sourceUpgrades = new Set();
+  let decentralNewPeople = 0;
+  const taken = {
+    persons: allPersonIds,
+    tenures: allTenureIds,
+    positions: new Set((dataset.positions ?? []).map((position) => position.id)),
+    orgs: new Set((dataset.organizations ?? []).map((organization) => organization.id)),
+    relations: new Set((dataset.relations ?? []).map((relation) => relation.id)),
+  };
   const involved = new Map();
   const newPeopleRecords = new Map();
   let personMapUpdates = {};
@@ -603,6 +626,7 @@ export async function planRefresh({
     planned.add(source);
     guards[source] = result.guard;
     for (const record of result.sources ?? []) addSource(record);
+    for (const record of result.organizations ?? []) out.organizations.set(record.id, record);
     for (const record of result.tenures ?? []) out.tenures.set(record.id, record);
     for (const record of result.memberships ?? []) out.memberships.set(record.id, record);
     for (const record of result.positions ?? []) out.positions.set(record.id, record);
@@ -687,6 +711,34 @@ export async function planRefresh({
     }
   }
 
+  // ---------- provincies, gemeenten, waterschappen, commissarissen (ADR 0027) ----------
+  const decentralOptions = options.decentral ?? {};
+  for (const key of DECENTRAL_KEYS) {
+    if (!isFetched(bodies[key])) continue;
+    const result =
+      key === "commissarissen"
+        ? planCommissarissen({ body: bodies[key], dataset, state, today, taken, options: decentralOptions })
+        : planDecentral({ level: key, body: bodies[key], dataset, state, today, elections: [], taken, options: decentralOptions });
+    if (!result.guard.allowed) {
+      review.push(...result.review.filter((entry) => entry.kind === "identity-ambiguous"));
+      stop(key, result.guard.reasons);
+      continue;
+    }
+    take(key, result);
+    for (const [personId, sourceId] of result.touched) trackPerson(personId, sourceId);
+    for (const record of result.people) {
+      if (!index.byId.has(record.id)) {
+        index.byId.set(record.id, record);
+        decentralNewPeople += 1;
+      }
+    }
+    for (const id of result.sourceUpgrades ?? []) sourceUpgrades.add(id);
+    decentralState[key] = result.stateUpdate ?? {};
+    guards[key].fetched = result.fetched ?? 0;
+    guards[key].resolved = result.resolved ?? 0;
+    guards[key].stats = result.stats ?? {};
+  }
+
   // ---------- people: involved persons gain the live source ----------
   const sourceIdsBySource = out.sources;
   for (const [personId, sourceIds] of involved) {
@@ -719,7 +771,9 @@ export async function planRefresh({
       const owner = ownerOf(entity, record, positionsForOwner);
       const ownerPlanned = owner !== null && planned.has(owner);
       const isClosed = Boolean(record.end);
-      if (isClosed || (owner !== null && !ownerPlanned)) out[entity].set(record.id, record);
+      // Records of the decentral sources are carried whether open or closed: the planner emits changes only.
+      const carryAlways = owner !== null && DECENTRAL_KEYS.includes(owner);
+      if (isClosed || carryAlways || (owner !== null && !ownerPlanned)) out[entity].set(record.id, record);
     }
   }
   for (const entity of ["people", "positions", "relations", "sources"]) {
@@ -733,7 +787,7 @@ export async function planRefresh({
     // Stable within a day, so a run that finds nothing new rewrites nothing.
     generatedAt: new Date(`${today}T00:00:00.000Z`).toISOString(),
     endpointsUsed: mergeEndpoints(prev.endpointsUsed, fetched.endpointsUsed),
-    organizations: [],
+    organizations: sortById([...out.organizations.values()]),
     positions: sortById([...out.positions.values()]),
     people: sortById([...out.people.values()]),
     tenures: sortById([...out.tenures.values()]),
@@ -754,7 +808,7 @@ export async function planRefresh({
     closures,
     openings,
     gaps: gaps.length,
-    newPeople: newPersonIds.size + (tkResult?.guard.allowed ? tkResult.stats.newPeople : 0),
+    newPeople: newPersonIds.size + (tkResult?.guard.allowed ? tkResult.stats.newPeople : 0) + decentralNewPeople,
     review: review.length,
     stopped: stopped.length,
     planned: [...planned],
@@ -762,6 +816,7 @@ export async function planRefresh({
       bewindspersonen: { fetched: guards.bewindspersonen?.fetched ?? 0, resolved: guards.bewindspersonen?.resolved ?? 0 },
       tweedeKamer: { fetched: guards.tweedeKamer?.fetched ?? 0, resolved: guards.tweedeKamer?.resolved ?? 0 },
       eersteKamer: { fetched: guards.eersteKamer?.fetched ?? 0, resolved: guards.eersteKamer?.resolved ?? 0 },
+      ...Object.fromEntries(DECENTRAL_KEYS.map((key) => [key, { fetched: guards[key]?.fetched ?? 0, resolved: guards[key]?.resolved ?? 0, stats: guards[key]?.stats ?? null }])),
     },
     tweedeKamer: tkResult
       ? {
@@ -774,16 +829,24 @@ export async function planRefresh({
       : null,
   };
 
-  return { envelope, stats, closures, openings, gaps, review, stopped, planned: [...planned], guards, personMapUpdates, tkResult };
+  return { envelope, stats, closures, openings, gaps, review, stopped, planned: [...planned], guards, personMapUpdates, tkResult, decentralState, sourceUpgrades: [...sourceUpgrades] };
 }
 
 // ---------- reports ----------
+
+const DECENTRAL_LABEL = {
+  gemeenten: "Gemeenten (TOOI, register, CBS)",
+  provincies: "Provincies (TOOI, register, CBS)",
+  waterschappen: "Waterschappen (TOOI, register)",
+  commissarissen: "Commissarissen van de Koning (Rijksoverheid)",
+};
 
 function bodyStatusLine(name, body) {
   if (!body) return `- ${name}: niet opgehaald`;
   if (body.skipped) return `- ${name}: niet nodig deze run (${body.reason ?? "ongewijzigd"})`;
   if (body.ok) {
     if (body.snapshot) return `- ${name}: HTTP ${body.status ?? 200}, ${body.snapshot.rows.length} zetelrijen, ${body.snapshot.fracties.length} fracties, ${body.snapshot.presidium.length} presidiumrijen`;
+    if (body.tooi) return `- ${name}: HTTP ${body.status ?? 200}, ${body.tooi.entries.length} TOOI-codes, ${body.register.bodies.length} registerorganisaties, ${body.register.people.length} registerrijen${body.cbs ? `, CBS ${body.cbs.table.id}` : ""}`;
     return `- ${name}: HTTP ${body.status ?? 200}, ${body.items?.length ?? 0} records`;
   }
   return `- ${name}: mislukt (${body.status ?? "netwerk"}, ${body.error ?? "onbekende fout"})`;
@@ -813,6 +876,7 @@ export function renderReport({ stats, fetched, today, gaps = [] }) {
   lines.push(`- Bewindspersonen: ${stats.bodies.bewindspersonen.fetched} opgehaald, ${stats.bodies.bewindspersonen.resolved} gematcht.`);
   lines.push(`- Tweede Kamer: ${stats.bodies.tweedeKamer.fetched} geldige leden, ${stats.bodies.tweedeKamer.resolved} gematcht.`);
   lines.push(`- Eerste Kamer: ${stats.bodies.eersteKamer.fetched} leden, ${stats.bodies.eersteKamer.resolved} gematcht.`);
+  for (const key of DECENTRAL_KEYS) lines.push(`- ${DECENTRAL_LABEL[key]}: ${stats.bodies[key]?.fetched ?? 0} gelezen, ${stats.bodies[key]?.resolved ?? 0} gekoppeld.`);
   lines.push(`- Nieuwe personen: ${stats.newPeople}.`);
   lines.push(`- Uitgegeven tenures: ${stats.tenuresEmitted}. Uitgegeven memberships: ${stats.membershipsEmitted}.`);
   lines.push(`- Geopend: ${stats.opened}. Gesloten: ${stats.closed}.`);
@@ -850,12 +914,14 @@ export function renderQaReport({ stats, fetched, today, stopped = [], gaps = [],
   lines.push(`- Rijksoverheid bewindspersonen: ${stats.bodies.bewindspersonen.fetched} opgehaald, ${stats.bodies.bewindspersonen.resolved} gematcht.`);
   lines.push(`- Tweede Kamer OData: ${stats.bodies.tweedeKamer.fetched} geldige leden, ${stats.bodies.tweedeKamer.resolved} gematcht.`);
   lines.push(`- Eerste Kamer: ${stats.bodies.eersteKamer.fetched} leden, ${stats.bodies.eersteKamer.resolved} gematcht.`);
+  for (const key of DECENTRAL_KEYS) lines.push(`- ${DECENTRAL_LABEL[key]}: ${stats.bodies[key]?.fetched ?? 0} gelezen, ${stats.bodies[key]?.resolved ?? 0} gekoppeld${stats.bodies[key]?.stats ? ` (${JSON.stringify(stats.bodies[key].stats)})` : ""}.`);
   lines.push("");
   lines.push("Per bron:");
   lines.push("");
   lines.push(bodyStatusLine("Rijksoverheid bewindspersonen", fetched.bodies.bewindspersonen));
   lines.push(bodyStatusLine("Tweede Kamer OData", fetched.bodies.tweedeKamer));
   lines.push(bodyStatusLine("Eerste Kamer leden", fetched.bodies.eersteKamer));
+  for (const key of DECENTRAL_KEYS) lines.push(bodyStatusLine(DECENTRAL_LABEL[key], fetched.bodies[key]));
   lines.push("");
   lines.push("## Uitgegeven records");
   lines.push("");
@@ -911,7 +977,7 @@ export function renderQaReport({ stats, fetched, today, stopped = [], gaps = [],
 // ---------- fetching ----------
 
 export function allSources() {
-  return { bewindspersonen: true, tweedeKamer: true, eersteKamer: true };
+  return { bewindspersonen: true, tweedeKamer: true, eersteKamer: true, ...Object.fromEntries(DECENTRAL_KEYS.map((key) => [key, true])) };
 }
 
 /**
@@ -1012,6 +1078,19 @@ export async function fetchOfficialSources({
     }
   }
 
+  const sharedDecentral = {};
+  for (const key of DECENTRAL_KEYS) {
+    if (!which[key]) continue;
+    try {
+      const body = await fetchDecentral({ http, key, today, shared: sharedDecentral });
+      bodies[key] = body;
+      endpointsUsed.push(...body.endpointsUsed);
+    } catch (error) {
+      bodies[key] = { ok: false, status: error.status ?? null, url: null, items: [], error: error.message };
+      gaps.push(failureGap(key, error));
+    }
+  }
+
   return { generatedAt, bodies, rawFiles, endpointsUsed, gaps, notes };
 }
 
@@ -1059,6 +1138,7 @@ export async function runRefresh(options = {}) {
     lookupClosedRow: options.lookupClosedRow ?? fetched.notes?.lookupClosedRow ?? (async () => null),
     registeredFractieKeys: options.registeredFractieKeys ?? null,
     extraSources: options.extraSources ?? [],
+    options: { decentral: options.decentral ?? {} },
   });
 
   const stoppedSources = new Set(plan.stopped.map((entry) => entry.source));

@@ -1,0 +1,29 @@
+{
+ "odata.metadata": "https://opendata.cbs.nl/ODataApi/OData/86247NED/$metadata#Cbs.OData.WebAPI.TypedDataSet&$select=RegioS,Code_1,Naam_2,Code_28,Naam_29,Inwonertal_56",
+ "value": [
+  {
+   "RegioS": "GM1680    ",
+   "Code_1": "GM1680    ",
+   "Naam_2": "Aa en Hunze                                       ",
+   "Code_28": "PV22      ",
+   "Naam_29": "Drenthe                                           ",
+   "Inwonertal_56": 26062
+  },
+  {
+   "RegioS": "GM0358    ",
+   "Code_1": "GM0358    ",
+   "Naam_2": "Aalsmeer                                          ",
+   "Code_28": "PV27      ",
+   "Naam_29": "Noord-Holland                                     ",
+   "Inwonertal_56": 33459
+  },
+  {
+   "RegioS": "GM0197    ",
+   "Code_1": "GM0197    ",
+   "Naam_2": "Aalten                                            ",
+   "Code_28": "PV25      ",
+   "Naam_29": "Gelderland                                        ",
+   "Inwonertal_56": 27608
+  }
+ ]
+}

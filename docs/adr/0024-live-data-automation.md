@@ -25,13 +25,13 @@ The result is machine readable: `research/qa/live-run-latest.json` (counts, clos
 | Rijksoverheid (CC0) | the overview page once a day, or early on a trigger; the news sitemap every run as a trigger only | The bewindspersonen; a new holder gets an unknown start (ADR 0020), never `DCTERMS.available` (gap G16) |
 | Kiesraad type pages (CC0) | weekly | The date of the next election per type (`data/upcoming-elections.json`) |
 
-The Overheid.nl register (burgemeesters, dijkgraven) and the Kiesraad result and candidate ingest are wave 2 and out of scope here.
+The Overheid.nl register (burgemeesters, dijkgraven) and the Kiesraad result and candidate ingest are wave 2 and out of scope here. The register, TOOI and CBS are live since 06-10-2026 for provincies, gemeenten and waterschappen: see ADR 0027. The Kiesraad ingest is still open.
 
 ### 3. Cadence recommendations (CI decides)
 
 - Tweede Kamer: run `bun run live` hourly. An hourly run is the count poll; the full read happens on a change and once a day.
 - Eerste Kamer: the same hourly run hashes the two pages; at least every 4 hours is enough, since the site has no change signal and the mutaties page lags.
-- Register (wave 2): daily with `If-None-Match`.
+- Register, TOOI and CBS for provincies, gemeenten and waterschappen: daily, read again after 6 hours when a guard stopped the source (ADR 0027). The register sends no ETag.
 - Election dates: weekly (the command gates this itself).
 - News sitemap: every run (the sitemap itself is cached for an hour).
 
