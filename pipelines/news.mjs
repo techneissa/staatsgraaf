@@ -26,6 +26,38 @@ const DEFAULT_TOPICS = join(ROOT, "research", "K-topics.json");
 const DEFAULT_CACHE = join(ROOT, "pipelines", ".cache", "news");
 const DEFAULT_DATA = join(ROOT, "data");
 const DEFAULT_MEDIA = join(ROOT, "web", "public", "media");
+const DEFAULT_HEADERS = join(ROOT, "web", "public", "_headers");
+
+/**
+ * The hosts the site's Content-Security-Policy lets an image load from, read
+ * from the `img-src` of the `_headers` file. A feed image from any other host
+ * would be blocked in the browser (and fail web/lib/csp.test.mjs, which stops
+ * the refresh from committing), so the pipeline leaves it out and the card
+ * shows no image. Adding a host to `_headers` is a deliberate step.
+ */
+export function allowedImageHosts(headersText) {
+  const line = String(headersText)
+    .split("\n")
+    .find((entry) => entry.trim().startsWith("Content-Security-Policy:"));
+  if (!line) return new Set();
+  const start = line.indexOf("img-src");
+  if (start === -1) return new Set();
+  return new Set(
+    line
+      .slice(start)
+      .split(";")[0]
+      .split(/\s+/)
+      .filter((token) => token.includes(".") && !token.startsWith("'")),
+  );
+}
+
+export function imageHostAllowed(imageUrl, hosts) {
+  try {
+    return hosts.has(new URL(imageUrl).host);
+  } catch {
+    return false;
+  }
+}
 
 const IMAGE_EXTENSIONS_BY_CONTENT_TYPE = {
   "image/jpeg": "jpg",
@@ -503,6 +535,7 @@ export async function runNewsPipeline({
   cacheDir = DEFAULT_CACHE,
   dataDir = DEFAULT_DATA,
   mediaDir = DEFAULT_MEDIA,
+  headersPath = DEFAULT_HEADERS,
   offline = false,
   registerSources = true,
   now = new Date(),
@@ -575,6 +608,8 @@ export async function runNewsPipeline({
   let imagesDownloaded = 0;
   let imagesReused = 0;
   let imagesSkippedForRights = 0;
+  let imagesSkippedForHost = 0;
+  const imageHosts = headersPath && existsSync(headersPath) ? allowedImageHosts(await readFile(headersPath, "utf8")) : null;
   let imagesSkippedForErrors = 0;
   const imageThrottleState = { count: 0 };
 
@@ -613,7 +648,11 @@ export async function runNewsPipeline({
     const newsId = idFor(item.url);
     const feedConfig = configByFeedUrl.get(item.feedUrl);
     const imageLicense = feedConfig?.imageLicense ?? null;
-    const imageUrl = httpImageUrl(item.image);
+    const feedImageUrl = httpImageUrl(item.image);
+    // A host the CSP does not list cannot be shown: drop the image, keep the item.
+    const hostBlocked = feedImageUrl !== null && imageHosts !== null && !imageHostAllowed(feedImageUrl, imageHosts);
+    if (hostBlocked) imagesSkippedForHost += 1;
+    const imageUrl = hostBlocked ? null : feedImageUrl;
     let imageId = null;
     if (imageUrl && imageLicense) {
       const bareId = newsId.slice("news:".length);
@@ -709,6 +748,7 @@ export async function runNewsPipeline({
     imagesDownloaded,
     imagesReused,
     imagesSkippedForRights,
+    imagesSkippedForHost,
     imagesSkippedForErrors,
     since,
     latest,
@@ -719,7 +759,7 @@ export async function runNewsPipeline({
   log(`Entity linker: ${entityHits} high-confidence hit(s) across ${highConfidenceItems} article(s).`);
   log(`Blocklist: ${stats.excludedItems} item(s) dropped by excludePaths; ${stats.noLinkItems} kept item(s) name nothing and stay behind the show-all toggle.`);
   log(`Topic fallback: ${fallbackTopics} article(s) assigned a topic with no entity; ${stats.topicOnlyItems} article(s) end up topic-only.`);
-  log(`Images: ${imagesDownloaded} downloaded, ${imagesReused} reused, ${imagesSkippedForRights} not downloaded (no image license on the feed), ${imagesSkippedForErrors} skipped for errors.`);
+  log(`Images: ${imagesDownloaded} downloaded, ${imagesReused} reused, ${imagesSkippedForRights} not downloaded (no image license on the feed), ${imagesSkippedForErrors} skipped for errors, ${imagesSkippedForHost} left out (host not in the CSP img-src).`);
   log(`Wrote ${join(dataDir, "news.json")} and ${sourceRecords.length} article source record(s) to ${sourcesOutPath}`);
   if (registerSources) {
     log(`Registered ${registeredSources} new, refreshed ${updatedSources} and pruned ${prunedSources} article source record(s) in ${join(dataDir, "sources.json")} (per-article records keyed by url, existing catalog preserved).`);

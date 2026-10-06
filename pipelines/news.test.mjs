@@ -6,9 +6,11 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 import {
+  allowedImageHosts,
   buildSummary,
   dedupeItems,
   feedConfigsFromEnvelope,
+  imageHostAllowed,
   isExcludedUrl,
   itemKeywords,
   keywordsFromMatches,
@@ -424,6 +426,7 @@ test("runNewsPipeline never downloads or stores an image when imageLicense is nu
     cacheDir,
     dataDir,
     mediaDir,
+    headersPath: null,
     userAgent: "test",
     fetchImpl,
     now: new Date("2026-09-18T09:00:00Z"),
@@ -467,6 +470,7 @@ test("runNewsPipeline downloads and registers an image when the feed carries a l
     cacheDir,
     dataDir,
     mediaDir,
+    headersPath: null,
     userAgent: "test",
     fetchImpl,
     now: new Date("2026-09-18T09:00:00Z"),
@@ -497,6 +501,15 @@ test("runNewsPipeline downloads and registers an image when the feed carries a l
   assert.deepEqual(media, [mediaRecord]);
 });
 
+test("allowedImageHosts reads the img-src hosts of the CSP line and imageHostAllowed checks a url against them", () => {
+  const hosts = allowedImageHosts("/*\n  X-Frame-Options: DENY\n  Content-Security-Policy: default-src 'self'; img-src 'self' data: images.nrc.nl image.trouw.nl; font-src 'self'\n");
+  assert.deepEqual([...hosts].sort(), ["image.trouw.nl", "images.nrc.nl"]);
+  assert.equal(imageHostAllowed("https://images.nrc.nl/a.jpg", hosts), true);
+  assert.equal(imageHostAllowed("https://sargasso.nl/a.jpg", hosts), false);
+  assert.equal(imageHostAllowed("not a url", hosts), false);
+  assert.equal(allowedImageHosts("nothing here").size, 0);
+});
+
 test("runNewsPipeline skips an image whose response is not one of the accepted image content types", async () => {
   const { runNewsPipeline } = await import("./news.mjs");
   const { cacheDir, dataDir, mediaDir, feedsPath, aliasPath, topicsPath } = await setupImageRun({
@@ -518,6 +531,7 @@ test("runNewsPipeline skips an image whose response is not one of the accepted i
     cacheDir,
     dataDir,
     mediaDir,
+    headersPath: null,
     userAgent: "test",
     fetchImpl,
     now: new Date("2026-09-18T09:00:00Z"),
@@ -560,6 +574,7 @@ test("runNewsPipeline leaves pre-existing non-nieuws media records (e.g. Wikidat
     cacheDir,
     dataDir,
     mediaDir,
+    headersPath: null,
     userAgent: "test",
     fetchImpl,
     now: new Date("2026-09-18T09:00:00Z"),

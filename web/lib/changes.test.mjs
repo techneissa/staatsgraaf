@@ -71,6 +71,7 @@ import {
   groupChangesIntoEntries,
   isInWindow,
 } from "./changes.ts";
+import { resolveReferenceDay } from "./change-clock.ts";
 import { countItems, matchesChangeFilter, sortActing, visibleLimit } from "./change-feed.ts";
 
 const withPerson = (id, date, kind, person, position = "pos:x") =>
@@ -164,13 +165,21 @@ test("acting officials sort by start date newest first, undated last, or by name
 });
 
 test("windows count from the build day, not from the dataset date", () => {
-  const now = new Date("2026-10-05T10:00:00Z");
+  // A clock far past any change in the dataset, so a newer change never moves the reference.
+  const now = new Date("2099-10-05T10:00:00Z");
   const reference = getChangeReferenceDate(now);
-  assert.equal(reference, "2026-10-05");
-  assert.equal(isInWindow("2026-09-19", 7, reference), false);
-  assert.equal(isInWindow("2026-09-19", 30, reference), true);
-  assert.equal(isInWindow("2026-09-06", 30, reference), true);
-  assert.equal(isInWindow("2026-09-05", 30, reference), false);
+  assert.equal(reference, "2099-10-05");
+  assert.equal(isInWindow("2099-10-05", 7, reference), true);
+  assert.equal(isInWindow("2099-09-29", 7, reference), true);
+  assert.equal(isInWindow("2099-09-28", 7, reference), false);
+  assert.equal(isInWindow("2099-09-06", 30, reference), true);
+  assert.equal(isInWindow("2099-09-05", 30, reference), false);
+});
+
+test("a change dated after the build day moves the reference day to that change", () => {
+  assert.equal(resolveReferenceDay("2026-10-05", "2026-10-06"), "2026-10-06");
+  assert.equal(resolveReferenceDay("2026-10-05", "2026-10-01"), "2026-10-05");
+  assert.equal(resolveReferenceDay("2026-10-05", null), "2026-10-05");
 });
 
 test("countItems counts changes and distinct people, vacancies add no person", () => {
