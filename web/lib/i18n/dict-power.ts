@@ -52,10 +52,6 @@ export const POWER_DICT = {
   seatLoupeLabel: { nl: "Zetels van {label} in de {chamber}", en: "Seats of {label} in the {chamber}" },
   seatLoupeSeats: { nl: "{n} van {total} zetels, {chamber}", en: "{n} of {total} seats, {chamber}" },
   seatLoupeClose: { nl: "Zetels sluiten", en: "Close seats" },
-  seatOrderNote: {
-    nl: "Leden staan op achternaam. De Kamer publiceert geen zetel per lid.",
-    en: "Members are in surname order. The chamber publishes no seat per member.",
-  },
   powerBack: { nl: "Terug", en: "Back" },
   powerBackTo: { nl: "Terug naar {name}", en: "Back to {name}" },
   reasonNews1: { nl: "1 bericht samen", en: "1 news item together" },

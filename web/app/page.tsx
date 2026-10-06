@@ -100,20 +100,9 @@ export default function HomePage() {
         }}
       />
 
-      <header className="border-b border-line pb-4">
-        <h1 className="text-2xl font-semibold tracking-tight text-ink">{SITE_NAME}</h1>
-        <p className="mt-1 max-w-prose text-sm leading-snug text-ink-muted">
-          <T area="home" k="chgIntro" />{" "}
-          <Link
-            href="/methodiek/"
-            className="inline-flex min-h-8 items-center whitespace-nowrap font-medium text-accent-text underline-offset-2 hover:underline pointer-coarse:min-h-11"
-          >
-            <T area="home" k="chgIntroLink" />
-          </Link>
-        </p>
-      </header>
+      <h1 className="sr-only">{SITE_NAME}</h1>
 
-      <section aria-labelledby="nieuws-titel" className="border-b border-line pb-6 pt-2">
+      <section aria-labelledby="nieuws-titel" className="border-b border-line pb-6">
         <h2
           id="nieuws-titel"
           className="text-lg font-semibold tracking-tight text-ink"
@@ -180,7 +169,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section aria-labelledby="begroting-titel" className="py-6">
+      <section aria-labelledby="begroting-titel" className="border-b border-line py-6">
         <div className="flex flex-wrap items-baseline justify-between gap-3">
           <h2 id="begroting-titel" className="text-lg font-semibold tracking-tight text-ink">
             <L nl="Begroting" en="Budget" />
@@ -197,6 +186,20 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section aria-labelledby="over-titel" className="pt-6">
+        <h2 id="over-titel" className="text-lg font-semibold tracking-tight text-ink">
+          <L nl="Over" en="About" />
+        </h2>
+        <p className="mt-1 max-w-prose text-sm leading-snug text-ink-muted">
+          <T area="home" k="chgIntro" />{" "}
+          <Link
+            href="/methodiek/"
+            className="inline-flex min-h-8 items-center whitespace-nowrap font-medium text-accent-text underline-offset-2 hover:underline pointer-coarse:min-h-11"
+          >
+            <T area="home" k="chgIntroLink" />
+          </Link>
+        </p>
+      </section>
     </>
   );
 }

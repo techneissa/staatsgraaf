@@ -136,7 +136,7 @@ export const COMMON_DICT = {
   sourcesDisclosure: { nl: "Bronnen ({n})", en: "Sources ({n})" },
 
   // Page frame: menus, landmarks, the collapsible graph band and the footer licence line
-  navAbout: { nl: "Over en methode", en: "About and method" },
+  navAbout: { nl: "Over", en: "About" },
   navMenuLabel: { nl: "Hoofdmenu", en: "Main menu" },
   footerNavigation: { nl: "Voettekstnavigatie", en: "Footer navigation" },
   canvasShow: { nl: "Toon grafiek", en: "Show graph" },

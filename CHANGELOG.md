@@ -4,6 +4,11 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (06-10-2026, home and About)
+
+- The intro moves from the top of the home page to a closing "Over" section at the bottom. The page and its links are renamed from "Over en methode" to "Over" ("About" in English).
+- The Freshness section of the About page is removed, and so is the seat-order note on the About page, the seat loupe and the party panel.
+
 ### Changed (06-10-2026, the wheel is the graph)
 
 - The graph is the wheel only. The tier map and the toggle between the two forms are gone, along with the code only the tier map used. The list of bodies for keyboard and screen readers and the "as of" note now sit on the wheel. The legend keys the wheel's ties. See `docs/adr/0015-graph-rebuild.md`, amendment 6.

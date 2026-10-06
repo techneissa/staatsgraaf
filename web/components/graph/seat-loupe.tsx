@@ -127,8 +127,6 @@ export function SeatLoupe({
       <p aria-live="polite" className="mt-1.5 min-h-[1.25em] truncate text-xs font-medium text-ink">
         {shownName ?? ""}
       </p>
-      {/* On a phone the loupe already covers much of the canvas; the note waits for a wider screen. */}
-      <p className="mt-0.5 hidden max-w-[18rem] text-[10px] leading-snug text-ink-faint sm:block">{t("seatOrderNote")}</p>
     </div>
   );
 }
