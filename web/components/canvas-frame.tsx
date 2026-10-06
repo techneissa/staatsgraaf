@@ -14,7 +14,8 @@ import { LucideIcon } from "./icons/lucide-icon";
 import type { FractieResolver, NameResolver } from "./power/connections-view";
 import { useSelection } from "./selection/selection-provider";
 import { seatIndex } from "@/lib/seats";
-import type { Selection } from "@/lib/selection";
+import { pathEntity, type Selection } from "@/lib/selection";
+import { partyBySlug } from "@/lib/parties";
 import { useGraphBundle, usePowerMapBundle } from "./graph/use-graph-bundle";
 import { readCanvasOpen, writeCanvasOpen } from "@/lib/canvas-prefs";
 import { usePanelState } from "./panels/workspace";
@@ -118,25 +119,38 @@ export function CanvasFrame() {
 
   /**
    * The page's own entity is picked when the page opens: an organisation page
-   * picks its body, a person page its person (and so lights their seat). Once
+   * or a ministry's budget page picks its body, a person page its person (and
+   * so lights their seat), a party page its group in the Kamer. Once
    * per path, so a reader who lets the pick go keeps it gone.
    */
   const pathPickRef = useRef<{ path: string; selection: Selection | null } | null>(null);
   useEffect(() => {
     if (!bundle || !pathname) return;
     if (pathPickRef.current?.path === pathname && pathPickRef.current.selection !== null) return;
-    const parts = pathname.split("/").filter(Boolean);
+    const entity = pathEntity(pathname);
     let selection: Selection | null = null;
-    if (parts[0] === "organisaties" && parts[1]) {
-      const node = bundle.nodes.find((candidate) => candidate.slug === parts[1] && candidate.id.startsWith("org:"));
+    if (entity?.kind === "org") {
+      const node = bundle.nodes.find((candidate) => candidate.slug === entity.slug && candidate.id.startsWith("org:"));
       if (node) selection = { kind: "org", id: node.id, surface: "graph" };
-    } else if (parts[0] === "personen" && parts[1]) {
-      const id = personBySlug.get(parts[1]);
+    } else if (entity?.kind === "person") {
+      const id = personBySlug.get(entity.slug);
       if (id) {
         const seat = seats.get(id);
         selection = seat
           ? { kind: "person", id, surface: "graph", seat: { chamberId: seat.chamberId, fractieIndex: seat.fractieIndex } }
           : { kind: "person", id, surface: "power" };
+      }
+    } else if (entity?.kind === "party") {
+      // A party page lights the party's group in the Tweede Kamer, or in the Eerste Kamer when it has no seat in the Tweede.
+      const party = partyBySlug(entity.slug);
+      if (party) {
+        for (const chamberId of ["org:tweede-kamer", "org:eerste-kamer"]) {
+          const index = bundle.chambers?.[chamberId]?.entries.findIndex((entry) => entry.key === party.key) ?? -1;
+          if (index >= 0) {
+            selection = { kind: "fractie", chamberId, index, surface: "graph", slug: entity.slug };
+            break;
+          }
+        }
       }
     }
     pathPickRef.current = { path: pathname, selection };

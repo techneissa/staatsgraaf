@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { EMPTY_SELECTION, SELECTION_HISTORY_LIMIT, currentSelection, sameSelection, selectionOwnsPath, selectionReducer } from "./selection.ts";
+import { EMPTY_SELECTION, SELECTION_HISTORY_LIMIT, currentSelection, pathEntity, sameSelection, selectionOwnsPath, selectionReducer } from "./selection.ts";
 
 const org = (id) => ({ kind: "org", id, surface: "graph" });
 const run = (...actions) => actions.reduce(selectionReducer, EMPTY_SELECTION);
@@ -65,5 +65,31 @@ describe("selection and the page", () => {
     expect(selectionReducer(EMPTY_SELECTION, { type: "navigate", pathname: "/begroting/" })).toBe(EMPTY_SELECTION);
     const state = run({ type: "select", selection: own });
     expect(selectionReducer(state, { type: "navigate", pathname: "/organisaties/gemeente-amsterdam/" })).toBe(state);
+  });
+});
+
+describe("the entity a page stands for", () => {
+  test("organisation, budget, person and party pages name their entity", () => {
+    expect(pathEntity("/organisaties/gemeente-amsterdam/")).toEqual({ kind: "org", slug: "gemeente-amsterdam" });
+    expect(pathEntity("/begroting/ministerie-van-financien/")).toEqual({ kind: "org", slug: "ministerie-van-financien" });
+    expect(pathEntity("/personen/rob-jetten/")).toEqual({ kind: "person", slug: "rob-jetten" });
+    expect(pathEntity("/partijen/d66/")).toEqual({ kind: "party", slug: "d66" });
+    expect(pathEntity("/")).toBeNull();
+    expect(pathEntity("/begroting/")).toBeNull();
+    expect(pathEntity("/nieuws/2026-10-01/")).toBeNull();
+  });
+  test("a ministry's budget page owns the body pick, a party page owns its fractie", () => {
+    expect(selectionOwnsPath(org("org:ministerie-van-financien"), "/begroting/ministerie-van-financien/")).toBe(true);
+    expect(selectionOwnsPath(org("org:ministerie-van-financien"), "/begroting/ministerie-van-defensie/")).toBe(false);
+    const fractie = { kind: "fractie", chamberId: "org:tweede-kamer", index: 3, surface: "graph", slug: "d66" };
+    expect(selectionOwnsPath(fractie, "/partijen/d66/")).toBe(true);
+    expect(selectionOwnsPath(fractie, "/partijen/vvd/")).toBe(false);
+    // A fractie picked on the graph carries no slug and never belongs to a page.
+    expect(selectionOwnsPath({ ...fractie, slug: undefined }, "/partijen/d66/")).toBe(false);
+  });
+  test("moving to a ministry's budget page keeps that body and drops the rest", () => {
+    const state = run({ type: "select", selection: org("org:ministerie-van-financien") }, { type: "select", selection: org("org:ministerie-van-defensie") });
+    const after = selectionReducer(state, { type: "navigate", pathname: "/begroting/ministerie-van-defensie/" });
+    expect(after.stack.map((entry) => entry.id)).toEqual(["org:ministerie-van-defensie"]);
   });
 });
