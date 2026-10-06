@@ -176,6 +176,68 @@ function unit(v: PlanPoint): PlanPoint {
   return { x: v.x / length, y: v.y / length };
 }
 
+/**
+ * The kabinet at its tables (vak-K): the plan draws each table as a strip, and
+ * the bewindspersonen sit in rows along them, a row either side of every
+ * table, so the people stay on the outline the plan draws instead of beside
+ * it. The rows run the way their table runs, are centred on it, and fill from
+ * the row nearest the chair, from the end of the table nearest the chair. When
+ * the tables stand two or more seat widths apart the rows sit a quarter of
+ * that gap off each table, which makes the rows evenly spaced across both.
+ */
+function benchAtTables(
+  people: readonly { person: string; hub: string }[],
+  tables: readonly (readonly PlanPoint[])[],
+  chair: PlanPoint | null,
+  pitch: number,
+): HallBenchSeat[] {
+  const mid = (a: PlanPoint, b: PlanPoint): PlanPoint => ({ x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 });
+  const strips = tables.map((points) => {
+    // The strip's ends are its two short edges.
+    const edge = (i: number) => Math.hypot(points[(i + 1) % 4].x - points[i].x, points[(i + 1) % 4].y - points[i].y);
+    const ends = edge(0) + edge(2) < edge(1) + edge(3) ? [0, 2] : [1, 3];
+    const a = mid(points[ends[0]], points[(ends[0] + 1) % 4]);
+    const b = mid(points[ends[1]], points[(ends[1] + 1) % 4]);
+    const centre = mid(a, b);
+    // Run toward the end nearest the chair first.
+    const toChair = (point: PlanPoint) => (chair ? Math.hypot(point.x - chair.x, point.y - chair.y) : 0);
+    const [from, to] = toChair(a) <= toChair(b) ? [a, b] : [b, a];
+    return { centre, along: unit({ x: to.x - from.x, y: to.y - from.y }) };
+  });
+  const first = strips[0];
+  const sideOf = (strip: (typeof strips)[number]) => ({ x: -strip.along.y, y: strip.along.x });
+  const gap =
+    strips.length > 1
+      ? Math.abs((strips[1].centre.x - first.centre.x) * sideOf(first).x + (strips[1].centre.y - first.centre.y) * sideOf(first).y)
+      : 0;
+  const offset = strips.length > 1 && gap >= 4 * 0.43 ? gap / (strips.length * 2) : 0.6;
+  const rows = strips
+    .flatMap((strip) => {
+      const side = sideOf(strip);
+      return [-offset, offset].map((d) => ({
+        origin: { x: strip.centre.x + side.x * d, y: strip.centre.y + side.y * d },
+        along: strip.along,
+      }));
+    })
+    .sort((a, b) => {
+      const dist = (point: PlanPoint) => (chair ? Math.hypot(point.x - chair.x, point.y - chair.y) : 0);
+      return dist(a.origin) - dist(b.origin);
+    });
+  const base = Math.floor(people.length / rows.length);
+  const extra = people.length % rows.length;
+  const out: HallBenchSeat[] = [];
+  let at = 0;
+  rows.forEach((row, index) => {
+    const count = base + (index < extra ? 1 : 0);
+    for (let i = 0; i < count; i += 1) {
+      const slot = (i - (count - 1) / 2) * pitch;
+      out.push({ x: row.origin.x + row.along.x * slot, y: row.origin.y + row.along.y * slot, person: people[at].person, hub: people[at].hub });
+      at += 1;
+    }
+  });
+  return out;
+}
+
 export function layoutHall(input: HallInput): ChamberHall {
   const { plan } = input;
   const byId = new Map(input.members.map((member) => [member.person, member]));
@@ -204,19 +266,24 @@ export function layoutHall(input: HallInput): ChamberHall {
     points = plan.seats.map(turn);
     chairPoint = plan.places.chair ? turn(plan.places.chair) : null;
     furniture = (plan.places.furniture ?? []).map((item) => ({ kind: item.kind, points: item.points.map(turn) }));
-    const bars = plan.places.cabinet ?? [];
-    if (bars.length > 0 && bench.length > 0) {
-      // Rows start at the members' end of the front bar and run along it,
-      // stacking toward the back bar.
-      const front = bars[0];
-      const back = bars[bars.length - 1];
-      const origin = turn(front.to);
-      const along = unit({ x: turn(front.from).x - origin.x, y: turn(front.from).y - origin.y });
-      let across = { x: -along.y, y: along.x };
-      const toBack = { x: turn(back.to).x - origin.x, y: turn(back.to).y - origin.y };
-      if (across.x * toBack.x + across.y * toBack.y < 0) across = { x: -across.x, y: -across.y };
-      const perRow = Math.max(4, Math.ceil(Math.hypot(front.from.x - front.to.x, front.from.y - front.to.y) / pitch / benchPitch) + 1);
-      cabinetSeats = benchRows(bench, origin, along, across, perRow, benchPitch);
+    const tables = furniture.filter((item) => item.kind === "cabinet" && item.points.length === 4);
+    if (tables.length > 0 && bench.length > 0) {
+      cabinetSeats = benchAtTables(bench, tables.map((item) => item.points), chairPoint, benchPitch);
+    } else {
+      const bars = plan.places.cabinet ?? [];
+      if (bars.length > 0 && bench.length > 0) {
+        // No table outlines: rows start at the members' end of the front bar and
+        // run along it, stacking toward the back bar.
+        const front = bars[0];
+        const back = bars[bars.length - 1];
+        const origin = turn(front.to);
+        const along = unit({ x: turn(front.from).x - origin.x, y: turn(front.from).y - origin.y });
+        let across = { x: -along.y, y: along.x };
+        const toBack = { x: turn(back.to).x - origin.x, y: turn(back.to).y - origin.y };
+        if (across.x * toBack.x + across.y * toBack.y < 0) across = { x: -across.x, y: -across.y };
+        const perRow = Math.max(4, Math.ceil(Math.hypot(front.from.x - front.to.x, front.from.y - front.to.y) / pitch / benchPitch) + 1);
+        cabinetSeats = benchRows(bench, origin, along, across, perRow, benchPitch);
+      }
     }
   } else {
     points = plan.seats.map(placeGrid);
