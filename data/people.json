@@ -1,5 +1,20 @@
 [
   {
+    "id": "person:a-c-v-fellinger",
+    "slug": "a-c-v-fellinger",
+    "name": "A.C.V. Fellinger",
+    "aliases": [
+      "Mw. A.C.V. Fellinger"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "person:a-choho",
     "slug": "a-choho",
     "name": "A. Choho",
@@ -48,6 +63,21 @@
       {
         "source": "src:wikidata-a-j-m-van-kesteren",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:a-jongerius",
+    "slug": "a-jongerius",
+    "name": "A. Jongerius",
+    "aliases": [
+      "Mw. A. Jongerius"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -173,6 +203,11 @@
         "source": "src:wikidata-aart-jan-moerkerke",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -199,6 +234,11 @@
         "source": "src:wikidata-ada-grootenboer-dubbelman",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -420,6 +460,11 @@
         "source": "src:commons-f23ced21",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -472,6 +517,11 @@
         "source": "src:wikidata-alain-krijnen",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -535,6 +585,11 @@
         "source": "src:wikidata-alexander-luijten",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -566,6 +621,11 @@
         "source": "src:commons-f5eb3c9d",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -812,6 +872,11 @@
         "source": "src:commons-a60d6bdc",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -901,6 +966,11 @@
         "source": "src:wikidata-andries-bouwman",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -1125,6 +1195,11 @@
         "source": "src:commons-2559d95e",
         "retrieved": "2026-09-25",
         "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -1151,6 +1226,11 @@
         "source": "src:wikidata-anja-schouten",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -1177,6 +1257,11 @@
         "source": "src:wikidata-anke-van-extel-van-katwijk",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -1208,6 +1293,11 @@
         "source": "src:commons-1f05a7bb",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -1387,6 +1477,11 @@
         "source": "src:commons-63d0799f",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -1413,6 +1508,11 @@
         "source": "src:wikidata-annelies-pleyte",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -1439,6 +1539,11 @@
         "source": "src:wikidata-annemiek-jetten",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -1507,6 +1612,11 @@
         "source": "src:wikidata-annemieke-van-de-ven",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -1664,6 +1774,11 @@
         "source": "src:commons-50795097",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -1791,6 +1906,11 @@
         "source": "src:commons-ec70fa67",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -1854,6 +1974,11 @@
         "source": "src:wikidata-antoine-walraven",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -1922,6 +2047,11 @@
         "source": "src:commons-5725b559",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -1953,6 +2083,11 @@
         "source": "src:commons-859d562d",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -1984,6 +2119,11 @@
         "source": "src:commons-884b0a73",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -2089,6 +2229,11 @@
         "source": "src:wikidata-arend-van-hout",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -2205,6 +2350,11 @@
         "source": "src:commons-4e51d8f6",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -2268,6 +2418,11 @@
         "source": "src:wikidata-arno-scheepers",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -2326,6 +2481,11 @@
         "source": "src:wikidata-astrid-heijstee-bolt",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -2374,6 +2534,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -2405,6 +2570,26 @@
         "source": "src:commons-ca5e572",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:b-b-schneiders",
+    "slug": "b-b-schneiders",
+    "name": "B.B. Schneiders",
+    "aliases": [
+      "Dhr. mr. B.B. Schneiders"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -2473,6 +2658,11 @@
         "source": "src:commons-99f5db70",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -2499,6 +2689,11 @@
         "source": "src:wikidata-bart-jaspers-faijer",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -2720,6 +2915,11 @@
         "source": "src:wikidata-bas-van-den-tillaar",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -2746,6 +2946,11 @@
         "source": "src:wikidata-baukje-dijkstra",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -2767,6 +2972,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -2792,6 +3002,11 @@
       {
         "source": "src:wikidata-ben-visser",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -3002,6 +3217,11 @@
         "source": "src:wikidata-birgit-op-de-laak",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -3072,6 +3292,11 @@
         "source": "src:commons-ea8d44fa",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -3098,6 +3323,26 @@
         "source": "src:wikidata-bob-vostermans",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:bond-bergen-nh",
+    "slug": "bond-bergen-nh",
+    "name": "Bond",
+    "aliases": [
+      "Dhr. Bond"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -3182,6 +3427,11 @@
         "source": "src:commons-51002677",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -3213,6 +3463,11 @@
         "source": "src:commons-1bb3d848",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -3261,6 +3516,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -3292,6 +3552,11 @@
         "source": "src:commons-f4f62ae9",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -3403,6 +3668,11 @@
         "source": "src:commons-4eebe850",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -3434,6 +3704,11 @@
         "source": "src:commons-82bc5743",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -3492,6 +3767,11 @@
         "source": "src:commons-39c94698",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -3555,6 +3835,11 @@
         "source": "src:wikidata-caroline-van-den-elsen",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -3581,6 +3866,11 @@
         "source": "src:wikidata-cees-van-den-bos",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -3608,6 +3898,11 @@
         "source": "src:wikidata-celine-blom",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -3666,6 +3961,11 @@
         "source": "src:commons-a355d647",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -3913,6 +4213,11 @@
         "source": "src:commons-6e136db6",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -4179,6 +4484,11 @@
         "source": "src:wikidata-constantijn-jansen-op-de-haar",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -4210,6 +4520,11 @@
         "source": "src:commons-a28ee618",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -4236,6 +4551,11 @@
         "source": "src:wikidata-cora-yfke-sikkema",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -4303,6 +4623,11 @@
         "source": "src:wikidata-corine-van-overdijk",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -4424,6 +4749,21 @@
     ]
   },
   {
+    "id": "person:d-blok",
+    "slug": "d-blok",
+    "name": "D. Blok",
+    "aliases": [
+      "Mw. D. Blok"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "person:daan-prevoo",
     "slug": "daan-prevoo",
     "name": "Daan Prevoo",
@@ -4446,6 +4786,11 @@
         "source": "src:wikidata-daan-prevoo",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -4473,6 +4818,11 @@
         "source": "src:wikidata-daniel-joppe",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -4687,6 +5037,11 @@
         "source": "src:commons-23df7a40",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -4713,6 +5068,11 @@
         "source": "src:wikidata-david-moolenburgh",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -4780,6 +5140,11 @@
         "source": "src:wikidata-derk-alssema",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -4844,6 +5209,11 @@
         "source": "src:wikidata-desiree-schmalschlager",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -5055,6 +5425,11 @@
         "source": "src:wikidata-dion-schneider",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -5081,6 +5456,11 @@
         "source": "src:wikidata-dirk-heijkoop",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -5144,6 +5524,11 @@
         "source": "src:wikidata-dirk-siert-schoonman",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -6514,6 +6899,11 @@
         "source": "src:commons-baf74afb",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -6545,6 +6935,11 @@
         "source": "src:commons-85048da0",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -6671,6 +7066,11 @@
         "source": "src:wikidata-ellen-nauta-van-moorsel",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -6697,6 +7097,11 @@
         "source": "src:wikidata-ellen-van-selm",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -6949,6 +7354,11 @@
         "source": "src:commons-3034c640",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -7017,6 +7427,11 @@
         "source": "src:commons-4deb533b",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -7116,6 +7531,11 @@
         "source": "src:commons-13f3da21",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -7174,6 +7594,11 @@
         "source": "src:commons-9006b863",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -7237,6 +7662,11 @@
         "source": "src:commons-76ac19f0",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -7258,6 +7688,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -7284,6 +7719,11 @@
         "source": "src:wikidata-erik-de-ridder",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -7377,6 +7817,11 @@
       {
         "source": "src:wikidata-erik-van-heijningen",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -7472,6 +7917,11 @@
         "source": "src:wikidata-ester-weststeijn-vermaat",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -7672,6 +8122,11 @@
         "source": "src:commons-62ff9190",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -7734,6 +8189,21 @@
     ]
   },
   {
+    "id": "person:f-m-weerwind",
+    "slug": "f-m-weerwind",
+    "name": "F.M. Weerwind",
+    "aliases": [
+      "Dhr. F.M. Weerwind"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "person:falgun-binnendijk",
     "slug": "falgun-binnendijk",
     "name": "Falgun Binnendijk",
@@ -7756,6 +8226,11 @@
         "source": "src:wikidata-falgun-binnendijk",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -7929,6 +8404,11 @@
         "source": "src:commons-c654fc72",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -7992,6 +8472,11 @@
         "source": "src:wikidata-fenna-noordermeer",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8053,6 +8538,11 @@
         "source": "src:commons-fbad5e8e",
         "retrieved": "2026-09-25",
         "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8084,6 +8574,11 @@
         "source": "src:commons-d011a253",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8142,6 +8637,11 @@
         "source": "src:commons-5b0a683a",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8199,6 +8699,11 @@
         "source": "src:wikidata-frank-dales",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8252,6 +8757,11 @@
         "source": "src:wikidata-frank-rijkaart",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8305,6 +8815,26 @@
         "source": "src:commons-a68b48ac",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:franzel-renkum",
+    "slug": "franzel-renkum",
+    "name": "Fränzel",
+    "aliases": [
+      "Dhr. Fränzel MSc"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8372,6 +8902,11 @@
         "source": "src:commons-d11525cd",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8398,6 +8933,11 @@
         "source": "src:wikidata-frederiek-schouwenaar",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8455,6 +8995,11 @@
         "source": "src:wikidata-frederik-zevenbergen",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8486,6 +9031,11 @@
         "source": "src:commons-d3feae4f",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8512,6 +9062,26 @@
         "source": "src:wikidata-froukje-de-jonge",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:g-hofstede",
+    "slug": "g-hofstede",
+    "name": "G. Hofstede",
+    "aliases": [
+      "Mw. G. Hofstede"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8637,6 +9207,11 @@
         "source": "src:commons-f18ceb88",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8696,6 +9271,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8784,6 +9364,11 @@
         "source": "src:wikidata-gerard-van-den-hengel",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8815,6 +9400,11 @@
         "source": "src:commons-fa218a24",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8846,6 +9436,11 @@
         "source": "src:commons-1dbfe24c",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8877,6 +9472,11 @@
         "source": "src:commons-5367fbd5",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8903,6 +9503,11 @@
         "source": "src:wikidata-gerolf-bouwmeester",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -8934,6 +9539,11 @@
         "source": "src:commons-28121db5",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -9019,6 +9629,11 @@
         "source": "src:commons-48ca2789",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -9155,6 +9770,11 @@
         "source": "src:commons-5670d66c",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -9267,6 +9887,11 @@
         "source": "src:wikidata-greet-buter",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -9302,6 +9927,36 @@
     ]
   },
   {
+    "id": "person:h-c-heerschop",
+    "slug": "h-c-heerschop",
+    "name": "H.C. Heerschop",
+    "aliases": [
+      "Mw. H.C. Heerschop"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:h-j-a-van-merrienboer",
+    "slug": "h-j-a-van-merrienboer",
+    "name": "H.J.A. van Merrienboer",
+    "aliases": [
+      "Dhr. H.J.A. van Merrienboer"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "person:h-w-m-schoof",
     "slug": "h-w-m-schoof",
     "name": "H.W.M. Schoof",
@@ -9329,6 +9984,21 @@
         "source": "src:commons-691e3d79",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "id": "person:h-wiersema",
+    "slug": "h-wiersema",
+    "name": "H. Wiersema",
+    "aliases": [
+      "Dhr. H. Wiersema"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -9397,6 +10067,11 @@
         "source": "src:commons-8d7a8f3d",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -9423,6 +10098,11 @@
         "source": "src:wikidata-han-weber",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -9545,6 +10225,11 @@
         "source": "src:commons-4164446d",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -9576,6 +10261,11 @@
         "source": "src:commons-66e024dd",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -9633,6 +10323,11 @@
       {
         "source": "src:commons-b49e6396",
         "retrieved": "2026-09-25",
+        "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -9702,6 +10397,11 @@
         "source": "src:commons-aa3f633a",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -9793,6 +10493,11 @@
         "source": "src:wikidata-hans-slagboom",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -9814,6 +10519,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -9840,6 +10550,11 @@
         "source": "src:wikidata-hans-van-daalen",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -9871,6 +10586,11 @@
         "source": "src:commons-f689cfc",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -9901,6 +10621,11 @@
       {
         "source": "src:commons-427b2aed",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -10006,6 +10731,11 @@
         "source": "src:commons-43438887",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -10032,6 +10762,11 @@
         "source": "src:wikidata-harm-jan-van-schaik",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -10155,6 +10890,11 @@
         "source": "src:wikidata-harriet-westerdijk",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -10207,6 +10947,11 @@
         "source": "src:wikidata-harry-leunessen",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -10329,6 +11074,11 @@
         "source": "src:commons-681f0243",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -10360,6 +11110,11 @@
         "source": "src:commons-95f94220",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -10432,6 +11187,11 @@
         "source": "src:commons-a5ec05fa",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -10617,6 +11377,11 @@
         "source": "src:commons-7ce650c6",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -10765,6 +11530,11 @@
         "source": "src:wikidata-hetty-klavers",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -10843,6 +11613,21 @@
     ]
   },
   {
+    "id": "person:hubers-wierden",
+    "slug": "hubers-wierden",
+    "name": "Hubers",
+    "aliases": [
+      "Dhr. Hubers"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "person:hubert-bruls",
     "slug": "hubert-bruls",
     "name": "Hubert Bruls",
@@ -10870,6 +11655,11 @@
         "source": "src:commons-217f9230",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -10928,6 +11718,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -10954,6 +11749,11 @@
         "source": "src:wikidata-huub-hieltjes",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -11106,6 +11906,11 @@
         "source": "src:wikidata-ilona-jense-van-haarst",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -11174,6 +11979,11 @@
         "source": "src:commons-e02cc3ea",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -11360,6 +12170,11 @@
         "source": "src:wikidata-inge-nieuwenhuizen",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -11397,6 +12212,11 @@
         "source": "src:desc-nl-wikipedia-org-cdd13631",
         "retrieved": "2026-10-01",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -11497,6 +12317,11 @@
         "source": "src:wikidata-ingrid-timmer",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -11763,6 +12588,21 @@
     ]
   },
   {
+    "id": "person:j-compagner",
+    "slug": "j-compagner",
+    "name": "J. Compagner",
+    "aliases": [
+      "Mw. mr. J. Compagner"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "person:j-dessing",
     "slug": "j-dessing",
     "name": "J. Dessing",
@@ -11804,6 +12644,51 @@
     ]
   },
   {
+    "id": "person:j-j-luteijn",
+    "slug": "j-j-luteijn",
+    "name": "J.J. Luteijn",
+    "aliases": [
+      "Dhr. J.J. Luteijn"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:j-l-geurts",
+    "slug": "j-l-geurts",
+    "name": "J.L. Geurts",
+    "aliases": [
+      "Dhr. J.L. Geurts"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:j-nieuwenhuizen",
+    "slug": "j-nieuwenhuizen",
+    "name": "J. Nieuwenhuizen",
+    "aliases": [
+      "Dhr. J. Nieuwenhuizen"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "person:jaap-kuin",
     "slug": "jaap-kuin",
     "name": "Jaap Kuin",
@@ -11826,6 +12711,11 @@
         "source": "src:wikidata-jaap-kuin",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -11852,6 +12742,11 @@
         "source": "src:wikidata-jaap-velema",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -11910,6 +12805,11 @@
         "source": "src:wikidata-jacco-van-der-tak",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -11940,6 +12840,11 @@
       {
         "source": "src:commons-f8368de8",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -11972,6 +12877,11 @@
         "source": "src:commons-9cf4bea4",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12003,6 +12913,11 @@
         "source": "src:commons-ec6c5951",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12024,6 +12939,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12165,6 +13085,11 @@
         "source": "src:wiki-dijkgraven",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12233,6 +13158,11 @@
         "source": "src:commons-9c977029",
         "retrieved": "2026-09-25",
         "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12286,6 +13216,11 @@
         "source": "src:commons-8e16d29b",
         "retrieved": "2026-10-05",
         "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12317,6 +13252,11 @@
         "source": "src:commons-44097738",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12404,6 +13344,11 @@
       {
         "source": "src:wikidata-jan-kottelenberg",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -12542,6 +13487,11 @@
         "source": "src:commons-fd312c80",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12573,6 +13523,11 @@
         "source": "src:commons-daf24f36",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12599,6 +13554,11 @@
         "source": "src:wikidata-jan-pierik",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12662,6 +13622,11 @@
         "source": "src:wikidata-jan-seton",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12683,6 +13648,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12714,6 +13684,11 @@
         "source": "src:commons-fd1e51f0",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12740,6 +13715,11 @@
         "source": "src:wikidata-jan-willem-boersma",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12802,6 +13782,11 @@
         "source": "src:commons-770737f2",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12833,6 +13818,11 @@
         "source": "src:commons-b331ca59",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12869,6 +13859,21 @@
         "source": "src:desc-nl-wikipedia-org-6ca71d5e",
         "retrieved": "2026-10-01",
         "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "id": "person:jansen-loon-op-zand",
+    "slug": "jansen-loon-op-zand",
+    "name": "Jansen",
+    "aliases": [
+      "Dhr. Jansen"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -12953,6 +13958,11 @@
         "source": "src:commons-5d62e6a9",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -13016,6 +14026,11 @@
         "source": "src:wikidata-jeltje-hoekstra-sikkema",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -13079,6 +14094,11 @@
         "source": "src:wikidata-jeroen-diepemaat",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -13110,6 +14130,11 @@
         "source": "src:commons-28f94e01",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -13136,6 +14161,11 @@
         "source": "src:wikidata-jeroen-haan",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -13162,6 +14192,11 @@
         "source": "src:wikidata-jeroen-joon",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -13402,6 +14437,11 @@
         "source": "src:commons-ce43354",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -13556,6 +14596,11 @@
         "source": "src:wikidata-johannes-kramer",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -13587,6 +14632,11 @@
         "source": "src:commons-4f06ab93",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -13804,6 +14854,11 @@
         "source": "src:commons-66a93325",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -13835,6 +14890,11 @@
         "source": "src:commons-ccdd7793",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -13903,6 +14963,11 @@
         "source": "src:commons-c1f0c63e",
         "retrieved": "2026-09-24",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -13929,6 +14994,11 @@
         "source": "src:wikidata-jorrit-eijbersen",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -13960,6 +15030,11 @@
         "source": "src:commons-2b4d9721",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -14018,6 +15093,11 @@
         "source": "src:wikidata-jos-van-bree",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -14049,6 +15129,11 @@
         "source": "src:commons-aedb4c",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -14077,6 +15162,11 @@
         "source": "src:wikidata-jose-van-egmond",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -14098,6 +15188,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -14124,6 +15219,11 @@
         "source": "src:wikidata-jouke-spoelstra",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -14150,6 +15250,11 @@
         "source": "src:wikidata-joyce-langenacker",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -14181,6 +15286,11 @@
         "source": "src:commons-9e7275e0",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -14212,6 +15322,11 @@
         "source": "src:commons-6abde565",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -14307,6 +15422,11 @@
         "source": "src:wikidata-judith-keijzers",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -14365,6 +15485,11 @@
         "source": "src:wikidata-judith-michel-de-jong",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -14505,6 +15630,11 @@
         "source": "src:wikidata-jurgen-van-houdt",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -14531,6 +15661,11 @@
         "source": "src:wikidata-kanter-breuker",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -14693,6 +15828,11 @@
         "source": "src:commons-792a7490",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -14759,6 +15899,11 @@
         "source": "src:wikidata-klaas-sloots",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -14785,6 +15930,11 @@
         "source": "src:wikidata-klaas-smid",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -15018,6 +16168,11 @@
         "source": "src:commons-8ba73740",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -15044,6 +16199,11 @@
         "source": "src:wikidata-leo-pieter-stoel",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -15065,6 +16225,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -15092,6 +16257,11 @@
         "source": "src:wikidata-leon-de-lange",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -15113,6 +16283,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -15170,6 +16345,11 @@
         "source": "src:wikidata-lieke-schuitmaker",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -15385,6 +16565,11 @@
         "source": "src:wikidata-loes-meeuwisse",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -15544,6 +16729,11 @@
         "source": "src:commons-374ba68a",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -15576,6 +16766,11 @@
         "source": "src:commons-7ac9a503",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -15638,6 +16833,11 @@
         "source": "src:commons-921f6930",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -15663,6 +16863,21 @@
       {
         "source": "src:ek-persoon-m-karaaslan-mmc-d66",
         "retrieved": "2026-09-17",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:m-sijbom",
+    "slug": "m-sijbom",
+    "name": "M. Sijbom",
+    "aliases": [
+      "Dhr. mr. drs. M. Sijbom"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -15732,6 +16947,11 @@
         "source": "src:portret-tk-maarten-haverkamp",
         "retrieved": "2026-09-25",
         "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -15757,6 +16977,11 @@
       {
         "source": "src:wikidata-maarten-houben",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -15789,6 +17014,11 @@
         "source": "src:commons-8467c91c",
         "retrieved": "2026-09-24",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -15815,6 +17045,11 @@
         "source": "src:wikidata-maarten-poorter",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -15932,6 +17167,11 @@
         "source": "src:commons-d06436e7",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -15995,6 +17235,11 @@
         "source": "src:wikidata-magda-jansen-van-harten",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -16218,6 +17463,11 @@
         "source": "src:wikidata-marcel-delhez",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -16244,6 +17494,11 @@
         "source": "src:wikidata-marcel-oosterveer",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -16270,6 +17525,11 @@
         "source": "src:wikidata-marcel-thijsen",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -16355,6 +17615,11 @@
         "source": "src:commons-daf54241",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -16386,6 +17651,11 @@
         "source": "src:commons-bc474428",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -16444,6 +17714,11 @@
         "source": "src:wikidata-marga-vermue-vermue",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -16475,6 +17750,11 @@
         "source": "src:commons-a1be86fd",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -16533,6 +17813,11 @@
         "source": "src:commons-a7d1bcf0",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -16713,6 +17998,11 @@
         "source": "src:wikidata-marian-van-der-weele",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -16739,6 +18029,11 @@
         "source": "src:wikidata-marian-witte",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -16797,6 +18092,11 @@
         "source": "src:commons-9a73f133",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -16864,6 +18164,11 @@
         "source": "src:commons-1c2fdd2c",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17017,6 +18322,11 @@
         "source": "src:commons-db7ca6d5",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17161,6 +18471,11 @@
         "source": "src:commons-cf5274a9",
         "retrieved": "2026-09-25",
         "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17187,6 +18502,11 @@
         "source": "src:wikidata-marijn-ornstein",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17255,6 +18575,11 @@
         "source": "src:wikidata-marina-starmans-gelijns",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17323,6 +18648,11 @@
         "source": "src:commons-4088105d",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17349,6 +18679,11 @@
         "source": "src:wikidata-mario-jacobs",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17375,6 +18710,11 @@
         "source": "src:wikidata-marion-leurs-mordang",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17450,6 +18790,11 @@
         "source": "src:wikidata-marjan-van-kampen-nouwen",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17555,6 +18900,11 @@
         "source": "src:wikidata-marjolein-van-der-meer-mohr",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17581,6 +18931,11 @@
         "source": "src:wikidata-marjon-de-hoon-veelenturf",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17612,6 +18967,11 @@
         "source": "src:commons-e8a58da2",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17696,6 +19056,11 @@
         "source": "src:wikidata-mark-de-man",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17722,6 +19087,11 @@
         "source": "src:wikidata-mark-pol",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17754,6 +19124,11 @@
         "source": "src:commons-41ecd565",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17816,6 +19191,11 @@
         "source": "src:commons-5c353575",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17869,6 +19249,11 @@
         "source": "src:wikidata-mark-van-stappershoef",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -17900,6 +19285,11 @@
         "source": "src:commons-4ef14429",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18008,6 +19398,11 @@
         "source": "src:wikidata-marleen-sanderse",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18039,6 +19434,11 @@
         "source": "src:commons-2d020fc",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18096,6 +19496,11 @@
         "source": "src:wikidata-marnix-bakermans",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18127,6 +19532,11 @@
         "source": "src:commons-da1f0acb",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18153,6 +19563,11 @@
         "source": "src:wikidata-martijn-derks",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18243,6 +19658,11 @@
         "source": "src:commons-89ee137c",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18474,6 +19894,11 @@
         "source": "src:wikidata-marvin-polak",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18536,6 +19961,11 @@
         "source": "src:wikidata-mascha-ten-bruggencate",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18583,6 +20013,11 @@
         "source": "src:wikidata-maurits-van-den-bosch",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18630,6 +20065,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18661,6 +20101,11 @@
         "source": "src:commons-7ec74772",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18734,6 +20179,11 @@
         "source": "src:commons-a215e432",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18818,6 +20268,11 @@
         "source": "src:wikidata-michiel-grauss",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18886,6 +20341,11 @@
         "source": "src:commons-fa92d4d1",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18917,6 +20377,11 @@
         "source": "src:commons-59f7dae9",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18948,6 +20413,11 @@
         "source": "src:commons-11146b81",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -18978,6 +20448,11 @@
       {
         "source": "src:portret-tk-michiel-van-veen",
         "retrieved": "2026-09-25",
+        "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -19010,6 +20485,11 @@
         "source": "src:commons-3fa2a6ad",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -19407,6 +20887,11 @@
         "source": "src:commons-15fdc62b",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -20114,6 +21599,11 @@
         "source": "src:commons-c73b0b3a",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -20177,6 +21667,11 @@
         "source": "src:commons-46153bc5",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -20235,6 +21730,11 @@
         "source": "src:wikidata-nathanael-middelkoop",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -20266,6 +21766,11 @@
         "source": "src:commons-904bfbcd",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -20371,6 +21876,26 @@
         "source": "src:commons-89d7b53",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:niederer-meerssen",
+    "slug": "niederer-meerssen",
+    "name": "Niederer",
+    "aliases": [
+      "Dhr. Niederer"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -20419,6 +21944,21 @@
       {
         "source": "src:desc-fgzpt-nl-49c36f6c",
         "retrieved": "2026-10-01",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:o-g-prinsen",
+    "slug": "o-g-prinsen",
+    "name": "O.G. Prinsen",
+    "aliases": [
+      "Dhr. mr. O.G. Prinsen"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -20630,6 +22170,11 @@
         "source": "src:commons-8b0cf048",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -20687,6 +22232,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -20713,6 +22263,11 @@
         "source": "src:wikidata-patrick-van-domburg",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -20739,6 +22294,11 @@
         "source": "src:wikidata-patrick-welman",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -20770,6 +22330,11 @@
         "source": "src:commons-d73cea11",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -20823,6 +22388,11 @@
         "source": "src:wikidata-paula-jorritsma",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -20992,6 +22562,11 @@
         "source": "src:commons-6776387",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -21085,6 +22660,11 @@
       {
         "source": "src:commons-9ddf1b20",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -21185,6 +22765,11 @@
         "source": "src:commons-3fd88158",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -21211,6 +22796,11 @@
         "source": "src:wikidata-petra-doornenbal",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -21232,6 +22822,11 @@
         "source": "src:wiki-dijkgraven",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -21407,6 +23002,11 @@
         "source": "src:commons-4bce607a",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -21438,6 +23038,11 @@
         "source": "src:commons-ace88b01",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -21469,6 +23074,11 @@
         "source": "src:commons-2084bf34",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -21499,6 +23109,26 @@
       {
         "source": "src:commons-13078d85",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:pille-albrandswaard",
+    "slug": "pille-albrandswaard",
+    "name": "Pille",
+    "aliases": [
+      "Dhr. Pille"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -21719,6 +23349,36 @@
     ]
   },
   {
+    "id": "person:r-j-beukers",
+    "slug": "r-j-beukers",
+    "name": "R.J. Beukers",
+    "aliases": [
+      "Dhr. R.J. Beukers"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:r-k-van-rijn",
+    "slug": "r-k-van-rijn",
+    "name": "R.K. van Rijn",
+    "aliases": [
+      "Dhr. mr. R.K. van Rijn MBA"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "person:r-lievense",
     "slug": "r-lievense",
     "name": "R. Lievense",
@@ -21918,6 +23578,11 @@
         "source": "src:wikidata-raymond-vlecken",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -21981,6 +23646,11 @@
         "source": "src:commons-fd55436c",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -22047,6 +23717,11 @@
         "source": "src:commons-bad0b1c9",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -22167,6 +23842,11 @@
         "source": "src:wikidata-renate-westerlaken-loos",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -22270,6 +23950,11 @@
         "source": "src:commons-c4b7a9fa",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -22338,6 +24023,11 @@
         "source": "src:commons-789c25d9",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -22364,6 +24054,11 @@
         "source": "src:wikidata-renze-bergsma",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -22434,6 +24129,11 @@
         "source": "src:wikidata-rian-van-dam",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -22460,6 +24160,11 @@
         "source": "src:wikidata-rianne-donders-de-leest",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -22527,6 +24232,11 @@
         "source": "src:wikidata-richard-de-boer",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -22552,6 +24262,11 @@
       {
         "source": "src:wikidata-richard-korteland",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -22684,6 +24399,11 @@
         "source": "src:wikidata-rik-van-der-linden",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -22798,6 +24518,11 @@
         "source": "src:commons-2d100b",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -22875,6 +24600,11 @@
         "source": "src:commons-b27777d4",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -22969,6 +24699,11 @@
         "source": "src:wikidata-rob-zuidema",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23000,6 +24735,11 @@
         "source": "src:commons-d661a206",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23122,6 +24862,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23226,6 +24971,11 @@
         "source": "src:commons-b5b7dfc5",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23284,6 +25034,11 @@
         "source": "src:commons-de9f582e",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23342,6 +25097,11 @@
         "source": "src:wikidata-roeland-van-der-schaaf",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23373,6 +25133,11 @@
         "source": "src:commons-330b6f51",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23404,6 +25169,11 @@
         "source": "src:commons-6babb074",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23467,6 +25237,11 @@
         "source": "src:wikidata-roger-de-groot",
         "retrieved": "2026-09-18",
         "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23493,6 +25268,11 @@
         "source": "src:wikidata-rogier-van-der-sande",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23519,6 +25299,11 @@
         "source": "src:wikidata-roland-van-benthem",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23550,6 +25335,11 @@
         "source": "src:commons-d13813ab",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23609,6 +25399,11 @@
         "source": "src:wikidata-ron-konig",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23630,6 +25425,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23661,6 +25461,11 @@
         "source": "src:commons-61ef08ae",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23687,6 +25492,11 @@
         "source": "src:wikidata-ronald-wortelboer",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23749,6 +25559,11 @@
         "source": "src:wikidata-rosan-kocken",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23913,6 +25728,11 @@
         "source": "src:wikidata-ruud-van-bennekom",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23939,6 +25759,11 @@
         "source": "src:wikidata-ruud-van-den-belt",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -23965,6 +25790,11 @@
         "source": "src:wikidata-ryan-palmen",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -24032,6 +25862,11 @@
         "source": "src:commons-e3007491",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -24063,6 +25898,11 @@
         "source": "src:commons-219e0f71",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -24094,6 +25934,11 @@
         "source": "src:commons-64137c18",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -24399,6 +26244,11 @@
         "source": "src:wiki-dijkgraven",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -24483,6 +26333,11 @@
         "source": "src:wikidata-sebastiaan-nieuwland",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -24540,6 +26395,11 @@
         "source": "src:wikidata-serge-ferraro",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -24571,6 +26431,11 @@
         "source": "src:commons-93afd3c0",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -24602,6 +26467,11 @@
         "source": "src:commons-147411a0",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -24657,6 +26527,11 @@
         "source": "src:commons-1dac553c",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -24719,6 +26594,11 @@
         "source": "src:commons-c0b55329",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -24875,6 +26755,11 @@
         "source": "src:commons-e07eb13d",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -24970,6 +26855,11 @@
         "source": "src:commons-86d3a8a7",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -25102,6 +26992,11 @@
         "source": "src:wikidata-stefan-kuks",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -25202,6 +27097,11 @@
         "source": "src:wikidata-steven-adriaansen",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -25233,6 +27133,11 @@
         "source": "src:commons-acf0bdfa",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -25353,6 +27258,11 @@
         "source": "src:wiki-burgemeesters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -25379,6 +27289,11 @@
         "source": "src:wikidata-susanne-scheepers",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -25448,6 +27363,11 @@
         "source": "src:commons-843f74d",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -25568,6 +27488,11 @@
         "source": "src:wiki-dijkgraven",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -25626,6 +27551,11 @@
         "source": "src:wikidata-tanja-haseloop-amsing",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -25657,6 +27587,11 @@
         "source": "src:commons-991fc7a8",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -25720,6 +27655,11 @@
         "source": "src:commons-1199f3b9",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -25956,6 +27896,11 @@
         "source": "src:wikidata-tinet-de-jonge-ruitenbeek",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -25987,6 +27932,11 @@
         "source": "src:commons-8ab39137",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -26013,6 +27963,11 @@
         "source": "src:wikidata-tjarda-struik",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -26039,6 +27994,11 @@
         "source": "src:wikidata-toine-poppelaars",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-waterschappen",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -26133,6 +28093,11 @@
         "source": "src:commons-7b3aea32",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -26238,6 +28203,11 @@
         "source": "src:commons-c9b0f7bf",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -26301,6 +28271,11 @@
         "source": "src:wikidata-tytsy-willemsma",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -26376,6 +28351,36 @@
         "source": "src:desc-nl-wikipedia-org-91ad4632",
         "retrieved": "2026-10-01",
         "confidence": "medium"
+      }
+    ]
+  },
+  {
+    "id": "person:van-agtmaal-roerdalen",
+    "slug": "van-agtmaal-roerdalen",
+    "name": "van Agtmaal",
+    "aliases": [
+      "Dhr. van Agtmaal"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:van-genugten-nuenen-gerwen-en-nederwetten",
+    "slug": "van-genugten-nuenen-gerwen-en-nederwetten",
+    "name": "van Genugten",
+    "aliases": [
+      "Dhr. van Genugten"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -26624,6 +28629,11 @@
         "source": "src:commons-5fa38d42",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -26654,6 +28664,21 @@
       {
         "source": "src:wikidata-w-c-p-h-jaspers",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:w-j-g-delissen-van-tongerlo",
+    "slug": "w-j-g-delissen-van-tongerlo",
+    "name": "W.J.G. Delissen-van Tongerlo",
+    "aliases": [
+      "Mw. W.J.G. Delissen-van Tongerlo"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -26755,6 +28780,11 @@
         "source": "src:wikidata-wendy-verkleij-eimers",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -26785,6 +28815,21 @@
       {
         "source": "src:desc-openrechtspraak-nl-503e408c",
         "retrieved": "2026-10-01",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
+    "id": "person:werger-oude-ijsselstreek",
+    "slug": "werger-oude-ijsselstreek",
+    "name": "Werger",
+    "aliases": [
+      "Mw. Werger"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -26933,6 +28978,11 @@
         "source": "src:wikidata-willemijn-van-hees",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -26991,6 +29041,11 @@
         "source": "src:commons-ff80cd65",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -27016,6 +29071,11 @@
       {
         "source": "src:wikidata-wim-hillenaar",
         "retrieved": "2026-09-18",
+        "confidence": "high"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
         "confidence": "high"
       }
     ]
@@ -27181,6 +29241,11 @@
         "source": "src:wikidata-wim-wouters",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -27244,6 +29309,11 @@
         "source": "src:wikidata-wimar-jaeger",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -27366,6 +29436,11 @@
         "source": "src:wikidata-yolanda-hoogtanders",
         "retrieved": "2026-09-18",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   },
@@ -27431,6 +29506,11 @@
         "source": "src:desc-nl-wikipedia-org-3b2c9366",
         "retrieved": "2026-10-01",
         "confidence": "medium"
+      },
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-10-06",
+        "confidence": "high"
       }
     ]
   }
