@@ -16,6 +16,7 @@ import {
   loadGazetteer,
   loadTopicIndex,
   normalizeText,
+  pointsAbroad,
 } from "./link.mjs";
 
 function alias(aliasValue, target, confidence = "high") {
@@ -481,4 +482,14 @@ test("abroad, everyday topic keywords never attach a topic", () => {
   const madrid = realLink("Demonstranten kamperen in centrum Madrid", "Zij protesteren tegen de huur en het woningtekort.");
   assert.deepEqual(madrid.topics, []);
   assert.ok(realLink("Scholen krijgen minder leraren", "Op scholen is een lerarentekort, zeggen leerlingen en onderwijs.").topics.includes("topic:onderwijs"));
+});
+
+test("pointsAbroad is true for a foreign story and false once a Dutch anchor is present", () => {
+  assert.equal(pointsAbroad("Trump wil nieuwe handelsoorlog met China"), true);
+  assert.equal(pointsAbroad("Duitsland en Frankrijk willen dat de EU handelswapens smeedt"), true);
+  assert.equal(pointsAbroad("Tweede Kamer debatteert over de Amerikaanse handelsdeal"), false);
+  assert.equal(pointsAbroad("Kabinet wil mobieltjes verbannen uit scholen in Nederland"), false);
+  assert.equal(pointsAbroad("Kabinet wil mobieltjes verbannen uit scholen"), false);
+  assert.equal(pointsAbroad(""), false);
+  assert.equal(pointsAbroad(undefined), false);
 });

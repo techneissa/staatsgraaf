@@ -4,7 +4,7 @@ import { existsSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
-import { buildGazetteer, buildTopicIndex, linkArticle, loadTitleAliases } from "./link.mjs";
+import { buildGazetteer, buildTopicIndex, linkArticle, loadTitleAliases, pointsAbroad } from "./link.mjs";
 import { applyLicenses, applyNewsFactsNote } from "./licenses.mjs";
 
 export const DEFAULT_USER_AGENT =
@@ -18,6 +18,12 @@ export const DEFAULT_FEED_LANGUAGE = "nl";
 export const DEFAULT_PUBLISHER_KIND = "online";
 export const MAX_KEYWORDS = 8;
 export const MAX_IMAGE_BYTES = 2_500_000;
+/** The only feed scope: a feed or section that is wholly about Dutch politics and government (docs/adr/0021, amendment 06-10-2026). */
+export const POLITICS_SCOPE = "politiek";
+/** Carried-over items that name nothing and have no politics source are kept this many days only. */
+export const CARRY_UNRELEVANT_DAYS = 7;
+/** An item dated further ahead than this is not a real publication time and is dropped. */
+export const MAX_FUTURE_MS = 60 * 60 * 1000;
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DEFAULT_FEEDS = join(ROOT, "research", "J-nieuwsbronnen.json");
@@ -158,9 +164,13 @@ function parseDayMonthYearDashTime(value) {
   if (!match) return null;
   const month = MONTHS_EN.indexOf(match[2].toLowerCase());
   if (month < 0) return null;
-  const wall = Date.UTC(Number(match[3]), month, Number(match[1]), Number(match[4]), Number(match[5]));
-  const guess = wall - amsterdamOffsetMinutes(wall) * 60_000;
-  return guess - (amsterdamOffsetMinutes(guess) - amsterdamOffsetMinutes(wall)) * 60_000;
+  return amsterdamWallToUtcMs(Date.UTC(Number(match[3]), month, Number(match[1]), Number(match[4]), Number(match[5])));
+}
+
+/** The UTC instant of a wall-clock time in Europe/Amsterdam, given that wall clock read as UTC milliseconds. */
+export function amsterdamWallToUtcMs(wallMs) {
+  const guess = wallMs - amsterdamOffsetMinutes(wallMs) * 60_000;
+  return guess - (amsterdamOffsetMinutes(guess) - amsterdamOffsetMinutes(wallMs)) * 60_000;
 }
 
 export function normalizeDate(value) {
@@ -195,7 +205,12 @@ export function normalizeUrl(url) {
   return result;
 }
 
-export function parseFeed(xml, { publisher = "", feedUrl = "" } = {}) {
+/**
+ * `datesAreAmsterdamLocal` is for a feed that writes Amsterdam wall-clock time but labels
+ * it UTC ("15:17:00 Z" two hours ahead of the real clock). The labelled time is read as a
+ * wall clock in Europe/Amsterdam, so the item carries its real instant.
+ */
+export function parseFeed(xml, { publisher = "", feedUrl = "", datesAreAmsterdamLocal = false } = {}) {
   if (typeof xml !== "string") return [];
   const items = [];
   const itemPattern = /<item(?:\s[^>]*)?>([\s\S]*?)<\/item>/gi;
@@ -220,12 +235,38 @@ export function parseFeed(xml, { publisher = "", feedUrl = "" } = {}) {
         publisher,
         feedUrl,
         lede: stripHtml(descriptionRaw),
-        published: normalizeDate(unwrapCdata(publishedRaw ?? "")),
+        published: readPublished(unwrapCdata(publishedRaw ?? ""), datesAreAmsterdamLocal),
         image: firstImage(block),
       });
     }
   }
   return items;
+}
+
+/**
+ * A Google News sitemap as feed items: `<loc>` is the link, `<news:title>` the headline and
+ * `<news:publication_date>` the time. It carries no lead and no image. Rijksoverheid.nl
+ * publishes its news this way at https://www.rijksoverheid.nl/news/sitemap.xml (the old
+ * RSS host feeds.rijksoverheid.nl no longer resolves) and lists the last two days.
+ */
+export function parseNewsSitemap(xml, { publisher = "", feedUrl = "" } = {}) {
+  if (typeof xml !== "string") return [];
+  const items = [];
+  for (const match of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+    const block = match[1];
+    const title = normalizeWhitespace(stripHtml(tagValue(block, "news:title") ?? ""));
+    const url = normalizeUrl(stripHtml(tagValue(block, "loc") ?? ""));
+    const published = normalizeDate(stripHtml(tagValue(block, "news:publication_date") ?? tagValue(block, "lastmod") ?? ""));
+    if (!title || !url || !published) continue;
+    items.push({ title, url, publisher, feedUrl, lede: "", published, image: null });
+  }
+  return items;
+}
+
+function readPublished(raw, datesAreAmsterdamLocal) {
+  const iso = normalizeDate(raw);
+  if (iso === null || !datesAreAmsterdamLocal) return iso;
+  return new Date(amsterdamWallToUtcMs(Date.parse(iso))).toISOString();
 }
 
 function sameTitleAndLede(title, lede) {
@@ -330,7 +371,10 @@ export function dedupeItems(items) {
     }
     const existingDate = existing.published ?? "";
     const itemDate = item.published ?? "";
-    if (itemDate > existingDate) byUrl.set(item.url, { ...existing, ...item });
+    // A URL found in a politics section and in a general feed keeps the section's scope.
+    const scope = existing.scope ?? item.scope ?? null;
+    if (itemDate > existingDate) byUrl.set(item.url, { ...existing, ...item, scope });
+    else if (scope !== (existing.scope ?? null)) byUrl.set(item.url, { ...existing, scope });
   }
   return [...byUrl.values()];
 }
@@ -352,8 +396,8 @@ export function sourceIdFor(url) {
   return `src:news-${hashString(url)}`;
 }
 
-export function makeIdFactory(prefix = "news") {
-  const used = new Set();
+export function makeIdFactory(prefix = "news", reserved = []) {
+  const used = new Set(reserved);
   return (url) => {
     const base = `${prefix}:${hashString(url)}`;
     let id = base;
@@ -392,6 +436,64 @@ export function keywordsFromMatches(matches, limit = MAX_KEYWORDS) {
     if (keywords.length >= limit) break;
   }
   return keywords;
+}
+
+/**
+ * The stored `scope` of one item: "politiek" when its feed is a politics section and the
+ * text does not point abroad, otherwise null. A politics section of a Dutch outlet also
+ * carries foreign and European politics; the abroad test is the linker's own (a foreign
+ * country, adjective, capital or leader with no Dutch anchor), so those items stay behind
+ * the toggle unless they name something in the dataset. The feed never writes a link.
+ */
+export function itemScope(feedScope, { title = "", lede = "" } = {}) {
+  if (feedScope !== POLITICS_SCOPE) return null;
+  return pointsAbroad([title, lede].filter(Boolean).join(" \u2014 ")) ? null : POLITICS_SCOPE;
+}
+
+/**
+ * The same rule as `isRelevantNews` in web/lib/news.ts (docs/adr/0021): an entity, a topic with
+ * evidence, a politics section, or an official body. web/lib/news.test.mjs checks the two agree.
+ */
+export function isRelevantStored(item) {
+  if (Array.isArray(item?.entities) && item.entities.length > 0) return true;
+  if (item?.scope === POLITICS_SCOPE || item?.publisherKind === "overheid") return true;
+  if (!Array.isArray(item?.topics) || item.topics.length === 0) return false;
+  return !Array.isArray(item.keywords) || item.keywords.length > 0;
+}
+
+/**
+ * Items stored by an earlier run that the feeds no longer show. A feed holds only its
+ * newest 10 to 50 items (NOS 20, NU.nl 30), so a store rebuilt from the feeds alone would
+ * hold a few days. An earlier item is kept while it is inside the retention window, its
+ * outlet is still in the registry, no excludePaths rule drops it, its time is not in the
+ * future, and its source records still exist. It keeps the links it was stored with. An item
+ * that is not relevant (no entity, no topic evidence, no politics source) is kept only from
+ * `irrelevantSince`, so a large all-topic feed such as RTL does not fill the store.
+ */
+export function carryOverItems({
+  previous,
+  currentUrls,
+  since,
+  irrelevantSince = since,
+  now = new Date(),
+  publishers,
+  excludeByPublisher = new Map(),
+  knownSourceIds = null,
+}) {
+  const latestAllowed = new Date(now.getTime() + MAX_FUTURE_MS).toISOString();
+  const kept = [];
+  for (const item of previous) {
+    if (!item || typeof item.url !== "string" || typeof item.id !== "string" || typeof item.published !== "string") continue;
+    if (currentUrls.has(item.url)) continue;
+    if (item.published < since || item.published > latestAllowed) continue;
+    if (item.published < irrelevantSince && !isRelevantStored(item)) continue;
+    if (!publishers.has(item.publisher)) continue;
+    if (isExcludedUrl(item.url, excludeByPublisher.get(item.publisher))) continue;
+    if (!Array.isArray(item.sources) || item.sources.length === 0) continue;
+    if (knownSourceIds && !item.sources.every((ref) => knownSourceIds.has(ref.source))) continue;
+    kept.push(item);
+  }
+  return kept;
 }
 
 async function fetchWithRetry(url, { userAgent = DEFAULT_USER_AGENT, retries = MAX_RETRIES, fetchImpl = fetch } = {}) {
@@ -521,7 +623,15 @@ export async function fetchFeeds({
         }
       }
     }
-    const items = body ? parseFeed(body, { publisher: feed.publisher, feedUrl: feed.url }) : [];
+    const items = !body
+      ? []
+      : feed.format === "news-sitemap"
+        ? parseNewsSitemap(body, { publisher: feed.publisher, feedUrl: feed.url })
+        : parseFeed(body, {
+            publisher: feed.publisher,
+            feedUrl: feed.url,
+            datesAreAmsterdamLocal: feed.datesAreAmsterdamLocal === true,
+          });
     results.push({ ...feed, cacheFile, status, error, items });
     log(`  ${feed.publisher.padEnd(22)} ${status.padEnd(12)} ${String(items.length).padStart(3)} item(s)`);
   }
@@ -584,24 +694,45 @@ export async function runNewsPipeline({
         ...item,
         language: result.language ?? DEFAULT_FEED_LANGUAGE,
         publisherKind: result.publisherKind ?? DEFAULT_PUBLISHER_KIND,
+        scope: itemScope(result.scope, item),
       });
     }
     report.excludedItems = excluded;
     feedReport.push(report);
   }
 
-  const deduped = dedupeItems(allItems);
+  const latestAllowed = new Date(now.getTime() + MAX_FUTURE_MS).toISOString();
+  const futureDated = allItems.filter((item) => item.published && item.published > latestAllowed).length;
+  const deduped = dedupeItems(allItems.filter((item) => !(item.published && item.published > latestAllowed)));
   const publishedDates = deduped.map((item) => item.published).filter(Boolean).sort();
   const latest = publishedDates[publishedDates.length - 1] ?? now.toISOString();
   const since = new Date(Date.parse(latest) - RETENTION_DAYS * 86_400_000).toISOString();
   const kept = deduped.filter((item) => withinWindow(item, since));
 
-  const idFor = makeIdFactory();
+  const knownSourceByUrl = await sourceIdsByUrl(dataDir);
+  const previousNews = await readJsonArray(join(dataDir, "news.json"));
+  const previousIdByUrl = new Map(previousNews.filter((item) => item?.url && item?.id).map((item) => [item.url, item.id]));
+  const excludeByPublisher = new Map();
+  for (const config of feedConfigs) {
+    excludeByPublisher.set(config.publisher, [...(excludeByPublisher.get(config.publisher) ?? []), ...(config.excludePaths ?? [])]);
+  }
+  const carried = carryOverItems({
+    previous: previousNews,
+    currentUrls: new Set(kept.map((item) => item.url)),
+    since,
+    irrelevantSince: new Date(Date.parse(latest) - CARRY_UNRELEVANT_DAYS * 86_400_000).toISOString(),
+    now,
+    publishers: new Set(feedConfigs.map((config) => config.publisher)),
+    excludeByPublisher,
+    knownSourceIds: new Set(knownSourceByUrl.values()),
+  });
+  // A stored id is kept for its URL, so an id never changes under a translation that points at it.
+  const idFactory = makeIdFactory("news", [...carried.map((item) => item.id), ...previousIdByUrl.values()]);
+  const idFor = (url) => previousIdByUrl.get(url) ?? idFactory(url);
   const news = [];
   const sourceRecords = [];
   const mediaRecords = [];
   const seenSources = new Set();
-  const knownSourceByUrl = await sourceIdsByUrl(dataDir);
   let highConfidenceItems = 0;
   let entityHits = 0;
   let fallbackTopics = 0;
@@ -693,6 +824,7 @@ export async function runNewsPipeline({
       publisher: item.publisher,
       language: item.language ?? DEFAULT_FEED_LANGUAGE,
       publisherKind: item.publisherKind ?? DEFAULT_PUBLISHER_KIND,
+      ...(item.scope ? { scope: item.scope } : {}),
       published: item.published,
       summary: buildSummary({ publisher: item.publisher, title: item.title, lede: item.lede, ledeUsed: true }),
       summaryMarkup: link.summaryMarkup,
@@ -708,6 +840,7 @@ export async function runNewsPipeline({
   applyLicenses(sourceRecords);
   for (const record of sourceRecords) applyNewsFactsNote(record);
 
+  news.push(...carried);
   news.sort((a, b) => b.published.localeCompare(a.published) || a.id.localeCompare(b.id));
   sourceRecords.sort((a, b) => a.id.localeCompare(b.id));
   mediaRecords.sort((a, b) => a.id.localeCompare(b.id));
@@ -734,6 +867,10 @@ export async function runNewsPipeline({
     rawItems: allItems.length,
     dedupedItems: deduped.length,
     keptItems: news.length,
+    freshItems: news.length - carried.length,
+    carriedItems: carried.length,
+    futureDated,
+    scopedItems: news.filter((item) => item.scope === POLITICS_SCOPE).length,
     highConfidenceItems,
     entityHits,
     topicOnlyItems: news.filter((item) => item.entities.length === 0 && item.topics.length > 0).length,
@@ -755,9 +892,10 @@ export async function runNewsPipeline({
   };
 
   log("");
-  log(`Kept ${news.length} item(s) published on or after ${since.slice(0, 10)} (${RETENTION_DAYS}-day window).`);
+  log(`Kept ${news.length} item(s) published on or after ${since.slice(0, 10)} (${RETENTION_DAYS}-day window): ${news.length - carried.length} from the feeds, ${carried.length} carried over from the previous run; ${futureDated} dated in the future and dropped.`);
+  log(`Politics scope: ${stats.scopedItems} item(s) come from a politics section and are relevant by source (items of an overheid feed are relevant by their publisherKind).`);
   log(`Entity linker: ${entityHits} high-confidence hit(s) across ${highConfidenceItems} article(s).`);
-  log(`Blocklist: ${stats.excludedItems} item(s) dropped by excludePaths; ${stats.noLinkItems} kept item(s) name nothing and stay behind the show-all toggle.`);
+  log(`Blocklist: ${stats.excludedItems} item(s) dropped by excludePaths; ${stats.noLinkItems} kept item(s) name nothing in the dataset (they stay behind the show-all toggle unless their source makes them relevant).`);
   log(`Topic fallback: ${fallbackTopics} article(s) assigned a topic with no entity; ${stats.topicOnlyItems} article(s) end up topic-only.`);
   log(`Images: ${imagesDownloaded} downloaded, ${imagesReused} reused, ${imagesSkippedForRights} not downloaded (no image license on the feed), ${imagesSkippedForErrors} skipped for errors, ${imagesSkippedForHost} left out (host not in the CSP img-src).`);
   log(`Wrote ${join(dataDir, "news.json")} and ${sourceRecords.length} article source record(s) to ${sourcesOutPath}`);
@@ -858,6 +996,9 @@ export function feedConfigsFromEnvelope(envelope) {
         imageLicense: feed.imageLicense ?? null,
         imageCredit: feed.imageCredit ?? null,
         excludePaths: Array.isArray(feed.excludePaths) ? feed.excludePaths : [],
+        scope: feed.scope === POLITICS_SCOPE ? POLITICS_SCOPE : null,
+        datesAreAmsterdamLocal: feed.datesAreAmsterdamLocal === true,
+        format: feed.format === "news-sitemap" ? "news-sitemap" : "rss",
       }));
   }
   return (envelope?.endpointsUsed ?? []).map((entry) => ({
@@ -870,6 +1011,9 @@ export function feedConfigsFromEnvelope(envelope) {
     imageLicense: null,
     imageCredit: null,
     excludePaths: [],
+    scope: null,
+    datesAreAmsterdamLocal: false,
+    format: "rss",
   }));
 }
 

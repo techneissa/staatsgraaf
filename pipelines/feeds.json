@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-18T06:00:00.000Z",
-  "notes": "Registry of news feeds for the Staatsgraaf news layer; only feeds fetched and parsed as RSS or Atom in this pass are enabled. Images are only downloaded and stored from a feed whose imageLicense names a license; imageLicense null means no image is downloaded or stored, while the feed-supplied image URL is still shown as a remote preview credited to the outlet (ADR 0010).",
+  "generatedAt": "2026-10-06T14:00:00.000Z",
+  "notes": "Registry of news feeds for the Staatsgraaf news layer; only feeds fetched and parsed as RSS or Atom are enabled. Images are only downloaded and stored from a feed whose imageLicense names a license; imageLicense null means no image is downloaded or stored, while the feed-supplied image URL is still shown as a remote preview credited to the outlet when its host is in the CSP img-src (ADR 0010). scope \"politiek\" marks a feed or section that is wholly about Dutch politics and government; its items count as relevant by source (ADR 0021, amendment 06-10-2026). publisherKind overheid counts the same. datesAreAmsterdamLocal marks a feed that writes Amsterdam wall-clock time with a UTC label. Several feeds may share one publisher.",
   "feeds": [
     {
       "url": "https://feeds.nos.nl/nosnieuwsalgemeen",
@@ -16,6 +16,20 @@
       "notes": null
     },
     {
+      "url": "https://feeds.nos.nl/nosnieuwspolitiek",
+      "publisher": "NOS",
+      "language": "nl",
+      "publisherKind": "publieke-omroep",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
+      "enabled": true,
+      "notes": "Rubriek Politiek: alle berichten tellen als relevant op grond van de bron, behalve berichten over het buitenland zonder Nederlandse aanknoping (ADR 0021, aanvulling 06-10-2026).",
+      "scope": "politiek"
+    },
+    {
       "url": "https://www.nu.nl/rss/Algemeen",
       "publisher": "NU.nl",
       "language": "nl",
@@ -27,6 +41,20 @@
       "retrieved": "2026-09-18",
       "enabled": true,
       "notes": null
+    },
+    {
+      "url": "https://www.nu.nl/rss/Politiek",
+      "publisher": "NU.nl",
+      "language": "nl",
+      "publisherKind": "online",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
+      "enabled": true,
+      "notes": "Rubriek Politiek: alle berichten tellen als relevant op grond van de bron, behalve berichten over het buitenland zonder Nederlandse aanknoping (ADR 0021, aanvulling 06-10-2026).",
+      "scope": "politiek"
     },
     {
       "url": "https://www.nrc.nl/rss/",
@@ -55,6 +83,20 @@
       "notes": null
     },
     {
+      "url": "https://www.ad.nl/politiek/rss.xml",
+      "publisher": "AD",
+      "language": "nl",
+      "publisherKind": "krant",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
+      "enabled": true,
+      "notes": "Rubriek Politiek: alle berichten tellen als relevant op grond van de bron, behalve berichten over het buitenland zonder Nederlandse aanknoping (ADR 0021, aanvulling 06-10-2026).",
+      "scope": "politiek"
+    },
+    {
       "url": "https://www.volkskrant.nl/rss.xml",
       "publisher": "de Volkskrant",
       "language": "nl",
@@ -68,6 +110,20 @@
       "notes": null
     },
     {
+      "url": "https://www.volkskrant.nl/politiek/rss.xml",
+      "publisher": "de Volkskrant",
+      "language": "nl",
+      "publisherKind": "krant",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
+      "enabled": true,
+      "notes": "Rubriek Politiek: alle berichten tellen als relevant op grond van de bron, behalve berichten over het buitenland zonder Nederlandse aanknoping (ADR 0021, aanvulling 06-10-2026). De feed heeft geen inleiding; alleen kop, link en tijd.",
+      "scope": "politiek"
+    },
+    {
       "url": "https://www.trouw.nl/rss.xml",
       "publisher": "Trouw",
       "language": "nl",
@@ -79,6 +135,20 @@
       "retrieved": "2026-09-18",
       "enabled": true,
       "notes": null
+    },
+    {
+      "url": "https://www.trouw.nl/politiek/rss.xml",
+      "publisher": "Trouw",
+      "language": "nl",
+      "publisherKind": "krant",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
+      "enabled": true,
+      "notes": "Rubriek Politiek: alle berichten tellen als relevant op grond van de bron, behalve berichten over het buitenland zonder Nederlandse aanknoping (ADR 0021, aanvulling 06-10-2026). De feed heeft geen inleiding; alleen kop, link en tijd.",
+      "scope": "politiek"
     },
     {
       "url": "https://www.parool.nl/rss.xml",
@@ -117,13 +187,27 @@
       "status": 200,
       "retrieved": "2026-09-18",
       "enabled": true,
-      "notes": null,
+      "notes": "rtlnieuws.nl stuurt door naar https://www.rtl.nl/rss.xml (06-10-2026); de feed bevat ongeveer 830 berichten over 7 dagen, alle onderwerpen.",
       "excludePaths": [
         {
           "pattern": "/boulevard/",
           "reason": "Celebrity and entertainment news; 360 of 854 stored RTL items on 01-10-2026, none about the Dutch state (ADR 0021)."
         }
       ]
+    },
+    {
+      "url": "https://www.rtl.nl/nieuws/politiek/rss.xml",
+      "publisher": "RTL Nieuws",
+      "language": "nl",
+      "publisherKind": "commerciele-omroep",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
+      "enabled": true,
+      "notes": "Rubriek Politiek: alle berichten tellen als relevant op grond van de bron, behalve berichten over het buitenland zonder Nederlandse aanknoping (ADR 0021, aanvulling 06-10-2026). Adres na doorsturing van rtlnieuws.nl/nieuws/politiek/rss.xml.",
+      "scope": "politiek"
     },
     {
       "url": "https://www.binnenlandsbestuur.nl/feeds/articles.rss",
@@ -136,7 +220,8 @@
       "status": 200,
       "retrieved": "2026-09-18",
       "enabled": true,
-      "notes": null
+      "notes": "Vakblad over openbaar bestuur: alle berichten tellen als relevant op grond van de bron (ADR 0021, aanvulling 06-10-2026).",
+      "scope": "politiek"
     },
     {
       "url": "https://www.dutchnews.nl/feed/",
@@ -147,9 +232,23 @@
       "imageLicense": null,
       "imageCredit": null,
       "status": 200,
-      "retrieved": "2026-09-18",
+      "retrieved": "2026-10-06",
+      "enabled": false,
+      "notes": "Uitgeschakeld op 06-10-2026: robots.txt van dutchnews.nl verbiedt /feed/ voor alle agents (Disallow: /feed/). Vervangen door de rubriekfeed Politics, die robots.txt niet uitsluit."
+    },
+    {
+      "url": "https://www.dutchnews.nl/category/politics/feed/",
+      "publisher": "DutchNews.nl",
+      "language": "en",
+      "publisherKind": "online",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
       "enabled": true,
-      "notes": "Engelstalige berichtgeving over Nederland."
+      "notes": "Rubriek Politics. Engelstalige berichtgeving over Nederland; alle berichten tellen als relevant op grond van de bron (ADR 0021, aanvulling 06-10-2026).",
+      "scope": "politiek"
     },
     {
       "url": "https://nltimes.nl/rss",
@@ -186,9 +285,142 @@
       "imageLicense": null,
       "imageCredit": null,
       "status": 200,
-      "retrieved": "2026-09-18",
+      "retrieved": "2026-10-06",
+      "enabled": false,
+      "notes": "Uitgeschakeld op 06-10-2026: de feed antwoordt (HTTP 200, 20 berichten) maar het nieuwste bericht is van 29-10-2025. Licentie niet vastgesteld. Weer inschakelen zodra er nieuwe berichten zijn; alle berichten tellen dan als relevant op grond van de bron (scope politiek, ADR 0021, aanvulling 06-10-2026).",
+      "scope": "politiek"
+    },
+    {
+      "url": "https://eenvandaag.avrotros.nl/feed.rss",
+      "publisher": "EenVandaag",
+      "language": "nl",
+      "publisherKind": "publieke-omroep",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
       "enabled": true,
-      "notes": "Nieuwsbrief over de Nederlandse politiek; licentie niet vastgesteld."
+      "notes": "Actualiteitenprogramma van AVROTROS; feed zonder beeld, alle onderwerpen."
+    },
+    {
+      "url": "https://www.nporadio1.nl/nieuws/rss",
+      "publisher": "NPO Radio 1",
+      "language": "nl",
+      "publisherKind": "publieke-omroep",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
+      "enabled": true,
+      "notes": "Alle onderwerpen, ook podcasts. De feed schrijft Amsterdamse klokketijd met het label Z (UTC): op 06-10-2026 om 13:41 UTC stond het nieuwste bericht op 15:17 Z. De tijden worden daarom als Amsterdamse klokketijd gelezen (datesAreAmsterdamLocal).",
+      "datesAreAmsterdamLocal": true
+    },
+    {
+      "url": "https://www.ewmagazine.nl/feed/",
+      "publisher": "Elsevier Weekblad",
+      "language": "nl",
+      "publisherKind": "krant",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
+      "enabled": true,
+      "notes": "Opinieweekblad met veel politiek; alle onderwerpen, dus geen politiekrubriek."
+    },
+    {
+      "url": "https://www.bnnvara.nl/api/rss/joop",
+      "publisher": "Joop",
+      "language": "nl",
+      "publisherKind": "online",
+      "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
+      "enabled": true,
+      "notes": "Opiniesite van BNNVARA, adres na doorsturing van joop.bnnvara.nl/feed; alle onderwerpen."
+    },
+    {
+      "url": "https://www.ftm.nl/feed/",
+      "publisher": "Follow the Money",
+      "language": "nl",
+      "publisherKind": "online",
+      "license": null,
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
+      "enabled": true,
+      "notes": "Onderzoeksjournalistiek; licentie niet vastgesteld, alleen kop, link en tijd."
+    },
+    {
+      "url": "https://www.tweedekamer.nl/rss.xml",
+      "publisher": "Tweede Kamer",
+      "language": "nl",
+      "publisherKind": "overheid",
+      "license": null,
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
+      "enabled": true,
+      "notes": "Officieel orgaan van de Nederlandse staat: berichten tellen als relevant op grond van de bron (publisherKind overheid, ADR 0021, aanvulling 06-10-2026). Weinig berichten per maand (10 in de feed, de oudste van 19-05-2021); licentie niet vastgesteld (research/O-licenses.md sectie 7)."
+    },
+    {
+      "url": "https://www.autoriteitpersoonsgegevens.nl/feed/article/rss.xml",
+      "publisher": "Autoriteit Persoonsgegevens",
+      "language": "nl",
+      "publisherKind": "overheid",
+      "license": null,
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
+      "enabled": true,
+      "notes": "Officieel orgaan van de Nederlandse staat: berichten tellen als relevant op grond van de bron (publisherKind overheid, ADR 0021, aanvulling 06-10-2026). Adres na doorsturing van /rss; licentiepagina gaf 403, dus licentie niet vastgesteld."
+    },
+    {
+      "url": "https://www.cpb.nl/rss/algemeen.xml",
+      "publisher": "CPB",
+      "language": "nl",
+      "publisherKind": "overheid",
+      "license": "CC-BY-3.0-NL",
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
+      "enabled": true,
+      "notes": "Officieel orgaan van de Nederlandse staat: berichten tellen als relevant op grond van de bron (publisherKind overheid, ADR 0021, aanvulling 06-10-2026). Combinatie van alle CPB-feeds (https://www.cpb.nl/rss); licentie volgens https://www.cpb.nl/copyright, gelezen op 06-10-2026."
+    },
+    {
+      "url": "https://www.cbs.nl/nl-nl/rss-feeds/overheid-en-politiek",
+      "publisher": "CBS",
+      "language": "nl",
+      "publisherKind": "overheid",
+      "license": "CC-BY-4.0",
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
+      "enabled": true,
+      "notes": "Officieel orgaan van de Nederlandse staat: berichten tellen als relevant op grond van de bron (publisherKind overheid, ADR 0021, aanvulling 06-10-2026). Thema Overheid en politiek; CC BY 4.0 volgens https://www.cbs.nl/nl-nl/over-ons/website/copyright, gelezen op 06-10-2026."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/news/sitemap.xml",
+      "publisher": "Rijksoverheid",
+      "language": "nl",
+      "publisherKind": "overheid",
+      "license": "CC0-1.0",
+      "imageLicense": null,
+      "imageCredit": null,
+      "status": 200,
+      "retrieved": "2026-10-06",
+      "enabled": true,
+      "notes": "Officieel orgaan van de Nederlandse staat: berichten tellen als relevant op grond van de bron (publisherKind overheid, ADR 0021, aanvulling 06-10-2026). Google News-sitemap van Rijksoverheid.nl (format news-sitemap): alleen kop, link en tijd, de laatste twee dagen; het oude RSS-adres feeds.rijksoverheid.nl bestaat niet meer. Licentie CC0 volgens research/O-licenses.md.",
+      "format": "news-sitemap"
     }
   ],
   "gaps": [
@@ -196,6 +428,61 @@
       "url": "https://www.youtube.com/@NOS",
       "why": "Geen videofeed geverifieerd: het YouTube-kanaal-RSS-endpoint https://www.youtube.com/feeds/videos.xml?channel_id=<ID> gaf op 18-09-2026 een HTTP 404, ook voor een bekend kanaal-id (MrBeast, UCX6OQ3DkcsbYNE6H8uQQuVA), dus het endpoint is vanuit deze omgeving niet bruikbaar. Het @NOS-kanaal werd wel geladen en de pagina noemt het kanaal-id UC5xziMuoFAOpX9mwUVhe2Jw, maar dat id is niet via de feed bevestigd.",
       "resume": "Probeer het kanaal-RSS-endpoint vanaf een netwerk waar het 200 geeft en bevestig daarna het echte kanaal-id van NOS, of gebruik de YouTube Data API (met sleutel) en leg het werkende endpoint en de status vast."
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/service/rss",
+      "why": "Rijksoverheid.nl: het oude RSS-adres https://feeds.rijksoverheid.nl/nieuws.rss bestaat niet meer (DNS-fout ENOTFOUND op 06-10-2026). De nieuwe site geeft feeds via https://www.rijksoverheid.nl/api/rss?query=<json>; zonder filters (HTTP 200, 20 berichten) bevat die door elkaar weblogs, bewindspersoonpagina's en themapagina's met publicatiedata uit 2010 en 2016, niet op datum, en de filters voor alleen nieuws- en persberichten zijn niet gedocumenteerd (elke gok gaf HTTP 400). De nieuwsberichten zelf staan wel in de Google News-sitemap, die is opgenomen. Alle 8 berichten van 06-10-2026 in die sitemap stonden onder /actueel/nieuws; persberichten zijn niet apart herkenbaar.",
+      "resume": "Vraag de beheerder van Rijksoverheid.nl (Ministerie van Algemene Zaken) naar de queryvorm voor nieuws en persberichten, of lees de open-dataset https://data.overheid.nl/dataset/rss-feeds-op-rijksoverheid-nl; voeg daarna de feed toe."
+    },
+    {
+      "url": "https://www.eerstekamer.nl/nieuws",
+      "why": "Eerste Kamer: geen RSS-feed gevonden. /rss, /rss.xml, /nieuws/rss en /rss/nieuws gaven op 06-10-2026 HTTP 404 en de pagina's noemen geen feed.",
+      "resume": "Vraag de Eerste Kamer om een feedadres, of lees het nieuws via de pagina's met een eigen parser."
+    },
+    {
+      "url": "https://www.tweedekamer.nl/nieuws",
+      "why": "Tweede Kamer: alleen https://www.tweedekamer.nl/rss.xml bestaat en is opgenomen; die feed bevat weinig berichten. Een feed voor het Kamernieuws is niet gevonden: /nieuws/rss, /rss/nieuws, /feeds/nieuws en /nieuws.xml gaven HTTP 404 op 06-10-2026.",
+      "resume": "Zoek een feed voor tweedekamer.nl/nieuws of lees de nieuwspagina met een parser."
+    },
+    {
+      "url": "https://www.rekenkamer.nl/actueel/nieuws",
+      "why": "Algemene Rekenkamer en Kiesraad draaien op het Rijksoverheid.nl-platform en geven feeds via /api/rss?query=<json>; zonder gedocumenteerde filters (HTTP 400 op 06-10-2026) is er geen betrouwbare nieuwsfeed.",
+      "resume": "Zodra de queryvorm bekend is (zie Rijksoverheid.nl), voeg de feeds van beide organisaties toe."
+    },
+    {
+      "url": "https://www.raadvanstate.nl/",
+      "why": "Raad van State, Nationale Ombudsman en Politie: de site gaf op 06-10-2026 HTTP 403 voor een gewone aanvraag (ook voor /rss), dus geen feed geverifieerd.",
+      "resume": "Probeer vanaf een netwerk waar de site wel antwoordt, of vraag de organisatie om een feedadres."
+    },
+    {
+      "url": "https://www.rechtspraak.nl/Nieuws",
+      "why": "Rechtspraak.nl heeft geen nieuwsfeed (/rss en /nieuws/rss gaven HTTP 404 op 06-10-2026). https://data.rechtspraak.nl/uitspraken/zoeken geeft alleen uitspraken als Atom-feed, geen nieuws.",
+      "resume": "Gebruik de uitspraken-feed alleen na een eigen besluit; hij is geen nieuwsbron."
+    },
+    {
+      "url": "https://www.nrc.nl/rss/",
+      "why": "NRC heeft geen rubrieksfeed voor politiek: https://www.nrc.nl/rss/?section=politiek geeft op 06-10-2026 dezelfde algemene feed (165 berichten, ook puzzels), de parameter wordt genegeerd.",
+      "resume": "Zoek een rubrieksadres bij NRC of filter op paden met een eigen regel."
+    },
+    {
+      "url": "https://www.parool.nl/politiek/rss.xml",
+      "why": "Het Parool politiek: de feed antwoordt (HTTP 200) maar is verlopen; het nieuwste bericht is van 14-11-2025 (36 berichten tot 14-10-2023). Niet opgenomen.",
+      "resume": "Neem de feed op zodra het nieuwste bericht weer recent is."
+    },
+    {
+      "url": "https://www.telegraaf.nl/rss/",
+      "why": "De Telegraaf: https://www.telegraaf.nl/rss/ en /binnenland/rss/ geven op 06-10-2026 wel 50 berichten (HTTP 200), maar robots.txt van telegraaf.nl behoudt alle rechten uitdrukkelijk voor tegen tekst- en datamining en automatische gegevensverzameling. Een rubriek Politiek bestaat niet (HTTP 403 en 404). Niet opgenomen. NRC, FD en RTL Nieuws hebben dezelfde soort voorbehoud in hun robots.txt en staan wel in het register; de eigenaar beslist of dat blijft.",
+      "resume": "Neem De Telegraaf pas op na een besluit van de eigenaar over deze voorbehouden."
+    },
+    {
+      "url": "https://www.fd.nl/",
+      "why": "FD heeft geen rubriek Politiek als feed: https://fd.nl/politiek?rss geeft een HTML-pagina en https://fd.nl/economie-politiek?rss stuurt door naar de algemene feed (06-10-2026).",
+      "resume": "Zoek een rubrieksadres bij FD."
+    },
+    {
+      "url": "https://nltimes.nl/rss/politics",
+      "why": "NL Times: https://nltimes.nl/rss/politics stuurt door naar https://nltimes.nl/rssfeed2, een algemene feed (eerste berichten over babyzitjes en een afgezette wijk in Schiedam op 06-10-2026), dus geen politiekrubriek.",
+      "resume": "Zoek een echte rubrieksfeed bij NL Times."
     }
   ]
 }

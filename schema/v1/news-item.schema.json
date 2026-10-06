@@ -57,6 +57,13 @@
           ],
           "description": "Kind of outlet. Absent means online."
         },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "politiek"
+          ],
+          "description": "Set by the news run when the item comes from a feed or section that is wholly about Dutch politics and government and its text does not point abroad (docs/adr/0021, amendment 06-10-2026). Makes the item relevant by source. Never written by a feed and never a link. Absent means no scope."
+        },
         "summary": {
           "type": [
             "string",

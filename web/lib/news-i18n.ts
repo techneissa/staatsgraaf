@@ -112,7 +112,7 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
     filtersLabel: "Filters",
     languageLabels: { nl: "Nederlands", en: "English" },
     noscript:
-      "Filteren, het wisselen van taal en het tonen van al het nieuws vereisen JavaScript. Zonder JavaScript zie je de berichten die de overheid noemen.",
+      "Filteren, het wisselen van taal en het tonen van al het nieuws vereisen JavaScript. Zonder JavaScript zie je de berichten die over de overheid gaan of haar noemen.",
     emptyByLanguage: {
       nl: {
         title: "Geen Nederlandstalige berichten in de dataset",
@@ -230,7 +230,7 @@ export const NEWS_MESSAGES: Record<NewsLanguage, NewsMessages> = {
     filtersLabel: "Filters",
     languageLabels: { nl: "Dutch", en: "English" },
     noscript:
-      "Filtering, switching language and showing all news require JavaScript. Without it you see the items that mention the government.",
+      "Filtering, switching language and showing all news require JavaScript. Without it you see the items that are about or mention the government.",
     emptyByLanguage: {
       nl: {
         title: "No Dutch-language items in the dataset",

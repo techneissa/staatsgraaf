@@ -13,6 +13,7 @@ import type { NewsItem, NewsLanguage, Person, PublisherKind, Source } from "./ty
 
 import {
   NEWS_HOME_LIMIT,
+  NEWS_HOME_PER_OUTLET,
   NEWS_PAGE_SIZE,
   NEWS_LANGUAGES,
   PUBLISHER_KINDS,
@@ -113,40 +114,77 @@ export function newsKeywords(item: Pick<NewsItem, "keywords">): string[] {
   return Array.isArray(item.keywords) ? item.keywords.filter((word) => word.length > 0) : [];
 }
 
+/** The fields `isRelevantNews` reads. */
+export type RelevanceFields = Pick<NewsItem, "entities" | "topics"> & {
+  keywords?: string[];
+  scope?: NewsItem["scope"];
+  publisherKind?: NewsItem["publisherKind"];
+};
+
 /**
- * An item counts as naming the state when the linker matched at least one entity
- * (person, organisation, position), or a topic with evidence: the pipeline stores
- * the keywords that produced each topic in `keywords`, and a topic with an empty
- * keyword list proves nothing. Items from before the field existed (`keywords`
- * absent) keep their topics. Derived at read time (docs/adr/0021).
+ * An item is relevant when it names the state or comes from a source that is about it
+ * (docs/adr/0021 and its amendment of 06-10-2026). Three routes, any one is enough:
+ * the linker matched at least one entity (person, organisation, position); the item has a
+ * topic with evidence (the pipeline stores the keywords that produced each topic in
+ * `keywords`, and a topic with an empty keyword list proves nothing; items from before the
+ * field existed keep their topics); or the item comes from a politics section (`scope`
+ * "politiek", written by the news run) or from an official body (`publisherKind`
+ * "overheid"). The last route never writes a link: an item relevant by source has the
+ * entities and topics the linker found, if any. Derived at read time.
  */
-export function isRelevantNews(item: Pick<NewsItem, "entities" | "topics"> & { keywords?: string[] }): boolean {
+export function isRelevantNews(item: RelevanceFields): boolean {
   if (Array.isArray(item.entities) && item.entities.length > 0) return true;
+  if (item.scope === "politiek" || item.publisherKind === "overheid") return true;
   if (!Array.isArray(item.topics) || item.topics.length === 0) return false;
   return !Array.isArray(item.keywords) || item.keywords.length > 0;
 }
 
-/** How many of the items name the state, and how many there are. */
-export function relevanceCounts(items: Pick<NewsItem, "entities" | "topics" | "keywords">[]): { total: number; relevant: number } {
+/** How many of the items are relevant, and how many there are. */
+export function relevanceCounts(items: RelevanceFields[]): { total: number; relevant: number } {
   return { total: items.length, relevant: items.filter(isRelevantNews).length };
 }
 
 /**
  * The newest `limit` relevant items, or the newest `limit` items of any kind when
  * none is relevant, so a band never goes blank because the linker found nothing.
+ *
+ * `perOutletCap` keeps one outlet from crowding a short band: the first pass takes at
+ * most that many items per publisher, newest first; when the band is still short (few
+ * outlets have news) the newest skipped items fill it. The result is in time order.
  */
-export function selectRelevantNews<T extends Pick<NewsItem, "entities" | "topics" | "keywords" | "published" | "id">>(
+export function selectRelevantNews<T extends RelevanceFields & Pick<NewsItem, "published" | "id"> & { publisher?: string }>(
   items: T[],
   limit: number,
+  options: { perOutletCap?: number } = {},
 ): T[] {
   const sorted = sortNews(items as unknown as NewsItem[]) as unknown as T[];
   const relevant = sorted.filter(isRelevantNews);
-  return (relevant.length > 0 ? relevant : sorted).slice(0, limit);
+  const pool = relevant.length > 0 ? relevant : sorted;
+  const cap = options.perOutletCap;
+  if (cap === undefined || cap < 1) return pool.slice(0, limit);
+  const perOutlet = new Map<string, number>();
+  const chosen = new Set<T>();
+  for (const item of pool) {
+    if (chosen.size >= limit) break;
+    const outlet = item.publisher ?? "";
+    const taken = perOutlet.get(outlet) ?? 0;
+    if (taken >= cap) continue;
+    perOutlet.set(outlet, taken + 1);
+    chosen.add(item);
+  }
+  for (const item of pool) {
+    if (chosen.size >= limit) break;
+    chosen.add(item);
+  }
+  return pool.filter((item) => chosen.has(item));
 }
 
-/** The home band: the newest items that name the state, with the all-items fallback. */
+/**
+ * The home band: the newest relevant items across outlets, at most `NEWS_HOME_PER_OUTLET`
+ * per outlet, with the all-items fallback.
+ */
 export function getHomeNewsRelevant(limit = NEWS_HOME_LIMIT): NewsItem[] {
-  return selectRelevantNews(getAllNews(), limit);
+  return selectRelevantNews(getAllNews(), limit, { perOutletCap: NEWS_HOME_PER_OUTLET });
 }
 
 export function byLanguage<T extends Pick<NewsItem, "language">>(items: T[], language: NewsLanguage): T[] {

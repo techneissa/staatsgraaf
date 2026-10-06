@@ -7,17 +7,22 @@ import { join } from "node:path";
 
 import {
   allowedImageHosts,
+  amsterdamWallToUtcMs,
   buildSummary,
+  carryOverItems,
   dedupeItems,
   feedConfigsFromEnvelope,
   imageHostAllowed,
   isExcludedUrl,
+  isRelevantStored,
   itemKeywords,
+  itemScope,
   keywordsFromMatches,
   makeIdFactory,
   normalizeDate,
   normalizeUrl,
   parseFeed,
+  parseNewsSitemap,
   sourceIdFor,
   splitSentences,
   truncate,
@@ -624,4 +629,246 @@ test("itemKeywords lists entity aliases first, then the topic evidence, without 
   assert.deepEqual(itemKeywords(link, 3), ["minister Heinen", "box 3", "belasting"]);
   assert.deepEqual(itemKeywords({ matches: [], topicEvidence: ["azc"] }), ["azc"]);
   assert.deepEqual(itemKeywords({ matches: [] }), []);
+});
+
+test("parseFeed reads a wall-clock time labelled Z as Amsterdam time when the feed is flagged", () => {
+  const xml = `<rss><channel><item><title>Radio</title><link>https://example.nl/a</link><pubDate>Tue, 06 Oct 2026 15:17:00 Z</pubDate></item></channel></rss>`;
+  assert.equal(parseFeed(xml)[0].published, "2026-10-06T15:17:00.000Z");
+  // 15:17 in Amsterdam on 06-10-2026 (CEST, UTC+2) is 13:17 UTC.
+  assert.equal(parseFeed(xml, { datesAreAmsterdamLocal: true })[0].published, "2026-10-06T13:17:00.000Z");
+  // In winter (CET, UTC+1) the same wall clock is one hour ahead of UTC.
+  const winter = xml.replace("06 Oct 2026", "06 Jan 2026");
+  assert.equal(parseFeed(winter, { datesAreAmsterdamLocal: true })[0].published, "2026-01-06T14:17:00.000Z");
+  assert.equal(new Date(amsterdamWallToUtcMs(Date.UTC(2026, 9, 6, 15, 17))).toISOString(), "2026-10-06T13:17:00.000Z");
+});
+
+test("itemScope marks a politics section item unless its text points abroad", () => {
+  assert.equal(itemScope("politiek", { title: "Kabinet wil mobieltjes verbannen uit scholen", lede: "" }), "politiek");
+  assert.equal(itemScope("politiek", { title: "Trump dreigt met nieuwe heffingen", lede: "Het Witte Huis zegt dat" }), null);
+  assert.equal(itemScope("politiek", { title: "Trump dreigt met heffingen", lede: "Ook Nederland wordt geraakt." }), "politiek");
+  assert.equal(itemScope(null, { title: "Kabinet wil mobieltjes verbannen uit scholen" }), null);
+  assert.equal(itemScope(undefined, { title: "x" }), null);
+});
+
+test("feedConfigsFromEnvelope carries scope and datesAreAmsterdamLocal and ignores any other scope", () => {
+  const configs = feedConfigsFromEnvelope({
+    feeds: [
+      { url: "https://a.nl/rss", publisher: "A", scope: "politiek" },
+      { url: "https://b.nl/rss", publisher: "B", scope: "sport", datesAreAmsterdamLocal: true },
+      { url: "https://c.nl/rss", publisher: "C" },
+    ],
+  });
+  assert.deepEqual(configs.map((config) => config.scope), ["politiek", null, null]);
+  assert.deepEqual(configs.map((config) => config.datesAreAmsterdamLocal), [false, true, false]);
+});
+
+test("dedupeItems keeps the politics scope of a URL found in a section and a general feed", () => {
+  const general = { url: "https://x.nl/a", published: "2026-10-06T10:00:00.000Z", scope: null, feedUrl: "general" };
+  const section = { url: "https://x.nl/a", published: "2026-10-06T10:00:00.000Z", scope: "politiek", feedUrl: "section" };
+  assert.equal(dedupeItems([general, section])[0].scope, "politiek");
+  assert.equal(dedupeItems([section, general])[0].scope, "politiek");
+  const newerGeneral = { ...general, published: "2026-10-06T11:00:00.000Z" };
+  assert.equal(dedupeItems([section, newerGeneral])[0].scope, "politiek");
+  assert.equal(dedupeItems([general])[0].scope, null);
+});
+
+test("isRelevantStored follows the same routes as the web rule", () => {
+  assert.equal(isRelevantStored({ entities: ["org:x"], topics: [] }), true);
+  assert.equal(isRelevantStored({ entities: [], topics: [], scope: "politiek" }), true);
+  assert.equal(isRelevantStored({ entities: [], topics: [], publisherKind: "overheid" }), true);
+  assert.equal(isRelevantStored({ entities: [], topics: ["topic:z"], keywords: [] }), false);
+  assert.equal(isRelevantStored({ entities: [], topics: [] }), false);
+});
+
+test("carryOverItems keeps what the feeds dropped, inside the rules, and nothing else", () => {
+  const now = new Date("2026-10-06T12:00:00Z");
+  const base = (id, published, extra = {}) => ({
+    id: `news:${id}`,
+    url: `https://x.nl/${id}`,
+    publisher: "NOS",
+    published,
+    entities: ["org:x"],
+    topics: [],
+    sources: [{ source: `src:news-${id}`, retrieved: "2026-10-05", confidence: "high" }],
+    ...extra,
+  });
+  const previous = [
+    base("kept", "2026-10-04T12:00:00.000Z"),
+    base("in-feed", "2026-10-05T12:00:00.000Z"),
+    base("too-old", "2026-08-01T12:00:00.000Z"),
+    base("future", "2026-10-08T12:00:00.000Z"),
+    base("gone-outlet", "2026-10-04T12:00:00.000Z", { publisher: "Verdwenen" }),
+    base("blocked", "2026-10-04T12:00:00.000Z", { url: "https://x.nl/boulevard/a" }),
+    base("no-source", "2026-10-04T12:00:00.000Z", { sources: [{ source: "src:weg", retrieved: "2026-10-05", confidence: "high" }] }),
+    base("old-plain", "2026-09-20T12:00:00.000Z", { entities: [] }),
+    base("old-scoped", "2026-09-20T12:00:00.000Z", { entities: [], scope: "politiek" }),
+    base("recent-plain", "2026-10-04T12:00:00.000Z", { entities: [] }),
+  ];
+  const kept = carryOverItems({
+    previous,
+    currentUrls: new Set(["https://x.nl/in-feed"]),
+    since: "2026-09-06T12:00:00.000Z",
+    irrelevantSince: "2026-09-29T12:00:00.000Z",
+    now,
+    publishers: new Set(["NOS"]),
+    excludeByPublisher: new Map([["NOS", [{ pattern: "/boulevard/" }]]]),
+    knownSourceIds: new Set(previous.filter((item) => item.id !== "news:no-source").flatMap((item) => item.sources.map((ref) => ref.source))),
+  });
+  assert.deepEqual(kept.map((item) => item.id), ["news:kept", "news:old-scoped", "news:recent-plain"]);
+  assert.deepEqual(carryOverItems({ previous: [null, {}, { id: "a" }], currentUrls: new Set(), since: "2026-01-01", now, publishers: new Set() }), []);
+});
+
+async function newsFixture(prefix) {
+  const dir = await mkdtemp(join(tmpdir(), prefix));
+  const dataDir = join(dir, "data");
+  await mkdir(dataDir, { recursive: true });
+  const feedsPath = join(dir, "feeds.json");
+  const topicsPath = join(dir, "topics.json");
+  await writeFile(topicsPath, JSON.stringify({ topics: [] }), "utf8");
+  return { dir, dataDir, feedsPath, topicsPath, cacheDir: join(dir, "cache"), mediaDir: join(dir, "media") };
+}
+
+function rssOf(items) {
+  return `<rss version="2.0"><channel>${items
+    .map(
+      (entry) =>
+        `<item><title>${entry.title}</title><link>${entry.url}</link><description>${entry.lede ?? ""}</description><pubDate>${entry.date}</pubDate></item>`,
+    )
+    .join("")}</channel></rss>`;
+}
+
+test("runNewsPipeline keeps items the feed no longer shows, marks politics items and drops future-dated ones", async () => {
+  const { runNewsPipeline } = await import("./news.mjs");
+  const fx = await newsFixture("nlgraph-news-carry-");
+  await writeFile(
+    fx.feedsPath,
+    JSON.stringify({
+      feeds: [
+        { url: "https://feed.test/politiek", publisher: "NOS", language: "nl", publisherKind: "publieke-omroep", license: null, enabled: true, scope: "politiek" },
+        { url: "https://feed.test/algemeen", publisher: "NOS", language: "nl", publisherKind: "publieke-omroep", license: null, enabled: true },
+      ],
+    }),
+    "utf8",
+  );
+  const run = (bodies, now) =>
+    runNewsPipeline({
+      feedsPath: fx.feedsPath,
+      aliasPath: join(fx.dir, "none.json"),
+      topicsPath: fx.topicsPath,
+      cacheDir: fx.cacheDir,
+      dataDir: fx.dataDir,
+      mediaDir: fx.mediaDir,
+      headersPath: null,
+      userAgent: "test",
+      throttleMs: 0,
+      fetchImpl: async (url) => new Response(bodies[url] ?? "<rss><channel/></rss>", { status: 200 }),
+      now,
+      log: () => {},
+    });
+
+  const first = await run(
+    {
+      "https://feed.test/politiek": rssOf([
+        { title: "Kabinet wil mobieltjes verbannen", url: "https://nos.test/a", date: "Mon, 05 Oct 2026 08:00:00 +0200" },
+        { title: "Trump dreigt met heffingen", url: "https://nos.test/b", date: "Mon, 05 Oct 2026 09:00:00 +0200", lede: "Het Witte Huis zegt dat" },
+      ]),
+      "https://feed.test/algemeen": rssOf([
+        { title: "Kattendieven opgerold", url: "https://nos.test/c", date: "Mon, 05 Oct 2026 10:00:00 +0200" },
+        { title: "Bericht uit de toekomst", url: "https://nos.test/future", date: "Fri, 09 Oct 2026 10:00:00 +0200" },
+      ]),
+    },
+    new Date("2026-10-05T12:00:00Z"),
+  );
+  assert.equal(first.stats.keptItems, 3);
+  assert.equal(first.stats.futureDated, 1);
+  const byUrl = (news) => new Map(news.map((item) => [item.url, item]));
+  const firstNews = byUrl(first.news);
+  assert.equal(firstNews.get("https://nos.test/a").scope, "politiek");
+  assert.equal("scope" in firstNews.get("https://nos.test/b"), false, "a foreign story in a politics section gets no scope");
+  assert.equal("scope" in firstNews.get("https://nos.test/c"), false);
+  assert.equal(firstNews.has("https://nos.test/future"), false);
+
+  // Next run: the feeds show only a new item; the earlier three roll off and are carried over.
+  const second = await run(
+    { "https://feed.test/algemeen": rssOf([{ title: "Nieuw bericht", url: "https://nos.test/d", date: "Tue, 06 Oct 2026 08:00:00 +0200" }]) },
+    new Date("2026-10-06T12:00:00Z"),
+  );
+  assert.equal(second.stats.freshItems, 1);
+  assert.equal(second.stats.carriedItems, 3);
+  const secondNews = byUrl(second.news);
+  assert.deepEqual([...secondNews.keys()].sort(), ["https://nos.test/a", "https://nos.test/b", "https://nos.test/c", "https://nos.test/d"]);
+  for (const url of ["https://nos.test/a", "https://nos.test/b", "https://nos.test/c"]) {
+    assert.equal(secondNews.get(url).id, firstNews.get(url).id, "a carried item keeps its id");
+  }
+  assert.equal(secondNews.get("https://nos.test/a").scope, "politiek");
+  assert.equal(second.news[0].url, "https://nos.test/d", "the newest item sorts first");
+  const written = JSON.parse(await readFile(join(fx.dataDir, "news.json"), "utf8"));
+  assert.equal(written.length, 4);
+  const sources = JSON.parse(await readFile(join(fx.dataDir, "sources.json"), "utf8"));
+  const sourceIds = new Set(sources.map((record) => record.id));
+  for (const item of written) for (const ref of item.sources) assert.ok(sourceIds.has(ref.source), `${item.url} has its source record`);
+
+  // A feed that disappears from the registry takes its outlet's carried items with it.
+  await writeFile(fx.feedsPath, JSON.stringify({ feeds: [{ url: "https://feed.test/algemeen", publisher: "Anders", enabled: true }] }), "utf8");
+  const third = await run({ "https://feed.test/algemeen": rssOf([{ title: "Los", url: "https://anders.test/e", date: "Tue, 06 Oct 2026 09:00:00 +0200" }]) }, new Date("2026-10-06T13:00:00Z"));
+  assert.deepEqual(third.news.map((item) => item.url), ["https://anders.test/e"]);
+});
+
+const NEWS_SITEMAP = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"><url><loc>https://www.rijksoverheid.nl/actueel/nieuws/2026/10/06/jetten-ontvangt-costa</loc><lastmod>2026-10-06T10:26:06.858Z</lastmod><news:news><news:publication><news:language>nl</news:language><news:name>Rijksoverheid.nl</news:name></news:publication><news:publication_date>2026-10-06T10:26:10.241Z</news:publication_date><news:title>Jetten ontvangt voorzitter &amp; gast</news:title></news:news></url><url><loc>https://www.rijksoverheid.nl/actueel/nieuws/2026/10/05/zonder-titel</loc><lastmod>2026-10-05T10:00:00.000Z</lastmod></url></urlset>`;
+
+test("parseNewsSitemap reads title, link and publication time and skips an entry without a title", () => {
+  const items = parseNewsSitemap(NEWS_SITEMAP, { publisher: "Rijksoverheid", feedUrl: "https://x/sitemap.xml" });
+  assert.equal(items.length, 1);
+  assert.deepEqual(items[0], {
+    title: "Jetten ontvangt voorzitter & gast",
+    url: "https://www.rijksoverheid.nl/actueel/nieuws/2026/10/06/jetten-ontvangt-costa",
+    publisher: "Rijksoverheid",
+    feedUrl: "https://x/sitemap.xml",
+    lede: "",
+    published: "2026-10-06T10:26:10.241Z",
+    image: null,
+  });
+  assert.deepEqual(parseNewsSitemap(undefined), []);
+});
+
+test("feedConfigsFromEnvelope carries the news-sitemap format and defaults to rss", () => {
+  const configs = feedConfigsFromEnvelope({
+    feeds: [
+      { url: "https://a.nl/sitemap.xml", publisher: "A", format: "news-sitemap" },
+      { url: "https://b.nl/rss", publisher: "B", format: "weird" },
+    ],
+  });
+  assert.deepEqual(configs.map((config) => config.format), ["news-sitemap", "rss"]);
+});
+
+test("runNewsPipeline reads a news sitemap feed of an official body", async () => {
+  const { runNewsPipeline } = await import("./news.mjs");
+  const fx = await newsFixture("nlgraph-news-sitemap-");
+  await writeFile(
+    fx.feedsPath,
+    JSON.stringify({
+      feeds: [
+        { url: "https://feed.test/sitemap.xml", publisher: "Rijksoverheid", language: "nl", publisherKind: "overheid", license: null, enabled: true, format: "news-sitemap" },
+      ],
+    }),
+    "utf8",
+  );
+  const result = await runNewsPipeline({
+    feedsPath: fx.feedsPath,
+    aliasPath: join(fx.dir, "none.json"),
+    topicsPath: fx.topicsPath,
+    cacheDir: fx.cacheDir,
+    dataDir: fx.dataDir,
+    mediaDir: fx.mediaDir,
+    headersPath: null,
+    userAgent: "test",
+    throttleMs: 0,
+    fetchImpl: async () => new Response(NEWS_SITEMAP, { status: 200 }),
+    now: new Date("2026-10-06T12:00:00Z"),
+    log: () => {},
+  });
+  assert.equal(result.news.length, 1);
+  assert.equal(result.news[0].publisherKind, "overheid");
+  assert.equal(result.news[0].publisher, "Rijksoverheid");
+  assert.equal(result.news[0].published, "2026-10-06T10:26:10.241Z");
 });

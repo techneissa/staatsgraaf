@@ -312,6 +312,8 @@ export type PublisherKind =
   | "vakmedia"
   | "overheid";
 
+export type NewsScope = "politiek";
+
 export type NewsItem = {
   id: string;
   title: string;
@@ -322,6 +324,12 @@ export type NewsItem = {
   language?: NewsLanguage;
   /** Kind of outlet. Absent means "online". */
   publisherKind?: PublisherKind;
+  /**
+   * "politiek" when the item comes from a feed or section that is wholly about Dutch politics
+   * and the text does not point abroad. Written by the news run, never by a feed; makes the
+   * item relevant by source (docs/adr/0021, amendment 06-10-2026). Absent means no scope.
+   */
+  scope?: NewsScope;
   summary: string | null;
   summaryMarkup: string | null;
   entities: string[];
