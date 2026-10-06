@@ -154,6 +154,17 @@
     "translated": "2026-10-01"
   },
   {
+    "id": "org:college-financieel-toezicht-curacao-en-sint-maarten",
+    "field": "description",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "text": "Body of the Kingdom that supervises the application of the budget standards by Curaçao and Sint Maarten; the council of ministers of the Kingdom decides on the appointment of the members (Rijkswet financieel toezicht Curaçao en Sint Maarten art. 2 and 4).",
+    "sourceHash": "74dda39bc75c",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-09-26"
+  },
+  {
     "id": "org:college-van-beroep-voor-het-bedrijfsleven",
     "field": "description",
     "language": "en",
@@ -867,6 +878,17 @@
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
+  },
+  {
+    "id": "org:interparlementair-koninkrijksoverleg",
+    "field": "description",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "text": "Consultation of four parliamentary delegations: the Staten of Aruba, of Curaçao and of Sint Maarten and the Staten-Generaal, with members of the Eerste and the Tweede Kamer.",
+    "sourceHash": "f2e5781d29a6",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-09-26"
   },
   {
     "id": "org:justis",
@@ -2187,6 +2209,17 @@
     "engine": "claude-sonnet-5-5",
     "method": "claude-code-session",
     "translated": "2026-10-01"
+  },
+  {
+    "id": "org:rijksministerraad",
+    "field": "description",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "text": "The council of ministers of the Kingdom consists of the ministers appointed by the King and the Gevolmachtigde Ministers of Aruba, Curaçao and Sint Maarten, who act on behalf of the government of their country (Statuut art. 7 and 8).",
+    "sourceHash": "e974a4e41715",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-09-26"
   },
   {
     "id": "org:rijksorganisatie-beveiliging-en-logistiek",
