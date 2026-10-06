@@ -305,10 +305,15 @@ export function layoutHall(input: HallInput): ChamberHall {
     // The regeringstafel faces the chair across the hall: an arc above the
     // aisle, the minister-president in the middle of the front row.
     const xs = points.map((point) => point.x);
-    const centre = (Math.min(...xs) + Math.max(...xs)) / 2;
+    // The regeringstafel is centred on the chair's seat, which stands in the aisle.
+    const centre = chairIndex >= 0 ? points[chairIndex].x : (Math.min(...xs) + Math.max(...xs)) / 2;
     const perRow = Math.max(6, Math.ceil(bench.length / 2));
     const top = Math.min(...points.map((point) => point.y));
-    const order = (n: number) => Array.from({ length: n }, (_, i) => (i % 2 === 0 ? i / 2 : -(i + 1) / 2));
+    // Slots run from the middle of the row outward, left before right, around
+    // the hall's middle: a row of an even count sits half a seat to each side
+    // of the aisle, not half a seat off it.
+    const order = (n: number) =>
+      Array.from({ length: n }, (_, i) => i - (n - 1) / 2).sort((a, b) => Math.abs(a) - Math.abs(b) || a - b);
     cabinetSeats = bench.map((entry, index) => {
       const row = Math.floor(index / perRow);
       const inRow = Math.min(perRow, bench.length - row * perRow);
