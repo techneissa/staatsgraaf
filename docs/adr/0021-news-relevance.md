@@ -37,3 +37,45 @@ On 01-10-2026 only 361 of 1,604 stored news items had an entity link and 643 had
 - The page ships fewer cards in its HTML, because a group builds its "Toon meer" cards only when opened. `/nieuws/` is 849 KB of HTML (164 KB gzip) against 973 KB (132 KB gzip) before; the largest day archive fell from 2.5 MB to 0.9 MB.
 - Cabinet changes need no alias edit for title aliases; they follow the tenures. Curated aliases still need a sourced record in `data/`.
 - Stored translations whose source links changed are stale and are retranslated by the next news run.
+
+## Amendment 1: relevance by source, a longer store and a wider registry (06-10-2026)
+
+- Date: 06-10-2026
+- Status: accepted. The owner reported on 06-10-2026 that the news looked a few days old and thin, although Dutch outlets publish plenty of political news every day. Freshness was a failed refresh commit (fixed in 961825d). This amendment is the second cause, scope.
+- Extends: points 1, 2 and 7 above. Points 3 to 6 stand unchanged. `research/qa/news-scope-06-10-2026.md` holds the feed tests and the numbers.
+
+### Context
+
+The 06-10-2026 data (13:32 UTC) held 1,209 items, of which 242 were relevant. Three things kept it thin:
+
+1. **The store was rebuilt from the feeds alone.** A feed lists only its newest items: NOS 20 items (six hours), NU.nl 30, AD 30. Each run wrote exactly what the feeds still showed, so an item vanished from the site when it left its feed, a day or less later. The 30-day retention window never had anything to retain. On 06-10-2026 the store held 259 items from that day and 96 from 04-10-2026.
+2. **The registry was mostly all-topic feeds**, so the political share was small, and it had no official body besides the trade outlet Binnenlands Bestuur.
+3. **Relevance needed a link.** A Kamerdebat story that names only parties or surnames ("Jetten", "Vijlbrief", "VVD", "box 3") sits behind the toggle because parties are not records and surnames are not linked (named gaps above). On 06-10-2026, 73 items of the Politiek sections and the trade outlet tested below had no entity and no topic; the ones read were Dutch political or administrative stories.
+
+### Decision
+
+1. **Relevance by source.** `isRelevantNews` has two more routes next to the entity and the topic with evidence: the item has `scope: "politiek"`, or its `publisherKind` is `overheid`. Both are derived from stored fields, so records written before this amendment stay valid.
+   - `scope` is a new optional field of a news item with one value, `politiek` (`schema/v1/news-item.schema.json`, `docs/04-data-model.md` section 10). The feed registry marks a feed or section that is wholly about Dutch politics and government with `scope: "politiek"`, and the news run copies it onto an item. A feed's content never sets it.
+   - The news run withholds `scope` from an item whose title and lead point abroad: the linker's own test (`pointsAbroad` in `pipelines/link.mjs`: a foreign country, adjective, capital or leader, and no Dutch anchor such as Nederland or Tweede Kamer). A Politiek section also carries EU and foreign politics, and precision beats recall. Such an item is relevant only through an entity or a topic, as before.
+   - **Links are untouched.** The source route adds no entity, no topic and no keyword. A linked item keeps exactly the links the linker rules of point 4 gave it; an item relevant by source and without links has none. The card shows the same "Genoemd" list as before.
+   - `publisherKind` `overheid` needs no foreign test: an official body of the Dutch state is the subject.
+2. **The status line says what it counts.** "N van M berichten gaan over of noemen de overheid" and "N of M items are about or mention the government" replace "noemen de overheid", because an item relevant by source need not name anything. The empty-state text, the noscript note and the source table label say the same. The toggle "Toon al het nieuws" is unchanged. `isRelevantNews` stays one pure function, and the page counts, the day counts, the source rows and the home band all call it, so they agree. `web/lib/news.test.mjs` also checks that the pipeline's copy of the rule (`isRelevantStored`, used to age out items) agrees with it on every combination.
+3. **The store keeps what the feeds drop.** `runNewsPipeline` reads the previous `data/news.json` and keeps an item the feeds no longer show when all of these hold: it is inside the 30-day window, its outlet is still an enabled feed in the registry, no `excludePaths` rule drops it, its time is not in the future, and its source records still exist. It keeps the id and the links it was stored with, so translation records stay valid (the translation hash covers the headline and the marked-up lead, which do not change). An item that is not relevant (point 1) is kept for 7 days only, so the large all-topic RTL feed (about 830 items a week) does not fill the store; relevant items stay for 30 days. An outlet that leaves the registry takes its stored items with it. A story an outlet retracts stays for the window; its deep link may then be dead.
+4. **A wider registry.** The 14 feeds became 29 enabled ones: Politiek sections of NOS, NU.nl, AD, de Volkskrant, Trouw and RTL Nieuws and the Politics section of DutchNews.nl, all with `scope: "politiek"` (Binnenlands Bestuur, a trade outlet for public administration, gets it too); the official feeds of Rijksoverheid.nl (news sitemap), Tweede Kamer, Autoriteit Persoonsgegevens, CPB and CBS (theme Overheid en politiek) with kind `overheid`; and EenVandaag, NPO Radio 1, Elsevier Weekblad, Joop and Follow the Money. Two feeds are switched off: the DutchNews.nl `/feed/` feed, because the outlet's robots.txt disallows `/feed/` for all agents, and Stemvee, whose newest item is from 29-10-2025. A feed whose robots.txt disallows its path is not read. The unreachable and the held-back candidates are named gaps in `pipelines/feeds.json` (Rijksoverheid RSS, Eerste Kamer, Raad van State, Rechtspraak, a Politiek feed of NRC, FD, Parool and NL Times, De Telegraaf). Several feeds may share one `publisher`.
+5. **Dates are real.** A feed that writes Amsterdam wall-clock time with a UTC label (NPO Radio 1: "15:17:00 Z" two hours ahead of the real clock) carries `datesAreAmsterdamLocal` in the registry and is read as Amsterdam time. An item dated more than an hour ahead of the run is dropped, because it is not a publication time. The card shows date and time in Europe/Amsterdam from the stored instant.
+6. **The home band.** It shows the newest 6 relevant items across outlets (it showed 3), at most 2 from one outlet, newest first. When fewer outlets have relevant news, the newest skipped items fill the band, and when none is relevant it falls back to the newest items of any kind. The cap applies to the home band only; `/nieuws/` lists every relevant item by time.
+
+### Named gaps
+
+- Parties and bare surnames are still not linked, so an item that names only them is relevant only through its source. A Dutch story in an outlet's general feed that names only a party stays behind the toggle.
+- The foreign test is a word list. "De Vietnamese politie" in a NOS item still links the Dutch Politie (the word is not on the list), and so counts as relevant. Spot checks stay part of the news QA.
+- A section feed is only as precise as the outlet's own section: a Politiek item about a Dutch topic that carries a foreign word and no Dutch anchor is left out, and an item about Brussels with no foreign word is kept.
+- `bun run translate` takes the newest items first, so a long backlog of untranslated items delays the English version of political items behind irrelevant ones. Ordering by relevance is a change in `pipelines/translate.mjs`, not made here.
+- Rijksoverheid.nl publishes news only in a Google News sitemap that lists the last two days; the RSS host `feeds.rijksoverheid.nl` no longer resolves.
+
+### Consequences
+
+- On the 06-10-2026 data (13:56 UTC, offline copy of the committed data plus one fetch of the new registry): 1,209 items stored became 1,479; relevant items 242 became 463 (371 with the new feeds and the old rule, 463 with the source rule: 73 Politiek items with no link and 19 official items). Relevant items per day for the last seven days went from 35, 26, 7, 7, 15, 26, 31 to 53, 56, 13, 13, 40, 51, 57. The store gains items from the longer window only from the second run on, so the effect of point 3 is not in these numbers.
+- Each run fetches 29 feeds with a 1,000 ms throttle: about 60 seconds, against about 40 before.
+- Items from official feeds with trigger words (kabinet, benoemd) can start the early official-source fetch of ADR 0006 and 0024 more often. The trigger only decides when the official sources are read, as before.
+- Images from the new outlets are shown only when their host is in the CSP `img-src` of `web/public/_headers`; the run leaves out the others (81 items on 06-10-2026). Adding a host is a separate decision.

@@ -20,6 +20,7 @@ import {
   relevanceCounts,
   selectRelevantNews,
 } from "./news.ts";
+import { isRelevantStored } from "../../pipelines/news.mjs";
 
 // Reference: 18 September 2026, 07:00 UTC, which is 09:00 in Nederland (CEST).
 const REFERENCE = "2026-09-18T07:00:00.000Z";
@@ -256,4 +257,64 @@ test("the recency reference is the build clock, never older than the newest item
   assert.equal(newsReferenceAt(items, new Date("2026-09-22T10:00:00.000Z")), "2026-09-22T10:00:00.000Z");
   assert.equal(newsReferenceAt(items, new Date("2026-09-10T10:00:00.000Z")), "2026-09-18T06:00:00.000Z");
   assert.equal(newsReferenceAt([], new Date("2026-09-22T10:00:00.000Z")), "2026-09-22T10:00:00.000Z");
+});
+
+test("an item from a politics section or an official body is relevant by source, with or without a link", () => {
+  assert.equal(isRelevantNews({ entities: [], topics: [], scope: "politiek" }), true);
+  assert.equal(isRelevantNews({ entities: [], topics: [], publisherKind: "overheid" }), true);
+  // A topic without evidence still proves nothing; the source is what counts.
+  assert.equal(isRelevantNews({ entities: [], topics: ["topic:zorg"], keywords: [], scope: "politiek" }), true);
+  assert.equal(isRelevantNews({ entities: [], topics: [], publisherKind: "krant" }), false);
+  assert.equal(isRelevantNews({ entities: [], topics: [], scope: undefined, publisherKind: "vakmedia" }), false);
+});
+
+test("relevanceCounts counts items relevant by source with the linked ones", () => {
+  const items = [
+    item("a", REFERENCE, { entities: ["org:x"] }),
+    item("b", REFERENCE, { scope: "politiek" }),
+    item("c", REFERENCE, { publisherKind: "overheid" }),
+    item("d", REFERENCE),
+  ];
+  assert.deepEqual(relevanceCounts(items), { total: 4, relevant: 3 });
+});
+
+test("the pipeline's stored-item rule and isRelevantNews agree on every combination", () => {
+  const entities = [[], ["org:x"]];
+  const topics = [[], ["topic:y"]];
+  const keywords = [undefined, [], ["woord"]];
+  const scopes = [undefined, "politiek"];
+  const kinds = [undefined, "krant", "overheid"];
+  for (const e of entities) for (const t of topics) for (const k of keywords) for (const sc of scopes) for (const kind of kinds) {
+    const candidate = { entities: e, topics: t, keywords: k, scope: sc, publisherKind: kind };
+    assert.equal(isRelevantNews(candidate), isRelevantStored(candidate), JSON.stringify(candidate));
+  }
+});
+
+test("the home band takes at most the per-outlet cap from one outlet and keeps time order", () => {
+  const from = (id, publisher, published) => item(id, published, { publisher, entities: ["org:x"] });
+  const items = [
+    from("rtl-1", "RTL Nieuws", "2026-09-18T07:00:00.000Z"),
+    from("rtl-2", "RTL Nieuws", "2026-09-18T06:55:00.000Z"),
+    from("rtl-3", "RTL Nieuws", "2026-09-18T06:50:00.000Z"),
+    from("nos-1", "NOS", "2026-09-18T06:40:00.000Z"),
+    from("nos-2", "NOS", "2026-09-18T06:30:00.000Z"),
+    from("nos-3", "NOS", "2026-09-18T06:20:00.000Z"),
+    from("nrc-1", "NRC", "2026-09-18T06:10:00.000Z"),
+  ];
+  const band = selectRelevantNews(items, 5, { perOutletCap: 2 }).map((entry) => entry.id);
+  assert.deepEqual(band, ["news:rtl-1", "news:rtl-2", "news:nos-1", "news:nos-2", "news:nrc-1"]);
+  // Without a cap the newest outlet crowds the band.
+  assert.deepEqual(selectRelevantNews(items, 3).map((entry) => entry.id), ["news:rtl-1", "news:rtl-2", "news:rtl-3"]);
+});
+
+test("the home band fills up from capped items when too few outlets have news", () => {
+  const items = ["a", "b", "c", "d"].map((id, index) =>
+    item(id, `2026-09-18T0${6 - index}:00:00.000Z`, { publisher: "NOS", scope: "politiek" }),
+  );
+  assert.deepEqual(selectRelevantNews(items, 3, { perOutletCap: 1 }).map((entry) => entry.id), ["news:a", "news:b", "news:c"]);
+});
+
+test("the home band only caps relevant items and still falls back to all items when none is relevant", () => {
+  const plain = [item("p1", "2026-09-18T07:00:00.000Z"), item("p2", "2026-09-18T06:00:00.000Z"), item("p3", "2026-09-18T05:00:00.000Z")];
+  assert.deepEqual(selectRelevantNews(plain, 3, { perOutletCap: 1 }).map((entry) => entry.id), ["news:p1", "news:p2", "news:p3"]);
 });

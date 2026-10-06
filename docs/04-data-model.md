@@ -236,6 +236,7 @@ The dated stream that makes the product feel alive. Each change is derived from 
   "published": "2026-09-16T07:12:00+02:00",
   "language": "nl",
   "publisherKind": "publieke-omroep",
+  "scope": "politiek",
   "summary": "een of twee originele zinnen",
   "summaryMarkup": "De <entity id=\"org:...\">Belastingdienst</entity> ...",
   "entities": ["org:...", "person:..."],
@@ -246,7 +247,7 @@ The dated stream that makes the product feel alive. Each change is derived from 
 }
 ```
 
-`language` is the language the outlet published in, `nl` or `en`; absent means `nl`. Nothing is machine-translated. `publisherKind` is the kind of outlet from the feed registry `pipelines/feeds.json`: `publieke-omroep`, `krant`, `commerciele-omroep`, `online`, `video`, `nieuwsbrief`, `blog`, `vakmedia`, or `overheid`; absent means `online`. `keywords` are the alias strings the linker matched, in match order, so a reader can see why an entity was linked. All three were added on 18-09-2026 as optional fields under section 18; older records without them stay valid.
+`language` is the language the outlet published in, `nl` or `en`; absent means `nl`. Nothing is machine-translated. `publisherKind` is the kind of outlet from the feed registry `pipelines/feeds.json`: `publieke-omroep`, `krant`, `commerciele-omroep`, `online`, `video`, `nieuwsbrief`, `blog`, `vakmedia`, or `overheid`; absent means `online`. `keywords` are the alias strings the linker matched, in match order, so a reader can see why an entity was linked. All three were added on 18-09-2026 as optional fields under section 18; older records without them stay valid. `scope` is optional and has one value, `politiek`: the news run sets it when the item comes from a feed or section that is wholly about Dutch politics and government (a `scope: "politiek"` entry in the feed registry) and its text does not point abroad. It makes the item relevant by source (`docs/adr/0021-news-relevance.md`, amendment 06-10-2026); a record with `publisherKind` `overheid` is relevant by source without it. `scope` is never a link, and nothing in a feed's content sets it; only our registry does. Absent means no scope, and records written before 06-10-2026 stay valid.
 
 The summary markup is our own, a plain tag with an entity id, so the frontend can render inline links from structured markup of our own.
 

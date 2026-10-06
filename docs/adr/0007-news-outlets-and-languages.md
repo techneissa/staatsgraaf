@@ -4,6 +4,7 @@
 - Status: accepted. The owner decided the two open questions on 18-09-2026: a full bilingual news section now, machine translation in a later phase.
 - Supersedes: none. Extends `docs/09-content-and-ai-policy.md` section 5.
 - Amended 05-10-2026: entity links are now filtered for relevance and precision, section blocklists exist, and items without a real mention sit behind a toggle (`docs/adr/0021-news-relevance.md`).
+- Amended 06-10-2026: points 1, 6, 7 and 8 changed in fact. The registry grew from 14 to 29 enabled feeds, with Politiek sections and official bodies; an official body and a politics section count as relevant by source; the store keeps items the feeds drop (`docs/adr/0021-news-relevance.md`, amendment 1).
 - Amended: point 4 is superseded by `docs/adr/0016-news-machine-translation.md` (24-09-2026). Headlines and leads are now machine translated, and the news run is hourly during the Dutch day (ADR 0016).
 
 ## Context
@@ -33,3 +34,13 @@ Constraints that shape the answer: the site is a static export with no runtime f
 ## Verification recorded at decision time
 
 See `research/qa/news-outlets-18-09-2026.md` for the registry verification table and the per-outlet, per-kind, and per-language counts, and `CHANGELOG.md` for the shipped routes.
+
+## Amendment 1 (06-10-2026): the registry, the store and the cadence
+
+The owner reported on 06-10-2026 that the news was a few days old and thin. The facts below replace what points 1, 6, 7 and 8 stated. The relevance rule and its numbers are in `docs/adr/0021-news-relevance.md`, amendment 1; the feed tests are in `research/qa/news-scope-06-10-2026.md`.
+
+- **Point 1, the registry.** An entry may carry `scope: "politiek"` (a feed or section wholly about Dutch politics and government), `datesAreAmsterdamLocal` (Amsterdam wall-clock time under a UTC label) and `format: "news-sitemap"` (a Google News sitemap instead of RSS). Several entries may share one publisher. The registry lists 31 feeds, 29 enabled. A feed that cannot be fetched, is stale, or that robots.txt disallows is disabled with its status, or is a named gap in `gaps`. A feed whose robots.txt disallows its path for all agents is not read: DutchNews.nl `/feed/` (`Disallow: /feed/`, 06-10-2026) is off and its Politics section feed replaces it.
+- **Point 2, kinds.** `overheid` now has five feeds: Rijksoverheid.nl (news sitemap, CC0), Tweede Kamer, Autoriteit Persoonsgegevens, CPB (CC BY 3.0 NL) and CBS (CC BY 4.0). An item of kind `overheid` is relevant by source. It still never replaces the official page as the source of a tenure.
+- **Point 6, cadence.** The refresh runs every 3 hours (`15 */3 * * *`, ADR 0004 amendment of 05-10-2026), not every six hours. Each run keeps the items the feeds no longer show, for 30 days (7 days for items that are not relevant), so a feed that holds 20 items no longer limits the site to its last six hours.
+- **Point 7, what ships.** Unchanged: headline, deep link, time, and the lead the feed supplies. Some of the new outlets supply no lead (de Volkskrant, Trouw, the Rijksoverheid sitemap); those cards show the headline only. Images come only from hosts in the CSP `img-src`.
+- **Point 8, alternative outlets.** Stemvee is off (newest item 29-10-2025). Joop (BNNVARA), Follow the Money, Elsevier Weekblad, EenVandaag and NPO Radio 1 joined after a live fetch on 06-10-2026. De Telegraaf is a named gap: its feed answers, but its robots.txt reserves all rights against text and data mining and automatic data collection. NRC, FD and RTL Nieuws carry the same kind of reservation and stay in the registry until the owner decides.

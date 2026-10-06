@@ -59,7 +59,13 @@ export function buildSourceRows(
   licenseFor?: (item: NewsItem) => string[],
 ): { rows: NewsSourceRow[]; gaps: NewsFeedGap[] } {
   const known = outlets(items, licenseFor);
-  const byFeed = new Map(feeds.map((feed) => [feed.publisher, feed]));
+  // An outlet can have several feeds (NOS algemeen and NOS politiek): the row shows the first
+  // enabled one, or the first at all when every feed of the outlet is disabled.
+  const byFeed = new Map<string, NewsFeed>();
+  for (const feed of feeds) {
+    const current = byFeed.get(feed.publisher);
+    if (current === undefined || (!current.enabled && feed.enabled)) byFeed.set(feed.publisher, feed);
+  }
   const rows: NewsSourceRow[] = known.map((outlet) => ({
     publisher: outlet.publisher,
     kind: outlet.kind,

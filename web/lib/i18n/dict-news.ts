@@ -31,11 +31,11 @@ export const NEWS_DICT = {
   newsEntityAllLink: { nl: "Alle berichten over {name}", en: "All items about {name}" },
   // Relevance filter (docs/adr/0021): items that name nothing in the dataset sit behind a toggle.
   newsShowAll: { nl: "Toon al het nieuws", en: "Show all news" },
-  newsRelevantCount: { nl: "{n} van {total} berichten noemen de overheid", en: "{n} of {total} items mention the government" },
-  newsRelevantEmptyTitle: { nl: "Geen bericht noemt de overheid", en: "No item mentions the government" },
+  newsRelevantCount: { nl: "{n} van {total} berichten gaan over of noemen de overheid", en: "{n} of {total} items are about or mention the government" },
+  newsRelevantEmptyTitle: { nl: "Geen bericht gaat over of noemt de overheid", en: "No item is about or mentions the government" },
   newsRelevantEmptyDescription: {
-    nl: "In deze selectie noemt geen bericht een persoon, organisatie, positie of onderwerp uit de dataset. Toon al het nieuws om alles te zien.",
-    en: "In this selection no item names a person, organization, position or topic from the dataset. Show all news to see everything.",
+    nl: "In deze selectie noemt geen bericht een persoon, organisatie, positie of onderwerp uit de dataset en komt er geen uit een politiekrubriek of overheidsbron. Toon al het nieuws om alles te zien.",
+    en: "In this selection no item names a person, organization, position or topic from the dataset, and none comes from a politics section or an official body. Show all news to see everything.",
   },
 
   // Filter bar, result count, translation disclosure, day windows (news follow-up, 05-10-2026)
@@ -67,7 +67,7 @@ export const NEWS_DICT = {
   newsSourcesWebsite: { nl: "Website van {name}", en: "Website of {name}" },
   newsSourcesViewItems: { nl: "Berichten van {name}", en: "Items from {name}" },
   newsSourcesCountLabel: { nl: "Berichten", en: "Items" },
-  newsSourcesRelevantLabel: { nl: "Noemen de overheid", en: "Mention the government" },
+  newsSourcesRelevantLabel: { nl: "Gaan over of noemen de overheid", en: "About or mention the government" },
   newsSourcesLatestLabel: { nl: "Laatste bericht", en: "Latest item" },
   newsSourcesLicenseLabel: { nl: "Licentie", en: "Licence" },
   newsSourcesFeedLabel: { nl: "Nieuwsfeed", en: "News feed" },

@@ -277,6 +277,17 @@ function resolveMentions(found, { haystack, pointsAbroad, governmentOutlet }) {
   });
 }
 
+/**
+ * True when the text is about another state: it names a foreign country, adjective,
+ * capital or leader and carries no Dutch anchor. The same test the linker uses to drop
+ * generic institutions, exported so the news run can apply it to a politics section
+ * (docs/adr/0021, amendment 06-10-2026).
+ */
+export function pointsAbroad(text) {
+  const haystack = String(text ?? "");
+  return FOREIGN_CONTEXT.test(haystack) && !DUTCH_CONTEXT.test(haystack);
+}
+
 export function linkArticle({ title = "", text = "", gazetteer = [], topicIndex = [], governmentOutlet = false, publisher = "" }) {
   const haystack = [title, text].filter(Boolean).join(" \u2014 ");
   const normalized = normalizeText(haystack);
@@ -299,11 +310,11 @@ export function linkArticle({ title = "", text = "", gazetteer = [], topicIndex 
     found.push({ entry, index, length: match[0].length, surface: match[0] });
   }
 
-  const pointsAbroad = FOREIGN_CONTEXT.test(haystack) && !DUTCH_CONTEXT.test(haystack);
+  const abroad = pointsAbroad(haystack);
   const ownName = normalizeText(publisher);
   // An outlet is never a mention of itself: "NOS" in a NOS item is the byline, not the body.
   const notOwn = ownName === "" ? found : found.filter(({ entry }) => entry.key !== ownName);
-  const matches = resolveMentions(notOwn, { haystack, pointsAbroad, governmentOutlet });
+  const matches = resolveMentions(notOwn, { haystack, pointsAbroad: abroad, governmentOutlet });
 
   matches.sort((a, b) => a.index - b.index || b.length - a.length || a.entry.alias.localeCompare(b.entry.alias));
 
