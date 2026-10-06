@@ -527,7 +527,8 @@ export function buildWheel(
   };
   const kingdomWide = koninkrijk.some((node) => landOf(node) === KINGDOM);
   const lands = kingdomWide ? [KINGDOM, ...landNames] : landNames;
-  split(top, top + Math.PI * 2 - GAP, lands.map((land) => (land === KINGDOM ? 0.5 : 1))).forEach(([a0, a1], index) => {
+  // The ring closes on itself where it starts: leave a visible seam, or the last land and the first cell run into each other.
+  split(top, top + Math.PI * 2 - deg(3), lands.map((land) => (land === KINGDOM ? 0.5 : 1))).forEach(([a0, a1], index) => {
     const land = lands[index];
     const list = koninkrijk.filter((node) => landOf(node) === land);
     cells.push({
