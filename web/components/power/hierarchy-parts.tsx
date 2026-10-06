@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useId, useState, type CSSProperties, type ReactNode } from "react";
 import type { IconNode } from "lucide";
 import { Building2, Factory, Globe, GraduationCap, HeartPulse, Landmark, Newspaper, Scale, Shield, Users, Waves, Wheat, Coins } from "lucide";
 import { Avatar } from "@/components/avatar";
@@ -249,11 +249,56 @@ export const MOTION_CSS = `
 .hv-draw { stroke-dasharray: var(--len) var(--len); animation: hv-draw 480ms var(--t-ease-decelerate) both; }
 .hv-move { animation: hv-move 420ms var(--t-ease-decelerate) both; }
 .hv-lift { transition: transform var(--t-duration-fast) var(--t-ease-standard), opacity var(--t-duration-base) var(--t-ease-standard); }
+.hv-brush { stroke-opacity: .2; stroke-width: 4px; stroke-linejoin: round; paint-order: stroke; transition: stroke-width 150ms var(--t-ease-standard), stroke-opacity 150ms var(--t-ease-standard); }
+.hv-brush[data-lit="true"] { stroke-opacity: .38; stroke-width: 8px; }
 @media (prefers-reduced-motion: reduce) {
   .hv-pop, .hv-fade, .hv-draw, .hv-move { animation: none; }
   .hv-draw { stroke-dasharray: none; }
-  .hv-lift { transition: none; }
+  .hv-lift, .hv-brush { transition: none; }
 }`;
+
+/**
+ * One line of the chart's line language (lib/sketch-line.ts): the brush
+ * outline filled in the group's colour, with a soft halo of the same colour,
+ * drawn in along its centreline by a mask (the outline is a closed path, which
+ * stroke-dashoffset cannot draw). `lit` lifts the halo for hover and focus.
+ */
+export function SketchLine({
+  d,
+  centre,
+  length,
+  widest,
+  bounds,
+  fill,
+  lit = false,
+  delayMs = 0,
+}: {
+  d: string;
+  centre: string;
+  length: number;
+  widest: number;
+  bounds: { x: number; y: number; w: number; h: number };
+  fill: string;
+  lit?: boolean;
+  delayMs?: number;
+}) {
+  const id = useId().replace(/:/g, "");
+  return (
+    <>
+      <mask id={id} maskUnits="userSpaceOnUse" x={bounds.x - 4} y={bounds.y - 4} width={bounds.w + 8} height={bounds.h + 8}>
+        <path
+          d={centre}
+          fill="none"
+          stroke="#fff"
+          strokeWidth={widest + 12}
+          className="hv-draw"
+          style={{ ["--len" as string]: length + 4, animationDelay: `${Math.round(delayMs)}ms` }}
+        />
+      </mask>
+      <path d={d} fill={fill} stroke={fill} mask={`url(#${id})`} className="hv-brush" data-lit={lit ? "true" : "false"} />
+    </>
+  );
+}
 
 /**
  * Where the last person picked on a canvas sat, so the next focus can move

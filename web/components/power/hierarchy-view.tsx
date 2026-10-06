@@ -30,6 +30,7 @@ import {
   PersonRow,
   RingBadge,
   RingPortrait,
+  SketchLine,
   SourceIconLink,
   hubColor,
   hubName,
@@ -463,20 +464,13 @@ function OrgChart({
           const start = groupDelay(placed.group);
           return (
             <g key={placed.id} className="hv-lift" style={{ opacity: dimHub(placed.id) ? 0.4 : 1 }}>
-              <path d={spoke.d} fill="none" stroke={color} strokeWidth={stroke.hubBar} className="hv-draw" style={{ ["--len" as string]: spoke.length, ...delay(start - 120) }} />
-              {spoke.fillets ? <path d={spoke.fillets} fill={color} className="hv-fade" style={delay(start + 120)} /> : null}
+              <SketchLine {...spoke} fill={color} lit={hot === placed.id} delayMs={start - 120} />
               {layout.members
                 .filter((member) => member.hub === placed.id)
                 .map((member) => {
                   const bar = connectors.members.get(memberKey(member.hub, member.id));
                   if (!bar) return null;
-                  const at = start + 140 + member.index * 40;
-                  return (
-                    <g key={member.id}>
-                      <path d={bar.d} fill="none" stroke={color} strokeWidth={stroke.memberBar} className="hv-draw" style={{ ["--len" as string]: bar.length, ...delay(at) }} />
-                      {bar.fillets ? <path d={bar.fillets} fill={color} className="hv-fade" style={delay(at + 200)} /> : null}
-                    </g>
-                  );
+                  return <SketchLine key={member.id} {...bar} fill={color} lit={hot === placed.id} delayMs={start + 140 + member.index * 40} />;
                 })}
             </g>
           );
@@ -643,6 +637,8 @@ function OrgChart({
               onClick={pick}
               onPointerEnter={() => setHot(hub.id)}
               onPointerLeave={() => setHot((current) => (current === hub.id ? null : current))}
+              onFocus={() => setHot(hub.id)}
+              onBlur={() => setHot((current) => (current === hub.id ? null : current))}
               title={tip}
               aria-label={[person.name, role, info.party].filter(Boolean).join(", ")}
               className="hv-pop absolute flex items-center justify-center rounded-pill"

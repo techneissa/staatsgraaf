@@ -7,7 +7,8 @@ import { LucideIcon } from "@/components/icons/lucide-icon";
 import { Morph } from "@/components/icons/morph";
 import { useT } from "@/components/i18n/use-t";
 import { partyByDataset } from "@/lib/parties";
-import { edgePoint, focusSidesFits, layoutFocusSides, FOCUS_CHAIN_MAX, type Circle } from "@/lib/hierarchy-layout";
+import { focusSidesFits, layoutFocusSides, FOCUS_CHAIN_MAX, type Circle } from "@/lib/hierarchy-layout";
+import { sketchBetween } from "@/lib/sketch-line";
 import { focusGroups, type FocusGroup, type HierarchyBundle, type HierarchyHub, type HierarchySource } from "@/lib/hierarchy";
 import type { EntityInfo, GroupView } from "./model";
 import { PartyChip } from "./parts";
@@ -19,6 +20,7 @@ import {
   KIND_COLOR,
   RingBadge,
   RingPortrait,
+  SketchLine,
   SourceIconLink,
   hubColor,
   hubName,
@@ -241,6 +243,46 @@ function FocusWide({
     : {};
   const base = tap ? 260 : 120;
   const outerEdge = layout.outerRing.r + layout.outerRing.width / 2;
+  // The brush strokes: a bar from the centre's ring to each head, a chain between the circles after it.
+  const brushes = useMemo(
+    () =>
+      layout.sides.map((side, index) => {
+        const key = sides[index].group.key;
+        const ring = { x: centre.x, y: centre.y, r: outerEdge };
+        const bar = sketchBetween(ring, side.head, {
+          seed: `${focus.id}|bar|${key}`,
+          widthA: stroke.bar,
+          widthB: stroke.bar * 0.6,
+          // The bar starts under the ring's band and ends under the head's outline.
+          insetA: layout.outerRing.width * 0.9,
+          insetB: stroke.head * 0.8,
+          flareA: 0.14,
+          flareB: 0.22,
+          flareLength: Math.max(10, stroke.bar * 1.2),
+          bowMax: 7,
+          bowFrac: 0.045,
+        });
+        const chain = side.chain.map((node) =>
+          sketchBetween(node.from, node, {
+            seed: `${focus.id}|${sides[index].group.members[node.index]}`,
+            widthA: stroke.chain * 1.15,
+            widthB: stroke.chain * 0.78,
+            insetA: node.from === side.head ? stroke.head * 0.8 : stroke.member * 0.8,
+            insetB: stroke.member * 0.8,
+            flareA: 0.2,
+            flareB: 0.3,
+            flareLength: 10,
+            bowMax: 9,
+            bowFrac: 0.07,
+            // Bow toward the centre column: the labels sit on the outer side.
+            bowToward: centre,
+          }),
+        );
+        return { bar, chain };
+      }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [layout, focus.id, sides.map((entry) => entry.group.key).join("|")],
+  );
 
   const pick = (id: string, circle: Circle) => {
     rememberTap(id, circle);
@@ -285,6 +327,19 @@ function FocusWide({
               </linearGradient>
             ))}
           </defs>
+          {layout.sides.map((side, index) => {
+            const { bar, chain } = brushes[index];
+            return (
+              <g key={`brush${index}`}>
+                <SketchLine {...bar} fill={`url(#${gradientId}-${index})`} delayMs={base} />
+                {side.chain.map((node, nodeIndex) => {
+                  const id = sides[index].group.members[node.index];
+                  const lit = active === id || (anyLit && highlighted.has(id));
+                  return <SketchLine key={`c${index}-${node.index}`} {...chain[nodeIndex]} fill={sides[index].color} lit={lit} delayMs={base + 260 + node.index * 70} />;
+                })}
+              </g>
+            );
+          })}
           <circle
             cx={centre.x}
             cy={centre.y}
@@ -305,41 +360,6 @@ function FocusWide({
             className="hv-move"
             style={{ ...move, transformOrigin: `${centre.x}px ${centre.y}px` }}
           />
-          {layout.sides.map((side, index) => (
-            <line
-              key={`bar${index}`}
-              x1={side.bar.a.x}
-              y1={side.bar.a.y}
-              x2={side.bar.b.x}
-              y2={side.bar.b.y}
-              stroke={`url(#${gradientId}-${index})`}
-              strokeWidth={stroke.bar}
-              className="hv-draw"
-              style={{ ["--len" as string]: Math.max(1, Math.round(Math.abs(side.bar.b.x - side.bar.a.x))), ...delay(base) }}
-            />
-          ))}
-          {layout.sides.map((side, index) =>
-            side.chain.map((node) => {
-              const a = edgePoint(node.from, node, node.from.r);
-              const b = edgePoint(node, node.from, node.r);
-              const id = sides[index].group.members[node.index];
-              const lit = active === id || (anyLit && highlighted.has(id));
-              return (
-                <line
-                  key={`c${index}-${node.index}`}
-                  x1={a.x}
-                  y1={a.y}
-                  x2={b.x}
-                  y2={b.y}
-                  stroke={sides[index].color}
-                  strokeWidth={lit ? stroke.chain + 1.5 : stroke.chain}
-                  strokeLinecap="round"
-                  className="hv-draw"
-                  style={{ ["--len" as string]: Math.max(1, Math.round(Math.hypot(b.x - a.x, b.y - a.y))), ...delay(base + 260 + node.index * 70) }}
-                />
-              );
-            }),
-          )}
         </svg>
 
         <div

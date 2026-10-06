@@ -1,20 +1,28 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { chartConnectors, distanceToPolyline, filletPath, memberKey, pointAt, segmentSpans, spokeCurve } from "./hierarchy-connectors.ts";
+import { chartConnectors, distanceToPolyline, memberKey, pointAt, segmentSpans, spokeCurve } from "./hierarchy-connectors.ts";
 import { layoutOrgChart } from "./hierarchy-layout.ts";
 
 const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
 const nums = (d) => (d.match(/-?\d+(?:\.\d+)?/g) ?? []).map(Number);
 
-test("a spoke on the radius is a straight line from the ring to under the hub's outline", () => {
+test("a spoke on the radius is a gently bowed line from the ring to under the hub's outline", () => {
   const centre = { x: 100, y: 100 };
   const hub = { x: 100, y: 20, r: 20 };
   const spoke = spokeCurve({ centre, ringOuter: 50, angle: -Math.PI / 2, hub, inset: 4 });
-  assert.match(spoke.d, /^M[\d. ]+ L[\d. ]+$/);
+  assert.match(spoke.d, /^M[\d. -]+ C[\d. -]+$/);
   const [first, last] = [spoke.points[0], spoke.points[spoke.points.length - 1]];
   assert.ok(Math.abs(dist(centre, first) - 49.4) < 0.2, "starts a hair inside the ring's edge");
   assert.ok(Math.abs(dist(hub, last) - 16) < 0.2, "ends inside the outline of the hub");
+  // The bow is small: the line never strays more than 5 px from the chord.
+  for (const p of spoke.points) assert.ok(Math.abs(p.x - 100) <= 5.5, `bow stays small (${p.x})`);
+});
+
+test("a spoke gives the same line for the same input, and another for another seed", () => {
+  const args = { centre: { x: 0, y: 0 }, ringOuter: 60, angle: -1.2, hub: { x: 100, y: -140, r: 24 }, inset: 3 };
+  assert.deepEqual(spokeCurve(args), spokeCurve({ ...args }));
+  assert.notEqual(spokeCurve({ ...args, angle: -Math.PI / 2, hub: { x: 0, y: -140, r: 24 }, seed: "a" }).d, spokeCurve({ ...args, angle: -Math.PI / 2, hub: { x: 0, y: -140, r: 24 }, seed: "b" }).d);
 });
 
 test("a spoke off the radius leaves the ring square and arrives heading for the hub's centre", () => {
@@ -22,43 +30,34 @@ test("a spoke off the radius leaves the ring square and arrives heading for the 
   const hub = { x: 160, y: -120, r: 24 };
   const angle = -Math.PI / 2 + 0.2;
   const spoke = spokeCurve({ centre, ringOuter: 60, angle, hub, inset: 3 });
-  assert.match(spoke.d, /^M[\d. -]+ L[\d. -]+ C[\d. -]+ L[\d. -]+$/);
+  assert.match(spoke.d, /^M[\d. -]+ C[\d. -]+$/);
   const p = spoke.points;
   // The first stretch runs along the radius.
   const first = { x: p[1].x - p[0].x, y: p[1].y - p[0].y };
   const along = (first.x * Math.cos(angle) + first.y * Math.sin(angle)) / Math.hypot(first.x, first.y);
-  assert.ok(along > 0.98, `leaves radially (${along})`);
+  assert.ok(along > 0.97, `leaves radially (${along})`);
   // The last stretch points at the hub's centre.
   const end = p[p.length - 1];
   const prev = p[p.length - 2];
   const heading = { x: end.x - prev.x, y: end.y - prev.y };
   const toCentre = { x: hub.x - end.x, y: hub.y - end.y };
   const cos = (heading.x * toCentre.x + heading.y * toCentre.y) / (Math.hypot(heading.x, heading.y) * Math.hypot(toCentre.x, toCentre.y));
-  assert.ok(cos > 0.995, `arrives toward the centre (${cos})`);
+  assert.ok(cos > 0.98, `arrives toward the centre (${cos})`);
   assert.ok(Math.abs(spoke.length - p.slice(1).reduce((sum, q, i) => sum + dist(q, p[i]), 0)) < 1);
   assert.deepEqual(pointAt(p, 0), p[0]);
   assert.ok(dist(pointAt(p, 1), p[p.length - 1]) < 1e-9);
   assert.ok(distanceToPolyline(pointAt(p, 0.5), p) < 1e-9);
 });
 
-test("fillets fill the cusp: tangent to the circle and to the stroke, one sliver per side", () => {
-  const circle = { x: 0, y: 0, r: 50 };
-  const d = filletPath(circle, { x: 1, y: 0 }, 8, 4);
-  const parts = d.split("Z").map((part) => part.trim()).filter(Boolean);
-  assert.equal(parts.length, 2);
-  for (const part of parts) {
-    const [x0, y0, , , , , , x1, y1, , , , , , x2, y2] = nums(part);
-    // Both ends on the circle (tucked 0.6 px inside it), the third point on the stroke's edge.
-    assert.ok(Math.abs(Math.hypot(x0, y0) - 49.4) < 0.15);
-    assert.ok(Math.abs(Math.hypot(x1, y1) - 49.4) < 0.15);
-    assert.ok(Math.abs(Math.abs(y2) - 4) < 0.15, "ends on the stroke's side");
-    assert.ok(x2 > 49, "outside the circle");
-    // The reach beyond the stroke's own edge is the fillet radius, no more.
-    assert.ok(Math.abs(y1) <= 4 + 4 + 0.2);
+test("a connector is a closed brush outline with a centreline to reveal it by", () => {
+  const layout = layoutOrgChart(chamber(), { width: 820, height: 560, ring: "weight" });
+  const connectors = chartConnectors(layout);
+  for (const connector of [...connectors.hubs.values(), ...connectors.members.values()]) {
+    assert.match(connector.d, /^M[\d. -]+(?: [QLC][\d. -]+)+ Z$/);
+    assert.ok(!/NaN|Infinity/.test(connector.d + connector.centre));
+    assert.ok(connector.widest > 0 && connector.length >= 1);
+    assert.ok(connector.bounds.w > 0 && connector.bounds.h > 0);
   }
-  // No room on one side: only the other side gets a fillet; no room at all: none.
-  assert.equal(filletPath(circle, { x: 1, y: 0 }, 8, 4, [0.4, 9]).split("Z").filter((part) => part.trim()).length, 1);
-  assert.equal(filletPath(circle, { x: 1, y: 0 }, 8, 4, [0, 0]), "");
 });
 
 test("segment spans follow the weights, with a floor, and always add up", () => {

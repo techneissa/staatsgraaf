@@ -17,7 +17,7 @@ import { SeatLoupe } from "./seat-loupe";
 import { WHEEL_LINK_STYLE } from "./wheel-styles";
 
 /** Room kept at a part's outer edge for its curved name, inside a group of several parts. */
-const TITLE_BAND = 15;
+const TITLE_BAND = 17;
 /** The largest step between two marks: one size everywhere, so sparse cells do not blow their shapes up. */
 const MARK_PITCH = 24;
 const TITLE = 8.5;
@@ -179,8 +179,9 @@ function cellTitle(cell: WheelCell, turn: number) {
   const mid = (cell.a0 + cell.a1) / 2;
   const lower = Math.sin(mid + turn) > 0.1;
   // Upper half: baseline inside the outer edge, text rising outward. Lower half: baseline at the edge, text hanging inward.
-  const radius = lower ? cell.r1 - 3.5 : cell.r1 - 10.5;
-  const length = (cell.a1 - cell.a0) * radius - 8;
+  // Clear of the outline by a few units, so the letters never touch the border.
+  const radius = lower ? cell.r1 - 6.5 : cell.r1 - 13.5;
+  const length = (cell.a1 - cell.a0) * radius - 10;
   const text = cell.count !== null ? `${cell.title} · ${cell.count}` : cell.title;
   for (const candidate of [text, cell.title]) {
     const size = Math.min(TITLE, length / (candidate.length * CHAR));
