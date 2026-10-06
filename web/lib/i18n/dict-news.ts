@@ -249,9 +249,6 @@ export const NEWS_DICT = {
     nl: "Begrote uitgaven per ministerie in {year}, van groot naar klein",
     en: "Budgeted spending per ministry in {year}, largest first",
   },
-  budgetBarsOther: { nl: "Overige {count} ministeries", en: "{count} other ministries" },
-  budgetBarsShowAll: { nl: "Toon alle ministeries", en: "Show all ministries" },
-  budgetBarsShowLess: { nl: "Toon minder", en: "Show fewer" },
   budgetBarsNote: {
     nl: "De balk toont de begrote uitgaven ten opzichte van het grootste ministerie; het percentage is het aandeel in de som van de ministeries. Het pijltje vergelijkt met het jaar ervoor.",
     en: "The bar shows budgeted spending relative to the largest ministry; the percentage is the share of the ministries' combined spending. The arrow compares with the year before.",

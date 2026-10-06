@@ -23,8 +23,11 @@ export type Selection =
   | { kind: "person"; id: string; surface: SelectionSurface; seat?: { chamberId: string; fractieIndex: number } }
   /** A block of dots on the graph that stands for several bodies. */
   | { kind: "cluster"; id: string; surface: "graph" }
-  /** A party group in one of the Kamers. */
-  | { kind: "fractie"; chamberId: string; index: number; surface: "graph" }
+  /**
+   * A party group in one of the Kamers. `slug` is set when the pick is a party
+   * page's own entity (`/partijen/<slug>/`), so it belongs to that page.
+   */
+  | { kind: "fractie"; chamberId: string; index: number; surface: "graph"; slug?: string }
   /** A whole sector of the graph. */
   | { kind: "sector"; id: string; surface: "graph" }
   /** A news item on the power map. */
@@ -52,17 +55,31 @@ export type SelectionAction =
 /** The way back keeps this many steps; older steps fall off. */
 export const SELECTION_HISTORY_LIMIT = 30;
 
+/** The entity a page stands for, read from its path: a body (its page or its budget page), a person or a party. */
+export type PathEntity = { kind: "org" | "person" | "party"; slug: string };
+
+export function pathEntity(pathname: string | null): PathEntity | null {
+  if (!pathname) return null;
+  const parts = pathname.split("/").filter(Boolean);
+  if (parts.length < 2) return null;
+  if (parts[0] === "organisaties" || parts[0] === "begroting") return { kind: "org", slug: parts[1] };
+  if (parts[0] === "personen") return { kind: "person", slug: parts[1] };
+  if (parts[0] === "partijen") return { kind: "party", slug: parts[1] };
+  return null;
+}
+
 /**
- * Whether a selection is the page's own entity (the organisation page picks its
- * body, a person page its person). That pick is the page itself: it never goes
- * in the URL and it does not survive a move to another page.
+ * Whether a selection is the page's own entity (the organisation page and the
+ * ministry's budget page pick the body, a person page its person, a party page
+ * its fractie). That pick is the page itself: it never goes in the URL and it
+ * does not survive a move to another page.
  */
 export function selectionOwnsPath(selection: Selection | null, pathname: string | null): boolean {
-  if (selection === null || !pathname) return false;
-  const parts = pathname.split("/").filter(Boolean);
-  if (parts.length < 2) return false;
-  if (selection.kind === "org") return parts[0] === "organisaties" && selection.id === `org:${parts[1]}`;
-  if (selection.kind === "person") return parts[0] === "personen" && selection.id === `person:${parts[1]}`;
+  const entity = pathEntity(pathname);
+  if (selection === null || entity === null) return false;
+  if (selection.kind === "org") return entity.kind === "org" && selection.id === `org:${entity.slug}`;
+  if (selection.kind === "person") return entity.kind === "person" && selection.id === `person:${entity.slug}`;
+  if (selection.kind === "fractie") return entity.kind === "party" && selection.slug === entity.slug;
   return false;
 }
 

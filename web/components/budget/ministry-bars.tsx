@@ -1,18 +1,12 @@
 import Link from "next/link";
-import { Ellipsis } from "lucide";
 import { Amount } from "./amount";
 import { BudgetOrgName } from "./budget-org-name";
 import { ShareLabel } from "./budget-bits";
 import { ChangeIndicator } from "./change-indicator";
-import { DisclosureChevron } from "./disclosure-chevron";
 import { T } from "@/components/i18n/t";
-import { LucideIcon } from "@/components/icons/lucide-icon";
 import { MinistryIcon } from "@/components/icons/ministry-icon";
 import { branchColorVar } from "@/lib/branch-colors";
-import { budgetDelta, type BudgetOverviewItem } from "@/lib/budget";
-
-/** Ministries shown before the roll-up; with this many or fewer, all are shown. */
-const TOP_N = 6;
+import type { BudgetOverviewItem } from "@/lib/budget";
 
 type Row = {
   key: string;
@@ -21,20 +15,18 @@ type Row = {
   item: BudgetOverviewItem;
 };
 
-/** Bar and share, the same in every row; `hatched` marks the roll-up without relying on colour. */
+/** Bar and share, the same in every row. */
 function BarLine({
   value,
   max,
   share,
   color,
-  hatched = false,
   trailing,
 }: {
   value: number;
   max: number;
   share: number | null;
   color: string;
-  hatched?: boolean;
   trailing: React.ReactNode;
 }) {
   const width = max > 0 ? Math.max(1.5, Math.min(100, (value / max) * 100)) : 0;
@@ -46,12 +38,6 @@ function BarLine({
           style={{
             width: `${width}%`,
             backgroundColor: color,
-            ...(hatched
-              ? {
-                  backgroundImage:
-                    "repeating-linear-gradient(135deg, transparent 0 3px, var(--t-color-surface) 3px 5px)",
-                }
-              : {}),
           }}
         />
       </span>
@@ -129,10 +115,9 @@ function MinistryRow({ row, max, unit, previousYear }: { row: Row; max: number; 
 /**
  * Budgeted spending per ministry as a ranked bar chart: sorted large to small,
  * one hue (all twelve sit in one branch), the amount written at the end of each
- * name, bars on one shared scale that starts at zero. The largest ministries
- * stand alone and the rest roll up into one hatched row that opens into the
- * full list, so the default view stays short. A text alternative is the table
- * next to it.
+ * name, bars on one shared scale that starts at zero. Every ministry has its
+ * own row, so each bar means one ministry and nothing is rolled up. A text
+ * alternative is the table next to it.
  */
 export function MinistryBars({
   items,
@@ -152,83 +137,15 @@ export function MinistryBars({
       : [{ key: item.organization.id, value: item.current.spendingBudget, share: item.sharePercent, item }],
   );
   const missing = items.length - rows.length;
-  const split = rows.length > TOP_N + 1 ? TOP_N : rows.length;
-  const top = rows.slice(0, split);
-  const rest = rows.slice(split);
-
-  const restValue = rest.reduce((sum, row) => sum + row.value, 0);
-  const restShare = rest.every((row) => row.share !== null) ? rest.reduce((sum, row) => sum + (row.share ?? 0), 0) : null;
-  const restPreviousValues = rest.map((row) => row.item.previous?.spendingBudget ?? null);
-  const restDelta = restPreviousValues.every((value) => value !== null)
-    ? budgetDelta(restValue, restPreviousValues.reduce<number>((sum, value) => sum + (value ?? 0), 0))
-    : null;
-  const max = Math.max(0, ...rows.map((row) => row.value), restValue);
-  const neutral = "var(--t-color-ink-faint)";
+  const max = Math.max(0, ...rows.map((row) => row.value));
 
   return (
     <div>
       <ul aria-labelledby={labelledBy} className="-mx-2 space-y-0.5">
-        {top.map((row) => (
+        {rows.map((row) => (
           <MinistryRow key={row.key} row={row} max={max} unit={unit} previousYear={previousYear} />
         ))}
       </ul>
-
-      {rest.length > 0 ? (
-        <details className="group/more -mx-2 mt-0.5">
-          <summary className="block min-h-11 cursor-pointer list-none rounded-md px-2 py-2 transition-fast hover:bg-surface-inset [&::-webkit-details-marker]:hidden">
-            <div className="flex items-start gap-2">
-              <span
-                aria-hidden="true"
-                className="mt-px flex h-6 w-6 shrink-0 items-center justify-center rounded-sm bg-surface-inset text-ink-muted"
-              >
-                <LucideIcon icon={Ellipsis} size={14} />
-              </span>
-              <span className="min-w-0 flex-1 text-sm font-medium leading-snug text-ink">
-                <T area="news" k="budgetBarsOther" vars={{ count: rest.length }} />
-              </span>
-              <span className="shrink-0 whitespace-nowrap text-sm font-semibold tabular-nums text-ink">
-                <Amount value={restValue} unit={unit} />
-              </span>
-            </div>
-            <BarLine
-              value={restValue}
-              max={max}
-              share={restShare}
-              color={neutral}
-              hatched
-              trailing={
-                <span className="flex w-[4.75rem] shrink-0 justify-end">
-                  {restDelta !== null ? (
-                    <ChangeIndicator
-                      absolute={restDelta.absolute}
-                      percent={restDelta.percent}
-                      unit={unit}
-                      since={previousYear}
-                      labelKey="budgetChangeIndicatorLabel"
-                      showSince={false}
-                      className=""
-                    />
-                  ) : null}
-                </span>
-              }
-            />
-            <span className="mt-1 flex items-center gap-1.5 ps-8 text-xs font-medium text-accent-text">
-              <DisclosureChevron className="group-open/more:rotate-90" />
-              <span className="group-open/more:hidden">
-                <T area="news" k="budgetBarsShowAll" />
-              </span>
-              <span className="hidden group-open/more:inline">
-                <T area="news" k="budgetBarsShowLess" />
-              </span>
-            </span>
-          </summary>
-          <ul className="space-y-0.5">
-            {rest.map((row) => (
-              <MinistryRow key={row.key} row={row} max={max} unit={unit} previousYear={previousYear} />
-            ))}
-          </ul>
-        </details>
-      ) : null}
 
       <p className="mt-2 text-xs leading-relaxed text-ink-faint">
         <T area="news" k="budgetBarsNote" />

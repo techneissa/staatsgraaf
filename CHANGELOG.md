@@ -9,6 +9,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 - The intro moves from the top of the home page to a closing "Over" section at the bottom. The page and its links are renamed from "Over en methode" to "Over" ("About" in English).
 - The Tweede Kamer hall seats the kabinet on the two tables the floor plan draws (a row either side of each table, along it) instead of in a block that spilled past them.
 - The Eerste Kamer hall centres the kabinet bench on the chair and the aisle (it sat half a seat to the left).
+- The ministries on the budget page are one ranked list with a row each (the "other ministries" roll-up is gone). A ministry's budget page and a party page now pick their entity in the graph, as organisation and person pages already did, so the graph and the side panel show what the page is about.
 - The Freshness section of the About page is removed, and so is the seat-order note on the About page, the seat loupe and the party panel.
 
 ### Changed (06-10-2026, the wheel is the graph)
