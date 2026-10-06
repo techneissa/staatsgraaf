@@ -55,12 +55,34 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:109219d7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "AI companies are lax on security. Should we ‘just accept that’, as Sam Altman says?",
+    "lead": null,
+    "sourceHash": "35a275062877",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:10b5305e",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Why is the corner of a contestant's chair on 'De slimste mens' broken off?",
     "lead": null,
     "sourceHash": "e4447e13cf9f",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:10e864d7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Disagreement in coalition over approach to paper gifts: 'We should not do that'",
+    "lead": "A majority of <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity> wants to partly pay for the reform of box 3 by tackling paper gifts. That is a fiscally favorable way to give money and pay less inheritance tax. But within the coalition there is disagreement about this: the VVD does not want that sacred cow of theirs to be touched. CDA and D66 are quite willing to look into this.",
+    "sourceHash": "0822bc7417e4",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -187,6 +209,17 @@
     "translated": "2026-10-05"
   },
   {
+    "id": "news:125a2af2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Belgian receives chemical castration after sexual offence, the Netherlands also has this",
+    "lead": "A 21-year-old Belgian man has received a five-year suspended prison sentence, on the condition that he undergoes chemical castration. In the Netherlands too, libido-inhibiting medication is sometimes prescribed. \"It is not a miracle cure.\"",
+    "sourceHash": "0663e5611f02",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:126eaee3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -196,6 +229,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-01"
+  },
+  {
+    "id": "news:12a2d913",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "7 October could well last until eternity",
+    "lead": null,
+    "sourceHash": "09b443f71c1a",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:12b0ea7a",
@@ -361,6 +405,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-05"
+  },
+  {
+    "id": "news:14ef5ee1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Van Weel calls extortion site 'terrible', asks police to support Belgian colleagues",
+    "lead": "Minister of Justice <entity id=\"person:david-van-weel\">David van Weel</entity> calls the extortion site with nude images of Dutch and Belgian women 'terrible'. \"I will also ask the Dutch police to possibly help the Antwerp police with this,\" Van Weel said during the Question Hour in <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity>.",
+    "sourceHash": "b0386b169e75",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:153525d4",
@@ -757,6 +812,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-01"
+  },
+  {
+    "id": "news:1bfd9c47",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Drinking water companies must be the first to pay attention to data centre consumption, says minister",
+    "lead": "‘The supply agreement between a drinking water company and a business customer is a private-law agreement and does not form part of the permit granting process.’ That is what minister <entity id=\"person:vincent-karremans\">Vincent Karremans</entity> of <entity id=\"org:ministerie-van-infrastructuur-en-waterstaat\">Infrastructuur en Waterstaat</entity> writes in response to parliamentary questions about the 1.1 billion litres of drinking water per year that two new data centres in <entity id=\"org:gemeente-amsterdam\">Amsterdam</entity>-Zuidoost will consume.",
+    "sourceHash": "8819c516a810",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:1c11c873",
@@ -1276,6 +1342,17 @@
     "translated": "2026-10-02"
   },
   {
+    "id": "news:25343a9b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Catalan separatist leader may return to Spain ten years after referendum",
+    "lead": "The two highest Spanish courts have withdrawn the arrest warrant against former Catalan regional president Carles Puigdemont. The separatist leader has lived in exile since he fled the country in 2017.",
+    "sourceHash": "d15ef759aa4e",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:259dc8c4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1417,6 +1494,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-01"
+  },
+  {
+    "id": "news:27ceb2ce",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The discussion about a ban on ritual slaughter without stunning is flaring up again in the Tweede Kamer",
+    "lead": null,
+    "sourceHash": "ddb26895037c",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:28055f37",
@@ -1749,17 +1837,6 @@
     "translated": "2026-10-06"
   },
   {
-    "id": "news:2d54d7a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Attack or misunderstanding? Confusion about incident at British air force base",
-    "lead": "A foreign group is 'clearly' involved in the possible attack plan on the British air base RAF Fairford. That is what US Secretary of State Marco Rubio says. Two days ago residents were startled by a large-scale armed police operation because of a suspected attack on the base.",
-    "sourceHash": "01ed701df5ec",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-06"
-  },
-  {
     "id": "news:2dd6dc9c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1936,6 +2013,17 @@
     "translated": "2026-10-01"
   },
   {
+    "id": "news:2fcf1a51",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Young hackers get a second chance to use their talent well",
+    "lead": "It often starts with mischief, such as hacking the school website. But from this new ideas arise in the cyberbrains of so-called 'whizzkids'. These young hackers quickly end up in cybercrime, where the serious hacking happens. However, in the Netherlands we could really use these creative young people for ethical work. How do we get these clever ones back on the right track?",
+    "sourceHash": "6d6628c489dc",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:2fd414fe",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2046,6 +2134,17 @@
     "translated": "2026-09-24"
   },
   {
+    "id": "news:311cac85",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Protests at Cornell University over gang rape case",
+    "lead": null,
+    "sourceHash": "0ff3b45cb6e6",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:313252e2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2088,6 +2187,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-09-25"
+  },
+  {
+    "id": "news:31daffc4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Coach sticks with the same eleven, will Jong Oranje qualify for the play-offs for a European Championship ticket at the last moment?",
+    "lead": "Jong Oranje no longer has qualification for the European Championship Under 21 in its own hands. Tonight, Michael Reiziger's team in De Vijverberg in Doetinchem must win against Bosnia and Herzegovina itself and hope that Jong Israel does not win against Jong Norway. Follow it here live from 6:45 PM.",
+    "sourceHash": "08412c09dd37",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:32643547",
@@ -2343,6 +2453,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:35f6afde",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Mandy’s flower shop in Amsterdam-Zuid largely destroyed by fire: ‘We are in shock’",
+    "lead": null,
+    "sourceHash": "3a51a421ba35",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:36161c79",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2393,6 +2514,17 @@
     "title": "Cabinet acknowledges concerns about homelessness: Is the approach adequate enough?",
     "lead": "The <entity id=\"pos:burgemeester-amsterdam\">burgemeester van Amsterdam</entity> has expressed her concerns about homelessness in large cities. She indicated that she has 'already sounded the alarm to <entity id=\"org:gemeente-s-gravenhage\">Den Haag</entity> a number of times' but that this is answered 'too little'. That is why three PRO members of parliament are asking questions of the responsible ministers. Is the national government doing enough?",
     "sourceHash": "ea8897df46d1",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:37278712",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'Biggest espionage scandal of the century': former head of German intelligence service suspected of high treason",
+    "lead": null,
+    "sourceHash": "9eeef3863c79",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -2585,12 +2717,23 @@
     "translated": "2026-10-01"
   },
   {
+    "id": "news:3a2585f0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Essent remains loyal to skating team through to the next Winter Games: ‘I actually hadn't dared to dream’",
+    "lead": "Energy supplier Essent will remain loyal to the skating team around Joep Wennemars and Suzanne Schulting at least through to the next Winter Games in 2030. ,,Not a given after only two seasons, but we are héél happy with it.”",
+    "sourceHash": "30b8f7f577a7",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:3a62ef56",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "An own credit rating agency simply understands the African economy better",
-    "lead": "The African Union is launching its own credit rating agency on Wednesday. AfCRA must offer an alternative to dominant Western parties such as Moody's, S&P and Fitch. \"Their understanding of African economies and their dynamics is limited.\"",
-    "sourceHash": "92b8efafae7a",
+    "title": "'An own credit rating agency simply understands the African economy better'",
+    "lead": "The African Union launches its own credit rating agency on Wednesday. AfCRA must offer an alternative to dominant Western parties such as Moody's, S&P and Fitch. \"Their understanding of African economies and their dynamics is limited.\"",
+    "sourceHash": "1757a7d4e492",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -3069,6 +3212,17 @@
     "translated": "2026-09-24"
   },
   {
+    "id": "news:412c597a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "In rural areas, bus stops are falling by the wayside in droves. Is the state of regional transport still acceptable?",
+    "lead": null,
+    "sourceHash": "49789e09b0da",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:4133a93c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3089,6 +3243,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-03"
+  },
+  {
+    "id": "news:4198eb72",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "At Flow Community you don’t have to head home right after yoga class: ‘There is time for tea and a conversation’",
+    "lead": null,
+    "sourceHash": "e5eeca5c1883",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:41b565ea",
@@ -3372,6 +3537,17 @@
     "title": "If the relationship between Heinen and Jetten is not good, it becomes difficult for the cabinet",
     "lead": "The cooperation between Prime Minister <entity id=\"person:rob-jetten\">Rob Jetten</entity> (D66) and <entity id=\"pos:minister-van-financien\">minister van Financiën</entity> <entity id=\"person:eelco-heinen\">Eelco Heinen</entity> (VVD) does not always run smoothly. And that while the prime minister and his finance minister in particular must be a strong tandem to bring a cabinet to a good end, experts by experience know. Now that the two are holding talks with opposition parties, it must become clear how solid the tandem is.",
     "sourceHash": "b50bc5b4dd52",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:46c35594",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ship with 75 people on board runs aground on sandbank near Breskens",
+    "lead": "A ship with seventy passengers and five crew members has run aground on a sandbank near Breskens. Rescue boats brought all those on board, who were on a seal safari, safely to land. The ship is expected to come loose again by itself around 00:30 at high tide.",
+    "sourceHash": "003bdf6fcaf6",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -3685,17 +3861,6 @@
     "translated": "2026-09-24"
   },
   {
-    "id": "news:4aaf5418",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Former international Gilardino successor to coach Cuesta at Parma",
-    "lead": "Alberto Gilardino is the new coach of Parma. The 44-year-old former international of Italy is the successor of Carlos Cuesta, who left two days ago at the number 15 of Serie A.",
-    "sourceHash": "8cccd604eb30",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:4ad9a66c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3848,6 +4013,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-01"
+  },
+  {
+    "id": "news:4ceb1c29",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Explainer | Plague or not? This is how confusing the reports around the Russian dead person are",
+    "lead": null,
+    "sourceHash": "6b21564b84e3",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:4cf023ea",
@@ -4037,6 +4213,28 @@
     "translated": "2026-10-03"
   },
   {
+    "id": "news:5000fe58",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Professor Voermans: financial plans of the Jetten cabinet face a 'precarious adventure' in the Eerste Kamer",
+    "lead": "The cabinet of D66, VVD and CDA must get its financial plans through both Chambers, but currently does not yet have a majority there. The <entity id=\"org:tweede-kamer\">Tweede Kamer</entity> deliberates on 12 and 26 October about the Tax Plan, debates on 4 and 10 November and votes on 12 November. The Eerste Kamer debates on 7 and 8 December and […]",
+    "sourceHash": "d350ae711b6b",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:5025025b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "UEFA investigates alleged spitting incident during Ireland - Israel",
+    "lead": "UEFA is going to investigate an alleged spitting incident during the Nations League match between Ireland and Israel last Sunday. A spokesperson for the European football association confirmed this to the ANP on Tuesday. As the teams went in at half-time, an Israeli player is said to have spat at a member of the Irish team's staff. The Israeli football association denies that the incident took place.",
+    "sourceHash": "0b1f50305bac",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:502ced8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4054,6 +4252,17 @@
     "title": "'All of Deventer wanted to know who that sponsor on Go Ahead's shorts was'",
     "lead": "Entrepreneurs dream of growth, although sometimes it goes too fast. FD Gazellen talk about their leap forward. Murat Gümrükcuoglu saw how a risky step turned out to be a golden move for digital marketing agency Wemessage.",
     "sourceHash": "89cb107d0dc4",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:5043da40",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Christa Pike's lawyer shares update after failed execution: 'She may never fully recover'",
+    "lead": "Stephen Ferrell, Christa Pike's lawyer, has given a new update on the American woman's health. According to Ferrel, it is still not known how Pike will recover, after she survived two lethal injections.",
+    "sourceHash": "d05b21c10e0c",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -4079,6 +4288,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-01"
+  },
+  {
+    "id": "news:5087f097",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "7 October has become part of Jewish Netherlands' DNA",
+    "lead": null,
+    "sourceHash": "fbd7ed7a5566",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:50c4c0c1",
@@ -4664,6 +4884,17 @@
     "translated": "2026-10-05"
   },
   {
+    "id": "news:580af3b8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Only according to Mark van Bommel was Belgium not outplayed against France",
+    "lead": null,
+    "sourceHash": "f9bb237d5f63",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:58107400",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4684,6 +4915,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-01"
+  },
+  {
+    "id": "news:5834d3ba",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Woman refuses to leave hotel and bites officer in the buttock",
+    "lead": "A 26-year-old woman from Doesburg goes berserk when two police officers try to remove her from the Fletcher Wellness-Hotel in Mill. She curses, kicks and hits around her and ultimately even sinks her teeth into an officer's buttock.",
+    "sourceHash": "82c7049735c9",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:5847c0a6",
@@ -4981,6 +5223,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-05"
+  },
+  {
+    "id": "news:5cc0872c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "PSV records net profit of 7 million euros for the 2025-2026 season",
+    "lead": "PSV has recorded a net profit of almost 7 million euros for the past season. That is evident from the annual report that the Eindhoven football club made public on Tuesday. The equity of the national champion has risen to 55 million euros.",
+    "sourceHash": "9b874eebf846",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:5cc9af31",
@@ -5294,9 +5547,9 @@
     "id": "news:5d1cc9f",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "'Swimming lessons for children with a disability must be more accessible'",
-    "lead": "For children with a disability, swimming lessons are not always a given, especially not if their parents have money worries. Municipal income support for these parents falls short, says the Mulier Institute, which conducted research into it. Swimming lessons for children with a disability are often more expensive than regular swimming lessons. The research shows that children benefit from smaller groups of four or two pupils and sometimes even one-on-one lessons. \"That is so that they have less distraction from other children and that they get more attention from their teacher\", explains researcher Mirjam Stuij of the Mulier Institute. A swimming instructor must also know how to deal with a child with a disability. These two factors make the adapted swimming lessons more expensive. \"That is difficult for parents, but also for swimming instructors.\" Existing schemes fall short Municipalities already offer schemes and allowances, but these are sometimes unclear and differ per municipality. Parents run into several things when applying, Stuij explains. \"For example, the reimbursement they receive does not cover the cost of the swimming lesson.\" There are also parents who formally have too high an income for the schemes, but because of high healthcare costs or other high costs due to their child's disability, still have money worries. So they do not qualify. Thirdly, the institute sees that applying for schemes can ask a lot of parents. That is because information from the municipality is unclear or because parents do not know where to turn. Fewer or no diplomas Stuij emphasises that parents consider a swimming diploma of great importance. \"If my child falls into a ditch I want him to be able to save himself. I think we can very well imagine that in the Netherlands.\" Figures from <entity id=\"org:zbo-centraal-bureau-voor-de-statistiek\">CBS</entity> show that of the 14 percent of children who live in poverty, a proportion have a disability, versus 8 percent of children who do not live in poverty. Figures from Mulier also show that children with a disability obtain a swimming diploma at a later age, obtain fewer diplomas or obtain no swimming diploma. Clarity and flexibility The institute advises municipalities to map out how it is arranged for them, what the municipality reimburses and for whom. \"Because we know that that varies enormously\", says Stuij. The research results in a number of recommendations for local authorities. For example, there should be good information provision for parents and the application process should be made as clear as possible. The institute advocates more flexibility in income support. For example, a standard reimbursement that can be increased if the costs for a child are higher, Stuij explains. The institute also advises establishing a fixed point of contact for parents. \"Someone who can help them with the application and, for example, with finding suitable swimming lessons.\"",
-    "sourceHash": "4984c76d2e80",
+    "title": "'Swimming lessons for children with disabilities must be more accessible'",
+    "lead": "For children with a disability, swimming lessons are not always a given, especially not if their parents have money worries. Municipal income support for these parents falls short, says the Mulier Instituut, which conducted research into it. Swimming lessons for children with a disability are often more expensive than regular swimming lessons. The research shows that children benefit from smaller groups of four or two pupils and sometimes even one-on-one lessons. \"That is so that they have less distraction from other children and that they get more attention from their teacher,\" explains researcher Mirjam Stuij of the Mulier Instituut. A swimming instructor must also know how to deal with a child with a disability. These two factors make the adapted swimming lessons more expensive. \"That is difficult for parents, but also for swimming instructors.\" Existing schemes fall short Municipalities already offer schemes and allowances, but these are sometimes unclear and differ per municipality. Parents run into several things when applying, explains Stuij. \"For example, the reimbursement they receive does not cover the cost of the swimming lesson.\" There are also parents who formally have too high an income for the schemes, but because of high healthcare costs or other high costs due to the child's disability, still have money worries. So they do not qualify. As a third point, the institute sees that applying for schemes can ask a lot of parents. That is because information from the municipality is unclear or because parents do not know where to turn. Fewer or no diplomas Stuij emphasises that parents consider a swimming diploma of great importance. \"If my child falls into a ditch I want him to be able to save himself. I think we can very well imagine that in the Netherlands.\" Figures from <entity id=\"org:zbo-centraal-bureau-voor-de-statistiek\">CBS</entity> show that 14 percent of children living in poverty have a disability, against 8 percent of children who do not live in poverty. Figures from Mulier also show that children with a disability obtain a swimming diploma at a later age, obtain fewer diplomas or no swimming diploma. Clarity and flexibility The institute advises municipalities to map out how it is arranged with them, what the municipality reimburses and for whom. \"Because we know that that varies enormously,\" says Stuij. The research results in a number of recommendations for local authorities. For example, there should be good information provision for parents and the application process must be made as clear as possible. The institute advocates more flexibility in income support. For example a standard reimbursement that can be increased if the costs for a child are higher, Stuij explains. The institute also advises establishing a fixed point of contact for parents. \"Someone who can help them with the application and for example with finding suitable swimming lessons.\"",
+    "sourceHash": "31e377fad4ad",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -5328,8 +5581,8 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "AfD member elected parliamentary president, step in takeover of power in Saxony-Anhalt",
-    "lead": "The AfD has for the first time gained the presidency of a state parliament. At the first session of the newly elected parliament in Saxony-Anhalt, AfD member Tobias Rausch was elected. It marks an important milestone in the takeover of power in the state. AfD leader Ulrich Siegmund speaks of a historic day. The left-wing opposition also uses big words. For the first time since Hermann Göring, an extreme-right parliamentary president has been elected in Germany, was heard from Die Linke, SPD and the Greens. The AfD in Saxony-Anhalt has been labelled extreme-right by the security service. The AfD won last month's state election in Saxony-Anhalt with nearly 44 percent. Rausch was elected with more yes votes than expected. This concerns the five votes of the small populist party BSW, which is open to cooperation with the AfD, and another four votes, presumably from co-voters from the CDU. This outcome offers the AfD good hope that forming an AfD government is likewise possible. Adjustments on the way The role of parliamentary president is a prominent position in terms of standing. As highest representative, he even ranks above the government leader in Saxony-Anhalt in protocol. He decides who may or may not enter the parliament, from press to speakers, and can appoint and replace officials. The first symbolic change already became visible today. The AfD faction will from now on sit in the middle of the parliament, while the left-wing opposition is divided over the left and right flanks. A far-reaching measure that is feared is the adjustment of the committees in which legislation is prepared. The AfD could adjust this composition in such a way that the party occupies half of the seats. In that way the party can determine the agenda and stall unwelcome legislation. The AfD can now show how it wants to govern: radically and authoritatively, or precisely professionally and moderately. Rausch took a constitutional stance in his word of thanks and promised to place himself above the party. \"Employees need not be afraid, as long as someone does their work normally,\" he previously told Tagesspiegel . In this way the AfD can show that it is possible to govern with the party, in order to convince other parties to form a coalition, both now and in the longer term. Nationally too, the AfD is by far polled as the largest party and hopes to be able to lead the next government. Rausch is considered moderate. The 35-year-old former broker has long belonged to the circle around Siegmund. This spring he was accused of nepotism: relatives turned out to work for him, as did players of the football club of which he is chairman. Where consequences were drawn with other AfD members , Rausch went free. Government formation According to AfD leader Siegmund, today the \"childish\" Brandmauer was broken into pieces. That is the agreement of other parties not to cooperate with the AfD in any way. According to Siegmund, several talks are underway to have him appointed premier in December. BSW sticks to their proposal to elect an impartial government leader. The left-wing parties were prepared to discuss this, but the CDU rejects the idea. They accept an AfD government and want to adopt a 'constructive' stance from the opposition. Officially, only talks with the BSW have been held so far. That party remains critical of the AfD at the same time. For example, there was recently indignation about statements by Siegmund about investments in defence companies. According to him, these are needed as a \"tool for remigration\". \"With this the AfD shows that it does not want to govern and is desperately seeking a way out through provocation,\" responded BSW chair De Masi. Defectors Siegmund additionally seems to hope for defectors in the CDU, which after the historic defeat is internally divided. Current state premier Schulze was recently elected faction leader with a minimal majority of one vote. The party has a conservative flank, which previously called for cooperation with the AfD. They appear to have voted for the AfD member today. Siegmund shows himself confident in any case. As far as he is concerned, parts of his controversial government plans can also be implemented without a majority, such as the asylum plans. \"For many plans you do not need the parliament at all,\" he said convinced yesterday. Invalid election result? The left-wing parties suspect the AfD of having misused money in Saxony-Anhalt for their election campaign. The party is said to have used budget intended for parliamentary work for campaign purposes. According to jurists, it must therefore be investigated whether the elections were conducted fairly. If that is not the case, the elections may possibly have to be repeated.",
-    "sourceHash": "e236ab3f07f3",
+    "lead": "The AfD has for the first time gained the presidency of a state parliament. At the first session of the newly elected parliament in Saxony-Anhalt, AfD member Tobias Rausch was elected. It marks an important milestone in the takeover of power in the state. AfD leader Ulrich Siegmund speaks of a historic day. The left-wing opposition also uses big words. For the first time since Hermann Göring, an extreme-right parliamentary president has been elected in Germany, was heard from Die Linke, SPD and the Greens. The AfD in Saxony-Anhalt has been labelled extreme-right by the security service. The AfD won last month's state election in Saxony-Anhalt with nearly 44 percent. Rausch was elected with more yes votes than expected. These involve the five votes of the small populist party BSW, which is open to cooperation with the AfD, and another four votes, presumably from co-voters from the CDU. This outcome offers the AfD good hope that forming an AfD government is likewise possible. Changes on the way The role of parliamentary president is a prominent position in terms of standing. As highest representative, in protocol he even ranks above the government leader in Saxony-Anhalt. He decides who may or may not enter the parliament, from press to speakers, and can appoint and replace officials. The first symbolic change already became visible today. The AfD group will henceforth sit in the middle of the parliament, while the left-wing opposition is divided over the left and right flanks. A far-reaching measure that is feared is the adjustment of the committees in which legislation is prepared. The AfD could adjust this composition so that the party occupies half of the seats. In that way the party can set the agenda and obstruct unwelcome legislation. The AfD can now show how the party wants to govern: radically and authoritarianly, or precisely professionally and moderately. In his word of thanks, Rausch took a constitutional stance and promised to place himself above the party. \"Employees need not be afraid, as long as someone does his work normally,\" he previously told Tagesspiegel . In this way the AfD can show that it is possible to govern with the party, in order to convince other parties to form a coalition, both now and in the longer term. Nationally too, the AfD is by far polled as the largest and the party hopes to be able to lead the next federal government. Rausch is considered moderate. The 35-year-old former estate agent has long belonged to the circle around Siegmund. This spring he was accused of nepotism: family members turned out to work for him, as did players of the football club of which he is chairman. Where consequences were drawn with other AfD members , Rausch went unpunished. Government formation According to AfD leader Siegmund, today the \"childish\" Brandmauer was broken into pieces. That is the agreement of other parties not to cooperate with the AfD in any way. According to Siegmund, several talks are underway to have him appointed premier in December. BSW sticks to the proposal to elect an impartial government leader. The left-wing parties were prepared to discuss this, but the CDU rejects the idea. That party accepts an AfD government and wants to adopt a 'constructive' stance from the opposition. Officially, only talks with the BSW have been held so far. That party remains critical of the AfD at the same time. For instance, there was recently indignation about remarks by Siegmund about investments in defence companies. According to him, these are needed as an \"aid for remigration\". \"With that the AfD shows that it does not want to govern and is desperately seeking a way out through provocation,\" responded BSW chair De Masi. Defectors Siegmund also seems to hope for defectors in the CDU, which is internally divided after the historic defeat. Current state premier Schulze was recently elected group leader with a minimal majority of one vote. The party has a conservative flank, which earlier called for cooperation with the AfD. That flank appears to have voted for the AfD member today. Siegmund shows himself full of self-confidence in any case. As far as he is concerned, parts of his controversial government plans can also be implemented without a majority, such as the asylum plans. \"For many plans you do not need the parliament at all,\" he said yesterday with conviction. Invalid election result? The left-wing parties suspect the AfD of having misused money in Saxony-Anhalt for its election campaign. The party is said to have used budget intended for parliamentary work for campaign purposes. According to jurists, it must therefore be investigated whether the elections were conducted fairly. If that is not the case, the elections may possibly have to be redone.",
+    "sourceHash": "11fa6ed104c0",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -5383,8 +5636,8 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Spanish Supreme Court withdraws arrest warrant for separatist leader Puigdemont",
-    "lead": "The arrest warrant against Catalan separatist leader Carles Puigdemont has been withdrawn by the Spanish Supreme Court. Puigdemont can thus, after having lived in exile for nine years, return to his country as a free man without being detained. Puigdemont fled to Belgium in 2017, after Catalonia's attempt to secede from Spain failed. A referendum on secession was illegal according to the Spanish Supreme Court. In Brussels he eventually became a Member of the European Parliament in 2019. Puigdemont was also prosecuted for embezzling public money during the referendum. That is why the 2024 amnesty law initially did not apply to him, according to the court. The Spanish Constitutional Court ruled today that courts must apply the amnesty law to Catalan separatists even if there are ongoing cases concerning embezzlement. Referendum Catalonia declared itself unilaterally independent from Spain in 2017, after an illegal. Puigdemont was at that moment the government leader of Catalonia. The vote was ultimately boycotted by the Catalans who wanted to remain with Spain, as a result of which ultimately 90 percent of the Catalans voted for independence. Madrid decided to intervene after the referendum, after which Puigdemont fled the country. A number of his ministers stayed and were sentenced to prison terms of up to 13 years. Most of them later received pardon from the government of Prime Minister Pedro Sánchez. Arrest warrant Spain issued arrest warrants against Puigdemont several times, both nationally and European. In 2018 he was detained in Germany and was released after thirteen days. Three years later he was temporarily detained on Sardinia. He was never extradited to Spain, however. Two years ago, the 63-year-old Puigdemont returned to Catalonia very briefly. In Barcelona he gave a speech. Although hundreds of officers were deployed and several roads were closed off, the politician ultimately managed to leave Spain again. The withdrawal of the arrest warrant comes at a politically sensitive moment in Spain. The country goes to the polls early on 29 November. Puigdemont's party, Junts, is currently low in the polls.",
-    "sourceHash": "ee09e85d0775",
+    "lead": "The arrest warrant against Catalan separatist leader Carles Puigdemont has been withdrawn by the Spanish Supreme Court. Puigdemont can thus, after having lived in exile for nine years, return to his country as a free man without being arrested. Puigdemont fled to Belgium in 2017, after Catalonia's attempt to secede from Spain failed. A referendum on secession was illegal according to the Spanish Supreme Court. In Brussels he eventually became a Member of the European Parliament in 2019. Puigdemont was also prosecuted for embezzling public money during the referendum. That is why the 2024 amnesty law initially did not apply to him, according to the court. The Spanish Constitutional Court ruled today that courts must apply the amnesty law to Catalan separatists even if there are cases pending about embezzlement. Referendum Catalonia declared itself unilaterally independent from Spain in 2017, after an illegal referendum. Puigdemont was at that time the government leader of Catalonia. The vote was ultimately boycotted by the Catalans who wanted to remain with Spain, so that ultimately 90 percent of Catalans voted for independence. Madrid decided to intervene after the referendum, after which Puigdemont fled the country. A number of his ministers stayed and were sentenced to prison terms of up to 13 years. Most of them later received a pardon from the government of Prime Minister Pedro Sánchez. Arrest warrant Spain issued an arrest warrant against Puigdemont several times, both nationally and European. In 2018 he was arrested in Germany and was released after thirteen days. Three years later he was temporarily detained on Sardinia. However, he was never extradited to Spain. Two years ago, the 63-year-old Puigdemont returned to Catalonia very briefly. In Barcelona he gave a speech. Although hundreds of officers were deployed and several roads were closed, the politician ultimately managed to leave Spain again. The withdrawal of the arrest warrant comes at a politically sensitive moment in Spain. The country goes to the polls early on 29 November. Puigdemont's party, Junts, is currently low in the polls.",
+    "sourceHash": "fcdc182d0591",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -5404,9 +5657,9 @@
     "id": "news:5d1cce2",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Online trade in 'extortion packages' of women, Belgium and the Netherlands conduct investigation",
-    "lead": "<entity id=\"person:david-van-weel\">Minister Van Weel</entity> (VVD) of <entity id=\"org:ministerie-van-justitie-en-veiligheid\">Justitie en Veiligheid</entity> will ask the Dutch <entity id=\"org:politie\">politie</entity> to offer help to the Belgian police, which is investigating the trading of nude photos of women on the so-called darkweb. He said this in <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity>, where he was asked questions about the case, which RTL reported on. Nude photos and private data of hundreds of Belgian and Dutch women are being traded on the hidden part of the internet, RTL reported. Ready-made packages with intimate photos, social media profiles and contact details are offered on a site that has been active since 2023. Women can be harassed and extorted with them. For one euro per victim, access is provided to private data and photos. The 'packages' are sold to multiple people at once. The website offers to remove data from the platform for a payment of 250 euros, but it is unclear whether this actually happens. 'Perverse practices' There is great aversion across the Kamer. Minister Van Weel spoke of horrific practices of a \"perversity you do not often see\". He also expressed his sympathy with the victims. One of the victims is a 31-year-old woman from Limburg who told her story to RTL. She had panic attacks when she heard she was on the site. Fifteen years later, her photos are still surfacing. Van Weel called her story shocking and believes she is doing fantastic work by, among other things, removing the shame among victims. Kamer members want justice to act firmly, if necessary at European level. \"This is organised sexual violence,\" says VVD Kamer member Becker. \"These are not incidents, but a revenue model,\" says Pro Kamer member Mutluer. The Kamer wants the site to go offline as soon as possible. The parties also want the Dutch <entity id=\"org:openbaar-ministerie\">Openbaar Ministerie</entity> to be involved in the case quickly. 'Investigation difficult' What is happening here is punishable, but investigation will not be easy, says Van Weel. \"It is technically not simple to find out who is behind what on the darkweb, where the server is located, how a site can be taken offline\". Van Weel says he \"cannot shut down the darkweb tomorrow with a bill\". According to him, there are possibilities to take sites offline, but then \"first very technical specific investigations are needed, and we will certainly commit to that\". The Belgian police have announced an investigation and Van Weel will ask the Dutch police \"to go and advise the Antwerp police and see how we can help\".",
-    "sourceHash": "83b01fedda98",
+    "title": "Online trade in 'extortion packages' of women, Belgium and the Netherlands investigate",
+    "lead": "<entity id=\"person:david-van-weel\">Minister Van Weel</entity> (VVD) of <entity id=\"org:ministerie-van-justitie-en-veiligheid\">Justitie en Veiligheid</entity> is going to ask the Dutch <entity id=\"org:politie\">politie</entity> to offer help to the Belgian police, which is investigating the trading of nude photos of women on the so-called darkweb. He said this in <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity> where he was asked questions about the case, which RTL reported on. Nude photos and private data of hundreds of Belgian and Dutch women are being traded on the hidden part of the internet, RTL reported. Ready-made packages with intimate photos, social media profiles and contact details are offered on a site that has been active since 2023. Women can be harassed and extorted with them. For one euro per victim, access is provided to private data and photos. The 'packages' are sold to multiple people at once. The website offers to remove data from the platform for a payment of 250 euros, but it is unclear whether this actually happens. 'Perverse practices' There is great aversion across the Kamer. Minister Van Weel spoke of horrific practices of a \"perversity that you do not often see\". He also expressed his sympathy with the victims. One of the victims is a 31-year-old woman from Limburg who told her story to RTL. She had panic attacks when she heard that she was on the site. Fifteen years later, her photos are still surfacing. Van Weel called her story shocking and believes she is doing fantastic work by, among other things, removing the shame among victims. Kamer members want justice to act firmly, if necessary at European level. \"This is organized sexual violence,\" says VVD Kamer member Becker. \"These are not incidents, but a revenue model,\" says Pro Kamer member Mutluer. The Kamer wants the site to go offline as soon as possible. The parties also want the Dutch <entity id=\"org:openbaar-ministerie\">Openbaar Ministerie</entity> to be involved in the case quickly. 'Investigation difficult' What is happening here is punishable but investigation will not be easy, says Van Weel. \"It is technically not simple to find out who is behind what on the darkweb, where the server is, how a site can be taken offline\". Van Weel says that he \"cannot shut down the darkweb tomorrow with a bill\". According to him, there are possibilities to take sites offline, but then \"first very technical specific investigations are needed, and we will certainly deploy on that\". The Belgian police have announced an investigation and Van Weel is going to ask the Dutch police \"to consult the Antwerp police and see how we can help\". The Dutch Openbaar Ministerie is not yet investigating the case, a spokesperson told the NOS, but the OM does not rule out that it will later join an international joint investigation . \"Given the facts and the number of potential Dutch victims, it would be logical if a request for help comes from Belgium, then we are also prepared to help.\" Can you look up whether your data has been leaked? For those who are concerned by this news or whether their data or photos can be found on the darkweb, there is unfortunately no satisfactory answer: there is currently no simple way to search for that, a spokesperson for knowledge center Offlimits told the NOS. \"We do not recommend that people search for their name or images on the darkweb themselves. In our view, there is no public and safe way to check that yourself on the darkweb.\" Moreover, she warns: \"You do not know what you will encounter there. In this kind of environment there can also be other illegal or very shocking material. You also have no control over what appears on a page. Moreover, searching yourself does not provide certainty about whether or not you appear on the website. If you do not find your name, that does not automatically mean that you are not in the database. And conversely, a namesake can of course cause confusion. You may also be able to disrupt a police investigation with this.\" Her tip is: \"Do you have concerns or concrete indications that your images or data have been shared, for example because someone approaches or threatens you with this? Then contact Offlimits or the police. Together we can look at what is going on and what steps you can take.\"",
+    "sourceHash": "ab19c61e539e",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -5418,6 +5671,94 @@
     "title": "Adults predominantly positive about LGBTI people, well-being of some groups 'concerning'",
     "lead": "Broadly speaking, the views of adult Dutch people on, for example, homosexuality are unchanged compared with two years ago. There are, however, large differences between the individual LGBTI+ groups. Moreover, the well-being of the groups varies greatly. This emerges from the biennial Lhbtiqa+monitor by Movisie, Panteia and Ipsos I&O. In September, another study revealed that acceptance of homosexuality among young people has declined over the past four years. That study was conducted among young people between the ages of 12 and 16. Who is this study about? The Lhbtiqa+monitor is a study carried out every two years on behalf of <entity id=\"org:kabinet\">het kabinet</entity>. The abbreviation stands for the groups the study is about: lesbian, homosexual, bisexual, transgender, intersex, queer, asexual and non-binary persons. Not only their living situation is addressed. Every two years the researchers also ask about Dutch people's views on these groups. Although homosexuality is still predominantly viewed positively (84 percent), a slight shift is visible. Compared with two years ago, slightly more respondents think 'neutrally' about this group instead of 'positively'. The share of respondents who judge homosexuality negatively has remained stable (4 percent). Views on other groups have also remained broadly the same when compared with two years ago. The fact that little has changed in general is considered concerning by researcher Karijn van den Berg of Movisie. \"Views on, for example, homosexuality are generally positive, but that applies much less to intersex, transgender and non-binary persons,\" the researcher said. When you zoom in on groups, changes are indeed visible. For instance, 65 percent of those surveyed found sex between two men \"not disgusting\" in 2024, while that number has now fallen to 60 percent. Moreover, more than a quarter of respondents have \"difficulty with\" kissing in public, mainly when it concerns two men. Two years ago that applied to about a fifth of Dutch people. Gender or sexual identity as a 'fashion phenomenon' The study also shows that being transgender, non-binary and bisexual is relatively often seen as a fashion phenomenon by those surveyed. That concerns the researchers. They also find it concerning that many respondents do not want a relationship with transgender, non-binary, bisexual, asexual or intersex persons. Another conclusion of the researchers is the limited knowledge about asexual, non-binary and intersex persons. Many questions about these groups are not answered by the respondents. They often indicate not knowing the answer or never having thought about it. \"This finding shows that the knowledge about and understanding, or recognition, of these groups of persons in Dutch society is still fairly limited,\" the report states. The researchers did not only look at Dutch people's views on the individual LGBTI+ groups. They also mapped the well-being of those groups themselves. There too the differences between the groups are large, the report shows. Well-being of LGBTI+ persons Where the living situation of homosexual persons is generally comparable to that of heterosexuals, that of intersex, transgender and non-binary persons can be called concerning, the report states. For instance, they more often deal with depression, suicidal thoughts, financial problems and discrimination, a survey among these groups shows. Researcher Van den Berg calls these large differences in well-being between the studied groups \"very striking\". \"We see a real gap between, for example, homosexual and transgender people, both in terms of acceptance and in terms of well-being.\" The researchers make a number of recommendations to the cabinet. For instance, they advise education and information about sexual and gender diversity. They also recommend paying attention to online hate and disinformation about LGBTI+ persons in lessons about media literacy. Attention to the studied groups in vocational training programmes in care and welfare and more room for inclusive policy in government are other recommendations. The groups the study is about Lesbian persons: women who are attracted to women. Homosexual persons: men who are attracted to men. Bi+ persons: persons who are attracted to more than one gender. Transgender persons: people whose gender identity does not (fully) correspond with the sex assigned at birth. Non-binary persons: people who identify as non-binary, feel at home with a gender identity outside the (binary) categories of man and woman. Intersex persons: are born with a body that does not correspond with the image most people have of man or woman. Queer persons: people who cannot find themselves in the usual, fixed (binary) frameworks and boxes for gender and/or sexual orientation, or reject these frameworks. Asexual persons: people who experience no or little sexual attraction to other persons.",
     "sourceHash": "3154026f8188",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:5d1cd01",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "IND must get to work on 140,000 applications from Ukrainians, asylum system under further pressure",
+    "lead": "The asylum applications of more than 140,000 Ukrainians that have been left on the shelf must still be reviewed and assessed. This is evident from a ruling by the European Court of Justice . Administrators are now beginning to realise that this could have major consequences for the pressure on the asylum chain, sources involved say. <entity id=\"org:kabinet\">het kabinet</entity> also admits that it has a problem. Ukrainians who came to the Netherlands because of the war fell under the Temporary Protection Directive. With this rule devised from Europe, displaced persons can receive temporary protection. The Netherlands only arranged it in such a way that if you wanted to receive that protection, you also had to submit an asylum application. That application was then automatically suspended. And parking those asylum applications, as it were, is not allowed, the European court ruled last week. \"We long chose not to process applications from Ukrainians in the Netherlands, because they already received protection,\" says responsible minister Van den Brink of <entity id=\"org:tweede-kamer-commissie-am\">Asiel en Migratie</entity>. \"Also because it was a very large number. The court now says clearly: that must be done,\" the minister said. Extra pressure on the asylum chain Asylum lawyer Wil Eikelboom: \"In hindsight, it was not such a good idea to link temporary protection to submitting an asylum application. Very awkward.\" In other countries, an asylum application was not automatically submitted if someone fell under the Temporary Protection Directive. \"The Netherlands is really an exception in that,\" says Ricky van Oers, assistant professor of Sociology of Law and Migration Law at Radboud University. So all applications from Ukrainians must now be processed. \"The question is how the IND is going to do this, they actually have no capacity for it at all,\" says Eikelboom. The minister admits that this ruling by the court will \"certainly put extra pressure\" on the asylum system. \"At the same time, the court also offers room,\" says the minister, who thus hopes to make his problem manageable. He interprets the ruling in such a way that he does not have to process the application of all Ukrainians immediately. Van den Brink wants to first process the asylum applications of people who are arriving now, then and at the same time the more than fifty thousand people who were already on the waiting list, and only after that give priority to this group of Ukrainians. In short: yes, the asylum application of the Ukrainians must be processed, but the minister wants to wait for the time being with most of them. According to assistant professor of migration law Van Oers, there are indeed nuances in the ruling of the European Court. \"Because it concerns so many applications, the Netherlands may possibly process the procedures in phases. They can also decide that they give priority to certain groups, for example families.\" But the question is how much room the minister's approach will really provide, because all of this will in any case mean extra work. 'Permanent temporariness' The advantage of that directive for Ukrainians was, for example, that they were allowed to work here immediately - unlike asylum seekers. It also gives temporary entitlement to shelter, medical care and education for children. But that also brings uncertainty. \"Ukrainians live here in permanent temporariness,\" says Van Oers. \"Because of that temporary protection, there is continuously little prospect of building a life. While in fact there is an asylum application. Such an asylum status gives more certainty.\" The temporary protection of Ukrainians now runs until March 2028. It is still unclear whether it will be extended after that. According to Vluchtelingenwerk, the ruling of the European Court of Justice has probably not yet reached many Ukrainians. \"But it will undoubtedly lead to more unrest and uncertainty. Return to Ukraine is currently not a realistic option.\" Vluchtelingenwerk wants a sustainable plan for Ukrainians in the Netherlands. \"With a quick and careful assessment of their residence permit so that these people, who have already been through so much, know where they stand.\" The highest administrative court in the Netherlands must now assess the answers of the European Court of Justice. After that, it will become clear what the significance of this is in practice. According to legal experts, the Netherlands cannot in any case ignore the ruling.",
+    "sourceHash": "18ae5bd675ba",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:5d1cd02",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Podcast De Dag: what makes the French school protests increasingly bigger",
+    "lead": "The French school protest is becoming bigger, more violent and more political. Today, during a national day of protest, at least tens of thousands, according to the union even hundreds of thousands of people have taken to the streets, in solidarity with the French school students. The protest erupted two weeks ago, at the start of the school year. It concerns a shortage of teachers, inadequate lesson schedules and materials. And inequality: schools in the banlieues are hit much harder than schools in other places. Listen? You can listen to this episode of De Dag via NPO Luister and all other podcast apps. Enjoying it? Then do not forget to subscribe. In the podcast De Dag, Dutch students Raoul and Felix, who are studying in France, tell what they see happening around them and what moves their fellow students. Niek Pas is a France expert at the UvA and previously also taught in France. According to him, we must also see the protests in the light of the upcoming presidential elections. Politicians jump on the unrest and point fingers at each other about the causes of the poor state of education. Respond? Mail dedag@nos.nl Presentation and editing: Elisabeth Steinz Editorial staff: Max Smedes and Wouter Sloekers Final editing: Judith van de Hulsbeek",
+    "sourceHash": "a2fa31841a99",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:5d1cd03",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "New suspect arrested in London for preparing attack at air force base",
+    "lead": "In London a new suspect has been arrested on suspicion of preparing a terrorist attack at the air force base in Fairford. That is reported by the counter-terrorism department of the British police. It concerns a 22-year-old man with British nationality. A home has also been searched in the same area. On 27 September the alarm was raised at a British air force base in the county of Gloucestershire, after suspicious white vans had been spotted. The police feared that there were explosives in the white vans and homes were evacuated as a precaution. Only cans of petrol were found in the vans. On that same day five British men were arrested. Later it turned out that one of the suspects had earlier called the police himself . On 1 October another suspect was picked up. The six suspects are all in their twenties. They may await further investigation at liberty. Bombers removed At the Royal Air Force air force base near Fairford, besides British soldiers, American soldiers and bombers that are active in the war against Iran are also stationed. Iran's Islamic Revolutionary Guard Corps earlier let it be known that every base involved in the war is considered a legitimate target. The US therefore points to Iran as the guilty party, but Iran itself denies being involved. On Sunday the US removed all twelve bombers from the air force base. That would have happened because of a new threat that according to American media comes from Iran.",
+    "sourceHash": "50fb6f8d0315",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:5d1cd04",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "ChatGPT texts also get invisible 'watermark'",
+    "lead": "Texts from ChatGPT users are being given an invisible 'watermark'. This should make it clearer whether a text is authentic or generated by artificial intelligence, according to OpenAI. The watermark, called textGrain, will be incorporated into AI texts from users in the European Union in the coming period. Outside the EU, the texts contain no watermarks. The recognition mark is not visible to normal users: it is not a physical stamp or special character, but is built into the word choices of the generative AI model. Short texts A special detector can pick up that watermark, and thus AI-generated words and texts. That tool is for now only accessible to approved researchers and expert organisations, OpenAI writes. According to the company behind ChatGPT, the system is strong, but not flawless, the company writes . Among other things, short and edited texts make reliable detection difficult. Anthropic, the company behind chatbot Claude, introduced a similar watermark two months ago: also invisible to human eyes, but observable to computer systems. This one has been applied worldwide. EU directive The companies say that with their watermarks they are following the new European AI transparency rules. One of those rules is that content made by artificial intelligence gets a marking, such as a watermark . According to tech expert Bert Hubert, in Europe you may still make texts produced by artificial intelligence without a watermark, but then under some circumstances you must state it yourself. That the companies are now adding watermarks en masse is therefore, according to Hubert, due to mutual competition. \"Otherwise, as OpenAI, you would now almost have to explain why you as a company do not have this. Something like that can be bad for your sales process.\" Fraud cases The watermarks come at a time when there is much discussion about the authenticity of content and what the consequences are if content is not authentic. \"This raises the bar somewhat,\" Hubert says. According to him, the watermarks can especially help in fraud cases. \"Think of emails from a supposed energy company that look credible, but were produced by artificial intelligence. Then it is very useful if your email system can say: note, this is an AI-generated email.\"",
+    "sourceHash": "3213e4bd79be",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:5d1cd06",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Free ice cream promotion gets out of hand, police intervene",
+    "lead": "A promotion in which an ice cream parlour gave away free ice creams in Almere got out of hand yesterday. The many young people present became so annoying that the business had to close its doors on the advice of the police. \"We wanted to do something good for the neighbourhood and then you get this,\" the owner says to Omroep Flevoland . The free ice cream promotion reached many young people. On TikTok the announcement was viewed more than 130,000 times. According to the entrepreneur, the first hour went smoothly, but after that the atmosphere turned. Sent away According to the owner, there was pushing and shoving and young people harassed employees. \"We almost had to work as bodyguards instead of as ordinary employees.\" Eventually the police were called. According to the entrepreneur, several vehicles came to the scene and officers went into the business with a police dog. A police spokesperson says that the young people were sent away, but that no one was arrested. The owner is disappointed. \"We wanted to bring people together and organise something fun. But of course our staff must be able to work safely.\"",
+    "sourceHash": "27319aa77bcb",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:5d1cd0a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "EU enlargement up for discussion again, but first a trial period for new countries",
+    "lead": "For years the subject was undiscussable in Brussels: admitting new countries to the European Union. The last accession, that of Croatia, dates back to 2013. The fear is that new countries will mainly cost money. Moreover, there are concerns about the stability of newcomers. Will they continue to abide by the European rules once they are members? But since the war in Ukraine and the re-election of Donald Trump, support for new members is growing. \"A larger European Union gives us more political and economic weight in a world full of fierce competition on the world stage,\" says European Commissioner for Enlargement Marta Kos. The idea is that you stand stronger together. For example, the Ukrainian army is the strongest in Europe because of the war and EU countries can learn a lot from it. It must also be prevented that Russia or China gains more influence over countries in Europe. Taking away voting rights The European Commission is therefore today coming with a plan for new rules for newcomers. The rules must ensure that acceding countries actually make the EU stronger and not weaker. For example, the Commission wants extra rules to be able to punish new countries if they do not adhere to the basic principles of the EU after their accession. If they do violate those principles on, for example, democracy, the rule of law or human rights, then a new member can be deprived of its voting rights for a period of fifteen years. Four direct candidates Especially Montenegro, Albania, Moldova and Ukraine are currently on course for EU membership. The small Montenegro (600,000 inhabitants) wants to become the 28th member of the EU in 2028 and is well on schedule. The proposal contains not only ideas to monitor new countries, but also to keep a larger EU governable. If even more countries join, it becomes more difficult to reach agreements that all countries agree on. The Commission therefore advocates taking decisions by majority more often. That must consist of 55 percent of the countries in which together more than 65 percent of the EU population lives. Now, for many important decisions, the support of all EU countries is needed. That regularly leads to difficult negotiations. A country can single-handedly block a proposal in the interest of only that country, as Greece, Luxembourg and France recently did with new sanctions against Russia. It is up to the EU countries themselves to decide whether they will take more decisions by majorities. The question is whether there is enough support for it. On the one hand, it can make the EU more decisive, certainly with more members. On the other hand, countries can then exert less influence on their own. Ironically, all countries must agree if they decide to take decisions by a majority in the future. Hungary The new rules must prevent a new 'Hungary scenario'. That country acceded to the European Union in 2004. Under Prime Minister Orbán, who governed from 2010 until this year, the rule of law subsequently declined. The independent judiciary came under great pressure, EU money was defrauded and Hungary ignored numerous European rules. The EU did take measures by freezing European subsidies for Hungary, but it did not succeed in depriving Hungary of its voting rights. Legislation existed for that, but all EU countries had to support it and that did not happen. Poland, which likewise undermined the independent judiciary in the country, continued to support Hungary. That was also true the other way around. And so nothing happened for years, to the great dissatisfaction of, among others, the Netherlands. Trojan horse The plans that the Commission is now proposing must therefore make it easier to suspend the voting rights of future members in the first fifteen years of their membership. In this way the Commission hopes to avoid bringing in a 'Trojan horse'. A country that at first glance seems a fine addition, but once inside the EU causes major problems. Next week the leaders of the EU countries will discuss the new enlargement plans at a European summit. Enlargement is a politically sensitive theme. The Netherlands has always been reticent, but does see something in these plans.",
+    "sourceHash": "cf1908dd2365",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:5d1d019",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "French prime minister: no lessons at French schools in the coming days, talk to each other",
+    "lead": "For the coming three days there will be no lessons at all secondary schools throughout France. That is what French prime minister Lecornu said. The reason is the large-scale student protests of recent weeks. The prime minister wants to give a political answer to the protests together with the minister of Education. He hopes that schools and students will enter into talks with each other in the coming days. Whether schools will heed this or whether schools want to let lessons continue is not clear. Lecornu calls the protests \"real\" and believes that the students must be listened to. He also mentioned a number of points of attention that the government can work on, such as the state of the school buildings. Protests today too Today too, tens of thousands of people took to the streets in French cities. It was the largest day of action since the protests began last month. Hundreds of schools were closed again. Watch the protests in Paris live Thousands of people are out in Paris. The police has fired tear gas. Watch the protest live here. In the meantime, trade unions and parents have also thrown their support behind the protests. According to the ministry of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity>, at least 250,000 people are out today. One of the trade unions speaks of 450,000 demonstrators, even before the large demonstration in Paris began. Tens of thousands of people are also expected there during a march. In several places along the route the atmosphere is grim. Pupils and students demand more money for education. They are furious about the poor state of the school buildings and the teacher shortage. In several cities the police deployed tear gas. In Strasbourg, Lyon and Rennes, among others, fires were set by the demonstrators and objects were thrown at the police. According to prime minister Lecornu, 85 teachers and 215 pupils were injured during the protests of recent days. He calls it \"the heaviest toll that education staff has suffered in decades\". During the protests, 715 police officers were also injured.",
+    "sourceHash": "3ed818ab7d3c",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:5d1d01a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "No current travel information on digital signs at train stations due to malfunction",
+    "lead": "The travel information system of NS is experiencing a malfunction. As a result, the current departure times cannot be seen on the digital information boards, says a spokesperson for NS. The cause is still unknown. The travel information has not been updated since 5:00 PM. The NS spokesperson says that not all digital boards or train stations are affected. It is not known how long it will take before the problem is resolved, work is being done on it. Travelers are advised to check the travel planner in the app or on the NS website before departure. In August there was also a problem with the travel information system at NS. The IT system was dealing with an internal malfunction.",
+    "sourceHash": "d2ca76a0bfe9",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -5976,9 +6317,9 @@
     "id": "news:64e73ce7",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "176 thousand tonnes of fuel shipped to Russia via South Korea, analysis shows",
+    "title": "Several ships hit by drones on the Black Sea",
     "lead": null,
-    "sourceHash": "48d501cf57be",
+    "sourceHash": "0cfc59a643ae",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -6199,6 +6540,17 @@
     "title": "Jetten apologises for 'slip of the tongue' at D66 congress: 'Spontaneous reaction'",
     "lead": "Prime Minister <entity id=\"person:rob-jetten\">Rob Jetten</entity> (D66) apologised on Monday for his remark at the D66 congress about people 'getting a beating'. During the congress, Jetten used that phrase to take a hard swipe at groups that commit and incite violence and aggression against gay people. A day later, Jetten believes that choice of words was inappropriate.",
     "sourceHash": "8f1090c4412c",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:674288b1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tineke (87) breaks hip after a fall. But how do you move on? 'When I am home I am going to dance'",
+    "lead": "A fall changed Tineke Kreugel's life (87) in one fell swoop. A broken hip, admission, confusion and rehabilitation as a result. Tineke is not the only one. Every year 124,000 elderly people end up in the emergency department after a fall. But how do you move on? EenVandaag reporter Joris Kreugel follows this process of his mother in a four-part series, with the first here.",
+    "sourceHash": "e7747dbed585",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -6545,6 +6897,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:6b412a2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cabinet's financial plans may fail if nothing changes in Eerste Kamer",
+    "lead": "The senate factions of PRO and BBB want substantial changes to the tax plan in exchange for their support. In doing so, they follow the line of their party in <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity>. Without support from one of the two, there is a good chance that the financial plans will fail.",
+    "sourceHash": "69d0a160f95a",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:6b470aa9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -6628,6 +6991,17 @@
     "title": "Acid rain from the eighties again a problem for dragonflies",
     "lead": "Typical dragonfly species of fens are declining sharply. The acid rain of some forty years ago is now causing very low oxygen levels in the water. Vroege Vogels visits the Deelense Was in Nationaal Park De Hoge Veluwe, a fen where this problem occurs.",
     "sourceHash": "8f72c232ed83",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:6c31db32",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'Hackers could have shut down the power supply of hundreds of thousands of European households remotely'",
+    "lead": "With a few quick actions, criminals or hostile states could possibly have shut down the power supply of hundreds of thousands of European households remotely. A Hague-based company revealed on Tuesday that it could access the control systems of more than 8500 wind and solar parks in 35 European countries via the internet. \"With some I could even click the on and off button of a wind turbine.\"",
+    "sourceHash": "6958bee551bc",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -6757,9 +7131,9 @@
     "id": "news:6dd43860",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Live: S&P 500 at record high, bond market takes a breather",
-    "lead": "The AEX reached a record level in the morning. Elsewhere in Europe too, the stock boards are green. The oil price fell to less than $100 per barrel of Brent.",
-    "sourceHash": "7b3d96ed3668",
+    "title": "AEX closes at record high, bonds mark time",
+    "lead": "The AEX closed at a record high. Elsewhere in Europe too the price boards turned green. The oil price fell to less than $100 per barrel of Brent and bonds marked time after a turbulent period.",
+    "sourceHash": "1e621aac5e6d",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -6848,6 +7222,17 @@
     "title": "Why do we always want more?",
     "lead": "Do you recognise that? You have just bought something new and the next day you are already dissatisfied again. Or you treat yourself to that one piece of chocolate, but soon eat the whole bar. You are not the only one, but where does that greed come from and what can you do about it? \"People need an environment in which you no longer receive certain stimuli,\" says Rutger Claassen, professor of Economic Ethics, on Spraakmakers.",
     "sourceHash": "176f97e4cbec",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:71f5e47f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "‘Never again Orbán!’: for a sovereign Europe, enlargement is needed, but under stricter conditions",
+    "lead": null,
+    "sourceHash": "34c4ae8d0167",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -7018,6 +7403,17 @@
     "translated": "2026-10-02"
   },
   {
+    "id": "news:748afe8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Remote house in Iceland finally self-sufficient after 70 years",
+    "lead": "On the remote island of Elliðaey near Iceland stands a house that was dependent on fuel and propane for years. Thanks to new solar panels, the old hunters' cabin is now self-sufficient and much easier to use for hunters and tourists.",
+    "sourceHash": "90415341b1e0",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:74bf90d9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -7046,6 +7442,17 @@
     "title": "Public Prosecution Service will from now on always demand prison sentence after physical violence against emergency workers",
     "lead": "Anyone who uses physical violence against emergency workers and officials with a public task must seriously expect a prison sentence. The Public Prosecution Service must in principle always demand that sentence. This is stated in a new guideline, which comes after a majority of <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity> had urged this.",
     "sourceHash": "5dccf8ce68f9",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:75fc8120",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "As a witness to the Holocaust, Irene Butter (1930-2026) ultimately felt responsible for telling about it",
+    "lead": null,
+    "sourceHash": "55ac7beeb2ed",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -7170,6 +7577,28 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-03"
+  },
+  {
+    "id": "news:77460f56",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "New NAM director actually finds dismantling gas installations 'dreadful'",
+    "lead": "Martijn Kleverlaan starts on 1 November as head of NAM, the oil and gas company that has shrunk enormously in recent years.",
+    "sourceHash": "85963bdd5cc9",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:77545380",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "At the press conference jaws drop: Dani Olmo turns out to have been giving money for years to a city full of war wounds",
+    "lead": "Spain closes the international period tonight with an away match against Croatia. For Spanish international Dani Olmo that is a very special fixture. In Croatia he took the first big step in his career as a 16-year-old boy. Out of gratitude he supports the country in a special way and that earned him loud applause during the press conference.",
+    "sourceHash": "a62e1cdd752b",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:77c9748",
@@ -7436,6 +7865,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:7ac5e698",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "American soldier arrested for murder of Japanese woman, and this is how a decades-long discussion flares up again",
+    "lead": null,
+    "sourceHash": "34c3732125e2",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:7ae9874b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -7579,6 +8019,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:7c91cdec",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Within the lgbti+ community, especially non-binary, intersex and queer people experience the most hatred",
+    "lead": null,
+    "sourceHash": "f06243f7276c",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:7cc031f3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -7676,6 +8127,17 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
+  },
+  {
+    "id": "news:7dade8a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "France tests new nuclear missile, Macron: 'To be free you must be feared'",
+    "lead": "France has carried out a test with a new nuclear missile. President Emmanuel Macron shared images of the launch on social media. 'To be free, you must be feared. And to be feared, you must be powerful', he wrote in unmistakable terms.",
+    "sourceHash": "9d8696bdfd53",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:7dd7a26c",
@@ -7819,6 +8281,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-04"
+  },
+  {
+    "id": "news:7f5d2b24",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Employers and unions are finally going to sit down at the table, but because of the complex issues no one expects quick results",
+    "lead": "How can the high number of people on benefits in the Netherlands be reduced? Employers, trade unions and <entity id=\"org:kabinet\">het kabinet</entity> will look for a solution.",
+    "sourceHash": "8203cfce3ead",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:7f6ee533",
@@ -8140,6 +8613,17 @@
     "translated": "2026-10-01"
   },
   {
+    "id": "news:84e0b599",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Trump makes tax-free red diesel available to all Americans",
+    "lead": "Through a presidential decree, everyone in the US can temporarily buy tax-free red diesel. Normally, that fuel is only available for vehicles that do not drive on public roads. Trump wants to accommodate truckers, among others, with this.",
+    "sourceHash": "29d112f43b8e",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:8504b82c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8454,6 +8938,17 @@
     "title": "State of New York declares state of emergency due to rapid rise in measles cases",
     "lead": null,
     "sourceHash": "cceef3851e8f",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:89cab807",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Passenger ship runs aground on Zeeland sandbank, those on board evacuated",
+    "lead": "A passenger ship has run aground on a sandbank off the coast of Breskens in Zeeland Flanders. The ship was on a seal safari. The 75 people on board, seventy passengers and five crew members, had to be evacuated.",
+    "sourceHash": "c7c8274aa7b6",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -8811,6 +9306,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:8d507461",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Woman who wants to throw cigarette butt out of the window accidentally sets her own car on fire",
+    "lead": "A driver of a convertible accidentally set her own car on fire this afternoon with a cigarette butt. In the parking lot along the Provincialeweg N206 near <entity id=\"org:gemeente-noordwijk\">Noordwijk</entity> the vehicle was on fire for a short time.",
+    "sourceHash": "5b88fc9eafca",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:8daa4f6e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9042,6 +9548,17 @@
     "translated": "2026-10-01"
   },
   {
+    "id": "news:910cc79a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "With political 'muddling through' climate disruption becomes more serious",
+    "lead": null,
+    "sourceHash": "5e48f36a143d",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:911e2e54",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9125,6 +9642,17 @@
     "title": "Colonial past of the Oranjes is known, but how to proceed now? 'Awareness is only the beginning'",
     "lead": "\"No conclusion, but a prompt.\" That is what <entity id=\"person:willem-alexander\">koning Willem-Alexander</entity> said today about the research he commissioned into the role of the Oranjes in the colonial past of the Netherlands. The big question now is: what is he going to do with that family history?",
     "sourceHash": "0e88aa1fb817",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:92912437",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Amsterdam city centre relies more heavily on tourists than other cities, Van der Horst warns of economic risk",
+    "lead": null,
+    "sourceHash": "fc4d04da0e9c",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -9235,6 +9763,17 @@
     "title": "Nearly 12 thousand books banned in America, increasingly with the help of AI",
     "lead": null,
     "sourceHash": "f6575a51678b",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:93dc452a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Acceptance of homosexuality among adult Dutch people no longer rises, according to research by Movisie and Ipsos",
+    "lead": "The number of Dutch people who think positively about LGBTI people is no longer increasing. That is evident from the Lhbtiqa+ monitor published on Tuesday by Movisie, Ipsos I&O and Panteia, commissioned by the Ministry of <entity id=\"org:ministerie-van-onderwijs-cultuur-en-wetenschap\">OCW</entity>. The youngest respondents, 18 to 30-year-olds, think most positively about homosexuality.",
+    "sourceHash": "5864264a0050",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -9471,6 +10010,17 @@
     "translated": "2026-10-05"
   },
   {
+    "id": "news:977372bf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Nobel Prize in Physics for an enormous block of ice that catches neutrinos from space",
+    "lead": "Buried deep in the ice of Antarctica, a telescope makes particles from the universe visible: neutrinos, elementary ghost particles that are stopped by nothing.",
+    "sourceHash": "d74342766b95",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:979c6333",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9499,6 +10049,17 @@
     "title": "Bomb threat at Leeuwarden air base, man arrested",
     "lead": "The Royal Military Police has arrested a man at Leeuwarden air base in connection with a bomb threat. The man in question is said to have shouted that he had a bomb with him and to have brought a package with him. After investigation, the bag turned out not to contain an explosive.",
     "sourceHash": "0108f61ce163",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:9804a722",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "David Ellison expands media empire: Paramount's takeover of Warner Bros. Discovery officially complete",
+    "lead": null,
+    "sourceHash": "3afc42d93309",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -9694,9 +10255,9 @@
     "id": "news:9ab9349c",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "EU braces for battle over budget: 'First there must be blood on the wall'",
-    "lead": "Supporters and opponents of the proposed budget of €2000 billion want to reach an agreement before the end of the year. New sources of income could offer relief.",
-    "sourceHash": "21648e048450",
+    "title": "EU braces for battle over budget with 'blood on the wall'",
+    "lead": "Supporters and opponents of the proposed budget of €2000 bn want to reach an agreement before the end of the year. New sources of income could offer relief.",
+    "sourceHash": "43b2ef542faf",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -9818,6 +10379,17 @@
     "title": "SME boss Marijke Vuik sees box 2 tax cut often explained incorrectly in media: 'It actually yields money'",
     "lead": "According to MKB-Nederland chairman Marijke Vuik, the reduction of the tax in box 2 is sometimes explained incorrectly in the media. According to her, the measure is precisely intended to encourage entrepreneurs to take money out of their bv earlier, so that the government receives tax revenues sooner.",
     "sourceHash": "3f5b7ee24297",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:9cef2399",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Aantal door AI gegenereerde afbeeldingen van kindermisbruik rijst de pan uit",
+    "lead": "Het aantal online door AI gegenereerde afbeeldingen van kindermisbruik stijgt snel, waarschuwt de Internet Watch Foundation (IWF).",
+    "sourceHash": "8fe11631f48b",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -10087,6 +10659,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:a0738eea",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Is red meat healthy? The industry proves it in no time",
+    "lead": null,
+    "sourceHash": "6e214025fdef",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:a081fcd6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -10164,6 +10747,17 @@
     "translated": "2026-09-24"
   },
   {
+    "id": "news:a220170f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Even more bad luck for George Russell: Mercedes driver must start at the back in Singapore",
+    "lead": "Formula 1 continues at full speed in this period. Follow all developments here.",
+    "sourceHash": "e95c106af923",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:a2461dbb",
     "language": "en",
     "sourceLanguage": "nl",
@@ -10184,6 +10778,39 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
+  },
+  {
+    "id": "news:a2f1bd6c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Russell starts at the back in Singapore as penalty for engine change",
+    "lead": "SINGAPORE (ANP/RTR) - Formula 1 driver George Russell will start at the back in the Singapore Grand Prix next Sunday. The Briton from Mercedes incurs a grid penalty because he has to carry out an engine change. It is his fifth and he has therefore exceeded his maximum number of four power units per season, the Mercedes team confirmed.",
+    "sourceHash": "9896df43ab55",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:a31e586f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "After a broken hip, Tineke (87) looks for a new place to live: 'A Tiny House? I could see that working'",
+    "lead": "A fall changed Tineke Kreugel's life (87) in one fell swoop. Admission, confusion, rehabilitation and a broken hip as a result. Tineke is not the only one. Every year 124,000 elderly people end up in the emergency department after a fall. But how do you move on? EenVandaag reporter Joris Kreugel follows this process of his mother in a four-part series. Today the second.",
+    "sourceHash": "09d243f68e4b",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:a344a8fc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Mega merger in streaming world is a fact: Paramount takes over Warner Bros. Discovery",
+    "lead": "Paramount Skydance has completed the takeover of Warner Bros. Discovery worth 110 billion dollars. This makes one of the largest media mergers of all time a fact, after a protracted bidding battle with Netflix and fending off all kinds of lawsuits.",
+    "sourceHash": "10f436a220da",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:a34c0fc",
@@ -10428,6 +11055,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:a7451fe8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "H. meets girl (16) on Roblox, then forces her to do horrific things: 'I am extremely sorry'",
+    "lead": "Online Mohammed H. from Purmerend (20) forced a 16-year-old girl from the Rotterdam region to do the most horrific things: she had to write texts such as 'Master Zoro' on the wall in blood and cut the letter Z or the name 'Zoro' into her body. She also had to perform sexual acts. \"He is ashamed of what he has done,\" his lawyer says during the first hearing.",
+    "sourceHash": "343363444724",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:a7877c0d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -10566,6 +11204,17 @@
     "title": "Tate brothers operated as loverboys to lure women, says UK",
     "lead": "Manosphere influencers Andrew and Tristan Tate operated as loverboys to lure women, according to the British authorities. The brothers pretended to be sweet partners, but would then pressure the women with violence and threats to make pornographic images. The two are being held on suspicion of, among other things, human trafficking and rape.",
     "sourceHash": "1756f9600829",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:a8820485",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Austrian dog saves owner after 20-metre fall with special action",
+    "lead": "A 21-year-old Austrian was saved by his dog last week. The Labrador stayed with his owner all night after the man was seriously injured following a fall of about 20 metres. He then led rescue workers to the spot.",
+    "sourceHash": "c26b00b4da14",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -10890,6 +11539,17 @@
     "translated": "2026-10-03"
   },
   {
+    "id": "news:ae302e7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Truce between Russia and Ukraine in sight? 'The harder it becomes for the population, the greater the chance'",
+    "lead": "The war between Russia and Ukraine has shifted from the front to daily life. And then the ice-cold winter still has to come. The aim is to wear down the civilian population. Some experts think that this brings the end of the conflict closer, says reporter Mark van Assen.",
+    "sourceHash": "76276e900066",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:ae41fc38",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11066,6 +11726,17 @@
     "translated": "2026-10-01"
   },
   {
+    "id": "news:affef069",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Three parties dominate the school textbook market, but schools remain loyal: 'Switching method has major consequences'",
+    "lead": "Schools had been complaining about it for years and now the <entity id=\"org:zbo-autoriteit-consument-en-markt\">ACM</entity> has established: the market for teaching materials does not function properly. A number of large publishers determine the prices and force the sale of both paper and online teaching packages.",
+    "sourceHash": "e4dc0a71a9ea",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:b04279d3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11149,6 +11820,28 @@
     "title": "The asylum influx in week 40 was approximately 860",
     "lead": null,
     "sourceHash": "45fe48f703d5",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:b1fa4a92",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "New box 3 system produces a salvo of questions from readers: read all the answers to them here",
+    "lead": "The new box 3 system is not yet finished: <entity id=\"person:eelco-heinen\">minister Heinen</entity> must adjust the cabinet plans, because <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity> does not want 850,000 small savers and investors to pay tax on their income from saving and investing. That many readers want to know where they stand is clear from the salvo of questions in this Q&amp;A from AD . Read all the answers below.",
+    "sourceHash": "f6b3de4f5f4f",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:b2359209",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "House supports rapid introduction of green gas blending obligation",
+    "lead": "For a long time a majority was not guaranteed, but on Tuesday <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity> agreed to an obligation to blend ‘green gas’ into the usual natural gas.",
+    "sourceHash": "3fc8000bc79b",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -11308,6 +12001,17 @@
     "translated": "2026-10-01"
   },
   {
+    "id": "news:b371e52",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Republicans spend 700 million dollars on extra advertisements around the midterms",
+    "lead": "Republicans have spent more than 700 million dollars (622 million euros) since 1 September on extra advertisements around the midterms, the interim elections in the US. According to NBC News, the money is intended to prevent Democrats from running off with the win in unexpected places. Follow all developments in the United States via our liveblog.",
+    "sourceHash": "655b24222c9b",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:b383f493",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11317,6 +12021,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-01"
+  },
+  {
+    "id": "news:b38927d3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "His knee is a mystery: how the world number 1 has been stuck in the medical mill for months",
+    "lead": "Almost three months ago he had himself cheered as the winner of Wimbledon, which now appears to be Jannik Sinner's last match of the year. The 25-year-old Italian will not play tennis again until January at the earliest, due to a worrying knee injury that just will not heal.",
+    "sourceHash": "0d7621baeef4",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:b3a6899b",
@@ -11627,6 +12342,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:b8a82fdc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Thousands of cats stolen and resold in Vietnam, twelve men arrested",
+    "lead": "The Vietnamese <entity id=\"org:politie\">politie</entity> has arrested twelve suspects after the theft of approximately 2,700 cats in Ho Chi Minh City. The cats were intended for resale and presumably also for consumption.",
+    "sourceHash": "2dc1ee3fe36e",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:b8e00838",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11636,6 +12362,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-01"
+  },
+  {
+    "id": "news:b8e594d0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Environmental services in error with tenders for nearly 15 million",
+    "lead": "The environmental services are struggling to get their tendering processes in order. Of the 27 environmental services, sixteen went wrong one or more times last year with public tenders. On average, this concerns 917,000 euros per unlawfulness.",
+    "sourceHash": "5712a9d2317a",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:b8f2fa58",
@@ -11682,6 +12419,17 @@
     "translated": "2026-10-05"
   },
   {
+    "id": "news:b99260ce",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "At Flow Community you don’t have to head home right after yoga class: ‘There is time for tea and a conversation’",
+    "lead": null,
+    "sourceHash": "345b7eb40a17",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:b9af4aae",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11699,6 +12447,17 @@
     "title": "As a former soldier, I am proud that we do not sweep our mistakes under the carpet",
     "lead": "When Niels Roelen fought in Afghanistan, the rules of engagement were sacred - precisely when it became difficult. That is why he finds it incomprehensible that we do not now hold Israel to the same standard.",
     "sourceHash": "08fd4c765e6c",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:ba0b9c0e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "From Galgenwaard to the absolute world top: the brilliant (and sometimes painful) international career of Lionel Messi",
+    "lead": "It is the end of an era: tonight Lionel Messi will pull on the iconic light blue and white shirt of Argentina for the last time in his farewell international against Benin. With no fewer than 207 caps, 125 goals and 66 assists to his name, the Argentine magician says goodbye to La Albiceleste.",
+    "sourceHash": "959316ae62e1",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -11930,6 +12689,17 @@
     "title": "Left or right",
     "lead": "FD columnist Milou Brand would have liked to enter into a conversation about the question of whether investing is now left or right. 'If necessary in debate.'",
     "sourceHash": "2fe8ce6e6faf",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:bd4c2c94",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'If Eredivisie highlights now go from NOS to SBS 6 or RTL, people will not rise up'",
+    "lead": "In the podcast Praat mee met AD we discuss a issue every day. Today it is this: 'The TV-dinner moment can just as well be on a commercial channel.'",
+    "sourceHash": "d3308cdc9e0a",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -12243,6 +13013,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:c0e5b3ca",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Hundreds of thousands of businesses and households with an oversized electricity connection. 'You can save a lot of money if you scale down'",
+    "lead": null,
+    "sourceHash": "aa076702fe6d",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:c11a0216",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12296,6 +13077,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-05"
+  },
+  {
+    "id": "news:c1b9dda8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Box 3 is a mess from every angle. EW takes stock",
+    "lead": "<entity id=\"org:kabinet\">Het kabinet</entity> hoped to be able to continue collecting some 8 to 9 billion euros per year in tax with the new box 3 system. That could be read last May in the explanation of the then just launched bill Wet werkelijk rendement box 3. The <entity id=\"org:tweede-kamer\">Tweede Kamer</entity> adopted the bill in February 2026. But […]",
+    "sourceHash": "770add0620bc",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:c1d52228",
@@ -12628,6 +13420,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:c7aa52d3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Brussels wants to place new EU members under tightened supervision for fifteen years",
+    "lead": "With Montenegro already in sight for 2028, the Commission wants stricter rules for new member states. Anyone who undermines the rule of law risks losing their voting rights.",
+    "sourceHash": "671d268efe4f",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:c7f4e3b8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12771,6 +13574,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:ca891d96",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'We are careful with her': Arjan Veurink takes no risk with doubtful cases for the Oranje Leeuwinnen",
+    "lead": "Briefly beating the number 45 of the world? That is not so easy, believes national coach Arjan Veurink of the Oranje Leeuwinnen. Yet he is not taking any risk with just-fit players for the matches against Hungary.",
+    "sourceHash": "ff37fb001aff",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:cad5e96b",
     "language": "nl",
     "sourceLanguage": "en",
@@ -12799,6 +13613,17 @@
     "title": "Putin makes oligarchs pay billions towards his war",
     "lead": "Russian billionaires promised Putin hundreds of billions of rubles to fill gaps in his budget. Those are the result of the war. The super-rich did not have much choice.",
     "sourceHash": "67c226d24c4e",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:cb078d03",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Ruim 300.000 Nederlandse huishoudens en bedrijven betalen voor meer stroomcapaciteit dan nodig",
+    "lead": "Honderden woningen en bedrijven hebben een grotere elektriciteitsaansluiting dan op basis van hun verbruik waarschijnlijk nodig is, aldus de Autoriteit Consument en Markt (<entity id=\"org:zbo-autoriteit-consument-en-markt\">ACM</entity>) na een onderzoek naar t",
+    "sourceHash": "003b13c013ec",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -13046,6 +13871,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:ceba29a0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Former holiday parks of Peter Gillis go to the highest bidders: creditor agrees to 27.3 million",
+    "lead": "The three former Gillis parks Prinsenmeer in Ommel, Brugse Heide in Valkenswaard and Den Driesch in Valkenburg will all get a new owner. Creditor Marc van Rooi has accepted the highest bids of the public auction.",
+    "sourceHash": "a5a27b2a84dd",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:cf2f50bb",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13063,6 +13899,17 @@
     "title": "Former AIVD chief Bertholee warns: Netherlands not yet ready for Russian threat",
     "lead": "The Netherlands is not yet sufficiently prepared for the increasing threat from Russia. Although according to experts it is impossible to be fully ready for war, a step up must be taken quickly. The Netherlands must also be clearer about the threat. \"We are already in the middle of it,\" says former AIVD head Rob Bertholee.",
     "sourceHash": "d2a7729ac3ad",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:cf6b02a9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Not just any yellow, but Pantone PMS 116: Chocomel wins lawsuit, gets trademark on well-known colour",
+    "lead": null,
+    "sourceHash": "9eee9b701831",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -13662,6 +14509,28 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:d6fa22c1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "PSV records net profit of 7 million euros for the 2025-2026 season",
+    "lead": "PSV has recorded a net profit of almost 7 million euros for the past season. This is evident from the annual report that the Eindhoven football club published on Tuesday. The equity of the national champion has risen to 55 million euros.",
+    "sourceHash": "9b874eebf846",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:d7b62235",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "French school pupil protests reach new peak: 1800 schools blockaded",
+    "lead": "In France the school pupil protests against, among other things, classes that are too large and a shortage of education staff have again passed off restlessly. According to the French school pupil union USL, around 1800 secondary schools were blockaded and tens of thousands of people took to the streets across the country. University students, teachers and trade unions also joined the protests. In some places it came to confrontations with the police.",
+    "sourceHash": "479af4cd1220",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:d7c39634",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13948,6 +14817,17 @@
     "translated": "2026-09-24"
   },
   {
+    "id": "news:db742fa1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Who helps? 150,000 reservists sought for emergencies and disasters",
+    "lead": "The government is looking for thousands of Dutch people who can lend a hand in a crisis situation. Not soldiers, but drivers, security guards, mechanics and other people with a practical profession. Maintenance technician Tobie has already signed up.",
+    "sourceHash": "a5cfecc33454",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:db95e47e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14124,6 +15004,17 @@
     "translated": "2026-09-25"
   },
   {
+    "id": "news:de22c5cd",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Father of three teenagers devises anti-vape campaign to hit young people where it hurts",
+    "lead": "As the father of three teenagers, Wouter Snoeijers saw with growing frustration that campaigns warning about the dangers of vaping barely get through to young people. He devised a confrontational alternative. With fictional vape flavors such as Slappe Banaan and Acné Aardbei, he wants to hit young people where it hurts: their appearance and sex life.",
+    "sourceHash": "145f1513c234",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:de4052be",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14141,6 +15032,17 @@
     "title": "View now in advance the complete Trouw Duurzame 100 of 2026",
     "lead": null,
     "sourceHash": "a1eb56289fcc",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:de806600",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Essent sponsor of Orie and Kramer skating team through 2030",
+    "lead": "Sponsor Essent has committed itself to the skating team of coach Jac Orie and commercial director Sven Kramer through 2030. Team Essent announced this on Tuesday during the team presentation in Den Bosch.",
+    "sourceHash": "f01fb5f2edb9",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -14729,6 +15631,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:e61db3f7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Provinces warn of standstill",
+    "lead": "<entity id=\"org:kabinet\">Het kabinet</entity> must invest more in Dutch infrastructure and increase the remuneration for members of Provinciale Staten. These calls were made by chair <entity id=\"person:ina-adema\">Ina Adema</entity> of the <entity id=\"org:ipo\">Interprovinciaal Overleg</entity> (IPO) during the annual congress of the provinces in <entity id=\"org:gemeente-enschede\">Enschede</entity>.",
+    "sourceHash": "6573c237ff33",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:e64dc07c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14790,6 +15703,17 @@
     "title": "Norwegian football association files series of complaints with FIFA, discussion about World Cup participation Congo and role Infantino",
     "lead": "The KNVB and UEFA have withdrawn their confidence in FIFA boss Gianni Infantino, after he withdrew his controversial plan to sell part of the World Cup rights. This makes Infantino's position waver. In this live blog you stay informed of all developments.",
     "sourceHash": "09f42f5a5c81",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:e6acadb5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'No underestimation' among women footballers for duel with Hungary",
+    "lead": "According to national coach Arjan Veurink, there is \"no form of underestimation whatsoever\" among the Oranje women footballers for the World Cup qualifying duels with Hungary. The number 45 of the world is the lowest-ranked opponent for the 'Leeuwinnen' under Veurink. \"We take it extremely seriously. These matches are what it's about,\" said the coach during a press conference in Zeist.",
+    "sourceHash": "14152f410e8d",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -14941,9 +15865,9 @@
     "id": "news:e9d4d050",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Dutch manufacturing companies want more protection in revision of European data law",
-    "lead": "The European Union is working on simplification of data legislation. Companies hope for more protection for trade secrets, but see insufficient additional safeguards in the current proposals.",
-    "sourceHash": "3932e6eec525",
+    "title": "Dutch manufacturing companies want more protection against copycats in EU data law",
+    "lead": "The European Union is working on simplifying data legislation. Companies hope for more protection for trade secrets, but in the current proposals they do not see enough additional safeguards.",
+    "sourceHash": "e71c299bf808",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -15131,6 +16055,17 @@
     "title": "Cheap cancer drug resolutely rejected",
     "lead": "Today in Dagkoers: Cancer drug from NKI and KWF rejected by regulator, capital market interest rates keep rising and prediction platform Polymarket takes on regulators.",
     "sourceHash": "8ab195156687",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:ed3c542c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Eerste Kamer support a difficult puzzle for cabinet: PRO and BBB make substantial demands",
+    "lead": "The senate factions of PRO and BBB want substantial changes to the tax plan in exchange for their support. In doing so, they follow the line of their party in <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity>. Without support from one of the two, there is a good chance that the financial plans will fail.",
+    "sourceHash": "c55fb7fccaf5",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -15466,6 +16401,17 @@
     "translated": "2026-10-05"
   },
   {
+    "id": "news:f0f90b0d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "For a moment I found it terrifying, but after that I couldn't get enough of the car without a driver",
+    "lead": "Kitty Herweijer writes three times a week about what occupies her.",
+    "sourceHash": "718fecc8b83a",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:f0fd0aa8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15483,17 +16429,6 @@
     "title": "'I thought: my throat is open, now I'm going to die'",
     "lead": null,
     "sourceHash": "00c82b31cf21",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-06"
-  },
-  {
-    "id": "news:f13fb12c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Russian Tu-95 bomber crashes: six crew members dead",
-    "lead": "Six crew members of a Russian military aircraft died when their aircraft crashed, the Ministry of Defence reports. Another crew member was injured. It concerned a bomber of the Tu-95 type, of which Russia according to estimates still has a few dozen.",
-    "sourceHash": "e3ee47423ba9",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -15664,6 +16599,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:f3b46d69",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Director of peace organisation PAX: 'In peace issues you must always be willing to deploy the whole toolbox'",
+    "lead": "Rolien Sasse, director of peace organisation PAX, knows that her message is not popular: you must also talk to parties you distrust. Talking only about armament in war situations she considers reckless.",
+    "sourceHash": "95d01bb04d2d",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:f3c112e1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15752,6 +16698,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:f53cac74",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "ESPN pulls the plug on women's football switch programme with immediate effect",
+    "lead": "Pay channel ESPN has pulled the plug on the switch programme for women's football in the Eredivisie with immediate effect.",
+    "sourceHash": "70a7c719ccf0",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:f5d4ffbb",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15772,6 +16729,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-05"
+  },
+  {
+    "id": "news:f69389da",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Acceptatie van LHBTQIA+ personen stagneert of daalt in Nederland, blijkt uit monitor",
+    "lead": "De acceptatie van homoseksuele en lesbische mensen is in de afgelopen twee jaar niet gestegen, terwijl de acceptatie van transgender-, non-binaire en intersekse personen licht is gedaald, volgens de LGBT",
+    "sourceHash": "69ea6e096692",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:f6a38536",
@@ -15818,6 +16786,17 @@
     "translated": "2026-10-01"
   },
   {
+    "id": "news:f70efb2e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Almelo man extradited to Germany after discovery of strangled Dutchman in hotel",
+    "lead": "A 42-year-old man from Almelo is being extradited by the Netherlands to Germany. He is suspected of involvement in the death of a 35-year-old Dutchman on 26 July in the German town of Rees.",
+    "sourceHash": "289210f23e71",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:f793d2de",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15827,6 +16806,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-01"
+  },
+  {
+    "id": "news:f7db3e56",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Schiedam digs up soil at three new locations after death of six dogs",
+    "lead": "Because of the death of six dogs in Schiedam, soil is currently being dug up at three new locations. The municipality emphasises that it is a preventive measure, because the cause of death of the dogs is still unknown.",
+    "sourceHash": "656cedb837a1",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:f7e4c392",
@@ -16060,6 +17050,17 @@
     "translated": "2026-09-26"
   },
   {
+    "id": "news:fa59373",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Fighting between Houthis and Yemeni government troops claims more than 270 lives within 24 hours",
+    "lead": "The fighting in Yemen between the Houthis and Yemeni government troops has claimed more than 270 lives in 24 hours.",
+    "sourceHash": "94bacf0925f8",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
     "id": "news:fa6c2ce5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -16099,6 +17100,17 @@
     "title": "Housing construction money is difficult to spend",
     "lead": "That housing construction in the Netherlands does not happen by itself is evident among other things from the underspending of the budgets of the ministry of <entity id=\"org:tweede-kamer-commissie-vro\">Volkshuisvesting en Ruimtelijke Ordening</entity> (VRO). The <entity id=\"org:algemene-rekenkamer\">Algemene Rekenkamer</entity> emphasised this again after Prinsjesdag, in a document with points of attention on the then just new draft budget of the ministry.",
     "sourceHash": "343d30922bf4",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
+  },
+  {
+    "id": "news:fae77663",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Weights on skirts, lots of gold and tiny shorts: this stood out during Paris Fashion Week",
+    "lead": null,
+    "sourceHash": "d866cca19cd5",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -16322,6 +17334,17 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
+  },
+  {
+    "id": "news:ff6374b4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "‘Acceptance’ of transgender, non-binary and intersex people falls: more than a third do not see trans women as women",
+    "lead": null,
+    "sourceHash": "fb98f18bbb42",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-06"
   },
   {
     "id": "news:ffb45c9e",
