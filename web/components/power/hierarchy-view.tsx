@@ -8,6 +8,7 @@ import { LucideIcon } from "@/components/icons/lucide-icon";
 import { PartyPill } from "@/components/party-pill";
 import { useT } from "@/components/i18n/use-t";
 import { orgEnGloss } from "@/lib/name-gloss";
+import { chartConnectors, memberKey } from "@/lib/hierarchy-connectors";
 import { arcPath, layoutOrgChart, orgChartFits, type OrgChartLayout } from "@/lib/hierarchy-layout";
 import {
   MINISTRY_CLUSTERS,
@@ -364,7 +365,6 @@ function memberRole(person: HierarchyPerson, hub: HierarchyHub, locale: "nl" | "
 
 
 const delay = (ms: number): CSSProperties => ({ animationDelay: `${Math.round(ms)}ms` });
-const lineLength = (a: { x: number; y: number }, b: { x: number; y: number }) => Math.max(1, Math.round(Math.hypot(b.x - a.x, b.y - a.y)));
 
 function OrgChart({
   bundle,
@@ -409,6 +409,7 @@ function OrgChart({
     [tree, width, height, locale, leaderWord],
   );
   const { centre, ring, metrics, stroke } = layout;
+  const connectors = useMemo(() => chartConnectors(layout), [layout]);
   const hubById = useMemo(() => new Map(tree.hubs.map((hub) => [hub.id, hub])), [tree]);
   const colorOfGroup = (group: string) =>
     tree.id === "kabinet" ? clusterVar(group as Parameters<typeof clusterVar>[0]) : hubColor(hubById.get(group) ?? tree.hubs[0]);
@@ -450,44 +451,34 @@ function OrgChart({
               stroke={color}
               strokeWidth={ring.width}
               className="hv-draw hv-lift"
-              style={{ ["--len" as string]: length, ...delay(segmentDelay(index)), opacity: dim ? 0.45 : 1 }}
+              style={{ ["--len" as string]: length, ...delay(segmentDelay(index)), opacity: dim ? 0.4 : 1 }}
             />
           );
         })}
         {layout.hubs.map((placed) => {
           const hub = hubById.get(placed.id)!;
           const color = hubColor(hub);
-          const length = lineLength(placed.bar.a, placed.bar.b);
+          const spoke = connectors.hubs.get(placed.id);
+          if (!spoke) return null;
+          const start = groupDelay(placed.group);
           return (
-            <line
-              key={placed.id}
-              x1={placed.bar.a.x}
-              y1={placed.bar.a.y}
-              x2={placed.bar.b.x}
-              y2={placed.bar.b.y}
-              stroke={color}
-              strokeWidth={stroke.hubBar}
-              className="hv-draw hv-lift"
-              style={{ ["--len" as string]: length, ...delay(groupDelay(placed.group) - 120), opacity: dimHub(placed.id) ? 0.35 : 1 }}
-            />
-          );
-        })}
-        {layout.members.map((member) => {
-          const hub = hubById.get(member.hub)!;
-          const placed = layout.hubs.find((entry) => entry.id === member.hub)!;
-          return (
-            <line
-              key={`${member.hub}${member.id}`}
-              x1={member.bar.a.x}
-              y1={member.bar.a.y}
-              x2={member.bar.b.x}
-              y2={member.bar.b.y}
-              stroke={hubColor(hub)}
-              strokeWidth={stroke.memberBar}
-              strokeLinecap="round"
-              className="hv-draw hv-lift"
-              style={{ ["--len" as string]: lineLength(member.bar.a, member.bar.b), ...delay(groupDelay(placed.group) + 140 + member.index * 40), opacity: dimHub(member.hub) ? 0.35 : 1 }}
-            />
+            <g key={placed.id} className="hv-lift" style={{ opacity: dimHub(placed.id) ? 0.4 : 1 }}>
+              <path d={spoke.d} fill="none" stroke={color} strokeWidth={stroke.hubBar} className="hv-draw" style={{ ["--len" as string]: spoke.length, ...delay(start - 120) }} />
+              {spoke.fillets ? <path d={spoke.fillets} fill={color} className="hv-fade" style={delay(start + 120)} /> : null}
+              {layout.members
+                .filter((member) => member.hub === placed.id)
+                .map((member) => {
+                  const bar = connectors.members.get(memberKey(member.hub, member.id));
+                  if (!bar) return null;
+                  const at = start + 140 + member.index * 40;
+                  return (
+                    <g key={member.id}>
+                      <path d={bar.d} fill="none" stroke={color} strokeWidth={stroke.memberBar} className="hv-draw" style={{ ["--len" as string]: bar.length, ...delay(at) }} />
+                      {bar.fillets ? <path d={bar.fillets} fill={color} className="hv-fade" style={delay(at + 200)} /> : null}
+                    </g>
+                  );
+                })}
+            </g>
           );
         })}
       </svg>

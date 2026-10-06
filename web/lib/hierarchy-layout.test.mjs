@@ -127,8 +127,9 @@ test("chamber segments follow the seats and heavier hubs are bigger", () => {
   const span = (segment) => segment.end - segment.start;
   const d66 = span(layout.segments[0]);
   const small = span(layout.segments[16]);
-  assert.ok(Math.abs(d66 / (2 * Math.PI) - 26 / total) < 0.02);
-  assert.ok(d66 > small * 10);
+  // The seats set the size, except that a one-seat party keeps a segment as wide as its bar.
+  assert.ok(Math.abs(d66 / (2 * Math.PI) - 26 / total) < 0.03);
+  assert.ok(d66 > small * 5);
   assert.ok(layout.hubs[0].r > layout.hubs[16].r);
 });
 

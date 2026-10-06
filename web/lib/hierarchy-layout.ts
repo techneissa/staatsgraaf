@@ -15,6 +15,8 @@
  * Below `orgChartFits` / `focusSidesFits` the view stacks instead.
  */
 
+import { distanceToPolyline, pointAt, segmentSpans, spokeCurve, type Spoke } from "./hierarchy-connectors";
+
 export type Point = { x: number; y: number };
 export type Rect = { x: number; y: number; w: number; h: number };
 export type Circle = Point & { r: number };
@@ -243,6 +245,8 @@ export type OrgHub = Circle & {
   angle: number;
   /** Where its bar leaves the ring, and where it meets the hub. */
   bar: { a: Point; b: Point };
+  /** The bar as drawn: radial at the ring, heading for the hub's centre, a gentle S between (lib/hierarchy-connectors.ts). */
+  spoke: Spoke;
   /** The short label chip on the bar, or null when it has no clear place. */
   chip: Rect | null;
   /** People placed around the hub; the rest wait behind the hub's "+n". */
@@ -401,12 +405,17 @@ function attemptOrgChart(
     }
   } else {
     // Segments by weight, clockwise from the top.
-    const total = input.reduce((sum, hub) => sum + Math.max(0, hub.weight), 0) || 1;
+    // A segment never gets narrower than its own bar: a one-seat party keeps a place on the ring.
     const gapAngle = input.length > 1 ? 2.5 / ringR : 0;
+    const spans = segmentSpans(
+      input.map((hub) => hub.weight),
+      TAU,
+      (stroke.hubBar + 3) / ringR + gapAngle,
+    );
     let a = top + turn * TAU;
     const mids: number[] = [];
-    for (const hub of input) {
-      const span = (Math.max(0, hub.weight) / total) * TAU;
+    for (const [index, hub] of input.entries()) {
+      const span = spans[index];
       segments.push({ group: hub.group, start: a + gapAngle / 2, end: a + Math.max(span - gapAngle / 2, gapAngle / 2 + 0.002) });
       mids.push(a + span / 2);
       a += span;
@@ -447,11 +456,13 @@ function attemptOrgChart(
     if (weighted) {
       const segment = segments[index];
       const a = unwrap(angle, segment.start - Math.PI);
-      const inset = Math.min((segment.end - segment.start) / 2, 1.5 / ringR);
+      // The whole bar stays inside the segment, with a pixel to spare each side.
+      const inset = Math.min((segment.end - segment.start) / 2, (stroke.hubBar / 2 + 1.2) / ringR);
       anchorAngle = clamp(a, segment.start + inset, segment.end - inset);
     }
     const a = { x: round(cx + ringOuter * Math.cos(anchorAngle)), y: round(cy + ringOuter * Math.sin(anchorAngle)) };
     const b = edgePoint({ x, y }, a, r);
+    const spoke = spokeCurve({ centre: { x: cx, y: cy }, ringOuter, angle: anchorAngle, hub: { x, y, r }, inset: stroke.hub / 2 });
     return {
       id: hub.id,
       group: hub.group,
@@ -460,6 +471,7 @@ function attemptOrgChart(
       r: round(r),
       angle: round(angle * 1000) / 1000,
       bar: { a, b },
+      spoke,
       chip: null,
       shown: 0,
       more: { x: round(x + r * 0.78), y: round(y - r * 0.78) },
@@ -503,11 +515,11 @@ function attemptOrgChart(
         for (const other of hubs) {
           if (other === hub) continue;
           if (distanceToSegment(other, bar.a, bar.b) < other.r + 3) return false;
-          if (segmentsCross(bar.a, bar.b, other.bar.a, other.bar.b)) return false;
+          if (crossesPolyline(bar.a, bar.b, other.spoke.points)) return false;
         }
         for (const m of members) if (segmentsCross(bar.a, bar.b, m.bar.a, m.bar.b)) return false;
         // Keep clear of the ring and of every hub bar.
-        for (const other of hubs) if (distanceToSegment(p, other.bar.a, other.bar.b) < rm + stroke.hubBar / 2 + 3) return false;
+        for (const other of hubs) if (distanceToPolyline(p, other.spoke.points) < rm + stroke.hubBar / 2 + 3) return false;
         return true;
       });
       if (!found) {
@@ -536,18 +548,20 @@ function attemptOrgChart(
 
   // Chips on the hub bars, then the member labels, most important first.
   const rects: Rect[] = [];
-  const bars = [...hubs.map((hub) => ({ a: hub.bar.a, b: hub.bar.b, w: stroke.hubBar })), ...members.map((m) => ({ a: m.bar.a, b: m.bar.b, w: stroke.memberBar }))];
+  const spokeBars = hubs.map((hub) =>
+    hub.spoke.points.slice(1).map((point, i) => ({ a: hub.spoke.points[i], b: point, w: stroke.hubBar, owner: hub.id })),
+  );
+  const bars = [...spokeBars.flat(), ...members.map((m) => ({ a: m.bar.a, b: m.bar.b, w: stroke.memberBar, owner: m.id }))];
   const chipH = Math.round(metrics.role + 7);
   hubs.forEach((hub, h) => {
     const w = textWidth(input[h].label, metrics.role, true) + 10;
-    const length = Math.hypot(hub.bar.b.x - hub.bar.a.x, hub.bar.b.y - hub.bar.a.y);
+    const length = hub.spoke.length;
     for (let t = 0.5; t >= 0; t -= 0.1) {
       for (const tt of t === 0.5 ? [0.5] : [0.5 + (0.5 - t), t]) {
-        const px = hub.bar.a.x + (hub.bar.b.x - hub.bar.a.x) * tt;
-        const py = hub.bar.a.y + (hub.bar.b.y - hub.bar.a.y) * tt;
-        const rect = { x: px - w / 2, y: py - chipH / 2, w, h: chipH };
+        const at = pointAt(hub.spoke.points, tt);
+        const rect = { x: at.x - w / 2, y: at.y - chipH / 2, w, h: chipH };
         if (length <= 0) continue;
-        const others = { circles, bars: bars.filter((bar) => bar.a !== hub.bar.a), rects, box };
+        const others = { circles, bars: bars.filter((bar) => bar.owner !== hub.id), rects, box };
         if (clear(rect, others)) {
           hub.chip = { x: round(rect.x), y: round(rect.y), w, h: chipH };
           rects.push(hub.chip);
@@ -620,6 +634,12 @@ function distanceToSegment(p: Point, a: Point, b: Point): number {
   const length = dx * dx + dy * dy;
   const t = length === 0 ? 0 : clamp(((p.x - a.x) * dx + (p.y - a.y) * dy) / length, 0, 1);
   return Math.hypot(p.x - (a.x + t * dx), p.y - (a.y + t * dy));
+}
+
+/** Whether a segment crosses a polyline. */
+function crossesPolyline(a: Point, b: Point, points: readonly Point[]): boolean {
+  for (let i = 1; i < points.length; i += 1) if (segmentsCross(a, b, points[i - 1], points[i])) return true;
+  return false;
 }
 
 function segmentsCross(a: Point, b: Point, c: Point, d: Point): boolean {
