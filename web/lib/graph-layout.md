@@ -1,6 +1,8 @@
 # Graph layout specification (nl-tiers-v5)
 
-This is the reproducible layout for the Staatsgraaf canvas. It is written so the web client and the later Swift client draw identical positions from the same file. The packer lives in `web/lib/graph-layout.ts` and runs once at build time in `web/scripts/build-graph.mjs`, which writes the coordinates into `web/public/graph.json`; the client module `web/lib/graph.ts` hydrates that file and never packs. The interaction layer is `web/lib/pose.ts` and `web/lib/motion.ts`, the renderer `web/components/graph/graph-canvas.tsx`. The machtskaart ships separately as `web/public/power-map.json` and is loaded only by the views that show it.
+> Since 06-10-2026 the web canvas shows the wheel (`web/lib/wheel.ts`) only and no longer draws this layout; `graph.json` still carries it for the iOS client and the layout tests. See `docs/adr/0015-graph-rebuild.md`, amendment 6.
+
+This is the reproducible layout for the Staatsgraaf canvas. It is written so the web client and the later Swift client draw identical positions from the same file. The packer lives in `web/lib/graph-layout.ts` and runs once at build time in `web/scripts/build-graph.mjs`, which writes the coordinates into `web/public/graph.json`; the client module `web/lib/graph.ts` hydrates that file and never packs. The tier renderer (`graph-canvas.tsx`) and its interaction layer (`pose.ts`) are removed (06-10-2026). The machtskaart ships separately as `web/public/power-map.json` and is loaded only by the views that show it.
 
 The layout is deterministic. The same dataset always produces the same angle and radius for the same body. There is no physics, no randomness, no time-dependent seed. Sorting never depends on object key order: ties break on `name`, then `id`.
 

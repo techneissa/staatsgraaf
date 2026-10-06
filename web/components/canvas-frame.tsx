@@ -5,12 +5,11 @@ import { usePathname } from "next/navigation";
 import { SECTOR_ORDER } from "@/lib/graph";
 import { legendLayers } from "@/lib/layer-counts";
 import type { OrgBranch } from "@/lib/types";
-import { edgeTypeOrderIndex } from "./graph/edge-styles";
 import { useT } from "@/components/i18n/use-t";
 import { CanvasControls, type CanvasView } from "./canvas-controls";
 import dynamic from "next/dynamic";
 import { preload } from "react-dom";
-import { ChartPie, ChevronUp, Orbit } from "lucide";
+import { ChevronUp, Orbit } from "lucide";
 import { LucideIcon } from "./icons/lucide-icon";
 import type { FractieResolver, NameResolver } from "./power/connections-view";
 import { useSelection } from "./selection/selection-provider";
@@ -21,12 +20,12 @@ import { readCanvasOpen, writeCanvasOpen } from "@/lib/canvas-prefs";
 import { usePanelState } from "./panels/workspace";
 
 /**
- * The canvases are the heaviest code on the site and many routes never show
- * one (a phone on a page other than the home page keeps the graph folded), so
- * none of them is in the shared bundle. The rings, the default form, load as
- * soon as the canvas is on screen, in parallel with graph.json; the wheel and
- * the connections view load only when the reader picks them. All render in the
- * browser only, like the frame around them.
+ * The wheel and the connections view are the heaviest code on the site and
+ * many routes never show them (a phone on a page other than the home page keeps
+ * the graph folded), so neither is in the shared bundle. The wheel loads as soon
+ * as the canvas is on screen, in parallel with graph.json; the connections view
+ * loads only when the reader picks it. Both render in the browser only, like the
+ * frame around them.
  */
 function CanvasLoading() {
   const t = useT("common");
@@ -36,28 +35,14 @@ function CanvasLoading() {
     </div>
   );
 }
-const GRAPH_FORM_KEY = "staatsgraaf.graph.form";
-const loadRings = () => import("./graph/graph-canvas").then((module) => module.GraphCanvas);
-const GraphCanvas = dynamic(loadRings, { ssr: false, loading: CanvasLoading });
 const loadWheel = () => import("./graph/graph-wheel").then((module) => module.GraphWheel);
 const GraphWheel = dynamic(loadWheel, { ssr: false, loading: CanvasLoading });
-
-/** The code of the form the reader last used (the rings by default). */
-function loadGraphForm() {
-  let wheel = false;
-  try {
-    wheel = window.localStorage.getItem(GRAPH_FORM_KEY) === "wheel";
-  } catch {
-    // Storage can be blocked; the rings load.
-  }
-  return wheel ? loadWheel() : loadRings();
-}
 
 // Where the canvas is on screen from the first paint (the home page, and the
 // middle column from lg), its code starts downloading as this module runs,
 // before React has hydrated; a phone on any other page leaves it alone.
 if (typeof window !== "undefined" && (window.location.pathname === "/" || window.matchMedia("(min-width: 64rem)").matches)) {
-  void loadGraphForm();
+  void loadWheel();
 }
 const ConnectionsView = dynamic(() => import("./power/connections-view").then((module) => module.ConnectionsView), {
   ssr: false,
@@ -104,27 +89,10 @@ export function CanvasFrame() {
   // The graph is fetched when the canvas is on screen; folded, it costs nothing.
   const { bundle, status } = useGraphBundle(visible);
   const [view, setView] = useState<CanvasView>("graph");
-  /** The graph's form: the tier map (rings) or the wheel of labelled cells; the reader's choice is remembered. */
-  const [graphForm, setGraphForm] = useState<"rings" | "wheel">("rings");
+  // The wheel's code is requested with the graph data, not after it.
   useEffect(() => {
-    try {
-      if (window.localStorage.getItem(GRAPH_FORM_KEY) === "wheel") setGraphForm("wheel");
-    } catch {
-      // Storage can be blocked; the rings stay.
-    }
-  }, []);
-  // The form's code is requested with the graph data, not after it.
-  useEffect(() => {
-    if (visible && view === "graph") void loadGraphForm();
+    if (visible && view === "graph") void loadWheel();
   }, [visible, view]);
-  const chooseGraphForm = (form: "rings" | "wheel") => {
-    setGraphForm(form);
-    try {
-      window.localStorage.setItem(GRAPH_FORM_KEY, form);
-    } catch {
-      // Remembering is a convenience only.
-    }
-  };
   const [hiddenBranches, setHiddenBranches] = useState<Set<string>>(new Set());
   /** The date the relations are drawn for; null is today. Only the dated relations change. */
   const [asOf, setAsOf] = useState<string | null>(null);
@@ -277,22 +245,6 @@ export function CanvasFrame() {
     [bundle],
   );
 
-  const edgeTypes = useMemo(() => {
-    if (!bundle) return [] as { type: string; count: number }[];
-    const counts = new Map<string, number>();
-    for (const edge of bundle.edges) {
-      counts.set(edge.type, (counts.get(edge.type) ?? 0) + 1);
-    }
-    return [...counts.entries()]
-      .sort(
-        (a, b) =>
-          edgeTypeOrderIndex(a[0]) - edgeTypeOrderIndex(b[0]) ||
-          b[1] - a[1] ||
-          a[0].localeCompare(b[0]),
-      )
-      .map(([type, count]) => ({ type, count }));
-  }, [bundle]);
-
   const toggleBranch = (branch: OrgBranch, visible: boolean) => {
     setHiddenBranches((current) => {
       const next = new Set(current);
@@ -340,14 +292,12 @@ export function CanvasFrame() {
             view={view}
             onViewChange={setView}
             branches={branches}
-            edgeTypes={edgeTypes}
             hiddenBranches={hiddenBranches}
             onToggleBranch={toggleBranch}
             onShowAll={() => setHiddenBranches(new Set())}
             asOf={asOf}
             onAsOfChange={setAsOf}
             datedEdges={datedEdges}
-            graphForm={graphForm}
           />
         </div>
         <button
@@ -403,18 +353,7 @@ export function CanvasFrame() {
         ) : null}
 
         {status === "ready" && bundle && view === "graph" ? (
-          <>
-            {graphForm === "wheel" ? <GraphWheel bundle={bundle} hiddenBranches={hiddenBranches} asOf={asOf} /> : <GraphCanvas bundle={bundle} hiddenBranches={hiddenBranches} asOf={asOf} />}
-            <button
-              type="button"
-              onClick={() => chooseGraphForm(graphForm === "wheel" ? "rings" : "wheel")}
-              aria-label={graphForm === "wheel" ? tg("ringsShow") : tg("wheelShow")}
-              title={graphForm === "wheel" ? tg("ringsShow") : tg("wheelShow")}
-              className="tap-target absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-sm border border-line bg-surface text-ink-muted shadow-sm transition-fast hover:border-line-strong hover:text-ink"
-            >
-              <LucideIcon icon={graphForm === "wheel" ? Orbit : ChartPie} size={17} />
-            </button>
-          </>
+          <GraphWheel bundle={bundle} hiddenBranches={hiddenBranches} asOf={asOf} />
         ) : null}
 
         {view === "power" && power.status !== "ready" ? (

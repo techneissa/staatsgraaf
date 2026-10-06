@@ -24,8 +24,7 @@ import { useT } from "@/components/i18n/use-t";
 import { useLocale } from "@/components/i18n/language-provider";
 import { branchColorVar } from "@/lib/branch-colors";
 import type { GlyphClass } from "@/lib/graph";
-import { BRANCH_LABELS_I18N, EDGE_TYPE_LABELS_I18N, WHEEL_LINK_LABELS_I18N } from "@/lib/i18n/dict-graph";
-import { edgeLine } from "./graph/edge-styles";
+import { BRANCH_LABELS_I18N, WHEEL_LINK_LABELS_I18N } from "@/lib/i18n/dict-graph";
 import { WHEEL_LINK_ORDER, WHEEL_LINK_STYLE } from "./graph/wheel-styles";
 import type { WheelLinkType } from "@/lib/wheel";
 import { glyphPath } from "./graph/glyph";
@@ -65,7 +64,6 @@ type CanvasControlsProps = {
   onViewChange: (view: CanvasView) => void;
   /** Organisations per layer (lib/layer-counts.ts), with the real gemeenten where the layer holds them. */
   branches: { branch: OrgBranch; count: number; municipalities?: number }[];
-  edgeTypes: { type: string; count: number }[];
   hiddenBranches: ReadonlySet<string>;
   onToggleBranch: (branch: OrgBranch, visible: boolean) => void;
   /** Shown only when the bundle carries dated relations. */
@@ -75,52 +73,12 @@ type CanvasControlsProps = {
   onShowAll: () => void;
   /** Display classes for the "as of" date; the frame hides it in the compact phone band. */
   asOfClassName?: string;
-  /** The graph's form: the legend keys the lines of the form on show. */
-  graphForm?: "rings" | "wheel";
 };
 
 function branchLabel(locale: "nl" | "en", branch: string): string {
   const entry = BRANCH_LABELS_I18N[branch];
   if (!entry) return branch;
   return locale === "en" ? entry.en : entry.nl;
-}
-
-function edgeTypeLabel(locale: "nl" | "en", type: string): string {
-  const entry = EDGE_TYPE_LABELS_I18N[type];
-  if (!entry) return type;
-  return locale === "en" ? entry.en : entry.nl;
-}
-
-/**
- * One sample row of the relationships legend: a short line in the style the
- * canvas draws for this type, ending in an arrowhead because every edge in
- * the data runs from maker to receiver.
- */
-function EdgeTypeSample({ type }: { type: string }) {
-  const line = edgeLine(type);
-  return (
-    <svg aria-hidden="true" viewBox="0 0 34 10" width={34} height={10} className="shrink-0">
-      <line
-        x1={0}
-        y1={5}
-        x2={25}
-        y2={5}
-        stroke={line.color}
-        strokeWidth={line.width * 1.8}
-        strokeOpacity={Math.min(1, line.opacity + 0.2)}
-        strokeLinecap="round"
-      />
-      <path
-        d="M 26 1.8 L 33 5 L 26 8.2"
-        fill="none"
-        stroke={line.color}
-        strokeWidth={line.width * 1.8}
-        strokeOpacity={Math.min(1, line.opacity + 0.2)}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
 }
 
 /** One sample row of the wheel's key: the tie's line as the wheel draws it, dash and arrowhead included. */
@@ -148,7 +106,6 @@ export function CanvasControls({
   view,
   onViewChange,
   branches,
-  edgeTypes,
   hiddenBranches,
   onToggleBranch,
   onShowAll,
@@ -156,7 +113,6 @@ export function CanvasControls({
   onAsOfChange,
   datedEdges = false,
   asOfClassName = "flex",
-  graphForm = "rings",
 }: CanvasControlsProps) {
   const t = useT("common");
   const tg = useT("graph");
@@ -329,22 +285,10 @@ export function CanvasControls({
               aria-label={tg("relationshipLegendTitle")}
               className="px-2 pb-1.5 pt-0.5"
             >
-              {graphForm === "wheel"
-                ? WHEEL_LINK_ORDER.map((type) => (
-                    <div key={type} role="listitem" className="flex items-center gap-2 py-0.5 text-xs text-ink-muted">
-                      <WheelLinkSample type={type} />
-                      <span className="truncate">{(locale === "en" ? WHEEL_LINK_LABELS_I18N[type]?.en : WHEEL_LINK_LABELS_I18N[type]?.nl) ?? type}</span>
-                    </div>
-                  ))
-                : edgeTypes.map(({ type, count }) => (
-                <div
-                  key={type}
-                  role="listitem"
-                  className="flex items-center gap-2 py-0.5 text-xs text-ink-muted"
-                >
-                  <EdgeTypeSample type={type} />
-                  <span className="truncate">{edgeTypeLabel(locale, type)}</span>
-                  <span className="ml-auto shrink-0 text-ink-faint">{count}</span>
+              {WHEEL_LINK_ORDER.map((type) => (
+                <div key={type} role="listitem" className="flex items-center gap-2 py-0.5 text-xs text-ink-muted">
+                  <WheelLinkSample type={type} />
+                  <span className="truncate">{(locale === "en" ? WHEEL_LINK_LABELS_I18N[type]?.en : WHEEL_LINK_LABELS_I18N[type]?.nl) ?? type}</span>
                 </div>
               ))}
             </div>

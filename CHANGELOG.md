@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (06-10-2026, the wheel is the graph)
+
+- The graph is the wheel only. The tier map and the toggle between the two forms are gone, along with the code only the tier map used. The list of bodies for keyboard and screen readers and the "as of" note now sit on the wheel. The legend keys the wheel's ties. See `docs/adr/0015-graph-rebuild.md`, amendment 6.
+
 ### Changed (05-10-2026, UX overhaul)
 
 - News shows items that name a real person, body, position or topic by default, with a toggle for the rest. The linker no longer links an item's own publisher, bare place names without a government cue, or topics without evidence. RTL boulevard is excluded at the feed. Day archives are linked and windowed, filters live in the URL, and the sources page shows feed status and named gaps (ADR 0021).

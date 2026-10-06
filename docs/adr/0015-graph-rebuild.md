@@ -74,6 +74,12 @@ Grouping uses families, an idea the reference also has, adapted to the Dutch sta
 - Picking a body turns the wheel so it sits at the bottom and draws its ties, with a shape per kind; ties inside an open family fan out one by one, and twelve or more ties into one other cell become one bundle.
 - Size and place follow ties, and the commissions are spread evenly along their ring. A body's ties are its edges plus its parent and the bodies under it; a mark is drawn one of three sizes by that count (a family's head by its own thresholds). Cells other than families spread their bodies over their whole area, with as many rows as keep the step along the ring close to the step across it. The advisory bodies are ordered toward the ministry they advise.
 
+## Amendment 6 (06-10-2026): the wheel replaces the tier map
+
+The owner chose the wheel as the only form of the graph. The tier map canvas (`web/components/graph/graph-canvas.tsx`) and the toggle that switched between the two forms are removed, together with the code only the tier map used: `web/components/graph/tier-chrome.ts`, `web/components/graph/edge-styles.ts`, and in `web/lib` the modules `pose`, `cluster-click`, `graph-direction`, `label-placement` and `label-clamp` with their tests. The relationships legend now keys the wheel's ties only.
+
+Two things the tier map carried moved into the wheel so nothing is lost: the folded list of bodies for keyboard and screen reader use (`web/components/graph/graph-list.tsx`) and the note under the "as of" date that says how many relations that date hides. The seat loupe sits under the list in the top left corner. The build still writes the tier layout (`nl-tiers-v6`) into `graph.json`, because the iOS client and `web/lib/graph.test.mjs` read it; the wheel takes its own layout from `web/lib/wheel.ts`. The reasons for the tier map in the earlier amendments stay as history.
+
 ## Note (05-10-2026): wording after the derivation review
 
 A review on 05-10-2026 found phrases in this record that read as copying ("copies the reference's geometry", a quoted size range of the reference). They are reworded above. The geometry, the layouts, the marks and the motion here are Staatsgraaf's own constructions. What the project takes from the reference product, and what it does not, is in `docs/adr/0026-reference-product-and-credit.md`.
