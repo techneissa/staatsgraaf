@@ -97,6 +97,38 @@ test("the kabinet bench seats everyone given, apart from the benches, in the giv
   }
 });
 
+test("the Tweede Kamer kabinet sits on the plan's tables and its seats keep apart", () => {
+  const hall = hallFor("org:tweede-kamer");
+  const tables = hall.furniture.filter((item) => item.kind === "cabinet");
+  assert.equal(tables.length, 2);
+  const toSegment = (p, a, b) => {
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+    const t = Math.max(0, Math.min(1, ((p.x - a.x) * dx + (p.y - a.y) * dy) / (dx * dx + dy * dy || 1)));
+    return Math.hypot(p.x - (a.x + t * dx), p.y - (a.y + t * dy));
+  };
+  const inside = (p, points) => {
+    let hit = false;
+    for (let i = 0, j = points.length - 1; i < points.length; j = i, i += 1) {
+      const a = points[i];
+      const b = points[j];
+      if (a.y > p.y !== b.y > p.y && p.x < ((b.x - a.x) * (p.y - a.y)) / (b.y - a.y) + a.x) hit = !hit;
+    }
+    return hit;
+  };
+  const distance = (p, points) => (inside(p, points) ? 0 : Math.min(...points.map((a, i) => toSegment(p, a, points[(i + 1) % points.length]))));
+  for (const seat of hall.cabinet.seats) {
+    assert.ok(Math.min(...tables.map((table) => distance(seat, table.points))) < 0.5, "a bench seat stands away from every table");
+  }
+  for (let i = 0; i < hall.cabinet.seats.length; i += 1) {
+    for (let j = i + 1; j < hall.cabinet.seats.length; j += 1) {
+      const a = hall.cabinet.seats[i];
+      const b = hall.cabinet.seats[j];
+      assert.ok(Math.hypot(a.x - b.x, a.y - b.y) >= hall.cabinet.r * 2 - 1e-6, `bench seats ${i} and ${j} overlap`);
+    }
+  }
+});
+
 test("seats never overlap and everything lies inside the box", () => {
   for (const orgId of ["org:tweede-kamer", "org:eerste-kamer"]) {
     const hall = hallFor(orgId);
