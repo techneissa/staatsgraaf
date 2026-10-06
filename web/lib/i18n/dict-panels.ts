@@ -72,10 +72,6 @@ export const PANELS_DICT = {
   // Fractie.
   seatsOf: { nl: "{n} van {total} zetels", en: "{n} of {total} seats" },
   fractieMembers: { nl: "Leden", en: "Members" },
-  seatOrderNote: {
-    nl: "De Kamer publiceert geen zetelindeling. De zetels van de fractie staan op achternaam.",
-    en: "The chamber publishes no seating plan. The group's seats follow the members' surnames.",
-  },
   otherChamber: { nl: "In de andere Kamer", en: "In the other chamber" },
   partyPage: { nl: "Partijpagina", en: "Party page" },
   partySite: { nl: "Website van de partij", en: "Party website" },

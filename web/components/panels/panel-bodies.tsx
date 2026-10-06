@@ -644,7 +644,6 @@ export function FractieBody({
           {variant === "page" ? <PeopleGrid people={members} limit={18} /> : (
             <LimitedList items={members} limit={10} className="-mx-1.5" render={(person) => <PersonRow key={person.id} person={person} size={24} />} />
           )}
-          <p className="mt-2 text-xs leading-relaxed text-ink-faint">{t("seatOrderNote")}</p>
         </Section>
       ) : null}
       {others.length > 0 ? (

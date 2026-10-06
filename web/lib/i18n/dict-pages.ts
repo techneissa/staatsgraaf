@@ -10,7 +10,7 @@ export const PAGES_DICT = {
   scopeLabel: { nl: "NL Rijk", en: "NL national" },
 
   linkHome: { nl: "homepage", en: "homepage" },
-  linkAbout: { nl: "Over en methode", en: "About and method" },
+  linkAbout: { nl: "Over", en: "About" },
   linkPrivacy: { nl: "Privacy", en: "Privacy" },
   linkAccessibility: { nl: "Toegankelijkheid", en: "Accessibility" },
   linkDataset: { nl: "Dataset", en: "Dataset" },
@@ -100,7 +100,7 @@ export const PAGES_DICT = {
   kindPerson: { nl: "Persoon", en: "Person" },
   kindTopic: { nl: "Onderwerp", en: "Topic" },
 
-  aboutTitle: { nl: "Over en methode", en: "About and method" },
+  aboutTitle: { nl: "Over", en: "About" },
   methodIntro: {
     nl: "Staatsgraaf is een open, bronvaste kaart van de Nederlandse overheid. Deze pagina beschrijft hoe de dataset tot stand komt, welke regels voor elke bewering gelden, hoe de wijzigingenfeed werkt, waar taalmodellen wel en niet worden gebruikt, en welke grenzen de data nu hebben.",
     en: "Staatsgraaf is an open, source-backed map of the Dutch government. This page describes how the dataset is built, which rules apply to every claim, how the change feed works, where language models are and are not used, and which limits the data have today.",
@@ -155,23 +155,6 @@ export const PAGES_DICT = {
   methodChangesP4a: {
     nl: "Zolang er geen eerdere versie is, schrijft de vergelijking geen geschiedenis. De eerste vulling komt uit een aparte, deterministische stap die alleen feiten met een datum of een zetelaantal overneemt. Een leemte in de vorige versie blijft een leemte. De volledige regels staan in",
     en: "As long as there is no earlier version, the comparison writes no history. The initial fill comes from a separate, deterministic step that only carries over facts with a date or a seat count. A gap in the previous version stays a gap. The full rules are in",
-  },
-  methodMaintTitle: { nl: "Actualiteit en onderhoud", en: "Freshness and maintenance" },
-  methodMaintP1: {
-    nl: "Elke nacht haalt de verversingsstap de actuele bewindspersonen op Rijksoverheid, de ledenlijst van de Eerste Kamer en de fractiezetels van de Tweede Kamer. Wie in de officiële lijst staat en nog geen lopende aanstelling heeft, krijgt er een met de lijstpagina als bron. Wie uit de lijst verdwijnt, krijgt een einddatum gelijk aan de ophaaldag, opnieuw met de lijstpagina als bron. Zo lopen functies en lidmaatschappen automatisch mee met benoemingen, vertrek en verkiezingen.",
-    en: "Every night the refresh step fetches the current office holders from Rijksoverheid, the member list of the Senate and the party seats of the House of Representatives. Anyone in the official list who does not yet have an active appointment gets one, with the list page as source. Anyone who disappears from the list gets an end date equal to the retrieval day, again with the list page as source. Positions and memberships therefore follow appointments, departures and elections automatically.",
-  },
-  methodMaintP2: {
-    nl: "Een vangnet hoort bij die stap: zouden in één nacht meer dan vijf dienstverbanden sluiten, dan stopt de hele verversing voordat er iets wordt geschreven. Zo'n aantal wijst meestal op een gewijzigde bronpagina in plaats van op echt vertrek. De productie blijft dan op de laatste goede versie staan en de storing wordt gemeld.",
-    en: "That step has a safety net: if more than five tenures were to close in a single night, the whole refresh stops before anything is written. Such a number usually points to a changed source page rather than to real departures. Production then stays on the last good version and the failure is reported.",
-  },
-  methodMaintP3: {
-    nl: "Het nieuws wordt elke zes uur opnieuw opgehaald: kop, koppeling naar het artikel, publicatietijd, uitgever en waar de licentie het toestaat de inleiding. De wijzigingenfeed vergelijkt de nieuwe dataset met de vorige op id, zodat een naamswijziging niet als vertrek plus aanstelling verschijnt. Een record zonder bron komt niet in de feed.",
-    en: "The news is fetched again every six hours: headline, link to the article, publication time, publisher and, where the licence allows it, the lead paragraph. The change feed compares the new dataset with the previous one by id, so a rename does not appear as a departure plus an appointment. A record without a source does not enter the feed.",
-  },
-  methodMaintP4: {
-    nl: "De verversing dekt nu de regering en beide Kamers. Provincies, gemeenten, waterschappen en Caribisch Nederland komen uit de onderzoekswerkstromen en hebben nog geen live bron. Dat is een benoemde leemte; hun gegevens worden bij een volgende onderzoeksronde bijgewerkt.",
-    en: "The refresh currently covers the government and both Chambers. Provinces, municipalities, water boards and the Caribbean Netherlands come from the research workstreams and have no live source yet. That is a named gap; their data is updated in a next research round.",
   },
   methodAiTitle: { nl: "Taalmodellen en menselijke controle", en: "Language models and human review" },
   methodAiP1: {
