@@ -1,6 +1,6 @@
 # Workstream P: live ambtsdragers
 
-- Gegenereerd: 06-10-2026
+- Gegenereerd: 07-10-2026
 - Bron: officiële pagina's van Rijksoverheid en de Eerste Kamer, en het Tweede Kamer OData-gegevensmagazijn (FractieZetelPersoon met gesloten rijen, Fractie, Presidium).
 - Werkwijze: fetch, nooit uit het geheugen; elke startdatum komt uit een bron of uit een bestaand, al gedateerd record. Geen einddatum wordt verzonnen: een sluiting zonder bronrij krijgt de ophaaldatum met confidence medium en staat in de reviewlijst.
 - Bewaking: een bron met inconsistente data (zetels, dubbele zetels, fractietotalen, 75 leden, 28 plus of min 3 bewindspersonen) schrijft niets; bulksluitingen alleen bij een gebeurtenis (ADR 0024).
@@ -9,13 +9,13 @@
 
 | Bron | URL | Opgehaald | Status |
 | --- | --- | --- | --- |
-| Rijksoverheid bewindspersonen | https://www.rijksoverheid.nl/regering/bewindspersonen | 06-10-2026 | 200 |
-| FractieZetelPersoon (huidige leden, met Persoon en Fractie) | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$filter=TotEnMet eq null&$expand=Persoon,FractieZetel($expand=Fractie)&$format=json&$top=250 | 06-10-2026 | 200 |
-| FractieZetelPersoon (gesloten rijen, laatst gewijzigd eerst) | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$filter=TotEnMet ne null&$orderby=ApiGewijzigdOp desc | 06-10-2026 | 200 |
-| Fractie (actieve fracties met AantalZetels) | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Fractie?$filter=DatumInactief eq null | 06-10-2026 | 200 |
-| Presidium (Voorzitter en ondervoorzitters van de Tweede Kamer) | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/CommissieZetelVastPersoon?$filter=CommissieZetel/Commissie/Afkorting eq 'PRES' | 06-10-2026 | 200 |
-| Eerste Kamer alle leden | https://www.eerstekamer.nl/alle_leden | 06-10-2026 | 200 |
-| Eerste Kamer fracties en fractiebesturen | https://www.eerstekamer.nl/fracties | 06-10-2026 | 200 |
+| Rijksoverheid bewindspersonen | https://www.rijksoverheid.nl/regering/bewindspersonen | 07-10-2026 | 200 |
+| FractieZetelPersoon (huidige leden, met Persoon en Fractie) | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$filter=TotEnMet eq null&$expand=Persoon,FractieZetel($expand=Fractie)&$format=json&$top=250 | 07-10-2026 | 200 |
+| FractieZetelPersoon (gesloten rijen, laatst gewijzigd eerst) | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$filter=TotEnMet ne null&$orderby=ApiGewijzigdOp desc | 07-10-2026 | 200 |
+| Fractie (actieve fracties met AantalZetels) | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Fractie?$filter=DatumInactief eq null | 07-10-2026 | 200 |
+| Presidium (Voorzitter en ondervoorzitters van de Tweede Kamer) | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/CommissieZetelVastPersoon?$filter=CommissieZetel/Commissie/Afkorting eq 'PRES' | 07-10-2026 | 200 |
+| Eerste Kamer alle leden | https://www.eerstekamer.nl/alle_leden | 07-10-2026 | 200 |
+| Eerste Kamer fracties en fractiebesturen | https://www.eerstekamer.nl/fracties | 07-10-2026 | 200 |
 
 ## Tellingen
 
