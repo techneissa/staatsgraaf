@@ -150,3 +150,6 @@ Entries the live run (`bun run live`, ADR 0024) lists for a weekly human glance:
 - [ ] 07-10-2026 zetelwijziging: org:gemeenteraad-rotterdam: het aantal zetels is 46 in de dataset en 45 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-rotterdam|45 -->
 - [ ] 07-10-2026 zetelwijziging: org:gemeenteraad-roermond: het aantal zetels is 32 in de dataset en 33 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-roermond|33 -->
 - [ ] 07-10-2026 zetelwijziging: org:gemeenteraad-rijssen-holten: het aantal zetels is 25 in de dataset en 24 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-rijssen-holten|24 -->
+- [ ] 09-10-2026 zetelwijziging: org:gemeenteraad-barneveld: het aantal zetels is 34 in de dataset en 33 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-barneveld|33 -->
+- [ ] 09-10-2026 zetelwijziging: org:gemeenteraad-oirschot: het aantal zetels is 17 in de dataset en 16 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-oirschot|16 -->
+- [ ] 09-10-2026 zetelwijziging: org:gemeenteraad-rijssen-holten: het aantal zetels is 24 in de dataset en 25 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-rijssen-holten|25 -->
