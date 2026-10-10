@@ -44,6 +44,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:10133cdd",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Word search",
+    "lead": null,
+    "sourceHash": "270011d47bdc",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:1032e71b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -308,6 +319,17 @@
     "translated": "2026-10-01"
   },
   {
+    "id": "news:1226cb00",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "At least thirty dead in drone attack at refugee camp in Sudan",
+    "lead": null,
+    "sourceHash": "deb9fc2f0382",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:12353677",
     "language": "en",
     "sourceLanguage": "nl",
@@ -550,6 +572,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:142a5ad2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Apologies come too late for Liesbeth, who lost her father to Q fever: 'All those deaths, that need not have happened'",
+    "lead": "Every time Liesbeth Gielis from Berghem walks past a meadow with goats, a vague feeling creeps over her. Every time again that fear of Q fever. It has now been sixteen years since her father died from the infection. \"It is quite late for apologies.\"",
+    "sourceHash": "bc6e137a2882",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:144c3f9a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -726,6 +759,17 @@
     "translated": "2026-10-04"
   },
   {
+    "id": "news:15949bd9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "European Commission criticises ICC sanctions, criminal court asks member states for support",
+    "lead": null,
+    "sourceHash": "a62f4928c790",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:15c8dd90",
     "language": "en",
     "sourceLanguage": "nl",
@@ -757,17 +801,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
-  },
-  {
-    "id": "news:16181dd1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "De Bruyne guides Belgium past Turkey in Nations League: 3-0",
-    "lead": "The Belgian national football team defeated Turkey 3-0 in Liege in the Nations League. Kevin De Bruyne scored two goals at Stade Maurice Dufrasne (Sclessin) for the team of national coach Mark van Bommel. Romelu Lukaku took the third goal for his account.",
-    "sourceHash": "caf0e9fa634d",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-03"
   },
   {
     "id": "news:16285a44",
@@ -1254,6 +1287,17 @@
     "translated": "2026-10-08"
   },
   {
+    "id": "news:1a4e1b40",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "How sustainable the new (or old?) normal can become",
+    "lead": null,
+    "sourceHash": "6b58d85f95a9",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:1a56082e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1384,17 +1428,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
-  },
-  {
-    "id": "news:1b23f269",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Christa Pike unconscious and on ventilator after failed execution",
-    "lead": "Christa Pike, whose execution failed after two attempts, is according to her lawyer unconscious and on a ventilator. According to the lawyer she is intubated, meaning her breathing is regulated via an inserted airway tube. The doctors would be trying to save her life.",
-    "sourceHash": "59537bc74518",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-02"
   },
   {
     "id": "news:1b4deefa",
@@ -2530,6 +2563,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:23cb0b66",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dutchman suspected of attempted manslaughter after driving into Belgian police officers",
+    "lead": "A 24-year-old Dutchman has been arrested in Belgium after, according to the justice authorities, he tried to drive into two police officers with his van. One of the officers then shot a tire of the vehicle flat. The man is now in custody and is suspected of attempted manslaughter.",
+    "sourceHash": "3c41640ae4e6",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:242f32f4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2673,6 +2717,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:25481b47",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Netherlands returns centuries-old Quran and precious diamond to Indonesia",
+    "lead": "The Netherlands returns twenty cultural objects to Indonesia that were wrongly brought to our country during the colonial period. These include a cut diamond of 36 carats, a handwritten Quran and a traditional sword.",
+    "sourceHash": "eb37c7f584e7",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:254b6999",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2770,6 +2825,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-05"
+  },
+  {
+    "id": "news:26f80c50",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dutch team thrashes Hungary and takes big step towards World Cup in Brazil",
+    "lead": null,
+    "sourceHash": "dcd9232a5223",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:2700411d",
@@ -3058,6 +3124,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:289ee97c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Vorto",
+    "lead": null,
+    "sourceHash": "e0d279537212",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:28dda4f0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3078,6 +3155,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:29055651",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Oranje Leeuwinnen begin play-offs for World Cup in formidable fashion: monster score in Hungary",
+    "lead": "The Oranje Leeuwinnen have taken a big step towards the final of the play-offs for the World Cup. The team of national coach Arjan Veurink was 0-8 too strong for Hungary in Felcsút. The return leg is next Tuesday in Tilburg.",
+    "sourceHash": "54c92d7952f6",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:2906fc8e",
@@ -3234,6 +3322,17 @@
     "translated": "2026-10-02"
   },
   {
+    "id": "news:2ab7e602",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Oranje women record biggest win under Veurink against Hungary",
+    "lead": "The Netherlands' women footballers are a step closer to a ticket for next year's World Cup. In the first of two play-off matches against Hungary, the Netherlands recorded the biggest victory under head coach Arjan Veurink: 0-8. In the Pancho Aréna in the Hungarian town of Felcsút the difference in class was big; at half-time it was already 0-4.",
+    "sourceHash": "65839080e8f2",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:2ad33465",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3309,6 +3408,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:2b9cf1dd",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Mediocre PSV escapes against Heerenveen and resumes Eredivisie with a win",
+    "lead": "PSV resumed the league with a 2-0 win over SC Heerenveen. The champion of the last three seasons gave away quite a few chances and Armando Obispo escaped a second yellow card, but Peter Bosz's team eventually finished the match in mature fashion after an own goal halfway through the second half.",
+    "sourceHash": "c83db762c7fa",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:2badd0af",
@@ -3474,6 +3584,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:2d6cbeb8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "PSV continues Eredivisie with win over sc Heerenveen",
+    "lead": "PSV has won the first league match after the international break 2-0 against sc Heerenveen. The national champion won in Eindhoven thanks to a goal by Guus Til and an own goal by Marcus Linday, a boost after the defeat in the previous Eredivisie match against FC Twente.",
+    "sourceHash": "c337f2c957ef",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:2d73c2f7",
@@ -3674,6 +3795,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:2f0eae0b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "What if FOMO is just a good kick in the pants?",
+    "lead": "When it comes to FOMO, the fear of missing out, the tone is often negative, observes Jakob Schrenk. While that feeling can actually prompt people to go out and experience something beautiful.",
+    "sourceHash": "ed45e19b8e0f",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:2f292c38",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3826,17 +3958,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
-  },
-  {
-    "id": "news:30464a31",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Paulien Cornelisse is on her way to the dictionary",
-    "lead": null,
-    "sourceHash": "8c3cff3cd696",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-02"
   },
   {
     "id": "news:304f07d5",
@@ -4046,17 +4167,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
-  },
-  {
-    "id": "news:31831c77",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The Pocket Knife",
-    "lead": "In my hand I have the dog-eared book Het Zakmes by Sjoerd Kuyper. At the front is written: 'For the group of Juf Ruth, mot hortoloke grot von do schrover: Sjoerd Kuyper…",
-    "sourceHash": "6e342cd54ab1",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-03"
   },
   {
     "id": "news:31daffc4",
@@ -5016,6 +5126,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:39792321",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Mikky Keetels runs increasingly better marathons, yet she also wants to stay a stewardess: 'Flying brings me that free feeling'",
+    "lead": null,
+    "sourceHash": "ed54b59e7680",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:39a36403",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5091,6 +5212,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:3a597fad",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Celal Altuntas: I see Willem-Alexander as father, partner, grandchild and thinker",
+    "lead": null,
+    "sourceHash": "a4dd833394c3",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:3a62ef56",
@@ -5201,6 +5333,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:3aafff2e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cinco",
+    "lead": null,
+    "sourceHash": "b5d17bb2750c",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:3ac9820a",
@@ -5742,17 +5885,6 @@
     "translated": "2026-10-06"
   },
   {
-    "id": "news:3f4ea609",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "JACK Quartet performs unrest, breath and silence in the music for Samuel Beckett's monologue Stirrings Still",
-    "lead": null,
-    "sourceHash": "73d97bb822c7",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-09"
-  },
-  {
     "id": "news:3f539416",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5839,6 +5971,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:3fae1001",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Divorcing couples are poorly prepared: 'People mainly want to show how happy they are'",
+    "lead": "Divorce experts complain about a lack of knowledge among their clients. The bestseller by a super-rich American expert by experience fuels the debate about this. 'Read that tax return.'",
+    "sourceHash": "3df9532aa833",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:3fae8509",
@@ -6125,6 +6268,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-03"
+  },
+  {
+    "id": "news:417de454",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "KLM flight bound for Panama diverted to Curaçao due to earthquake",
+    "lead": "A KLM flight that was en route from Amsterdam to Panama City has been diverted to Curaçao because of the severe earthquake off the coast of the Central American country, as can be seen on the Flightradar24 website.",
+    "sourceHash": "d56a9810ebce",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:41895de9",
@@ -6622,6 +6776,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:4533d178",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Brilliant",
+    "lead": null,
+    "sourceHash": "c5eb20e21098",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:4538cdd9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -7071,6 +7236,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:483c368",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Emirates confirm that Flydubai pilot wanted to carry out an attack at Tel Aviv airport",
+    "lead": null,
+    "sourceHash": "6af705528855",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:485ae1e3",
@@ -7566,6 +7742,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:4c5d15b9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Christian network in open letter to ING: Contribute to a livable earth",
+    "lead": null,
+    "sourceHash": "4c30dcc4c6f6",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:4c6afb9b",
@@ -8237,6 +8424,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:50dd1f7c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Around the Spanish Almería there is a parallel society",
+    "lead": "In the southern Spanish Almería lies the largest greenhouse complex in Europe. Photographer Rob Hornstra captured the local population and labour migrants there and found distressing conditions.",
+    "sourceHash": "c4d8ff2ce2c2",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:50dffe26",
@@ -9229,6 +9427,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:57e7d336",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "In Finland it is a privilege to get to know the border guard up close",
+    "lead": "Het FD joined a course for a day where high-ranking Finns discuss the security of their country. There is a lot of interest, and far from everyone who registers is selected.",
+    "sourceHash": "2f38f33595c7",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:57f81467",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9383,17 +9592,6 @@
     "translated": "2026-10-06"
   },
   {
-    "id": "news:58e9d5df",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Songs in the Key of Life - the EP: with a bit of luck, Stevie Wonder will also play these songs in the Ziggo Dome",
-    "lead": null,
-    "sourceHash": "232206540c83",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-09"
-  },
-  {
     "id": "news:594c666d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9425,17 +9623,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
-  },
-  {
-    "id": "news:5989e762",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The Netherlands can become a top education country again, says Erik Ex. 'It is about teachers doing things together'",
-    "lead": null,
-    "sourceHash": "e8dd7a634736",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-02"
   },
   {
     "id": "news:5992e600",
@@ -11993,12 +12180,12 @@
     "id": "news:5d2433c",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Flemish politician Filip Dewinter gets hit in argument with wedding guests",
-    "lead": "Vlaams Belang politician Filip Dewinter sustained minor injuries to his head in a scuffle at Antwerp city hall. He got into an argument with a Moroccan-Belgian family that was celebrating a wedding on the Grote Markt, Flemish media report. The leading figure of the right-nationalist party was at city hall together with party colleague Anke Van dermeersch to sign the condolence register for the Antwerp singer John de Wilde, who died last week. At the same time, a group of about fifty people had gathered for a wedding. Footage shows pushing and pulling when Dewinter tries to move through the crowd. Van dermeersch filmed part of the argument, Dewinter has shared that footage on X . What happened before or after the fragment is not clear. The parties involved have differing accounts of how the incident arose. Hard blows According to Dewinter, when passing he wanted to \"immediately be mocked and insulted as a racist\". He says he was grabbed by a man by his throat, after which he was hit by ten to fifteen people. \"Usually it does not come to physical blows, but it remains at insults, shouting and yelling,\" he tells VRT . \"As a politician of Vlaams Belang I unfortunately have to deal with that regularly, but I have the impression that it is getting worse and worse.\" A member of the family that was celebrating the wedding party tells Gazet van Antwerpen that the discussion had already arisen earlier, because Van dermeersch wanted to film them. A family member tells VRT that Dewinter pushed some people on his way to city hall. When the mother of the bride asked to stop filming, Van dermeersch would have been the first to hit her in the face. The police detained two persons, both from the group of wedding guests. Dewinter suffered a bleeding wound on his eyebrow. He has given a statement to the police.",
-    "sourceHash": "e5f124d0a96a",
+    "title": "Flemish politician Filip Dewinter gets hit in row with wedding guests",
+    "lead": "Vlaams Belang politician Filip Dewinter sustained minor injuries to his head in a scuffle at Antwerp city hall. He became involved in a row with a Moroccan-Belgian family that was celebrating a wedding on the Grote Markt, Flemish media report. The leading figure of the right-nationalist party was at city hall together with party colleague Anke Van dermeersch to sign the condolence register for the Antwerp singer John de Wilde, who died last week. At the same time, a group of about fifty people had gathered for a wedding. In footage it can be seen that there is pushing and pulling when Dewinter tries to move through the crowd. Van dermeersch filmed part of the row, Dewinter has shared that footage on X. What happened before or after the clip is not clear. The parties involved have differing accounts of how the incident arose. Hard blows According to Dewinter, as he passed he was \"immediately mocked and called a racist\". He was reportedly grabbed by the throat by a man, after which he was hit by ten to fifteen people. \"Usually it does not come to physical blows, but it stays with insults, shouting and yelling,\" he tells VRT. \"As a politician of Vlaams Belang I unfortunately have to deal with that regularly, but I have the impression that this is getting worse and worse.\" A member of the family that was celebrating the wedding party tells Gazet van Antwerpen that the discussion had already arisen earlier, because Van dermeersch wanted to film them. A family member tells VRT that Dewinter pushed several people on his way to city hall. When the bride's mother asked them to stop filming, Van dermeersch reportedly hit her in the face first. The police have detained two persons, both from the group of wedding guests. Dewinter suffered a bleeding wound on his eyebrow. He has given a statement to the police.",
+    "sourceHash": "3331bc3a6dc5",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-09"
+    "translated": "2026-10-10"
   },
   {
     "id": "news:5d2433d",
@@ -12010,6 +12197,28 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:5d2437f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'Co-pilot who wanted to crash the aircraft was inspired by 9/11'",
+    "lead": "The co-pilot who wanted to take over the aircraft during a flight from Dubai to Tel Aviv and stabbed his captain in the process, wanted to carry out an attack inspired by the terrorist attacks of 9/11. That is what the public prosecutor of the United Arab Emirates (UAE) has made known. The prosecutor's investigation also brings other important findings to light. The 29-year-old suspect would have used two earlier flights to Tel Aviv to \"familiarise himself with the flight route and the airport\", in preparation for his deed. Whether he was also a pilot on these flights or flew along as a civilian is not known. During interrogations the man, who is an Omani citizen, has stated that he acted alone. Israeli passengers The man would have intended to fly into a terminal of the Israeli Ben-Gurion airport, the authorities confirm. Earlier this week sources close to the police investigation already reported that the co-pilot was probably planning to crash the aircraft at the international airport of Tel Aviv, the largest airport in the country. The suspect had \"the intention to cause the largest possible number of victims\", according to public prosecutor Hamad Saif al Shamsi. Most of the 174 passengers on board came from Israel. For the Israeli government that was reason enough to state immediately that the co-pilot was out to kill as many Israelis as possible. Israel has announced that it will request the man's extradition. According to the public prosecutor, the co-pilot was inspired by the attacks of 11 September 2001 in the US, when hijackers of the terrorist organisation al-Qaida flew two aircraft into the Twin Towers in New York. Nearly 3000 people died in the process. The Omani co-pilot was on his way to Tel Aviv together with his Indian captain on 30 September, when he attacked him with an emergency axe . Although the captain was seriously injured, he managed to open the cockpit door, after which passengers could storm in and overpower the attacker. Two pilots who were flying along as passengers on the flight of airline Flydubai then took over the controls of the aircraft and landed it safely in Saudi Arabia. On footage on board the Flydubai flight chaotic scenes could be heard: The suspect, who had been employed by Flydubai since January, had according to the prosecutor previously worked for airlines in several countries, including Oman Air and Royal Air Maroc. At Oman Air he was previously suspended , because extremist material was found on him. How he was nevertheless able to start work as a co-pilot at Flydubai is not yet clear. In 2017 there were already indications that the suspect slid into extremism and terrorism during a study in Australia, the investigation establishes. What those indications are has not been made known. Earlier this week Australia would have opened an anti-terror investigation. Saudi Arabia has started a separate security investigation into the incident with flight FZ1073. The aircraft was in Saudi airspace when the Omani co-pilot attacked the captain.",
+    "sourceHash": "766ae2ffd4b3",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
+    "id": "news:5d24381",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "110 arrests on a day full of violence in central Brussels",
+    "lead": "In Brussels at least 110 people have been detained after a strike day by trade unions ended in riots. Only in the course of the evening did calm return to the Belgian capital, reports VRT Nieuws. The trade unions protested today against cuts to social security. After some time, hundreds to thousands of young people mingled among the demonstrators. According to various media, that was because of the planned cuts in education, but the police deny that there was a link with those cuts or with the trade union action. The young people were mostly dressed in black and wore masks. They threw stones, set cars and shared bicycles on fire and caused many other acts of destruction. The police deployed water cannons and tear gas to disperse the young people. Belgian minister Quintin of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity> has announced that there will be a response proportionate to the damage caused. The mayor of Brussels has also spoken out against the violence. He calls it \"absolutely scandalous\" that public services were attacked during the riots. The mayor wants firm action to be taken against the rioters and that identified perpetrators bear the financial cost of the damage. According to VRT, the trade unions had been warned that their strike action might be hijacked. After education protests earlier this week in Liege, it had been advised to possibly postpone the action. On Tuesday, dozens of activists there went along secondary schools, where they smashed windows and set rubbish bins on fire. The trade unions nevertheless decided to take to the streets today. This weekend the federal government will again negotiate on the cuts to social security. That is why the unions considered it important to make themselves heard today. According to Belgian media, the federal government is looking for about 10 billion euros to balance the budget. The trade unions fear that this will involve cuts in, among other things, social security. View footage here of the unrest earlier in the day:",
+    "sourceHash": "914abc325a67",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:5d2802f8",
@@ -12408,6 +12617,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:5fc96d30",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "UEFA imposes penalty on Serbia for racism during match with Oranje",
+    "lead": "NYON (ANP/RTR) - The national football team of Serbia must play the next home match without spectators. The European football association UEFA is punishing the country because of \"racist and/or discriminatory\" behaviour by Serbian supporters during the Nations League matches against the Netherlands national team and Greece. The Serbian football association FFS must also pay a fine of 50,000 euros for that reason, UEFA reports Friday.",
+    "sourceHash": "fa319592ae01",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:5fca17ba",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12593,6 +12813,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:616f9098",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Personalia Saturday 10 October",
+    "lead": "New job? Email personalia@fd.nl, with a high-resolution photo and a job description in Dutch.",
+    "sourceHash": "efa0d2b61567",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:617b2cef",
@@ -13038,12 +13269,12 @@
     "id": "news:64e73ce7",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Popular pro-Kremlin blogger arrested in Montenegro",
+    "title": "Zelensky critical of Trump-Putin diesel agreement: 'Russia will repay with more terror'",
     "lead": null,
-    "sourceHash": "1585bb899c21",
+    "sourceHash": "7fdc29f0a713",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-09"
+    "translated": "2026-10-10"
   },
   {
     "id": "news:64f95ba0",
@@ -13143,6 +13374,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
+  },
+  {
+    "id": "news:656e1af4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "What do drought and heat mean for the mushrooms in our country? The garden count can provide an answer to that.",
+    "lead": null,
+    "sourceHash": "9731b3d616e7",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:656f21aa",
@@ -13286,6 +13528,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:65fd4806",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "PSV does not convince at Eredivisie restart, but does beat Heerenveen (2-0)",
+    "lead": null,
+    "sourceHash": "a5e93cdc7df9",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:6603668",
@@ -13693,6 +13946,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:68266842",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "A self-built village, firmly embedded in a larger city",
+    "lead": null,
+    "sourceHash": "224cf407f21e",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:682c2d6e",
@@ -14498,6 +14762,17 @@
     "translated": "2026-10-07"
   },
   {
+    "id": "news:6e89cd84",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Few leaders at 'leaders summit' for the climate in the Pacific",
+    "lead": null,
+    "sourceHash": "71c49239f484",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:6e944ce",
     "language": "nl",
     "sourceLanguage": "en",
@@ -14529,6 +14804,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
+  },
+  {
+    "id": "news:6ecf0996",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Russian capture of Donetsk impossible in short term, says think tank ISW: Ukraine sabotages encirclement",
+    "lead": null,
+    "sourceHash": "55a632aa5f28",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:6f1107a8",
@@ -15433,6 +15719,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:76132ed",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "After years of struggle, Jan-Willem van Schip stops: 'It is pointless. There is simply no place for me in cycling'",
+    "lead": null,
+    "sourceHash": "27cff1d12e7f",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:76205a87",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15873,6 +16170,17 @@
     "translated": "2026-10-08"
   },
   {
+    "id": "news:7977fe73",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Heracles Almelo first period champion in first division",
+    "lead": "Heracles Almelo has won the first period in the first division. The club of coach Vincent Heilmann won 3-0 against RKC Waalwijk and thereby secured the period title.",
+    "sourceHash": "8e5fa8a83307",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:79916865",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15970,6 +16278,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-01"
+  },
+  {
+    "id": "news:7a3a8a8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Zelensky critical of US-Russia diesel agreement: 'Gifts to Putin bring no peace'",
+    "lead": "The Ukrainian president Volodymyr Zelensky has responded critically to the agreement between the United States and Russia on the supply of Russian diesel to the US and the world market. Zelensky called the deal 'an investment in a war that must be ended'. He considers the agreement 'a weak decision by strong partners'. Follow all developments in the war in Ukraine in our liveblog.",
+    "sourceHash": "dbd9c83d42e3",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:7a502a08",
@@ -16113,6 +16432,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:7b2d15a2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tortoises in Seychelles from brink of extinction to record number",
+    "lead": "According to a new study, 180,000 adult giant tortoises live on an island that is part of the Seychelles. In the 1990s there were only 100,000, and in the nineteenth century they were nearly extinct with almost a thousand individuals.",
+    "sourceHash": "59f9f546f612",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:7b340802",
@@ -16357,6 +16687,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:7d71420a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Oranjevrouwen record monster win over Hungary and are a step closer to the World Cup",
+    "lead": "The Oranjevrouwen did excellent business on Friday in the Hungarian town of Felcsút in the hunt for a ticket for the 2027 football World Cup in Brazil. The team of national coach Arjan Veurink won the first round of the play-offs 0-8 against Hungary.",
+    "sourceHash": "802a279b4161",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:7d71f7c5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -16432,6 +16773,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:7de2ac60",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Goal, sip of a drink and gigantic banner: Cristiano Ronaldo lets his feet do the talking after turbulent week",
+    "lead": "Cristiano Ronaldo has let his feet do the talking after a week full of commotion. The 41-year-old Portuguese opened the scoring on Friday evening for Al-Nassr against Diriyah (3-0 win). Only last week Ronaldo left the Portuguese squad in anger because of a lack of playing time.",
+    "sourceHash": "97bd165c9b68",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:7def1cb4",
@@ -16575,6 +16927,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:7ef8ce64",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "UEFA punishes Serbia for discrimination during matches with Oranje and Greece",
+    "lead": "UEFA punished Serbia on Friday for \"racist and/or discriminatory\" behaviour by Serbian supporters last month in the Nations League. The home fans showed misconduct in the matches with the Netherlands and Greece.",
+    "sourceHash": "277f4160f164",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:7f0f4bed",
@@ -16762,6 +17125,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
+  },
+  {
+    "id": "news:7fe78742",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Trump: no decision yet on livestream of US soldier's execution by firing squad",
+    "lead": "US President Donald Trump has not yet confirmed whether there will be a livestream of the controversial execution by firing squad of the soldier Nidal Malik Hasan on 3 December. \"A decision still has to be made about that,\" Trump said on Friday evening to reporters. Follow all developments in the United States via our liveblog.",
+    "sourceHash": "036afe8d3ece",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:7fec872c",
@@ -17493,12 +17867,12 @@
     "id": "news:8491f813",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "The inscrutable constructions behind the 'bank' for vulnerable people",
-    "lead": "The founding of Modura seemed a solution for clients of administrators who have difficulty getting a bank account. The Council for the Judiciary approved this 'administrators' bank'. But the construction is unfathomable and the legal position of the clients is weak.",
-    "sourceHash": "d88ad3657a47",
+    "title": "Via Malta and Gibraltar, administrators handle the banking for vulnerable people, with the approval of the court",
+    "lead": "The founding of Modura seemed a godsend for clients of administrators who have difficulty getting a bank account. The Council for the Judiciary approved this 'administrators' bank'. But the construction is impossible to follow and the legal position of the clients weak.",
+    "sourceHash": "b04b6b9dea39",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-09"
+    "translated": "2026-10-10"
   },
   {
     "id": "news:84cf518d",
@@ -19682,12 +20056,12 @@
     "id": "news:93d92944",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "American sanctions against ICC 'new escalation', says minister Berendsen",
+    "title": "Katie Zacharia becomes new White House press secretary",
     "lead": null,
-    "sourceHash": "60ad088bae36",
+    "sourceHash": "c5ee75fc3bb9",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-09"
+    "translated": "2026-10-10"
   },
   {
     "id": "news:93dc452a",
@@ -20108,6 +20482,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:9709b369",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Driver tries to evade police, but ends up on N65 near Udenhout after chase at high speeds",
+    "lead": "A police chase that began in the area around Den Bosch ended Friday evening on the N65 level with the McDonald's in Udenhout. Speeds of up to about 200 kilometres per hour were reached.",
+    "sourceHash": "ce2f06f9e6d4",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:9717a4f8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -20119,6 +20504,17 @@
     "translated": "2026-10-07"
   },
   {
+    "id": "news:971ae54e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Trump says Russia will supply 300,000 tons of diesel to the US with immediate effect",
+    "lead": "Russia will supply 300,000 tons of diesel to the United States with immediate effect, US President Donald Trump reports on Friday on Truth Social. US diesel prices are currently going through the roof as a result of the war in the Middle East.",
+    "sourceHash": "8cfa339551f6",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:972afff2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -20128,6 +20524,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:972e0990",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Zelensky critical of US-Russia diesel agreement: 'Investment in war'",
+    "lead": null,
+    "sourceHash": "c6c0de7ced30",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:974ffab7",
@@ -20526,17 +20933,6 @@
     "translated": "2026-10-07"
   },
   {
-    "id": "news:9a24ae0f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Donald Trump drops demands to own Greenland, but the harm has been done",
-    "lead": "A revised defence pact with Denmark and Greenland is a modest improvement, but annexation threats were a costly blunder.",
-    "sourceHash": "30b77504ca98",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:9a2bd26f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -20601,6 +20997,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:9a4a610",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Exactly four",
+    "lead": null,
+    "sourceHash": "e7fcdf3c307a",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:9a72330f",
@@ -20900,6 +21307,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:9c833d69",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dutch makers win prizes with their provocative children's films, but where is the audience?",
+    "lead": null,
+    "sourceHash": "7d0696b09fd7",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:9c8387ca",
     "language": "en",
     "sourceLanguage": "nl",
@@ -20953,6 +21371,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:9ce4762",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Trump says Russia will supply diesel to US and global market",
+    "lead": "Russia will immediately supply more than 300,000 tons of diesel to the US. That is reported by US President Donald Trump on his social media platform Truth Social. According to Trump, he discussed this with Russian President Vladimir Putin. Because of the war in the Middle East, oil prices have risen sharply.",
+    "sourceHash": "067c1220d9b5",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:9cef2399",
@@ -21030,6 +21459,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:9d875025",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Oranje wins on way to World Cup with old-fashioned ease against Hungary",
+    "lead": null,
+    "sourceHash": "58942093ab7e",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:9d880c7f",
@@ -21179,11 +21619,11 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "There goes Mollema, one of the most colourful leaves, on the wings of the west wind",
-    "lead": "The west wind blew him to school. Eleven kilometres straight on, over a bare cycle path along the provincial road between Zuidhorn and <entity id=\"org:gemeente-groningen\">Groningen</entity>.",
-    "sourceHash": "4de81d84060c",
+    "lead": "How do you decide when to stop as a competitive cyclist, when the peloton has been your home for twenty years? Like a tree in the summer wind, like leaves that dance, so close together that they sometimes touch each other, if you are used to that: how do you let that go?",
+    "sourceHash": "0a8f820748c0",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-09"
+    "translated": "2026-10-10"
   },
   {
     "id": "news:9eed6439",
@@ -21802,6 +22242,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:a380ba1b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Video | Presenters flee during broadcast from earthquake in Panama",
+    "lead": null,
+    "sourceHash": "a10e8eb0a128",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:a38b4fac",
     "language": "en",
     "sourceLanguage": "nl",
@@ -22110,17 +22561,6 @@
     "translated": "2026-10-07"
   },
   {
-    "id": "news:a58c3c63",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "In All Set The Bone, Greg Freeman now pours his familiar mix more often into catchy song structures",
-    "lead": null,
-    "sourceHash": "87a9eb8e9358",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-09"
-  },
-  {
     "id": "news:a59ecc39",
     "language": "en",
     "sourceLanguage": "nl",
@@ -22242,6 +22682,17 @@
     "translated": "2026-10-04"
   },
   {
+    "id": "news:a688b147",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "PSV verslaat Heerenveen met 2-0 in de eerste wedstrijd na de interlandbreak",
+    "lead": "PSV boekt een 2-0 overwinning op Heerenveen in de eerste Eredivisiewedstrijd na de interlandbreak.",
+    "sourceHash": "4bcb0c54d622",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:a69666ac",
     "language": "en",
     "sourceLanguage": "nl",
@@ -22350,6 +22801,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:a7532228",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Man veroordeeld tot 10 jaar voor doodslag op Tilburgse vrouw in 2017",
+    "lead": "De rechtbank in Breda heeft Werner de R., 44, uit Tilburg veroordeeld tot 10 jaar gevangenisstraf voor de dodelijke steekpartij op de 58-jarige Hennie de Laat in Tilburg in 2017.",
+    "sourceHash": "0f5de90d6b5f",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:a7877c0d",
@@ -22726,6 +23188,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:a950e912",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The loser behaviour of a powerless people",
+    "lead": null,
+    "sourceHash": "fb2c312baa72",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:a961a6d1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -22889,6 +23362,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-03"
+  },
+  {
+    "id": "news:aadcef4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Trump announces deal after 'phone call with Putin': Russia supplies 300,000 tonnes of diesel immediately",
+    "lead": "US President Donald Trump has announced that he has concluded a deal with Russia on the supply of diesel. Russia is supplying more than 300,000 tonnes of diesel immediately, followed by another 500,000 tonnes in November and 1 million tonnes 'immediately after that'.",
+    "sourceHash": "17952e245da9",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:aadd2e98",
@@ -23309,6 +23793,17 @@
     "translated": "2026-10-08"
   },
   {
+    "id": "news:ae1f5822",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Employers help with paying off student debt to recruit young staff",
+    "lead": null,
+    "sourceHash": "0a785358a5cb",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:ae302e7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -23419,6 +23914,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:ae5c6732",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Your Turn",
+    "lead": null,
+    "sourceHash": "0ca9c42013e9",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:ae6a9f43",
     "language": "en",
     "sourceLanguage": "nl",
@@ -23494,6 +24000,28 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:aecb031b",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Nederlandse webwinkels lanceren fraudemonitor na 1,2 miljoen slachtoffers van nepwebshops",
+    "lead": "Nederlandse online retailers bundelen de krachten tegen nepwebshops nadat het aantal mensen in Nederland dat vorig jaar door zulke nepwinkels werd opgelicht, is gestegen naar 1,2 miljoen.",
+    "sourceHash": "099c49f59ffd",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
+    "id": "news:aed30a51",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "More than 100 arrests after major riots in Brussels, trail of destruction left around station",
+    "lead": "During the riots in Brussels, 110 people were arrested on Friday. Hundreds of young people gathered around Brussels-Central station. They pelted the <entity id=\"org:politie\">politie</entity> with wooden beams, glass bottles and rubbish bins. Officers responded with tear gas and a water cannon.",
+    "sourceHash": "1d39ef018d76",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:aeda7647",
@@ -23826,17 +24354,6 @@
     "translated": "2026-10-08"
   },
   {
-    "id": "news:b17987d2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Closing Time | Psycroptic",
-    "lead": "Psycroptic are a kind of legends in the Australian technical death metal scene. They have existed since 1999, and The Pulse of Annihilation is already their 9th album. Shame on me that I had never heard of them until recently. But hey, you can't dive into every musical niche, right? Glad I now […] Read more posts on Sargasso",
-    "sourceHash": "648bd451eaa6",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:b18cc0e5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -24013,6 +24530,17 @@
     "translated": "2026-10-07"
   },
   {
+    "id": "news:b2cc7a85",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Reader reactions: Since when does JA21 care about asylum seekers?",
+    "lead": null,
+    "sourceHash": "f254eecb12c2",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:b2f47cd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -24178,6 +24706,17 @@
     "translated": "2026-10-07"
   },
   {
+    "id": "news:b3eb8743",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Week full of bombardments on civilian targets makes Ukrainians fear for the winter",
+    "lead": null,
+    "sourceHash": "2ce31e496ff8",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:b3ed9b3c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -24275,17 +24814,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
-  },
-  {
-    "id": "news:b4c7dcee",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Leader Heracles Almelo drops points at Helmond Sport",
-    "lead": "Heracles Almelo has drawn for the first time this season. The team of coach Vincent Heilmann came to 2-2 at Helmond Sport. Despite the loss of points, the team remains leader of the first division and has the first period title within reach.",
-    "sourceHash": "8d3749d53dd1",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-06"
   },
   {
     "id": "news:b4ea3aaa",
@@ -24632,12 +25160,12 @@
     "id": "news:b884604a",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Immigration police officer shoots man in New York, mayor wants ICE to leave his city",
+    "title": "Vance says he will not watch livestream of public execution",
     "lead": null,
-    "sourceHash": "fcd7b30ea421",
+    "sourceHash": "238bc5269792",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-09"
+    "translated": "2026-10-10"
   },
   {
     "id": "news:b8a6294",
@@ -25443,6 +25971,17 @@
     "translated": "2026-10-04"
   },
   {
+    "id": "news:be2d9a61",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Major earthquake in Panama, countries in region warn of tsunami",
+    "lead": null,
+    "sourceHash": "aa30b2bc9061",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:be5f2973",
     "language": "en",
     "sourceLanguage": "nl",
@@ -25905,6 +26444,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:c2466896",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Russia will supply diesel to the US and the world market, Trump says",
+    "lead": null,
+    "sourceHash": "32bd96528fb9",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:c254d8f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -26024,6 +26574,28 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:c3007574",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "A hundred thousand new homes per year, but who buys them?",
+    "lead": "The supply of new-build homes is growing, but interest from buyers is lacking. What is going on?",
+    "sourceHash": "7134f727b6ca",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
+    "id": "news:c3017575",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Fifty years after the Cultural Revolution, China won't talk about it",
+    "lead": "Keeping silent about the awful decade may not bury it.",
+    "sourceHash": "8d201cdefcaf",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:c301f44d",
@@ -26994,6 +27566,17 @@
     "translated": "2026-10-02"
   },
   {
+    "id": "news:c9dd6c09",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Those hockey toffs aren't so well-mannered",
+    "lead": null,
+    "sourceHash": "dc4b934d60d2",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:c9ef9fae",
     "language": "en",
     "sourceLanguage": "nl",
@@ -27610,6 +28193,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:cdd6291e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Live World Cup qualification | Veurink after monster victory: 'Saw a very good match'",
+    "lead": "Good evening and welcome to this liveblog! I, Bram Schutte, will keep you up to date on the first leg between Hungary and the Netherlands in the play-offs for the World Cup. The return is in four days in Tilburg. Enjoy!",
+    "sourceHash": "b60edb73e189",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:cdd86b5a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -27696,6 +28290,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:ce4c15f9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Somersault",
+    "lead": null,
+    "sourceHash": "19fc40e02aae",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:ce56f6ba",
@@ -27819,6 +28424,17 @@
     "translated": "2026-10-08"
   },
   {
+    "id": "news:cf43d18e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Not good: prize-winning economists increasingly work at the same universities",
+    "lead": "The top of economics is concentrated at a few universities in the US. But a rich diversity of ideas is precisely the fuel for scientific progress.",
+    "sourceHash": "45bb2acc8c8d",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:cf48ff6b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -27828,6 +28444,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:cf6379e7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Russia will supply diesel to the US and the world market, Trump reports",
+    "lead": null,
+    "sourceHash": "32bd96528fb9",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:cf6a9267",
@@ -27960,6 +28587,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:d05259bd",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sudoku",
+    "lead": "You get a few numbers for free, but the 9x9 grid must be filled in flawlessly.",
+    "sourceHash": "d8a11c06af6e",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:d056a4b2",
@@ -28226,6 +28864,17 @@
     "translated": "2026-10-08"
   },
   {
+    "id": "news:d1ae26b0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Borussia Dortmund drops points with 2-2 against Werder Bremen",
+    "lead": "Borussia Dortmund has dropped its first points in the Bundesliga in the fifth match of the season. At home, the league leaders gave away a 2-0 lead against Werder Bremen and had to settle for 2-2.",
+    "sourceHash": "bfcbb1cd19b5",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:d1c51dbb",
     "language": "nl",
     "sourceLanguage": "en",
@@ -28356,6 +29005,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:d27d261d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Number block",
+    "lead": null,
+    "sourceHash": "773ba346c5f3",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:d28b2264",
@@ -28499,6 +29159,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
+  },
+  {
+    "id": "news:d3851faf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Live Eredivisie | PSV cherishes 'the clean sheet' against Heerenveen: 'But it wasn't great'",
+    "lead": "Welcome to this live blog! My name is Rypke Bakker and I will keep you up to date on the Eredivisie match between PSV and sc Heerenveen. Enjoy!",
+    "sourceHash": "066b240293ea",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:d391c4f5",
@@ -29513,6 +30184,17 @@
     "translated": "2026-10-07"
   },
   {
+    "id": "news:d98d45f4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Major earthquake near Panama, tsunami warning for surrounding countries",
+    "lead": "A very major earthquake has taken place off the coast of Panama. According to initial estimates from the American geological centre USGS, it had a magnitude of 7.6 and occurred at a depth of 10 kilometres.",
+    "sourceHash": "ea5c560fd33c",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:d9a131a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29623,6 +30305,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:da43457d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Heracles captures first period title after comfortable home win over RKC",
+    "lead": "Heracles clinched the first period title on Friday evening with a 3-0 victory over RKC. After a goalless first half, the team of 29-year-old Vincent Heilmann got going after the break. With three goals, Heracles secured the period title and ensured itself a place in the play-offs.",
+    "sourceHash": "284bac75dea8",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:da76e921",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29643,17 +30336,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
-  },
-  {
-    "id": "news:daafbd38",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Lewandowski hat-trick in Poland's 6-0 win over Romania",
-    "lead": "Poland has inflicted a heavy defeat on Romania in the Nations League. The team of national coach Jan Urban won 6-0 against Romania in Warsaw. Veteran Robert Lewandowski scored a hat-trick.",
-    "sourceHash": "63a520683312",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-03"
   },
   {
     "id": "news:daba209b",
@@ -30668,17 +31350,6 @@
     "translated": "2026-10-06"
   },
   {
-    "id": "news:e2696c20",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "In Zuid-Holland lies the largest rice field of Northwest Europe and that is a boon for nature",
-    "lead": null,
-    "sourceHash": "c5339670c083",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-06"
-  },
-  {
     "id": "news:e289471e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30699,17 +31370,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
-  },
-  {
-    "id": "news:e29efc50",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Anger over poor conditions and inequality, French school students are done with education",
-    "lead": "In France, students keep taking to the streets to protest against inequality in education. They believe the rich get more opportunities than the poor and that they often sit in poor conditions at school.",
-    "sourceHash": "586b6959da9b",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-02"
   },
   {
     "id": "news:e2c36cdf",
@@ -31394,6 +32054,17 @@
     "translated": "2026-10-07"
   },
   {
+    "id": "news:e640deea",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Flemish politician Filip Dewinter harassed and beaten by wedding guests",
+    "lead": "The Flemish politician Filip Dewinter was slightly injured in the face in an argument in front of the city hall in Antwerp. He is said to have come to blows with a family that was celebrating a wedding there. Accounts of the incident differ.",
+    "sourceHash": "6ea9db79649d",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:e64dc07c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31757,17 +32428,6 @@
     "translated": "2026-10-05"
   },
   {
-    "id": "news:e87ef1d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Arch-rivals France and Italy in balance in Nations League",
-    "lead": "France has missed its third consecutive victory in the Nations League. The team of the new national coach Zinedine Zidane drew 1-1 at the Stade de France against arch-rival Italy. France earlier won against Turkey and Belgium and leads group 1 of the A-league with 7 points.",
-    "sourceHash": "9b2ba0e37f52",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-03"
-  },
-  {
     "id": "news:e8a1db56",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31823,6 +32483,17 @@
     "translated": "2026-10-07"
   },
   {
+    "id": "news:e8f3e602",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ballad of the tragic MP",
+    "lead": "How a representative of the people commits himself to saving the country from ruin, which leads to despair all around.",
+    "sourceHash": "dcedc649f4cb",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:e92e30e0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31843,6 +32514,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:e93cb627",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "PSV finally keeps a clean sheet and beats Heerenveen as Eredivisie resumes",
+    "lead": "PSV won the first Eredivisie match after the long international break on Friday. The team of coach Peter Bosz kept a clean sheet for the first time this season against sc Heerenveen at the Philips Stadion: 2-0.",
+    "sourceHash": "19343885a8ea",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:e9a2390e",
@@ -31953,6 +32635,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:ea629931",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Man named Hitler Mussolini elected mayor of town in Peru",
+    "lead": "The 45-year-old Hitler Mussolini Simeon Flores has been elected mayor of Queropalca in western Peru. He belongs to a centre-left party. According to a local newspaper, Peru is the country with the most 'Hitlers' in the world.",
+    "sourceHash": "8ed5b34d0eac",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:ea8e9ca",
@@ -32393,6 +33086,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:ed482708",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The ban on destroying unsold textiles also affects the recycling factory. 'Two bales of new clothing. What am I allowed to do with them?'",
+    "lead": null,
+    "sourceHash": "72bb24c54650",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:ed58bdbe",
@@ -33253,17 +33957,6 @@
     "translated": "2026-10-07"
   },
   {
-    "id": "news:f260e3d6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Interest on student debt in 17 years never been so high. 'Students have borrowing anxiety'",
-    "lead": null,
-    "sourceHash": "6953c709d66d",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-02"
-  },
-  {
     "id": "news:f26e6d41",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33880,6 +34573,17 @@
     "translated": "2026-09-24"
   },
   {
+    "id": "news:f816aa8a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "How do you now judge (your) participation in a peace protest?",
+    "lead": null,
+    "sourceHash": "c16fd65d75ef",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:f816dcec",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33999,6 +34703,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:f85b6553",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Vance doubts whether livestreamed execution will take place and will not watch it himself",
+    "lead": "US Vice President JD Vance told journalists on Friday that he wonders whether the livestreaming of an execution by the Pentagon will actually take place. If it does happen anyway, he does not intend to watch it himself.",
+    "sourceHash": "ae30b71fed07",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:f85c1994",
@@ -34186,6 +34901,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:f99940d6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Rob de Wijk: Dutch men and women may also have to fight",
+    "lead": null,
+    "sourceHash": "b7126ebed7ec",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:f9bb5307",
@@ -34477,12 +35203,12 @@
     "id": "news:fbc8efb5",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Flydubai pilot travelled to Tel Aviv twice to prepare attack",
-    "lead": "The pilot who attacked a colleague last week on a flight from Dubai to Tel Aviv wanted to crash the plane at Tel Aviv airport. He travelled to Tel Aviv twice to prepare his attack.",
-    "sourceHash": "1d2874910cee",
+    "title": "Flydubai pilot travelled twice to Tel Aviv to prepare attack",
+    "lead": "The flydubai pilot who attacked a colleague last week on a flight from Dubai to Tel Aviv wanted to crash the plane at Tel Aviv airport. He travelled to Tel Aviv twice in preparation for his attack.",
+    "sourceHash": "0caff9d42481",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-09"
+    "translated": "2026-10-10"
   },
   {
     "id": "news:fbd3f064",
@@ -34857,17 +35583,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
-  },
-  {
-    "id": "news:feefab23",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The Shel Talmy Recordings: nice to hear a searching David Bowie, but he is not a genius yet",
-    "lead": null,
-    "sourceHash": "6853e7c6167e",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-09"
   },
   {
     "id": "news:fef10ad2",
