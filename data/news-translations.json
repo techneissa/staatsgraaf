@@ -583,6 +583,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:13756405",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "I remember the Amsterdam of 1996 only in fragments",
+    "lead": null,
+    "sourceHash": "e28c32f43814",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:138195a9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1265,17 +1276,6 @@
     "translated": "2026-10-08"
   },
   {
-    "id": "news:19e2b213",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Fury wants to invite Trump to attend boxing match with Joshua",
-    "lead": "CARDIFF (ANP/AFP) - British boxer Tyson Fury (36) wants to walk into the ring together with US President Donald Trump for the long-awaited fight with his compatriot Anthony Joshua (38). The fight between the two British former heavyweight world champions is scheduled for 11 December in Cardiff.",
-    "sourceHash": "0bb2a9dc3eff",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-03"
-  },
-  {
     "id": "news:19f83088",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1595,6 +1595,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:1c32dcfd",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ajax drops costly points in Arena for the fourth time and falls further behind Feyenoord and PSV",
+    "lead": "Ajax has already dropped costly points in its own Johan Cruijff Arena for the fourth time in five home matches. The team of coach Míchel Sánchez drew 1-1 on Saturday evening and thus falls further behind Feyenoord and PSV.",
+    "sourceHash": "fcb2f0dc37da",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:1c409e39",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1837,6 +1848,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:1de033d3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Due to her osteoarthritis, Karin (60) is not as mobile as she would like: 'I would have liked to become a top athlete'",
+    "lead": null,
+    "sourceHash": "1cc54f450095",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:1de82f1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2008,6 +2030,17 @@
     "title": "Cristiano Ronaldo provisionally suspended for Portugal due to controversial departure",
     "lead": "Cristiano Ronaldo has been provisionally suspended by the disciplinary committee of the Portuguese football association. The all-time top scorer risks a punishment because he left the national team a week and a half ago due to an argument with national coach Jorge Jesus.",
     "sourceHash": "73652e0828c7",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
+    "id": "news:1ef9d2d3",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Feyenoord klimt naar de eerste plaats in de Eredivisie na 2-0 zege op AZ in De Kuip",
+    "lead": "Feyenoord versloeg AZ Alkmaar zaterdag met 2-0 in De Kuip in Rotterdam in de Eredivisie.",
+    "sourceHash": "f86be22428e6",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
@@ -2638,17 +2671,6 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
-  },
-  {
-    "id": "news:2308028",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Spain records third win in Nations League against Czechia",
-    "lead": "Spain has also won the third match in the group stage of the Nations League. In Oviedo, the European and world champion beat Czechia 3-1.",
-    "sourceHash": "496911bb305b",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-03"
   },
   {
     "id": "news:231ae65a",
@@ -3564,6 +3586,17 @@
     "translated": "2026-10-07"
   },
   {
+    "id": "news:2a933757",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ajax drop points again against NEC, gap to league leaders Feyenoord grows to five points",
+    "lead": null,
+    "sourceHash": "9d83486f0125",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:2a9bc72e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3628,6 +3661,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-01"
+  },
+  {
+    "id": "news:2b3ead1a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Man killed by tiger after he jumped into enclosure at British animal park",
+    "lead": "A man in the United Kingdom died on Saturday from a tiger attack at a zoo in Yorkshire. The man had jumped into the animal's enclosure. The park remains closed on Sunday.",
+    "sourceHash": "370b2717473e",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:2b5aecbb",
@@ -4147,17 +4191,6 @@
     "translated": "2026-10-10"
   },
   {
-    "id": "news:2f925301",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Closing Time | REZN",
-    "lead": "Psychedelic doom stoner metal. Who doesn't like psychedelic doom stoner metal? EVERYONE LOVES PSYCHEDELIC DOOM STONER METAL, RIGHT?!?!!? Ahem, so, uh, nice listening music from REZN, from Chicago. An added bonus of this kind of band is that the artwork on the (nowadays usually virtual) album cover is also very cool. This is their [...] Read more posts on Sargasso",
-    "sourceHash": "2ccf62a0967b",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:2f9f53e6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4365,6 +4398,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-05"
+  },
+  {
+    "id": "news:30a63c26",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Feyenoord beats AZ in top match thanks to Spaniards and is leader again for the first time in almost a year",
+    "lead": "Feyenoord is the new leader in the Eredivisie. The Rotterdammers beat league leaders AZ 2-0 in a direct duel at their own Kuip. The team from Alkmaar thought it could make it 1-1 shortly before half-time, but referee Danny Makkelie withdrew the penalty he had earlier awarded.",
+    "sourceHash": "7566bcb77a54",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:30a76ca4",
@@ -4664,6 +4708,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:33041c55",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Eredivisie standings | Feyenoord new leaders, Ajax's gap grows: these are the differences",
+    "lead": "SC Cambuur and Excelsior kicked off the new Eredivisie season on Friday 7 August. In this article, see the complete schedule, with the standings below it and all statistics during the season.",
+    "sourceHash": "0ddfad7a309f",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:330f3231",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4717,17 +4772,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
-  },
-  {
-    "id": "news:338b0f02",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dallinga suffers cruciate ligament injury in friendly match 1. FC Köln",
-    "lead": "Thijs Dallinga suffered a cruciate ligament injury during a friendly match of his team 1. FC Köln. The attacker will therefore be unavailable for a longer period, his German employer reported.",
-    "sourceHash": "2345c9fe1a6a",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-03"
   },
   {
     "id": "news:33cc7dd4",
@@ -5984,6 +6028,17 @@
     "translated": "2026-10-08"
   },
   {
+    "id": "news:3c02a5f8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "House squatted on Vinkenstraat after housing protest on the Dam",
+    "lead": null,
+    "sourceHash": "3a4a483fc881",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:3c0f21d7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -6048,17 +6103,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
-  },
-  {
-    "id": "news:3ca3dbab",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "State secretary Eerenberg also protects civil servants who withheld information from the House of Representatives",
-    "lead": null,
-    "sourceHash": "4f9e0d424a56",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-06"
   },
   {
     "id": "news:3cad6b0a",
@@ -6875,6 +6919,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:425c6a59",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Eritrea fears new war with Ethiopia and asks UN Security Council for help",
+    "lead": "Eritrea asked the UN Security Council on Saturday to take \"deterrent measures\" against Ethiopia. The neighbouring countries accuse each other of starting a war over the Ethiopian region of Tigray. They have had conflicts over this area before.",
+    "sourceHash": "2ca991d40938",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:42627b03",
     "language": "en",
     "sourceLanguage": "nl",
@@ -7500,6 +7555,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:46aa0258",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "In Ter Apel asylum seekers are being dragged around. Onto the bus, briefly to bed, back onto the bus, and then again tomorrow",
+    "lead": null,
+    "sourceHash": "36a30229131a",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:46c35594",
@@ -8602,6 +8668,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:4e2c2e08",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Man dies after climbing into tiger enclosure at British zoo",
+    "lead": "A man died on Saturday after he climbed into the tiger enclosure of a British zoo. The animal remained unharmed, the park will remain closed for the rest of the weekend.",
+    "sourceHash": "b887e0509e72",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:4e416680",
     "language": "nl",
     "sourceLanguage": "en",
@@ -9196,6 +9273,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:519417e4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Max Verstappen knows the start must be better, but does have a small strategic advantage in the race",
+    "lead": "The man who never looks at statistics achieved his fiftieth pole position of his career. Max Verstappen may start from first place at the spot where he has never won a grand prix. But then that start will have to get better quickly at Red Bull Racing. \"We are doing our best, so we will see whether it works or not.\"",
+    "sourceHash": "24e8f912531f",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:51a278ee",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9669,6 +9757,17 @@
     "translated": "2026-10-07"
   },
   {
+    "id": "news:549eb7a4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Internazionale already done with Parma after one half",
+    "lead": "Internazionale has easily won against Parma in the Italian football league. The team of coach Cristian Chivu scored three times in the first half hour and that was it: 3-0.",
+    "sourceHash": "2bfdfbca7b76",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:54b0974",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9755,6 +9854,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:54e05860",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Video | Hurricane Isaias rips part of roof off hotel in Florida",
+    "lead": null,
+    "sourceHash": "747a128e5a23",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:54e56c88",
@@ -9911,6 +10021,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:564c48e2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Diesel deal is a dream deal for Putin: 'Ukraine up for sale'",
+    "lead": "The United States has concluded a deal with Russia for the supply of millions of tonnes of diesel. US President Donald Trump closed the agreement during a phone call in which his Russian counterpart indicated he no longer saw anything in peace talks with Ukraine.",
+    "sourceHash": "55109015d252",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:565a93b0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9931,17 +10052,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
-  },
-  {
-    "id": "news:569b7a78",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Red alert for exceptional severe weather in and around Barcelona: theatres and cinemas closed",
-    "lead": "Along parts of the Catalan coast, a red alert for exceptional severe weather has been in effect since 20:00. Spaniards in and around Barcelona must expect 90 millimetres of rain per hour. \"The situation must not be underestimated,\" warned Catalan regional premier Salvador Illa. Theatres and cinemas also closed.",
-    "sourceHash": "db5af44d9e92",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-03"
   },
   {
     "id": "news:56b0a905",
@@ -10384,6 +10494,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:59b617b8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ajax also drops points at home against NEC",
+    "lead": "Ajax has dropped points in a home match in the Eredivisie for the second time in a row. After Excelsior (2-2), NEC (1-1) also managed to hold firm in the Johan Cruijff ArenA. Ajax remains fifth in the standings and after eight rounds has a deficit of 5 points to leaders Feyenoord and 4 points to PSV and AZ.",
+    "sourceHash": "9e372d534ca9",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:59da5661",
     "language": "en",
     "sourceLanguage": "nl",
@@ -10657,6 +10778,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:5bdd7ca6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "FC Barcelona also still without dropped points after eight league matches",
+    "lead": "FC Barcelona is also still without dropped points in the Spanish football league after eight rounds. The home match against Getafe ended 3-0 on Saturday evening.",
+    "sourceHash": "2fcf9f763bf4",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:5be95e67",
@@ -13409,6 +13541,28 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:5d24841",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "No trains between Rotterdam and Delft until at least Sunday evening after arson",
+    "lead": "Until at least 23.00 tomorrow evening, no trains will run between Rotterdam and Delft. The cause is the arson last night at a railway bridge in Delfhaven. ProRail does not rule out sabotage. According to the rail manager, it will take until at least Sunday evening before the damage is repaired. Trains may even not run on the route again until Monday morning. The railway between Rotterdam and Delft is one of the busiest routes in the Netherlands. It is also used by trains that cover long distances, for example between the Randstad and Zeeland or Limburg. For train travellers, this means a lot of disruption tomorrow as well. Eight-hour check According to ProRail, it is certain that the fire was deliberately set last night. The fire started last night in the technical room. The door to it had been ground open and inside lay smouldering cables. Investigation shows that 35 cables have been damaged. Fifteen of them have burned through completely and must be replaced and welded again. After all the cables have been replaced, several checks must be carried out to determine whether trains can run safely again. Those checks take about eight hours. Whether sabotage has actually been committed on the railway again still has to be investigated by the <entity id=\"org:politie\">politie</entity> and fire brigade. No one has been arrested yet.",
+    "sourceHash": "3cd2e7022354",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
+    "id": "news:5d24b7e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "New York Times: 12 dead in attack on Riyadh airport",
+    "lead": "At least 12 people were killed in the attacks on the international airport in the Saudi capital Riyadh today. Fifty people were injured. Officials report this to The New York Times. This makes it the deadliest attack in a Gulf state since the start of the war between the US and Israel with Iran in February, the newspaper reports. Since the start of the large-scale operation Dawn of Yemen by the Yemeni army last Monday, the Houthis have significantly stepped up their attacks on targets in Saudi Arabia. On Thursday, the Iran-backed Houthi rebels also attacked Riyadh airport. Three Saudis were killed in that attack, including a pilot. Earlier this week, the Houthis also targeted airports in the Saudi towns of Jizan, Najran and Abha. The New York Times reports that the damage to King Khalid International Airport in Riyadh is being assessed and that air traffic has been halted.",
+    "sourceHash": "d6dd31b4c61c",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:5d2802f8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14344,6 +14498,17 @@
     "translated": "2026-10-08"
   },
   {
+    "id": "news:63338317",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Noa Lang scores his first goal in over half a year, leaders Inter already done with Parma after one half",
+    "lead": "A beautiful moment for Noa Lang. The Napoli forward scored his first goal since 17 February on Saturday against Frosinone, when he scored twice for Galatasaray against Juventus in the Champions League. The Netherlands international scored once before for Napoli, on 22 November 2025 against Atalanta.",
+    "sourceHash": "ad63f7ee7715",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:6333b239",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14622,9 +14787,9 @@
     "id": "news:64e73ce7",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Death toll in Zaporizhzhia rises; Zelensky reacts furiously to American diesel deal with Russia",
+    "title": "US-Ukraine relations again tense after diesel deal. Trump: 'Time that Ukraine gets a new president'",
     "lead": null,
-    "sourceHash": "9eb34e77dcaf",
+    "sourceHash": "be9129f74c39",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
@@ -15807,6 +15972,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:6b93b202",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Barry Manilow (83) cancels yet another show of his farewell tour shortly after return to the stage",
+    "lead": "Barry Manilow has had to cancel a show again shortly after his long-awaited return to the stage. His Saturday performance at the Westgate Las Vegas Resort &amp; Casino will not go ahead because the singer has been struck by bronchitis, his spokesperson has told the American entertainment magazine Variety.",
+    "sourceHash": "928058439b03",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:6b993bd4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15926,17 +16102,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
-  },
-  {
-    "id": "news:6c6509dd",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Fernandes praises Ronaldo as symbol of Portuguese football",
-    "lead": "PORTO (ANP/AFP) - Portugal international Bruno Fernandes has said that teammate Cristiano Ronaldo will forever be the greatest symbol of the Portuguese national team. The Manchester United footballer called for unity a day before the Nations League match against Norway, after tumultuous days following Ronaldo's walkout from the squad.",
-    "sourceHash": "41b2e213c0c4",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-03"
   },
   {
     "id": "news:6c6e14e8",
@@ -16465,6 +16630,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:702409ee",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "No trains between Rotterdam and Delft for the rest of the weekend after arson at railway bridge",
+    "lead": null,
+    "sourceHash": "47520059e892",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:7063c91",
@@ -19228,6 +19404,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:823c2fcc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Train traffic between Rotterdam and Delft may not resume until Monday morning after arson",
+    "lead": "Train traffic between Rotterdam and Delft is at a standstill until at least Sunday evening. According to ProRail, it will take at least until then for the damage to be repaired after the arson at a railway bridge near Delfshaven.",
+    "sourceHash": "7d041dc40732",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:8245e1b6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -19281,6 +19468,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:82a2bc40",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "18.000 chickens dead in barn fire in Biervliet in Zeeland",
+    "lead": "About 18.000 chickens have died in a barn fire in the Zeeland town of Biervliet, in the <entity id=\"org:gemeente-terneuzen\">gemeente Terneuzen</entity>. That is reported by the Veiligheidsregio <entity id=\"org:provincie-zeeland\">Zeeland</entity>. This afternoon a fire broke out in the chicken barn on the Hondegatweg. Due to the rapid fire development, the fire brigade was unable to save a single chicken.",
+    "sourceHash": "4f221af6b3cd",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:82bf6dba",
@@ -19844,6 +20042,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:85dbb2d7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "FC Twente drops points at Fortuna after three wins in a row",
+    "lead": "FC Twente has dropped points in the Eredivisie after three wins in a row. The Enschede side got no further than 1-1 at Fortuna Sittard. Due to the loss of points, FC Twente remains in fourth place, with 3 points fewer than the new leaders Feyenoord.",
+    "sourceHash": "0b8139a8fbba",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:85deb726",
     "language": "en",
     "sourceLanguage": "nl",
@@ -19996,17 +20205,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
-  },
-  {
-    "id": "news:872e6c7e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "With Meta glasses on into the RTL studio: already banned in hospitals and pop venues",
-    "lead": "There are no national rules yet to ban camera glasses, and so various organisations are keeping the device itself out. This is evident from a survey by RTL Nieuws. The Meta glasses did briefly appear in the RTL studio during the broadcast.",
-    "sourceHash": "604a1cc97726",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-03"
   },
   {
     "id": "news:8737a3d5",
@@ -20271,6 +20469,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
+  },
+  {
+    "id": "news:89007a20",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Live Eredivisie | Ajax mourns after another points loss against NEC on Tadic's return",
+    "lead": "Good day and welcome to this liveblog. Here we, Suus ten Kate and Thom van de Loosdrecht, keep you up to date on all Eredivisie matches of today. Have fun!",
+    "sourceHash": "70c7336e80c8",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:8921b641",
@@ -20557,6 +20766,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:8aa84ce1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Froukje briefly stopped performing for an office job: 'Lovely to shut my laptop at five o'clock'",
+    "lead": "She became known with songs in which she laid herself bare, in a period in which she had to figure out who she was. A few years later, Froukje Veenstra speaks in our weekend magazine Mezza about seeking validation, doing an internship, working with friends and always wanting to play the clown. You can also listen to this interview:",
+    "sourceHash": "594abc98866d",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:8ab264f8",
@@ -21406,6 +21626,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:8fa45432",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Governments are mishandling the affordability crisis",
+    "lead": "They should lift incomes, not suppress prices.",
+    "sourceHash": "2f85d66445ca",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:8fd72823",
     "language": "en",
     "sourceLanguage": "nl",
@@ -21613,6 +21844,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:918d053d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "In Oldebroek the rainbow refuses to be banned: 'I stand for the right to love'",
+    "lead": null,
+    "sourceHash": "508ff1cd419f",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:919ef54a",
@@ -22154,6 +22396,17 @@
     "translated": "2026-10-04"
   },
   {
+    "id": "news:952f5d28",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Anger over diesel deal between Trump and Putin: 'Makes US complicit in war in Ukraine'",
+    "lead": "US President Donald Trump's plan to import diesel from Russia is drawing firm criticism and astonishment. The deal yields Russia a lot of money that it can use in the war against Ukraine, critics fear. Ukraine meanwhile continues to carry out attacks on the oil industry in Russia, which earned Zelensky a firm reprimand from Trump: 'He had better stop, damn it.'",
+    "sourceHash": "6d81cbbc443b",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:9539870e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -22405,6 +22658,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:96d99c28",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tiger bites man to death who climbed into its enclosure at British zoo",
+    "lead": "A man has died after he was attacked by a tiger at a British zoo. He suffered serious injuries and was declared dead at the scene. The park is closed for the rest of the weekend.",
+    "sourceHash": "9c37acfa588c",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:96edc289",
@@ -24585,6 +24849,17 @@
     "translated": "2026-10-08"
   },
   {
+    "id": "news:a4f62839",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Van Bronckhorst does not attach much value to Feyenoord's top position",
+    "lead": "Coach Giovanni van Bronckhorst does not attach so much value to Feyenoord's top position in the Eredivisie. \"I think it is much more important that we have beaten AZ,\" he said after a 2-0 victory. \"We have beaten a good team. I think AZ will remain in the title race for a long time. It is important to beat such teams.\"",
+    "sourceHash": "5289ceeb6817",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:a5016721",
     "language": "en",
     "sourceLanguage": "nl",
@@ -25509,6 +25784,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:a9c4f524",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Feyenoord beats AZ in top match and takes top spot in Eredivisie",
+    "lead": "Feyenoord has seized power in the Eredivisie. The team of coach Giovanni van Bronckhorst won the home match against AZ (2-0) and took over the top spot from the opponent from Alkmaar.",
+    "sourceHash": "d4f88765ed65",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:a9d9ffd4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -25584,17 +25870,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
-  },
-  {
-    "id": "news:aad6059a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "England hands Croatia biggest defeat ever: 7-0",
-    "lead": "England has recorded its second consecutive victory in the Nations League. The team of national coach Thomas Tuchel outclassed Croatia at home and won 7-0. At halftime the margin was already four goals.",
-    "sourceHash": "02bf0b129477",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-03"
   },
   {
     "id": "news:aadcef4",
@@ -25674,17 +25949,6 @@
     "translated": "2026-10-08"
   },
   {
-    "id": "news:ab55177",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Morris Vlijm (24) wants to get young people to switch banks: 'That can have more impact than eating vegan your whole life'",
-    "lead": null,
-    "sourceHash": "c01c36bca66f",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-03"
-  },
-  {
     "id": "news:ab56f88c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -25760,6 +26024,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:ab88bfb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Northern lights above the Netherlands tonight, but barely visible to the naked eye",
+    "lead": "In the night from Saturday to Sunday, the northern lights can be seen above some parts of the Netherlands. The phenomenon can be observed well especially with a camera. In the south of the country, the chance of seeing it is greatest.",
+    "sourceHash": "863275e8b315",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:ab9603d",
@@ -25905,6 +26180,17 @@
     "translated": "2026-10-08"
   },
   {
+    "id": "news:ac707b8f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Augsburg scores fastest goal ever in Bundesliga after Neuer blunder, Leipzig enjoys successful dress rehearsal for PSV",
+    "lead": "Bayern Munich conceded the fastest goal against them ever in the Bundesliga this afternoon. It was the prelude to a difficult afternoon for the record champions. Partly thanks to former PSV player Ismael Saibari, a point was still picked up away at FC Augsburg: 2-2. Leipzig won 6-0 against Eintracht Frankfurt later in the evening.",
+    "sourceHash": "08da5043fed2",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:ac764fd1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -25958,17 +26244,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
-  },
-  {
-    "id": "news:ace5cce",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Live | Opnieuw explosie bij luchthaven Riyad, tientallen gewonden",
-    "lead": "Hallo en welkom in dit liveblog. Hier houden we je op de hoogte van de oorlog in het Midden-Oosten en de gevolgen daarvan voor de rest van de wereld.",
-    "sourceHash": "b93f5a328e61",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-10"
   },
   {
     "id": "news:ace72b7f",
@@ -26026,6 +26301,17 @@
     "translated": "2026-10-08"
   },
   {
+    "id": "news:ad4b40e8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Fewer civil servants needed? 'You could also say that politics should do its job better'",
+    "lead": "<entity id=\"org:kabinet\">Het kabinet</entity> wants to cut billions from the civil service apparatus. That can easily be done, say many Hague civil servants who complain about the meeting culture. But the cabinet nevertheless seems to be counting itself rich, because outside The Hague more civil servants are actually needed. Political reporter Hans van Soest writes weekly about Hague affairs that concern us all.",
+    "sourceHash": "c436446d5e10",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:ad4cd45",
     "language": "en",
     "sourceLanguage": "nl",
@@ -26035,17 +26321,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
-  },
-  {
-    "id": "news:ad4eb724",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "In pictures: devastation in Spanish town of Madrigueras after severe flooding",
-    "lead": "Residents of the Spanish town of Madrigueras, more than 150 kilometers west of Valencia, did not know what hit them when they were struck by severe flooding. Cars were swept away and buildings severely damaged.",
-    "sourceHash": "c77a5aedf3f7",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-03"
   },
   {
     "id": "news:ad514551",
@@ -26884,6 +27159,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:b2ad885e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ajax gets away with it against NEC (1-1), also with the refereeing",
+    "lead": null,
+    "sourceHash": "629996897c27",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:b2ae4465",
     "language": "en",
     "sourceLanguage": "nl",
@@ -27014,6 +27300,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:b38ce4c3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Passionate and technically gifted Feyenoord relieves AZ as leader with 2-0 win",
+    "lead": null,
+    "sourceHash": "7765b2f568a5",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:b3965eea",
@@ -27454,6 +27751,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-04"
+  },
+  {
+    "id": "news:b7072219",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The Amsterdam of Maartje Mulder (30): 'A friend got the Lunchroom Wilhelmina logo tattooed on her ankle, as a tribute'",
+    "lead": null,
+    "sourceHash": "f7d8661f1181",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:b71a38c6",
@@ -29810,17 +30118,6 @@
     "translated": "2026-10-08"
   },
   {
-    "id": "news:c65311f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Back and shoulder surgery is often worse than useless",
-    "lead": "Millions of operations should be scrapped.",
-    "sourceHash": "077b8e787966",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-01"
-  },
-  {
     "id": "news:c6697424",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30085,6 +30382,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:c896e32a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ajax drops points again in Eredivisie after disappointing draw against NEC",
+    "lead": "Ajax dropped points for the fourth time this season on Saturday. Despite an early goal from Tolu Arokodare, the Amsterdammers could do no better than 1-1 at home against NEC.",
+    "sourceHash": "13e4ea27b7d7",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:c8a2f1cc",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30135,6 +30443,17 @@
     "title": "When are you a real writer?",
     "lead": "Millions of Dutch people fantasise about writing a book. Almost a million of them actually did it. But what happens once the book is finished? In the DOCS documentary Een boek op de plank by Geert Vlieger, we follow three writers who have finished their manuscript but have not yet found a publisher.",
     "sourceHash": "1210ac4b577e",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
+    "id": "news:c8c590f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dozens injured after attack on Riyadh airport, US considers intervening",
+    "lead": "Dozens of people were injured on Saturday after a heavy attack on the international airport of Riyadh. In a reaction, US President Donald Trump says that the US may support Saudi Arabia with attacks on the Houthis.",
+    "sourceHash": "91689a98d3c2",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
@@ -32032,6 +32351,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:d3729668",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Robert Vuijsje wins Het Groot Amsterdams Dictee: 'It is not entirely fair'",
+    "lead": null,
+    "sourceHash": "957e473b1203",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:d37e9f46",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33682,17 +34012,6 @@
     "translated": "2026-10-09"
   },
   {
-    "id": "news:ddfa2d12",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Legendary marathon skater Jan Kruithof (89) deceased",
-    "lead": "Marathon skater Jan Roelof Kruithof has died at the age of 89. RTV Drenthe and the NOS report this based on the family.",
-    "sourceHash": "a06c0bc5dc60",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-06"
-  },
-  {
     "id": "news:ddfb930f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -34109,6 +34428,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:e0a68e24",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Fascinating autumn without a recovering Pogacar shows: cycling has no vice-president",
+    "lead": "Brandon McNulty and Remco Evenepoel took over champion's jerseys from him, Enric Mas won his first grand tour and Paul Seixas his first monument. Tadej Pogacar's legacy has been well distributed since his crash in the Vuelta a España. Who is the biggest winner of his absence?",
+    "sourceHash": "a9e50740af52",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:e0a814f0",
@@ -35112,6 +35442,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:e644cee0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Judge sees no reason for investigation into Philips sleep apnea affair",
+    "lead": null,
+    "sourceHash": "102bee7f496d",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:e64dc07c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -35231,6 +35572,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:e6e3452b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "New blow for Michael van Gerwen: immediately out in Basel after defeat to number 56 in the world",
+    "lead": "Michael van Gerwen is, just like at the end of September at the World Grand Prix, immediately eliminated at a tournament. The three-time world champion, slipped to ninth place in the world rankings, lost at the Swiss Darts Trophy to the Austrian Mensur Suljovic.",
+    "sourceHash": "b19c255a10c0",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:e7009a38",
@@ -35673,6 +36025,17 @@
     "translated": "2026-10-05"
   },
   {
+    "id": "news:ea09a7ba",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Spurs off bottom spot: Solanke (ex-Vitesse) heads in equaliser in extra time against Manchester United",
+    "lead": "The match between Manchester United and Tottenham Hotspur produced no winner on Saturday evening. Michael Carrick's team seemed set to record the second win of the season, but in extra time former Vitesse striker Dominic Solanke equalised for the visitors from London: 1-1.",
+    "sourceHash": "b86bf64806f8",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:ea17f2d2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36012,6 +36375,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:ec7bb7fb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Pentagon: 21 Americans killed in operations against Iran",
+    "lead": null,
+    "sourceHash": "6b2d0f54a02e",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:ec89408b",
@@ -36641,6 +37015,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:f00d339f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Indian authorities arrest young people en masse to nip protests in the bud. How smart is that?",
+    "lead": null,
+    "sourceHash": "c16516bb7925",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
     "id": "news:f01255a3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36661,6 +37046,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
+  },
+  {
+    "id": "news:f01b2498",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Closing Time | Sister Rosetta Tharpe (revisited)",
+    "lead": "The Youtube algorithm recently actually gave me a pleasant surprise. How often does a person experience that? It is not that old music recordings don't interest me, but I had not yet gone looking for them on Youtube. A 1964 recording of Sister Rosetta Tharpe, a singer and guitarist who let her gospel music be influenced […] Read more posts on Sargasso",
+    "sourceHash": "a4cdacfa3f73",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:f01c5248",
@@ -36856,6 +37252,17 @@
     "title": "The VVD leadership must smother the unrest in back rooms",
     "lead": null,
     "sourceHash": "b49868b17e59",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
+  },
+  {
+    "id": "news:f122d0e6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "No trains between Rotterdam and Delft until at least Sunday evening after arson",
+    "lead": "Trains on the route between Rotterdam and Delft will run again from Sunday evening at the earliest, reports ProRail. Earlier, the railway manager assumed that the disruption would have been resolved by Saturday evening. ProRail determined on Saturday morning that the damage was caused by arson.",
+    "sourceHash": "d16612d13898",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
@@ -37409,6 +37816,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
+  },
+  {
+    "id": "news:f4c4b7b1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "FC Barcelona has no trouble with Getafe and remains without dropping points, Real Madrid also wins despite red card",
+    "lead": "FC Barcelona remains flawless in La Liga. The team of coach Hansi Flick had little trouble with Getafe on Saturday evening: 3-0. Frenkie de Jong, who after his long knee injury is back on the training pitch as of this week, was not in the match squad.",
+    "sourceHash": "38e47d8c7325",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:f4fd0456",
@@ -38311,6 +38729,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:faaa8ccb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "British PM assures Zelensky of 'full solidarity'",
+    "lead": null,
+    "sourceHash": "1817c281e4d1",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-10"
   },
   {
     "id": "news:fad00503",
