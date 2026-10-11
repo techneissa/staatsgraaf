@@ -55,6 +55,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:10133cde",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Woordzoeker",
+    "lead": null,
+    "sourceHash": "270011d47bdc",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:1032e71b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1276,6 +1287,17 @@
     "translated": "2026-10-08"
   },
   {
+    "id": "news:19e9604f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Poop incident around Hyrox athlete is not an isolated case: 'Happens to recreational athletes as well as world record holders'",
+    "lead": "The Australian athlete who recently pooped on herself during a Hyrox competition received a lot of ridicule. But there was very little she could do about it. In fact, it can happen to any athlete. So also to you.",
+    "sourceHash": "d4a8f66ee449",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:19f83088",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1516,17 +1538,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-05"
-  },
-  {
-    "id": "news:1b71f64e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Calm, dry and warm autumn weather: 'We will hold on to this for a little while'",
-    "lead": "It will remain calm, dry and fairly warm for a few more days. At night and in the morning there is a chance of fog. From Thursday the weather will change, according to the expectation.",
-    "sourceHash": "9d1388763a6e",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-04"
   },
   {
     "id": "news:1b7ac0df",
@@ -1884,12 +1895,12 @@
     "id": "news:1e040ceb",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Police investigating whether railway fire near Rotterdam was sabotage or mischief",
-    "lead": "The police hope to learn more about the arson at the railway last night, partly on the basis of camera images. Why a fire was started in a technical room at a railway bridge is still unclear. Due to arson at a railway bridge in Delfshaven, Rotterdam, no trains are running today between Rotterdam Centraal and Delft Campus.",
-    "sourceHash": "1b22799f8ee7",
+    "title": "Train traffic between Rotterdam and Delft down until Sunday evening after arson",
+    "lead": "Until at least Sunday evening it is not possible to travel by train between Rotterdam Centraal and Delft Campus. That is reported by ProRail. The <entity id=\"org:politie\">politie</entity> hopes to learn more about the arson at the railway last night, partly on the basis of camera images. Why fire was set in a technical room at a railway bridge in Delfshaven in Rotterdam is still unclear.",
+    "sourceHash": "140de76fd25a",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-10"
+    "translated": "2026-10-11"
   },
   {
     "id": "news:1e12e299",
@@ -2728,6 +2739,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:2399702b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "More litter on the street? No, says litter expert, it only seems that way: 'We no longer know how it was before'",
+    "lead": null,
+    "sourceHash": "9f5db5a9a26c",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:239ad51f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3300,6 +3322,17 @@
     "translated": "2026-10-08"
   },
   {
+    "id": "news:289d2776",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Feyenoord wins top match against AZ and takes the lead in the Eredivisie",
+    "lead": "Feyenoord took the lead in the Eredivisie on Saturday evening thanks to a victory over AZ. The Rotterdammers beat the Alkmaarders 2-0 in De Kuip.",
+    "sourceHash": "55035291c125",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:289ee961",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3353,6 +3386,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
+  },
+  {
+    "id": "news:289ee97d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Vorto",
+    "lead": null,
+    "sourceHash": "e0d279537212",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:28dda4f0",
@@ -4158,6 +4202,17 @@
     "translated": "2026-09-24"
   },
   {
+    "id": "news:2f638928",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "National Housing Protest on Dam Square does not draw Spanish numbers of demonstrators",
+    "lead": null,
+    "sourceHash": "9efe55fd68fb",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:2f6c96d9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4719,6 +4774,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:330a0639",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Breturn? Forget it. The British attitude towards Europe remains loveless",
+    "lead": "Before the British magazine The New European renamed itself The New World in 2025, it came out with a special edition: \"Nine years after the referendum; complete list...",
+    "sourceHash": "b0d710da6dbf",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:330f3231",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4824,17 +4890,6 @@
     "title": "Marcel ten Hooven: The CDA parliamentary group is angling for the favour of nationalist right-wing voters",
     "lead": null,
     "sourceHash": "19dedc45e813",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-06"
-  },
-  {
-    "id": "news:34100e8a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Investments in limiting climate change slightly down in 2024",
-    "lead": null,
-    "sourceHash": "1aebd7f6cf2b",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
@@ -4970,17 +5025,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
-  },
-  {
-    "id": "news:351eef13",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Local residents praise Lydia (68), who turned a terrace into a blooming garden: 'If the gardeners had come by, everything would have been gone immediately'",
-    "lead": null,
-    "sourceHash": "edc4799589f4",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-09-25"
   },
   {
     "id": "news:3531e456",
@@ -5225,6 +5269,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:36c1907",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Explainer | Is this 2010 peak causing the French school pupil protests?",
+    "lead": null,
+    "sourceHash": "cf60a1ffb847",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:36ccc003",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5245,6 +5300,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:36eeef3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ajax drops expensive points in Arena for fourth time: 'It makes me disappointed and angry'",
+    "lead": "Ajax has already dropped expensive points in its own Johan Cruijff Arena for the fourth time in five home matches. The team of coach Míchel Sánchez drew 1-1 on Saturday evening and thereby falls further behind Feyenoord and PSV.",
+    "sourceHash": "29b40d869820",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:36fef133",
@@ -5289,6 +5355,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-05"
+  },
+  {
+    "id": "news:37418bad",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Injured and dead after Houthi attack on Riyadh airport",
+    "lead": null,
+    "sourceHash": "6d0f2e62457b",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:37604f99",
@@ -5520,6 +5597,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
+  },
+  {
+    "id": "news:38bca258",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Trump, after his diesel agreement with Putin, advocates a new Ukrainian president",
+    "lead": "US President Donald Trump wants Zelensky to stop attacks on Russian oil refineries. \"I think it is time for a new Ukrainian president\", Trump said, a day after he concluded an agreement on diesel with Russian President Vladimir Putin.",
+    "sourceHash": "17945de9b027",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:38cee5b2",
@@ -5806,6 +5894,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
+  },
+  {
+    "id": "news:3aafff2f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cinco",
+    "lead": null,
+    "sourceHash": "b5d17bb2750c",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:3ab5ef04",
@@ -6248,17 +6347,6 @@
     "translated": "2026-10-06"
   },
   {
-    "id": "news:3e10bd2d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "When angry writers chant, Meta keeps the door shut",
-    "lead": "They want to regain control over their work, but writers find that Meta is unwilling to discuss it. So action follows.",
-    "sourceHash": "06dd5c491899",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-04"
-  },
-  {
     "id": "news:3e13b2cb",
     "language": "en",
     "sourceLanguage": "nl",
@@ -6587,17 +6675,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
-  },
-  {
-    "id": "news:4066bef5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Record rain in Barcelona, floods on the east coast of Spain",
-    "lead": "Severe weather caused flooding and major traffic problems in Catalonia last night. Streets in and around Barcelona were submerged and roads were closed. There are also casualties to mourn.",
-    "sourceHash": "3bd04cef7eb3",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-04"
   },
   {
     "id": "news:407eed6a",
@@ -7084,6 +7161,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:43a0ea5f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "From our correspondent...Boris van der Spek (Central America)",
+    "lead": "Van onze Correspondent is a series by the makers of the podcast De Dag. Every Sunday we get to know one of the NOS correspondents, the country where they live and the stories that in their view deserve more attention. Today: Boris van der Spek, correspondent in Central America.",
+    "sourceHash": "4988105ff942",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:43b6d7f8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -7370,6 +7458,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:4533d179",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Briljant",
+    "lead": null,
+    "sourceHash": "c5eb20e21098",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:4538cdd9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -7500,6 +7599,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:46241129",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "First images after Houthi attack on airport Saudi Arabia",
+    "lead": "The Houthis have carried out an attack on the airport of Riyadh, in Saudi Arabia. At least twelve people were killed.",
+    "sourceHash": "f5a2c0bfb663",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:46317f3a",
@@ -9240,6 +9350,17 @@
     "translated": "2026-10-08"
   },
   {
+    "id": "news:516892ec",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Why can freshwater fish not tolerate salt water (and vice versa)?",
+    "lead": null,
+    "sourceHash": "2c664d99deb1",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:51734118",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9584,12 +9705,12 @@
     "id": "news:53b11e4b",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Palestinian leader Abbas moves elections to September 2027",
+    "title": "At least 12 dead after attack on Riyadh airport",
     "lead": null,
-    "sourceHash": "9edc56c68a15",
+    "sourceHash": "39a152a4cf41",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-10"
+    "translated": "2026-10-11"
   },
   {
     "id": "news:53b24dc",
@@ -10052,6 +10173,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:565e996f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Those lungs, that spleen, that mouth: is the human being after all made to dive? This biologist thinks so",
+    "lead": null,
+    "sourceHash": "41ca1ea4bcfd",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:56b0a905",
@@ -10756,6 +10888,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:5bb65f70",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'I do not work on the basis of a kind of Champions League of atrocities'",
+    "lead": "International law faces a greater challenge than at any other moment since 1945, believes the British-French international jurist and author Philippe Sands. Yet he remains optimistic and combative. The post-war jurists who inspire him \"also did not sit in a corner crying\", he says during a visit to The Hague.",
+    "sourceHash": "8cdc118c7880",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:5bcc8355",
@@ -13457,11 +13600,11 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Jan G. stayed in Overasselt for another twelve hours after escaping, this is how he managed to get away",
-    "lead": "After dozens of armed men had appeared at his gate and had shot dead his security guard, Jan G. was still in Overasselt for a large part of the day. He had fled to family elsewhere in the village. Broadcaster <entity id=\"org:provincie-gelderland\">Gelderland</entity> spoke with several sources in Overasselt and, in collaboration with NOS, reconstructed the flight of Jan G. after the explosion of violence on 1 September at his home. Still suspecting nothing of what awaits him that night, the 28-year-old Jan G. enters the local supermarket in Overasselt on Monday evening 31 August. It will be the last time for the time being that he visits the supermarket. A few hours later, around four o'clock in the morning, G. is startled awake in his chalet on Ewijkseweg by the alarm of his security system. On the camera images a group of more than thirty men armed to the teeth appears. Three of them had earlier that evening tried to break into a house on Honingklaver in Overasselt. A brother-in-law of Jan G. lives here. Alarmed by the camera images, G. flees with his girlfriend and their two young children via a rear exit of the premises. His parents are still sleeping in a shed elsewhere on the 600 square metre yard. G. and his girlfriend probably walk along a path through a dried-up ditch to hide in the bushes at the edge of a meadow. G. had ordered security guard Berry 'urgently' Meanwhile, the armed men have arrived at his home on Ewijkseweg. One of them shoots security guard Berry, who is sitting in his car at that moment. Shortly before, Berry had, face to face with the group, called his employer in panic. The latter apped him that he should leave. But by then it is already too late. The security guard dies of his injuries. Jan G. had ordered security guard Berry two days earlier 'urgently' from a security company, after two suspicious persons had walked past his home. Shortly after Berry's death, two police officers who rushed to the scene are also shot at. They are seriously injured. While emergency services stream in en masse, the <entity id=\"org:politie\">politie</entity> opens a manhunt for the more than thirty suspects. G. and his family are meanwhile picked up by an acquaintance, who brings them to his house elsewhere in Overasselt, less than 1200 metres from Ewijkseweg 6. The police ring the bell at G.'s house and find his mother there. Once in the shed, where she and her husband live, the colleagues see G.'s father sitting. He says: \"Go away, you weirdos. Who are you to tell me what to do? I am not going anywhere at all.\" The man and the woman are told to stay in the shed and keep the doors closed. At around five o'clock in the morning, G. contacts the boss of the shot security guard and tells him that Berry has died. In hiding in Overasselt While the chaos around Ewijkseweg continues, G. remains in hiding with his family in Overasselt. According to local residents, the fleeing suspects have no idea that they are running around in the vicinity of the home where their target is hiding. Only at the end of the afternoon does a taxi arrive here, after which G. gets in with his family and leaves. The municipality closes the home on Ewijkseweg for a year and imposes an area ban on G. During the course of the day, a video surfaces in which criminals demand compensation from him for a lost batch of 1283 kilos of cocaine. Visit to collect passports From that moment on, G. with his family, his parents, and two brothers-in-law with their families have disappeared from the village. Where they are is unclear. In the weeks after the attack, the municipality, under police escort, enters the closed-off premises on Ewijkseweg twice more. According to an insider, G.'s girlfriend may briefly return during one of those visits to collect essential items, such as identity documents. The house is said to have been completely turned upside down after several police investigations. The animals that stayed on the premises, including horses and large guard dogs, have been placed in boarding facilities. Arrest in Germany On 18 September, G. is arrested in Germany at the request of the Dutch authorities. He is suspected of involvement in the import of cocaine via the port of Dunkirk. According to the German police, he was travelling via motorway A44 from the direction of Sachsen-Anhalt to the Netherlands. Since then, G. has been staying in a German cell. Occasionally he still speaks with his lawyer, but meanwhile a trial in Den Bosch looms. There he will have to answer for his involvement in the cocaine case around Dunkirk, on top of all the other problems that haunt him. Interviews with those involved This story is based on a large number of conversations that the authors have had over the past five weeks with directly involved parties in the Overasselt case. All conversations were conducted on the basis of anonymity. We have tried to verify oral statements with other sources and official bodies.",
-    "sourceHash": "79be0921a68c",
+    "lead": "After dozens of armed men had appeared at his gate and had shot dead his security guard, Jan G. was still in Overasselt for a large part of the day. The convicted drug criminal had fled to family elsewhere in the village. Broadcaster <entity id=\"org:provincie-gelderland\">Gelderland</entity> spoke with several sources in Overasselt and, in collaboration with the NOS, reconstructed the flight of Jan G. after the explosion of violence on 1 September at his home. Still suspecting nothing of what awaits him that night, the 28-year-old Jan G. enters the local supermarket in Overasselt on Monday evening 31 August. It will be the last time for the time being that he visits the supermarket. A few hours later, around four o'clock in the morning, G. is startled awake in his chalet on the Ewijkseweg by the alarm of his security system. On the camera images a group of more than thirty heavily armed men appears. Three of them had tried earlier that evening to break into a house on the Honingklaver in Overasselt. A brother-in-law of Jan G. lives here. Alarmed by the camera images, G. flees with his girlfriend and their two young children via a rear exit of the grounds. His parents are still asleep in a shed elsewhere on the 600 square metre site. G. and his girlfriend probably walk along a path through a dried-up ditch to hide in the bushes at the edge of a meadow. G. had ordered security guard Berry 'urgently' Meanwhile, the armed men have arrived at his home on the Ewijkseweg. One of them shoots security guard Berry, who is sitting in his car at that moment. Shortly before, Berry had, face to face with the group, called his employer in panic. The latter apps him that he must leave. But by then it is already too late. The security guard dies of his injuries. Jan G. had ordered security guard Berry 'urgently' two days earlier from a security company, after two suspicious persons had walked past his home. Shortly after Berry's death, two police officers who rushed to the scene are also shot at. They are seriously wounded. While emergency services stream in en masse, the <entity id=\"org:politie\">politie</entity> launches a manhunt for the more than thirty suspects. G. and his family are meanwhile picked up by an acquaintance, who brings them to his house elsewhere in Overasselt, less than 1200 metres from Ewijkseweg 6. The police ring the bell at G.'s house and find his mother there. Once in the shed, where she and her husband live, the colleagues see G.'s father, also a convicted drug criminal. He says: \"Go away, you weirdos. Who are you to tell me what to do? I am not going anywhere.\" The man and the woman are told to stay in the shed and keep the doors closed. At around five o'clock in the morning, G. contacts the boss of the shot security guard and tells him that Berry has died. In hiding in Overasselt While the chaos around the Ewijkseweg continues, G. remains in hiding with his family in Overasselt. According to local residents, the fleeing suspects have no idea that they are running around in the neighbourhood of the home where their target is hiding. Only at the end of the afternoon does a taxi arrive here, after which G. gets in with his family and leaves. The municipality closes the home on the Ewijkseweg for a year and imposes an area ban on G. During the day, a video surfaces in which criminals demand compensation from him for a lost consignment of 1283 kilos of cocaine. Visit to collect passports From that moment on, G. with his family, his parents, and two brothers-in-law with their families have disappeared from the village. Where they are is unclear. In the weeks after the attack, the municipality, under police escort, enters the closed-off site on the Ewijkseweg twice more. According to an insider, G.'s girlfriend may briefly return during one of those visits to collect essential items, such as identity documents. The house is said to have been completely turned upside down after several police investigations. The animals that stayed on the site, including horses and large guard dogs, have been placed in boarding facilities. Arrest in Germany On 18 September, G. is arrested in Germany at the request of the Dutch authorities. He is suspected of involvement in the import of cocaine via the port of Dunkirk. According to the German police, he was travelling via motorway A44 from the direction of Sachsen-Anhalt to the Netherlands. Since then, G. has been in a German cell. Occasionally he still speaks with his lawyer, but meanwhile a trial in Den Bosch looms. There he will have to answer for his involvement in the cocaine case around Dunkirk, on top of all the other problems that haunt him. Interviews with those involved This story is based on a large number of conversations that the authors have had over the past five weeks with directly involved parties in the Overasselt case. All conversations were conducted on the basis of anonymity. Information from other sources and from official bodies was also used.",
+    "sourceHash": "5380001a3906",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-10"
+    "translated": "2026-10-11"
   },
   {
     "id": "news:5d247c1",
@@ -13511,12 +13654,12 @@
     "id": "news:5d24800",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Explosions heard at Riyadh airport, airlines cancel flights",
-    "lead": "Explosions have been heard at the international airport in the Saudi capital Riyadh. Two regional officials say the airport was evacuated after a rocket hit a passenger terminal. According to witnesses, ambulances drove to the airport at speed. An official says all air traffic to and from King Khalid International Airport has been halted. It is still unclear whether there are any casualties. Security situation Data from Flightaware shows that in the past 24 hours at least 225 flights to King Khalid International Airport have been cancelled, after the earlier attacks on the airport this week. The airport calls on travellers to contact their airline in advance and check the status of their flight before coming to the airport. Several airlines have already taken measures. Kuwait Airways cancelled all flights to and from Riyadh today. The American embassy in Riyadh calls on American citizens to avoid King Khalid International Airport and the surrounding area. Yemen In attacks by Houthis two days ago three Saudi citizens were killed , including a pilot. That an international airport is the target of a series of attacks is exceptional. The European Union Aviation Safety Agency (EASA) has tightened its guidelines for Saudi airspace. It points to the ability of the Houthis to hit targets deeper in the kingdom including Riyadh, and to their \"greater focus on aviation infrastructure\". The rocket attacks and drone attacks, as well as the attempts to intercept them, \"increase the risk that civilian aircraft are mistakenly hit\", the agency says. Under fire Meanwhile, the fighting in Yemen between the Houthis and Yemeni government troops continues. Saudi Arabia provides air support to the government troops in an attempt to reverse the recent territorial gains of the Houthis along the Red Sea. Saudi Arabia has sought support from the US and other allies, now that its airports, military facilities and oil infrastructure are under fire. This concerns, among other things, the sharing of intelligence and the planning and identifying of targets. 'I am not happy' When American President Trump left the White House yesterday, he was asked about the attacks on Riyadh airport. \"It is not good\" and \"I am not happy\", he told reporters. There are as yet no signs of American military support in response to the attacks. The ministers of <entity id=\"org:ministerie-van-buitenlandse-zaken\">Buitenlandse Zaken</entity> of Saudi Arabia and Oman spoke by telephone this week about the importance of \"support for diplomatic solutions to reduce tensions in the region\". Oman, which lies across the Strait of Hormuz opposite Iran, regularly acts as a mediator. But there is still no prospect of a solution to the escalation.",
-    "sourceHash": "9a28b6a6f392",
+    "title": "Wounded in attack on airport in Saudi capital Riyadh, air traffic halted",
+    "lead": "In attacks on the international airport in the Saudi capital Riyadh, an unknown number of people were wounded. Two regional officials say that the airport was evacuated after a rocket hit a passenger terminal. According to witnesses, ambulances drove to the airport at speed. All air traffic to and from King Khalid International Airport has been halted. A source at a local hospital told news agency AFP that dozens of people were wounded in the attack. He saw how gate 401 of the domestic terminal was hit. \"I saw the wounded with my own eyes. Everyone ran away.\" Data from Flightaware shows that in the past 24 hours at least 225 flights at King Khalid International Airport have been cancelled, after the earlier attacks on the airport this week. The airport calls on travellers to contact their airline and check the status of their flight before coming to the airport. Several airlines have already taken measures. Kuwait Airways cancelled all flights to and from Riyadh today. Several embassies in Riyadh, including that of the US, have called on their citizens to avoid the international airport and the surrounding area. Yemen The attack comes two days after the Iran-backed Houthi rebels attacked the airport of Riyadh. Three Saudis were killed, including a pilot. That international airports are the target of a series of attacks is exceptional. Earlier this week, the Houthis also attacked airports in the Saudi places Jizan, Najran and Abha. These are located a few dozen kilometres from the border with Yemen. Saudi Arabia supports the Yemeni government army, which is fighting against the Houthi rebels. Since the start of the large-scale operation Dawn of Yemen by the Yemeni army last Monday, the Houthis have stepped up their attacks on targets in Saudi Arabia. The European Union Aviation Safety Agency (EASA) has tightened its guidelines for Saudi airspace. It points to the Houthis' ability to hit targets deeper in the kingdom, including Riyadh, and to their \"greater focus on aviation infrastructure\". The rocket attacks and drone attacks, as well as the attempts to intercept them, \"increase the risk that civilian aircraft are hit\", the agency says. Under fire Meanwhile, the fighting in Yemen between the Houthis and Yemeni government troops continues. Saudi Arabia provides air support to the internationally recognised government in Yemen in an attempt to reverse the Houthis' recent territorial gains along the Red Sea. Because of the situation in Yemen, some 200,000 people have fled, including to Djibouti, a small country in the Horn of Africa. The UN organisation for migration and aid to refugees (IOM) called on countries this week to take action. Saudi Arabia has sought support from the US and other allies, now that its airports, military facilities and oil infrastructure are under fire. That concerns, among other things, the sharing of intelligence and the planning and identifying of targets. 'I am not happy' When US President Trump left the White House yesterday, he was asked about the attacks on the airport of Riyadh. \"It is not good\" and \"I am not happy\", he said to reporters. There are as yet no signs of American military support in response to the attacks. The ministers of <entity id=\"org:ministerie-van-buitenlandse-zaken\">Buitenlandse Zaken</entity> of Saudi Arabia and Oman spoke by telephone this week about the importance of \"support for diplomatic solutions to reduce the tensions in the region\". Oman, which lies across the Strait of Hormuz opposite Iran, regularly acts as a mediator. But there is as yet no prospect of a solution to the escalation.",
+    "sourceHash": "085d38a48c0c",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-10"
+    "translated": "2026-10-11"
   },
   {
     "id": "news:5d24802",
@@ -13534,33 +13677,132 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Municipalities want more money for resilience against disasters and threats",
-    "lead": "Municipalities believe they receive too little money from the national government to make themselves resilient against all kinds of threats. This concerns, for example, cyber and hybrid threats or dangers arising from climate change, such as wildfires. <entity id=\"person:sharon-dijksma\">Sharon Dijksma</entity>, chair of the Association of Netherlands Municipalities (<entity id=\"org:vereniging-van-nederlandse-gemeenten\">VNG</entity>), says that municipalities need a multiple of what is budgeted in the Budget Memorandum for the resilience task. \"I assume it will amount to hundreds of millions in total.\" \"<entity id=\"org:kabinet\">Het kabinet</entity> has made 35 million available for emergency support points and now in the Budget Memorandum an additional increasing series of 20 to 70 million for both digital resilience, social-societal resilience and continuity. But the gap between what municipalities need and what the cabinet makes available is therefore large\", according to the VNG. <entity id=\"org:gemeente-rotterdam\">Rotterdam</entity> also wants more money. The port of Rotterdam is often mentioned as a possible target for threats from Russia . \"Resilience goes further than emergency support points . We must also invest in society itself, in a strong social fabric that helps us during an emergency and in the recovery afterwards\", says a spokesperson for the municipality. No evacuation facilities The VNG already has a good picture of how municipalities would like to deploy extra money. \"You can think of neighbourhood emergency plans and training for residents. We will still talk with the Ministry of <entity id=\"org:ministerie-van-justitie-en-veiligheid\">Justitie en Veiligheid</entity> about sheltering and evacuating, for which there are currently virtually no facilities.\" \"Emergency generators, satellite phones and walkie-talkies are needed, and the emergency services need many more resources such as fire engines. The list is too long to list everything.\" VNG chair Dijksma, also <entity id=\"pos:burgemeester-utrecht\">burgemeester van Utrecht</entity>, does have an idea of what should happen in her municipality. \"We have many vulnerable residents who are not self-reliant, they do not always have the money to prepare. We also need money for communication resources that we currently lack.\" In Austerlitz, a village in the <entity id=\"org:gemeente-zeist\">gemeente Zeist</entity>, people do not want to wait until municipalities have sufficient resources for safety exercises. Austerlitz is located in the middle of the forest and has few access roads. Because residents were afraid they would not be able to get away well in a major forest fire, volunteers set up a 'forest fire working group'. \"I am part of the group of citizens that keeps an eye on everything when there is a wildfire danger\", says Robert Schliessler. \"We work together with the safety region and train for what happens when our village is threatened.\" Today Schliessler is also taking part in the first exercise together with the safety region. \"We have a WhatsApp group in the village, there are six hundred people in it, they all hear about it there when the exercise starts. We have been asking the safety region for this exercise for three years and are super happy that it is finally here\", he adds. \"By now we work well together with the municipality and safety region.\" The intention is that the group of volunteers keeps a close eye on 112 reports and passes on to residents that evacuation is necessary. \"We do that earlier than the emergency services. We have three locations where people can find each other and those are determined at the moment we know where the fire is.\" 'Cannot be financed' Dijksma is very pleased with the exercise in Austerlitz. \"It is very important that people also prepare themselves, this kind of initiative is gold.\" The resilience of municipalities falls under the Ministry of Justice and Security and <entity id=\"person:david-van-weel\">Minister Van Weel</entity> is also satisfied with the initiative. \"I am glad that challenges are identified and this kind of thing is picked up and improved locally. The call from municipalities for more money is something Van Weel can follow. \"In the Budget Memorandum we have designated resilience as an important theme, but our spending will not cover all wishes\", he says. \"It is an enormous task, so I will not say that we can do everything at once. We cannot finance that.\" According to the minister, municipalities can really get to work with the money they already receive, for example to work on the resilience of their critical processes. \"Ultimately, resilience lies in the communities where people live, municipalities have a very large role in that.\"",
-    "sourceHash": "c4d954bb1451",
+    "lead": "Municipalities believe they receive too little money from the national government to make themselves resilient against all kinds of threats. This concerns, for example, cyber and hybrid threats or dangers arising from climate change, such as wildfires. <entity id=\"person:sharon-dijksma\">Sharon Dijksma</entity>, chair of the Association of Netherlands Municipalities (<entity id=\"org:vereniging-van-nederlandse-gemeenten\">VNG</entity>), says that municipalities need a multiple of what is budgeted in the Budget Memorandum for the resilience task. \"I assume it will involve hundreds of millions in total.\" \"<entity id=\"org:kabinet\">Het kabinet</entity> has made 35 million available for emergency support points and now, in the Budget Memorandum, an additional increasing series of 20 to 70 million for digital resilience, social-societal resilience and continuity. But the gap between what municipalities need and what the cabinet makes available is therefore large,\" according to the VNG. <entity id=\"org:gemeente-rotterdam\">Rotterdam</entity> also wants more money. The port of Rotterdam is often mentioned as a possible target for threats from Russia . \"Resilience goes further than emergency support points . We must also invest in society itself, in a strong social fabric that helps us during an emergency situation and in the recovery afterwards,\" says a spokesperson for the municipality. No evacuation facilities The VNG already has a fairly good picture of how municipalities would want to use extra money. \"You can think of neighbourhood emergency plans and training courses for residents. We will still talk with the Ministry of <entity id=\"org:ministerie-van-justitie-en-veiligheid\">Justitie en Veiligheid</entity> about sheltering and evacuating, for which there are currently virtually no facilities.\" \"Emergency generators, satellite phones and walkie-talkies are needed, and the emergency services need many more resources such as fire engines. The list is too long to include everything.\" VNG chair Dijksma, also <entity id=\"pos:burgemeester-utrecht\">burgemeester van Utrecht</entity>, does have an idea of what should happen in her municipality. \"We have many vulnerable residents who are not self-reliant, they do not always have the money to prepare. We also need money for communication resources that we currently lack.\" In Austerlitz, a village in the <entity id=\"org:gemeente-zeist\">gemeente Zeist</entity>, people do not want to wait until municipalities have sufficient resources for safety exercises. Austerlitz is located in the middle of the forest and has few access roads. Because residents were afraid they would not be able to get away well in the event of a large forest fire, volunteers set up a 'forest fire working group'. The volunteers of the working group practised today as if a large forest fire were raging: \"I am part of the group of citizens that keeps an eye on everything when there is a wildfire danger,\" says Robert Schliessler. \"We work together with the safety region and train for what happens when our village is threatened.\" Today Schliessler is also taking part in the first exercise together with the safety region. \"We have a WhatsApp group in the village, there are six hundred people in it, they all hear about it there when the exercise begins. We have been asking the safety region for this exercise for three years and are super happy that it is finally here,\" he adds. \"By now we work well together with the municipality and safety region.\" The intention is that the group of volunteers keeps a close eye on 112 reports and passes on to residents that evacuation is necessary. \"We do that earlier than the emergency services. We have three locations where people can find each other again and those are determined at the moment we know where the fire is.\" 'Cannot be financed' Dijksma is very pleased with the exercise in Austerlitz. \"It is very important that people also prepare themselves, this kind of initiative is gold.\" The resilience of municipalities falls under the Ministry of Justice and Security and <entity id=\"person:david-van-weel\">Minister Van Weel</entity> is also satisfied with the initiative. \"I am glad that challenges are identified and this kind of thing is taken up and improved locally. Van Weel can follow the municipalities' call for more money. \"In the Budget Memorandum we have designated resilience as an important theme, but our spending will not cover all wishes,\" he says. \"It is an enormous task, so I will not say that we can do everything at once. We cannot finance that.\" According to the minister, municipalities can really get to work with the money they already receive, for example to work on the resilience of their critical processes. \"Ultimately, resilience lies in the communities where people live, municipalities have a very large role in that.\"",
+    "sourceHash": "05697408aa65",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-10"
+    "translated": "2026-10-11"
+  },
+  {
+    "id": "news:5d24825",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Four questions about the diesel deal between the United States and Russia",
+    "lead": "Yesterday, American president Trump announced that Russia will immediately supply 300,000 tons of diesel to the US. Much is still vague about the agreement. For example, it is unclear when the diesel will go to the US exactly and what it means for the price Americans pay at the pump. At a later time, Russia would supply even larger quantities, rising from 500,000 to 3 million tons. After the news, the future price for diesel fell slightly. What it means for the price in the longer term is still completely unclear. In four questions, we explain why the Americans are closing this deal right now and what it means for Ukraine. Why has this deal been closed now? Trump said it in his message announcing the deal: he is concerned with \"lower fuel prices for Americans\". Since the start of the war in Iran, hardly any oil is being transported through the Strait of Hormuz, which led to a doubling of American diesel prices. It is a headache file for the American president. In less than a month, the midterm elections for the American Congress will be held. Polls show that Trump is seen as the one to blame for the high prices at the pump. That could lead to the Republicans losing their majority. To turn the tide, Trump previously considered an export ban on diesel. Now Trump is coming with the deal with Russia. Correspondent for Central and Eastern Europe Christiaan Paauwe: \"It is yet another blow for Kyiv regarding the relationship with America, formerly the most important ally. Especially also because of the signal that Washington is sending with this. Russia is thereby further pulled out of international isolation. Zelensky keeps hammering on the point that Putin can only be forced to talk seriously about peace with further pressure, but with this the opposite happens. In the meantime, you also see that Trump is lashing out at Zelensky and saying that Ukraine must stop air attacks on the Russian oil industry. Ukraine has made clear that these air attacks, which it describes as \"direct sanctions\", will not stop unless Russia stops the air attacks on Ukraine. But Putin does not want to stop that, and we hear nothing further from Trump about it.\" Is this possible with the sanctions imposed on Russia? After the invasion of Ukraine, President Biden imposed an import ban on Russian oil, natural gas and coal. That remained in force under Trump. Last month, he still signed a law that makes extensive American sanctions against Russia possible. That law states that the US can impose import duties of up to 100 percent on countries that buy large amounts of Russian fuels. Trump is now setting that law aside: the American Ministry of Finance has granted a temporary permit for the import of Russian diesel. What does this yield for Russia and what does it mean for Ukraine? President Zelensky is, to put it mildly, not pleased with Trump's decision. On Telegram, he called it a \"gift for Putin\". According to him, the US is thereby playing into Russia's hands and this has major consequences for the war in Ukraine. According to Zelensky, the Russian war chest is being filled by the deal. He states that \"every extra billion dollars that Russia can earn is spent on nothing other than weapons.\" According to him, the Russian attacks are indicative of what the purchase of Russian diesel means: \"prolonging the war, terrorising ordinary people and destroying infrastructure\". Not only in words, but also in deeds, Ukraine shows that the country is angry. For example, a large fire broke out at an oil terminal in the port from which Russia would transport the fuel, in Rostov-on-Don. The suspicion is that this is due to a Ukrainian air attack. The American president then again emphasised that Ukraine must stop attacks, adding that he believes Ukraine must get a new leader. How can Russia supply diesel to the US? Russia is a country with enormous oil fields, but itself has to contend with a fuel shortage due to the Ukrainian attacks on its oil industry. Ukraine regularly carries out attacks on oil refineries in Russia, where crude oil is converted into fuels. This summer, that led to queues at petrol stations in all corners of the country. Russia then decided on an export ban for petrol, diesel and kerosene. The Kremlin also closed a deal with India for the import of fuel. Russia can therefore probably supply only limited diesel, but every dollar it earns, it can use for the production of weapons. Putin's adviser Ushakov reported yesterday that in the conversation between Putin and Trump, peace talks with Ukraine were discussed, but that Russia's goals have remained the same. That therefore says that Russia is continuing the war.",
+    "sourceHash": "ff84f87307fc",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:5d24841",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "No trains between Rotterdam and Delft until at least Sunday evening after arson",
-    "lead": "Until at least 23.00 tomorrow evening, no trains will run between Rotterdam and Delft. The cause is the arson last night at a railway bridge in Delfhaven. ProRail does not rule out sabotage. According to the rail manager, it will take until at least Sunday evening before the damage is repaired. Trains may even not run on the route again until Monday morning. The railway between Rotterdam and Delft is one of the busiest routes in the Netherlands. It is also used by trains that cover long distances, for example between the Randstad and Zeeland or Limburg. For train travellers, this means a lot of disruption tomorrow as well. Eight-hour check According to ProRail, it is certain that the fire was deliberately set last night. The fire started last night in the technical room. The door to it had been ground open and inside lay smouldering cables. Investigation shows that 35 cables have been damaged. Fifteen of them have burned through completely and must be replaced and welded again. After all the cables have been replaced, several checks must be carried out to determine whether trains can run safely again. Those checks take about eight hours. Whether sabotage has actually been committed on the railway again still has to be investigated by the <entity id=\"org:politie\">politie</entity> and fire brigade. No one has been arrested yet.",
-    "sourceHash": "3cd2e7022354",
+    "title": "No trains between Rotterdam and Delft until at least 23:00 after arson",
+    "lead": "No trains are running between Rotterdam and Delft until at least 23:00. The reason is the arson last night at a railway bridge in Rotterdam-Delfshaven. ProRail does not rule out sabotage. According to the rail manager, it will take until at least Sunday evening before the damage is repaired. Trains may even not run on the route again until Monday morning. The track between Rotterdam and Delft is one of the busiest routes in the Netherlands. It is also used by trains that cover long distances, for example between the Randstad and Zeeland or Limburg. For train travellers, this means a lot of disruption tomorrow as well. Eight-hour inspection According to ProRail, it is certain that the fire was started deliberately last night. The fire started last night in the technical room. The door to it had been ground open and inside there were smouldering cables. Investigation shows that 35 cables were damaged. Fifteen of them burned through completely and must be replaced and welded again. After replacing all the cables, various checks must be carried out to determine whether the trains can run safely again. These checks take about eight hours. Whether sabotage was actually committed on the track again still has to be investigated by the <entity id=\"org:politie\">politie</entity> and fire brigade. No one has been arrested yet.",
+    "sourceHash": "4ef6ca02b845",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-10"
+    "translated": "2026-10-11"
+  },
+  {
+    "id": "news:5d24843",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Trump lashes out at Zelensky: 'Time for a new president who can close a deal'",
+    "lead": "President Trump has once again lashed out at Ukrainian president Zelensky. In a conversation with the American press, Trump said it is time for Ukraine to get a new leader. According to him, that person would then be able to close a deal to end the war with Russia. Trump's jibe at Zelensky comes a day after the American president announced that the US will import oil and diesel from Russia . Trump has repeatedly said that he believes Ukraine must stop the attacks on Russian oil refineries, but just after the deal was announced, Ukraine attacked the port of Rostov-on-Don, which is essential for the export of diesel. To the American press, Trump also claimed that Zelensky has not done enough to end the war. Trump states that the new leader of Ukraine \"must be someone who can make a deal, something that Zelensky for some reason never does\". Trump further claimed that the war in Ukraine would never have started if he had been president of the US at that time. \"It started thanks to incompetence.\" Ukrainian elections In his attack on Zelensky, the American president ignores the fact that the Ukrainian constitution states that no elections can take place in wartime. It is not the first time that Trump has brought up elections in Ukraine. In December, he claimed that the Ukrainian government \"is using the war to avoid holding elections\". His attack can be seen as reinforcing the message of Russian president Putin. He has repeatedly said that Ukraine must hold elections, because Zelensky's term ended in 2024. Yet there are also calls from within Ukraine to hold elections, but that is not feasible. Moreover, a poll shows that a majority of the population believes that elections can only come after the war. Diesel deal To the dissatisfaction of the Americans, Kyiv does not intend to stop attacking the Russian oil industry, because according to Ukraine it is a way to hit the Russian economy and therefore the war chest. Zelensky will only stop the attacks on the oil sector if Russia stops the air attacks on Ukraine. Since the start of the war in Iran, diesel prices in the US have doubled, to the dissatisfaction of many Americans. They hold the Trump administration responsible for the high fuel prices. This is also reflected in the polls for the American midterm elections in early November. These elections are important for Trump, because he wants to keep a majority in the American congress. Argument in the White House Trump's attack is reminiscent of Zelensky's visit to the White House early last year. At that time, a meeting between the two presidents and American vice president JD Vance degenerated into a heated argument . In the conversation, a principle agreement was to be signed on the reconstruction of Ukraine, with agreements on the extraction of raw materials. But Zelensky was snubbed by the Americans. For example, he was accused of being \"disrespectful\". \"Either you close a deal, or we wash our hands of it,\" Trump said, after the Ukrainian president had been told by the Americans that \"he has nothing to demand\". Zelensky left the White House that day without the agreement being signed.",
+    "sourceHash": "0ac5e4885201",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
+    "id": "news:5d24860",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "At least forty dead in Sudan from drone attack on refugee camp",
+    "lead": "In a drone attack in Sudan, close to the border with Ethiopia, at least forty people were killed. That reports Emergency Lawyers , an organisation that monitors developments in the civil war in Sudan. According to the organisation, the paramilitary Rapid Support Forces (RSF) are behind the attack. The BBC reports that a refugee camp in the southeast of the country was the target. UN aid organisation OCHA says it is shocked by the attack. Most of the victims are women and children. For more than three years, the RSF has been fighting the government army, the Sudanese Armed Forces (SAF), in Sudan. The war broke out after the leaders of both parties carried out a coup together and then failed to agree on the distribution of power. War crimes According to the UN, the civil war in Sudan is the largest humanitarian crisis in the world. Both the RSF and the SAF commit war crimes , but the RSF is seen as the more violent of the two. The violence of the RSF has characteristics of genocide, the UN concluded . The RSF mainly controls large parts of western Sudan, such as Darfur. The government army controls the east and north, including Khartoum. Millions of Sudanese have been displaced by the violence. NOS op 3 previously made this video about the war in Sudan:",
+    "sourceHash": "9dd703753aef",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:5d24b7e",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "New York Times: 12 dead in attack on Riyadh airport",
-    "lead": "At least 12 people were killed in the attacks on the international airport in the Saudi capital Riyadh today. Fifty people were injured. Officials report this to The New York Times. This makes it the deadliest attack in a Gulf state since the start of the war between the US and Israel with Iran in February, the newspaper reports. Since the start of the large-scale operation Dawn of Yemen by the Yemeni army last Monday, the Houthis have significantly stepped up their attacks on targets in Saudi Arabia. On Thursday, the Iran-backed Houthi rebels also attacked Riyadh airport. Three Saudis were killed in that attack, including a pilot. Earlier this week, the Houthis also targeted airports in the Saudi towns of Jizan, Najran and Abha. The New York Times reports that the damage to King Khalid International Airport in Riyadh is being assessed and that air traffic has been halted.",
-    "sourceHash": "d6dd31b4c61c",
+    "title": "12 dead and 300 injured in attack on Riyadh airport",
+    "lead": "In the attacks on the international airport in the Saudi capital Riyadh, at least twelve people were killed and 300 people were injured. That is what the Saudi civil aviation authorities say. It is therefore the deadliest attack in a Gulf state since the start of the war between the US and Israel with Iran in February. The New York Times reports that the Houthi rebels claimed responsibility for the attack through a senior official. According to him, the attack was retaliation for Saudi air attacks on Yemen, including attacks on civilian infrastructure. King Khalid Airport is the second largest of Saudi Arabia, after the one in Jeddah. The damage to the terminal is now being mapped. There are virtually no photos or video images available of the airport after the impacts. Air traffic has been halted. These verified images are available: According to the Saudi authorities, four of the dead are from Saudi Arabia. Two others are from Bangladesh. The remaining victims come from the US, Egypt, Jordan, Syria, Sudan and the Palestinian Territories. The injured have been taken to various hospitals. Since the start of a large-scale offensive by the Yemeni government army last Monday, the Houthis have significantly increased their attacks on targets in Saudi Arabia. Saudi Arabia is an ally of Yemen; the Houthis are in turn supported by Iran. On Thursday, the Houthi rebels also attacked the airport of Riyadh. At that time, three Saudis were killed, including a pilot. Earlier this week, the Houthis also attacked airports in the Saudi places Jizan, Najran and Abha . Secretary-General António Guterres of the United Nations says he is \"deeply shocked\" by the attack on the airport. \"Attacks on civilians and civilian infrastructure are a violation of international law. These attacks must stop immediately,\" he says .",
+    "sourceHash": "ec1fc95b08c2",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-10"
+    "translated": "2026-10-11"
+  },
+  {
+    "id": "news:5d24b9f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Visitor who entered tiger enclosure killed in attack in England",
+    "lead": "In a zoo near Doncaster in the north of England, a man died after he was attacked by a tiger. The South Yorkshire police received a report at 13:35 about a man who had entered the tiger enclosure in the park. The tiger then attacked the man, after which he died at the scene. Earlier it was reported that the man had been seriously injured by the attack. Later it turned out that he could not be helped by medical personnel. After the incident, the park was evacuated. The police report being aware of images of the attack being spread online and ask that the images not be shared. Why and how the man ended up in the tiger enclosure is not immediately clear. The local police are investigating. Yorkshire Wildlife Park was opened in 2009 and the tiger enclosure ' Land of the Tigers' followed two years later. In photos of the special enclosure of more than two hectares, an elevated walkway for visitors can be seen and a fence above the section where the tigers can roam freely. Park closed this weekend A spokesperson for the park says that the staff are \"deeply saddened\" by the man's death. \"Our thoughts and sincere condolences go out to the family and loved ones of the person who died.\" The police report that the tiger remained unharmed and that there was no danger to the public. The park was closed after the incident and remains closed today as well.",
+    "sourceHash": "2adf1d444099",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
+    "id": "news:5d24bb8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Four dead in southeastern US from storm Isaias, more chance of flooding",
+    "lead": "In the southeastern United States, at least four people have died from storm Isaias. There is also significant damage and electricity went out for hundreds of thousands of households. Within a few hours after Isaias made landfall, nearly 900,000 households were without power, especially in Florida and Alabama. Two people died when trees fell on their homes. In Florida, a man died of carbon monoxide poisoning from an emergency generator in his garage. A fourth fatality occurred in Alabama in a traffic accident after a tree ended up on the road. Isaias caused major damage especially along the Gulf Coast of Florida and Alabama. Roofs and facades of buildings were blown away and trees were uprooted in several places. The storm continues through the southeastern United States and can cause problems in Georgia and North and South Carolina. Although Isaias has now weakened and the weather services no longer speak of a hurricane but of a severe storm, meteorologists are still warning of heavy rainfall that can cause sudden flooding. Oil from emergency reserve President Donald Trump has declared a state of emergency for Georgia, after this had earlier also been done for Florida and Alabama. This allows federal aid to be deployed. The US Department of Energy has made oil from the emergency reserve available to counter possible supply problems as a result of the storm.",
+    "sourceHash": "9fe615cccbff",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
+    "id": "news:5d24bb9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US Justice investigates TV channels after protest against exclusion of journalists",
+    "lead": "The US Department of Justice has announced an investigation into several news channels that jointly decided to temporarily stop reporting from the White House. It is the latest chapter in a series of clashes between the Trump administration and major news organisations. The channels under investigation are ABC, CBS, CNN, NBC and Fox News. Out of solidarity, they refused to continue following Trump closely after CNN, MS Now and Politico were temporarily denied access to the White House. Trump accused the three media companies of spreading fake news, but gave no concrete examples for this. The department says it will examine whether the channels violated competition law. A spokesperson for the department speaks of a \"joint boycott by commercial competitors\" that may be in violation of the Sherman Act, as competition law is called in the US. Difficult relationship Trump has long been waging a battle against media that in his view are not well disposed towards him. For instance, since last year he has been barring journalists from Associated Press because the US news agency did not adopt Trump's name change for the Gulf of Mexico (Gulf of America). He also regularly attacks journalists personally, especially women . The department's investigation revolves around the so-called White House TV pool. Channels CNN, ABC, CBS, Fox News and NBC are part of this fixed TV pool. In it, one channel is designated to provide the footage of press conferences and other important moments in the White House and share it with other media. When the White House on 19 September denied reporters from CNN, Politico and MS NOW access to the building by revoking their accreditations, the other channels temporarily suspended pool coverage out of solidarity with the excluded media and refused to supply replacement footage. Not on Air Force One The channels that were excluded eventually got their accreditations back after a judge ruled that the ban was probably unconstitutional. He ordered the government to immediately admit the journalists again . Yet afterwards there were still problems around access to specific presidential events and the distribution of seats in the press pool. Two days after the judge's ruling, CNN was not allowed on board Air Force One, the presidential aircraft.",
+    "sourceHash": "324bbfc50a7b",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
+    "id": "news:5d24bbb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Wake-up service 11/10: Coming Out Day • Pro-Palestinian protests in Amsterdam",
+    "lead": "Good morning! Today is Coming Out Day: a day on which it is emphasised that everyone should be able to be themselves. And there will again be demonstrations in Amsterdam against the violence in Gaza. First the weather: in the northern half of the country there will be many showers, which can be heavy. Lows between 8 and 12 degrees. This afternoon most showers will move away and then the sun will shine regularly at 13 to 15 degrees. Are you going out today? Here you will find the overview of traffic jams and roadworks and here everything about the situation on the railways. What can you expect today? What did you miss? In the attacks on the international airport in the Saudi capital Riyadh today, at least twelve people have been killed and 300 injured. That is reported by the Saudi civil aviation authorities. It is thereby the deadliest attack in a Gulf state since the start of the war between the US and Israel with Iran in February. The New York Times reports that the Houthis have claimed responsibility for the attack through a senior official. According to him, the attack was retaliation for Saudi air strikes on Yemen, including attacks on civilian infrastructure. The Saudi authorities report that four Saudi citizens have died and besides that two Bangladeshis, a Palestinian, an American citizen, an Egyptian, a Jordanian, a Syrian and a Sudanese. The injured have been taken to various hospitals. Other news from the night: And then also this: For a long time, the justice system has been certain that drug criminal Jos L. is in Sierra Leone. Yet the West African country does nothing to deport him, despite increasing pressure. How that works and why 'Bolle Jos' is precisely there - you can see in this video by NOS op 3: Happy Sunday!",
+    "sourceHash": "db1f64413601",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
+    "id": "news:5d24bbc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Expensive diesel puts truckers and Republicans under pressure just before elections",
+    "lead": "In less than a month, Americans will go to the polls for Congressional elections. The sky-high price of diesel could then play a decisive role. Republican candidates fear that they will have to foot the bill. On the warm asphalt of a large truck stop in the state of Virginia, the talk is truly about nothing else. \"Everyone is complaining and it comes up again every day\", says truck driver John. Today he is on the road with a large load of processed chicken. Like many other truckers, John is self-employed. He therefore feels the pain directly in his wallet. To save money, he prefers to refuel in another state, where prices are slightly lower. \"I already refuelled in Georgia yesterday, because fuel is cheaper there. There I paid about 5.59 dollars per gallon (more than 3.7 litres). Here it is a dollar more.\" \"The fuel costs eat up my profit\", he sighs. \"So the less I pay for fuel, the better.\" A full tank now costs him about 1200 dollars. Since the outbreak of the war in Iran, the price of diesel has gone through the roof, with an increase of more than 70 percent. This week, President Trump called the high fuel prices at a campaign rally in Nebraska a \"small price to pay to keep the US safe\". He also claims that those high bills are not his fault. He points the accusing finger at Ukraine, because the country attacks Russian oil refineries. And he expresses his anger about Democratic states such as California, which according to him restrict oil production too much with their strict climate policy. Important groups of voters affected Not only the transport sector is suffering greatly from it, farmers are also heavily dependent on diesel. Traditionally they are important groups of voters for the Republican party. For that reason, Republicans who want to be elected in November are forced on this point to distance themselves from their president, says Amanda Makki, a conservative campaign strategist. \"People experience that pain at the pump every day, and that makes it a challenge to have to work against it.\" Deal with Putin Last week Trump did then hurriedly take measures to push down the price. He signed a decree to expand the use of so-called red diesel. Normally that type of fuel may only be used for farms and construction machines. He also forced Europe to release emergency diesel reserves. And on Friday, after a telephone conversation with President Putin, he announced a deal with Russia. This to the great surprise of many, because Trump thereby ignores the sanctions against Russia. He does not mention the war in Ukraine at all in his statement. What does the agreement mean for the US, Russia and Ukraine? In this article you can read more about it: According to Makki, the measures that the American government is now taking will not make the difference. \"It is all built on quicksand. Unfortunately, the experts say it will take years. Even if the war were to end, it would still take years before we are back at the price level we were at before 27 February.\" On that day, the US attacked Iran. Yet for her party members it is also not an option to let the president fall hard now. \"We need him, but we also have to find a way to distance ourselves from him\", says Makki. \"That is a difficult balancing act. They want him to get people to the polls, but they know that his policy is unpopular. They also know that the independent voters, who usually tip the scales in these elections, are the most angry at President Trump and the Republicans.\" 'Am a Republican, but will not vote for them' On one point, Republican Makki is still optimistic about her party's chances. \"To be honest, the Democratic candidates are terrible. That is the only thing the Republicans have in their favour.\" At the truck stop, opinions vary. Bryan, who is on the road with a load of applesauce, supports the president. \"Iran has been playing a game with us for decades and I do not blame him for intervening. The war will be over soon.\" Truck driver John also hopes for the latter, but he draws a different conclusion. \"If the prices stay this high, I will sell my truck and quit. I cannot keep this up like this. Midterm elections are coming. I am a Republican, but in these midterm elections I will not vote Republican.\"",
+    "sourceHash": "2ebcb2525197",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
+    "id": "news:5d24bc1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "From our correspondent... Boris van der Spek (Central America)",
+    "lead": "From our Correspondent is a series by the makers of podcast De Dag. Every Sunday we get to know one of the NOS correspondents, the country where they live and the stories that in their view deserve more attention. Today: Boris van der Spek, correspondent in Central America. Listen here: You can listen to this episode of De Dag via <entity id=\"org:zbo-nederlandse-publieke-omroep\">NPO</entity> Luister and all other podcast apps. Like it? Then do not forget to subscribe. Boris left for Latin America after his journalism studies. After a trip in his youth he wanted to go there again. And the dream had long been to become a correspondent on that continent. Methodically he ticked off the necessary ingredients of becoming a correspondent: speaking the language, having been there once and falling in love. After he met his current wife, Boris moved to Chile. There he worked as a correspondent for the first time and set up his own news medium. In the end the Chilean <entity id=\"org:politie\">politie</entity> visited his in-laws after he had written a story. \"That made me very angry.\" After eight years he had had enough of Chile: \"You want to do more, but newspapers were not waiting every week for a story from the country.\" Chaos And then there was Mexico. \"A wonderful chaos\", according to Boris. You have to be careful, with the drug cartels that call the shots in some places. \"Fields are full of mines, there are increasingly heavy weapons on the streets. And that is just Mexico, right, you are not in a war zone.\" But the Mexicans Boris meets are warm, invite him to stay for dinner and to sleep, and teach him a lot about life. \"How Mexicans deal with death I find very inspiring. With rituals and ceremonies my deceased mother stays alive.\" Going back to the Netherlands is not an option for now: \"That would be too great a culture shock.\" Boris would rather stay for years in the continent of his dreams: Latin America. Next week in our series From our correspondent Mustafa Marghadi, the correspondent in Southeast Asia. Do you have a question for him? Email to dedag@nos.nl Presentation & editing: Marco Geijtenbeek Editorial staff: Wouter Sloekers",
+    "sourceHash": "902fadb85a85",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:5d2802f8",
@@ -14067,6 +14309,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-05"
+  },
+  {
+    "id": "news:603ebeea",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'Close-knit' Feyenoord new Eredivisie leader: 'We are rock hard for each other'",
+    "lead": "With the 2-0 victory in the top match against AZ and taking over the top position in the Eredivisie, Feyenoord continued the good line from before the international period. The Rotterdammers have very quickly become a close-knit team, but it is not all positive.",
+    "sourceHash": "ac6d04b8814b",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:6043642",
@@ -14787,12 +15040,12 @@
     "id": "news:64e73ce7",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "US-Ukraine relations again tense after diesel deal. Trump: 'Time that Ukraine gets a new president'",
+    "title": "Drone attack disrupts operation of Russian Yandex data center",
     "lead": null,
-    "sourceHash": "be9129f74c39",
+    "sourceHash": "7a00359da9fa",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-10"
+    "translated": "2026-10-11"
   },
   {
     "id": "news:64f95ba0",
@@ -15532,6 +15785,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:684824b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Incomprehension at AZ after penalty not given against Feyenoord: 'I do not know what images he has seen'",
+    "lead": "A crucial moment in the Eredivisie top match between Feyenoord and AZ (2-0) was the penalty moment just before halftime. After a VAR intervention, referee Danny Makkelie cancelled the penalty. Much to the dissatisfaction of AZ striker Mexx Meerdink. \"The contact was there, I felt it on my foot.\"",
+    "sourceHash": "cb643d9be271",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:684a105",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15741,6 +16005,17 @@
     "translated": "2026-10-08"
   },
   {
+    "id": "news:69de4f18",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Nederlander krijgt bijna €900.000 boete en 24 maanden cel voor grootschalige lachgashandel",
+    "lead": "De rechtbank in ’s-Hertogenbosch heeft een 26-jarige man uit Veldhoven veroordeeld tot een boete van bijna 900.000 euro voor de handel in distikstofoxide, beter bekend als lachgas.",
+    "sourceHash": "0f655d922b6d",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:69eb462d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15816,6 +16091,17 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
+  },
+  {
+    "id": "news:6a7299b3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ajax wins only 1 of 5 home matches. That is too little for a serious title candidate",
+    "lead": null,
+    "sourceHash": "d2218c6fce14",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:6a7360c4",
@@ -16522,6 +16808,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:6f4ee2f9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "At least twelve dead and three hundred injured after attack on Riyadh airport",
+    "lead": "At least twelve people were killed and 309 injured on Saturday after a heavy attack on the international airport of Riyadh. The Houthi rebels are presumably behind the attack on Saudi Arabia, which is the deadliest in a Gulf state since the start of the American-Israeli war with Iran.",
+    "sourceHash": "7828cdd4649b",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:6f58daaa",
     "language": "en",
     "sourceLanguage": "nl",
@@ -17061,6 +17358,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:7336654e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "A life full of complaints after a hair growth cure | Audio story on Sunday",
+    "lead": "Finasteride is an increasingly popular remedy against baldness. But some users experience mental and/or sexual problems that do not disappear once they have…",
+    "sourceHash": "ce3a4da4e859",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:7341701e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -17246,6 +17554,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
+  },
+  {
+    "id": "news:746d18d1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "One dead and two injured after car crashes head-on into tree near Ruurlo",
+    "lead": "There has been one fatality in a single-vehicle accident near Ruurlo. A car crashed into a tree. Two other occupants were injured.",
+    "sourceHash": "c5bd8ad6a802",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:748afe8",
@@ -17567,6 +17886,17 @@
     "translated": "2026-10-07"
   },
   {
+    "id": "news:765a6e92",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Former colonial oil fields must yield Indonesia a million barrels of oil per day",
+    "lead": "Oil wells that were still drilled by the Dortsche Petroleum Maatschappij and similar colonial companies play a role in the country's energy strategy.",
+    "sourceHash": "e8d047ff7ea6",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:765b43d4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -17620,6 +17950,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-01"
+  },
+  {
+    "id": "news:76ac5967",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'Get the investment!' After five years there is a housing protest again",
+    "lead": "The housing protest on Saturday in Amsterdam was nowhere near as large as the housing demonstration in 2021, although according to the protesters little has improved since then. \"Only if you have a salary of more than 5,000 euros per month do you earn enough to be squeezed.\"",
+    "sourceHash": "f827d91e6485",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:76ac99d3",
@@ -19162,6 +19503,17 @@
     "translated": "2026-10-07"
   },
   {
+    "id": "news:80946427",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "German nitrogen rules much more lenient than here, but we cannot adopt them",
+    "lead": "It is often heard that Germany has much less strict nitrogen rules. Then the question sounds: why do we not adopt the rules of our eastern neighbours? It is not possible and moreover: Germany too is struggling with too much nitrogen.",
+    "sourceHash": "1a996c4ed72b",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:809a4994",
     "language": "en",
     "sourceLanguage": "nl",
@@ -19534,6 +19886,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
+  },
+  {
+    "id": "news:82f18fc3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Man shoots seven family members and friend dead in US",
+    "lead": "A 45-year-old man shot dead seven family members and a friend of the family in a home in Erie, in the US state of Pennsylvania. He then took his own life, the authorities report. Among the victims were two children and a pregnant woman.",
+    "sourceHash": "c3a0527b7efa",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:82f2f6f0",
@@ -20394,6 +20757,17 @@
     "translated": "2026-10-07"
   },
   {
+    "id": "news:884de052",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Man sells rental car, but German buyer may keep Audi",
+    "lead": "A German sold a rented Audi with forged documents to an unsuspecting buyer. The court in Cologne rules that the buyer may keep the car, because he could not know that something was wrong.",
+    "sourceHash": "0baa2cc5474f",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:8859f2f1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -20724,6 +21098,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:8a401778",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Personal contacts as a weapon against international threats",
+    "lead": null,
+    "sourceHash": "44c2c4a33894",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:8a64ec28",
     "language": "nl",
     "sourceLanguage": "en",
@@ -20777,17 +21162,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
-  },
-  {
-    "id": "news:8ab264f8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "After a fall Tineke (87) broke her hip, she could no longer recover: 'I am going to miss you all'",
-    "lead": "A fall can change a life completely in one fell swoop. Certainly if someone is already elderly. Because if things go badly wrong, they often lose their independence. In the worst case it can even mean the end, just as with the 87-year-old Tineke Kreugel.",
-    "sourceHash": "5bac10beef88",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-06"
   },
   {
     "id": "news:8ab8ae5c",
@@ -21494,6 +21868,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:8eb54554",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Already completely done with the rain? Dry next week with temperatures up to 20 degrees",
+    "lead": "Anyone already tired of the rain showers will get good news next week. The sun will show itself a lot more often again and on Tuesday it can locally become 20 degrees.",
+    "sourceHash": "0cfd04289dd7",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:8eb7463b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -21745,6 +22130,28 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
+  },
+  {
+    "id": "news:90e00d23",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Northern lights above the Netherlands: beautiful photos, but not visible to the naked eye",
+    "lead": "Last night the northern lights were visible in the sky above the Netherlands - at least mainly for people using a camera with a long shutter speed. With the naked eye it was difficult to observe. In any case, it produced many beautiful pictures. Below is a small selection.",
+    "sourceHash": "849ad338ac2d",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
+    "id": "news:90e79f69",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "A hidden suitcase in the attic revealed the secret NSB past of this Amsterdam woman",
+    "lead": null,
+    "sourceHash": "d42b1179f6e0",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:90ef7ff8",
@@ -22033,6 +22440,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:92d595f7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "High pressure, complex work and threats: how do local politicians stay enthusiastic?",
+    "lead": "Aldermen, mayors and council members talk in the Achterhoek about how their work should be rewarded. 'The logic should not be that if an azc comes, suddenly a higher reward comes.'",
+    "sourceHash": "e5212ecb853d",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:92dce3e5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -22168,12 +22586,12 @@
     "id": "news:93d92944",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Paus mengt zich impliciet in doodstrafdebat VS: 'ontoelaatbaar'",
+    "title": "Pope implicitly intervenes in US death penalty debate: 'inadmissible'",
     "lead": null,
-    "sourceHash": "94358d18b83d",
+    "sourceHash": "6b5b2f2d0a41",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-10"
+    "translated": "2026-10-11"
   },
   {
     "id": "news:93dc452a",
@@ -22429,6 +22847,17 @@
     "translated": "2026-10-08"
   },
   {
+    "id": "news:9542d171",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Vinícius gets red after pulling hair, furious José Mourinho skips press conference",
+    "lead": "Real Madrid booked a narrow victory over Villarreal (1-0) on Saturday evening, but afterwards there was hardly any talk about Yan Diomandé's winning goal. Star player Vinícius Junior crossed the line by pulling an opponent's hair and received a red card for it.",
+    "sourceHash": "5e2deb311567",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:956d8822",
     "language": "en",
     "sourceLanguage": "nl",
@@ -22493,6 +22922,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:95bfd84",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Immigration police ICE arrests Hongkongers despite protected status, forces them to wear ankle monitors",
+    "lead": "US immigration police ICE has arrested several residents of Hong Kong in recent months, despite a directive meant to protect them. That is what news site Politico writes. Follow all developments in the United States via our live blog.",
+    "sourceHash": "0ba8c69989ee",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:95c31d7f",
@@ -22814,6 +23254,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:97a8330",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Devanshu (34) from Mumbai left Amsterdam twice but returned each time: 'I was received here with open arms'",
+    "lead": null,
+    "sourceHash": "19147a953955",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:97bfb63c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -22889,6 +23340,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:980996b8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Another drone attack on data center of tech giant Yandex, Trump thinks Zelensky should stop",
+    "lead": "A data center of the Russian tech giant Yandex has been damaged by a drone attack, disrupting work at the facility. The company reported this on Sunday. It is the third attack in three days. Follow all developments in the war in Ukraine in our live blog.",
+    "sourceHash": "3d36e316caec",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:980b3d8d",
@@ -23285,6 +23747,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
+  },
+  {
+    "id": "news:9a4a611",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Precies vier",
+    "lead": null,
+    "sourceHash": "e7fcdf3c307a",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:9a72330f",
@@ -24365,6 +24838,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:a1dc4a5d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Why is our clock divided into those strange 12 hours?",
+    "lead": null,
+    "sourceHash": "e21b4ba1ee79",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:a1dd2923",
     "language": "en",
     "sourceLanguage": "nl",
@@ -25135,6 +25619,17 @@
     "translated": "2026-10-04"
   },
   {
+    "id": "news:a66d0892",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'Leader' Roberto M. tried to escape after Overasselt, disguised as a festival-goer at a bus shelter",
+    "lead": "A month after the violence explosion in Overasselt, more and more is becoming clear about the little army of 'soldiers' that stood at the gate at Jan G.'s. From the 'Chechen' with the uzi to the 16-year-old Parisian boy who pointed the <entity id=\"org:politie\">politie</entity> itself to the shot-dead Berry. A reconstruction of the fatal night based on five main players: \"There were sports bags full of weapons, it looked like a film.''",
+    "sourceHash": "5ea3655ed564",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:a688b147",
     "language": "nl",
     "sourceLanguage": "en",
@@ -25850,6 +26345,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:aaa7025d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Raincoat or sunglasses? Big differences in the country today",
+    "lead": "One person will have to go out today with an umbrella or raincoat, the other needs sunglasses. Today we see a divide, with the south having the best cards. There it will remain virtually dry this afternoon and the sun will show itself regularly. In the north of the country the showers continue. The showers in the north will become less active this afternoon.",
+    "sourceHash": "a8b996b68e52",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:aaba023c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -26356,6 +26862,17 @@
     "translated": "2026-10-08"
   },
   {
+    "id": "news:add66d48",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "At least 12 dead and 309 injured in Houthi attack on Saudi Arabia airport",
+    "lead": "Yemeni Houthi rebels carried out an air attack on the international airport of Riyadh in Saudi Arabia. At least twelve people were killed, the local authorities report. According to The New York TImes, that makes it the deadliest attack in a Gulf state since the start of the American-Israeli war with Iran. 309 people are said to have been injured, several of whom are in critical condition.",
+    "sourceHash": "7c4482327054",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:add84226",
     "language": "en",
     "sourceLanguage": "nl",
@@ -26508,6 +27025,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
+  },
+  {
+    "id": "news:ae5c6733",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Aan Zet",
+    "lead": null,
+    "sourceHash": "0ca9c42013e9",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:ae6a9f43",
@@ -26849,6 +27377,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-09"
+  },
+  {
+    "id": "news:afbb091f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dusan Tadic bites back after interview: 'Ajax is a top-10 club in Europe, not comparable to NEC'",
+    "lead": "Dusan Tadic returned on Saturday evening to the Johan Cruijff Arena, where he was successful as an Ajax player from 2018 to 2023. The 37-year-old attacker from Serbia received quite a bit of criticism from NEC fans after an interview that appeared on Friday, but according to Tadic it was all very different.",
+    "sourceHash": "151df0ae6cb9",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:afd576ee",
@@ -27212,6 +27751,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
+  },
+  {
+    "id": "news:b2de5f83",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Why Feyenoord rejected a 26 million euro bid for Givairo Read becomes clearer with every victory",
+    "lead": "The young defender Givairo Read is a crucial link in the strongly renewed Feyenoord, which takes over the top position in the Eredivisie thanks to a 2-0 win against AZ. \"You don't buy a team, you build a team.\"",
+    "sourceHash": "f7fb28a2ba4d",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:b2f47cd",
@@ -27839,6 +28389,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-08"
+  },
+  {
+    "id": "news:b7fdb455",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Music of the future in Amsterdam, already in Rotterdam: a self-driving bus transports travellers to the airport",
+    "lead": null,
+    "sourceHash": "d93c700aed40",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:b7fe276",
@@ -28490,6 +29051,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:bc0ebf73",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "This is when Max Verstappen starts from pole in Singapore, where he is chasing a first",
+    "lead": "With a sprint victory in the bag in Singapore, Max Verstappen is secretly still hunting for another victory at the Marina Bay Street Circuit. See below what time the Red Bull driver is in action and what the starting grid is.",
+    "sourceHash": "7dab776e7ec9",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:bc18ab2b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28664,6 +29236,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:bd2cf0ba",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "F-side celebrates fiftieth anniversary with fireworks in Johan Cruijff Arena, warm welcome for Tadić",
+    "lead": null,
+    "sourceHash": "21ec86f2ba17",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:bd33cdbd",
@@ -28930,6 +29513,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:bf318359",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "60 years later, Good Vibrations by The Beach Boys remains a very good song",
+    "lead": "The song Good Vibrations by The Beach Boys was released 60 years ago, but is still a particularly good song. How is that possible? In Goed Ingelichte Kring, Patrick Lodiers discusses this with Tom Ter Bogt, emeritus professor of popular music and youth culture at Utrecht University.",
+    "sourceHash": "91e14a693fba",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:bf350287",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28974,6 +29568,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:bf5a0450",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US Justice investigates TV channels that suspended coverage of Trump",
+    "lead": "The US Department of Justice is investigating whether the major television networks ABC, CBS, CNN, NBC and Fox News violated federal antitrust law when they temporarily suspended filming President Donald Trump.",
+    "sourceHash": "130fb10513c7",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:bf5e10b5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29016,6 +29621,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:bf9226bb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US Justice investigates TV channels that suspended coverage of Trump",
+    "lead": null,
+    "sourceHash": "ed62609c9689",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:bfa1d6",
@@ -29071,6 +29687,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
+  },
+  {
+    "id": "news:c01d754e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'Messi magic': four days after grand farewell, Argentine shines with two goals for Inter Miami",
+    "lead": "Lionel Messi shone in the shirt of Inter Miami four days after his emotional farewell to the Argentina national team. The 39-year-old attacker scored two goals against DC United (4-0).",
+    "sourceHash": "821ab462f197",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:c069c8f",
@@ -30386,11 +31013,11 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Ajax drops points again in Eredivisie after disappointing draw against NEC",
-    "lead": "Ajax dropped points for the fourth time this season on Saturday. Despite an early goal from Tolu Arokodare, the Amsterdammers could do no better than 1-1 at home against NEC.",
-    "sourceHash": "13e4ea27b7d7",
+    "lead": "Ajax did not get beyond a 1-1 draw against NEC on Saturday evening. Due to the third draw of this season in the Johan Cruijff ArenA, the deficit to the new leader Feyenoord has increased to five points.",
+    "sourceHash": "cfa3038ba320",
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
-    "translated": "2026-10-10"
+    "translated": "2026-10-11"
   },
   {
     "id": "news:c8a2f1cc",
@@ -30580,6 +31207,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:c9803550",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US resistance to the ICC runs deep. As 'policeman of the world' they believe they deserve not punishment but reward",
+    "lead": "Already in 2002 <entity id=\"org:eerste-kamer\">de Senaat</entity> decided to tackle the Criminal Court militarily if necessary. Diplomats look back in history and have advice for now. \"You say: we know what you want. Then you say 'no'. And you keep saying 'no'.\"",
+    "sourceHash": "5b863131780b",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:c98ff555",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30732,6 +31370,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
+  },
+  {
+    "id": "news:ca4ed28",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Meerdink angry about penalty not given: 'Referee has seen wrong images'",
+    "lead": "AZ attacker Mexx Meerdink does not understand that referee Danny Makkelie reversed a penalty on Saturday in the Eredivisie top match away against Feyenoord (2-0). The Oranje international says he was hit by Feyenoord goalkeeper Tjark Ernst and had deserved a penalty.",
+    "sourceHash": "068e421068ce",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:ca4f1d85",
@@ -31427,6 +32076,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:ce4c15fa",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Koprol",
+    "lead": null,
+    "sourceHash": "19fc40e02aae",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:ce56f6ba",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31733,6 +32393,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
+  },
+  {
+    "id": "news:d05259be",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sudoku",
+    "lead": null,
+    "sourceHash": "f81c9a141075",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:d056a4b2",
@@ -32195,6 +32866,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
+  },
+  {
+    "id": "news:d27d261e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Number Block",
+    "lead": null,
+    "sourceHash": "773ba346c5f3",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:d28b2264",
@@ -33077,6 +33759,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:d740498e",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Defensie wil jongeren op TikTok bereiken, maar rijksregels verbieden dat",
+    "lead": "Het ministerie van Defensie wil via “gerichte mediacampagnes” jongeren op TikTok gaan bereiken, waarmee desinformatie over bijvoorbeeld de opkomstplicht of werving tegengegaan zou moeten worden.",
+    "sourceHash": "2f6bf14f198b",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:d746ed8c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33273,6 +33966,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-05"
+  },
+  {
+    "id": "news:d8684739",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Volcanologists discover how to make the tastiest coffee: it has hardly anything to do with exclusive coffee beans",
+    "lead": null,
+    "sourceHash": "ab92fc9aab02",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:d885f6d6",
@@ -34056,6 +34760,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:de216366",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Audio story: Green light for €2.6 billion pill factory: 'Here we serve the bv Netherlands'",
+    "lead": "This week you hear how a mega factory for pills against obesity landed in Katwijk.",
+    "sourceHash": "e9064b0e17e8",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:de22c5cd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -34164,6 +34879,17 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
+  },
+  {
+    "id": "news:de8ea409",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Weeds do not exist",
+    "lead": "Worms, you cannot have enough of them. Good grassland is full of them. Sometimes as many as 500 per square meter, 5 million per hectare. But one earthworm is not the other. You have horizontal and vertical ones. The first loosen the soil, the latter shuttle useful material between the layers. 'You have [...]",
+    "sourceHash": "ec7f627b5fed",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:debbaf4d",
@@ -34606,6 +35332,17 @@
     "translated": "2026-10-06"
   },
   {
+    "id": "news:e1deaabf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "From anonymous supporting role in Lisbon to natural leader of Feyenoord: 'We are working hard to keep him fit'",
+    "lead": "Much has changed at Feyenoord, the leader seems to feel stronger than ever. Jeremiah St. Juste plays a big role in that. The defender who had the leadership role thrust upon him last season is now emerging as a natural leader of a Feyenoord that has not conceded a goal for three matches.",
+    "sourceHash": "66f85a50d684",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:e1e18a4a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -34912,6 +35649,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:e39163fe",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Anyone who drinks lying down gets more out of a bowl than out of a wine glass",
+    "lead": "Fortunately, a person gets second chances, Beau van Erven Dorens writes this week in his column in our Saturday magazine Mezza . Because as a part-time student, he does make an effort.",
+    "sourceHash": "25d244662f53",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:e3966003",
@@ -35662,6 +36410,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:e771faef",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Neighbour demolishes his half of British semi-detached house: 'This is a nightmare'",
+    "lead": "Imagine, you move into a semi-detached house and your neighbour suddenly demolishes his side of the house. That happened to a woman in the British city of Leeds, who is sitting in the cold this winter because half of the building has suddenly disappeared.",
+    "sourceHash": "32cbb3d1773f",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:e773a330",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36014,6 +36773,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:e9f2c12f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "How can you wake up startled from a dream? (And can you get a heart attack from a nightmare?)",
+    "lead": null,
+    "sourceHash": "dac39c34232c",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:e9fbf9bc",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36078,6 +36848,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
+  },
+  {
+    "id": "news:ea8d5818",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Bauke Mollema in tears at farewell in Lombardy: 'Glad it is over'",
+    "lead": "Bauke Mollema said an emotional farewell to cycling on Saturday. The Groninger could not hold back his tears after his last race in the Tour of Lombardy, in which he suffered greatly.",
+    "sourceHash": "df3fc33f738d",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:ea8e9ca",
@@ -36377,6 +37158,17 @@
     "translated": "2026-10-09"
   },
   {
+    "id": "news:ec728439",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Man shoots seven family members and friend dead in US",
+    "lead": "A 45-year-old man shot dead seven family members and a friend of the family in a home in Erie, in the US state of Pennsylvania, on Friday and then took his own life. The authorities reported this on Saturday. Among the victims were two children and a pregnant woman.",
+    "sourceHash": "f9555122a025",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:ec7bb7fb",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36674,6 +37466,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:eded7367",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Anticipating divorce, Richard Fieten builds petrol station empire, and a mysterious billionaire",
+    "lead": "Specially selected for you by the FD editorial team: six articles from the past week that are more than worth reading this Sunday.",
+    "sourceHash": "f2e7e9271b7b",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:edf3cc45",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36947,17 +37750,6 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-10"
-  },
-  {
-    "id": "news:ef92e52e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "AI runs amok: is the global stop button in Veldhoven?",
-    "lead": "We need a stop button for AI, say people who worry that AI will go completely off the rails. But where is that button? According to some, in Veldhoven at ASML.",
-    "sourceHash": "490a46276ac2",
-    "engine": "deepseek-v4.1-flash",
-    "method": "opencode-zen",
-    "translated": "2026-10-06"
   },
   {
     "id": "news:ef967b7a",
@@ -37343,6 +38135,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-07"
+  },
+  {
+    "id": "news:f180b5fa",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Live Middle East | UN chief Guterres condemns attack on Riyadh airport",
+    "lead": "Hello and welcome to this live blog. Here we keep you informed about the war in the Middle East and its consequences for the rest of the world.",
+    "sourceHash": "fd53dae4320e",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:f1970c30",
@@ -37741,6 +38544,17 @@
     "translated": "2026-10-07"
   },
   {
+    "id": "news:f441788d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Unexpected twists make Love is blind immensely popular: 'Sound man fell in love with a contestant on the spot'",
+    "lead": "Dating without seeing each other first, then getting engaged and maybe even getting married. That is Love is Blind, the current ratings hit on Netflix. How is it that we so enjoy this love programme? \"I can immediately see who will end up together.\"",
+    "sourceHash": "897de7329fb4",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:f466d142",
     "language": "en",
     "sourceLanguage": "nl",
@@ -37904,6 +38718,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-04"
+  },
+  {
+    "id": "news:f51c8773",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Devanshu (34) from Mumbai left Amsterdam twice but kept coming back: 'They welcomed me here with open arms'",
+    "lead": null,
+    "sourceHash": "1424e9c80f39",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:f536e81a",
@@ -38223,6 +39048,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:f7e4ae4f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "New espionage law: what is going to change? Your questions answered",
+    "lead": "The intelligence services <entity id=\"org:directoraat-generaal-algemene-inlichtingen-en-veiligheidsdienst\">AIVD</entity> and <entity id=\"org:militaire-inlichtingen-en-veiligheidsdienst\">MIVD</entity> may get more room to collect information and conduct investigations. At the same time, there are concerns about privacy and abuse of power. According to experts, independent oversight is therefore crucial.",
+    "sourceHash": "1aca02c948de",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:f7e4c392",
@@ -38742,6 +39578,17 @@
     "translated": "2026-10-10"
   },
   {
+    "id": "news:facbaf4a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US fires on cargo ship that ignores sea blockade, UN chief 'deeply shocked' by attack on Riyadh airport",
+    "lead": "The US military has disabled a cargo ship in the Gulf of Oman, after the crew ignored warnings and tried to break the sea blockade against Iran. That is what Centcom, the operational command in the Middle East, reports on X. Follow all developments about the Middle East in our live blog.",
+    "sourceHash": "f8e6dfeaadca",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
+  },
+  {
     "id": "news:fad00503",
     "language": "en",
     "sourceLanguage": "nl",
@@ -39224,6 +40071,17 @@
     "engine": "deepseek-v4.1-flash",
     "method": "opencode-zen",
     "translated": "2026-10-06"
+  },
+  {
+    "id": "news:fe46387f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "They were there during that very first ADE in 1996: 'We were not even allowed to hang flags in the city'",
+    "lead": null,
+    "sourceHash": "d17c97a33511",
+    "engine": "deepseek-v4.1-flash",
+    "method": "opencode-zen",
+    "translated": "2026-10-11"
   },
   {
     "id": "news:fe5ab55e",
