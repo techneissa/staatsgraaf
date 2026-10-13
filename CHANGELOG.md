@@ -6,9 +6,9 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Added (13-10-2026, coats of arms)
 
-- 266 organisation pages show the official coat of arms next to the name: the 12 provincies, 239 gemeenten, 12 waterschappen, Bonaire, Saba and Sint Eustatius (ADR 0029). Each comes from Wikimedia Commons with a verified free licence and a named source; the credit and the licence are visible under the name, with the (i) for author, licence and source page. Alt text: "Wapen van {naam}".
+- 320 organisation pages show the official coat of arms next to the name: the 12 provincies, 293 gemeenten, 12 waterschappen, Bonaire, Saba and Sint Eustatius (ADR 0029). Each comes from Wikimedia Commons with a verified free licence and a named source; the credit and the licence are visible under the name, with the (i) for author, licence and source page. Alt text: "Wapen van {naam}".
 - Public-domain arms are served as a 240 px high WebP rendered from the checked SVG (`web/public/media/wapens/`); Bonaire (CC BY-SA 4.0) is served as the unchanged original. Records: `type: "logo"` in `data/media.json`, a Commons source per file in `data/sources.json`, and `images` on the organisation.
-- Named gaps: the Rijksoverheid ministries and agencies, the Kiesraad, the Algemene Rekenkamer, Defensie, the Openbaar Ministerie and all Rechtspraak courts (their own sites or Staatscourant 2024, 5153 restrict the logos), plus bodies with no file on Commons. 123 rows wait for an owner decision, among them the Tweede Kamer, the Eerste Kamer, the Hoge Raad and about 100 gemeenten. The register is `research/qa/logos-13-10-2026.md`; party logos (ADR 0011) are unchanged.
+- Named gaps: the Rijksoverheid ministries and agencies, the Kiesraad, the Algemene Rekenkamer, Defensie, the Openbaar Ministerie and all Rechtspraak courts (their own sites or Staatscourant 2024, 5153 restrict the logos), plus bodies with no file on Commons. 69 rows wait for an owner decision, among them the Tweede Kamer, the Eerste Kamer, the Hoge Raad and 47 gemeenten. Arms drawn by the Commons uploader ("own work") ship by owner decision of 13-10-2026 (54 gemeenten). The register is `research/qa/logos-13-10-2026.md`; party logos (ADR 0011) are unchanged.
 
 ### Changed (13-10-2026, translation model)
 
