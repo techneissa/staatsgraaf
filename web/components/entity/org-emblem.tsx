@@ -64,7 +64,8 @@ export function OrgEmblem({
  * whole words. A logo always sits in this line: it is a wide wordmark that
  * already carries the name, and next to the name it would squeeze it. Without
  * an image (a logo whose owner reserved copyright) the line and the (i) with
- * the link to the logo stay.
+ * the link to the logo stay. A `div`, not a `p`: the (i) is a `details`, which
+ * the HTML parser will not keep inside a paragraph.
  */
 export function OrgEmblemCredit({
   info,
@@ -78,12 +79,12 @@ export function OrgEmblemCredit({
   className?: string;
 }) {
   return (
-    <p className={`flex min-w-0 items-center gap-1 text-xs text-ink-faint ${className}`.trim()}>
+    <div className={`flex min-w-0 items-center gap-1 text-xs text-ink-faint ${className}`.trim()}>
       {emblem !== null ? <OrgEmblem {...emblem} small className={kind === "logo" ? "mr-1.5" : "mr-1.5 sm:hidden"} /> : null}
       <span className="min-w-0 break-words">
         <CreditText credit={info.credit} />
       </span>
       <CreditPopover info={info} kind={kind === "logo" ? "logo" : "emblem"} />
-    </p>
+    </div>
   );
 }

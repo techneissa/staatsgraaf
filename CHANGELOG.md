@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Fixed (13-10-2026, hydration error 418)
+
+- Organisation pages no longer log the React hydration error #418 in the browser console. The credit line under the name (the coat of arms or logo credit with its (i) button) was a `<p>` that held a `<details>`; the HTML parser closes a paragraph at a `details`, so the page the browser built differed from the one React expected. The credit line is now a `<div>` (`web/components/entity/org-emblem.tsx`). The visible page does not change.
+
 ### Added (13-10-2026, logos round 2)
 
 - 147 more bodies show their official logo, loaded from their own website (ADR 0029, amendment 2): zbo's such as the AFM, the KvK, the RDW, the SVB and Staatsbosbeheer, the GGD's, omgevingsdiensten and veiligheidsregio's, the Politie, the VNG, seven waterschappen, Cito, the NTR, Het Juridisch Loket, Halt, and the regeringen of Curaçao and Aruba. 1,186 of the 1,644 organisation pages now show an emblem.
