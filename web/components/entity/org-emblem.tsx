@@ -17,7 +17,7 @@ export type OrgEmblemImage = {
 const SIZES = {
   arms: { large: "h-16 max-w-20", small: "h-10 max-w-12" },
   // Official logos are drawn for a white page, so they sit on a white plate (dark theme too).
-  logo: { large: "h-12 max-w-40 rounded-sm bg-white p-1", small: "h-8 max-w-28 rounded-xs bg-white p-0.5" },
+  logo: { large: "h-12 max-w-40 rounded-sm bg-white p-1", small: "h-9 max-w-36 rounded-xs bg-white p-1" },
 };
 
 /**
@@ -58,9 +58,10 @@ export function OrgEmblem({
 }
 
 /**
- * The visible credit line of an emblem with its (i). On a phone the emblem
- * itself sits in this line, under the name, so a long name keeps whole words
- * next to the share button; from `sm` up it stands next to the name. Without
+ * The visible credit line of an emblem with its (i). A coat of arms sits in
+ * this line on a phone and next to the name from `sm` up, so a long name keeps
+ * whole words. A logo always sits in this line: it is a wide wordmark that
+ * already carries the name, and next to the name it would squeeze it. Without
  * an image (a logo whose owner reserved copyright) the line and the (i) with
  * the link to the logo stay.
  */
@@ -77,7 +78,7 @@ export function OrgEmblemCredit({
 }) {
   return (
     <p className={`flex min-w-0 items-center gap-1 text-xs text-ink-faint ${className}`.trim()}>
-      {emblem !== null ? <OrgEmblem {...emblem} small className="mr-1.5 sm:hidden" /> : null}
+      {emblem !== null ? <OrgEmblem {...emblem} small className={kind === "logo" ? "mr-1.5" : "mr-1.5 sm:hidden"} /> : null}
       <span className="min-w-0 break-words">
         <CreditText credit={info.credit} />
       </span>
