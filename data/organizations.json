@@ -40565,7 +40565,7 @@
     "website": null,
     "established": null,
     "dissolved": null,
-    "seatsCount": 27,
+    "seatsCount": 25,
     "employeeCount": {
       "budgeted": null,
       "actual": null,
@@ -40575,7 +40575,7 @@
     "sources": [
       {
         "source": "src:koop-gemeenten",
-        "retrieved": "2026-09-18",
+        "retrieved": "2026-10-13",
         "confidence": "high"
       },
       {
