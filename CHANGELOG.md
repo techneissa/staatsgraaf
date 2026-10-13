@@ -4,6 +4,12 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (13-10-2026, organisations index, second redesign)
+
+- The organisations index opens with an overview of the state: one tile per group in the colour of its sector in the graph, with an icon, its number of bodies and one line on what it is, arranged as national, decentral, and at arm's length with the Kingdom. A tile jumps to its group.
+- Each group has a heading band in its colour with its icon and count, and lists its bodies as compact cards. Every card has a visual: the coat of arms, else the official logo on a white plate, else an icon for the type of body in the colour of the group. A card shows the name and at most one meta element (the folded parts, else the seats); the leader line, the type word and the "Toon alle" folds are gone.
+- The gemeenten are grouped by provincie (from the `oversees` relation), with the samenwerkingsverbanden, veiligheidsregio's and the VNG under "Samenwerking tussen gemeenten"; the zelfstandige organen are grouped by their ministerie. Each subgroup is a tile with its arms or ministry icon and count that opens its cards. The ministries of Aruba, Curaçao and Sint Maarten fold under their regering (`part_of`).
+
 ### Changed (13-10-2026, organisations index)
 
 - The organisations index lists one compact row per body instead of tall cards, in a grid that follows the width of its column (1 column, 2 from 576 px, 3 from 896 px). Child bodies (a gemeenteraad, college or commissie under its gemeente, committees under a Kamer, agencies under a ministry) fold under their parent row behind "N onderdelen". Groups with more than 24 rows show 8 main bodies and "Toon alle N". Search still finds every body. Rows show the local coat of arms where one is on record. The page is 7.3 thousand px long at 1440 px instead of 133 thousand.
