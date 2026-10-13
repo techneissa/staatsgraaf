@@ -19,6 +19,11 @@ research/raw/*
 research/raw/portraits/*
 !research/raw/portraits/licences/
 !research/raw/portraits/review.json
+# The licence evidence and the research lane outputs for the coats of arms (ADR 0029).
+!research/raw/logos/
+research/raw/logos/*
+!research/raw/logos/licences/
+!research/raw/logos/lanes/
 
 # Re-fetchable news feed cache; never a data payload
 pipelines/.cache/

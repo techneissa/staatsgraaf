@@ -108,3 +108,21 @@ test("a credit that spells the licence in its usual form does not get the record
   const credit = "Foto: Tweede Kamer der Staten-Generaal, CC0 1.0, via het Open Data Portaal van de Tweede Kamer";
   assert.equal(mediaCreditLine({ credit, license: "CC0-1.0" }), credit);
 });
+
+test("every logo in the dataset is a local file with a licence, a source page and an organisation that shows it", () => {
+  const { media, sources, organizations } = getDataset();
+  const logos = media.filter((item) => item.type === "logo");
+  const shown = new Set(organizations.flatMap((organization) => organization.images ?? []));
+  for (const item of logos) {
+    // A public-domain emblem is served as a WebP copy; any other licence as the unchanged original.
+    const free = item.license === "publiek-domein" || item.license === "CC0-1.0";
+    assert.match(item.url, free ? /^\/media\/wapens\/[a-z0-9-]+\.webp$/ : /^\/media\/wapens\/[a-z0-9-]+\.(svg|png)$/, item.id);
+    const info = mediaCreditInfo(item);
+    assert.equal(info.changed, false, item.id);
+    assert.ok(!info.credit.includes("verkleind"), item.id);
+    assert.ok(item.license.trim() !== "" && item.credit.trim() !== "", item.id);
+    const source = sources.find((record) => record.id === item.source);
+    assert.ok(source && source.url.startsWith("https://commons.wikimedia.org/wiki/File:"), item.id);
+    assert.ok(shown.has(item.id), item.id);
+  }
+});

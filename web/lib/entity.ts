@@ -166,6 +166,16 @@ export function mediaNeedsChangeNote(license: string | null | undefined): boolea
   return value !== "" && !NO_CHANGE_NOTE.has(value);
 }
 
+/**
+ * True when the served copy is resized and cropped and the licence asks to say
+ * so. Logos never are: a public-domain emblem is served as a smaller WebP, which
+ * needs no statement, and any other emblem is served as the unchanged original
+ * (ADR 0029).
+ */
+function mediaIsChanged(media: { license?: string | null; type?: MediaItem["type"] }): boolean {
+  return media.type !== "logo" && mediaNeedsChangeNote(media.license);
+}
+
 /** True for CC BY-SA files: the resized and cropped copy is shared under the same licence. */
 export function mediaIsShareAlike(license: string | null | undefined): boolean {
   return typeof license === "string" && /^CC-BY-SA-\d\.\d$/.test(license.trim());
@@ -184,13 +194,13 @@ function creditNamesLicense(credit: string, license: string): boolean {
  * licence asks for it, the line ends with the statement of changes
  * ("verkleind en bijgesneden"); media.json itself stays as recorded.
  */
-export function mediaCreditLine(media: Pick<MediaItem, "credit" | "license">): string {
+export function mediaCreditLine(media: Pick<MediaItem, "credit" | "license"> & { type?: MediaItem["type"] }): string {
   const credit = typeof media.credit === "string" ? media.credit.trim() : "";
   const license = typeof media.license === "string" ? media.license.trim() : "";
   let line = credit;
   if (credit === "") line = license;
   else if (license !== "" && !creditNamesLicense(credit, license)) line = `${credit} (${license})`;
-  if (line === "" || !mediaNeedsChangeNote(license) || line.includes(MEDIA_CHANGES_NL)) return line;
+  if (line === "" || !mediaIsChanged(media) || line.includes(MEDIA_CHANGES_NL)) return line;
   return `${line}, ${MEDIA_CHANGES_NL}`;
 }
 
@@ -261,7 +271,7 @@ export function sourceSiteName(url: string, publisher: string | null = null): st
  * credit text, so a link always points at the page the record cites.
  */
 export function mediaCreditInfo(
-  media: Pick<MediaItem, "credit" | "license" | "author" | "source">,
+  media: Pick<MediaItem, "credit" | "license" | "author" | "source"> & { type?: MediaItem["type"] },
   source: Pick<Source, "url" | "publisher" | "retrieved"> | null | undefined = getSourceById(media.source),
 ): MediaCreditInfo {
   const { label, url } = licenseInfo(media.license ?? "");
@@ -276,8 +286,8 @@ export function mediaCreditInfo(
     siteName: source ? sourceSiteName(source.url, source.publisher) : null,
     sourceUrl: source?.url ?? null,
     retrieved: source?.retrieved ?? null,
-    changed: mediaNeedsChangeNote(media.license),
-    shareAlike: mediaIsShareAlike(media.license),
+    changed: mediaIsChanged(media),
+    shareAlike: mediaIsChanged(media) && mediaIsShareAlike(media.license),
   };
 }
 
