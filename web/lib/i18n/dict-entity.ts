@@ -322,6 +322,11 @@ export const ENTITY_DICT = {
   },
   creditShareAlikeLink: { nl: "Licentietekst", en: "Licence deed" },
 
+  // Coat of arms or logo next to an organisation name (ADR 0029)
+  emblemAlt: { nl: "Wapen van {name}", en: "Coat of arms of {name}" },
+  emblemCreditButton: { nl: "Informatie over het wapen: {credit}", en: "Coat of arms information: {credit}" },
+  emblemCreditHeading: { nl: "Informatie over het wapen", en: "Coat of arms information" },
+
   // Index lists (people, organisations, positions, topics): search, counts, empty states
   idxSearchPeople: { nl: "Zoek personen", en: "Search people" },
   idxSearchPeoplePlaceholder: { nl: "Naam, partij of functie", en: "Name, party or position" },

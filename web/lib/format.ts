@@ -128,13 +128,14 @@ export function formatCountIn(value: number, locale: FormatLocale): string {
 }
 
 /**
- * A portrait credit in the site locale. The portrait pipeline writes credits
- * in one fixed Dutch pattern ("Foto: maker, licentie, via ..."); in English
+ * A portrait or coat of arms credit in the site locale. Credits follow one
+ * fixed Dutch pattern ("Foto: maker, licentie, via ...", "Wapen: ..."); in English
  * only the fixed words of that pattern change. The maker, the licence and any
  * names stay exactly as recorded.
  */
 const CREDIT_PHRASES_EN: Array<[RegExp, string]> = [
   [/^Foto: /, "Photo: "],
+  [/^Wapen: /, "Coat of arms: "],
   [/, via het Open Data Portaal van de Tweede Kamer/, ", via the Open Data Portal of the Tweede Kamer"],
   [/, publiek-domein,/, ", public domain,"],
   [/auteur niet vermeld/, "author not stated"],

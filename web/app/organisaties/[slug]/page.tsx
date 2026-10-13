@@ -24,6 +24,7 @@ import { SubtypeHint, SubtypeLabel } from "@/components/entity/subtype-label";
 import { ColorDot, FactTiles, type FactTile } from "@/components/entity/fact-tiles";
 import { FactGroup } from "@/components/entity/fact-group";
 import { LocalizedDescription } from "@/components/entity/localized-description";
+import { OrgEmblem, OrgEmblemCredit } from "@/components/entity/org-emblem";
 import {
   BuildingIcon,
   CalendarIcon,
@@ -52,9 +53,12 @@ import {
 } from "@/lib/data";
 import {
   getConnectionsForEntity,
+  getMediaItem,
   getMembersForOrganization,
   getTenuresForOrganization,
+  mediaCreditInfo,
   organizationAliases,
+  organizationImages,
   organizationParentId,
   organizationPartOf,
 } from "@/lib/entity";
@@ -201,6 +205,12 @@ export default async function OrganizationPage({
   const description = descriptionFor(organization.id, organization.description);
   const legalSource = organization.legalSource ?? null;
   const website = organization.website ?? null;
+  // The first logo on record with a verified free licence (ADR 0029). The author
+  // stays "niet vermeld" when the file page names none, not the publisher.
+  const emblem = organizationImages(organization)
+    .map((id) => getMediaItem(id))
+    .find((item) => item !== null && item.type === "logo") ?? null;
+  const emblemInfo = emblem !== null ? { ...mediaCreditInfo(emblem), author: emblem.author ?? null } : null;
   const seatsCount = organization.seatsCount ?? null;
   const plain = (value: string) => value.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
   const aliases = organizationAliases(organization).filter((alias) => plain(alias) !== plain(organization.name));
@@ -300,12 +310,16 @@ export default async function OrganizationPage({
 
       <header className="mt-4">
         <div className="flex min-w-0 items-start gap-3">
+          {emblem !== null ? (
+            <OrgEmblem name={organization.name} url={emblem.url} width={emblem.width} height={emblem.height} />
+          ) : null}
           <h1 className="min-w-0 flex-1 text-3xl font-semibold tracking-tight text-ink text-balance break-words">
             {organization.name}
             <Gloss text={orgEnGloss(organization.name)} className="mt-1 block text-base font-normal tracking-normal text-ink-muted" />
           </h1>
           <ShareButton className="mt-1 shrink-0" title={organization.name} />
         </div>
+        {emblemInfo !== null ? <OrgEmblemCredit info={emblemInfo} className="mt-1.5" /> : null}
         {summary !== null ? (
           <p className="mt-2 max-w-prose text-base leading-snug text-ink-muted">
             <L nl={summary.nl} en={summary.en} />
