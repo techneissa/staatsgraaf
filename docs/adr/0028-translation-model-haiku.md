@@ -25,12 +25,25 @@ The owner's existing OpenCode key works on both endpoints. A probe on 13-10-2026
 - Zen test on 13-10-2026: `--provider opencode --replace deepseek-v4.1-flash --max 2` translated 2 items in 1 request; both records pass the entity-tag check.
 - Backlog: see the results section below.
 
+## Backlog results
+
+Run on 13-10-2026 through the Go subscription (`--provider opencode-go --replace deepseek-v4.1-flash`):
+
+- First run at effort `high`: three passes of 800 items wrote 2,400 records before it was stopped.
+- Second run at effort `medium`: pass 1 translated 800, pass 2 799 (1 dropped), pass 3 247 (1 dropped). That is 1,846 records.
+- Result: `claude-haiku-5-5/opencode-go` 4,246 records (2,400 at `high`, 1,846 at `medium`); `claude-opus-5-5/claude-code-session` 73 and `claude-sonnet-5-5/claude-code-session` 4 kept as they were; `claude-haiku-5-5/opencode-zen` 2 from the Zen test; `deepseek-v4.1-flash/opencode-zen` 1.
+- Dropped: `news:5d1cce4` failed the entity-tag check twice (`<entity id="org:kabinet">het kabinet</entity>`). It keeps its DeepSeek record, which the web still shows. A fix is open.
+- `translate.mjs status`: 4,326 current, 0 stale, 0 missing. `bun run validate` passes.
+- Cost: not measured. The pipeline does not record usage per run.
+
 ## Cost
 
 Prices per 1M tokens, checked 13-10-2026 on https://opencode.ai/v2/docs/console/models: `claude-haiku-5-5` $0.10 input and $0.50 output up to 100K context; `deepseek-v4.1-flash` $0.30 and $1.20. Go usage of Haiku draws on the Go monthly usage limit, not on Zen credit.
 
 ## Open points
 
+- The 2,400 records written at effort `high` stay as they are, because they are still Haiku 5.5 translations of the current text. Whether to redo them at `medium` is an owner decision; redoing costs Go quota before the subscription ends.
+- `news:5d1cce4` needs its entity tag kept. Retrying it or fixing it by hand is open.
 - The owner cancels the Go subscription in about four days (around 17-10-2026). After that the pipeline uses the pay-as-you-go endpoint with the same key. Not yet verified after cancellation: one Zen call after cancelling.
 - Three description translations made by DeepSeek (`method: opencode-zen`) stay in place. The `desc-*` commands have no `--replace` option yet, so they are a named gap.
 - The scheduled news workflow (`.github/workflows/news.yml`) uses the `OPENCODE_API_KEY` secret and no `TRANSLATE_MODEL` or `TRANSLATE_PROVIDER` variable, so from the next run it translates new items with Haiku 5.5 on the pay-as-you-go endpoint.
