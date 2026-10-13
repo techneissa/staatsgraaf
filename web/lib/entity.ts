@@ -345,7 +345,8 @@ export function organizationEmblem(organization: Organization): OrganizationEmbl
   if (embed === null) return null;
   const host = hostOf(embed.page);
   const reserved = embed.linkOnly || embed.url === null;
-  const credit = reserved ? `Logo: auteursrecht voorbehouden, te zien op ${host}` : `Logo: getoond vanaf ${hostOf(embed.url ?? embed.page)}`;
+  // The credit names the body's site (the page), not an image CDN the site happens to use.
+  const credit = reserved ? `Logo: auteursrecht voorbehouden, te zien op ${host}` : `Logo: getoond vanaf ${host}`;
   return {
     image: reserved ? null : { name: organization.name, url: embed.url as string, width: null, height: null, kind: "logo" },
     info: {
