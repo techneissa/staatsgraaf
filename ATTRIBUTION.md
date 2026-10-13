@@ -16,7 +16,7 @@ Photos are not under the dataset licence. Each one keeps the licence its author 
 
 ## Source families
 
-Where facts come from, grouped by publisher and licence. 7,512 sources are recorded in all: 2,849 in the table, 4,328 news links and 335 with no established licence (each below).
+Where facts come from, grouped by publisher and licence. 7,875 sources are recorded in all: 3,169 in the table, 4,371 news links and 335 with no established licence (each below).
 
 | Publisher or website | What we use it for | Licence | Terms | Sources |
 | --- | --- | --- | --- | ---: |
@@ -32,7 +32,7 @@ Where facts come from, grouped by publisher and licence. 7,512 sources are recor
 | CPB | Publications and figures | CC BY 3.0 NL | <https://www.cpb.nl/copyright> | 4 |
 | PBL | Publications and figures | CC BY 4.0 | <https://www.pbl.nl/over-het-pbl/copyright> | 3 |
 | Wikipedia | Lists of mayors and dijkgraven (facts) | CC BY-SA 4.0 | <https://nl.wikipedia.org/wiki/Wikipedia:Auteursrechten> | 228 |
-| Wikimedia Commons | Photo file pages (the source of each portrait) | Per file (CC0, CC BY, CC BY-SA, public domain) | <https://commons.wikimedia.org/wiki/Commons:Licensing> | 388 |
+| Wikimedia Commons | Photo file pages (the source of each portrait) | Per file (CC0, CC BY, CC BY-SA, public domain) | <https://commons.wikimedia.org/wiki/Commons:Licensing> | 708 |
 | Parlement.com and overheid.nl site pages | Cross-checks (facts only) | all rights reserved | <https://www.parlement.com/over-deze-site> | 76 |
 | Other public bodies | Offices and office holders from the body's own site | CC0 1.0 | the site's own copyright page; see research/O-licenses.md | 2 |
 
@@ -46,7 +46,7 @@ The site shows scaled-down and cropped copies, and says so in the credit. For CC
 
 ## News
 
-4,328 sources are news articles or news-outlet pages. Their publishers keep all rights, so Staatsgraaf links to them and shows only the headline and the link, never the article text or its images. No credit is owed beyond naming the outlet, which every link does.
+4,371 sources are news articles or news-outlet pages. Their publishers keep all rights, so Staatsgraaf links to them and shows only the headline and the link, never the article text or its images. No credit is owed beyond naming the outlet, which every link does.
 
 ## Sources with no established licence
 
