@@ -365,6 +365,14 @@ export const ENTITY_DICT = {
     en: "The full list could not be loaded. The first items are shown above.",
   },
   idxRetry: { nl: "Opnieuw proberen", en: "Try again" },
+  orgPartsCount: { nl: "{n} onderdelen", en: "{n} parts" },
+  orgPartsOf: { nl: "van {name}", en: "of {name}" },
+  orgShowAll: { nl: "Toon alle {n}", en: "Show all {n}" },
+  orgShowFewer: { nl: "Toon minder", en: "Show fewer" },
+  orgFoldNote: {
+    nl: "Hierboven staan de organen met de meeste zetels en ambtsdragers.",
+    en: "Shown above: the bodies with the most seats and office holders on record.",
+  },
   idxTopicsEmptyNext: { nl: "Bekijk de organisaties", en: "Browse the organizations" },
 } as const satisfies Record<string, LocString>;
 

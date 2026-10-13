@@ -19,9 +19,8 @@ export function indexListUrl(key: IndexListKey): string {
 }
 
 /** How many rows the server renders before the JSON arrives (about one screen). */
-export const INDEX_FIRST_SCREEN: Record<IndexListKey, number> = {
+export const INDEX_FIRST_SCREEN: Record<Exclude<IndexListKey, "organisaties">, number> = {
   personen: 24,
-  organisaties: 18,
   posities: 18,
 };
 
@@ -74,14 +73,105 @@ export type OrganizationRow = {
   ge?: string | null;
   st: OrgSubtype;
   b: OrgBranch;
-  /** description, Dutch and English, clipped */
-  dn?: string | null;
-  de?: string | null;
+  /** slug of the parent when it sits in the same group: the row nests under it */
+  pa?: string | null;
+  /** 1 on the main bodies of a large group, shown while the group is folded */
+  m?: 1 | null;
+  /** who leads it, Dutch ("Voorzitter: ...") and English ("Chair: ...") */
+  hd?: string | null;
+  he?: string | null;
   /** seats */
   se?: number | null;
-  /** employees */
-  em?: number | null;
+  /** url of the small local coat of arms, only one that needs no attribution */
+  w?: string | null;
 };
+
+/** A group with more top-level bodies than this starts folded to its main bodies. */
+export const ORG_FOLD_THRESHOLD = 24;
+/** How many main bodies a folded group shows. */
+export const ORG_FOLD_PREVIEW = 8;
+
+/**
+ * The organisations index as a tree: the bodies that have no parent in their
+ * own group are the rows ("tops"), the rest hang under their parent (the
+ * gemeenteraad and the college under their gemeente). A group longer than
+ * ORG_FOLD_THRESHOLD starts folded to the rows marked `m`.
+ */
+export function organizationTree(rows: readonly OrganizationRow[]) {
+  const slugs = new Set(rows.map((row) => row.s));
+  const tops: OrganizationRow[] = [];
+  const children = new Map<string, OrganizationRow[]>();
+  for (const row of rows) {
+    if (row.pa != null && slugs.has(row.pa)) {
+      const list = children.get(row.pa);
+      if (list) list.push(row);
+      else children.set(row.pa, [row]);
+    } else {
+      tops.push(row);
+    }
+  }
+  return { tops, children };
+}
+
+/** True when a group of this many top-level bodies starts folded. */
+export function startsFolded(topCount: number): boolean {
+  return topCount > ORG_FOLD_THRESHOLD;
+}
+
+/**
+ * What the page shows before anything is opened: every top-level body of a
+ * small group, the main bodies of a folded one, and the children of those.
+ * The server renders exactly this, so the list does not move when the whole
+ * file arrives.
+ */
+export function collapsedOrganizationRows(rows: readonly OrganizationRow[]): OrganizationRow[] {
+  const byBranch = new Map<string, OrganizationRow[]>();
+  for (const row of rows) {
+    const list = byBranch.get(row.b);
+    if (list) list.push(row);
+    else byBranch.set(row.b, [row]);
+  }
+  const shown = new Set<string>();
+  for (const group of byBranch.values()) {
+    const { tops, children } = organizationTree(group);
+    const visible = startsFolded(tops.length) ? tops.filter((row) => row.m === 1) : tops;
+    for (const row of visible) {
+      shown.add(row.s);
+      for (const child of children.get(row.s) ?? []) shown.add(child.s);
+    }
+  }
+  return rows.filter((row) => shown.has(row.s));
+}
+
+/**
+ * The type that most of the given rows share, when it is a majority of at
+ * least two: the group heading says it, so the rows leave it out. A small
+ * group of mixed types has none, and every row names its own.
+ */
+export function dominantSubtype(rows: readonly OrganizationRow[]): OrgSubtype | null {
+  const counts = new Map<OrgSubtype, number>();
+  for (const row of rows) counts.set(row.st, (counts.get(row.st) ?? 0) + 1);
+  let best: OrgSubtype | null = null;
+  let most = 0;
+  for (const [subtype, count] of counts) {
+    if (count > most) {
+      best = subtype;
+      most = count;
+    }
+  }
+  return most >= 2 && most * 2 > rows.length ? best : null;
+}
+
+/**
+ * The leader line of a description such as "Voorzitter: I.M. (Ilona) Lagas.
+ * Ondervoorzitter: ... Griffier: ...": the first sentence when it names the
+ * chair, in Dutch or English. Null for any other description.
+ */
+export function leadOf(description: string | null | undefined): string | null {
+  if (typeof description !== "string") return null;
+  const match = /^((?:Voorzitter|Chair)): (.+?)(?:\. (?:Ondervoorzitter|Vice-chair|Griffier|Clerk|Secretaris|Secretary)\b|\.?\s*$)/u.exec(description.trim());
+  return match ? `${match[1]}: ${match[2]}` : null;
+}
 
 export type PositionRow = {
   s: string;
