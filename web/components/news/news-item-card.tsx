@@ -107,7 +107,7 @@ export function NewsItemCard({
         </a>
       </Heading>
 
-      <div className={`col-start-2 row-start-1 ${compact ? "sm:row-span-2" : "sm:row-span-3"} ${monogram ? "hidden sm:block" : ""}`}>
+      <div className={`col-start-2 row-start-1 ${compact ? "" : "sm:row-span-2"} ${monogram ? "hidden sm:block" : ""}`}>
         {compact ? (
           <NewsPreviewTile preview={item.preview} size={48} rounded="sm" />
         ) : (
@@ -174,7 +174,7 @@ export function NewsItemCard({
       ) : null}
 
       <div
-        className={`col-span-2 flex justify-between gap-x-3 gap-y-1 text-xs text-ink-faint sm:col-span-1 sm:col-start-1 ${
+        className={`col-span-2 flex justify-between gap-x-3 gap-y-1 text-xs text-ink-faint ${
           compact ? "mt-1.5 items-center" : "mt-3 items-start"
         }`}
       >
