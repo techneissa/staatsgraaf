@@ -61,3 +61,15 @@ The full list per body, with every review row and gap and its reason, is in `res
 
 - A later round can add the review rows one by one once the owner decides, with the same records and the same component.
 - A redesigned arms (Urk, Sittard-Geleen) can supersede a shipped file. The pipeline does not watch Commons; a new file is a new check under this ADR.
+
+## Amendment 1 (13-10-2026): official logos loaded from the body's own site
+
+The owner asked on 13-10-2026 to show the logos that have no free licence by embedding them, with the source linked in the (i).
+
+1. A body without a licensed emblem may get `logoEmbed` on its organisation record (`docs/04-data-model.md` section 3): the URL of its logo as published on its own site, the page it appears on and the date it was read. The reader's browser loads the image from that site, without a referrer, the same way news previews work (`docs/adr/0010-news-feed-image-previews.md`). Staatsgraaf stores no copy and claims no licence. The (i) says so ("Geen licentie: geladen van de website van de organisatie, niet door Staatsgraaf opgeslagen") and links the page. When the image fails to load, the page leaves it out.
+2. The Rechtspraak courts and the Raad voor de rechtspraak reserved copyright on their logos (Staatscourant 2024, 5153), so they get `linkOnly: true`: no image, only the credit line and the (i) with the link to their page on rechtspraak.nl.
+3. An embed ships only when the image is the body's own: it answers 200 with an image type, also with a `staatsgraaf.pages.dev` referrer, it loads in Chrome from another page, and it is not byte-identical to the image of another body. Most rijksoverheid sites serve the same rijkslogo file without the body's name; those bodies stay without a logo.
+4. Every embed host is in the `img-src` of `web/public/_headers`; `web/lib/csp.test.mjs` fails when one is missing or when a header line passes the Cloudflare Pages limit of 2,000 characters (https://developers.cloudflare.com/pages/configuration/headers/, read 13-10-2026).
+5. Result on 13-10-2026: 28 embedded logos (among them the Tweede Kamer, the Algemene Rekenkamer, the Kiesraad, the Openbaar Ministerie, the Belastingdienst, the Nationale ombudsman, the SER and the Staten of Aruba, Curaçao and Sint Maarten) and 18 courts with a link only. The Eerste Kamer (the image does not load from another site) and the Hoge Raad (403 on recheck) are not embedded. The full list with every rejection and gap is in `research/qa/logos-13-10-2026.md`.
+
+Risk, stated plainly: an embed still shows the logo on our page. Several bodies say on their own site that their images may almost never be reused (see Context). The owner chose to embed them with the source linked; the courts stay link-only because their reservation is formal.

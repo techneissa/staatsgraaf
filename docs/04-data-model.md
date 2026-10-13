@@ -61,6 +61,7 @@ Every body is an organization. This includes the coarse reference types plus the
   "seatsCount": null,
   "employeeCount": { "budgeted": null, "actual": null, "year": null },
   "images": ["media:...", "media:..."],
+  "logoEmbed": { "url": "https://...", "page": "https://...", "retrieved": "2026-10-13", "linkOnly": false },
   "sources": [{ "source": "src:...", "retrieved": "2026-09-17", "confidence": "high" }]
 }
 ```
@@ -74,6 +75,7 @@ Field rules:
 - `parent` and `partOf` are organization ids. `partOf` is a list because an organization can sit within more than one structure.
 - `legalSource` is a single primary link. More legal links live in `sources`.
 - `established` and `dissolved` are ISO dates or null.
+- `logoEmbed` is the official logo as published on the body's own site, for a body without a licensed emblem in `images` (ADR 0029, amendment 1). The browser loads `url` from that site; nothing is copied and no licence is claimed, so it is not a media record. `page` is where the logo appears and is linked in the (i). With `linkOnly: true` the body reserved copyright on its logo, `url` is null and only the link shows. Every embed host must be in the `img-src` of `web/public/_headers`.
 
 ## 4. Position
 

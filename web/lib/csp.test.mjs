@@ -50,3 +50,27 @@ describe("CSP img-src covers the news feed image hosts", () => {
     expect(missing).toEqual([]);
   });
 });
+
+const organizations = JSON.parse(
+  readFileSync(fileURLToPath(new URL("../../data/organizations.json", import.meta.url)), "utf8"),
+);
+
+describe("CSP img-src covers the embedded official logos (ADR 0029, amendment 1)", () => {
+  test("every logoEmbed image host in data/organizations.json is allowed", () => {
+    const hosts = new Set(
+      organizations
+        .map((organization) => organization.logoEmbed)
+        .filter((embed) => embed && !embed.linkOnly && typeof embed.url === "string")
+        .map((embed) => new URL(embed.url).host),
+    );
+    const missing = [...hosts].filter((host) => !allowedHosts.has(host));
+    expect(missing).toEqual([]);
+  });
+});
+
+// Cloudflare Pages: "Each line in the _headers file has a 2,000 character limit"
+// (https://developers.cloudflare.com/pages/configuration/headers/, read 13-10-2026).
+test("every _headers line stays within the Cloudflare Pages limit of 2,000 characters", () => {
+  const long = headers.split("\n").filter((line) => line.length > 2000);
+  expect(long).toEqual([]);
+});

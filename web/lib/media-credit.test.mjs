@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 
 import { getDataset } from "./data.ts";
-import { licenseInfo, mediaCreditInfo, mediaCreditLine, mediaIsShareAlike, mediaNeedsChangeNote, sourceSiteName } from "./entity.ts";
+import { licenseInfo, mediaCreditInfo, mediaCreditLine, mediaIsShareAlike, mediaNeedsChangeNote, organizationEmblem, sourceSiteName } from "./entity.ts";
 
 test("licenseInfo links the licence text for the recorded values", () => {
   assert.deepEqual(licenseInfo("CC0-1.0"), { label: "CC0 1.0", url: "https://creativecommons.org/publicdomain/zero/1.0/" });
@@ -125,4 +125,28 @@ test("every logo in the dataset is a local file with a licence, a source page an
     assert.ok(source && source.url.startsWith("https://commons.wikimedia.org/wiki/File:"), item.id);
     assert.ok(shown.has(item.id), item.id);
   }
+});
+
+test("organizationEmblem prefers the licensed arms, then the embedded logo, and shows only a link when copyright is reserved", () => {
+  const base = { id: "org:x", name: "Voorbeeld", images: [] };
+  assert.equal(organizationEmblem(base), null);
+  const embedded = organizationEmblem({
+    ...base,
+    logoEmbed: { url: "https://www.voorbeeld.nl/logo.svg", page: "https://www.voorbeeld.nl/", retrieved: "2026-10-13", linkOnly: false },
+  });
+  assert.equal(embedded.kind, "logo");
+  assert.equal(embedded.image.url, "https://www.voorbeeld.nl/logo.svg");
+  assert.equal(embedded.info.credit, "Logo: getoond vanaf voorbeeld.nl");
+  assert.equal(embedded.info.sourceUrl, "https://www.voorbeeld.nl/");
+  assert.equal(embedded.info.license, "logo-embed");
+  const reserved = organizationEmblem({
+    ...base,
+    logoEmbed: { url: null, page: "https://www.rechtspraak.nl/", retrieved: "2026-10-13", linkOnly: true },
+  });
+  assert.equal(reserved.image, null);
+  assert.equal(reserved.info.license, "logo-voorbehouden");
+  const { organizations } = getDataset();
+  const withArms = organizations.find((organization) => (organization.images ?? []).length > 0);
+  const arms = organizationEmblem({ ...withArms, logoEmbed: { url: "https://x.nl/l.svg", page: "https://x.nl/", retrieved: "2026-10-13", linkOnly: false } });
+  assert.equal(arms.kind, "arms");
 });

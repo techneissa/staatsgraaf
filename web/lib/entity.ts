@@ -307,6 +307,63 @@ export function organizationImages(organization: Organization): string[] {
   return safeStringList(organization.images);
 }
 
+/** What the organisation page shows next to the name: the image (if any), the credit for the (i), and its kind. */
+export type OrganizationEmblem = {
+  image: { name: string; url: string; width: number | null; height: number | null; kind: "arms" | "logo" } | null;
+  info: MediaCreditInfo;
+  kind: "arms" | "logo";
+};
+
+function hostOf(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
+}
+
+/**
+ * The emblem of an organisation (ADR 0029). A licensed coat of arms from
+ * media.json comes first; its author stays "niet vermeld" when the file page
+ * names none, not the publisher. Without one, the official logo on the body's
+ * own site (`logoEmbed`, amendment 1): loaded from there, never copied, no
+ * licence claimed; with `linkOnly` the body reserved copyright and only the
+ * link to its page is shown.
+ */
+export function organizationEmblem(organization: Organization): OrganizationEmblem | null {
+  const arms = organizationImages(organization)
+    .map((id) => getMediaItem(id))
+    .find((item) => item !== null && item.type === "logo");
+  if (arms) {
+    return {
+      image: { name: organization.name, url: arms.url, width: arms.width, height: arms.height, kind: "arms" },
+      info: { ...mediaCreditInfo(arms), author: arms.author ?? null },
+      kind: "arms",
+    };
+  }
+  const embed = organization.logoEmbed ?? null;
+  if (embed === null) return null;
+  const host = hostOf(embed.page);
+  const reserved = embed.linkOnly || embed.url === null;
+  const credit = reserved ? `Logo: auteursrecht voorbehouden, te zien op ${host}` : `Logo: getoond vanaf ${hostOf(embed.url ?? embed.page)}`;
+  return {
+    image: reserved ? null : { name: organization.name, url: embed.url as string, width: null, height: null, kind: "logo" },
+    info: {
+      credit,
+      author: organization.name,
+      license: reserved ? "logo-voorbehouden" : "logo-embed",
+      licenseLabel: reserved ? "logo-voorbehouden" : "logo-embed",
+      licenseUrl: null,
+      siteName: host,
+      sourceUrl: embed.page,
+      retrieved: embed.retrieved,
+      changed: false,
+      shareAlike: false,
+    },
+    kind: "logo",
+  };
+}
+
 export function positionEntryModes(position: Position): EntryMode[] {
   return safeStringList(position.entryModes) as EntryMode[];
 }
