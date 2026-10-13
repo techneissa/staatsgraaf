@@ -30,12 +30,9 @@ export function OrgCard({
   row,
   parts,
   label,
-  wide = false,
 }: {
   row: OrganizationRow;
   parts: OrganizationRow[];
-  /** Give the visual the width of a logo plate: some card in the grid has a logo. */
-  wide?: boolean;
   /** A shorter name where the heading above says the rest ("Aa en Hunze" under Drenthe). The title keeps the full name. */
   label?: string;
 }) {
@@ -43,12 +40,11 @@ export function OrgCard({
   const [open, setOpen] = useState(false);
   const partsId = `delen-${row.s}`;
   const seats = row.se != null && row.se > 0 ? row.se : null;
-  const wideParts = parts.some((part) => !part.w && part.lg);
   return (
     <li className="min-w-0">
       <div className={`rounded-lg border bg-surface transition-fast hover:border-line-strong ${open ? "border-line-strong" : "border-line"}`}>
         <div className="relative flex min-h-12 items-center gap-3 rounded-lg px-2 py-1.5">
-          <OrgVisual row={row} wide={wide} />
+          <OrgVisual row={row} />
           <div className="min-w-0 flex-1">
             <Link href={`/organisaties/${row.s}/`} prefetch={false} title={row.ge ? `${row.n}\n${row.ge}` : row.n} className={`${LINK_CLASS} line-clamp-2 text-sm text-ink`}>
               {label ?? row.n}
@@ -81,7 +77,7 @@ export function OrgCard({
           <ul id={partsId} role="list" hidden={!open} className="list-none border-t border-line px-2 py-1">
             {open ? parts.map((part) => (
               <li key={part.s} className="relative flex min-h-11 items-center gap-2.5 rounded-md py-1">
-                <OrgVisual row={part} size="sm" wide={wideParts} />
+                <OrgVisual row={part} size="sm" />
                 <Link href={`/organisaties/${part.s}/`} prefetch={false} title={part.ge ? `${part.n}\n${part.ge}` : part.n} className={`${LINK_CLASS} line-clamp-2 min-w-0 flex-1 text-[13px] font-normal text-ink-muted`}>
                   {part.n}
                 </Link>

@@ -81,8 +81,6 @@ export type OrganizationRow = {
   se?: number | null;
   /** url of the small local coat of arms, only one that needs no attribution */
   w?: string | null;
-  /** url of the official logo on the body's own site (ADR 0029, amendment 1), loaded from there */
-  lg?: string | null;
 };
 
 /**

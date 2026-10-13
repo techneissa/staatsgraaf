@@ -68,7 +68,6 @@ function CardGrid({ rows, nest, shortGemeente = false }: { rows: OrganizationRow
     for (const parts of tree.children.values()) parts.sort((a, b) => Number((b.se ?? 0) > 0) - Number((a.se ?? 0) > 0));
     return { tops: ordered, children: tree.children };
   }, [rows, nest]);
-  const wide = tops.some((row) => !row.w && row.lg);
   return (
     <div className="@container">
       <ul role="list" className={GRID_CLASS}>
@@ -77,7 +76,6 @@ function CardGrid({ rows, nest, shortGemeente = false }: { rows: OrganizationRow
             key={row.s}
             row={row}
             parts={children.get(row.s) ?? []}
-            wide={wide}
             label={shortGemeente && row.st === "gemeente" ? row.n.replace(/^Gemeente\s+/u, "") : undefined}
           />
         ))}
