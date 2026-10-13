@@ -7,14 +7,13 @@
 
 import { getPeopleIndex } from "@/components/people/people-index";
 import { descriptionFor } from "./description-translations";
-import { getOrganizationById, getOrganizations, getPositions } from "./data";
-import { clipText, type OrganizationRow, type PersonRow, type PositionRow } from "./index-lists";
+import { getDataset, getOrganizationById, getOrganizations, getPositions } from "./data";
+import { getMediaItem, mediaNeedsChangeNote, organizationImages, organizationParentId } from "./entity";
+import { leadOf, ORG_FOLD_PREVIEW, organizationTree, startsFolded, type OrganizationRow, type PersonRow, type PositionRow } from "./index-lists";
 import { SECTOR_ORDER } from "./graph";
 import { orgEnGloss, positionEn } from "./name-gloss";
 import { thumbUrl } from "./thumb";
 import type { Organization, OrgBranch, OrgType, Position } from "./types";
-
-const DESCRIPTION_MAX = 180;
 
 export type PeopleIndexData = {
   rows: PersonRow[];
@@ -51,13 +50,44 @@ export function buildPeopleRows(): PeopleIndexData {
 
 export type OrganizationsIndexData = {
   rows: OrganizationRow[];
-  /** Branches in display order with their row counts. */
-  groups: { key: OrgBranch; count: number }[];
+  /** Branches in display order: all bodies in the group, and how many of them are rows of their own (the rest nest). */
+  groups: { key: OrgBranch; count: number; top: number }[];
   total: number;
 };
 
-function employeeCountOf(organization: Organization): number | null {
-  return organization.employeeCount?.actual ?? organization.employeeCount?.budgeted ?? null;
+/** The small local coat of arms of an organisation, when it needs no attribution (public domain or CC0). */
+function emblemUrl(organization: Organization): string | null {
+  for (const id of organizationImages(organization)) {
+    const media = getMediaItem(id);
+    if (media?.type === "logo" && media.url.startsWith("/media/wapens/") && !mediaNeedsChangeNote(media.license)) return media.url;
+  }
+  return null;
+}
+
+/**
+ * How much is on record about a body: current office holders and members,
+ * and the seats of the bodies nested under it. Orders the main bodies of a
+ * large group; ties fall back to the name.
+ */
+function weightOf(organizations: Organization[]): Map<string, number> {
+  const dataset = getDataset();
+  const own = new Map<string, number>();
+  const bump = (id: string, by: number) => own.set(id, (own.get(id) ?? 0) + by);
+  for (const tenure of dataset.tenures) {
+    if (tenure.end !== null) continue;
+    const position = dataset.positionsById.get(tenure.position);
+    if (position) bump(position.organization, 1);
+  }
+  for (const membership of dataset.memberships) if (membership.end === null) bump(membership.organization, 1);
+  const weight = new Map<string, number>();
+  for (const organization of organizations) {
+    const seats = organization.seatsCount ?? 0;
+    const parent = organizationParentId(organization);
+    const mine = Math.max(own.get(organization.id) ?? 0, seats);
+    weight.set(organization.id, (weight.get(organization.id) ?? 0) + mine);
+    if (parent !== null) weight.set(parent, (weight.get(parent) ?? 0) + mine);
+  }
+  return weight;
 }
 
 export function buildOrganizationRows(): OrganizationsIndexData {
@@ -70,21 +100,40 @@ export function buildOrganizationRows(): OrganizationsIndexData {
 
   const rank = new Map(order.map((branch, index) => [branch, index]));
   const sorted = [...organizations].sort((a, b) => (rank.get(a.branch) ?? 0) - (rank.get(b.branch) ?? 0));
+  const byId = new Map(organizations.map((organization) => [organization.id, organization]));
   const rows: OrganizationRow[] = sorted.map((organization) => {
     const description = descriptionFor(organization.id, organization.description);
+    const parent = organizationParentId(organization);
+    const parentOrganization = parent !== null ? byId.get(parent) : undefined;
+    // A body nests only under a parent of its own group; a zbo under its ministry stays in its own group.
+    const nested = parentOrganization !== undefined && parentOrganization.branch === organization.branch;
     return {
       s: organization.slug,
       n: organization.name,
       ge: orgEnGloss(organization.name),
       st: organization.subtype,
       b: organization.branch,
-      dn: description ? clipText(description.nl, DESCRIPTION_MAX) : null,
-      de: description?.en && description.en !== description.nl ? clipText(description.en, DESCRIPTION_MAX) : null,
+      pa: nested ? parentOrganization.slug : null,
+      hd: leadOf(organization.description),
+      he: description?.en ? leadOf(description.en) : null,
       se: organization.seatsCount,
-      em: employeeCountOf(organization),
+      w: emblemUrl(organization),
     };
   });
-  return { rows, groups: order.map((key) => ({ key, count: counts.get(key) ?? 0 })), total: rows.length };
+
+  // Mark the main bodies of every group that starts folded.
+  const weight = weightOf(organizations);
+  const slugWeight = new Map(organizations.map((organization) => [organization.slug, weight.get(organization.id) ?? 0]));
+  const tops: number[] = [];
+  for (const branch of order) {
+    const group = rows.filter((row) => row.b === branch);
+    const { tops: topRows } = organizationTree(group);
+    tops.push(topRows.length);
+    if (!startsFolded(topRows.length)) continue;
+    const main = [...topRows].sort((a, b) => (slugWeight.get(b.s) ?? 0) - (slugWeight.get(a.s) ?? 0) || a.n.localeCompare(b.n, "nl")).slice(0, ORG_FOLD_PREVIEW);
+    for (const row of main) row.m = 1;
+  }
+  return { rows, groups: order.map((key, index) => ({ key, count: counts.get(key) ?? 0, top: tops[index] })), total: rows.length };
 }
 
 const TYPE_ORDER: OrgType[] = ["elected", "dept_head", "commission"];

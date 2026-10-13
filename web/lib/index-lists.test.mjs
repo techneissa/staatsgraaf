@@ -1,13 +1,19 @@
 import { describe, expect, test } from "bun:test";
 import {
   clipText,
+  collapsedOrganizationRows,
+  dominantSubtype,
   foldText,
   INDEX_FIRST_SCREEN,
   indexListUrl,
+  leadOf,
+  ORG_FOLD_PREVIEW,
   organizationSearchText,
+  organizationTree,
   personSearchText,
   positionSearchText,
   searchTerms,
+  startsFolded,
 } from "./index-lists";
 import { buildOrganizationRows, buildPeopleRows, buildPositionRows } from "./index-rows";
 import { getOrganizations, getPeople, getPositions } from "./data";
@@ -70,5 +76,60 @@ describe("list rows", () => {
   test("the first screen is a small slice of each list", () => {
     expect(INDEX_FIRST_SCREEN.personen).toBeLessThan(buildPeopleRows().rows.length);
     expect(indexListUrl("posities")).toBe("/peek/lists/posities.json");
+  });
+});
+
+describe("organisations as a tree", () => {
+  const { rows, groups } = buildOrganizationRows();
+
+  test("a body nests only under a parent of its own group, and every parent exists", () => {
+    const bySlug = new Map(rows.map((row) => [row.s, row]));
+    for (const row of rows) {
+      if (row.pa == null) continue;
+      const parent = bySlug.get(row.pa);
+      expect(parent).toBeDefined();
+      expect(parent?.b).toBe(row.b);
+    }
+  });
+
+  test("the group counts keep every body, and the top-level counts leave out the nested ones", () => {
+    for (const group of groups) {
+      const inGroup = rows.filter((row) => row.b === group.key);
+      expect(inGroup.length).toBe(group.count);
+      expect(organizationTree(inGroup).tops.length).toBe(group.top);
+    }
+    // The gemeenteraad and the college of a gemeente are not rows of their own.
+    const lokaal = groups.find((group) => group.key === "decentraal-lokaal");
+    expect(lokaal && lokaal.top).toBeLessThan(lokaal ? lokaal.count / 2 : 0);
+  });
+
+  test("a folded group has exactly the preview of main bodies, and the collapsed rows are much fewer than the list", () => {
+    for (const group of groups) {
+      const inGroup = rows.filter((row) => row.b === group.key);
+      const main = inGroup.filter((row) => row.m === 1);
+      if (startsFolded(group.top)) expect(main.length).toBe(ORG_FOLD_PREVIEW);
+      else expect(main.length).toBe(0);
+    }
+    const collapsed = collapsedOrganizationRows(rows);
+    expect(collapsed.length).toBeLessThan(rows.length / 4);
+    expect(new Set(collapsed.map((row) => row.s)).size).toBe(collapsed.length);
+  });
+
+  test("the dominant type of a group is the one most rows share", () => {
+    expect(dominantSubtype([{ s: "a", n: "A", st: "zbo", b: "zelfstandig" }, { s: "b", n: "B", st: "zbo", b: "zelfstandig" }, { s: "c", n: "C", st: "rwt", b: "zelfstandig" }])).toBe("zbo");
+    expect(dominantSubtype([{ s: "a", n: "A", st: "zbo", b: "zelfstandig" }, { s: "b", n: "B", st: "rwt", b: "zelfstandig" }])).toBeNull();
+    expect(dominantSubtype([])).toBeNull();
+  });
+
+  test("the leader line is the first sentence that names the chair, in both languages", () => {
+    expect(leadOf("Voorzitter: I.M. (Ilona) Lagas. Ondervoorzitter: H.J. (Henk Jan) Meijer. Griffier: F.J. (Fred) Bergman.")).toBe("Voorzitter: I.M. (Ilona) Lagas");
+    expect(leadOf("Chair: K. (Koen) Petersen. Clerk: R.H. (Luuk) van Luijk.")).toBe("Chair: K. (Koen) Petersen");
+    expect(leadOf("Voorzitter: R. Lievense.")).toBe("Voorzitter: R. Lievense");
+    expect(leadOf("De Nederlandse Emissieautoriteit is een zbo.")).toBeNull();
+    expect(leadOf(null)).toBeNull();
+  });
+
+  test("an emblem is only linked from a local file", () => {
+    for (const row of rows) if (row.w) expect(row.w.startsWith("/media/wapens/")).toBe(true);
   });
 });

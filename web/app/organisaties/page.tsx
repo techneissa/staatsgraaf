@@ -6,7 +6,7 @@ import { OrganizationsIndexView } from "@/components/index-list/organizations-in
 import { preload } from "react-dom";
 import { getDatasetDate } from "@/lib/data";
 import { buildOrganizationRows } from "@/lib/index-rows";
-import { INDEX_FIRST_SCREEN, indexListUrl } from "@/lib/index-lists";
+import { collapsedOrganizationRows, indexListUrl } from "@/lib/index-lists";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -18,9 +18,10 @@ export const metadata: Metadata = pageMetadata({
 });
 
 /**
- * The organisations index. The page carries the first screen of cards; the
- * whole list is one JSON file (/peek/lists/organisaties.json) that the view
- * fetches at once, searches and windows on the client.
+ * The organisations index. The page carries the folded state (every small
+ * group, the main bodies of a large one, and the bodies nested under them);
+ * the whole list is one JSON file (/peek/lists/organisaties.json) that the
+ * view fetches at once and searches on the client.
  */
 export default function OrganizationsIndexPage() {
   const { rows, groups, total } = buildOrganizationRows();
@@ -52,7 +53,7 @@ export default function OrganizationsIndexPage() {
         </EnglishOnly>
       </header>
 
-      <OrganizationsIndexView initial={rows.slice(0, INDEX_FIRST_SCREEN.organisaties)} groups={groups} total={total} />
+      <OrganizationsIndexView initial={collapsedOrganizationRows(rows)} groups={groups} total={total} />
     </>
   );
 }
