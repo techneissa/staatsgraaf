@@ -31,7 +31,7 @@ export function OrgEmblem({
       width={width ?? undefined}
       height={height ?? undefined}
       decoding="async"
-      className={`h-14 w-auto max-w-16 shrink-0 object-contain sm:h-16 sm:max-w-20 ${className}`.trim()}
+      className={`mt-1 h-10 w-auto max-w-12 shrink-0 object-contain sm:mt-0 sm:h-16 sm:max-w-20 ${className}`.trim()}
     />
   );
 }
