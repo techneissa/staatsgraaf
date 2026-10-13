@@ -25,6 +25,7 @@ research/raw/logos/*
 !research/raw/logos/licences/
 !research/raw/logos/lanes/
 !research/raw/logos/embeds/
+!research/raw/logos/embeds2/
 
 # Re-fetchable news feed cache; never a data payload
 pipelines/.cache/

@@ -74,8 +74,9 @@ export function SelectionMark({ meta, size }: { meta: SelectionMeta; size: numbe
  * next to it. When the image fails, the plain mark comes back.
  */
 function OrgEmblemMark({ url, logo, size, fallback }: { url: string; logo: boolean; size: number; fallback: React.ReactNode }) {
-  const [failed, setFailed] = useState(false);
-  if (failed) return <>{fallback}</>;
+  // Keyed by URL: a failed image of an earlier pick must not hide the next one.
+  const [failedUrl, setFailedUrl] = useState<string | null>(null);
+  if (failedUrl === url) return <>{fallback}</>;
   return (
     <span
       aria-hidden="true"
@@ -87,7 +88,7 @@ function OrgEmblemMark({ url, logo, size, fallback }: { url: string; logo: boole
         alt=""
         decoding="async"
         referrerPolicy={logo ? "no-referrer" : undefined}
-        onError={() => setFailed(true)}
+        onError={() => setFailedUrl(url)}
         className="max-h-full max-w-full object-contain"
       />
     </span>
