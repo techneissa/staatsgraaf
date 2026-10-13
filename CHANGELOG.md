@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (13-10-2026, organisations index)
+
+- The organisations index lists one compact row per body instead of tall cards, in a grid that follows the width of its column (1 column, 2 from 576 px, 3 from 896 px). Child bodies (a gemeenteraad, college or commissie under its gemeente, committees under a Kamer, agencies under a ministry) fold under their parent row behind "N onderdelen". Groups with more than 24 rows show 8 main bodies and "Toon alle N". Search still finds every body. Rows show the local coat of arms where one is on record. The page is 7.3 thousand px long at 1440 px instead of 133 thousand.
+
 ### Added (13-10-2026, embedded official logos)
 
 - 28 national bodies without a licensed emblem show their official logo, loaded from their own website and never copied (ADR 0029, amendment 1): among them the Tweede Kamer, the Algemene Rekenkamer, the Kiesraad, the Openbaar Ministerie, the Belastingdienst and the Nationale ombudsman. The (i) says no licence is claimed and links the page the logo comes from. The 18 Rechtspraak courts get a link only (copyright reserved, Staatscourant 2024, 5153).
