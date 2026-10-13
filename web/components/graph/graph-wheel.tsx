@@ -1049,8 +1049,8 @@ export function GraphWheel({
       </svg>
       {tip ? (
         <div
-          className="pointer-events-none absolute z-10 max-w-[16rem] -translate-x-1/2 truncate rounded-sm bg-ink px-2 py-0.5 text-xs font-medium text-surface shadow"
-          style={{ left: tip.x, top: Math.max(0, tip.y - 30) }}
+          className="pointer-events-none absolute z-10 line-clamp-2 w-max max-w-[16rem] -translate-x-1/2 -translate-y-full break-words rounded-sm bg-ink px-2 py-0.5 text-center text-xs font-medium leading-snug text-surface shadow"
+          style={{ left: tip.x, top: Math.max(0, tip.y - 12) }}
         >
           {tip.name}
         </div>

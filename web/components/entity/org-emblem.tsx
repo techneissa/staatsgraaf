@@ -41,8 +41,9 @@ export function OrgEmblem({
   className?: string;
 }) {
   const t = useT("entity");
-  const [failed, setFailed] = useState(false);
-  if (failed) return null;
+  // Keyed by URL: after a client-side navigation a failed image of the previous page must not hide this one.
+  const [failedUrl, setFailedUrl] = useState<string | null>(null);
+  if (failedUrl === url) return null;
   return (
     <img
       src={url}
@@ -51,7 +52,7 @@ export function OrgEmblem({
       height={height ?? undefined}
       decoding="async"
       referrerPolicy={kind === "logo" ? "no-referrer" : undefined}
-      onError={() => setFailed(true)}
+      onError={() => setFailedUrl(url)}
       className={`${SIZES[kind][small ? "small" : "large"]} w-auto shrink-0 object-contain ${className}`.trim()}
     />
   );
