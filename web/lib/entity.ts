@@ -334,14 +334,35 @@ export function organizationEmblem(organization: Organization): OrganizationEmbl
   const own = ownEmblem(organization);
   if (own !== null) return own;
   // A body without an emblem of its own (a gemeenteraad, a commissie, Provinciale
-  // Staten) shows that of its parent, named as the parent's: "Wapen van Gemeente
-  // Utrecht: ...". One level only, and never an image whose owner reserved it.
-  const parentId = organizationParentId(organization);
+  // Staten, a ministry of Curaçao) shows that of its parent or of the regering it
+  // is part of, named as theirs: "Wapen van Gemeente Utrecht: ...". One level only,
+  // and never an image whose owner reserved it.
+  const parentId = organizationParentId(organization) ?? partOfWhole(organization.id);
   const parent = parentId !== null ? getOrganizationById(parentId) : undefined;
   const inherited = parent ? ownEmblem(parent) : null;
   if (!parent || inherited === null || inherited.image === null) return null;
   const prefix = inherited.kind === "arms" ? `Wapen van ${parent.name}: ` : `Logo van ${parent.name}: `;
   return { ...inherited, info: { ...inherited.info, credit: inherited.info.credit.replace(/^(Wapen|Logo): /, prefix) } };
+}
+
+let partOfIndex: Map<string, string> | null = null;
+
+/**
+ * The regering a ministry of Aruba, Curaçao or Sint Maarten is `part_of` (it has
+ * no `parent` field). Only that pair: a gemeente is also `part_of` the VNG, as a
+ * member, and must not show its logo.
+ */
+function partOfWhole(id: string): string | null {
+  if (partOfIndex === null) {
+    partOfIndex = new Map();
+    for (const relation of getDataset().relations) {
+      if (relation.type !== "part_of" || partOfIndex.has(relation.from)) continue;
+      const from = getOrganizationById(relation.from);
+      const to = getOrganizationById(relation.to);
+      if (from?.subtype === "ministerie" && to?.subtype === "land-regering") partOfIndex.set(relation.from, relation.to);
+    }
+  }
+  return partOfIndex.get(id) ?? null;
 }
 
 function ownEmblem(organization: Organization): OrganizationEmblem | null {

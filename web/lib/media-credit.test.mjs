@@ -161,3 +161,13 @@ test("a body without an emblem of its own shows its parent's, named as the paren
   assert.equal(emblem.image.name, parent.name);
   assert.ok(emblem.info.credit.startsWith(`Wapen van ${parent.name}: `), emblem.info.credit);
 });
+
+test("a ministry of Curaçao shows the logo of its regering, a gemeente never the VNG's", () => {
+  const organizations = getDataset().organizations;
+  const ministry = organizations.find((organization) => organization.id === "org:ministerie-algemene-zaken-minister-president-curacao");
+  const emblem = organizationEmblem(ministry);
+  assert.ok(emblem?.image);
+  assert.match(emblem.info.credit, /^Logo van Regering van Curaçao: /);
+  const gemeente = organizations.find((organization) => organization.id === "org:gemeente-altena");
+  assert.equal(organizationEmblem(gemeente), null);
+});

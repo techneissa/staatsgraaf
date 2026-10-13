@@ -3,10 +3,13 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
 /**
- * The Content-Security-Policy in web/public/_headers must name every host that
- * feed-supplied news images come from (ADR 0010). When the feed registry
- * changes and a new image host appears, this test fails until _headers is
- * updated, so the deployed policy cannot drift from the data.
+ * The Content-Security-Policy in web/public/_headers must allow every host that
+ * feed-supplied news images (ADR 0010) and embedded logos (ADR 0029) come
+ * from. Since amendment 2 of ADR 0029 img-src allows any https image, because
+ * a list of every logo host passes the 2,000 character line limit; the tests
+ * then check that every image URL is https. The news image hosts stay listed:
+ * pipelines/news.mjs reads them as the hosts a feed image may come from
+ * (ADR 0021), and a news image on another host still fails here.
  */
 const headers = readFileSync(
   fileURLToPath(new URL("../public/_headers", import.meta.url)),
@@ -23,11 +26,17 @@ const imgSrcValue = imgSrcDirective
   .split(";")[0]
   .trim();
 
-const allowedHosts = new Set(
-  imgSrcValue
-    .split(/\s+/)
-    .filter((token) => token.includes(".") && !token.startsWith("'")),
-);
+const imgSrcTokens = imgSrcValue.split(/\s+/);
+const allowsAnyHttps = imgSrcTokens.includes("https:");
+const allowedHosts = new Set(imgSrcTokens.filter((token) => token.includes(".") && !token.startsWith("'")));
+/** The image URLs the policy blocks: not https, or a host it does not name. */
+function blocked(urls) {
+  return [...new Set(urls)].filter((url) => {
+    const parsed = new URL(url);
+    if (parsed.protocol !== "https:") return true;
+    return !allowsAnyHttps && !allowedHosts.has(parsed.host);
+  });
+}
 
 const news = JSON.parse(
   readFileSync(fileURLToPath(new URL("../../data/news.json", import.meta.url)), "utf8"),
@@ -39,15 +48,13 @@ describe("CSP img-src covers the news feed image hosts", () => {
     expect(imgSrcValue).toContain("'self'");
   });
 
-  test("every imageUrl host in data/news.json is allowed", () => {
-    const hosts = new Set(
-      records
-        .filter((item) => typeof item.imageUrl === "string" && item.imageUrl !== "")
-        .map((item) => new URL(item.imageUrl).host),
-    );
-    expect(hosts.size).toBeGreaterThan(0);
-    const missing = [...hosts].filter((host) => !allowedHosts.has(host));
-    expect(missing).toEqual([]);
+  test("every imageUrl in data/news.json is on a listed news host", () => {
+    const urls = records
+      .filter((item) => typeof item.imageUrl === "string" && item.imageUrl !== "")
+      .map((item) => item.imageUrl);
+    expect(urls.length).toBeGreaterThan(0);
+    expect(blocked(urls)).toEqual([]);
+    expect(urls.filter((url) => !allowedHosts.has(new URL(url).host))).toEqual([]);
   });
 });
 
@@ -55,16 +62,13 @@ const organizations = JSON.parse(
   readFileSync(fileURLToPath(new URL("../../data/organizations.json", import.meta.url)), "utf8"),
 );
 
-describe("CSP img-src covers the embedded official logos (ADR 0029, amendment 1)", () => {
-  test("every logoEmbed image host in data/organizations.json is allowed", () => {
-    const hosts = new Set(
-      organizations
-        .map((organization) => organization.logoEmbed)
-        .filter((embed) => embed && !embed.linkOnly && typeof embed.url === "string")
-        .map((embed) => new URL(embed.url).host),
-    );
-    const missing = [...hosts].filter((host) => !allowedHosts.has(host));
-    expect(missing).toEqual([]);
+describe("CSP img-src covers the embedded official logos (ADR 0029, amendments 1 and 2)", () => {
+  test("every logoEmbed image in data/organizations.json is allowed", () => {
+    const urls = organizations
+      .map((organization) => organization.logoEmbed)
+      .filter((embed) => embed && !embed.linkOnly && typeof embed.url === "string")
+      .map((embed) => embed.url);
+    expect(blocked(urls)).toEqual([]);
   });
 });
 
