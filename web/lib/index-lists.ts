@@ -75,27 +75,53 @@ export type OrganizationRow = {
   b: OrgBranch;
   /** slug of the parent when it sits in the same group: the row nests under it */
   pa?: string | null;
-  /** 1 on the main bodies of a large group, shown while the group is folded */
-  m?: 1 | null;
-  /** who leads it, Dutch ("Voorzitter: ...") and English ("Chair: ...") */
-  hd?: string | null;
-  he?: string | null;
+  /** key of the subgroup the row is listed in (its provincie, its ministerie), see OrganizationSubgroup */
+  sg?: string | null;
   /** seats */
   se?: number | null;
   /** url of the small local coat of arms, only one that needs no attribution */
   w?: string | null;
+  /** url of the official logo on the body's own site (ADR 0029, amendment 1), loaded from there */
+  lg?: string | null;
 };
 
-/** A group with more top-level bodies than this starts folded to its main bodies. */
-export const ORG_FOLD_THRESHOLD = 24;
-/** How many main bodies a folded group shows. */
-export const ORG_FOLD_PREVIEW = 8;
+/**
+ * A fold inside a large group: the gemeenten of one provincie, the zbo's and
+ * rwt's of one ministerie. The page renders the headings closed; the rows
+ * come from the list file when one is opened.
+ */
+export type OrganizationSubgroup = {
+  key: string;
+  /** label without the type word ("Drenthe", "Financiën") */
+  label: string;
+  /** organisation id of the body the subgroup is named after (the provincie, the ministerie), for its icon */
+  id: string | null;
+  /** coat of arms of that body */
+  w?: string | null;
+  /** rows listed in it (top-level bodies) */
+  count: number;
+};
+
+export type OrganizationGroup = {
+  key: OrgBranch;
+  /** every body in the group, nested ones included */
+  count: number;
+  /** bodies that are rows of their own (the rest nest under them) */
+  top: number;
+  /** how many bodies of the type the group is named after (gemeenten, provincies, waterschappen), when it is one */
+  units?: number | null;
+  /** what the subgroups are: the provincie of a gemeente, the ministerie of a zbo */
+  by?: "provincie" | "ministerie" | null;
+  subgroups?: OrganizationSubgroup[];
+};
+
+/** Key of the subgroup for the bodies of a split group that have no provincie or ministerie (samenwerkingsverbanden, the VNG). */
+export const OTHER_SUBGROUP = "overig";
 
 /**
  * The organisations index as a tree: the bodies that have no parent in their
  * own group are the rows ("tops"), the rest hang under their parent (the
- * gemeenteraad and the college under their gemeente). A group longer than
- * ORG_FOLD_THRESHOLD starts folded to the rows marked `m`.
+ * gemeenteraad and the college under their gemeente).
  */
 export function organizationTree(rows: readonly OrganizationRow[]) {
   const slugs = new Set(rows.map((row) => row.s));
@@ -113,40 +139,22 @@ export function organizationTree(rows: readonly OrganizationRow[]) {
   return { tops, children };
 }
 
-/** True when a group of this many top-level bodies starts folded. */
-export function startsFolded(topCount: number): boolean {
-  return topCount > ORG_FOLD_THRESHOLD;
-}
-
 /**
- * What the page shows before anything is opened: every top-level body of a
- * small group, the main bodies of a folded one, and the children of those.
- * The server renders exactly this, so the list does not move when the whole
- * file arrives.
+ * What the page shows before anything is opened: every group in full, with
+ * the bodies nested under its rows, except the groups split into subgroups
+ * (gemeenten by provincie, zelfstandige organen by ministerie), which start
+ * as closed headings. The server renders exactly this, so the list does not
+ * move when the whole file arrives.
  */
-export function collapsedOrganizationRows(rows: readonly OrganizationRow[]): OrganizationRow[] {
-  const byBranch = new Map<string, OrganizationRow[]>();
-  for (const row of rows) {
-    const list = byBranch.get(row.b);
-    if (list) list.push(row);
-    else byBranch.set(row.b, [row]);
-  }
-  const shown = new Set<string>();
-  for (const group of byBranch.values()) {
-    const { tops, children } = organizationTree(group);
-    const visible = startsFolded(tops.length) ? tops.filter((row) => row.m === 1) : tops;
-    for (const row of visible) {
-      shown.add(row.s);
-      for (const child of children.get(row.s) ?? []) shown.add(child.s);
-    }
-  }
-  return rows.filter((row) => shown.has(row.s));
+export function initialOrganizationRows(rows: readonly OrganizationRow[], groups: readonly OrganizationGroup[]): OrganizationRow[] {
+  const split = new Set(groups.filter((group) => (group.subgroups?.length ?? 0) > 0).map((group) => group.key));
+  return rows.filter((row) => !split.has(row.b));
 }
 
 /**
  * The type that most of the given rows share, when it is a majority of at
- * least two: the group heading says it, so the rows leave it out. A small
- * group of mixed types has none, and every row names its own.
+ * least two: it leads the group, the other kinds of body follow. A small group
+ * of mixed types has none.
  */
 export function dominantSubtype(rows: readonly OrganizationRow[]): OrgSubtype | null {
   const counts = new Map<OrgSubtype, number>();
@@ -160,17 +168,6 @@ export function dominantSubtype(rows: readonly OrganizationRow[]): OrgSubtype | 
     }
   }
   return most >= 2 && most * 2 > rows.length ? best : null;
-}
-
-/**
- * The leader line of a description such as "Voorzitter: I.M. (Ilona) Lagas.
- * Ondervoorzitter: ... Griffier: ...": the first sentence when it names the
- * chair, in Dutch or English. Null for any other description.
- */
-export function leadOf(description: string | null | undefined): string | null {
-  if (typeof description !== "string") return null;
-  const match = /^((?:Voorzitter|Chair)): (.+?)(?:\. (?:Ondervoorzitter|Vice-chair|Griffier|Clerk|Secretaris|Secretary)\b|\.?\s*$)/u.exec(description.trim());
-  return match ? `${match[1]}: ${match[2]}` : null;
 }
 
 export type PositionRow = {

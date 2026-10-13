@@ -1,19 +1,17 @@
 import { describe, expect, test } from "bun:test";
 import {
   clipText,
-  collapsedOrganizationRows,
   dominantSubtype,
   foldText,
   INDEX_FIRST_SCREEN,
   indexListUrl,
-  leadOf,
-  ORG_FOLD_PREVIEW,
+  initialOrganizationRows,
   organizationSearchText,
   organizationTree,
+  OTHER_SUBGROUP,
   personSearchText,
   positionSearchText,
   searchTerms,
-  startsFolded,
 } from "./index-lists";
 import { buildOrganizationRows, buildPeopleRows, buildPositionRows } from "./index-rows";
 import { getOrganizations, getPeople, getPositions } from "./data";
@@ -103,16 +101,39 @@ describe("organisations as a tree", () => {
     expect(lokaal && lokaal.top).toBeLessThan(lokaal ? lokaal.count / 2 : 0);
   });
 
-  test("a folded group has exactly the preview of main bodies, and the collapsed rows are much fewer than the list", () => {
+  test("the gemeenten are split by provincie and the zelfstandige organen by ministerie, every row in one subgroup", () => {
     for (const group of groups) {
       const inGroup = rows.filter((row) => row.b === group.key);
-      const main = inGroup.filter((row) => row.m === 1);
-      if (startsFolded(group.top)) expect(main.length).toBe(ORG_FOLD_PREVIEW);
-      else expect(main.length).toBe(0);
+      if (!group.subgroups) {
+        for (const row of inGroup) expect(row.sg ?? null).toBeNull();
+        continue;
+      }
+      const keys = new Set(group.subgroups.map((subgroup) => subgroup.key));
+      for (const row of inGroup) expect(keys.has(row.sg)).toBe(true);
+      const { tops } = organizationTree(inGroup);
+      expect(group.subgroups.reduce((sum, subgroup) => sum + subgroup.count, 0)).toBe(tops.length);
+      // A nested body sits in the subgroup of its parent.
+      const bySlug = new Map(inGroup.map((row) => [row.s, row]));
+      for (const row of inGroup) if (row.pa != null) expect(row.sg).toBe(bySlug.get(row.pa)?.sg);
     }
-    const collapsed = collapsedOrganizationRows(rows);
-    expect(collapsed.length).toBeLessThan(rows.length / 4);
-    expect(new Set(collapsed.map((row) => row.s)).size).toBe(collapsed.length);
+    const lokaal = groups.find((group) => group.key === "decentraal-lokaal");
+    expect(lokaal?.by).toBe("provincie");
+    // Twelve provincies, and the samenwerkingsverbanden last.
+    expect(lokaal?.subgroups?.filter((subgroup) => subgroup.key !== OTHER_SUBGROUP).length).toBe(12);
+    expect(lokaal?.subgroups?.at(-1)?.key).toBe(OTHER_SUBGROUP);
+    for (const row of rows) if (row.st === "gemeente") expect(row.sg).not.toBe(OTHER_SUBGROUP);
+    expect(lokaal?.units).toBe(rows.filter((row) => row.st === "gemeente").length);
+    const zelfstandig = groups.find((group) => group.key === "zelfstandig");
+    expect(zelfstandig?.by).toBe("ministerie");
+    for (const subgroup of zelfstandig?.subgroups ?? []) if (subgroup.key !== OTHER_SUBGROUP) expect(subgroup.id?.startsWith("org:ministerie-")).toBe(true);
+  });
+
+  test("the page starts with every group but the split ones, and far fewer rows than the list", () => {
+    const initial = initialOrganizationRows(rows, groups);
+    const split = new Set(groups.filter((group) => group.subgroups).map((group) => group.key));
+    for (const row of initial) expect(split.has(row.b)).toBe(false);
+    expect(initial.length).toBe(rows.filter((row) => !split.has(row.b)).length);
+    expect(initial.length).toBeLessThan(rows.length / 4);
   });
 
   test("the dominant type of a group is the one most rows share", () => {
@@ -121,15 +142,15 @@ describe("organisations as a tree", () => {
     expect(dominantSubtype([])).toBeNull();
   });
 
-  test("the leader line is the first sentence that names the chair, in both languages", () => {
-    expect(leadOf("Voorzitter: I.M. (Ilona) Lagas. Ondervoorzitter: H.J. (Henk Jan) Meijer. Griffier: F.J. (Fred) Bergman.")).toBe("Voorzitter: I.M. (Ilona) Lagas");
-    expect(leadOf("Chair: K. (Koen) Petersen. Clerk: R.H. (Luuk) van Luijk.")).toBe("Chair: K. (Koen) Petersen");
-    expect(leadOf("Voorzitter: R. Lievense.")).toBe("Voorzitter: R. Lievense");
-    expect(leadOf("De Nederlandse Emissieautoriteit is een zbo.")).toBeNull();
-    expect(leadOf(null)).toBeNull();
-  });
-
-  test("an emblem is only linked from a local file", () => {
+  test("an emblem is only linked from a local file, a logo only when it may be shown", () => {
     for (const row of rows) if (row.w) expect(row.w.startsWith("/media/wapens/")).toBe(true);
+    const bySlug = new Map(getOrganizations().map((organization) => [organization.slug, organization]));
+    for (const row of rows) {
+      if (!row.lg) continue;
+      const embed = bySlug.get(row.s)?.logoEmbed;
+      expect(embed?.linkOnly).toBe(false);
+      expect(row.lg).toBe(embed?.url);
+      expect(row.lg.startsWith("https://")).toBe(true);
+    }
   });
 });

@@ -6,7 +6,7 @@ import { OrganizationsIndexView } from "@/components/index-list/organizations-in
 import { preload } from "react-dom";
 import { getDatasetDate } from "@/lib/data";
 import { buildOrganizationRows } from "@/lib/index-rows";
-import { collapsedOrganizationRows, indexListUrl } from "@/lib/index-lists";
+import { indexListUrl, initialOrganizationRows } from "@/lib/index-lists";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 
 export const metadata: Metadata = pageMetadata({
@@ -18,10 +18,11 @@ export const metadata: Metadata = pageMetadata({
 });
 
 /**
- * The organisations index. The page carries the folded state (every small
- * group, the main bodies of a large one, and the bodies nested under them);
- * the whole list is one JSON file (/peek/lists/organisaties.json) that the
- * view fetches at once and searches on the client.
+ * The organisations index. The page carries the closed state (every group
+ * but the two split ones in full, the gemeenten and the zelfstandige organen
+ * as closed headings per provincie and ministerie); the whole list is one
+ * JSON file (/peek/lists/organisaties.json) that the view fetches at once and
+ * searches on the client.
  */
 export default function OrganizationsIndexPage() {
   const { rows, groups, total } = buildOrganizationRows();
@@ -53,7 +54,7 @@ export default function OrganizationsIndexPage() {
         </EnglishOnly>
       </header>
 
-      <OrganizationsIndexView initial={collapsedOrganizationRows(rows)} groups={groups} total={total} />
+      <OrganizationsIndexView initial={initialOrganizationRows(rows, groups)} groups={groups} total={total} />
     </>
   );
 }

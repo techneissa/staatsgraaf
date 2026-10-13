@@ -6,10 +6,17 @@
  */
 
 import { getPeopleIndex } from "@/components/people/people-index";
-import { descriptionFor } from "./description-translations";
 import { getDataset, getOrganizationById, getOrganizations, getPositions } from "./data";
 import { getMediaItem, mediaNeedsChangeNote, organizationImages, organizationParentId } from "./entity";
-import { leadOf, ORG_FOLD_PREVIEW, organizationTree, startsFolded, type OrganizationRow, type PersonRow, type PositionRow } from "./index-lists";
+import {
+  organizationTree,
+  OTHER_SUBGROUP,
+  type OrganizationGroup,
+  type OrganizationRow,
+  type OrganizationSubgroup,
+  type PersonRow,
+  type PositionRow,
+} from "./index-lists";
 import { SECTOR_ORDER } from "./graph";
 import { orgEnGloss, positionEn } from "./name-gloss";
 import { thumbUrl } from "./thumb";
@@ -50,8 +57,8 @@ export function buildPeopleRows(): PeopleIndexData {
 
 export type OrganizationsIndexData = {
   rows: OrganizationRow[];
-  /** Branches in display order: all bodies in the group, and how many of them are rows of their own (the rest nest). */
-  groups: { key: OrgBranch; count: number; top: number }[];
+  /** Branches in display order, with their counts and, for the large ones, their subgroups. */
+  groups: OrganizationGroup[];
   total: number;
 };
 
@@ -64,33 +71,29 @@ function emblemUrl(organization: Organization): string | null {
   return null;
 }
 
-/**
- * How much is on record about a body: current office holders and members,
- * and the seats of the bodies nested under it. Orders the main bodies of a
- * large group; ties fall back to the name.
- */
-function weightOf(organizations: Organization[]): Map<string, number> {
-  const dataset = getDataset();
-  const own = new Map<string, number>();
-  const bump = (id: string, by: number) => own.set(id, (own.get(id) ?? 0) + by);
-  for (const tenure of dataset.tenures) {
-    if (tenure.end !== null) continue;
-    const position = dataset.positionsById.get(tenure.position);
-    if (position) bump(position.organization, 1);
-  }
-  for (const membership of dataset.memberships) if (membership.end === null) bump(membership.organization, 1);
-  const weight = new Map<string, number>();
-  for (const organization of organizations) {
-    const seats = organization.seatsCount ?? 0;
-    const parent = organizationParentId(organization);
-    const mine = Math.max(own.get(organization.id) ?? 0, seats);
-    weight.set(organization.id, (weight.get(organization.id) ?? 0) + mine);
-    if (parent !== null) weight.set(parent, (weight.get(parent) ?? 0) + mine);
-  }
-  return weight;
+/** The official logo on the body's own site, when it may be shown (not `linkOnly`). */
+function logoUrl(organization: Organization): string | null {
+  const embed = organization.logoEmbed ?? null;
+  return embed !== null && !embed.linkOnly && typeof embed.url === "string" && embed.url !== "" ? embed.url : null;
 }
 
+/** The type of body a group is named after, counted for its line in the overview. */
+const GROUP_UNIT: Partial<Record<OrgBranch, Organization["subtype"]>> = {
+  "decentraal-provinciaal": "provincie",
+  "decentraal-lokaal": "gemeente",
+  waterschap: "waterschap",
+};
+
+/** Groups too long for one list, split by the provincie of a gemeente or the ministerie of a zbo. */
+const SPLIT_BY: Partial<Record<OrgBranch, "provincie" | "ministerie">> = {
+  "decentraal-lokaal": "provincie",
+  zelfstandig: "ministerie",
+};
+
+const LABEL_PREFIX = { provincie: /^Provincie\s+/u, ministerie: /^Ministerie van\s+/u };
+
 export function buildOrganizationRows(): OrganizationsIndexData {
+  const dataset = getDataset();
   const organizations = [...getOrganizations()].sort((a, b) => a.name.localeCompare(b.name, "nl"));
   const counts = new Map<OrgBranch, number>();
   for (const organization of organizations) counts.set(organization.branch, (counts.get(organization.branch) ?? 0) + 1);
@@ -98,42 +101,89 @@ export function buildOrganizationRows(): OrganizationsIndexData {
   const rest = [...counts.keys()].filter((branch) => !SECTOR_ORDER.includes(branch)).sort((a, b) => a.localeCompare(b, "nl"));
   const order = [...known, ...rest];
 
+  const byId = new Map(organizations.map((organization) => [organization.id, organization]));
+  // The provincie that oversees a gemeente, and the body a parentless one is part of
+  // (the ministries of Aruba, Curaçao and Sint Maarten under their regering).
+  const provincieOf = new Map<string, string>();
+  const partOf = new Map<string, string>();
+  for (const relation of dataset.relations) {
+    if (relation.validTo != null) continue;
+    const from = byId.get(relation.from);
+    const to = byId.get(relation.to);
+    if (!from || !to) continue;
+    if (relation.type === "oversees" && from.subtype === "provincie" && to.subtype === "gemeente") provincieOf.set(to.id, from.id);
+    if (relation.type === "part_of" && from.subtype === "ministerie" && to.subtype === "land-regering" && !partOf.has(from.id)) partOf.set(from.id, to.id);
+  }
+  const parentOf = (organization: Organization): Organization | undefined => {
+    const parent = organizationParentId(organization) ?? partOf.get(organization.id) ?? null;
+    return parent !== null ? byId.get(parent) : undefined;
+  };
+  // The subgroup of a body: its provincie or ministerie; a nested body follows its parent.
+  const subgroupOf = (organization: Organization): Organization | null => {
+    const by = SPLIT_BY[organization.branch];
+    if (by === undefined) return null;
+    const parent = parentOf(organization);
+    if (parent !== undefined && parent.branch === organization.branch) return subgroupOf(parent);
+    const id = by === "provincie" ? provincieOf.get(organization.id) : parent?.subtype === "ministerie" ? parent.id : undefined;
+    return id !== undefined ? (byId.get(id) ?? null) : null;
+  };
+
   const rank = new Map(order.map((branch, index) => [branch, index]));
   const sorted = [...organizations].sort((a, b) => (rank.get(a.branch) ?? 0) - (rank.get(b.branch) ?? 0));
-  const byId = new Map(organizations.map((organization) => [organization.id, organization]));
+  const subgroupBody = new Map<string, Organization>();
   const rows: OrganizationRow[] = sorted.map((organization) => {
-    const description = descriptionFor(organization.id, organization.description);
-    const parent = organizationParentId(organization);
-    const parentOrganization = parent !== null ? byId.get(parent) : undefined;
+    const parent = parentOf(organization);
     // A body nests only under a parent of its own group; a zbo under its ministry stays in its own group.
-    const nested = parentOrganization !== undefined && parentOrganization.branch === organization.branch;
+    const nested = parent !== undefined && parent.branch === organization.branch;
+    const split = SPLIT_BY[organization.branch] !== undefined;
+    const body = split ? subgroupOf(organization) : null;
+    if (body !== null) subgroupBody.set(body.slug, body);
     return {
       s: organization.slug,
       n: organization.name,
       ge: orgEnGloss(organization.name),
       st: organization.subtype,
       b: organization.branch,
-      pa: nested ? parentOrganization.slug : null,
-      hd: leadOf(organization.description),
-      he: description?.en ? leadOf(description.en) : null,
+      pa: nested ? parent.slug : null,
+      sg: split ? (body?.slug ?? OTHER_SUBGROUP) : null,
       se: organization.seatsCount,
       w: emblemUrl(organization),
+      lg: logoUrl(organization),
     };
   });
 
-  // Mark the main bodies of every group that starts folded.
-  const weight = weightOf(organizations);
-  const slugWeight = new Map(organizations.map((organization) => [organization.slug, weight.get(organization.id) ?? 0]));
-  const tops: number[] = [];
-  for (const branch of order) {
-    const group = rows.filter((row) => row.b === branch);
-    const { tops: topRows } = organizationTree(group);
-    tops.push(topRows.length);
-    if (!startsFolded(topRows.length)) continue;
-    const main = [...topRows].sort((a, b) => (slugWeight.get(b.s) ?? 0) - (slugWeight.get(a.s) ?? 0) || a.n.localeCompare(b.n, "nl")).slice(0, ORG_FOLD_PREVIEW);
-    for (const row of main) row.m = 1;
-  }
-  return { rows, groups: order.map((key, index) => ({ key, count: counts.get(key) ?? 0, top: tops[index] })), total: rows.length };
+  const groups: OrganizationGroup[] = order.map((branch) => {
+    const inGroup = rows.filter((row) => row.b === branch);
+    const { tops } = organizationTree(inGroup);
+    const unit = GROUP_UNIT[branch];
+    const by = SPLIT_BY[branch] ?? null;
+    let subgroups: OrganizationSubgroup[] | undefined;
+    if (by !== null) {
+      const size = new Map<string, number>();
+      for (const row of tops) size.set(row.sg ?? OTHER_SUBGROUP, (size.get(row.sg ?? OTHER_SUBGROUP) ?? 0) + 1);
+      subgroups = [...size.entries()]
+        .map(([key, count]) => {
+          const body = subgroupBody.get(key);
+          return {
+            key,
+            label: body ? body.name.replace(LABEL_PREFIX[by], "") : "",
+            id: body?.id ?? null,
+            w: body ? emblemUrl(body) : null,
+            count,
+          };
+        })
+        .sort((a, b) => Number(a.key === OTHER_SUBGROUP) - Number(b.key === OTHER_SUBGROUP) || a.label.localeCompare(b.label, "nl"));
+    }
+    return {
+      key: branch,
+      count: counts.get(branch) ?? 0,
+      top: tops.length,
+      units: unit !== undefined ? inGroup.filter((row) => row.st === unit).length : null,
+      by,
+      ...(subgroups !== undefined ? { subgroups } : {}),
+    };
+  });
+  return { rows, groups, total: rows.length };
 }
 
 const TYPE_ORDER: OrgType[] = ["elected", "dept_head", "commission"];
