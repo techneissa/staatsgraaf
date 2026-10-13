@@ -15,6 +15,8 @@ test("a portrait credit changes only its fixed words in English", () => {
   assert.equal(localizeCredit("Wapen: Arch, publiek-domein, via Wikimedia Commons", "en"), "Coat of arms: Arch, public domain, via Wikimedia Commons");
   assert.equal(localizeCredit("Wapen: auteur niet vermeld, publiek-domein, via Wikimedia Commons", "en"), "Coat of arms: author not stated, public domain, via Wikimedia Commons");
   assert.equal(localizeCredit("Logo: getoond vanaf rijksoverheid.nl", "en"), "Logo: shown from rijksoverheid.nl");
+  assert.equal(localizeCredit("Wapen van Gemeente Utrecht: Arch, publiek-domein, via Wikimedia Commons", "en"), "Coat of arms of Gemeente Utrecht: Arch, public domain, via Wikimedia Commons");
+  assert.equal(localizeCredit("Logo van Tweede Kamer der Staten-Generaal: getoond vanaf tweedekamer.nl", "en"), "Logo of Tweede Kamer der Staten-Generaal: shown from tweedekamer.nl");
   assert.equal(localizeCredit("Logo: auteursrecht voorbehouden, te zien op rechtspraak.nl", "en"), "Logo: copyright reserved, see rechtspraak.nl");
 });
 

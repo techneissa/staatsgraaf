@@ -331,6 +331,20 @@ function hostOf(url: string): string {
  * link to its page is shown.
  */
 export function organizationEmblem(organization: Organization): OrganizationEmblem | null {
+  const own = ownEmblem(organization);
+  if (own !== null) return own;
+  // A body without an emblem of its own (a gemeenteraad, a commissie, Provinciale
+  // Staten) shows that of its parent, named as the parent's: "Wapen van Gemeente
+  // Utrecht: ...". One level only, and never an image whose owner reserved it.
+  const parentId = organizationParentId(organization);
+  const parent = parentId !== null ? getOrganizationById(parentId) : undefined;
+  const inherited = parent ? ownEmblem(parent) : null;
+  if (!parent || inherited === null || inherited.image === null) return null;
+  const prefix = inherited.kind === "arms" ? `Wapen van ${parent.name}: ` : `Logo van ${parent.name}: `;
+  return { ...inherited, info: { ...inherited.info, credit: inherited.info.credit.replace(/^(Wapen|Logo): /, prefix) } };
+}
+
+function ownEmblem(organization: Organization): OrganizationEmblem | null {
   const arms = organizationImages(organization)
     .map((id) => getMediaItem(id))
     .find((item) => item !== null && item.type === "logo");

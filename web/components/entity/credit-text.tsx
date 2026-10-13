@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useLocale } from "@/components/i18n/language-provider";
 import { useT } from "@/components/i18n/use-t";
 import { formatDateIn, localizeCredit } from "@/lib/format";
@@ -44,6 +44,27 @@ export function CreditPopover({ info, kind = "photo" }: { info: MediaCreditInfo;
   const t = useT("entity");
   const locale = useLocale();
   const ref = useRef<HTMLDetailsElement>(null);
+  // The popover opens to the right of the (i). In a narrow column (the page
+  // column beside the graph) that runs past the column's edge and is cut off,
+  // so on open it measures the nearest clipping ancestor and opens to the left
+  // when it does not fit.
+  const panelRef = useRef<HTMLDivElement>(null);
+  const [alignEnd, setAlignEnd] = useState(false);
+  const place = () => {
+    const details = ref.current;
+    if (!details?.open) return;
+    let bound = document.documentElement.clientWidth;
+    for (let node = details.parentElement; node; node = node.parentElement) {
+      const overflow = getComputedStyle(node).overflowX;
+      if (overflow !== "visible") {
+        bound = Math.min(bound, node.getBoundingClientRect().right);
+        break;
+      }
+    }
+    const left = details.getBoundingClientRect().left;
+    const width = panelRef.current?.offsetWidth ?? 224;
+    setAlignEnd(left + width > bound - 8);
+  };
   useEffect(() => {
     const details = ref.current;
     if (!details) return;
@@ -70,7 +91,7 @@ export function CreditPopover({ info, kind = "photo" }: { info: MediaCreditInfo;
   };
   const license = LICENSE_KEYS[info.license] !== undefined ? t(LICENSE_KEYS[info.license]) : info.licenseLabel;
   return (
-    <details ref={ref} className="group relative inline-block">
+    <details ref={ref} className="group relative inline-block" onToggle={place}>
       <summary
         aria-label={t(kind === "emblem" ? "emblemCreditButton" : kind === "logo" ? "logoCreditButton" : "creditButton", { credit })}
         title={credit}
@@ -81,7 +102,7 @@ export function CreditPopover({ info, kind = "photo" }: { info: MediaCreditInfo;
           <path d="M8 7.2v4M8 4.9v.1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
         </svg>
       </summary>
-      <div className="absolute left-0 top-6 z-20 w-56 max-w-[calc(100vw-6rem)] rounded-md border border-line bg-surface p-2.5 text-[11px] leading-snug text-ink-muted shadow-lg">
+      <div ref={panelRef} className={`absolute top-6 z-30 w-56 ${alignEnd ? "right-0" : "left-0"} max-w-[calc(100vw-6rem)] rounded-md border border-line bg-surface p-2.5 text-[11px] leading-snug text-ink-muted shadow-lg`}>
         <p className="mb-1.5 font-semibold text-ink">{t(kind === "emblem" ? "emblemCreditHeading" : kind === "logo" ? "logoCreditHeading" : "creditHeading")}</p>
         <dl className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-2 gap-y-1">
           <dt className="text-ink-faint">{t("creditAuthor")}</dt>

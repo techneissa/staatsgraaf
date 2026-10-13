@@ -69,6 +69,12 @@ function sourceFor(refs) {
   return null;
 }
 
+/** The coat of arms or embedded official logo of an organisation for the panel header (ADR 0029), or null. */
+function emblemOf(org) {
+  const emblem = entity.organizationEmblem(org);
+  return emblem?.image ? { url: emblem.image.url, kind: emblem.image.kind } : null;
+}
+
 function portraitOf(person) {
   const media = entity.getMediaItem(entity.personPortraitId(person));
   return media ? { url: media.url, credit: entity.mediaCreditLine(media) } : null;
@@ -252,6 +258,7 @@ for (const org of organizations) {
     description: description(org.description),
     descriptionEn: descriptionEn(org.id, org.description),
     website: typeof org.website === "string" && org.website !== "" ? org.website : null,
+    emblem: emblemOf(org),
     parent: parentId ? ref(parentId) : null,
     holders: current.slice(0, HOLDER_LIMIT).flatMap((tenure) => {
       const person = dataset.peopleById.get(tenure.person);
