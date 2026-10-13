@@ -6,3 +6,6 @@
 /__next._tree.txt /__prefetch-miss.txt 200
 /:a/__next._tree.txt /__prefetch-miss.txt 200
 /:a/:b/__next._tree.txt /__prefetch-miss.txt 200
+# Browsers that ask for /favicon.ico without reading the page's icon link get
+# the site icon (web/app/icon.svg) instead of a 404.
+/favicon.ico /icon.svg 301
