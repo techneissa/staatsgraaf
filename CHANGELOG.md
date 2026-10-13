@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (13-10-2026, news cards)
+
+- The date and the translation toggle of a news card sit at the right edge of the card, under the thumbnail, instead of in the text column.
+
 ### Added (13-10-2026, coats of arms)
 
 - 320 organisation pages show the official coat of arms next to the name: the 12 provincies, 293 gemeenten, 12 waterschappen, Bonaire, Saba and Sint Eustatius (ADR 0029). Each comes from Wikimedia Commons with a verified free licence and a named source; the credit and the licence are visible under the name, with the (i) for author, licence and source page. Alt text: "Wapen van {naam}".
