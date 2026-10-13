@@ -313,7 +313,7 @@ export default async function OrganizationPage({
           {emblem !== null ? (
             <OrgEmblem name={organization.name} url={emblem.url} width={emblem.width} height={emblem.height} className="hidden sm:block" />
           ) : null}
-          <h1 className="min-w-0 flex-1 text-3xl font-semibold tracking-tight text-ink text-balance break-words">
+          <h1 className="min-w-0 flex-1 text-2xl font-semibold sm:text-3xl tracking-tight text-ink text-balance break-words">
             {organization.name}
             <Gloss text={orgEnGloss(organization.name)} className="mt-1 block text-base font-normal tracking-normal text-ink-muted" />
           </h1>
