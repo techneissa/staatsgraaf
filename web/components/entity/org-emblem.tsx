@@ -16,7 +16,8 @@ export type OrgEmblemImage = {
 
 const SIZES = {
   arms: { large: "h-16 max-w-20", small: "h-10 max-w-12" },
-  logo: { large: "h-12 max-w-40", small: "h-8 max-w-28" },
+  // Official logos are drawn for a white page, so they sit on a white plate (dark theme too).
+  logo: { large: "h-12 max-w-40 rounded-sm bg-white p-1", small: "h-8 max-w-28 rounded-xs bg-white p-0.5" },
 };
 
 /**
