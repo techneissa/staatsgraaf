@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { IconNode } from "lucide";
 import {
   Boxes,
@@ -124,46 +123,12 @@ export function ArmsImage({ url, size = "lg" }: { url: string; size?: VisualSize
 }
 
 /**
- * The official logo of a body, loaded from its own site without a referrer
- * (ADR 0029, amendment 1). Logos are wide wordmarks drawn for a white page,
- * so it sits on a white plate, wider than the square tiles, in both themes.
- * When it does not load (hotlink protection, a moved file) the plate gives
- * way to the icon tile; the check after mount catches an error that came
- * before the page was hydrated.
+ * The visual of a body in the index: its coat of arms, else a tile in the
+ * colour of its group with an icon for its type. Decorative: the name next to
+ * it says what it is. Official logos stay on the organisation page: at this
+ * size a wordmark is unreadable, and the index loads nothing from other sites.
  */
-function LogoPlate({ url, fallback, small }: { url: string; fallback: ReactNode; small: boolean }) {
-  const [failed, setFailed] = useState(false);
-  const ref = useRef<HTMLImageElement>(null);
-  useEffect(() => {
-    const image = ref.current;
-    if (image && image.complete && image.naturalWidth === 0) setFailed(true);
-  }, []);
-  if (failed) return <>{fallback}</>;
-  return (
-    <span aria-hidden="true" className={`inline-flex shrink-0 items-center justify-center overflow-hidden bg-white ${small ? "h-7 w-11 rounded-md p-0.5" : "h-9 w-14 rounded-lg px-1 py-0.5"}`}>
-      <img
-        ref={ref}
-        src={url}
-        alt=""
-        loading="lazy"
-        decoding="async"
-        referrerPolicy="no-referrer"
-        onError={() => setFailed(true)}
-        className="max-h-full max-w-full object-contain"
-      />
-    </span>
-  );
-}
-
-/**
- * The visual of a body in the index: its coat of arms, else its official
- * logo, else a tile in the colour of its group with an icon for its type.
- * Decorative: the name next to it says what it is. With `wide` the slot has
- * the width of a logo plate, so the names in a grid with logos line up.
- */
-export function OrgVisual({ row, size = "lg", wide = false }: { row: OrganizationRow; size?: VisualSize; wide?: boolean }) {
-  const tile = <IconTile color={branchColorVar(row.b)} icon={organizationIcon(row)} size={size} />;
-  const visual = row.w ? <ArmsImage url={row.w} size={size} /> : row.lg ? <LogoPlate url={row.lg} fallback={tile} small={size === "sm"} /> : tile;
-  if (!wide) return visual;
-  return <span className={`inline-flex shrink-0 justify-center ${size === "sm" ? "w-11" : "w-14"}`}>{visual}</span>;
+export function OrgVisual({ row, size = "lg" }: { row: OrganizationRow; size?: VisualSize }) {
+  if (row.w) return <ArmsImage url={row.w} size={size} />;
+  return <IconTile color={branchColorVar(row.b)} icon={organizationIcon(row)} size={size} />;
 }

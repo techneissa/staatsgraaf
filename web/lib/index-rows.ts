@@ -71,12 +71,6 @@ function emblemUrl(organization: Organization): string | null {
   return null;
 }
 
-/** The official logo on the body's own site, when it may be shown (not `linkOnly`). */
-function logoUrl(organization: Organization): string | null {
-  const embed = organization.logoEmbed ?? null;
-  return embed !== null && !embed.linkOnly && typeof embed.url === "string" && embed.url !== "" ? embed.url : null;
-}
-
 /** The type of body a group is named after, counted for its line in the overview. */
 const GROUP_UNIT: Partial<Record<OrgBranch, Organization["subtype"]>> = {
   "decentraal-provinciaal": "provincie",
@@ -148,7 +142,6 @@ export function buildOrganizationRows(): OrganizationsIndexData {
       sg: split ? (body?.slug ?? OTHER_SUBGROUP) : null,
       se: organization.seatsCount,
       w: emblemUrl(organization),
-      lg: logoUrl(organization),
     };
   });
 

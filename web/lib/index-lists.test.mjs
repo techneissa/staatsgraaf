@@ -142,15 +142,8 @@ describe("organisations as a tree", () => {
     expect(dominantSubtype([])).toBeNull();
   });
 
-  test("an emblem is only linked from a local file, a logo only when it may be shown", () => {
+  test("an emblem is only linked from a local file, and the index loads no third-party logo", () => {
     for (const row of rows) if (row.w) expect(row.w.startsWith("/media/wapens/")).toBe(true);
-    const bySlug = new Map(getOrganizations().map((organization) => [organization.slug, organization]));
-    for (const row of rows) {
-      if (!row.lg) continue;
-      const embed = bySlug.get(row.s)?.logoEmbed;
-      expect(embed?.linkOnly).toBe(false);
-      expect(row.lg).toBe(embed?.url);
-      expect(row.lg.startsWith("https://")).toBe(true);
-    }
+    for (const row of rows) expect(JSON.stringify(row)).not.toContain("https://");
   });
 });
