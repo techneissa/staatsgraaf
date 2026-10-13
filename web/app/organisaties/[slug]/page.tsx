@@ -303,7 +303,7 @@ export default async function OrganizationPage({
 
       <header className="mt-4">
         <div className="flex min-w-0 items-start gap-3">
-          {emblem?.image ? <OrgEmblem {...emblem.image} className="hidden sm:block" /> : null}
+          {emblem?.image && emblem.kind === "arms" ? <OrgEmblem {...emblem.image} className="hidden sm:block" /> : null}
           <h1 className="min-w-0 flex-1 text-2xl font-semibold sm:text-3xl tracking-tight text-ink text-balance break-words">
             {organization.name}
             <Gloss text={orgEnGloss(organization.name)} className="mt-1 block text-base font-normal tracking-normal text-ink-muted" />
