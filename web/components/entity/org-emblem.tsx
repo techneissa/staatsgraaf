@@ -15,12 +15,15 @@ export function OrgEmblem({
   url,
   width,
   height,
+  small = false,
   className = "",
 }: {
   name: string;
   url: string;
   width: number | null;
   height: number | null;
+  /** 40 px high (the phone credit line) instead of 64 px (next to the name). */
+  small?: boolean;
   className?: string;
 }) {
   const t = useT("entity");
@@ -31,15 +34,28 @@ export function OrgEmblem({
       width={width ?? undefined}
       height={height ?? undefined}
       decoding="async"
-      className={`mt-1 h-10 w-auto max-w-12 shrink-0 object-contain sm:mt-0 sm:h-16 sm:max-w-20 ${className}`.trim()}
+      className={`${small ? "h-10 max-w-12" : "h-16 max-w-20"} w-auto shrink-0 object-contain ${className}`.trim()}
     />
   );
 }
 
-/** The visible credit line of an emblem with its (i). */
-export function OrgEmblemCredit({ info, className = "" }: { info: MediaCreditInfo; className?: string }) {
+/**
+ * The visible credit line of an emblem with its (i). On a phone the emblem
+ * itself sits in this line, under the name, so a long name keeps whole words
+ * next to the share button; from `sm` up it stands next to the name.
+ */
+export function OrgEmblemCredit({
+  info,
+  emblem,
+  className = "",
+}: {
+  info: MediaCreditInfo;
+  emblem: { name: string; url: string; width: number | null; height: number | null };
+  className?: string;
+}) {
   return (
     <p className={`flex min-w-0 items-center gap-1 text-xs text-ink-faint ${className}`.trim()}>
+      <OrgEmblem {...emblem} small className="mr-1.5 sm:hidden" />
       <span className="min-w-0 break-words">
         <CreditText credit={info.credit} />
       </span>

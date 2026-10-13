@@ -311,7 +311,7 @@ export default async function OrganizationPage({
       <header className="mt-4">
         <div className="flex min-w-0 items-start gap-3">
           {emblem !== null ? (
-            <OrgEmblem name={organization.name} url={emblem.url} width={emblem.width} height={emblem.height} />
+            <OrgEmblem name={organization.name} url={emblem.url} width={emblem.width} height={emblem.height} className="hidden sm:block" />
           ) : null}
           <h1 className="min-w-0 flex-1 text-3xl font-semibold tracking-tight text-ink text-balance break-words">
             {organization.name}
@@ -319,7 +319,13 @@ export default async function OrganizationPage({
           </h1>
           <ShareButton className="mt-1 shrink-0" title={organization.name} />
         </div>
-        {emblemInfo !== null ? <OrgEmblemCredit info={emblemInfo} className="mt-1.5" /> : null}
+        {emblem !== null && emblemInfo !== null ? (
+          <OrgEmblemCredit
+            info={emblemInfo}
+            emblem={{ name: organization.name, url: emblem.url, width: emblem.width, height: emblem.height }}
+            className="mt-1.5"
+          />
+        ) : null}
         {summary !== null ? (
           <p className="mt-2 max-w-prose text-base leading-snug text-ink-muted">
             <L nl={summary.nl} en={summary.en} />
