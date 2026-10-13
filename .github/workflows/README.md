@@ -67,7 +67,7 @@ Set these in **Settings > Secrets and variables > Actions**.
 | --- | --- | --- |
 | `CLOUDFLARE_API_TOKEN` | repository secret | Wrangler deploy. Cloudflare API token with Pages edit permission. |
 | `CLOUDFLARE_ACCOUNT_ID` | repository secret | Cloudflare account for the Pages project. |
-| `OPENCODE_API_KEY` | repository secret | News translation through OpenCode Zen (first choice). |
+| `OPENCODE_API_KEY` | repository secret | News translation through OpenCode with Claude Haiku 5.5 (first choice). |
 | `DEEPSEEK_API_KEY` | repository secret | News translation through DeepSeek direct (second choice). |
 | `ANTHROPIC_API_KEY` | repository secret | News translation through Anthropic (third choice). |
 | `NEXT_PUBLIC_SITE_URL` | repository variable | Absolute base URL for canonical, `robots.txt`, and `sitemap.xml`. Falls back to `https://staatsgraaf.pages.dev`. |

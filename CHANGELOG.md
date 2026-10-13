@@ -4,6 +4,13 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (13-10-2026, translation model)
+
+- News and description translations use Claude Haiku 5.5 at effort medium through OpenCode instead of DeepSeek V4.1 Flash (ADR 0028, amending ADR 0016). `opencode` (the OpenCode key) is the default pay-as-you-go endpoint; the OpenCode Go subscription is used only when named with `--provider opencode-go`.
+- The DeepSeek news translations are translated again with `--replace deepseek-v4.1-flash`. Records made in a Claude Code session (claude-opus-5-5, claude-sonnet-5-5) are kept.
+- Reader-facing text names no model: translated items read "Vertaald met AI" (NL) and "Translated with AI" (EN), and the method page says AI was used.
+- `schema/v1/news-translation.schema.json` and `schema/v1/description-translation.schema.json` accept method `opencode-go`; the engine description names `claude-haiku-5-5`.
+
 ### Added (06-10-2026, live sources for provincies, gemeenten and waterschappen)
 
 - `bun run live` now also reads the official sources of the decentral bodies, once a day (ADR 0027): the TOOI organisation sets (codes, end dates, herindelingen), the Register van Overheidsorganisaties (bodies, council seats, websites, office holders; CC0), the CBS table "Gebieden in Nederland" (an independent count) and the Rijksoverheid overview of the commissarissen van de Koning. Each source writes only when it agrees with the others (same codes, 342-ish gemeenten, exactly 12 provincies, 15 to 30 waterschappen, a head for at least 97 percent of the bodies); a bulk of closures needs a herindeling event or the first read.

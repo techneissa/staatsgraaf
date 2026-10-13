@@ -3,6 +3,7 @@
 - Date: 24-09-2026
 - Status: accepted. The owner asked on 24-09-2026 for every Dutch news article to be readable in English, not only the English outlets.
 - Supersedes: point 4 of `docs/adr/0007-news-outlets-and-languages.md` ("two languages, no machine translation yet"). Extends `docs/09-content-and-ai-policy.md` section 3.
+- Amended by `docs/adr/0028-translation-model-haiku.md` (13-10-2026): the default provider and model in the provider list below are superseded; the rest of this ADR stands.
 
 ## Context
 

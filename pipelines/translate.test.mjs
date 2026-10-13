@@ -313,7 +313,9 @@ test("resolveProvider picks TRANSLATE_PROVIDER, else the first key in order open
   assert.equal(resolveProvider({}), null);
   const all = { OPENCODE_API_KEY: "o", DEEPSEEK_API_KEY: "d", ANTHROPIC_API_KEY: "a" };
   assert.equal(resolveProvider(all).name, "opencode");
-  assert.equal(resolveProvider(all).model, "deepseek-v4.1-flash");
+  assert.equal(resolveProvider(all).model, "claude-haiku-5-5");
+  assert.equal(resolveProvider({ OPENCODE_API_KEY: "k" }).baseUrl, "https://opencode.ai/inference");
+  assert.equal(resolveProvider({ OPENCODE_API_KEY: "k", TRANSLATE_PROVIDER: "opencode-go" }).baseUrl, "https://opencode.ai/inference/go");
   assert.equal(resolveProvider({ DEEPSEEK_API_KEY: "d", ANTHROPIC_API_KEY: "a" }).name, "deepseek");
   assert.equal(resolveProvider({ DEEPSEEK_API_KEY: "d" }).model, "deepseek-flash");
   assert.equal(resolveProvider({ ANTHROPIC_API_KEY: "a" }).model, "claude-haiku-4-5");
@@ -349,44 +351,92 @@ function fakeFetch(reply, { statuses = [] } = {}) {
   return impl;
 }
 
-test("opencode provider: request shape, provenance and tag check", async () => {
+function fakeMessages(reply) {
+  const calls = [];
+  const impl = async (url, init) => {
+    const body = JSON.parse(init.body);
+    calls.push({ url, init, body });
+    const input = JSON.parse(body.messages[0].content.split("\n\n")[1]);
+    const text = typeof reply === "function" ? reply(input.items) : reply;
+    return new Response(JSON.stringify({ stop_reason: "end_turn", content: [{ type: "text", text }] }), {
+      status: 200,
+      headers: { "content-type": "application/json" },
+    });
+  };
+  impl.calls = calls;
+  return impl;
+}
+
+const TRANSLATE_PAIR = (items) => JSON.stringify({
+  items: items.map((item) => (item.lead === null
+    ? { id: item.id, title: "Nederlands kabinet valt", lead: null }
+    : { id: item.id, title: "Cabinet falls", lead: GOOD_NL_LEAD })),
+});
+
+test("opencode provider: Haiku 5.5 on the pay-as-you-go Messages endpoint, effort medium, tag check", async () => {
   const dir = await tempData([ITEM_NL, ITEM_EN]);
-  const fetchImpl = fakeFetch((items) => JSON.stringify({
-    items: items.map((item) => (item.lead === null
-      ? { id: item.id, title: "Nederlands kabinet valt", lead: null }
-      : { id: item.id, title: "Cabinet falls", lead: GOOD_NL_LEAD })),
-  }));
+  const fetchImpl = fakeMessages(TRANSLATE_PAIR);
   const result = await runApi({ dataDir: dir, env: { OPENCODE_API_KEY: "zen-key", ANTHROPIC_API_KEY: "a" }, fetchImpl, concurrency: 1, log: () => {} });
   assert.equal(result.provider, "opencode");
   assert.equal(result.translated, 2);
   const call = fetchImpl.calls[0];
-  assert.equal(call.url, "https://opencode.ai/zen/v1/chat/completions");
+  assert.equal(call.url, "https://opencode.ai/inference/v1/messages");
   assert.equal(call.init.method, "POST");
-  assert.equal(call.init.headers.Authorization, "Bearer zen-key");
-  assert.equal(call.body.model, "deepseek-v4.1-flash");
-  assert.equal(call.body.temperature, 0);
-  assert.deepEqual(call.body.response_format, { type: "json_object" });
-  assert.deepEqual(call.body.thinking, { type: "disabled" });
-  assert.ok(call.body.max_tokens >= 1024 && call.body.max_tokens <= 32000);
-  assert.equal(call.body.messages[0].role, "system");
+  assert.equal(new Headers(call.init.headers).get("x-api-key"), "zen-key");
+  assert.equal(new Headers(call.init.headers).get("x-opencode-session"), null);
+  assert.equal(call.body.model, "claude-haiku-5-5");
+  assert.equal(call.body.output_config.effort, "medium");
+  assert.equal(call.body.output_config.format.type, "json_schema");
   const saved = JSON.parse(await readFile(join(dir, "news-translations.json"), "utf8"));
-  assert.deepEqual([...new Set(saved.map((r) => `${r.method}|${r.engine}`))], ["opencode-zen|deepseek-v4.1-flash"]);
+  assert.deepEqual([...new Set(saved.map((r) => `${r.method}|${r.engine}`))], ["opencode-zen|claude-haiku-5-5"]);
+});
+
+test("opencode-go provider: same key on the Go Messages endpoint with a session id, only by name", async () => {
+  const dir = await tempData([ITEM_NL]);
+  const fetchImpl = fakeMessages(TRANSLATE_PAIR);
+  const result = await runApi({ dataDir: dir, env: { OPENCODE_API_KEY: "go-key" }, provider: "opencode-go", fetchImpl, concurrency: 1, log: () => {} });
+  assert.equal(result.provider, "opencode-go");
+  assert.equal(result.translated, 1);
+  const call = fetchImpl.calls[0];
+  assert.equal(call.url, "https://opencode.ai/inference/go/v1/messages");
+  assert.equal(new Headers(call.init.headers).get("x-api-key"), "go-key");
+  assert.ok(new Headers(call.init.headers).get("x-opencode-session"));
+  const saved = JSON.parse(await readFile(join(dir, "news-translations.json"), "utf8"));
+  assert.deepEqual([...new Set(saved.map((r) => `${r.method}|${r.engine}`))], ["opencode-go|claude-haiku-5-5"]);
+  assert.equal((await runApi({ dataDir: dir, env: { OPENCODE_API_KEY: "go-key" }, fetchImpl, concurrency: 1, log: () => {} })).translated, 0);
 });
 
 test("opencode provider: malformed JSON and broken entity tags are dropped, the run still succeeds", async () => {
   const dir = await tempData([ITEM_NL]);
   const malformed = fakeFetch("{ this is not json");
-  const bad = await runApi({ dataDir: dir, env: { OPENCODE_API_KEY: "k" }, fetchImpl: malformed, sleep: async () => {}, log: () => {} });
+  const bad = await runApi({ dataDir: dir, env: { DEEPSEEK_API_KEY: "k" }, fetchImpl: malformed, sleep: async () => {}, log: () => {} });
   assert.equal(bad.translated, 0);
   assert.equal(bad.dropped, 1);
   assert.equal(bad.remaining, 1);
 
   const tagBreaker = fakeFetch((items) => JSON.stringify({ items: items.map((item) => ({ id: item.id, title: "Cabinet falls", lead: "The House backed a motion." })) }));
-  const broken = await runApi({ dataDir: dir, env: { OPENCODE_API_KEY: "k" }, fetchImpl: tagBreaker, log: () => {} });
+  const broken = await runApi({ dataDir: dir, env: { DEEPSEEK_API_KEY: "k" }, fetchImpl: tagBreaker, log: () => {} });
   assert.equal(broken.translated, 0);
   assert.equal(broken.dropped, 1);
   const saved = JSON.parse(await readFile(join(dir, "news-translations.json"), "utf8"));
   assert.deepEqual(saved, []);
+});
+
+test("--replace ENGINE translates current records of that engine again and keeps the others", async () => {
+  const deepseek = { id: ITEM_NL.id, language: "en", sourceLanguage: "nl", title: "Cabinet falls", lead: GOOD_NL_LEAD, sourceHash: translationSourceHash(ITEM_NL.title, ITEM_NL.summaryMarkup), engine: "deepseek-v4.1-flash", method: "opencode-zen", translated: "2026-09-24" };
+  const claude = { id: ITEM_EN.id, language: "nl", sourceLanguage: "en", title: "Nederlands kabinet valt", lead: null, sourceHash: translationSourceHash(ITEM_EN.title, ITEM_EN.summaryMarkup), engine: "claude-opus-5-5", method: "claude-code-session", translated: "2026-09-23" };
+  const news = [ITEM_NL, ITEM_EN];
+  assert.equal(pendingTasks(news, [deepseek, claude], { replaceEngine: "deepseek-v4.1-flash" }).length, 1);
+  assert.equal(pendingTasks(news, [deepseek, claude]).length, 0);
+  const dir = await tempData(news, [deepseek, claude]);
+  const fetchImpl = fakeMessages(TRANSLATE_PAIR);
+  const result = await runApi({ dataDir: dir, env: { OPENCODE_API_KEY: "k" }, provider: "opencode", replaceEngine: "deepseek-v4.1-flash", fetchImpl, concurrency: 1, log: () => {} });
+  assert.equal(result.translated, 1);
+  const saved = JSON.parse(await readFile(join(dir, "news-translations.json"), "utf8"));
+  assert.deepEqual(saved.map((r) => [r.id, r.language, r.engine, r.method]), [
+    [ITEM_NL.id, "en", "claude-haiku-5-5", "opencode-zen"],
+    [ITEM_EN.id, "nl", "claude-opus-5-5", "claude-code-session"],
+  ]);
 });
 
 test("deepseek provider retries 429 and 503 with backoff", async () => {
@@ -407,7 +457,7 @@ test("an empty reply is retried once, then the item is dropped", async () => {
     calls += 1;
     return { ok: true, status: 200, json: async () => ({ choices: [{ finish_reason: "stop", message: { content: "", reasoning_content: "..." } }] }) };
   };
-  const result = await runApi({ dataDir: dir, env: { OPENCODE_API_KEY: "k" }, fetchImpl, sleep: async () => {}, log: () => {} });
+  const result = await runApi({ dataDir: dir, env: { DEEPSEEK_API_KEY: "k" }, fetchImpl, sleep: async () => {}, log: () => {} });
   assert.equal(calls, 2);
   assert.equal(result.translated, 0);
   assert.equal(result.dropped, 1);

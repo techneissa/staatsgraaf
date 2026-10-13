@@ -82,8 +82,8 @@ jobs:
 
       # Machine translation of new or changed news items (ADR 0016). The result lands
       # in data/ and is committed below; the Actions cache only seeds the next run
-      # with items that were translated but not yet committed. Provider: OpenCode Zen
-      # (OPENCODE_API_KEY, DeepSeek), else DeepSeek direct (DEEPSEEK_API_KEY), else
+      # with items that were translated but not yet committed. Provider: OpenCode
+      # (OPENCODE_API_KEY, Claude Haiku 5.5 on the pay-as-you-go endpoint), else DeepSeek direct (DEEPSEEK_API_KEY), else
       # Anthropic (ANTHROPIC_API_KEY); vars.TRANSLATE_PROVIDER and vars.TRANSLATE_MODEL
       # override. Without any key the step logs the backlog and exits 0; a translation
       # failure never fails the run.
