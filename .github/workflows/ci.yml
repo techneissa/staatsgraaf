@@ -49,6 +49,11 @@ jobs:
       - name: Validate research
         run: bun run research:check
 
+      # The root packages (the Anthropic SDK that pipelines/translate.mjs imports) are
+      # not installed by the web step below.
+      - name: Install root dependencies
+        run: bun install --frozen-lockfile
+
       - name: Run tests
         run: bun test pipelines web/lib
 
