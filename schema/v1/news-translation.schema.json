@@ -52,12 +52,12 @@
         "engine": {
           "type": "string",
           "minLength": 1,
-          "description": "Model that wrote the translation, for example claude-opus-5-5, deepseek-v4.1-flash or claude-haiku-4-5."
+          "description": "Model that wrote the translation, for example claude-opus-5-5, claude-haiku-5-5, deepseek-v4.1-flash or claude-haiku-4-5."
         },
         "method": {
           "type": "string",
-          "enum": ["claude-code-session", "opencode-zen", "deepseek-api", "anthropic-api"],
-          "description": "How the translation was produced: in a reviewed Claude Code session, or by the pipeline through OpenCode Zen, the DeepSeek API or the Anthropic Messages API."
+          "enum": ["claude-code-session", "opencode-zen", "opencode-go", "deepseek-api", "anthropic-api"],
+          "description": "How the translation was produced: in a reviewed Claude Code session, or by the pipeline through OpenCode (pay-as-you-go or Go subscription), the DeepSeek API or the Anthropic Messages API."
         },
         "translated": {
           "$ref": "common.schema.json#/$defs/isoDate"

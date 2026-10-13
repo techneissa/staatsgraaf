@@ -20,11 +20,16 @@
  *                              without writing anything; exit 1 on a problem
  *   prune                      drop records whose news item left news.json
  *   api [--max N] [--provider P] [--model M] [--batch B] [--cache FILE]
+ *                              [--replace ENGINE]
  *                              translate missing or stale items through a
  *                              provider: opencode (OPENCODE_API_KEY, OpenCode
- *                              Zen, default deepseek-v4.1-flash), deepseek
+ *                              pay-as-you-go, default claude-haiku-5-5),
+ *                              opencode-go (the same key on the OpenCode Go
+ *                              subscription, only by name), deepseek
  *                              (DEEPSEEK_API_KEY, default deepseek-flash) or
  *                              anthropic (ANTHROPIC_API_KEY, claude-haiku-4-5);
+ *                              --replace ENGINE also translates again the current
+ *                              records made by ENGINE (e.g. deepseek-v4.1-flash);
  *                              TRANSLATE_PROVIDER picks one, else the first key
  *                              set in that order; TRANSLATE_MODEL overrides; B items per request (default 8), at most N
  *                              per run (default 400). With --cache the records
@@ -51,6 +56,7 @@
  */
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
+import { randomUUID } from "node:crypto";
 import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -74,18 +80,31 @@ export const DEFAULT_API_MODEL = "claude-haiku-4-5";
 /**
  * Translation providers, in auto-selection order: the first whose key is set
  * wins unless TRANSLATE_PROVIDER names one. Model ids and endpoints verified by
- * the orchestrator on 24-09-2026 against https://opencode.ai/docs/zen/ and
- * https://api-docs.deepseek.com/quick_start/pricing. Only public news
- * headlines and leads are sent.
+ * the orchestrator on 13-10-2026 against https://opencode.ai/v2/docs/console/models
+ * and https://opencode.ai/v2/docs/console/go (Anthropic Messages endpoints, effort
+ * medium), and on 24-09-2026 against https://api-docs.deepseek.com/quick_start/pricing.
+ * Both OpenCode endpoints take the same key; the Go endpoint also needs a session
+ * id header. Only public news headlines and leads are sent.
  */
 export const PROVIDERS = Object.freeze({
   opencode: Object.freeze({
     name: "opencode",
     keyEnv: "OPENCODE_API_KEY",
     method: "opencode-zen",
-    defaultModel: "deepseek-v4.1-flash",
-    url: "https://opencode.ai/zen/v1/chat/completions",
-    kind: "openai",
+    defaultModel: "claude-haiku-5-5",
+    baseUrl: "https://opencode.ai/inference",
+    kind: "anthropic",
+    effort: "medium",
+  }),
+  "opencode-go": Object.freeze({
+    name: "opencode-go",
+    keyEnv: "OPENCODE_API_KEY",
+    method: "opencode-go",
+    defaultModel: "claude-haiku-5-5",
+    baseUrl: "https://opencode.ai/inference/go",
+    kind: "anthropic",
+    effort: "medium",
+    sessionHeader: true,
   }),
   deepseek: Object.freeze({
     name: "deepseek",
@@ -179,10 +198,14 @@ export function translationState(news, records) {
   return { current, stale, missing, orphans };
 }
 
-/** The items that still need a translation, newest first. */
-export function pendingTasks(news, records) {
-  const { stale, missing } = translationState(news, records);
-  return [...missing, ...stale].sort(
+/**
+ * The items that still need a translation, newest first. With replaceEngine the
+ * current records made by that engine count as pending too.
+ */
+export function pendingTasks(news, records, { replaceEngine = null } = {}) {
+  const { current, stale, missing } = translationState(news, records);
+  const replaced = new Set(records.filter((record) => replaceEngine && record.engine === replaceEngine).map(keyOf));
+  return [...missing, ...stale, ...current.filter((task) => replaced.has(keyOf(task)))].sort(
     (a, b) => (b.published ?? "").localeCompare(a.published ?? "") || a.id.localeCompare(b.id),
   );
 }
@@ -443,12 +466,30 @@ export const NEWS_FORMAT = Object.freeze({
   maxTokens: (tasks) => maxTokensFor(tasks),
 });
 
+/**
+ * The Anthropic SDK pointed at the provider. The OpenCode Go endpoint asks for a
+ * session id per conversation and a client user agent; one id per run is enough.
+ */
+async function anthropicClient(provider, fetchImpl = globalThis.fetch) {
+  const { default: Anthropic } = await import("@anthropic-ai/sdk");
+  return new Anthropic({
+    apiKey: provider.key,
+    ...(provider.baseUrl ? { baseURL: provider.baseUrl } : {}),
+    ...(provider.sessionHeader
+      ? { defaultHeaders: { "user-agent": "staatsgraaf-translate/1.0", "x-opencode-session": randomUUID() } }
+      : {}),
+    fetch: fetchImpl,
+    // The SDK retries 408/409/429/5xx itself; translateBatch adds a slower outer backoff.
+    maxRetries: 2,
+  });
+}
+
 async function requestAnthropic(client, provider, tasks, format = NEWS_FORMAT) {
   const response = await client.messages.create({
     model: provider.model,
     max_tokens: 16000,
     system: format.system,
-    output_config: { format: { type: "json_schema", schema: format.schema } },
+    output_config: { format: { type: "json_schema", schema: format.schema }, ...(provider.effort ? { effort: provider.effort } : {}) },
     messages: [{ role: "user", content: format.prompt(tasks) }],
   });
   if (response.stop_reason === "refusal") throw permanent("refused");
@@ -608,6 +649,7 @@ async function runNewsApi({
   env = process.env,
   provider: providerName = null,
   model = null,
+  replaceEngine = null,
   client = null,
   fetchImpl = globalThis.fetch,
   cacheFile = null,
@@ -630,7 +672,7 @@ async function runNewsApi({
     await mkdir(dirname(cacheFile), { recursive: true });
     await writeFile(cacheFile, `${JSON.stringify(sortTranslations(list), null, 2)}\n`, "utf8");
   };
-  const pending = pendingTasks(news, records);
+  const pending = pendingTasks(news, records, { replaceEngine });
   // An injected client (tests) stands for the Anthropic provider.
   const provider = client
     ? { ...PROVIDERS.anthropic, key: "injected", model: model || env.TRANSLATE_MODEL || PROVIDERS.anthropic.defaultModel }
@@ -642,11 +684,7 @@ async function runNewsApi({
     await saveCache(records);
     return { translated: 0, dropped: 0, remaining: pending.length, requests: 0, provider: null };
   }
-  if (provider.kind === "anthropic" && !client) {
-    const { default: Anthropic } = await import("@anthropic-ai/sdk");
-    // The SDK retries 408/409/429/5xx itself; translateBatch adds a slower outer backoff.
-    client = new Anthropic({ apiKey: provider.key, maxRetries: 2 });
-  }
+  if (provider.kind === "anthropic" && !client) client = await anthropicClient(provider, fetchImpl);
   log(`Translating with ${provider.name} (${provider.model}), ${pending.length} item(s) pending, cap ${max}.`);
   const tasks = pending.slice(0, max);
   const chunks = chunkTasks(tasks, Math.max(1, batchSize));
@@ -1041,10 +1079,7 @@ export async function runDescriptionApi({
     await saveCache(records);
     return { translated: 0, dropped: 0, remaining: pending.length, requests: 0, provider: null };
   }
-  if (provider.kind === "anthropic" && !client) {
-    const { default: Anthropic } = await import("@anthropic-ai/sdk");
-    client = new Anthropic({ apiKey: provider.key, maxRetries: 2 });
-  }
+  if (provider.kind === "anthropic" && !client) client = await anthropicClient(provider);
   const chunks = [];
   const tasks = pending.slice(0, descriptionMax);
   for (let start = 0; start < tasks.length; start += Math.max(1, descriptionBatchSize)) {
@@ -1124,6 +1159,7 @@ function parseArgs(argv) {
     else if (arg === "--data") options.dataDir = rest[(i += 1)];
     else if (arg === "--cache") options.cacheFile = rest[(i += 1)];
     else if (arg === "--provider") options.provider = rest[(i += 1)];
+    else if (arg === "--replace") options.replaceEngine = rest[(i += 1)];
     else if (arg === "--batch") options.batchSize = Number(rest[(i += 1)]);
     else if (arg === "--description-max") options.descriptionMax = Number(rest[(i += 1)]);
     else options.files.push(arg);
@@ -1186,7 +1222,7 @@ async function main() {
     case "api":
       // Translation never fails the build: an untranslated item shows in its own language.
       try {
-        await runApi(defined({ dataDir, max: options.max, model: options.model, provider: options.provider, cacheFile: options.cacheFile, batchSize: options.batchSize, descriptionMax: options.descriptionMax }));
+        await runApi(defined({ dataDir, max: options.max, model: options.model, provider: options.provider, replaceEngine: options.replaceEngine, cacheFile: options.cacheFile, batchSize: options.batchSize, descriptionMax: options.descriptionMax }));
       } catch (error) {
         console.error(`translate api: ${error.message}; continuing without new translations.`);
       }

@@ -108,8 +108,8 @@ export default function MethodPage() {
           </p>
           <p id="machinevertaling" className="scroll-mt-4">
             <L
-              nl="Nieuwskoppen en inleidingen worden automatisch vertaald met een taalmodel. Een vertaling voegt niets toe, namen blijven Nederlands en het origineel is altijd één klik weg. Vertaalde berichten zijn als zodanig gemarkeerd."
-              en="News headlines and leads are translated automatically by a language model. A translation adds nothing, names stay in Dutch and the original is always one click away. Translated items are marked as such."
+              nl="Nieuwskoppen en inleidingen worden automatisch vertaald met AI. Een vertaling voegt niets toe, namen blijven Nederlands en het origineel is altijd één klik weg. Vertaalde berichten zijn als zodanig gemarkeerd."
+              en="News headlines and leads are translated automatically with AI. A translation adds nothing, names stay in Dutch and the original is always one click away. Translated items are marked as such."
             />
           </p>
         </Section>

@@ -20,7 +20,7 @@
           "description": "First 12 hex characters of sha256(description), UTF-8, at translation time."
         },
         "engine": { "type": "string", "minLength": 1 },
-        "method": { "type": "string", "enum": ["claude-code-session", "opencode-zen", "deepseek-api", "anthropic-api"] },
+        "method": { "type": "string", "enum": ["claude-code-session", "opencode-zen", "opencode-go", "deepseek-api", "anthropic-api"] },
         "translated": { "$ref": "common.schema.json#/$defs/isoDate" }
       }
     }
