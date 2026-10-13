@@ -99,6 +99,8 @@ export type PanelOrg = {
   /** English machine translation of the description, when current (ADR 0016). */
   descriptionEn?: string | null;
   website: string | null;
+  /** Coat of arms (local) or official logo (loaded from the body's site) for the header mark (ADR 0029). */
+  emblem?: { url: string; kind: "arms" | "logo" } | null;
   parent: PanelRef | null;
   holders: PanelHolder[];
   holderCount: number;

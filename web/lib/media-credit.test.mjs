@@ -150,3 +150,14 @@ test("organizationEmblem prefers the licensed arms, then the embedded logo, and 
   const arms = organizationEmblem({ ...withArms, logoEmbed: { url: "https://x.nl/l.svg", page: "https://x.nl/", retrieved: "2026-10-13", linkOnly: false } });
   assert.equal(arms.kind, "arms");
 });
+
+test("a body without an emblem of its own shows its parent's, named as the parent's", () => {
+  const { organizations } = getDataset();
+  const byId = new Map(organizations.map((organization) => [organization.id, organization]));
+  const child = organizations.find((organization) => organization.subtype === "gemeenteraad" && byId.get(organization.parent)?.images?.length);
+  const emblem = organizationEmblem(child);
+  const parent = byId.get(child.parent);
+  assert.equal(emblem.kind, "arms");
+  assert.equal(emblem.image.name, parent.name);
+  assert.ok(emblem.info.credit.startsWith(`Wapen van ${parent.name}: `), emblem.info.credit);
+});

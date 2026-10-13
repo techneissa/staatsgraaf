@@ -1,15 +1,24 @@
 "use client";
 
+import { useState } from "react";
 import { Avatar } from "@/components/avatar";
 import { KindGlyph } from "@/components/kind-glyph";
 import { useDict } from "@/components/i18n/use-t";
 import { useSelection } from "@/components/selection/selection-provider";
 import { useSelectionView, type SelectionMeta } from "./use-selection-view";
 
-/** The mark of a pick: a portrait for a person, otherwise a shape in its colour. */
+/**
+ * The mark of a pick: a portrait for a person, the coat of arms or official
+ * logo of an organisation (ADR 0029), otherwise a shape in its colour.
+ */
 export function SelectionMark({ meta, size }: { meta: SelectionMeta; size: number }) {
   if (meta.mark === "person") {
     return <Avatar name={meta.name} url={meta.portrait} color={meta.color.startsWith("#") ? meta.color : null} size={size} />;
+  }
+  if (meta.mark === "org" && meta.portrait) {
+    return (
+      <OrgEmblemMark url={meta.portrait} logo={meta.emblemKind === "logo"} size={size} fallback={<SelectionMark meta={{ ...meta, portrait: null }} size={size} />} />
+    );
   }
   const tint = { backgroundColor: `color-mix(in oklab, ${meta.color} 16%, transparent)`, borderColor: `color-mix(in oklab, ${meta.color} 50%, transparent)` };
   let inner;
@@ -55,6 +64,32 @@ export function SelectionMark({ meta, size }: { meta: SelectionMeta; size: numbe
       style={{ width: size, height: size, ...tint }}
     >
       {inner}
+    </span>
+  );
+}
+
+/**
+ * A coat of arms as it is, or an official logo on a white plate (logos are
+ * drawn for a white page) loaded without a referrer. Decorative: the name is
+ * next to it. When the image fails, the plain mark comes back.
+ */
+function OrgEmblemMark({ url, logo, size, fallback }: { url: string; logo: boolean; size: number; fallback: React.ReactNode }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) return <>{fallback}</>;
+  return (
+    <span
+      aria-hidden="true"
+      className={`inline-flex shrink-0 items-center justify-center overflow-hidden ${logo ? "rounded-md bg-white p-1" : ""}`}
+      style={{ width: logo ? Math.round(size * 1.6) : size, height: size }}
+    >
+      <img
+        src={url}
+        alt=""
+        decoding="async"
+        referrerPolicy={logo ? "no-referrer" : undefined}
+        onError={() => setFailed(true)}
+        className="max-h-full max-w-full object-contain"
+      />
     </span>
   );
 }

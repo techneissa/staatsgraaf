@@ -25,6 +25,8 @@ export type SelectionMeta = {
   color: string;
   mark: "org" | "person" | "cluster" | "fractie" | "sector" | "news" | "topic";
   portrait: string | null;
+  /** For an organisation: what `portrait` holds, a coat of arms or an official logo (ADR 0029). */
+  emblemKind?: "arms" | "logo" | null;
   /** Short text inside the mark, for a fractie. */
   markText: string | null;
 };
@@ -105,7 +107,8 @@ function useDescribe() {
           href: org?.href ?? (node ? `/organisaties/${node.slug}/` : null),
           color: branch ? branchColorVar(branch) : "var(--kind-organization)",
           mark: "org",
-          portrait: null,
+          portrait: org?.emblem?.url ?? null,
+          emblemKind: org?.emblem?.kind ?? null,
           markText: null,
         };
       }
