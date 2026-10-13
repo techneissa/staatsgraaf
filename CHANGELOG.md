@@ -4,6 +4,18 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Added (13-10-2026, logos round 2)
+
+- 147 more bodies show their official logo, loaded from their own website (ADR 0029, amendment 2): zbo's such as the AFM, the KvK, the RDW, the SVB and Staatsbosbeheer, the GGD's, omgevingsdiensten and veiligheidsregio's, the Politie, the VNG, seven waterschappen, Cito, the NTR, Het Juridisch Loket, Halt, and the regeringen of Curaçao and Aruba. 1,186 of the 1,644 organisation pages now show an emblem.
+- The ministries of Aruba and Curaçao show the logo of their regering, named as such.
+- Named gaps stay: the rijksoverheid ministries, agentschappen and inspecties (only the shared rijkslogo), the courts (only the shared Rechtspraak logo, copyright reserved), inline SVG logos, categories of bodies and bodies without a site. 21 found images were left out: 13 do not load from another site, 7 are white logos for a dark header, and one is the bare rijkslogo. The register is `research/qa/logos-13-10-2026.md`.
+- The CSP `img-src` allows any https image; the news image hosts stay listed for the news pipeline (ADR 0029, amendment 2).
+
+### Fixed (13-10-2026, graph and panels)
+
+- The name that appears when hovering a body in the graph wraps onto two lines instead of being cut off.
+- A logo that failed to load no longer hides the logo of every body picked after it in the side panel (the Tweede Kamer sometimes showed only its colour mark).
+
 ### Changed (13-10-2026, organisations index, second redesign)
 
 - The organisations index opens with an overview of the state: one tile per group in the colour of its sector in the graph, with an icon, its number of bodies and one line on what it is, arranged as national, decentral, and at arm's length with the Kingdom. A tile jumps to its group.
