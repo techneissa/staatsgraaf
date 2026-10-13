@@ -40,7 +40,7 @@ const LINK = "text-accent-text underline underline-offset-2 hover:no-underline f
  * and a tap open it; Escape and a press outside close it again. The hit area
  * grows to 44 px on touch without moving the layout.
  */
-export function CreditPopover({ info, kind = "photo" }: { info: MediaCreditInfo; kind?: "photo" | "emblem" }) {
+export function CreditPopover({ info, kind = "photo" }: { info: MediaCreditInfo; kind?: "photo" | "emblem" | "logo" }) {
   const t = useT("entity");
   const locale = useLocale();
   const ref = useRef<HTMLDetailsElement>(null);
@@ -63,11 +63,16 @@ export function CreditPopover({ info, kind = "photo" }: { info: MediaCreditInfo;
     };
   }, []);
   const credit = localizeMediaCredit(info.credit, locale);
-  const license = info.license === "publiek-domein" ? t("creditPublicDomain") : info.licenseLabel;
+  const LICENSE_KEYS: Record<string, string> = {
+    "publiek-domein": "creditPublicDomain",
+    "logo-embed": "logoEmbedLicense",
+    "logo-voorbehouden": "logoReservedLicense",
+  };
+  const license = LICENSE_KEYS[info.license] !== undefined ? t(LICENSE_KEYS[info.license]) : info.licenseLabel;
   return (
     <details ref={ref} className="group relative inline-block">
       <summary
-        aria-label={t(kind === "emblem" ? "emblemCreditButton" : "creditButton", { credit })}
+        aria-label={t(kind === "emblem" ? "emblemCreditButton" : kind === "logo" ? "logoCreditButton" : "creditButton", { credit })}
         title={credit}
         className="relative flex h-5 w-5 cursor-pointer list-none items-center justify-center rounded-pill text-[11px] text-ink-faint transition-fast hover:text-ink pointer-coarse:after:absolute pointer-coarse:after:-inset-3 pointer-coarse:after:content-[''] [&::-webkit-details-marker]:hidden"
       >
@@ -77,7 +82,7 @@ export function CreditPopover({ info, kind = "photo" }: { info: MediaCreditInfo;
         </svg>
       </summary>
       <div className="absolute left-0 top-6 z-20 w-56 max-w-[calc(100vw-6rem)] rounded-md border border-line bg-surface p-2.5 text-[11px] leading-snug text-ink-muted shadow-lg">
-        <p className="mb-1.5 font-semibold text-ink">{t(kind === "emblem" ? "emblemCreditHeading" : "creditHeading")}</p>
+        <p className="mb-1.5 font-semibold text-ink">{t(kind === "emblem" ? "emblemCreditHeading" : kind === "logo" ? "logoCreditHeading" : "creditHeading")}</p>
         <dl className="grid grid-cols-[auto_minmax(0,1fr)] gap-x-2 gap-y-1">
           <dt className="text-ink-faint">{t("creditAuthor")}</dt>
           <dd className="break-words">{info.author ?? t("creditAuthorUnknown")}</dd>

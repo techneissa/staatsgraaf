@@ -4,6 +4,12 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Added (13-10-2026, embedded official logos)
+
+- 28 national bodies without a licensed emblem show their official logo, loaded from their own website and never copied (ADR 0029, amendment 1): among them the Tweede Kamer, the Algemene Rekenkamer, the Kiesraad, the Openbaar Ministerie, the Belastingdienst and the Nationale ombudsman. The (i) says no licence is claimed and links the page the logo comes from. The 18 Rechtspraak courts get a link only (copyright reserved, Staatscourant 2024, 5153).
+- New field `logoEmbed` on organisations (schema, `docs/04-data-model.md` section 3); the embed hosts are in the `img-src` of `web/public/_headers`, checked by `web/lib/csp.test.mjs`.
+- Organisation pages on phones: the name is a size smaller and the emblem sits in the credit line under it, so long names keep whole words.
+
 ### Changed (13-10-2026, news cards)
 
 - The date and the translation toggle of a news card sit at the right edge of the card, under the thumbnail, instead of in the text column.

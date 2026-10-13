@@ -136,6 +136,8 @@ export function formatCountIn(value: number, locale: FormatLocale): string {
 const CREDIT_PHRASES_EN: Array<[RegExp, string]> = [
   [/^Foto: /, "Photo: "],
   [/^Wapen: /, "Coat of arms: "],
+  [/^Logo: getoond vanaf /, "Logo: shown from "],
+  [/^Logo: auteursrecht voorbehouden, te zien op /, "Logo: copyright reserved, see "],
   [/, via het Open Data Portaal van de Tweede Kamer/, ", via the Open Data Portal of the Tweede Kamer"],
   [/, publiek-domein,/, ", public domain,"],
   [/auteur niet vermeld/, "author not stated"],

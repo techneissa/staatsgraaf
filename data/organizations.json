@@ -37,7 +37,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://www.adviesraadinternationalevraagstukken.nl/themes/adviesraadinternationalevraagstukken/header-logo.svg",
+      "page": "https://www.adviesraadinternationalevraagstukken.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:adviesraad-migratie",
@@ -85,7 +91,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://www.adviesraadmigratie.nl/themes/adviesraadmigratie/header-logo.svg",
+      "page": "https://www.adviesraadmigratie.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:adviesraad-voor-wetenschap-technologie-en-innovatie",
@@ -130,7 +142,13 @@
         "retrieved": "2026-09-18",
         "confidence": "medium"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://www.awti.nl/themes/awti/header-logo.svg",
+      "page": "https://www.awti.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:afdeling-bestuursrechtspraak-raad-van-state",
@@ -1300,7 +1318,13 @@
         "retrieved": "2026-09-18",
         "confidence": "medium"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://www.rekenkamer.nl/themes/rekenkamer/header-logo.svg",
+      "page": "https://www.rekenkamer.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:auditdienst-rijk",
@@ -1400,6 +1424,12 @@
     "legalSource": {
       "label": "Ambtenarenwet 2017 art. 1",
       "url": "https://wetten.overheid.nl/BWBR0001947#Paragraaf1_Artikel1"
+    },
+    "logoEmbed": {
+      "url": "https://www.belastingdienst.nl/bld-assets/bld/rhslogos/bld_logo.svg",
+      "page": "https://www.belastingdienst.nl/wps/wcm/connect/nl/home/home",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
     }
   },
   {
@@ -1674,7 +1704,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/centrale-raad-van-beroep",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:cibg",
@@ -1769,7 +1805,13 @@
         "retrieved": "2026-09-25",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://www.cft.cw/wp-content/uploads/2024/05/logo-cft-2024.png",
+      "page": "https://www.cft.cw/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:college-van-beroep-voor-het-bedrijfsleven",
@@ -1812,7 +1854,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/college-van-beroep-voor-het-bedrijfsleven",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:college-van-bw-aa-en-hunze",
@@ -18579,6 +18627,12 @@
     "legalSource": {
       "label": "Regeling agentschappen 2024",
       "url": "https://wetten.overheid.nl/BWBR0050264"
+    },
+    "logoEmbed": {
+      "url": "https://www.huurcommissie.nl/themes/huurcommissie/header-logo.svg",
+      "page": "https://www.huurcommissie.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
     }
   },
   {
@@ -18613,7 +18667,13 @@
         "retrieved": "2026-09-17",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://www.koninklijkhuis.nl/themes/koninklijkhuis/header-logo.svg",
+      "page": "https://www.koninklijkhuis.nl/onderwerpen/organisatie/dienst-koninklijk-huis",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:directoraat-generaal-algemene-inlichtingen-en-veiligheidsdienst",
@@ -18761,6 +18821,12 @@
     "legalSource": {
       "label": "Ambtenarenwet 2017 art. 1",
       "url": "https://wetten.overheid.nl/BWBR0001947#Paragraaf1_Artikel1"
+    },
+    "logoEmbed": {
+      "url": "https://www.douane.nl/wp-content/themes/webthema/assets/themes/rijksoverheid/logos/logo_douane_nl.svg?v=7.9.3",
+      "page": "https://www.douane.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
     }
   },
   {
@@ -53201,7 +53267,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven/gerechtshof-amsterdam",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:gerechtshof-arnhem-leeuwarden",
@@ -53243,7 +53315,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven/gerechtshof-arnhem-leeuwarden",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:gerechtshof-den-haag",
@@ -53285,7 +53363,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven/gerechtshof-den-haag",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:gerechtshof-s-hertogenbosch",
@@ -53327,7 +53411,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/gerechtshoven/gerechtshof-s-hertogenbosch",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:gezondheidsraad",
@@ -53366,7 +53456,13 @@
         "retrieved": "2026-09-18",
         "confidence": "medium"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://www.gezondheidsraad.nl/themes/gezondheidsraad/header-logo.svg",
+      "page": "https://www.gezondheidsraad.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:ggd-brabant-zuidoost",
@@ -53648,6 +53744,12 @@
     "legalSource": {
       "label": "Regeling agentschappen 2024",
       "url": "https://wetten.overheid.nl/BWBR0050264"
+    },
+    "logoEmbed": {
+      "url": "https://ind.nl/themes/custom/ind/logo.svg",
+      "page": "https://ind.nl/nl",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
     }
   },
   {
@@ -54597,7 +54699,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://www.kiesraad.nl/themes/kiesraad/header-logo.svg",
+      "page": "https://www.kiesraad.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:koninklijk-nederlands-meteorologisch-instituut",
@@ -54655,6 +54763,12 @@
     "legalSource": {
       "label": "Regeling agentschappen 2024",
       "url": "https://wetten.overheid.nl/BWBR0050264"
+    },
+    "logoEmbed": {
+      "url": "https://www.knmi.nl/assets/logo_large-1eaabc639fd87bd3867e4e1e3358711968aad57ca90d766ecdd62f93930abf3b.png",
+      "page": "https://www.knmi.nl/home",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
     }
   },
   {
@@ -56541,6 +56655,12 @@
     "legalSource": {
       "label": "Regeling agentschappen 2024",
       "url": "https://wetten.overheid.nl/BWBR0050264"
+    },
+    "logoEmbed": {
+      "url": "https://www.nationaalarchief.nl/themes/custom/natarch/images/logos/logo.svg",
+      "page": "https://www.nationaalarchief.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
     }
   },
   {
@@ -56683,7 +56803,13 @@
         "retrieved": "2026-09-18",
         "confidence": "medium"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://www.nationaleombudsman.nl/uploads/2023-05/logo.nooptim.svg",
+      "page": "https://www.nationaleombudsman.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:nationale-opvang-organisatie",
@@ -57942,7 +58068,13 @@
         "retrieved": "2026-09-18",
         "confidence": "medium"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://www.onderwijsraad.nl/themes/onderwijsraad/header-logo.svg",
+      "page": "https://www.onderwijsraad.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:openbaar-lichaam-bonaire",
@@ -58122,7 +58254,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://www.om.nl/themes/om/header-logo.svg",
+      "page": "https://www.om.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:organisatie-en-personeel-rijk",
@@ -59723,7 +59861,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/raad-voor-de-rechtspraak",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:raad-voor-het-openbaar-bestuur",
@@ -59763,7 +59907,13 @@
         "retrieved": "2026-09-18",
         "confidence": "medium"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://www.raadopenbaarbestuur.nl/themes/raadopenbaarbestuur/header-logo.svg",
+      "page": "https://www.raadopenbaarbestuur.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:raad-voor-volksgezondheid-en-samenleving",
@@ -59803,7 +59953,13 @@
         "retrieved": "2026-09-18",
         "confidence": "medium"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://www.raadrvs.nl/themes/raadrvs/header-logo.svg",
+      "page": "https://www.raadrvs.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:rechtbank-amsterdam",
@@ -59845,7 +60001,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-amsterdam",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:rechtbank-den-haag",
@@ -59887,7 +60049,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-den-haag",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:rechtbank-gelderland",
@@ -59929,7 +60097,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-gelderland",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:rechtbank-limburg",
@@ -59971,7 +60145,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-limburg",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:rechtbank-midden-nederland",
@@ -60013,7 +60193,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-midden-nederland",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:rechtbank-noord-holland",
@@ -60055,7 +60241,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-noord-holland",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:rechtbank-noord-nederland",
@@ -60097,7 +60289,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-noord-nederland",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:rechtbank-oost-brabant",
@@ -60139,7 +60337,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-oost-brabant",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:rechtbank-overijssel",
@@ -60181,7 +60385,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-overijssel",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:rechtbank-rotterdam",
@@ -60223,7 +60433,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-rotterdam",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:rechtbank-zeeland-west-brabant",
@@ -60265,7 +60481,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": null,
+      "page": "https://www.rechtspraak.nl/organisatie-en-contact/organisatie/rechtbanken/rechtbank-zeeland-west-brabant",
+      "retrieved": "2026-10-13",
+      "linkOnly": true
+    }
   },
   {
     "id": "org:regering",
@@ -60473,6 +60695,12 @@
     "legalSource": {
       "label": "Ambtenarenwet 2017 art. 1",
       "url": "https://wetten.overheid.nl/BWBR0001947#Paragraaf1_Artikel1"
+    },
+    "logoEmbed": {
+      "url": "https://www.rijksacademie.nl/wp-content/themes/webthema/assets/global/logos/logo_rijksacademie_nl.png",
+      "page": "https://www.rijksacademie.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
     }
   },
   {
@@ -61193,6 +61421,12 @@
     "legalSource": {
       "label": "Regeling agentschappen 2024",
       "url": "https://wetten.overheid.nl/BWBR0050264"
+    },
+    "logoEmbed": {
+      "url": "https://www.rijkswaterstaat.nl/static/img/logo-nl.svg",
+      "page": "https://www.rijkswaterstaat.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
     }
   },
   {
@@ -64376,6 +64610,12 @@
     "legalSource": {
       "label": "Ambtenarenwet 2017 art. 1",
       "url": "https://wetten.overheid.nl/BWBR0001947#Paragraaf1_Artikel1"
+    },
+    "logoEmbed": {
+      "url": "https://schadefonds.nl/wp-content/themes/schadefonds-v2/assets/img/logo_400_50.png",
+      "page": "https://schadefonds.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
     }
   },
   {
@@ -64422,7 +64662,13 @@
         "retrieved": "2026-09-18",
         "confidence": "medium"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://www.ser.nl/-/media/ser/images/ser/logo.png",
+      "page": "https://www.ser.nl/nl",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:sociaal-en-cultureel-planbureau",
@@ -64620,7 +64866,13 @@
         "retrieved": "2026-09-19",
         "confidence": "medium"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://cuatro.sim-cdn.nl/parlamentoaw/uploads/styles/logo/media/logo-staten-shoco.png?cb=UFOOXMHS",
+      "page": "https://www.parlamento.aw/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:staten-curacao",
@@ -64667,7 +64919,13 @@
         "retrieved": "2026-09-19",
         "confidence": "medium"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://cuatro.sim-cdn.nl/parlamento/uploads/styles/logo/media/logo-parlamento.jpg?cb=gY18eWmE",
+      "page": "https://www.parlamento.cw/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:staten-sint-maarten",
@@ -64714,7 +64972,13 @@
         "retrieved": "2026-09-19",
         "confidence": "medium"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://sxmparliament.org/wp-content/uploads/2020/07/lgo.png",
+      "page": "https://sxmparliament.org/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:tweede-kamer",
@@ -64766,7 +65030,13 @@
         "retrieved": "2026-09-17",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://www.tweedekamer.nl/themes/custom/tweedekamer/logo.svg",
+      "page": "https://www.tweedekamer.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:tweede-kamer-commissie-am",
@@ -68284,7 +68554,13 @@
         "retrieved": "2026-09-18",
         "confidence": "high"
       }
-    ]
+    ],
+    "logoEmbed": {
+      "url": "https://www.wrr.nl/themes/wrr/header-logo.svg",
+      "page": "https://www.wrr.nl/",
+      "retrieved": "2026-10-13",
+      "linkOnly": false
+    }
   },
   {
     "id": "org:zbo-aangemelde-instanties-ex-regeling-overige-pyrotechnische-artikelen",

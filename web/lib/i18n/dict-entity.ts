@@ -326,6 +326,17 @@ export const ENTITY_DICT = {
   emblemAlt: { nl: "Wapen van {name}", en: "Coat of arms of {name}" },
   emblemCreditButton: { nl: "Informatie over het wapen: {credit}", en: "Coat of arms information: {credit}" },
   emblemCreditHeading: { nl: "Informatie over het wapen", en: "Coat of arms information" },
+  logoAlt: { nl: "Logo van {name}", en: "Logo of {name}" },
+  logoCreditButton: { nl: "Informatie over het logo: {credit}", en: "Logo information: {credit}" },
+  logoCreditHeading: { nl: "Informatie over het logo", en: "Logo information" },
+  logoEmbedLicense: {
+    nl: "Geen licentie: geladen van de website van de organisatie, niet door Staatsgraaf opgeslagen",
+    en: "No licence: loaded from the organisation's website, not stored by Staatsgraaf",
+  },
+  logoReservedLicense: {
+    nl: "Auteursrecht voorbehouden door de organisatie; daarom niet getoond",
+    en: "Copyright reserved by the organisation, so not shown",
+  },
 
   // Index lists (people, organisations, positions, topics): search, counts, empty states
   idxSearchPeople: { nl: "Zoek personen", en: "Search people" },

@@ -53,12 +53,10 @@ import {
 } from "@/lib/data";
 import {
   getConnectionsForEntity,
-  getMediaItem,
   getMembersForOrganization,
   getTenuresForOrganization,
-  mediaCreditInfo,
   organizationAliases,
-  organizationImages,
+  organizationEmblem,
   organizationParentId,
   organizationPartOf,
 } from "@/lib/entity";
@@ -205,12 +203,7 @@ export default async function OrganizationPage({
   const description = descriptionFor(organization.id, organization.description);
   const legalSource = organization.legalSource ?? null;
   const website = organization.website ?? null;
-  // The first logo on record with a verified free licence (ADR 0029). The author
-  // stays "niet vermeld" when the file page names none, not the publisher.
-  const emblem = organizationImages(organization)
-    .map((id) => getMediaItem(id))
-    .find((item) => item !== null && item.type === "logo") ?? null;
-  const emblemInfo = emblem !== null ? { ...mediaCreditInfo(emblem), author: emblem.author ?? null } : null;
+  const emblem = organizationEmblem(organization);
   const seatsCount = organization.seatsCount ?? null;
   const plain = (value: string) => value.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
   const aliases = organizationAliases(organization).filter((alias) => plain(alias) !== plain(organization.name));
@@ -310,21 +303,15 @@ export default async function OrganizationPage({
 
       <header className="mt-4">
         <div className="flex min-w-0 items-start gap-3">
-          {emblem !== null ? (
-            <OrgEmblem name={organization.name} url={emblem.url} width={emblem.width} height={emblem.height} className="hidden sm:block" />
-          ) : null}
+          {emblem?.image ? <OrgEmblem {...emblem.image} className="hidden sm:block" /> : null}
           <h1 className="min-w-0 flex-1 text-2xl font-semibold sm:text-3xl tracking-tight text-ink text-balance break-words">
             {organization.name}
             <Gloss text={orgEnGloss(organization.name)} className="mt-1 block text-base font-normal tracking-normal text-ink-muted" />
           </h1>
           <ShareButton className="mt-1 shrink-0" title={organization.name} />
         </div>
-        {emblem !== null && emblemInfo !== null ? (
-          <OrgEmblemCredit
-            info={emblemInfo}
-            emblem={{ name: organization.name, url: emblem.url, width: emblem.width, height: emblem.height }}
-            className="mt-1.5"
-          />
+        {emblem !== null ? (
+          <OrgEmblemCredit info={emblem.info} emblem={emblem.image} kind={emblem.kind} className="mt-1.5" />
         ) : null}
         {summary !== null ? (
           <p className="mt-2 max-w-prose text-base leading-snug text-ink-muted">

@@ -97,7 +97,19 @@ export type Organization = {
   seatsCount: number | null;
   employeeCount?: EmployeeCount;
   images: string[];
+  /** The official logo on the body's own site, loaded from there; never copied (ADR 0029, amendment 1). */
+  logoEmbed?: LogoEmbed | null;
   sources: SourceRef[];
+};
+
+export type LogoEmbed = {
+  /** The image URL on the body's site; null when only the link is shown. */
+  url: string | null;
+  /** The page the logo appears on. */
+  page: string;
+  retrieved: string;
+  /** True when the body reserved copyright on its logo: no image, only the link. */
+  linkOnly: boolean;
 };
 
 export type FillMethod =
