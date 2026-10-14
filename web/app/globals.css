@@ -573,6 +573,24 @@
   }
 }
 
+/*
+ * Top-bar chrome. Menu, search, language, history and theme share one 32 px
+ * box (44 on touch via tap-target) so the icons and borders line up.
+ */
+@utility bar-control {
+  display: inline-flex;
+  height: 2rem;
+  min-width: 2rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--color-line);
+  color: var(--color-ink-muted);
+}
+
 /* The same, height only, for rows and text buttons that already span their width. */
 @utility tap-row {
   @media (pointer: coarse) {

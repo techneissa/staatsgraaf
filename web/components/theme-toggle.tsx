@@ -46,7 +46,7 @@ export function ThemeToggle() {
       aria-label={nextLabel}
       aria-pressed={isLight}
       title={nextLabel}
-      className="tap-target flex items-center justify-center rounded-sm border border-line p-2 text-ink-muted transition-fast hover:border-line-strong hover:text-ink"
+      className="bar-control tap-target transition-fast hover:border-line-strong hover:text-ink"
     >
       <Morph icon={isLight ? Sun : Moon} size={16} strokeWidth={1.8} still={!switched} />
     </button>

@@ -51,14 +51,14 @@ export function LanguageToggle() {
         onClick={() => setLocale(other)}
         aria-label={switchLabel}
         title={switchLabel}
-        className="tap-target flex items-center justify-center rounded-sm border border-line px-2 py-1.5 text-xs font-medium text-ink-muted transition-fast hover:border-line-strong hover:text-ink sm:hidden"
+        className="bar-control tap-target px-2 text-xs font-medium leading-none transition-fast hover:border-line-strong hover:text-ink sm:hidden"
       >
         {LOCALE_LABEL[other]}
       </button>
       <div
         role="group"
         aria-label={t("languageGroup")}
-        className="hidden items-center rounded-sm border border-line bg-surface-inset p-0.5 text-xs font-medium sm:flex"
+        className="bar-control tap-target relative hidden bg-surface-inset p-px text-xs font-medium sm:flex"
       >
         <SlidingIndicator className="rounded-sm bg-surface shadow-sm" />
         {LOCALES.map((code) => (
@@ -68,7 +68,7 @@ export function LanguageToggle() {
             lang={code}
             aria-pressed={locale === code}
             onClick={() => setLocale(code as Locale)}
-            className={`tap-target rounded-sm px-2 py-1 transition-fast ${
+            className={`relative z-10 h-full min-w-8 rounded-sm px-2.5 leading-none transition-fast pointer-coarse:min-w-11 ${
               locale === code ? "bg-surface text-ink shadow-sm" : "text-ink-muted hover:text-ink"
             }`}
           >

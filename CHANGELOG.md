@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Fixed (14-10-2026, top bar)
+
+- The top-bar controls (menu, language, search, history, theme) share one 32 px box and 16 px icons, so the row no longer mixes three icon sizes and four paddings.
+
 ### Changed (14-10-2026, news card)
 
 - News cards mark mentioned entities with an @ instead of the word "Mentioned", and stack the date over the time so the source line stays short.
