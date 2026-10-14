@@ -12,6 +12,10 @@ export type FactTile = {
   wide?: boolean;
   /** A short explanation of jargon, shown quietly under the value. */
   hint?: ReactNode;
+  /** Whole chip is a link (a count that jumps to a section). */
+  href?: string;
+  /** Left border in a branch or accent colour. */
+  accent?: string;
 };
 
 /**
@@ -45,6 +49,60 @@ export function FactTiles({ facts, className = "" }: { facts: FactTile[]; classN
             </dt>
             <dd className="text-sm leading-snug text-ink break-words">
               {fact.value}
+              {fact.hint ? <span className="mt-0.5 block text-[11px] leading-snug text-ink-faint">{fact.hint}</span> : null}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
+}
+
+/**
+ * The same facts as a dense chip row: icon, quiet label, value, wrapping as
+ * the column allows. Used on organisation headers where the old tiles left
+ * three sparse cards stacked with empty space.
+ */
+export function FactChips({ facts, className = "" }: { facts: FactTile[]; className?: string }) {
+  const t = useT("entity");
+  const visible = facts.filter((fact) => fact.value !== null && fact.value !== undefined && fact.value !== "");
+  if (visible.length === 0) return null;
+  return (
+    <div className={className}>
+      <dl aria-label={t("factsLabel")} className="flex flex-wrap gap-1.5">
+        {visible.map((fact) => (
+          <div
+            key={fact.key}
+            className={`relative inline-flex max-w-full min-w-0 items-center gap-2 rounded-md border bg-surface py-1.5 pl-1.5 pr-2.5 ${
+              fact.wide ? "basis-full sm:basis-auto sm:max-w-[min(100%,24rem)]" : ""
+            } ${fact.href ? "transition-fast hover:border-line-strong pointer-coarse:min-h-11" : ""}`}
+            style={{
+              borderColor: fact.accent ?? "var(--color-line)",
+              borderLeftWidth: fact.accent ? 3 : 1,
+            }}
+          >
+            <dt className="flex shrink-0 items-center gap-2 self-stretch">
+              <span
+                aria-hidden="true"
+                className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm bg-surface-raised text-ink-muted"
+              >
+                {fact.icon}
+              </span>
+              <span className="sr-only">{fact.label}</span>
+            </dt>
+            <dd className="min-w-0">
+              <span className="block text-[10px] leading-none text-ink-faint" aria-hidden="true">
+                {fact.label}
+              </span>
+              <span className="mt-0.5 block text-sm leading-snug text-ink break-words">
+                {fact.href ? (
+                  <a href={fact.href} className="font-medium text-accent-text after:absolute after:inset-0 hover:underline">
+                    {fact.value}
+                  </a>
+                ) : (
+                  fact.value
+                )}
+              </span>
               {fact.hint ? <span className="mt-0.5 block text-[11px] leading-snug text-ink-faint">{fact.hint}</span> : null}
             </dd>
           </div>

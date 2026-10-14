@@ -23,7 +23,7 @@ export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
         {items.map((item, index) => {
           const isLast = index === items.length - 1;
           return (
-            <li key={index} className="flex items-center gap-x-2">
+            <li key={index} className={`flex items-center gap-x-2 ${isLast ? "min-w-0" : ""}`}>
               {item.href !== undefined && !isLast ? (
                 <Link
                   href={item.href}
@@ -32,7 +32,10 @@ export function Breadcrumb({ items }: { items: BreadcrumbItem[] }) {
                   {item.label}
                 </Link>
               ) : (
-                <span aria-current={isLast ? "page" : undefined} className="tap-row inline-flex items-center">
+                <span
+                  aria-current={isLast ? "page" : undefined}
+                  className={isLast ? "min-w-0 truncate" : "tap-row inline-flex items-center"}
+                >
                   {item.label}
                 </span>
               )}

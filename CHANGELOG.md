@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (14-10-2026, organisation header)
+
+- Organisation pages put branch, level, child count and aliases in one compact chip row, with the branch colour on its chip. The people who lead it sit on one line with small portraits, instead of a stacked list. The breadcrumb no longer repeats the name already in the heading.
+
 ### Fixed (14-10-2026, top bar)
 
 - The top-bar controls (menu, language, search, history, theme) share one 32 px box and 16 px icons, so the row no longer mixes three icon sizes and four paddings.
