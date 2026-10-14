@@ -64,7 +64,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <SkipLink />
           <NavRecovery />
           <SelectionProvider>
-            <div className="flex min-h-dvh flex-col lg:h-dvh lg:min-h-0 lg:overflow-hidden">
+            {/* svh, not dvh: iOS dvh tracks the URL bar and reflows the page while you scroll. */}
+            <div className="flex min-h-svh flex-col lg:h-dvh lg:min-h-0 lg:overflow-hidden">
               <TopBar />
               {/* Three columns from lg (page, canvas, details), one stack below it;
                   the grid and the stored column choices live in Workspace. */}

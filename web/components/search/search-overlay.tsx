@@ -431,7 +431,7 @@ export function SearchOverlay() {
                     id={listboxId}
                     role="listbox"
                     aria-labelledby={labelId}
-                    className="max-h-[calc(100dvh-8rem-var(--safe-top))] overflow-y-auto overscroll-contain p-1 pb-[max(0.25rem,var(--safe-bottom))] sm:max-h-80 sm:pb-1"
+                    className="max-h-[calc(100svh-8rem-var(--safe-top))] overflow-y-auto overscroll-contain p-1 pb-[max(0.25rem,var(--safe-bottom))] sm:max-h-80 sm:pb-1"
                   >
                     {results.map((result, index) => {
                       const alias =

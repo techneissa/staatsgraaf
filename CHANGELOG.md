@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Fixed (14-10-2026, mobile scroll)
+
+- Scrolling a list on a phone no longer hitches as the Safari URL bar shows and hides. The shell and the graph band use the small viewport height, news cards no longer skip paint with a too-short size estimate, and sticky group headers drop the backdrop blur below the lg breakpoint.
+
 ### Fixed (14-10-2026, peek swap)
 
 - Clicking a second name while a peek is open keeps the overlay up and swaps the inner content. The card no longer closes and pops open again, and the bottom sheet no longer slides up from the edge. Tapping the same name still closes.

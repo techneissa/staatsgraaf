@@ -278,7 +278,7 @@ export function CanvasFrame() {
       className={`flex min-w-0 flex-col [--canvas-bottom:0px] lg:[--canvas-bottom:var(--safe-bottom)] border-b border-line bg-surface-inset lg:col-start-2 lg:row-start-1 lg:h-auto lg:min-h-0 lg:border-b-0 lg:border-s lg:border-t-0 ${
         expanded
           ? "fixed inset-0 z-40 h-dvh border-b-0 [--canvas-bottom:var(--safe-bottom)] lg:border-s-0"
-          : "h-[max(19rem,50dvh)] sm:h-[max(24rem,56dvh)]"
+          : "h-[max(19rem,50svh)] sm:h-[max(24rem,56svh)]"
       }`}
     >
       <div

@@ -37,7 +37,7 @@ export function ChangeDay({
     <section aria-labelledby={headingId}>
       <div
         className={`flex items-baseline justify-between gap-2 border-b border-line py-2 ${
-          sticky ? "sticky top-0 z-10 -mx-4 bg-canvas/95 px-4 backdrop-blur-sm lg:-mx-8 lg:px-8" : ""
+          sticky ? "sticky top-0 z-10 -mx-4 bg-canvas px-4 lg:bg-canvas/95 lg:-mx-8 lg:px-8 lg:backdrop-blur-sm" : ""
         }`}
       >
         <h3 id={headingId} className="text-sm font-semibold text-ink">
