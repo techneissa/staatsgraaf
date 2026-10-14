@@ -6,14 +6,15 @@ import { useState } from "react";
 import { Avatar } from "@/components/avatar";
 import { useLocale } from "@/components/i18n/language-provider";
 import { topicNameEn } from "@/lib/topic-names";
+import { orgEnGloss, positionEn } from "@/lib/name-gloss";
 import { KindGlyph } from "@/components/kind-glyph";
 import { PeekLink } from "@/components/peek/peek-link";
-import { SourceIcon } from "@/components/source-icon";
 import { NEWS_MESSAGES } from "@/lib/news-i18n";
 import type { NewsLanguage } from "@/lib/types";
 import { NewsLead } from "./news-lead";
 import { NewsPreviewTile } from "./news-preview";
 import type { NewsItemView } from "./news-view";
+import type { NewsEntityRef } from "@/lib/news-meta";
 
 const DATE: Record<NewsLanguage, Intl.DateTimeFormat> = {
   nl: new Intl.DateTimeFormat("nl-NL", { day: "numeric", month: "short", year: "numeric", timeZone: "Europe/Amsterdam" }),
@@ -22,6 +23,30 @@ const DATE: Record<NewsLanguage, Intl.DateTimeFormat> = {
 
 /** Mentioned people that get a micro portrait; more would crowd the line. */
 const AVATARS_IN_LINE = 2;
+
+const SOURCE_HIT =
+  "relative min-w-0 truncate font-medium text-ink-muted no-underline decoration-1 underline-offset-[3px] transition-fast hover:text-ink hover:underline pointer-coarse:after:absolute pointer-coarse:after:-inset-x-1 pointer-coarse:after:-inset-y-3.5 pointer-coarse:after:content-['']";
+
+/**
+ * The mentioned line in English uses an established gloss (ADR 0012) when one
+ * exists; otherwise the Dutch name stays. Person names never swap.
+ */
+function mentionedText(entry: NewsEntityRef, language: NewsLanguage): { text: string; lang: "nl" | "en" } {
+  if (language === "en") {
+    if (entry.kind === "topic") {
+      return { text: topicNameEn(entry.href.split("/").filter(Boolean).pop() ?? "", entry.label), lang: "en" };
+    }
+    if (entry.kind === "organization") {
+      const gloss = orgEnGloss(entry.label);
+      if (gloss) return { text: gloss, lang: "en" };
+    }
+    if (entry.kind === "position") {
+      const gloss = positionEn(entry.label);
+      if (gloss) return { text: gloss, lang: "en" };
+    }
+  }
+  return { text: entry.label, lang: "nl" };
+}
 
 /**
  * One news item, the same everywhere: the home page, entity and topic pages,
@@ -139,38 +164,40 @@ export function NewsItemCard({
                 <LucideIcon icon={AtSign} size={12} strokeWidth={2} />
                 <span className="sr-only">{messages.card.mentionedShort}:</span>
               </span>
-              {item.entities.map((entry, index) => (
-                <span key={entry.id} className="inline-flex items-center gap-x-1.5">
-                  <PeekLink
-                    id={entry.id}
-                    href={entry.href}
-                    kind={entry.peekKind}
-                    variant="quiet"
-                    lang="nl"
-                    className="relative inline-flex items-center pointer-coarse:after:absolute pointer-coarse:after:-inset-x-1 pointer-coarse:after:-inset-y-3.5 pointer-coarse:after:content-['']"
-                  >
-                    {people.includes(entry) ? (
-                      <Avatar
-                        name={entry.label}
-                        url={entry.portrait?.url ?? null}
-                        color={entry.color ?? null}
-                        size={16}
-                        className="mr-1 align-[-0.3em]"
-                      />
-                    ) : (
-                      <KindGlyph kind={entry.peekKind} size={7} className="mr-1 align-[0.05em]" />
-                    )}
-                    {entry.kind === "topic" && target === "en"
-                      ? topicNameEn(entry.href.split("/").filter(Boolean).pop() ?? "", entry.label)
-                      : entry.label}
-                  </PeekLink>
-                  {index < item.entities.length - 1 ? (
-                    <span aria-hidden="true" className="text-ink-faint">
-                      &middot;
-                    </span>
-                  ) : null}
-                </span>
-              ))}
+              {item.entities.map((entry, index) => {
+                const shown = mentionedText(entry, target);
+                return (
+                  <span key={entry.id} className="inline-flex items-center gap-x-1.5">
+                    <PeekLink
+                      id={entry.id}
+                      href={entry.href}
+                      kind={entry.peekKind}
+                      variant="quiet"
+                      lang={shown.lang}
+                      title={shown.lang === "en" ? entry.label : undefined}
+                      className="relative inline-flex items-center pointer-coarse:after:absolute pointer-coarse:after:-inset-x-1 pointer-coarse:after:-inset-y-3.5 pointer-coarse:after:content-['']"
+                    >
+                      {people.includes(entry) ? (
+                        <Avatar
+                          name={entry.label}
+                          url={entry.portrait?.url ?? null}
+                          color={entry.color ?? null}
+                          size={16}
+                          className="mr-1 align-[-0.3em]"
+                        />
+                      ) : (
+                        <KindGlyph kind={entry.peekKind} size={7} className="mr-1 align-[0.05em]" />
+                      )}
+                      {shown.text}
+                    </PeekLink>
+                    {index < item.entities.length - 1 ? (
+                      <span aria-hidden="true" className="text-ink-faint">
+                        &middot;
+                      </span>
+                    ) : null}
+                  </span>
+                );
+              })}
             </p>
           ) : null}
         </div>
@@ -182,15 +209,19 @@ export function NewsItemCard({
         }`}
       >
         <div className={`flex min-w-0 ${compact ? "flex-wrap items-center gap-x-2 gap-y-0.5" : "flex-col gap-0.5"}`}>
-          <span className="inline-flex min-w-0 items-center gap-1.5 font-medium text-ink-muted">
-            <span className="min-w-0">{item.publisher}</span>
-            <SourceIcon
-              href={item.url}
-              title={item.publisher}
-              size={14}
-              label={`${messages.card.sourceLabel} ${item.publisher} (${item.host})`}
-            />
-          </span>
+          <a
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={messages.card.sourceLinkTitle}
+            className={SOURCE_HIT}
+          >
+            {item.publisher}
+            <span lang={target} className="sr-only">
+              {" "}
+              {messages.card.opensNewTab}
+            </span>
+          </a>
           <span lang={target}>{messages.kindBadges[item.kind]}</span>
         </div>
         <div className="flex shrink-0 items-center gap-1.5">

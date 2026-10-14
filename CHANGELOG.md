@@ -7,6 +7,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 ### Changed (14-10-2026, news card)
 
 - News cards mark mentioned entities with an @ instead of the word "Mentioned", and stack the date over the time so the source line stays short.
+- In English, mentioned ministries and other bodies use their established English name (ADR 0012); the Dutch name is on the tooltip. The outlet name is the source link; the separate chain icon is gone.
 
 ### Changed (14-10-2026, peek description)
 
