@@ -21,7 +21,7 @@ import { GapNote } from "@/components/entity/gap-note";
 import { OrgStructure } from "@/components/entity/org-structure";
 import { SourceSlot } from "@/components/entity/source-slot";
 import { SubtypeHint, SubtypeLabel } from "@/components/entity/subtype-label";
-import { ColorDot, FactTiles, type FactTile } from "@/components/entity/fact-tiles";
+import { ColorDot, FactChips, type FactTile } from "@/components/entity/fact-tiles";
 import { FactGroup } from "@/components/entity/fact-group";
 import { LocalizedDescription } from "@/components/entity/localized-description";
 import { OrgEmblem, OrgEmblemCredit } from "@/components/entity/org-emblem";
@@ -242,6 +242,7 @@ export default async function OrganizationPage({
       icon: <ColorDot color={branchColorVar(organization.branch)} />,
       label: <T area="entity" k={mergedLevel ? "factBranchLevel" : "factBranch"} />,
       value: <LocaleLabel kind="branch" value={organization.branch} />,
+      accent: branchColorVar(organization.branch),
     },
     {
       key: "level",
@@ -261,6 +262,13 @@ export default async function OrganizationPage({
       icon: <CalendarIcon />,
       label: <T area="entity" k="factEstablished" />,
       value: organization.established != null ? <LocalDate iso={organization.established} /> : null,
+    },
+    {
+      key: "children",
+      icon: <LinkIcon />,
+      label: <T area="entity" k="childrenTitle" />,
+      value: children.length > 0 ? <DateT area="entity" k="countOnly" counts={{ n: children.length }} /> : null,
+      href: "#onderdelen",
     },
     {
       key: "aliases",
@@ -297,7 +305,6 @@ export default async function OrganizationPage({
           { label: SITE_NAME, href: "/" },
           { label: <T area="common" k="navOrganizations" />, href: "/organisaties/" },
           { label: <LocaleLabel kind="branch" value={organization.branch} />, href: `/organisaties/#groep-${organization.branch}` },
-          { label: organization.name },
         ]}
       />
 
@@ -318,7 +325,8 @@ export default async function OrganizationPage({
             <L nl={summary.nl} en={summary.en} />
           </p>
         ) : null}
-        <OrgStructure parents={partOfOrganizations} childCount={children.length} holders={currentHolders} />
+        <FactChips facts={facts} className="mt-3" />
+        <OrgStructure parents={partOfOrganizations} holders={currentHolders} />
         {organization.dissolved != null ? (
           <div className="mt-3">
             <Callout>
@@ -326,7 +334,6 @@ export default async function OrganizationPage({
             </Callout>
           </div>
         ) : null}
-        <FactTiles facts={facts} className="mt-4" />
         {description !== null ? (
           <LocalizedDescription
             nl={description.nl}
