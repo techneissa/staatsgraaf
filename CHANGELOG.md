@@ -6,7 +6,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (14-10-2026, peek popover)
 
-- The peek that opens from a name stacks its facts (label above value) instead of a 7 rem two-column grid that left short values floating in the middle of the card. Holder titles wrap. Counts are a middot list with singular forms (1 seat, 1 member). The close button sits on the heading, not beside the whole card. A landscape phone uses the bottom sheet.
+- The peek that opens from a name stacks its facts (label above value) instead of a 7 rem two-column grid that left short values floating in the middle of the card. Holder titles wrap. Seats, members and connections are a coloured icon plus the number. The close button sits on the heading, not beside the whole card. A landscape phone uses the bottom sheet.
 
 ### Fixed (13-10-2026, hydration error 418)
 
