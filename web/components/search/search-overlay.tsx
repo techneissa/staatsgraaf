@@ -23,9 +23,9 @@ type SearchIndexFile = {
 
 function SearchIcon() {
   return (
-    <svg aria-hidden="true" viewBox="0 0 20 20" width="15" height="15">
-      <circle cx="8.5" cy="8.5" r="4.75" fill="none" stroke="currentColor" strokeWidth="1.5" />
-      <path d="m12.2 12.2 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <svg aria-hidden="true" viewBox="0 0 20 20" width="16" height="16" className="shrink-0">
+      <circle cx="8.5" cy="8.5" r="4.75" fill="none" stroke="currentColor" strokeWidth="1.6" />
+      <path d="m12.2 12.2 4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
     </svg>
   );
 }
@@ -271,7 +271,7 @@ export function SearchOverlay() {
         title={t("searchShortcutHint", { keys: shortcut })}
         aria-expanded={open && !closing}
         onClick={openOverlay}
-        className="tap-target flex items-center justify-center gap-2 rounded-sm border border-line px-2.5 py-2 text-sm text-ink-muted transition-fast hover:border-line-strong hover:text-ink"
+        className="bar-control tap-target gap-1.5 transition-fast hover:border-line-strong hover:text-ink sm:px-2.5 sm:text-sm sm:leading-none"
       >
         <SearchIcon />
         <span className="hidden sm:inline">{t("searchTrigger")}</span>

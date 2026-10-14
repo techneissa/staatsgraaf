@@ -6,7 +6,7 @@ import { navServerSnapshot, navSnapshot, subscribeNav } from "@/lib/nav-history"
 import { useT } from "./i18n/use-t";
 
 const BUTTON =
-  "tap-target flex items-center justify-center rounded-sm border border-line p-2 text-ink-muted transition-fast hover:border-line-strong hover:text-ink disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-line disabled:hover:text-ink-muted";
+  "bar-control tap-target transition-fast hover:border-line-strong hover:text-ink disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-line disabled:hover:text-ink-muted";
 
 export function HistoryControls() {
   const router = useRouter();
@@ -16,7 +16,7 @@ export function HistoryControls() {
   const { canBack, canForward } = useSyncExternalStore(subscribeNav, navSnapshot, navServerSnapshot);
 
   return (
-    <div className="hidden items-center gap-1 sm:flex">
+    <div className="hidden items-center gap-1.5 sm:flex">
       <button
         type="button"
         onClick={() => router.back()}

@@ -68,9 +68,9 @@ function MobileMenu({ pathname }: { pathname: string | null }) {
       onToggle={(event) => setOpen((event.currentTarget as HTMLDetailsElement).open)}
     >
       <summary
-        className="tap-target flex cursor-pointer list-none items-center gap-1.5 rounded-sm border border-line px-2.5 py-1.5 text-sm text-ink-muted transition-fast hover:border-line-strong hover:text-ink group-open:border-line-strong group-open:text-ink [&::-webkit-details-marker]:hidden"
+        className="bar-control tap-target cursor-pointer list-none gap-1.5 px-2.5 text-sm leading-none transition-fast hover:border-line-strong hover:text-ink group-open:border-line-strong group-open:text-ink max-[400px]:px-0 [&::-webkit-details-marker]:hidden"
       >
-        <Morph icon={open ? X : Menu} size={14} />
+        <Morph icon={open ? X : Menu} size={16} strokeWidth={1.8} />
         <span className="max-[400px]:sr-only">{t("menu")}</span>
       </summary>
       <nav
@@ -149,7 +149,7 @@ export function TopBar() {
             );
           })}
         </nav>
-        <div className="ms-auto flex shrink-0 items-center gap-1.5 sm:gap-2">
+        <div className="ms-auto flex shrink-0 items-center gap-1.5">
           <LanguageToggle />
           <div data-search-mount className="flex items-center">
             <SearchOverlay />
