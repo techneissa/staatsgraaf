@@ -31,3 +31,7 @@ Facts in the peek stack (label above value). A 7 rem two-column grid left short 
 ## Amendment 14-10-2026: peek size and part-of
 
 A peek whose content fits in 90 % of the viewport sizes to that content and does not scroll. Only a taller peek uses the 60 % detent, a handle, and an inner scroller. "Part of" / "Onderdeel van" puts the parent name on the same line as the label; other facts still stack.
+
+## Amendment 14-10-2026: peek description
+
+The peek shows the full description, not a three-line cut. In English it shows the current machine translation from `data/description-translations.json` (ADR 0016), with the same "Translated from Dutch" line as the entity page. Without a matching translation the Dutch text stays, marked `lang="nl"`.

@@ -26,7 +26,7 @@ const { PARTIES, partyByDataset, partySlug } = await import("../lib/parties.ts")
 const { orgEnGloss, positionEn } = await import("../lib/name-gloss.ts");
 const { branchColorVar } = await import("../lib/branch-colors.ts");
 const { initialsFor } = await import("../lib/initials.ts");
-const { clampSentences } = await import("../lib/news-text.ts");
+const { descriptionFor } = await import("../lib/description-translations.ts");
 const { PEEK_SHARDS, peekKindFor, peekShard } = await import("../lib/peek.ts");
 
 const dataset = data.getDataset();
@@ -37,9 +37,11 @@ function ref(id) {
   return summary ? { id, name: summary.label, href: summary.href } : null;
 }
 
-function description(text) {
-  if (typeof text !== "string" || text.trim() === "") return null;
-  return clampSentences(text.replaceAll(/\s+/g, " ").trim(), 240);
+/** Full Dutch text and a current English translation, or both null (ADR 0016). */
+function descriptions(id, text) {
+  const pair = descriptionFor(id, text);
+  if (pair === null) return { description: null, descriptionEn: null };
+  return { description: pair.nl, descriptionEn: pair.en };
 }
 
 function sourceFor(refs) {
@@ -134,6 +136,7 @@ function base(id, kind, name, href) {
     branch: null,
     party: null,
     description: null,
+    descriptionEn: null,
     parent: null,
     roles: [],
     roleCount: 0,
@@ -159,7 +162,7 @@ for (const org of organizations) {
   record.color = branchColorVar(org.branch);
   record.subtype = org.subtype ?? null;
   record.branch = org.branch ?? null;
-  record.description = description(org.description);
+  Object.assign(record, descriptions(org.id, org.description));
   const parentId = entity.organizationParentId(org) ?? entity.organizationPartOf(org)[0] ?? null;
   record.parent = parentId ? ref(parentId) : null;
   const current = currentByOrganization.get(org.id) ?? [];
@@ -204,7 +207,7 @@ for (const person of people) {
         href: PARTIES.includes(party) ? `/partijen/${partySlug(party)}/` : null,
       }
     : null;
-  record.description = description(person.description);
+  Object.assign(record, descriptions(person.id, person.description));
   const current = (currentByPerson.get(person.id) ?? [])
     .slice()
     .sort((a, b) => positionRank(titleOf(a)) - positionRank(titleOf(b)) || (b.start ?? "").localeCompare(a.start ?? ""));
@@ -237,7 +240,7 @@ for (const person of people) {
 
 for (const topic of topics) {
   const record = base(topic.id, "topic", topic.name, `/onderwerpen/${topic.slug}/`);
-  record.description = description(topic.description);
+  Object.assign(record, descriptions(topic.id, topic.description));
   const organizationIds = Array.isArray(topic.organizations) ? topic.organizations : [];
   record.related = organizationIds.slice(0, 3).map(ref).filter(Boolean);
   record.relatedCount = organizationIds.length;
