@@ -3,7 +3,10 @@
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import type { CSSProperties, ReactNode, RefObject } from "react";
+import type { IconNode } from "lucide";
+import { Armchair, Network, Users } from "lucide";
 import { Avatar } from "@/components/avatar";
+import { LucideIcon } from "@/components/icons/lucide-icon";
 import { useLocale } from "@/components/i18n/language-provider";
 import { useT } from "@/components/i18n/use-t";
 import { KindGlyph } from "@/components/kind-glyph";
@@ -787,6 +790,30 @@ function Fact({ label, children }: { label: string; children: ReactNode }) {
   );
 }
 
+function PeekCount({
+  icon,
+  n,
+  label,
+  color,
+}: {
+  icon: IconNode;
+  n: number;
+  label: string;
+  color: string;
+}) {
+  return (
+    <span
+      className="inline-flex items-center gap-1 text-xs font-medium tabular-nums"
+      style={{ color }}
+      title={label}
+      aria-label={label}
+    >
+      <LucideIcon icon={icon} size={14} strokeWidth={2} className="shrink-0" />
+      {n}
+    </span>
+  );
+}
+
 function PeekMeta({
   record,
   onNavigate,
@@ -798,18 +825,34 @@ function PeekMeta({
   const items: ReactNode[] = [];
   if (record.members > 0) {
     items.push(
-      <span key="members">{record.members === 1 ? t("peekMembersOne") : t("peekMembers", { n: record.members })}</span>,
+      <PeekCount
+        key="members"
+        icon={Users}
+        n={record.members}
+        label={record.members === 1 ? t("peekMembersOne") : t("peekMembers", { n: record.members })}
+        color="var(--kind-person)"
+      />,
     );
   } else if (record.seats !== null) {
     items.push(
-      <span key="seats">{record.seats === 1 ? t("peekSeatsOne") : t("peekSeats", { n: record.seats })}</span>,
+      <PeekCount
+        key="seats"
+        icon={Armchair}
+        n={record.seats}
+        label={record.seats === 1 ? t("peekSeatsOne") : t("peekSeats", { n: record.seats })}
+        color="var(--kind-position)"
+      />,
     );
   }
   if (record.connections > 0) {
     items.push(
-      <span key="connections">
-        {record.connections === 1 ? t("peekConnectionsOne") : t("peekConnections", { n: record.connections })}
-      </span>,
+      <PeekCount
+        key="connections"
+        icon={Network}
+        n={record.connections}
+        label={record.connections === 1 ? t("peekConnectionsOne") : t("peekConnections", { n: record.connections })}
+        color="var(--kind-organization)"
+      />,
     );
   }
   if (record.news > 0) {
@@ -842,17 +885,8 @@ function PeekMeta({
   }
   if (items.length === 0) return null;
   return (
-    <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs tabular-nums text-ink-faint">
-      {items.flatMap((item, index) =>
-        index === 0
-          ? [item]
-          : [
-              <span key={`dot-${index}`} aria-hidden="true">
-                ·
-              </span>,
-              item,
-            ],
-      )}
+    <p className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs tabular-nums text-ink-faint">
+      {items}
     </p>
   );
 }
