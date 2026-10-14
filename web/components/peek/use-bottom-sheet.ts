@@ -212,7 +212,8 @@ export function useBottomSheet({
       style = { height: detent === "expanded" && canExpand ? expanded : peek, transform: "translateY(0)" };
     }
     if (settled && live === null && !dismissed && !prefersReducedMotion()) {
-      style.transition = "height 320ms var(--ease-out), transform 320ms var(--ease-out)";
+      // Detent snaps and a content swap that changes height share this.
+      style.transition = "height var(--motion-base) var(--ease-out), transform var(--motion-base) var(--ease-out)";
     }
   }
 

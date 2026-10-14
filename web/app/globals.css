@@ -340,17 +340,26 @@
     transform-origin: var(--origin, top center);
     animation: sg-pop-in var(--motion-base) var(--ease-out) both;
   }
+  .motion-pop[data-swap] {
+    animation: none;
+  }
   .motion-pop[data-state="closed"] {
     animation: sg-pop-out var(--motion-fast) var(--ease-in) both;
   }
   .motion-sheet {
     animation: sg-sheet-in 420ms var(--ease-spring) both;
   }
+  .motion-sheet[data-swap] {
+    animation: none;
+  }
   .motion-sheet[data-state="closed"] {
     animation: sg-sheet-out var(--motion-base) var(--ease-in) both;
   }
   .motion-scrim {
     animation: sg-fade-in var(--motion-base) var(--ease-out) both;
+  }
+  .motion-scrim[data-swap] {
+    animation: none;
   }
   .motion-scrim[data-state="closed"] {
     animation: sg-fade-out var(--motion-base) var(--ease-in) both;

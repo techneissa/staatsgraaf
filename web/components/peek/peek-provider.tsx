@@ -24,6 +24,7 @@ import {
   type PeekRef,
   type PeekShard,
 } from "@/lib/peek";
+import { peekClickAction, peekOutsidePointerCloses } from "@/lib/peek-swap";
 
 /**
  * The peek popover for inline entity links (docs/adr/0017).
@@ -40,7 +41,8 @@ import {
  * close (use-bottom-sheet.ts); wider screens get a
  * popover anchored to the link that flips above it when there is no room
  * below. Escape, an outside click or the close button closes it and returns
- * focus to the link.
+ * focus to the link. A click on another peek link replaces the open entity
+ * in the same dialog: the chrome stays, the inner content fades.
  */
 
 const shardCache = new Map<string, Promise<PeekShard>>();
@@ -109,8 +111,12 @@ export function PeekProvider() {
   );
   /** The peek that is animating out after a close; null once it has gone. */
   const [leaving, setLeaving] = useState<OpenState | null>(null);
+  /** True while one open peek is replaced by another, so enter motion is skipped. */
+  const [swap, setSwap] = useState(false);
   const openRef = useRef<OpenState | null>(null);
   openRef.current = open;
+  const leavingRef = useRef<OpenState | null>(null);
+  leavingRef.current = leaving;
 
   useLayoutEffect(() => {
     const media = matchMedia(SHEET_QUERY);
@@ -133,11 +139,14 @@ export function PeekProvider() {
       if (!id || !kind || !href) return;
       event.preventDefault();
       const current = openRef.current;
-      if (current?.anchor === anchor) {
+      const action = peekClickAction(current?.anchor, anchor);
+      if (action === "close" && current) {
+        setSwap(false);
         setLeaving(current);
         setOpen(null);
         return;
       }
+      setSwap(action === "replace" || leavingRef.current != null);
       setLeaving(null);
       setOpen({ id, kind, href, label: anchor.textContent?.trim() ?? "", anchor });
     };
@@ -204,11 +213,16 @@ export function PeekProvider() {
   }, []);
 
   // A warmed shard fills the peek before the first paint, so it opens with
-  // its content and no skeleton flash.
+  // its content and no skeleton flash. A swap whose shard is not yet here
+  // shows the skeleton in the same chrome, never the previous entity.
   useLayoutEffect(() => {
     if (!open) return;
     const hit = cachedPeekRecord(open.id);
-    if (hit === undefined) return;
+    if (hit === undefined) {
+      setRecord(null);
+      setStatus("loading");
+      return;
+    }
     setRecord(hit);
     setStatus(hit ? "ready" : "error");
   }, [open]);
@@ -217,8 +231,6 @@ export function PeekProvider() {
     if (!open) return;
     let cancelled = false;
     if (cachedPeekRecord(open.id) !== undefined) return;
-    setRecord(null);
-    setStatus("loading");
     loadPeekRecord(open.id)
       .then((result) => {
         if (cancelled) return;
@@ -238,6 +250,7 @@ export function PeekProvider() {
     if (!current) return;
     if (returnFocus) current.anchor.focus({ preventScroll: true });
     // The dialog stays mounted, inert, for its exit animation.
+    setSwap(false);
     setLeaving(current);
     setOpen(null);
   }, []);
@@ -245,18 +258,31 @@ export function PeekProvider() {
   const clearLeaving = useCallback(() => setLeaving(null), []);
   const shown = open ?? leaving;
   if (!shown) return null;
+  const visible = visiblePeek(open ?? shown, record, status);
   return (
     <PeekDialog
-      key={shown.id + shown.href}
       open={shown}
-      record={record}
-      status={status}
+      record={visible.record}
+      status={visible.status}
       sheet={sheet}
       closing={open === null}
+      swap={swap && open !== null}
       onClose={close}
       onClosed={clearLeaving}
     />
   );
+}
+
+/** The record for the open id, never the previous peek's while a swap loads. */
+function visiblePeek(
+  open: OpenState,
+  record: PeekRecord | null,
+  status: "loading" | "ready" | "error",
+): { record: PeekRecord | null; status: "loading" | "ready" | "error" } {
+  const cached = cachedPeekRecord(open.id);
+  if (cached !== undefined) return { record: cached, status: cached ? "ready" : "error" };
+  if (record?.id === open.id) return { record, status };
+  return { record: null, status: "loading" };
 }
 
 function PeekDialog({
@@ -265,6 +291,7 @@ function PeekDialog({
   status,
   sheet,
   closing,
+  swap,
   onClose,
   onClosed,
 }: {
@@ -274,6 +301,8 @@ function PeekDialog({
   sheet: boolean;
   /** Animating out: inert, and unmounted by `onClosed` when the exit ends. */
   closing: boolean;
+  /** Replacing another peek: skip the enter pop and sheet slide. */
+  swap: boolean;
   onClose: (returnFocus?: boolean) => void;
   onClosed: () => void;
 }) {
@@ -383,8 +412,7 @@ function PeekDialog({
       }
     };
     const onPointer = (event: PointerEvent) => {
-      const target = event.target as Node | null;
-      if (!target || panel?.contains(target) || open.anchor.contains(target)) return;
+      if (!peekOutsidePointerCloses(event.target, panel, open.anchor)) return;
       onClose(false);
       // The press moves focus when it lands on something that takes it; when
       // it lands on plain page text focus would fall to the page, so hand it
@@ -463,6 +491,7 @@ function PeekDialog({
         panelRef={panelRef}
         titleId={titleId}
         closing={closing}
+        swap={swap}
         onClose={onClose}
         head={head}
         rest={rest}
@@ -481,6 +510,7 @@ function PeekDialog({
       tabIndex={-1}
       inert={closing}
       data-state={closing ? "closed" : "open"}
+      data-swap={swap ? "" : undefined}
       className={`motion-pop fixed z-50 flex w-[min(22rem,calc(100vw-1rem))] max-w-[calc(100vw-1rem)] flex-col overflow-x-hidden overflow-y-auto rounded-md border border-line-strong bg-surface p-4 shadow-2xl outline-none ${closing ? "pointer-events-none" : ""}`}
       style={position}
     >
@@ -513,6 +543,7 @@ function PeekSheet({
   panelRef,
   titleId,
   closing,
+  swap,
   onClose,
   head,
   rest,
@@ -522,6 +553,7 @@ function PeekSheet({
   panelRef: RefObject<HTMLDivElement | null>;
   titleId: string;
   closing: boolean;
+  swap: boolean;
   onClose: (returnFocus?: boolean) => void;
   head: ReactNode;
   rest: ReactNode;
@@ -546,10 +578,15 @@ function PeekSheet({
       <div
         aria-hidden="true"
         data-state={closing ? "closed" : "open"}
+        data-swap={swap ? "" : undefined}
         className="motion-scrim absolute inset-0 bg-overlay"
         onClick={() => onClose(true)}
       />
-      <div data-state={closing ? "closed" : "open"} className="motion-sheet absolute inset-x-0 bottom-0">
+      <div
+        data-state={closing ? "closed" : "open"}
+        data-swap={swap ? "" : undefined}
+        className="motion-sheet absolute inset-x-0 bottom-0"
+      >
         <div
           ref={panelRef}
           role="dialog"
@@ -635,7 +672,7 @@ function PeekBody({
   );
 
   const head = (
-      <div className="flex items-start gap-3">
+      <div key={open.id} className="motion-swap flex items-start gap-3">
         {kind === "person" ? (
           <Avatar name={name} url={record?.portrait?.url ?? null} color={record?.color ?? null} size={48} title={record?.portrait?.credit} />
         ) : (
@@ -686,7 +723,7 @@ function PeekBody({
       {status === "error" ? <p className="mt-3 text-sm text-ink-muted">{t("peekUnavailable")}</p> : null}
 
       {record ? (
-        <div className="motion-swap mt-3 space-y-2.5 text-sm">
+        <div key={open.id} className="motion-swap mt-3 space-y-2.5 text-sm">
           {record.description ? (
             <p lang="nl" className="line-clamp-3 leading-snug text-ink-muted">
               {record.description}
