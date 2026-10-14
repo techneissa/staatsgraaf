@@ -6,6 +6,7 @@ import type { CSSProperties, ReactNode, RefObject } from "react";
 import type { IconNode } from "lucide";
 import { Armchair, Network, Users } from "lucide";
 import { Avatar } from "@/components/avatar";
+import { LocalizedDescription } from "@/components/entity/localized-description";
 import { LucideIcon } from "@/components/icons/lucide-icon";
 import { useLocale } from "@/components/i18n/language-provider";
 import { useT } from "@/components/i18n/use-t";
@@ -744,9 +745,11 @@ function PeekBody({
       {record ? (
         <div key={open.id} className="motion-swap mt-3 space-y-2.5 text-sm">
           {record.description ? (
-            <p lang="nl" className="line-clamp-3 leading-snug text-ink-muted">
-              {record.description}
-            </p>
+            <LocalizedDescription
+              nl={record.description}
+              en={record.descriptionEn}
+              className="leading-snug text-ink-muted"
+            />
           ) : null}
 
           <dl className="space-y-3">

@@ -25,6 +25,7 @@ test("peek kind distinguishes places from other organisations", () => {
 test("normalizePeekRecord restores dropped defaults", () => {
   const record = normalizePeekRecord({ id: "person:x", kind: "person", name: "X", href: "/personen/x/", holders: [{ id: "a", name: "A", href: "/a/" }] });
   assert.equal(record.news, 0);
+  assert.equal(record.descriptionEn, null);
   assert.deepEqual(record.roles, []);
   assert.equal(record.holders[0].portrait, null);
   assert.equal(record.holders[0].acting, false);

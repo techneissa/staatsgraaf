@@ -89,8 +89,10 @@ export type PeekRecord = {
   subtype: OrgSubtype | null;
   branch: OrgBranch | null;
   party: { abbrev: string; name: string; href: string | null } | null;
-  /** First sentences of the dataset description, in Dutch. */
+  /** Dataset description in Dutch, or null when absent or flagged as provenance only. */
   description: string | null;
+  /** English translation of `description` when a current one exists (ADR 0016). */
+  descriptionEn: string | null;
   /** Parent organisation for an organisation, the organisation for a position. */
   parent: PeekRef | null;
   /** Current roles of a person (positions held now), at most two. */
@@ -129,6 +131,7 @@ export function normalizePeekRecord(raw: Partial<PeekRecord> & Pick<PeekRecord, 
     branch: null,
     party: null,
     description: null,
+    descriptionEn: null,
     parent: null,
     roleCount: 0,
     holderCount: 0,
