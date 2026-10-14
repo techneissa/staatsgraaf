@@ -11,13 +11,6 @@ import type { NewsLanguage } from "@/lib/types";
 /** Cards added per step of a windowed list. */
 export const NEWS_WINDOW_STEP = 40;
 
-/**
- * One list item of a news list. The browser skips layout and paint of a card that is off
- * screen (`content-visibility`), with a size estimate that keeps the scrollbar steady
- * until the card has been laid out once (NW-19).
- */
-export const CARD_ITEM_CLASS = "motion-enter [content-visibility:auto] [contain-intrinsic-size:auto_9rem]";
-
 export function ShowMoreButton({
   label,
   onClick,
@@ -55,7 +48,7 @@ export function WindowedCards({
     <>
       <ol className="mt-3 list-none space-y-2 p-0">
         {items.slice(0, shown).map((item) => (
-          <li key={item.id} className={CARD_ITEM_CLASS}>
+          <li key={item.id}>
             <NewsItemCard item={item} displayLanguage={language} />
           </li>
         ))}

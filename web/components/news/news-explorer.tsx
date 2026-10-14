@@ -5,7 +5,7 @@ import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { NewsFilterBar, pillClass } from "./news-filter-bar";
 import { NewsItemCard } from "./news-item-card";
 import type { NewsItemView } from "./news-view";
-import { CARD_ITEM_CLASS, NEWS_WINDOW_STEP, ShowMoreButton } from "./windowed-cards";
+import { NEWS_WINDOW_STEP, ShowMoreButton } from "./windowed-cards";
 import { useNewsFilters } from "./use-news-filters";
 import { EmptyState } from "@/components/empty-state";
 import { useLocale } from "@/components/i18n/language-provider";
@@ -277,7 +277,7 @@ export function NewsExplorer({
                 const headingId = `groep-${group.key}`;
                 return (
                   <section key={group.key} aria-labelledby={headingId}>
-                    <div className="sticky top-0 z-10 -mx-4 flex items-baseline justify-between gap-2 border-b border-line bg-canvas/95 px-4 py-2 backdrop-blur-sm">
+                    <div className="sticky top-0 z-10 -mx-4 flex items-baseline justify-between gap-2 border-b border-line bg-canvas px-4 py-2 lg:bg-canvas/95 lg:backdrop-blur-sm">
                       <h2 id={headingId} className="text-xs font-semibold text-ink-faint">
                         {messages.groupLabels[group.key]}
                         {group.detail !== "" ? <span className="ms-1.5 font-normal">· {group.detail}</span> : null}
@@ -296,7 +296,7 @@ export function NewsExplorer({
                       <>
                         <ol className="mt-3 list-none space-y-2 p-0">
                           {visible.map((item) => (
-                            <li key={item.id} className={CARD_ITEM_CLASS}>
+                            <li key={item.id}>
                               <NewsItemCard item={item} displayLanguage={uiLanguage} />
                             </li>
                           ))}
@@ -390,7 +390,7 @@ function MoreItems({
         <>
           <ol className="mt-3 list-none space-y-2 p-0">
             {items.slice(0, shown).map((item) => (
-              <li key={item.id} className={CARD_ITEM_CLASS}>
+              <li key={item.id}>
                 <NewsItemCard item={item} displayLanguage={language} />
               </li>
             ))}

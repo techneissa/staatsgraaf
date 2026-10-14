@@ -88,7 +88,9 @@ export function useBottomSheet({
     const padding =
       parseFloat(style.paddingTop) + parseFloat(style.paddingBottom) + parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
     const natural = chrome + inner.offsetHeight + padding;
-    const next = detentsRef.current({ chrome, natural, viewport: window.innerHeight });
+    // Layout viewport, not innerHeight: iOS innerHeight tracks the URL bar and
+    // would resize the sheet while a finger is still scrolling.
+    const next = detentsRef.current({ chrome, natural, viewport: document.documentElement.clientHeight });
     return { peek: Math.round(next.peek), expanded: Math.round(Math.max(next.peek, next.expanded)) };
   }, [panelRef, scrollerRef, innerRef]);
 

@@ -387,6 +387,18 @@ function PeekDialog({
     };
   }, [place, sheet]);
 
+  // The page behind a phone sheet must not move: iOS otherwise rubber-bands
+  // the document under the overlay while the sheet itself is scrolling.
+  useEffect(() => {
+    if (!sheet) return;
+    const root = document.documentElement;
+    const previous = root.style.overflow;
+    root.style.overflow = "hidden";
+    return () => {
+      root.style.overflow = previous;
+    };
+  }, [sheet]);
+
   // Focus moves into the dialog on open; Tab stays inside it; Escape closes.
   useEffect(() => {
     const panel = panelRef.current;
@@ -593,7 +605,7 @@ function PeekSheet({
           aria-modal="true"
           aria-labelledby={titleId}
           tabIndex={-1}
-          className="flex max-h-[90dvh] min-w-0 flex-col overflow-hidden rounded-t-lg border border-b-0 border-line bg-surface shadow-2xl outline-none"
+          className="flex max-h-[90svh] min-w-0 flex-col overflow-hidden rounded-t-lg border border-b-0 border-line bg-surface shadow-2xl outline-none"
           style={{
             ...sheet.style,
             paddingBottom: "max(var(--t-space-4), env(safe-area-inset-bottom, 0px))",

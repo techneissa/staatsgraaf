@@ -6,7 +6,7 @@ import { NewsFilterBar, pillClass } from "./news-filter-bar";
 import { NewsItemCard } from "./news-item-card";
 import type { NewsItemView } from "./news-view";
 import { useNewsFilters } from "./use-news-filters";
-import { CARD_ITEM_CLASS, NEWS_WINDOW_STEP, ShowMoreButton } from "./windowed-cards";
+import { NEWS_WINDOW_STEP, ShowMoreButton } from "./windowed-cards";
 import { EmptyState } from "@/components/empty-state";
 import { useLocale } from "@/components/i18n/language-provider";
 import { formatCountIn } from "@/lib/format";
@@ -210,7 +210,7 @@ export function NewsDayList({
               </h2>
               <ol className="mt-3 list-none space-y-3 p-0">
                 {hour.items.map((item) => (
-                  <li key={item.id} className={CARD_ITEM_CLASS}>
+                  <li key={item.id}>
                     <NewsItemCard item={item} displayLanguage={fixedLanguage} />
                   </li>
                 ))}

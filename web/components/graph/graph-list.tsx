@@ -102,7 +102,7 @@ export function GraphList({ bundle, selectedId, onSelect, hiddenBranches }: Grap
         <span className="sr-only @min-[38rem]/drawing:not-sr-only">{t("listTitle")}</span>
       </summary>
       {open ? (
-        <div className="max-h-[min(18rem,30dvh)] overflow-y-auto overscroll-contain border-t border-line px-3 py-2 @min-[38rem]/drawing:max-h-72">
+        <div className="max-h-[min(18rem,30svh)] overflow-y-auto overscroll-contain border-t border-line px-3 py-2 @min-[38rem]/drawing:max-h-72">
           {groups.map((group) => (
             <section key={group.branch} className="mb-3 last:mb-0">
               <h3 className="mb-1 text-xs font-semibold text-ink-faint">

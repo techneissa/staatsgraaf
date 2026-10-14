@@ -65,7 +65,7 @@ export function PeopleFilters({
       <div
         ref={barRef}
         id={`${targetId}-filters`}
-        className="sticky top-0 z-10 -mx-2 mt-4 border-b border-line/70 bg-canvas/90 px-2 py-2 backdrop-blur-md"
+        className="sticky top-0 z-10 -mx-2 mt-4 border-b border-line/70 bg-canvas px-2 py-2 lg:bg-canvas/90 lg:backdrop-blur-md"
       >
         <div className="flex flex-col gap-2 @xl:flex-row @xl:items-center">
           <IndexSearchField
