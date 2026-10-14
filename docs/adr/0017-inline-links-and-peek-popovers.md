@@ -27,3 +27,7 @@ Index lists (people, organisations, positions, parties, topics) go straight to t
 ## Amendment 14-10-2026: peek layout and landscape phones
 
 Facts in the peek stack (label above value). A 7 rem two-column grid left short values floating in the middle of a 22 rem popover and a phone sheet, and the 44 px tap min-size on inline links stretched those rows on a coarse pointer. Holder titles wrap. A phone on its side is wider than 639 px, so the sheet query is `(max-width: 639px), ((pointer: coarse) and (max-height: 639px))` and still matches a landscape phone. The close button sits on the heading, not beside the whole card.
+
+## Amendment 14-10-2026: peek size and part-of
+
+A peek whose content fits in 90 % of the viewport sizes to that content and does not scroll. Only a taller peek uses the 60 % detent, a handle, and an inner scroller. "Part of" / "Onderdeel van" puts the parent name on the same line as the label; other facts still stack.

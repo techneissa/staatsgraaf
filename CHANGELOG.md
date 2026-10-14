@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (14-10-2026, peek fit)
+
+- A peek that fits in 90 % of the screen no longer opens as a shorter card with a scrollbar. "Part of" puts the parent name on the same line as the label.
+
 ### Fixed (14-10-2026, mobile scroll)
 
 - Scrolling a list on a phone no longer hitches as the Safari URL bar shows and hides. The shell and the graph band use the small viewport height, news cards no longer skip paint with a too-short size estimate, and sticky group headers drop the backdrop blur below the lg breakpoint.

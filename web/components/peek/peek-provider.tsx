@@ -364,7 +364,14 @@ function PeekDialog({
     // link, at the link's horizontal position.
     const originX = Math.min(Math.max(12, rect.left + Math.min(rect.width, 48) / 2 - left), width - 12);
     const originY = top > rect.top ? "0px" : "100%";
-    setPosition({ top, left, maxHeight: Math.max(200, room), "--origin": `${originX.toFixed(0)}px ${originY}` } as CSSProperties);
+    const maxHeight = Math.max(200, room);
+    setPosition({
+      top,
+      left,
+      maxHeight,
+      overflowY: height > maxHeight + 1 ? "auto" : "hidden",
+      "--origin": `${originX.toFixed(0)}px ${originY}`,
+    } as CSSProperties);
   }, [open.anchor, sheet, onClose]);
 
   useLayoutEffect(() => {
@@ -523,7 +530,7 @@ function PeekDialog({
       inert={closing}
       data-state={closing ? "closed" : "open"}
       data-swap={swap ? "" : undefined}
-      className={`motion-pop fixed z-50 flex w-[min(22rem,calc(100vw-1rem))] max-w-[calc(100vw-1rem)] flex-col overflow-x-hidden overflow-y-auto rounded-md border border-line-strong bg-surface p-4 shadow-2xl outline-none ${closing ? "pointer-events-none" : ""}`}
+      className={`motion-pop fixed z-50 flex w-[min(22rem,calc(100vw-1rem))] max-w-[calc(100vw-1rem)] flex-col overflow-x-hidden overflow-y-auto overscroll-contain rounded-md border border-line-strong bg-surface p-4 shadow-2xl outline-none ${closing ? "pointer-events-none" : ""}`}
       style={position}
     >
       <div className="flex items-start gap-2">
@@ -546,10 +553,9 @@ const KIND_KEY: Record<PeekKind, string> = {
 
 /**
  * The phone layout: a bottom sheet whose handle and header drag it between a
- * peek height (at most 60 % of the viewport) and an expanded height (at most
- * 90 %), or down to close. The content scrolls between the header and the
- * actions. When everything fits at the peek height there is nothing to
- * expand, so the handle goes; the header still drags down to close.
+ * peek height and an expanded height, or down to close. Content that fits in
+ * 90 % of the viewport sizes the sheet to itself and does not scroll. Taller
+ * content opens at 60 % with a handle to 90 %, and the middle scrolls.
  */
 function PeekSheet({
   panelRef,
@@ -579,10 +585,11 @@ function PeekSheet({
     panelRef,
     scrollerRef,
     innerRef,
-    detents: ({ natural, viewport }) => ({
-      peek: Math.min(natural, viewport * 0.6),
-      expanded: Math.min(natural, viewport * 0.9),
-    }),
+    detents: ({ natural, viewport }) => {
+      const max = viewport * 0.9;
+      if (natural <= max) return { peek: natural, expanded: natural };
+      return { peek: Math.min(natural, viewport * 0.6), expanded: max };
+    },
     onDismiss: () => onClose(true),
   });
   return (
@@ -630,7 +637,7 @@ function PeekSheet({
           <div
             ref={scrollerRef}
             id={scrollerId}
-            className={`min-h-0 flex-1 overscroll-contain ${sheet.dragging ? "overflow-hidden" : "overflow-y-auto"}`}
+            className={`min-h-0 flex-1 overscroll-contain ${sheet.dragging || !sheet.canExpand ? "overflow-hidden" : "overflow-y-auto"}`}
           >
             <div ref={innerRef} className="flow-root">{rest}</div>
           </div>
@@ -791,7 +798,11 @@ function PeekBody({
               </Fact>
             ) : null}
 
-            {record.parent ? <Fact label={t("peekPartOf")}>{link(record.parent)}</Fact> : null}
+            {record.parent ? (
+              <Fact label={t("peekPartOf")} inline>
+                {link(record.parent)}
+              </Fact>
+            ) : null}
 
             {record.related.length > 0 ? (
               <Fact label={t("peekResponsible")}>
@@ -830,11 +841,11 @@ function newsHref(record: PeekRecord): string {
   return `${record.href}${record.kind === "topic" ? "#nieuws-titel" : "#nieuws-paneel-titel"}`;
 }
 
-function Fact({ label, children }: { label: string; children: ReactNode }) {
+function Fact({ label, children, inline = false }: { label: string; children: ReactNode; inline?: boolean }) {
   return (
-    <div className="min-w-0">
-      <dt className="text-xs text-ink-faint">{label}</dt>
-      <dd className="mt-1 min-w-0 text-ink">{children}</dd>
+    <div className={inline ? "flex min-w-0 items-baseline gap-x-2" : "min-w-0"}>
+      <dt className="shrink-0 text-xs text-ink-faint">{label}</dt>
+      <dd className={`min-w-0 text-ink ${inline ? "" : "mt-1"}`}>{children}</dd>
     </div>
   );
 }
