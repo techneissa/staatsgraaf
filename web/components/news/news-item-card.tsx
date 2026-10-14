@@ -1,5 +1,5 @@
 "use client";
-import { Languages } from "lucide";
+import { AtSign, Languages } from "lucide";
 import { LucideIcon } from "@/components/icons/lucide-icon";
 
 import { useState } from "react";
@@ -15,9 +15,9 @@ import { NewsLead } from "./news-lead";
 import { NewsPreviewTile } from "./news-preview";
 import type { NewsItemView } from "./news-view";
 
-const DATE_TIME: Record<NewsLanguage, Intl.DateTimeFormat> = {
-  nl: new Intl.DateTimeFormat("nl-NL", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Amsterdam" }),
-  en: new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Amsterdam" }),
+const DATE: Record<NewsLanguage, Intl.DateTimeFormat> = {
+  nl: new Intl.DateTimeFormat("nl-NL", { day: "numeric", month: "short", year: "numeric", timeZone: "Europe/Amsterdam" }),
+  en: new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "Europe/Amsterdam" }),
 };
 
 /** Mentioned people that get a micro portrait; more would crowd the line. */
@@ -28,9 +28,9 @@ const AVATARS_IN_LINE = 2;
  * the news explorer and the day archives.
  *
  * Hierarchy: the headline (links to the article), the lead (cut at a sentence or word,
- * with a way to open the rest), one quiet "Mentioned" line that holds the keyboard link
- * for every entity, and one source line with the
- * outlet, the time and the kind. The thumbnail sits beside the headline at a
+ * with a way to open the rest), one quiet mentions line (an @ mark, then a keyboard
+ * link for every entity), and one source line with the
+ * outlet, the kind, and the date stacked over the time. The thumbnail sits beside the headline at a
  * small fixed size on phones, so the lead gets the full width, and beside the
  * whole card from the small breakpoint up. An item without a lead is a compact card
  * (headline, mentions and source line, no empty gap), not a stub.
@@ -133,11 +133,14 @@ export function NewsItemCard({
           {item.entities.length > 0 ? (
             <p
               className="mt-1.5 flex flex-wrap items-center gap-x-1.5 text-xs leading-relaxed text-ink-faint"
-              title={item.keywords.length > 0 ? `${messages.card.linkedOnLabel} ${item.keywords.join(", ")}` : undefined}
+              title={item.keywords.length > 0 ? `${messages.card.linkedOnLabel} ${item.keywords.join(", ")}` : messages.card.mentionedInLabel}
             >
+              <span lang={target} className="inline-flex shrink-0 self-center text-ink-faint" title={messages.card.mentionedShort}>
+                <LucideIcon icon={AtSign} size={12} strokeWidth={2} />
+                <span className="sr-only">{messages.card.mentionedShort}:</span>
+              </span>
               {item.entities.map((entry, index) => (
                 <span key={entry.id} className="inline-flex items-center gap-x-1.5">
-                  {index === 0 ? <span lang={target}>{messages.card.mentionedShort}:</span> : null}
                   <PeekLink
                     id={entry.id}
                     href={entry.href}
@@ -191,8 +194,15 @@ export function NewsItemCard({
           <span lang={target}>{messages.kindBadges[item.kind]}</span>
         </div>
         <div className="flex shrink-0 items-center gap-1.5">
-          <time dateTime={item.published} className="whitespace-nowrap tabular-nums">
-            {showDate ? DATE_TIME[target].format(new Date(item.published)) : item.time}
+          <time dateTime={item.published} className="flex flex-col items-end tabular-nums leading-tight">
+            {showDate ? (
+              <>
+                <span className="whitespace-nowrap">{DATE[target].format(new Date(item.published))}</span>
+                <span className="whitespace-nowrap text-[11px]">{item.time}</span>
+              </>
+            ) : (
+              <span className="whitespace-nowrap">{item.time}</span>
+            )}
           </time>
           {translation !== null ? (
             <button
