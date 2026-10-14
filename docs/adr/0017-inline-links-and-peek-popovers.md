@@ -23,3 +23,7 @@ News cards, connection lists, and change rows linked every mentioned organisatio
 ## Amendment 05-10-2026: index lists navigate
 
 Index lists (people, organisations, positions, parties, topics) go straight to the page on click. The peek popover stays for mentions in running text, news cards and tables. A list exists to navigate, and the extra peek step doubled the clicks per person. The index cards carry no `data-peek`, and `PeekLink` and `EntityPeekLink` take a `peek={false}` prop for this. Peek shards are prefetched on hover, focus, pointerdown and touchstart, and on touch also when a link enters the viewport.
+
+## Amendment 14-10-2026: peek layout and landscape phones
+
+Facts in the peek stack (label above value). A 7 rem two-column grid left short values floating in the middle of a 22 rem popover and a phone sheet, and the 44 px tap min-size on inline links stretched those rows on a coarse pointer. Holder titles wrap. A phone on its side is wider than 639 px, so the sheet query is `(max-width: 639px), ((pointer: coarse) and (max-height: 639px))` and still matches a landscape phone. The close button sits on the heading, not beside the whole card.

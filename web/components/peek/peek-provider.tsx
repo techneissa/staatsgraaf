@@ -88,21 +88,28 @@ type OpenState = {
   anchor: HTMLAnchorElement;
 };
 
-const SHEET_QUERY = "(max-width: 639px)";
+/** Portrait phones, and landscape phones whose height is the short side. */
+const SHEET_QUERY = "(max-width: 639px), ((pointer: coarse) and (max-height: 639px))";
 const GAP = 8;
 const MARGIN = 8;
+
+/** Grows the tap box on a coarse pointer without stretching the row. */
+const PEEK_HIT =
+  "pointer-coarse:after:absolute pointer-coarse:after:-inset-y-3 pointer-coarse:after:-inset-x-1 pointer-coarse:after:content-['']";
 
 export function PeekProvider() {
   const [open, setOpen] = useState<OpenState | null>(null);
   const [record, setRecord] = useState<PeekRecord | null>(null);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
-  const [sheet, setSheet] = useState(false);
+  const [sheet, setSheet] = useState(
+    () => typeof window !== "undefined" && window.matchMedia(SHEET_QUERY).matches,
+  );
   /** The peek that is animating out after a close; null once it has gone. */
   const [leaving, setLeaving] = useState<OpenState | null>(null);
   const openRef = useRef<OpenState | null>(null);
   openRef.current = open;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const media = matchMedia(SHEET_QUERY);
     const update = () => setSheet(media.matches);
     update();
@@ -403,9 +410,8 @@ function PeekDialog({
     router.push(href);
   };
 
-  const body = (
-    <PeekBody open={open} record={record} status={status} titleId={titleId} onNavigate={go} />
-  );
+  const head = <PeekBody open={open} record={record} status={status} titleId={titleId} onNavigate={go} part="head" />;
+  const rest = <PeekBody open={open} record={record} status={status} titleId={titleId} onNavigate={go} part="rest" />;
 
   const actions = (
     <div className="flex items-center gap-2 border-t border-line pt-3">
@@ -455,8 +461,8 @@ function PeekDialog({
         titleId={titleId}
         closing={closing}
         onClose={onClose}
-        head={<PeekBody open={open} record={record} status={status} titleId={titleId} onNavigate={go} part="head" />}
-        rest={<PeekBody open={open} record={record} status={status} titleId={titleId} onNavigate={go} part="rest" />}
+        head={head}
+        rest={rest}
         closeButton={closeButton}
         actions={actions}
       />
@@ -472,13 +478,14 @@ function PeekDialog({
       tabIndex={-1}
       inert={closing}
       data-state={closing ? "closed" : "open"}
-      className={`motion-pop fixed z-50 flex w-[min(22rem,calc(100vw-1rem))] flex-col overflow-y-auto rounded-md border border-line-strong bg-surface p-4 shadow-2xl outline-none ${closing ? "pointer-events-none" : ""}`}
+      className={`motion-pop fixed z-50 flex w-[min(22rem,calc(100vw-1rem))] max-w-[calc(100vw-1rem)] flex-col overflow-x-hidden overflow-y-auto rounded-md border border-line-strong bg-surface p-4 shadow-2xl outline-none ${closing ? "pointer-events-none" : ""}`}
       style={position}
     >
       <div className="flex items-start gap-2">
-        <div className="min-w-0 flex-1">{body}</div>
+        <div className="min-w-0 flex-1">{head}</div>
         {closeButton}
       </div>
+      <div className="min-w-0">{rest}</div>
       <div className="mt-3">{actions}</div>
     </div>
   );
@@ -546,7 +553,7 @@ function PeekSheet({
           aria-modal="true"
           aria-labelledby={titleId}
           tabIndex={-1}
-          className="flex max-h-[90dvh] flex-col overflow-hidden rounded-t-lg border border-b-0 border-line bg-surface shadow-2xl outline-none"
+          className="flex max-h-[90dvh] min-w-0 flex-col overflow-hidden rounded-t-lg border border-b-0 border-line bg-surface shadow-2xl outline-none"
           style={{
             ...sheet.style,
             paddingBottom: "max(var(--t-space-4), env(safe-area-inset-bottom, 0px))",
@@ -617,7 +624,7 @@ function PeekBody({
         event.preventDefault();
         onNavigate(ref.href);
       }}
-      className="text-ink underline decoration-line-strong decoration-1 underline-offset-[3px] transition-fast hover:decoration-2 pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:min-w-11 pointer-coarse:items-center"
+      className={`relative break-words text-ink underline decoration-line-strong decoration-1 underline-offset-[3px] transition-fast hover:decoration-2 ${PEEK_HIT}`}
     >
       {ref.name}
       {extra}
@@ -641,10 +648,10 @@ function PeekBody({
             <KindGlyph kind={kind} size={7} />
             <span className="truncate">{kindLabel}</span>
           </p>
-          <h2 id={titleId} lang="nl" className="mt-0.5 text-base font-semibold leading-snug text-ink">
+          <h2 id={titleId} lang="nl" className="mt-0.5 break-words text-base font-semibold leading-snug text-ink">
             {name}
           </h2>
-          {locale === "en" && record?.gloss ? (
+          {locale === "en" && record?.gloss && record.gloss.trim().toLowerCase() !== kindLabel.trim().toLowerCase() ? (
             <p lang="en" className="mt-0.5 text-xs text-ink-muted">
               {record.gloss}
             </p>
@@ -683,7 +690,7 @@ function PeekBody({
             </p>
           ) : null}
 
-          <dl className="space-y-1.5">
+          <dl className="space-y-3">
             {record.roles.length > 0 ? (
               <Fact label={t("peekNow")}>
                 {record.roles.map((role, index) => (
@@ -749,34 +756,7 @@ function PeekBody({
             ) : null}
           </dl>
 
-          <p className="flex flex-wrap gap-x-3 gap-y-1 text-xs tabular-nums text-ink-faint">
-            {record.members > 0 ? <span>{t("peekMembers", { n: record.members })}</span> : record.seats !== null ? <span>{t("peekSeats", { n: record.seats })}</span> : null}
-            {record.connections > 0 ? (
-              <span>{record.connections === 1 ? t("peekConnectionsOne") : t("peekConnections", { n: record.connections })}</span>
-            ) : null}
-            {record.news > 0 ? (
-              <a
-                href={newsHref(record)}
-                onClick={(event) => {
-                  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
-                  event.preventDefault();
-                  onNavigate(newsHref(record));
-                }}
-                className="text-accent-text underline-offset-2 hover:underline pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:items-center"
-              >
-                {record.news === 1 ? t("peekNewsCountOne") : t("peekNewsCount", { n: record.news })}
-              </a>
-            ) : null}
-            {record.source ? (
-              <SourceIcon
-                href={record.source.url}
-                title={record.source.publisher || new URL(record.source.url).hostname}
-                retrieved={record.source.retrieved}
-                size={14}
-                className="self-center pointer-coarse:min-h-11 pointer-coarse:min-w-11"
-              />
-            ) : null}
-          </p>
+          <PeekMeta record={record} onNavigate={onNavigate} />
 
         </div>
       ) : null}
@@ -800,10 +780,80 @@ function newsHref(record: PeekRecord): string {
 
 function Fact({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <div className="grid grid-cols-[7rem_minmax(0,1fr)] gap-x-2 leading-snug">
-      <dt className="pt-px text-xs text-ink-faint">{label}</dt>
-      <dd className="min-w-0 text-ink">{children}</dd>
+    <div className="min-w-0">
+      <dt className="text-xs text-ink-faint">{label}</dt>
+      <dd className="mt-1 min-w-0 text-ink">{children}</dd>
     </div>
+  );
+}
+
+function PeekMeta({
+  record,
+  onNavigate,
+}: {
+  record: PeekRecord;
+  onNavigate: (href: string) => void;
+}) {
+  const t = useT("common");
+  const items: ReactNode[] = [];
+  if (record.members > 0) {
+    items.push(
+      <span key="members">{record.members === 1 ? t("peekMembersOne") : t("peekMembers", { n: record.members })}</span>,
+    );
+  } else if (record.seats !== null) {
+    items.push(
+      <span key="seats">{record.seats === 1 ? t("peekSeatsOne") : t("peekSeats", { n: record.seats })}</span>,
+    );
+  }
+  if (record.connections > 0) {
+    items.push(
+      <span key="connections">
+        {record.connections === 1 ? t("peekConnectionsOne") : t("peekConnections", { n: record.connections })}
+      </span>,
+    );
+  }
+  if (record.news > 0) {
+    items.push(
+      <a
+        key="news"
+        href={newsHref(record)}
+        onClick={(event) => {
+          if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+          event.preventDefault();
+          onNavigate(newsHref(record));
+        }}
+        className={`relative text-accent-text underline-offset-2 hover:underline ${PEEK_HIT}`}
+      >
+        {record.news === 1 ? t("peekNewsCountOne") : t("peekNewsCount", { n: record.news })}
+      </a>,
+    );
+  }
+  if (record.source) {
+    items.push(
+      <SourceIcon
+        key="source"
+        href={record.source.url}
+        title={record.source.publisher || new URL(record.source.url).hostname}
+        retrieved={record.source.retrieved}
+        size={14}
+        className="self-center"
+      />,
+    );
+  }
+  if (items.length === 0) return null;
+  return (
+    <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs tabular-nums text-ink-faint">
+      {items.flatMap((item, index) =>
+        index === 0
+          ? [item]
+          : [
+              <span key={`dot-${index}`} aria-hidden="true">
+                ·
+              </span>,
+              item,
+            ],
+      )}
+    </p>
   );
 }
 
@@ -818,13 +868,13 @@ function HolderList({
   return (
     <span className="block space-y-1">
       {record.holders.map((holder) => (
-        <span key={holder.id + (holder.title ?? "")} className="flex items-center gap-2">
-          <Avatar name={holder.name} url={holder.portrait} color={holder.color} size={22} />
+        <span key={holder.id + (holder.title ?? "")} className="flex items-center gap-2.5 tap-row">
+          <Avatar name={holder.name} url={holder.portrait} color={holder.color} size={28} className="shrink-0" />
           <span className="min-w-0">
             {link(holder)}
             {holder.acting ? <span className="text-ink-faint"> ({t("peekActing")})</span> : null}
             {holder.title ? (
-              <span lang="nl" className="block truncate text-xs text-ink-faint">
+              <span lang="nl" className="block text-xs leading-snug text-ink-faint">
                 {holder.title}
               </span>
             ) : null}
