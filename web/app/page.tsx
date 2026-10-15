@@ -7,6 +7,7 @@ import { PeopleStrip } from "@/components/home/people-strip";
 import { BudgetTotals } from "@/components/budget/budget-totals";
 import { L, T } from "@/components/i18n/t";
 import { JsonLd } from "@/components/json-ld";
+import { TranslationInfo } from "@/components/home/translation-info";
 import { getDatasetDate, getOrganizationCounts } from "@/lib/data";
 import { getFocusPeople, getHomeNews, getSubOrganizationCount } from "@/lib/home";
 import { getBudgetOverview } from "@/lib/budget";
@@ -52,17 +53,15 @@ export default function HomePage() {
       <h1 className="sr-only">{SITE_NAME}</h1>
 
       <section aria-labelledby="nieuws-titel" className="border-b border-line pb-6">
-        <h2
-          id="nieuws-titel"
-          className="text-lg font-semibold tracking-tight text-ink"
-        >
-          <L nl="Recent nieuws" en="Recent news" />
-        </h2>
-        <p className="mt-1 text-xs text-ink-faint">
-          <a href="/methodiek/#machinevertaling" className="underline decoration-line underline-offset-2 hover:text-ink">
-            <L nl="Anderstalige berichten zijn automatisch vertaald." en="Items in another language are machine translated." />
-          </a>
-        </p>
+        <div className="flex items-center gap-1.5">
+          <h2
+            id="nieuws-titel"
+            className="text-lg font-semibold tracking-tight text-ink"
+          >
+            <L nl="Recent nieuws" en="Recent news" />
+          </h2>
+          <TranslationInfo />
+        </div>
         <div className="mt-3">
           <NewsBand items={news} />
         </div>

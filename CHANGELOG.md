@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (15-10-2026, home news note)
+
+- The line "Items in another language are machine translated." on the home page moved into an (i) beside "Recent news", with a link to how we translate.
+
 ### Added (15-10-2026, going back)
 
 - Swipe from left to right anywhere on a page to go back on a phone or tablet. The page follows the finger, an arrow fills in at the left edge, and letting go past it (or a quick flick) opens the previous page where it was left. A shorter swipe springs back.
