@@ -5,9 +5,9 @@ import { LocalDate } from "./local-date";
 import { TemplateT } from "./template-t";
 
 /**
- * "Laatste wijziging 19 september 2026, 16 dagen geleden" and, quieter,
- * "Gegevens per 1 oktober 2026". The age counts from the build day; the
- * snapshot date says how fresh the data behind it is.
+ * How long ago the newest change is, when that is not already "today" (the
+ * list then opens on today). The snapshot date only appears when it differs
+ * from the newest change, so the line never names the same day twice.
  */
 export function LastChangeLine({
   recency,
@@ -18,27 +18,27 @@ export function LastChangeLine({
   snapshot: string | null;
   className?: string;
 }) {
-  if (recency === null && snapshot === null) return null;
+  const snapshotDay = snapshot?.slice(0, 10) ?? null;
+  const sameDay = recency !== null && snapshotDay !== null && recency.date === snapshotDay;
+  const isToday = recency !== null && recency.age <= 0;
+  const showAgo = recency !== null && !isToday;
+  const showSnapshot = snapshotDay !== null && !sameDay;
+  if (!showAgo && !showSnapshot) return null;
   const ago = recency !== null ? agoPhrase(recency.age) : null;
   return (
-    <p className={`flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-xs text-ink-faint ${className}`.trim()}>
-      {recency !== null && ago !== null ? (
+    <p className={`text-xs text-ink-faint ${className}`.trim()}>
+      {showAgo && ago !== null ? (
         <span className="text-ink-muted">
-          <TemplateT
-            k="chgLastChange"
-            slots={{ date: <LocalDate iso={recency.date} />, ago: <T area="home" k={ago.key} vars={ago.vars} /> }}
-          />
+          <TemplateT k="chgLastChangeAgo" slots={{ ago: <T area="home" k={ago.key} vars={ago.vars} /> }} />
         </span>
       ) : null}
-      {recency !== null && snapshot !== null ? (
+      {showAgo && showSnapshot ? (
         <span aria-hidden="true" className="text-line-strong">
-          ·
+          {" · "}
         </span>
       ) : null}
-      {snapshot !== null ? (
-        <span className="whitespace-nowrap">
-          <TemplateT k="chgSnapshot" slots={{ date: <LocalDate iso={snapshot} /> }} />
-        </span>
+      {showSnapshot ? (
+        <TemplateT k="chgSnapshot" slots={{ date: <LocalDate iso={snapshotDay} /> }} />
       ) : null}
     </p>
   );

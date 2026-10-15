@@ -4,7 +4,6 @@ import { getChangeFigures } from "@/components/change/change-figures";
 import { ChangeHistogram } from "@/components/change/change-histogram";
 import { EmptyStateT } from "@/components/change/empty-state-t";
 import { EntryRow } from "@/components/change/entry-row";
-import { LastChangeLine } from "@/components/change/last-change-line";
 import { NowChips } from "@/components/change/now-chips";
 import { T } from "@/components/i18n/t";
 import { buildHistogramBuckets } from "@/lib/change-buckets";
@@ -24,7 +23,7 @@ const HOME_LIMIT = 3;
 const HOME_WINDOW = 30;
 
 /**
- * The home page's changes block, kept short: what holds right now (chips), the
+ * The home page's changes block, kept short: what holds right now, the
  * last 30 days as a chart, the three newest entries whatever their age, and
  * one link to the feed. Every relative figure counts from the build day.
  */
@@ -43,7 +42,6 @@ export function ChangePanel() {
   return (
     <div>
       <NowChips figures={figures.now} className="mt-3" />
-      <LastChangeLine className="mt-2" recency={figures.recency} snapshot={figures.snapshot} />
 
       {windowed.length > 0 ? (
         <div className="mt-4">

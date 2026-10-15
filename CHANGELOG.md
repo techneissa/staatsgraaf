@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (15-10-2026, changes)
+
+- The changes block drops the bordered pills: acting and vacant seats are a compact "now" row with coloured glyphs, and the kind filters are an icon plus a count. Chronological and by person are icons. The "last change today, data as of today" line is gone when those dates are the same.
+
 ### Changed (14-10-2026, organisation header)
 
 - Organisation pages put branch, level, child count and aliases in one compact chip row, with the branch colour on its chip. The people who lead it sit on one line with small portraits, instead of a stacked list. The breadcrumb no longer repeats the name already in the heading.
