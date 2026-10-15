@@ -1,5 +1,6 @@
 import { ViewTransition } from "react";
 import { Avatar } from "@/components/avatar";
+import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { getMediaItem, mediaCreditInfo, mediaCreditLine, personPortraitId } from "@/lib/entity";
 import { partyByDataset } from "@/lib/parties";
 import type { Person } from "@/lib/types";
@@ -14,7 +15,8 @@ export function personColor(person: Person): string | null {
  * A person's portrait from media.json, or an initials disc tinted with the
  * party colour when no licensed portrait is on record. Decorative by default,
  * because it nearly always sits next to the visible name; pass `labelled`
- * where the portrait stands alone (the person page header).
+ * where the portrait stands alone (the person page header). Pass `peek` to
+ * wrap it in a peek link to the person.
  *
  * With `morph`, the portrait is a shared element between pages: from the
  * people index or the home strip into the person page header it moves and
@@ -28,12 +30,15 @@ export function PersonPortrait({
   className = "",
   labelled = false,
   morph = false,
+  peek = false,
 }: {
   person: Person;
   size?: number;
   className?: string;
   labelled?: boolean;
   morph?: boolean;
+  /** Wrap the portrait in a peek link to the person's page. */
+  peek?: boolean;
 }) {
   const media = getMediaItem(personPortraitId(person));
   const avatar = (
@@ -42,16 +47,23 @@ export function PersonPortrait({
       url={media?.url ?? null}
       color={personColor(person)}
       size={size}
-      labelled={labelled}
-      className={className}
+      labelled={labelled || peek}
+      className={peek ? "" : className}
       title={media ? mediaCreditLine(media) : undefined}
     />
   );
-  if (!morph) return avatar;
-  return (
+  const inner = morph ? (
     <ViewTransition name={`portrait-${person.slug}`} share="sg-morph" default="none">
       {avatar}
     </ViewTransition>
+  ) : (
+    avatar
+  );
+  if (!peek) return inner;
+  return (
+    <EntityPeekLink id={person.id} variant="media" className={className}>
+      {inner}
+    </EntityPeekLink>
   );
 }
 

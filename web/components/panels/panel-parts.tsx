@@ -6,7 +6,8 @@ import { Avatar } from "@/components/avatar";
 import { KindGlyph } from "@/components/kind-glyph";
 import { PeekLink } from "@/components/peek/peek-link";
 import { TemplateT } from "@/components/change/template-t";
-import { CHANGE_KIND_KEY, CHANGE_LABEL_TONE, ChangeKindGlyph } from "@/components/change/change-glyph";
+import { CHANGE_LABEL_TONE, ChangeKindGlyph } from "@/components/change/change-glyph";
+import { KindSourceLabel } from "@/components/change/kind-source-label";
 import { useLocale } from "@/components/i18n/language-provider";
 import { useDict, useT } from "@/components/i18n/use-t";
 import { useSelection } from "@/components/selection/selection-provider";
@@ -296,7 +297,6 @@ function ChangeSentence({ change }: { change: PanelChange }) {
 
 export function ChangeRows({ changes }: { changes: PanelChange[] }) {
   const format = usePanelFormat();
-  const th = useT("home");
   return (
     <ul className="space-y-2.5">
       {changes.map((change) => (
@@ -308,15 +308,9 @@ export function ChangeRows({ changes }: { changes: PanelChange[] }) {
             <p>
               <ChangeSentence change={change} />
             </p>
-            <p className="mt-0.5 text-xs text-ink-faint">
-              <span className={CHANGE_LABEL_TONE[change.kind]}>{th(CHANGE_KIND_KEY[change.kind])}</span>,{" "}
+            <p className="mt-0.5 flex flex-wrap items-center gap-x-1.5 text-xs text-ink-faint">
+              <KindSourceLabel kind={change.kind} href={change.source} publisher={change.source ? new URL(change.source).host : null} />
               <time dateTime={change.date}>{format.date(change.date)}</time>
-              {change.source ? (
-                <>
-                  {" "}
-                  <SourceIcon href={change.source} title={new URL(change.source).host} size={14} className="ms-0.5" />
-                </>
-              ) : null}
             </p>
           </div>
         </li>

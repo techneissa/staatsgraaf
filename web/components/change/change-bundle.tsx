@@ -4,7 +4,7 @@ import { T } from "@/components/i18n/t";
 import { getOrganizationById, getPersonById, getPositionById, getSourceById } from "@/lib/data";
 import { titleNamesBody, type FeedEntry } from "@/lib/changes";
 import type { Change } from "@/lib/types";
-import { CHANGE_KIND_KEY, CHANGE_LABEL_TONE } from "./change-glyph";
+import { KindSourceLabel } from "./kind-source-label";
 import { QuietSource } from "./quiet-source";
 
 function isCommittee(change: Change): boolean {
@@ -21,7 +21,7 @@ function bundleKey(entry: FeedEntry): string {
 }
 
 /** One underlying change of a bundle: the position, its body when the title does not name it, and the source. */
-function BundleRow({ change }: { change: Change }) {
+function BundleRow({ change, showSource }: { change: Change; showSource: boolean }) {
   const position = change.position !== null ? getPositionById(change.position) : undefined;
   const organization = change.organization !== null ? getOrganizationById(change.organization) : undefined;
   const source = getSourceById(change.source.source);
@@ -33,7 +33,9 @@ function BundleRow({ change }: { change: Change }) {
           <EntityPeekLink id={organization.id} variant="quiet" />
         </span>
       ) : null}
-      {source ? <QuietSource href={source.url} publisher={source.publisher} retrieved={change.source.retrieved} /> : null}
+      {showSource && source ? (
+        <QuietSource href={source.url} publisher={source.publisher} retrieved={change.source.retrieved} variant="text" />
+      ) : null}
     </li>
   );
 }
@@ -53,16 +55,18 @@ export function ChangeBundle({ entry, compact = false }: { entry: FeedEntry; com
   return (
     <article className="flex min-w-0 gap-3">
       {person ? (
-        <PersonPortrait person={person} size={size} className="mt-0.5" />
+        <PersonPortrait person={person} size={size} className="mt-0.5" peek />
       ) : (
         <span aria-hidden="true" className="mt-0.5 shrink-0 rounded-pill border border-dashed border-line-strong" style={{ width: size, height: size }} />
       )}
       <div className="min-w-0 flex-1">
-        <p className={`flex items-center gap-1.5 text-xs font-semibold leading-4 ${CHANGE_LABEL_TONE[kind]}`}>
-          <T area="home" k={CHANGE_KIND_KEY[kind]} />
-          {shared ? (
-            <QuietSource href={shared.url} publisher={shared.publisher} retrieved={entry.changes[0].source.retrieved} />
-          ) : null}
+        <p>
+          <KindSourceLabel
+            kind={kind}
+            href={shared?.url}
+            publisher={shared?.publisher}
+            retrieved={entry.changes[0].source.retrieved}
+          />
         </p>
         <p className="mt-0.5 text-sm leading-snug text-ink [overflow-wrap:anywhere]">
           {person ? <EntityPeekLink id={person.id} variant="plain" className="font-medium" /> : null}
@@ -84,7 +88,7 @@ export function ChangeBundle({ entry, compact = false }: { entry: FeedEntry; com
           </summary>
           <ul className="mt-1 space-y-1.5 border-l border-line pb-1 pl-3">
             {entry.changes.map((change) => (
-              <BundleRow key={change.id} change={change} />
+              <BundleRow key={change.id} change={change} showSource={sources.size !== 1} />
             ))}
           </ul>
         </details>

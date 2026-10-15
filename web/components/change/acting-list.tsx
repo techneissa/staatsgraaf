@@ -1,16 +1,14 @@
 import { EmptyStateT } from "./empty-state-t";
 import { PersonPortrait } from "../entity/person-portrait";
 import { EntityPeekLink } from "../peek/entity-peek-link";
-import { T } from "@/components/i18n/t";
 import { getSourceById } from "@/lib/data";
 import { titleNamesBody, type ActingOfficial } from "@/lib/changes";
-import { CHANGE_KIND_KEY, CHANGE_LABEL_TONE } from "./change-glyph";
+import { KindSourceLabel } from "./kind-source-label";
 import { PeriodT } from "./local-date";
-import { QuietSource } from "./quiet-source";
 import { AriaLabelT } from "./aria-label-t";
 import { ActingSortList, type ActingItem } from "./acting-sort-list";
 
-/** Current acting officials, in the change rail language: glyph, portrait, peek links, quiet source. Newest start first, sortable. */
+/** Current acting officials, in the change rail language: glyph, portrait, peek links. Newest start first, sortable. */
 export function ActingList({ officials }: { officials: ActingOfficial[] }) {
   if (officials.length === 0) {
     return <EmptyStateT title="actingEmptyTitle" />;
@@ -26,10 +24,15 @@ export function ActingList({ officials }: { officials: ActingOfficial[] }) {
       name: official.person.name,
       node: (
         <article className="flex min-w-0 gap-3">
-          <PersonPortrait person={official.person} size={36} className="mt-0.5" />
+          <PersonPortrait person={official.person} size={36} className="mt-0.5" peek />
           <div className="min-w-0 flex-1">
-            <p className={`text-xs font-semibold leading-4 ${CHANGE_LABEL_TONE.acting}`}>
-              <T area="home" k={CHANGE_KIND_KEY.acting} />
+            <p>
+              <KindSourceLabel
+                kind="acting"
+                href={source?.url}
+                publisher={source?.publisher}
+                retrieved={official.tenure.source.retrieved}
+              />
             </p>
             <h3 className="mt-0.5 text-sm font-medium leading-snug">
               <EntityPeekLink id={official.person.id} variant="plain" />
@@ -49,9 +52,6 @@ export function ActingList({ officials }: { officials: ActingOfficial[] }) {
               <span>
                 <PeriodT start={official.tenure.start} end={official.tenure.end} style="short" />
               </span>
-              {source ? (
-                <QuietSource href={source.url} publisher={source.publisher} retrieved={official.tenure.source.retrieved} />
-              ) : null}
             </p>
           </div>
         </article>

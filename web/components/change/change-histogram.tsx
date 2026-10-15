@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { Users } from "lucide";
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties, KeyboardEvent, MouseEvent, PointerEvent } from "react";
+import { LucideIcon } from "@/components/icons/lucide-icon";
 import { useLocale } from "@/components/i18n/language-provider";
 import { useT } from "@/components/i18n/use-t";
 import { BAR_KINDS, type BarKind, type HistogramBucket } from "@/lib/change-bar-kinds";
@@ -131,14 +133,12 @@ const Day = memo(function Day({ bucket, index, columns, label, active, dimmed, t
  * again clears it; the legend filters by kind, each mark counting the
  * changes of its kind in the window and disabled when there are none.
  * With `linkBase` the days and legend are links to the changes page instead
- * (home page). The caption names the window; with `shown` it says how many of
- * the window's changes the list below shows.
+ * (home page). The caption is a people count; the kind legend carries the rest.
  */
 export function ChangeHistogram({
   buckets,
   days,
   counts: windowCounts,
-  shown,
   activeDay = null,
   onSelectDay,
   activeKind = "all",
@@ -149,8 +149,6 @@ export function ChangeHistogram({
   days: number;
   /** The window's changes and the people they are about. */
   counts: EntryCounts;
-  /** The changes the list shows after a kind or day filter; omit when nothing is filtered. */
-  shown?: number;
   activeDay?: string | null;
   onSelectDay?: (date: string | null) => void;
   activeKind?: ChangeFilterValue;
@@ -294,10 +292,7 @@ export function ChangeHistogram({
   ];
   const tipBucket = tip ? buckets[tip.index] : null;
 
-  const caption =
-    shown === undefined
-      ? t("chgCaptionPeriod", { counts: withPeople(windowCounts.changes, windowCounts.people), days })
-      : t(windowCounts.changes === 1 ? "chgCaptionOfOne" : "chgCaptionOf", { n: shown, all: windowCounts.changes, days });
+  const peopleLabel = windowCounts.people === 1 ? t("chgPeopleOne") : t("chgPeople", { n: windowCounts.people });
   const noneText = t("chgNoneInPeriod", { days });
 
   const legendClass = (pressed: boolean, idle: boolean, none: boolean) =>
@@ -307,8 +302,14 @@ export function ChangeHistogram({
 
   return (
     <figure className="min-w-0">
-      <figcaption className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1.5">
-        <span className="text-sm tabular-nums text-ink-muted">{caption}</span>
+      <figcaption className="flex flex-wrap items-center justify-end gap-x-4 gap-y-1.5">
+        {windowCounts.people > 0 ? (
+          <span className="mr-auto inline-flex items-center gap-1 text-sm tabular-nums text-ink-muted" title={peopleLabel}>
+            <LucideIcon icon={Users} size={14} strokeWidth={1.9} />
+            <span className="sr-only">{peopleLabel}</span>
+            <span aria-hidden="true">{windowCounts.people}</span>
+          </span>
+        ) : null}
         <div role="group" aria-label={t("filterGroupAria")} className="flex flex-wrap items-center gap-x-3 gap-y-1">
           {LEGEND_KINDS.map((kind) => {
             const pressed = activeKind === kind;

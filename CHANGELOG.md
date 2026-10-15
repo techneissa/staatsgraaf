@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (15-10-2026, change rows)
+
+- The strip caption is a people count, not "N changes (M people) in N days". Kind words (appointment, departure, vacancy) are the source link when a source exists; the chain-link icon is gone. Portraits on the change feed open a peek.
+
 ### Fixed (15-10-2026, peek dismiss)
 
 - Dismissing a peek no longer clicks through to the page behind. A tap on a name or a link under the overlay only closes the peek.

@@ -2,10 +2,10 @@ import type { ReactNode } from "react";
 import { PersonPortrait } from "@/components/entity/person-portrait";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { T } from "@/components/i18n/t";
-import { CHANGE_KIND_KEY, CHANGE_LABEL_TONE, ChangeKindGlyph } from "./change-glyph";
+import { ChangeKindGlyph } from "./change-glyph";
 import { DayLabel, LocalDate } from "./local-date";
+import { KindSourceLabel } from "./kind-source-label";
 import { PersonRail, type PersonRailItem } from "./person-rail";
-import { QuietSource } from "./quiet-source";
 import { TemplateT } from "./template-t";
 import {
   changeDisplayKind,
@@ -69,9 +69,7 @@ function EventRow({ change, personId }: { change: Change; personId: string | nul
     <div className="min-w-0">
       <p className="text-sm leading-snug text-ink [overflow-wrap:anywhere]">{eventSentence(change, role)}</p>
       <p className="mt-1 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-ink-faint">
-        <span className={`font-semibold ${CHANGE_LABEL_TONE[role]}`}>
-          <T area="home" k={CHANGE_KIND_KEY[role]} />
-        </span>
+        <KindSourceLabel kind={role} href={source?.url} publisher={source?.publisher} retrieved={change.source.retrieved} />
         <span className="tabular-nums">
           <LocalDate iso={change.date} style="short" />
         </span>
@@ -79,9 +77,6 @@ function EventRow({ change, personId }: { change: Change; personId: string | nul
           <span>
             <T area="home" k="changeSeatsFilled" vars={{ filled: counts.filled, seats: counts.seats }} />
           </span>
-        ) : null}
-        {source ? (
-          <QuietSource href={source.url} publisher={source.publisher} retrieved={change.source.retrieved} />
         ) : null}
       </p>
     </div>
@@ -176,7 +171,7 @@ function SeatStatus({ group, filler }: { group: PersonChangeGroup; filler: Chang
 
 /**
  * One card per person (or per seat) with a rail of their changes: kind glyph,
- * a short sentence with peek links, the date and a quiet source. Three events
+ * a short sentence with peek links, the date and the kind as the source. Three events
  * show; the rest sit behind "show more". A seat group says "vacant since" and
  * "filled by" only when the data shows it. Built from Change records alone.
  */
@@ -202,7 +197,7 @@ export function PersonTimeline({
   return (
     <article className="min-w-0 rounded-md border border-line bg-surface p-4">
       <div className="flex min-w-0 items-start gap-3">
-        {person ? <PersonPortrait person={person} size={40} /> : <VacantRing />}
+        {person ? <PersonPortrait person={person} size={40} peek /> : <VacantRing />}
         <div className="min-w-0 flex-1">
           <h3 className="text-base font-semibold leading-snug text-ink [overflow-wrap:anywhere]">
             {person ? (
