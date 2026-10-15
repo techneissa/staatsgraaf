@@ -180,6 +180,7 @@ export const HOME_DICT = {
   chgSortNewest: { nl: "Nieuwste eerst", en: "Newest first" },
   chgSortName: { nl: "Naam (A-Z)", en: "Name (A-Z)" },
   chgLastChange: { nl: "Laatste wijziging {date}, {ago}", en: "Last change {date}, {ago}" },
+  chgLastChangeAgo: { nl: "Laatste wijziging {ago}", en: "Last change {ago}" },
   chgAgoToday: { nl: "vandaag", en: "today" },
   chgAgoYesterday: { nl: "gisteren", en: "yesterday" },
   chgAgo: { nl: "{n} dagen geleden", en: "{n} days ago" },

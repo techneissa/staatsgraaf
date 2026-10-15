@@ -9,7 +9,7 @@ import { BAR_KINDS, type BarKind, type HistogramBucket } from "@/lib/change-bar-
 import type { EntryCounts } from "@/lib/change-feed";
 import { nearestActiveIndex } from "@/lib/change-hit";
 import type { ChangeFilterValue } from "@/lib/change-url-state";
-import { CHANGE_TONE, ChangeKindGlyph } from "./change-glyph";
+import { CHANGE_LABEL_TONE, CHANGE_TONE, ChangeKindGlyph } from "./change-glyph";
 import { useCountsText } from "./counts-text";
 import { formatIsoDate } from "./local-date";
 
@@ -294,37 +294,39 @@ export function ChangeHistogram({
       : t(windowCounts.changes === 1 ? "chgCaptionOfOne" : "chgCaptionOf", { n: shown, all: windowCounts.changes, days });
   const noneText = t("chgNoneInPeriod", { days });
 
-  const legendClass = (pressed: boolean) =>
-    `inline-flex min-h-8 items-center gap-1.5 rounded-pill border px-2.5 text-xs font-medium tabular-nums transition-fast pointer-coarse:min-h-11 ${
-      pressed ? "border-accent/40 bg-accent-soft text-accent-text" : "border-line text-ink-muted hover:border-line-strong hover:text-ink"
+  const legendClass = (pressed: boolean, idle: boolean, none: boolean) =>
+    `relative inline-flex min-h-8 items-center gap-1 rounded-sm text-xs font-medium tabular-nums transition-fast pointer-coarse:min-h-11 ${
+      none && !pressed ? "cursor-not-allowed opacity-40" : idle ? "opacity-40 hover:opacity-100" : "hover:opacity-80"
     }`;
 
   return (
     <figure className="min-w-0">
-      <figcaption className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+      <figcaption className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1.5">
         <span className="text-sm tabular-nums text-ink-muted">{caption}</span>
-        <div role="group" aria-label={t("filterGroupAria")} className="flex flex-wrap gap-1.5">
+        <div role="group" aria-label={t("filterGroupAria")} className="flex flex-wrap items-center gap-x-3 gap-y-1">
           {LEGEND_KINDS.map((kind) => {
             const pressed = activeKind === kind;
             const none = kindTotals[kind] === 0;
+            const idle = activeKind !== "all" && !pressed;
+            const display = DISPLAY_KIND[kind];
+            const name = t(KIND_LABEL[kind]);
             const content = (
               <>
-                <ChangeKindGlyph kind={DISPLAY_KIND[kind]} size={12} />
-                <span>{t(KIND_LABEL[kind])}</span>
-                <span className="text-ink-faint">{kindTotals[kind]}</span>
+                <ChangeKindGlyph kind={display} size={13} />
+                <span className={`tabular-nums ${none ? "text-ink-faint" : CHANGE_LABEL_TONE[display]}`}>{kindTotals[kind]}</span>
+                <span className="sr-only">{name}</span>
                 {none ? <span className="sr-only">{noneText}</span> : null}
               </>
             );
             if (none && !pressed) {
-              // An empty kind is no filter: it says why, to a pointer and to a screen reader.
               return (
-                <button key={kind} type="button" disabled title={noneText} className={`${legendClass(false)} cursor-not-allowed opacity-50`}>
+                <button key={kind} type="button" disabled title={`${name}: ${noneText}`} className={legendClass(false, false, true)}>
                   {content}
                 </button>
               );
             }
             return linkBase !== undefined ? (
-              <Link key={kind} href={hrefFor(`&kind=${kind}`) ?? linkBase} className={legendClass(false)}>
+              <Link key={kind} href={hrefFor(`&kind=${kind}`) ?? linkBase} title={name} className={legendClass(false, false, false)}>
                 {content}
               </Link>
             ) : (
@@ -332,8 +334,9 @@ export function ChangeHistogram({
                 key={kind}
                 type="button"
                 aria-pressed={pressed}
+                title={name}
                 onClick={() => onSelectKind?.(pressed ? "all" : kind)}
-                className={legendClass(pressed)}
+                className={legendClass(pressed, idle, false)}
               >
                 {content}
               </button>
@@ -347,7 +350,7 @@ export function ChangeHistogram({
           ref={groupRef}
           role="group"
           aria-label={t("histGroupAria")}
-          className="motion-grow flex h-16 touch-pan-y items-end border-b border-line"
+          className="motion-grow flex h-20 touch-pan-y items-end border-b border-line"
           data-reveal="pending"
           onKeyDown={onKeyDown}
           onClickCapture={onClickCapture}
