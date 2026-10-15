@@ -433,3 +433,11 @@ function waterBoardNameEn(name: string): string | null {
   if (match) return match[1];
   return null;
 }
+
+/**
+ * Established English for a position title or an organisation name, or null.
+ * Person names do not match and stay Dutch.
+ */
+export function establishedEn(dutch: string | null | undefined): string | null {
+  return positionEn(dutch) ?? orgEnGloss(dutch);
+}

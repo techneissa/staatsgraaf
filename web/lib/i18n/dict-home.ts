@@ -115,7 +115,6 @@ export const HOME_DICT = {
   windowOptionAria: { nl: "Laatste {n} dagen", en: "Last {n} days" },
   histKindOther: { nl: "Overig", en: "Other" },
   histEmptyDay: { nl: "Geen wijzigingen op deze dag", en: "No changes on this day" },
-  histPickHint: { nl: "Kies om de lijst op deze dag te filteren", en: "Select to filter the list to this day" },
   histGroupAria: {
     nl: "Wijzigingen per dag, een punt per persoon. Kies een dag om de lijst te filteren.",
     en: "Changes per day, one mark per person. Select a day to filter the list.",

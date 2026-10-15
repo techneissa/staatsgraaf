@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { orgEnGloss, positionEn } from "./name-gloss";
+import { establishedEn, orgEnGloss, positionEn } from "./name-gloss";
 import { readFileSync } from "node:fs";
 
 describe("positionEn", () => {
@@ -194,5 +194,13 @@ describe("gloss coverage", () => {
     // established English name; machine translation is deferred pending its
     // own ADR, so the threshold sits below their share.
     expect(hit / records.length).toBeGreaterThan(0.75);
+  });
+});
+
+describe("establishedEn", () => {
+  test("glosses a mayor and a national body, and leaves a person name alone", () => {
+    expect(establishedEn("Burgemeester van Wierden")).toBe("Mayor of Wierden");
+    expect(establishedEn("Openbaar Ministerie")).toBe("Public Prosecution Service");
+    expect(establishedEn("Doret Tigchelaar-van Oene")).toBeNull();
   });
 });

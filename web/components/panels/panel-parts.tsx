@@ -11,6 +11,8 @@ import { useLocale } from "@/components/i18n/language-provider";
 import { useDict, useT } from "@/components/i18n/use-t";
 import { useSelection } from "@/components/selection/selection-provider";
 import { formatCountIn, formatDateIn } from "@/lib/format";
+import { orgEnGloss, positionEn } from "@/lib/name-gloss";
+import { LocalizedEntityLabel } from "@/components/peek/localized-entity-label";
 import type { SelectionSurface } from "@/lib/selection";
 import type { PanelChange, PanelNews, PanelPerson, PanelRef, PanelSource } from "./panel-data";
 import { SelectLink, selectionFor } from "./select-link";
@@ -273,13 +275,15 @@ function ChangeSentence({ change }: { change: PanelChange }) {
   const link = (ref: PanelRef, strong = false) => {
     const selection = selectionFor(ref.id, surface);
     const className = `underline decoration-line-strong decoration-1 underline-offset-2 hover:decoration-current ${strong ? "font-medium text-ink" : "text-ink"}`;
+    const english = ref.id.startsWith("org:") ? orgEnGloss(ref.name) : ref.id.startsWith("pos:") ? positionEn(ref.name) : null;
+    const label = <LocalizedEntityLabel dutch={ref.name} english={english} />;
     return selection ? (
-      <SelectLink selection={selection} href={ref.href} className={className}>
-        <span lang="nl">{ref.name}</span>
+      <SelectLink selection={selection} href={ref.href} className={className} title={english ? ref.name : undefined}>
+        {label}
       </SelectLink>
     ) : (
-      <PeekLink id={ref.id} href={ref.href} kind="position" lang="nl" variant="quiet">
-        {ref.name}
+      <PeekLink id={ref.id} href={ref.href} kind="position" variant="quiet" title={english ? ref.name : undefined}>
+        {label}
       </PeekLink>
     );
   };
