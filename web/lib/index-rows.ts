@@ -137,6 +137,7 @@ export function buildOrganizationRows(): OrganizationsIndexData {
       n: organization.name,
       ge: orgEnGloss(organization.name),
       st: organization.subtype,
+      t: organization.type,
       b: organization.branch,
       pa: nested ? parent.slug : null,
       sg: split ? (body?.slug ?? OTHER_SUBGROUP) : null,

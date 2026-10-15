@@ -28,7 +28,7 @@ describe("search text", () => {
   });
 
   test("an organisation and a position match on their English gloss", () => {
-    expect(organizationSearchText({ s: "a", n: "Tweede Kamer", ge: "House of Representatives", st: "tweede-kamer", b: "staten-generaal" })).toContain("representatives");
+    expect(organizationSearchText({ s: "a", n: "Tweede Kamer", ge: "House of Representatives", st: "tweede-kamer", t: "elected", b: "staten-generaal" })).toContain("representatives");
     expect(positionSearchText({ s: "a", n: "Minister van Financiën", ge: "Minister of Finance", t: "dept_head", o: "Ministerie van Financiën", b: "regering" })).toContain("finance");
   });
 });

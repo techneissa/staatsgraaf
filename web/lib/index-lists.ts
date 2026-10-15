@@ -72,6 +72,8 @@ export type OrganizationRow = {
   /** English gloss of the name */
   ge?: string | null;
   st: OrgSubtype;
+  /** Organisation type (department, elected, …), for the home overview and ?type=. */
+  t: OrgType;
   b: OrgBranch;
   /** slug of the parent when it sits in the same group: the row nests under it */
   pa?: string | null;
