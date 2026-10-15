@@ -10,6 +10,7 @@ import { DOT_GAP_PX, DOT_PX, filterByKind, packDayDots, packedCount, STRIP_PX, S
 import type { EntryCounts } from "@/lib/change-feed";
 import { nearestActiveIndex } from "@/lib/change-hit";
 import type { ChangeFilterValue } from "@/lib/change-url-state";
+import { establishedEn } from "@/lib/name-gloss";
 import { CHANGE_LABEL_TONE, CHANGE_TONE, ChangeKindGlyph } from "./change-glyph";
 import { useCountsText } from "./counts-text";
 import { formatIsoDate } from "./local-date";
@@ -408,11 +409,10 @@ export function ChangeHistogram({
             </ul>
             {tipBucket.names.length > 0 ? (
               <p className="mt-1.5 border-t border-line pt-1.5 text-ink-muted [overflow-wrap:anywhere]">
-                {tipBucket.names.join(", ")}
+                {tipBucket.names.map((name) => (locale === "en" ? (establishedEn(name) ?? name) : name)).join(", ")}
                 {tipBucket.more > 0 ? ` ${t("vacancyCalloutMore", { n: tipBucket.more })}` : ""}
               </p>
             ) : null}
-            <p className="mt-1.5 text-ink-faint">{t("histPickHint")}</p>
           </div>
         ) : null}
       </div>

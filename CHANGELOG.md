@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (15-10-2026, change English)
+
+- Change sentences on the English site use the established English names for positions and bodies (Mayor of Wierden, Public Prosecution Service). Person names stay Dutch. The Dutch name is on the link tooltip. The strip tooltip no longer says "Select to filter the list to this day".
+
 ### Fixed (15-10-2026, change strip)
 
 - Choosing a day on the change strip no longer scrolls the page down to the list. The filter still applies; the chart stays where it is.
