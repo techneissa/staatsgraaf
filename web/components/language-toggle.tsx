@@ -32,7 +32,8 @@ export function LanguageToggle() {
     if (twin !== null && pathname !== null) {
       const target = next === "en" ? twin.en : twin.nl;
       const here = pathname.endsWith("/") ? pathname : `${pathname}/`;
-      if (target !== here) router.push(target);
+      // In place: back after a language switch goes to the page before, not to the other language.
+      if (target !== here) router.replace(target);
     }
   };
   // The address says English: show English, whatever was stored.

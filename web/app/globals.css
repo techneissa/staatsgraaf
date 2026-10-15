@@ -230,35 +230,6 @@
   }
 }
 
-/* Back and forward through history: the page arrives from the side it was left on. */
-@keyframes sg-page-from-left {
-  from {
-    opacity: 0;
-    transform: translateX(-16px);
-  }
-}
-
-@keyframes sg-page-from-right {
-  from {
-    opacity: 0;
-    transform: translateX(16px);
-  }
-}
-
-@keyframes sg-page-to-right {
-  to {
-    opacity: 0;
-    transform: translateX(16px);
-  }
-}
-
-@keyframes sg-page-to-left {
-  to {
-    opacity: 0;
-    transform: translateX(-16px);
-  }
-}
-
 @keyframes sg-page-in {
   from {
     opacity: 0;
@@ -553,30 +524,30 @@
     animation-duration: var(--motion-slow);
     animation-timing-function: var(--ease-out);
   }
-  /* Direction (data-nav on <html>, lib/nav-history.ts). Back: the page leaves
-     to the right and the previous one comes in from the left; forward the
-     other way. A swipe animates the page itself (components/swipe-back.tsx)
-     and a step the browser animated (the iOS edge swipe) is already done, so
-     for those two the transition stands aside and nothing plays twice. */
-  html[data-nav="back"]::view-transition-old(.sg-page) {
-    animation: sg-page-to-right var(--motion-fast) var(--ease-in) both;
-  }
-  html[data-nav="forward"]::view-transition-old(.sg-page) {
-    animation: sg-page-to-left var(--motion-fast) var(--ease-in) both;
-  }
-  html[data-nav="back"]::view-transition-new(.sg-page) {
-    animation: sg-page-from-left var(--motion-slow) var(--ease-out) 40ms both;
-  }
-  html[data-nav="forward"]::view-transition-new(.sg-page) {
-    animation: sg-page-from-right var(--motion-slow) var(--ease-out) 40ms both;
-  }
-  html:is([data-nav="native"], [data-nav="swipe"])::view-transition-group(.sg-page),
-  html:is([data-nav="native"], [data-nav="swipe"])::view-transition-old(.sg-page),
-  html:is([data-nav="native"], [data-nav="swipe"])::view-transition-new(.sg-page) {
+  /* Moving to another page (data-nav on <html>, lib/nav-history.ts). The old
+     page is not drawn: it was scrolled somewhere else, so fading it over the
+     new one showed two pages at once, and the box morph between a long page
+     and a short one swept the column. What surrounds the page (the graph
+     band folding, an open peek sheet) changes at once, since a fading
+     picture of the old screen ghosted over the new. After a link the new
+     page rises in. Back, forward and the swipe animate the page itself
+     (components/swipe-back.tsx) and a step the browser animated (the iOS
+     edge swipe) is already done, so for those nothing runs here: one
+     running animation would keep a still picture of the page's first frame
+     on screen over the page arriving underneath. A language switch keeps
+     the plain cross-fade above. */
+  html[data-nav]::view-transition-group(.sg-page),
+  html[data-nav]::view-transition-new(.sg-page),
+  html[data-nav]::view-transition-group(root),
+  html[data-nav]::view-transition-new(root) {
     animation: none;
   }
-  html:is([data-nav="native"], [data-nav="swipe"])::view-transition-old(.sg-page) {
+  html[data-nav]::view-transition-old(.sg-page),
+  html[data-nav]::view-transition-old(root) {
     display: none;
+  }
+  html[data-nav="push"]::view-transition-new(.sg-page) {
+    animation: sg-page-in var(--motion-base) var(--ease-out) both;
   }
 }
 

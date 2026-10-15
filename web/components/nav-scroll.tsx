@@ -14,6 +14,9 @@ import { PAGE_COLUMN, PAGE_ID, installNavHistory, lastNavKind, savedPosition, ty
  * frame is already in place.
  */
 
+/** How long a restore keeps trying while a page grows, the same on a 60 Hz and a 120 Hz screen. */
+const RESTORE_MS = 700;
+
 /** Room kept above the page when it is brought to the top of the screen. */
 const PAGE_MARGIN_PX = 16;
 
@@ -51,7 +54,7 @@ function reached(position: ScrollPosition): boolean {
 /**
  * Put the page back where it was. A page that grows after its first paint (a
  * list that fills in) may not reach the offset at once, so it is tried again
- * for about 0.7 s, until the reader scrolls themselves.
+ * for 0.7 s, until the reader scrolls themselves.
  */
 function restore(position: ScrollPosition | null): () => void {
   if (position === null || (position.y === 0 && position.col === 0)) {
@@ -60,7 +63,7 @@ function restore(position: ScrollPosition | null): () => void {
   }
   applyPosition(position);
   let stopped = false;
-  let frames = 0;
+  const until = performance.now() + RESTORE_MS;
   const events = ["wheel", "touchstart", "keydown", "pointerdown"] as const;
   const stop = () => {
     stopped = true;
@@ -69,7 +72,7 @@ function restore(position: ScrollPosition | null): () => void {
   for (const name of events) window.addEventListener(name, stop, { passive: true, once: true });
   const tick = () => {
     if (stopped) return;
-    if (++frames > 40) return stop();
+    if (performance.now() > until) return stop();
     if (!reached(position)) applyPosition(position);
     window.requestAnimationFrame(tick);
   };
