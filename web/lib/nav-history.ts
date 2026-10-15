@@ -6,6 +6,10 @@
  * 2. Remember where each history entry was scrolled to, so back returns to the
  *    same spot and a fresh navigation always lands at the top.
  *
+ * It also marks how the page changed (`data-nav` on <html>), so the page
+ * transition can run the right way: a step back slides in from the left, a
+ * back swipe the browser already animated gets no second animation.
+ *
  * Browser only. `installNavHistory()` stamps every entry the router pushes with
  * a key and an index (merged into the router's own state object, which keeps
  * its `__NA` marker) and listens for popstate. The module is plain TypeScript
@@ -19,6 +23,14 @@ const POSITIONS_STORAGE = "staatsgraaf.nav.scroll";
 const POSITIONS_KEPT = 40;
 
 export type NavKind = "initial" | "push" | "pop";
+/**
+ * How the page changed, as `data-nav` on <html> for the page transition in
+ * globals.css: "back" and "forward" through history, "swipe" for our own swipe
+ * (the old page has already slid away), "native" for a step the browser
+ * animated itself (the iOS edge swipe, the trackpad swipe in Safari). A plain
+ * link click sets nothing.
+ */
+export type NavMotion = "back" | "forward" | "swipe" | "native";
 export type ScrollPosition = { y: number; col: number };
 export type NavSnapshot = { canBack: boolean; canForward: boolean };
 
@@ -30,6 +42,8 @@ let max = 0;
 let key = "";
 let kind: NavKind = "initial";
 let snapshot: NavSnapshot = { canBack: false, canForward: false };
+let intent: NavMotion | null = null;
+let edgeTouchAt = -Infinity;
 const listeners = new Set<() => void>();
 const positions = new Map<string, ScrollPosition>();
 
@@ -75,6 +89,25 @@ function persist() {
   const entries = [...positions.entries()].slice(-POSITIONS_KEPT);
   writeStorage(POSITIONS_STORAGE, JSON.stringify(entries));
 }
+
+/** Long enough for the page transition to finish; a language switch after it cross-fades as usual. */
+const MOTION_HOLD_MS = 900;
+let motionTimer: ReturnType<typeof setTimeout> | undefined;
+
+function markMotion(motion: NavMotion | null) {
+  clearTimeout(motionTimer);
+  const root = document.documentElement;
+  if (motion === null) {
+    delete root.dataset.nav;
+    return;
+  }
+  root.dataset.nav = motion;
+  motionTimer = setTimeout(() => delete root.dataset.nav, MOTION_HOLD_MS);
+}
+
+/** A touch this close to the left edge in this window before a popstate was the browser's own back swipe. */
+const EDGE_PX = 24;
+const EDGE_SWIPE_MS = 3000;
 
 function currentPosition(): ScrollPosition {
   const column = document.getElementById(PAGE_COLUMN);
@@ -128,27 +161,52 @@ export function installNavHistory(): void {
     max = idx;
     key = newKey();
     kind = "push";
+    markMotion(intent);
+    intent = null;
     push({ ...data, [KEY]: key, [IDX]: idx }, unused, url);
     persist();
     publish();
   };
   window.history.replaceState = (data: unknown, unused: string, url?: string | URL | null) => {
-    // A replace keeps the entry, so it keeps the key and the index.
+    // A replace keeps the entry, so it keeps the index; one to another page
+    // (back one level up, components/use-go-back.ts) starts a new scroll record.
     if (!isStamped(data)) return replace(data, unused, url);
+    if (url != null && new URL(url, window.location.href).pathname !== window.location.pathname) {
+      key = newKey();
+      markMotion(intent);
+      intent = null;
+    }
     replace({ ...data, [KEY]: key, [IDX]: idx }, unused, url);
   };
 
-  window.addEventListener("popstate", () => {
+  window.addEventListener("popstate", (event) => {
     const now: unknown = window.history.state;
     const entry = typeof now === "object" && now !== null ? (now as Stamped) : null;
+    const from = idx;
     if (entry !== null && typeof entry[IDX] === "number" && typeof entry[KEY] === "string") {
       idx = entry[IDX] as number;
       key = entry[KEY] as string;
       max = Math.max(max, idx);
     }
     kind = "pop";
+    // Safari before 18 and Firefox do not say whether they animated the step;
+    // a touch that began at the left edge just before is their swipe.
+    const animated = (event as PopStateEvent & { hasUAVisualTransition?: boolean }).hasUAVisualTransition;
+    const native = animated ?? performance.now() - edgeTouchAt < EDGE_SWIPE_MS;
+    edgeTouchAt = -Infinity;
+    markMotion(native ? "native" : (intent ?? (idx < from ? "back" : "forward")));
+    intent = null;
     publish();
   });
+
+  window.addEventListener(
+    "touchstart",
+    (event) => {
+      const touch = event.touches[0];
+      edgeTouchAt = event.touches.length === 1 && touch !== undefined && touch.clientX <= EDGE_PX ? performance.now() : -Infinity;
+    },
+    { capture: true, passive: true },
+  );
 
   // Every scroll of the window or the page column updates the current entry.
   window.addEventListener(
@@ -177,6 +235,11 @@ export function navSnapshot(): NavSnapshot {
 const SERVER_SNAPSHOT: NavSnapshot = { canBack: false, canForward: false };
 export function navServerSnapshot(): NavSnapshot {
   return SERVER_SNAPSHOT;
+}
+
+/** The motion the next history step should get; the next push or popstate uses it up. */
+export function setNavMotion(motion: NavMotion): void {
+  intent = motion;
 }
 
 /** How the current entry was reached: a router push, or back and forward. */

@@ -77,6 +77,7 @@ export const COMMON_DICT = {
   seatsOfLabel: { nl: "{n} zetels", en: "{n} seats" },
   seeAll: { nl: "Alles tonen ({n})", en: "See all ({n})" },
   backLabel: { nl: "Vorige", en: "Previous" },
+  backUpLabel: { nl: "Terug naar het overzicht", en: "Back to the overview" },
   forwardLabel: { nl: "Volgende", en: "Next" },
 
   // Peek popover (components/peek/peek-provider.tsx, docs/adr/0017)

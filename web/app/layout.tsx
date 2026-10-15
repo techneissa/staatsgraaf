@@ -9,6 +9,8 @@ import { Workspace } from "@/components/panels/workspace";
 import { PANELS_INIT_SCRIPT } from "@/components/panels/panel-prefs";
 import { NavRecovery } from "@/components/nav-recovery";
 import { NavScroll } from "@/components/nav-scroll";
+import { FloatingBack } from "@/components/history-controls";
+import { SwipeBack } from "@/components/swipe-back";
 import { PeekProvider } from "@/components/peek/peek-provider";
 import { RevealObserver } from "@/components/reveal-observer";
 import { SiteFooter } from "@/components/site-footer";
@@ -90,6 +92,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </Workspace>
             </div>
             <NavScroll />
+            {/* Back on touch screens: a swipe to the right anywhere on the page,
+                and on phones a button in reach of the thumb. */}
+            <SwipeBack />
+            <FloatingBack />
           </SelectionProvider>
           <PeekProvider />
           <RevealObserver />

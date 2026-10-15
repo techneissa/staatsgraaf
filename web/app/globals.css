@@ -230,6 +230,35 @@
   }
 }
 
+/* Back and forward through history: the page arrives from the side it was left on. */
+@keyframes sg-page-from-left {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+}
+
+@keyframes sg-page-from-right {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+}
+
+@keyframes sg-page-to-right {
+  to {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+}
+
+@keyframes sg-page-to-left {
+  to {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+}
+
 @keyframes sg-page-in {
   from {
     opacity: 0;
@@ -524,6 +553,86 @@
     animation-duration: var(--motion-slow);
     animation-timing-function: var(--ease-out);
   }
+  /* Direction (data-nav on <html>, lib/nav-history.ts). Back: the page leaves
+     to the right and the previous one comes in from the left; forward the
+     other way. After a swipe the old page has already slid away, so it only
+     fades. After a step the browser animated itself (the iOS edge swipe) the
+     new page is simply there, so nothing plays twice. */
+  html[data-nav="back"]::view-transition-old(.sg-page) {
+    animation: sg-page-to-right var(--motion-fast) var(--ease-in) both;
+  }
+  html[data-nav="forward"]::view-transition-old(.sg-page) {
+    animation: sg-page-to-left var(--motion-fast) var(--ease-in) both;
+  }
+  html[data-nav="back"]::view-transition-new(.sg-page),
+  html[data-nav="swipe"]::view-transition-new(.sg-page) {
+    animation: sg-page-from-left var(--motion-slow) var(--ease-out) 40ms both;
+  }
+  html[data-nav="forward"]::view-transition-new(.sg-page) {
+    animation: sg-page-from-right var(--motion-slow) var(--ease-out) 40ms both;
+  }
+  html[data-nav="native"]::view-transition-group(.sg-page),
+  html[data-nav="native"]::view-transition-old(.sg-page),
+  html[data-nav="native"]::view-transition-new(.sg-page) {
+    animation: none;
+  }
+  html[data-nav="native"]::view-transition-old(.sg-page) {
+    display: none;
+  }
+}
+
+/*
+ * Back on touch screens (components/swipe-back.tsx, components/history-controls.tsx).
+ * The page column hands only vertical pans to the browser, so a sideways
+ * swipe reaches the script without making scrolling wait for it. A row that
+ * scrolls sideways (the filter chips) is a scroll container, which takes its
+ * own panning back, so it still scrolls.
+ */
+@media (pointer: coarse) {
+  #inhoud {
+    touch-action: pan-y pinch-zoom;
+  }
+}
+/* The page slides right during the swipe; it must not widen the document. */
+#inhoud {
+  overflow-x: clip;
+}
+
+.sg-swipe-arrow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 35;
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid var(--color-line);
+  background: var(--color-surface);
+  color: var(--color-ink-muted);
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.14);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(-48px, -100px, 0);
+  will-change: transform, opacity;
+}
+.sg-swipe-arrow[data-armed] {
+  border-color: var(--color-accent-text);
+  background: var(--color-accent-soft);
+  color: var(--color-accent-text);
+}
+
+.sg-float-back {
+  transition-property: translate, opacity, border-color, scale;
+  transition-duration: var(--motion-base);
+  transition-timing-function: var(--ease-out);
+}
+.sg-float-back[data-hidden]:not(:focus-visible) {
+  translate: 0 calc(100% + 1rem + var(--safe-bottom));
+  opacity: 0;
+  pointer-events: none;
 }
 
 /*
