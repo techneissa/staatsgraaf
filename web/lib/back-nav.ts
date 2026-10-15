@@ -48,20 +48,27 @@ export function swipeProgress(dx: number, width: number): number {
   return Math.min(1, Math.max(0, dx / swipeThreshold(width)));
 }
 
-/** A quick flick goes back too, even when it did not travel the full distance. */
+/**
+ * Whether letting go goes back: past the threshold, unless the finger was
+ * already pulling back to the left, or on a quick flick to the right even
+ * when it did not travel the full distance. `velocity` is in px per ms.
+ */
 const FLICK_PX_PER_MS = 0.45;
 const FLICK_MIN_PX = 32;
+const PULL_BACK_PX_PER_MS = -0.3;
 
 export function swipeCommits(dx: number, velocity: number, width: number): boolean {
-  return dx >= swipeThreshold(width) || (velocity >= FLICK_PX_PER_MS && dx >= FLICK_MIN_PX);
+  if (velocity >= FLICK_PX_PER_MS && dx >= FLICK_MIN_PX) return true;
+  return dx >= swipeThreshold(width) && velocity > PULL_BACK_PX_PER_MS;
 }
 
 /**
- * How far the page follows the finger: one to one at first, then with more
- * resistance, so it never leaves the screen during the drag.
+ * How far the page follows the finger: at a little over half the finger's
+ * speed at first, easing towards a cap of 96 px (less on a narrow screen),
+ * so the page leans towards going back without leaving an empty column.
  */
 export function swipeOffset(dx: number, width: number): number {
   if (dx <= 0) return 0;
-  const limit = width * 0.4;
-  return limit * (1 - Math.exp(-dx / limit));
+  const max = Math.min(96, width * 0.22);
+  return max * (1 - Math.exp(-dx / (max * 1.6)));
 }
