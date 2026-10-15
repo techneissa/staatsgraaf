@@ -1,8 +1,8 @@
 "use client";
 
 import * as Tabs from "@radix-ui/react-tabs";
-import { Fragment, memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import type { ReactNode, RefObject } from "react";
+import { Fragment, memo, useCallback, useEffect, useMemo, useState } from "react";
+import type { ReactNode } from "react";
 import { useLocale } from "@/components/i18n/language-provider";
 import { T } from "@/components/i18n/t";
 import { useT } from "@/components/i18n/use-t";
@@ -222,7 +222,6 @@ export function ChangeExplorer({
   const [day, setDay] = useState<string | null>(null);
   const [view, setView] = useState<ChangeViewValue>("chronological");
   const [now, setNow] = useState<NowValue | null>(null);
-  const listRef = useRef<HTMLDivElement>(null);
   const [synced, setSynced] = useState(false);
 
   // Waits for the first read of the URL, so the defaults never overwrite a deep link.
@@ -243,22 +242,11 @@ export function ChangeExplorer({
     setSynced(true);
   }, [validDays, reference]);
 
-  const scrollToList = useCallback(() => {
-    const target = listRef.current;
-    if (!target) return;
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.requestAnimationFrame(() => target.scrollIntoView({ block: "start", behavior: reduced ? "auto" : "smooth" }));
-  }, []);
-
   // Choosing a period, a kind, a day or a view leaves the lists of the state right now.
-  const selectDay = useCallback(
-    (date: string | null) => {
-      setNow(null);
-      setDay(date);
-      if (date !== null) scrollToList();
-    },
-    [scrollToList],
-  );
+  const selectDay = useCallback((date: string | null) => {
+    setNow(null);
+    setDay(date);
+  }, []);
 
   const selectKind = useCallback((kind: ChangeFilterValue) => {
     setNow(null);
@@ -332,7 +320,6 @@ export function ChangeExplorer({
                 onSelectDay={selectDay}
                 onSelectKind={selectKind}
                 onShowWindow={selectWindow}
-                listRef={listRef}
                 locale={locale}
               />
             )}
@@ -354,7 +341,6 @@ function PaneBody({
   onSelectDay,
   onSelectKind,
   onShowWindow,
-  listRef,
   locale,
 }: {
   pane: ChangePane;
@@ -366,7 +352,6 @@ function PaneBody({
   onSelectDay: (date: string | null) => void;
   onSelectKind: (kind: ChangeFilterValue) => void;
   onShowWindow: (days: number) => void;
-  listRef: RefObject<HTMLDivElement | null>;
   locale: string;
 }) {
   const t = useT("home");
@@ -396,7 +381,7 @@ function PaneBody({
           </button>
         </p>
       ) : null}
-      <div ref={listRef} className="mt-4 scroll-mt-16">
+      <div className="mt-4">
         {windowEmpty || (view === "chronological" && groups.length === 0) ? (
           <EmptyFeed
             days={pane.days}

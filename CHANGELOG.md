@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Fixed (15-10-2026, change strip)
+
+- Choosing a day on the change strip no longer scrolls the page down to the list. The filter still applies; the chart stays where it is.
+
 ### Changed (15-10-2026, change strip)
 
 - The changes chart is a strip of dots on a 7, 30 or 90 day axis, one mark per person, coloured by kind. Quiet days stay empty. A mass departure is a cluster; a single vacancy is one hollow ring.
