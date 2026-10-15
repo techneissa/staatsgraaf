@@ -1,16 +1,16 @@
 {
   "bewindspersonen": {
     "cabinetSlug": "kabinet-jetten",
-    "lastRun": "2026-10-14T17:16:37.257Z",
+    "lastRun": "2026-10-15T04:46:22.154Z",
     "slugsHash": null
   },
   "decentral": {
     "commissarissen": {
-      "lastAttempt": "2026-10-13T22:49:12.114Z",
+      "lastAttempt": "2026-10-15T04:46:22.154Z",
       "lastCounts": {
         "items": 12
       },
-      "lastRun": "2026-10-13T22:49:12.114Z",
+      "lastRun": "2026-10-15T04:46:22.154Z",
       "pendingGuard": null,
       "pendingRetry": false
     },
@@ -361,13 +361,13 @@
         "gm1992": "org:gemeente-voorne-aan-zee"
       },
       "holdersBootstrapped": "2026-10-06",
-      "lastAttempt": "2026-10-13T22:49:12.114Z",
+      "lastAttempt": "2026-10-15T04:46:22.154Z",
       "lastCounts": {
         "cbs": 342,
         "register": 342,
         "tooi": 342
       },
-      "lastRun": "2026-10-13T22:49:12.114Z",
+      "lastRun": "2026-10-15T04:46:22.154Z",
       "names": {
         "gm0014": "Groningen",
         "gm0034": "Almere",
@@ -732,13 +732,13 @@
         "pv31": "org:provincie-limburg"
       },
       "holdersBootstrapped": "2026-10-06",
-      "lastAttempt": "2026-10-13T22:49:12.114Z",
+      "lastAttempt": "2026-10-15T04:46:22.154Z",
       "lastCounts": {
         "cbs": 12,
         "register": 12,
         "tooi": 12
       },
-      "lastRun": "2026-10-13T22:49:12.114Z",
+      "lastRun": "2026-10-15T04:46:22.154Z",
       "names": {
         "pv20": "Groningen",
         "pv21": "Fryslân",
@@ -782,13 +782,13 @@
         "ws0665": "org:waterschap-limburg"
       },
       "holdersBootstrapped": "2026-10-06",
-      "lastAttempt": "2026-10-13T22:49:12.114Z",
+      "lastAttempt": "2026-10-15T04:46:22.154Z",
       "lastCounts": {
         "cbs": null,
         "register": 21,
         "tooi": 21
       },
-      "lastRun": "2026-10-13T22:49:12.114Z",
+      "lastRun": "2026-10-15T04:46:22.154Z",
       "names": {
         "ws0152": "Rijn en IJssel",
         "ws0155": "Amstel, Gooi en Vecht",
@@ -829,7 +829,7 @@
       "fracties": "0c1a14c56c26b6052121358d62eda103f1045bf4e4a06bcc0e2bf3a6ff07dd26",
       "mutaties": "18011dbde2e6953e03db4f58422a8e59066b7046ce6d84a8c96950819d87a555"
     },
-    "lastFullRun": "2026-10-14T17:16:37.257Z"
+    "lastFullRun": "2026-10-15T04:46:22.154Z"
   },
   "electionDates": {
     "gaps": [],
@@ -967,11 +967,11 @@
     "lastRun": "2026-10-12T21:18:05.480Z"
   },
   "lastRun": {
-    "at": "2026-10-14T17:16:37.257Z",
+    "at": "2026-10-15T04:46:22.154Z",
     "outcome": "updated"
   },
   "news": {
-    "lastRun": "2026-10-14T17:16:37.257Z",
+    "lastRun": "2026-10-15T04:46:22.154Z",
     "sitemapLastmod": null
   },
   "note": "State of `bun run live` (ADR 0024). Cursors are Tweede Kamer ApiGewijzigdOp values; personMap maps a Tweede Kamer Persoon.Id to a person id in data/people.json. Written by the pipeline, not by hand.",
@@ -983,7 +983,7 @@
       "vacature": "2026-09-02T13:39:18.4481246Z"
     },
     "lastCounts": null,
-    "lastFullRun": "2026-10-14T17:16:37.257Z",
+    "lastFullRun": "2026-10-15T04:46:22.154Z",
     "pendingGuard": null,
     "personMap": {
       "0004fa63-2652-43fe-9866-4130ca4652d8": "person:maikel-christiaan-hendrikus-boon",
