@@ -12,9 +12,11 @@ export type FactTile = {
   wide?: boolean;
   /** A short explanation of jargon, shown quietly under the value. */
   hint?: ReactNode;
-  /** Whole chip is a link (a count that jumps to a section). */
+  /** The value is a link (a count that jumps to a section, or an official page). */
   href?: string;
-  /** Left border in a branch or accent colour. */
+  /** Open `href` in a new tab. Used for the legal source and the official website. */
+  external?: boolean;
+  /** Left border in a branch or accent colour (FactTiles only). */
   accent?: string;
 };
 
@@ -59,54 +61,57 @@ export function FactTiles({ facts, className = "" }: { facts: FactTile[]; classN
 }
 
 /**
- * The same facts as a dense chip row: icon, quiet label, value, wrapping as
- * the column allows. Used on organisation headers where the old tiles left
- * three sparse cards stacked with empty space.
+ * Facts as a wrapping meta row: icon plus value, no boxes. The label is the
+ * accessible name, not a second visible line. Used on organisation headers.
  */
 export function FactChips({ facts, className = "" }: { facts: FactTile[]; className?: string }) {
   const t = useT("entity");
+  const common = useT("common");
   const visible = facts.filter((fact) => fact.value !== null && fact.value !== undefined && fact.value !== "");
   if (visible.length === 0) return null;
   return (
     <div className={className}>
-      <dl aria-label={t("factsLabel")} className="flex flex-wrap gap-1.5">
-        {visible.map((fact) => (
-          <div
-            key={fact.key}
-            className={`relative inline-flex max-w-full min-w-0 items-center gap-2 rounded-md border bg-surface py-1.5 pl-1.5 pr-2.5 ${
-              fact.wide ? "basis-full sm:basis-auto sm:max-w-[min(100%,24rem)]" : ""
-            } ${fact.href ? "transition-fast hover:border-line-strong pointer-coarse:min-h-11" : ""}`}
-            style={{
-              borderColor: fact.accent ?? "var(--color-line)",
-              borderLeftWidth: fact.accent ? 3 : 1,
-            }}
-          >
-            <dt className="flex shrink-0 items-center gap-2 self-stretch">
-              <span
-                aria-hidden="true"
-                className="flex h-6 w-6 shrink-0 items-center justify-center rounded-sm bg-surface-raised text-ink-muted"
-              >
-                {fact.icon}
-              </span>
-              <span className="sr-only">{fact.label}</span>
-            </dt>
-            <dd className="min-w-0">
-              <span className="block text-[10px] leading-none text-ink-faint" aria-hidden="true">
-                {fact.label}
-              </span>
-              <span className="mt-0.5 block text-sm leading-snug text-ink break-words">
-                {fact.href ? (
-                  <a href={fact.href} className="font-medium text-accent-text after:absolute after:inset-0 hover:underline">
-                    {fact.value}
+      <dl aria-label={t("factsLabel")} className="flex flex-wrap items-center gap-x-3.5 gap-y-0.5">
+        {visible.map((fact) => {
+          const value = (
+            <>
+              <span className="min-w-0 break-words">{fact.value}</span>
+              {fact.hint ? <span className="text-[11px] text-ink-faint">{fact.hint}</span> : null}
+            </>
+          );
+          return (
+            <div
+              key={fact.key}
+              className="inline-flex max-w-full min-w-0 items-center gap-1.5 py-1 pointer-coarse:min-h-11"
+            >
+              <dt className="flex shrink-0 items-center text-ink-faint">
+                <span aria-hidden="true" className="flex h-4 w-4 items-center justify-center [&>svg]:h-3.5 [&>svg]:w-3.5">
+                  {fact.icon}
+                </span>
+                <span className="sr-only">{fact.label}</span>
+              </dt>
+              <dd className="min-w-0 text-sm leading-snug text-ink">
+                {fact.href !== undefined ? (
+                  <a
+                    href={fact.href}
+                    {...(fact.external === true ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="inline-flex min-w-0 max-w-full items-baseline gap-1 text-accent-text underline-offset-2 hover:underline"
+                  >
+                    {value}
+                    {fact.external === true ? (
+                      <span className="sr-only">
+                        {" "}
+                        {common("opensNewTab")}
+                      </span>
+                    ) : null}
                   </a>
                 ) : (
-                  fact.value
+                  value
                 )}
-              </span>
-              {fact.hint ? <span className="mt-0.5 block text-[11px] leading-snug text-ink-faint">{fact.hint}</span> : null}
-            </dd>
-          </div>
-        ))}
+              </dd>
+            </div>
+          );
+        })}
       </dl>
     </div>
   );

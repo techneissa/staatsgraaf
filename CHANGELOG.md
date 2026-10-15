@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (16-10-2026, organisation header)
+
+- Organisation facts (branch, level, bodies under it, aliases) sit in one wrapping row of icon plus value, without border boxes. Legal basis and the official website join that row as compact links. Share is an icon only. Coat of arms credit stays in the (i). Who leads it is a row of portraits and names, not chips.
+
 ### Fixed (15-10-2026, page transitions)
 
 - Swipe back is one motion: the page slides out and fades, then the previous page comes in from the left. Before, the page vanished mid-slide and the next one faded in from nothing. On iPhone the page no longer drifts up and down during a swipe. A swipe on a page opened from outside no longer shows a blank column while the page above loads; that page is fetched ahead.

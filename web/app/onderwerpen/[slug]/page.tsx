@@ -73,7 +73,7 @@ export default async function TopicPage({ params }: { params: Promise<{ slug: st
           <h1 className="text-2xl font-semibold tracking-tight text-ink">
             <L nl={topic.name} en={topicNameEn(topic.slug, topic.name)} />
           </h1>
-          <ShareButton title={topic.name} />
+          <ShareButton compact title={topic.name} />
         </div>
         {topic.description !== null ? (
           <LocalizedDescription

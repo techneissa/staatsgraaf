@@ -55,7 +55,7 @@ export function OrgStructure({
           {shown.map(({ tenure, person, position }) => (
             <span
               key={tenure.id}
-              className="relative inline-flex min-w-0 max-w-full items-center gap-1.5 rounded-md border border-line bg-surface py-1 pl-1 pr-2 pointer-coarse:min-h-11"
+              className="relative inline-flex min-w-0 max-w-full items-center gap-1.5 py-0.5 pointer-coarse:min-h-11"
             >
               <Avatar name={person!.name} url={person!.portrait} size={18} className="shrink-0" />
               <EntityPeekLink id={person!.id} className={HIT}>

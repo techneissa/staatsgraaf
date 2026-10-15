@@ -65,6 +65,9 @@ export function ShareButton({
 
   const label = canShare ? t("shareLink") : t("copyLink");
   const shown = status === "copied" ? t("linkCopied") : status === "failed" ? t("linkCopyFailed") : label;
+  const chrome = compact
+    ? "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-sm text-ink-muted transition-fast hover:bg-surface-inset hover:text-ink sm:h-8 sm:w-8 pointer-coarse:sm:h-11 pointer-coarse:sm:w-11"
+    : "inline-flex min-h-11 items-center justify-center gap-1.5 rounded-sm border border-line bg-surface px-3 text-sm font-medium text-ink-muted transition-fast hover:border-line-strong hover:text-ink sm:min-h-9";
 
   return (
     <button
@@ -72,7 +75,7 @@ export function ShareButton({
       onClick={onClick}
       aria-label={compact ? label : undefined}
       title={compact ? label : undefined}
-      className={`inline-flex min-h-11 items-center justify-center gap-1.5 rounded-sm border border-line bg-surface px-3 text-sm font-medium text-ink-muted transition-fast hover:border-line-strong hover:text-ink sm:min-h-9 ${className}`.trim()}
+      className={`${chrome} ${className}`.trim()}
     >
       <Morph icon={status === "copied" ? Check : canShare ? Share : LinkIcon} size={15} strokeWidth={2} still={!used} />
       {compact ? null : (

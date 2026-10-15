@@ -246,7 +246,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
               <h1 className="min-w-0 flex-1 text-3xl font-semibold tracking-tight text-balance text-ink break-words">
                 {person.name}
               </h1>
-              <ShareButton className="mt-1 shrink-0" title={person.name} />
+              <ShareButton compact className="mt-0.5 shrink-0" title={person.name} />
             </div>
             {summary !== null ? (
               <p className="mt-2 max-w-prose text-base leading-snug text-ink-muted">

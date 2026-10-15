@@ -253,7 +253,7 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
             {position.title}
             <Gloss text={positionEn(position.title)} className="mt-1 block text-base font-normal tracking-normal text-ink-muted" />
           </h1>
-          <ShareButton className="mt-1 shrink-0" title={position.title} />
+          <ShareButton compact className="mt-0.5 shrink-0" title={position.title} />
         </div>
         {summary !== null ? (
           <p className="mt-2 max-w-prose text-base leading-snug text-ink-muted">

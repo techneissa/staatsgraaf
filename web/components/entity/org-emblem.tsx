@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useT } from "@/components/i18n/use-t";
 import type { MediaCreditInfo } from "@/lib/entity";
-import { CreditPopover, CreditText } from "./credit-text";
+import { CreditPopover } from "./credit-text";
 
 export type OrgEmblemImage = {
   name: string;
@@ -59,12 +59,26 @@ export function OrgEmblem({
 }
 
 /**
- * The visible credit line of an emblem with its (i). A coat of arms sits in
- * this line on a phone and next to the name from `sm` up, so a long name keeps
- * whole words. A logo always sits in this line: it is a wide wordmark that
- * already carries the name, and next to the name it would squeeze it. Without
- * an image (a logo whose owner reserved copyright) the line and the (i) with
- * the link to the logo stay. A `div`, not a `p`: the (i) is a `details`, which
+ * Coat of arms next to the organisation name from `sm` up, with the (i) that
+ * holds author, licence and source. On a phone the small emblem and (i) sit
+ * in `OrgEmblemCredit` instead, so a long name keeps whole words.
+ */
+export function OrgEmblemTitle({ image, info }: { image: OrgEmblemImage; info: MediaCreditInfo }) {
+  return (
+    <span className="hidden sm:flex shrink-0 items-center gap-0.5">
+      <OrgEmblem {...image} />
+      <CreditPopover info={info} kind={image.kind === "logo" ? "logo" : "emblem"} />
+    </span>
+  );
+}
+
+/**
+ * Emblem plus the (i) that holds the credit. A coat of arms sits here on a
+ * phone and next to the name from `sm` up. A logo always sits here: it is a
+ * wide wordmark that already carries the name, and next to the name it would
+ * squeeze it. Without an image (a logo whose owner reserved copyright) the
+ * (i) with the link to the logo stays. Author and licence live in the (i),
+ * not as a visible line. A `div`, not a `p`: the (i) is a `details`, which
  * the HTML parser will not keep inside a paragraph.
  */
 export function OrgEmblemCredit({
@@ -80,10 +94,7 @@ export function OrgEmblemCredit({
 }) {
   return (
     <div className={`flex min-w-0 items-center gap-1 text-xs text-ink-faint ${className}`.trim()}>
-      {emblem !== null ? <OrgEmblem {...emblem} small className={kind === "logo" ? "mr-1.5" : "mr-1.5 sm:hidden"} /> : null}
-      <span className="min-w-0 break-words">
-        <CreditText credit={info.credit} />
-      </span>
+      {emblem !== null ? <OrgEmblem {...emblem} small className={kind === "logo" ? "mr-1" : "mr-1 sm:hidden"} /> : null}
       <CreditPopover info={info} kind={kind === "logo" ? "logo" : "emblem"} />
     </div>
   );
