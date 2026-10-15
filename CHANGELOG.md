@@ -4,6 +4,13 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Added (15-10-2026, going back)
+
+- Swipe from left to right anywhere on a page to go back on a phone or tablet. The page follows the finger, an arrow fills in at the left edge, and letting go past it (or a quick flick) opens the previous page where it was left. A shorter swipe springs back.
+- On phones a round back button sits in the bottom left corner, in reach of the thumb. It steps aside while you scroll down and returns when you scroll up.
+- With no previous page in the visit (a link from outside), back goes one level up: a person to the people index, an index to the home page.
+- Going back slides the previous page in from the left; forward slides from the right. After the browser's own back swipe (iOS edge swipe, Safari trackpad swipe) the page does not animate a second time.
+
 ### Changed (15-10-2026, home overview)
 
 - The home overview uses the graph's branch colours and icons. Figures and rows are links: a branch opens its group on the organisations page, a type filters that list.
