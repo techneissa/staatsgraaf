@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useLayoutEffect, useRef, useState, useTransition } from "react";
 import type { CSSProperties, ReactNode, RefObject } from "react";
 import type { IconNode } from "lucide";
 import { Armchair, Network, Users } from "lucide";
@@ -257,6 +257,31 @@ export function PeekProvider() {
   }, []);
 
   const clearLeaving = useCallback(() => setLeaving(null), []);
+
+  // Opening the page of a peek is one step: the peek goes in the same commit
+  // as the new page, so the page transition shows the new page rising in
+  // while the sheet and its scrim fade with the rest of the screen. Closing
+  // first played the sheet's exit, then the old page alone, then the swap.
+  // In one transition with the router's push, React commits the close only
+  // when the new page is ready.
+  const router = useRouter();
+  const [opening, startOpening] = useTransition();
+  // Fetch the page while the reader looks at the peek, so "Open page" has it ready.
+  const openHref = open?.href;
+  useEffect(() => {
+    if (openHref) router.prefetch(openHref);
+  }, [openHref, router]);
+  const openPage = useCallback(
+    (href: string) => {
+      startOpening(() => {
+        setSwap(false);
+        setLeaving(null);
+        setOpen(null);
+        router.push(href);
+      });
+    },
+    [router],
+  );
   const shown = open ?? leaving;
   if (!shown) return null;
   const visible = visiblePeek(open ?? shown, record, status);
@@ -270,6 +295,8 @@ export function PeekProvider() {
       swap={swap && open !== null}
       onClose={close}
       onClosed={clearLeaving}
+      onOpenPage={openPage}
+      opening={opening}
     />
   );
 }
@@ -295,6 +322,8 @@ function PeekDialog({
   swap,
   onClose,
   onClosed,
+  onOpenPage,
+  opening,
 }: {
   open: OpenState;
   record: PeekRecord | null;
@@ -306,9 +335,12 @@ function PeekDialog({
   swap: boolean;
   onClose: (returnFocus?: boolean) => void;
   onClosed: () => void;
+  /** Go to a page: the peek closes together with the navigation. */
+  onOpenPage: (href: string) => void;
+  /** The page is on its way: the button says so until it replaces the peek. */
+  opening: boolean;
 }) {
   const t = useT("common");
-  const router = useRouter();
   const titleId = useId();
   const panelRef = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState<CSSProperties>({ visibility: "hidden" });
@@ -447,10 +479,7 @@ function PeekDialog({
     };
   }, [onClose, open.anchor]);
 
-  const go = (href: string) => {
-    onClose(false);
-    router.push(href);
-  };
+  const go = onOpenPage;
 
   const head = <PeekBody open={open} record={record} status={status} titleId={titleId} onNavigate={go} part="head" />;
   const rest = <PeekBody open={open} record={record} status={status} titleId={titleId} onNavigate={go} part="rest" />;
@@ -459,23 +488,31 @@ function PeekDialog({
     <div className="flex items-center gap-2 border-t border-line pt-3">
       <a
         href={open.href}
+        aria-busy={opening || undefined}
         onClick={(event) => {
           if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
           event.preventDefault();
-          go(open.href);
+          if (!opening) go(open.href);
         }}
         className="inline-flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-sm bg-accent px-3 text-sm font-semibold text-accent-ink transition-fast hover:brightness-110 sm:min-h-9 pointer-coarse:sm:min-h-11"
       >
-        <svg aria-hidden="true" viewBox="0 0 20 20" width="15" height="15">
-          <path
-            d="M11.5 3.5h5v5M16.5 3.5 10 10M8.5 5H5a1.5 1.5 0 0 0-1.5 1.5v8.5A1.5 1.5 0 0 0 5 16.5h8.5A1.5 1.5 0 0 0 15 15v-3.5"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.7"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        {opening ? (
+          <svg aria-hidden="true" viewBox="0 0 20 20" width="15" height="15" className="motion-safe:animate-spin">
+            <circle cx="10" cy="10" r="6.5" fill="none" stroke="currentColor" strokeOpacity="0.3" strokeWidth="1.8" />
+            <path d="M10 3.5a6.5 6.5 0 0 1 6.5 6.5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+          </svg>
+        ) : (
+          <svg aria-hidden="true" viewBox="0 0 20 20" width="15" height="15">
+            <path
+              d="M11.5 3.5h5v5M16.5 3.5 10 10M8.5 5H5a1.5 1.5 0 0 0-1.5 1.5v8.5A1.5 1.5 0 0 0 5 16.5h8.5A1.5 1.5 0 0 0 15 15v-3.5"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.7"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        )}
         {t("peekOpenPage")}
       </a>
       <ShareButton href={open.href} title={record?.name ?? open.label} compact className="min-w-11 pointer-coarse:sm:min-h-11" />

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { navServerSnapshot, navSnapshot, setNavMotion, subscribeNav } from "@/lib/nav-history";
 import { useT } from "./i18n/use-t";
@@ -69,6 +69,9 @@ export function HistoryControls() {
 /** Scrolled this far down past the last turn, the floating button steps aside. */
 const HIDE_AFTER_PX = 48;
 
+/** After a page change, scrolling for this long is the scroll restore, not the reader. */
+const SETTLE_MS = 1000;
+
 /**
  * Back on a phone, where the top bar has no room for it: a round button in
  * the bottom left corner, in reach of the thumb. It steps aside while the
@@ -79,9 +82,15 @@ const HIDE_AFTER_PX = 48;
 export function FloatingBack() {
   const t = useT("common");
   const { target, goBack } = useGoBack();
+  const pathname = usePathname();
   const [tucked, setTucked] = useState(false);
 
   useEffect(() => {
+    // A new page: the button is back in view, and the next second of
+    // scrolling is the page being put where it was left (components/nav-scroll.tsx),
+    // not the reader scrolling down, so it does not tuck the button away.
+    setTucked(false);
+    const settled = performance.now() + SETTLE_MS;
     let turn = window.scrollY;
     let last = window.scrollY;
     let frame = 0;
@@ -90,6 +99,10 @@ export function FloatingBack() {
       frame = window.requestAnimationFrame(() => {
         frame = 0;
         const y = window.scrollY;
+        if (performance.now() < settled) {
+          turn = last = y;
+          return;
+        }
         if ((y > last) !== (last > turn)) turn = last;
         last = y;
         setTucked(y > HIDE_AFTER_PX && y - turn > HIDE_AFTER_PX);
@@ -100,7 +113,7 @@ export function FloatingBack() {
       window.removeEventListener("scroll", onScroll);
       window.cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [pathname]);
 
   const hidden = target === null || tucked;
   const label = t(target === "up" ? "backUpLabel" : "backLabel");

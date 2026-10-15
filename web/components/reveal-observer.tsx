@@ -8,9 +8,9 @@ import { useEffect } from "react";
  * Server components opt in with `className="motion-rise" data-reveal="pending"`
  * (or `motion-draw` for a rail). Without JavaScript nothing is hidden: the
  * hiding rule in globals.css only applies once this component has set
- * `html[data-reveal="on"]`. Elements already on screen at first paint are
- * marked shown without animating, so nothing flashes on load; elements further
- * down fade and rise once as they scroll in. Under prefers-reduced-motion the
+ * `html[data-reveal="on"]`. Elements already on screen when they arrive (at
+ * first paint or with a new page) are marked shown without animating, so
+ * nothing flashes; elements further down fade and rise once as they scroll in. Under prefers-reduced-motion the
  * CSS keyframes are not applied at all, so this only toggles an attribute.
  */
 export function RevealObserver() {
@@ -35,26 +35,27 @@ export function RevealObserver() {
       return rect.bottom > 0 && rect.top < window.innerHeight;
     };
 
-    const scan = (scope: ParentNode, initial: boolean) => {
-      const nodes = scope.querySelectorAll('[data-reveal="pending"]');
-      for (const node of nodes) {
-        if (initial && inView(node)) {
-          node.setAttribute("data-reveal", "static");
-          continue;
-        }
-        observer.observe(node);
-      }
+    // On screen when it arrives: shown without its own motion. That is the
+    // first paint, and a page reached by a link or by back, whose arrival
+    // already moves it (globals.css, components/swipe-back.tsx); a second
+    // rise inside the first one read as the page fading in twice.
+    const reveal = (node: Element) => {
+      if (inView(node)) node.setAttribute("data-reveal", "static");
+      else observer.observe(node);
+    };
+    const scan = (scope: ParentNode) => {
+      for (const node of scope.querySelectorAll('[data-reveal="pending"]')) reveal(node);
     };
 
-    scan(document, true);
+    scan(document);
     root.setAttribute("data-reveal", "on");
 
     const mutations = new MutationObserver((records) => {
       for (const record of records) {
         for (const node of record.addedNodes) {
           if (!(node instanceof Element)) continue;
-          if (node.getAttribute("data-reveal") === "pending") observer.observe(node);
-          scan(node, false);
+          if (node.getAttribute("data-reveal") === "pending") reveal(node);
+          scan(node);
         }
       }
     });

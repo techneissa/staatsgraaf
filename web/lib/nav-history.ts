@@ -25,12 +25,13 @@ const POSITIONS_KEPT = 40;
 export type NavKind = "initial" | "push" | "pop";
 /**
  * How the page changed, as `data-nav` on <html> for the page transition in
- * globals.css: "back" and "forward" through history, "swipe" for our own swipe
- * (the old page has already slid away), "native" for a step the browser
- * animated itself (the iOS edge swipe, the trackpad swipe in Safari). A plain
- * link click sets nothing.
+ * globals.css and the page arrival in components/swipe-back.tsx: "push" for a
+ * link to another page, "back" and "forward" through history, "swipe" for our
+ * own swipe (the old page has already slid away), "native" for a step the
+ * browser animated itself (the iOS edge swipe, the trackpad swipe in Safari).
+ * A change of the query string only (a filter) sets nothing.
  */
-export type NavMotion = "back" | "forward" | "swipe" | "native";
+export type NavMotion = "push" | "back" | "forward" | "swipe" | "native";
 export type ScrollPosition = { y: number; col: number };
 export type NavSnapshot = { canBack: boolean; canForward: boolean };
 
@@ -40,6 +41,7 @@ let installed = false;
 let idx = 0;
 let max = 0;
 let key = "";
+let path = "";
 let kind: NavKind = "initial";
 let snapshot: NavSnapshot = { canBack: false, canForward: false };
 let intent: NavMotion | null = null;
@@ -153,6 +155,9 @@ export function installNavHistory(): void {
   }
   snapshot = { canBack: idx > 0, canForward: idx < max };
 
+  path = window.location.pathname;
+  const pathOf = (url: string | URL | null | undefined) => (url == null ? path : new URL(url, window.location.href).pathname);
+
   const push = window.history.pushState.bind(window.history);
   const replace = window.history.replaceState.bind(window.history);
   window.history.pushState = (data: unknown, unused: string, url?: string | URL | null) => {
@@ -161,8 +166,10 @@ export function installNavHistory(): void {
     max = idx;
     key = newKey();
     kind = "push";
-    markMotion(intent);
+    const to = pathOf(url);
+    markMotion(to !== path ? (intent ?? "push") : null);
     intent = null;
+    path = to;
     push({ ...data, [KEY]: key, [IDX]: idx }, unused, url);
     persist();
     publish();
@@ -171,10 +178,12 @@ export function installNavHistory(): void {
     // A replace keeps the entry, so it keeps the index; one to another page
     // (back one level up, components/use-go-back.ts) starts a new scroll record.
     if (!isStamped(data)) return replace(data, unused, url);
-    if (url != null && new URL(url, window.location.href).pathname !== window.location.pathname) {
+    const to = pathOf(url);
+    if (to !== path) {
       key = newKey();
-      markMotion(intent);
+      markMotion(intent ?? "push");
       intent = null;
+      path = to;
     }
     replace({ ...data, [KEY]: key, [IDX]: idx }, unused, url);
   };
@@ -194,7 +203,9 @@ export function installNavHistory(): void {
     const animated = (event as PopStateEvent & { hasUAVisualTransition?: boolean }).hasUAVisualTransition;
     const native = animated ?? performance.now() - edgeTouchAt < EDGE_SWIPE_MS;
     edgeTouchAt = -Infinity;
-    markMotion(native ? "native" : (intent ?? (idx < from ? "back" : "forward")));
+    const moved = window.location.pathname !== path;
+    path = window.location.pathname;
+    markMotion(native ? "native" : moved ? (intent ?? (idx < from ? "back" : "forward")) : null);
     intent = null;
     publish();
   });

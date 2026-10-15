@@ -4,6 +4,16 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Fixed (15-10-2026, page transitions)
+
+- Swipe back is one motion: the page slides out and fades, then the previous page comes in from the left. Before, the page vanished mid-slide and the next one faded in from nothing. On iPhone the page no longer drifts up and down during a swipe. A swipe on a page opened from outside no longer shows a blank column while the page above loads; that page is fetched ahead.
+- "Open pagina" in a peek is one step: the peek stays until the page is ready (the button shows a spinner), then the new page rises in. Before, the sheet slid away, the old page sat alone, and both pages showed at once while they swapped.
+- A profile card no longer flashes above an organisation, person or party page for a moment after arriving, pushing the page down and back.
+- Opening a link from far down a page no longer fades the old page over the new one or sweeps the column. Back and forward now animate too, from the side the page was left on.
+- Content already on screen when a page arrives no longer fades in a second time.
+- The floating back button stays visible after going back to a page that was scrolled down.
+- Switching language on the news pages no longer adds a step to the back history.
+
 ### Changed (15-10-2026, swipe back)
 
 - The swipe back is smoother. The page leans after the finger at an even pace instead of fading, and the arrow at the left edge is a ring that fills as you swipe and turns solid when letting go will go back. Pulling back to the left before letting go cancels. On release the page leaves and the previous one slides in from the left in one motion, without the jitter the page transition caused before.

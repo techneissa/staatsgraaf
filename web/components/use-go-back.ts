@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useSyncExternalStore } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { parentPath } from "@/lib/back-nav";
 import { navServerSnapshot, navSnapshot, setNavMotion, subscribeNav, type NavMotion } from "@/lib/nav-history";
@@ -16,7 +16,14 @@ export function useGoBack(): { target: BackTarget; goBack: (motion?: NavMotion) 
   const router = useRouter();
   const pathname = usePathname();
   const { canBack } = useSyncExternalStore(subscribeNav, navSnapshot, navServerSnapshot);
-  const target: BackTarget = canBack ? "history" : parentPath(pathname) !== null ? "up" : null;
+  const parent = parentPath(pathname);
+  const target: BackTarget = canBack ? "history" : parent !== null ? "up" : null;
+
+  // Going up loads a page this visit has not seen yet; fetch it ahead, so a
+  // swipe or a tap does not wait on a blank column. The router fetches once.
+  useEffect(() => {
+    if (target === "up" && parent !== null) router.prefetch(parent);
+  }, [target, parent, router]);
 
   const goBack = useCallback(
     (motion: NavMotion = "back") => {

@@ -3,7 +3,7 @@
 import { useEffect, useLayoutEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { SWIPE_EDGE_PX, swipeCommits, swipeIntent, swipeOffset, swipeProgress } from "@/lib/back-nav";
-import { PAGE_ID } from "@/lib/nav-history";
+import { PAGE_ID, navSnapshot } from "@/lib/nav-history";
 import { useGoBack } from "./use-go-back";
 
 /** The page column (app/layout.tsx); a swipe that starts anywhere in it goes back. */
@@ -14,6 +14,9 @@ const EXCLUDED = "input, textarea, select, [contenteditable], [data-no-swipe-bac
 
 /** How long the page waits, slid away, for the previous page before it comes back. */
 const STALL_MS = 1500;
+
+/** The page leaving after a swipe, before the previous one is asked for. */
+const EXIT_MS = 150;
 
 /** The ring around the arrow: radius and length of the stroke. */
 const RING_R = 20;
@@ -92,21 +95,24 @@ export function SwipeBack() {
   can.current = target !== null;
   back.current = goBack;
 
-  // The previous page has rendered (into the same element when the route
-  // stays within a section, else a new one): drop the exit and bring the
-  // page in from the left. A layout effect, so the first painted frame of
-  // the previous page is already the start of its entry.
+  // A page reached through history arrives from the side it was left on:
+  // back (button, swipe or up one level) from the left, forward from the
+  // right. This runs on the page itself, in a layout effect, so the first
+  // painted frame of the page is already the start of its arrival; the View
+  // Transition stands aside for these steps (globals.css), and a link to a
+  // new page keeps its own rise. After a swipe the old page has already left.
   useLayoutEffect(() => {
     const left = leaving.current;
-    if (left === null) return;
     leaving.current = null;
-    left.exit?.cancel();
-    left.page.style.opacity = "";
+    left?.exit?.cancel();
+    if (left !== null) left.page.style.opacity = "";
+    const motion = document.documentElement.dataset.nav;
+    const from = motion === "back" || motion === "swipe" ? -28 : motion === "forward" ? 28 : 0;
     const page = document.getElementById(PAGE_ID);
-    if (page === null || reducedMotion()) return;
+    if (from === 0 || page === null || reducedMotion()) return;
     page.animate(
       [
-        { transform: "translate3d(-28px, 0, 0)", opacity: 0 },
+        { transform: `translate3d(${from}px, 0, 0)`, opacity: 0 },
         { transform: "none", opacity: 1 },
       ],
       { duration: 280, easing: EASE_OUT },
@@ -232,7 +238,7 @@ export function SwipeBack() {
       const offset = page === null ? 0 : swipeOffset(gesture.dx, gesture.width);
       hideArrow(commit);
 
-      if (!commit || !back.current("swipe")) {
+      if (!commit || !can.current) {
         if (page !== null) {
           release(page, [{ transform: `translate3d(${offset}px, 0, 0)` }, { transform: "none" }], 260, EASE_OUT).finished.then(
             (done) => done.cancel(),
@@ -241,6 +247,10 @@ export function SwipeBack() {
         }
         return;
       }
+      // The page finishes leaving before the previous one is asked for. A
+      // cached page renders within a frame, and starting at once cut the
+      // exit off: the page vanished mid-slide and the next one faded in from
+      // nothing. Leaving first makes it one motion, out and then in.
       const exit =
         page === null
           ? null
@@ -248,33 +258,59 @@ export function SwipeBack() {
               page,
               [
                 { transform: `translate3d(${offset}px, 0, 0)`, opacity: 1 },
-                { transform: `translate3d(${offset + gesture.width * 0.2}px, 0, 0)`, opacity: 0 },
+                { transform: `translate3d(${offset + gesture.width * 0.25}px, 0, 0)`, opacity: 0 },
               ],
-              170,
+              EXIT_MS,
               EASE_IN,
             );
       leaving.current = { page: page ?? document.body, exit };
-      // No new route after a while (the same page under another query
-      // string): bring this one back.
-      window.setTimeout(() => {
-        const left = leaving.current;
-        if (left === null || left.exit !== exit) return;
+      const restore = () => {
+        if (leaving.current?.exit !== exit) return;
         leaving.current = null;
         exit?.cancel();
         page?.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, easing: EASE_OUT });
-      }, STALL_MS);
+      };
+      const navigate = () => {
+        if (leaving.current?.exit !== exit) return;
+        const from = window.location.pathname;
+        const throughHistory = navSnapshot().canBack;
+        if (!back.current("swipe")) return restore();
+        // Back through history changes the address at once, so the same
+        // address after a while means the step stayed on this page (another
+        // query string): bring it back. Going up changes the address only
+        // when the page has loaded, so a slow page keeps the reader waiting
+        // and never undoes the swipe.
+        if (!throughHistory) return;
+        window.setTimeout(() => {
+          if (window.location.pathname === from) restore();
+        }, STALL_MS);
+      };
+      if (exit === null) navigate();
+      else exit.finished.then(navigate, navigate);
+    };
+
+    // iOS Safari does not lock a pan to one axis: with vertical panning
+    // allowed, the up and down part of a sideways thumb scrolled the page
+    // during the swipe. Once a swipe has started, its moves are not scrolls.
+    const onTouchMove = (event: TouchEvent) => {
+      if (g?.engaged && event.cancelable) event.preventDefault();
     };
 
     main.addEventListener("pointerdown", onDown, { passive: true });
     main.addEventListener("pointermove", onMove, { passive: true });
     main.addEventListener("pointerup", onEnd, { passive: true });
     main.addEventListener("pointercancel", onEnd, { passive: true });
+    // Only WebKit (iOS, iPadOS) needs it; elsewhere a blocking touch
+    // listener would make every scroll in the page wait for script.
+    const webkit = "GestureEvent" in window;
+    if (webkit) main.addEventListener("touchmove", onTouchMove, { passive: false });
     return () => {
       window.cancelAnimationFrame(frame);
       main.removeEventListener("pointerdown", onDown);
       main.removeEventListener("pointermove", onMove);
       main.removeEventListener("pointerup", onEnd);
       main.removeEventListener("pointercancel", onEnd);
+      if (webkit) main.removeEventListener("touchmove", onTouchMove);
     };
   }, []);
 

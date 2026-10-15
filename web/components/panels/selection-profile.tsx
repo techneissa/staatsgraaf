@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { useDict } from "@/components/i18n/use-t";
 import { useSelection } from "@/components/selection/selection-provider";
+import { selectionOwnsPath } from "@/lib/selection";
 import { PanelHeader, SelectionMark } from "./panel-header";
 import { SelectionBody, selectionKey } from "./selection-body";
 import { useSelectionView } from "./use-selection-view";
@@ -35,7 +36,10 @@ export function SelectionProfile() {
   const [outOfView, setOutOfView] = useState(false);
   const key = selectionKey(current);
 
-  const onOwnPage = Boolean(view.meta?.href && pathname && view.meta.href === pathname);
+  // Known at once from the address; the loaded record's own link covers the
+  // rest. Waiting for the record alone showed the profile for a moment on
+  // arrival at the entity's page, pushing the page down and back up.
+  const onOwnPage = selectionOwnsPath(current, pathname) || Boolean(view.meta?.href && pathname && view.meta.href === pathname);
   // A group of dots or a sector has no page of its own: the details panel says all
   // there is to say, and a copy of it above the page would push the page down.
   const panelOnly = current?.kind === "cluster" || current?.kind === "sector";
