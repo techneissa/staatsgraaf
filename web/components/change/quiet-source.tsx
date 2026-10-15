@@ -12,11 +12,28 @@ export function QuietSource({
   publisher,
   retrieved,
   className = "",
+  variant = "icon",
 }: {
   href: string;
   publisher: string;
   retrieved?: string | null;
   className?: string;
+  /** Icon is the chain glyph; text is the publisher name, for rows that already name the kind. */
+  variant?: "icon" | "text";
 }) {
-  return <SourceIcon href={href} title={publisher || new URL(href).host} retrieved={retrieved} className={className} />;
+  const title = publisher || new URL(href).host;
+  if (variant === "text") {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={title}
+        className={`text-xs text-ink-faint underline-offset-2 hover:underline ${className}`.trim()}
+      >
+        {title}
+      </a>
+    );
+  }
+  return <SourceIcon href={href} title={title} retrieved={retrieved} className={className} />;
 }

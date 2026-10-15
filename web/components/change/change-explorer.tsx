@@ -358,7 +358,6 @@ function PaneBody({
   const groups = useMemo(() => filterGroups(pane.groups, filter, day), [pane.groups, filter, day]);
   const cardFilter = useMemo(() => ({ kind: filter, day }), [filter, day]);
   const windowEmpty = pane.counts.changes === 0;
-  const filtered = filter !== "all" || day !== null;
   return (
     <>
       {windowEmpty ? null : (
@@ -366,7 +365,6 @@ function PaneBody({
           buckets={pane.histogram}
           days={pane.days}
           counts={pane.counts}
-          shown={filtered ? countItems(flatItems(groups)).changes : undefined}
           activeDay={day}
           onSelectDay={onSelectDay}
           activeKind={filter}

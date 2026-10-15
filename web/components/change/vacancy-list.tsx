@@ -1,11 +1,10 @@
 import { DateT } from "@/components/content/local-date";
 import { EmptyStateT } from "./empty-state-t";
 import { EntityPeekLink } from "../peek/entity-peek-link";
-import { T } from "@/components/i18n/t";
 import { getSourceById } from "@/lib/data";
 import { titleNamesBody, type VacancySummary } from "@/lib/changes";
-import { CHANGE_KIND_KEY, CHANGE_LABEL_TONE, ChangeKindGlyph } from "./change-glyph";
-import { QuietSource } from "./quiet-source";
+import { ChangeKindGlyph } from "./change-glyph";
+import { KindSourceLabel } from "./kind-source-label";
 import { RailItem, RailList } from "./rail";
 import { AriaLabelT } from "./aria-label-t";
 
@@ -36,8 +35,13 @@ export function VacancyList({ vacancies }: { vacancies: VacancySummary[] }) {
                   className="mt-0.5 h-9 w-9 shrink-0 rounded-pill border border-dashed border-line-strong"
                 />
                 <div className="min-w-0 flex-1">
-                  <p className={`text-xs font-semibold leading-4 ${CHANGE_LABEL_TONE.vacancy}`}>
-                    <T area="home" k={CHANGE_KIND_KEY.vacancy} />
+                  <p>
+                    <KindSourceLabel
+                      kind="vacancy"
+                      href={source?.url}
+                      publisher={source?.publisher}
+                      retrieved={vacancy.source.retrieved}
+                    />
                   </p>
                   <h3 className="mt-0.5 text-sm font-medium leading-snug [overflow-wrap:anywhere]">
                     <EntityPeekLink id={vacancy.position.id} variant="plain" />
@@ -55,9 +59,6 @@ export function VacancyList({ vacancies }: { vacancies: VacancySummary[] }) {
                         counts={{ vacant: vacancy.vacant, seats: vacancy.seats }}
                       />
                     </span>
-                    {source ? (
-                      <QuietSource href={source.url} publisher={source.publisher} retrieved={vacancy.source.retrieved} />
-                    ) : null}
                   </p>
                 </div>
               </article>

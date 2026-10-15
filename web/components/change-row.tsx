@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 import { PersonPortrait } from "./entity/person-portrait";
 import { EntityPeekLink } from "./peek/entity-peek-link";
 import { T } from "@/components/i18n/t";
-import { CHANGE_KIND_KEY, CHANGE_LABEL_TONE, ChangeKindGlyph } from "@/components/change/change-glyph";
-import { QuietSource } from "@/components/change/quiet-source";
+import { ChangeKindGlyph } from "@/components/change/change-glyph";
+import { KindSourceLabel } from "@/components/change/kind-source-label";
 import { TemplateT } from "@/components/change/template-t";
 import { changeDisplayKind, titleNamesBody, vacancySeatCounts, type ChangeDisplayKind } from "@/lib/changes";
 import { DateT } from "@/components/content/local-date";
@@ -90,9 +90,9 @@ function BeforeAfter({ change, kind }: { change: Change; kind: ChangeDisplayKind
 }
 
 /**
- * One change on the rail: kind label, portrait or initials, a one-line
- * sentence with peek links, a before -> after line and the quiet source.
- * Hangs inside a RailItem; the kind glyph is the rail mark (ChangeMark).
+ * One change on the rail: kind label (the source, when there is one),
+ * portrait or initials, a one-line sentence with peek links, a before -> after
+ * line. Hangs inside a RailItem; the kind glyph is the rail mark (ChangeMark).
  */
 export function ChangeRow({ change, compact = false }: { change: Change; compact?: boolean }) {
   const kind = changeDisplayKind(change);
@@ -104,7 +104,7 @@ export function ChangeRow({ change, compact = false }: { change: Change; compact
   return (
     <article className="flex min-w-0 gap-3">
       {person ? (
-        <PersonPortrait person={person} size={size} className="mt-0.5" />
+        <PersonPortrait person={person} size={size} className="mt-0.5" peek />
       ) : (
         <span
           aria-hidden="true"
@@ -113,11 +113,13 @@ export function ChangeRow({ change, compact = false }: { change: Change; compact
         />
       )}
       <div className="min-w-0 flex-1">
-        <p className={`flex items-center gap-1.5 text-xs font-semibold leading-4 ${CHANGE_LABEL_TONE[kind]}`}>
-          <T area="home" k={CHANGE_KIND_KEY[kind]} />
-          {source ? (
-            <QuietSource href={source.url} publisher={source.publisher} retrieved={change.source.retrieved} />
-          ) : null}
+        <p>
+          <KindSourceLabel
+            kind={kind}
+            href={source?.url}
+            publisher={source?.publisher}
+            retrieved={change.source.retrieved}
+          />
         </p>
         <p className="mt-0.5 text-sm leading-snug text-ink [overflow-wrap:anywhere]">
           {sentence !== null ? sentence : <span lang="nl">{change.summary}</span>}
