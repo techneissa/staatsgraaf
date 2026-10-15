@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (15-10-2026, swipe back)
+
+- The swipe back is smoother. The page leans after the finger at an even pace instead of fading, and the arrow at the left edge is a ring that fills as you swipe and turns solid when letting go will go back. Pulling back to the left before letting go cancels. On release the page leaves and the previous one slides in from the left in one motion, without the jitter the page transition caused before.
+
 ### Changed (15-10-2026, home news note)
 
 - The line "Items in another language are machine translated." on the home page moved into an (i) beside "Recent news", with a link to how we translate.

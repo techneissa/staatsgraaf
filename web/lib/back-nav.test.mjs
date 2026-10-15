@@ -27,12 +27,15 @@ test("release goes back past the threshold or on a flick", () => {
   expect(swipeCommits(60, 0.1, 390)).toBe(false);
   expect(swipeCommits(40, 0.6, 390)).toBe(true);
   expect(swipeCommits(20, 2, 390)).toBe(false);
+  expect(swipeCommits(120, -0.6, 390)).toBe(false);
 });
 
 test("progress and offset stay in range", () => {
   expect(swipeProgress(-10, 390)).toBe(0);
   expect(swipeProgress(500, 390)).toBe(1);
   expect(swipeOffset(-5, 390)).toBe(0);
-  expect(swipeOffset(10_000, 390)).toBeLessThanOrEqual(390 * 0.4);
-  expect(swipeOffset(20, 390)).toBeGreaterThan(18);
+  expect(swipeOffset(10_000, 390)).toBeLessThanOrEqual(390 * 0.22);
+  expect(swipeOffset(10_000, 1440)).toBeLessThanOrEqual(96);
+  expect(swipeOffset(20, 390)).toBeGreaterThan(10);
+  expect(swipeOffset(60, 390)).toBeGreaterThan(swipeOffset(30, 390));
 });
