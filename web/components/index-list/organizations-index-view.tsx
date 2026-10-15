@@ -20,18 +20,22 @@ import {
   type OrganizationRow,
   type OrganizationSubgroup,
 } from "@/lib/index-lists";
-import type { OrgBranch } from "@/lib/types";
+import type { OrgBranch, OrgType } from "@/lib/types";
 import { ministryIcon } from "@/components/icons/ministry-icon";
 import { NoScriptNote } from "./no-script-note";
 import { ListStatus } from "./list-status";
 import { OrgCard } from "./org-card";
-import { ArmsImage, GROUP_CLUSTERS, GROUP_META, IconTile, type GroupCluster } from "./org-visual";
+import { ArmsImage, GROUP_CLUSTERS, GROUP_META, IconTile, TYPE_META, type GroupCluster } from "./org-visual";
 import { IndexSearchField } from "./search-field";
 import { useAnchorJump } from "./use-anchor-jump";
 import { useIndexParams } from "./use-index-params";
 import { useIndexRows } from "./use-index-rows";
 
-const PARAMS = ["q"] as const;
+const PARAMS = ["q", "type"] as const;
+
+function orgTypeParam(value: string): OrgType | null {
+  return value in TYPE_META ? (value as OrgType) : null;
+}
 
 const CLUSTER_KEY: Record<GroupCluster, string> = {
   national: "orgOverviewNational",
@@ -286,7 +290,8 @@ export function OrganizationsIndexView({ initial, groups, total }: { initial: Or
   const { rows, full, failed, retry } = useIndexRows("organisaties", initial);
   const { values, set, clear, ready } = useIndexParams(PARAMS);
   const query = useDeferredValue(values.q);
-  const filtering = values.q.trim() !== "";
+  const typeFilter = orgTypeParam(values.type);
+  const filtering = values.q.trim() !== "" || typeFilter !== null;
   const [opened, setOpened] = useState<ReadonlySet<string>>(() => new Set());
 
   const searchTexts = useMemo(() => rows.map(organizationSearchText), [rows]);
@@ -294,9 +299,13 @@ export function OrganizationsIndexView({ initial, groups, total }: { initial: Or
   const matches = useMemo(() => {
     if (!full && filtering) return null;
     const terms = searchTerms(query);
-    if (terms.length === 0) return rows;
-    return rows.filter((_, index) => terms.every((term) => searchTexts[index].includes(term)));
-  }, [rows, searchTexts, query, full, filtering]);
+    if (terms.length === 0 && typeFilter === null) return rows;
+    return rows.filter((row, index) => {
+      if (typeFilter !== null && row.t !== typeFilter) return false;
+      if (terms.length > 0 && !terms.every((term) => searchTexts[index].includes(term))) return false;
+      return true;
+    });
+  }, [rows, searchTexts, query, full, filtering, typeFilter]);
 
   /** Rows per group, and per subgroup within a split group. */
   const byGroup = useMemo(() => {
@@ -321,7 +330,10 @@ export function OrganizationsIndexView({ initial, groups, total }: { initial: Or
     return map;
   }, [rows, full]);
 
-  const shownGroups = useMemo(() => (searching ? groups.filter((group) => byGroup.has(group.key)) : groups), [searching, groups, byGroup]);
+  const shownGroups = useMemo(
+    () => (searching || typeFilter !== null ? groups.filter((group) => byGroup.has(group.key)) : groups),
+    [searching, typeFilter, groups, byGroup],
+  );
   const jump = useAnchorJump(shownGroups);
 
   const toggle = (key: string) =>
@@ -360,10 +372,10 @@ export function OrganizationsIndexView({ initial, groups, total }: { initial: Or
       {shownGroups.map((group) => {
         const anchor = `groep-${group.key}`;
         const items = byGroup.get(group.key) ?? [];
-        const split = !searching && (group.subgroups?.length ?? 0) > 0;
+        const split = !searching && typeFilter === null && (group.subgroups?.length ?? 0) > 0;
         return (
           <section key={group.key} data-group={group.key} aria-labelledby={anchor} className="mt-10">
-            <GroupHeading group={group} anchor={anchor} count={searching ? items.length : group.count} />
+            <GroupHeading group={group} anchor={anchor} count={searching || typeFilter !== null ? items.length : group.count} />
             {split ? (
               <>
                 <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-ink-faint">{t(group.by === "ministerie" ? "orgByMinisterie" : "orgByProvincie")}</p>
@@ -394,7 +406,7 @@ export function OrganizationsIndexView({ initial, groups, total }: { initial: Or
               </>
             ) : (
               <div className="mt-3">
-                <CardGrid rows={items} nest={!searching} />
+                <CardGrid rows={items} nest={!searching && typeFilter === null} />
               </div>
             )}
           </section>

@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (15-10-2026, home overview)
+
+- The home overview uses the graph's branch colours and icons. Figures and rows are links: a branch opens its group on the organisations page, a type filters that list.
+
 ### Changed (15-10-2026, change rows)
 
 - The strip caption is a people count, not "N changes (M people) in N days". Kind words (appointment, departure, vacancy) are the source link when a source exists; the chain-link icon is gone. Portraits on the change feed open a peek.

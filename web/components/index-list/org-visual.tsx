@@ -27,12 +27,22 @@ import { LucideIcon } from "@/components/icons/lucide-icon";
 import { ministryIcon } from "@/components/icons/ministry-icon";
 import { branchColorVar } from "@/lib/branch-colors";
 import type { OrganizationRow } from "@/lib/index-lists";
-import type { OrgBranch } from "@/lib/types";
+import type { OrgBranch, OrgType } from "@/lib/types";
 
 /** Where a group sits in the structure of the state: the overview arranges its tiles by this. */
 export type GroupCluster = "national" | "decentral" | "distance";
 
 export const GROUP_CLUSTERS: GroupCluster[] = ["national", "decentral", "distance"];
+
+/** Icon and a branch colour for each organisation type on the home overview. */
+export const TYPE_META: Record<OrgType, { icon: IconNode; colorBranch: OrgBranch }> = {
+  department: { icon: Building2, colorBranch: "regering" },
+  elected: { icon: Landmark, colorBranch: "staten-generaal" },
+  commission: { icon: Users, colorBranch: "staten-generaal" },
+  advisory: { icon: MessagesSquare, colorBranch: "adviescolleges" },
+  dept_head: { icon: BriefcaseBusiness, colorBranch: "regering" },
+  constituency: { icon: Vote, colorBranch: "staten-generaal" },
+};
 
 /** The icon and the place of each group (staatsmacht), the same colours as the graph. */
 export const GROUP_META: Record<OrgBranch, { icon: IconNode; cluster: GroupCluster }> = {
