@@ -15,7 +15,7 @@ const seat = (id, date, person, position) => ({
   in: { tenure: null, person, label: "A" },
 });
 
-test("a bulk day counts per person for the bar and per change in the text", () => {
+test("a bulk day counts per person for the strip and per change in the text", () => {
   const changes = [
     seat("a1", "2026-09-09", "person:a", "pos:1"),
     seat("a2", "2026-09-09", "person:a", "pos:2"),

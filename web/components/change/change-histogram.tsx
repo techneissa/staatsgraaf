@@ -6,6 +6,7 @@ import type { CSSProperties, KeyboardEvent, MouseEvent, PointerEvent } from "rea
 import { useLocale } from "@/components/i18n/language-provider";
 import { useT } from "@/components/i18n/use-t";
 import { BAR_KINDS, type BarKind, type HistogramBucket } from "@/lib/change-bar-kinds";
+import { DOT_GAP_PX, DOT_PX, filterByKind, packDayDots, packedCount, STRIP_PX, STRIP_ROWS } from "@/lib/change-dot-pack";
 import type { EntryCounts } from "@/lib/change-feed";
 import { nearestActiveIndex } from "@/lib/change-hit";
 import type { ChangeFilterValue } from "@/lib/change-url-state";
@@ -41,11 +42,10 @@ const TIP_FLIP_SPACE = 150;
 
 type Tip = { index: number; left: number; below: boolean };
 
-type BarProps = {
+type DayProps = {
   bucket: HistogramBucket;
   index: number;
-  max: number;
-  gutter: string;
+  columns: BarKind[][];
   label: string;
   active: boolean;
   dimmed: boolean;
@@ -56,44 +56,47 @@ type BarProps = {
 };
 
 const COLUMN =
-  "group relative flex h-full min-w-0 flex-1 items-end justify-center rounded-xs outline-offset-1 focus-visible:outline-2 focus-visible:outline-focus";
+  "group relative z-[1] flex h-full min-w-0 flex-1 items-end justify-center overflow-visible rounded-xs outline-offset-1 hover:z-10 focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-focus";
 
-/** One day: a full-height column (the hit area) with the stacked bar at its foot. */
-const Bar = memo(function Bar({ bucket, index, max, gutter, label, active, dimmed, tabbable, href, onPick, onFocusBar }: BarProps) {
-  const empty = bucket.count === 0;
-  const stack = (
+function Dot({ kind, delay }: { kind: BarKind; delay: number }) {
+  const display = DISPLAY_KIND[kind];
+  const hollow = kind === "vacancy";
+  return (
     <span
-      className={`grow-y flex w-full max-w-10 flex-col-reverse overflow-hidden rounded-t-xs transition-opacity duration-150 ${gutter} ${
+      aria-hidden="true"
+      className={`grow-seat block shrink-0 rounded-full ${CHANGE_TONE[display]} ${
+        hollow ? "border-[1.5px] border-current bg-canvas" : "bg-current"
+      }`}
+      style={{ width: DOT_PX, height: DOT_PX, "--d": `${delay}ms` } as CSSProperties}
+    />
+  );
+}
+
+/** One day: a full-height column (the hit area) with a cluster of marks at its foot. */
+const Day = memo(function Day({ bucket, index, columns, label, active, dimmed, tabbable, href, onPick, onFocusBar }: DayProps) {
+  const empty = columns.length === 0;
+  const cluster = empty ? null : (
+    <span
+      className={`absolute bottom-1 left-1/2 flex -translate-x-1/2 items-end transition-opacity duration-150 ${
         dimmed ? "opacity-35" : "group-hover:brightness-90"
       }`}
-      style={
-        {
-          height: empty ? "2px" : `max(4px, ${(bucket.count / max) * 100}%)`,
-          "--d": `${Math.min(280, index * 4)}ms`,
-        } as CSSProperties
-      }
+      style={{ gap: DOT_GAP_PX }}
     >
-      {empty ? (
-        <span className="h-full w-full bg-line" />
-      ) : (
-        BAR_KINDS.map((kind) =>
-          bucket.byKind[kind] > 0 ? (
-            <span
-              key={kind}
-              className={`block w-full bg-current ${CHANGE_TONE[DISPLAY_KIND[kind]]}`}
-              style={{ flexGrow: bucket.byKind[kind], flexBasis: 0 }}
-            />
-          ) : null,
-        )
-      )}
+      {columns.map((col, c) => (
+        <span key={c} className="flex flex-col-reverse" style={{ gap: DOT_GAP_PX }}>
+          {col.map((kind, r) => (
+            <Dot key={r} kind={kind} delay={Math.min(360, index * 4 + (c * STRIP_ROWS + r) * 16)} />
+          ))}
+        </span>
+      ))}
     </span>
   );
   const ring = active ? "after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:rounded-pill after:bg-ink" : "";
   if (empty) {
     // A quiet day is no control: it stays out of the tab order and the accessibility tree.
     return (
-      <span aria-hidden="true" data-day={bucket.date} data-empty="" className={COLUMN}>
-        {stack}
+      <span aria-hidden="true" data-day={bucket.date} data-empty="" className={`${COLUMN} pointer-events-none`}>
+        {cluster}
       </span>
     );
   }
@@ -107,25 +110,26 @@ const Bar = memo(function Bar({ bucket, index, max, gutter, label, active, dimme
   if (href !== null) {
     return (
       <Link {...common} href={href} scroll={false}>
-        {stack}
+        {cluster}
       </Link>
     );
   }
   return (
     <button type="button" {...common} aria-pressed={active} onClick={() => onPick(bucket.date)}>
-      {stack}
+      {cluster}
     </button>
   );
 });
 
 /**
- * Changes per day as stacked bars by kind. A bar is a column that spans the
- * chart height, so a thin bar still has a tall target and the columns touch;
- * hover, focus or a finger dragged along the chart opens a tooltip with the
- * date, the counts and the first names. Selecting a bar sets the day filter,
- * selecting it again clears it; the legend filters by kind, each chip counting
- * the changes of its kind in the window and disabled when there are none.
- * With `linkBase` the bars and legend are links to the changes page instead
+ * Changes per day as a strip of marks, one per person, coloured by kind.
+ * Quiet days stay empty on the time axis. A cluster is a column that spans
+ * the chart height, so a thin day still has a tall target; hover, focus or a
+ * finger dragged along the chart opens a tooltip with the date, the counts
+ * and the first names. Selecting a day sets the day filter, selecting it
+ * again clears it; the legend filters by kind, each mark counting the
+ * changes of its kind in the window and disabled when there are none.
+ * With `linkBase` the days and legend are links to the changes page instead
  * (home page). The caption names the window; with `shown` it says how many of
  * the window's changes the list below shows.
  */
@@ -161,22 +165,25 @@ export function ChangeHistogram({
   const activeDayRef = useRef(activeDay);
   activeDayRef.current = activeDay;
 
-  const max = Math.max(1, ...buckets.map((bucket) => bucket.count));
-  const gutter = days <= 14 ? "px-1.5" : days <= 45 ? "px-0.5" : "px-px";
+  const columnsByDay = useMemo(
+    () => buckets.map((bucket) => packDayDots(filterByKind(bucket.byKind, activeKind))),
+    [buckets, activeKind],
+  );
+  const counts = useMemo(() => columnsByDay.map(packedCount), [columnsByDay]);
   const kindTotals = useMemo(() => {
     const sums: Record<BarKind, number> = { appointment: 0, acting: 0, departure: 0, vacancy: 0, other: 0 };
     for (const bucket of buckets) for (const kind of BAR_KINDS) sums[kind] += bucket.changesByKind[kind];
     return sums;
   }, [buckets]);
 
-  // The one bar in the tab order: the chosen day, else the newest day with changes.
+  // The one day in the tab order: the chosen day, else the newest day with marks.
   const tabIndex = useMemo(() => {
-    if (roving !== null && buckets[roving]?.count) return roving;
+    if (roving !== null && counts[roving]) return roving;
     const chosen = activeDay === null ? -1 : buckets.findIndex((bucket) => bucket.date === activeDay);
-    if (chosen >= 0) return chosen;
-    for (let i = buckets.length - 1; i >= 0; i -= 1) if (buckets[i].count > 0) return i;
+    if (chosen >= 0 && counts[chosen]) return chosen;
+    for (let i = counts.length - 1; i >= 0; i -= 1) if (counts[i] > 0) return i;
     return -1;
-  }, [roving, activeDay, buckets]);
+  }, [roving, activeDay, buckets, counts]);
 
   const withPeople = useCountsText();
 
@@ -206,7 +213,7 @@ export function ChangeHistogram({
     (index: number) => {
       const wrap = wrapRef.current;
       const bucket = buckets[index];
-      if (!wrap || !bucket || bucket.count === 0) {
+      if (!wrap || !bucket || counts[index] === 0) {
         setTip(null);
         return;
       }
@@ -221,7 +228,7 @@ export function ChangeHistogram({
           : { index, left, below },
       );
     },
-    [buckets],
+    [buckets, counts],
   );
 
   const onFocusBar = useCallback(
@@ -231,8 +238,6 @@ export function ChangeHistogram({
     },
     [showTip],
   );
-
-  const counts = useMemo(() => buckets.map((bucket) => bucket.count), [buckets]);
 
   /** The day a pointer means: the nearest day with changes within a finger's reach. */
   const indexAt = (event: { clientX: number }, target: HTMLElement) => {
@@ -246,9 +251,9 @@ export function ChangeHistogram({
     else showTip(index);
   };
 
-  // A thin bar is a hard target, so a pointer click forwards to the nearest bar
+  // A thin day is a hard target, so a pointer click forwards to the nearest day
   // in reach. Keyboard activation (detail 0) and the forwarded click itself
-  // already hit the right bar.
+  // already hit the right day.
   const onClickCapture = (event: MouseEvent<HTMLDivElement>) => {
     if (event.detail === 0) return;
     const index = indexAt(event, event.currentTarget);
@@ -350,8 +355,9 @@ export function ChangeHistogram({
           ref={groupRef}
           role="group"
           aria-label={t("histGroupAria")}
-          className="motion-grow flex h-20 touch-pan-y items-end border-b border-line"
+          className="motion-grow flex touch-pan-y items-end overflow-visible border-b border-line"
           data-reveal="pending"
+          style={{ height: STRIP_PX }}
           onKeyDown={onKeyDown}
           onClickCapture={onClickCapture}
           onPointerEnter={onPointer}
@@ -363,12 +369,11 @@ export function ChangeHistogram({
           }}
         >
           {buckets.map((bucket, index) => (
-            <Bar
+            <Day
               key={bucket.date}
               bucket={bucket}
               index={index}
-              max={max}
-              gutter={gutter}
+              columns={columnsByDay[index]}
               label={labels[index]}
               active={activeDay === bucket.date}
               dimmed={activeDay !== null && activeDay !== bucket.date}

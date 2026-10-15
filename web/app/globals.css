@@ -300,10 +300,10 @@
   /*
    * Data visuals grow once as they enter the viewport. The container carries
    * `motion-grow` and `data-reveal="pending"`; its bars carry `grow-x` (grow
-   * from the start edge) or `grow-y` (grow from the baseline), seats carry
-   * `grow-seat`, a line carries `grow-stroke` with pathLength="1". `--d` sets a
-   * per-mark delay. A chart already on screen at first paint stays still, so
-   * a hard load never flashes empty bars.
+   * from the start edge) or `grow-y` (grow from the baseline), change dots and
+   * seats carry `grow-seat`, a line carries `grow-stroke` with pathLength="1".
+   * `--d` sets a per-mark delay. A chart already on screen at first paint stays
+   * still, so a hard load never flashes empty marks.
    */
   html[data-reveal="on"] .motion-grow[data-reveal="pending"] :is(.grow-x, .grow-y, .grow-seat) {
     opacity: 0;

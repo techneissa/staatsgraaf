@@ -1,11 +1,11 @@
 /**
- * Hit testing for the change histogram. At 90 days a bar is about 5 px wide,
+ * Hit testing for the change strip. At 90 days a day is about 5 px wide,
  * far under a finger, so a pointer picks the nearest day with changes within
  * `reach` pixels instead of needing the exact column. Kept free of React so a
  * test can run it.
  */
 
-/** Half of the 44 px touch target, on each side of a bar. */
+/** Half of the 44 px touch target, on each side of a day. */
 export const HIT_REACH_PX = 22;
 
 /**
