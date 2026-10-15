@@ -1,17 +1,17 @@
-/** The kinds a histogram bar stacks. Everything that is not a person or seat change is "other". */
+/** The kinds a day's cluster stacks. Everything that is not a person or seat change is "other". */
 export type BarKind = "appointment" | "acting" | "departure" | "vacancy" | "other";
 
 export const BAR_KINDS: readonly BarKind[] = ["appointment", "acting", "departure", "vacancy", "other"];
 
 export type HistogramBucket = {
   date: string;
-  /** Entries on the day: one person's changes in one role count once, so a bulk import does not drown the chart. Sets the bar height. */
+  /** Entries on the day: one person's changes in one role count once, so a bulk import is one mark per person. */
   count: number;
   /** The changes behind those entries; what the text says. */
   changes: number;
   /** How many different people the day's changes are about. */
   people: number;
-  /** Entries per kind; sets the proportions of the stack. */
+  /** Entries per kind; how many dots of each colour. */
   byKind: Record<BarKind, number>;
   /** Changes per kind; what the tooltip says. */
   changesByKind: Record<BarKind, number>;

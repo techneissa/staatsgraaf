@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (15-10-2026, change strip)
+
+- The changes chart is a strip of dots on a 7, 30 or 90 day axis, one mark per person, coloured by kind. Quiet days stay empty. A mass departure is a cluster; a single vacancy is one hollow ring.
+
 ### Changed (15-10-2026, changes)
 
 - The changes block drops the bordered pills: acting and vacant seats are a compact "now" row with coloured glyphs, and the kind filters are an icon plus a count. Chronological and by person are icons. The "last change today, data as of today" line is gone when those dates are the same.
