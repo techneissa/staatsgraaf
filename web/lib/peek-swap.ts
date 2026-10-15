@@ -14,15 +14,11 @@ export function peekClickAction(
 }
 
 type NodeBox = { contains(node: Node): boolean };
-type ClosestBox = {
-  closest?: (selector: string) => unknown;
-  parentElement?: ClosestBox | null;
-};
 
 /**
- * An outside pointerdown closes unless it landed in the peek, on the open
- * link, or on another peek link. That last case is a replace, handled by the
- * click, so closing here would play the exit and the enter back to back.
+ * An outside pointerdown closes unless it landed in the peek or on the open
+ * link. A link on the page behind is outside: the peek dismisses and the
+ * click is swallowed so the page does not navigate or open another peek.
  */
 export function peekOutsidePointerCloses(
   target: EventTarget | null,
@@ -31,15 +27,19 @@ export function peekOutsidePointerCloses(
 ): boolean {
   if (target == null) return false;
   const node = target as Node;
-  if (panel?.contains(node) || anchor?.contains(node)) return false;
-  return !isInsidePeekLink(target);
+  return !(panel?.contains(node) || anchor?.contains(node));
 }
 
-function isInsidePeekLink(target: EventTarget): boolean {
-  let node: ClosestBox | null | undefined = target as ClosestBox;
-  while (node) {
-    if (typeof node.closest === "function") return node.closest("a[data-peek]") != null;
-    node = node.parentElement;
-  }
-  return false;
+/**
+ * Eat the click that follows an outside pointerdown, so a link under the
+ * finger does not navigate or open a peek after this one has started to close.
+ */
+export function swallowNextClick(root: Document = document, later: (fn: () => void) => void = (fn) => window.setTimeout(fn, 400)): () => void {
+  const swallow = (event: Event) => {
+    event.preventDefault();
+    event.stopPropagation();
+  };
+  root.addEventListener("click", swallow, true);
+  later(() => root.removeEventListener("click", swallow, true));
+  return () => root.removeEventListener("click", swallow, true);
 }

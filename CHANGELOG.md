@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Fixed (15-10-2026, peek dismiss)
+
+- Dismissing a peek no longer clicks through to the page behind. A tap on a name or a link under the overlay only closes the peek.
+
 ### Changed (15-10-2026, change English)
 
 - Change sentences on the English site use the established English names for positions and bodies (Mayor of Wierden, Public Prosecution Service). Person names stay Dutch. The Dutch name is on the link tooltip. The strip tooltip no longer says "Select to filter the list to this day".
