@@ -25,7 +25,7 @@ import {
   type PeekRef,
   type PeekShard,
 } from "@/lib/peek";
-import { peekClickAction, peekOutsidePointerCloses } from "@/lib/peek-swap";
+import { peekClickAction, peekOutsidePointerCloses, swallowNextClick } from "@/lib/peek-swap";
 
 /**
  * The peek popover for inline entity links (docs/adr/0017).
@@ -41,9 +41,9 @@ import { peekClickAction, peekOutsidePointerCloses } from "@/lib/peek-swap";
  * header drags between a peek height and nearly full screen, or down to
  * close (use-bottom-sheet.ts); wider screens get a
  * popover anchored to the link that flips above it when there is no room
- * below. Escape, an outside click or the close button closes it and returns
- * focus to the link. A click on another peek link replaces the open entity
- * in the same dialog: the chrome stays, the inner content fades.
+ * below. Escape, an outside click or the close button closes it. The page
+ * behind is covered, so a dismiss click does not follow a link or open
+ * another peek. Focus returns to the link that opened it.
  */
 
 const shardCache = new Map<string, Promise<PeekShard>>();
@@ -433,26 +433,17 @@ function PeekDialog({
     };
     const onPointer = (event: PointerEvent) => {
       if (!peekOutsidePointerCloses(event.target, panel, open.anchor)) return;
-      onClose(false);
-      // The press moves focus when it lands on something that takes it; when
-      // it lands on plain page text focus would fall to the page, so hand it
-      // back to the link that opened the peek (ADR 0017).
-      const anchor = open.anchor;
-      window.setTimeout(() => {
-        const active = document.activeElement;
-        const takesFocus =
-          active instanceof HTMLElement &&
-          active !== document.body &&
-          active.matches('a[href], button, input, select, textarea, summary, [contenteditable="true"], [role="button"], [tabindex]:not([tabindex="-1"])');
-        if (!takesFocus && anchor.isConnected) anchor.focus({ preventScroll: true });
-      }, 0);
+      event.preventDefault();
+      event.stopPropagation();
+      swallowNextClick();
+      onClose(true);
     };
     document.addEventListener("keydown", onKey);
-    document.addEventListener("pointerdown", onPointer);
+    document.addEventListener("pointerdown", onPointer, true);
     return () => {
       cancelAnimationFrame(focusFrame);
       document.removeEventListener("keydown", onKey);
-      document.removeEventListener("pointerdown", onPointer);
+      document.removeEventListener("pointerdown", onPointer, true);
     };
   }, [onClose, open.anchor]);
 
@@ -522,25 +513,39 @@ function PeekDialog({
   }
 
   return (
-    <div
-      ref={panelRef}
-      role="dialog"
-      aria-modal="false"
-      aria-labelledby={titleId}
-      tabIndex={-1}
-      inert={closing}
-      data-state={closing ? "closed" : "open"}
-      data-swap={swap ? "" : undefined}
-      className={`motion-pop fixed z-50 flex w-[min(22rem,calc(100vw-1rem))] max-w-[calc(100vw-1rem)] flex-col overflow-x-hidden overflow-y-auto overscroll-contain rounded-md border border-line-strong bg-surface p-4 shadow-2xl outline-none ${closing ? "pointer-events-none" : ""}`}
-      style={position}
-    >
-      <div className="flex items-start gap-2">
-        <div className="min-w-0 flex-1">{head}</div>
-        {closeButton}
+    <>
+      <div
+        aria-hidden="true"
+        data-state={closing ? "closed" : "open"}
+        data-swap={swap ? "" : undefined}
+        className="motion-scrim fixed inset-0 z-50 bg-overlay"
+        onPointerDown={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          swallowNextClick();
+          onClose(true);
+        }}
+      />
+      <div
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby={titleId}
+        tabIndex={-1}
+        inert={closing}
+        data-state={closing ? "closed" : "open"}
+        data-swap={swap ? "" : undefined}
+        className="motion-pop fixed z-50 flex w-[min(22rem,calc(100vw-1rem))] max-w-[calc(100vw-1rem)] flex-col overflow-x-hidden overflow-y-auto overscroll-contain rounded-md border border-line-strong bg-surface p-4 shadow-2xl outline-none"
+        style={position}
+      >
+        <div className="flex items-start gap-2">
+          <div className="min-w-0 flex-1">{head}</div>
+          {closeButton}
+        </div>
+        <div className="min-w-0">{rest}</div>
+        <div className="mt-3">{actions}</div>
       </div>
-      <div className="min-w-0">{rest}</div>
-      <div className="mt-3">{actions}</div>
-    </div>
+    </>
   );
 }
 
@@ -594,13 +599,18 @@ function PeekSheet({
     onDismiss: () => onClose(true),
   });
   return (
-    <div className={`fixed inset-0 z-50 ${closing ? "pointer-events-none" : ""}`} inert={closing}>
+    <div className="fixed inset-0 z-50">
       <div
         aria-hidden="true"
         data-state={closing ? "closed" : "open"}
         data-swap={swap ? "" : undefined}
         className="motion-scrim absolute inset-0 bg-overlay"
-        onClick={() => onClose(true)}
+        onPointerDown={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          swallowNextClick();
+          onClose(true);
+        }}
       />
       <div
         data-state={closing ? "closed" : "open"}

@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { peekClickAction, peekOutsidePointerCloses } from "./peek-swap.ts";
+import { peekClickAction, peekOutsidePointerCloses, swallowNextClick } from "./peek-swap.ts";
 
 test("the same peek link closes, a different one replaces", () => {
   const a = { id: "a" };
@@ -12,19 +12,39 @@ test("the same peek link closes, a different one replaces", () => {
   assert.equal(peekClickAction(a, b), "replace");
 });
 
-test("an outside pointer on another peek link does not close", () => {
+test("an outside pointer closes, including on another peek link", () => {
   const inside = { id: "inside" };
   const panel = { contains: (node) => node === inside };
-  const anchorEl = { id: "anchor", closest: (sel) => (sel === "a[data-peek]" ? anchorEl : null) };
+  const anchorEl = { id: "anchor" };
   const anchor = { contains: (node) => node === anchorEl };
-  const other = { closest: (sel) => (sel === "a[data-peek]" ? other : null) };
-  const nested = { parentElement: other };
-  const page = { closest: () => null };
+  const other = { id: "other" };
+  const page = { id: "page" };
 
-  assert.equal(peekOutsidePointerCloses(other, panel, anchor), false);
-  assert.equal(peekOutsidePointerCloses(nested, panel, anchor), false);
+  assert.equal(peekOutsidePointerCloses(other, panel, anchor), true);
   assert.equal(peekOutsidePointerCloses(inside, panel, anchor), false);
   assert.equal(peekOutsidePointerCloses(anchorEl, panel, anchor), false);
   assert.equal(peekOutsidePointerCloses(page, panel, anchor), true);
   assert.equal(peekOutsidePointerCloses(null, panel, anchor), false);
+});
+
+test("swallowNextClick blocks the next click and then lifts", () => {
+  const listeners = new Map();
+  const root = {
+    addEventListener(type, fn, capture) {
+      listeners.set(type, { fn, capture });
+    },
+    removeEventListener(type) {
+      listeners.delete(type);
+    },
+  };
+  let later = null;
+  swallowNextClick(root, (fn) => {
+    later = fn;
+  });
+  const event = { preventDefault() { event.prevented = true; }, stopPropagation() { event.stopped = true; }, prevented: false, stopped: false };
+  listeners.get("click").fn(event);
+  assert.equal(event.prevented, true);
+  assert.equal(event.stopped, true);
+  later();
+  assert.equal(listeners.has("click"), false);
 });
