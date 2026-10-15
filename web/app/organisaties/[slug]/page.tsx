@@ -6,7 +6,6 @@ import { EntityTabs } from "@/components/entity-tabs";
 import { JsonLd } from "@/components/json-ld";
 import { NewsPanel } from "@/components/news/news-panel";
 import { PersonCard } from "@/components/person-card";
-import { ExternalLink } from "@/components/entity/external-link";
 import { EntityConnections } from "@/components/entity/entity-connections";
 import { ShareButton } from "@/components/share-button";
 import { DateT, LocalDate } from "@/components/content/local-date";
@@ -24,14 +23,16 @@ import { SubtypeHint, SubtypeLabel } from "@/components/entity/subtype-label";
 import { ColorDot, FactChips, type FactTile } from "@/components/entity/fact-tiles";
 import { FactGroup } from "@/components/entity/fact-group";
 import { LocalizedDescription } from "@/components/entity/localized-description";
-import { OrgEmblem, OrgEmblemCredit } from "@/components/entity/org-emblem";
+import { OrgEmblemCredit, OrgEmblemTitle } from "@/components/entity/org-emblem";
 import {
   BuildingIcon,
   CalendarIcon,
+  GlobeIcon,
   HistoryIcon,
   LayersIcon,
   LinkIcon,
   PeopleIcon,
+  ScaleIcon,
   SeatIcon,
   TagIcon,
 } from "@/components/entity/icons";
@@ -277,6 +278,22 @@ export default async function OrganizationPage({
       label: <T area="entity" k="factAliases" />,
       value: aliases.length > 0 ? <span lang="nl">{aliases.join(", ")}</span> : null,
     },
+    {
+      key: "legal",
+      icon: <ScaleIcon />,
+      label: <T area="entity" k="legalSourceLabel" />,
+      value: legalSource !== null ? legalSource.label : null,
+      href: legalSource?.url,
+      external: true,
+    },
+    {
+      key: "website",
+      icon: <GlobeIcon />,
+      label: <T area="entity" k="websiteLabel" />,
+      value: websiteHost(website),
+      href: website ?? undefined,
+      external: true,
+    },
   ];
 
   return (
@@ -310,15 +327,20 @@ export default async function OrganizationPage({
 
       <header className="mt-4">
         <div className="flex min-w-0 items-start gap-3">
-          {emblem?.image && emblem.kind === "arms" ? <OrgEmblem {...emblem.image} className="hidden sm:block" /> : null}
+          {emblem?.image && emblem.kind === "arms" ? <OrgEmblemTitle image={emblem.image} info={emblem.info} /> : null}
           <h1 className="min-w-0 flex-1 text-2xl font-semibold sm:text-3xl tracking-tight text-ink text-balance break-words">
             {organization.name}
             <Gloss text={orgEnGloss(organization.name)} className="mt-1 block text-base font-normal tracking-normal text-ink-muted" />
           </h1>
-          <ShareButton className="mt-1 shrink-0" title={organization.name} />
+          <ShareButton compact className="mt-0.5 shrink-0" title={organization.name} />
         </div>
         {emblem !== null ? (
-          <OrgEmblemCredit info={emblem.info} emblem={emblem.image} kind={emblem.kind} className="mt-1.5" />
+          <OrgEmblemCredit
+            info={emblem.info}
+            emblem={emblem.image}
+            kind={emblem.kind}
+            className={emblem.kind === "arms" ? "mt-1.5 sm:hidden" : "mt-1.5"}
+          />
         ) : null}
         {summary !== null ? (
           <p className="mt-2 max-w-prose text-base leading-snug text-ink-muted">
@@ -340,20 +362,6 @@ export default async function OrganizationPage({
             en={description.en}
             className="mt-4 max-w-prose text-sm leading-relaxed text-ink-muted"
           />
-        ) : null}
-        {legalSource !== null || website !== null ? (
-          <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2">
-            {legalSource !== null ? (
-              <ExternalLink href={legalSource.url}>
-                <T area="entity" k="legalSourceLabel" />: {legalSource.label}
-              </ExternalLink>
-            ) : null}
-            {website !== null ? (
-              <ExternalLink href={website} meta={websiteHost(website)}>
-                <T area="entity" k="websiteLabel" />
-              </ExternalLink>
-            ) : null}
-          </div>
         ) : null}
       </header>
 

@@ -102,7 +102,7 @@ export default async function PartyPage({
       />
 
       <header className="mt-4">
-        <div className="flex items-center gap-3">
+        <div className="flex items-start gap-3">
           <span
             aria-hidden="true"
             className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white ring-1 ring-line"
@@ -110,15 +110,13 @@ export default async function PartyPage({
           >
             {party.abbrev.slice(0, 4)}
           </span>
-          <div className="min-w-0">
+          <div className="min-w-0 flex-1">
             <h1 className="text-2xl font-semibold tracking-tight text-ink sm:text-3xl">{party.name.nl}</h1>
             <p className="mt-1 text-sm text-ink-muted" lang="en">
               {party.name.en}
             </p>
           </div>
-        </div>
-        <div className="mt-3">
-          <ShareButton title={party.name.nl} />
+          <ShareButton compact className="mt-0.5 shrink-0" title={party.name.nl} />
         </div>
         <p className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
           {party.website !== null ? (
