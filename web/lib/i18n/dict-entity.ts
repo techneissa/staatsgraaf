@@ -97,6 +97,10 @@ export const ENTITY_DICT = {
     nl: "Toon de cijfers",
     en: "Show the numbers",
   },
+  seatSparklineHover: {
+    nl: "{date}: {seats} van {total} zetels",
+    en: "{date}: {seats} of {total} seats",
+  },
   seatTallyMajorityMarker: {
     nl: "Meerderheidsgrens: {n} zetels",
     en: "Majority threshold: {n} seats",
