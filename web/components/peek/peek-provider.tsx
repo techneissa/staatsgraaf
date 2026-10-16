@@ -101,9 +101,9 @@ const SHEET_QUERY = "(max-width: 639px), ((pointer: coarse) and (max-height: 639
 const GAP = 8;
 const MARGIN = 8;
 
-/** Grows the tap box on a coarse pointer without stretching the row. */
+/** Grows the tap box on a coarse pointer without stretching the row. `relative` keeps that box on the link: the sheet has a transform, so an uncontained absolute after fills the dialog and eats Share, Close and Open page. */
 const PEEK_HIT =
-  "pointer-coarse:after:absolute pointer-coarse:after:-inset-y-3 pointer-coarse:after:-inset-x-1 pointer-coarse:after:content-['']";
+  "relative pointer-coarse:after:absolute pointer-coarse:after:-inset-y-3 pointer-coarse:after:-inset-x-1 pointer-coarse:after:content-['']";
 
 export function PeekProvider() {
   const [open, setOpen] = useState<OpenState | null>(null);
