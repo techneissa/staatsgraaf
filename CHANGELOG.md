@@ -4,6 +4,17 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Added (16-10-2026, descriptions and addresses)
+
+- Every gemeente, provincie, waterschap, veiligheidsregio, council, college and BES body has a short Dutch description with an English translation: 1162 that had none. Each says what the body is (place, inhabitants on 1 January 2026, seat), what it does (its main tasks, each from the law that gives it), and how it is run. Sources: the Register van Overheidsorganisaties, CBS table 70072ned, the merger laws for 45 gemeenten, and the articles named in `research/desc/describe-bodies.py`.
+- 108 thin descriptions are rewritten in the same shape: the Eerste Kamer committees (from their own pages), the GGDs and omgevingsdiensten (Wet publieke gezondheid, Omgevingswet 18.21), the zbo clusters, the CBS departments and nine Curaçao ministries (from gobiernu.cw). See `research/desc/rewrite-weak.py`.
+- Organisation pages show the visiting address. It opens in Apple Maps on Apple devices and in Google Maps elsewhere. A council or college shows the address of the body it governs. 703 addresses: 623 from the register, 80 found by research agents and kept only when the cited page states them (`research/desc/verify-scouted.py`). Schema: optional `address` on an organisation (`docs/04-data-model.md`).
+- Named gaps: no visiting address for most Aruba, Curaçao and Sint Maarten ministries, eight courts with several locations and no stated seat, and the bodies in `research/desc/rejected.json`. The Aruba and Sint Maarten ministry descriptions are still stubs.
+
+### Changed (16-10-2026, organisation title)
+
+- The logo or coat of arms sits beside the organisation's name at every width, and the name is a size smaller. Long names wrap below the logo onto the full width.
+
 ### Changed (16-10-2026, organisation header)
 
 - Organisation facts (branch, level, bodies under it, aliases) sit in one wrapping row of icon plus value, without border boxes. Legal basis and the official website join that row as compact links. Share is an icon only. Coat of arms credit stays in the (i). Who leads it is a row of portraits and names, not chips.

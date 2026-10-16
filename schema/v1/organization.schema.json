@@ -85,6 +85,21 @@
         "description": { "type": ["string", "null"], "minLength": 1 },
         "legalSource": { "$ref": "common.schema.json#/$defs/legalRef" },
         "website": { "type": ["string", "null"], "pattern": "^https?://" },
+        "address": {
+          "description": "The visiting address of the body's main office, for the map link on its page. A council or board without an office of its own has none and shows the address of the body it governs. Sourced: the Register van Overheidsorganisaties, else an official page.",
+          "type": ["object", "null"],
+          "required": ["street", "city", "country", "source", "retrieved"],
+          "additionalProperties": false,
+          "properties": {
+            "street": { "type": "string", "minLength": 1 },
+            "postcode": { "type": ["string", "null"] },
+            "city": { "type": "string", "minLength": 1 },
+            "country": { "type": "string", "minLength": 1 },
+            "building": { "type": ["string", "null"] },
+            "source": { "type": "string", "pattern": "^src:" },
+            "retrieved": { "$ref": "common.schema.json#/$defs/isoDate" }
+          }
+        },
         "established": { "$ref": "common.schema.json#/$defs/isoDateOrNull" },
         "dissolved": { "$ref": "common.schema.json#/$defs/isoDateOrNull" },
         "seatsCount": { "$ref": "common.schema.json#/$defs/nonNegativeInteger" },

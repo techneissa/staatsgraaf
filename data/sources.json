@@ -227,6 +227,18 @@
     "archiveUrl": null
   },
   {
+    "id": "src:cbs-70072ned-2026",
+    "url": "https://opendata.cbs.nl/ODataApi/OData/70072ned/TypedDataSet?$filter=Perioden%20eq%20'2026JJ00'",
+    "title": "Regionale kerncijfers Nederland 2026 (CBS tabel 70072ned)",
+    "publisher": "CBS",
+    "type": "api",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": "CC-BY-4.0",
+    "archiveUrl": null,
+    "notes": "Totale bevolking op 1 januari 2026 en totale oppervlakte per gemeente en provincie. Bron: Centraal Bureau voor de Statistiek (CBS). Momentopname in research/desc/cbs-70072ned-2026.json."
+  },
+  {
     "id": "src:cbs-80445ned",
     "url": "https://opendata.cbs.nl/ODataApi/OData/80445ned",
     "title": "Waterschappen (CBS tabel 80445ned)",
@@ -9609,6 +9621,18 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-cito-nl-8278e09c",
+    "url": "https://www.cito.nl/contact",
+    "title": "cito.nl",
+    "publisher": "cito.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
     "id": "src:desc-cob-nl-83d9ebb8",
     "url": "https://www.cob.nl/magazines-brochures-en-nieuws/verdieping/voorjaar-2023/in-focus-jubilerende-leidingentunnel/",
     "title": "In focus: jubilerende leidingentunnel",
@@ -9655,6 +9679,18 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-cpb-nl-11ddf80a",
+    "url": "https://www.cpb.nl/contact",
+    "title": "cpb.nl",
+    "publisher": "cpb.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-ctgb-nl-3e07046a",
@@ -9715,6 +9751,18 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-da-fmo-nl-f2794669",
+    "url": "https://da.fmo.nl/colophon/",
+    "title": "da.fmo.nl",
+    "publisher": "da.fmo.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-defensie-nl-16f6c56b",
@@ -9849,6 +9897,18 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-douane-nl-0cd0a0f4",
+    "url": "https://www.douane.nl/contact/kantoren/",
+    "title": "douane.nl",
+    "publisher": "douane.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
     "id": "src:desc-douane-nl-5a617249",
     "url": "https://www.douane.nl/",
     "title": "Douane Nederland",
@@ -9871,6 +9931,18 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-dsta-nl-6d70ed50",
+    "url": "https://www.dsta.nl/contact",
+    "title": "dsta.nl",
+    "publisher": "dsta.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-duic-nl-e0b42692",
@@ -9907,6 +9979,18 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-dus-i-nl-dda0661a",
+    "url": "https://www.dus-i.nl/service/contact",
+    "title": "dus-i.nl",
+    "publisher": "dus-i.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-eerstekamer-nl-c7a76649",
@@ -10041,6 +10125,126 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-gobiernu-cw-4e3936d7",
+    "url": "https://gobiernu.cw/ministerionan/desaroyo-sosial-labor-i-bienestar/",
+    "title": "gobiernu.cw",
+    "publisher": "Gobièrnu di Kòrsou",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving, opgehaald op 16-10-2026."
+  },
+  {
+    "id": "src:desc-gobiernu-cw-534c2a12",
+    "url": "https://gobiernu.cw/ministerionan/trafiko-transporte-i-planifikashon-urbano/",
+    "title": "gobiernu.cw",
+    "publisher": "Gobièrnu di Kòrsou",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving, opgehaald op 16-10-2026."
+  },
+  {
+    "id": "src:desc-gobiernu-cw-69d4a274",
+    "url": "https://gobiernu.cw/ministerionan/hustisia/",
+    "title": "gobiernu.cw",
+    "publisher": "Gobièrnu di Kòrsou",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving, opgehaald op 16-10-2026."
+  },
+  {
+    "id": "src:desc-gobiernu-cw-6fc068b2",
+    "url": "https://gobiernu.cw/ministerionan/desaroyo-ekonomiko/",
+    "title": "gobiernu.cw",
+    "publisher": "Gobièrnu di Kòrsou",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving, opgehaald op 16-10-2026."
+  },
+  {
+    "id": "src:desc-gobiernu-cw-9996bec1",
+    "url": "https://gobiernu.cw/ministerionan/finansa/",
+    "title": "gobiernu.cw",
+    "publisher": "Gobièrnu di Kòrsou",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving, opgehaald op 16-10-2026."
+  },
+  {
+    "id": "src:desc-gobiernu-cw-99b97ef7",
+    "url": "https://gobiernu.cw/ministerionan/ensenansa-siensia-kultura-deporte/",
+    "title": "gobiernu.cw",
+    "publisher": "Gobièrnu di Kòrsou",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving, opgehaald op 16-10-2026."
+  },
+  {
+    "id": "src:desc-gobiernu-cw-a00f5f8c",
+    "url": "https://gobiernu.cw/ministerionan/asuntunan-general-i-prome-minister/",
+    "title": "gobiernu.cw",
+    "publisher": "Gobièrnu di Kòrsou",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving, opgehaald op 16-10-2026."
+  },
+  {
+    "id": "src:desc-gobiernu-cw-bdc3bfd1",
+    "url": "https://gobiernu.cw/nl/locaties/",
+    "title": "gobiernu.cw",
+    "publisher": "gobiernu.cw",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-gobiernu-cw-e62130b0",
+    "url": "https://gobiernu.cw/ministerionan/maneho-di-gobernashon-planifikashon-i-servisio-publiko/",
+    "title": "gobiernu.cw",
+    "publisher": "Gobièrnu di Kòrsou",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving, opgehaald op 16-10-2026."
+  },
+  {
+    "id": "src:desc-gobiernu-cw-eeb5ee1d",
+    "url": "https://gobiernu.cw/ministerionan/salubridat-publiko-medio-ambiente-i-naturalesa/",
+    "title": "gobiernu.cw",
+    "publisher": "Gobièrnu di Kòrsou",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving, opgehaald op 16-10-2026."
+  },
+  {
     "id": "src:desc-groeneerkenningen-nl-f4d86a4d",
     "url": "https://groeneerkenningen.nl/over-de-stichting/",
     "title": "Over ons",
@@ -10159,6 +10363,18 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-invest-nl-nl-c2be2b91",
+    "url": "https://invest-nl.nl/en/contact",
+    "title": "invest-nl.nl",
+    "publisher": "invest-nl.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-justid-nl-2fdeb5b9",
@@ -10303,6 +10519,18 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-kinderbescherming-nl-abeaafe2",
+    "url": "https://www.kinderbescherming.nl/contact-en-adressen/landelijke-staforganisatie",
+    "title": "kinderbescherming.nl",
+    "publisher": "kinderbescherming.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-kinderbescherming-nl-b8b7262e",
@@ -10555,6 +10783,18 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-ncsc-nl-7a8196dd",
+    "url": "https://www.ncsc.nl/contact",
+    "title": "ncsc.nl",
+    "publisher": "ncsc.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-ncsc-nl-95430ea3",
@@ -13053,6 +13293,18 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-nlfi-nl-afeb32f8",
+    "url": "https://www.nlfi.nl/contact/",
+    "title": "nlfi.nl",
+    "publisher": "nlfi.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
     "id": "src:desc-nmi-nl-6fa8f52f",
     "url": "https://www.nmi.nl/",
     "title": "Nederlands Meetinstituut",
@@ -13209,6 +13461,18 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-officielebekendmakingen-nl-8c06d2f5",
+    "url": "https://www.officielebekendmakingen.nl/stb-2015-216.pdf",
+    "title": "Wet van 4 juni 2015 tot samenvoeging van de gemeenten Bussum, Muiden en Naarden en wijziging van de grens met de gemeente Weesp (Stb. 2015, 216)",
+    "publisher": "officielebekendmakingen.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
     "id": "src:desc-om-nl-ac478038",
     "url": "https://www.om.nl/actueel/nieuws/2022/10/21/frederieke-damme-nieuwe-procureur-generaal",
     "title": "Frederieke Damme nieuwe procureur-generaal",
@@ -13329,6 +13593,66 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-organisaties-overheid-nl-029679f9",
+    "url": "https://organisaties.overheid.nl/export/Regionale_samenwerkingsorganen.csv",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-0791855b",
+    "url": "https://organisaties.overheid.nl/27909351/Nederlands_Loodswezen_B.V.",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-0c446789",
+    "url": "https://organisaties.overheid.nl/export/Ministeries.csv",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-17344c25",
+    "url": "https://organisaties.overheid.nl/30150445/ONVZ_Langdurige_Zorg_BV",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-175f1dc8",
+    "url": "https://organisaties.overheid.nl/30150417/Salland_Zorgkantoor_B.V.",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
     "id": "src:desc-organisaties-overheid-nl-1d2b56c7",
     "url": "https://organisaties.overheid.nl/30392778/mw_drs_CM_Claudia_van_der_Windt_RC/",
     "title": "Contactgegevens Lid Waarderingskamer",
@@ -13339,6 +13663,66 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-2d9eea4b",
+    "url": "https://organisaties.overheid.nl/9675/Bureau_Algemene_Bestuursdienst",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-312d953c",
+    "url": "https://organisaties.overheid.nl/28977363/Organisatie_voor_Bedrijfsvoering_en_Financien",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-35c7443c",
+    "url": "https://organisaties.overheid.nl/30150433/Zilveren_Kruis_Zorgkantoor_NV",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-35f2e530",
+    "url": "https://organisaties.overheid.nl/27910935/Stichting_Centraal_Orgaan_Voorraadvorming_Aardolieproducten",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-418fcaf8",
+    "url": "https://organisaties.overheid.nl/27909468/Stichting_Nederlands_Veteraneninstituut",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-organisaties-overheid-nl-446c8209",
@@ -13377,6 +13761,18 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-organisaties-overheid-nl-4d67489b",
+    "url": "https://organisaties.overheid.nl/5464/Militaire_Luchtvaart_Autoriteit_%28MLA%29",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
     "id": "src:desc-organisaties-overheid-nl-4f0b3307",
     "url": "https://organisaties.overheid.nl/28664202/toelatingsorganisatie_kwaliteitsborging_bouw",
     "title": "Contactgegevens Toelatingsorganisatie Kwaliteitsborging Bouw",
@@ -13387,6 +13783,54 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-4fa0e80d",
+    "url": "https://organisaties.overheid.nl/27912978/Stichting_Bureau_Informatiediensten_Nederland",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-4fa3a151",
+    "url": "https://organisaties.overheid.nl/27909153/Stichting_Koninklijke_Defensiemusea",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-51e03067",
+    "url": "https://organisaties.overheid.nl/30150429/VGZ_Zorgkantoor_B.V.",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-577509bc",
+    "url": "https://organisaties.overheid.nl/13333/Openbaar_Ministerie",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-organisaties-overheid-nl-5901c87e",
@@ -13413,6 +13857,138 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-organisaties-overheid-nl-6c908f52",
+    "url": "https://organisaties.overheid.nl/28359419/Regionale_Loodsencorporatie_Scheldemonden",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-7254a647",
+    "url": "https://organisaties.overheid.nl/9633/Algemene_Inlichtingen-_en_Veiligheidsdienst",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-7608c451",
+    "url": "https://organisaties.overheid.nl/28359405/Regionale_Loodsencorporatie_Noord",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-7c404421",
+    "url": "https://organisaties.overheid.nl/27912681/Stichting_het_Juridisch_Loket",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-8cf34642",
+    "url": "https://organisaties.overheid.nl/28248863/Registratiecommissie_Tandheelkundige_Specialismen",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-8f96b376",
+    "url": "https://organisaties.overheid.nl/28251517/Edelmetaal_Waarborg_Nederland_B.V.",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-8fe39a4b",
+    "url": "https://organisaties.overheid.nl/export/Overheidsstichtingen_of_-verenigingen.csv",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-954d0991",
+    "url": "https://organisaties.overheid.nl/22660975/Politie",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-9cb32a73",
+    "url": "https://organisaties.overheid.nl/30150425/Stichting_Zorgkantoor_Menzis",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-a15bc961",
+    "url": "https://organisaties.overheid.nl/27918351/Stichting_Wetenschappelijk_onderwijs_en_onderzoek_NLDA",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-a70fb093",
+    "url": "https://organisaties.overheid.nl/28977368/Rijksinkoopsamenwerking",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
     "id": "src:desc-organisaties-overheid-nl-b4829bbb",
     "url": "https://organisaties.overheid.nl/29988564/mw_M_Marieke_Mossink/",
     "title": "Contactgegevens Directeur Bureau Beheer Landbouwgronden",
@@ -13425,6 +14001,18 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-organisaties-overheid-nl-b920f7fe",
+    "url": "https://organisaties.overheid.nl/28359398/Regionale_Loodsencorporatie_Amsterdam-IJmond",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
     "id": "src:desc-organisaties-overheid-nl-ba910815",
     "url": "https://organisaties.overheid.nl/27913761/Stichting_Leidingenstraat_Nederland",
     "title": "Contactgegevens Stichting Leidingenstraat Nederland",
@@ -13435,6 +14023,66 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-c376a4fe",
+    "url": "https://organisaties.overheid.nl/269/Kabinet_Minister-President",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-c91919bb",
+    "url": "https://organisaties.overheid.nl/28442460/Veiligheidsregio_Fryslan",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-d78072d2",
+    "url": "https://organisaties.overheid.nl/28248887/Registratiecommissie_Specialismen_Verpleegkunde",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-e16f36be",
+    "url": "https://organisaties.overheid.nl/28226550/Stichting_Advisering_Bestuursrechtspraak_voor_Milieu_en_Ruimtelijke_Ordening",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-e17a6188",
+    "url": "https://organisaties.overheid.nl/27917775/Stichting_Waarborgfonds_Sociale_Woningbouw",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-organisaties-overheid-nl-e41bc9d4",
@@ -13461,6 +14109,54 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-organisaties-overheid-nl-f9483891",
+    "url": "https://organisaties.overheid.nl/30150421/Stichting_Wlz-uitvoerder_Zorg_en_Zekerheid",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-fbc039d8",
+    "url": "https://organisaties.overheid.nl/30133550/Stichting_Ethereclame_Ster",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-organisaties-overheid-nl-ffb5f26f",
+    "url": "https://organisaties.overheid.nl/27909333/Nederlands_Bureau_der_Motorrijtuigverzekeraars",
+    "title": "organisaties.overheid.nl",
+    "publisher": "organisaties.overheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-over-nos-nl-9b9b0a2e",
+    "url": "https://over.nos.nl/adres-en-route/",
+    "title": "over.nos.nl",
+    "publisher": "over.nos.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
     "id": "src:desc-over-nos-nl-a1410d27",
     "url": "https://over.nos.nl/",
     "title": "Over NOS",
@@ -13471,6 +14167,18 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-parlamento-aw-cf3ffb8c",
+    "url": "https://www.parlamento.aw/contact",
+    "title": "parlamento.aw",
+    "publisher": "parlamento.aw",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-parlement-com-1fabf63d",
@@ -13593,6 +14301,18 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-portofamsterdam-com-78b4c1c7",
+    "url": "https://www.portofamsterdam.com/en/contact/general",
+    "title": "portofamsterdam.com",
+    "publisher": "portofamsterdam.com",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
     "id": "src:desc-portofamsterdam-com-b299a6aa",
     "url": "https://www.portofamsterdam.com/en/about-port-amsterdam",
     "title": "About Port of Amsterdam",
@@ -13603,6 +14323,30 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-portofrotterdam-com-7797290b",
+    "url": "https://www.portofrotterdam.com/en/route-description",
+    "title": "portofrotterdam.com",
+    "publisher": "portofrotterdam.com",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
+    "id": "src:desc-prorail-nl-d3778117",
+    "url": "https://www.prorail.nl/contact",
+    "title": "prorail.nl",
+    "publisher": "prorail.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-raadrvs-nl-265c90cd",
@@ -13833,6 +14577,18 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-rijksacademie-nl-d198912f",
+    "url": "https://www.rijksacademie.nl/contact/",
+    "title": "rijksacademie.nl",
+    "publisher": "rijksacademie.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
     "id": "src:desc-rijksfinancien-nl-d7d08554",
     "url": "https://www.rijksfinancien.nl/jaarverslag/2021/vii/onderdeel/1314739",
     "title": "Jaarverantwoording agentschap SSC-ICT per 31 december 2021",
@@ -13987,6 +14743,18 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-rijksoverheid-nl-657643de",
+    "url": "https://www.rijksoverheid.nl/contact/contactgids/auditdienst-rijk",
+    "title": "rijksoverheid.nl",
+    "publisher": "rijksoverheid.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-rijksoverheid-nl-6aed4b5b",
@@ -14229,6 +14997,18 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-sabagov-nl-e6f79784",
+    "url": "https://www.sabagov.nl/",
+    "title": "sabagov.nl",
+    "publisher": "sabagov.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
     "id": "src:desc-schadefonds-nl-ed8044c2",
     "url": "https://www.schadefonds.nl/",
     "title": "Schadefonds Geweldsmisdrijven",
@@ -14265,6 +15045,18 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-sintmaartengov-org-d7f3bdc4",
+    "url": "https://www.sintmaartengov.org/pages/contact-us.aspx",
+    "title": "sintmaartengov.org",
+    "publisher": "sintmaartengov.org",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
     "id": "src:desc-skipr-nl-c45e78a8",
     "url": "https://www.skipr.nl/nieuws/karien-stronks-nieuwe-voorzitter-gezondheidsraad/",
     "title": "Karien Stronks nieuwe voorzitter Gezondheidsraad",
@@ -14289,6 +15081,18 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-slachtofferhulp-nl-5bdef009",
+    "url": "https://www.slachtofferhulp.nl/locaties/",
+    "title": "slachtofferhulp.nl",
+    "publisher": "slachtofferhulp.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
     "id": "src:desc-sleutelstad-nl-095cf6ed",
     "url": "https://sleutelstad.nl/2024/09/10/vice-voorzitter-martijn-ridderbos-van-de-universiteit-leiden-wordt-bestuurder-bij-de-autoriteit-consument-en-markt/",
     "title": "Vice-voorzitter Martijn Ridderbos van de Universiteit Leiden wordt bestuurder bij de ACM",
@@ -14299,6 +15103,18 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-slo-nl-8fe5e384",
+    "url": "https://www.slo.nl/over-slo/contact/",
+    "title": "slo.nl",
+    "publisher": "slo.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-socialestabiliteit-nl-b915d8e4",
@@ -14409,6 +15225,18 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-studiekeuze123-nl-86ae8be2",
+    "url": "https://www.studiekeuze123.nl/contact",
+    "title": "studiekeuze123.nl",
+    "publisher": "studiekeuze123.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
     "id": "src:desc-studiekeuze123-nl-a6ec7076",
     "url": "https://www.studiekeuze123.nl/index.php/over-studiekeuze123",
     "title": "Over Studiekeuze123",
@@ -14479,6 +15307,18 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-sxmparliament-org-8e78c620",
+    "url": "https://sxmparliament.org/contact-1/",
+    "title": "sxmparliament.org",
+    "publisher": "sxmparliament.org",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-szvk-nl-e542f58e",
@@ -14565,6 +15405,18 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-uitvoeringvanbeleidszw-nl-87427abf",
+    "url": "https://www.uitvoeringvanbeleidszw.nl/service/contact",
+    "title": "uitvoeringvanbeleidszw.nl",
+    "publisher": "uitvoeringvanbeleidszw.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
     "id": "src:desc-uitvoeringvanbeleidszw-nl-bf247dc8",
     "url": "https://www.uitvoeringvanbeleidszw.nl/over-ons",
     "title": "Over Uitvoering Van Beleid",
@@ -14613,6 +15465,18 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-vsl-nl-29045388",
+    "url": "https://www.vsl.nl/en/contact",
+    "title": "vsl.nl",
+    "publisher": "vsl.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
+  },
+  {
     "id": "src:desc-vsl-nl-351894a0",
     "url": "https://www.vsl.nl/over-vsl/",
     "title": "Over VSL",
@@ -14635,6 +15499,18 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-waarborg-nl-e36140b0",
+    "url": "https://waarborg.nl/",
+    "title": "waarborg.nl",
+    "publisher": "waarborg.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-waarborgfonds-vereende-nl-1da5d514",
@@ -14673,6 +15549,18 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-wetten-overheid-nl-0420ccda",
+    "url": "https://wetten.overheid.nl/BWBR0026272",
+    "title": "Wet samenvoeging gemeenten Reiderland, Scheemda en Winschoten (BWBR0026272; Stb. 2009, 339)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
     "id": "src:desc-wetten-overheid-nl-098b4714",
     "url": "https://wetten.overheid.nl/BWBR0039429#Hoofdstuk1_Artikel1.1",
     "title": "Comptabiliteitswet 2016, art. 1.1",
@@ -14697,6 +15585,102 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-wetten-overheid-nl-13b281e0",
+    "url": "https://wetten.overheid.nl/BWBR0041294",
+    "title": "Wet samenvoeging gemeenten Giessenlanden en Molenwaard (BWBR0041294)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-182d6e93",
+    "url": "https://wetten.overheid.nl/BWBR0011630",
+    "title": "Wet tot samenvoeging van de gemeenten Sittard, Geleen en Born (BWBR0011630)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-1b9567a8",
+    "url": "https://wetten.overheid.nl/BWBR0020054",
+    "title": "Wet samenvoeging gemeenten Obdam en Wester-Koggenland (BWBR0020054)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-21310981",
+    "url": "https://wetten.overheid.nl/BWBR0026269",
+    "title": "Wet van 18 juli 2009 tot samenvoeging van de gemeenten Moordrecht, Nieuwerkerk aan den IJssel en Zevenhuizen-Moerkapelle (BWBR0026269; Stb. 2009, 342)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-27df98a2",
+    "url": "https://wetten.overheid.nl/BWBR0015253",
+    "title": "Wet van 19 juni 2003 tot gemeentelijke herindeling van het Westland (BWBR0015253)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-4076eaef",
+    "url": "https://wetten.overheid.nl/BWBR0027903/2010-07-14",
+    "title": "Wet samenvoeging gemeenten Bodegraven en Reeuwijk (Stb. 2010, 273)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-439ac9b5",
+    "url": "https://wetten.overheid.nl/BWBR0027991",
+    "title": "Wet samenvoeging gemeenten Bolsward, Nijefurd, Sneek, Wûnseradiel en Wymbritseradiel (BWBR0027991)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-4697fe18",
+    "url": "https://wetten.overheid.nl/BWBR0039365",
+    "title": "Wet van 8 maart 2017 tot samenvoeging van de gemeenten Hoogezand-Sappemeer, Menterwolde en Slochteren (BWBR0039365; Stb. 2017, 106)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
     "id": "src:desc-wetten-overheid-nl-47dc0a51",
     "url": "https://wetten.overheid.nl/BWBR0044212/2024-01-01/0/afdrukken",
     "title": "Wet voortgezet onderwijs 2020",
@@ -14707,6 +15691,30 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-498de4e9",
+    "url": "https://wetten.overheid.nl/BWBR0045447",
+    "title": "Wet samenvoeging gemeenten Landerd en Uden (BWBR0045447; Stb. 2021, 373)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-583ec5cb",
+    "url": "https://wetten.overheid.nl/BWBR0031776",
+    "title": "Wet van 5 juli 2012 tot samenvoeging van de gemeenten Dirksland, Goedereede, Middelharnis en Oostflakkee (BWBR0031776)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
   },
   {
     "id": "src:desc-wetten-overheid-nl-620ebbf1",
@@ -14721,6 +15729,42 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-wetten-overheid-nl-66468b24",
+    "url": "https://wetten.overheid.nl/BWBR0020299",
+    "title": "Wet gemeentelijke herindeling westelijk deel Midden-Limburg (BWBR0020299)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-68137c79",
+    "url": "https://wetten.overheid.nl/BWBR0012530",
+    "title": "Wet van 31 mei 2001 tot samenvoeging van 's-Graveland, Nederhorst den Berg en Loosdrecht (BWBR0012530)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-6d13469a",
+    "url": "https://wetten.overheid.nl/BWBR0021505#HoofdstukI_Artikel1",
+    "title": "wetten.overheid.nl",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving, opgehaald op 16-10-2026."
+  },
+  {
     "id": "src:desc-wetten-overheid-nl-6d560e79",
     "url": "https://wetten.overheid.nl/BWBR0037885#Hoofdstuk17_Afdeling17.1_Paragraaf17.1.2_Artikel17.5",
     "title": "Omgevingswet, art. 17.5",
@@ -14731,6 +15775,162 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-6ed4d151",
+    "url": "https://wetten.overheid.nl/BWBR0039372",
+    "title": "Wet van 8 maart 2017 tot samenvoeging van de gemeenten Bellingwedde en Vlagtwedde (BWBR0039372)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-6fd0fbae",
+    "url": "https://wetten.overheid.nl/BWBR0011455",
+    "title": "Wet gemeentelijke herindeling Over-Betuwe (BWBR0011455; uitgegeven 08-08-2000)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-70079bdd",
+    "url": "https://wetten.overheid.nl/BWBR0035172",
+    "title": "Wet van 14 mei 2014 tot samenvoeging van de gemeenten Bernisse en Spijkenisse (BWBR0035172)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-84670d39",
+    "url": "https://wetten.overheid.nl/BWBR0041298",
+    "title": "Wet samenvoeging gemeenten Nuth, Onderbanken en Schinnen (BWBR0041298; Stb. 2018, 274)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-8bfe2526",
+    "url": "https://wetten.overheid.nl/BWBR0008753",
+    "title": "Wet van 19 juni 1997 tot gemeentelijke herindeling in de provincie Drenthe (Stb. 1997, 283)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-92b26bb7",
+    "url": "https://wetten.overheid.nl/BWBR0041284",
+    "title": "Wet samenvoeging gemeenten Leerdam, Vianen en Zederik en wijziging grens tussen provincies Utrecht en Zuid-Holland (BWBR0041284; Stb. 2018, 270)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-9dd7a914",
+    "url": "https://wetten.overheid.nl/BWBR0041293",
+    "title": "Wet samenvoeging gemeenten Geldermalsen, Lingewaal en Neerijnen (BWBR0041293)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-a0e20117",
+    "url": "https://wetten.overheid.nl/BWBR0006802",
+    "title": "Wet tot samenvoeging van de gemeenten Kortgene en Wissenkerke (BWBR0006802; dated 07-07-1994)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-bb392e12",
+    "url": "https://wetten.overheid.nl/BWBR0041290/2018-09-15/",
+    "title": "Wet samenvoeging gemeenten Aalburg, Werkendam en Woudrichem (BWBR0041290)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-be1ae342",
+    "url": "https://wetten.overheid.nl/BWBR0045440",
+    "title": "Wet samenvoeging gemeenten Heerhugowaard en Langedijk (BWBR0045440; Stb. 2021, 372)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-e1fc9230",
+    "url": "https://wetten.overheid.nl/BWBR0012687",
+    "title": "Wet gemeentelijke herindeling Den Haag en omgeving (BWBR0012687; dated 12-07-2001)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wetten-overheid-nl-e7c24858",
+    "url": "https://wetten.overheid.nl/BWBR0015254",
+    "title": "Wet van 19 juni 2003 tot samenvoeging van de gemeenten Geldrop en Mierlo (BWBR0015254)",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-wodc-nl-0ee789e3",
+    "url": "https://wodc.nl/service/contact",
+    "title": "wodc.nl",
+    "publisher": "wodc.nl",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bezoekadres, opgehaald door een onderzoeksagent van een officiële pagina."
   },
   {
     "id": "src:desc-wodc-nl-43d6a5f0",
@@ -14745,6 +15945,42 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-zoek-officielebekendmakingen-nl-045aabab",
+    "url": "https://zoek.officielebekendmakingen.nl/stb-2010-272.html",
+    "title": "Wet van 4 juni 2010 tot samenvoeging van de gemeenten Margraten en Eijsden (Stb. 2010, 272)",
+    "publisher": "zoek.officielebekendmakingen.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-zoek-officielebekendmakingen-nl-1185dd26",
+    "url": "https://zoek.officielebekendmakingen.nl/stb-2004-414.html",
+    "title": "Wet van 1 juli 2004 tot gemeentelijke herindeling van een deel van de Achterhoek, de Graafschap en de Liemers, Deventer en Bathmen (Stb. 2004, 414)",
+    "publisher": "zoek.officielebekendmakingen.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-zoek-officielebekendmakingen-nl-20723c0b",
+    "url": "https://zoek.officielebekendmakingen.nl/stb-2014-252.html",
+    "title": "Wet van 19 juni 2014 tot samenvoeging van de gemeenten Bergambacht, Nederlek, Ouderkerk, Schoonhoven en Vlist (Stb. 2014, 252)",
+    "publisher": "zoek.officielebekendmakingen.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
     "id": "src:desc-zoek-officielebekendmakingen-nl-31ea454a",
     "url": "https://zoek.officielebekendmakingen.nl/stcrt-2024-41232.pdf",
     "title": "Staatscourant 2024, 41232 (13-12-2024)",
@@ -14757,6 +15993,30 @@
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
   },
   {
+    "id": "src:desc-zoek-officielebekendmakingen-nl-40a26807",
+    "url": "https://zoek.officielebekendmakingen.nl/stb-1997-283.html",
+    "title": "Wet van 19 juni 1997 tot gemeentelijke herindeling in de provincie Drenthe (Stb. 1997, 283)",
+    "publisher": "zoek.officielebekendmakingen.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-zoek-officielebekendmakingen-nl-4bee5797",
+    "url": "https://zoek.officielebekendmakingen.nl/stb-2000-349.html",
+    "title": "Wet van 13 september 2000 tot gemeentelijke herindeling in een deel van Twente (Stb. 2000, 349)",
+    "publisher": "zoek.officielebekendmakingen.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
     "id": "src:desc-zoek-officielebekendmakingen-nl-750bbad3",
     "url": "https://zoek.officielebekendmakingen.nl/stcrt-2022-17918.html",
     "title": "Staatscourant 2022, 17918",
@@ -14767,6 +16027,30 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-zoek-officielebekendmakingen-nl-81f14b75",
+    "url": "https://zoek.officielebekendmakingen.nl/stb-2018-268.html",
+    "title": "Wet 11 juli 2018 tot samenvoeging van de gemeenten Binnenmaas, Cromstrijen, Korendijk, Oud-Beijerland en Strijen (Stb. 2018, 268)",
+    "publisher": "zoek.officielebekendmakingen.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-zoek-officielebekendmakingen-nl-86ac367c",
+    "url": "https://zoek.officielebekendmakingen.nl/stb-2021-375.html",
+    "title": "Wet van 14 juli 2021 tot samenvoeging van de gemeenten Boxmeer, Cuijk, Mill en Sint Hubert en Sint Anthonis (Stb. 2021, 375)",
+    "publisher": "zoek.officielebekendmakingen.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
   },
   {
     "id": "src:desc-zoek-officielebekendmakingen-nl-90e555c7",
@@ -14791,6 +16075,66 @@
     "license": null,
     "archiveUrl": null,
     "notes": "Bron voor een beschrijving, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-zoek-officielebekendmakingen-nl-d884ee31",
+    "url": "https://zoek.officielebekendmakingen.nl/stb-1996-449.html",
+    "title": "Wet van 11 september 1996 tot gemeentelijke herindeling in de samenwerkingsgebieden Midden-Brabant, Breda en Westelijk Noord-Brabant (Stb. 1996, 449)",
+    "publisher": "zoek.officielebekendmakingen.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-zoek-officielebekendmakingen-nl-de0d693e",
+    "url": "https://zoek.officielebekendmakingen.nl/stb-2011-415.html",
+    "title": "Wet van 15 september 2011 tot samenvoeging van de gemeenten Anna Paulowna, Niedorp, Wieringen en Wieringermeer (Stb. 2011, 415)",
+    "publisher": "zoek.officielebekendmakingen.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-zoek-officielebekendmakingen-nl-ea913903",
+    "url": "https://zoek.officielebekendmakingen.nl/stb-2006-363.html",
+    "title": "Wet van 5 juli 2006 tot samenvoeging van de gemeenten Bergschenhoek, Berkel en Rodenrijs en Bleiswijk (Stb. 2006, 363)",
+    "publisher": "zoek.officielebekendmakingen.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-zoek-officielebekendmakingen-nl-f2a9b505",
+    "url": "https://zoek.officielebekendmakingen.nl/stb-2008-282.html",
+    "title": "Wet van 19 juni 2008 tot samenvoeging van de gemeenten Alkemade en Jacobswoude (Stb. 2008, 282)",
+    "publisher": "zoek.officielebekendmakingen.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
+  },
+  {
+    "id": "src:desc-zoek-officielebekendmakingen-nl-faf0bdf4",
+    "url": "https://zoek.officielebekendmakingen.nl/kst-35344-2.pdf",
+    "title": "Kamerstuk 35 344 nr. 2 (Samenvoeging van de gemeenten Appingedam, Delfzijl en Loppersum)",
+    "publisher": "zoek.officielebekendmakingen.nl",
+    "type": "wet",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Bron voor een beschrijving of adres, opgehaald door een onderzoeksagent."
   },
   {
     "id": "src:desc-zuivelzicht-nl-30b33072",
@@ -19330,6 +20674,18 @@
     "license": "CC0-1.0",
     "notes": "Registerpagina regionaal samenwerkingsorgaan; facturerende of taakstellende juristische entiteit onder de Wet gemeenschappelijke regelingen.",
     "archiveUrl": null
+  },
+  {
+    "id": "src:koop-oo-export",
+    "url": "https://organisaties.overheid.nl/archive/exportOO.xml",
+    "title": "Register van Overheidsorganisaties: volledige export (XML)",
+    "publisher": "KOOP / Overheid.nl",
+    "type": "register",
+    "published": null,
+    "retrieved": "2026-10-16",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Bezoekadressen van overheidsorganisaties en, per waterschap, de gemeenten in het gebied. Momentopname in research/desc/register-2026-10-16.json."
   },
   {
     "id": "src:koop-provincies",
@@ -87704,6 +89060,17 @@
     "archiveUrl": null
   },
   {
+    "id": "src:wet-bwbr0011470",
+    "url": "https://wetten.overheid.nl/BWBR0011470",
+    "title": "Wet personenvervoer 2000",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "retrieved": "2026-10-16",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Artikel 20, tweede lid: gedeputeerde staten verlenen concessies voor openbaar vervoer anders dan per trein."
+  },
+  {
     "id": "src:wet-bwbr0011756",
     "url": "https://wetten.overheid.nl/BWBR0011756",
     "title": "Beginselenwet justitiële jeugdinrichtingen",
@@ -87822,6 +89189,17 @@
     "retrieved": "2026-09-18",
     "license": "CC0-1.0",
     "archiveUrl": null
+  },
+  {
+    "id": "src:wet-bwbr0015703",
+    "url": "https://wetten.overheid.nl/BWBR0015703",
+    "title": "Participatiewet",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "retrieved": "2026-10-16",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Artikel 7: het college ondersteunt bij arbeidsinschakeling en verleent bijstand."
   },
   {
     "id": "src:wet-bwbr0015926",
@@ -88018,6 +89396,17 @@
     "retrieved": "2026-09-18",
     "license": "CC0-1.0",
     "archiveUrl": null
+  },
+  {
+    "id": "src:wet-bwbr0024705",
+    "url": "https://wetten.overheid.nl/BWBR0024705",
+    "title": "Wet publieke gezondheid",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "retrieved": "2026-10-16",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Artikel 14: de gemeenten in een veiligheidsregio stellen samen een gemeentelijke gezondheidsdienst in; artikel 2 en 6: taken, waaronder de infectieziektebestrijding."
   },
   {
     "id": "src:wet-bwbr0024800",
@@ -88242,6 +89631,17 @@
     "retrieved": "2026-09-18",
     "license": "CC0-1.0",
     "archiveUrl": null
+  },
+  {
+    "id": "src:wet-bwbr0035362",
+    "url": "https://wetten.overheid.nl/BWBR0035362",
+    "title": "Wet maatschappelijke ondersteuning 2015",
+    "publisher": "wetten.overheid.nl",
+    "type": "wet",
+    "retrieved": "2026-10-16",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Artikel 2.1.1: het gemeentebestuur draagt zorg voor de maatschappelijke ondersteuning."
   },
   {
     "id": "src:wet-bwbr0035878",

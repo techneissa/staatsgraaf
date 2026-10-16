@@ -62,6 +62,7 @@ Every body is an organization. This includes the coarse reference types plus the
   "employeeCount": { "budgeted": null, "actual": null, "year": null },
   "images": ["media:...", "media:..."],
   "logoEmbed": { "url": "https://...", "page": "https://...", "retrieved": "2026-10-13", "linkOnly": false },
+  "address": { "street": "Korte Voorhout 7", "postcode": "2511 CW", "city": "Den Haag", "country": "Nederland", "building": null, "source": "src:koop-oo-export", "retrieved": "2026-10-16" },
   "sources": [{ "source": "src:...", "retrieved": "2026-09-17", "confidence": "high" }]
 }
 ```
@@ -75,6 +76,7 @@ Field rules:
 - `parent` and `partOf` are organization ids. `partOf` is a list because an organization can sit within more than one structure.
 - `legalSource` is a single primary link. More legal links live in `sources`.
 - `established` and `dissolved` are ISO dates or null.
+- `address` is the visiting address of the body's main office, for the map link on its page (Google Maps, or Apple Maps on Apple devices). It comes from the Register van Overheidsorganisaties, else from the body's own contact page, and `source` names the record it came from. A council or board that meets at the office of the body it governs (a gemeenteraad, Provinciale Staten, a college) has no address of its own; the page shows the governed body's. Added 16-10-2026 (`research/desc/describe-bodies.py`).
 - `logoEmbed` is the official logo as published on the body's own site, for a body without a licensed emblem in `images` (ADR 0029, amendment 1). The browser loads `url` from that site; nothing is copied and no licence is claimed, so it is not a media record. `page` is where the logo appears and is linked in the (i). With `linkOnly: true` the body reserved copyright on its logo, `url` is null and only the link shows. Every embed host must be in the `img-src` of `web/public/_headers`.
 
 ## 4. Position
