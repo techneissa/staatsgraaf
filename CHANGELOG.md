@@ -4,6 +4,14 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (16-10-2026, party members)
+
+- Party pages list Tweede Kamer and Eerste Kamer members as a wrapping row of faces, the same layout as who leads on an organisation page: portrait, name, start date.
+
+### Fixed (16-10-2026, peek share)
+
+- The share button on a peek no longer opens another peek. The expanded tap box on a phone was filling the sheet, so a tap on Share, Close or Open page hit a link in the card.
+
 ### Changed (16-10-2026, seat history chart)
 
 - Party seat history is a full-width chart, not a 240 px sparkline. The vertical scale follows the party's own min and max, so a small range does not leave an empty band down to zero. Every election is labelled above or below its point, clear of the line. A hover or focus names the date and the seats in a tooltip above or below the chart, not on the plot.

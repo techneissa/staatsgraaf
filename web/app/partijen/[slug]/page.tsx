@@ -165,7 +165,7 @@ export default async function PartyPage({
           <div className="mt-3">
             {tkTally !== null ? <ArchChart tally={tkTally} highlightKey={party.key} compact /> : null}
             <SeatSparkline partyKey={party.key} organizationId={TK_ID} color={party.color} />
-            <MemberList members={tkMembers} showParty={false} />
+            <MemberList members={tkMembers} showParty={false} layout="faces" />
           </div>
         ) : (
           <p className="mt-3 text-sm text-ink-faint">
@@ -184,7 +184,7 @@ export default async function PartyPage({
           <div className="mt-3">
             {ekTally !== null ? <ArchChart tally={ekTally} highlightKey={party.key} compact /> : null}
             <SeatSparkline partyKey={party.key} organizationId={EK_ID} color={party.color} />
-            <MemberList members={ekMembers} showParty={false} />
+            <MemberList members={ekMembers} showParty={false} layout="faces" />
           </div>
         </section>
       ) : null}
