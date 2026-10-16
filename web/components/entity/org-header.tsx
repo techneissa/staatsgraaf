@@ -101,25 +101,24 @@ export function OrgHeader({
         </p>
       ) : null}
 
+      {emblem?.image ? <OrgEmblemTitle image={emblem.image} info={emblem.info} className="mb-2" /> : null}
+
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-2.5">
-        <div className="flex min-w-0 items-start gap-2.5">
-          {emblem?.image ? <OrgEmblemTitle image={emblem.image} info={emblem.info} /> : null}
-          <div className="min-w-0">
-            <div>
-              <h1 className="inline text-lg font-semibold leading-snug tracking-tight text-ink">
-                <LocalText nl={name} en={englishName} />
-              </h1>
-              <OrgNameTip name={name} englishName={englishName} aliases={aliases} />
-            </div>
-            {emblem !== null && emblem.image === null ? (
-              <OrgEmblemCredit info={emblem.info} emblem={null} kind={emblem.kind} className="mt-1" />
-            ) : null}
-            {summary !== null ? (
-              <p className="mt-1 max-w-prose text-sm leading-snug text-ink-muted">
-                <L nl={summary.nl} en={summary.en} />
-              </p>
-            ) : null}
+        <div className="min-w-0">
+          <div>
+            <h1 className="inline text-lg font-semibold leading-snug tracking-tight text-ink">
+              <LocalText nl={name} en={englishName} />
+            </h1>
+            <OrgNameTip name={name} englishName={englishName} aliases={aliases} />
           </div>
+          {emblem !== null && emblem.image === null ? (
+            <OrgEmblemCredit info={emblem.info} emblem={null} kind={emblem.kind} className="mt-1" />
+          ) : null}
+          {summary !== null ? (
+            <p className="mt-1 max-w-prose text-sm leading-snug text-ink-muted">
+              <L nl={summary.nl} en={summary.en} />
+            </p>
+          ) : null}
         </div>
 
         <ul className="flex min-w-0 shrink-0 flex-col gap-0.5 border-s border-line ps-2 text-[11px] leading-4 text-ink-muted">

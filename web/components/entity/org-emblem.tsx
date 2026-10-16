@@ -15,15 +15,15 @@ export type OrgEmblemImage = {
 };
 
 const SIZES = {
-  // Next to the name: small enough on a phone that a long name keeps room to wrap.
+  // Above the name: a coat of arms stays compact, a wordmark can be a bit wider
+  // because it no longer sits in the title row.
   arms: { large: "h-12 max-w-14 sm:h-16 sm:max-w-20", small: "h-10 max-w-12" },
   // Official logos are drawn for a white page, so they sit on a white plate (dark theme too).
-  // A wordmark is wide: capped narrower on a phone, so the name beside it is not squeezed.
-  logo: { large: "h-9 max-w-24 rounded-sm bg-white p-1 sm:h-12 sm:max-w-40", small: "h-9 max-w-36 rounded-xs bg-white p-1" },
+  logo: { large: "h-9 max-w-40 rounded-sm bg-white p-1 sm:h-12 sm:max-w-48", small: "h-9 max-w-36 rounded-xs bg-white p-1" },
 };
 
 /**
- * The coat of arms or logo of an organisation, next to its name on the
+ * The coat of arms or logo of an organisation, above its name on the
  * organisation page (ADR 0029). A coat of arms is a local file with a verified
  * free licence. A logo is loaded from the body's own website, without a
  * referrer, and never copied (amendment 1); when it fails to load (hotlink
@@ -61,8 +61,8 @@ export function OrgEmblem({
 }
 
 /**
- * Coat of arms or logo next to the organisation name, at every width, with
- * the (i) that holds author, licence and source.
+ * Coat of arms or logo above the organisation name, with the (i) that holds
+ * author, licence and source.
  */
 export function OrgEmblemTitle({ image, info, className = "" }: { image: OrgEmblemImage; info: MediaCreditInfo; className?: string }) {
   return (
@@ -75,11 +75,10 @@ export function OrgEmblemTitle({ image, info, className = "" }: { image: OrgEmbl
 
 /**
  * The (i) with the credit on its own line, for a logo whose owner reserved
- * copyright: there is no image to sit next to the name, but the link to the
- * logo stays. An emblem with an image sits next to the name instead
- * (`OrgEmblemTitle`). Author and licence live in the (i),
- * not as a visible line. A `div`, not a `p`: the (i) is a `details`, which
- * the HTML parser will not keep inside a paragraph.
+ * copyright: there is no image, but the link to the logo stays. An emblem
+ * with an image sits above the name instead (`OrgEmblemTitle`). Author and
+ * licence live in the (i), not as a visible line. A `div`, not a `p`: the (i)
+ * is a `details`, which the HTML parser will not keep inside a paragraph.
  */
 export function OrgEmblemCredit({
   info,

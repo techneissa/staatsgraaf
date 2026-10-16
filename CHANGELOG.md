@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (16-10-2026, organisation emblem)
+
+- The logo or coat of arms sits above the organisation name, so a wide wordmark no longer squeezes the title and the facts column. The official website stays on its own row at the top right.
+
 ### Changed (16-10-2026, organisation header)
 
 - Organisation pages drop the share button and the wrapping chip row. The official website (hostname and a globe) sits top right. In English the established English name is the title when one exists; the Dutch name and aliases sit in an (i) on the same line. Branch, level and founded date stack in a tight column to the right of the title. Bodies under it (building icon) and the legal basis share one row; the visiting address trails the description. Who leads it stays under the description. Missing facts drop out. Organisation pages no longer show "Translated from Dutch" under the description.
