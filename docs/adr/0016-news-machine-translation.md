@@ -44,3 +44,7 @@ The owner decided on 25-09-2026 that translated news cards carry no text label. 
 ## Amendment 3: organisation pages drop the description disclosure (16-10-2026)
 
 The owner asked on 16-10-2026 that organisation pages not show "Translated from Dutch" under the English description. Person pages, peeks and the bodies panel keep the line. `lang` attributes still mark each run. The translation itself is unchanged.
+
+## Amendment 4: no "Translated from Dutch" line (16-10-2026)
+
+The owner asked on 16-10-2026 that the phrase not appear on the site. English descriptions still swap in, marked `lang="en"`. The About page still explains machine translation. News cards keep the translate icon from amendment 2.

@@ -1,7 +1,6 @@
 "use client";
 
 import { useLocale } from "@/components/i18n/language-provider";
-import { useT } from "@/components/i18n/use-t";
 
 function Paragraphs({ text }: { text: string }) {
   return (
@@ -28,16 +27,12 @@ export function LocalizedDescription({
   nl,
   en,
   className = "",
-  credit = true,
 }: {
   nl: string;
   en: string | null;
   className?: string;
-  /** False on organisation pages: the owner dropped the disclosure line there. */
-  credit?: boolean;
 }) {
   const locale = useLocale();
-  const t = useT("entity");
   const showEnglish = locale === "en" && en !== null;
   return (
     <div className={className}>
@@ -47,7 +42,6 @@ export function LocalizedDescription({
       {en !== null ? (
         <div lang="en" hidden={!showEnglish}>
           <Paragraphs text={en} />
-          {credit ? <p className="mt-1 text-xs text-ink-faint">{t("translatedFromDutch")}</p> : null}
         </div>
       ) : null}
     </div>

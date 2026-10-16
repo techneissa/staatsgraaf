@@ -4,6 +4,14 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (16-10-2026, translation credit)
+
+- Pages, peeks and the bodies panel no longer show "Translated from Dutch" under an English description. The English text still carries `lang="en"`.
+
+### Changed (16-10-2026, peek links)
+
+- Roles, bodies and holders inside a peek use the kind colour and glyph, the same marks as other entity links.
+
 ### Changed (16-10-2026, who leads)
 
 - Who leads an organisation is a row of faces. Every leading person is shown; there is no "and N more". The portrait and name open the person, the role opens the position. Role colour follows the body's branch, the same tokens as the rest of the site. A start date sits under each title. One person with two offices is one face with two captions. Name, title and date sit in a tight stack. Organisation pages no longer repeat those people in a current office holders list. Chamber members stay under current members.

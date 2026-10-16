@@ -34,7 +34,7 @@ A peek whose content fits in 90 % of the viewport sizes to that content and does
 
 ## Amendment 14-10-2026: peek description
 
-The peek shows the full description, not a three-line cut. In English it shows the current machine translation from `data/description-translations.json` (ADR 0016), with the same "Translated from Dutch" line as the entity page. Without a matching translation the Dutch text stays, marked `lang="nl"`.
+The peek shows the full description, not a three-line cut. In English it shows the current machine translation from `data/description-translations.json` (ADR 0016). Without a matching translation the Dutch text stays, marked `lang="nl"`. Entity mentions in the peek (roles, parent, holders) use the same kind colour and glyph as other inline links.
 
 ## Amendment 16-10-2026: who leads, faces
 
