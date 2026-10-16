@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { mergeConnectionRows, withoutDerived } from "./entity-rows.ts";
+import { mergeConnectionRows, splitConnectionTree, withoutDerived } from "./entity-rows.ts";
 
 const person = (id) => ({ id, kind: "person", slug: id, name: id, href: `/personen/${id}/` });
 const conn = (id, other, direction = "incoming") => ({
@@ -39,6 +39,35 @@ test("directions stay separate rows", () => {
   const a = person("person:a");
   const rows = mergeConnectionRows([conn("x1", a, "incoming"), conn("x2", a, "outgoing")]);
   assert.equal(rows.length, 2);
+});
+
+test("the tree puts parents above and offices below", () => {
+  const parent = { id: "org:jenv", kind: "organization", slug: "jenv", name: "JenV", href: "/organisaties/jenv/" };
+  const head = { id: "pos:chair", kind: "position", slug: "chair", name: "Voorzitter", href: "/posities/chair/" };
+  const office = { id: "pos:pg", kind: "position", slug: "pg", name: "PG", href: "/posities/pg/" };
+  const overseen = { id: "org:loket", kind: "organization", slug: "loket", name: "Loket", href: "/organisaties/loket/" };
+  const tree = splitConnectionTree([
+    { ...conn("rel:oversees", overseen, "outgoing"), type: "oversees" },
+    { ...conn("rel:office", office, "incoming"), type: "office" },
+    { ...conn("rel:part", parent, "outgoing"), type: "part_of" },
+    { ...conn("rel:head", head, "incoming"), type: "dept_head" },
+  ]);
+  assert.deepEqual(
+    tree.above.map((branch) => branch.key),
+    ["part_of:outgoing"],
+  );
+  assert.deepEqual(
+    tree.below.map((branch) => branch.key),
+    ["dept_head:incoming", "office:incoming", "oversees:outgoing"],
+  );
+  assert.equal(tree.above[0].rows[0].other.name, "JenV");
+});
+
+test("a position's organisation sits above it", () => {
+  const org = { id: "org:om", kind: "organization", slug: "om", name: "OM", href: "/organisaties/om/" };
+  const tree = splitConnectionTree([{ ...conn("rel:head", org, "outgoing"), type: "dept_head" }]);
+  assert.equal(tree.above[0].key, "dept_head:outgoing");
+  assert.equal(tree.below.length, 0);
 });
 
 test("derived tenures leave the tab, sourced relations stay", () => {

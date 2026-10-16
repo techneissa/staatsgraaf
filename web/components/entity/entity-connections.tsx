@@ -1,4 +1,4 @@
-import { L, T } from "@/components/i18n/t";
+import { T } from "@/components/i18n/t";
 import { KindGlyph } from "@/components/kind-glyph";
 import { PartyBadge } from "@/components/party-badge";
 import { SubtypeLabel } from "./subtype-label";
@@ -8,119 +8,23 @@ import { getOrganizationById, getPersonById, getPositionById } from "@/lib/data"
 import { peekKindFor, type PeekKind } from "@/lib/peek";
 import { PersonPortrait } from "./person-portrait";
 import {
-  groupConnections,
+  entityRefById,
   getRelationById,
   type Connection,
-  type ConnectionGroup,
+  type ConnectionType,
+  type EntityKind,
 } from "@/lib/entity";
-import { mergeConnectionRows, type ConnectionRowModel } from "@/lib/entity-rows";
-import { FactGroup } from "./fact-group";
 import {
-  AdviceIcon,
-  BuildingIcon,
-  ClipboardIcon,
-  GavelIcon,
-  HandshakeIcon,
-  LinkIcon,
-  PeopleIcon,
-  PersonIcon,
-  ScaleIcon,
-  SeatIcon,
-} from "./icons";
+  splitConnectionTree,
+  type ConnectionBranch,
+  type ConnectionRowModel,
+} from "@/lib/entity-rows";
 
 const GROUP_LIMIT = 8;
-
-const LIST_CLASS = "grid grid-cols-1 gap-x-6 md:grid-cols-2 lg:grid-cols-1";
 
 /** A quiet text toggle; 44 px tall on touch screens. */
 export const SUMMARY_CLASS =
   "inline-flex cursor-pointer list-none items-center rounded-sm py-1.5 text-xs font-medium text-accent-text underline-offset-2 transition-fast hover:underline pointer-coarse:min-h-11 [&::-webkit-details-marker]:hidden";
-
-function iconFor(type: ConnectionGroup["type"]) {
-  switch (type) {
-    case "holds_position":
-      return <ClipboardIcon />;
-    case "member_of":
-      return <PeopleIcon />;
-    case "elects":
-      return <PeopleIcon />;
-    case "appoints":
-      return <SeatIcon />;
-    case "advises":
-      return <AdviceIcon />;
-    case "oversees":
-      return <ScaleIcon />;
-    case "ex_officio":
-      return <ClipboardIcon />;
-    case "confirms":
-      return <GavelIcon />;
-    case "dept_head":
-      return <PersonIcon />;
-    case "part_of":
-    case "consists_of":
-    case "succeeded_by":
-    case "joint_arrangement_member":
-      return <LinkIcon />;
-    case "administers":
-    case "subsidises":
-      return <HandshakeIcon />;
-    default:
-      return <BuildingIcon />;
-  }
-}
-
-/** Groups whose title is jargon get one plain sentence under it. */
-const GROUP_HINTS: Partial<Record<ConnectionGroup["type"], string>> = {
-  dept_head: "glossMainPosition",
-  ex_officio: "glossExOfficio",
-};
-
-const GROUP_TITLES: Record<ConnectionGroup["type"], { nl: string; en: string }> = {
-  holds_position: { nl: "Positie", en: "Position" },
-  member_of: { nl: "Lidmaatschap", en: "Membership" },
-  elects: { nl: "Verkiezing", en: "Election" },
-  appoints: { nl: "Benoeming", en: "Appointment" },
-  oversees: { nl: "Toezicht", en: "Oversight" },
-  advises: { nl: "Advies", en: "Advice" },
-  office: { nl: "Positie bij", en: "Position at" },
-  dept_head: { nl: "Hoofdpositie", en: "Head position" },
-  confirms: { nl: "Bekrachtiging", en: "Confirmation" },
-  ex_officio: { nl: "Van rechtswege", en: "By virtue of office" },
-  administers: { nl: "Uitvoering", en: "Administration" },
-  subsidises: { nl: "Subsidie", en: "Subsidy" },
-  accountable_to: { nl: "Verantwoording", en: "Accountability" },
-  part_of: { nl: "Onderdeel van", en: "Part of" },
-  consists_of: { nl: "Samenstelling", en: "Composition" },
-  succeeded_by: { nl: "Opvolging", en: "Succession" },
-  joint_arrangement_member: { nl: "Gemeenschappelijke regeling", en: "Joint arrangement" },
-};
-
-/** Viewpoint-aware group title: "Bekleed door", "Lid van", and so on. */
-function groupTitle(group: ConnectionGroup): { nl: string; en: string } | null {
-  const directions = new Set(group.connections.map((connection) => connection.direction));
-  if (directions.size !== 1) return null;
-  const incoming = [...directions][0] === "incoming";
-  switch (group.type) {
-    case "holds_position":
-      return incoming
-        ? { nl: "Bekleed door", en: "Held by" }
-        : { nl: "Bekleedt positie", en: "Holds position" };
-    case "member_of":
-      return incoming ? { nl: "Leden", en: "Members" } : { nl: "Lid van", en: "Member of" };
-    case "elects":
-      return incoming ? { nl: "Gekozen door", en: "Elected by" } : { nl: "Kiest", en: "Elects" };
-    case "appoints":
-      return incoming ? { nl: "Wordt benoemd door", en: "Appointed by" } : { nl: "Benoemt", en: "Appoints" };
-    case "advises":
-      return incoming ? { nl: "Geadviseerd door", en: "Advised by" } : { nl: "Adviseert", en: "Advises" };
-    case "oversees":
-      return incoming ? { nl: "Onder toezicht van", en: "Overseen by" } : { nl: "Houdt toezicht op", en: "Oversees" };
-    case "part_of":
-      return incoming ? { nl: "Onderdelen", en: "Parts" } : { nl: "Onderdeel van", en: "Part of" };
-    default:
-      return GROUP_TITLES[group.type];
-  }
-}
 
 /** Seat metadata for one connection, from the raw relation plus the target entity. */
 function seatLine(connection: Connection): { appointed: number; total: number | null } | null {
@@ -151,7 +55,7 @@ function ContextLine({ connection, selfId }: { connection: Connection; selfId?: 
   if (connection.other.kind === "position") {
     const position = getPositionById(connection.other.id);
     if (!position || position.organization === selfId) return null;
-    return <EntityPeekLink id={position.organization} variant="quiet" />;
+    return <EntityPeekLink id={position.organization} variant="bare" className="text-xs text-ink-faint" />;
   }
   if (connection.other.kind === "organization") {
     const organization = getOrganizationById(connection.other.id);
@@ -161,55 +65,89 @@ function ContextLine({ connection, selfId }: { connection: Connection; selfId?: 
   return person?.party ? <PartyBadge party={person.party} /> : null;
 }
 
+function treeRoleKey(type: ConnectionType, direction: Connection["direction"]): string | null {
+  switch (type) {
+    case "dept_head":
+      return "treeRoleHead";
+    case "office":
+      return "treeRoleOffice";
+    case "part_of":
+      return "treeRolePart";
+    case "consists_of":
+      return "treeRoleComposition";
+    case "oversees":
+      return "treeRoleOversight";
+    case "advises":
+      return direction === "incoming" ? "treeRoleAdvisedBy" : "treeRoleAdvice";
+    case "member_of":
+      return direction === "incoming" ? "treeRoleMember" : "treeRoleMemberOf";
+    case "holds_position":
+      return direction === "incoming" ? "treeRoleHeldBy" : "treeRoleHolds";
+    case "appoints":
+      return "treeRoleAppoints";
+    case "elects":
+      return "treeRoleElects";
+    case "confirms":
+      return "treeRoleConfirms";
+    case "joint_arrangement_member":
+      return "treeRoleJoint";
+    case "succeeded_by":
+      return "treeRoleSuccession";
+    case "administers":
+      return "treeRoleAdmin";
+    case "subsidises":
+      return "treeRoleSubsidy";
+    case "accountable_to":
+      return "treeRoleAccountable";
+    case "ex_officio":
+      return "treeRoleExOfficio";
+    default:
+      return null;
+  }
+}
+
+function hubCaptionKey(kind: EntityKind): string {
+  if (kind === "person") return "treeThisPerson";
+  if (kind === "position") return "treeThisPosition";
+  return "treeThisOrganization";
+}
+
 /**
  * One connection row. The name is the only control; sources live on the
- * page SourceList, not as a chain icon beside the peek.
+ * page SourceList. Names are clickable and never underlined.
  */
 function ConnectionRow({
   row,
-  showDirection,
   selfId,
+  roleKey,
 }: {
   row: ConnectionRowModel;
-  showDirection: boolean;
   selfId?: string;
+  roleKey?: string | null;
 }) {
   const connection = row.connections[0];
   const seats = row.connections.length === 1 ? seatLine(connection) : null;
   const kind = peekKindOf(connection);
   const person = connection.other.kind === "person" ? getPersonById(connection.other.id) : undefined;
   return (
-    <div className="flex items-start gap-2">
+    <div className="flex min-w-0 items-start gap-2.5">
       <span className="mt-2 flex h-6 w-6 shrink-0 items-center justify-center pointer-coarse:mt-[11px]" aria-hidden="true">
         {person ? <PersonPortrait person={person} size={24} /> : <KindGlyph kind={kind} size={9} />}
       </span>
-      <div className="min-w-0 flex-1 py-2 pointer-coarse:py-0">
-        <p className="flex items-start gap-1 text-sm leading-snug">
-          {showDirection ? (
-            <span aria-hidden="true" className="shrink-0 text-ink-faint pointer-coarse:py-3.5">
-              {connection.direction === "outgoing" ? "\u2192" : "\u2190"}
-            </span>
-          ) : null}
-          {showDirection ? (
-            <span className="sr-only">
-              {connection.direction === "outgoing" ? (
-                <L nl="Uitgaande relatie naar" en="Outgoing connection to" />
-              ) : (
-                <L nl="Inkomende relatie van" en="Incoming connection from" />
-              )}{" "}
-            </span>
-          ) : null}
+      <div className="min-w-0 flex-1 py-1.5 pointer-coarse:py-0">
+        <p className="text-sm font-medium leading-snug">
           <PeekLink
             id={connection.other.id}
             href={connection.other.href}
             kind={kind}
-            variant="plain"
-            className="min-w-0 break-words font-medium pointer-coarse:py-3.5"
+            variant="bare"
+            className="min-w-0 break-words pointer-coarse:inline-block pointer-coarse:py-3.5"
           >
             {connection.other.name}
           </PeekLink>
         </p>
-        <p className="mt-0.5 flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-xs text-ink-faint pointer-coarse:pb-2">
+        <p className="mt-0.5 flex min-w-0 flex-wrap items-baseline gap-x-2 gap-y-0.5 text-xs text-ink-faint pointer-coarse:pb-2">
+          {roleKey ? <T area="entity" k={roleKey} /> : null}
           <ContextLine connection={connection} selfId={selfId} />
           {seats !== null ? (
             <span className="tabular-nums">
@@ -226,66 +164,71 @@ function ConnectionRow({
   );
 }
 
-function ConnectionGroupBlock({
-  group,
-  showDirection,
+function BranchList({
+  branch,
   selfId,
+  showRole,
 }: {
-  group: ConnectionGroup;
-  showDirection: boolean;
+  branch: ConnectionBranch;
   selfId?: string;
+  showRole: boolean;
 }) {
-  const connections = [...group.connections].sort((a, b) => {
-    if ((a.direction === "outgoing" ? 0 : 1) !== (b.direction === "outgoing" ? 0 : 1)) {
-      return (a.direction === "outgoing" ? 0 : 1) - (b.direction === "outgoing" ? 0 : 1);
-    }
-    return a.other.name.localeCompare(b.other.name, "nl");
-  });
-  const rows = mergeConnectionRows(connections);
-  const visible = rows.slice(0, GROUP_LIMIT);
-  const rest = rows.slice(GROUP_LIMIT);
-  const title = groupTitle(group) ?? GROUP_TITLES[group.type];
+  const roleKey = showRole ? treeRoleKey(branch.type, branch.direction) : null;
+  const visible = branch.rows.slice(0, GROUP_LIMIT);
+  const rest = branch.rows.slice(GROUP_LIMIT);
   return (
-    <FactGroup
-      icon={iconFor(group.type)}
-      title={<L nl={title.nl} en={title.en} />}
-      count={rows.length}
-      plain
-    >
-      {GROUP_HINTS[group.type] !== undefined ? (
-        <p className="mb-1 text-xs text-ink-faint">
-          <T area="entity" k={GROUP_HINTS[group.type] as string} />
-        </p>
-      ) : null}
-      {visible.length > 0 ? (
-        <ul className={LIST_CLASS}>
-          {visible.map((row) => (
-            <li key={row.key} className="border-b border-line/60 last:border-b-0">
-              <ConnectionRow row={row} showDirection={showDirection} selfId={selfId} />
-            </li>
-          ))}
-        </ul>
-      ) : null}
+    <>
+      {visible.map((row) => (
+        <li key={row.key} className="min-w-0">
+          <ConnectionRow row={row} selfId={selfId} roleKey={roleKey} />
+        </li>
+      ))}
       {rest.length > 0 ? (
-        <details className="motion-disclosure mt-2">
-          <summary className={SUMMARY_CLASS}>
-            <T area="common" k="seeAll" vars={{ n: rows.length }} />
-          </summary>
-          <ul className={`mt-1 ${LIST_CLASS}`}>
-            {rest.map((row) => (
-              <li key={row.key} className="border-b border-line/60 last:border-b-0">
-                <ConnectionRow row={row} showDirection={showDirection} selfId={selfId} />
-              </li>
-            ))}
-          </ul>
-        </details>
+        <li className="min-w-0">
+          <details className="motion-disclosure">
+            <summary className={SUMMARY_CLASS}>
+              <T area="common" k="seeAll" vars={{ n: branch.rows.length }} />
+            </summary>
+            <ul>
+              {rest.map((row) => (
+                <li key={row.key} className="min-w-0">
+                  <ConnectionRow row={row} selfId={selfId} roleKey={roleKey} />
+                </li>
+              ))}
+            </ul>
+          </details>
+        </li>
       ) : null}
-    </FactGroup>
+    </>
   );
 }
 
-/** `selfId` is the entity the page is about, so rows do not repeat it as context. */
-export function EntityConnections({ connections, selfId }: { connections: Connection[]; selfId?: string }) {
+function Hub({ name, kind }: { name: string; kind: EntityKind }) {
+  return (
+    <div className="flex min-w-0 items-start gap-2.5">
+      <span className="mt-2 flex h-6 w-6 shrink-0 items-center justify-center pointer-coarse:mt-[11px]" aria-hidden="true">
+        <span className="size-2 rounded-full bg-accent-text" />
+      </span>
+      <div className="min-w-0 flex-1 py-1.5">
+        <p className="text-sm font-medium leading-snug text-ink-muted break-words">{name}</p>
+        <p className="mt-0.5 text-xs text-ink-faint">
+          <T area="entity" k={hubCaptionKey(kind)} />
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/** `selfId` is the entity the page is about. `contextId` hides a repeated parent on position rows. */
+export function EntityConnections({
+  connections,
+  selfId,
+  contextId,
+}: {
+  connections: Connection[];
+  selfId?: string;
+  contextId?: string;
+}) {
   if (connections.length === 0) {
     return (
       <p className="text-sm text-ink-faint">
@@ -294,34 +237,36 @@ export function EntityConnections({ connections, selfId }: { connections: Connec
     );
   }
 
-  const groups = groupConnections(connections);
-  const composed = groups.map((group) => {
-    const directions = new Set(group.connections.map((connection) => connection.direction));
-    return { group, showDirection: directions.size > 1 };
-  });
-  const order = new Set<ConnectionGroup["type"]>([
-    "holds_position",
-    "member_of",
-    "elects",
-    "appoints",
-    "oversees",
-    "advises",
-    "ex_officio",
-    "dept_head",
-    "office",
-  ]);
-  composed.sort((a, b) => {
-    const aKey = order.has(a.group.type) ? 0 : 1;
-    const bKey = order.has(b.group.type) ? 0 : 1;
-    if (aKey !== bKey) return aKey - bKey;
-    return a.group.label.localeCompare(b.group.label, "nl");
-  });
+  const rowContext = contextId ?? selfId;
+  const self = selfId ? entityRefById(selfId) : null;
+  const { above, below } = splitConnectionTree(connections);
+  const hasSpine = Boolean(self) || below.length > 0;
 
   return (
-    <div className="space-y-5">
-      {composed.map(({ group, showDirection }) => (
-        <ConnectionGroupBlock key={group.type} group={group} showDirection={showDirection} selfId={selfId} />
-      ))}
+    <div className="min-w-0">
+      {above.length > 0 ? (
+        <ul>
+          {above.map((branch) => (
+            <BranchList key={branch.key} branch={branch} selfId={rowContext} showRole={false} />
+          ))}
+        </ul>
+      ) : null}
+      {hasSpine ? (
+        <div className={above.length > 0 ? "ms-3 -mt-1 border-s border-line" : "min-w-0"}>
+          {self ? (
+            <div className={above.length > 0 ? "-ms-[13px]" : undefined}>
+              <Hub name={self.name} kind={self.kind} />
+            </div>
+          ) : null}
+          {below.length > 0 ? (
+            <ul className={above.length > 0 ? "ps-3" : self ? "ms-3 border-s border-line ps-3" : undefined}>
+              {below.map((branch) => (
+                <BranchList key={branch.key} branch={branch} selfId={rowContext} showRole />
+              ))}
+            </ul>
+          ) : null}
+        </div>
+      ) : null}
     </div>
   );
 }

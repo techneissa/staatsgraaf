@@ -6,7 +6,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (16-10-2026, who is connected)
 
-- Connection rows no longer show a chain source icon. The name is the only control; sources stay on the page source list.
+- The who-is-connected tab is a small tree: parent bodies above, this entity in the middle, offices and other ties hanging off it. Names are clickable and never underlined. Connection rows no longer show a chain source icon; sources stay on the page source list.
 
 ### Changed (16-10-2026, organisation links)
 

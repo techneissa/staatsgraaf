@@ -35,3 +35,7 @@ A peek whose content fits in 90 % of the viewport sizes to that content and does
 ## Amendment 14-10-2026: peek description
 
 The peek shows the full description, not a three-line cut. In English it shows the current machine translation from `data/description-translations.json` (ADR 0016), with the same "Translated from Dutch" line as the entity page. Without a matching translation the Dutch text stays, marked `lang="nl"`.
+
+## Amendment 16-10-2026: who-is-connected tree, names without underline
+
+The owner picked layout C for the who-is-connected tab: a fragment of the hierarchy with the parent above, this entity in the middle, and its offices hanging off it. Names in that tree are still peek links. They are not underlined, on rest or hover; a hover turns the name to the accent colour. Kind stays on the glyph beside the name. `PeekLink` gained a `bare` variant for this.
