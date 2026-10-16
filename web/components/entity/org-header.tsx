@@ -89,7 +89,7 @@ export function OrgHeader({
             href={website}
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex items-center gap-1 text-[13px] text-ink-muted hover:text-ink pointer-coarse:min-h-11 ${HIT}`}
+            className={`inline-flex items-center gap-1 text-[13px] text-accent-text underline-offset-2 hover:underline pointer-coarse:min-h-11 ${HIT}`}
           >
             <GlobeIcon width={14} height={14} className="shrink-0" />
             <span>{host}</span>
@@ -194,7 +194,7 @@ export function OrgHeader({
               href={legalSource.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`ms-auto inline-flex min-w-0 max-w-full items-center gap-1 text-[13px] text-ink-muted hover:text-ink pointer-coarse:min-h-11 ${HIT}`}
+              className={`ms-auto inline-flex min-w-0 max-w-full items-center gap-1 text-[13px] text-accent-text underline-offset-2 hover:underline pointer-coarse:min-h-11 ${HIT}`}
             >
               <ScaleIcon width={14} height={14} className="shrink-0" />
               <span className="min-w-0 break-words">{legalSource.label}</span>

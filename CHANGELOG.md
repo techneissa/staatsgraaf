@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (16-10-2026, organisation links)
+
+- The official website and the legal basis use the accent link colour again, like the visiting address.
+
 ### Changed (16-10-2026, organisation emblem)
 
 - The logo or coat of arms sits above the organisation name, so a wide wordmark no longer squeezes the title and the facts column. The official website stays on its own row at the top right.
