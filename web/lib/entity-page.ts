@@ -67,6 +67,15 @@ export function shortRole(title: string): string {
   return title.replace(/\s+(van|bij|voor)\s+.*$/i, "");
 }
 
+/**
+ * `shortRole` for a caption under a face: drop a hanging parenthesis left
+ * when "van" was cut inside "(lid van ...)".
+ */
+export function roleLabel(title: string): string {
+  const short = shortRole(title);
+  return short.replace(/\s*\([^)]*$/, "").trim() || short;
+}
+
 export type CommissieRole = "chair" | "vice" | "member" | "other";
 
 /** The role a committee position stands for, from its title. */
