@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (16-10-2026, who is connected)
+
+- Connection rows no longer show a chain source icon. The name is the only control; sources stay on the page source list.
+
 ### Changed (16-10-2026, organisation links)
 
 - The official website and the legal basis use the accent link colour again, like the visiting address.

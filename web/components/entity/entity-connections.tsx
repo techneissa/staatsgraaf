@@ -1,11 +1,10 @@
-import { SourceIcon } from "@/components/source-icon";
 import { L, T } from "@/components/i18n/t";
 import { KindGlyph } from "@/components/kind-glyph";
 import { PartyBadge } from "@/components/party-badge";
 import { SubtypeLabel } from "./subtype-label";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { PeekLink } from "@/components/peek/peek-link";
-import { getOrganizationById, getPersonById, getPositionById, getSourceById } from "@/lib/data";
+import { getOrganizationById, getPersonById, getPositionById } from "@/lib/data";
 import { peekKindFor, type PeekKind } from "@/lib/peek";
 import { PersonPortrait } from "./person-portrait";
 import {
@@ -16,7 +15,6 @@ import {
 } from "@/lib/entity";
 import { mergeConnectionRows, type ConnectionRowModel } from "@/lib/entity-rows";
 import { FactGroup } from "./fact-group";
-import { SourceSlot } from "./source-slot";
 import {
   AdviceIcon,
   BuildingIcon,
@@ -164,10 +162,8 @@ function ContextLine({ connection, selfId }: { connection: Connection; selfId?: 
 }
 
 /**
- * One connection row. The name and the source icon are separate flex
- * children that never overlap: the name keeps the whole text column, the
- * source icon sits in its own slot (44 px on touch), so a tap on a name
- * always reaches the peek, never the external source.
+ * One connection row. The name is the only control; sources live on the
+ * page SourceList, not as a chain icon beside the peek.
  */
 function ConnectionRow({
   row,
@@ -179,7 +175,6 @@ function ConnectionRow({
   selfId?: string;
 }) {
   const connection = row.connections[0];
-  const source = getSourceById(connection.source.source);
   const seats = row.connections.length === 1 ? seatLine(connection) : null;
   const kind = peekKindOf(connection);
   const person = connection.other.kind === "person" ? getPersonById(connection.other.id) : undefined;
@@ -227,11 +222,6 @@ function ConnectionRow({
           ) : null}
         </p>
       </div>
-      {source ? (
-        <SourceSlot>
-          <SourceIcon href={source.url} title={source.title} retrieved={connection.source.retrieved} />
-        </SourceSlot>
-      ) : null}
     </div>
   );
 }
