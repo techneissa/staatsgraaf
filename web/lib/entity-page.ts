@@ -60,6 +60,31 @@ export function keyHolderRank(title: string): number {
   return 8;
 }
 
+/** Rank below 9: chair, minister, procureur-generaal. Ordinary members stay in the officials list. */
+export function isLeadingRole(title: string): boolean {
+  return keyHolderRank(title) < 9;
+}
+
+/**
+ * One group per person, first seen order. Callers sort by rank first so the
+ * senior office is the first caption and extra offices stay on that face.
+ */
+export function groupHoldersByPerson<T extends { personId: string }>(entries: T[]): T[][] {
+  const groups: T[][] = [];
+  const index = new Map<string, T[]>();
+  for (const entry of entries) {
+    const existing = index.get(entry.personId);
+    if (existing) {
+      existing.push(entry);
+      continue;
+    }
+    const group = [entry];
+    index.set(entry.personId, group);
+    groups.push(group);
+  }
+  return groups;
+}
+
 /** The short role of a position title in the context of its body: "Minister", "Voorzitter", "Lid". */
 export function shortRole(title: string): string {
   const lead = /^(Voorzitter|Ondervoorzitter|Vice-voorzitter|Lid|Griffier|Plaatsvervangend lid)\b/i.exec(title);

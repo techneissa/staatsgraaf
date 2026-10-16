@@ -555,12 +555,16 @@ function PeekDialog({
         aria-hidden="true"
         data-state={closing ? "closed" : "open"}
         data-swap={swap ? "" : undefined}
-        className="motion-scrim fixed inset-0 z-50 bg-overlay"
+        className="motion-scrim pointer-events-auto fixed inset-0 z-50 bg-overlay"
         onPointerDown={(event) => {
           event.preventDefault();
           event.stopPropagation();
           swallowNextClick();
           onClose(true);
+        }}
+        onClick={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
         }}
       />
       <div
@@ -641,12 +645,16 @@ function PeekSheet({
         aria-hidden="true"
         data-state={closing ? "closed" : "open"}
         data-swap={swap ? "" : undefined}
-        className="motion-scrim absolute inset-0 bg-overlay"
+        className="motion-scrim pointer-events-auto absolute inset-0 bg-overlay"
         onPointerDown={(event) => {
           event.preventDefault();
           event.stopPropagation();
           swallowNextClick();
           onClose(true);
+        }}
+        onClick={(event) => {
+          event.preventDefault();
+          event.stopPropagation();
         }}
       />
       <div

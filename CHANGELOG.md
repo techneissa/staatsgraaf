@@ -6,7 +6,11 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (16-10-2026, who leads)
 
-- Who leads an organisation is a row of faces. Every leading person is shown; there is no "and N more". The portrait and name open the person, the role opens the position. Role colour follows the body's branch, the same tokens as the rest of the site.
+- Who leads an organisation is a row of faces. Every leading person is shown; there is no "and N more". The portrait and name open the person, the role opens the position. Role colour follows the body's branch, the same tokens as the rest of the site. A start date sits under each title. One person with two offices is one face with two captions. Current office holders lists only the people who are not already there, and drops out when that list is empty.
+
+### Fixed (16-10-2026, peek dismiss)
+
+- Clicking away from a peek no longer follows a link under the finger. The dismiss click is swallowed on the window before the router sees it.
 
 ### Fixed (16-10-2026, language switch)
 

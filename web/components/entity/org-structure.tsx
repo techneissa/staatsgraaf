@@ -1,42 +1,36 @@
+import { DateT } from "@/components/content/local-date";
 import { PersonPortrait, PersonPortraitCredit } from "@/components/entity/person-portrait";
 import { T } from "@/components/i18n/t";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { BuildingIcon, PeopleIcon } from "@/components/entity/icons";
 import { getOrganizationById, getPersonById, getPositionById } from "@/lib/data";
 import { branchColorVar } from "@/lib/branch-colors";
-import { keyHolderRank, roleLabel } from "@/lib/entity-page";
+import { groupHoldersByPerson, isLeadingRole, keyHolderRank, roleLabel } from "@/lib/entity-page";
 import type { Organization, Person, Position, Tenure } from "@/lib/types";
 
 const HIT =
   "relative pointer-coarse:after:absolute pointer-coarse:after:-inset-x-1 pointer-coarse:after:-inset-y-3 pointer-coarse:after:content-['']";
 
 type HolderFace = {
+  personId: string;
   tenure: Tenure;
   person: Person;
   position: Position;
   rank: number;
 };
 
-/** One face per person, senior role first. Rank 9 (ordinary members) stay in the officials list. */
-function leadingFaces(holders: Tenure[]): HolderFace[] {
+/** One face per person, senior role first. Ordinary members stay in the officials list. */
+function leadingFaces(holders: Tenure[]): HolderFace[][] {
   const ranked: HolderFace[] = [];
   for (const tenure of holders) {
     const position = getPositionById(tenure.position);
     const person = getPersonById(tenure.person);
     if (position === undefined || person === undefined) continue;
-    const rank = keyHolderRank(position.title);
-    if (rank >= 9) continue;
-    ranked.push({ tenure, person, position, rank });
+    if (!isLeadingRole(position.title)) continue;
+    ranked.push({ personId: person.id, tenure, person, position, rank: keyHolderRank(position.title) });
   }
-  ranked.sort((a, b) => a.rank - b.rank);
-  const seen = new Set<string>();
-  const unique: HolderFace[] = [];
-  for (const entry of ranked) {
-    if (seen.has(entry.person.id)) continue;
-    seen.add(entry.person.id);
-    unique.push(entry);
-  }
-  return unique;
+  ranked.sort((a, b) => a.rank - b.rank || a.person.name.localeCompare(b.person.name, "nl"));
+  return groupHoldersByPerson(ranked);
 }
 
 /**
@@ -74,8 +68,11 @@ export function OrgStructure({
             <T area="entity" k="keyHoldersLabel" />
           </p>
           <ul className="flex flex-wrap gap-x-2 gap-y-3">
-            {faces.map(({ person, position }) => {
-              const body = getOrganizationById(position.organization);
+            {faces.map((roles) => {
+              const lead = roles[0];
+              if (lead === undefined) return null;
+              const person = lead.person;
+              const body = getOrganizationById(lead.position.organization);
               const roleColor = body ? branchColorVar(body.branch) : "var(--kind-position)";
               return (
                 <li
@@ -91,14 +88,23 @@ export function OrgStructure({
                     <span className="text-xs font-medium leading-snug">{person.name}</span>
                   </EntityPeekLink>
                   <PersonPortraitCredit person={person} />
-                  <EntityPeekLink
-                    id={position.id}
-                    variant="tinted"
-                    className={`mt-0.5 max-w-full text-center text-[11px] leading-snug pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:items-center ${HIT}`}
-                    style={{ color: roleColor }}
-                  >
-                    {roleLabel(position.title)}
-                  </EntityPeekLink>
+                  {roles.map(({ tenure, position }) => (
+                    <span key={tenure.id} className="mt-0.5 flex max-w-full flex-col items-center text-center">
+                      <EntityPeekLink
+                        id={position.id}
+                        variant="tinted"
+                        className={`max-w-full text-[11px] leading-snug pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:items-center ${HIT}`}
+                        style={{ color: roleColor }}
+                      >
+                        {roleLabel(position.title)}
+                      </EntityPeekLink>
+                      {tenure.start ? (
+                        <span className="text-[10px] leading-tight text-ink-faint">
+                          <DateT area="panels" k="since" dates={{ date: tenure.start }} short />
+                        </span>
+                      ) : null}
+                    </span>
+                  ))}
                 </li>
               );
             })}
