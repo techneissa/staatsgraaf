@@ -356,13 +356,11 @@ function BudgetBlock({ budget }: { budget: NonNullable<PanelOrg["budget"]> }) {
  */
 function PanelDescription({ nl, en }: { nl: string; en: string | null }) {
   const locale = useLocale();
-  const t = useDict("entity");
   if (locale === "en" && en !== null) {
     return (
-      <div className="max-w-prose text-sm leading-relaxed text-ink-muted">
-        <p lang="en">{en}</p>
-        <p className="mt-0.5 text-xs text-ink-faint">{t("translatedFromDutch")}</p>
-      </div>
+      <p lang="en" className="max-w-prose text-sm leading-relaxed text-ink-muted">
+        {en}
+      </p>
     );
   }
   return <p lang="nl" className="max-w-prose text-sm leading-relaxed text-ink-muted">{nl}</p>;

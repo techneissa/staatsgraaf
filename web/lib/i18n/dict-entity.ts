@@ -158,7 +158,6 @@ export const ENTITY_DICT = {
   newsEmptyTitle: { nl: "Nog geen nieuws", en: "No news yet" },
 
   // Summaries, descriptions, facts, career and callouts
-  translatedFromDutch: { nl: "Vertaald uit het Nederlands", en: "Translated from Dutch" },
   descriptionsTranslatedNote: {
     nl: "Beschrijvingen staan in het Nederlands.",
     en: "Descriptions are machine translated from Dutch where a translation exists.",

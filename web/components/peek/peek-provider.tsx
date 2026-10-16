@@ -11,6 +11,7 @@ import { LucideIcon } from "@/components/icons/lucide-icon";
 import { useLocale } from "@/components/i18n/language-provider";
 import { useT } from "@/components/i18n/use-t";
 import { KindGlyph } from "@/components/kind-glyph";
+import { PeekLink } from "@/components/peek/peek-link";
 import { ShareButton } from "@/components/share-button";
 import { prefersReducedMotion } from "@/lib/motion";
 import { SheetHandle } from "./sheet-handle";
@@ -19,6 +20,7 @@ import { ORG_SUBTYPE_LABELS, ORG_SUBTYPE_LABELS_EN } from "@/lib/labels";
 import { SourceIcon } from "@/components/source-icon";
 import {
   normalizePeekRecord,
+  peekKindFor,
   peekShardUrl,
   type PeekKind,
   type PeekRecord,
@@ -730,21 +732,32 @@ function PeekBody({
       : null;
   const kindLabel = subtypeLabel ?? t(KIND_KEY[kind]);
 
-  const link = (ref: PeekRef, extra?: ReactNode) => (
-    <a
-      href={ref.href}
-      lang="nl"
-      onClick={(event) => {
-        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
-        event.preventDefault();
-        onNavigate(ref.href);
-      }}
-      className={`relative break-words text-ink underline decoration-line-strong decoration-1 underline-offset-[3px] transition-fast hover:decoration-2 ${PEEK_HIT}`}
-    >
-      {ref.name}
-      {extra}
-    </a>
-  );
+  const link = (ref: PeekRef, extra?: ReactNode) => {
+    const kind = peekKindFor(ref.id);
+    if (kind === null) {
+      return (
+        <a
+          href={ref.href}
+          lang="nl"
+          onClick={(event) => {
+            if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+            event.preventDefault();
+            onNavigate(ref.href);
+          }}
+          className={`relative break-words text-ink underline decoration-line-strong decoration-1 underline-offset-[3px] transition-fast hover:decoration-2 ${PEEK_HIT}`}
+        >
+          {ref.name}
+          {extra}
+        </a>
+      );
+    }
+    return (
+      <PeekLink id={ref.id} href={ref.href} kind={kind} variant="inline" glyph lang="nl" className={`break-words ${PEEK_HIT}`}>
+        {ref.name}
+        {extra}
+      </PeekLink>
+    );
+  };
 
   const head = (
       <div key={open.id} className="motion-swap flex items-start gap-3">

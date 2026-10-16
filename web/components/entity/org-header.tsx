@@ -219,7 +219,6 @@ export function OrgHeader({
         <LocalizedDescription
           nl={description.nl}
           en={description.en}
-          credit={false}
           className="mt-4 max-w-prose text-sm leading-relaxed text-ink-muted"
         />
       ) : null}
