@@ -14,7 +14,8 @@ import { CareerTimeline } from "@/components/entity/career-timeline";
 import { FactGroup } from "@/components/entity/fact-group";
 import { BriefcaseIcon, HistoryIcon, SeatIcon } from "@/components/entity/icons";
 import { PersonActivity } from "@/components/entity/person-activity";
-import { PersonHeader, currentPersonOffices } from "@/components/entity/person-header";
+import { PersonHeader } from "@/components/entity/person-header";
+import { currentPersonOffices } from "@/lib/person-offices";
 import { TenureTimeline } from "@/components/entity/tenure-timeline";
 import {
   getMembershipsForPerson,
