@@ -8847,9 +8847,9 @@
     "id": "news:3daa2dda",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Fewer trains around Utrecht due to farewell party of ProRail traffic controllers",
-    "lead": "Fewer trains are running around Utrecht due to a shortage of traffic controllers. One of the reasons is the farewell drinks for two 'very popular' colleagues at ProRail. The rail infrastructure manager has not managed to find replacements in time.",
-    "sourceHash": "5a5ec0e96d8a",
+    "title": "Fewer trains around Utrecht due to farewell party for ProRail traffic controllers",
+    "lead": "Fewer trains ran around Utrecht this evening due to a shortage of traffic controllers. One of the reasons was the farewell drinks for two 'very popular' colleagues of ProRail. The rail infrastructure manager had not managed to find replacements in time. According to a spokesperson, trains are now running on the normal timetable again.",
+    "sourceHash": "dd36c9abf9b2",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
@@ -9180,17 +9180,6 @@
     "title": "NATO general unveils 'victory strategy' to keep Putin at bay",
     "lead": "NATO will \"block, blunt and break\" any possible attack by Vladimir Putin on a member state",
     "sourceHash": "0df0415ca230",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:3fae1001",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Divorcing couples are poorly prepared: 'People mainly want to show how happy they are'",
-    "lead": "Divorce experts complain about a lack of knowledge of their clients. The bestseller by a super-wealthy American lived-experience expert is fuelling the conversation about this. 'Read that tax return.'",
-    "sourceHash": "3df9532aa833",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -9535,6 +9524,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:413e7861",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Future of most important climate report uncertain after failed negotiations",
+    "lead": "After unprecedentedly tough negotiations, UN member states failed to agree on the publication of a new series of climate reports. The UN climate panel IPCC even threatens to run out of money next year. Climate science is being dragged into the political arena.",
+    "sourceHash": "531f31977063",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-16"
   },
   {
     "id": "news:414192fa",
@@ -10998,6 +10998,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:480e61f7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Not in my backyard. Suddenly the arrival of data centres in American towns is shaping the elections",
+    "lead": "Anger at Big Tech, fear of job losses and existential AI anxiety are fuelling American resistance to data centres. Opposition to the data centres has grown into \"the most cross-party issue since beer\".",
+    "sourceHash": "f6d7ce274ba4",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-16"
   },
   {
     "id": "news:48345770",
@@ -12650,17 +12661,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:50dd1f7c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "A parallel society exists around Almería in Spain",
-    "lead": "The largest greenhouse complex in Europe is located in Almería, in southern Spain. Photographer Rob Hornstra documented the local population and migrant workers there and found harrowing conditions.",
-    "sourceHash": "c4d8ff2ce2c2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:50ddcefe",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14135,17 +14135,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:57e7d336",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "In Finland it is a privilege to get to know border security up close",
-    "lead": "FD sat in on a day of a course where senior Finns discuss the security of their country. There is great interest, and far from everyone who applies is selected.",
-    "sourceHash": "2f38f33595c7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:57ea956e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14463,6 +14452,17 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
+  },
+  {
+    "id": "news:59554a23",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "This is how to bring more colour into your home",
+    "lead": "In a chaotic world, having a place to come home to where harmony prevails is important. Colour is one of the most powerful means of achieving that goal. Experts explain how to do it.",
+    "sourceHash": "f301cd46bdc1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-16"
   },
   {
     "id": "news:59821930",
@@ -16324,34 +16324,12 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:5d243bc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "US suspends its own sanctions and accepts Russian diesel: 'Gift for Putin'",
-    "lead": "Russia will \"immediately\" supply 300,000 tons of diesel to the American market and the world market. That is what President Trump writes on his platform Truth Social, after he says he spoke with Russian President Putin. The US is temporarily suspending sanctions on Russian oil for this. According to Trump, Russia has also agreed to supply another 500,000 tons of diesel in November and later further deliveries of one million and three million tons. The latter, according to him, depends on \"the condition of their diesel refineries\". After Trump's announcement, the Treasury Department issued a temporary licence that allows imports of Russian diesel. Since the start of the war in Iran, diesel prices in the US have doubled. At the end of last month the price per gallon (about 3.8 litres) rose to a record high of 6.53 dollars. According to the AAA platform, the average price per gallon today is 6.28 dollars. Election theme High fuel prices are an important theme in the November midterm elections in the US. Last week the G7 countries already announced they would release millions of barrels of diesel and crude oil over the coming months after mounting pressure from Trump. In his post Trump states that diesel prices for Americans, and for the rest of the world, will fall quickly. \"Lower prices for our great farmers, livestock farmers and truck drivers are my top priority.\" What is the problem in the diesel market? Years ago Europe, among others, imported a lot of diesel from Russia. That was stopped because of the Russian invasion of Ukraine. In 2022 that was a problem and caused high prices at the pump. Now the war in the Middle East is the cause of the high diesel prices. That is mainly because far fewer raw materials, including oil, can be transported through the Strait of Hormuz. Also, many production sites around the Persian Gulf have sustained damage, and it will take a long time before those sites function normally again. The production sites turn crude oil into refined products, including diesel. Trump is trying to address the higher prices at the pump: if more diesel comes onto the market, prices will fall as a result of market forces. Ukrainian President Zelensky has responded to the American-Russian agreement. According to him it plays into Russia's hands. \"Any easing of sanctions against Russia without a clear and lasting de-escalation agreement with Russia is an obvious weakness, which will cause Russia to kill more people, fight longer, America to respect it even less, and cause even more losses and damage to the world\", he writes in a post on Telegram. According to him, \"gifts to Putin will not contribute to peace and the civilised world will gain no benefit\". Zelensky writes that allowing Russia to sell oil products amounts to an investment in a war. Shadow fleet The European Union has imposed sanctions on the Russian shadow fleet several times, one of the few ways Russia gets its oil products out into the world. The aim of the sanctions is, among other things, to reduce the money flowing into the Russian treasury for the war in Ukraine. For that same reason Trump himself signed a sanctions law against Russia in mid-September. The law, for example, imposed further restrictions on Russia's sale of oil. The sanctions were also aimed at Russian tankers of the shadow fleet.",
-    "sourceHash": "49590fdce383",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:5d243bd",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Yesilgöz despite criticism: 'I am the next lead candidate of the VVD'",
     "lead": "VVD leader Yesilgöz wants to become the party's lead candidate again at the next elections. In an interview with the NOS after a VVD gathering in Veghel, she clearly states her ambitions. Asked whether she is the logical next lead candidate of the VVD, Yesilgöz says: \"Yes, I am.\" She has been party leader since August 2023, when she succeeded <entity id=\"person:mark-rutte\">Mark Rutte</entity>. Criticism of Yesilgöz and of the course of the VVD leadership in <entity id=\"org:gemeente-s-gravenhage\">Den Haag</entity> has been growing among the party rank and file recently. In the polls the governing party is not doing very well, and former VVD politicians are voicing their discontent through newspapers. Especially last week - when the cabinet plans of <entity id=\"org:kabinet\">het kabinet</entity>-Jetten were significantly amended at the urging of Pro and the trade unions - considerable dissatisfaction was heard among the rank and file. Concerns The party had given in too quickly to the pressure from Pro's <entity id=\"person:jesse-feras-klaver\">leider Klaver</entity>, was one of the points of criticism. That stung all the more because during the campaign for the House of Representatives elections Yesilgöz had promised her voters not to go into partnership with this party, which in her view is too left-wing. Concerns also arose among VVD members about changes to the wealth tax (box 3). There is still no clarity on that. Yesilgöz says in the NOS interview that she does not like the criticism. \"Not even as a person\". She does feel that the media devote disproportionate attention to what happens at the VVD. She does not want to brush the criticism aside, but the emergence of unrest within a party \"is timeless\". She has experienced it as a council member, House of Representatives member and minister. \"We are a party that enjoys debating, and afterwards we move on again.\" Today's gathering with critical VVD members from <entity id=\"org:provincie-noord-brabant\">Noord-Brabant</entity> was, according to Yesilgöz, \"very good\". Together with House of Representatives parliamentary group chair Brekelmans, she answered questions for two hours in front of a room of about 150 members. In her view, the impression that the VVD \"was rolling out a left-wing agenda\" arose unjustly. Yesilgöz stresses that she does want to work with Pro, but then also together with the right-wing party JA21. \"We do want to work with Pro, but not without the right.\" Afterwards she says that cooperation with Pro alone on \"parts\" might be possible, for example on the nitrogen plans. At the end of November there is a VVD congress. Then it will become clearer whether the VVD leadership has succeeded in reassuring the critical members about the approach.",
     "sourceHash": "a1d64eb853d0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:5d243dc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Right-wing political commentator Katie Zacharia new White House press secretary",
-    "lead": "Donald Trump has appointed right-wing political commentator Katie Zacharia as the new White House press secretary. She succeeds Karoline Leavitt, who stepped down from her post at the end of August. Like Leavitt, Zacharia is also a loyal MAGA supporter. In a guest column in the conservative newspaper New York Post a few months ago, she described the American president as \"the greatest president in American history\". Zacharia has worked, among other things, as a communications adviser at Trump Media & Technology Group, which manages Trump's Truth Social network, and she briefly worked as deputy press secretary for the American Department of Homeland Security. She was also legal adviser to the conservative political lobby group Fix California. In addition, she has been seen, among other things, as a political commentator on CNN, Fox News and Newsmax. Swing states Trump announced the appointment on Truth Social. He calls Zacharia someone who \"has been a loyal and brilliant supporter from the very first beginning\". According to him, the conservative jurist already assisted and supported him during the election campaign in important 'swing states', states where Republicans and Democrats fiercely compete. Zacharia calls the appointment \"the honour of my life\". She states that her task is to convey the \"great successes\", as she calls them, of the Trump administration to the American people. Low approval ratings Zacharia faces a challenging task. She is taking centre stage shortly before next month's midterm elections. She must convey Trump's positions as effectively as possible at a time when the president is struggling with low approval ratings at home. A recent Reuters/Ipsos poll shows that Trump's approval rating has fallen to 32 percent, the lowest level of his political career. This is partly because fellow Republicans are dissatisfied with America's war with Iran and the cost of living. A lawsuit by several media outlets that have been denied access to the White House by Trump's administration is also ongoing.",
-    "sourceHash": "a0a1bb2529a8",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -19448,6 +19426,39 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:5d2cc3e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Chinese man evades police for 19 years by taking over identity of dead twin brother",
+    "lead": "A Chinese man who was involved in a robbery in 2002 has finally been arrested 24 years later. He managed to stay out of the hands of the police for years by assuming the identity of his deceased twin brother. In 2002, seven men carried out a robbery in Yuhuan, in the province of Zhejiang in eastern China. They kidnapped a man and robbed him of his money and valuables. Police soon arrested six suspects, but the seventh man, named Chen, escaped. Police searched extensively for Chen but did not find him. Five years later, in 2007, police in Yuhuan received a message from the province of Anhui. Chen was said to have died in a traffic accident. Police decided to close the case. Police check Nineteen years later, police in Anhui, which is in central China, noticed something unusual during a routine check. There were indications that a man had been using the identity of his deceased twin brother for years. Investigators became suspicious and pulled the 2002 robbery file again. They compared the identities, places of birth and family ties of those involved and found similarities between the two men. Police set up a special investigation team and soon found out that Chen was still alive. He appeared to lead a quiet life and thought he could keep up his deception forever. It was not Chen but his younger twin brother Deng who died in 2007. Nine days after Deng was registered as dead, Chen had his name changed to that of his twin brother. His own name was also on the death certificate. When police began checking the story in Anhui, relatives defended the older Chen and kept his lie alive. Eventually the officers came across the dead brother's former girlfriend, who confirmed the identity swap. Chen was arrested in June, but Chinese media are only now reporting the news. The man faces a prison sentence of three to ten years.",
+    "sourceHash": "d1ff10cba0f8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-16"
+  },
+  {
+    "id": "news:5d2cc40",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Fire in Arnhem flat that had previously been cleared due to squatters",
+    "lead": "A fire broke out on Friday evening in a flat in Arnhem. The flat had been cleared and boarded up earlier in the day. Squatters were living there. As far as is known, nobody was injured. The fire broke out around 22:30 and was extinguished about an hour later. According to De Gelderlander, someone was still in the sealed building on the Paasberglaan during the fire. He did not suffer serious injuries. He has been fined because he was not allowed to enter the building, the newspaper reports. It is not known what caused the fire.",
+    "sourceHash": "15c5bfc519c1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-16"
+  },
+  {
+    "id": "news:5d2cc41",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Rapper Diddy moved to another prison, 'lived like a VIP in cell'",
+    "lead": "The convicted American rapper Diddy has been moved to another prison. According to American media, he was living a life of luxury in prison. He was also involved in a fight this week. Sean 'Diddy' Combs was in a cell in New Jersey, but is now moving to Allenwood, in the state of Pennsylvania. NBC News previously painted a damning picture of Diddy's old prison. Fellow inmates reportedly did all kinds of things for him, such as cooking, cleaning, making his bed and giving him massages. In addition, Diddy reportedly had cognac smuggled in and had access to a mobile phone, with which he could use social media and look at nude photos of an ex-girlfriend. According to NBC, he lived the life of a VIP in prison. Fight This week, according to entertainment site TMZ, Diddy was involved in a fight. He reportedly fought with a fellow inmate. The reason for the fight is not known. Diddy then had to be treated for his injuries outside the prison. The American prison system is not saying why Diddy was moved. However, because of the commotion, 41 days of sentence reduction for good behaviour reportedly were taken away from him. As a result, he will now not be released until 2 March 2028. Sex case Diddy was sentenced a year ago to four years and two months in prison in a sex case. He was found guilty of transporting people for the purpose of prostitution. During the trial, women described that they had been beaten, threatened, sexually abused and blackmailed by him. One of his ex-girlfriends spoke of drug marathons in which she had to perform sexual acts with male sex workers. Diddy filmed that and gave instructions. The rapper has never admitted guilt.",
+    "sourceHash": "5ad01dfcc5d3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-16"
+  },
+  {
     "id": "news:5d2ff394",
     "language": "en",
     "sourceLanguage": "nl",
@@ -19468,6 +19479,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
+  },
+  {
+    "id": "news:5d4dcdf1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Everything is going wrong, but the economy keeps chugging along",
+    "lead": "Half a year after the outbreak of war in the Middle East, we are still waiting for the predicted economic downturn. Did we get off lightly?",
+    "sourceHash": "7a4951448e04",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-16"
   },
   {
     "id": "news:5d559d8d",
@@ -20328,17 +20350,6 @@
     "translated": "2026-10-15"
   },
   {
-    "id": "news:616f9098",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Personnel news Saturday 10 October",
-    "lead": "New job? Email personalia@fd.nl, with a high-resolution photo and a job description in Dutch.",
-    "sourceHash": "efa0d2b61567",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:6176e7e6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -20601,6 +20612,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:6291330f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dead and seriously injured in stabbing at German care home",
+    "lead": "In a stabbing at a care home in western Germany, one woman has died and two others have been seriously injured. The police reported this on Friday evening. A seriously injured woman is in life-threatening condition after the attack in the town of Olfen, near Dortmund.",
+    "sourceHash": "841600130f4a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-16"
   },
   {
     "id": "news:62a1b016",
@@ -20953,6 +20975,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:643d9d23",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Accountants try to shake off their dusty image and hit the track",
+    "lead": "Ski holidays and trips to Paris: accounting firms have to come up with ever more creative ways to recruit young talent. One firm came up with something different and invited a hundred potential employees to a day of racing.",
+    "sourceHash": "8d9ffbc118da",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-16"
   },
   {
     "id": "news:644b4b2d",
@@ -25141,17 +25174,6 @@
     "title": "How municipalities are struggling with online council information",
     "lead": "The scale of the problems municipalities experience with leaked personal data in council documents varies considerably. In <entity id=\"org:gemeente-zuidplas\">Zuidplas</entity>, almost the entire council information system was recently taken offline, and part of the historical archive is not returning directly. <entity id=\"org:gemeente-pijnacker-nootdorp\">Pijnacker-Nootdorp</entity> spent 16,000 euros on checks, after which 35 documents went offline. <entity id=\"org:gemeente-voorschoten\">Voorschoten</entity> did this for only one document.",
     "sourceHash": "5fe9f6b58243",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:7a3a8a8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Zelensky critical of US-Russia diesel deal: 'Gifts to Putin do not bring peace'",
-    "lead": "Ukrainian President Volodymyr Zelensky has responded critically to the agreement between the United States and Russia on the supply of Russian diesel to the US and the world market. Zelensky called the deal 'an investment in a war that must be ended'. He considers the agreement 'a weak decision by strong partners'. Follow all developments in the war in Ukraine in our liveblog.",
-    "sourceHash": "dbd9c83d42e3",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -29898,6 +29920,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:925a34a3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Personnel news Saturday 17 October",
+    "lead": "New job? Email personalia@fd.nl, with a high-resolution photo and a job description in Dutch.",
+    "sourceHash": "477c88d023e6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-16"
+  },
+  {
     "id": "news:92603132",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30885,17 +30918,6 @@
     "sourceHash": "348c21a9e834",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:972e0990",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Zelensky critical of US-Russia diesel deal: 'Investment in war'",
-    "lead": null,
-    "sourceHash": "c6c0de7ced30",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
     "translated": "2026-10-13"
   },
   {
@@ -32269,17 +32291,6 @@
     "title": "'On metro 53 a man masturbated. Why do women in Zuidoost still have to wait for more safety?'",
     "lead": null,
     "sourceHash": "389e3ac1ebbd",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:9ce4762",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Trump says Russia will supply diesel to the US and global market",
-    "lead": "Russia will immediately supply more than 300,000 tons of diesel to the US. That is what US President Donald Trump reports on his social media platform Truth Social. According to Trump, he discussed this with Russian President Vladimir Putin. Because of the war in the Middle East, oil prices have risen sharply.",
-    "sourceHash": "067c1220d9b5",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -37499,6 +37510,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:b771b2e2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "There is renewed hope for the Franco-German axis, the backbone of European cooperation.",
+    "lead": "It was a week of a packed EU summit. But on the sidelines something else also became visible: the Franco-German axis is gaining momentum again.",
+    "sourceHash": "f73acc31b564",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-16"
+  },
+  {
     "id": "news:b772db17",
     "language": "en",
     "sourceLanguage": "nl",
@@ -39600,6 +39622,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:c22e25ee",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cabinet wants to spend the absolute minimum on infrastructure",
+    "lead": "Additional requirements for infrastructure projects will from now on be borne by municipalities or provinces themselves, the cabinet announces.",
+    "sourceHash": "96ebb3e1f164",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-16"
+  },
+  {
     "id": "news:c237f1f4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -39617,17 +39650,6 @@
     "title": "Poland warns of 'exceptionally serious' plans to kill Prime Minister Tusk",
     "lead": null,
     "sourceHash": "7d0d2696c353",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:c2466896",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Russia to supply diesel to the US and world market, Trump reports",
-    "lead": null,
-    "sourceHash": "32bd96528fb9",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -39806,17 +39828,6 @@
     "sourceHash": "6f0eb1883713",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:c3007574",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "A hundred thousand new homes a year, but who is buying them?",
-    "lead": "The supply of newly built homes is growing, but buyer interest is lacking. What is going on?",
-    "sourceHash": "7134f727b6ca",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
     "translated": "2026-10-13"
   },
   {
@@ -41030,6 +41041,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:c93d540c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Build. Fly. Adjust course. How SpaceX is working on the largest spaceship ever",
+    "lead": "SpaceX is investing heavily in the giant Starship rocket, with which the American company wants to conquer space. For the rest of the sector, that focus has a dark side.",
+    "sourceHash": "5211970413b4",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-16"
+  },
+  {
     "id": "news:c950874a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42218,17 +42240,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:cf43d18e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Not good: award-winning economists more often work at the same universities",
-    "lead": "The top of economic science is concentrated at a few universities in the US. But a rich diversity of ideas is precisely the fuel for scientific progress.",
-    "sourceHash": "45bb2acc8c8d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:cf48ff6b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42248,17 +42259,6 @@
     "sourceHash": "334d5b3ca7bb",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:cf6379e7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Russia to supply diesel to US and world market, Trump says",
-    "lead": null,
-    "sourceHash": "32bd96528fb9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
     "translated": "2026-10-13"
   },
   {
@@ -45089,6 +45089,17 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:dcb6617b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Botox does more damage than you would like",
+    "lead": "Complaints in the film world, because actors and actresses can no longer move their faces because of botox. The muscle-relaxing stuff also does its work in politics, writes columnist Han Dirk Hekking.",
+    "sourceHash": "d38ca0042526",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-16"
+  },
+  {
     "id": "news:dcd2920",
     "language": "en",
     "sourceLanguage": "nl",
@@ -45813,6 +45824,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
+  },
+  {
+    "id": "news:e107681c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dave De K. found guilty of kidnapping and killing Dean (4) in Zeeland",
+    "lead": "A special court in Belgium found Dave De K. guilty on Friday of manslaughter and kidnapping Dean (4) in 2022. De K.'s ex-girlfriend, the Dutch national Romy W., was acquitted of attempted kidnapping. The sentence will be announced on Monday.",
+    "sourceHash": "d71052023441",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-16"
   },
   {
     "id": "news:e10fcc9",
@@ -51172,6 +51194,17 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:fe136da7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The world economy hides its suffering behind a smile",
+    "lead": "Against all odds, the global economy continues to grow. But the risks of AI, trade conflicts and government debt are piling up.",
+    "sourceHash": "d22797b5ee23",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-16"
+  },
+  {
     "id": "news:fe144b76",
     "language": "en",
     "sourceLanguage": "nl",
@@ -51379,17 +51412,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
-  },
-  {
-    "id": "news:ff838063",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Scientists rebel against commercial publishers and 'flip' their journals",
-    "lead": "Dozens of scientific journals have set up on their own. This cuts costs and gives them back their freedom. 'Scientists are milk cows for publishers.'",
-    "sourceHash": "9072c0154fff",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:ffb45c9e",
