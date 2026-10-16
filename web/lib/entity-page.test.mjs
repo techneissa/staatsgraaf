@@ -12,6 +12,7 @@ import {
   keyHolderRank,
   nameWithoutTitles,
   partyRoleGroup,
+  roleLabel,
   shortRole,
   positionPageTitle,
   sparsePersonDescription,
@@ -94,6 +95,12 @@ test("a short role drops the body", () => {
   assert.equal(shortRole("Minister van Financiën"), "Minister");
   assert.equal(shortRole("Staatssecretaris Herstel Toeslagen"), "Staatssecretaris Herstel Toeslagen");
   assert.equal(shortRole("Lid Gemeenteraad"), "Lid");
+});
+
+test("a caption role does not hang an open parenthesis", () => {
+  assert.equal(roleLabel("Procureur-generaal (lid van het College van procureurs-generaal)"), "Procureur-generaal");
+  assert.equal(roleLabel("Voorzitter van het College van procureurs-generaal"), "Voorzitter");
+  assert.equal(roleLabel("Minister van Financiën"), "Minister");
 });
 
 test("a career reads newest first by the latest year shown", () => {

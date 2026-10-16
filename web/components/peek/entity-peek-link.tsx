@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { entitySummary, getOrganizationById } from "@/lib/data";
 import { orgEnGloss, positionEn } from "@/lib/name-gloss";
 import { peekKindFor } from "@/lib/peek";
@@ -20,6 +20,7 @@ export function EntityPeekLink({
   glyph = false,
   className,
   fallback,
+  style,
   peek = true,
 }: {
   id: string;
@@ -27,6 +28,7 @@ export function EntityPeekLink({
   variant?: PeekLinkVariant;
   glyph?: boolean;
   className?: string;
+  style?: CSSProperties;
   fallback?: ReactNode;
   /** False on a list that is for navigating: a plain link, no peek (see PeekLink). */
   peek?: boolean;
@@ -49,6 +51,7 @@ export function EntityPeekLink({
       variant={variant}
       glyph={glyph}
       className={className}
+      style={style}
       peek={peek}
       lang={english || children !== undefined ? undefined : "nl"}
       title={english ? summary.label : undefined}

@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (16-10-2026, who leads)
+
+- Who leads an organisation is a row of faces. Every leading person is shown; there is no "and N more". The portrait and name open the person, the role opens the position. Role colour follows the body's branch, the same tokens as the rest of the site.
+
 ### Fixed (16-10-2026, language switch)
 
 - NL/EN applies at once. It was wrapped in a view transition, so on a heavy page a tap on the language control looked like nothing happened.
