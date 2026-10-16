@@ -23,6 +23,20 @@ test("a person with two senior roles is listed once, under the more senior group
   assert.ok(groups.some((group) => group.group === "bewindspersonen"));
 });
 
+test("party people carry a position and a start date for the face caption", () => {
+  const groups = partyPeople("D66");
+  const cabinet = groups.find((group) => group.group === "bewindspersonen");
+  assert.ok(cabinet && cabinet.people.length > 0, "expected D66 cabinet members");
+  for (const entry of cabinet.people) {
+    assert.ok(entry.roles.length > 0, `${entry.person.name} has no current office`);
+    for (const role of entry.roles) {
+      assert.equal(typeof role.positionId, "string");
+      assert.equal(typeof role.title, "string");
+      assert.ok(role.start === null || /^\d{4}-\d{2}-\d{2}$/.test(role.start), `${entry.person.name} start ${role.start}`);
+    }
+  }
+});
+
 test("people already shown as chamber members stay out of the others", () => {
   const all = partyPeople("D66");
   const others = all.find((group) => group.group === "anderen");
