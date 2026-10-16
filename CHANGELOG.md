@@ -6,7 +6,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (16-10-2026, seat history chart)
 
-- Party seat history is a full-width chart, not a 240 px sparkline. Every election is labelled above or below its point, clear of the line. A hover or focus names the date and the seats in a tooltip above or below the chart, not on the plot.
+- Party seat history is a full-width chart, not a 240 px sparkline. The vertical scale follows the party's own min and max, so a small range does not leave an empty band down to zero. Every election is labelled above or below its point, clear of the line. A hover or focus names the date and the seats in a tooltip above or below the chart, not on the plot.
 
 ### Changed (16-10-2026, translation credit)
 

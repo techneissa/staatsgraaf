@@ -1,6 +1,8 @@
 /**
  * Geometry for the party seat history chart: coordinates, label side
  * (above or below the point) and text anchors so digits stay off the line.
+ * Vertical scale follows the series min and max, so a party that stays
+ * around a few seats does not leave an empty band down to zero.
  */
 
 export type SparklinePoint = {
@@ -10,14 +12,14 @@ export type SparklinePoint = {
 };
 
 export const SPARK_WIDTH = 480;
-export const SPARK_HEIGHT = 200;
+export const SPARK_HEIGHT = 112;
 export const SPARK_PAD_X = 28;
-export const SPARK_PAD_TOP = 36;
-export const SPARK_PAD_BOTTOM = 40;
+export const SPARK_PAD_TOP = 30;
+export const SPARK_PAD_BOTTOM = 38;
 /** Baseline offset above a point, in viewBox units. */
-export const SPARK_LABEL_UP = 22;
+export const SPARK_LABEL_UP = 20;
 /** Baseline offset below a point, in viewBox units. */
-export const SPARK_LABEL_DOWN = 28;
+export const SPARK_LABEL_DOWN = 24;
 /** Flip the next flat label when two points sit closer than this. */
 const CLOSE_DX = 22;
 /** Neighbour must differ by more than this to count as a peak or valley. */
@@ -34,7 +36,10 @@ export type SparklinePlot = {
 };
 
 export function sparklinePlot(points: SparklinePoint[]): SparklinePlot {
-  const max = Math.max(1, ...points.map((point) => point.seats));
+  const seats = points.map((point) => point.seats);
+  const hi = Math.max(...seats);
+  const lo = Math.min(...seats);
+  const range = Math.max(1, hi - lo);
   const first = Date.parse(points[0].date);
   const last = Date.parse(points[points.length - 1].date);
   const span = Math.max(1, last - first);
@@ -42,7 +47,7 @@ export function sparklinePlot(points: SparklinePoint[]): SparklinePlot {
   const plotW = SPARK_WIDTH - 2 * SPARK_PAD_X;
   const midY = SPARK_PAD_TOP + plotH * 0.45;
   const xs = points.map((point) => SPARK_PAD_X + ((Date.parse(point.date) - first) / span) * plotW);
-  const ys = points.map((point) => SPARK_PAD_TOP + (1 - point.seats / max) * plotH);
+  const ys = points.map((point) => SPARK_PAD_TOP + ((hi - point.seats) / range) * plotH);
   const sides: ("up" | "down")[] = [];
   for (let index = 0; index < points.length; index += 1) {
     const y = ys[index];
