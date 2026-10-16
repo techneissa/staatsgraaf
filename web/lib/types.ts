@@ -99,7 +99,19 @@ export type Organization = {
   images: string[];
   /** The official logo on the body's own site, loaded from there; never copied (ADR 0029, amendment 1). */
   logoEmbed?: LogoEmbed | null;
+  /** The visiting address of the main office (docs/04-data-model.md section 3). */
+  address?: Address | null;
   sources: SourceRef[];
+};
+
+export type Address = {
+  street: string;
+  postcode: string | null;
+  city: string;
+  country: string;
+  building: string | null;
+  source: string;
+  retrieved: string;
 };
 
 export type LogoEmbed = {

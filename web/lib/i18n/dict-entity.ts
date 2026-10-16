@@ -11,6 +11,9 @@ export const ENTITY_DICT = {
   legalSourceLabel: { nl: "Wettelijke grondslag", en: "Legal basis" },
   legalBasisLabel: { nl: "Wettelijke basis", en: "Legal basis" },
   websiteLabel: { nl: "Officiële website", en: "Official website" },
+  addressLabel: { nl: "Bezoekadres", en: "Visiting address" },
+  addressOpenMaps: { nl: "{address}, op de kaart", en: "{address}, on the map" },
+  addressOnMap: { nl: "op de kaart", en: "on the map" },
 
   // Fact grid labels
   factType: { nl: "Type", en: "Type" },

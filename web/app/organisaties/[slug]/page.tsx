@@ -23,11 +23,13 @@ import { SubtypeHint, SubtypeLabel } from "@/components/entity/subtype-label";
 import { ColorDot, FactChips, type FactTile } from "@/components/entity/fact-tiles";
 import { FactGroup } from "@/components/entity/fact-group";
 import { LocalizedDescription } from "@/components/entity/localized-description";
+import { MapLink } from "@/components/entity/map-link";
 import { OrgEmblemCredit, OrgEmblemTitle } from "@/components/entity/org-emblem";
 import {
   BuildingIcon,
   CalendarIcon,
   GlobeIcon,
+  MapPinIcon,
   HistoryIcon,
   LayersIcon,
   LinkIcon,
@@ -214,6 +216,13 @@ export default async function OrganizationPage({
   const pageUrl = absoluteUrl(`/organisaties/${organization.slug}/`);
   const parentId = organizationParentId(organization);
   const parentOrganization = parentId !== null ? getOrganizationById(parentId) : undefined;
+  // A council or board meets at the office of the body it governs and has no address of its own.
+  const address =
+    organization.address != null
+      ? { value: organization.address, of: organization.name }
+      : (organization.type === "elected" || organization.type === "commission") && parentOrganization?.address != null
+        ? { value: parentOrganization.address, of: parentOrganization.name }
+        : null;
   const children = childOrganizations(organization.id)
     .filter((child) => child.id !== organization.id)
     .sort((a, b) => a.name.localeCompare(b.name, "nl"));
@@ -294,6 +303,12 @@ export default async function OrganizationPage({
       href: website ?? undefined,
       external: true,
     },
+    {
+      key: "address",
+      icon: <MapPinIcon />,
+      label: <T area="entity" k="addressLabel" />,
+      value: address !== null ? <MapLink address={address.value} name={address.of} /> : null,
+    },
   ];
 
   return (
@@ -326,21 +341,18 @@ export default async function OrganizationPage({
       />
 
       <header className="mt-4">
-        <div className="flex min-w-0 items-start gap-3">
-          {emblem?.image && emblem.kind === "arms" ? <OrgEmblemTitle image={emblem.image} info={emblem.info} /> : null}
-          <h1 className="min-w-0 flex-1 text-2xl font-semibold sm:text-3xl tracking-tight text-ink text-balance break-words">
+        {/* The emblem and the share button float, so a long name wraps around
+            them and takes the full width below the emblem. */}
+        <div className="flow-root">
+          {emblem?.image ? <OrgEmblemTitle image={emblem.image} info={emblem.info} className="float-left mr-3" /> : null}
+          <ShareButton compact className="float-right ml-2" title={organization.name} />
+          <h1 className="text-xl font-semibold leading-snug sm:text-2xl tracking-tight text-ink break-words">
             {organization.name}
             <Gloss text={orgEnGloss(organization.name)} className="mt-1 block text-base font-normal tracking-normal text-ink-muted" />
           </h1>
-          <ShareButton compact className="mt-0.5 shrink-0" title={organization.name} />
         </div>
-        {emblem !== null ? (
-          <OrgEmblemCredit
-            info={emblem.info}
-            emblem={emblem.image}
-            kind={emblem.kind}
-            className={emblem.kind === "arms" ? "mt-1.5 sm:hidden" : "mt-1.5"}
-          />
+        {emblem !== null && emblem.image === null ? (
+          <OrgEmblemCredit info={emblem.info} emblem={null} kind={emblem.kind} className="mt-1.5" />
         ) : null}
         {summary !== null ? (
           <p className="mt-2 max-w-prose text-base leading-snug text-ink-muted">

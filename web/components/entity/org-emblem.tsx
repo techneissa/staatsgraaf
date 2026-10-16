@@ -15,9 +15,11 @@ export type OrgEmblemImage = {
 };
 
 const SIZES = {
-  arms: { large: "h-16 max-w-20", small: "h-10 max-w-12" },
+  // Next to the name: small enough on a phone that a long name keeps room to wrap.
+  arms: { large: "h-12 max-w-14 sm:h-16 sm:max-w-20", small: "h-10 max-w-12" },
   // Official logos are drawn for a white page, so they sit on a white plate (dark theme too).
-  logo: { large: "h-12 max-w-40 rounded-sm bg-white p-1", small: "h-9 max-w-36 rounded-xs bg-white p-1" },
+  // A wordmark is wide: capped narrower on a phone, so the name beside it is not squeezed.
+  logo: { large: "h-9 max-w-24 rounded-sm bg-white p-1 sm:h-12 sm:max-w-40", small: "h-9 max-w-36 rounded-xs bg-white p-1" },
 };
 
 /**
@@ -59,13 +61,13 @@ export function OrgEmblem({
 }
 
 /**
- * Coat of arms next to the organisation name from `sm` up, with the (i) that
- * holds author, licence and source. On a phone the small emblem and (i) sit
- * in `OrgEmblemCredit` instead, so a long name keeps whole words.
+ * Coat of arms or logo next to the organisation name, at every width, with
+ * the (i) that holds author, licence and source. The page floats it, so a
+ * long name wraps around it and uses the full width below it.
  */
-export function OrgEmblemTitle({ image, info }: { image: OrgEmblemImage; info: MediaCreditInfo }) {
+export function OrgEmblemTitle({ image, info, className = "" }: { image: OrgEmblemImage; info: MediaCreditInfo; className?: string }) {
   return (
-    <span className="hidden sm:flex shrink-0 items-center gap-0.5">
+    <span className={`flex shrink-0 items-center gap-0.5 ${className}`.trim()}>
       <OrgEmblem {...image} />
       <CreditPopover info={info} kind={image.kind === "logo" ? "logo" : "emblem"} />
     </span>
@@ -73,11 +75,10 @@ export function OrgEmblemTitle({ image, info }: { image: OrgEmblemImage; info: M
 }
 
 /**
- * Emblem plus the (i) that holds the credit. A coat of arms sits here on a
- * phone and next to the name from `sm` up. A logo always sits here: it is a
- * wide wordmark that already carries the name, and next to the name it would
- * squeeze it. Without an image (a logo whose owner reserved copyright) the
- * (i) with the link to the logo stays. Author and licence live in the (i),
+ * The (i) with the credit on its own line, for a logo whose owner reserved
+ * copyright: there is no image to sit next to the name, but the link to the
+ * logo stays. An emblem with an image sits next to the name instead
+ * (`OrgEmblemTitle`). Author and licence live in the (i),
  * not as a visible line. A `div`, not a `p`: the (i) is a `details`, which
  * the HTML parser will not keep inside a paragraph.
  */
