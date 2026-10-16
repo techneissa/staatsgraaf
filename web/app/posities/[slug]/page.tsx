@@ -285,7 +285,7 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
           connections={
             <div>
               <div className="mt-3">
-                <EntityConnections connections={connections} selfId={position.organization} />
+                <EntityConnections connections={connections} selfId={position.id} contextId={position.organization} />
               </div>
             </div>
           }

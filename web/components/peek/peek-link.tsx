@@ -13,7 +13,7 @@ const DECORATION: Record<PeekKind, string> = {
   place: "decoration-[var(--kind-place)]",
 };
 
-export type PeekLinkVariant = "inline" | "quiet" | "plain" | "media";
+export type PeekLinkVariant = "inline" | "quiet" | "plain" | "bare" | "media";
 
 const VARIANT: Record<PeekLinkVariant, string> = {
   /** Running text: ink text, a kind-coloured underline that thickens on hover. */
@@ -22,6 +22,8 @@ const VARIANT: Record<PeekLinkVariant, string> = {
   quiet: "text-ink-muted underline decoration-1 underline-offset-[3px] hover:text-ink hover:decoration-2",
   /** Titles and list rows: no underline until hover. */
   plain: "text-ink no-underline hover:underline decoration-1 underline-offset-[3px]",
+  /** Connection-tree names: clickable, never underlined. Accent on hover is the hint. */
+  bare: "text-ink no-underline hover:no-underline hover:text-accent-text",
   /** A portrait or other media: no underline, a ring on hover. */
   media:
     "relative inline-flex shrink-0 self-start rounded-pill no-underline hover:no-underline hover:brightness-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus pointer-coarse:after:absolute pointer-coarse:after:-inset-1.5 pointer-coarse:after:content-['']",
