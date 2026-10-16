@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { currentPersonOffices } from "../components/entity/person-header.tsx";
+import { currentPersonOffices } from "./person-offices.ts";
 import { getMembershipsForPerson, getPersonById, getTenuresForPerson } from "./data.ts";
 
 test("van Campen's header offices are speaker first, then the Kamer seat", () => {

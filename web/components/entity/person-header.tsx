@@ -10,55 +10,16 @@ import { L, T } from "@/components/i18n/t";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { ShareButton } from "@/components/share-button";
 import { SourceIcon } from "@/components/source-icon";
-import { getDataset, getOrganizationById, getPositionById } from "@/lib/data";
+import { getOrganizationById, getPositionById } from "@/lib/data";
 import { branchColorVar } from "@/lib/branch-colors";
-import { keyHolderRank } from "@/lib/entity-page";
+import type { PersonOffice } from "@/lib/person-offices";
 import { partySlug, type PartyRecord } from "@/lib/parties";
-import type { Membership, Person, Position, Source, Tenure } from "@/lib/types";
+import type { Person, Source, Tenure } from "@/lib/types";
 
 const HIT =
   "relative pointer-coarse:after:absolute pointer-coarse:after:-inset-x-1 pointer-coarse:after:-inset-y-2 pointer-coarse:after:content-['']";
 const TITLE_HIT =
   "relative pointer-coarse:after:absolute pointer-coarse:after:-inset-x-2 pointer-coarse:after:-inset-y-4 pointer-coarse:after:content-['']";
-
-type Office = { position: Position; start: string | null };
-
-/**
- * Current offices for the header: senior tenures first, then a chamber seat
- * that only exists as a membership. Committee member seats stay in the
- * positions list below.
- */
-export function currentPersonOffices(tenures: Tenure[], memberships: Membership[]): Office[] {
-  const offices: { position: Position; start: string | null; rank: number }[] = [];
-  const seen = new Set<string>();
-  for (const tenure of tenures) {
-    if (tenure.end !== null) continue;
-    const position = getPositionById(tenure.position);
-    if (position === undefined) continue;
-    seen.add(position.id);
-    offices.push({ position, start: tenure.start, rank: keyHolderRank(position.title) });
-  }
-  const leading = offices.filter((office) => office.rank < 9);
-  const shown = leading.length > 0 ? leading : offices;
-  for (const membership of memberships) {
-    if (membership.end !== null) continue;
-    const lid = lidPositionFor(membership.organization);
-    if (lid === undefined || seen.has(lid.id)) continue;
-    seen.add(lid.id);
-    shown.push({ position: lid, start: membership.start, rank: keyHolderRank(lid.title) });
-  }
-  shown.sort((a, b) => a.rank - b.rank || a.position.title.localeCompare(b.position.title, "nl"));
-  return shown;
-}
-
-function lidPositionFor(organizationId: string): Position | undefined {
-  return getDataset().positions.find(
-    (position) =>
-      position.organization === organizationId &&
-      /^Lid van /i.test(position.title) &&
-      (position.seatsCount ?? 0) > 1,
-  );
-}
 
 /**
  * Identity on the left, party and birth on the right, Wikipedia top-right.
@@ -83,7 +44,7 @@ export function PersonHeader({
   description: { nl: string; en: string | null } | null;
   dateConflicts: string[];
   actingTenures: Tenure[];
-  offices: Office[];
+  offices: PersonOffice[];
 }) {
   const wiki = person.wikipedia;
   const wikidata = person.wikidata !== null ? `https://www.wikidata.org/wiki/${person.wikidata}` : null;
