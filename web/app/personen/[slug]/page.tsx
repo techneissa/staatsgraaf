@@ -3,28 +3,18 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { EntityTabs } from "@/components/entity-tabs";
 import { JsonLd } from "@/components/json-ld";
-import { PartyBadge } from "@/components/party-badge";
-import { DateT, LocalPeriod } from "@/components/content/local-date";
-import { ExternalLink } from "@/components/entity/external-link";
 import { SourceList } from "@/components/source-list";
-import { SourceIcon } from "@/components/source-icon";
 import { NewsPanel } from "@/components/news/news-panel";
-import { Gloss, L, T } from "@/components/i18n/t";
-import { positionEn } from "@/lib/name-gloss";
-import { ShareButton } from "@/components/share-button";
+import { L, T } from "@/components/i18n/t";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { MembershipList } from "@/components/entity/membership-list";
 import { EntityConnections } from "@/components/entity/entity-connections";
-import { Callout } from "@/components/entity/callout";
 import { GapNote } from "@/components/entity/gap-note";
 import { CareerTimeline } from "@/components/entity/career-timeline";
-import { FactTiles, type FactTile } from "@/components/entity/fact-tiles";
 import { FactGroup } from "@/components/entity/fact-group";
-import { BriefcaseIcon, CalendarIcon, HistoryIcon, LinkIcon, PeopleIcon, SeatIcon } from "@/components/entity/icons";
-import { LocalizedDescription } from "@/components/entity/localized-description";
+import { BriefcaseIcon, HistoryIcon, SeatIcon } from "@/components/entity/icons";
 import { PersonActivity } from "@/components/entity/person-activity";
-import { PersonBirth } from "@/components/entity/person-birth";
-import { PersonPortrait, PersonPortraitCredit } from "@/components/entity/person-portrait";
+import { PersonHeader, currentPersonOffices } from "@/components/entity/person-header";
 import { TenureTimeline } from "@/components/entity/tenure-timeline";
 import {
   getMembershipsForPerson,
@@ -70,9 +60,6 @@ function birthDateSource(person: Person): Source | null {
   }
   return null;
 }
-
-/** Current roles listed in the header; the rest are in the Positions section. */
-const HEADER_ROLE_LIMIT = 4;
 
 export function generateStaticParams() {
   return getPeople().map((person) => ({ slug: person.slug }));
@@ -163,43 +150,7 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
   ].filter((value): value is string => value !== null);
 
   const actingTenures = currentTenures.filter((tenure) => tenure.acting);
-
-  const facts: FactTile[] = [
-    {
-      key: "party",
-      icon: <PeopleIcon />,
-      label: <T area="entity" k="factParty" />,
-      value: party !== null ? <PartyBadge party={party} /> : null,
-    },
-    {
-      key: "born",
-      icon: <CalendarIcon />,
-      label: <T area="entity" k="factBorn" />,
-      value:
-        birthDate !== null ? (
-          <span className="inline-flex flex-wrap items-center gap-x-1.5">
-            <PersonBirth iso={birthDate} />
-            {birthSource !== null ? (
-              <SourceIcon href={birthSource.url} title={birthSource.title} retrieved={birthSource.retrieved} />
-            ) : null}
-          </span>
-        ) : null,
-    },
-    {
-      key: "links",
-      icon: <LinkIcon />,
-      label: <T area="entity" k="factLinks" />,
-      value:
-        person.wikipedia != null || person.wikidata != null ? (
-          <span className="flex flex-wrap gap-x-3 gap-y-1">
-            {person.wikipedia != null ? <ExternalLink href={person.wikipedia}>Wikipedia</ExternalLink> : null}
-            {person.wikidata != null ? (
-              <ExternalLink href={`https://www.wikidata.org/wiki/${person.wikidata}`}>Wikidata</ExternalLink>
-            ) : null}
-          </span>
-        ) : null,
-    },
-  ];
+  const offices = currentPersonOffices(tenures, memberships);
 
   return (
     <>
@@ -231,101 +182,17 @@ export default async function PersonPage({ params }: { params: Promise<{ slug: s
         ]}
       />
 
-      <header className="mt-4">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-5">
-          <div className="shrink-0">
-            <div className="relative inline-block">
-              <PersonPortrait person={person} size={96} labelled morph />
-              <span className="absolute -bottom-1 -right-1">
-                <PersonPortraitCredit person={person} variant="info" />
-              </span>
-            </div>
-          </div>
-          <div className="min-w-0 flex-1">
-            <div className="flex min-w-0 items-start gap-3">
-              <h1 className="min-w-0 flex-1 text-3xl font-semibold tracking-tight text-balance text-ink break-words">
-                {person.name}
-              </h1>
-              <ShareButton compact className="mt-0.5 shrink-0" title={person.name} />
-            </div>
-            {summary !== null ? (
-              <p className="mt-2 max-w-prose text-base leading-snug text-ink-muted">
-                <L nl={summary.nl} en={summary.en} />
-              </p>
-            ) : null}
-            {actingTenures.length > 0 ? (
-              <div className="mt-3 space-y-2">
-                {actingTenures.slice(0, 2).map((tenure) => {
-                  const position = getPositionById(tenure.position);
-                  if (!position) return null;
-                  return (
-                    <Callout key={tenure.id}>
-                      <DateT area="entity" k="actingCallout" vars={{ title: position.title }} />{" "}
-                      <span className="text-ink-muted">
-                        (<LocalPeriod start={tenure.start} end={null} short />)
-                      </span>
-                    </Callout>
-                  );
-                })}
-              </div>
-            ) : null}
-            {/* A single current role is already the summary line; list roles only when there are more. */}
-            {currentPositions.length > 1 || (currentPositions.length === 1 && (summary === null || !summary.nl.includes(currentPositions[0].title))) ? (
-              <div className="mt-3 text-sm">
-                <p className="text-xs text-ink-faint">
-                  <T area="entity" k="rolesNowLabel" />
-                </p>
-                <ul className="mt-1 space-y-1">
-                  {currentPositions.slice(0, HEADER_ROLE_LIMIT).map((position) => {
-                    const organization = getOrganizationById(position.organization);
-                    // "Lid Vaste commissie voor X" already names its body; do not repeat it.
-                    const namesBody =
-                      organization !== undefined &&
-                      position.title.toLowerCase().includes(organization.name.toLowerCase());
-                    return (
-                      <li key={position.id} className="text-ink-muted">
-                        <EntityPeekLink id={position.id} glyph>
-                          {position.title}
-                        </EntityPeekLink>
-                        <Gloss text={positionEn(position.title)} className="ms-1 text-xs text-ink-faint" />
-                        {organization !== undefined && !namesBody ? (
-                          <>
-                            {" "}
-                            <span className="text-ink-faint">
-                              <L nl="bij" en="at" />
-                            </span>{" "}
-                            <EntityPeekLink id={position.organization} variant="quiet" />
-                          </>
-                        ) : null}
-                      </li>
-                    );
-                  })}
-                  {currentPositions.length > HEADER_ROLE_LIMIT ? (
-                    <li className="text-xs text-ink-faint">
-                      <a href="#posities-titel" className="tap-row underline-offset-2 hover:text-ink hover:underline">
-                        <T area="entity" k="rolesMore" vars={{ n: currentPositions.length - HEADER_ROLE_LIMIT }} />
-                      </a>
-                    </li>
-                  ) : null}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        </div>
-        <FactTiles facts={facts} className="mt-4" />
-        {description !== null ? (
-          <LocalizedDescription
-            nl={description.nl}
-            en={description.en}
-            className="mt-4 max-w-prose text-sm leading-relaxed text-ink-muted"
-          />
-        ) : null}
-        {dateConflicts.length > 0 ? (
-          <p className="mt-2 max-w-prose text-xs leading-relaxed text-ink-faint">
-            <DateT area="entity" k="descriptionDateNote" dates={{ dates: dateConflicts[0] }} short />
-          </p>
-        ) : null}
-      </header>
+      <PersonHeader
+        person={person}
+        party={party !== null ? partyRecord : null}
+        birthDate={birthDate}
+        birthSource={birthSource}
+        summary={summary}
+        description={description}
+        dateConflicts={dateConflicts}
+        actingTenures={actingTenures}
+        offices={offices}
+      />
 
       <div className="mt-6 min-w-0 space-y-4">
         <EntityTabs
