@@ -5,24 +5,20 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { EntityTabs } from "@/components/entity-tabs";
 import { JsonLd } from "@/components/json-ld";
 import { NewsPanel } from "@/components/news/news-panel";
-import { PersonCard } from "@/components/person-card";
 import { EntityConnections } from "@/components/entity/entity-connections";
 import { DateT } from "@/components/content/local-date";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { SUMMARY_CLASS } from "@/components/entity/entity-connections";
 import { SourceList } from "@/components/source-list";
-import { SourceIcon } from "@/components/source-icon";
-import { Gloss, L, T } from "@/components/i18n/t";
-import { orgEnGloss, positionEn } from "@/lib/name-gloss";
+import { T } from "@/components/i18n/t";
+import { orgEnGloss } from "@/lib/name-gloss";
 import { GapNote } from "@/components/entity/gap-note";
-import { SourceSlot } from "@/components/entity/source-slot";
 import { SubtypeLabel } from "@/components/entity/subtype-label";
 import { FactGroup } from "@/components/entity/fact-group";
 import { OrgHeader } from "@/components/entity/org-header";
 import {
   HistoryIcon,
   LinkIcon,
-  PeopleIcon,
   SeatIcon,
 } from "@/components/entity/icons";
 import { MemberList } from "@/components/entity/member-list";
@@ -37,9 +33,6 @@ import {
   getOrganizationById,
   getOrganizationBySlug,
   getOrganizations,
-  getPersonById,
-  getPositionById,
-  getSourceById,
 } from "@/lib/data";
 import {
   getConnectionsForEntity,
@@ -54,18 +47,12 @@ import { seatTallyForOrganization } from "@/lib/parliament";
 import { withoutDerived } from "@/lib/entity-rows";
 import { descriptionFor } from "@/lib/description-translations";
 import { childOrganizations, organizationSummary } from "@/lib/entity-summary";
-import {
-  commissieRole,
-  compareCommissieHolders,
-  isLeadingRole,
-  organizationDescription,
-  type CommissieRole,
-} from "@/lib/entity-page";
+import { organizationDescription } from "@/lib/entity-page";
 import { ORG_BRANCH_LABELS, ORG_BRANCH_LABELS_EN, ORG_LEVEL_LABELS, ORG_LEVEL_LABELS_EN, ORG_SUBTYPE_LABELS } from "@/lib/labels";
 import { getNewsForEntity } from "@/lib/news";
 import { LocaleLabel } from "@/components/i18n/locale-label";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
-import type { Organization, Tenure } from "@/lib/types";
+import type { Organization } from "@/lib/types";
 
 export const dynamicParams = false;
 
@@ -109,10 +96,6 @@ export async function generateMetadata({
   });
 }
 
-function positionRank(title: string): number {
-  return title.startsWith("Minister") ? 0 : 1;
-}
-
 /** Branch and level say the same thing ("Koninkrijk", "Koninkrijk"), so the page says it once. */
 function levelRepeatsBranch(organization: Organization): boolean {
   const pairs: [string, string][] = [
@@ -147,26 +130,7 @@ export default async function OrganizationPage({
   const organization = getOrganizationBySlug(slug);
   if (!organization) notFound();
 
-  const isCommissie = organization.subtype === "commissie";
-  const currentHolders = getCurrentTenuresForOrganization(organization.id).sort((a, b) => {
-    const positionA = getPositionById(a.position);
-    const positionB = getPositionById(b.position);
-    const titleA = positionA?.title ?? "";
-    const titleB = positionB?.title ?? "";
-    if (isCommissie) {
-      // A committee reads chair, vice-chair, then members by surname (titles do not count).
-      return compareCommissieHolders(
-        { role: commissieRole(titleA), name: getPersonById(a.person)?.name ?? "" },
-        { role: commissieRole(titleB), name: getPersonById(b.person)?.name ?? "" },
-      );
-    }
-    return positionRank(titleA) - positionRank(titleB) || titleA.localeCompare(titleB, "nl");
-  });
-  // Who leads already lists chairs and other key offices. This block is the rest.
-  const otherHolders = currentHolders.filter((tenure) => {
-    const position = getPositionById(tenure.position);
-    return position === undefined || !isLeadingRole(position.title);
-  });
+  const currentHolders = getCurrentTenuresForOrganization(organization.id);
   const members = getMembersForOrganization(organization.id);
   const organizationTenures = getTenuresForOrganization(organization.id);
   // Current and past holders are listed in the sections below, with their positions and periods.
@@ -358,37 +322,6 @@ export default async function OrganizationPage({
           </FactGroup>
         ) : null}
 
-        {otherHolders.length > 0 ? (
-          <FactGroup id="functionarissen" icon={<PeopleIcon />} title={<T area="entity" k="currentOfficials" />} count={otherHolders.length}>
-            {seatsCount !== null && currentHolders.length > seatsCount && seatsCount > 0 && !isCommissie ? (
-              <p className="mb-1 text-sm text-ink-faint">
-                <T area="entity" k="moreHoldersThanSeats" />
-              </p>
-            ) : null}
-            <ul className="divide-y divide-line/60">
-              {otherHolders.slice(0, HOLDER_LIMIT).map((tenure) => (
-                <HolderRow key={tenure.id} tenure={tenure} commissie={isCommissie} />
-              ))}
-            </ul>
-            {otherHolders.length > HOLDER_LIMIT + 1 ? (
-              <details className="motion-disclosure mt-2">
-                <summary className={SUMMARY_CLASS}>
-                  <T area="common" k="seeAll" vars={{ n: otherHolders.length }} />
-                </summary>
-                <ul className="divide-y divide-line/60">
-                  {otherHolders.slice(HOLDER_LIMIT).map((tenure) => (
-                    <HolderRow key={tenure.id} tenure={tenure} commissie={isCommissie} />
-                  ))}
-                </ul>
-              </details>
-            ) : otherHolders.length > HOLDER_LIMIT ? (
-              <ul className="divide-y divide-line/60">
-                <HolderRow tenure={otherHolders[HOLDER_LIMIT]} commissie={isCommissie} />
-              </ul>
-            ) : null}
-          </FactGroup>
-        ) : null}
-
         {/* The history repeats the current holders unless it holds someone who left. */}
         {organizationTenures.some((tenure) => tenure.end !== null) ? (
           <FactGroup icon={<HistoryIcon />} title={<T area="entity" k="historyTitle" />} count={organizationTenures.length}>
@@ -401,8 +334,6 @@ export default async function OrganizationPage({
     </>
   );
 }
-
-const HOLDER_LIMIT = 8;
 
 const CHILD_LIMIT = 8;
 
@@ -417,48 +348,3 @@ function ChildRow({ child }: { child: Organization }) {
   );
 }
 
-const ROLE_LABEL: Record<CommissieRole, { nl: string; en: string } | null> = {
-  chair: { nl: "Voorzitter", en: "Chair" },
-  vice: { nl: "Ondervoorzitter", en: "Vice-chair" },
-  member: { nl: "Lid", en: "Member" },
-  other: null,
-};
-
-function HolderRow({ tenure, commissie }: { tenure: Tenure; commissie: boolean }) {
-  const person = getPersonById(tenure.person);
-  const position = getPositionById(tenure.position);
-  const source = getSourceById(tenure.source.source);
-  if (!person) return null;
-  // On a committee page "Lid Vaste commissie voor X" repeats the body on every row: say Voorzitter, Ondervoorzitter or Lid.
-  const role = position && commissie ? ROLE_LABEL[commissieRole(position.title)] : null;
-  return (
-    <li>
-      <PersonCard
-        person={person}
-        positionTitle={
-          position ? (
-            role !== null ? (
-              <EntityPeekLink id={position.id} variant="quiet" className={role.nl === "Lid" ? undefined : "font-medium text-ink"}>
-                <L nl={role.nl} en={role.en} />
-              </EntityPeekLink>
-            ) : (
-              <>
-                <EntityPeekLink id={position.id} variant="quiet">{position.title}</EntityPeekLink>
-                <Gloss text={positionEn(position.title)} className="block text-xs text-ink-faint" />
-              </>
-            )
-          ) : null
-        }
-        startedAt={tenure.start}
-        acting={tenure.acting}
-        source={
-          source ? (
-            <SourceSlot>
-              <SourceIcon href={source.url} title={source.title} retrieved={tenure.source.retrieved} />
-            </SourceSlot>
-          ) : null
-        }
-      />
-    </li>
-  );
-}
