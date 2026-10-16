@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
+import { memo, useCallback, useDeferredValue, useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type PointerEvent as ReactPointerEvent, type WheelEvent as ReactWheelEvent } from "react";
 import { useRouter } from "next/navigation";
 import { edgeAlive, GLYPH_BY_SUBTYPE, type GlyphClass, type GraphBundle } from "@/lib/graph";
 import { branchColorVar } from "@/lib/branch-colors";
@@ -241,7 +241,7 @@ export function GraphWheel({
     }
     return null;
   }, [selectedId, restModel, parentOf]);
-  const locale = useLocale();
+  const locale = useDeferredValue(useLocale());
   const model = useMemo(
     () => localizeWheelModel(openFamily ? buildWheel(bundle, openFamily) : restModel, locale),
     [bundle, openFamily, restModel, locale],

@@ -1,6 +1,6 @@
 "use client";
 
-import { startTransition, useEffect } from "react";
+import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { isEnglishRoute, languageTwin } from "@/lib/language-routes";
 import { DEFAULT_LOCALE, LOCALES, LOCALE_LABEL, type Locale } from "@/lib/i18n/locales";
@@ -22,13 +22,13 @@ import { useT } from "./i18n/use-t";
 export function LanguageToggle() {
   const locale = useLocale();
   const setLocaleNow = useLocaleSetter();
-  // As a transition, so the page column cross-fades into the other language
-  // (the <ViewTransition> in app/layout.tsx) instead of cutting.
   const router = useRouter();
   const pathname = usePathname();
   const twin = languageTwin(pathname);
   const setLocale = (next: Locale) => {
-    startTransition(() => setLocaleNow(next));
+    // Apply at once. Wrapping this in startTransition queued it behind the
+    // page ViewTransition, so on a heavy page a tap on NL/EN looked like a miss.
+    setLocaleNow(next);
     if (twin !== null && pathname !== null) {
       const target = next === "en" ? twin.en : twin.nl;
       const here = pathname.endsWith("/") ? pathname : `${pathname}/`;

@@ -9,8 +9,8 @@ import { ViewTransition, type ReactNode } from "react";
  * another. Within a section (the people index to a person) React keeps the
  * same container and swaps what is in it; code that animates the page
  * (components/swipe-back.tsx) must not assume a fresh element.
- * The page cross-fades on navigation and on a language switch (globals.css,
- * "Page transitions"); nothing else on the page takes part.
+ * The page cross-fades on navigation (globals.css, "Page transitions");
+ * nothing else on the page takes part. A language switch updates in place.
  */
 export default function Template({ children }: { children: ReactNode }) {
   return (

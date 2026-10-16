@@ -534,8 +534,7 @@
      (components/swipe-back.tsx) and a step the browser animated (the iOS
      edge swipe) is already done, so for those nothing runs here: one
      running animation would keep a still picture of the page's first frame
-     on screen over the page arriving underneath. A language switch keeps
-     the plain cross-fade above. */
+     on screen over the page arriving underneath. */
   html[data-nav]::view-transition-group(.sg-page),
   html[data-nav]::view-transition-new(.sg-page),
   html[data-nav]::view-transition-group(root),

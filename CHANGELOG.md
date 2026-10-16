@@ -4,6 +4,11 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Fixed (16-10-2026, language switch)
+
+- NL/EN applies at once. It was wrapped in a view transition, so on a heavy page a tap on the language control looked like nothing happened.
+- On a page that is not the graph, the wheel waits until the page has painted. Drawing it on first load froze the top bar.
+
 ### Changed (16-10-2026, who is connected)
 
 - The who-is-connected tab is a small tree: parent bodies above, this entity in the middle, offices and other ties hanging off it. Names are clickable and never underlined. Connection rows no longer show a chain source icon; sources stay on the page source list.
