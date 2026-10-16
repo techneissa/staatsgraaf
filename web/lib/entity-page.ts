@@ -60,7 +60,7 @@ export function keyHolderRank(title: string): number {
   return 8;
 }
 
-/** Rank below 9: chair, minister, procureur-generaal. Ordinary members stay in the officials list. */
+/** Rank below 9: chair, minister, procureur-generaal. Ordinary members stay in the members list. */
 export function isLeadingRole(title: string): boolean {
   return keyHolderRank(title) < 9;
 }

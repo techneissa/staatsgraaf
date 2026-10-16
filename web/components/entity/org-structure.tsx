@@ -10,6 +10,9 @@ import type { Organization, Person, Position, Tenure } from "@/lib/types";
 
 const HIT =
   "relative pointer-coarse:after:absolute pointer-coarse:after:-inset-x-1 pointer-coarse:after:-inset-y-3 pointer-coarse:after:content-['']";
+/** Grow the title tap box without stretching the caption. */
+const TITLE_HIT =
+  "relative pointer-coarse:after:absolute pointer-coarse:after:-inset-x-2 pointer-coarse:after:-inset-y-4 pointer-coarse:after:content-['']";
 
 type HolderFace = {
   personId: string;
@@ -19,7 +22,7 @@ type HolderFace = {
   rank: number;
 };
 
-/** One face per person, senior role first. Ordinary members stay in the officials list. */
+/** One face per person, senior role first. Ordinary members stay in the members list. */
 function leadingFaces(holders: Tenure[]): HolderFace[][] {
   const ranked: HolderFace[] = [];
   for (const tenure of holders) {
@@ -82,18 +85,18 @@ export function OrgStructure({
                   <EntityPeekLink
                     id={person.id}
                     variant="bare"
-                    className="flex w-full min-h-11 flex-col items-center gap-1.5 text-center"
+                    className="flex w-full flex-col items-center gap-1 text-center"
                   >
                     <PersonPortrait person={person} size={48} />
-                    <span className="text-xs font-medium leading-snug">{person.name}</span>
+                    <span className="text-xs font-medium leading-tight">{person.name}</span>
                   </EntityPeekLink>
                   <PersonPortraitCredit person={person} />
                   {roles.map(({ tenure, position }) => (
-                    <span key={tenure.id} className="mt-0.5 flex max-w-full flex-col items-center text-center">
+                    <span key={tenure.id} className="flex max-w-full flex-col items-center text-center leading-tight">
                       <EntityPeekLink
                         id={position.id}
                         variant="tinted"
-                        className={`max-w-full text-[11px] leading-snug pointer-coarse:inline-flex pointer-coarse:min-h-11 pointer-coarse:items-center ${HIT}`}
+                        className={`max-w-full text-[11px] leading-tight ${TITLE_HIT}`}
                         style={{ color: roleColor }}
                       >
                         {roleLabel(position.title)}

@@ -42,7 +42,7 @@ On an organisation page the "who leads" block is a row of faces. The portrait an
 
 ## Amendment 16-10-2026: who leads, one face, dates
 
-Who leads lists each person once. A second office is a second caption under the same face, with its start date under the title. Current office holders on the organisation page drops people already in who leads; the section is omitted when that leaves no one.
+Who leads lists each person once. A second office is a second caption under the same face, with its start date under the title. Organisation pages have no separate current office holders list; chamber members stay under current members.
 
 ## Amendment 16-10-2026: peek dismiss does not follow a link
 
