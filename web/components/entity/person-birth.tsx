@@ -18,18 +18,18 @@ export function ageOn(birthIso: string, today: Date): number | null {
 /**
  * "26 augustus 1954 (72 jaar)" or "26 August 1954 (aged 72)". The age is
  * computed on the reader's day, so a static page never shows a stale age
- * after hydration.
+ * after hydration. `compact` uses the short date so a side rail stays narrow.
  */
-export function PersonBirth({ iso }: { iso: string }) {
+export function PersonBirth({ iso, compact = false }: { iso: string; compact?: boolean }) {
   const locale = useLocale();
   const age = ageOn(iso, new Date());
   return (
     <span>
-      <time dateTime={iso.slice(0, 10)}>{formatDateIn(iso, locale, "long")}</time>
+      <time dateTime={iso.slice(0, 10)}>{formatDateIn(iso, locale, compact ? "short" : "long")}</time>
       {age !== null ? (
         <span className="text-ink-faint" suppressHydrationWarning>
           {" "}
-          ({locale === "en" ? `aged ${age}` : `${age} jaar`})
+          ({compact ? age : locale === "en" ? `aged ${age}` : `${age} jaar`})
         </span>
       ) : null}
     </span>

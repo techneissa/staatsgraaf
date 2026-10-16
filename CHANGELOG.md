@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (16-10-2026, person and position headers)
+
+- Person and position pages use the same compact header as organisations: a smaller title, facts in a side rail instead of boxed tiles, and a structure row under the description. A person shows Wikipedia at the top, party and birth on the right, and current offices under the text. A position shows its type and term on the right, the body and legal basis as a meta row, and current holders as a wrapping row of faces.
+
 ### Changed (16-10-2026, party members)
 
 - Party pages list people as a wrapping row of faces, the same layout as who leads on an organisation page: portrait, name, position, start date. That covers Tweede Kamer and Eerste Kamer members, cabinet members, parliamentary group leaders, mayors, regional and local officials, and the other people linked to the party. The position peeks the seat. A fractievoorzitter or speaker title sits above the member seat.
