@@ -29,9 +29,8 @@ function nearestIndex(clientX: number, svg: SVGSVGElement, xs: number[]): number
 }
 
 /**
- * The drawn line of a party's seats over elections. Every point is labelled,
- * above or below so the digit stays in the box, and a hover or focus shows the
- * election date and the seat count.
+ * The drawn line of a party's seats over elections. Every point is labelled
+ * clear of the stroke, and a hover or focus names the election outside the plot.
  */
 export function SeatSparklineChart({
   points,
@@ -75,10 +74,11 @@ export function SeatSparklineChart({
   const tip = active !== null ? points[active] : null;
   const tipPct = active !== null ? (plot.xs[active] / SPARK_WIDTH) * 100 : 0;
   const tipAlign = tipPct < 22 ? "start" : tipPct > 78 ? "end" : "middle";
-  const tipAbove = active !== null && plot.sides[active] === "up";
+  // Point in the upper half: tooltip under the chart. Point in the lower half: above.
+  const tipBelow = active !== null && plot.ys[active] < SPARK_HEIGHT / 2;
 
   return (
-    <div className="relative mt-2 min-w-0 w-full">
+    <div className="relative mt-1 min-w-0 w-full py-7">
       <svg
         viewBox={`0 0 ${SPARK_WIDTH} ${SPARK_HEIGHT}`}
         role="img"
@@ -89,7 +89,7 @@ export function SeatSparklineChart({
         onPointerDown={pick}
         onPointerLeave={() => setActive(null)}
         overflow="visible"
-        className="motion-grow h-auto w-full cursor-pointer overflow-visible outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
+        className="motion-grow block h-auto w-full cursor-pointer overflow-visible outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus"
         data-reveal="pending"
       >
         <path
@@ -105,7 +105,6 @@ export function SeatSparklineChart({
         {points.map((point, index) => {
           const cx = plot.xs[index];
           const cy = plot.ys[index];
-          const above = plot.sides[index] === "up";
           const on = active === index;
           return (
             <g key={point.date} className="pointer-events-none">
@@ -119,9 +118,12 @@ export function SeatSparklineChart({
               />
               <text
                 x={cx.toFixed(1)}
-                y={(above ? cy - 12 : cy + 18).toFixed(1)}
+                y={plot.labelYs[index].toFixed(1)}
                 textAnchor={plot.anchors[index]}
                 fill="var(--t-color-ink)"
+                stroke="var(--t-color-surface)"
+                strokeWidth={4}
+                paintOrder="stroke"
                 className="grow-fade tabular-nums"
                 style={{ fontSize: 12, fontWeight: 600, "--d": "480ms" } as CSSProperties}
               >
@@ -138,20 +140,10 @@ export function SeatSparklineChart({
           className="pointer-events-none absolute z-10 max-w-[calc(100%-0.5rem)] rounded-sm border border-line bg-surface px-2 py-1 text-xs text-ink shadow-md"
           style={{
             left: `${tipPct}%`,
-            top: tipAbove ? `${(plot.ys[active] / SPARK_HEIGHT) * 100}%` : undefined,
-            bottom: tipAbove ? undefined : `${(1 - plot.ys[active] / SPARK_HEIGHT) * 100}%`,
+            top: tipBelow ? undefined : 4,
+            bottom: tipBelow ? 4 : undefined,
             transform:
-              tipAlign === "start"
-                ? tipAbove
-                  ? "translate(0, calc(-100% - 12px))"
-                  : "translate(0, 12px)"
-                : tipAlign === "end"
-                  ? tipAbove
-                    ? "translate(-100%, calc(-100% - 12px))"
-                    : "translate(-100%, 12px)"
-                  : tipAbove
-                    ? "translate(-50%, calc(-100% - 12px))"
-                    : "translate(-50%, 12px)",
+              tipAlign === "start" ? "translateX(0)" : tipAlign === "end" ? "translateX(-100%)" : "translateX(-50%)",
           }}
         >
           <DateT
