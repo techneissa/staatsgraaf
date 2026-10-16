@@ -6,7 +6,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (16-10-2026, party members)
 
-- Party pages list Tweede Kamer and Eerste Kamer members as a wrapping row of faces, the same layout as who leads on an organisation page: portrait, name, start date.
+- Party pages list Tweede Kamer and Eerste Kamer members as a wrapping row of faces, the same layout as who leads on an organisation page: portrait, name, position, start date. The position peeks the seat. A fractievoorzitter or speaker title sits above the member seat.
 
 ### Fixed (16-10-2026, peek share)
 
