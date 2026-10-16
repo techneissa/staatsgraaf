@@ -6,6 +6,7 @@ import {
   SPARK_HEIGHT,
   SPARK_LABEL_DOWN,
   SPARK_LABEL_UP,
+  SPARK_PAD_BOTTOM,
   SPARK_PAD_TOP,
 } from "./sparkline-layout.ts";
 
@@ -31,6 +32,17 @@ test("a valley puts its digit below the point, outside the V", () => {
   assert.ok(plot.ys[1] > plot.ys[0]);
   assert.equal(plot.labelYs[1], plot.ys[1] + SPARK_LABEL_DOWN);
   assert.ok(plot.labelYs[1] < SPARK_HEIGHT);
+});
+
+test("the lowest seat count sits at the bottom of the plot, not at zero", () => {
+  const plot = sparklinePlot([
+    { date: "2000-01-01", seats: 2, total: 75 },
+    { date: "2010-01-01", seats: 3, total: 75 },
+    { date: "2020-01-01", seats: 2, total: 75 },
+  ]);
+  const plotBottom = SPARK_HEIGHT - SPARK_PAD_BOTTOM;
+  assert.ok(Math.abs(plot.ys[0] - plotBottom) < 1);
+  assert.ok(Math.abs(plot.ys[1] - SPARK_PAD_TOP) < 1);
 });
 
 test("a flat line at the top alternates sides so close digits do not overlap", () => {

@@ -78,7 +78,7 @@ export function SeatSparklineChart({
   const tipBelow = active !== null && plot.ys[active] < SPARK_HEIGHT / 2;
 
   return (
-    <div className="relative mt-1 min-w-0 w-full py-7">
+    <div className="relative mt-1 min-w-0 w-full">
       <svg
         viewBox={`0 0 ${SPARK_WIDTH} ${SPARK_HEIGHT}`}
         role="img"
@@ -140,8 +140,10 @@ export function SeatSparklineChart({
           className="pointer-events-none absolute z-10 max-w-[calc(100%-0.5rem)] rounded-sm border border-line bg-surface px-2 py-1 text-xs text-ink shadow-md"
           style={{
             left: `${tipPct}%`,
-            top: tipBelow ? undefined : 4,
-            bottom: tipBelow ? 4 : undefined,
+            top: tipBelow ? "100%" : undefined,
+            bottom: tipBelow ? undefined : "100%",
+            marginTop: tipBelow ? 4 : undefined,
+            marginBottom: tipBelow ? undefined : 4,
             transform:
               tipAlign === "start" ? "translateX(0)" : tipAlign === "end" ? "translateX(-100%)" : "translateX(-50%)",
           }}
