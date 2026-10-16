@@ -1,9 +1,9 @@
 import { getDataset, getPositionById } from "./data";
-import { compareBySurname, partyRoleGroup, type PartyRoleGroup } from "./entity-page";
+import { compareBySurname, keyHolderRank, partyRoleGroup, type PartyRoleGroup } from "./entity-page";
 import { partyKeyForDataset } from "./parties";
 import type { Person } from "./types";
 
-export type PartyPersonRole = { positionId: string; title: string };
+export type PartyPersonRole = { positionId: string; title: string; start: string | null };
 export type PartyPerson = { person: Person; roles: PartyPersonRole[] };
 export type PartyPeopleGroup = { group: PartyRoleGroup; people: PartyPerson[] };
 
@@ -24,7 +24,7 @@ export function partyPeople(key: string, skipOthers: Set<string> = new Set()): P
     const position = getPositionById(tenure.position);
     if (position === undefined) continue;
     const list = current.get(tenure.person);
-    const role = { positionId: position.id, title: position.title };
+    const role = { positionId: position.id, title: position.title, start: tenure.start };
     if (list) list.push(role);
     else current.set(tenure.person, [role]);
   }
@@ -39,7 +39,9 @@ export function partyPeople(key: string, skipOthers: Set<string> = new Set()): P
       const matching = roles.filter((role) => partyRoleGroup(role.title) === group);
       if (matching.length > 0) {
         best = group;
-        bestRoles = matching;
+        bestRoles = matching.sort(
+          (a, b) => keyHolderRank(a.title) - keyHolderRank(b.title) || a.title.localeCompare(b.title, "nl"),
+        );
         break;
       }
     }
