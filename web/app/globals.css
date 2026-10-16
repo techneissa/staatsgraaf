@@ -356,12 +356,15 @@
     animation: sg-sheet-out var(--motion-base) var(--ease-in) both;
   }
   .motion-scrim {
+    pointer-events: auto;
     animation: sg-fade-in var(--motion-base) var(--ease-out) both;
   }
   .motion-scrim[data-swap] {
     animation: none;
   }
   .motion-scrim[data-state="closed"] {
+    /* Keep covering the page until unmount so a dismiss click cannot hit a link. */
+    pointer-events: auto;
     animation: sg-fade-out var(--motion-base) var(--ease-in) both;
   }
   .motion-menu[data-state="open"] {

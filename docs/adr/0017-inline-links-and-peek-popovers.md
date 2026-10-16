@@ -40,6 +40,14 @@ The peek shows the full description, not a three-line cut. In English it shows t
 
 On an organisation page the "who leads" block is a row of faces. The portrait and name peek the person; the role caption peeks the position. Role text uses the body's branch colour (`docs` colour tokens), not a faint grey. Every leading person is listed; ordinary members stay in the officials section.
 
+## Amendment 16-10-2026: who leads, one face, dates
+
+Who leads lists each person once. A second office is a second caption under the same face, with its start date under the title. Current office holders on the organisation page drops people already in who leads; the section is omitted when that leaves no one.
+
+## Amendment 16-10-2026: peek dismiss does not follow a link
+
+A click that dismisses a peek is swallowed on the window in capture, so it runs before the document click that would open another peek or navigate. The overlay keeps receiving pointer events while it fades.
+
 ## Amendment 16-10-2026: who-is-connected tree, names without underline
 
 The owner picked layout C for the who-is-connected tab: a fragment of the hierarchy with the parent above, this entity in the middle, and its offices hanging off it. Names in that tree are still peek links. They are not underlined, on rest or hover; a hover turns the name to the accent colour. Kind stays on the glyph beside the name. `PeekLink` gained a `bare` variant for this.

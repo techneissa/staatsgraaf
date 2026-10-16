@@ -57,6 +57,7 @@ import { childOrganizations, organizationSummary } from "@/lib/entity-summary";
 import {
   commissieRole,
   compareCommissieHolders,
+  isLeadingRole,
   organizationDescription,
   type CommissieRole,
 } from "@/lib/entity-page";
@@ -160,6 +161,11 @@ export default async function OrganizationPage({
       );
     }
     return positionRank(titleA) - positionRank(titleB) || titleA.localeCompare(titleB, "nl");
+  });
+  // Who leads already lists chairs and other key offices. This block is the rest.
+  const otherHolders = currentHolders.filter((tenure) => {
+    const position = getPositionById(tenure.position);
+    return position === undefined || !isLeadingRole(position.title);
   });
   const members = getMembersForOrganization(organization.id);
   const organizationTenures = getTenuresForOrganization(organization.id);
@@ -352,32 +358,32 @@ export default async function OrganizationPage({
           </FactGroup>
         ) : null}
 
-        {currentHolders.length > 0 ? (
-          <FactGroup id="functionarissen" icon={<PeopleIcon />} title={<T area="entity" k="currentOfficials" />} count={currentHolders.length}>
+        {otherHolders.length > 0 ? (
+          <FactGroup id="functionarissen" icon={<PeopleIcon />} title={<T area="entity" k="currentOfficials" />} count={otherHolders.length}>
             {seatsCount !== null && currentHolders.length > seatsCount && seatsCount > 0 && !isCommissie ? (
               <p className="mb-1 text-sm text-ink-faint">
                 <T area="entity" k="moreHoldersThanSeats" />
               </p>
             ) : null}
             <ul className="divide-y divide-line/60">
-              {currentHolders.slice(0, HOLDER_LIMIT).map((tenure) => (
+              {otherHolders.slice(0, HOLDER_LIMIT).map((tenure) => (
                 <HolderRow key={tenure.id} tenure={tenure} commissie={isCommissie} />
               ))}
             </ul>
-            {currentHolders.length > HOLDER_LIMIT + 1 ? (
+            {otherHolders.length > HOLDER_LIMIT + 1 ? (
               <details className="motion-disclosure mt-2">
                 <summary className={SUMMARY_CLASS}>
-                  <T area="common" k="seeAll" vars={{ n: currentHolders.length }} />
+                  <T area="common" k="seeAll" vars={{ n: otherHolders.length }} />
                 </summary>
                 <ul className="divide-y divide-line/60">
-                  {currentHolders.slice(HOLDER_LIMIT).map((tenure) => (
+                  {otherHolders.slice(HOLDER_LIMIT).map((tenure) => (
                     <HolderRow key={tenure.id} tenure={tenure} commissie={isCommissie} />
                   ))}
                 </ul>
               </details>
-            ) : currentHolders.length > HOLDER_LIMIT ? (
+            ) : otherHolders.length > HOLDER_LIMIT ? (
               <ul className="divide-y divide-line/60">
-                <HolderRow tenure={currentHolders[HOLDER_LIMIT]} commissie={isCommissie} />
+                <HolderRow tenure={otherHolders[HOLDER_LIMIT]} commissie={isCommissie} />
               </ul>
             ) : null}
           </FactGroup>

@@ -41,10 +41,21 @@ test("swallowNextClick blocks the next click and then lifts", () => {
   swallowNextClick(root, (fn) => {
     later = fn;
   });
-  const event = { preventDefault() { event.prevented = true; }, stopPropagation() { event.stopped = true; }, prevented: false, stopped: false };
+  const event = {
+    preventDefault() { event.prevented = true; },
+    stopPropagation() { event.stopped = true; },
+    stopImmediatePropagation() { event.immediate = true; },
+    prevented: false,
+    stopped: false,
+    immediate: false,
+  };
   listeners.get("click").fn(event);
   assert.equal(event.prevented, true);
   assert.equal(event.stopped, true);
+  assert.equal(event.immediate, true);
+  assert.equal(listeners.get("click").capture, true);
+  assert.equal(listeners.get("pointerup").capture, true);
   later();
   assert.equal(listeners.has("click"), false);
+  assert.equal(listeners.has("pointerup"), false);
 });

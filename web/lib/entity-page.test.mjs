@@ -9,6 +9,8 @@ import {
   holderState,
   isGenericOrganization,
   sortCareerNewestFirst,
+  groupHoldersByPerson,
+  isLeadingRole,
   keyHolderRank,
   nameWithoutTitles,
   partyRoleGroup,
@@ -61,6 +63,25 @@ test("key holders rank ministers before members", () => {
   assert.ok(keyHolderRank("Minister van Financiën") < keyHolderRank("Staatssecretaris van Financiën"));
   assert.ok(keyHolderRank("Burgemeester van Amsterdam") < keyHolderRank("Lid Gemeenteraad"));
   assert.ok(keyHolderRank("Voorzitter Tweede Kamer") < keyHolderRank("Voorzitter Vaste commissie voor Financiën"));
+});
+
+test("who leads drops ordinary members and keeps chairs and procureurs", () => {
+  assert.equal(isLeadingRole("Voorzitter van het College van procureurs-generaal"), true);
+  assert.equal(isLeadingRole("Procureur-generaal (lid van het College van procureurs-generaal)"), true);
+  assert.equal(isLeadingRole("Lid Tweede Kamer"), false);
+  assert.equal(isLeadingRole("Raadslid"), false);
+});
+
+test("two offices of one person stay on one face", () => {
+  const groups = groupHoldersByPerson([
+    { personId: "rinus", role: "voorzitter" },
+    { personId: "sue", role: "pg" },
+    { personId: "rinus", role: "pg" },
+  ]);
+  assert.deepEqual(
+    groups.map((group) => group.map((entry) => `${entry.personId}:${entry.role}`)),
+    [["rinus:voorzitter", "rinus:pg"], ["sue:pg"]],
+  );
 });
 
 test("party groups follow the position title", () => {

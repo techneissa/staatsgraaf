@@ -33,13 +33,24 @@ export function peekOutsidePointerCloses(
 /**
  * Eat the click that follows an outside pointerdown, so a link under the
  * finger does not navigate or open a peek after this one has started to close.
+ * Listen on window in capture: that runs before Next.js's document click
+ * listener, which would otherwise follow the link behind the overlay.
  */
-export function swallowNextClick(root: Document = document, later: (fn: () => void) => void = (fn) => window.setTimeout(fn, 400)): () => void {
+export function swallowNextClick(
+  root: EventTarget = typeof window !== "undefined" ? window : globalThis,
+  later: (fn: () => void) => void = (fn) => window.setTimeout(fn, 500),
+): () => void {
   const swallow = (event: Event) => {
     event.preventDefault();
     event.stopPropagation();
+    event.stopImmediatePropagation();
   };
   root.addEventListener("click", swallow, true);
-  later(() => root.removeEventListener("click", swallow, true));
-  return () => root.removeEventListener("click", swallow, true);
+  root.addEventListener("pointerup", swallow, true);
+  const lift = () => {
+    root.removeEventListener("click", swallow, true);
+    root.removeEventListener("pointerup", swallow, true);
+  };
+  later(lift);
+  return lift;
 }
