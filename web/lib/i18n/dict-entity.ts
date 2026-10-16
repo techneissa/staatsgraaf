@@ -220,7 +220,12 @@ export const ENTITY_DICT = {
   gapSourceLabel: { nl: "Bron:", en: "Source:" },
   childrenCountOne: { nl: "{n} organisatie onder zich", en: "{n} organization under it" },
   childrenCountMany: { nl: "{n} organisaties onder zich", en: "{n} organizations under it" },
+  childrenShortOne: { nl: "{n} organisatie", en: "{n} organization" },
+  childrenShortMany: { nl: "{n} organisaties", en: "{n} organizations" },
+  childrenOpenAll: { nl: "Alle {n} op deze pagina", en: "Open all on this page" },
   childrenTitle: { nl: "Organisaties onder zich", en: "Organizations under it" },
+  dutchNameLabel: { nl: "Nederlandse naam", en: "Dutch name" },
+  nameTipLabel: { nl: "Naam en aliassen", en: "Name and aliases" },
   keyHoldersLabel: { nl: "Aan het hoofd", en: "Led by" },
   holdersMore: { nl: "en {n} anderen", en: "and {n} more" },
   orgEmptyNote: {

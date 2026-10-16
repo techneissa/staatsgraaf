@@ -62,8 +62,7 @@ export function OrgEmblem({
 
 /**
  * Coat of arms or logo next to the organisation name, at every width, with
- * the (i) that holds author, licence and source. The page floats it, so a
- * long name wraps around it and uses the full width below it.
+ * the (i) that holds author, licence and source.
  */
 export function OrgEmblemTitle({ image, info, className = "" }: { image: OrgEmblemImage; info: MediaCreditInfo; className?: string }) {
   return (

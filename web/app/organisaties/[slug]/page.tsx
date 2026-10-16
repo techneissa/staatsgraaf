@@ -7,36 +7,23 @@ import { JsonLd } from "@/components/json-ld";
 import { NewsPanel } from "@/components/news/news-panel";
 import { PersonCard } from "@/components/person-card";
 import { EntityConnections } from "@/components/entity/entity-connections";
-import { ShareButton } from "@/components/share-button";
-import { DateT, LocalDate } from "@/components/content/local-date";
+import { DateT } from "@/components/content/local-date";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { SUMMARY_CLASS } from "@/components/entity/entity-connections";
 import { SourceList } from "@/components/source-list";
 import { SourceIcon } from "@/components/source-icon";
 import { Gloss, L, T } from "@/components/i18n/t";
 import { orgEnGloss, positionEn } from "@/lib/name-gloss";
-import { Callout } from "@/components/entity/callout";
 import { GapNote } from "@/components/entity/gap-note";
-import { OrgStructure } from "@/components/entity/org-structure";
 import { SourceSlot } from "@/components/entity/source-slot";
-import { SubtypeHint, SubtypeLabel } from "@/components/entity/subtype-label";
-import { ColorDot, FactChips, type FactTile } from "@/components/entity/fact-tiles";
+import { SubtypeLabel } from "@/components/entity/subtype-label";
 import { FactGroup } from "@/components/entity/fact-group";
-import { LocalizedDescription } from "@/components/entity/localized-description";
-import { MapLink } from "@/components/entity/map-link";
-import { OrgEmblemCredit, OrgEmblemTitle } from "@/components/entity/org-emblem";
+import { OrgHeader } from "@/components/entity/org-header";
 import {
-  BuildingIcon,
-  CalendarIcon,
-  GlobeIcon,
-  MapPinIcon,
   HistoryIcon,
-  LayersIcon,
   LinkIcon,
   PeopleIcon,
-  ScaleIcon,
   SeatIcon,
-  TagIcon,
 } from "@/components/entity/icons";
 import { MemberList } from "@/components/entity/member-list";
 import { SeatGrid } from "@/components/entity/seat-grid";
@@ -65,7 +52,6 @@ import {
 } from "@/lib/entity";
 import { seatTallyForOrganization } from "@/lib/parliament";
 import { withoutDerived } from "@/lib/entity-rows";
-import { branchColorVar } from "@/lib/branch-colors";
 import { descriptionFor } from "@/lib/description-translations";
 import { childOrganizations, organizationSummary } from "@/lib/entity-summary";
 import {
@@ -74,7 +60,7 @@ import {
   organizationDescription,
   type CommissieRole,
 } from "@/lib/entity-page";
-import { ORG_BRANCH_LABELS, ORG_BRANCH_LABELS_EN, ORG_LEVEL_LABELS, ORG_LEVEL_LABELS_EN, ORG_SUBTYPE_LABELS, ORG_SUBTYPE_LABELS_EN } from "@/lib/labels";
+import { ORG_BRANCH_LABELS, ORG_BRANCH_LABELS_EN, ORG_LEVEL_LABELS, ORG_LEVEL_LABELS_EN, ORG_SUBTYPE_LABELS } from "@/lib/labels";
 import { getNewsForEntity } from "@/lib/news";
 import { LocaleLabel } from "@/components/i18n/locale-label";
 import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
@@ -124,15 +110,6 @@ export async function generateMetadata({
 
 function positionRank(title: string): number {
   return title.startsWith("Minister") ? 0 : 1;
-}
-
-function websiteHost(url: string | null | undefined): string | null {
-  if (url === null || url === undefined) return null;
-  try {
-    return new URL(url).hostname.replace(/^www\./, "");
-  } catch {
-    return null;
-  }
 }
 
 /** Branch and level say the same thing ("Koninkrijk", "Koninkrijk"), so the page says it once. */
@@ -229,87 +206,7 @@ export default async function OrganizationPage({
   const hasNews = news.length > 0;
   const hasConnections = connections.length > 0;
 
-  // The summary line under the name already names the type and the seats; a tile does not repeat them.
-  const subtypeLabel = (ORG_SUBTYPE_LABELS[organization.subtype] ?? "").toLowerCase();
-  const summaryNamesType = summary !== null && subtypeLabel !== "" && summary.nl.toLowerCase().startsWith(subtypeLabel);
   const summaryNamesSeats = summary !== null && seatsCount !== null && seatsCount > 0;
-  // "Tweede Kamer der Staten-Generaal" with the type "Tweede Kamer" (or the gloss "House of
-  // Representatives" with the type "House of Representatives") names the type twice.
-  const nameNamesType =
-    (subtypeLabel !== "" && organization.name.toLowerCase().startsWith(subtypeLabel)) ||
-    (orgEnGloss(organization.name) ?? "").toLowerCase() === (ORG_SUBTYPE_LABELS_EN[organization.subtype] ?? "-").toLowerCase();
-
-  const facts: FactTile[] = [
-    {
-      key: "type",
-      icon: <BuildingIcon />,
-      label: <T area="entity" k="factType" />,
-      value: summaryNamesType || nameNamesType ? null : <SubtypeLabel value={organization.subtype} />,
-      hint: <SubtypeHint value={organization.subtype} />,
-    },
-    {
-      key: "branch",
-      icon: <ColorDot color={branchColorVar(organization.branch)} />,
-      label: <T area="entity" k={mergedLevel ? "factBranchLevel" : "factBranch"} />,
-      value: <LocaleLabel kind="branch" value={organization.branch} />,
-      accent: branchColorVar(organization.branch),
-    },
-    {
-      key: "level",
-      icon: <LayersIcon />,
-      label: <T area="entity" k="factLevel" />,
-      value: mergedLevel ? null : <LocaleLabel kind="level" value={organization.level} />,
-    },
-    {
-      key: "seats",
-      icon: <SeatIcon />,
-      label: <T area="entity" k="factSeats" />,
-      value: seatsCount !== null && !summaryNamesSeats ? <DateT area="entity" k="countOnly" counts={{ n: seatsCount }} /> : null,
-    },
-    { key: "employees", icon: <PeopleIcon />, label: <T area="entity" k="factEmployees" />, value: employeeValue(organization) },
-    {
-      key: "established",
-      icon: <CalendarIcon />,
-      label: <T area="entity" k="factEstablished" />,
-      value: organization.established != null ? <LocalDate iso={organization.established} /> : null,
-    },
-    {
-      key: "children",
-      icon: <LinkIcon />,
-      label: <T area="entity" k="childrenTitle" />,
-      value: children.length > 0 ? <DateT area="entity" k="countOnly" counts={{ n: children.length }} /> : null,
-      href: "#onderdelen",
-    },
-    {
-      key: "aliases",
-      wide: true,
-      icon: <TagIcon />,
-      label: <T area="entity" k="factAliases" />,
-      value: aliases.length > 0 ? <span lang="nl">{aliases.join(", ")}</span> : null,
-    },
-    {
-      key: "legal",
-      icon: <ScaleIcon />,
-      label: <T area="entity" k="legalSourceLabel" />,
-      value: legalSource !== null ? legalSource.label : null,
-      href: legalSource?.url,
-      external: true,
-    },
-    {
-      key: "website",
-      icon: <GlobeIcon />,
-      label: <T area="entity" k="websiteLabel" />,
-      value: websiteHost(website),
-      href: website ?? undefined,
-      external: true,
-    },
-    {
-      key: "address",
-      icon: <MapPinIcon />,
-      label: <T area="entity" k="addressLabel" />,
-      value: address !== null ? <MapLink address={address.value} name={address.of} /> : null,
-    },
-  ];
 
   return (
     <>
@@ -340,42 +237,27 @@ export default async function OrganizationPage({
         ]}
       />
 
-      <header className="mt-4">
-        {/* The emblem and the share button float, so a long name wraps around
-            them and takes the full width below the emblem. */}
-        <div className="flow-root">
-          {emblem?.image ? <OrgEmblemTitle image={emblem.image} info={emblem.info} className="float-left mr-3" /> : null}
-          <ShareButton compact className="float-right ml-2" title={organization.name} />
-          <h1 className="text-xl font-semibold leading-snug sm:text-2xl tracking-tight text-ink break-words">
-            {organization.name}
-            <Gloss text={orgEnGloss(organization.name)} className="mt-1 block text-base font-normal tracking-normal text-ink-muted" />
-          </h1>
-        </div>
-        {emblem !== null && emblem.image === null ? (
-          <OrgEmblemCredit info={emblem.info} emblem={null} kind={emblem.kind} className="mt-1.5" />
-        ) : null}
-        {summary !== null ? (
-          <p className="mt-2 max-w-prose text-base leading-snug text-ink-muted">
-            <L nl={summary.nl} en={summary.en} />
-          </p>
-        ) : null}
-        <FactChips facts={facts} className="mt-3" />
-        <OrgStructure parents={partOfOrganizations} holders={currentHolders} />
-        {organization.dissolved != null ? (
-          <div className="mt-3">
-            <Callout>
-              <DateT area="entity" k="dissolvedCallout" dates={{ date: organization.dissolved }} />
-            </Callout>
-          </div>
-        ) : null}
-        {description !== null ? (
-          <LocalizedDescription
-            nl={description.nl}
-            en={description.en}
-            className="mt-4 max-w-prose text-sm leading-relaxed text-ink-muted"
-          />
-        ) : null}
-      </header>
+      <OrgHeader
+        name={organization.name}
+        englishName={orgEnGloss(organization.name)}
+        aliases={aliases}
+        emblem={emblem}
+        summary={summary}
+        branch={organization.branch}
+        mergedLevel={mergedLevel}
+        level={organization.level}
+        established={organization.established ?? null}
+        seats={seatsCount !== null && !summaryNamesSeats ? seatsCount : null}
+        employees={employeeValue(organization)}
+        childOrgs={children}
+        legalSource={legalSource}
+        website={website}
+        address={address}
+        dissolved={organization.dissolved ?? null}
+        description={description}
+        parents={partOfOrganizations}
+        holders={currentHolders}
+      />
 
       <div className="mt-6 min-w-0 space-y-4">
         <EntityTabs

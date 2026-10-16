@@ -40,3 +40,7 @@ The owner asked on 25-09-2026 for the English version of the site to include the
 ## Amendment 2: one disclosure line instead of a label per card (25-09-2026)
 
 The owner decided on 25-09-2026 that translated news cards carry no text label. Instead, one short line above each news list (the news pages, the day pages and the home page) says that items in another language are machine translated, and links to the explanation on the About page. On each translated card, a translate icon switches between the translation and the original; its accessible name and tooltip say which it will show. `lang` attributes still mark the language of every text run, and the source link still goes to the original article. This replaces point 5 above; the aim of `docs/09` section 6, that a reader can tell a translation from an original, is met by the line, the icon and the original one tap away.
+
+## Amendment 3: organisation pages drop the description disclosure (16-10-2026)
+
+The owner asked on 16-10-2026 that organisation pages not show "Translated from Dutch" under the English description. Person pages, peeks and the bodies panel keep the line. `lang` attributes still mark each run. The translation itself is unchanged.

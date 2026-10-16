@@ -21,3 +21,7 @@ Rendering: in the power map the English gloss replaces the Dutch job title in th
 ## Consequences
 
 Coverage is a test, not a promise: `web/lib/name-gloss.test.ts` pins at least 90% of current position titles and 80% of organisation names glossed, with the honest-gap behaviour tested explicitly. New data patterns that fall outside the rules render Dutch in English mode until someone adds a pattern with a source; this is the intended failure mode.
+
+## Amendment 16-10-2026: organisation page title in English
+
+On an organisation entity page, when the interface is English and `orgEnGloss` returns a name, that gloss is the visible H1. The Dutch name and any aliases sit in an (i) on the same line. Without a gloss, the Dutch name stays the H1. The graph, JSON-LD, data files, search, and every other surface keep the Dutch name. This is presentation on that page only; it does not invent translations.

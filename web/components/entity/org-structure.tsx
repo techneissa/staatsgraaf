@@ -13,16 +13,17 @@ const HIT =
   "relative pointer-coarse:after:absolute pointer-coarse:after:-inset-x-1 pointer-coarse:after:-inset-y-3 pointer-coarse:after:content-['']";
 
 /**
- * Place in the state and who leads it, as compact rows. Facts (branch, count,
- * aliases) sit in the chip row the page renders next to this; a missing part
- * is left out.
+ * Place in the state and who leads it, as compact rows. A missing part is
+ * left out.
  */
 export function OrgStructure({
   parents,
   holders,
+  className = "mt-3",
 }: {
   parents: Organization[];
   holders: Tenure[];
+  className?: string;
 }) {
   const leading = holders
     .map((tenure) => ({ tenure, position: getPositionById(tenure.position), person: getPersonById(tenure.person) }))
@@ -34,7 +35,7 @@ export function OrgStructure({
   const more = holders.length - shown.length;
   if (parents.length === 0 && shown.length === 0) return null;
   return (
-    <div className="mt-3 flex flex-col gap-2 text-sm">
+    <div className={`flex flex-col gap-2 text-sm ${className}`.trim()}>
       {parents.length > 0 ? (
         <p className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
           <span className="inline-flex shrink-0 items-center gap-1 text-xs text-ink-faint">

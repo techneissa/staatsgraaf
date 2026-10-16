@@ -28,10 +28,13 @@ export function LocalizedDescription({
   nl,
   en,
   className = "",
+  credit = true,
 }: {
   nl: string;
   en: string | null;
   className?: string;
+  /** False on organisation pages: the owner dropped the disclosure line there. */
+  credit?: boolean;
 }) {
   const locale = useLocale();
   const t = useT("entity");
@@ -44,7 +47,7 @@ export function LocalizedDescription({
       {en !== null ? (
         <div lang="en" hidden={!showEnglish}>
           <Paragraphs text={en} />
-          <p className="mt-1 text-xs text-ink-faint">{t("translatedFromDutch")}</p>
+          {credit ? <p className="mt-1 text-xs text-ink-faint">{t("translatedFromDutch")}</p> : null}
         </div>
       ) : null}
     </div>
