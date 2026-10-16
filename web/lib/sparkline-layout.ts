@@ -1,6 +1,6 @@
 /**
  * Geometry for the party seat history chart: coordinates, label side
- * (above or below the point) and text anchors so digits stay inside the box.
+ * (above or below the point) and text anchors so digits stay off the line.
  */
 
 export type SparklinePoint = {
@@ -10,16 +10,23 @@ export type SparklinePoint = {
 };
 
 export const SPARK_WIDTH = 480;
-export const SPARK_HEIGHT = 180;
+export const SPARK_HEIGHT = 200;
 export const SPARK_PAD_X = 28;
-export const SPARK_PAD_TOP = 26;
-export const SPARK_PAD_BOTTOM = 30;
-/** Flip the next label when two points sit closer than this, in viewBox units. */
+export const SPARK_PAD_TOP = 36;
+export const SPARK_PAD_BOTTOM = 40;
+/** Baseline offset above a point, in viewBox units. */
+export const SPARK_LABEL_UP = 22;
+/** Baseline offset below a point, in viewBox units. */
+export const SPARK_LABEL_DOWN = 28;
+/** Flip the next flat label when two points sit closer than this. */
 const CLOSE_DX = 22;
+/** Neighbour must differ by more than this to count as a peak or valley. */
+const EXTREME_DY = 8;
 
 export type SparklinePlot = {
   xs: number[];
   ys: number[];
+  labelYs: number[];
   path: string;
   /** "up" draws the digit above the point, "down" below it. */
   sides: ("up" | "down")[];
@@ -38,14 +45,39 @@ export function sparklinePlot(points: SparklinePoint[]): SparklinePlot {
   const ys = points.map((point) => SPARK_PAD_TOP + (1 - point.seats / max) * plotH);
   const sides: ("up" | "down")[] = [];
   for (let index = 0; index < points.length; index += 1) {
-    let side: "up" | "down" = ys[index] < midY ? "down" : "up";
-    if (index > 0 && Math.abs(xs[index] - xs[index - 1]) < CLOSE_DX && sides[index - 1] === side) {
+    const y = ys[index];
+    const prev = ys[index - 1] ?? y;
+    const next = ys[index + 1] ?? y;
+    const isPeak = y < prev - EXTREME_DY && y < next - EXTREME_DY;
+    const isValley = y > prev + EXTREME_DY && y > next + EXTREME_DY;
+    let side: "up" | "down";
+    let locked = false;
+    if (isValley) {
+      // Sit under the V, not inside it on the stroke.
+      side = "down";
+      locked = true;
+    } else if (isPeak && y <= SPARK_PAD_TOP + 2) {
+      // A peak at the top of the box has no room above.
+      side = "down";
+      locked = true;
+    } else if (isPeak) {
+      side = "up";
+    } else {
+      side = y < midY ? "down" : "up";
+    }
+    if (
+      !locked &&
+      index > 0 &&
+      Math.abs(xs[index] - xs[index - 1]) < CLOSE_DX &&
+      sides[index - 1] === side
+    ) {
       side = side === "up" ? "down" : "up";
     }
     sides.push(side);
   }
   const lastIndex = points.length - 1;
   const anchors = points.map((_, index) => (index === 0 ? "start" : index === lastIndex ? "end" : "middle") as "start" | "middle" | "end");
+  const labelYs = ys.map((y, index) => (sides[index] === "up" ? y - SPARK_LABEL_UP : y + SPARK_LABEL_DOWN));
   const path = points.map((_, index) => `${index === 0 ? "M" : "L"} ${xs[index].toFixed(1)} ${ys[index].toFixed(1)}`).join(" ");
-  return { xs, ys, path, sides, anchors };
+  return { xs, ys, labelYs, path, sides, anchors };
 }
