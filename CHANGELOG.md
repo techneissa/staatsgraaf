@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (16-10-2026, seat history chart)
+
+- Party seat history is a full-width chart, not a 240 px sparkline. Every election is labelled above or below its point so the digits are not clipped, and a hover or focus on a point names the date and the seats.
+
 ### Changed (16-10-2026, translation credit)
 
 - Pages, peeks and the bodies panel no longer show "Translated from Dutch" under an English description. The English text still carries `lang="en"`.

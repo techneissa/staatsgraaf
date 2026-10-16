@@ -1,12 +1,11 @@
-import type { CSSProperties } from "react";
 import { T } from "@/components/i18n/t";
 import { partySeatHistory } from "@/lib/elections";
 import { DateT, LocalDate } from "@/components/content/local-date";
+import { SeatSparklineChart } from "./seat-sparkline-chart";
 
 /**
- * A party's seats in one chamber across elections: one line, one dot per
- * election, the last value labelled. Small on purpose; the numbers live in the
- * accessible table beneath it, which is the same data.
+ * A party's seats in one chamber across elections: a full-width line, a
+ * labelled dot per election, and the same numbers in an accessible table.
  */
 export function SeatSparkline({
   partyKey,
@@ -19,24 +18,10 @@ export function SeatSparkline({
 }) {
   const points = partySeatHistory(partyKey, organizationId);
   if (points.length < 2) return null;
-
-  const width = 240;
-  const height = 56;
-  const padX = 6;
-  const padY = 8;
-  const max = Math.max(1, ...points.map((point) => point.seats));
-  const first = Date.parse(points[0].date);
-  const last = Date.parse(points[points.length - 1].date);
-  const span = Math.max(1, last - first);
-  const x = (date: string) => padX + ((Date.parse(date) - first) / span) * (width - 2 * padX);
-  const y = (seats: number) => height - padY - (seats / max) * (height - 2 * padY);
-  const path = points.map((point, index) => `${index === 0 ? "M" : "L"} ${x(point.date).toFixed(1)} ${y(point.seats).toFixed(1)}`).join(" ");
-  const stroke = color ?? "var(--t-color-ink-muted)";
   const latest = points[points.length - 1];
-  const peak = points.reduce((best, point) => (point.seats > best.seats ? point : best), points[0]);
 
   return (
-    <figure className="mt-3">
+    <figure className="mt-3 min-w-0">
       <figcaption className="text-xs text-ink-faint">
         <DateT
           area="entity"
@@ -45,46 +30,7 @@ export function SeatSparkline({
           vars={{ n: points.length }}
         />
       </figcaption>
-      <svg
-        viewBox={`0 0 ${width} ${height}`}
-        role="img"
-        aria-label={points.map((point) => `${point.date.slice(0, 4)}: ${point.seats}`).join(", ")}
-        className="motion-grow mt-1 h-auto w-full max-w-[240px]"
-        data-reveal="pending"
-      >
-        <path className="grow-stroke" pathLength={1} d={path} fill="none" stroke={stroke} strokeWidth={1.6} strokeLinejoin="round" strokeLinecap="round" />
-        {points.map((point, index) => (
-          <circle
-            key={point.date}
-            className="grow-seat"
-            style={{ "--d": `${Math.round((index / Math.max(1, points.length - 1)) * 480)}ms` } as CSSProperties}
-            cx={x(point.date).toFixed(1)} cy={y(point.seats).toFixed(1)} r={2} fill={stroke}>
-            <title>{`${point.date.slice(0, 4)}: ${point.seats}`}</title>
-          </circle>
-        ))}
-        <text
-          x={(x(latest.date) - 4).toFixed(1)}
-          y={(y(latest.seats) - 5).toFixed(1)}
-          textAnchor="end"
-          fill="var(--t-color-ink)"
-          className="grow-fade"
-          style={{ fontSize: 10, fontWeight: 600, "--d": "520ms" } as CSSProperties}
-        >
-          {latest.seats}
-        </text>
-        {peak.date !== latest.date ? (
-          <text
-            x={x(peak.date).toFixed(1)}
-            y={(y(peak.seats) - 5).toFixed(1)}
-            textAnchor="middle"
-            fill="var(--t-color-ink-faint)"
-            className="grow-fade"
-            style={{ fontSize: 9, "--d": "520ms" } as CSSProperties}
-          >
-            {peak.seats}
-          </text>
-        ) : null}
-      </svg>
+      <SeatSparklineChart points={points} color={color} />
       <details className="motion-disclosure mt-1 text-xs text-ink-muted">
         <summary className="inline-flex cursor-pointer items-center text-ink-faint pointer-coarse:min-h-11">
           <T area="entity" k="seatSparklineTable" />
