@@ -39,11 +39,20 @@ function CanvasLoading() {
 const loadWheel = () => import("./graph/graph-wheel").then((module) => module.GraphWheel);
 const GraphWheel = dynamic(loadWheel, { ssr: false, loading: CanvasLoading });
 
-// Where the canvas is on screen from the first paint (the home page, and the
-// middle column from lg), its code starts downloading as this module runs,
-// before React has hydrated; a phone on any other page leaves it alone.
-if (typeof window !== "undefined" && (window.location.pathname === "/" || window.matchMedia("(min-width: 64rem)").matches)) {
+// The home page is the graph, so its code starts downloading as this module
+// runs. Every other route leaves it alone until the page has painted: drawing
+// the wheel on a body page froze the top bar (language, menu, search).
+if (typeof window !== "undefined" && window.location.pathname === "/") {
   void loadWheel();
+}
+
+function whenIdle(task: () => void, timeout = 600): () => void {
+  if (typeof window.requestIdleCallback === "function") {
+    const id = window.requestIdleCallback(task, { timeout });
+    return () => window.cancelIdleCallback(id);
+  }
+  const id = window.setTimeout(task, 0);
+  return () => window.clearTimeout(id);
 }
 const ConnectionsView = dynamic(() => import("./power/connections-view").then((module) => module.ConnectionsView), {
   ssr: false,
@@ -86,7 +95,22 @@ export function CanvasFrame() {
    */
   const [expanded, setExpanded] = useState(false);
   /** Whether the canvas is on screen: always on the home page and from lg, else when the reader opened it. */
-  const visible = isHome || desktop || open || expanded;
+  const onScreen = isHome || desktop || open || expanded;
+  /**
+   * Parsing graph.json and mounting the wheel blocks the main thread. On a
+   * page that is not the graph, wait until the page (and the top bar) have
+   * painted. Opening or expanding the canvas skips the wait.
+   */
+  const [heavyReady, setHeavyReady] = useState(isHome);
+  useEffect(() => {
+    if (!onScreen) return;
+    if (isHome || open || expanded) {
+      setHeavyReady(true);
+      return;
+    }
+    return whenIdle(() => setHeavyReady(true));
+  }, [onScreen, isHome, open, expanded]);
+  const visible = onScreen && heavyReady;
   // The graph is fetched when the canvas is on screen; folded, it costs nothing.
   const { bundle, status } = useGraphBundle(visible);
   const [view, setView] = useState<CanvasView>("graph");
