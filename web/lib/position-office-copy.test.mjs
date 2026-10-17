@@ -4,6 +4,8 @@ import assert from "node:assert/strict";
 import {
   EILANDGEDEPUTEERDE_SOURCE,
   GEDEPUTEERDE_SOURCE,
+  AANWIJZINGEN_PLANBUREAUS_SOURCE,
+  BANKWET_SOURCE,
   MEDIAWET_SOURCE,
   RIJKSWET_ONDERZOEKSRAAD_SOURCE,
   STAATSREGELING_ARUBA_SOURCE,
@@ -117,6 +119,13 @@ test("Secretaris-generaal says ambtelijke leiding, except where the page is sile
 // Named gap: no fetched source states what an inspecteur-generaal is or does.
 test("Inspecteur-generaal is omitted", () => {
   assert.equal(positionOfficeCopy({ title: "Inspecteur-generaal Inspectie van het Onderwijs" }), null);
+  assert.equal(
+    positionOfficeCopy({
+      id: "pos:inspectie-van-het-onderwijs-inspecteur-generaal",
+      title: "Inspecteur-generaal Inspectie van het Onderwijs",
+    }),
+    null,
+  );
 });
 
 test("Lid gemeenteraad cites Gemeentewet articles 7 and 8", () => {
@@ -487,6 +496,42 @@ test("verified ZBO chairs cite the fetched articles", () => {
     positionOfficeCopy({
       id: "pos:zbo-stichting-nederlands-letterenfonds-directeur-bestuurder",
       title: "Directeur-bestuurder Stichting Nederlands Letterenfonds",
+    }),
+    null,
+  );
+});
+
+test("ACM, DNB, planbureau and Kiesraad seats cite the fetched articles", () => {
+  const acm = positionOfficeCopy({
+    id: "pos:zbo-autoriteit-consument-en-markt-bestuursvoorzitter",
+    title: "Bestuursvoorzitter Autoriteit Consument en Markt",
+  });
+  assert.ok(acm);
+  assert.match(stripOfficeCopyMarkup(acm.nl), /drie leden, onder wie de voorzitter/);
+  const dnb = positionOfficeCopy({
+    id: "pos:zbo-de-nederlandsche-bank-president",
+    title: "President De Nederlandsche Bank",
+  });
+  assert.ok(dnb);
+  assert.match(stripOfficeCopyMarkup(dnb.nl), /artikel 12 van de Bankwet 1998/);
+  assert.equal(BANKWET_SOURCE, "https://wetten.overheid.nl/BWBR0009508");
+  const cpb = positionOfficeCopy({
+    id: "pos:directeur-cpb",
+    title: "Directeur Centraal Planbureau",
+  });
+  assert.ok(cpb);
+  assert.match(stripOfficeCopyMarkup(cpb.nl), /aanwijzing 6 van de Aanwijzingen voor de Planbureaus/);
+  assert.equal(AANWIJZINGEN_PLANBUREAUS_SOURCE, "https://wetten.overheid.nl/BWBR0031972");
+  const kiesraad = positionOfficeCopy({
+    id: "pos:voorzitter-kiesraad",
+    title: "Voorzitter Kiesraad",
+  });
+  assert.ok(kiesraad);
+  assert.match(stripOfficeCopyMarkup(kiesraad.nl), /artikel A 5 van de Kieswet/);
+  assert.equal(
+    positionOfficeCopy({
+      id: "pos:directeur-generaal-belastingdienst",
+      title: "Directeur-generaal Belastingdienst",
     }),
     null,
   );

@@ -84,7 +84,7 @@
  * - RvO Tweede Kamer art. 3.6 lid 1: "De Voorzitter en de Ondervoorzitters vormen samen het Presidium."
  * - Beroepswet art. 3 and Wet bestuursrechtspraak bedrijfsorganisatie art. 4: Wet RO chapter 2 (including the title of president) applies correspondingly to the CRvB and the CBb.
  * - Rijkswet reglement gouverneur Aruba (BWBR0003900), Curaçao (BWBR0028105) and Sint Maarten (BWBR0028096) art. 1 lid 1-2: the governor represents the King as head of that country's government and the Kingdom government, and is appointed by royal decree for six years.
- * - Aanwijzingen voor de Planbureaus (BWBR0031972) name the three bureaus and do not describe the directeur, so those pages stay empty.
+ * - Aanwijzingen voor de Planbureaus (BWBR0031972) aanwijzing 6 lid 3: "De directeur van het planbureau stelt het werkprogramma jaarlijks vast, gehoord het gevoelen van de ministerraad."
  * - Kaderwet zelfstandige bestuursorganen art. 12 names how members of a publiekrechtelijk ZBO are appointed, but not every ZBO is publiekrechtelijk, so it is not used as shared copy.
  * - Wet RO art. 84 lid 2-5: the Raad voor de rechtspraak has three to five members appointed by royal decree for six years; one of the judicial members is appointed chair.
  * - Wet op de Raad van State art. 16a lid 4: "De vice-president is voorzitter van de Afdeling advisering."
@@ -99,6 +99,23 @@
  * - Staatsregeling van Sint Maarten (CVDR179884) art. 33 lid 1: "De Minister-President en de overige ministers worden bij landsbesluit benoemd en ontslagen." Art. 38: ministries headed by a minister. Art. 39 lid 3: the Minister-President chairs the ministerraad.
  * - Staatsregeling van Curaçao (minfin.cw PDF, fetched 17-10-2026) art. 29 lid 1: "De minister-president en de overige ministers worden bij landsbesluit benoemd en ontslagen." Art. 32: ministries headed by a minister. Art. 33 lid 3: the minister-president chairs the raad van ministers.
  * - Staatsregeling van Aruba (AB 1997 no. GT 1, 2013 print) art. II.2 lid 1: "De minister-president en de overige ministers worden in overleg met de Staten bij landsbesluit benoemd en ontslagen." Art. II.5: ministries headed by a minister. Art. II.6 lid 3: the minister-president chairs the ministerraad.
+ * - Instellingswet ACM art. 3 lid 1: "De Autoriteit Consument en Markt bestaat uit drie leden, onder wie de voorzitter." Lid 3: chair seven years, other members five.
+ * - Kernenergiewet art. 5 lid 1: "De Autoriteit bestaat uit minimaal twee en maximaal drie leden, onder wie de voorzitter."
+ * - Uitvoeringswet verordening terroristische online-inhoud art. 3 lid 1 and 4: three members including the chair; the chair is appointed for five years.
+ * - Wet op de architectentitel art. 5: board of at most three members; the minister appoints a chair when there are two or three; members for at most four years.
+ * - Wet College voor de rechten van de mens art. 14 lid 1 and 3: nine to twelve members including a chair and two deputy chairs; the chair represents the College.
+ * - Wet gewasbeschermingsmiddelen en biociden art. 5 lid 1: five members including the chair. Art. 7 lid 3: "De secretaris van het college is tevens directeur van het secretariaat."
+ * - Bankwet 1998 art. 12: directorate of a president and three to five directors, appointed for seven years by royal decree.
+ * - Wet bescherming klokkenluiders art. 3b lid 1 and art. 3c: board of a chair and at most four members, appointed by royal decree, members for at most four years.
+ * - Wet op de kansspelen art. 33c: board of at most three members including a chair, appointed for at most six years.
+ * - Uitvoeringswet AVG art. 7 lid 1: "De Autoriteit persoonsgegevens bestaat uit een voorzitter en twee andere leden."
+ * - Mediawet 2008 art. 7.3 lid 1-2: Commissariaat of a chair and two or four other members, appointed for five years.
+ * - Organisatiewet Kadaster art. 7: the board runs the Dienst; chair and other members appointed for at most five years.
+ * - Wet op de SER art. 11 lid 1: the chair is appointed from the members. Art. 39: "De voorzitter vertegenwoordigt de Raad in en buiten rechte."
+ * - Instellingswet W.R.R. art. 3 lid 3: chair and members appointed for five years. Art. 4 lid 1: the chair's office is a full-time post.
+ * - Gezondheidswet art. 21 lid 6: chair and vice-chairs appointed for at most four years. Art. 24 lid 2: the chair appoints a committee chair from that committee's members.
+ * - Vreemdelingenwet 2000 art. 2 lid 1 and 3: there is an Adviesraad Migratie; the chair is preferably a judicial officer charged with adjudication.
+ * - Kieswet art. A 5 lid 1 and 4: a chair, six other members and two extraordinary members; members appointed for their expertise on kiesrecht and elections. The Kiesraad may designate ondervoorzitters from the members.
  */
 
 export type PositionOfficeCopy = { nl: string; en: string };
@@ -136,6 +153,9 @@ export const STAATSREGELING_CURACAO_SOURCE =
   "https://minfin.cw/wp-content/uploads/2019/03/4._Staatsregeling_Cura__ao.pdf";
 export const STAATSREGELING_ARUBA_SOURCE =
   "https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/0101gt87.001.pdf";
+export const AANWIJZINGEN_PLANBUREAUS_SOURCE = "https://wetten.overheid.nl/BWBR0031972";
+export const BANKWET_SOURCE = "https://wetten.overheid.nl/BWBR0009508";
+export const KIESWET_SOURCE = "https://wetten.overheid.nl/BWBR0004627";
 export const SECRETARIS_GENERAAL_SOURCES = [
   "https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken/organisatie/organogram/secretaris-generaal",
   "https://www.rijksoverheid.nl/ministeries/ministerie-van-buitenlandse-zaken/organisatie/organogram/secretaris-generaal-en-plaatsvervangend-sg",
@@ -302,6 +322,12 @@ const ARUBA_MINISTER: OfficeTemplate = {
 const ARUBA_MINISTER_PRESIDENT: OfficeTemplate = {
   nl: `De minister-president en de overige ministers van Aruba worden in overleg met de Staten bij landsbesluit benoemd en ontslagen (<law href="${STAATSREGELING_ARUBA_SOURCE}">artikel II.2</law> van de <law href="${STAATSREGELING_ARUBA_SOURCE}">Staatsregeling van Aruba</law>). De minister-president is voorzitter van de ministerraad (<law href="${STAATSREGELING_ARUBA_SOURCE}">artikel II.6</law>).`,
   en: `The minister-president and the other ministers of Aruba are appointed and dismissed by landsbesluit in consultation with the Staten (<law href="${STAATSREGELING_ARUBA_SOURCE}">article II.2</law> of the <law href="${STAATSREGELING_ARUBA_SOURCE}">Staatsregeling van Aruba</law>). The minister-president chairs the council of ministers (<law href="${STAATSREGELING_ARUBA_SOURCE}">article II.6</law>).`,
+};
+
+const PLANBUREAU_DIRECTEUR: OfficeTemplate = {
+  law: "BWBR0031972",
+  nl: 'De directeur van het planbureau stelt het werkprogramma jaarlijks vast, gehoord het gevoelen van de ministerraad (<law art="6">aanwijzing 6</law> van de <law>Aanwijzingen voor de Planbureaus</law>).',
+  en: 'The director of the planbureau sets the work programme each year, after hearing the view of the ministerraad (<law art="6">aanwijzing 6</law> of the <law>Aanwijzingen voor de Planbureaus</law>).',
 };
 
 const PRESIDENT_GERECHT: OfficeTemplate = {
@@ -522,6 +548,139 @@ const UNIQUE: Record<string, OfficeTemplate> = {
   "pos:minister-president-curacao": CURACAO_MINISTER_PRESIDENT,
   "pos:minister-algemene-zaken-minister-president-curacao": CURACAO_MINISTER_PRESIDENT,
   "pos:minister-president-aruba": ARUBA_MINISTER_PRESIDENT,
+  "pos:directeur-cpb": PLANBUREAU_DIRECTEUR,
+  "pos:directeur-pbl": PLANBUREAU_DIRECTEUR,
+  "pos:directeur-scp": PLANBUREAU_DIRECTEUR,
+  "pos:zbo-autoriteit-consument-en-markt-bestuursvoorzitter": {
+    law: "BWBR0033043",
+    nl: 'De <entity role="body">Autoriteit Consument en Markt</entity> bestaat uit drie leden, onder wie de voorzitter (<law art="3">artikel 3</law> van de <law>Instellingswet Autoriteit Consument en Markt</law>). De voorzitter wordt benoemd voor zeven jaar.',
+    en: 'The <entity role="body">Autoriteit Consument en Markt</entity> consists of three members, including the chair (<law art="3">article 3</law> of the <law>Instellingswet Autoriteit Consument en Markt</law>). The chair is appointed for seven years.',
+  },
+  "pos:zbo-autoriteit-consument-en-markt-bestuurslid": {
+    law: "BWBR0033043",
+    nl: 'De <entity role="body">Autoriteit Consument en Markt</entity> bestaat uit drie leden, onder wie de voorzitter (<law art="3">artikel 3</law> van de <law>Instellingswet Autoriteit Consument en Markt</law>). De overige leden worden benoemd voor vijf jaar.',
+    en: 'The <entity role="body">Autoriteit Consument en Markt</entity> consists of three members, including the chair (<law art="3">article 3</law> of the <law>Instellingswet Autoriteit Consument en Markt</law>). The other members are appointed for five years.',
+  },
+  "pos:zbo-autoriteit-nucleaire-veiligheid-en-stralingsbescherming-bestuursvoorzitter": {
+    law: "BWBR0002402",
+    nl: 'De <entity role="body">Autoriteit Nucleaire Veiligheid en Stralingsbescherming</entity> bestaat uit minimaal twee en maximaal drie leden, onder wie de voorzitter (<law art="5">artikel 5</law> van de <law>Kernenergiewet</law>). De leden worden benoemd voor maximaal vier jaar.',
+    en: 'The <entity role="body">Autoriteit Nucleaire Veiligheid en Stralingsbescherming</entity> consists of at least two and at most three members, including the chair (<law art="5">article 5</law> of the <law>Kernenergiewet</law>). Members are appointed for at most four years.',
+  },
+  "pos:zbo-autoriteit-online-terroristisch-en-kinderpornografisch-materiaal-bestuursvoorzitter": {
+    law: "BWBR0048064",
+    nl: 'De <entity role="body">Autoriteit online Terroristisch en Kinderpornografisch Materiaal</entity> bestaat uit drie leden, onder wie de voorzitter (<law art="3">artikel 3</law> van de <law>Uitvoeringswet verordening terroristische online-inhoud</law>). De voorzitter wordt benoemd voor vijf jaar.',
+    en: 'The <entity role="body">Autoriteit online Terroristisch en Kinderpornografisch Materiaal</entity> consists of three members, including the chair (<law art="3">article 3</law> of the <law>Uitvoeringswet verordening terroristische online-inhoud</law>). The chair is appointed for five years.',
+  },
+  "pos:zbo-autoriteit-persoonsgegevens-bestuurslid": {
+    law: "BWBR0040940",
+    nl: 'De <entity role="body">Autoriteit persoonsgegevens</entity> bestaat uit een voorzitter en twee andere leden (<law art="7">artikel 7</law> van de <law>Uitvoeringswet Algemene verordening gegevensbescherming</law>). Zij worden bij koninklijk besluit benoemd voor vijf jaar.',
+    en: 'The <entity role="body">Autoriteit persoonsgegevens</entity> consists of a chair and two other members (<law art="7">article 7</law> of the <law>Uitvoeringswet Algemene verordening gegevensbescherming</law>). They are appointed by royal decree for five years.',
+  },
+  "pos:zbo-bureau-architectenregister-voorzitter": {
+    law: "BWBR0004189",
+    nl: 'Het bestuur van het <entity role="body">Bureau Architectenregister</entity> bestaat uit ten hoogste drie leden (<law art="5">artikel 5</law> van de <law>Wet op de architectentitel</law>). Stelt de minister het aantal op twee of drie, dan benoemt hij een van de leden tot voorzitter.',
+    en: 'The board of the <entity role="body">Bureau Architectenregister</entity> has at most three members (<law art="5">article 5</law> of the <law>Wet op de architectentitel</law>). If the minister sets the number at two or three, the minister appoints one member as chair.',
+  },
+  "pos:zbo-bureau-architectenregister-bestuurslid": {
+    law: "BWBR0004189",
+    nl: 'Het bestuur van het <entity role="body">Bureau Architectenregister</entity> bestaat uit ten hoogste drie leden (<law art="5">artikel 5</law> van de <law>Wet op de architectentitel</law>). Een lid wordt voor ten hoogste vier jaar benoemd.',
+    en: 'The board of the <entity role="body">Bureau Architectenregister</entity> has at most three members (<law art="5">article 5</law> of the <law>Wet op de architectentitel</law>). A member is appointed for at most four years.',
+  },
+  "pos:zbo-college-voor-de-rechten-van-de-mens-voorzitter": {
+    law: "BWBR0030733",
+    nl: 'Het <entity role="body">College voor de Rechten van de Mens</entity> bestaat uit minimaal negen en maximaal twaalf leden, onder wie een voorzitter en twee ondervoorzitters (<law art="14">artikel 14</law> van de <law>Wet College voor de rechten van de mens</law>). Het College wordt vertegenwoordigd door de voorzitter.',
+    en: 'The <entity role="body">College voor de Rechten van de Mens</entity> has at least nine and at most twelve members, including a chair and two deputy chairs (<law art="14">article 14</law> of the <law>Wet College voor de rechten van de mens</law>). The College is represented by the chair.',
+  },
+  "pos:zbo-college-voor-de-rechten-van-de-mens-ondervoorzitter": {
+    law: "BWBR0030733",
+    nl: 'Het <entity role="body">College voor de Rechten van de Mens</entity> bestaat uit minimaal negen en maximaal twaalf leden, onder wie een voorzitter en twee ondervoorzitters (<law art="14">artikel 14</law> van de <law>Wet College voor de rechten van de mens</law>).',
+    en: 'The <entity role="body">College voor de Rechten van de Mens</entity> has at least nine and at most twelve members, including a chair and two deputy chairs (<law art="14">article 14</law> of the <law>Wet College voor de rechten van de mens</law>).',
+  },
+  "pos:zbo-college-voor-de-rechten-van-de-mens-lid": {
+    law: "BWBR0030733",
+    nl: 'Het <entity role="body">College voor de Rechten van de Mens</entity> bestaat uit minimaal negen en maximaal twaalf leden, onder wie een voorzitter en twee ondervoorzitters (<law art="14">artikel 14</law> van de <law>Wet College voor de rechten van de mens</law>).',
+    en: 'The <entity role="body">College voor de Rechten van de Mens</entity> has at least nine and at most twelve members, including a chair and two deputy chairs (<law art="14">article 14</law> of the <law>Wet College voor de rechten van de mens</law>).',
+  },
+  "pos:zbo-college-voor-de-toelating-van-gewasbeschermingsmiddelen-en-biociden-voorzitter": {
+    law: "BWBR0021670",
+    nl: 'Het <entity role="body">College voor de toelating van gewasbeschermingsmiddelen en biociden</entity> bestaat uit vijf leden, de voorzitter daaronder begrepen (<law art="5">artikel 5</law> van de <law>Wet gewasbeschermingsmiddelen en biociden</law>). De leden worden voor vier jaren benoemd.',
+    en: 'The <entity role="body">College voor de toelating van gewasbeschermingsmiddelen en biociden</entity> has five members, including the chair (<law art="5">article 5</law> of the <law>Wet gewasbeschermingsmiddelen en biociden</law>). Members are appointed for four years.',
+  },
+  "pos:zbo-college-voor-de-toelating-van-gewasbeschermingsmiddelen-en-biociden-secretaris-directeur": {
+    law: "BWBR0021670",
+    nl: 'De secretaris van het <entity role="body">College voor de toelating van gewasbeschermingsmiddelen en biociden</entity> is tevens directeur van het secretariaat en is belast met de dagelijkse leiding daarvan (<law art="7">artikel 7</law> van de <law>Wet gewasbeschermingsmiddelen en biociden</law>).',
+    en: 'The secretary of the <entity role="body">College voor de toelating van gewasbeschermingsmiddelen en biociden</entity> is also director of the secretariat and has day-to-day leadership of it (<law art="7">article 7</law> of the <law>Wet gewasbeschermingsmiddelen en biociden</law>).',
+  },
+  "pos:zbo-de-nederlandsche-bank-president": {
+    law: "BWBR0009508",
+    nl: 'De directie van <entity role="body">De Nederlandsche Bank</entity> bestaat uit een president en ten minste drie en ten hoogste vijf directeuren (<law art="12">artikel 12</law> van de <law>Bankwet 1998</law>). De president en de directeuren worden voor zeven jaren bij koninklijk besluit benoemd.',
+    en: 'The directorate of <entity role="body">De Nederlandsche Bank</entity> consists of a president and at least three and at most five directors (<law art="12">article 12</law> of the <law>Bankwet 1998</law>). The president and the directors are appointed for seven years by royal decree.',
+  },
+  "pos:zbo-huis-voor-klokkenluiders-bestuursvoorzitter": {
+    law: "BWBR0037852",
+    nl: 'Het bestuur van het <entity role="body">Huis voor Klokkenluiders</entity> bestaat uit een voorzitter en ten hoogste vier leden (<law art="3b">artikel 3b</law> van de <law>Wet bescherming klokkenluiders</law>). De voorzitter en de leden worden bij koninklijk besluit benoemd (<law art="3c">artikel 3c</law>).',
+    en: 'The board of the <entity role="body">Huis voor Klokkenluiders</entity> consists of a chair and at most four members (<law art="3b">article 3b</law> of the <law>Wet bescherming klokkenluiders</law>). The chair and the members are appointed by royal decree (<law art="3c">article 3c</law>).',
+  },
+  "pos:zbo-huis-voor-klokkenluiders-bestuurslid": {
+    law: "BWBR0037852",
+    nl: 'Het bestuur van het <entity role="body">Huis voor Klokkenluiders</entity> bestaat uit een voorzitter en ten hoogste vier leden (<law art="3b">artikel 3b</law> van de <law>Wet bescherming klokkenluiders</law>). De leden worden voor ten hoogste vier jaar benoemd (<law art="3c">artikel 3c</law>).',
+    en: 'The board of the <entity role="body">Huis voor Klokkenluiders</entity> consists of a chair and at most four members (<law art="3b">article 3b</law> of the <law>Wet bescherming klokkenluiders</law>). Members are appointed for at most four years (<law art="3c">article 3c</law>).',
+  },
+  "pos:zbo-kansspelautoriteit-voorzitter": {
+    law: "BWBR0002469",
+    nl: 'De raad van bestuur van de <entity role="body">Kansspelautoriteit</entity> bestaat uit ten hoogste drie leden, waaronder een voorzitter (<law art="33c">artikel 33c</law> van de <law>Wet op de kansspelen</law>). De leden worden benoemd voor ten hoogste zes jaar.',
+    en: 'The board of the <entity role="body">Kansspelautoriteit</entity> consists of at most three members, including a chair (<law art="33c">article 33c</law> of the <law>Wet op de kansspelen</law>). Members are appointed for at most six years.',
+  },
+  "pos:zbo-commissariaat-voor-de-media-voorzitter": {
+    law: "BWBR0025028",
+    nl: 'Het <entity role="body">Commissariaat voor de Media</entity> bestaat uit een voorzitter en twee of vier andere leden (<law art="7.3">artikel 7.3</law> van de <law>Mediawet 2008</law>). Een benoeming is voor vijf jaar.',
+    en: 'The <entity role="body">Commissariaat voor de Media</entity> consists of a chair and two or four other members (<law art="7.3">article 7.3</law> of the <law>Mediawet 2008</law>). An appointment is for five years.',
+  },
+  "pos:zbo-commissariaat-voor-de-media-lid": {
+    law: "BWBR0025028",
+    nl: 'Het <entity role="body">Commissariaat voor de Media</entity> bestaat uit een voorzitter en twee of vier andere leden (<law art="7.3">artikel 7.3</law> van de <law>Mediawet 2008</law>). Een benoeming is voor vijf jaar.',
+    en: 'The <entity role="body">Commissariaat voor de Media</entity> consists of a chair and two or four other members (<law art="7.3">article 7.3</law> of the <law>Mediawet 2008</law>). An appointment is for five years.',
+  },
+  "pos:zbo-dienst-voor-het-kadaster-en-de-openbare-registers-voorzitter": {
+    law: "BWBR0006463",
+    nl: 'Het bestuur is belast met het besturen van de <entity role="body">Dienst voor het kadaster en de openbare registers</entity> (<law art="7">artikel 7</law> van de <law>Organisatiewet Kadaster</law>). De voorzitter en de overige leden worden benoemd voor ten hoogste vijf jaren.',
+    en: 'The board is charged with running the <entity role="body">Dienst voor het kadaster en de openbare registers</entity> (<law art="7">article 7</law> of the <law>Organisatiewet Kadaster</law>). The chair and the other members are appointed for at most five years.',
+  },
+  "pos:voorzitter-sociaal-economische-raad": {
+    law: "BWBR0002058",
+    nl: 'De voorzitter van de <entity role="body">Sociaal-Economische Raad</entity> wordt uit de leden van de Raad benoemd (<law art="11">artikel 11</law> van de <law>Wet op de Sociaal-Economische Raad</law>). De voorzitter vertegenwoordigt de Raad in en buiten rechte (<law art="39">artikel 39</law>).',
+    en: 'The chair of the <entity role="body">Sociaal-Economische Raad</entity> is appointed from among the members of the Raad (<law art="11">article 11</law> of the <law>Wet op de Sociaal-Economische Raad</law>). The chair represents the Raad in and out of court (<law art="39">article 39</law>).',
+  },
+  "pos:voorzitter-wrr": {
+    law: "BWBR0003043",
+    nl: 'De voorzitter en de overige leden van de <entity role="body">Wetenschappelijke Raad voor het Regeringsbeleid</entity> worden voor vijf jaren benoemd (<law art="3">artikel 3</law> van de <law>Instellingswet W.R.R.</law>). Het ambt van voorzitter is een volledige betrekking (<law art="4">artikel 4</law>).',
+    en: 'The chair and the other members of the <entity role="body">Wetenschappelijke Raad voor het Regeringsbeleid</entity> are appointed for five years (<law art="3">article 3</law> of the <law>Instellingswet W.R.R.</law>). The office of chair is a full-time post (<law art="4">article 4</law>).',
+  },
+  "pos:voorzitter-gezondheidsraad": {
+    law: "BWBR0002202",
+    nl: 'De voorzitter en de vice-voorzitters van de <entity role="body">Gezondheidsraad</entity> worden voor ten hoogste vier jaar benoemd (<law art="21">artikel 21</law> van de <law>Gezondheidswet</law>). De voorzitter wijst uit de leden van een commissie een voorzitter aan (<law art="24">artikel 24</law>).',
+    en: 'The chair and the vice-chairs of the <entity role="body">Gezondheidsraad</entity> are appointed for at most four years (<law art="21">article 21</law> of the <law>Gezondheidswet</law>). The chair appoints a committee chair from among that committee\'s members (<law art="24">article 24</law>).',
+  },
+  "pos:voorzitter-adviesraad-migratie": {
+    law: "BWBR0011823",
+    nl: 'Er is een <entity role="body">Adviesraad Migratie</entity> (<law art="2">artikel 2</law> van de <law>Vreemdelingenwet 2000</law>). Als voorzitter wordt bij voorkeur een rechterlijk ambtenaar met rechtspraak belast benoemd.',
+    en: 'There is an <entity role="body">Adviesraad Migratie</entity> (<law art="2">article 2</law> of the <law>Vreemdelingenwet 2000</law>). The chair is preferably appointed as a judicial officer charged with adjudication.',
+  },
+  "pos:voorzitter-kiesraad": {
+    law: "BWBR0004627",
+    nl: 'De <entity role="body">Kiesraad</entity> bestaat uit een voorzitter, zes andere leden en twee buitengewone leden (<law art="A 5">artikel A 5</law> van de <law>Kieswet</law>).',
+    en: 'The <entity role="body">Kiesraad</entity> consists of a chair, six other members and two extraordinary members (<law art="A 5">article A 5</law> of the <law>Kieswet</law>).',
+  },
+  "pos:zbo-kiesraad-lid": {
+    law: "BWBR0004627",
+    nl: 'De <entity role="body">Kiesraad</entity> bestaat uit een voorzitter, zes andere leden en twee buitengewone leden (<law art="A 5">artikel A 5</law> van de <law>Kieswet</law>). De leden worden benoemd op grond van hun deskundigheid op het gebied van het kiesrecht en de verkiezingen.',
+    en: 'The <entity role="body">Kiesraad</entity> consists of a chair, six other members and two extraordinary members (<law art="A 5">article A 5</law> of the <law>Kieswet</law>). Members are appointed for their expertise on electoral law and elections.',
+  },
+  "pos:zbo-kiesraad-vicevoorzitter": {
+    law: "BWBR0004627",
+    nl: 'De <entity role="body">Kiesraad</entity> kan uit de leden ondervoorzitters aanwijzen (<law art="A 5">artikel A 5</law> van de <law>Kieswet</law>).',
+    en: 'The <entity role="body">Kiesraad</entity> may designate deputy chairs from among its members (<law art="A 5">article A 5</law> of the <law>Kieswet</law>).',
+  },
 };
 
 /** The wetten.overheid.nl JCI permalink for a BWB, or one article of it. */
