@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (17-10-2026, English positions table)
+
+- The English positions table now replaces both the office and the body with established names, computed at render so a cached list cannot keep Dutch on screen. Agency directors use the body's official English name (Medicines Evaluation Board, Central Judicial Collection Agency, Judicial Information Service). Board seats, statenleden, gouverneurs and gevolmachtigde ministers follow the same rule. Bodies without an official English name stay Dutch.
+
 ### Changed (17-10-2026, footer)
 
 - The page footer is a row of icon chips (Over, Privacy, Toegankelijkheid, Dataset) and one meta strip for the licences, the non-affiliation line and the dataset date. The slogan "Elk feit heeft een bron" is gone; the Dataset chip already leads to sources and credit.

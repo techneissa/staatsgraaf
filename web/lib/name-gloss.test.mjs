@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { establishedEn, orgEnGloss, positionEn } from "./name-gloss";
+import { establishedEn, orgEnGloss, positionEn, restEn } from "./name-gloss";
 import { readFileSync } from "node:fs";
 
 describe("positionEn", () => {
@@ -98,6 +98,45 @@ describe("positionEn", () => {
     );
   });
 
+  test("translates agency directors with the official English body name", () => {
+    expect(
+      positionEn("Algemeen Directeur Agentschap College ter Beoordeling van Geneesmiddelen"),
+    ).toBe("Director, Medicines Evaluation Board");
+    expect(positionEn("Algemeen Directeur Centraal Justitieel Incassobureau")).toBe(
+      "Director, Central Judicial Collection Agency",
+    );
+    expect(positionEn("Algemeen Directeur Rijksdienst voor Identiteitsgegevens")).toBe(
+      "Director, National Office for Identity Data",
+    );
+    expect(positionEn("Algemeen Directeur Justitiële Informatiedienst")).toBe(
+      "Director, Judicial Information Service",
+    );
+    expect(positionEn("Algemeen Directeur CIBG")).toBe("Director, CIBG");
+    expect(
+      positionEn("Algemeen secretaris/directeur Centrale Commissie Mensgebonden Onderzoek"),
+    ).toBe("Secretary/director, Central Committee on Research Involving Human Subjects");
+  });
+
+  test("translates board seats and kingdom offices", () => {
+    expect(positionEn("Bestuurslid Autoriteit Consument en Markt")).toBe(
+      "Board member, Authority for Consumers and Markets",
+    );
+    expect(positionEn("Bestuursvoorzitter Autoriteit Consument en Markt")).toBe(
+      "Chair of the board, Authority for Consumers and Markets",
+    );
+    expect(positionEn("Lid Provinciale Staten van Drenthe")).toBe(
+      "Member of the provincial council of Drenthe",
+    );
+    expect(positionEn("Gouverneur van Curaçao")).toBe("Governor of Curaçao");
+    expect(positionEn("Gevolmachtigde minister van Aruba")).toBe(
+      "Minister Plenipotentiary of Aruba",
+    );
+    expect(positionEn("Statenlid van Curaçao")).toBe("Member of the parliament of Curaçao");
+    expect(
+      positionEn("Eerste ondervoorzitter van de Tweede Kamer der Staten-Generaal"),
+    ).toBe("First Deputy Speaker of the House of Representatives");
+  });
+
   test("returns null for empty and unknown input", () => {
     expect(positionEn(null)).toBeNull();
     expect(positionEn("")).toBeNull();
@@ -145,7 +184,30 @@ describe("orgEnGloss", () => {
     expect(orgEnGloss("Ministerie van Binnenlandse Zaken en Koninkrijksrelaties")).toBe(
       "Ministry of the Interior and Kingdom Relations",
     );
+    expect(orgEnGloss("Ministerie van Financiën (Curaçao)")).toBe(
+      "Ministry of Finance (Curaçao)",
+    );
     expect(orgEnGloss("Ministerie van Onbekende Zaken")).toBeNull();
+  });
+
+  test("uses official English for extra executive bodies", () => {
+    expect(orgEnGloss("Agentschap College ter Beoordeling van Geneesmiddelen")).toBe(
+      "Medicines Evaluation Board",
+    );
+    expect(orgEnGloss("Justitiële Informatiedienst")).toBe("Judicial Information Service");
+    expect(orgEnGloss("Stichting Autoriteit Financiële Markten")).toBe(
+      "Dutch Authority for the Financial Markets",
+    );
+    expect(orgEnGloss("Staten van Aruba")).toBe("Parliament of Aruba");
+    expect(orgEnGloss("Centrale Commissie Mensgebonden Onderzoek")).toBe(
+      "Central Committee on Research Involving Human Subjects",
+    );
+  });
+
+  test("translates a ministry rest on a secretaris-generaal", () => {
+    expect(restEn("Financiën")).toBe("Finance");
+    expect(restEn("Financiën (Curaçao)")).toBe("Finance (Curaçao)");
+    expect(restEn("Amsterdam")).toBe("Amsterdam");
   });
 
   test("translates parliamentary committees", () => {
@@ -175,9 +237,7 @@ describe("gloss coverage", () => {
       if (positionEn(record.title) !== null) hit += 1;
     }
     // At least 90% of current titles must be covered; the remainder are honest
-    // gaps rather than machine-translated guesses. 33 kingdom positions
-    // (statenlid, voorzitter, minister-president, landen-ministers) lack an
-    // established English gloss, so the threshold sits below their share.
+    // gaps rather than machine-translated guesses.
     expect(hit / records.length).toBeGreaterThan(0.85);
   });
 
@@ -190,9 +250,6 @@ describe("gloss coverage", () => {
     for (const record of records) {
       if (orgEnGloss(record.name) !== null) hit += 1;
     }
-    // 27 kingdom orgs (3 landstaten + 24 landen-ministeries) have no
-    // established English name; machine translation is deferred pending its
-    // own ADR, so the threshold sits below their share.
     expect(hit / records.length).toBeGreaterThan(0.75);
   });
 });
