@@ -3,6 +3,9 @@
  * bodies. The position schema has no description field, so the copy is keyed on
  * the title, the way name-gloss.ts keys the English names.
  *
+ * Mentions of bodies, offices and law articles are tagged so the position
+ * header can render them as peek links and wetten.overheid.nl permalinks.
+ *
  * Every sentence below was written from the live source text fetched on
  * 2026-10-17. Fillmethod values in positions.json were not used: the data says
  * `benoeming-door-college` for Wethouder, Gedeputeerde and Eilandgedeputeerde,
@@ -54,6 +57,8 @@
 
 export type PositionOfficeCopy = { nl: string; en: string };
 
+type OfficeTemplate = PositionOfficeCopy & { law?: string };
+
 export const WETHOUDER_SOURCE = "https://wetten.overheid.nl/BWBR0005416";
 export const GEDEPUTEERDE_SOURCE = "https://wetten.overheid.nl/BWBR0005645";
 export const EILANDGEDEPUTEERDE_SOURCE = "https://wetten.overheid.nl/BWBR0028142";
@@ -75,101 +80,191 @@ export const SECRETARIS_GENERAAL_SOURCES = [
 /** Ministries whose fetched page says nothing on the secretaris-generaal's role. */
 const SECRETARIS_GENERAAL_GAPS: ReadonlySet<string> = new Set(["org:ministerie-van-financien"]);
 
-const WETHOUDER: PositionOfficeCopy = {
-  nl: "Een wethouder vormt samen met de burgemeester het college van burgemeester en wethouders (artikel 34 van de Gemeentewet). De gemeenteraad benoemt de wethouders (artikel 35, lid 1).",
-  en: "A wethouder forms the college of burgemeester en wethouders together with the burgemeester (Gemeentewet, article 34). The municipal council appoints the wethouders (article 35, paragraph 1).",
+const WETHOUDER: OfficeTemplate = {
+  law: "BWBR0005416",
+  nl: 'Een wethouder vormt samen met de <entity role="mayor">burgemeester</entity> het <entity role="college">college van burgemeester en wethouders</entity> (<law art="34">artikel 34</law> van de <law>Gemeentewet</law>). De <entity role="council">gemeenteraad</entity> benoemt de wethouders (<law art="35">artikel 35, lid 1</law>).',
+  en: 'A wethouder forms the <entity role="college">college of burgemeester en wethouders</entity> together with the <entity role="mayor">burgemeester</entity> (<law>Gemeentewet</law>, <law art="34">article 34</law>). The <entity role="council">municipal council</entity> appoints the wethouders (<law art="35">article 35, paragraph 1</law>).',
 };
 
-const GEDEPUTEERDE: PositionOfficeCopy = {
-  nl: "Een gedeputeerde vormt samen met de commissaris van de Koning Gedeputeerde Staten (artikel 34 van de Provinciewet). Provinciale Staten benoemen de gedeputeerden (artikel 35, lid 1).",
-  en: "A gedeputeerde forms Gedeputeerde Staten together with the commissaris van de Koning (Provinciewet, article 34). Provinciale Staten appoint the gedeputeerden (article 35, paragraph 1).",
+const GEDEPUTEERDE: OfficeTemplate = {
+  law: "BWBR0005645",
+  nl: 'Een gedeputeerde vormt samen met de <entity role="commissioner">commissaris van de Koning</entity> <entity role="college">Gedeputeerde Staten</entity> (<law art="34">artikel 34</law> van de <law>Provinciewet</law>). <entity role="council">Provinciale Staten</entity> benoemen de gedeputeerden (<law art="35">artikel 35, lid 1</law>).',
+  en: 'A gedeputeerde forms <entity role="college">Gedeputeerde Staten</entity> together with the <entity role="commissioner">commissaris van de Koning</entity> (<law>Provinciewet</law>, <law art="34">article 34</law>). <entity role="council">Provinciale Staten</entity> appoint the gedeputeerden (<law art="35">article 35, paragraph 1</law>).',
 };
 
-const SECRETARIS_GENERAAL: PositionOfficeCopy = {
-  nl: "De secretaris-generaal heeft de ambtelijke leiding over het ministerie.",
-  en: "The secretaris-generaal has the administrative leadership of the ministry.",
+const SECRETARIS_GENERAAL: OfficeTemplate = {
+  nl: 'De secretaris-generaal heeft de ambtelijke leiding over het <entity role="ministry">ministerie</entity>.',
+  en: 'The secretaris-generaal has the administrative leadership of the <entity role="ministry">ministry</entity>.',
 };
 
-function eilandgedeputeerde(island: string): PositionOfficeCopy {
+function eilandgedeputeerde(island: string): OfficeTemplate {
   return {
-    nl: `Een eilandgedeputeerde van ${island} vormt samen met de gezaghebber het bestuurscollege (artikel 36 van de Wet openbare lichamen Bonaire, Sint Eustatius en Saba). De eilandsraad benoemt de eilandgedeputeerden (artikel 37).`,
-    en: `An eilandgedeputeerde of ${island} forms the bestuurscollege together with the gezaghebber (article 36 of the Wet openbare lichamen Bonaire, Sint Eustatius en Saba). The eilandsraad appoints the eilandgedeputeerden (article 37).`,
+    law: "BWBR0028142",
+    nl: `Een eilandgedeputeerde van ${island} vormt samen met de <entity role="gezaghebber">gezaghebber</entity> het <entity role="college">bestuurscollege</entity> (<law art="36">artikel 36</law> van de <law>Wet openbare lichamen Bonaire, Sint Eustatius en Saba</law>). De <entity role="council">eilandsraad</entity> benoemt de eilandgedeputeerden (<law art="37">artikel 37</law>).`,
+    en: `An eilandgedeputeerde of ${island} forms the <entity role="college">bestuurscollege</entity> together with the <entity role="gezaghebber">gezaghebber</entity> (<law art="36">article 36</law> of the <law>Wet openbare lichamen Bonaire, Sint Eustatius en Saba</law>). The <entity role="council">eilandsraad</entity> appoints the eilandgedeputeerden (<law art="37">article 37</law>).`,
   };
 }
 
-function statenlid(country: string): PositionOfficeCopy {
+function statenlid(country: string): OfficeTemplate {
   return {
-    nl: `Een Statenlid van ${country} zit in de Staten van ${country}. Artikel 46 van het Statuut voor het Koninkrijk der Nederlanden bepaalt dat de vertegenwoordigende lichamen van de landen worden gekozen.`,
-    en: `A Statenlid of ${country} sits in the Staten of ${country}. Article 46 of the Statuut voor het Koninkrijk der Nederlanden says the representative bodies of the countries are elected.`,
+    law: "BWBR0002154",
+    nl: `Een Statenlid van ${country} zit in de <entity role="staten">Staten van ${country}</entity>. <law art="46">Artikel 46</law> van het <law>Statuut voor het Koninkrijk der Nederlanden</law> bepaalt dat de vertegenwoordigende lichamen van de landen worden gekozen.`,
+    en: `A Statenlid of ${country} sits in the <entity role="staten">Staten of ${country}</entity>. <law art="46">Article 46</law> of the <law>Statuut voor het Koninkrijk der Nederlanden</law> says the representative bodies of the countries are elected.`,
   };
 }
 
-const RAADSLID: PositionOfficeCopy = {
-  nl: "Een raadslid is lid van de gemeenteraad, die de gehele bevolking van de gemeente vertegenwoordigt (artikel 7 van de Gemeentewet). Het aantal leden hangt af van het aantal inwoners en wijzigt pas bij de eerstvolgende periodieke verkiezing van de raad (artikel 8).",
-  en: "A raadslid is a member of the gemeenteraad, which represents the whole population of the municipality (Gemeentewet, article 7). The number of members depends on the number of inhabitants and changes only at the next periodic election of the council (article 8).",
+const RAADSLID: OfficeTemplate = {
+  law: "BWBR0005416",
+  nl: 'Een raadslid is lid van de <entity role="council">gemeenteraad</entity>, die de gehele bevolking van de gemeente vertegenwoordigt (<law art="7">artikel 7</law> van de <law>Gemeentewet</law>). Het aantal leden hangt af van het aantal inwoners en wijzigt pas bij de eerstvolgende periodieke verkiezing van de raad (<law art="8">artikel 8</law>).',
+  en: 'A raadslid is a member of the <entity role="council">gemeenteraad</entity>, which represents the whole population of the municipality (<law>Gemeentewet</law>, <law art="7">article 7</law>). The number of members depends on the number of inhabitants and changes only at the next periodic election of the council (<law art="8">article 8</law>).',
 };
 
-const PROVINCIAAL_STATENLID: PositionOfficeCopy = {
-  nl: "Een lid van Provinciale Staten zit in het orgaan dat de gehele bevolking van de provincie vertegenwoordigt (artikel 7 van de Provinciewet). Het aantal leden hangt af van het aantal inwoners en wijzigt pas bij de eerstvolgende periodieke verkiezing (artikel 8).",
-  en: "A member of Provinciale Staten sits in the body that represents the whole population of the province (Provinciewet, article 7). The number of members depends on the number of inhabitants and changes only at the next periodic election (article 8).",
+const PROVINCIAAL_STATENLID: OfficeTemplate = {
+  law: "BWBR0005645",
+  nl: 'Een lid van <entity role="council">Provinciale Staten</entity> zit in het orgaan dat de gehele bevolking van de provincie vertegenwoordigt (<law art="7">artikel 7</law> van de <law>Provinciewet</law>). Het aantal leden hangt af van het aantal inwoners en wijzigt pas bij de eerstvolgende periodieke verkiezing (<law art="8">artikel 8</law>).',
+  en: 'A member of <entity role="council">Provinciale Staten</entity> sits in the body that represents the whole population of the province (<law>Provinciewet</law>, <law art="7">article 7</law>). The number of members depends on the number of inhabitants and changes only at the next periodic election (<law art="8">article 8</law>).',
 };
 
-const WATERSCHAP_AB: PositionOfficeCopy = {
-  nl: "Een lid van het algemeen bestuur vertegenwoordigt een categorie van belanghebbenden bij de taken van het waterschap (artikel 12 van de Waterschapswet). Het algemeen bestuur telt ten minste achttien en ten hoogste dertig leden (artikel 13).",
-  en: "A member of the algemeen bestuur represents a category of interested parties in the water board's tasks (Waterschapswet, article 12). The algemeen bestuur has at least eighteen and at most thirty members (article 13).",
+const WATERSCHAP_AB: OfficeTemplate = {
+  law: "BWBR0005108",
+  nl: 'Een lid van het <entity role="board">algemeen bestuur</entity> vertegenwoordigt een categorie van belanghebbenden bij de taken van het waterschap (<law art="12">artikel 12</law> van de <law>Waterschapswet</law>). Het algemeen bestuur telt ten minste achttien en ten hoogste dertig leden (<law art="13">artikel 13</law>).',
+  en: 'A member of the <entity role="board">algemeen bestuur</entity> represents a category of interested parties in the water board\'s tasks (<law>Waterschapswet</law>, <law art="12">article 12</law>). The algemeen bestuur has at least eighteen and at most thirty members (<law art="13">article 13</law>).',
 };
 
-const WATERSCHAP_DB: PositionOfficeCopy = {
-  nl: "Een lid van het dagelijks bestuur zit in het bestuur dat bestaat uit de voorzitter en een door het algemeen bestuur bepaald aantal andere leden (artikel 40 van de Waterschapswet). Het algemeen bestuur benoemt die leden, de voorzitter uitgezonderd, uit zijn eigen leden (artikel 41).",
-  en: "A member of the dagelijks bestuur sits on the board that consists of the chair and a number of other members set by the algemeen bestuur (Waterschapswet, article 40). The algemeen bestuur appoints those members, the chair excepted, from among its own members (article 41).",
+const WATERSCHAP_DB: OfficeTemplate = {
+  law: "BWBR0005108",
+  nl: 'Een lid van het <entity role="board">dagelijks bestuur</entity> zit in het bestuur dat bestaat uit de voorzitter en een door het <entity role="ab">algemeen bestuur</entity> bepaald aantal andere leden (<law art="40">artikel 40</law> van de <law>Waterschapswet</law>). Het algemeen bestuur benoemt die leden, de voorzitter uitgezonderd, uit zijn eigen leden (<law art="41">artikel 41</law>).',
+  en: 'A member of the <entity role="board">dagelijks bestuur</entity> sits on the board that consists of the chair and a number of other members set by the <entity role="ab">algemeen bestuur</entity> (<law>Waterschapswet</law>, <law art="40">article 40</law>). The algemeen bestuur appoints those members, the chair excepted, from among its own members (<law art="41">article 41</law>).',
 };
 
-const EILANDSRAADLID: PositionOfficeCopy = {
-  nl: "Een lid van de eilandsraad zit in de raad die de gehele bevolking van het openbaar lichaam vertegenwoordigt (artikel 6 van de Wet openbare lichamen Bonaire, Sint Eustatius en Saba). De eilandsraad telt negen leden op Bonaire en vijf leden op Sint Eustatius en Saba (artikel 9).",
-  en: "A member of the eilandsraad sits on the council that represents the whole population of the public body (article 6 of the Wet openbare lichamen Bonaire, Sint Eustatius en Saba). The eilandsraad has nine members on Bonaire and five members on Sint Eustatius and Saba (article 9).",
+const EILANDSRAADLID: OfficeTemplate = {
+  law: "BWBR0028142",
+  nl: 'Een lid van de <entity role="council">eilandsraad</entity> zit in de raad die de gehele bevolking van het openbaar lichaam vertegenwoordigt (<law art="6">artikel 6</law> van de <law>Wet openbare lichamen Bonaire, Sint Eustatius en Saba</law>). De eilandsraad telt negen leden op Bonaire en vijf leden op Sint Eustatius en Saba (<law art="9">artikel 9</law>).',
+  en: 'A member of the <entity role="council">eilandsraad</entity> sits on the council that represents the whole population of the public body (<law art="6">article 6</law> of the <law>Wet openbare lichamen Bonaire, Sint Eustatius en Saba</law>). The eilandsraad has nine members on Bonaire and five members on Sint Eustatius and Saba (<law art="9">article 9</law>).',
 };
 
-const TWEEDE_KAMERLID: PositionOfficeCopy = {
-  nl: "Een lid van de Tweede Kamer is een van de honderdvijftig leden van die kamer (artikel 51 van de Grondwet). De leden worden rechtstreeks gekozen door Nederlanders van achttien jaar of ouder (artikel 54) en de zittingsduur is vier jaar (artikel 52).",
-  en: "A member of the Tweede Kamer is one of the 150 members of that chamber (Grondwet, article 51). The members are elected directly by Dutch nationals aged eighteen or over (article 54) and the term is four years (article 52).",
+const TWEEDE_KAMERLID: OfficeTemplate = {
+  law: "BWBR0001840",
+  nl: 'Een lid van de <entity role="chamber">Tweede Kamer</entity> is een van de honderdvijftig leden van die kamer (<law art="51">artikel 51</law> van de <law>Grondwet</law>). De leden worden rechtstreeks gekozen door Nederlanders van achttien jaar of ouder (<law art="54">artikel 54</law>) en de zittingsduur is vier jaar (<law art="52">artikel 52</law>).',
+  en: 'A member of the <entity role="chamber">Tweede Kamer</entity> is one of the 150 members of that chamber (<law>Grondwet</law>, <law art="51">article 51</law>). The members are elected directly by Dutch nationals aged eighteen or over (<law art="54">article 54</law>) and the term is four years (<law art="52">article 52</law>).',
 };
 
-const EERSTE_KAMERLID: PositionOfficeCopy = {
-  nl: "Een lid van de Eerste Kamer is een van de vijfenzeventig leden van die kamer (artikel 51 van de Grondwet). De leden worden gekozen door de leden van provinciale staten en van de kiescolleges (artikel 55) en de zittingsduur is vier jaar (artikel 52).",
-  en: "A member of the Eerste Kamer is one of the 75 members of that chamber (Grondwet, article 51). The members are elected by the members of provinciale staten and of the kiescolleges (article 55) and the term is four years (article 52).",
+const EERSTE_KAMERLID: OfficeTemplate = {
+  law: "BWBR0001840",
+  nl: 'Een lid van de <entity role="chamber">Eerste Kamer</entity> is een van de vijfenzeventig leden van die kamer (<law art="51">artikel 51</law> van de <law>Grondwet</law>). De leden worden gekozen door de leden van provinciale staten en van de kiescolleges (<law art="55">artikel 55</law>) en de zittingsduur is vier jaar (<law art="52">artikel 52</law>).',
+  en: 'A member of the <entity role="chamber">Eerste Kamer</entity> is one of the 75 members of that chamber (<law>Grondwet</law>, <law art="51">article 51</law>). The members are elected by the members of provinciale staten and of the kiescolleges (<law art="55">article 55</law>) and the term is four years (<law art="52">article 52</law>).',
 };
 
-const GRIFFIER: PositionOfficeCopy = {
-  nl: "Elk van beide kamers van de Staten-Generaal benoemt een griffier (artikel 61, lid 2, van de Grondwet).",
-  en: "Each of the two chambers of the Staten-Generaal appoints a griffier (Grondwet, article 61, paragraph 2).",
+const GRIFFIER: OfficeTemplate = {
+  law: "BWBR0001840",
+  nl: 'Elk van beide kamers van de Staten-Generaal benoemt een griffier (<law art="61">artikel 61, lid 2</law>, van de <law>Grondwet</law>).',
+  en: 'Each of the two chambers of the Staten-Generaal appoints a griffier (<law>Grondwet</law>, <law art="61">article 61, paragraph 2</law>).',
 };
+
+/** The wetten.overheid.nl JCI permalink for a BWB, or one article of it. */
+export function wettenArtikelUrl(bwb: string, artikel?: string): string {
+  if (artikel === undefined || artikel === "") return `https://wetten.overheid.nl/${bwb}`;
+  return `https://wetten.overheid.nl/jci1.3:c:${bwb}&artikel=${artikel}`;
+}
+
+/** The visible words of office copy, tags removed. */
+export function stripOfficeCopyMarkup(text: string): string {
+  return text.replaceAll(/<[^>]+>/g, "");
+}
+
+/**
+ * Sibling ids for the tagged roles in a template. Derived from the body's id
+ * scheme; a missing record stays plain text in the renderer.
+ */
+export function officeCopyRoles(position: { title: string; organization?: string }): Record<string, string> {
+  const org = position.organization;
+  if (org === undefined) return {};
+  const { title } = position;
+  const suffix = (prefix: string): string | null => {
+    if (!org.startsWith(prefix)) return null;
+    return org.slice(prefix.length);
+  };
+  if (title === "Wethouder") {
+    const place = suffix("org:college-van-bw-");
+    return place === null
+      ? { college: org }
+      : { mayor: `pos:burgemeester-${place}`, college: org, council: `org:gemeenteraad-${place}` };
+  }
+  if (title === "Gedeputeerde") {
+    const place = suffix("org:gedeputeerde-staten-");
+    return place === null
+      ? { college: org }
+      : {
+          commissioner: `pos:commissaris-van-de-koning-${place}`,
+          college: org,
+          council: `org:provinciale-staten-${place}`,
+        };
+  }
+  if (title.startsWith("Eilandgedeputeerde van ")) {
+    const place = suffix("org:bestuurscollege-");
+    return place === null
+      ? { college: org }
+      : { gezaghebber: `pos:gezaghebber-${place}`, college: org, council: `org:eilandsraad-${place}` };
+  }
+  if (title === "Secretaris-generaal") return { ministry: org };
+  if (title.startsWith("Lid gemeenteraad van ")) return { council: org };
+  if (title.startsWith("Lid Provinciale Staten van ")) return { council: org };
+  if (title.startsWith("Lid Algemeen Bestuur van ")) return { board: org };
+  if (title.startsWith("Lid Dagelijks Bestuur van ")) {
+    const place = suffix("org:dagelijks-bestuur-");
+    return place === null ? { board: org } : { board: org, ab: `org:algemeen-bestuur-${place}` };
+  }
+  if (title.startsWith("Lid eilandsraad van ")) return { council: org };
+  if (title === "Lid van de Tweede Kamer der Staten-Generaal") return { chamber: org };
+  if (title === "Lid van de Eerste Kamer der Staten-Generaal") return { chamber: org };
+  if (title.startsWith("Griffier van de ")) return { chamber: org };
+  if (title.startsWith("Statenlid van ")) return { staten: org };
+  return {};
+}
+
+function fillCopy(template: OfficeTemplate, roles: Record<string, string>): PositionOfficeCopy {
+  const law = template.law;
+  const fill = (text: string): string =>
+    text
+      .replaceAll(/<entity role="([^"]+)">([^<]*)<\/entity>/g, (_all, role: string, label: string) => {
+        const id = roles[role];
+        return id === undefined ? label : `<entity id="${id}">${label}</entity>`;
+      })
+      .replaceAll(/<law(?: art="([^"]+)")?>/g, (_all, artikel: string | undefined) => {
+        const href = law === undefined ? "" : wettenArtikelUrl(law, artikel);
+        return `<law href="${href}">`;
+      });
+  return { nl: fill(template.nl), en: fill(template.en) };
+}
 
 /**
  * Short prose on what an office is and how it is filled, or null when no
  * sourced copy exists for the title. Exact titles first, then prefixes.
+ * Entity and law tags are filled from the body's id.
  */
 export function positionOfficeCopy(position: {
   title: string;
   organization?: string;
 }): PositionOfficeCopy | null {
   const { title } = position;
-  if (title === "Wethouder") return WETHOUDER;
-  if (title === "Gedeputeerde") return GEDEPUTEERDE;
+  const roles = officeCopyRoles(position);
+  if (title === "Wethouder") return fillCopy(WETHOUDER, roles);
+  if (title === "Gedeputeerde") return fillCopy(GEDEPUTEERDE, roles);
   if (title === "Secretaris-generaal") {
     if (position.organization !== undefined && SECRETARIS_GENERAAL_GAPS.has(position.organization)) return null;
-    return SECRETARIS_GENERAAL;
+    return fillCopy(SECRETARIS_GENERAAL, roles);
   }
-  if (title === "Lid van de Tweede Kamer der Staten-Generaal") return TWEEDE_KAMERLID;
-  if (title === "Lid van de Eerste Kamer der Staten-Generaal") return EERSTE_KAMERLID;
-  if (title.startsWith("Griffier van de ")) return GRIFFIER;
-  if (title.startsWith("Lid gemeenteraad van ")) return RAADSLID;
-  if (title.startsWith("Lid Provinciale Staten van ")) return PROVINCIAAL_STATENLID;
-  if (title.startsWith("Lid Algemeen Bestuur van ")) return WATERSCHAP_AB;
-  if (title.startsWith("Lid Dagelijks Bestuur van ")) return WATERSCHAP_DB;
-  if (title.startsWith("Lid eilandsraad van ")) return EILANDSRAADLID;
+  if (title === "Lid van de Tweede Kamer der Staten-Generaal") return fillCopy(TWEEDE_KAMERLID, roles);
+  if (title === "Lid van de Eerste Kamer der Staten-Generaal") return fillCopy(EERSTE_KAMERLID, roles);
+  if (title.startsWith("Griffier van de ")) return fillCopy(GRIFFIER, roles);
+  if (title.startsWith("Lid gemeenteraad van ")) return fillCopy(RAADSLID, roles);
+  if (title.startsWith("Lid Provinciale Staten van ")) return fillCopy(PROVINCIAAL_STATENLID, roles);
+  if (title.startsWith("Lid Algemeen Bestuur van ")) return fillCopy(WATERSCHAP_AB, roles);
+  if (title.startsWith("Lid Dagelijks Bestuur van ")) return fillCopy(WATERSCHAP_DB, roles);
+  if (title.startsWith("Lid eilandsraad van ")) return fillCopy(EILANDSRAADLID, roles);
   const island = /^Eilandgedeputeerde van (.+)$/u.exec(title);
-  if (island !== null) return eilandgedeputeerde(island[1]);
+  if (island !== null) return fillCopy(eilandgedeputeerde(island[1]), roles);
   const country = /^Statenlid van (.+)$/u.exec(title);
-  if (country !== null) return statenlid(country[1]);
+  if (country !== null) return fillCopy(statenlid(country[1]), roles);
   return null;
 }

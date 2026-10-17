@@ -4,6 +4,14 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (17-10-2026, office copy links)
+
+- Office copy on a position page now links the bodies and offices it names, and the cited articles of the law. A wethouder sentence links the burgemeester, the college, the gemeenteraad, and Gemeentewet articles 34 and 35.
+
+### Changed (17-10-2026, empty holders)
+
+- When a position lists no holder, the note no longer cites the enabling law as if it named people. Wethouder and raadslid pages point at the Register van Overheidsorganisaties, which names them; those names are not in the dataset yet (ADR 0027).
+
 ### Added (17-10-2026, position office copy)
 
 - Position pages for shared offices now open with one or two sourced sentences: what the office is and how it is filled. That covers wethouder, gedeputeerde, eilandgedeputeerde, secretaris-generaal, raadslid, statenlid, waterschap boards, Kamerleden and the griffier. The copy is keyed on the title. It does not invent holders. Inspecteur-generaal and the secretaris-generaal of Financiën stay empty until a source describes the office.
