@@ -79,7 +79,7 @@ Never echo a secret. The workflows pass secrets only as step-level environment v
 
 ## Self-hosted runner
 
-The runner lives outside the repository, in `~/actions-runner`, with the label `staatsgraaf`. It is a LaunchAgent for the logged-in user. `~/actions-runner/.path` must be a single colon-separated PATH (the service script assigns the file to `PATH` as-is); include `/usr/bin` and `/opt/homebrew/bin` so `tar` and Homebrew `git` resolve. Apple's Xcode `git` hangs `git version` inside the service, so `brew install git` is required.
+The runner lives outside the repository, in `~/actions-runner`, with the label `staatsgraaf`. It is a LaunchAgent for the logged-in user. `~/actions-runner/.path` must be a single colon-separated PATH (the service script assigns the file to `PATH` as-is); include `/usr/bin` and `/opt/homebrew/bin` so `tar` and Homebrew `git` resolve. Apple's Xcode `git` hangs `git version` inside the service, so `brew install git` is required. Jobs must not use `osxkeychain`: `~/actions-runner/.env` points `GIT_CONFIG_GLOBAL` at a runner-only gitconfig with an empty credential helper, otherwise every checkout pops the Keychain dialog. Interactive `git` in Terminal is unchanged.
 
 ```sh
 cd ~/actions-runner

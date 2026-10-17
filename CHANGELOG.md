@@ -6,7 +6,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (17-10-2026, self-hosted Actions)
 
-- CI, deploy, the 3-hourly refresh and the weekly link check run on a self-hosted runner on the maintainer's Mac. GitHub-hosted minutes are no longer used. The repository stays private.
+- CI, deploy, the 3-hourly refresh and the weekly link check run on a self-hosted runner on the maintainer's Mac. GitHub-hosted minutes are no longer used. The repository stays private. The runner's git does not use the macOS Keychain, so checkouts no longer pop the osxkeychain password dialog.
 
 ### Changed (17-10-2026, no contributions, maintainer docs)
 
