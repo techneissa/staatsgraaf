@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Added (17-10-2026, position office copy)
+
+- Position pages for shared offices now open with one or two sourced sentences: what the office is and how it is filled. That covers wethouder, gedeputeerde, eilandgedeputeerde, secretaris-generaal, raadslid, statenlid, waterschap boards, Kamerleden and the griffier. The copy is keyed on the title. It does not invent holders. Inspecteur-generaal and the secretaris-generaal of Financiën stay empty until a source describes the office.
+
 ### Changed (17-10-2026, positions table)
 
 - The positions list is one sortable table: Positie, Orgaan, Houder. Each heading sorts the list, each row is a link to the position, and the three columns stay side by side on a phone. A Meerdere regels toggle wraps names onto extra lines or keeps each cell to one line. A bare office title (Wethouder, Gedeputeerde, Secretaris-generaal) also shows the place or ministry from the body name. The official title in the data is unchanged.

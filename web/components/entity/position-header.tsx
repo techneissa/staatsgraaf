@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { DateT } from "@/components/content/local-date";
 import { BuildingIcon, ClockIcon, KeyIcon, PeopleIcon, ScaleIcon, SeatIcon } from "@/components/entity/icons";
+import { LocalizedDescription } from "@/components/entity/localized-description";
 import { PersonPortrait, PersonPortraitCredit } from "@/components/entity/person-portrait";
 import { SUMMARY_CLASS } from "@/components/entity/entity-connections";
 import { Gloss, L, T } from "@/components/i18n/t";
@@ -10,6 +11,7 @@ import { ShareButton } from "@/components/share-button";
 import { getPersonById } from "@/lib/data";
 import { POSITION_TYPE_LABELS } from "@/lib/labels";
 import { positionEn } from "@/lib/name-gloss";
+import { positionOfficeCopy } from "@/lib/position-office-copy";
 import type { Organization, Position, Tenure } from "@/lib/types";
 
 const HIT =
@@ -51,6 +53,7 @@ export function PositionHeader({
   const termLength = position.termLengthMonths ?? null;
   const english = positionEn(position.title);
   const body = organization;
+  const officeCopy = positionOfficeCopy({ title: position.title, organization: position.organization });
 
   return (
     <header className="mt-4">
@@ -134,6 +137,14 @@ export function PositionHeader({
             </a>
           ) : null}
         </div>
+      ) : null}
+
+      {officeCopy !== null ? (
+        <LocalizedDescription
+          nl={officeCopy.nl}
+          en={officeCopy.en}
+          className="mt-4 max-w-prose text-sm leading-relaxed text-ink-muted"
+        />
       ) : null}
 
       <div id="functionarissen" className="mt-4 border-t border-line pt-3">
