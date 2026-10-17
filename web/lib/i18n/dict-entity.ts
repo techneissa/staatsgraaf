@@ -390,6 +390,11 @@ export const ENTITY_DICT = {
   idxSortAsc: { nl: "oplopend", en: "ascending" },
   idxSortDesc: { nl: "aflopend", en: "descending" },
   idxSortColumn: { nl: "Sorteer op {col}, {dir}", en: "Sort by {col}, {dir}" },
+  idxWrapLines: { nl: "Meerdere regels", en: "Wrap lines" },
+  idxWrapLinesHint: {
+    nl: "Toon namen op meerdere regels",
+    en: "Show names on more than one line",
+  },
   idxAlphabet: { nl: "Alfabet", en: "Alphabet" },
   idxCountPeople: { nl: "{shown} van {total} personen", en: "{shown} of {total} people" },
   idxCountOrganizations: { nl: "{shown} van {total} organisaties", en: "{shown} of {total} organizations" },
