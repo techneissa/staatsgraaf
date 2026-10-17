@@ -4,8 +4,14 @@ import assert from "node:assert/strict";
 import {
   EILANDGEDEPUTEERDE_SOURCE,
   GEDEPUTEERDE_SOURCE,
+  MEDIAWET_SOURCE,
+  RIJKSWET_ONDERZOEKSRAAD_SOURCE,
+  STAATSREGELING_ARUBA_SOURCE,
+  STAATSREGELING_CURACAO_SOURCE,
+  STAATSREGELING_SINT_MAARTEN_SOURCE,
   STATUUT_SOURCE,
   WETHOUDER_SOURCE,
+  WET_WOZ_SOURCE,
   positionOfficeCopy,
   stripOfficeCopyMarkup,
   wettenArtikelUrl,
@@ -190,6 +196,15 @@ test("a Dutch minister cites Grondwet articles 43 and 44; a Caribbean minister d
   });
   assert.ok(nlMin);
   assert.match(stripOfficeCopyMarkup(nlMin.nl), /artikel 43 van de Grondwet/);
+  const curacaoMin = positionOfficeCopy({
+    title: "Minister van Financiën",
+    organization: "org:ministerie-financien-curacao",
+    country: "curacao",
+    subtype: "ministerie",
+  });
+  assert.ok(curacaoMin);
+  assert.match(stripOfficeCopyMarkup(curacaoMin.nl), /Staatsregeling van Curaçao/);
+  assert.doesNotMatch(stripOfficeCopyMarkup(curacaoMin.nl), /Grondwet/);
   assert.equal(
     positionOfficeCopy({ title: "Minister van Financiën", organization: "org:ministerie-financien-curacao" }),
     null,
@@ -385,4 +400,94 @@ test("the Rijksvertegenwoordiger cites WolBES articles 187 and 188", () => {
   assert.match(nl, /artikel 187 van de Wet openbare lichamen Bonaire, Sint Eustatius en Saba/);
   assert.match(nl, /artikel 188/);
   assert.doesNotMatch(nl, /allerlei taken/);
+});
+
+test("Caribbean ministers cite their own Staatsregeling, not the Grondwet", () => {
+  const sxm = positionOfficeCopy({
+    title: "Minister of Justice",
+    organization: "org:ministerie-of-justice-sint-maarten",
+    country: "sint-maarten",
+    subtype: "ministerie",
+  });
+  assert.ok(sxm);
+  const sxmNl = stripOfficeCopyMarkup(sxm.nl);
+  assert.match(sxmNl, /artikel 33 van de Staatsregeling van Sint Maarten/);
+  assert.match(sxmNl, /artikel 38/);
+  assert.doesNotMatch(sxmNl, /Grondwet/);
+  assert.match(sxm.nl, new RegExp(STAATSREGELING_SINT_MAARTEN_SOURCE.replaceAll(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  const sxmMp = positionOfficeCopy({
+    id: "pos:minister-president-sint-maarten",
+    title: "Minister-President van Sint Maarten",
+    country: "sint-maarten",
+  });
+  assert.ok(sxmMp);
+  assert.match(stripOfficeCopyMarkup(sxmMp.nl), /artikel 39/);
+  const curacao = positionOfficeCopy({
+    title: "Minister van Justitie",
+    country: "curacao",
+    subtype: "ministerie",
+  });
+  assert.ok(curacao);
+  const curacaoNl = stripOfficeCopyMarkup(curacao.nl);
+  assert.match(curacaoNl, /artikel 29 van de Staatsregeling van Curaçao/);
+  assert.match(curacaoNl, /artikel 32/);
+  assert.doesNotMatch(curacaoNl, /Grondwet/);
+  assert.match(curacao.nl, new RegExp(STAATSREGELING_CURACAO_SOURCE.replaceAll(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  const aruba = positionOfficeCopy({
+    title: "Minister van Justitie en Sociale Zaken",
+    country: "aruba",
+    subtype: "ministerie",
+  });
+  assert.ok(aruba);
+  const arubaNl = stripOfficeCopyMarkup(aruba.nl);
+  assert.match(arubaNl, /artikel II.2 van de Staatsregeling van Aruba/);
+  assert.match(arubaNl, /artikel II.5/);
+  assert.doesNotMatch(arubaNl, /Grondwet/);
+  assert.match(aruba.nl, new RegExp(STAATSREGELING_ARUBA_SOURCE.replaceAll(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  const dutch = positionOfficeCopy({
+    title: "Minister van Justitie en Veiligheid",
+    country: "nederland",
+    subtype: "ministerie",
+  });
+  assert.ok(dutch);
+  assert.match(stripOfficeCopyMarkup(dutch.nl), /Grondwet/);
+});
+
+test("verified ZBO chairs cite the fetched articles", () => {
+  const ovv = positionOfficeCopy({
+    id: "pos:zbo-onderzoeksraad-voor-veiligheid-voorzitter",
+    title: "Voorzitter Onderzoeksraad voor Veiligheid",
+    organization: "org:onderzoeksraad-voor-veiligheid",
+  });
+  assert.ok(ovv);
+  assert.match(stripOfficeCopyMarkup(ovv.nl), /tot voorzitter benoemd/);
+  assert.match(ovv.nl, new RegExp(wettenArtikelUrl("BWBR0017613", "8").replaceAll(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  assert.equal(RIJKSWET_ONDERZOEKSRAAD_SOURCE, "https://wetten.overheid.nl/BWBR0017613");
+  const rpo = positionOfficeCopy({
+    id: "pos:zbo-stichting-regionale-publieke-omroep-voorzitter-raad-van-toezicht",
+    title: "Voorzitter Raad van Toezicht Stichting Regionale Publieke Omroep",
+  });
+  assert.ok(rpo);
+  assert.match(stripOfficeCopyMarkup(rpo.nl), /artikel 2.60c van de Mediawet 2008/);
+  assert.equal(MEDIAWET_SOURCE, "https://wetten.overheid.nl/BWBR0025028");
+  const woz = positionOfficeCopy({
+    id: "pos:zbo-waarderingskamer-lid",
+    title: "Lid Waarderingskamer",
+  });
+  assert.ok(woz);
+  assert.match(stripOfficeCopyMarkup(woz.nl), /elf leden/);
+  assert.equal(WET_WOZ_SOURCE, "https://wetten.overheid.nl/BWBR0007119");
+  const tlokb = positionOfficeCopy({
+    id: "pos:zbo-toelatingsorganisatie-kwaliteitsborging-bouw-vicevoorzitter",
+    title: "Vicevoorzitter Toelatingsorganisatie Kwaliteitsborging Bouw",
+  });
+  assert.ok(tlokb);
+  assert.match(stripOfficeCopyMarkup(tlokb.nl), /plaatsvervangend voorzitter/);
+  assert.equal(
+    positionOfficeCopy({
+      id: "pos:zbo-stichting-nederlands-letterenfonds-directeur-bestuurder",
+      title: "Directeur-bestuurder Stichting Nederlands Letterenfonds",
+    }),
+    null,
+  );
 });

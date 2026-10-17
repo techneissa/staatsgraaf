@@ -68,7 +68,7 @@
  * - Fractievoorzitter: neither Kamer RvO uses the word; named gap.
  * - Eerste Kamer committee seats: the fetched EK RvO (BWBR0007428) is marked
  *   materieel uitgewerkt per 13-06-2023, so it is not used.
- * - Caribbean ministers stay empty until their own laws are fetched.
+ * - Caribbean ministers now cite each land's Staatsregeling; the Grondwet is not used for them.
  * - Grondwet art. 24: "Het koningschap wordt erfelijk vervuld door de wettige opvolgers van Koning Willem I, Prins van Oranje-Nassau."
  * - Grondwet art. 42: "1 De regering wordt gevormd door de Koning en de ministers. 2 De Koning is onschendbaar; de ministers zijn verantwoordelijk."
  * - Grondwet art. 61 lid 1: "Elk der kamers benoemt uit de leden een voorzitter."
@@ -90,6 +90,15 @@
  * - Wet op de Raad van State art. 16a lid 4: "De vice-president is voorzitter van de Afdeling advisering."
  * - WolBES art. 187 lid 1: "Er is een Rijksvertegenwoordiger voor de openbare lichamen Bonaire, Sint Eustatius en Saba."
  * - WolBES art. 188 lid 1: "De Rijksvertegenwoordiger wordt bij koninklijk besluit op voordracht van Onze Minister benoemd voor de tijd van zes jaar."
+ * - Rijkswet Onderzoeksraad voor veiligheid (BWBR0017613) art. 6 lid 1: "De raad kent minimaal drie en maximaal vijf leden, de voorzitter daaronder begrepen." Art. 8 lid 1: a member under art. 6 lid 1 is appointed chair by royal decree.
+ * - Zaaizaad- en plantgoedwet (BWBR0018040) art. 3 lid 1: "De Raad bestaat uit ten minste zeven en ten hoogste elf leden, de voorzitter daaronder begrepen." Art. 4 lid 1: chair and other members appointed for five years.
+ * - Mediawet 2008 art. 2.60c lid 1: "De raad van toezicht van de RPO bestaat uit een voorzitter en ten hoogste vier andere leden die op voordracht van Onze Minister bij koninklijk besluit worden benoemd, geschorst en ontslagen."
+ * - Wet WOZ art. 5 lid 1: "De Waarderingskamer bestaat uit elf leden, waaronder de voorzitter, die worden benoemd door Onze Minister." Lid 4: at most four years.
+ * - Alcoholwet art. 11b lid 1-2: the Landelijke commissie sociale hygiëne has three to five members, appointed for four years.
+ * - Bestuursreglement TloKB (BWBR0047074) art. 2 lid 1: "Het Bestuur bestaat uit een Voorzitter en ten hoogste twee andere leden." Art. 2 lid 2: the chair is appointed in office and is responsible for the board. Art. 4 lid 4: the chair appoints another board member as plaatsvervangend voorzitter.
+ * - Staatsregeling van Sint Maarten (CVDR179884) art. 33 lid 1: "De Minister-President en de overige ministers worden bij landsbesluit benoemd en ontslagen." Art. 38: ministries headed by a minister. Art. 39 lid 3: the Minister-President chairs the ministerraad.
+ * - Staatsregeling van Curaçao (minfin.cw PDF, fetched 17-10-2026) art. 29 lid 1: "De minister-president en de overige ministers worden bij landsbesluit benoemd en ontslagen." Art. 32: ministries headed by a minister. Art. 33 lid 3: the minister-president chairs the raad van ministers.
+ * - Staatsregeling van Aruba (AB 1997 no. GT 1, 2013 print) art. II.2 lid 1: "De minister-president en de overige ministers worden in overleg met de Staten bij landsbesluit benoemd en ontslagen." Art. II.5: ministries headed by a minister. Art. II.6 lid 3: the minister-president chairs the ministerraad.
  */
 
 export type PositionOfficeCopy = { nl: string; en: string };
@@ -116,6 +125,17 @@ export const WET_BRBO_SOURCE = "https://wetten.overheid.nl/BWBR0002144";
 export const REGLEMENT_GOUVERNEUR_ARUBA_SOURCE = "https://wetten.overheid.nl/BWBR0003900";
 export const REGLEMENT_GOUVERNEUR_CURACAO_SOURCE = "https://wetten.overheid.nl/BWBR0028105";
 export const REGLEMENT_GOUVERNEUR_SINT_MAARTEN_SOURCE = "https://wetten.overheid.nl/BWBR0028096";
+export const RIJKSWET_ONDERZOEKSRAAD_SOURCE = "https://wetten.overheid.nl/BWBR0017613";
+export const ZAAIZAAD_EN_PLANTGOEDWET_SOURCE = "https://wetten.overheid.nl/BWBR0018040";
+export const MEDIAWET_SOURCE = "https://wetten.overheid.nl/BWBR0025028";
+export const WET_WOZ_SOURCE = "https://wetten.overheid.nl/BWBR0007119";
+export const ALCOHOLWET_SOURCE = "https://wetten.overheid.nl/BWBR0002458";
+export const TLOKB_BESTUURSREGLEMENT_SOURCE = "https://wetten.overheid.nl/BWBR0047074";
+export const STAATSREGELING_SINT_MAARTEN_SOURCE = "https://lokaleregelgeving.overheid.nl/CVDR179884";
+export const STAATSREGELING_CURACAO_SOURCE =
+  "https://minfin.cw/wp-content/uploads/2019/03/4._Staatsregeling_Cura__ao.pdf";
+export const STAATSREGELING_ARUBA_SOURCE =
+  "https://cuatro.sim-cdn.nl/arubaoverheid2858bd/uploads/0101gt87.001.pdf";
 export const SECRETARIS_GENERAAL_SOURCES = [
   "https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken/organisatie/organogram/secretaris-generaal",
   "https://www.rijksoverheid.nl/ministeries/ministerie-van-buitenlandse-zaken/organisatie/organogram/secretaris-generaal-en-plaatsvervangend-sg",
@@ -252,6 +272,36 @@ const MINISTER_PRESIDENT: OfficeTemplate = {
   law: "BWBR0001840",
   nl: 'De minister-president wordt bij koninklijk besluit benoemd (<law art="43">artikel 43</law> van de <law>Grondwet</law>) en is voorzitter van de ministerraad (<law art="45">artikel 45, lid 2</law>).',
   en: 'The minister-president is appointed by royal decree (<law>Grondwet</law>, <law art="43">article 43</law>) and chairs the council of ministers (<law art="45">article 45, paragraph 2</law>).',
+};
+
+const SXM_MINISTER: OfficeTemplate = {
+  nl: `De ministers van Sint Maarten worden bij landsbesluit benoemd en ontslagen (<law href="${STAATSREGELING_SINT_MAARTEN_SOURCE}">artikel 33</law> van de <law href="${STAATSREGELING_SINT_MAARTEN_SOURCE}">Staatsregeling van Sint Maarten</law>). Ministeries staan onder leiding van een minister (<law href="${STAATSREGELING_SINT_MAARTEN_SOURCE}">artikel 38</law>).`,
+  en: `The ministers of Sint Maarten are appointed and dismissed by landsbesluit (<law href="${STAATSREGELING_SINT_MAARTEN_SOURCE}">article 33</law> of the <law href="${STAATSREGELING_SINT_MAARTEN_SOURCE}">Staatsregeling van Sint Maarten</law>). Ministries are headed by a minister (<law href="${STAATSREGELING_SINT_MAARTEN_SOURCE}">article 38</law>).`,
+};
+
+const SXM_MINISTER_PRESIDENT: OfficeTemplate = {
+  nl: `De Minister-President en de overige ministers van Sint Maarten worden bij landsbesluit benoemd en ontslagen (<law href="${STAATSREGELING_SINT_MAARTEN_SOURCE}">artikel 33</law> van de <law href="${STAATSREGELING_SINT_MAARTEN_SOURCE}">Staatsregeling van Sint Maarten</law>). De Minister-President is voorzitter van de ministerraad (<law href="${STAATSREGELING_SINT_MAARTEN_SOURCE}">artikel 39</law>).`,
+  en: `The Minister-President and the other ministers of Sint Maarten are appointed and dismissed by landsbesluit (<law href="${STAATSREGELING_SINT_MAARTEN_SOURCE}">article 33</law> of the <law href="${STAATSREGELING_SINT_MAARTEN_SOURCE}">Staatsregeling van Sint Maarten</law>). The Minister-President chairs the council of ministers (<law href="${STAATSREGELING_SINT_MAARTEN_SOURCE}">article 39</law>).`,
+};
+
+const CURACAO_MINISTER: OfficeTemplate = {
+  nl: `De ministers van Curaçao worden bij landsbesluit benoemd en ontslagen (<law href="${STAATSREGELING_CURACAO_SOURCE}">artikel 29</law> van de <law href="${STAATSREGELING_CURACAO_SOURCE}">Staatsregeling van Curaçao</law>). Ministeries staan onder leiding van een minister (<law href="${STAATSREGELING_CURACAO_SOURCE}">artikel 32</law>).`,
+  en: `The ministers of Curaçao are appointed and dismissed by landsbesluit (<law href="${STAATSREGELING_CURACAO_SOURCE}">article 29</law> of the <law href="${STAATSREGELING_CURACAO_SOURCE}">Staatsregeling van Curaçao</law>). Ministries are headed by a minister (<law href="${STAATSREGELING_CURACAO_SOURCE}">article 32</law>).`,
+};
+
+const CURACAO_MINISTER_PRESIDENT: OfficeTemplate = {
+  nl: `De minister-president en de overige ministers van Curaçao worden bij landsbesluit benoemd en ontslagen (<law href="${STAATSREGELING_CURACAO_SOURCE}">artikel 29</law> van de <law href="${STAATSREGELING_CURACAO_SOURCE}">Staatsregeling van Curaçao</law>). De minister-president is voorzitter van de raad van ministers (<law href="${STAATSREGELING_CURACAO_SOURCE}">artikel 33</law>).`,
+  en: `The minister-president and the other ministers of Curaçao are appointed and dismissed by landsbesluit (<law href="${STAATSREGELING_CURACAO_SOURCE}">article 29</law> of the <law href="${STAATSREGELING_CURACAO_SOURCE}">Staatsregeling van Curaçao</law>). The minister-president chairs the council of ministers (<law href="${STAATSREGELING_CURACAO_SOURCE}">article 33</law>).`,
+};
+
+const ARUBA_MINISTER: OfficeTemplate = {
+  nl: `De ministers van Aruba worden in overleg met de Staten bij landsbesluit benoemd en ontslagen (<law href="${STAATSREGELING_ARUBA_SOURCE}">artikel II.2</law> van de <law href="${STAATSREGELING_ARUBA_SOURCE}">Staatsregeling van Aruba</law>). Ministeries staan onder leiding van een minister (<law href="${STAATSREGELING_ARUBA_SOURCE}">artikel II.5</law>).`,
+  en: `The ministers of Aruba are appointed and dismissed by landsbesluit in consultation with the Staten (<law href="${STAATSREGELING_ARUBA_SOURCE}">article II.2</law> of the <law href="${STAATSREGELING_ARUBA_SOURCE}">Staatsregeling van Aruba</law>). Ministries are headed by a minister (<law href="${STAATSREGELING_ARUBA_SOURCE}">article II.5</law>).`,
+};
+
+const ARUBA_MINISTER_PRESIDENT: OfficeTemplate = {
+  nl: `De minister-president en de overige ministers van Aruba worden in overleg met de Staten bij landsbesluit benoemd en ontslagen (<law href="${STAATSREGELING_ARUBA_SOURCE}">artikel II.2</law> van de <law href="${STAATSREGELING_ARUBA_SOURCE}">Staatsregeling van Aruba</law>). De minister-president is voorzitter van de ministerraad (<law href="${STAATSREGELING_ARUBA_SOURCE}">artikel II.6</law>).`,
+  en: `The minister-president and the other ministers of Aruba are appointed and dismissed by landsbesluit in consultation with the Staten (<law href="${STAATSREGELING_ARUBA_SOURCE}">article II.2</law> of the <law href="${STAATSREGELING_ARUBA_SOURCE}">Staatsregeling van Aruba</law>). The minister-president chairs the council of ministers (<law href="${STAATSREGELING_ARUBA_SOURCE}">article II.6</law>).`,
 };
 
 const PRESIDENT_GERECHT: OfficeTemplate = {
@@ -408,6 +458,70 @@ const UNIQUE: Record<string, OfficeTemplate> = {
     nl: 'Er is een Rijksvertegenwoordiger voor de openbare lichamen Bonaire, Sint Eustatius en Saba (<law art="187">artikel 187</law> van de <law>Wet openbare lichamen Bonaire, Sint Eustatius en Saba</law>). De Rijksvertegenwoordiger wordt bij koninklijk besluit op voordracht van de minister voor zes jaar benoemd (<law art="188">artikel 188</law>).',
     en: 'There is a Rijksvertegenwoordiger for the public bodies Bonaire, Sint Eustatius and Saba (<law art="187">article 187</law> of the <law>Wet openbare lichamen Bonaire, Sint Eustatius en Saba</law>). The Rijksvertegenwoordiger is appointed by royal decree on the minister\'s nomination for six years (<law art="188">article 188</law>).',
   },
+  "pos:zbo-onderzoeksraad-voor-veiligheid-voorzitter": {
+    law: "BWBR0017613",
+    nl: 'Een van de leden van de raad van de <entity role="body">Onderzoeksraad voor Veiligheid</entity> wordt bij koninklijk besluit tot voorzitter benoemd (<law art="8">artikel 8</law> van de <law>Rijkswet Onderzoeksraad voor veiligheid</law>). De raad kent minimaal drie en maximaal vijf leden, de voorzitter daaronder begrepen (<law art="6">artikel 6</law>).',
+    en: 'One of the members of the council of the <entity role="body">Onderzoeksraad voor Veiligheid</entity> is appointed chair by royal decree (<law art="8">article 8</law> of the <law>Rijkswet Onderzoeksraad voor veiligheid</law>). The council has at least three and at most five members, including the chair (<law art="6">article 6</law>).',
+  },
+  "pos:zbo-onderzoeksraad-voor-veiligheid-permanent-lid": {
+    law: "BWBR0017613",
+    nl: 'De raad van de <entity role="body">Onderzoeksraad voor Veiligheid</entity> kent minimaal drie en maximaal vijf leden, de voorzitter daaronder begrepen (<law art="6">artikel 6</law> van de <law>Rijkswet Onderzoeksraad voor veiligheid</law>). Die leden worden bij koninklijk besluit benoemd, geschorst en ontslagen (<law art="7">artikel 7</law>).',
+    en: 'The council of the <entity role="body">Onderzoeksraad voor Veiligheid</entity> has at least three and at most five members, including the chair (<law art="6">article 6</law> of the <law>Rijkswet Onderzoeksraad voor veiligheid</law>). Those members are appointed, suspended and dismissed by royal decree (<law art="7">article 7</law>).',
+  },
+  "pos:zbo-raad-voor-plantenrassen-voorzitter": {
+    law: "BWBR0018040",
+    nl: 'De <entity role="body">Raad voor plantenrassen</entity> bestaat uit ten minste zeven en ten hoogste elf leden, de voorzitter daaronder begrepen (<law art="3">artikel 3</law> van de <law>Zaaizaad- en plantgoedwet 2005</law>). De benoeming van de voorzitter en de overige leden is voor vijf jaar (<law art="4">artikel 4</law>).',
+    en: 'The <entity role="body">Raad voor plantenrassen</entity> has at least seven and at most eleven members, including the chair (<law art="3">article 3</law> of the <law>Zaaizaad- en plantgoedwet 2005</law>). The chair and the other members are appointed for five years (<law art="4">article 4</law>).',
+  },
+  "pos:zbo-raad-voor-plantenrassen-raadslid": {
+    law: "BWBR0018040",
+    nl: 'De <entity role="body">Raad voor plantenrassen</entity> bestaat uit ten minste zeven en ten hoogste elf leden, de voorzitter daaronder begrepen (<law art="3">artikel 3</law> van de <law>Zaaizaad- en plantgoedwet 2005</law>). De benoeming van de voorzitter en de overige leden is voor vijf jaar (<law art="4">artikel 4</law>).',
+    en: 'The <entity role="body">Raad voor plantenrassen</entity> has at least seven and at most eleven members, including the chair (<law art="3">article 3</law> of the <law>Zaaizaad- en plantgoedwet 2005</law>). The chair and the other members are appointed for five years (<law art="4">article 4</law>).',
+  },
+  "pos:zbo-stichting-regionale-publieke-omroep-voorzitter-raad-van-toezicht": {
+    law: "BWBR0025028",
+    nl: 'De raad van toezicht van de <entity role="body">RPO</entity> bestaat uit een voorzitter en ten hoogste vier andere leden, die op voordracht van de minister bij koninklijk besluit worden benoemd, geschorst en ontslagen (<law art="2.60c">artikel 2.60c</law> van de <law>Mediawet 2008</law>).',
+    en: 'The supervisory board of the <entity role="body">RPO</entity> consists of a chair and at most four other members, appointed, suspended and dismissed by royal decree on the minister\'s nomination (<law art="2.60c">article 2.60c</law> of the <law>Mediawet 2008</law>).',
+  },
+  "pos:zbo-stichting-regionale-publieke-omroep-lid-raad-van-toezicht": {
+    law: "BWBR0025028",
+    nl: 'De raad van toezicht van de <entity role="body">RPO</entity> bestaat uit een voorzitter en ten hoogste vier andere leden, die op voordracht van de minister bij koninklijk besluit worden benoemd, geschorst en ontslagen (<law art="2.60c">artikel 2.60c</law> van de <law>Mediawet 2008</law>).',
+    en: 'The supervisory board of the <entity role="body">RPO</entity> consists of a chair and at most four other members, appointed, suspended and dismissed by royal decree on the minister\'s nomination (<law art="2.60c">article 2.60c</law> of the <law>Mediawet 2008</law>).',
+  },
+  "pos:zbo-waarderingskamer-voorzitter": {
+    law: "BWBR0007119",
+    nl: 'De <entity role="body">Waarderingskamer</entity> bestaat uit elf leden, waaronder de voorzitter, die worden benoemd door de minister (<law art="5">artikel 5</law> van de <law>Wet waardering onroerende zaken</law>). De leden worden benoemd voor ten hoogste vier jaren.',
+    en: 'The <entity role="body">Waarderingskamer</entity> has eleven members, including the chair, appointed by the minister (<law art="5">article 5</law> of the <law>Wet waardering onroerende zaken</law>). Members are appointed for at most four years.',
+  },
+  "pos:zbo-waarderingskamer-lid": {
+    law: "BWBR0007119",
+    nl: 'De <entity role="body">Waarderingskamer</entity> bestaat uit elf leden, waaronder de voorzitter, die worden benoemd door de minister (<law art="5">artikel 5</law> van de <law>Wet waardering onroerende zaken</law>). De leden worden benoemd voor ten hoogste vier jaren.',
+    en: 'The <entity role="body">Waarderingskamer</entity> has eleven members, including the chair, appointed by the minister (<law art="5">article 5</law> of the <law>Wet waardering onroerende zaken</law>). Members are appointed for at most four years.',
+  },
+  "pos:zbo-landelijke-commissie-sociale-hygiene-bestuurslid": {
+    law: "BWBR0002458",
+    nl: 'De <entity role="body">Landelijke commissie sociale hygiëne</entity> bestaat uit ten minste drie en ten hoogste vijf leden (<law art="11b">artikel 11b</law> van de <law>Alcoholwet</law>). De leden worden benoemd voor vier jaar.',
+    en: 'The <entity role="body">Landelijke commissie sociale hygiëne</entity> has at least three and at most five members (<law art="11b">article 11b</law> of the <law>Alcoholwet</law>). Members are appointed for four years.',
+  },
+  "pos:zbo-toelatingsorganisatie-kwaliteitsborging-bouw-voorzitter": {
+    law: "BWBR0047074",
+    nl: 'Het bestuur van de <entity role="body">Toelatingsorganisatie Kwaliteitsborging Bouw</entity> bestaat uit een voorzitter en ten hoogste twee andere leden (<law art="2">artikel 2</law> van het <law>Bestuursreglement Toelatingsorganisatie Kwaliteitsborging Bouw</law>). De voorzitter wordt in functie benoemd en is verantwoordelijk voor het adequaat functioneren van het bestuur.',
+    en: 'The board of the <entity role="body">Toelatingsorganisatie Kwaliteitsborging Bouw</entity> consists of a chair and at most two other members (<law art="2">article 2</law> of the <law>Bestuursreglement Toelatingsorganisatie Kwaliteitsborging Bouw</law>). The chair is appointed in office and is responsible for the proper functioning of the board.',
+  },
+  "pos:zbo-toelatingsorganisatie-kwaliteitsborging-bouw-bestuurslid": {
+    law: "BWBR0047074",
+    nl: 'Het bestuur van de <entity role="body">Toelatingsorganisatie Kwaliteitsborging Bouw</entity> bestaat uit een voorzitter en ten hoogste twee andere leden (<law art="2">artikel 2</law> van het <law>Bestuursreglement Toelatingsorganisatie Kwaliteitsborging Bouw</law>).',
+    en: 'The board of the <entity role="body">Toelatingsorganisatie Kwaliteitsborging Bouw</entity> consists of a chair and at most two other members (<law art="2">article 2</law> of the <law>Bestuursreglement Toelatingsorganisatie Kwaliteitsborging Bouw</law>).',
+  },
+  "pos:zbo-toelatingsorganisatie-kwaliteitsborging-bouw-vicevoorzitter": {
+    law: "BWBR0047074",
+    nl: 'De voorzitter van de <entity role="body">Toelatingsorganisatie Kwaliteitsborging Bouw</entity> benoemt een ander bestuurslid als plaatsvervangend voorzitter (<law art="4">artikel 4</law> van het <law>Bestuursreglement Toelatingsorganisatie Kwaliteitsborging Bouw</law>).',
+    en: 'The chair of the <entity role="body">Toelatingsorganisatie Kwaliteitsborging Bouw</entity> appoints another board member as deputy chair (<law art="4">article 4</law> of the <law>Bestuursreglement Toelatingsorganisatie Kwaliteitsborging Bouw</law>).',
+  },
+  "pos:minister-president-sint-maarten": SXM_MINISTER_PRESIDENT,
+  "pos:minister-president-curacao": CURACAO_MINISTER_PRESIDENT,
+  "pos:minister-algemene-zaken-minister-president-curacao": CURACAO_MINISTER_PRESIDENT,
+  "pos:minister-president-aruba": ARUBA_MINISTER_PRESIDENT,
 };
 
 /** The wetten.overheid.nl JCI permalink for a BWB, or one article of it. */
@@ -580,6 +694,30 @@ export function positionOfficeCopy(position: {
   if (title === "Minister-president en Minister van Algemene Zaken") return fillCopy(MINISTER_PRESIDENT, roles);
   if (dutchRijk && title.startsWith("Staatssecretaris")) return fillCopy(STAATSSECRETARIS, roles);
   if (dutchRijk && title.startsWith("Minister van ") && !title.includes("Stichting")) return fillCopy(MINISTER, roles);
+  if (position.country === "sint-maarten" && title === "Minister-President van Sint Maarten") {
+    return fillCopy(SXM_MINISTER_PRESIDENT, roles);
+  }
+  if (
+    position.country === "sint-maarten" &&
+    (title.startsWith("Minister of ") || title.startsWith("Minister van "))
+  ) {
+    return fillCopy(SXM_MINISTER, roles);
+  }
+  if (
+    position.country === "curacao" &&
+    (title === "Minister-President van Curaçao" || title.includes("Minister President"))
+  ) {
+    return fillCopy(CURACAO_MINISTER_PRESIDENT, roles);
+  }
+  if (position.country === "curacao" && title.startsWith("Minister van ")) {
+    return fillCopy(CURACAO_MINISTER, roles);
+  }
+  if (position.country === "aruba" && title === "Minister-President van Aruba") {
+    return fillCopy(ARUBA_MINISTER_PRESIDENT, roles);
+  }
+  if (position.country === "aruba" && title.startsWith("Minister van ")) {
+    return fillCopy(ARUBA_MINISTER, roles);
+  }
   if (
     title.startsWith("President van de Rechtbank") ||
     title.startsWith("President van het Gerechtshof") ||
