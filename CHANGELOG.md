@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (17-10-2026, self-hosted Actions)
+
+- CI, deploy, the 3-hourly refresh and the weekly link check run on a self-hosted runner on the maintainer's Mac. GitHub-hosted minutes are no longer used. The repository stays private.
+
 ### Changed (17-10-2026, no contributions, maintainer docs)
 
 - The project does not accept pull requests or other contributions. `CONTRIBUTING.md` says so. Maintainer plans and the operations runbook stay on disk and out of the published tree (ADR 0023 amendment 17-10-2026). A wrong fact can still be reported as an issue.

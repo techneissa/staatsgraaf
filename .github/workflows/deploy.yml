@@ -35,7 +35,7 @@ jobs:
   deploy:
     name: build and deploy
     if: ${{ !github.event.repository.fork }}
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, staatsgraaf]
     timeout-minutes: 30
     permissions:
       contents: read
@@ -115,7 +115,7 @@ jobs:
     name: report failure
     needs: deploy
     if: ${{ failure() }}
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, staatsgraaf]
     timeout-minutes: 5
     permissions:
       issues: write
