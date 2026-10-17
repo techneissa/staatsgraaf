@@ -144,6 +144,14 @@ describe("list rows", () => {
     const mayor = positions.rows.find((row) => row.s === "burgemeester-amsterdam");
     expect(mayor?.ge).toBe("Mayor of Amsterdam");
     expect(mayor?.oe).toBe("Municipality of Amsterdam");
+    const director = positions.rows.find(
+      (row) => row.s === "agentschap-college-ter-beoordeling-van-geneesmiddelen-algemeendirecteur",
+    );
+    expect(director?.ge).toBe("Director, Medicines Evaluation Board");
+    expect(director?.oe).toBe("Medicines Evaluation Board");
+    const board = positions.rows.find((row) => row.s === "zbo-autoriteit-consument-en-markt-bestuurslid");
+    expect(board?.ge).toBe("Board member, Authority for Consumers and Markets");
+    expect(board?.oe).toBe("Authority for Consumers and Markets");
   });
 
   test("rows come in display order: people by letter, groups in group order", () => {

@@ -26,6 +26,17 @@
  *   example the Netherlands Court of Audit, Statistics Netherlands, the
  *   Public Prosecution Service). Each was checked against the body's English
  *   website; entries are curated, not machine translated.
+ * - Extra executive bodies added 17-10-2026 from the body's own English page
+ *   or government.nl: Medicines Evaluation Board (government.nl/ministries/
+ *   ministry-of-health-welfare-and-sport/services-and-institutions), Central
+ *   Judicial Collection Agency (cjib.nl/en/what-cjib), Netherlands Forensic
+ *   Institute (forensicinstitute.nl), Cultural Heritage Agency of the
+ *   Netherlands (english.cultureelerfgoed.nl), National Office for Identity
+ *   Data (rvig.nl/service/about-rvig), Judicial Information Service
+ *   (government.nl/themes/justice-security-and-defence/sentences-and-non-punitive-orders/view-your-criminal-record),
+ *   Dutch Authority for the Financial Markets (afm.nl/en/over-de-afm),
+ *   Central Committee on Research Involving Human Subjects
+ *   (english.ccmo.nl). CIBG keeps the abbreviation on government.nl.
  */
 
 import { PARTIES, partyByDataset } from "./parties";
@@ -110,6 +121,18 @@ const ORG_EXACT: Record<string, string> = {
   "Adviesraad Internationale Vraagstukken": "Advisory Council on International Affairs",
   "Raad voor de leefomgeving en infrastructuur": "Council for the Environment and Infrastructure",
   "Nederlandse Publieke Omroep": "Dutch Public Broadcasting Organisation",
+  "Agentschap College ter Beoordeling van Geneesmiddelen": "Medicines Evaluation Board",
+  "College ter Beoordeling van Geneesmiddelen": "Medicines Evaluation Board",
+  "Centraal Justitieel Incassobureau": "Central Judicial Collection Agency",
+  "Nederlands Forensisch Instituut": "Netherlands Forensic Institute",
+  "Rijksdienst voor het Cultureel Erfgoed": "Cultural Heritage Agency of the Netherlands",
+  "Rijksdienst voor Identiteitsgegevens": "National Office for Identity Data",
+  "Justitiële Informatiedienst": "Judicial Information Service",
+  "Stichting Autoriteit Financiële Markten": "Dutch Authority for the Financial Markets",
+  "Autoriteit Financiële Markten": "Dutch Authority for the Financial Markets",
+  CIBG: "CIBG",
+  "Centrale Commissie Mensgebonden Onderzoek":
+    "Central Committee on Research Involving Human Subjects",
 };
 
 /** Official English ministry portfolio names (government.nl, 19-09-2026). */
@@ -173,6 +196,12 @@ function portfolioEn(portfolio: string): string | null {
 
 function orgCore(name: string): string {
   return name.replace(/^(?:van het|van de|van|het) /iu, "");
+}
+
+/** Established English for an organisation name, or the Dutch name as a last resort inside a title. */
+function namedOrg(name: string): string {
+  const trimmed = name.trim();
+  return orgEnGloss(trimmed) ?? trimmed;
 }
 
 /** Strips a trailing Dutch committee abbreviation like " (BIZA)". */
@@ -260,6 +289,26 @@ function positionSegmentEn(segment: string): string | null {
     const role = match[1] === "Voorzitter" ? "Speaker of" : "Member of";
     return match[2] === "Tweede" ? `${role} the House of Representatives` : `${role} the Senate`;
   }
+  match = /^(Eerste|Tweede) ondervoorzitter van de (Tweede|Eerste) Kamer der Staten-Generaal$/u.exec(title);
+  if (match) {
+    const nth = match[1] === "Eerste" ? "First" : "Second";
+    const house = match[2] === "Tweede" ? "House of Representatives" : "Senate";
+    return `${nth} Deputy Speaker of the ${house}`;
+  }
+  match = /^Lid Provinciale Staten van (.+)$/u.exec(title);
+  if (match) return `Member of the provincial council of ${match[1]}`;
+  match = /^Statenlid van (.+)$/u.exec(title);
+  if (match) return `Member of the parliament of ${match[1]}`;
+  match = /^Gouverneur van (.+)$/u.exec(title);
+  if (match) return `Governor of ${match[1]}`;
+  match = /^Gevolmachtigde minister van (.+)$/u.exec(title);
+  if (match) return `Minister Plenipotentiary of ${match[1]}`;
+  match = /^Bestuursvoorzitter (.+)$/u.exec(title);
+  if (match) return `Chair of the board, ${namedOrg(match[1])}`;
+  match = /^Bestuurslid (.+)$/u.exec(title);
+  if (match) return `Board member, ${namedOrg(match[1])}`;
+  match = /^Algemeen secretaris\/directeur (.+)$/u.exec(title);
+  if (match) return `Secretary/director, ${namedOrg(match[1])}`;
   match = /^(Lid|Voorzitter|Ondervoorzitter) Vaste commissie voor (.+)$/u.exec(title);
   if (match) {
     const portfolio = portfolioEn(stripAbbr(match[2]));
@@ -302,13 +351,13 @@ function positionSegmentEn(segment: string): string | null {
   // with "en " is a compound title, not an organisation.
   const isCompoundTail = (capture: string) => /^en /iu.test(capture);
   match = /^[Dd]irecteur-[Gg]eneraal(?: voor)? (.+)$/u.exec(title);
-  if (match && !isCompoundTail(match[1])) return `Director-general, ${orgCore(match[1])}`;
+  if (match && !isCompoundTail(match[1])) return `Director-general, ${namedOrg(orgCore(match[1]))}`;
   match = /^Inspecteur-generaal (.+)$/u.exec(title);
-  if (match && !isCompoundTail(match[1])) return `Inspector-general, ${orgCore(match[1])}`;
+  if (match && !isCompoundTail(match[1])) return `Inspector-general, ${namedOrg(orgCore(match[1]))}`;
   match = /^(?:Algemeen )?[Dd]irecteur(?:-generaal)?(?:-bestuurder)?(?: van het | van de | van | )(.+)$/u.exec(title);
-  if (match && !isCompoundTail(match[1])) return `Director, ${orgCore(match[1])}`;
+  if (match && !isCompoundTail(match[1])) return `Director, ${namedOrg(orgCore(match[1]))}`;
   match = /^Hoofddirecteur (.+)$/u.exec(title);
-  if (match) return `Chief executive, ${orgCore(match[1])}`;
+  if (match) return `Chief executive, ${namedOrg(orgCore(match[1]))}`;
   return null;
 }
 
@@ -366,7 +415,12 @@ export function orgEnGloss(name: string | null | undefined): string | null {
   const exact = ORG_EXACT[trimmed];
   if (exact !== undefined) return exact;
 
-  let   match = /^Gemeente (.+)$/u.exec(trimmed);
+  let match = /^Agentschap (.+)$/u.exec(trimmed);
+  if (match) {
+    const inner = orgEnGloss(match[1]);
+    if (inner !== null) return inner;
+  }
+  match = /^Gemeente (.+)$/u.exec(trimmed);
   if (match) return `Municipality of ${match[1]}`;
   match = /^Regering van (.+)$/u.exec(trimmed);
   if (match) return `Government of ${match[1]}`;
@@ -398,9 +452,14 @@ export function orgEnGloss(name: string | null | undefined): string | null {
   if (match) return `Court of appeal of ${match[1]}`;
   match = /^Ministerie van (.+)$/u.exec(trimmed);
   if (match) {
-    const portfolio = portfolioEn(match[1]);
-    return portfolio === null ? null : `Ministry of ${portfolio}`;
+    const inner = match[1];
+    const split = /^(.+) \(([^)]+)\)$/u.exec(inner);
+    const portfolio = portfolioEn(split ? split[1] : inner);
+    if (portfolio === null) return null;
+    return split ? `Ministry of ${portfolio} (${split[2]})` : `Ministry of ${portfolio}`;
   }
+  match = /^Staten van (.+)$/u.exec(trimmed);
+  if (match) return `Parliament of ${match[1]}`;
   match = /^Vaste commissie voor (.+)$/u.exec(trimmed);
   if (match) {
     const portfolio = portfolioEn(match[1]);
@@ -440,4 +499,17 @@ function waterBoardNameEn(name: string): string | null {
  */
 export function establishedEn(dutch: string | null | undefined): string | null {
   return positionEn(dutch) ?? orgEnGloss(dutch);
+}
+
+/**
+ * English for a distinctive rest taken from a body name (a ministry portfolio
+ * on a secretaris-generaal). Place names have no gloss and stay as they are.
+ */
+export function restEn(rest: string): string {
+  const split = /^(.+) \(([^)]+)\)$/u.exec(rest);
+  if (split) {
+    const portfolio = portfolioEn(split[1]);
+    return portfolio === null ? rest : `${portfolio} (${split[2]})`;
+  }
+  return portfolioEn(rest) ?? rest;
 }

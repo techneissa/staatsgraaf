@@ -10,6 +10,7 @@ import { useLocale } from "@/components/i18n/language-provider";
 import { useT } from "@/components/i18n/use-t";
 import { branchColorVar } from "@/lib/branch-colors";
 import { positionDisplayRest, type PositionRow, type PositionSortDir, type PositionSortKey } from "@/lib/index-lists";
+import { orgEnGloss, positionEn, restEn } from "@/lib/name-gloss";
 import type { OrgType } from "@/lib/types";
 import { IconTile } from "./org-visual";
 import { WindowedGrid, type RowHeightHint } from "./windowed-grid";
@@ -112,9 +113,12 @@ function PositionTableRow({ row, wrap }: { row: PositionRow; wrap: boolean }) {
   const english = locale === "en";
   const color = row.b != null ? branchColorVar(row.b) : branchColorVar("zelfstandig");
   const holder = holderLine(row);
-  const rest = positionDisplayRest(row.n, row.o);
-  const title = english && row.ge ? row.ge : row.n;
-  const body = english && row.oe ? row.oe : (row.o ?? "");
+  const restNl = positionDisplayRest(row.n, row.o);
+  const titleEn = positionEn(row.n) ?? row.ge ?? null;
+  const bodyEn = (row.o ? orgEnGloss(row.o) : null) ?? row.oe ?? null;
+  const rest = restNl == null ? null : english ? restEn(restNl) : restNl;
+  const title = english && titleEn ? titleEn : row.n;
+  const body = english && bodyEn ? bodyEn : (row.o ?? "");
   const tooltip = [title, body, row.h != null && row.hc != null && row.hc > 0 ? t("idxMoreHolders", { name: row.h, n: row.hc }) : row.h]
     .filter((part): part is string => typeof part === "string" && part !== "")
     .join("\n");
@@ -128,15 +132,15 @@ function PositionTableRow({ row, wrap }: { row: PositionRow; wrap: boolean }) {
           href={`/posities/${row.s}/`}
           prefetch={false}
           title={tooltip}
-          lang={english && row.ge ? "en" : "nl"}
+          lang={english && titleEn ? "en" : "nl"}
           className={`min-w-0 flex-1 ${flow} text-[11px] font-medium leading-snug text-ink underline-offset-2 outline-none after:absolute after:inset-0 hover:text-accent-text hover:underline focus-visible:after:outline-2 focus-visible:after:outline-offset-[-2px] focus-visible:after:outline-focus`}
         >
-          <LocalText nl={row.n} en={row.ge ?? null} />
+          <LocalText nl={row.n} en={titleEn} />
           {rest != null ? <span className="font-normal text-ink-muted"> · {rest}</span> : null}
         </Link>
       </div>
-      <div lang={english && row.oe ? "en" : "nl"} title={body || undefined} className={cell}>
-        <LocalText nl={row.o ?? ""} en={row.oe ?? null} />
+      <div lang={english && bodyEn ? "en" : "nl"} title={body || undefined} className={cell}>
+        <LocalText nl={row.o ?? ""} en={bodyEn} />
       </div>
       <div title={holder ?? undefined} className={cell}>
         {holder ?? ""}
