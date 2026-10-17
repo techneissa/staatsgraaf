@@ -4,6 +4,11 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Added (17-10-2026, remaining empty offices)
+
+- Court presidents (rechtbank and gerechtshof) now cite Wet RO articles 15 and 27. Tweede Kamer vaste commissies cite the Reglement van Orde articles 7.1, 7.11, 7.12 and 7.13. Agenschap heads cite Regeling agentschappen 2024 article 1. Gevolmachtigde ministers cite Statuut articles 7 and 8. The president of the Algemene Rekenkamer cites Comptabiliteitswet article 7.8, the KNMI hoofddirecteur the KNMI bestuur page.
+- The Register van Overheidsorganisaties medewerkers CSVs of 17-10-2026 named the heads of CIBG, CJIB, CBG-MEB, DPC, DUO, Huurcommissie, FMHaaglanden, IND, Nationaal Archief, NFI, O&P Rijk, Paresto, RVO, RIVM, RBL, Rijksvastgoedbedrijf, SSC-ICT, and several secretarissen-generaal. Those tenures were missing; start dates stay unknown (ADR 0020). Maarten van Aalst is hoofddirecteur of the KNMI since 1 February 2023 (knmi.nl). Rijkswaterstaat and Justis stay empty: the register names more than one person, or the name did not uniquely match.
+
 ### Added (17-10-2026, more office copy and missing directors)
 
 - Shared offices that still had no about-text now cite the law that fills them: burgemeester (Gemeentewet art. 61 and 34), commissaris van de Koning (Provinciewet art. 61 and 34), dijkgraaf (Waterschapswet art. 46), gezaghebber (WolBES art. 73, 10 and 36), Dutch ministers and staatssecretarissen (Grondwet art. 43, 44 and 46), and the minister-president (art. 43 and 45). Caribbean ministers stay empty until their own laws are fetched.

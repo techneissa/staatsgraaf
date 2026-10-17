@@ -33069,5 +33069,461 @@
       "retrieved": "2026-09-18",
       "confidence": "high"
     }
+  },
+  {
+    "id": "tenure:cibg-algemeendirecteur-marko-stupar",
+    "person": "person:marko-stupar",
+    "position": "pos:cibg-algemeendirecteur",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:secretaris-generaal-algemene-zaken-gert-jan-buitendijk",
+    "person": "person:gert-jan-buitendijk",
+    "position": "pos:secretaris-generaal-algemene-zaken",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-ministeries",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:secretaris-generaal-economische-zaken-en-klimaat-sandor-gaastra",
+    "person": "person:sandor-gaastra",
+    "position": "pos:secretaris-generaal-economische-zaken-en-klimaat",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-ministeries",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:agentschap-college-ter-beoordeling-van-geneesmiddelen-algemeendirecteur-paula-loekemeijer",
+    "person": "person:paula-loekemeijer",
+    "position": "pos:agentschap-college-ter-beoordeling-van-geneesmiddelen-algemeendirecteur",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:centraal-justitieel-incassobureau-algemeendirecteur-johan-bac",
+    "person": "person:johan-bac",
+    "position": "pos:centraal-justitieel-incassobureau-algemeendirecteur",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:dienst-publiek-en-communicatie-directeur-kristel-dirkx",
+    "person": "person:kristel-dirkx",
+    "position": "pos:dienst-publiek-en-communicatie-directeur",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:dienst-uitvoering-onderwijs-directeur-generaal-mirjam-koster-wentink",
+    "person": "person:mirjam-koster-wentink",
+    "position": "pos:dienst-uitvoering-onderwijs-directeur-generaal",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:dienst-van-de-huurcommissie-directeur-j-m-krooshof-bakker",
+    "person": "person:jm-krooshof-bakker",
+    "position": "pos:dienst-van-de-huurcommissie-directeur",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:fmhaaglanden-directeur-generaal-michel-van-der-koogh",
+    "person": "person:michel-van-der-koogh",
+    "position": "pos:fmhaaglanden-directeur-generaal",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:immigratie-en-naturalisatiedienst-directeur-generaal-rhodia-maas",
+    "person": "person:rhodia-maas",
+    "position": "pos:immigratie-en-naturalisatiedienst-directeur-generaal",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:nationaal-archief-algemeendirecteurenalgemenerijksarchivaris-afelonne-doek",
+    "person": "person:afelonne-doek",
+    "position": "pos:nationaal-archief-algemeendirecteurenalgemenerijksarchivaris",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:nederlands-forensisch-instituut-algemeendirecteur-marc-elsensohn",
+    "person": "person:marc-elsensohn",
+    "position": "pos:nederlands-forensisch-instituut-algemeendirecteur",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:organisatie-en-personeel-rijk-algemeendirecteur-marije-westra",
+    "person": "person:marije-westra",
+    "position": "pos:organisatie-en-personeel-rijk-algemeendirecteur",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:paresto-directeur-frank-veldhof",
+    "person": "person:frank-veldhof",
+    "position": "pos:paresto-directeur",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:rijksdienst-voor-ondernemend-nederland-directeur-generaal-de-heer-a-choho",
+    "person": "person:a-choho",
+    "position": "pos:rijksdienst-voor-ondernemend-nederland-directeur-generaal",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:rijksinstituut-voor-volksgezondheid-en-milieu-directeur-generaal-isabel-arends",
+    "person": "person:isabel-arends",
+    "position": "pos:rijksinstituut-voor-volksgezondheid-en-milieu-directeur-generaal",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:rijksorganisatie-beveiliging-en-logistiek-directeur-boudewijn-van-nus",
+    "person": "person:boudewijn-van-nus",
+    "position": "pos:rijksorganisatie-beveiliging-en-logistiek-directeur",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:rijksvastgoedbedrijf-directeur-generaal-yvonne-van-der-brugge",
+    "person": "person:yvonne-van-der-brugge-wolring",
+    "position": "pos:rijksvastgoedbedrijf-directeur-generaal",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:ssc-ict-directeur-klaas-verberg",
+    "person": "person:klaas-verberg",
+    "position": "pos:ssc-ict-directeur",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-agentschappen",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:secretaris-generaal-financien-bas-van-den-dungen",
+    "person": "person:bas-van-den-dungen",
+    "position": "pos:secretaris-generaal-financien",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-ministeries",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:secretaris-generaal-landbouw-visserij-voedselzekerheid-en-natuur-roald-lapperre",
+    "person": "person:roald-lapperre",
+    "position": "pos:secretaris-generaal-landbouw-visserij-voedselzekerheid-en-natuur",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-ministeries",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:secretaris-generaal-onderwijs-cultuur-en-wetenschap-loes-mulder",
+    "person": "person:loes-mulder",
+    "position": "pos:secretaris-generaal-onderwijs-cultuur-en-wetenschap",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-ministeries",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:secretaris-generaal-sociale-zaken-en-werkgelegenheid-marieke-van-wallenburg",
+    "person": "person:marieke-van-wallenburg",
+    "position": "pos:secretaris-generaal-sociale-zaken-en-werkgelegenheid",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-ministeries",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:koninklijk-nederlands-meteorologisch-instituut-hoofddirecteur-maarten-van-aalst",
+    "person": "person:maarten-van-aalst",
+    "position": "pos:koninklijk-nederlands-meteorologisch-instituut-hoofddirecteur",
+    "seat": null,
+    "start": "2023-02-01",
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:knmi-bestuur",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
   }
 ]

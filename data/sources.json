@@ -100221,5 +100221,41 @@
     "license": "CC0-1.0",
     "archiveUrl": null,
     "notes": null
+  },
+  {
+    "id": "src:koop-medewerkers-agentschappen",
+    "url": "https://organisaties.overheid.nl/export-medewerkers/Agentschappen.csv",
+    "title": "Register van Overheidsorganisaties: medewerkers agentschappen (CSV)",
+    "publisher": "KOOP / Overheid.nl",
+    "type": "register",
+    "published": null,
+    "retrieved": "2026-10-17",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Bestuurders per organisatie met functie. Het register noemt geen benoemingsdatum. Alleen personen met een gemodelleerde publieke functie worden overgenomen."
+  },
+  {
+    "id": "src:koop-medewerkers-ministeries",
+    "url": "https://organisaties.overheid.nl/export-medewerkers/Ministeries.csv",
+    "title": "Register van Overheidsorganisaties: medewerkers ministeries (CSV)",
+    "publisher": "KOOP / Overheid.nl",
+    "type": "register",
+    "published": null,
+    "retrieved": "2026-10-17",
+    "license": "CC0-1.0",
+    "archiveUrl": null,
+    "notes": "Bestuurders per organisatie met functie. Het register noemt geen benoemingsdatum. Alleen personen met een gemodelleerde publieke functie worden overgenomen."
+  },
+  {
+    "id": "src:knmi-bestuur",
+    "url": "https://www.knmi.nl/over-het-knmi/bestuur",
+    "title": "Bestuur KNMI",
+    "publisher": "KNMI",
+    "type": "page",
+    "published": null,
+    "retrieved": "2026-10-17",
+    "license": null,
+    "archiveUrl": null,
+    "notes": "Quote fetched 2026-10-17: Maarten van Aalst is sinds 1 februari 2023 eindverantwoordelijk voor het KNMI."
   }
 ]

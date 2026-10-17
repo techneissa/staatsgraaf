@@ -219,5 +219,69 @@ test("titles without sourced copy return null", () => {
   assert.equal(positionOfficeCopy({ title: "Lid gemeenteraad" }), null);
   assert.equal(positionOfficeCopy({ title: "Lid Commissie voor Financiën (FIN)" }), null);
   assert.equal(positionOfficeCopy({ title: "Minister van Financiën" }), null);
-  assert.equal(positionOfficeCopy({ title: "Gevolmachtigde minister van Aruba" }), null);
+  assert.equal(positionOfficeCopy({ title: "Fractievoorzitter GroenLinks-PvdA" }), null);
+});
+
+test("a gevolmachtigde minister cites Statuut articles 7 and 8", () => {
+  const copy = positionOfficeCopy({ title: "Gevolmachtigde minister van Aruba" });
+  assert.ok(copy);
+  const nl = stripOfficeCopyMarkup(copy.nl);
+  assert.match(nl, /handelt namens de regering/);
+  assert.match(nl, /artikel 8 van het Statuut/);
+  assert.match(nl, /artikel 7/);
+});
+
+test("a rechtbank president cites Wet RO articles 15 and 27", () => {
+  const copy = positionOfficeCopy({
+    title: "President van de Rechtbank Amsterdam",
+    organization: "org:rechtbank-amsterdam",
+  });
+  assert.ok(copy);
+  const nl = stripOfficeCopyMarkup(copy.nl);
+  assert.match(nl, /titel van president/);
+  assert.match(nl, /artikel 15 van de Wet op de rechterlijke organisatie/);
+  assert.match(nl, /artikel 27/);
+  assert.match(copy.nl, /<entity id="org:rechtbank-amsterdam">/);
+});
+
+test("a Tweede Kamer vaste commissie cites the Reglement van Orde; an Eerste Kamer committee does not", () => {
+  const lid = positionOfficeCopy({
+    title: "Lid Vaste commissie voor Financiën",
+    organization: "org:tweede-kamer",
+  });
+  assert.ok(lid);
+  assert.match(stripOfficeCopyMarkup(lid.nl), /artikel 7.1/);
+  assert.match(lid.nl, /<entity id="org:tweede-kamer">/);
+  const chair = positionOfficeCopy({ title: "Voorzitter Vaste commissie voor Defensie" });
+  assert.ok(chair);
+  assert.match(stripOfficeCopyMarkup(chair.nl), /artikel 7.12/);
+  assert.equal(positionOfficeCopy({ title: "Voorzitter Commissie voor Financiën (FIN)" }), null);
+});
+
+test("an agentschap director cites Regeling agentschappen article 1", () => {
+  const copy = positionOfficeCopy({
+    title: "Algemeen Directeur CIBG",
+    organization: "org:cibg",
+    subtype: "agentschap",
+  });
+  assert.ok(copy);
+  assert.match(stripOfficeCopyMarkup(copy.nl), /eindverantwoordelijkheid/);
+  assert.match(stripOfficeCopyMarkup(copy.nl), /Regeling agentschappen 2024/);
+});
+
+test("the Rekenkamer president and KNMI hoofddirecteur are keyed on the position id", () => {
+  const rekenkamer = positionOfficeCopy({
+    id: "pos:president-algemene-rekenkamer",
+    title: "President Algemene Rekenkamer",
+    organization: "org:algemene-rekenkamer",
+  });
+  assert.ok(rekenkamer);
+  assert.match(stripOfficeCopyMarkup(rekenkamer.nl), /artikel 7.8 van de Comptabiliteitswet 2016/);
+  const knmi = positionOfficeCopy({
+    id: "pos:koninklijk-nederlands-meteorologisch-instituut-hoofddirecteur",
+    title: "Hoofddirecteur Koninklijk Nederlands Meteorologisch Instituut",
+    organization: "org:koninklijk-nederlands-meteorologisch-instituut",
+  });
+  assert.ok(knmi);
+  assert.match(stripOfficeCopyMarkup(knmi.nl), /eindverantwoordelijk voor het KNMI/);
 });
