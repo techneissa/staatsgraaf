@@ -95,16 +95,16 @@ export type PeekRecord = {
   descriptionEn: string | null;
   /** Parent organisation for an organisation, the organisation for a position. */
   parent: PeekRef | null;
-  /** Current roles of a person (positions held now), at most two. */
+  /** Current roles of a person (positions held now). */
   roles: PeekRole[];
   roleCount: number;
-  /** Current holders of a position, or the leading officials of an organisation, at most two. */
+  /** Current holders of a position, or every leading official of an organisation. */
   holders: PeekHolder[];
   holderCount: number;
-  /** Bodies a person is a current member of (for example the Tweede Kamer), at most two. */
+  /** Bodies a person is a current member of (for example the Tweede Kamer). */
   memberOf: PeekRef[];
   memberOfCount: number;
-  /** Responsible organisations of a topic, at most three. */
+  /** Responsible organisations of a topic. */
   related: PeekRef[];
   relatedCount: number;
   /** Current members for a body with members (for example a Kamer or a gemeenteraad). */

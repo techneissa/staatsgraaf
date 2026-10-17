@@ -28,6 +28,7 @@ const { branchColorVar } = await import("../lib/branch-colors.ts");
 const { initialsFor } = await import("../lib/initials.ts");
 const { descriptionFor } = await import("../lib/description-translations.ts");
 const { PEEK_SHARDS, peekKindFor, peekShard } = await import("../lib/peek.ts");
+const { isLeadingRole, keyHolderRank } = await import("../lib/entity-page.ts");
 
 const dataset = data.getDataset();
 const { organizations, positions, people, topics, news } = dataset;
@@ -72,8 +73,6 @@ for (const item of news) {
 }
 
 // Current tenures by organisation, ordered like the organisation page.
-const LEAD_TITLE = /^(Voorzitter|President|Burgemeester|Commissaris van de Koning|Dijkgraaf|Gezaghebber|Directeur-generaal|Secretaris-generaal|Vicepresident|Procureur-generaal)/u;
-const positionRank = (title) => (title.startsWith("Minister") ? 0 : LEAD_TITLE.test(title) ? 1 : 2);
 const currentByOrganization = new Map();
 const currentByPosition = new Map();
 const currentByPerson = new Map();
@@ -91,8 +90,13 @@ for (const tenure of dataset.tenures) {
   push(currentByPerson, tenure.person);
 }
 const titleOf = (tenure) => dataset.positionsById.get(tenure.position)?.title ?? "";
+const personNameOf = (tenure) => dataset.peopleById.get(tenure.person)?.name ?? "";
 for (const list of currentByOrganization.values()) {
-  list.sort((a, b) => positionRank(titleOf(a)) - positionRank(titleOf(b)) || titleOf(a).localeCompare(titleOf(b), "nl"));
+  list.sort(
+    (a, b) =>
+      keyHolderRank(titleOf(a)) - keyHolderRank(titleOf(b)) ||
+      personNameOf(a).localeCompare(personNameOf(b), "nl"),
+  );
 }
 
 const currentMembers = new Map();
@@ -166,11 +170,9 @@ for (const org of organizations) {
   const parentId = entity.organizationParentId(org) ?? entity.organizationPartOf(org)[0] ?? null;
   record.parent = parentId ? ref(parentId) : null;
   const current = currentByOrganization.get(org.id) ?? [];
-  record.holders = current
-    .slice(0, 2)
-    .map((tenure) => holder(tenure, true))
-    .filter(Boolean);
-  record.holderCount = current.length;
+  const leading = current.filter((tenure) => isLeadingRole(titleOf(tenure)));
+  record.holders = leading.map((tenure) => holder(tenure, true)).filter(Boolean);
+  record.holderCount = record.holders.length;
   record.members = currentMembers.get(org.id) ?? 0;
   record.seats = typeof org.seatsCount === "number" ? org.seatsCount : null;
   record.source = sourceFor(org.sources);
@@ -185,11 +187,8 @@ for (const position of positions) {
   record.branch = organization?.branch ?? null;
   record.parent = organization ? ref(organization.id) : null;
   const current = currentByPosition.get(position.id) ?? [];
-  record.holders = current
-    .slice(0, 2)
-    .map((tenure) => holder(tenure, false))
-    .filter(Boolean);
-  record.holderCount = current.length;
+  record.holders = current.map((tenure) => holder(tenure, false)).filter(Boolean);
+  record.holderCount = record.holders.length;
   record.seats = typeof position.seatsCount === "number" ? position.seatsCount : null;
   record.source = sourceFor(position.sources);
   records.push(record);
@@ -210,8 +209,8 @@ for (const person of people) {
   Object.assign(record, descriptions(person.id, person.description));
   const current = (currentByPerson.get(person.id) ?? [])
     .slice()
-    .sort((a, b) => positionRank(titleOf(a)) - positionRank(titleOf(b)) || (b.start ?? "").localeCompare(a.start ?? ""));
-  record.roles = current.slice(0, 2).flatMap((tenure) => {
+    .sort((a, b) => keyHolderRank(titleOf(a)) - keyHolderRank(titleOf(b)) || (b.start ?? "").localeCompare(a.start ?? ""));
+  record.roles = current.flatMap((tenure) => {
     const position = dataset.positionsById.get(tenure.position);
     if (!position) return [];
     const organization = dataset.organizationsById.get(position.organization);
@@ -229,10 +228,7 @@ for (const person of people) {
   });
   record.roleCount = current.length;
   const memberships = currentMemberships.get(person.id) ?? [];
-  record.memberOf = memberships
-    .slice(0, 2)
-    .map((membership) => ref(membership.organization))
-    .filter(Boolean);
+  record.memberOf = memberships.map((membership) => ref(membership.organization)).filter(Boolean);
   record.memberOfCount = memberships.length;
   record.source = sourceFor(person.sources);
   records.push(record);
@@ -242,7 +238,7 @@ for (const topic of topics) {
   const record = base(topic.id, "topic", topic.name, `/onderwerpen/${topic.slug}/`);
   Object.assign(record, descriptions(topic.id, topic.description));
   const organizationIds = Array.isArray(topic.organizations) ? topic.organizations : [];
-  record.related = organizationIds.slice(0, 3).map(ref).filter(Boolean);
+  record.related = organizationIds.map(ref).filter(Boolean);
   record.relatedCount = organizationIds.length;
   record.source = sourceFor(topic.sources);
   records.push(record);

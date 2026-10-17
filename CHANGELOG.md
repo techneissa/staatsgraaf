@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (17-10-2026, peek leadership)
+
+- Peek popovers list every current leading official of a body, not the first two plus "and N more". Ordinary members stay out of that list. Current holders of a position, a person's roles, memberships and a topic's responsible bodies are listed in full too.
+
 ### Added (17-10-2026, ATKM board offices)
 
 - The ATKM bestuurder primaire processen, bestuurder bedrijfsvoering and bestuurssecretaris pages now cite the board page fetched on 17-10-2026: three board members and a board secretary, the other two bestuurders for four years. The English heading uses the official name on government.nl (Authority for the Prevention of Online Terrorist Content and Child Pornography). Directeuren-generaal, inspecteurs-generaal, fractievoorzitters and Eerste Kamer committees stay empty: no source names those offices.
