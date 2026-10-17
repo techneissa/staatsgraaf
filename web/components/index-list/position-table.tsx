@@ -5,6 +5,8 @@ import Link from "next/link";
 import { BriefcaseBusiness, ChevronDown, ChevronUp, ChevronsUpDown, Landmark, TextWrap, Users } from "lucide";
 import type { IconNode } from "lucide";
 import { LucideIcon } from "@/components/icons/lucide-icon";
+import { LocalText } from "@/components/i18n/t";
+import { useLocale } from "@/components/i18n/language-provider";
 import { useT } from "@/components/i18n/use-t";
 import { branchColorVar } from "@/lib/branch-colors";
 import { positionDisplayRest, type PositionRow, type PositionSortDir, type PositionSortKey } from "@/lib/index-lists";
@@ -106,10 +108,14 @@ function holderLine(row: PositionRow): string | null {
 
 function PositionTableRow({ row, wrap }: { row: PositionRow; wrap: boolean }) {
   const t = useT("entity");
+  const locale = useLocale();
+  const english = locale === "en";
   const color = row.b != null ? branchColorVar(row.b) : branchColorVar("zelfstandig");
   const holder = holderLine(row);
   const rest = positionDisplayRest(row.n, row.o);
-  const tooltip = [row.n, row.o, row.h != null && row.hc != null && row.hc > 0 ? t("idxMoreHolders", { name: row.h, n: row.hc }) : row.h]
+  const title = english && row.ge ? row.ge : row.n;
+  const body = english && row.oe ? row.oe : (row.o ?? "");
+  const tooltip = [title, body, row.h != null && row.hc != null && row.hc > 0 ? t("idxMoreHolders", { name: row.h, n: row.hc }) : row.h]
     .filter((part): part is string => typeof part === "string" && part !== "")
     .join("\n");
   const flow = wrap ? "break-words" : "truncate";
@@ -122,14 +128,15 @@ function PositionTableRow({ row, wrap }: { row: PositionRow; wrap: boolean }) {
           href={`/posities/${row.s}/`}
           prefetch={false}
           title={tooltip}
+          lang={english && row.ge ? "en" : "nl"}
           className={`min-w-0 flex-1 ${flow} text-[11px] font-medium leading-snug text-ink underline-offset-2 outline-none after:absolute after:inset-0 hover:text-accent-text hover:underline focus-visible:after:outline-2 focus-visible:after:outline-offset-[-2px] focus-visible:after:outline-focus`}
         >
-          {row.n}
+          <LocalText nl={row.n} en={row.ge ?? null} />
           {rest != null ? <span className="font-normal text-ink-muted"> · {rest}</span> : null}
         </Link>
       </div>
-      <div lang="nl" title={row.o ?? undefined} className={cell}>
-        {row.o ?? ""}
+      <div lang={english && row.oe ? "en" : "nl"} title={body || undefined} className={cell}>
+        <LocalText nl={row.o ?? ""} en={row.oe ?? null} />
       </div>
       <div title={holder ?? undefined} className={cell}>
         {holder ?? ""}

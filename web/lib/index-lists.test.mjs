@@ -36,7 +36,8 @@ describe("search text", () => {
 
   test("an organisation and a position match on their English gloss", () => {
     expect(organizationSearchText({ s: "a", n: "Tweede Kamer", ge: "House of Representatives", st: "tweede-kamer", t: "elected", b: "staten-generaal" })).toContain("representatives");
-    expect(positionSearchText({ s: "a", n: "Minister van Financiën", ge: "Minister of Finance", t: "dept_head", o: "Ministerie van Financiën", b: "regering" })).toContain("finance");
+    expect(positionSearchText({ s: "a", n: "Minister van Financiën", ge: "Minister of Finance", t: "dept_head", o: "Ministerie van Financiën", oe: "Ministry of Finance", b: "regering" })).toContain("finance");
+    expect(positionSearchText({ s: "a", n: "Minister van Financiën", ge: "Minister of Finance", t: "dept_head", o: "Ministerie van Financiën", oe: "Ministry of Finance", b: "regering" })).toContain("ministry");
   });
 
   test("a position also matches on a current holder", () => {
@@ -137,6 +138,12 @@ describe("list rows", () => {
     const bare = positions.rows.filter((row) => row.n === "Wethouder" || row.n === "Gedeputeerde" || row.n === "Secretaris-generaal");
     expect(bare.length).toBeGreaterThan(4);
     expect(bare.every((row) => positionDisplayRest(row.n, row.o) != null)).toBe(true);
+    const minister = positions.rows.find((row) => row.s === "minister-van-financien");
+    expect(minister?.ge).toBe("Minister of Finance");
+    expect(minister?.oe).toBe("Ministry of Finance");
+    const mayor = positions.rows.find((row) => row.s === "burgemeester-amsterdam");
+    expect(mayor?.ge).toBe("Mayor of Amsterdam");
+    expect(mayor?.oe).toBe("Municipality of Amsterdam");
   });
 
   test("rows come in display order: people by letter, groups in group order", () => {
