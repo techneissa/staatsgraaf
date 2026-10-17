@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Fixed (17-10-2026, production)
+
+- Cloudflare Pages Git auto-deploys were overwriting the Wrangler upload with an empty build. Automatic Git deploys are off. Production is the Wrangler export again.
+
 ### Changed (17-10-2026, self-hosted Actions)
 
 - CI, deploy, the 3-hourly refresh and the weekly link check run on a self-hosted runner on the maintainer's Mac. GitHub-hosted minutes are no longer used. The repository stays private. The runner's git does not use the macOS Keychain, so checkouts no longer pop the osxkeychain password dialog.
