@@ -7,6 +7,8 @@ export const PANELS_DICT = {
   // Workspace chrome.
   pageShow: { nl: "Paginakolom tonen", en: "Show the page column" },
   pageHide: { nl: "Paginakolom verbergen", en: "Hide the page column" },
+  pageWiden: { nl: "Pagina verbreden", en: "Widen the page" },
+  pageNarrow: { nl: "Pagina versmallen", en: "Narrow the page" },
   canvasShow: { nl: "Grafiek tonen", en: "Show the graph" },
   canvasHide: { nl: "Grafiek verbergen", en: "Hide the graph" },
   detailsShow: { nl: "Detailpaneel tonen", en: "Show the details panel" },

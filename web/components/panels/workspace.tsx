@@ -13,7 +13,7 @@ import {
   type PointerEvent,
   type ReactNode,
 } from "react";
-import { Maximize2, Minimize2, PanelLeftOpen, PanelRightClose, PanelRightOpen } from "lucide";
+import { Maximize2, Minimize2, Orbit, PanelLeftClose, PanelLeftOpen } from "lucide";
 import { Morph } from "@/components/icons/morph";
 import { useDict } from "@/components/i18n/use-t";
 import {
@@ -139,68 +139,7 @@ function useColumnOpen(
   return [open, setOpen];
 }
 
-function Chevron({ pointsLeft }: { pointsLeft: boolean }) {
-  return (
-    <svg aria-hidden="true" viewBox="0 0 12 12" width="12" height="12" className="shrink-0 transition-transform duration-200" style={{ transform: pointsLeft ? "none" : "scaleX(-1)" }}>
-      <path d="M7.5 2.5 4 6l3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
 const ICON_BTN = "bar-control tap-target transition-fast hover:border-line-strong hover:text-ink";
-
-/**
- * A slim tab on an edge of the canvas that folds the column on that side
- * away or back. It sits where the column meets the canvas, so it travels
- * with the edge and always points the way the column will move.
- */
-function EdgeToggle({
-  side,
-  open,
-  onToggle,
-  controls,
-  label,
-  column = "canvas",
-  hidden = false,
-  pointsLeft,
-  align = "center",
-  buttonId,
-}: {
-  side: "start" | "end";
-  open: boolean;
-  onToggle: () => void;
-  controls: string;
-  label: string;
-  /** Grid column the tab sits on. "page" is the trailing edge when the canvas is away. */
-  column?: "page" | "canvas" | "details";
-  hidden?: boolean;
-  pointsLeft?: boolean;
-  align?: "start" | "center" | "end";
-  buttonId?: string;
-}) {
-  const shape =
-    side === "start"
-      ? "justify-self-start rounded-e-md border-s-0"
-      : "justify-self-end rounded-s-md border-e-0";
-  const col =
-    column === "page" ? "lg:col-start-1" : column === "details" ? "lg:col-start-3" : "lg:col-start-2";
-  const chevronLeft = pointsLeft ?? (side === "start" ? open : !open);
-  const alignClass = align === "end" ? "self-end mb-16" : align === "start" ? "self-start mt-20" : "self-center";
-  return (
-    <button
-      type="button"
-      id={buttonId}
-      onClick={onToggle}
-      aria-expanded={open}
-      aria-controls={controls}
-      aria-label={label}
-      title={label}
-      className={`relative z-20 h-12 w-5 items-center justify-center border border-line bg-surface/90 text-ink-faint shadow-sm backdrop-blur transition-fast hover:w-6 hover:text-ink focus-visible:w-6 focus-visible:text-ink pointer-coarse:min-h-11 pointer-coarse:w-11 lg:row-start-1 ${alignClass} ${hidden ? "hidden" : "hidden lg:flex"} ${col} ${shape}`}
-    >
-      <Chevron pointsLeft={chevronLeft} />
-    </button>
-  );
-}
 
 /**
  * The drag handle on the inner edge of the details panel. Pointer drags and
@@ -294,15 +233,21 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
     parseCanvasOpen,
     false,
   );
-  // Closing the canvas with the page already folded would hide every tab that
-  // can bring a column back (the page tab lives on the canvas). Reopen the page
-  // so the "show graph" tab stays on screen.
+  // Closing the canvas with the page already folded would hide every control
+  // that can bring a column back. Reopen the page so the icons stay on screen.
   const setCanvasOpen = useCallback(
     (open: boolean) => {
       if (!open) setPageOpen(true);
       setCanvasOpenState(open);
     },
     [setCanvasOpenState, setPageOpen],
+  );
+  const setPageOpenSafe = useCallback(
+    (open: boolean) => {
+      if (!open && !canvasOpen && !detailsOpen) setDetailsOpen(true);
+      setPageOpen(open);
+    },
+    [canvasOpen, detailsOpen, setDetailsOpen, setPageOpen],
   );
   const [width, setWidthState] = useState<number>(DETAILS_WIDTH.initial);
 
@@ -315,8 +260,7 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
     document.documentElement.style.setProperty(DETAILS_WIDTH_VAR, `${next}px`);
     if (commit) store(PANEL_STORAGE.detailsWidth, String(next));
   }, []);
-  const detailsMax = desktop && typeof window !== "undefined" ? availableDetailsMax(window.innerWidth, canvasOpen) : DETAILS_WIDTH.max;
-  const detailsWide = width >= detailsMax - 16;
+  const pageWide = pageOpen && !detailsOpen;
   const [chromeUsed, setChromeUsed] = useState(false);
 
   const { current } = useSelection();
@@ -334,17 +278,14 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
     <PanelStateContext.Provider value={state}>
       <div className="sg-workspace grid min-h-0 flex-1 grid-cols-1">
         {canvas}
-        <EdgeToggle
-          side="start"
-          open={pageOpen}
-          onToggle={() => setPageOpen(!pageOpen)}
-          controls={PAGE_COLUMN_ID}
-          label={pageOpen ? t("pageHide") : t("pageShow")}
-          hidden={!canvasOpen}
-        />
         <div
+          id="sg-page-chrome"
           className={`relative z-20 hidden items-center gap-1 lg:flex lg:row-start-1 ${
-            detailsOpen ? "self-start justify-self-start ms-2 mt-3 lg:col-start-3" : canvasOpen ? "self-center justify-self-end lg:col-start-2" : "self-center justify-self-end lg:col-start-1"
+            pageOpen
+              ? "self-start justify-self-start ms-2 mt-3 lg:col-start-1"
+              : canvasOpen
+                ? "self-start justify-self-start ms-2 mt-3 lg:col-start-2"
+                : "self-start justify-self-start ms-2 mt-3 lg:col-start-3"
           }`}
         >
           {canvasOpen ? null : (
@@ -361,36 +302,38 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
               title={t("canvasShow")}
               className={ICON_BTN}
             >
-              <Morph icon={PanelLeftOpen} size={16} strokeWidth={1.8} still={!chromeUsed} />
+              <Morph icon={Orbit} size={16} strokeWidth={1.8} still={!chromeUsed} />
             </button>
           )}
           <button
             type="button"
+            id="sg-page-toggle"
             onClick={() => {
               setChromeUsed(true);
-              setDetailsOpen(!detailsOpen);
+              setPageOpenSafe(!pageOpen);
             }}
-            aria-expanded={detailsOpen}
-            aria-controls={DETAILS_ID}
-            aria-label={detailsOpen ? t("detailsHide") : t("detailsShow")}
-            title={detailsOpen ? t("detailsHide") : t("detailsShow")}
+            aria-expanded={pageOpen}
+            aria-controls={PAGE_COLUMN_ID}
+            aria-label={pageOpen ? t("pageHide") : t("pageShow")}
+            title={pageOpen ? t("pageHide") : t("pageShow")}
             className={ICON_BTN}
           >
-            <Morph icon={detailsOpen ? PanelRightClose : PanelRightOpen} size={16} strokeWidth={1.8} still={!chromeUsed} />
+            <Morph icon={pageOpen ? PanelLeftClose : PanelLeftOpen} size={16} strokeWidth={1.8} still={!chromeUsed} />
           </button>
-          {detailsOpen ? (
+          {pageOpen ? (
             <button
               type="button"
+              id="sg-page-widen"
               onClick={() => {
                 setChromeUsed(true);
-                const max = availableDetailsMax(window.innerWidth, canvasOpen);
-                setWidth(width >= max - 16 ? DETAILS_WIDTH.initial : max, true);
+                setDetailsOpen(!detailsOpen);
               }}
-              aria-label={detailsWide ? t("detailsNarrow") : t("detailsWiden")}
-              title={detailsWide ? t("detailsNarrow") : t("detailsWiden")}
+              aria-pressed={pageWide}
+              aria-label={pageWide ? t("pageNarrow") : t("pageWiden")}
+              title={pageWide ? t("pageNarrow") : t("pageWiden")}
               className={ICON_BTN}
             >
-              <Morph icon={detailsWide ? Minimize2 : Maximize2} size={16} strokeWidth={1.8} still={!chromeUsed} />
+              <Morph icon={pageWide ? Minimize2 : Maximize2} size={16} strokeWidth={1.8} still={!chromeUsed} />
             </button>
           ) : null}
         </div>

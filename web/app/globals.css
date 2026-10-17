@@ -709,7 +709,7 @@
  * Workspace (components/panels/workspace.tsx): the page column, the canvas
  * and the details panel. From lg they are three grid columns; the reader can
  * fold the canvas (the default) so the page uses the remaining width, fold
- * either side column, and widen the details panel with a button (or drag). The stored choices
+ * either side column, and widen the page with a button (it folds details). The stored choices
  * arrive on <html> before first paint (PANELS_INIT_SCRIPT), so the columns
  * never open and shut again on load. A folding side column keeps its content
  * at full width and is clipped as it narrows, so its text slides away
