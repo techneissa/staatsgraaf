@@ -30,11 +30,7 @@ export function renderOfficeCopyMarkup(markup: string): ReactNode[] {
     const fields = attrs(match[2]);
     const text = match[3];
     if (match[1] === "entity" && fields.id) {
-      nodes.push(
-        <EntityPeekLink key={index++} id={fields.id}>
-          {text}
-        </EntityPeekLink>,
-      );
+      nodes.push(<EntityPeekLink key={index++} id={fields.id} />);
     } else if (match[1] === "law" && fields.href) {
       nodes.push(
         <a key={index++} href={fields.href} target="_blank" rel="noopener noreferrer" className={LAW_LINK}>

@@ -135,6 +135,21 @@ describe("positionEn", () => {
     expect(
       positionEn("Eerste ondervoorzitter van de Tweede Kamer der Staten-Generaal"),
     ).toBe("First Deputy Speaker of the House of Representatives");
+    expect(
+      positionEn(
+        "Bestuurder Primair Proces Autoriteit online Terroristisch en Kinderpornografisch Materiaal",
+      ),
+    ).toBe(
+      "COO, Authority for the Prevention of Online Terrorist Content and Child Pornography",
+    );
+    expect(
+      positionEn("Bestuurssecretaris Autoriteit online Terroristisch en Kinderpornografisch Materiaal"),
+    ).toBe(
+      "Board secretary, Authority for the Prevention of Online Terrorist Content and Child Pornography",
+    );
+    expect(positionEn("Voorzitter van de Staten van Aruba")).toBe(
+      "Speaker of the parliament of Aruba",
+    );
   });
 
   test("returns null for empty and unknown input", () => {
@@ -201,6 +216,9 @@ describe("orgEnGloss", () => {
     expect(orgEnGloss("Staten van Aruba")).toBe("Parliament of Aruba");
     expect(orgEnGloss("Centrale Commissie Mensgebonden Onderzoek")).toBe(
       "Central Committee on Research Involving Human Subjects",
+    );
+    expect(orgEnGloss("Autoriteit online Terroristisch en Kinderpornografisch Materiaal")).toBe(
+      "Authority for the Prevention of Online Terrorist Content and Child Pornography",
     );
   });
 

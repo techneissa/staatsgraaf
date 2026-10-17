@@ -36,7 +36,10 @@
  *   (government.nl/themes/justice-security-and-defence/sentences-and-non-punitive-orders/view-your-criminal-record),
  *   Dutch Authority for the Financial Markets (afm.nl/en/over-de-afm),
  *   Central Committee on Research Involving Human Subjects
- *   (english.ccmo.nl). CIBG keeps the abbreviation on government.nl.
+ *   (english.ccmo.nl), Authority for the Prevention of Online Terrorist
+ *   Content and Child Pornography (government.nl/latest/news/2024/06/05/
+ *   authority-may-require-hosting-companies-to-remove-online-child-sexual-abuse-material-from-servers).
+ *   CIBG keeps the abbreviation on government.nl.
  */
 
 import { PARTIES, partyByDataset } from "./parties";
@@ -133,6 +136,8 @@ const ORG_EXACT: Record<string, string> = {
   CIBG: "CIBG",
   "Centrale Commissie Mensgebonden Onderzoek":
     "Central Committee on Research Involving Human Subjects",
+  "Autoriteit online Terroristisch en Kinderpornografisch Materiaal":
+    "Authority for the Prevention of Online Terrorist Content and Child Pornography",
 };
 
 /** Official English ministry portfolio names (government.nl, 19-09-2026). */
@@ -224,6 +229,10 @@ const POSITION_EXACT: Record<string, string> = {
   "Procureur-generaal bij de Hoge Raad": "Procurator General at the Supreme Court",
   "Procureur-generaal (lid van het College van procureurs-generaal)":
     "Procurator General",
+  "Bestuurder Primair Proces Autoriteit online Terroristisch en Kinderpornografisch Materiaal":
+    "COO, Authority for the Prevention of Online Terrorist Content and Child Pornography",
+  "Bestuurder Bedrijfsvoering Autoriteit online Terroristisch en Kinderpornografisch Materiaal":
+    "CIO, Authority for the Prevention of Online Terrorist Content and Child Pornography",
 };
 
 /** Translates one segment of a position title; null when not established. */
@@ -307,8 +316,12 @@ function positionSegmentEn(segment: string): string | null {
   if (match) return `Chair of the board, ${namedOrg(match[1])}`;
   match = /^Bestuurslid (.+)$/u.exec(title);
   if (match) return `Board member, ${namedOrg(match[1])}`;
+  match = /^Bestuurssecretaris (.+)$/u.exec(title);
+  if (match) return `Board secretary, ${namedOrg(match[1])}`;
   match = /^Algemeen secretaris\/directeur (.+)$/u.exec(title);
   if (match) return `Secretary/director, ${namedOrg(match[1])}`;
+  match = /^Voorzitter van de Staten van (.+)$/u.exec(title);
+  if (match) return `Speaker of the parliament of ${match[1]}`;
   match = /^(Lid|Voorzitter|Ondervoorzitter) Vaste commissie voor (.+)$/u.exec(title);
   if (match) {
     const portfolio = portfolioEn(stripAbbr(match[2]));

@@ -102,6 +102,7 @@
  * - Instellingswet ACM art. 3 lid 1: "De Autoriteit Consument en Markt bestaat uit drie leden, onder wie de voorzitter." Lid 3: chair seven years, other members five.
  * - Kernenergiewet art. 5 lid 1: "De Autoriteit bestaat uit minimaal twee en maximaal drie leden, onder wie de voorzitter."
  * - Uitvoeringswet verordening terroristische online-inhoud art. 3 lid 1 and 4: three members including the chair; the chair is appointed for five years.
+ * - atkm.nl/over-de-atkm, fetched 17-10-2026: "Het bestuur van de ATKM bestaat uit drie bestuursleden en een bestuurssecretaris. De bestuursleden zijn voorgedragen door de minister van Justitie en Veiligheid en benoemd door de Koning. De benoeming van de bestuursvoorzitter is voor een periode van vijf jaar. Voor de twee andere bestuurders is de periode vier jaar." The page names bestuurder primaire processen, bestuurder bedrijfsvoering and bestuurssecretaris.
  * - Wet op de architectentitel art. 5: board of at most three members; the minister appoints a chair when there are two or three; members for at most four years.
  * - Wet College voor de rechten van de mens art. 14 lid 1 and 3: nine to twelve members including a chair and two deputy chairs; the chair represents the College.
  * - Wet gewasbeschermingsmiddelen en biociden art. 5 lid 1: five members including the chair. Art. 7 lid 3: "De secretaris van het college is tevens directeur van het secretariaat."
@@ -156,6 +157,7 @@ export const STAATSREGELING_ARUBA_SOURCE =
 export const AANWIJZINGEN_PLANBUREAUS_SOURCE = "https://wetten.overheid.nl/BWBR0031972";
 export const BANKWET_SOURCE = "https://wetten.overheid.nl/BWBR0009508";
 export const KIESWET_SOURCE = "https://wetten.overheid.nl/BWBR0004627";
+export const ATKM_BESTUUR_SOURCE = "https://www.atkm.nl/over-de-atkm";
 export const SECRETARIS_GENERAAL_SOURCES = [
   "https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken/organisatie/organogram/secretaris-generaal",
   "https://www.rijksoverheid.nl/ministeries/ministerie-van-buitenlandse-zaken/organisatie/organogram/secretaris-generaal-en-plaatsvervangend-sg",
@@ -571,6 +573,21 @@ const UNIQUE: Record<string, OfficeTemplate> = {
     nl: 'De <entity role="body">Autoriteit online Terroristisch en Kinderpornografisch Materiaal</entity> bestaat uit drie leden, onder wie de voorzitter (<law art="3">artikel 3</law> van de <law>Uitvoeringswet verordening terroristische online-inhoud</law>). De voorzitter wordt benoemd voor vijf jaar.',
     en: 'The <entity role="body">Autoriteit online Terroristisch en Kinderpornografisch Materiaal</entity> consists of three members, including the chair (<law art="3">article 3</law> of the <law>Uitvoeringswet verordening terroristische online-inhoud</law>). The chair is appointed for five years.',
   },
+  "pos:zbo-autoriteit-online-terroristisch-en-kinderpornografisch-materiaal-bestuurder-primair-proces": {
+    law: ATKM_BESTUUR_SOURCE,
+    nl: 'Het bestuur van de <entity role="body">Autoriteit online Terroristisch en Kinderpornografisch Materiaal</entity> bestaat uit drie bestuursleden en een bestuurssecretaris (<law>Over de ATKM</law>). De twee andere bestuurders worden voor vier jaar benoemd.',
+    en: 'The board of the <entity role="body">Autoriteit online Terroristisch en Kinderpornografisch Materiaal</entity> consists of three board members and a board secretary (<law>About the ATKM</law>). The other two board members are appointed for four years.',
+  },
+  "pos:zbo-autoriteit-online-terroristisch-en-kinderpornografisch-materiaal-bestuurder-bedrijfsvoering": {
+    law: ATKM_BESTUUR_SOURCE,
+    nl: 'Het bestuur van de <entity role="body">Autoriteit online Terroristisch en Kinderpornografisch Materiaal</entity> bestaat uit drie bestuursleden en een bestuurssecretaris (<law>Over de ATKM</law>). De twee andere bestuurders worden voor vier jaar benoemd.',
+    en: 'The board of the <entity role="body">Autoriteit online Terroristisch en Kinderpornografisch Materiaal</entity> consists of three board members and a board secretary (<law>About the ATKM</law>). The other two board members are appointed for four years.',
+  },
+  "pos:zbo-autoriteit-online-terroristisch-en-kinderpornografisch-materiaal-bestuurssecretaris": {
+    law: ATKM_BESTUUR_SOURCE,
+    nl: 'Het bestuur van de <entity role="body">Autoriteit online Terroristisch en Kinderpornografisch Materiaal</entity> bestaat uit drie bestuursleden en een bestuurssecretaris (<law>Over de ATKM</law>).',
+    en: 'The board of the <entity role="body">Autoriteit online Terroristisch en Kinderpornografisch Materiaal</entity> consists of three board members and a board secretary (<law>About the ATKM</law>).',
+  },
   "pos:zbo-autoriteit-persoonsgegevens-bestuurslid": {
     law: "BWBR0040940",
     nl: 'De <entity role="body">Autoriteit persoonsgegevens</entity> bestaat uit een voorzitter en twee andere leden (<law art="7">artikel 7</law> van de <law>Uitvoeringswet Algemene verordening gegevensbescherming</law>). Zij worden bij koninklijk besluit benoemd voor vijf jaar.',
@@ -685,6 +702,7 @@ const UNIQUE: Record<string, OfficeTemplate> = {
 
 /** The wetten.overheid.nl JCI permalink for a BWB, or one article of it. */
 export function wettenArtikelUrl(bwb: string, artikel?: string): string {
+  if (bwb.startsWith("http://") || bwb.startsWith("https://")) return bwb;
   if (artikel === undefined || artikel === "") return `https://wetten.overheid.nl/${bwb}`;
   return `https://wetten.overheid.nl/jci1.3:c:${bwb}&artikel=${artikel}`;
 }

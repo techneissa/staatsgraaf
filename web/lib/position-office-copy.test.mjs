@@ -5,6 +5,7 @@ import {
   EILANDGEDEPUTEERDE_SOURCE,
   GEDEPUTEERDE_SOURCE,
   AANWIJZINGEN_PLANBUREAUS_SOURCE,
+  ATKM_BESTUUR_SOURCE,
   BANKWET_SOURCE,
   MEDIAWET_SOURCE,
   RIJKSWET_ONDERZOEKSRAAD_SOURCE,
@@ -535,4 +536,24 @@ test("ACM, DNB, planbureau and Kiesraad seats cite the fetched articles", () => 
     }),
     null,
   );
+});
+
+test("ATKM bestuurders and the bestuurssecretaris cite the fetched board page", () => {
+  const proces = positionOfficeCopy({
+    id: "pos:zbo-autoriteit-online-terroristisch-en-kinderpornografisch-materiaal-bestuurder-primair-proces",
+    title: "Bestuurder Primair Proces Autoriteit online Terroristisch en Kinderpornografisch Materiaal",
+    organization: "org:zbo-autoriteit-online-terroristisch-en-kinderpornografisch-materiaal",
+  });
+  assert.ok(proces);
+  assert.match(stripOfficeCopyMarkup(proces.nl), /drie bestuursleden en een bestuurssecretaris/);
+  assert.match(proces.nl, /href="https:\/\/www\.atkm\.nl\/over-de-atkm"/);
+  const secretaris = positionOfficeCopy({
+    id: "pos:zbo-autoriteit-online-terroristisch-en-kinderpornografisch-materiaal-bestuurssecretaris",
+    title: "Bestuurssecretaris Autoriteit online Terroristisch en Kinderpornografisch Materiaal",
+    organization: "org:zbo-autoriteit-online-terroristisch-en-kinderpornografisch-materiaal",
+  });
+  assert.ok(secretaris);
+  assert.match(stripOfficeCopyMarkup(secretaris.en), /board secretary/);
+  assert.equal(ATKM_BESTUUR_SOURCE, "https://www.atkm.nl/over-de-atkm");
+  assert.equal(wettenArtikelUrl(ATKM_BESTUUR_SOURCE), ATKM_BESTUUR_SOURCE);
 });
