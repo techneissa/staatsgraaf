@@ -205,6 +205,7 @@ export function buildPositionRows(): PositionsIndexData {
       ge: positionEn(position.title),
       t: position.type,
       o: organization?.name ?? null,
+      oe: organization?.name ? orgEnGloss(organization.name) : null,
       b: organization?.branch ?? null,
       se: position.seatsCount,
       h: holder,

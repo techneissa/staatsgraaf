@@ -178,6 +178,8 @@ export type PositionRow = {
   t: OrgType;
   /** organisation name */
   o?: string | null;
+  /** English gloss of the organisation name */
+  oe?: string | null;
   /** organisation branch, for the accent bar */
   b?: OrgBranch | null;
   se?: number | null;
@@ -212,7 +214,7 @@ export function organizationSearchText(organization: OrganizationRow): string {
 }
 
 export function positionSearchText(position: PositionRow): string {
-  return foldText([position.n, position.ge ?? "", position.o ?? "", position.h ?? ""].join(" "));
+  return foldText([position.n, position.ge ?? "", position.o ?? "", position.oe ?? "", position.h ?? ""].join(" "));
 }
 
 /**
