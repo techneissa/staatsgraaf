@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { NewsFilterBar, pillClass } from "./news-filter-bar";
+import { NEWS_GRID_CLASS } from "./news-grid";
 import { NewsItemCard } from "./news-item-card";
 import type { NewsItemView } from "./news-view";
 import { useNewsFilters } from "./use-news-filters";
@@ -208,7 +209,7 @@ export function NewsDayList({
               <h2 id={`uur-${hour.hour}`} className="text-lg font-semibold tracking-tight text-ink">
                 {hour.label}
               </h2>
-              <ol className="mt-3 list-none space-y-3 p-0">
+              <ol className={`mt-3 ${NEWS_GRID_CLASS}`}>
                 {hour.items.map((item) => (
                   <li key={item.id}>
                     <NewsItemCard item={item} displayLanguage={fixedLanguage} />

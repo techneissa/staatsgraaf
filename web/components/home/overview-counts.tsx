@@ -48,7 +48,7 @@ function BranchRow({ branch, count }: { branch: OrgBranch; count: number }) {
     <li>
       <Link href={`/organisaties/#groep-${branch}`} className={ROW}>
         <IconTile color={color} icon={GROUP_META[branch]?.icon ?? GROUP_META.zelfstandig.icon} size="sm" />
-        <span className="min-w-0 flex-1 text-sm leading-snug text-ink">
+        <span className="min-w-0 flex-1 text-sm leading-snug text-ink [overflow-wrap:anywhere]">
           <LocaleLabel kind="branch" value={branch} />
         </span>
         <span className="shrink-0 text-sm font-medium tabular-nums text-ink-muted">
@@ -66,7 +66,7 @@ function TypeRow({ type, count }: { type: OrgType; count: number }) {
     <li>
       <Link href={`/organisaties/?type=${type}`} className={ROW}>
         <IconTile color={color} icon={meta.icon} size="sm" />
-        <span className="min-w-0 flex-1 text-sm leading-snug text-ink">
+        <span className="min-w-0 flex-1 text-sm leading-snug text-ink [overflow-wrap:anywhere]">
           <LocaleLabel kind="type" value={type} />
         </span>
         <span className="shrink-0 text-sm font-medium tabular-nums text-ink-muted">
@@ -111,7 +111,7 @@ export function OverviewCounts({
           value={subOrganizations}
         />
       </div>
-      <div className="mt-4 grid gap-5 @[38rem]:grid-cols-2 @[38rem]:gap-6">
+      <div className="mt-4 grid gap-5 @[30rem]:grid-cols-2 @[30rem]:gap-6">
         <div className="min-w-0">
           <h3 className="text-[11px] font-semibold uppercase tracking-wide text-ink-faint">
             <L nl="Naar branche" en="By branch" />

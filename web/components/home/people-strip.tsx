@@ -52,7 +52,7 @@ export function PeopleStrip({ people }: { people: FocusPerson[] }) {
     positionTitle: entry.positionTitle,
   }));
   return (
-    <ul className="flex flex-wrap items-center">
+    <ul className="flex flex-wrap items-center gap-y-2 @[40rem]:gap-y-3">
       {entries.map((entry, index) => (
         <PersonBubble key={entry.person.id} entry={entry} side={index < entries.length / 2 ? "left" : "right"} />
       ))}

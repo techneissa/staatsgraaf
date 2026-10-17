@@ -1,24 +1,29 @@
 /**
- * The reader's layout choices for the two side columns: whether the page
- * column and the details panel are open, and how wide the details panel is.
+ * The reader's layout choices for the page column, the canvas and the
+ * details panel: which of them are open, and how wide the details panel is.
  *
- * The choices live in localStorage and are mirrored on <html> as data
- * attributes and a CSS variable, so the columns render at the right size
- * before React hydrates (PANELS_INIT_SCRIPT runs in the document head) and
- * the grid in globals.css ("Workspace") is the only place that turns them
- * into widths. Pure module: the script, the client and the tests share it.
+ * From tablet width the page is first: the canvas starts closed so the
+ * editorial column can use the full width (ADR 0018 amendment 18-10-2026).
+ * A stored "open" restores the graph. The choices live in localStorage and
+ * are mirrored on <html> as data attributes and a CSS variable, so the
+ * columns render at the right size before React hydrates (PANELS_INIT_SCRIPT
+ * runs in the document head) and the grid in globals.css ("Workspace") is
+ * the only place that turns them into widths. Pure module: the script, the
+ * client and the tests share it.
  */
 
 export const PANEL_STORAGE = {
   page: "staatsgraaf.panels.page",
   details: "staatsgraaf.panels.details",
   detailsWidth: "staatsgraaf.panels.details-width",
+  canvas: "staatsgraaf.panels.canvas",
 } as const;
 
 /** The attributes on <html> the grid reads. "closed" or absent. */
 export const PANEL_ATTR = {
   page: "data-page-panel",
   details: "data-details-panel",
+  canvas: "data-canvas-panel",
 } as const;
 
 /** The CSS variable the grid reads for the details panel width. */
@@ -39,9 +44,17 @@ export function parseDetailsWidth(raw: string | null | undefined): number {
   return Number.isFinite(value) ? clampDetailsWidth(value) : DETAILS_WIDTH.initial;
 }
 
-/** A stored open state; anything but "closed" is open, so a fresh visit shows both columns. */
+/** A stored open state; anything but "closed" is open, so a fresh visit shows both side columns. */
 export function parseOpen(raw: string | null | undefined): boolean {
   return raw !== "closed";
+}
+
+/**
+ * The canvas starts closed from tablet width so the page can fill the screen.
+ * Only a stored "open" brings the graph back.
+ */
+export function parseCanvasOpen(raw: string | null | undefined): boolean {
+  return raw === "open";
 }
 
 /**
@@ -75,6 +88,8 @@ export const PANELS_INIT_SCRIPT = `(function(){try{var d=document.documentElemen
   PANEL_STORAGE.page,
 )})==="closed")d.setAttribute(${JSON.stringify(PANEL_ATTR.page)},"closed");if(s.getItem(${JSON.stringify(
   PANEL_STORAGE.details,
-)})==="closed")d.setAttribute(${JSON.stringify(PANEL_ATTR.details)},"closed");var w=parseInt(s.getItem(${JSON.stringify(
+)})==="closed")d.setAttribute(${JSON.stringify(PANEL_ATTR.details)},"closed");if(s.getItem(${JSON.stringify(
+  PANEL_STORAGE.canvas,
+)})!=="open")d.setAttribute(${JSON.stringify(PANEL_ATTR.canvas)},"closed");var w=parseInt(s.getItem(${JSON.stringify(
   PANEL_STORAGE.detailsWidth,
-)})||"",10);if(w>=${DETAILS_WIDTH.min}&&w<=${DETAILS_WIDTH.max})d.style.setProperty(${JSON.stringify(DETAILS_WIDTH_VAR)},w+"px")}catch(e){}})();`;
+)})||"",10);if(w>=${DETAILS_WIDTH.min}&&w<=${DETAILS_WIDTH.max})d.style.setProperty(${JSON.stringify(DETAILS_WIDTH_VAR)},w+"px")}catch(e){try{document.documentElement.setAttribute(${JSON.stringify(PANEL_ATTR.canvas)},"closed")}catch(e2){}}})();`;

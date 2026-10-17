@@ -80,7 +80,7 @@ export function OrgStructure({
               return (
                 <li
                   key={person.id}
-                  className="flex w-[calc(50%-0.25rem)] min-w-0 flex-col items-center sm:w-28"
+                  className="flex w-[calc(50%-0.25rem)] min-w-0 flex-col items-center @[28rem]:w-28"
                 >
                   <EntityPeekLink
                     id={person.id}
@@ -88,7 +88,7 @@ export function OrgStructure({
                     className="flex w-full flex-col items-center gap-1 text-center"
                   >
                     <PersonPortrait person={person} size={48} />
-                    <span className="text-xs font-medium leading-tight">{person.name}</span>
+                    <span className="text-xs font-medium leading-tight [overflow-wrap:anywhere]">{person.name}</span>
                   </EntityPeekLink>
                   <PersonPortraitCredit person={person} />
                   {roles.map(({ tenure, position }) => (

@@ -69,18 +69,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             {/* svh, not dvh: iOS dvh tracks the URL bar and reflows the page while you scroll. */}
             <div className="flex min-h-svh flex-col lg:h-dvh lg:min-h-0 lg:overflow-hidden">
               <TopBar />
-              {/* Three columns from lg (page, canvas, details), one stack below it;
-                  the grid and the stored column choices live in Workspace. */}
+              {/* From lg: page, optional canvas, details. The canvas starts closed
+                  so the page can use the full width (ADR 0018, 18-10-2026). Below
+                  md the home graph still leads; from md the page is first. */}
               <Workspace canvas={<CanvasFrame />}>
-                {/* Below lg the column is the full screen width: pad it clear of the
-                    notch in landscape and cap the measure so lines stay readable on
-                    an iPad in portrait. From lg the column is at most 32rem already. */}
+                {/* Below md the column is the screen width with a readable measure.
+                    From md it is a container that fills whatever the workspace
+                    leaves, so news and indexes can go two or three across. */}
                 <main
                   id="inhoud"
                   tabIndex={-1}
-                  className="@container flex-1 pb-10 pl-[max(1rem,var(--safe-left))] pr-[max(1rem,var(--safe-right))] pt-6 lg:pl-[max(2rem,var(--safe-left))] lg:pr-8"
+                  className="@container flex-1 pb-10 pl-[max(1rem,var(--safe-left))] pr-[max(1rem,var(--safe-right))] pt-6 md:pl-[max(1.5rem,var(--safe-left))] md:pr-6 lg:pl-[max(2rem,var(--safe-left))] lg:pr-8"
                 >
-                  <div className="mx-auto w-full max-w-[44rem] lg:mx-0 lg:max-w-none">
+                  <div className="mx-auto w-full max-w-[44rem] md:mx-0 md:max-w-none">
                     {/* What is picked on the canvas, above the page; it does not
                         take part in the page transition. */}
                     <SelectionProfileGate />

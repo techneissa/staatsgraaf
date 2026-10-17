@@ -20,6 +20,7 @@ import {
   PANEL_ATTR,
   PANEL_STORAGE,
   clampDetailsWidth,
+  parseCanvasOpen,
   parseDetailsWidth,
   parseOpen,
   widthAfterKey,
@@ -39,16 +40,29 @@ const DetailsSheet = dynamic(() => import("./details-sheet").then((module) => mo
 
 export const PAGE_COLUMN_ID = "sg-page-column";
 const DETAILS_ID = "sg-details";
+const CANVAS_ID = "sg-canvas-body";
 const DESKTOP = "(min-width: 64rem)";
+const TABLET = "(min-width: 48rem)";
 
 type PanelState = {
   /** True from the lg breakpoint, where the three columns sit side by side. */
   desktop: boolean;
+  /** True from md, where the page is first and the canvas starts closed. */
+  tablet: boolean;
   pageOpen: boolean;
   detailsOpen: boolean;
+  canvasOpen: boolean;
+  setCanvasOpen: (open: boolean) => void;
 };
 
-const PanelStateContext = createContext<PanelState>({ desktop: false, pageOpen: true, detailsOpen: true });
+const PanelStateContext = createContext<PanelState>({
+  desktop: false,
+  tablet: false,
+  pageOpen: true,
+  detailsOpen: true,
+  canvasOpen: false,
+  setCanvasOpen: () => {},
+});
 
 /** Whether the side columns are showing, for panels that adapt to the other one being hidden. */
 export function usePanelState(): PanelState {
@@ -61,10 +75,24 @@ function subscribeDesktop(onChange: () => void) {
   return () => query.removeEventListener("change", onChange);
 }
 
+function subscribeTablet(onChange: () => void) {
+  const query = window.matchMedia(TABLET);
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+}
+
 function useDesktop(): boolean {
   return useSyncExternalStore(
     subscribeDesktop,
     () => window.matchMedia(DESKTOP).matches,
+    () => false,
+  );
+}
+
+function useTablet(): boolean {
+  return useSyncExternalStore(
+    subscribeTablet,
+    () => window.matchMedia(TABLET).matches,
     () => false,
   );
 }
@@ -86,11 +114,16 @@ function read(key: string): string | null {
 }
 
 /** A column's open state, mirrored on <html> where the grid reads it and in localStorage. */
-function useColumnOpen(storageKey: string, attr: string): [boolean, (open: boolean) => void] {
-  const [open, setOpenState] = useState(true);
+function useColumnOpen(
+  storageKey: string,
+  attr: string,
+  parse: (raw: string | null) => boolean = parseOpen,
+  defaultOpen = true,
+): [boolean, (open: boolean) => void] {
+  const [open, setOpenState] = useState(defaultOpen);
   useEffect(() => {
-    setOpenState(parseOpen(read(storageKey)));
-  }, [storageKey]);
+    setOpenState(parse(read(storageKey)));
+  }, [storageKey, parse]);
   const setOpen = useCallback(
     (next: boolean) => {
       setOpenState(next);
@@ -122,28 +155,44 @@ function EdgeToggle({
   onToggle,
   controls,
   label,
+  column = "canvas",
+  hidden = false,
+  pointsLeft,
+  align = "center",
+  buttonId,
 }: {
   side: "start" | "end";
   open: boolean;
   onToggle: () => void;
   controls: string;
   label: string;
+  /** Grid column the tab sits on. "page" is the trailing edge when the canvas is away. */
+  column?: "page" | "canvas" | "details";
+  hidden?: boolean;
+  pointsLeft?: boolean;
+  align?: "center" | "end";
+  buttonId?: string;
 }) {
   const shape =
     side === "start"
       ? "justify-self-start rounded-e-md border-s-0"
       : "justify-self-end rounded-s-md border-e-0";
+  const col =
+    column === "page" ? "lg:col-start-1" : column === "details" ? "lg:col-start-3" : "lg:col-start-2";
+  const chevronLeft = pointsLeft ?? (side === "start" ? open : !open);
+  const alignClass = align === "end" ? "self-end mb-16" : "self-center";
   return (
     <button
       type="button"
+      id={buttonId}
       onClick={onToggle}
       aria-expanded={open}
       aria-controls={controls}
       aria-label={label}
       title={label}
-      className={`z-20 hidden h-12 w-5 items-center justify-center self-center border border-line bg-surface/90 text-ink-faint shadow-sm backdrop-blur transition-fast hover:w-6 hover:text-ink focus-visible:w-6 focus-visible:text-ink lg:col-start-2 lg:row-start-1 lg:flex ${shape}`}
+      className={`relative z-20 h-12 w-5 items-center justify-center border border-line bg-surface/90 text-ink-faint shadow-sm backdrop-blur transition-fast hover:w-6 hover:text-ink focus-visible:w-6 focus-visible:text-ink pointer-coarse:min-h-11 pointer-coarse:w-11 lg:row-start-1 ${alignClass} ${hidden ? "hidden" : "hidden lg:flex"} ${col} ${shape}`}
     >
-      <Chevron pointsLeft={side === "start" ? open : !open} />
+      <Chevron pointsLeft={chevronLeft} />
     </button>
   );
 }
@@ -214,15 +263,33 @@ function ResizeHandle({ width, onWidth }: { width: number; onWidth: (width: numb
 
 /**
  * The page layout: the page column, the canvas and the details panel, three
- * columns from the lg breakpoint and one stack below it. Owns the reader's
- * column choices (panel-prefs.ts); the grid itself lives in globals.css
- * ("Workspace"), so the stored widths apply before hydration.
+ * columns from the lg breakpoint and one stack below it. From tablet width
+ * the canvas starts closed so the page can use the full width. Owns the
+ * reader's column choices (panel-prefs.ts); the grid itself lives in
+ * globals.css ("Workspace"), so the stored widths apply before hydration.
  */
 export function Workspace({ canvas, children }: { canvas: ReactNode; children: ReactNode }) {
   const t = useDict("panels");
   const desktop = useDesktop();
+  const tablet = useTablet();
   const [pageOpen, setPageOpen] = useColumnOpen(PANEL_STORAGE.page, PANEL_ATTR.page);
   const [detailsOpen, setDetailsOpen] = useColumnOpen(PANEL_STORAGE.details, PANEL_ATTR.details);
+  const [canvasOpen, setCanvasOpenState] = useColumnOpen(
+    PANEL_STORAGE.canvas,
+    PANEL_ATTR.canvas,
+    parseCanvasOpen,
+    false,
+  );
+  // Closing the canvas with the page already folded would hide every tab that
+  // can bring a column back (the page tab lives on the canvas). Reopen the page
+  // so the "show graph" tab stays on screen.
+  const setCanvasOpen = useCallback(
+    (open: boolean) => {
+      if (!open) setPageOpen(true);
+      setCanvasOpenState(open);
+    },
+    [setCanvasOpenState, setPageOpen],
+  );
   const [width, setWidthState] = useState<number>(DETAILS_WIDTH.initial);
 
   useEffect(() => {
@@ -236,7 +303,10 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
   }, []);
 
   const { current } = useSelection();
-  const state = useMemo(() => ({ desktop, pageOpen, detailsOpen }), [desktop, pageOpen, detailsOpen]);
+  const state = useMemo(
+    () => ({ desktop, tablet, pageOpen, detailsOpen, canvasOpen, setCanvasOpen }),
+    [desktop, tablet, pageOpen, detailsOpen, canvasOpen, setCanvasOpen],
+  );
 
   // Both side columns are `relative` so they are the containing block for
   // absolutely positioned content inside them (the sr-only labels among it).
@@ -253,13 +323,27 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
           onToggle={() => setPageOpen(!pageOpen)}
           controls={PAGE_COLUMN_ID}
           label={pageOpen ? t("pageHide") : t("pageShow")}
+          hidden={!canvasOpen}
         />
         <EdgeToggle
           side="end"
+          open={canvasOpen}
+          onToggle={() => setCanvasOpen(!canvasOpen)}
+          controls={CANVAS_ID}
+          label={canvasOpen ? t("canvasHide") : t("canvasShow")}
+          column="page"
+          hidden={canvasOpen}
+          pointsLeft={false}
+          buttonId="sg-canvas-show"
+        />
+        <EdgeToggle
+          side={canvasOpen ? "end" : detailsOpen ? "start" : "end"}
           open={detailsOpen}
           onToggle={() => setDetailsOpen(!detailsOpen)}
           controls={DETAILS_ID}
           label={detailsOpen ? t("detailsHide") : t("detailsShow")}
+          column={canvasOpen ? "canvas" : detailsOpen ? "details" : "page"}
+          align={canvasOpen || detailsOpen ? "center" : "end"}
         />
         <div
           id={PAGE_COLUMN_ID}

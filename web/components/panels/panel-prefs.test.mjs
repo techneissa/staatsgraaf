@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { DETAILS_WIDTH, PANELS_INIT_SCRIPT, clampDetailsWidth, parseDetailsWidth, parseOpen, widthAfterKey } from "./panel-prefs.ts";
+import { DETAILS_WIDTH, PANELS_INIT_SCRIPT, clampDetailsWidth, parseCanvasOpen, parseDetailsWidth, parseOpen, widthAfterKey } from "./panel-prefs.ts";
 import { compactValue, normalizePanelRecord, panelShard } from "./panel-data.ts";
 
 describe("panel preferences", () => {
@@ -14,6 +14,16 @@ describe("panel preferences", () => {
     expect(parseOpen(null)).toBe(true);
     expect(parseOpen("open")).toBe(true);
     expect(parseOpen("closed")).toBe(false);
+  });
+  test("the canvas starts closed unless a stored 'open' restores it", () => {
+    expect(parseCanvasOpen(null)).toBe(false);
+    expect(parseCanvasOpen("closed")).toBe(false);
+    expect(parseCanvasOpen("open")).toBe(true);
+  });
+  test("the head script closes the canvas by default", () => {
+    expect(PANELS_INIT_SCRIPT).toContain("data-canvas-panel");
+    expect(PANELS_INIT_SCRIPT).toContain("!==\"open\"");
+    expect(PANELS_INIT_SCRIPT).toMatch(/catch\(e\)\{try\{document\.documentElement\.setAttribute\("data-canvas-panel","closed"\)/);
   });
   test("arrow keys resize from the left edge", () => {
     expect(widthAfterKey(320, "ArrowLeft")).toBe(336);

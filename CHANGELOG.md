@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Added (18-10-2026, page-first layout)
+
+- On iPad and computer the page column fills the screen and the graph starts closed. News cards sit two or three in a row when the column is wide. A "Toon grafiek" control restores the canvas. Phones keep the home graph.
+
 ### Fixed (18-10-2026, info tips)
 
 - The (i) notes (Dutch name, aliases, portrait and logo credit, translation, child-body count) are portalled and stay inside the viewport. They were `position: absolute` inside the page column, which clips overflow, so a long Dutch name was cut off.

@@ -49,7 +49,7 @@ export default function TopicsPage() {
           <T area="news" k="topicsAllHeading" />
         </h2>
         {cards.length > 0 ? (
-          <ul className="grid list-none grid-cols-1 gap-3 p-0 sm:grid-cols-2">
+          <ul className="grid list-none grid-cols-1 gap-3 p-0 @[40rem]:grid-cols-2 @[64rem]:grid-cols-3">
             {cards.map(({ topic, organizationCount }) => (
               <li key={topic.id} className="min-w-0">
                 <TopicCard topic={topic} organizationCount={organizationCount} />
