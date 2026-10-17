@@ -309,6 +309,14 @@ export const ENTITY_DICT = {
     nl: "Op dit snapshot staat in de dataset geen houder van deze positie. Dat betekent niet dat de positie vacant is: de bronnen noemen er nog geen.",
     en: "On this snapshot the dataset lists no holder of this position. That does not mean the position is vacant: the sources name none yet.",
   },
+  holdersNoneNoSource: {
+    nl: "Op dit snapshot staat in de dataset geen houder van deze positie. Dat betekent niet dat de positie vacant is.",
+    en: "On this snapshot the dataset lists no holder of this position. That does not mean the position is vacant.",
+  },
+  holdersNoneRegisterUnread: {
+    nl: "Op dit snapshot staat in de dataset geen houder van deze positie. Dat betekent niet dat de positie vacant is: het register van Overheidsorganisaties noemt namen, en die staan hier nog niet.",
+    en: "On this snapshot the dataset lists no holder of this position. That does not mean the position is vacant: the Register van Overheidsorganisaties names people, and those names are not in this dataset yet.",
+  },
   holdersNoneEnded: {
     nl: "Op dit snapshot geen huidige houder in de dataset. De laatste bekende periode eindigde op {date}.",
     en: "No current holder in the dataset on this snapshot. The last known period ended on {date}.",

@@ -1,7 +1,8 @@
 import type { ReactNode } from "react";
 import { DateT } from "@/components/content/local-date";
 import { BuildingIcon, ClockIcon, KeyIcon, PeopleIcon, ScaleIcon, SeatIcon } from "@/components/entity/icons";
-import { LocalizedDescription } from "@/components/entity/localized-description";
+import { LocalizedRich } from "@/components/entity/localized-description";
+import { renderOfficeCopyMarkup } from "@/components/entity/office-copy";
 import { PersonPortrait, PersonPortraitCredit } from "@/components/entity/person-portrait";
 import { SUMMARY_CLASS } from "@/components/entity/entity-connections";
 import { Gloss, L, T } from "@/components/i18n/t";
@@ -140,10 +141,10 @@ export function PositionHeader({
       ) : null}
 
       {officeCopy !== null ? (
-        <LocalizedDescription
-          nl={officeCopy.nl}
-          en={officeCopy.en}
-          className="mt-4 max-w-prose text-sm leading-relaxed text-ink-muted"
+        <LocalizedRich
+          nl={renderOfficeCopyMarkup(officeCopy.nl)}
+          en={renderOfficeCopyMarkup(officeCopy.en)}
+          className="mt-4 text-sm text-ink-muted"
         />
       ) : null}
 

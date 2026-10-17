@@ -17,6 +17,7 @@ import { PositionHeader } from "@/components/entity/position-header";
 import { positionSummary } from "@/lib/entity-summary";
 import { titleNamesBody } from "@/lib/changes";
 import { holderState, positionDescription, positionPageTitle } from "@/lib/entity-page";
+import { unknownHolderGap } from "@/lib/holder-gap";
 import { vacancyForPosition } from "@/lib/entity-vacancy";
 import { withoutDerived } from "@/lib/entity-rows";
 import { TenureTimeline } from "@/components/entity/tenure-timeline";
@@ -145,6 +146,7 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
     { label: position.title },
   ];
   const state = holderState({ currentHolders: currentHolders.length, lastEnded, vacancy: vacancy !== null, memberCount: bodyMembers });
+  const holderGap = state.kind === "unknown" ? unknownHolderGap(position) : null;
 
   const organizationUrl = organization
     ? absoluteUrl(`/organisaties/${organization.slug}/`)
@@ -202,11 +204,11 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
             <GapNote sources={position.sources}>
               <DateT area="entity" k="holdersNoneEnded" dates={{ date: state.date }} short />
             </GapNote>
-          ) : state.kind === "holders" ? null : (
-            <GapNote sources={position.sources}>
-              <T area="entity" k="holdersNoneUnknown" />
+          ) : state.kind === "holders" ? null : holderGap !== null ? (
+            <GapNote sources={holderGap.sources}>
+              <T area="entity" k={holderGap.key} />
             </GapNote>
-          )
+          ) : null
         }
       />
 

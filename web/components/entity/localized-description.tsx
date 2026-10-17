@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useLocale } from "@/components/i18n/language-provider";
 
 function Paragraphs({ text }: { text: string }) {
@@ -44,6 +45,33 @@ export function LocalizedDescription({
           <Paragraphs text={en} />
         </div>
       ) : null}
+    </div>
+  );
+}
+
+/**
+ * The same locale switch as LocalizedDescription, for copy that already holds
+ * inline links. Both languages stay in the page.
+ */
+export function LocalizedRich({
+  nl,
+  en,
+  className = "",
+}: {
+  nl: ReactNode;
+  en: ReactNode;
+  className?: string;
+}) {
+  const locale = useLocale();
+  const showEnglish = locale === "en";
+  return (
+    <div className={className}>
+      <p lang="nl" hidden={showEnglish} className="max-w-prose leading-relaxed">
+        {nl}
+      </p>
+      <p lang="en" hidden={!showEnglish} className="max-w-prose leading-relaxed">
+        {en}
+      </p>
     </div>
   );
 }
