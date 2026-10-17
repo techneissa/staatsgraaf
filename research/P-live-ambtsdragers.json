@@ -1,40 +1,40 @@
 {
   "workstream": "P",
-  "generatedAt": "2026-10-16T00:00:00.000Z",
+  "generatedAt": "2026-10-17T00:00:00.000Z",
   "endpointsUsed": [
     {
       "url": "https://www.rijksoverheid.nl/regering/bewindspersonen",
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "notes": "Rijksoverheid bewindspersonen"
     },
     {
       "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$filter=TotEnMet eq null&$expand=Persoon,FractieZetel($expand=Fractie)&$format=json&$top=250",
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "notes": "FractieZetelPersoon (huidige leden, met Persoon en Fractie)"
     },
     {
       "url": "https://www.eerstekamer.nl/alle_leden",
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "notes": "Eerste Kamer alle leden"
     },
     {
       "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/FractieZetelPersoon?$filter=TotEnMet ne null&$orderby=ApiGewijzigdOp desc",
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "notes": "FractieZetelPersoon (gesloten rijen, laatst gewijzigd eerst)"
     },
     {
       "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/Fractie?$filter=DatumInactief eq null",
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "notes": "Fractie (actieve fracties met AantalZetels)"
     },
     {
       "url": "https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/CommissieZetelVastPersoon?$filter=CommissieZetel/Commissie/Afkorting eq 'PRES'",
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "notes": "Presidium (Voorzitter en ondervoorzitters van de Tweede Kamer)"
     },
     {
       "url": "https://www.eerstekamer.nl/fracties",
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "notes": "Eerste Kamer fracties en fractiebesturen"
     },
     {
@@ -2026,7 +2026,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -2073,7 +2073,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -2182,7 +2182,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -2291,7 +2291,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -2334,7 +2334,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -2413,7 +2413,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -2486,7 +2486,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -2528,7 +2528,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -2704,7 +2704,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -2746,7 +2746,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -2788,7 +2788,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -2830,7 +2830,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -3005,7 +3005,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -3083,7 +3083,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -3125,7 +3125,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -3203,7 +3203,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -3276,7 +3276,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -3426,7 +3426,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -3674,7 +3674,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -3783,7 +3783,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -3829,7 +3829,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -3990,7 +3990,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -4032,7 +4032,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -4147,7 +4147,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -4514,7 +4514,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -4686,7 +4686,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -4728,7 +4728,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -4770,7 +4770,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -4848,7 +4848,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -4889,7 +4889,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -5055,7 +5055,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -5176,7 +5176,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -5218,7 +5218,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -5331,7 +5331,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -5404,7 +5404,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -5478,7 +5478,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -5521,7 +5521,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -5563,7 +5563,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -5605,7 +5605,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -5709,7 +5709,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -5783,7 +5783,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -5825,7 +5825,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -6902,7 +6902,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -6943,7 +6943,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -6989,7 +6989,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -7107,7 +7107,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -7149,7 +7149,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -7253,7 +7253,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -7326,7 +7326,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -7444,7 +7444,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -7651,7 +7651,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -7724,7 +7724,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -7797,7 +7797,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -7839,7 +7839,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -7881,7 +7881,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -8041,7 +8041,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -8083,7 +8083,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -8125,7 +8125,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -8203,7 +8203,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -8786,7 +8786,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -9097,7 +9097,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -9139,7 +9139,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -9293,7 +9293,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -9402,7 +9402,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -9752,7 +9752,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -9861,7 +9861,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -9966,7 +9966,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -10084,7 +10084,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -10162,7 +10162,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -10204,7 +10204,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -10251,7 +10251,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -10294,7 +10294,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -10403,7 +10403,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -10445,7 +10445,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -10626,7 +10626,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -10668,7 +10668,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -10778,7 +10778,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -10887,7 +10887,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -10929,7 +10929,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -10971,7 +10971,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -11116,7 +11116,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -11552,7 +11552,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -11594,7 +11594,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -11662,7 +11662,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -11838,7 +11838,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -11983,7 +11983,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -12272,7 +12272,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -12345,7 +12345,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -12516,7 +12516,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -12558,7 +12558,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -12604,7 +12604,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -12682,7 +12682,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -12719,7 +12719,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -12761,7 +12761,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -12870,7 +12870,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -12984,7 +12984,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -13390,7 +13390,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -13498,7 +13498,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -13540,7 +13540,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -13644,7 +13644,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -13784,7 +13784,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -13826,7 +13826,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -14050,7 +14050,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -14123,7 +14123,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -14165,7 +14165,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -14357,7 +14357,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -14569,7 +14569,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -14642,7 +14642,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -14684,7 +14684,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -14726,7 +14726,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -15036,7 +15036,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -15078,7 +15078,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -15121,7 +15121,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -15334,7 +15334,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -15474,7 +15474,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -15646,7 +15646,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -16231,7 +16231,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -16273,7 +16273,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -16506,7 +16506,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -16579,7 +16579,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -16801,7 +16801,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -16843,7 +16843,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -16885,7 +16885,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -16931,7 +16931,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -16973,7 +16973,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -17722,7 +17722,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -17764,7 +17764,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -17945,7 +17945,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -18178,7 +18178,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -18220,7 +18220,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -18334,7 +18334,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -18469,7 +18469,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -18515,7 +18515,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -18862,7 +18862,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -19037,7 +19037,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -19079,7 +19079,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -19224,7 +19224,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -19298,7 +19298,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -19377,7 +19377,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -19552,7 +19552,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -19732,7 +19732,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -19877,7 +19877,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -19945,7 +19945,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -20162,7 +20162,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -20494,7 +20494,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -20536,7 +20536,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -20816,7 +20816,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -20862,7 +20862,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -20904,7 +20904,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -20946,7 +20946,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -20988,7 +20988,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -21266,7 +21266,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -21308,7 +21308,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -21385,7 +21385,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -21465,7 +21465,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -21511,7 +21511,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -21584,7 +21584,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -21626,7 +21626,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -21739,7 +21739,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -21839,7 +21839,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -21917,7 +21917,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -22092,7 +22092,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -22134,7 +22134,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -22177,7 +22177,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -22219,7 +22219,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -22389,7 +22389,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -22467,7 +22467,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -22509,7 +22509,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -22619,7 +22619,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -22661,7 +22661,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -22733,7 +22733,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -22779,7 +22779,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -22939,7 +22939,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -23069,7 +23069,7 @@
         },
         {
           "source": "src:rijksoverheid-bewindspersonen",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -23209,7 +23209,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -23282,7 +23282,7 @@
         },
         {
           "source": "src:tk-odata-fractiezetelpersonen-expand",
-          "retrieved": "2026-10-16",
+          "retrieved": "2026-10-17",
           "confidence": "high"
         }
       ]
@@ -30804,7 +30804,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-presidium",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -30823,7 +30823,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-50plus",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -30842,7 +30842,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-boerburgerbeweging",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -30861,7 +30861,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-christen-democratisch-appel",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -30880,7 +30880,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-christenunie",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -30899,7 +30899,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-democraten-1966",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -30918,7 +30918,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-beukering",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -30937,7 +30937,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-van-de-sanden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -30956,7 +30956,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-visseren-hamakers",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -30975,7 +30975,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-walenkamp",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -30994,7 +30994,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-forum-voor-democratie",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31013,7 +31013,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-ja21",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31032,7 +31032,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-onafhankelijke-politiek-nederland",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31051,7 +31051,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-progressief-nederland-pro",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31070,7 +31070,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-partij-voor-de-dieren",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31089,7 +31089,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-partij-voor-de-vrijheid",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31108,7 +31108,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-staatkundig-gereformeerde-partij",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31127,7 +31127,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-socialistische-partij",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31146,7 +31146,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-volt",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31165,7 +31165,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-fractie-volkspartij-voor-vrijheid-en",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31184,7 +31184,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31203,7 +31203,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31222,7 +31222,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31241,7 +31241,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31260,7 +31260,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31279,7 +31279,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31298,7 +31298,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31317,7 +31317,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31336,7 +31336,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31355,7 +31355,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31374,7 +31374,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31393,7 +31393,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31412,7 +31412,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31431,7 +31431,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31450,7 +31450,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31469,7 +31469,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31488,7 +31488,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31507,7 +31507,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31526,7 +31526,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31545,7 +31545,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31564,7 +31564,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31583,7 +31583,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31602,7 +31602,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31621,7 +31621,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31640,7 +31640,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31659,7 +31659,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31678,7 +31678,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31697,7 +31697,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31716,7 +31716,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31735,7 +31735,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31754,7 +31754,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31773,7 +31773,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31792,7 +31792,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31811,7 +31811,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31830,7 +31830,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31849,7 +31849,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31868,7 +31868,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31887,7 +31887,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31906,7 +31906,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31925,7 +31925,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31944,7 +31944,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31963,7 +31963,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -31982,7 +31982,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32001,7 +32001,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32020,7 +32020,7 @@
       "endReason": null,
       "source": {
         "source": "src:rijksoverheid-bewindspersonen",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32039,7 +32039,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-presidium",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32058,7 +32058,7 @@
       "endReason": null,
       "source": {
         "source": "src:ek-persoon-dr-m-l-vos-pro",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32077,7 +32077,7 @@
       "endReason": null,
       "source": {
         "source": "src:tk-odata-presidium",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     }
@@ -32093,7 +32093,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32107,7 +32107,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32121,7 +32121,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32135,7 +32135,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32149,7 +32149,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32163,7 +32163,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32177,7 +32177,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32191,7 +32191,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32205,7 +32205,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32219,7 +32219,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32233,7 +32233,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32247,7 +32247,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32261,7 +32261,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32275,7 +32275,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32289,7 +32289,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32303,7 +32303,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32317,7 +32317,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32331,7 +32331,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32345,7 +32345,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32359,7 +32359,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32373,7 +32373,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32387,7 +32387,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32401,7 +32401,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32415,7 +32415,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32429,7 +32429,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32443,7 +32443,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32457,7 +32457,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32471,7 +32471,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32485,7 +32485,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32499,7 +32499,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32513,7 +32513,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32527,7 +32527,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32541,7 +32541,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32555,7 +32555,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32569,7 +32569,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32583,7 +32583,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32597,7 +32597,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32611,7 +32611,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32625,7 +32625,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32639,7 +32639,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32653,7 +32653,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32667,7 +32667,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32681,7 +32681,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32695,7 +32695,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32709,7 +32709,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32723,7 +32723,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32737,7 +32737,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32751,7 +32751,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32765,7 +32765,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32779,7 +32779,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32793,7 +32793,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32807,7 +32807,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32821,7 +32821,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32835,7 +32835,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32849,7 +32849,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32863,7 +32863,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32877,7 +32877,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32891,7 +32891,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32905,7 +32905,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32919,7 +32919,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32933,7 +32933,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32947,7 +32947,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32961,7 +32961,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32975,7 +32975,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -32989,7 +32989,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33003,7 +33003,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33017,7 +33017,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33031,7 +33031,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33045,7 +33045,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33059,7 +33059,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33073,7 +33073,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33087,7 +33087,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33101,7 +33101,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33115,7 +33115,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33129,7 +33129,7 @@
       "end": null,
       "source": {
         "source": "src:ek-alle-leden",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33143,7 +33143,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33157,7 +33157,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33171,7 +33171,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33185,7 +33185,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33199,7 +33199,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33213,7 +33213,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33227,7 +33227,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33241,7 +33241,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33255,7 +33255,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33269,7 +33269,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33283,7 +33283,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33297,7 +33297,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33311,7 +33311,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33325,7 +33325,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33339,7 +33339,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33353,7 +33353,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33367,7 +33367,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33381,7 +33381,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33395,7 +33395,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33409,7 +33409,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33423,7 +33423,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33437,7 +33437,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33451,7 +33451,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33465,7 +33465,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33479,7 +33479,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33493,7 +33493,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33507,7 +33507,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33521,7 +33521,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33535,7 +33535,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33549,7 +33549,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33563,7 +33563,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33577,7 +33577,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33591,7 +33591,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33605,7 +33605,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33619,7 +33619,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33633,7 +33633,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33647,7 +33647,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33661,7 +33661,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33675,7 +33675,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33689,7 +33689,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33703,7 +33703,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33717,7 +33717,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33731,7 +33731,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33745,7 +33745,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33759,7 +33759,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33773,7 +33773,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33787,7 +33787,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33801,7 +33801,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33815,7 +33815,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33829,7 +33829,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33843,7 +33843,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33857,7 +33857,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33871,7 +33871,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33885,7 +33885,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33899,7 +33899,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33913,7 +33913,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33927,7 +33927,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33941,7 +33941,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33955,7 +33955,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33969,7 +33969,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33983,7 +33983,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -33997,7 +33997,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34011,7 +34011,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34025,7 +34025,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34039,7 +34039,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34053,7 +34053,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34067,7 +34067,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34081,7 +34081,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34095,7 +34095,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34109,7 +34109,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34123,7 +34123,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34137,7 +34137,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34151,7 +34151,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34165,7 +34165,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34179,7 +34179,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34193,7 +34193,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34207,7 +34207,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34221,7 +34221,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34235,7 +34235,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34249,7 +34249,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34263,7 +34263,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34277,7 +34277,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34291,7 +34291,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34305,7 +34305,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34319,7 +34319,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34333,7 +34333,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34347,7 +34347,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34361,7 +34361,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34375,7 +34375,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34389,7 +34389,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34403,7 +34403,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34417,7 +34417,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34431,7 +34431,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34445,7 +34445,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34459,7 +34459,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34473,7 +34473,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34487,7 +34487,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34501,7 +34501,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34515,7 +34515,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34529,7 +34529,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34543,7 +34543,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34557,7 +34557,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34571,7 +34571,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34585,7 +34585,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34599,7 +34599,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34613,7 +34613,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34627,7 +34627,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34641,7 +34641,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34655,7 +34655,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34669,7 +34669,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34683,7 +34683,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34697,7 +34697,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34711,7 +34711,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34725,7 +34725,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34739,7 +34739,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34753,7 +34753,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34767,7 +34767,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34781,7 +34781,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34795,7 +34795,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34809,7 +34809,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34823,7 +34823,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34837,7 +34837,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34851,7 +34851,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34865,7 +34865,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34879,7 +34879,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34893,7 +34893,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34907,7 +34907,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34921,7 +34921,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34935,7 +34935,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34949,7 +34949,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34963,7 +34963,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34977,7 +34977,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -34991,7 +34991,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35005,7 +35005,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35019,7 +35019,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35033,7 +35033,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35047,7 +35047,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35061,7 +35061,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35075,7 +35075,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35089,7 +35089,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35103,7 +35103,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35117,7 +35117,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35131,7 +35131,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35145,7 +35145,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35159,7 +35159,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35173,7 +35173,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35187,7 +35187,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35201,7 +35201,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35215,7 +35215,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     },
@@ -35229,7 +35229,7 @@
       "end": null,
       "source": {
         "source": "src:tk-odata-fractiezetelpersonen-expand",
-        "retrieved": "2026-10-16",
+        "retrieved": "2026-10-17",
         "confidence": "high"
       }
     }
@@ -36166,7 +36166,7 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
       "notes": "Overzicht van de 75 huidige Eerste Kamerleden met fractie en ancienniteit."
@@ -36178,10 +36178,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Martin van Rooijen sinds 2019-06-11. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/50plus, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Martin van Rooijen sinds 2019-06-11. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/50plus, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-beukering",
@@ -36190,10 +36190,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Toine Beukering sinds 2025-11-18. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/beukering, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Toine Beukering sinds 2025-11-18. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/beukering, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-boerburgerbeweging",
@@ -36202,10 +36202,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Ilona Lagas sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/boerburgerbeweging, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Ilona Lagas sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/boerburgerbeweging, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-christen-democratisch-appel",
@@ -36214,10 +36214,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Theo Bovens sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/christen_democratisch_appel, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Theo Bovens sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/christen_democratisch_appel, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-christenunie",
@@ -36226,10 +36226,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Tineke Huizinga-Heringa sinds 2021-04-06. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/christenunie, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Tineke Huizinga-Heringa sinds 2021-04-06. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/christenunie, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-democraten-1966",
@@ -36238,10 +36238,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Paul van Meenen sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/democraten_1966, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Paul van Meenen sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/democraten_1966, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-forum-voor-democratie",
@@ -36250,10 +36250,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Johan Dessing sinds 2022-03-31. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/forum_voor_democratie, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Johan Dessing sinds 2022-03-31. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/forum_voor_democratie, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-ja21",
@@ -36262,10 +36262,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Karin van Bijsterveld sinds 2025-11-06. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/ja21, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Karin van Bijsterveld sinds 2025-11-06. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/ja21, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-onafhankelijke-politiek-nederland",
@@ -36274,10 +36274,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Auke van der Goot sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/onafhankelijke_politiek_nederland, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Auke van der Goot sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/onafhankelijke_politiek_nederland, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-partij-voor-de-dieren",
@@ -36286,10 +36286,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Peter Nicolaï sinds 2025-11-10. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/partij_voor_de_dieren, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Peter Nicolaï sinds 2025-11-10. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/partij_voor_de_dieren, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-partij-voor-de-vrijheid",
@@ -36298,10 +36298,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Alexander van Hattem sinds 2024-01-16. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/partij_voor_de_vrijheid, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Alexander van Hattem sinds 2024-01-16. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/partij_voor_de_vrijheid, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-progressief-nederland-pro",
@@ -36310,10 +36310,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Paul Rosenmöller sinds 2026-09-09. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/progressief_nederland_pro, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Paul Rosenmöller sinds 2026-09-09. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/progressief_nederland_pro, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-socialistische-partij",
@@ -36322,10 +36322,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Rik Janssen sinds 2022-01-25. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/socialistische_partij, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Rik Janssen sinds 2022-01-25. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/socialistische_partij, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-staatkundig-gereformeerde-partij",
@@ -36334,10 +36334,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Peter Schalk sinds 2015-06-09. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/staatkundig_gereformeerde_partij, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Peter Schalk sinds 2015-06-09. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/staatkundig_gereformeerde_partij, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-van-de-sanden",
@@ -36346,10 +36346,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Cees van de Sanden sinds 2025-10-08. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/van_de_sanden, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Cees van de Sanden sinds 2025-10-08. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/van_de_sanden, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-visseren-hamakers",
@@ -36358,10 +36358,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Ingrid Visseren-Hamakers sinds 2025-11-10. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/visseren_hamakers, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Ingrid Visseren-Hamakers sinds 2025-11-10. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/visseren_hamakers, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-volkspartij-voor-vrijheid-en",
@@ -36370,10 +36370,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Tanja Klip-Martin sinds 2025-01-01. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/volkspartij_voor_vrijheid_en, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Tanja Klip-Martin sinds 2025-01-01. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/volkspartij_voor_vrijheid_en, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-volt",
@@ -36382,10 +36382,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Gaby Perin-Gopie sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/volt, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Gaby Perin-Gopie sinds 2023-06-13. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/volt, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-fractie-walenkamp",
@@ -36394,10 +36394,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Fractiebestuur: fractievoorzitter Pim Walenkamp sinds 2025-09-23. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/walenkamp, geraadpleegd 2026-10-16."
+      "notes": "Fractiebestuur: fractievoorzitter Pim Walenkamp sinds 2025-09-23. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/fractie/walenkamp, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:ek-persoon-dr-m-l-vos-pro",
@@ -36406,10 +36406,10 @@
       "publisher": "Eerste Kamer",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC-BY-4.0",
       "archiveUrl": null,
-      "notes": "Ledenpagina van de Voorzitter, Voorzitter sinds 2025-10-07. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_m_l_vos_pro, geraadpleegd 2026-10-16."
+      "notes": "Ledenpagina van de Voorzitter, Voorzitter sinds 2025-10-07. Bron: Eerste Kamer der Staten-Generaal, https://www.eerstekamer.nl/persoon/dr_m_l_vos_pro, geraadpleegd 2026-10-17."
     },
     {
       "id": "src:kiesraad-eerste-kamer",
@@ -36574,7 +36574,7 @@
       "publisher": "Rijksoverheid",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Overzichtspagina met de huidige ministers en staatssecretarissen."
@@ -36598,7 +36598,7 @@
       "publisher": "Tweede Kamer OData API",
       "type": "api",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "OData v4. Fractie.AantalZetels is de controle op de leden per fractie; AantalStemmen en NaamNL komen uit dezelfde rij."
@@ -36610,7 +36610,7 @@
       "publisher": "Tweede Kamer OData API",
       "type": "api",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "OData v4, $filter=TotEnMet eq null met $expand=Persoon,FractieZetel($expand=Fractie). De filter alleen levert ook 7 verwijderde tombstones; die worden overgeslagen."
@@ -36622,7 +36622,7 @@
       "publisher": "Tweede Kamer OData API",
       "type": "api",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "OData v4. Gesloten rijen met TotEnMet (de officiële einddatum van een zetel of fractievoorzitterschap), opgehaald op de wijzigingsmarkering ApiGewijzigdOp, niet op Van."
@@ -36634,7 +36634,7 @@
       "publisher": "Tweede Kamer OData API",
       "type": "api",
       "published": null,
-      "retrieved": "2026-10-16",
+      "retrieved": "2026-10-17",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "OData v4. De commissie PRES (Presidium); Functie Voorzitter, EersteOndVzTk en TweedeOndVzTk, met Van en TotEnMet."
