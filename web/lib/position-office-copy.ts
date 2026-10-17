@@ -87,6 +87,9 @@
  * - Aanwijzingen voor de Planbureaus (BWBR0031972) name the three bureaus and do not describe the directeur, so those pages stay empty.
  * - Kaderwet zelfstandige bestuursorganen art. 12 names how members of a publiekrechtelijk ZBO are appointed, but not every ZBO is publiekrechtelijk, so it is not used as shared copy.
  * - Wet RO art. 84 lid 2-5: the Raad voor de rechtspraak has three to five members appointed by royal decree for six years; one of the judicial members is appointed chair.
+ * - Wet op de Raad van State art. 16a lid 4: "De vice-president is voorzitter van de Afdeling advisering."
+ * - WolBES art. 187 lid 1: "Er is een Rijksvertegenwoordiger voor de openbare lichamen Bonaire, Sint Eustatius en Saba."
+ * - WolBES art. 188 lid 1: "De Rijksvertegenwoordiger wordt bij koninklijk besluit op voordracht van Onze Minister benoemd voor de tijd van zes jaar."
  */
 
 export type PositionOfficeCopy = { nl: string; en: string };
@@ -372,8 +375,8 @@ const UNIQUE: Record<string, OfficeTemplate> = {
   },
   "pos:vice-president-raad-van-state": {
     law: "BWBR0002367",
-    nl: 'De <entity role="body">Raad van State</entity> bestaat, buiten de Koning als voorzitter, uit een vice-president en ten hoogste tien leden (<law art="1">artikel 1</law> van de <law>Wet op de Raad van State</law>). De vice-president wordt bij koninklijk besluit voor het leven benoemd (<law art="2">artikel 2</law>).',
-    en: 'The <entity role="body">Raad van State</entity> consists, besides the King as chair, of a vice-president and at most ten members (<law>Wet op de Raad van State</law>, <law art="1">article 1</law>). The vice-president is appointed for life by royal decree (<law art="2">article 2</law>).',
+    nl: 'De <entity role="body">Raad van State</entity> bestaat, buiten de Koning als voorzitter, uit een vice-president en ten hoogste tien leden (<law art="1">artikel 1</law> van de <law>Wet op de Raad van State</law>). De vice-president wordt bij koninklijk besluit voor het leven benoemd (<law art="2">artikel 2</law>) en is voorzitter van de Afdeling advisering (<law art="16a">artikel 16a</law>).',
+    en: 'The <entity role="body">Raad van State</entity> consists, besides the King as chair, of a vice-president and at most ten members (<law>Wet op de Raad van State</law>, <law art="1">article 1</law>). The vice-president is appointed for life by royal decree (<law art="2">article 2</law>) and chairs the Advisory Division (<law art="16a">article 16a</law>).',
   },
   "pos:voorzitter-afdeling-bestuursrechtspraak": {
     law: "BWBR0002367",
@@ -399,6 +402,11 @@ const UNIQUE: Record<string, OfficeTemplate> = {
     law: "BWBR0001830",
     nl: 'Er is een College van procureurs-generaal. Het College bestaat uit ten minste drie en ten hoogste vijf procureurs-generaal en staat aan het hoofd van het openbaar ministerie (<law art="130">artikel 130</law> van de <law>Wet op de rechterlijke organisatie</law>).',
     en: 'There is a College van procureurs-generaal. The College consists of at least three and at most five procureurs-generaal and heads the public prosecution service (<law>Wet op de rechterlijke organisatie</law>, <law art="130">article 130</law>).',
+  },
+  "pos:rijksvertegenwoordiger-bes": {
+    law: "BWBR0028142",
+    nl: 'Er is een Rijksvertegenwoordiger voor de openbare lichamen Bonaire, Sint Eustatius en Saba (<law art="187">artikel 187</law> van de <law>Wet openbare lichamen Bonaire, Sint Eustatius en Saba</law>). De Rijksvertegenwoordiger wordt bij koninklijk besluit op voordracht van de minister voor zes jaar benoemd (<law art="188">artikel 188</law>).',
+    en: 'There is a Rijksvertegenwoordiger for the public bodies Bonaire, Sint Eustatius and Saba (<law art="187">article 187</law> of the <law>Wet openbare lichamen Bonaire, Sint Eustatius en Saba</law>). The Rijksvertegenwoordiger is appointed by royal decree on the minister\'s nomination for six years (<law art="188">article 188</law>).',
   },
 };
 

@@ -371,4 +371,18 @@ test("Hoge Raad and Raad van State heads are keyed on the position id", () => {
   });
   assert.ok(vp);
   assert.match(stripOfficeCopyMarkup(vp.nl), /voor het leven benoemd/);
+  assert.match(stripOfficeCopyMarkup(vp.nl), /voorzitter van de Afdeling advisering/);
+});
+
+test("the Rijksvertegenwoordiger cites WolBES articles 187 and 188", () => {
+  const copy = positionOfficeCopy({
+    id: "pos:rijksvertegenwoordiger-bes",
+    title: "Rijksvertegenwoordiger voor de openbare lichamen Bonaire, Sint Eustatius en Saba",
+    organization: "org:rijksvertegenwoordiger-bes",
+  });
+  assert.ok(copy);
+  const nl = stripOfficeCopyMarkup(copy.nl);
+  assert.match(nl, /artikel 187 van de Wet openbare lichamen Bonaire, Sint Eustatius en Saba/);
+  assert.match(nl, /artikel 188/);
+  assert.doesNotMatch(nl, /allerlei taken/);
 });
