@@ -4,6 +4,11 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Added (17-10-2026, more office copy and missing directors)
+
+- Shared offices that still had no about-text now cite the law that fills them: burgemeester (Gemeentewet art. 61 and 34), commissaris van de Koning (Provinciewet art. 61 and 34), dijkgraaf (Waterschapswet art. 46), gezaghebber (WolBES art. 73, 10 and 36), Dutch ministers and staatssecretarissen (Grondwet art. 43, 44 and 46), and the minister-president (art. 43 and 45). Caribbean ministers stay empty until their own laws are fetched.
+- The algemeen directeur of the Justitiële Informatiedienst is Marjan Bakker and of the Rijksdienst voor Identiteitsgegevens is Bas den Hollander, as the Functies table of the Register van Overheidsorganisaties listed on 17-10-2026. The register named them already; the tenures were missing. Start dates are unknown (ADR 0020).
+
 ### Changed (17-10-2026, office copy links)
 
 - Office copy on a position page now links the bodies and offices it names, and the cited articles of the law. A wethouder sentence links the burgemeester, the college, the gemeenteraad, and Gemeentewet articles 34 and 35.
