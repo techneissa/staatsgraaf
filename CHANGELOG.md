@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (17-10-2026, footer)
+
+- The page footer is a row of icon chips (Over, Privacy, Toegankelijkheid, Dataset) and one meta strip for the licences, the non-affiliation line and the dataset date. The slogan "Elk feit heeft een bron" is gone; the Dataset chip already leads to sources and credit.
+
 ### Added (17-10-2026, remaining empty offices)
 
 - Court presidents (rechtbank and gerechtshof) now cite Wet RO articles 15 and 27. Tweede Kamer vaste commissies cite the Reglement van Orde articles 7.1, 7.11, 7.12 and 7.13. Agenschap heads cite Regeling agentschappen 2024 article 1. Gevolmachtigde ministers cite Statuut articles 7 and 8. The president of the Algemene Rekenkamer cites Comptabiliteitswet article 7.8, the KNMI hoofddirecteur the KNMI bestuur page.
