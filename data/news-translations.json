@@ -341,6 +341,17 @@
     "translated": "2026-10-14"
   },
   {
+    "id": "news:111eb9d2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Important UN climate report delayed: how that can have major consequences worldwide",
+    "lead": "This week the United Nations climate panel (IPCC) met to discuss the new climate report. But the countries did not reach agreement and so a delay threatens. While the report is important for climate policy worldwide.",
+    "sourceHash": "e485781c49f9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:1122e100",
     "language": "en",
     "sourceLanguage": "nl",
@@ -465,9 +476,9 @@
     "id": "news:11ab001e",
     "language": "nl",
     "sourceLanguage": "en",
-    "title": "Brand in gebouw in Arnhem dagen nadat het was ontruimd van kraakers",
-    "lead": "Zaterdagavond brak er brand uit in een flatgebouw in Arnhem aan de Paasberglaan.",
-    "sourceHash": "05435e25dc71",
+    "title": "Brand in gebouw in Arnhem nadat het dagen eerder was ontruimd van krakers",
+    "lead": "Vrijdagavond brak brand uit in een flatgebouw in Arnhem aan de Paasberglaan.",
+    "sourceHash": "9f0137e4481a",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -537,6 +548,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:121cbcc2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "PSV loses to late goal at ADO after Mijnans red card in first half",
+    "lead": "PSV unexpectedly lost on Saturday at promoted side ADO Den Haag. The reigning champions played for a long time with ten men after a red card for Sven Mijnans, and that broke the team: 2-1. In added time Matej Sín scored the winning goal.",
+    "sourceHash": "565e9ecbae78",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:123d0463",
@@ -891,6 +913,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:1468a0ee",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Hundreds of thousands of French and Italians take to the streets for a better life, but it ends in looting and arson",
+    "lead": "A day of protest in France on Saturday once again led to large-scale violence with looting, vandalism and arson. Demonstrations in Italian cities also got out of hand. It is the work of 'thousands of extreme left rioters', said the French minister of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity>.",
+    "sourceHash": "16a0310b607e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:146da429",
     "language": "en",
     "sourceLanguage": "nl",
@@ -900,6 +933,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:14778657",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Leaders FC Barcelona win comfortably at Real Betis",
+    "lead": "FC Barcelona also won its ninth match in La Liga. Spain's leader was too strong for third-placed Real Betis in Seville, winning 5-2.",
+    "sourceHash": "37e8708aac55",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:148bc853",
@@ -1265,17 +1309,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:16799412",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Trump: 'Time Ukraine gets a new president, Zelensky had better stop'",
-    "lead": "President Trump said on Saturday that it is time Ukraine gets a new president. \"I suggest they choose a new leader so they can make a deal.\" The remarks come a day after the major diesel deal between the US and Russia. Follow all developments in the war in Ukraine in our liveblog.",
-    "sourceHash": "6228fa30a492",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:167e395c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1428,6 +1461,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:172491c",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Nederlandse gemeenten melden toenemende overlast van straatpredikers",
+    "lead": "Het aantal straatpredikers in Nederland neemt toe, en daarmee de overlast in sommige gemeenten. Dit bleek uit een enquête van de NOS onder meerdere gemeenten.",
+    "sourceHash": "08686a03a991",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:1734a47d",
@@ -1694,6 +1738,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:1864ac73",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The Amsterdam of children's book author Kevin Hassing: 'Since I returned from Expeditie Robinson, my partner dresses me'",
+    "lead": null,
+    "sourceHash": "33465885f1fa",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:1885fb26",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1898,17 +1953,6 @@
     "title": "Poop incident involving Hyrox athlete is not an isolated case: 'Happens to both recreational athletes and world record holders'",
     "lead": "The Australian athlete who recently defecated on herself during a Hyrox race received a lot of ridicule. But she could not do much about it. In fact, it can happen to any athlete. So it can happen to you too.",
     "sourceHash": "d4a8f66ee449",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:1a0d77f0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Hybrid war: why Russia is not quite at war with Europe",
-    "lead": "Russia is officially not at war with the Netherlands or other European countries other than Ukraine. Yet more and more incidents in Europe are being linked to Russia, such as cyberattacks, sabotage or drones. What is going on here?",
-    "sourceHash": "5199c7174ee2",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -2574,6 +2618,17 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:1d803adc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Turner Schmidt relieved at World Championships after days of doubt",
+    "lead": "Turner Casimir Schmidt (30) earlier this week doubted whether he could get into action at the World Championships in Rotterdam. He said so after the qualifying match.",
+    "sourceHash": "26061ba6be20",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:1d80cad9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2794,17 +2849,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:1ef9d2d3",
-    "language": "nl",
-    "sourceLanguage": "en",
-    "title": "Feyenoord klimt naar eerste plaats in de Eredivisie na 2-0 zege op AZ in De Kuip",
-    "lead": "Feyenoord versloeg AZ Alkmaar zaterdag met 2-0 in De Kuip in Rotterdam in de Eredivisie.",
-    "sourceHash": "f86be22428e6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:1efe2d1a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2825,6 +2869,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:1f04140",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Eleven people taken to hospital after tasting brewing water during Grolsch tour",
+    "lead": "During an incident at the Grolsch brewery on Saturday afternoon, eleven people became ill after drinking brewing water. They were taken to hospital. \"They had complaints, became nauseous and had to vomit.\" The <entity id=\"org:politie\">politie</entity> is investigating.",
+    "sourceHash": "e23f338e2acd",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:1f302538",
@@ -3212,6 +3267,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:2127aedf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Max Verstappen puts on a little show at his GTWC debut, strong teammate gets in the way of podium chances",
+    "lead": "Max Verstappen finished ninth on his debut in the GT World Challenge Europe. The Dutchman showed his strength, but a podium place did not materialise. Compatriot Morris Schuring did finish on the podium. Legend Valentino Rossi also took to the track in the Portuguese city of Portimão.",
+    "sourceHash": "e90cf2d03dbc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:213461e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3520,17 +3586,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:22d0a97b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Isack Hadjar feels he is destroying a Red Bull car, Kimi Antonelli wants a 'Hamilton-like' start",
-    "lead": "Formula 1 keeps rolling along during this period. Follow all developments here.",
-    "sourceHash": "f5c007c0f5ab",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:22d7699",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3784,17 +3839,6 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:23ed6644",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Nacho Ferri opens the scoring after a mistake by Wouter Goes, Feyenoord looking for more against leaders AZ",
-    "lead": "The top match of this weekend: Feyenoord against AZ. The Alkmaarders are league leaders in the Eredivisie with 19 points, and Feyenoord follows two points behind. With a win, the Rotterdammers would climb to first place. Follow it live here.",
-    "sourceHash": "5ec6187885a6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:23f4feac",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3826,6 +3870,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:2422b68a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "His mother runs a pub. Yet GGZ therapist Caspar Lehnen advocates an alcohol-free lifestyle",
+    "lead": null,
+    "sourceHash": "c7a959ea2ec8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:242f32f4",
@@ -4323,6 +4378,17 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:26c78094",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "If Keijzer says 'not on the agenda', you should pay attention",
+    "lead": "Are voters really waiting for yet another right-wing party? Mona Keijzer is sounding out her chances. Former minister Rita Verdonk knows what stands in the way of cooperation between all current right-wing parties: big egos. Political reporter Hans van Soest writes weekly about The Hague affairs that concern us all.",
+    "sourceHash": "d720678023c2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:26d11e1b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4340,6 +4406,17 @@
     "title": "Talks at authoritative climate panel IPCC completely stalled",
     "lead": "It has not been possible to find a solution to a major disagreement at the authoritative climate panel IPCC, in which over 190 countries cooperate. \"This is no longer about science, a political struggle is being waged,\" says the Dutchman Bart van den Hurk of Deltares, who is also co-chair of a worldwide IPCC working group, to RTL Nieuws.",
     "sourceHash": "d7cf1d22cb10",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
+    "id": "news:26ec11d6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Yesilgöz wants to be lead candidate again, and that is above all a contempt for the voter's mandate",
+    "lead": null,
+    "sourceHash": "03af0aee3c06",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -4692,17 +4769,6 @@
     "title": "World Bank president: 'What will young people without hope do? Drugs? Crime? Migrate?'",
     "lead": "Job growth must be the top priority in emerging markets and poor countries, says World Bank president Ajay Banga. Otherwise, unrest threatens. 'Look at Morocco, where five thousand people tried to reach Spain.'",
     "sourceHash": "7c939b2cd365",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:289d2776",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Feyenoord wins top match against AZ and takes top spot in Eredivisie",
-    "lead": "Feyenoord took top spot in the Eredivisie on Saturday evening thanks to a win over AZ. The Rotterdammers beat the people from Alkmaar 2-0 in De Kuip.",
-    "sourceHash": "55035291c125",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -5071,17 +5137,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:2a933757",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Unexpected point loss for Ajax against NEC, gap on leaders Feyenoord grows to five points",
-    "lead": null,
-    "sourceHash": "9d83486f0125",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:2a95faf4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5148,6 +5203,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:2abf73d3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "In Noord, Ajax fans let themselves be cut like Jari Litmanen, and the Finn picks the best lookalike: 'That's a little 2001 one. Modern, smooth. Quite a hairstyle for today.'",
+    "lead": null,
+    "sourceHash": "f06d2c763640",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:2b07235c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5212,17 +5278,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
-  },
-  {
-    "id": "news:2b3ead1a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Man killed by tiger after jumping into enclosure at British animal park",
-    "lead": "A man died on Saturday after being attacked by a tiger at a zoo in Yorkshire, in the United Kingdom. The man had jumped into the tiger's enclosure. The animal park remains closed on Sunday.",
-    "sourceHash": "c194d199c07a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:2b4b2e2",
@@ -5399,6 +5454,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:2c055c21",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dancing and swinging nimbly on bars, the 'silver generation' moves through the city",
+    "lead": null,
+    "sourceHash": "396da20677bf",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:2c05a9a3",
@@ -5597,6 +5663,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:2cdf1519",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Menno and Jennifer's daughter abused at age 5 behind their house: 'We all have life sentences'",
+    "lead": "The daughter of Menno (33) and Jennifer (35) was abused right behind their house by a complete stranger. In the run-up to the appeal, the Oud-Beijerlanders describe the hell they have ended up in.",
+    "sourceHash": "816a8aea5807",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:2cede685",
@@ -5984,6 +6061,17 @@
     "translated": "2026-10-14"
   },
   {
+    "id": "news:2e8d78fb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The Amsterdam of children's author Kevin Hassing: 'T's Teabar on Jan Evertsenstraat is the best place to meet up'",
+    "lead": null,
+    "sourceHash": "264d9466f917",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:2ea6f6c7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5993,6 +6081,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:2eb1ddd1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "PSG sees off Strasbourg ahead of CL duel with Barcelona",
+    "lead": "Between the Champions League matches against Manchester City and FC Barcelona, Paris Saint-Germain secured a hard-fought 3-1 win at RC Strasbourg. After an early deficit, PSG scored three goals in the final stages.",
+    "sourceHash": "0f4f1b582f0a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:2eb82f36",
@@ -6424,17 +6523,6 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:30a63c26",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Feyenoord wins top match against AZ thanks to Spaniards and is top of the table for the first time in almost a year",
-    "lead": "Feyenoord is the new leader in the Eredivisie. The Rotterdammers beat league leader AZ 2-0 in a direct duel at their own De Kuip. The team from Alkmaar thought shortly before halftime they could equalise at 1-1, but referee Danny Makkelie withdrew his previously awarded penalty.",
-    "sourceHash": "7566bcb77a54",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:30ace081",
     "language": "en",
     "sourceLanguage": "nl",
@@ -6532,6 +6620,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
+  },
+  {
+    "id": "news:30fce487",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Willem II brings back tension with a successful long-range shot against Sparta",
+    "lead": "Sparta has had a mixed start to the new season. The Rotterdammers can climb to the midfield today by beating Willem II. Follow it live here from 21.00 hours.",
+    "sourceHash": "659ce4d682e0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:30ffe1c5",
@@ -7062,6 +7161,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:33ee3dc7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'We will form a bloc against those who sow chaos', says President Macron after a day full of protest, riots and looting in France",
+    "lead": "Hundreds of thousands of citizens took to the streets across France to demonstrate against the cost of living. In several cities the demonstrations turned into riots.",
+    "sourceHash": "44f57b8dc970",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:33f7a6ef",
     "language": "en",
     "sourceLanguage": "nl",
@@ -7249,17 +7359,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:34f3d80f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Go Ahead and Sparta play to a 3-3 draw in a high-scoring match",
-    "lead": "Go Ahead Eagles failed to win their home match against Sparta Rotterdam in the Eredivisie. The team of coach Joseph Oosting played to a 3-3 draw after a poor first half. For Go Ahead it was already their fifth draw in eight matches this season.",
-    "sourceHash": "3fdb73c59550",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:3519cb7c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -7280,17 +7379,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
-  },
-  {
-    "id": "news:3531e456",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "You’re not sending an email. You’re training a model",
-    "lead": "Privacy, employee data and the demands of AI.",
-    "sourceHash": "0e546da6f2e0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:353261e0",
@@ -7439,9 +7527,9 @@
     "id": "news:35f5f4e9",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Pope Leo discharged from hospital after surgery",
-    "lead": "Pope Leo may leave the hospital. He was there after an operation. According to his doctors, he has recovered sufficiently.",
-    "sourceHash": "ec937612902f",
+    "title": "Pope Leo discharged from hospital, back in the Vatican",
+    "lead": "Pope Leo has left the hospital. He had been there after an operation. According to his doctors, he has recovered sufficiently.",
+    "sourceHash": "b5d83e480247",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -8338,17 +8426,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:3a2a8e98",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Surgeon: 'In 20 years, in my view, AI will operate independently, perhaps even better than we do now'",
-    "lead": "AI and robots are on the rise in the operating room. A simple procedure such as removing the gallbladder will be performed with this new technology within ten years. \"It is a digital revolution.\"",
-    "sourceHash": "f78fd7840f9c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:3a375e3d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8833,17 +8910,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:3c02a5f8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "House squatted on Vinkenstraat after housing protest on the Dam",
-    "lead": null,
-    "sourceHash": "3a4a483fc881",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:3c0aef02",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9163,12 +9229,23 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:3d91e048",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Lawsuit against smart glasses: 'The invasion of privacy is built into this product'",
+    "lead": "Filming people without their consent and without them noticing, through the use of smart glasses with a camera, should according to journalist Eric Smit be banned. At Goed Ingelichte Kring he tells Patrick Lodiers about his citizens' initiative The Firewall, with which he, together with Stichting Offlimits, has filed a lawsuit against Meta. This lawsuit is meant to prevent covert filming by smart glasses from becoming normal.",
+    "sourceHash": "fb4572aea4b1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:3d9a1d0d",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Family of murdered Hajar (29): 'Uncertainty gives way to grief'",
+    "title": "From missing to mourning: family of Hajar (29) responds to her death",
     "lead": "\"The great uncertainty is now giving way to grief and mourning.\" That is what the family of 29-year-old Hajar says, whose lifeless body was found in the water at the Amsteldijk yesterday morning.",
-    "sourceHash": "99f56f3f54ca",
+    "sourceHash": "aaa8e9545b80",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -10109,17 +10186,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:425c6a59",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Eritrea fears new war with Ethiopia and asks UN Security Council for help",
-    "lead": "Eritrea asked the UN Security Council on Saturday to take \"deterrent measures\" against Ethiopia. The neighboring countries accuse each other of starting a war over the Ethiopian region of Tigray. They have had conflicts over this area more often.",
-    "sourceHash": "2ca991d40938",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:426657fb",
     "language": "en",
     "sourceLanguage": "nl",
@@ -10404,6 +10470,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:43ce7762",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Settlers attack European diplomats in the West Bank",
+    "lead": "Israeli settlers attacked European diplomats on Saturday during a visit to the occupied West Bank. They are representatives from Belgium, France and Poland. The Israeli police has announced it will investigate the attack.",
+    "sourceHash": "75a22a1e153a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:43d39deb",
@@ -11363,6 +11440,17 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:4883b237",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "A PostcodeKanjer for Carrie ten Napel and the only talk show that doesn't cynically laugh off positivity",
+    "lead": null,
+    "sourceHash": "3a423238f70b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:4884c555",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11548,17 +11636,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
-  },
-  {
-    "id": "news:499319d2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Verstappen fears the start in Singapore: 'Painful if you lose the race there'",
-    "lead": "Max Verstappen is going after his first Grand Prix win in Singapore on Sunday. The Red Bull driver feels no extra pressure because he has never won the race before, but he would find it painful if the start throws a spanner in the works.",
-    "sourceHash": "8687929987b6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:499cfabc",
@@ -12144,17 +12221,6 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:4c91e0db",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Man dies after climbing into tiger enclosure at British zoo",
-    "lead": "A man died on Saturday after climbing into a tiger enclosure at a British zoo. The animal was unharmed after the incident.",
-    "sourceHash": "4ea2c0a4ac83",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:4c98d9bb",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12353,6 +12419,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:4daebdfb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Why can you drown houseplants, while aquatic plants get along just fine?",
+    "lead": null,
+    "sourceHash": "521fdd1aa5e0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:4dcb1216",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12419,17 +12496,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:4e2193fc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Six goals in Deventer, but Go Ahead Eagles and Sparta have to settle for a draw",
-    "lead": "In a match that went in all directions on Saturday afternoon, Go Ahead Eagles and Sparta shared the points. Both teams had a taste of victory, but in the end a draw after a spectacular second half was the fairest outcome. The match ended 3-3.",
-    "sourceHash": "7f4c56231cdc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:4e23cbdb",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12449,17 +12515,6 @@
     "sourceHash": "19b992a625d8",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:4e2c2e08",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Man dies after climbing into tiger enclosure at British zoo",
-    "lead": "A man died on Saturday after climbing into the tiger enclosure at a British zoo. The animal remained unharmed, and the park will stay closed for the rest of the weekend.",
-    "sourceHash": "b887e0509e72",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
     "translated": "2026-10-13"
   },
   {
@@ -12628,6 +12683,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:4ed4a299",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "New standard for building wind turbines angers developers and residents alike: 'The nuisance remains'",
+    "lead": null,
+    "sourceHash": "edc769138183",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:4ed5668b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12678,17 +12744,6 @@
     "title": "Abdul-Malik al-Houthi is the enigma of the oil market",
     "lead": "Last weekend the Houthis attacked the international airport of Riyadh in Saudi Arabia. The leader of this movement is Abdul-Malik al-Houthi, who rarely shows himself in public.",
     "sourceHash": "a238b21cd169",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:4f40ee67",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Eritrea fears new war with Ethiopia and asks UN for help",
-    "lead": "Eritrea asked the UN Security Council on Saturday to take \"deterrent measures\" against Ethiopia. The neighboring countries accuse each other of wanting to start a war over the Ethiopian region of Tigray. Earlier, the countries already fought wars with each other.",
-    "sourceHash": "b129256ab8ab",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -12771,17 +12826,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:4fc1fed8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Avoid a 191 euro fine in these three countries by not driving with a winter coat on",
-    "lead": "Driving with a thick winter coat, scarf or gloves on can lead to a fine of 200 euros in countries like Belgium, France and Spain. Various Dutch and German agencies have been warning for some time about the danger of a thick winter coat.",
-    "sourceHash": "37a39fce1bf1",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:4fd16e37",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12843,17 +12887,6 @@
     "title": "Elle van Rijn found the diary of Desi, the wife of Jacques Goudstikker",
     "lead": "Two-thirds of Jacques Goudstikker's art is still wandering around the world, but some of it could well be in Nijenrode Castle. That is what author Elle van Rijn discovered when she examined the lives of the art dealer and his wife Desi: \"On 7 September 1939 the cellar was walled up.\"",
     "sourceHash": "ed3489668c7a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:501cf889",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Northern lights over the Netherlands, but barely visible to the naked eye",
-    "lead": "On the night of Saturday to Sunday, the northern lights can be seen in some places in the Netherlands. The phenomenon is especially easy to capture with a camera. In the south of the country the chance of seeing it is greatest.",
-    "sourceHash": "f3a18345e6c3",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -13002,6 +13035,17 @@
     "translated": "2026-10-14"
   },
   {
+    "id": "news:51215b50",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "RB Leipzig suffers heavy defeat at Bayern Munich after win over PSV",
+    "lead": "Bayern Munich won with big numbers at home against RB Leipzig: 6-1. Luis Díaz was important for the home side with a hat-trick. Leipzig won 1-0 against PSV in the Champions League on Tuesday.",
+    "sourceHash": "8f43054f9ea1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:5133779a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13057,15 +13101,15 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:519417e4",
+    "id": "news:516892ec",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Max Verstappen knows the start has to get better, but does have a small strategic advantage in the race",
-    "lead": "The man who never looks at statistics achieved his fiftieth pole position of his career. Max Verstappen may start from the first place at the spot where he has never won a grand prix. But the start will have to get better at Red Bull Racing soon. \"We are doing our best, so we will see whether it works or not.\"",
-    "sourceHash": "24e8f912531f",
+    "title": "Why can't freshwater fish tolerate salt water (and vice versa)?",
+    "lead": null,
+    "sourceHash": "2c664d99deb1",
     "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:51a01560",
@@ -13420,6 +13464,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:530c7d30",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Liverpool wins Virgil van Dijk's anniversary match, Zian Flemming scores for Ipswich against City",
+    "lead": "Liverpool secured an important win against Brentford. In Virgil van Dijk's 200th match as captain of The Reds, the away side won with difficulty, 1-2. Manchester City also won, despite a counter goal from Zian Flemming.",
+    "sourceHash": "41ed089cbee0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:530ea87",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13701,17 +13756,6 @@
     "title": "Cabinet wants homeowners to be obliged to install a hybrid heat pump, but how realistic is that?",
     "lead": "He is back again: the debate about the hybrid heat pump. The cabinet wants to make it mandatory from 2029 when you replace your central heating boiler. The question is just how feasible (and affordable) this is for the average homeowner.",
     "sourceHash": "01661710bb1d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:549eb7a4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Internazionale already done with Parma after one half",
-    "lead": "Internazionale easily beat Parma in the Italian football league. The team of coach Cristian Chivu scored three times in the first half hour and that was the end of the scoring: 3-0.",
-    "sourceHash": "2bfdfbca7b76",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -14102,15 +14146,15 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:564c48e2",
+    "id": "news:565e996f",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Diesel agreement is a dream deal for Putin: 'Ukraine on sale'",
-    "lead": "The United States has concluded a deal with Russia for the supply of millions of tons of diesel. US President Donald Trump concluded the agreement during a phone call in which his Russian counterpart indicated he no longer saw any point in peace talks with Ukraine.",
-    "sourceHash": "55109015d252",
+    "title": "Those lungs, that spleen, that mouth: is man actually made to dive? This biologist thinks so",
+    "lead": null,
+    "sourceHash": "41ca1ea4bcfd",
     "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:56712aac",
@@ -14452,17 +14496,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
-  },
-  {
-    "id": "news:57f80907",
-    "language": "nl",
-    "sourceLanguage": "en",
-    "title": "Betaalmuren zijn de belangrijkste inkomstenbron geworden voor Nederlandse krantenuitgevers",
-    "lead": "Krantenuitgevers zouden al jaren een gestage groei van hun omzet kennen, nu steeds meer lezers bereid blijken te betalen voor nieuws.",
-    "sourceHash": "e48697646cb4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:57fb04e5",
@@ -15202,17 +15235,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:5bdd7ca6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "FC Barcelona still without dropping points after eight league matches",
-    "lead": "FC Barcelona is still without dropping points after eight matchdays in the Spanish football league. The home match against Getafe ended 3-0 on Saturday evening.",
-    "sourceHash": "2fcf9f763bf4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:5be59c66",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15375,17 +15397,6 @@
     "sourceHash": "981053812430",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:5ce83229",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Video | Tiger attacks man in British zoo, victim seriously injured",
-    "lead": null,
-    "sourceHash": "e08b6219cc77",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
     "translated": "2026-10-13"
   },
   {
@@ -16764,34 +16775,12 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:5d247fb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'Historic moment' in Haarlem: first female bishop in the Netherlands consecrated",
-    "lead": "A first for the Old Catholic Church in the Netherlands this afternoon. In the Sint Bavokerk, on the Grote Markt in Haarlem, a woman has been consecrated as a bishop for the first time in Dutch history. Erna Peijnenburg may, after the great celebration, call herself bishop of the Old Catholic Church in Haarlem. The Old Catholic Church is a small church community with, by its own account, more than 5000 members. The church is very old, however. It arose in the Netherlands at the beginning of the 18th century as a secession from the Roman Catholic Church. \"It is a historic moment,\" says Peijnenburg. She considers it a tremendous honour. \"I am amazed and astonished that I was chosen for this office by colleagues and believers from the diocese.\" She notices that for many people it is a hopeful event. \"For women, but also for men,\" says the newly consecrated bishop. \"I receive many enthusiastic reactions because this is possible. I think it is always lovely when a woman also comes into a group where there were only men before. That has an encouraging effect on the world.\" Nineteenth bishop. At the end of August the electoral college of the diocese of Haarlem chose her as the new bishop. Before this, Peijnenburg was parish priest in Alkmaar and Enkhuizen. She succeeds Dick Schoon, who retired at the end of June. Peijnenburg is the nineteenth bishop of Haarlem. \"Our church chose some time ago to also open the offices to women,\" she says. \"Then women became deacons and priests. Perhaps it was also bound to happen at some point that a woman would be chosen as bishop.\" Tomorrow at 14.30 hours, during the church service, Peijnenburg will take her seat in her episcopal chair for the first time. Old Catholic Church vs. Roman Catholic Church. Within the Roman Catholic Church women cannot become bishops, but in the case of Peijnenburg it concerns the Old Catholic Church. That is a split from the Roman Catholic Church. She explains that the Old Catholic Church is an independent church. \"In terms of content, within the Catholic stream we are closely related to the Roman Catholic Church, but we do have our own way of making decisions.\" The Old Catholic Church itself describes itself as \"a small, self-confident and contemporary faith community that fully stands in the Catholic tradition and at the same time offers a lot of room for a personal interpretation of faith\".",
-    "sourceHash": "6a5ce679d905",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:5d24800",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Injured in attack on airport in Saudi capital Riyad, air traffic at a standstill",
     "lead": "An unknown number of people have been injured in attacks on the international airport in the Saudi capital Riyad. Two regional officials say the airport has been evacuated after a missile hit a passenger terminal. According to witnesses, ambulances were rushing to the airport. All air traffic to and from King Khalid International Airport has been halted. A source at a local hospital told news agency AFP that dozens of people were injured in the attack. He saw gate 401 of the domestic terminal being hit. \"I saw the injured with my own eyes. Everyone ran away.\" Data from Flightaware shows that at least 225 flights at King Khalid International Airport have been cancelled in the past 24 hours, following the earlier attacks on the airport this week. The airport calls on travelers to contact their airline and check the status of their flight before coming to the airport. Several airlines have already taken measures. Kuwait Airways cancelled all flights to and from Riyad today. Several embassies in Riyhad, including the US embassy, have called on their citizens to avoid the international airport and the surrounding area. Yemen The attack comes two days after the Iran-backed Houthi rebels attacked the airport in Riyad. Three Saudis lost their lives in that attack, including a pilot. That international airports are targeted in a series of attacks is exceptional. Earlier this week the Houthis also attacked airfields in the Saudi towns of Jizan, Najran and Abha. These lie a few tens of kilometers from the border with Yemen. Saudi Arabia supports the Yemeni government army, which is fighting the Houthi rebels. Since the start of the large-scale Operation Dawn of Yemen by the Yemeni army last Monday, the Houthis have stepped up their attacks on targets in Saudi Arabia. The European Aviation Safety Agency (EASA) has tightened its guidelines for Saudi airspace. It points to the Houthis' ability to hit targets deeper in the kingdom, including Riyad, and to their \"greater focus on aviation infrastructure\". The missile and drone attacks, as well as the attempts to intercept them, \"increase the risk that civil aircraft will be hit\", the agency says. Under fire Meanwhile, the fighting in Yemen between the Houthis and Yemeni government forces continues. Saudi Arabia is providing air support to the internationally recognized government in Yemen in an attempt to reverse the Houthis' recent territorial gains along the Red Sea. Because of the situation in Yemen, some 200,000 people have fled, including to Djibouti, a small country in the Horn of Africa. The UN migration and refugee agency (IOM) called on countries this week to take action. Saudi Arabia has sought support from the US and other allies, now that its airports, military facilities and oil infrastructure are under fire. This concerns, among other things, sharing intelligence and planning and identifying targets. 'I am not happy' When the American president Trump left the White House yesterday, he was asked about the attacks on the airport in Riyad. \"It is not good\" and \"I am not happy\", he told reporters. For now there are no signs of American military support in response to the attacks. The ministers of <entity id=\"org:ministerie-van-buitenlandse-zaken\">Buitenlandse Zaken</entity> of Saudi Arabia and Oman spoke by phone this week about the importance of \"support for diplomatic solutions to reduce tensions in the region\". Oman, which lies across the Strait of Hormuz from Iran, regularly acts as a mediator. But there is not yet any prospect of a solution to the escalation.",
     "sourceHash": "085d38a48c0c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:5d24802",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Christa Pike back in prison, but still receives medical care",
-    "lead": "A week and a half after the failed execution attempt in the US state of Tennessee, Christa Pike has been discharged from hospital. She is back in prison, American media report. \"She will continue to receive medical care in prison and we will keep monitoring her recovery,\" her lawyers said. \"She is grateful to the rescue workers and her medical team for their care in these extraordinary circumstances.\" On Thursday it became known that Pike could walk a little again. Shortly after the failed execution attempt she was already conscious and responsive. The 50-year-old Pike was due to be executed by injection in Tennessee last week, but that failed twice over. She was convicted of murder in 1996. According to the non-profit organisation Death Penalty Information Center, she is the first person to survive her death sentence by injection. From death penalty to life imprisonment? What will happen now is unclear. This week her lawyers argued that Pike has suffered enough. They want the governor of Tennessee to commute her death sentence to life imprisonment without the possibility of release. The investigation into what went wrong is still ongoing. After the failed execution, Tennessee decided to temporarily halt all further executions. A week ago the top official of the state's prison system resigned. This journalist was present at the failed execution: Livestream. There is also a lot of fuss in the US about another execution. Minister Hegseth announced that the execution by firing squad of former military member Nidal Hasan will be livestreamed. President Trump says this has not yet been decided definitively. Minister Hegseth's announcement last Thursday immediately drew a lot of criticism. Former major Hasan shot dead thirteen colleagues at a military base in Texas in 2009. If the execution is indeed broadcast live, it will be the first public execution in the US since 1936.",
-    "sourceHash": "d685755d5f2a",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -16808,45 +16797,12 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:5d24825",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Four questions about the diesel deal between the United States and Russia",
-    "lead": "Yesterday US President Trump announced that Russia will immediately supply 300,000 tons of diesel to the US. Much about the agreement is still vague. For example, it is unclear when exactly the diesel will go to the US and what it means for the price Americans pay at the pump. At a later point Russia would supply even larger quantities, rising from 500,000 to 3 million tons. After the news, the future price for diesel fell slightly. What it means for the price in the longer term is still completely unclear. In four questions we explain why the Americans are closing this deal right now and what it means for Ukraine. Why was this deal closed now? Trump already said so in his message announcing the deal: it is about \"lower fuel prices for Americans\". Since the start of the war in Iran, hardly any oil has been transported through the Strait of Hormuz, which led to a doubling of US diesel prices. It is a headache file for the US president. In less than a month the midterm elections for the US Congress take place. Polls show that Trump is seen as the one to blame for high prices at the pump. That could lead to Republicans losing their majority. To turn the tide, Trump earlier considered a diesel export ban. Now Trump is coming up with the deal with Russia. Correspondent Central and Eastern Europe Christiaan Paauwe: \"It is yet another blow for Kyiv regarding the relationship with America, formerly the most important ally. Especially also because of the signal Washington is giving with this. Russia is further pulled out of international isolation with it. Zelensky keeps hammering that Putin can only be forced to talk seriously about peace with further pressure, but this is producing the opposite. Meanwhile, you also see Trump lashing out at Zelensky and saying Ukraine must stop air strikes on the Russian oil industry. Ukraine has made clear that these air strikes, which it describes as \"direct sanctions\", will not stop unless Russia stops the air strikes on Ukraine. But Putin does not want to stop that, and we don't hear anything more from Trump about it.\" Can this be done with the sanctions imposed on Russia? President Biden introduced an import ban on Russian oil, natural gas and coal after the invasion of Ukraine. That remained in force under Trump. Last month he still signed a law that makes extensive American sanctions against Russia possible. That law states that the US can impose import duties of up to 100 percent on countries that buy a lot of Russian fuels. Trump is now pushing that law aside: the US Treasury Department has granted a temporary license for the import of Russian diesel. What does this yield Russia and what does it mean for Ukraine? President Zelensky is, to put it mildly, not pleased with Trump's decision. On Telegram he called it a \"gift for Putin\". According to him, the US is playing into Russia's hands and this has major consequences for the war in Ukraine. According to Zelensky, the Russian war chest is being filled by the deal. He states that \"every extra billion dollars Russia can earn is spent on nothing but weapons.\" According to him, the Russian attacks are indicative of what the purchase of Russian diesel means: \"the prolonging of the war, terrorizing ordinary people and destroying infrastructure\". Not only in words, but also in deeds, Ukraine shows that the country is angry. For example, a large fire broke out at an oil terminal in the port from which Russia would transport the fuel, in Rostov-on-Don. The suspicion is that this is due to a Ukrainian air strike. The American president has then again emphasized that Ukraine must stop attacks, adding that he thinks Ukraine should get a new leader. How can Russia supply diesel to the US? Russia is a country with enormous oil fields, but itself struggles with a fuel shortage due to Ukrainian attacks on its oil industry. Ukraine regularly carries out attacks on oil refineries in Russia, where crude oil is converted into fuels. This summer that led to queues at petrol stations in all corners of the country. Russia then decided on an export ban for petrol, diesel and kerosene. The Kremlin also concluded a deal with India for the import of fuel. So Russia can probably supply diesel only to a limited extent, but any dollar it earns can be used for producing weapons. Putin's adviser Oesjakov reported yesterday that in the conversation between Putin and Trump, peace talks with Ukraine came up, but that Russia's goals have remained the same. So that means Russia continues the war.",
-    "sourceHash": "ff84f87307fc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:5d24841",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Until at least 23.00 no trains between Rotterdam and Delft after arson",
     "lead": "No trains will run between Rotterdam and Delft until at least 23.00. The reason is the arson last night at a railway bridge in Rotterdam-Delfshaven. ProRail does not rule out that sabotage is involved. According to the railway manager, it will take until at least Sunday evening before the damage is repaired. Trains may not run on the route again until Monday morning. The railway between Rotterdam and Delft is one of the busiest routes in the Netherlands. It is also used by trains covering long distances, for example between the Randstad and Zeeland or Limburg. For train travellers, this also means a lot of inconvenience tomorrow. Eight-hour check According to ProRail, it is certain that the fire was deliberately started last night. The fire started last night in the technical room. The door to it had been pried open and inside lay smouldering cables. Research shows that 35 cables were damaged. Fifteen of them have burned through completely and must be replaced and re-welded. After replacing all cables, various checks must be carried out to determine whether the trains can run safely again. These checks take about eight hours. Whether sabotage was actually committed on the railway again must still be investigated by the <entity id=\"org:politie\">politie</entity> and fire brigade. No one has been arrested yet.",
     "sourceHash": "4ef6ca02b845",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:5d24843",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Trump lashes out at Zelensky: 'Time for a new president who can make a deal'",
-    "lead": "President Trump has once again lashed out at Ukrainian president Zelensky. In a conversation with the American press, Trump said it is time for Ukraine to get a new leader. According to him, that leader could then make a deal to end the war with Russia. Trump's jab at Zelensky comes a day after the American president announced that the US will import oil and diesel from Russia . Trump has repeatedly said he thinks Ukraine should stop attacking Russian oil refineries, but right after announcing the deal, Ukraine attacked the port of Rostov-on-Don, which is essential for diesel exports. Speaking to the American press, Trump also claimed that Zelensky has not done enough to end the war. Trump says the new leader of Ukraine should be \"someone who can make a deal, something Zelensky never does for some reason\". Trump further claimed that the war in Ukraine would never have started if he had been US president at the time. \"It started because of incompetence.\" Ukrainian elections The American president, in his attack on Zelensky, ignores the fact that the Ukrainian constitution states that no elections can be held in wartime. It is not the first time Trump has raised elections in Ukraine. In December he claimed that the Ukrainian government \"is using the war to avoid holding elections\". His outburst can be seen as reinforcing the message of Russian president Putin. He has repeatedly said Ukraine must hold elections, because Zelensky's term of office ended in 2024. Yet there is also a call from Ukraine itself for elections, but that is not feasible. A poll also shows that a majority of the population believes elections can only come after the war. Diesel deal Kyiv, to the displeasure of the Americans, does not intend to stop attacking the Russian oil industry, because according to Ukraine it is a way to hit the Russian economy and thus the war chest. Zelensky only wants to stop attacking the oil sector if Russia stops its air attacks on Ukraine. Since the start of the war in Iran, diesel prices in the US have doubled, to the displeasure of many Americans. They hold the Trump administration responsible for the high fuel prices. This is also visible in the polls for the American midterm elections in early November. These elections are important for Trump, because he wants to keep a majority in the American Congress. Row in the White House Trump's outburst recalls Zelensky's visit to the White House early last year. Then a meeting between the two presidents and American vice president JD Vance escalated into a heated row. The conversation was supposed to lead to an agreement in principle on the reconstruction of Ukraine, with arrangements on the extraction of raw materials. But Zelensky was insulted by the Americans. He was accused of being \"disrespectful\". \"Either you make a deal, or we walk away from it,\" said Trump, after the Ukrainian president was told by the Americans that \"he has nothing to demand\". Zelensky left the White House that day without the agreement having been signed.",
-    "sourceHash": "0ac5e4885201",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:5d24860",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "At least forty dead in Sudan after drone attack on refugee camp",
-    "lead": "At least forty people have been killed in a drone attack in Sudan, close to the border with Ethiopia. That is what Emergency Lawyers , an organisation that tracks developments in the civil war in Sudan, reports. According to the organisation, the paramilitary Rapid Support Forces (RSF) are behind the attack. The BBC reports that a refugee camp in the southeast of the country was the target. UN aid organisation OCHA says it is shocked by the attack. Most of the victims are women and children. For more than three years now, the RSF has been fighting the government army, the Sudanese Armed Forces (SAF), in Sudan. The war broke out after the leaders of both parties jointly staged a coup and then could not agree on how to divide power. War crimes According to the UN, the civil war in Sudan is the largest humanitarian crisis in the world. Both the RSF and the SAF commit war crimes, but the RSF is seen as the most violent of the two. The violence of the RSF has hallmarks of genocide, the UN concluded. The RSF mainly holds large parts of western Sudan, such as Darfur. The government army controls the east and north, including Khartoum. Millions of Sudanese have been displaced by the violence. NOS op 3 earlier made this video about the war in Sudan:",
-    "sourceHash": "9dd703753aef",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -19738,8 +19694,8 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Riots at protests in France, police deploy tear gas and water cannon",
-    "lead": "In several French cities, protests against the rising cost of living have escalated into riots. Police in Paris have deployed tear gas and a water cannon. Around 15:00, 272 people had been arrested across the country. After weeks of student protests, several groups took to the streets in France today, including the gilets jaunes movement. The protests are turbulent. In Paris, a car was set on fire at Place de la République, and in Lyon the tourist office was set on fire: Also, some people forced their way into the town halls of Lille and Marseille. A reporter for the French news agency AFP reports that in Lille, among other things, glass doors were smashed. Livestream of the protest in France Watch live footage of the protests in France here. In Marseille, the second city of France, intruders daubed an anarchist symbol on the wall of the town hall, smashed televisions and threw a bust of Marianne (the national symbol of France) to the floor. Mayor Payan of Marseille has reacted furiously. \"It is unacceptable to use this kind of protest to break in, commit vandalism and destroy this national symbol,\" says Payan. He further says the damage in the town hall is limited. In Marseille, the windows of a police station were also smashed. Smoke bombs were also thrown inside, the newspaper Le Figaro reports. No injuries are reported. 'Tragedy' Apart from Paris, police also used tear gas in Bordeaux and Lyon. In Lyon, masked rioters also smashed the windows of the tourist office and set it on fire. Mayor Doucet of Lyon is dismayed. \"It is a tragedy that rioters attacked this building and set it on fire.\" He speaks of an \"iconic and recognisable monumental building\". Despite the disturbances, police in Paris say that \"the vast majority of participants are demonstrating peacefully\". The prefecture notes that most of the rioters are gathered at Place de la République, where the car fire also was. The French government already anticipated that today's protests could get out of hand. Anyone who looks like a demonstrator is being checked and asked for identification. Around the Champs-Élysées a ban on demonstrations applies, but nevertheless shopkeepers had placed boards against their shop fronts as a precaution. The damage in the town hall of Marseille: In advance, the French authorities had reckoned with 40,000 demonstrators in Paris, Le Monde writes. In the rest of France, 150,000 activists were expected. Around midday, 140 protests were counted in the French provinces, with almost 33,000 people taking part, the ministry of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity> reports. The past weeks saw students and pupils protesting in France, but today other groups are joining too. Farmers, nurses and taxi drivers, among others, have announced actions. Gilets jaunes movement The gilets jaunes movement is also present today. The movement arose in France in 2018 out of discontent over the announced rise in fuel prices, but developed into a broader protest against the high cost of living and income inequality. For months, people in yellow vests (les gilets jaunes) took to the streets every weekend. The protests were accompanied by a great deal of violence. The gilets jaunes movement was followed in Belgium and the Netherlands, among other places. For Salif and Jérémy, today is their first time in a yellow vest. They came from outside Paris to Place de la République to protest the high cost of living. \"In the supermarket you now pay one and a half times as much as a few years ago, it is no longer manageable,\" they tell NOS correspondent Saskia Houttuin. Many people who go out onto the streets today are doing so for similar reasons. There are also protests in Belgium. Pupils and students are protesting against cuts in education. \"I am protesting because my school's budget has been cut enormously,\" says a student to the Flemish broadcaster VRT. As with the previous protests, riots have broken out. In the capital Brussels, fireworks and stones have been thrown at police, the Flemish broadcaster reports. Officers have deployed tear gas and a water cannon. Destroyed cars On footage, rioters can be seen smashing cars with road signs and climbing onto the vehicles. The windows of a building were also smashed. Near Brussels-Midi station, shared bicycles and scooters were set on fire, just as last week. Several people have been arrested, VRT writes without giving details. Rioters on a car in Brussels: The Belgian Minister of Home Affairs, Quintin, expresses his horror at the disturbances. \"What is happening in Brussels has long since stopped being a protest,\" he writes on social media. He speaks of organised and repeated violence, aimed \"at destabilising our society\". The minister closes his message by saying that all \"necessary means\" will be deployed to \"restore order and take action against the rioters\". Demonstrators are also out in Liège. In that city the protest initially passed without problems, but after 15:00 the water cannon was deployed.",
-    "sourceHash": "e1d03fa56bf8",
+    "lead": "After weeks of student protests, other groups also took to the streets in France today, including farmers, taxi drivers, nursing staff and the gilets jaunes movement. They protested against the rising cost of living. In several French cities the protests turned into riots. In Paris the police deployed tear gas and a water cannon. By around 15:00, a total of 272 people had been arrested across France. In Paris shops and a McDonald's were stormed, and in Lyon the tourist office was set on fire: people also forced their way into the town halls of Lille and Marseille. In Lille, among other things, glass doors were smashed. In Marseille, the second city of France, intruders painted an anarchist symbol on the wall of the town hall, destroyed televisions and threw a bust of Marianne (France's national symbol) to the ground. Mayor Payan of Marseille reacted furiously. \"It is unacceptable to use this kind of protest to break in, commit vandalism and destroy this national symbol\", Payan said. The damage in the town hall seems to be limited. The damage in the town hall of Marseille: in Marseille the windows of a police station were also smashed. Smoke bombs were thrown inside, the newspaper Le Figaro reports. No injuries are reported. 'Tragedy' in Lyon Besides Paris, the police also deployed tear gas in Bordeaux and Lyon. In Lyon masked rioters smashed the windows of the tourist office and set it on fire. Mayor Doucet is appalled. In his words it is an \"iconic and recognisable monumental building. It is a tragedy that rioters have attacked this building and set it on fire.\" Despite the disturbances, the police in Paris say that \"the vast majority of participants are demonstrating peacefully\". Most rioters are gathering at the Place de la République, where a car was also set on fire. The French government had already anticipated riots. Anyone who looks like a demonstrator is being checked and must identify themselves. Around the Champs-Élysées a demonstration ban applies. Nevertheless, shopkeepers had placed boards in front of their shopfronts just in case. In advance, the French authorities expected 40,000 demonstrators in Paris, Le Monde writes. In the rest of France 150,000 protesters were expected. Around midday, 140 protests were counted in the French provinces, with almost 33,000 people taking part, the <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity> ministry reports. Gilets jaunes movement The gilets jaunes movement was also present today. It arose in France in 2018 out of discontent over the announced increase in fuel prices and developed into a broader protest against the high cost of living and income inequality. For months, people in yellow vests took to the streets every weekend, and this was accompanied by a great deal of violence. The gilets jaunes movement was followed in Belgium and the Netherlands, among other places. For Salif and Jérémy, today was their first time in a yellow vest. They had come to Place de la République from outside Paris. \"In the supermarket you now pay one and a half times as much as a few years ago, it is no longer manageable\", they told NOS correspondent Saskia Houttuin. In Belgium there were also protests this afternoon. Pupils and students are opposed to the cuts in education. \"I am protesting because my school's budget has been drastically reduced\", says a student to the Flemish broadcaster VRT. In Brussels fireworks and stones were thrown at the police, and rioters damaged cars, including with road signs. Windows of a building were also smashed. Near Brussels-South station, shared bicycles and scooters were set on fire, just as last week. Officers deployed tear gas and a water cannon and cleared the Beursplein in the centre. Calm seems to have returned there. Ten people have been arrested. Rioters on a car in Brussels: the Belgian Minister of Internal Affairs, Quintin, has expressed his horror: \"What is happening in Brussels has long ceased to be a protest\", he wrote on social media. According to him it concerns organised and repeated violence, intended \"to destabilise our society\". In Liège demonstrators were also out. There too, the police deployed a water cannon after some time.",
+    "sourceHash": "a3673c73671a",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -19806,6 +19762,61 @@
     "title": "Pope Leo XIV discharged from hospital, able to fully resume his duties",
     "lead": "Pope Leo has left the hospital in Rome, four days after his operation for lung cancer. The 71-year-old pope walked without assistance this afternoon to the car waiting for him and stopped briefly to talk with people who had gathered outside the Gemelli hospital to encourage him. The pope was discharged from hospital today by his doctors. They had already indicated that he had recovered sufficiently to go home. Blood tests and scans of his chest had shown good results, combined with a 'suitable' overall clinical condition. The pope leaving the hospital: An adenocarcinoma had been identified in the pope, the most common form of lung cancer. On Tuesday the lower lobe of his right lung was removed. The operation was successful and without complications, but it has not been announced how large the tumor was or whether the disease has spread. Doctors are still considering whether further treatment is needed. Back at work The pope has returned to the Vatican. Tomorrow he will appear there in public again. At 12.00 hours he will deliver the traditional midday blessing from the window overlooking St. Peter's Square. According to his doctors, he is again able to fully resume his normal daily activities independently. In the hospital he continued working, albeit at half capacity. He held a phone call with Russian president Putin, received close Vatican associates and celebrated mass in an improvised chapel in the hospital. According to the Vatican, everything is proceeding according to plan. Yesterday the names were announced of the journalists who will accompany a trip to Latin America. That trip is scheduled for 6 to 17 November. That gives the pope another three weeks to recover and become fit enough for a large number of flights. Remarkable openness Pope Leo XIV was remarkably open about his medical condition last Sunday. At that time he told the faithful in St. Peter's Square that doctors had found a nodule on his lung and that it would be removed. In by far most cases such a small nodule is not serious, but during the operation it became clear that in this case it was serious. The news came as a shock worldwide. The American has only been pope for a short time, since last May, and is young and energetic compared with previous popes.",
     "sourceHash": "24361033a168",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
+    "id": "news:5d2d042",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Wedding ring found after 83 years in Brabant village: 'Still in good condition'",
+    "lead": "A man with a metal detector found a wedding ring in the Brabant village of Odiliapeel that had been missing for 83 years. The son of the owner, who has since died, recently got it back. Jo Nabuurs lost the ring in the winter of 1942 or 1943 while threshing, separating grain kernels or seeds, behind the farm. Despite frantic searching he never found it again. He married in 1941. His son Bert Nabuurs therefore knew his father only without a wedding ring on his ring finger. \"My father sometimes told us he had lost his ring,\" he says. The man with the metal detector found the ring about 20 centimetres underground. A relative who lives close to the parental home heard about the find and contacted Bert Nabuurs. The relative said he could expect a visit. No compensation. The finder came to return the ring himself. \"I thought it was quite something special,\" Bert Nabuurs says to the local broadcaster DTV Nieuws. \"I did ask whether he wanted a reward, but he didn't want one.\" That the ring belonged to his father is beyond dispute. The ring has his parents' wedding date engraved in it. The family is very happy about it. \"My brothers and sisters think it's fantastic that the ring has been found. The ring is still in good condition. It has always lain dry.\"",
+    "sourceHash": "89a403e6b989",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
+    "id": "news:5d2d045",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Unrest in Albania continues: protesters clash with police for fifth day in a row",
+    "lead": "Not only in France and Belgium is there unrest today due to protests, in Albania too thousands of people have taken to the streets over dissatisfaction with their government. For the fifth day in a row, Albanians, led by students, are demonstrating in the capital Tirana to force Prime Minister Rama to resign. Today's protest started calmly, but according to news agency Reuters it got out of hand when a group of masked youths threw stones at the police. The police responded with stun grenades, tear gas and a water cannon. Footage also shows an armed officer shooting demonstrators with rubber bullets. Several demonstrators were hit and two journalists were also injured. Demonstrators are angry, among other things, about corruption in their country. The government is being pursued by corruption scandals, which Rama himself denies. According to analysts, drug gangs use Albania for money laundering and drug trafficking, which makes accession to the European Union more difficult. Young people are also dissatisfied with the lack of jobs. Many students who have graduated cannot find work, and young people find the cost of education too high. The students recently joined the so-called 'flamingo movement'. What is the flamingo movement? In recent months people in Albania have protested against plans for a luxury resort of US President Trump and his family on the south coast of Albania. They are angry because they believe their country is being sold off to the rich elite. There is also disbelief that construction of the resort is planned in a protected nature area, where among others seals, turtles and flamingos are being confronted with bulldozers. The flamingo became the symbol of the protests after environmental activists were forcibly removed by a private security company at a fence. The activists, who filmed the incident themselves, had brought plastic flamingos as a mascot. The incident was the starting signal for massive protests that brought thousands of people onto the streets of the capital every evening. Despite public dissatisfaction, Prime Minister Rama is sticking to the large American investment in the nature area. \"This project will go ahead as long as I am in power,\" he said last summer. The prime minister emphasises the economic benefits and the jobs that visits by wealthy tourists can bring. Earlier this week things already went wrong when rioters smashed windows and set fire to government buildings and banks. This led to confrontations with the police; at least dozens of demonstrators and more than a hundred officers were injured. According to police figures, around 500 demonstrators have been arrested, of whom around 200 are still in custody. Rama not planning to step down. Rama has been prime minister of Albania since 2013. Last year, after winning the elections, he began his fourth term for his Socialist Party. Although the current unrest in his country may be the biggest challenge for the prime minister, Rama is not planning to step down. The next parliamentary elections in Albania are not scheduled until 2029.",
+    "sourceHash": "7aef4159ca69",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
+    "id": "news:5d2d061",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Police arrest suspect for explosion at hair salon in Vlaardingen",
+    "lead": "The police have arrested a 27-year-old man from Vlaardingen on suspicion of involvement in an explosion at a hair salon. It was also a restless week in Vlaardingen, but the arrested man is suspected of involvement in an attack from just over two months ago. On 6 August, the windows of a hair salon in the city centre along the Rotterdam harbour were badly damaged after an explosive went off in the early morning hours. No one was injured, regional broadcaster Rijnmond reported. Last night things also went wrong at a hair salon. According to the police, shots were fired at a business at the Liesveld shopping centre after midnight. No one was injured then either. The police would not say, after questions from NOS, whether it concerns the same hair salon. There are several hair salons on Liesveld. Last weekend it also happened. An explosion damaged the facade of a hair salon on Westhavenkade and blew out a shop window. That business had already been a target of vandalism before. 'Unfair competition' It is not clear what the motive for the attacks is, but it is being speculated about. AD previously wrote that hairdressers with prices below the usual rates are targets. There would be unfair competition. The police and the <entity id=\"org:openbaar-ministerie\">Openbaar Ministerie</entity> are still investigating the explosions. The 27-year-old man was arrested yesterday. They do not rule out further arrests.",
+    "sourceHash": "144062bed0b2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
+    "id": "news:5d2d07f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "French government says it will not be intimidated by violence on protest day",
+    "lead": "French Prime Minister Lecornu says that his government \"will not be intimidated\" by the violence at today's demonstrations. \"No one will impose their political agenda through violence\", the prime minister writes on X. President Macron says there is no place for violence in France and that those who have misbehaved will be prosecuted and punished. According to Prime Minister Lecornu, peaceful demonstrations are permitted, but arson, looting and attacks do not belong to them. He expresses his support for the police, who in his view faced extreme violence. Hundreds of thousands of French people took to the streets today out of discontent with the poor state of education, rising costs and government policy in general: Most demonstrators protested peacefully, but in a number of cities, such as Paris, Marseille, Toulouse, Angers, Lyon and Bordeaux, it turned into violence. Tonight the mood in several cities is still tense, including in Paris, Toulouse and Bordeaux. At the start of the evening, the historic town hall in Limoges was set on fire. The fire spread through one wing and the building is largely considered lost. The fire also reached the roof, after which the town hall tower collapsed: According to Minister Nuñez of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity>, 550,000 people took part in 110 demonstrations across France. The organising action groups put the figure at 800,000 participants. 'Organised by the far left' Many demonstrators indicate that the rioters were deliberately out to cause damage and to confront the police. The rioters often targeted government buildings, such as town halls and police stations. In cities such as Strasbourg, Rouen, Nantes, Pau and Valence, shops were also looted, says Minister Nuñez. Lecornu and Nuñez accuse far-left groups of having organised the violence. \"And criminals took part in looting and vandalism\", Lecornu writes. According to the prime minister, this is related to the French presidential elections, which will be held next April. 'Vandals will pay' In his post on X he explicitly addressed \"those who want to use this violence as a 'warm-up' for the presidential elections\". He promises the French that the vandals will pay. \"Public money is scarce\", he writes. \"We must not endlessly repair the damage that vandals cause. They must bear the costs.\" Paris's mayor has also strongly condemned the violence in France. In an interview with France-Ouest, Mayor Emmanuel Grégoire says the protest has now gone beyond its purpose. \"The vast majority of demonstrators want to demonstrate peacefully. These destructive acts distract attention\", according to Grégoire. \"Vandalism is no solution.\" Dozens injured According to Minister Nuñez, 400 people have been arrested across France. Sixty police officers were injured, he reports, two of whom were taken to hospital unconscious. \"This shows the violence of the attackers\", the minister said. It is not clear how many demonstrators were injured. The French news agency AFP reports that in the southern French city of Saint-Étienne a demonstrator lost a hand due to a police grenade. Earlier this month, a 15-year-old schoolboy suffered the same fate, which led to major criticism of the heavy-handed response of the police at the education demonstrations. The French police then stopped using flash-ball grenades. Nevertheless, Minister Nuñez of the Interior said yesterday on French radio that he did not rule out their use: \"Officers must be able to use all the weapons at their disposal\", he said.",
+    "sourceHash": "a8598a3f8d3f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
+    "id": "news:5d2d080",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US wants to extend 'war on drugs' to mainland Latin America",
+    "lead": "The United States is increasingly getting involved in the anti-drug war in a number of Latin American countries. It began in 2025 with attacks on suspected drug boats at sea. Now the fight against drugs is moving to the mainland of Latin America. Hundreds of soldiers are being sent these days, initially to Panama, Colombia and Honduras. The Americans are holding joint exercises with soldiers from these countries. US special units will also provide support and advice to army units in Latin America that carry out operations against drug traffickers. The cooperation stems from the establishment of the so-called Shields of the Americas . This is a regional body that was set up earlier this year by US President Trump and which nineteen Latin American countries have since joined. The aim is to jointly fight drugs and work more closely together on security issues in the region. Trump is urging leaders across the region to take harder military action against people smuggling groups and to allow joint operations with the United States. Shift to the right Trump made clear at the latest UN General Assembly that it is about more than just security. It is also about economic cooperation and \"securing raw materials in the region\", as he put it. Many countries in this region have shifted to the right in recent elections and are now ideologically close to Trump. He has repeatedly indicated that he would prefer to have Latin America within his sphere of influence. China's economic power, which grew sharply in Latin America in recent years, is a thorn in Trump's side and he wants to curb it. With the arrival of American soldiers in Colombia, the radical right-wing president De la Espriella, who took office in August, wants to fulfil his election promise: a tough approach to drug cartels in order to create a safer country. Combat drones Colombia is the world's largest cocaine producer and is plagued by drug cartels. Between 2000 and 2015 there was already close cooperation between the US and Colombia and a military aid plan, the so-called Plan Colombia. The US now wants to deploy, in addition to 600 soldiers, very advanced equipment. For example, special combat drones are being moved from Africa to Latin America to carry out precision strikes on cartel leaders, among others. Population divided The population of the Latin American countries is divided over the arrival of American soldiers. There had already been training of American soldiers in Ecuador. There are also plans to reopen an American base in the country that was closed earlier. This met with fierce resistance from the population and the opposition. In a referendum on the possible reopening of the American base, a majority of Ecuadorians voted against the plans. The presence of American soldiers in Latin America is also sensitive because of the past of many countries in this region. Between the 1960s and 1980s, military dictatorships were in power in many Latin American countries. Bloody regimes in countries such as Argentina, Brazil and Chile were helped into the saddle by the US, which wanted to prevent left-wing governments from being elected here. Alleged drug boats Human rights organisations have been warning for some time about the attacks on alleged drug boats at sea. Since last year these have already cost the lives of more than 200 people. The US provides no evidence that these are actually boats of drug smugglers. Moreover, according to legal experts, these attacks violate international law. The expansion by the US from attacks at sea to attacks on land is therefore being closely watched by human rights organisations. They fear that the growing military presence of the US in Latin America endangers the citizens of these countries. In addition, it is questionable whether killing cartel members really helps against the drug trade, because members are quickly replaced.",
+    "sourceHash": "a081eae4adc3",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -19938,17 +19949,6 @@
     "title": "Cabinet launches national conversation on online discrimination",
     "lead": null,
     "sourceHash": "197c9eab7bb4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:5dc79e69",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Harvard historian Jill Lepore: 'We have surrendered our autonomy and neglected our duties as citizens'",
-    "lead": "The lightning-fast fusion of the American state apparatus with the big AI companies has, according to Harvard historian Jill Lepore, deep roots. \"It has come down to five or six guys who believe they control the fate of humanity.\"",
-    "sourceHash": "23531f982026",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -20097,6 +20097,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:5eb950d0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Live Eredivisie | Tense finish at Sparta-Willem II after goals by Vilhena and Toornstra",
+    "lead": "Good day and welcome to this live blog! Here I, Hein Nooijens, will keep you informed about the Eredivisie, with the highlights being the matches of Feyenoord and PSV. Enjoy!",
+    "sourceHash": "825572805eed",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:5ec84933",
     "language": "en",
     "sourceLanguage": "nl",
@@ -20161,6 +20172,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
+  },
+  {
+    "id": "news:5ef99c8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Feyenoord beats Telstar in spectacular duel: 3-4",
+    "lead": "Feyenoord has continued its good run with a win over Telstar. The side coached by Giovanni van Bronckhorst won 4-3 in Velsen after a very entertaining match.",
+    "sourceHash": "7e1542d0a885",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:5eff2650",
@@ -20438,12 +20460,23 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:600c7222",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Rioters break into Paris city hall, hundreds of thousands of people out on the streets",
+    "lead": null,
+    "sourceHash": "6633eebcb0f3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:60329237",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Everyone onto the street: why are the French so angry?",
-    "lead": "Schoolchildren started it, but by now trade unions, students and even the yellow vests are joining the protests in France. Today too they took to the streets again. What began as a protest against the poor state of education is now growing into a much broader outburst of discontent. Why are the French so angry?",
-    "sourceHash": "b58617ed7f8f",
+    "title": "Protests at 1400 locations: why French anger has suddenly become so widespread",
+    "lead": "Schoolchildren started it, but by now unions, students and even the yellow vests are joining the protests in France. Today too they took to the streets again. What began as a protest against the poor state of education is growing into a much broader eruption of discontent. Why are the French so angry?",
+    "sourceHash": "831243b2ba42",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -20645,6 +20678,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:613d8ce6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Man (27) arrested in 'hairdresser war' Vlaardingen, investigation continues",
+    "lead": "The <entity id=\"org:politie\">politie</entity> arrested a man last night who may be involved in an explosion at a hair salon in Vlaardingen in August this year.",
+    "sourceHash": "5b96fd9d41e8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:614cedcb",
@@ -21087,17 +21131,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:6335b3e2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "In the 'Pogacar-free' period, Paul Seixas rides solo to the finish in the Tour of Lombardy",
-    "lead": null,
-    "sourceHash": "c115b5f2355e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:63562d74",
     "language": "en",
     "sourceLanguage": "nl",
@@ -21326,17 +21359,6 @@
     "sourceHash": "5d61a833245e",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:647767cb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Zelensky critical of US-Russia diesel agreement: 'Investment in war'",
-    "lead": null,
-    "sourceHash": "c6c0de7ced30",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
     "translated": "2026-10-13"
   },
   {
@@ -21657,17 +21679,6 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
-  },
-  {
-    "id": "news:65a492e4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Hurricane Isaias wreaks havoc in US: 2 dead and 800.000 homes without power",
-    "lead": "Two people have died in the United States due to Hurricane Isaias, which made landfall overnight and is now moving across the country. Around 800.000 residents of Florida, Alabama and Georgia were without power.",
-    "sourceHash": "b1ff295513f0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:65d878ef",
@@ -22121,17 +22132,6 @@
     "translated": "2026-10-15"
   },
   {
-    "id": "news:684824b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "AZ baffled by penalty not given against Feyenoord: 'I don't know what footage he saw'",
-    "lead": "A crucial moment in the Eredivisie top match between Feyenoord and AZ (2-0) was the penalty incident just before half-time. After a VAR intervention, referee Danny Makkelie struck out the penalty. To the great displeasure of AZ striker Mexx Meerdink. \"There was contact, I felt it on my foot.\"",
-    "sourceHash": "cb643d9be271",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:684a105",
     "language": "en",
     "sourceLanguage": "nl",
@@ -22306,6 +22306,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:699dd331",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Her sons don't want it, so baker Wilfried closes the family business after 100 years: 'I get it'",
+    "lead": "The ovens were fired up for the very last time this month at Bakkerij van de Kletersteeg in Hooglanderveen. After exactly 100 years and 59 days, a rich baking history comes to an end here. Baker Wilfried van de Kletersteeg (59), third generation in the business, feels that after a working life of baking it's been enough.",
+    "sourceHash": "87af5610c47c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:69aecec2",
@@ -22583,6 +22594,17 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:6a7b09f2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Now that AI is here, Fukuyama doesn't know either",
+    "lead": "He once predicted 'the end of history'. What is left of Francis Fukuyama's initial bravado?",
+    "sourceHash": "fbe18cda0dd1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:6a834518",
     "language": "nl",
     "sourceLanguage": "en",
@@ -22671,6 +22693,17 @@
     "translated": "2026-10-17"
   },
   {
+    "id": "news:6b2bd3d0",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Wolven maken herten en wilde zwijnen op de Veluwe alerter, blijkt uit onderzoek",
+    "lead": "Wilde zwijnen, reeën en edelherten op de Veluwe hebben hun gedrag de afgelopen jaren allemaal aangepast aan de aanwezigheid van de wolven, concludeerde Faunabeheereenheid Gelderland na monitoring.",
+    "sourceHash": "469f4419f59e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:6b412a2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -22691,17 +22724,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
-  },
-  {
-    "id": "news:6b93b202",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Barry Manilow (83) cancels another show from his farewell tour shortly after returning to the stage",
-    "lead": "Barry Manilow has had to cancel another show shortly after his long-awaited return to the stage. His performance on Saturday at the Westgate Las Vegas Resort &amp; Casino will not go ahead because the singer has been hit by bronchitis, his spokesperson told the American entertainment magazine Variety.",
-    "sourceHash": "928058439b03",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:6b993bd4",
@@ -22757,6 +22779,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:6bee4d42",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dutch gymnasts provisionally second at World Championships: 'One of the most beautiful competitions of my life'",
+    "lead": "The Dutch men are provisionally in second place in the country ranking at the World Gymnastics Championships in Rotterdam. Only Russia, which competes under the neutral name World Gymnastics 2, ranks above the Netherlands.",
+    "sourceHash": "58c4203362b7",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:6c037f85",
@@ -23023,17 +23056,6 @@
     "translated": "2026-10-17"
   },
   {
-    "id": "news:6d940963",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Christa Pike returned to prison ten days after failed execution",
-    "lead": "The American woman Christa Pike, who survived an attempted execution at the end of September, has been discharged from hospital. She has been transferred back to the prison where she has spent the past thirty years.",
-    "sourceHash": "5511be5dee0c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:6d95505d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -23287,15 +23309,15 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:6f4ee2f9",
+    "id": "news:6f17e1c",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "At least twelve dead and three hundred injured after attack on Riyadh airport",
-    "lead": "In a serious attack on Riyadh's international airport on Saturday, at least twelve people were killed and 309 people were injured. The Houthi rebels are presumably behind the attack. It would be the deadliest attack in a Gulf state since the start of the war with Iran.",
-    "sourceHash": "9f80726b4a84",
+    "title": "Behind every facade, every door and every window lie remarkable stories: love can blossom between people and homes",
+    "lead": null,
+    "sourceHash": "dc3078f07cdf",
     "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:6f50b514",
@@ -23485,17 +23507,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:702409ee",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Still no trains between Rotterdam and Delft all weekend after arson at railway bridge",
-    "lead": null,
-    "sourceHash": "47520059e892",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:70289ca5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -23527,6 +23538,28 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:70513bbc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "In pictures: burning tower of Limoges town hall collapses",
+    "lead": "The spire of the town hall in the French city of Limoges has completely collapsed. Earlier, demonstrators reportedly set the historic tower on fire. There is unrest in several places in France due to ongoing protests.",
+    "sourceHash": "a9135e73d0e3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
+    "id": "news:705d9199",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Feyenoord beats Telstar in a spectacular match and profits from PSV's defeat",
+    "lead": "Feyenoord won its fifth consecutive match in the Eredivisie on Saturday. The team of coach Giovanni van Bronckhorst won 3-4 at Telstar in a spectacular match and so takes the lead over PSV.",
+    "sourceHash": "4ec0902b0647",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:7072eaf2",
@@ -23626,6 +23659,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:70daf862",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Amazon deforestation is slowing down. Just as Brazilian President Lula promised",
+    "lead": "Deforestation of the rainforest in Brazil has fallen to its lowest level since 1988. This can be seen as a success for President Lula, who made protecting the rainforest one of his main promises. But whether it will help him win the elections next week is open to question.",
+    "sourceHash": "16f2faf6e237",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:70ef0ff7",
@@ -23879,6 +23923,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
+  },
+  {
+    "id": "news:71e75c75",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Closing Time | Sprints",
+    "lead": "Rage, spoken-word singing and guitars, Sprints has it all. The rage here goes hand in hand with a more philosophical approach, as the title already makes clear. It is about artistic creation as a survival strategy in today's world. 'I write, therefore I am', something like that. A philosophical bent naturally leads to introspection, and that does not sit well together [...] Read more posts on Sargasso",
+    "sourceHash": "3f9de8c199f8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:720eac7e",
@@ -24467,12 +24522,12 @@
     "id": "news:74dcfb3e",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Time is running out and still no challenger: the offensive against FIFA boss Gianni Infantino is weakening",
-    "lead": "The anger over Gianni Infantino's World Cup equity plan was unified. But ahead of the presidential election, cracks are appearing in the three power blocs behind the attack on the FIFA boss. What makes the struggle so complex?",
-    "sourceHash": "98acf1303c29",
+    "title": "The offensive against FIFA boss Gianni Infantino is weakening. Why is a challenger taking so long to appear?",
+    "lead": "The anger over Gianni Infantino's World Cup share plan was unanimous. But in the run-up to the presidential election, cracks are appearing in the three power blocs behind the attack on the FIFA boss. What makes the struggle so complex?",
+    "sourceHash": "da7dbadd4823",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-16"
+    "translated": "2026-10-17"
   },
   {
     "id": "news:74fcc0a0",
@@ -24728,6 +24783,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:7662d41f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Hardly his finest hour",
+    "lead": "Donald Trump's scheme to secure Russian diesel is scandalous.",
+    "sourceHash": "d5c993d7bad8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:768b9fc1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -24781,17 +24847,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
-  },
-  {
-    "id": "news:76ac5967",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'Get the investment!' Five years later, there is another housing protest",
-    "lead": "The housing protest on Saturday in Amsterdam was nowhere near as big as the housing demonstration in 2021, although according to the protesters little has improved since then. \"Only if you have a salary of just over 5,000 euros a month do you earn enough to be squeezed.\"",
-    "sourceHash": "f827d91e6485",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:76bb0b9f",
@@ -25201,6 +25256,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:78db47ec",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dozens of officers injured after French riots, Macron wants to 'form a bloc against chaos'",
+    "lead": "At the demonstrations in France on Saturday at least four hundred people were arrested, and about sixty police officers and other law enforcement officers were injured. Two officers were taken to hospital unconscious.",
+    "sourceHash": "5e8c630bfa70",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:78dc87f2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -25432,6 +25498,17 @@
     "translated": "2026-10-17"
   },
   {
+    "id": "news:79e6026e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "FC Barcelona stays unbeaten after spectacular clash with Real Betis, which ends with ten men after headbutt",
+    "lead": "On Saturday evening FC Barcelona won its ninth consecutive La Liga victory with a 2-5 win away at Real Betis. The match was marred by a red card for Facundo Bernal, who headbutted Lamine Yamal. Frenkie de Jong was in the match squad for the first time this season, but did not get any minutes.",
+    "sourceHash": "5144690884aa",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:79f57f17",
     "language": "en",
     "sourceLanguage": "nl",
@@ -25537,17 +25614,6 @@
     "title": "Minister Bart van den Brink must get to work on asylum applications from Ukrainians",
     "lead": "Cartoon Marc-Jan Janssen",
     "sourceHash": "2c5c110e9c1c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:7a52e851",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Max Verstappen starts from pole, but knows the biggest challenge is still to come: 'There are absolutely no excuses'",
-    "lead": "The man who never looks at statistics achieved his fiftieth pole position of his career. Max Verstappen may start from the first place at the spot where he has never won a grand prix. But the start will have to get better at Red Bull Racing soon. \"We are doing our best, so we will see whether it works or not.\"",
-    "sourceHash": "23c08bce008a",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -25762,15 +25828,15 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:7bbe8558",
+    "id": "news:7bc05342",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Two people killed by Hurricane Isaias in US, 800,000 residents without power",
-    "lead": "Two people have died in the United States after Hurricane Isaias made landfall in the night from Friday to Saturday. About 800,000 residents of Florida, Alabama and Georgia were without power.",
-    "sourceHash": "8af2578007ce",
+    "title": "Video | Tower of French town hall collapses after arson by protesters",
+    "lead": null,
+    "sourceHash": "e80f8c26f2b6",
     "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:7bcf52e9",
@@ -26241,17 +26307,6 @@
     "title": "100-year-old promenade in California destroyed by tropical storm",
     "lead": "The United States is suffering from extreme weather. Tropical storm Rachel destroyed a century-old promenade in Long beach. In the southeast, the remains of Hurricane Isaias are clearly visible.",
     "sourceHash": "5bc63bb9d019",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:7ea8c7dc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Hamilton wants to work with Leclerc to beat Verstappen in Singapore",
-    "lead": "Lewis Hamilton hopes that on Sunday he can work together with Ferrari teammate Charles Leclerc to keep Max Verstappen from victory. The Ferrari drivers start behind Verstappen as second and third in Singapore.",
-    "sourceHash": "9239dd8ddc87",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -27137,17 +27192,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:83188feb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Francis of Assisi had radical views, but also put them into practice: 'An example'",
-    "lead": "Last week marked the anniversary of the death of Francis of Assisi. The Catholic saint (1181/1182-1226) continues to inspire people to this day. Francis was radical, but unlike many radicals in our time, he also backed up his words with deeds. That makes him an example, says Anton de Wit in De Ongelooflijke Podcast.",
-    "sourceHash": "b11f27a6686b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:8320268",
     "language": "en",
     "sourceLanguage": "nl",
@@ -27707,17 +27751,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
-  },
-  {
-    "id": "news:85dbb2d7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "FC Twente loses points at Fortuna after three straight wins",
-    "lead": "FC Twente lost points in the Eredivisie after three wins in a row. The Enschede side could only manage a 1-1 draw at Fortuna Sittard. Due to the loss of points, FC Twente remains in fourth place, 3 points behind the new leaders Feyenoord.",
-    "sourceHash": "0b8139a8fbba",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:86027a34",
@@ -28567,17 +28600,6 @@
     "translated": "2026-10-15"
   },
   {
-    "id": "news:8aa84ce1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Froukje briefly stopped performing for an office job: 'Lovely to close my laptop at five o'clock'",
-    "lead": "She became known for songs in which she bared herself, in a period when she had to figure out who she was. A few years later, Froukje Veenstra talks in our weekend magazine Mezza about seeking validation, doing internships, working with friends and always wanting to play the clown. You can also listen to this interview:",
-    "sourceHash": "594abc98866d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:8ab67a25",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28796,6 +28818,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:8bec24d7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Fred van Leer after a hellish summer: 'For the first time in my life I look forward to tomorrow'",
+    "lead": "Fred van Leer went through a heavy summer in which he sank deeper into his depression than ever before. For several months the presenter and theatre maker has been in an upward spiral. Van Leer is curious about tomorrow and is working on a next theatre show.",
+    "sourceHash": "9c0a735be346",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:8bff1df9",
@@ -29032,9 +29065,9 @@
     "id": "news:8cf06691",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Protests in France get out of hand: fires, explosions and many arrests",
-    "lead": "Protests in France have ended in a confrontation with the police. Demonstrators in Lyon set a tourist office on fire, among other things, and in Marseille they forced their way into a town hall. The police deployed tear gas and a water cannon.",
-    "sourceHash": "c6ac3ecc4a98",
+    "title": "City hall stormed, protester loses hand: unrest at French protests",
+    "lead": "Protests in France have escalated into a confrontation with the police. Demonstrators in Lyon set fire to a tourist office, among other things, and in Marseille and Paris they forced their way into city halls. The police are deploying tear gas, water cannons and flash-bang grenades. One protester lost a hand to such a grenade.",
+    "sourceHash": "3370516c484a",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -29211,17 +29244,6 @@
     "title": "Are there alternatives? Thousands of products must be PFAS-free soon",
     "lead": "They are in your clothing, in tap water and even in your blood: PFAS. A collection of chemical substances that are not degradable and so never disappear from nature. That is why a ban is coming, but enormous numbers of products will have to change for that.",
     "sourceHash": "317859dc06b8",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:8dda1711",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Chelsea comfortably beat Bournemouth, Henderson scores twice",
-    "lead": "Chelsea secured a convincing win in the Premier League. The Londoners beat Bournemouth 5-1 in front of their own fans.",
-    "sourceHash": "0b877ce4ad9c",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -29546,17 +29568,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:8f28a810",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Atlético avoids dropping points with late win over Alavés",
-    "lead": "Atlético Madrid secured a late 2-1 victory away at Deportivo Alavés in the Spanish league. Cristian Romero scored the winning goal for the team from Madrid in the 87th minute.",
-    "sourceHash": "d735a166a1e7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:8f3c1764",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29629,6 +29640,17 @@
     "title": "Municipalities pleased with extra money for large-scale housing projects",
     "lead": "That <entity id=\"org:kabinet\">het kabinet</entity> has decided that 355 million euros will go to the accessibility of large-scale housing projects in <entity id=\"org:gemeente-alkmaar\">Alkmaar</entity>, <entity id=\"org:gemeente-apeldoorn\">Apeldoorn</entity>, <entity id=\"org:gemeente-helmond\">Helmond</entity> and Hengelo/<entity id=\"org:gemeente-enschede\">Enschede</entity> is 'good news for home seekers and for the development of our cities.' That is what the municipalities state in a joint statement.",
     "sourceHash": "c6dbc9ba9b48",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
+    "id": "news:8f744692",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "PSV coach Bosz 'not worried' after defeat to ADO",
+    "lead": "PSV coach Peter Bosz has no concerns about his team ahead of next week's Champions League match against FC Porto. That is what the 62-year-old coach said after the 2-1 defeat in the Eredivisie at ADO Den Haag, speaking to the camera of ESPN.",
+    "sourceHash": "bb323e668f75",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -30008,6 +30030,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:910a7c43",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Turner De Munck hopes World Championship team final is achievable",
+    "lead": "Turner Loran de Munck (27) hopes the team score of the Dutch team is sufficient for a place in the team final. After three of the six opening groups, the Netherlands is in second place. The best eight national teams advance to the final.",
+    "sourceHash": "5db471043fc6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:910cbdab",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30138,6 +30171,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:920541b2",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Nederlandse clouddiensten bezorgd na Amerikaans verzoek dat leidt tot inbeslagname van server in Amsterdam",
+    "lead": "De Nederlandse brancheorganisatie voor de cloud- en internetsector, de Dutch Cloud Community (DCC), heeft ernstige zorgen geuit over een server die deze week is in beslag genomen in een datacenter in Amsterdam-Oost.",
+    "sourceHash": "0d3f811b5dc3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:920580",
@@ -30745,17 +30789,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:947506a9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Six months to talk about ICC sanctions: 'Holding our ground is crucial'",
-    "lead": "In six months, new American sanctions against the \"out of control\" International Criminal Court ICC are due to take effect. President Trump plans to paralyse the court's functioning. What can be done about that in those six months?",
-    "sourceHash": "9c9722993c71",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:949ea555",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30897,17 +30930,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
-  },
-  {
-    "id": "news:952f5d28",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Outrage over Trump and Putin diesel deal: 'Makes US complicit in war in Ukraine'",
-    "lead": "US President Donald Trump's plan to import diesel from Russia is drawing harsh criticism and astonishment. The deal would bring Russia a lot of money that it can use in the war against Ukraine, critics fear. Meanwhile Ukraine continues to carry out attacks on the oil industry in Russia, which has earned Zelensky a sharp reprimand from Trump: 'He had better stop, damn it.'",
-    "sourceHash": "6d81cbbc443b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:95347917",
@@ -31064,6 +31086,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:95c0c8fb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Car show in Paris is mainly a battleground: fight between China and Europe",
+    "lead": "The Paris car show, which started this week, turns out to be mainly a battleground. Compared with the previous edition, the number of Chinese brands has doubled. They are clamouring for attention, while European manufacturers are hitting back with concept cars that promise a bright future.",
+    "sourceHash": "83a1ebcdc49f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:95c272ca",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31218,17 +31251,6 @@
     "translated": "2026-10-17"
   },
   {
-    "id": "news:96d99c28",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Tiger kills man who climbed into enclosure at British zoo",
-    "lead": "A man has died after being attacked by a tiger at a British zoo. He suffered serious injuries and was pronounced dead on the spot. The park is closed for the rest of the weekend.",
-    "sourceHash": "9c37acfa588c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:96edc289",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31304,6 +31326,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:975e03ab",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "DJ Mary Lake shares her favourites: 'I went straight to her: what the fuck, so this is really possible?!'",
+    "lead": null,
+    "sourceHash": "f3ae3fe11bd8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:9767e810",
@@ -31614,17 +31647,6 @@
     "translated": "2026-10-17"
   },
   {
-    "id": "news:98e1ddd3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Emotional Jordan Henderson steals the show at Chelsea in comfortable win over Bournemouth",
-    "lead": "Jordan Henderson played a very important role on Saturday afternoon during Chelsea's 5-1 win over Bournemouth. The former Ajax midfielder scored twice and provided an assist. After his substitution, the 36-year-old Englishman could not hold back his emotions.",
-    "sourceHash": "299486b66f0e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:98e5ffeb",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31686,6 +31708,17 @@
     "title": "Pretty clever, these \"smart\" devices",
     "lead": "Pulling the plug? Everything gone",
     "sourceHash": "a65135a70ebe",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
+    "id": "news:991038e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The first time I saw Cabaret, I thought writer Joe Masteroff was a visionary",
+    "lead": null,
+    "sourceHash": "7f46c8e40b14",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -31785,17 +31818,6 @@
     "title": "Van der Burg: 'Too little capacity to make government IT contracts transparent'",
     "lead": "'Procurement is one of the most powerful instruments we have as a government,' said D66 MP El Boujdaini at the opening of the debate on the digitalising government and oversight. For a change, oversight was hardly discussed, but the Dutch Digitalisation Strategy (NDS), the Digital Service and therefore procurement contracts with, for example, Microsoft were. 'The government is a huge customer and where we spend our money also determines whom we depend on'El…",
     "sourceHash": "db5c489c6ff1",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:998a4a48",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'I would like to have sex with all my best friends', and other erotic fantasies of women",
-    "lead": null,
-    "sourceHash": "ce614dc2eadb",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -32076,17 +32098,6 @@
     "translated": "2026-10-17"
   },
   {
-    "id": "news:9a72330f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Vulnerable households hit by cabinet policy: 'Government must give clarity quickly'",
-    "lead": "More than four million households are affected by the accumulation of cabinet measures in the areas of care and social security, according to research by the ministry of <entity id=\"org:ministerie-van-volksgezondheid-welzijn-en-sport\">Volksgezondheid, Welzijn en Sport</entity> (VWS) and the ministry of <entity id=\"org:ministerie-van-sociale-zaken-en-werkgelegenheid\">Sociale Zaken en Werkgelegenheid</entity> (SZW). 'The groups affected are really too large', says PRO MP Wimar Bolhuis to Binnenlands Bestuur.",
-    "sourceHash": "ba719503e581",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:9a7e22ea",
     "language": "en",
     "sourceLanguage": "nl",
@@ -32129,6 +32140,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
+  },
+  {
+    "id": "news:9a94714a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Table-topping Internazionale bounces back with win over Bologna",
+    "lead": "Internazionale has bounced back after its home defeat to Club Brugge (3-4) in the Champions League. The Serie A leader won the away match against Bologna 3-1.",
+    "sourceHash": "376a001a6fa7",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:9aac0ef2",
@@ -32192,17 +32214,6 @@
     "title": "Permit issuing in the Rotterdam port resumes in early 2027 thanks to new area plan",
     "lead": null,
     "sourceHash": "7e242f6286f6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:9b000357",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Arson halts train traffic: why our railway is so difficult to protect",
-    "lead": "For the second time in a month, trains cannot run due to vandalism to the railway tracks. The impact of this kind of action is great, yet it seems impossible to prevent it entirely.",
-    "sourceHash": "284bd4db3081",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -32681,15 +32692,15 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:9d75d63e",
+    "id": "news:9d719097",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Is higher interest on student loans fair? 'Unlucky generation experiences injustice'",
-    "lead": "Around a quarter of a million students belong to the unlucky generation facing an increase in interest on student loans. What is the consequence for their position on the housing market, for example? \"A sense of injustice is not resolved by compensation\".",
-    "sourceHash": "0049bebfdc67",
+    "title": "Body of 29-year-old woman found on Amsteldijk, police suspect a crime was committed",
+    "lead": null,
+    "sourceHash": "255b9f95b739",
     "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:9d8339d",
@@ -32734,6 +32745,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:9dffeead",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Death flew along: in the 1950s a fighter jet crashed in the Netherlands every month",
+    "lead": "Between 1947 and 1960, 173 pilots lost their lives in the Netherlands in accidents involving a military aircraft. The Thunderjet in particular was deadly, but because of the need to keep flying during the Cold War, this was kept quiet. The Royal Netherlands Air Force now calls that \"very painful\".",
+    "sourceHash": "8e898bb905d9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:9e08e9c6",
@@ -33341,6 +33363,17 @@
     "translated": "2026-10-14"
   },
   {
+    "id": "news:a0e89e10",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Live GT3 | Verstappen gets out of the car with a big smile despite missing the podium",
+    "lead": "Good evening and welcome to this live blog. Here I will keep you informed of all developments at the race in Portimão of the GT World Challenge, in which Max Verstappen is taking part. Enjoy!",
+    "sourceHash": "3f54350fe399",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:a0ed0b58",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33649,6 +33682,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:a295bbb1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sem Steijn guides Feyenoord past Telstar in goal fest, gap with PSV now four points",
+    "lead": "Feyenoord has opened a four-point gap on rival PSV. The win in Velsen-Zuid was not one to look back on with pride for long: 3-4. The Rotterdam side let Telstar repeatedly come back into the match.",
+    "sourceHash": "f385a5e7125f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:a2982f4b",
     "language": "nl",
     "sourceLanguage": "en",
@@ -33801,6 +33845,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:a3737b47",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dutch rugby players support Ukrainian soldiers: 'On the pitch we tackle each other, afterwards we have a beer'",
+    "lead": "Carefree sport, a few laughs and for a few hours not thinking about the war. For Ukrainian soldiers that is anything but a given. That is why 28 Dutch rugby players organised a tournament in the city of Lviv last week on behalf of the volunteer organisation Protect Ukraine. Rugby player Marc Wichman of the Utrecht club USRS looks back on an impressive trip in WNL In de Kantine. \"I would recommend it to everyone.\"",
+    "sourceHash": "26be5e0b0871",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:a3748966",
@@ -33990,6 +34045,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:a426ea8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Hungarian prime minister willing to let Ukrainian grain through after request",
+    "lead": null,
+    "sourceHash": "119785d61c07",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:a440361d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -34056,15 +34122,15 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:a49f69df",
+    "id": "news:a4890698",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Spurs much stronger than Manchester United for now, Kudus shot just wide",
-    "lead": "Struggling Tottenham Hotspur sit in last place with just two meagre points after five matches. The side coached by Roberto de Zerbi visits Manchester United, which is also far from in form and has only three points more. Follow it live from 18:30 here.",
-    "sourceHash": "9fb60482aa35",
+    "title": "Companies at Lelystad Airport must make way for Defence: 'We'll have to wait and see whether generous compensation is forthcoming'",
+    "lead": "Ten companies close to Lelystad Airport must definitively make way for the expansion of Defence. That will mean more hectares, it became known yesterday. The news comes as a hard blow, and there are concerns about the promised generous compensation.",
+    "sourceHash": "2ccc0d111716",
     "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:a4b47e2e",
@@ -34131,17 +34197,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
-  },
-  {
-    "id": "news:a4f62839",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Van Bronckhorst attaches little value to Feyenoord's top position",
-    "lead": "Coach Giovanni van Bronckhorst does not attach much value to Feyenoord's top position in the Eredivisie. \"I think it is much more important that we beat AZ,\" he said after a 2-0 win. \"We won against a good side. I think AZ will remain in the race for the league title for a long time. It is important to beat such teams.\"",
-    "sourceHash": "5289ceeb6817",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:a5033524",
@@ -34285,6 +34340,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
+  },
+  {
+    "id": "news:a5b48498",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "In pictures | Enormous damage and violence at devastating protests in France",
+    "lead": "Protests in France and Belgium have again turned violent in several places. Demonstrators clashed with police, hundreds of arrests were made and major damage occurred in several cities.",
+    "sourceHash": "bedeeb94694c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:a5b621a0",
@@ -34826,6 +34892,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:a80962b9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Israeli terrorists attack European diplomats",
+    "lead": "Israeli army only shows up after three hours",
+    "sourceHash": "fcb662f98604",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:a80dbe7b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -34868,17 +34945,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:a8323620",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Subsidy against flooding in Limburg available for longer",
-    "lead": "Projects to better protect Limburg against flooding in the short term can claim subsidy for longer. A second subsidy round for measures against heavy rainfall has been extended by more than half a year until the end of April next year, the <entity id=\"org:provincie-limburg\">provincie Limburg</entity> reports.",
-    "sourceHash": "43951ec7ae58",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
   },
   {
     "id": "news:a8471b43",
@@ -35090,17 +35156,6 @@
     "translated": "2026-10-17"
   },
   {
-    "id": "news:a91ff94d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Christa Pike discharged from hospital and back in prison after failed execution",
-    "lead": "Christa Pike has been discharged from hospital, one and a half weeks after the failed execution attempt in the American state of Tennessee. She has been taken back to the prison where she has already been held for more than thirty years, her lawyers said.",
-    "sourceHash": "f45365d163cc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:a921cf6e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -35283,17 +35338,6 @@
     "title": "No away supporters from Israeli club Hapoel welcome at match against AZ",
     "lead": "The Israeli club Hapoel Beer Sheva may not bring supporters to the Europa League match against AZ in <entity id=\"org:gemeente-alkmaar\">Alkmaar</entity> on 15 October. The triangle (municipality, police and Public Prosecution Service) decided this on the basis of public safety considerations, AZ reports on its own website.",
     "sourceHash": "60aa2d975ccb",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:a9c4f524",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Feyenoord beats AZ in top match and takes top spot in Eredivisie",
-    "lead": "Feyenoord has seized control of the Eredivisie. The team of coach Giovanni van Bronckhorst won the home match against AZ (2-0) and took over the top spot from the opponent from Alkmaar.",
-    "sourceHash": "d4f88765ed65",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -35486,6 +35530,17 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:aa94e917",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Driver who ran over Belgian cyclist Lars (16) demands money from his parents for car damage",
+    "lead": "Four years ago, 16-year-old Belgian cyclist Lars Janssens was run over and killed in the Ardennes. The driver had four times the permitted amount of cannabis in his blood. Even so, the case was dismissed. Now the driver is taking Lars's parents to court: he wants them to pay for the damage to his car.",
+    "sourceHash": "2309e417e1aa",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:aa9c3dd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -35673,17 +35728,6 @@
     "translated": "2026-10-17"
   },
   {
-    "id": "news:ab88bfb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Northern lights over the Netherlands tonight, but barely visible to the naked eye",
-    "lead": "On the night of Saturday to Sunday, the northern lights can be seen over some parts of the Netherlands. The phenomenon is especially easy to observe with a camera. In the south of the country the chance of seeing it is greatest.",
-    "sourceHash": "863275e8b315",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:ab95e362",
     "language": "en",
     "sourceLanguage": "nl",
@@ -35855,17 +35899,6 @@
     "title": "The miraculous return of a stolen Jewish candelabrum",
     "lead": "'It is heavy,' says Rob Lezer (81). '9,5 kilo.' The chairman of the merged Jewish congregations of <entity id=\"org:gemeente-apeldoorn\">Apeldoorn</entity>, <entity id=\"org:gemeente-deventer\">Deventer</entity> and <entity id=\"org:gemeente-zutphen\">Zutphen</entity> briefly lifts the large copper Chanukah menorah to look underneath. There is nothing special to see. Recently the nine-armed ritual candelabrum has returned to the synagogue in Apeldoorn, at the place where […]",
     "sourceHash": "afb3d63cf2bc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:ac707b8f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Augsburg scores fastest goal ever in Bundesliga after blunder by Neuer, Leipzig has successful dress rehearsal for PSV",
-    "lead": "Bayern Munich conceded the fastest goal ever in the Bundesliga this afternoon. It was the start of a difficult afternoon for the record champions. Partly thanks to former PSV player Ismael Saibari, a point was still salvaged away at FC Augsburg: 2-2. Leipzig later that evening beat Eintracht Frankfurt 6-0.",
-    "sourceHash": "08da5043fed2",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -36157,17 +36190,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:add84226",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Skating for 65 cents, apple picking and bouncy castles: the best outings with children during the autumn holiday",
-    "lead": null,
-    "sourceHash": "eb1a320cf3cc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:ae00a294",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36399,6 +36421,17 @@
     "translated": "2026-10-14"
   },
   {
+    "id": "news:ae7ed970",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Borussia Dortmund take top spot despite losing points",
+    "lead": "Borussia Dortmund have taken top spot in the Bundesliga despite dropping points in the away match at Union Berlin. The side of Oranje international Joey Veerman, who sat on the bench for the entire match, were held to a 0-0 draw in Berlin.",
+    "sourceHash": "f2909cff05d7",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:ae802da6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36611,9 +36644,9 @@
     "id": "news:af37914f",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "French riots continue to spread",
+    "title": "Burning city hall tower in Limoges collapses",
     "lead": null,
-    "sourceHash": "fa51480873ff",
+    "sourceHash": "f04c273b0b2f",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -36760,6 +36793,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:b0021c18",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tower of French town collapses after arson, also riots in Italian cities",
+    "lead": "Protests in several French, Italian and Belgian cities have turned into riots. Between 550,000 and 800,000 demonstrators were present at the actions in France, and hundreds of rioters were arrested. It is still unrest. Follow all developments below in our liveblog.",
+    "sourceHash": "df3b14d41077",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:b01207e4",
@@ -37246,6 +37290,17 @@
     "translated": "2026-10-17"
   },
   {
+    "id": "news:b2f0f8c7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Stichting Babyspullen wants to have a starter pack ready for 700 Amsterdam babies, but is running short of money",
+    "lead": null,
+    "sourceHash": "c29604145a17",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:b2f47cd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -37340,17 +37395,6 @@
     "title": "Formula 1 title fight decided? This needs to happen for Kimi Antonelli to become champion at the next race",
     "lead": "After the retirement of George Russell during the Bahrain Grand Prix in Malaysia, it can no longer go wrong: Kimi Antonelli will be the successor of Lando Norris. The Italian has a lead of 84 points in the championship. When can the Mercedes driver claim the title?",
     "sourceHash": "ad6fc201b4da",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:b38ce4c3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Passionate and technically gifted Feyenoord take over from AZ as leaders with 2-0 win",
-    "lead": null,
-    "sourceHash": "7765b2f568a5",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -37928,17 +37972,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:b7072219",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The Amsterdam of Maartje Mulder (30): 'A friend got the Lunchroom Wilhelmina logo tattooed on her ankle, as a tribute'",
-    "lead": null,
-    "sourceHash": "f7d8661f1181",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:b714d044",
     "language": "en",
     "sourceLanguage": "nl",
@@ -38445,17 +38478,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:b928b286",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Paul Seixas youngest ever winner of the Tour of Lombardy",
-    "lead": null,
-    "sourceHash": "f259b0227ee7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:b936f9d9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -38720,17 +38742,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:ba92aa6d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Zjnoen, barki and even achenebbisj cause headaches at Het Groot Amsterdams Dictee: 'A dictation without discussion is not a dictation'",
-    "lead": null,
-    "sourceHash": "56a037b77e6c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:ba99fd8b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -38973,6 +38984,17 @@
     "translated": "2026-10-14"
   },
   {
+    "id": "news:bc0e20cb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Over 120: Gian van Veen throws record average in Maastricht, Van Gerwen knocked out",
+    "lead": "Europe's best darts players have arrived in Maastricht this weekend for the Euro Tour. On Friday evening the first Dutch players will compete in front of their home crowd. Follow the live blog here for the results and the most important developments of the Dutch Darts Championship.",
+    "sourceHash": "7978917ed6a5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:bc0ebf73",
     "language": "en",
     "sourceLanguage": "nl",
@@ -39127,34 +39149,12 @@
     "translated": "2026-10-15"
   },
   {
-    "id": "news:bd2cf0ba",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "F-side celebrates fifty years with fireworks in Johan Cruijff Arena, warm welcome for Tadić",
-    "lead": null,
-    "sourceHash": "21ec86f2ba17",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:bd2e3e1",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "State Secretary Erkens: errand boy for the slaughter industry",
     "lead": "\"Animals are sedated before slaughter so that they do not experience pain\", the state secretary babbled, who does not even try to hide his side job as PR man for the Dutch slaughter industry.",
     "sourceHash": "cf23fd0a1daa",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:bd33cdbd",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Bayern Munich drop points in Bundesliga at Augsburg",
-    "lead": "Bayern Munich have dropped points for the second time this season in the German football league. The reigning champions had to settle for a 2-2 draw in the away match against FC Augsburg. Earlier, Bayern Munich drew 0-0 at Schalke 04.",
-    "sourceHash": "e33d34c33005",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -39188,17 +39188,6 @@
     "title": "Despite claimed ceasefire, attacks on Ukraine's energy grid continue",
     "lead": "Russia and Ukraine will immediately stop attacks on energy facilities. That is what American President Donald Trump writes on his social media platform Truth Social. Speaking to news site Axios, Ukrainian President Volodymyr Zelensky says Trump's post was 'news for him'.",
     "sourceHash": "a4142f88cf15",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:bda92f9b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Living in a ticking time bomb in Gaza: 'The whole house is tilting'",
-    "lead": "Hundreds of buildings in Gaza are about to collapse. The buildings are heavily damaged by Israeli bombardments. Yet people often still live there, even though the risk of being buried under the rubble is high.",
-    "sourceHash": "605448ed9096",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -39754,6 +39743,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:c0ecf615",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Gerri Eickhof: 'I was in between everything: I was not rich, not poor, not Black, not white'",
+    "lead": "For almost forty years Gerri Eickhof was the familiar face of the NOS Journaal. Now the newly retired man looks back on his turbulent youth, his eventful journalistic career and the healing effect of an iconic fur hat. You can also listen to this interview:",
+    "sourceHash": "201891ab202b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:c0ffe089",
     "language": "en",
     "sourceLanguage": "nl",
@@ -40282,6 +40282,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:c325e95e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Settler violence hits diplomats: French mayor injured",
+    "lead": "Israeli settlers today attacked a group of European diplomats in the occupied West Bank. A French mayor was injured in the attack.",
+    "sourceHash": "d9073334e6a2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:c34b2141",
     "language": "en",
     "sourceLanguage": "nl",
@@ -40321,17 +40332,6 @@
     "title": "Millions ready for tackling overcrowded truck parking areas",
     "lead": "The Ministry of <entity id=\"org:ministerie-van-infrastructuur-en-waterstaat\">Infrastructuur en Waterstaat</entity> has 43 million euros available to ensure 'more and better' parking spaces for trucks over the coming years. Plans are being drawn up for this with provinces and the transport sector, according to a spokesperson. The <entity id=\"org:provincie-overijssel\">provincie Overijssel</entity> this week called on the national government to ensure extra parking spaces along motorways.",
     "sourceHash": "3abf57a3d138",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:c38ee02e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Nine people, including two children, killed in shooting in northeastern US",
-    "lead": "Nine people, including two children, died on Friday evening in a shooting in the US state of Pennsylvania. Josh Shapiro, the governor of the state, announced this on Saturday.",
-    "sourceHash": "669b84ee9c43",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -40898,6 +40898,17 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:c60a181e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'There are still 2,500 pairs of Nike shoes at home': a look inside storage units full of affluence problems",
+    "lead": null,
+    "sourceHash": "5714eaadc119",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:c61b5ca4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41118,17 +41129,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:c7590e62",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Indian authorities arrest large numbers of young people to suppress 'cockroach' protest, but escalation looms",
-    "lead": null,
-    "sourceHash": "9bf439d99c9e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:c75d176c",
     "language": "nl",
     "sourceLanguage": "en",
@@ -41239,6 +41239,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:c8826932",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Look inside six surprising homes in the first senior citizens' flat in the Bijlmer",
+    "lead": null,
+    "sourceHash": "63f37edddc1b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:c896e32a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41272,17 +41283,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:c8c590f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dozens injured after attack on Riyadh airport, US considers intervening",
-    "lead": "Dozens of people were injured on Saturday after a serious attack on Riyadh's international airport. US President Donald Trump said in a response that the US may support Saudi Arabia with strikes on the Houthis.",
-    "sourceHash": "91689a98d3c2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:c8ccfe47",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41303,6 +41303,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:c8e6b3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Hello government. Stop running breathlessly from one poll to the next on the leash of Maurice de Hond",
+    "lead": null,
+    "sourceHash": "018e548a2c9d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:c8f16056",
@@ -41613,17 +41624,6 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:ca4ed28",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Meerdink angry about penalty not given: 'Referee saw the wrong footage'",
-    "lead": "AZ forward Mexx Meerdink does not understand that referee Danny Makkelie reversed a penalty on Saturday in the Eredivisie top match against Feyenoord (2-0). The Orange international says he was hit by Feyenoord goalkeeper Tjark Ernst and deserved a penalty.",
-    "sourceHash": "068e421068ce",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:ca8753a2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41710,6 +41710,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
+  },
+  {
+    "id": "news:cafeabf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Correspondent between tear gas and stun grenades: 'Paris has become a battlefield'",
+    "lead": "Correspondent Olaf Koens is in Paris, where a large protest has turned into riots.",
+    "sourceHash": "0cfcca4f31d4",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:cb078d03",
@@ -42592,6 +42603,17 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:cf16e55f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ten-man PSV choke against ADO Den Haag (2-1) after red card for Mijnans",
+    "lead": null,
+    "sourceHash": "e65eb2438d65",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:cf17b116",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42710,17 +42732,6 @@
     "sourceHash": "6b07cefb6721",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:cfd13440",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Blundering Neuer causes fastest goal ever in Bundesliga; Bayern secure a point partly thanks to Saibari",
-    "lead": "Bayern Munich conceded the fastest goal ever in the Bundesliga this afternoon. It was the start of a difficult afternoon for the record champions. Partly thanks to former PSV player Ismael Saibari, a point was still secured away at FC Augsburg: 2-2.",
-    "sourceHash": "4fc6e64f153e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
     "translated": "2026-10-13"
   },
   {
@@ -43395,17 +43406,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:d25e4ee3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Closing Time | The right to live in peace",
-    "lead": "Let us remember that everyone has the right to live in peace…. our song is the fire of pure love, the dove from the dovecote, the olive from the olive grove, the universal song. The chain that will bring about the triumph of the right to live in peace. 1969 That text comes from the […] Read more posts on Sargasso",
-    "sourceHash": "825699f98ab3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:d2683124",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43725,17 +43725,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:d3729668",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Robert Vuijsje wins Het Groot Amsterdams Dictee: 'It is not entirely fair'",
-    "lead": null,
-    "sourceHash": "957e473b1203",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:d38fdb84",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43956,6 +43945,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:d4f12595",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Why Chinese electric cars are so much cheaper: Europe faces a costly problem",
+    "lead": "Chinese carmakers can produce electric cars for thousands of euros less than European competitors. Additional import duties hardly help as long as the big difference in the factories remains.",
+    "sourceHash": "89ab69e85427",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:d4fb35fc",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44064,17 +44064,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
-  },
-  {
-    "id": "news:d5690f4d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Diesel deal shows Trump needs Putin to win midterms",
-    "lead": "The United States has struck a deal with Russia for the supply of millions of tons of diesel. US President Donald Trump concluded the agreement during a phone call in which his Russian counterpart indicated he no longer saw any point in peace talks with Ukraine.",
-    "sourceHash": "582fcefcb65b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:d57d4992",
@@ -44506,6 +44495,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:d76b7c48",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Pope is back at the Vatican after lung surgery",
+    "lead": null,
+    "sourceHash": "74a2c179069f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:d77eb7b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44514,17 +44514,6 @@
     "sourceHash": "fd1d8a5c7dae",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:d7923eb2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Feyenoord operates like a fiery family and takes top spot thanks to 2-0 win over AZ",
-    "lead": null,
-    "sourceHash": "eaca6de86805",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
     "translated": "2026-10-13"
   },
   {
@@ -44636,6 +44625,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:d811e983",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Anti-tyrants are throwing an American garden party on the Museumplein. 'If things go wrong, it could be the end of democracy in America'",
+    "lead": "The non-profit organisation Indivisible organised a demonstration in Amsterdam to protest against President Trump and to urge Americans in the Netherlands to vote above all. \"These are the most important midterm elections ever.\"",
+    "sourceHash": "8a2a3ee084aa",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:d811fc2c",
@@ -44869,6 +44869,17 @@
     "translated": "2026-10-17"
   },
   {
+    "id": "news:d975559e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Three designers on the ugliest object in their home: 'Now that I think about it, I'm not sure it's really a camel saddle'",
+    "lead": null,
+    "sourceHash": "cbccf11a6801",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:d97f0c15",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44900,6 +44911,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:d9b4a010",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Man (27) arrested on suspicion of involvement in explosion at Vlaardingen hair salon",
+    "lead": "A 27-year-old man from Vlaardingen was arrested on Friday by the <entity id=\"org:politie\">politie</entity>. He is suspected of being involved in an explosion at a Vlaardingen hair salon. The suspect is in custody and may only have contact with his lawyer.",
+    "sourceHash": "bd3468b6f85b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:d9b6cb92",
@@ -45056,6 +45078,17 @@
     "translated": "2026-10-14"
   },
   {
+    "id": "news:da47d3eb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Demonstrations in France and Belgium get out of hand, police use tear gas at protests in Paris",
+    "lead": "In various French and Belgian cities, protests have escalated into riots. In large cities such as Paris, Lyon, Marseille, Strasbourg and Brussels, tempers boiled over during demonstrations against rising cost of living. There were harsh confrontations with the police, arson and vandalism. Hundreds of arrests have been made. Tonight an emergency meeting will take place in Paris.",
+    "sourceHash": "4295a40af0d5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:da492f16",
     "language": "nl",
     "sourceLanguage": "en",
@@ -45175,17 +45208,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
-  },
-  {
-    "id": "news:db1d3d43",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Mayor of Ede shocked by scale of care fraud",
-    "lead": "Mayor <entity id=\"person:rene-verhulst\">René Verhulst</entity> of the <entity id=\"org:gemeente-ede\">gemeente Ede</entity> is shocked by the scale of care fraud in the eastern Netherlands. Phenomenon research by the RIEC Oost-Nederland into criminal money flows in care shows that in the period 2020-2024 no less than 71 million euros in suspicious transactions took place in the sector.",
-    "sourceHash": "a6561a51a409",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
   },
   {
     "id": "news:db2914fc",
@@ -45661,6 +45683,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:de2b7367",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'This one hurts': PSV down to ten men concede in final second at ADO Den Haag",
+    "lead": "PSV lost costly points in the Eredivisie match at ADO Den Haag. The champions went 1-0 up through Sven Mijnans, but that same striker picked up his second yellow card before half-time. The home side took advantage and grabbed the full prize in the last second of stoppage time: 2-1.",
+    "sourceHash": "36eeea065027",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:de4052be",
     "language": "en",
     "sourceLanguage": "nl",
@@ -45725,6 +45758,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:de97651",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Erdogan has the Turkish media in his grip",
+    "lead": "The population may not be informed by independent journalists",
+    "sourceHash": "755d3408bf8c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:dea18d28",
@@ -45903,6 +45947,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:dfe0cb0b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Liverpool narrowly beat Brentford, Frimpong injured",
+    "lead": "Liverpool secured a hard-fought win at Brentford. The team of coach Andoni Iraola won 2-1 in London thanks to two goals in the last half hour. The home side finished the match with nine men. Netherlands international Jeremie Frimpong picked up an injury during a brief substitute appearance.",
+    "sourceHash": "2587622211e3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:dfed881f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -46024,17 +46079,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:e0a68e24",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Engaging autumn without the recovering Pogacar shows: cycling has no vice president",
-    "lead": "Brandon McNulty and Remco Evenepoel took over championship jerseys from him, Enric Mas won his first grand tour and Paul Seixas his first monument. Tadej Pogacar's legacy has been widely shared since his crash in the Vuelta a España. Who is the biggest winner of his absence?",
-    "sourceHash": "a9e50740af52",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:e0a814f0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -46077,6 +46121,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:e0d670f3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dutch gymnasts in fifth place after first day of World Championships, Japan leads",
+    "lead": "Gymnasts Casimir Schmidt, Elijah Faverus, Amine Abaidi, Loran de Munck and Jermain Grünberg hold fifth place in the country ranking after four of the six start groups (subdivisions) at the World Championships in Rotterdam. Olympic team champion Japan leads with 254,529 points, followed by European champion Great Britain with 251,460.",
+    "sourceHash": "31a571f0c69f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:e0d6d7ea",
@@ -46277,6 +46332,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:e1be1190",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Several dead in attacks back and forth in Yemen",
+    "lead": null,
+    "sourceHash": "73b697a50b89",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:e1c7d211",
     "language": "en",
     "sourceLanguage": "nl",
@@ -46330,6 +46396,17 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
+  },
+  {
+    "id": "news:e21357f6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Verstappen impresses with comeback race in GT3, penalty for teammate costs him podium",
+    "lead": "Max Verstappen finished ninth on Saturday at the GT World Challenge in Portugal despite a fine comeback race. A penalty for teammate Chris Lulham set Team Verstappen back considerably, after which the Dutchman made up ground in the final phase.",
+    "sourceHash": "d98240f4a250",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:e21dbf3a",
@@ -46607,6 +46684,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:e36d8791",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Seizure of 'Antifa server' at American request raises questions and concerns",
+    "lead": "Amsterdam police this week seized a server that may be shared with American authorities. According to the OM, the server was allowed to be taken, but the secrecy surrounding the request from the US raises questions.",
+    "sourceHash": "168638fb4e0f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:e36e24e5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -46706,6 +46794,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:e3f25b98",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Fem van Empel surprises on comeback after 'break year' and hopes for the European Championships again: 'Wants to continue this form'",
+    "lead": "In early November 2025, world champion Fem van Empel literally stepped off the course at the Koppenberg. After a year of 'doing something different and getting healthy again', she returned to cyclocross on Saturday. 'Not bad, eh?' was her verdict after finishing fourth. The competition has been warned. Fem is on the way back.",
+    "sourceHash": "93820c969df8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:e3f44cfa",
     "language": "en",
     "sourceLanguage": "nl",
@@ -46748,17 +46847,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
-  },
-  {
-    "id": "news:e42c04e5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Moved alone to Germany at 16, now suddenly worth gold at Feyenoord: Nacho Ferri is no ordinary Spaniard",
-    "lead": "With his height, top speed and goals, Spanish striker Nacho Ferri (22) is suddenly storming through the Eredivisie. He surprisingly quickly found his place at Feyenoord. That should prove itself again tonight in the clash against AZ. \"After Ueda's departure, I'm there.\"",
-    "sourceHash": "b0618e9081b1",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:e42edc44",
@@ -47141,17 +47229,6 @@
     "title": "Provinces warn of standstill",
     "lead": "<entity id=\"org:kabinet\">Het kabinet</entity> must invest more in Dutch infrastructure and raise the allowance for members of Provinciale Staten. That call was made by chair <entity id=\"person:ina-adema\">Ina Adema</entity> of the <entity id=\"org:ipo\">Interprovinciaal Overleg</entity> (IPO) during the annual congress of the provinces in <entity id=\"org:gemeente-enschede\">Enschede</entity>.",
     "sourceHash": "6573c237ff33",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:e644cee0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Court sees no reason for investigation into Philips sleep apnoea affair",
-    "lead": null,
-    "sourceHash": "102bee7f496d",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -47960,6 +48037,28 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:e9f2c12f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "How can you wake up from a dream? (And can you have a heart attack from a nightmare?)",
+    "lead": null,
+    "sourceHash": "dac39c34232c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
+    "id": "news:e9f3630f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Fire, tear gas and a collapsed town hall tower: violent demonstrations in France",
+    "lead": "The spire of the town hall in the French city of Limoges has completely collapsed. Earlier, demonstrators reportedly set fire to the historic tower. It is restless in several places in France due to ongoing protests.",
+    "sourceHash": "1ad0b4dbe786",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:e9fae5ab",
     "language": "en",
     "sourceLanguage": "nl",
@@ -47969,17 +48068,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
-  },
-  {
-    "id": "news:ea09a7ba",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Spurs off the bottom: Solanke (ex-Vitesse) heads equalizer in extra time against Manchester United",
-    "lead": "The match between Manchester United and Tottenham Hotspur produced no winner on Saturday evening. Michael Carrick's side looked set to secure their second win of the season, but in extra time former Vitesse striker Dominic Solanke equalized for the visitors from London: 1-1.",
-    "sourceHash": "b86bf64806f8",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:ea17f2d2",
@@ -48035,17 +48123,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
-  },
-  {
-    "id": "news:ea8d5818",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Bauke Mollema in tears at farewell in Lombardy: 'Glad it's over'",
-    "lead": "Bauke Mollema said an emotional farewell to professional cycling on Saturday. The Groninger could not hold back his tears after his last race, the Tour of Lombardy, in which he struggled quite a bit.",
-    "sourceHash": "df3fc33f738d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:ea8e9ca",
@@ -48301,6 +48378,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:ec525235",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Family of the late Hajar (29): 'A loved one going missing is draining, the uncertainty has been hard'",
+    "lead": null,
+    "sourceHash": "51d8e0e7e058",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:ec5da07",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48343,17 +48431,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
-  },
-  {
-    "id": "news:ec7bb7fb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Pentagon: 21 Americans killed in operations against Iran",
-    "lead": null,
-    "sourceHash": "6b2d0f54a02e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:ec84b6fb",
@@ -48928,17 +49005,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:f00d339f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Indian authorities round up young people en masse to nip protests in the bud. How smart is that?",
-    "lead": null,
-    "sourceHash": "c16516bb7925",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:f01b2498",
     "language": "en",
     "sourceLanguage": "nl",
@@ -49203,6 +49269,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:f13fdd7e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dutch gymnasts will have to wait for now at World Championships",
+    "lead": "The Dutch gymnasts will have to wait a long time at the World Championships in Rotterdam before it is clear where their team total of 242,995 points will place them. After three of the six start groups (subdivisions), gymnasts Casimir Schmidt, Loran de Munck, Elijah Faverus, Amine Abaidi and Jermain Grünberg hold second place in the national ranking. The Russian team, competing as World Gymnastics 2, is for now in the lead with 249,162 points.",
+    "sourceHash": "3479e912888b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:f1565fca",
     "language": "en",
     "sourceLanguage": "nl",
@@ -49234,6 +49311,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:f17fd71d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Matchwinner Matej Sin celebrated at ADO Den Haag: 'That euphoric moment is fantastic'",
+    "lead": "Matej Sin became the matchwinner against PSV with his first goal for ADO Den Haag, with PSV having last lost in the capital in 1991. The AZ loanee was celebrated and cheered after the match. \"This exceeds my expectations.\"",
+    "sourceHash": "e0648f8673ef",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:f1a68327",
@@ -50512,6 +50600,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:f7f361a3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "A short history of Italians in the city: from medieval bankers to a Neapolitan who taught Amsterdam to eat mozzarella",
+    "lead": null,
+    "sourceHash": "3fc6eab5444f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:f7f9b7aa",
     "language": "en",
     "sourceLanguage": "nl",
@@ -50853,6 +50952,17 @@
     "translated": "2026-10-17"
   },
   {
+    "id": "news:fa4c984a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "PSV throws away lead with ten men at ADO and loses 2-1",
+    "lead": "PSV dropped points in the Eredivisie with a 2-1 defeat at ADO Den Haag. The team of coach Peter Bosz played more than half the match a man down. Sven Mijnans, scorer of the opening goal, was sent off with two yellow cards while Eindhoven were leading. Juho Kilo equalised. Matěj Šín scored the winning goal for ADO just before the final whistle.",
+    "sourceHash": "db4191a02dae",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:fa50896e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -50939,17 +51049,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
-  },
-  {
-    "id": "news:faaa8ccb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "British Prime Minister assures Zelensky of 'full solidarity'",
-    "lead": null,
-    "sourceHash": "1817c281e4d1",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:fab64123",
@@ -51458,6 +51557,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:fd360ec4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "71-year-old man dragged away and killed by 3.5 metre long alligator in Florida",
+    "lead": "A 71-year-old man was killed on Friday by an alligator more than 3.5 metres long in the American state of Florida. The man was fishing in an area known for its alligator population when the animal dragged him away.",
+    "sourceHash": "064635fe71ae",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:fd396ae8",
     "language": "nl",
     "sourceLanguage": "en",
@@ -51753,6 +51863,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
+  },
+  {
+    "id": "news:fefa8ac5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Limoges town hall set on fire during education protests, French police arrest 400 people",
+    "lead": null,
+    "sourceHash": "9cb6e797c3f1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:fefdb144",
