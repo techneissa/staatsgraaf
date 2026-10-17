@@ -181,6 +181,10 @@ export type PositionRow = {
   /** organisation branch, for the accent bar */
   b?: OrgBranch | null;
   se?: number | null;
+  /** name of one current holder, when the dataset has a current tenure */
+  h?: string | null;
+  /** extra current holders besides `h`, when more than one */
+  hc?: number | null;
 };
 
 export type IndexRowOf = {
@@ -208,5 +212,102 @@ export function organizationSearchText(organization: OrganizationRow): string {
 }
 
 export function positionSearchText(position: PositionRow): string {
-  return foldText([position.n, position.ge ?? "", position.o ?? ""].join(" "));
+  return foldText([position.n, position.ge ?? "", position.o ?? "", position.h ?? ""].join(" "));
+}
+
+/**
+ * Shared office stem of a title, so "Fractievoorzitter BBB" and
+ * "Burgemeester van Amsterdam" can sit under one heading. Unique titles
+ * return null. Longest prefix first.
+ */
+const POSITION_FAMILY_MATCHERS: { key: string; label: { nl: string; en: string }; match: RegExp }[] = [
+  { key: "cdvk", label: { nl: "Commissaris van de Koning", en: "King's commissioner" }, match: /^Commissaris van de Koning in\s+(.+)$/u },
+  { key: "staatssecretaris", label: { nl: "Staatssecretaris", en: "State secretary" }, match: /^Staatssecretaris van\s+(.+)$/u },
+  { key: "minister", label: { nl: "Minister", en: "Minister" }, match: /^Minister van\s+(.+)$/u },
+  { key: "minister", label: { nl: "Minister", en: "Minister" }, match: /^Minister voor\s+(.+)$/u },
+  { key: "burgemeester", label: { nl: "Burgemeester", en: "Mayor" }, match: /^Burgemeester van\s+(.+)$/u },
+  { key: "wethouder", label: { nl: "Wethouder", en: "Alderman" }, match: /^Wethouder(?: van)?\s+(.+)$/u },
+  { key: "dijkgraaf", label: { nl: "Dijkgraaf", en: "Dijkgraaf" }, match: /^Dijkgraaf van\s+(.+)$/u },
+  { key: "gezaghebber", label: { nl: "Gezaghebber", en: "Gezaghebber" }, match: /^Gezaghebber van\s+(.+)$/u },
+  { key: "fractievoorzitter", label: { nl: "Fractievoorzitter", en: "Parliamentary group leader" }, match: /^Fractievoorzitter\s+(.+)$/u },
+  { key: "ondervoorzitter", label: { nl: "Ondervoorzitter", en: "Deputy chair" }, match: /^(?:Eerste |Tweede )?Ondervoorzitter van\s+(.+)$/u },
+  { key: "voorzitter", label: { nl: "Voorzitter", en: "Chair" }, match: /^Voorzitter van\s+(.+)$/u },
+  { key: "griffier", label: { nl: "Griffier", en: "Clerk" }, match: /^Griffier van\s+(.+)$/u },
+  { key: "sg", label: { nl: "Secretaris-generaal", en: "Secretary-general" }, match: /^Secretaris-generaal(?: van)?\s+(.+)$/u },
+  { key: "dg", label: { nl: "Directeur-generaal", en: "Director-general" }, match: /^Directeur-generaal(?: van| voor)?\s+(.+)$/u },
+  { key: "lid", label: { nl: "Lid", en: "Member" }, match: /^Lid van\s+(.+)$/u },
+];
+
+export type PositionFamily = {
+  key: string;
+  label: { nl: string; en: string };
+  rest: string;
+};
+
+export function positionFamily(title: string): PositionFamily | null {
+  for (const family of POSITION_FAMILY_MATCHERS) {
+    const matched = title.match(family.match);
+    const rest = matched?.[1]?.trim();
+    if (rest) return { key: family.key, label: family.label, rest };
+  }
+  return null;
+}
+
+/** A family only becomes its own heading when this many of the current matches share it. */
+export const POSITION_FAMILY_MIN = 4;
+
+export type PositionSectionItem = { row: PositionRow; label: string };
+
+export type PositionSection = {
+  key: string;
+  type: OrgType;
+  family: PositionFamily | null;
+  items: PositionSectionItem[];
+};
+
+/**
+ * Positions in type order, with repeated office stems split out as their own
+ * sections. A stem with fewer than `minFamily` current matches stays in the
+ * type's leftover list, under the full title.
+ */
+export function positionSections(rows: PositionRow[], minFamily = POSITION_FAMILY_MIN): PositionSection[] {
+  const types: OrgType[] = [];
+  const byType = new Map<OrgType, PositionRow[]>();
+  for (const row of rows) {
+    const list = byType.get(row.t);
+    if (list) list.push(row);
+    else {
+      byType.set(row.t, [row]);
+      types.push(row.t);
+    }
+  }
+  const out: PositionSection[] = [];
+  for (const type of types) {
+    const families = new Map<string, { family: PositionFamily; items: PositionSectionItem[] }>();
+    const leftover: PositionSectionItem[] = [];
+    for (const row of byType.get(type) ?? []) {
+      const family = positionFamily(row.n);
+      if (family === null) {
+        leftover.push({ row, label: row.n });
+        continue;
+      }
+      const entry = { row, label: family.rest };
+      const bucket = families.get(family.key);
+      if (bucket) bucket.items.push(entry);
+      else families.set(family.key, { family, items: [entry] });
+    }
+    const promoted: { family: PositionFamily; items: PositionSectionItem[] }[] = [];
+    for (const bucket of families.values()) {
+      if (bucket.items.length >= minFamily) promoted.push(bucket);
+      else leftover.push(...bucket.items.map((item) => ({ row: item.row, label: item.row.n })));
+    }
+    promoted.sort((a, b) => a.family.label.nl.localeCompare(b.family.label.nl, "nl"));
+    leftover.sort((a, b) => a.row.n.localeCompare(b.row.n, "nl"));
+    for (const bucket of promoted) {
+      bucket.items.sort((a, b) => a.label.localeCompare(b.label, "nl") || a.row.n.localeCompare(b.row.n, "nl"));
+      out.push({ key: `${type}:${bucket.family.key}`, type, family: bucket.family, items: bucket.items });
+    }
+    if (leftover.length > 0) out.push({ key: type, type, family: null, items: leftover });
+  }
+  return out;
 }

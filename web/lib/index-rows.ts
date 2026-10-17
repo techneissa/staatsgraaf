@@ -6,7 +6,7 @@
  */
 
 import { getPeopleIndex } from "@/components/people/people-index";
-import { getDataset, getOrganizationById, getOrganizations, getPositions } from "./data";
+import { getDataset, getOrganizationById, getOrganizations, getPersonById, getPositions, getTenuresForPosition } from "./data";
 import { getMediaItem, mediaNeedsChangeNote, organizationImages, organizationParentId } from "./entity";
 import {
   organizationTree,
@@ -197,6 +197,8 @@ export function buildPositionRows(): PositionsIndexData {
   const sorted = [...positions].sort((a: Position, b: Position) => (rank.get(a.type) ?? 0) - (rank.get(b.type) ?? 0));
   const rows: PositionRow[] = sorted.map((position) => {
     const organization = getOrganizationById(position.organization);
+    const current = getTenuresForPosition(position.id).filter((tenure) => tenure.end === null);
+    const holder = current.length > 0 ? (getPersonById(current[0].person)?.name ?? null) : null;
     return {
       s: position.slug,
       n: position.title,
@@ -205,6 +207,8 @@ export function buildPositionRows(): PositionsIndexData {
       o: organization?.name ?? null,
       b: organization?.branch ?? null,
       se: position.seatsCount,
+      h: holder,
+      hc: current.length > 1 ? current.length - 1 : null,
     };
   });
   return { rows, groups: order.map((key) => ({ key, count: counts.get(key) ?? 0 })), total: rows.length };

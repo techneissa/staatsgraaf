@@ -34,9 +34,9 @@ export function ListStatus({
   const locale = useLocale();
   const empty = shown === 0;
   return (
-    <div role="status" className="mt-3 min-h-5 text-sm text-ink-muted">
+    <div role="status" className="mt-3 flex min-h-9 items-center text-sm text-ink-muted">
       {empty ? (
-        <div className="mt-5 flex flex-col items-start gap-2">
+        <div className="flex flex-col items-start gap-2 py-2">
           <p className="text-ink">{t(`idxNo${noun}`)}</p>
           <p className="text-ink-faint">{t("idxNoResultsHelp")}</p>
           <button

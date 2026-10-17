@@ -381,6 +381,8 @@ export const ENTITY_DICT = {
   idxSearchPositionsPlaceholder: { nl: "Titel of organisatie", en: "Title or organization" },
   idxFilterLabel: { nl: "Filter op groep of partij", en: "Filter by group or party" },
   idxTypeFilterLabel: { nl: "Filter op type", en: "Filter by type" },
+  idxTypeAll: { nl: "Alle", en: "All" },
+  idxMoreHolders: { nl: "{name} en {n} anderen", en: "{name} and {n} others" },
   idxAlphabet: { nl: "Alfabet", en: "Alphabet" },
   idxCountPeople: { nl: "{shown} van {total} personen", en: "{shown} of {total} people" },
   idxCountOrganizations: { nl: "{shown} van {total} organisaties", en: "{shown} of {total} organizations" },

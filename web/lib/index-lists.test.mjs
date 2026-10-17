@@ -10,7 +10,9 @@ import {
   organizationTree,
   OTHER_SUBGROUP,
   personSearchText,
+  positionFamily,
   positionSearchText,
+  positionSections,
   searchTerms,
 } from "./index-lists";
 import { buildOrganizationRows, buildPeopleRows, buildPositionRows } from "./index-rows";
@@ -30,6 +32,40 @@ describe("search text", () => {
   test("an organisation and a position match on their English gloss", () => {
     expect(organizationSearchText({ s: "a", n: "Tweede Kamer", ge: "House of Representatives", st: "tweede-kamer", t: "elected", b: "staten-generaal" })).toContain("representatives");
     expect(positionSearchText({ s: "a", n: "Minister van Financiën", ge: "Minister of Finance", t: "dept_head", o: "Ministerie van Financiën", b: "regering" })).toContain("finance");
+  });
+
+  test("a position also matches on a current holder", () => {
+    expect(positionSearchText({ s: "a", n: "Minister-president", t: "dept_head", h: "Ada Test" })).toContain("ada");
+  });
+});
+
+describe("position families", () => {
+  test("a shared stem keeps the distinctive rest", () => {
+    expect(positionFamily("Burgemeester van Amsterdam")).toEqual({
+      key: "burgemeester",
+      label: { nl: "Burgemeester", en: "Mayor" },
+      rest: "Amsterdam",
+    });
+    expect(positionFamily("Fractievoorzitter BBB")?.rest).toBe("BBB");
+    expect(positionFamily("Minister van Financiën")?.rest).toBe("Financiën");
+    expect(positionFamily("Koning der Nederlanden")).toBeNull();
+  });
+
+  test("stems of four matches become a section; smaller stems keep the full title", () => {
+    const burgemeesters = ["Aa en Hunze", "Aalsmeer", "Aalten", "Achtkarspelen"].map((place, index) => ({
+      s: `b-${index}`,
+      n: `Burgemeester van ${place}`,
+      t: "dept_head",
+    }));
+    const unique = { s: "king", n: "Koning der Nederlanden", t: "dept_head" };
+    const few = ["BBB", "CDA"].map((party, index) => ({ s: `f-${index}`, n: `Fractievoorzitter ${party}`, t: "elected" }));
+    const sections = positionSections([...burgemeesters, unique, ...few], 4);
+    const family = sections.find((section) => section.family?.key === "burgemeester");
+    expect(family?.items.map((item) => item.label)).toEqual(["Aa en Hunze", "Aalsmeer", "Aalten", "Achtkarspelen"]);
+    const leftoverHeads = sections.find((section) => section.key === "dept_head");
+    expect(leftoverHeads?.items.map((item) => item.label)).toEqual(["Koning der Nederlanden"]);
+    const leftoverElected = sections.find((section) => section.key === "elected");
+    expect(leftoverElected?.items.map((item) => item.label)).toEqual(["Fractievoorzitter BBB", "Fractievoorzitter CDA"]);
   });
 });
 
@@ -59,6 +95,8 @@ describe("list rows", () => {
     expect(positions.rows.length).toBe(getPositions().length);
     expect(new Set(positions.rows.map((row) => row.s)).size).toBe(positions.rows.length);
     expect(positions.groups.reduce((sum, group) => sum + group.count, 0)).toBe(positions.total);
+    expect(positions.rows.some((row) => typeof row.h === "string" && row.h.length > 0)).toBe(true);
+    expect(positions.rows.every((row) => row.hc == null || (row.h != null && row.hc > 0))).toBe(true);
   });
 
   test("rows come in display order: people by letter, groups in group order", () => {

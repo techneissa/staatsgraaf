@@ -1,45 +1,64 @@
 "use client";
 
 import Link from "next/link";
+import { BriefcaseBusiness, Landmark, Users } from "lucide";
+import type { IconNode } from "lucide";
 import { DateT } from "@/components/content/local-date";
-import { Gloss } from "@/components/i18n/t";
+import { useT } from "@/components/i18n/use-t";
 import { branchColorVar } from "@/lib/branch-colors";
 import type { PositionRow } from "@/lib/index-lists";
+import type { OrgType } from "@/lib/types";
+import { IconTile } from "./org-visual";
+
+const TYPE_ICON: Record<OrgType, IconNode> = {
+  elected: Landmark,
+  dept_head: BriefcaseBusiness,
+  commission: Users,
+  department: BriefcaseBusiness,
+  advisory: Users,
+  constituency: Landmark,
+};
+
+const LINK_CLASS =
+  "block font-medium leading-snug underline-offset-2 outline-none break-words after:absolute after:inset-0 after:rounded-[inherit] hover:text-accent-text hover:underline focus-visible:after:outline-2 focus-visible:after:outline-offset-[-2px] focus-visible:after:outline-focus";
 
 /**
- * One position on the positions index. The title link stretches over the
- * whole card and goes straight to the position (ADR 0017; index lists navigate, decision EN-15 of 05-10-2026); the
- * organisation is a line of text, because a second link inside a card that is
- * one link only invites mis-taps, and the position page links to it.
+ * One position on the positions index: type icon in the colour of its branch,
+ * the title (or the distinctive rest of a family heading), the body and a
+ * current holder on one secondary line, and a seat count when it is more
+ * than one. The title link covers the card (ADR 0017).
  */
-export function PositionCard({ row }: { row: PositionRow }) {
-  const accent = row.b != null ? branchColorVar(row.b) : null;
-  const seats = row.se ?? null;
+export function PositionCard({ row, label }: { row: PositionRow; label?: string }) {
+  const t = useT("entity");
+  const color = row.b != null ? branchColorVar(row.b) : branchColorVar("zelfstandig");
+  const title = label ?? row.n;
+  const seats = row.se != null && row.se > 1 ? row.se : null;
+  const more = row.hc != null && row.hc > 0 ? row.hc : null;
+  const holder = row.h ?? null;
+  const holderLine = holder !== null ? (more != null ? `${holder} +${more}` : holder) : null;
+  const meta = [row.o, holderLine].filter((part): part is string => typeof part === "string" && part !== "");
+  const tooltip = [row.n, row.o, holder !== null && more != null ? t("idxMoreHolders", { name: holder, n: more }) : holder]
+    .filter((part): part is string => typeof part === "string" && part !== "")
+    .join("\n");
   return (
-    <article className="relative flex h-full min-w-0 flex-col overflow-hidden rounded-md border border-line bg-surface p-3 pl-4 transition-fast hover:border-line-strong">
-      {accent !== null ? <span aria-hidden="true" className="absolute inset-y-0 left-0 w-1" style={{ backgroundColor: accent }} /> : null}
-      <h3 className="min-w-0 text-sm font-medium [overflow-wrap:anywhere]">
-        <Link
-          href={`/posities/${row.s}/`}
-          prefetch={false}
-          // The link covers the card, so the tooltip of the clipped organisation lives here.
-          title={row.o != null ? `${row.n}\n${row.o}` : undefined}
-          className="text-ink underline-offset-2 outline-none after:absolute after:inset-0 hover:text-accent-text hover:underline focus-visible:after:outline-2 focus-visible:after:outline-offset-[-2px] focus-visible:after:outline-focus pointer-coarse:flex pointer-coarse:min-h-11 pointer-coarse:min-w-11 pointer-coarse:items-center"
-        >
-          {row.n}
-        </Link>
-      </h3>
-      <Gloss text={row.ge} className="block text-xs text-ink-faint [overflow-wrap:anywhere]" />
-      {row.o != null ? (
-        <p lang="nl" title={row.o} className="mt-0.5 line-clamp-2 text-xs text-ink-muted [overflow-wrap:anywhere]">
-          {row.o}
-        </p>
-      ) : null}
-      {/* A single seat is the norm; the count only says something when there are more. */}
-      {seats !== null && seats > 1 ? (
-        <p className="mt-auto pt-1.5 text-xs tabular-nums text-ink-faint">
+    <article className="relative flex h-full min-h-12 min-w-0 items-center gap-3 overflow-hidden rounded-lg border border-line bg-surface px-2 py-1.5 transition-fast hover:border-line-strong">
+      <IconTile color={color} icon={TYPE_ICON[row.t] ?? BriefcaseBusiness} size="md" />
+      <div className="min-w-0 flex-1">
+        <h3 className="min-w-0 text-sm">
+          <Link href={`/posities/${row.s}/`} prefetch={false} title={tooltip} className={`${LINK_CLASS} line-clamp-2 text-ink`}>
+            {title}
+          </Link>
+        </h3>
+        {meta.length > 0 ? (
+          <p lang="nl" className="mt-0.5 truncate text-xs text-ink-muted">
+            {meta.join(" · ")}
+          </p>
+        ) : null}
+      </div>
+      {seats !== null ? (
+        <span className="shrink-0 rounded-pill bg-surface-raised px-2 py-0.5 text-xs tabular-nums text-ink-muted">
           <DateT area="entity" k="seatMany" counts={{ n: seats }} />
-        </p>
+        </span>
       ) : null}
     </article>
   );
