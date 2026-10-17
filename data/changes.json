@@ -8993,6 +8993,29 @@
     "id": "change:2023-02-01-appointment-dijkgraaf-hollands-noorderkwartier"
   },
   {
+    "date": "2023-02-01",
+    "kind": "appointment",
+    "summary": "Benoeming: Maarten van Aalst wordt Hoofddirecteur Koninklijk Nederlands Meteorologisch Instituut.",
+    "source": {
+      "source": "src:knmi-bestuur",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    },
+    "position": "pos:koninklijk-nederlands-meteorologisch-instituut-hoofddirecteur",
+    "organization": "org:koninklijk-nederlands-meteorologisch-instituut",
+    "out": {
+      "tenure": null,
+      "person": null,
+      "label": "Geen voorganger bekend"
+    },
+    "in": {
+      "tenure": "tenure:koninklijk-nederlands-meteorologisch-instituut-hoofddirecteur-maarten-van-aalst",
+      "person": "person:maarten-van-aalst",
+      "label": "Maarten van Aalst - Hoofddirecteur Koninklijk Nederlands Meteorologisch Instituut"
+    },
+    "id": "change:2023-02-01-appointment-koninklijk-nederlands-meteorologisch-instituut-hoofddirecteur"
+  },
+  {
     "date": "2023-02-08",
     "kind": "appointment",
     "summary": "Benoeming: Barbara de Reijke wordt Burgemeester van Blaricum.",
