@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { DETAILS_WIDTH, PANELS_INIT_SCRIPT, clampDetailsWidth, parseCanvasOpen, parseDetailsWidth, parseOpen, widthAfterKey } from "./panel-prefs.ts";
+import { DETAILS_WIDTH, PAGE_COL_MIN_PX, CANVAS_COL_MIN_PX, PANELS_INIT_SCRIPT, availableDetailsMax, clampDetailsWidth, parseCanvasOpen, parseDetailsWidth, parseOpen, widthAfterKey } from "./panel-prefs.ts";
 import { compactValue, normalizePanelRecord, panelShard } from "./panel-data.ts";
 
 describe("panel preferences", () => {
@@ -30,7 +30,13 @@ describe("panel preferences", () => {
     expect(widthAfterKey(320, "ArrowRight")).toBe(304);
     expect(widthAfterKey(320, "ArrowRight", true)).toBe(256);
     expect(widthAfterKey(320, "End")).toBe(DETAILS_WIDTH.max);
+    expect(widthAfterKey(320, "End", false, 800)).toBe(800);
     expect(widthAfterKey(320, "a")).toBeNull();
+  });
+  test("details can fill the leftover width after the page minimum", () => {
+    expect(availableDetailsMax(1440, false)).toBe(1440 - PAGE_COL_MIN_PX);
+    expect(availableDetailsMax(1440, true)).toBe(1440 - PAGE_COL_MIN_PX - CANVAS_COL_MIN_PX);
+    expect(availableDetailsMax(400, false)).toBe(DETAILS_WIDTH.min);
   });
   test("the head script is valid JavaScript", () => {
     expect(() => new Function(PANELS_INIT_SCRIPT)).not.toThrow();

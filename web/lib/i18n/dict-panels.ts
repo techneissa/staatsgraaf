@@ -11,6 +11,8 @@ export const PANELS_DICT = {
   canvasHide: { nl: "Grafiek verbergen", en: "Hide the graph" },
   detailsShow: { nl: "Detailpaneel tonen", en: "Show the details panel" },
   detailsHide: { nl: "Detailpaneel verbergen", en: "Hide the details panel" },
+  detailsWiden: { nl: "Verbreden", en: "Widen" },
+  detailsNarrow: { nl: "Versmallen", en: "Narrow" },
   detailsResize: { nl: "Breedte van het detailpaneel", en: "Width of the details panel" },
   detailsWidthValue: { nl: "{n} pixels breed", en: "{n} pixels wide" },
   detailsLabel: { nl: "Details", en: "Details" },
