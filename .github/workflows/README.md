@@ -2,7 +2,7 @@
 
 Four GitHub Actions workflows run the refresh, the push deploy, the CI gate, and the weekly link check. Host and deploy path are fixed in `docs/adr/0004-hosting-ci-and-analytics.md` (including its amendment of 05-10-2026): Cloudflare Pages, project `staatsgraaf`, production branch `main`, Wrangler deploy from GitHub Actions.
 
-The repository is public, so GitHub Actions minutes on standard runners are free. Every third-party action is pinned to a full commit SHA with its version in a comment; bump them by hand or with Dependabot.
+Jobs run on a self-hosted runner on the maintainer's Mac (`runs-on: [self-hosted, staatsgraaf]`). GitHub does not charge minutes for that. The repository stays private. Every third-party action is pinned to a full commit SHA with its version in a comment; bump them by hand or with Dependabot. The machine must be awake for the 3-hourly refresh and the weekly link check; a sleeping Mac skips the schedule until the next tick.
 
 ## Workflows
 
@@ -77,6 +77,19 @@ Set these in **Settings > Secrets and variables > Actions**.
 
 Never echo a secret. The workflows pass secrets only as step-level environment variables, and no step prints them. The Cloudflare credentials appear only in the Pages steps of the `deploy` job, which has read-only repository access.
 
+## Self-hosted runner
+
+The runner lives outside the repository, in `~/actions-runner`, with the label `staatsgraaf`. It is a LaunchAgent for the logged-in user.
+
+```sh
+cd ~/actions-runner
+./svc.sh status    # is it running?
+./svc.sh stop      # stop taking jobs
+./svc.sh start     # take jobs again
+```
+
+GitHub Settings > Actions > Runners shows it as Idle or Active. After a Mac reboot, log in once so launchd starts the agent. If a run sits on "Waiting for a runner", the machine is asleep or the service is down.
+
 ## Repository settings the workflows rely on
 
 - **Actions > General > Workflow permissions:** read and write for `GITHUB_TOKEN` (the refresh job asks for `contents: write`, the report jobs for `issues: write`; every workflow starts from `permissions: {}`).
@@ -112,6 +125,6 @@ From https://developers.cloudflare.com/pages/platform/limits/ (page dated 05-09-
 
 ## Named gaps
 
-1. **No confirmed green workflow run in the public repository.** The scripts the workflows call pass locally and `actionlint` passes; a green run in GitHub Actions is not yet confirmed.
+1. **The Mac must be awake.** Scheduled refresh and link-check jobs are skipped while the machine sleeps. They run at the next scheduled tick after it wakes.
 2. **Secrets and variables are not verifiable from a checkout.** The table above lists the names; the values live only in the repository settings.
 3. **The refresh is not a fixed point yet.** On 05-10-2026 two consecutive local runs of `refresh-official`, `merge`, `news`, and `changes` produced different tenures for two ministers (closed, then open again). Until that is fixed in `pipelines/`, a refresh can commit on every run.

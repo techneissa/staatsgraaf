@@ -9,7 +9,7 @@ name: refresh
 # this run does not do (docs/adr/0004-hosting-ci-and-analytics.md, amendment 05-10-2026).
 #
 # Third-party actions are pinned to full commit SHAs, with the version they resolve
-# to in a comment, because this repository is public.
+# to in a comment. Jobs run on the maintainer's self-hosted Mac (label staatsgraaf).
 on:
   schedule:
     # Every 3 hours, at 15 minutes past. GitHub documents that scheduled runs can be
@@ -30,7 +30,7 @@ jobs:
     name: refresh, validate, commit
     # Forks never run it, and it only publishes from the default branch.
     if: ${{ !github.event.repository.fork && github.ref == 'refs/heads/main' }}
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, staatsgraaf]
     timeout-minutes: 45
     permissions:
       contents: write # push the data commit; no secret other than the translation keys is in this job
@@ -167,7 +167,7 @@ jobs:
     name: build and deploy
     needs: refresh
     if: ${{ needs.refresh.outputs.changed == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, staatsgraaf]
     timeout-minutes: 30
     permissions:
       contents: read # no write access to the repository while the site is built
@@ -260,7 +260,7 @@ jobs:
     name: report failure
     needs: [refresh, deploy]
     if: ${{ failure() }}
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, staatsgraaf]
     timeout-minutes: 5
     permissions:
       issues: write

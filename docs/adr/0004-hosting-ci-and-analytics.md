@@ -42,3 +42,11 @@ Limits and facts verified on 05-10-2026:
 
 - Cloudflare Pages Free (developers.cloudflare.com/pages/platform/limits/, page dated 05-09-2026): 500 builds per month, 20,000 files per site, 25 MiB per file, 100 `_headers` rules. The 500-build figure is documented for builds Pages runs from a Git push; this project uploads prebuilt output with Wrangler, so it is not expected to count, and the worst case (8 deploys a day) is about 248 a month. The export has 9,621 files after pruning (measured 05-10-2026).
 - GitHub (docs.github.com, "Disable and enable workflows", read 05-10-2026): in a public repository, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days. The documentation does not define "activity", so it is not verified that a bot commit made with `GITHUB_TOKEN` counts. The refresh commits on most runs, which is the expected keep-alive; the operator notes say how to re-enable the schedule.
+
+## Amendment 17-10-2026: self-hosted runner, repository stays private
+
+The owner is not publishing the repository yet (ADR 0023 purge still outstanding). Hosted GitHub Actions minutes on the private repo were hitting the free-plan cap. From 17-10-2026 the four workflows run on a self-hosted runner on the maintainer's Mac, label `staatsgraaf`. GitHub does not charge minutes for self-hosted runners.
+
+Point 2 of the decision (private repository for now) stands. The 05-10-2026 amendment's "repository becomes public" line is not in effect until the purged-history migration runs.
+
+Limits: one runner, so jobs queue. The Mac must be awake for `news.yml` (every 3 hours) and `link-check.yml` (Mondays). A sleeping machine skips the schedule. Operator notes are in `.github/workflows/README.md`.
