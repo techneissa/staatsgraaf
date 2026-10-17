@@ -1661,6 +1661,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:18196692",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Telstar goalkeeper Koeman jr. furious after Feyenoord penalty: 'This is really unbelievable'",
+    "lead": "Telstar goalkeeper Ronald Koeman junior is furious with referee Jeroen Manschot. The son of former national coach Ronald Koeman finds it incomprehensible that Feyenoord were awarded a penalty on Saturday for an alleged handball.",
+    "sourceHash": "101725c208ca",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:1831e115",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2385,17 +2396,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
-  },
-  {
-    "id": "news:1c32dcfd",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Ajax drops costly points at the Arena for the fourth time and falls further behind Feyenoord and PSV",
-    "lead": "Ajax has dropped costly points in its own Johan Cruijff Arena for the fourth time in five home matches. The team of coach Míchel Sánchez drew 1-1 on Saturday evening, and as a result falls further behind Feyenoord and PSV.",
-    "sourceHash": "fcb2f0dc37da",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:1c839786",
@@ -6688,6 +6688,17 @@
     "translated": "2026-09-24"
   },
   {
+    "id": "news:31500962",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Baker Wilfried ends family business after 100 years: 'baking was simply a sport for us'",
+    "lead": "For the very last time this month, the ovens were switched on at Bakkerij van de Kletersteeg in Hooglanderveen. After exactly 100 years and 59 days, an end comes to a rich bakery history here. Baker Wilfried van de Kletersteeg (59), third generation in the business, feels that after a lifetime of baking, it's been good enough.",
+    "sourceHash": "66ffba8655f8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:315d36ac",
     "language": "en",
     "sourceLanguage": "nl",
@@ -7005,17 +7016,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
-  },
-  {
-    "id": "news:33041c55",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Eredivisie standings | Feyenoord new leaders, Ajax's gap grows: these are the differences",
-    "lead": "SC Cambuur and Excelsior kicked off the new Eredivisie season on Friday 7 August. This article contains the full schedule, followed by the standings and all statistics during the season.",
-    "sourceHash": "0ddfad7a309f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:331bb982",
@@ -10030,6 +10030,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:419679d7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "1.200 arrests and 150 police officers injured at large-scale protests in France",
+    "lead": null,
+    "sourceHash": "5101e5529427",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:41ab53dd",
@@ -13068,6 +13079,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:514c23be",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Anger at Telstar over disputed penalty against Feyenoord: 'I really have to hold myself back'",
+    "lead": "A handball that was barely visible on the footage: Telstar conceded a disputed penalty in the home match against Feyenoord (3-4). Captain Ronald Koeman Jr. did not understand the decision.",
+    "sourceHash": "81316920c11c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:515a80d6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13825,17 +13847,6 @@
     "engine": "claude-opus-5-5",
     "method": "claude-code-session",
     "translated": "2026-09-24"
-  },
-  {
-    "id": "news:54e05860",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Video | Hurricane Isaias rips part of the roof off a hotel in Florida",
-    "lead": null,
-    "sourceHash": "747a128e5a23",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:54e38d86",
@@ -14839,17 +14850,6 @@
     "translated": "2026-10-17"
   },
   {
-    "id": "news:59b617b8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Ajax also drops points in home match against NEC",
-    "lead": "Ajax has dropped points in a home match in the Eredivisie for the second time in a row. After Excelsior (2-2), NEC (1-1) also held out in the Johan Cruijff ArenA. Ajax remains fifth in the standings and, after eight matchdays, is 5 points behind league leader Feyenoord and 4 points behind PSV and AZ.",
-    "sourceHash": "9e372d534ca9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:59cb03ce",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15046,6 +15046,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:5aa26aae",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Paris motor show has become a battleground: China doubles, Europe fights back",
+    "lead": "The Paris motor show, which opened this week, turns out to be mainly a battleground. Compared with the previous edition, the number of Chinese brands has doubled. They are clamouring for attention, while European manufacturers hit back with concept cars that promise a bright future.",
+    "sourceHash": "519ec8a2d6b2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:5aa9984a",
@@ -16803,28 +16814,6 @@
     "title": "Until at least 23.00 no trains between Rotterdam and Delft after arson",
     "lead": "No trains will run between Rotterdam and Delft until at least 23.00. The reason is the arson last night at a railway bridge in Rotterdam-Delfshaven. ProRail does not rule out that sabotage is involved. According to the railway manager, it will take until at least Sunday evening before the damage is repaired. Trains may not run on the route again until Monday morning. The railway between Rotterdam and Delft is one of the busiest routes in the Netherlands. It is also used by trains covering long distances, for example between the Randstad and Zeeland or Limburg. For train travellers, this also means a lot of inconvenience tomorrow. Eight-hour check According to ProRail, it is certain that the fire was deliberately started last night. The fire started last night in the technical room. The door to it had been pried open and inside lay smouldering cables. Research shows that 35 cables were damaged. Fifteen of them have burned through completely and must be replaced and re-welded. After replacing all cables, various checks must be carried out to determine whether the trains can run safely again. These checks take about eight hours. Whether sabotage was actually committed on the railway again must still be investigated by the <entity id=\"org:politie\">politie</entity> and fire brigade. No one has been arrested yet.",
     "sourceHash": "4ef6ca02b845",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:5d24b7e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "12 dead and 300 injured in attack on Riyadh airport",
-    "lead": "The attacks on the international airport in the Saudi capital Riyadh have killed at least twelve people and injured 300. That is what the Saudi civil aviation authorities say. It is therefore the deadliest attack in a Gulf state since the start of the war between the US and Israel with Iran in February. The New York Times reports that the Houthi rebels have claimed responsibility for the attack through a senior official. According to him, the attack was retaliation for Saudi airstrikes on Yemen, including attacks on civilian infrastructure. King Khalid Airport is the second largest in Saudi Arabia, after the one in Jeddah. The damage to the terminal is now being mapped. There is virtually no photo or video footage available of the airport after the impacts. Air traffic has been halted. These verified images do exist: According to the Saudi authorities, four of the dead are from Saudi Arabia. Two others come from Bangladesh. The other victims come from the US, Egypt, Jordan, Syria, Sudan and the Palestinian Territories. The injured have been taken to various hospitals. Since the start of a large-scale offensive by the Yemeni government army last Monday, the Houthis have significantly stepped up their attacks on targets in Saudi Arabia. Saudi Arabia is an ally of Yemen; the Houthis, in turn, are supported by Iran. On Thursday the Houthi rebels already attacked Riyadh airport. Three Saudis died in that attack, including a pilot. Earlier this week the Houthis also bombarded airfields in the Saudi towns of Jizan, Najran and Abha. Secretary-General António Guterres of the United Nations says he is \"deeply shocked\" by the attack on the airport. \"Attacks on civilians and civilian infrastructure are a violation of international law. These attacks must stop immediately\", he says.",
-    "sourceHash": "ec1fc95b08c2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:5d24b9f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Visitor who enters tiger enclosure killed in attack in England",
-    "lead": "In a zoo near Doncaster in the north of England, a man has died after being attacked by a tiger. South Yorkshire police received a report at 13.35 hours about a man who had entered the park's tiger enclosure. The tiger then attacked the man, after which he died on the spot. Earlier it was reported that the man had been seriously injured in the attack. Later it turned out that medical staff could not help him. After the incident the park was evacuated. The police say they are aware of footage of the attack being shared online and ask people not to share the footage. Why and how the man ended up in the tiger enclosure is not yet clear. The local police are investigating. Yorkshire Wildlife Park opened in 2009 and the tiger enclosure \"Land of the Tigers\" followed two years later. Photos of the special enclosure of just over two hectares show a raised walkway for visitors and a fence above the area where the tigers can roam freely. Park closed this weekend A spokesperson for the park says the staff are \"deeply saddened\" by the death of the man. \"Our thoughts and sincere condolences go out to the family and loved ones of the person who has died.\" The police say the tiger was unharmed and there was no danger to the public. The park has been closed since the incident and remains closed today.",
-    "sourceHash": "8f81c5aaffea",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -19804,8 +19793,8 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "French government says it will not be intimidated by violence on protest day",
-    "lead": "French Prime Minister Lecornu says that his government \"will not be intimidated\" by the violence at today's demonstrations. \"No one will impose their political agenda through violence\", the prime minister writes on X. President Macron says there is no place for violence in France and that those who have misbehaved will be prosecuted and punished. According to Prime Minister Lecornu, peaceful demonstrations are permitted, but arson, looting and attacks do not belong to them. He expresses his support for the police, who in his view faced extreme violence. Hundreds of thousands of French people took to the streets today out of discontent with the poor state of education, rising costs and government policy in general: Most demonstrators protested peacefully, but in a number of cities, such as Paris, Marseille, Toulouse, Angers, Lyon and Bordeaux, it turned into violence. Tonight the mood in several cities is still tense, including in Paris, Toulouse and Bordeaux. At the start of the evening, the historic town hall in Limoges was set on fire. The fire spread through one wing and the building is largely considered lost. The fire also reached the roof, after which the town hall tower collapsed: According to Minister Nuñez of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity>, 550,000 people took part in 110 demonstrations across France. The organising action groups put the figure at 800,000 participants. 'Organised by the far left' Many demonstrators indicate that the rioters were deliberately out to cause damage and to confront the police. The rioters often targeted government buildings, such as town halls and police stations. In cities such as Strasbourg, Rouen, Nantes, Pau and Valence, shops were also looted, says Minister Nuñez. Lecornu and Nuñez accuse far-left groups of having organised the violence. \"And criminals took part in looting and vandalism\", Lecornu writes. According to the prime minister, this is related to the French presidential elections, which will be held next April. 'Vandals will pay' In his post on X he explicitly addressed \"those who want to use this violence as a 'warm-up' for the presidential elections\". He promises the French that the vandals will pay. \"Public money is scarce\", he writes. \"We must not endlessly repair the damage that vandals cause. They must bear the costs.\" Paris's mayor has also strongly condemned the violence in France. In an interview with France-Ouest, Mayor Emmanuel Grégoire says the protest has now gone beyond its purpose. \"The vast majority of demonstrators want to demonstrate peacefully. These destructive acts distract attention\", according to Grégoire. \"Vandalism is no solution.\" Dozens injured According to Minister Nuñez, 400 people have been arrested across France. Sixty police officers were injured, he reports, two of whom were taken to hospital unconscious. \"This shows the violence of the attackers\", the minister said. It is not clear how many demonstrators were injured. The French news agency AFP reports that in the southern French city of Saint-Étienne a demonstrator lost a hand due to a police grenade. Earlier this month, a 15-year-old schoolboy suffered the same fate, which led to major criticism of the heavy-handed response of the police at the education demonstrations. The French police then stopped using flash-ball grenades. Nevertheless, Minister Nuñez of the Interior said yesterday on French radio that he did not rule out their use: \"Officers must be able to use all the weapons at their disposal\", he said.",
-    "sourceHash": "a8598a3f8d3f",
+    "lead": "French Prime Minister Lecornu says his government \"will not be intimidated\" by the violence at today's demonstrations. \"No one will impose their political agenda through violence\", the prime minister wrote on X. President Macron says there is no place for violence in France and that those who have misbehaved will be prosecuted and punished. According to Prime Minister Lecornu, peaceful demonstrations are allowed, but arson, looting and attacks do not belong to them. He expresses his support for the police, who he says faced extreme violence. Hundreds of thousands of French people took to the streets today out of dissatisfaction with the poor state of education, rising costs and government policy in general: The majority of demonstrators protested peacefully, but in a number of cities, such as Paris, Marseille, Toulouse, Angers, Lyon and Bordeaux, it turned into violence. The atmosphere in several cities is still tense this evening, including in Paris, Toulouse and Bordeaux. At the start of the evening, the historic town hall in Limoges was set on fire. The fire spread through one wing and the building is largely considered lost. The fire also reached the roof, after which the town hall tower collapsed: According to Minister Nuñez of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity>, 550,000 people were out at 110 demonstrations across France. The participating action groups put the figure at 800,000 participants. 'Organised by the far left' Many demonstrators indicate that the rioters were deliberately out to cause damage and to confront the police. The rioters often targeted government buildings, such as town halls and police stations. In cities such as Strasbourg, Rouen, Nantes, Pau and Valence, shops were also looted, says Minister Nuñez. Lecornu and Nuñez accuse far-left groups of having organised the violence. \"And criminals took part in looting and vandalism\", Lecornu writes. According to the prime minister, this is related to the French presidential elections, which will be held next April. 'Vandals will pay' In his post on X, he directly addressed \"those who want to use this violence as a 'warm-up' for the presidential elections\". He promises the French that the vandals will pay. \"Public money is scarce\", he writes. \"We must not endlessly repair the damage vandals cause. They must bear the costs.\" Dozens injured The mayor of Paris has also strongly condemned the violence in France. In an interview with France-Ouest, Mayor Emmanuel Grégoire says the protest has now gone beyond its purpose. \"The vast majority of demonstrators want to demonstrate peacefully. These destructive acts distract attention\", Grégoire said. \"Vandalism is not a solution.\" Dozens injured According to Minister Nuñez, 1,200 people have been arrested across France. He reports that 150 police officers were injured, two of whom were taken to hospital unconscious. \"This shows the violence of the attackers\", the minister said. It is not clear how many demonstrators were injured. The French news agency AFP reports that in the southern French city of Saint-Étienne, a demonstrator lost a hand due to a police grenade. Earlier this month, a 15-year-old schoolboy suffered the same fate, which led to major criticism of the police's heavy-handed response at the education demonstrations. The French police then stopped using flash-ball grenades. Even so, Minister Nuñez of Binnenlandse Zaken said yesterday on French radio that he did not rule out their use: \"Officers must be able to use all the weapons at their disposal\", he said.",
+    "sourceHash": "f3a1f84f8752",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -19817,6 +19806,28 @@
     "title": "US wants to extend 'war on drugs' to mainland Latin America",
     "lead": "The United States is increasingly getting involved in the anti-drug war in a number of Latin American countries. It began in 2025 with attacks on suspected drug boats at sea. Now the fight against drugs is moving to the mainland of Latin America. Hundreds of soldiers are being sent these days, initially to Panama, Colombia and Honduras. The Americans are holding joint exercises with soldiers from these countries. US special units will also provide support and advice to army units in Latin America that carry out operations against drug traffickers. The cooperation stems from the establishment of the so-called Shields of the Americas . This is a regional body that was set up earlier this year by US President Trump and which nineteen Latin American countries have since joined. The aim is to jointly fight drugs and work more closely together on security issues in the region. Trump is urging leaders across the region to take harder military action against people smuggling groups and to allow joint operations with the United States. Shift to the right Trump made clear at the latest UN General Assembly that it is about more than just security. It is also about economic cooperation and \"securing raw materials in the region\", as he put it. Many countries in this region have shifted to the right in recent elections and are now ideologically close to Trump. He has repeatedly indicated that he would prefer to have Latin America within his sphere of influence. China's economic power, which grew sharply in Latin America in recent years, is a thorn in Trump's side and he wants to curb it. With the arrival of American soldiers in Colombia, the radical right-wing president De la Espriella, who took office in August, wants to fulfil his election promise: a tough approach to drug cartels in order to create a safer country. Combat drones Colombia is the world's largest cocaine producer and is plagued by drug cartels. Between 2000 and 2015 there was already close cooperation between the US and Colombia and a military aid plan, the so-called Plan Colombia. The US now wants to deploy, in addition to 600 soldiers, very advanced equipment. For example, special combat drones are being moved from Africa to Latin America to carry out precision strikes on cartel leaders, among others. Population divided The population of the Latin American countries is divided over the arrival of American soldiers. There had already been training of American soldiers in Ecuador. There are also plans to reopen an American base in the country that was closed earlier. This met with fierce resistance from the population and the opposition. In a referendum on the possible reopening of the American base, a majority of Ecuadorians voted against the plans. The presence of American soldiers in Latin America is also sensitive because of the past of many countries in this region. Between the 1960s and 1980s, military dictatorships were in power in many Latin American countries. Bloody regimes in countries such as Argentina, Brazil and Chile were helped into the saddle by the US, which wanted to prevent left-wing governments from being elected here. Alleged drug boats Human rights organisations have been warning for some time about the attacks on alleged drug boats at sea. Since last year these have already cost the lives of more than 200 people. The US provides no evidence that these are actually boats of drug smugglers. Moreover, according to legal experts, these attacks violate international law. The expansion by the US from attacks at sea to attacks on land is therefore being closely watched by human rights organisations. They fear that the growing military presence of the US in Latin America endangers the citizens of these countries. In addition, it is questionable whether killing cartel members really helps against the drug trade, because members are quickly replaced.",
     "sourceHash": "a081eae4adc3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
+    "id": "news:5d2d39e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Israeli settlers attack European diplomats in the West Bank",
+    "lead": "Israeli settlers have attacked Palestinians and European diplomats in the West Bank, which Israel occupies. European countries report this. The attacks follow violence from a day earlier, when Palestinians were attacked during their annual olive harvest. Among others, a Belgian representative in the Palestinian Territories has been attacked, says Belgian Foreign Minister Prévot. According to him, diplomats from Poland and France were also attacked in the Christian village of Taybeh, as were representatives of the Catholic Church. \"As the occupying power, the Israeli authorities must protect Palestinians, ensure the safety of diplomats and journalists, and bring those responsible to justice. Impunity for violent settlers must end\", Prévot writes on X. Knocked to the ground Among the besieged diplomats is also a French mayor. \"I was thrown to the ground\", says Bernard Baudoux. He said he had travelled to the area to show his solidarity with the Palestinians. The Polish Ministry of Foreign Affairs confirms the attack on its diplomats. According to the ministry they are unharmed, but a spokesperson calls the violence against the European delegation \"absolutely unacceptable\". 'Israeli troublemakers' Israeli Foreign Minister Saar also condemns the settlers' attacks. He refers to the group as \"Israeli troublemakers\". According to him, it would have been better if the diplomats had coordinated their visit with the Israeli army. The Israeli police say they are investigating the incident. The senior Palestinian official Hussein al-Sheikh calls the attacks an example of the daily terrorism Palestinians face. Violence during olive harvest On Friday, dozens of Israeli settlers already attacked Palestinians in an olive grove in the West Bank. The masked, black-clad settlers also set olive trees on fire. The annual olive harvest is an important event for Palestinian villagers. The Israeli army intervened, but the soldiers did not stand by the Palestinians, instead they sided with the settlers. The soldiers used tear gas against the villagers and, according to British and Palestinian news agencies, live ammunition was also fired. During this harvest season, which began this month, at least four people have been killed in the occupied West Bank and more than a hundred people were injured, the Palestinian Ministry of Health says. The attack of yesterday was captured on video:",
+    "sourceHash": "06adbac1dfcb",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
+    "id": "news:5d2d3bf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Limoges town hall set on fire during French protests, tower collapses",
+    "lead": "At the large-scale protests in France, the tower of the town hall in Limoges has collapsed. The building was set on fire earlier in the day by rioters. As in many other French cities, many people were out and it was restless in Limoges. According to French media, several masked people managed to enter the town hall by smashing a window. The building, dating from 1883, was then reduced to ashes. The fire burned until late in the evening. Besides the tower, the roof of the town hall was also destroyed. According to the regional administrator, the building is \"largely lost\". Mayor Guérin of Limoges addressed the perpetrators in a statement. \"You will be arrested. You came here to kill. Everything is on camera.\" Earlier, police cars were also set on fire in the city and shops were looted. Monument The town hall of Limoges is on the French monuments list and has great historical value for the Limousin region. During the Second World War, for example, it served as a refuge for Belgian parliamentarians in exile after Belgium had surrendered to the Nazis. Most French demonstrators protested peacefully, but in a number of cities, such as Paris, Marseille, Toulouse, Angers, Lyon and Bordeaux, it turned into violence . French Prime Minister Lecornu says his government \"will not be intimidated \" by the violence at today's demonstrations. According to Minister Nuñez of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity>, 550.000 people were out at 110 demonstrations across France. The groups involved put the figure at 800.000 participants. More than 1200 people have been arrested. 150 officers were injured.",
+    "sourceHash": "e63f9687079e",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -21118,17 +21129,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
-  },
-  {
-    "id": "news:63338317",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Noa Lang scores his first goal in over half a year, leaders Inter already finished with Parma after one half",
-    "lead": "A nice moment for Noa Lang. The Napoli forward scored his first goal since 17 February on Saturday against Frosinone, when he scored twice for Galatasaray against Juventus in the Champions League. The Oranje-international scored once before for Napoli, on 22 November 2025 against Atalanta.",
-    "sourceHash": "ad63f7ee7715",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:63562d74",
@@ -23485,6 +23485,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:6ff86d7f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "LIVE Middle East | US ambassador calls on Israel to prosecute settlers for violence, European diplomats also attacked",
+    "lead": "The US ambassador in Israel has called on the country to prosecute the settlers responsible for the violent attack on a journalist from The Washington Post. A group of Western diplomats was also attacked. Follow all developments in the Middle East in our liveblog.",
+    "sourceHash": "a7a1e95fe7ce",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:6ff99824",
     "language": "en",
     "sourceLanguage": "nl",
@@ -25177,6 +25188,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:787641e2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sour taste: visitors unwell on Grolsch tour after sip of spring water",
+    "lead": "Several people became unwell this afternoon during a tour of the Grolsch brewery in Enschede. It happened after they were allowed to taste the spring water used to brew the beer.",
+    "sourceHash": "bcdf7d33e43f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:7877c694",
@@ -27786,6 +27808,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:862794cd",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "PSV's ten men choke against ADO Den Haag after Mijnans red card, lose 2-1",
+    "lead": null,
+    "sourceHash": "e4beba358adf",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:862d891c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28114,6 +28147,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:8854adfb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "1.200 arrests and 150 police officers injured after education protests in France",
+    "lead": null,
+    "sourceHash": "d120f75a82bf",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:8857c19",
@@ -28818,6 +28862,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:8bca642b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Replay | Sparta secures long-awaited win against bottom side Willem II",
+    "lead": "Good day and welcome to this live blog! Here I, Hein Nooijens, will keep you informed about the Eredivisie, with highlights from the matches of Feyenoord and PSV. Enjoy!",
+    "sourceHash": "4b0561d691a6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:8bec24d7",
@@ -29733,6 +29788,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:8fb7a04d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Over a thousand arrests after French riots, Macron wants to 'form a bloc against chaos",
+    "lead": "1,200 people were arrested at the demonstrations in France and 150 police officers and other law enforcement officers were injured, French Prime Minister Sébastien Lecornu reported on Saturday evening. Two officers were taken to hospital unconscious.",
+    "sourceHash": "94b94070c9b6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:8fc43389",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29995,17 +30061,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
-  },
-  {
-    "id": "news:90e00d23",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Northern lights over the Netherlands: beautiful photos, but not visible to the naked eye",
-    "lead": "Last night the northern lights could be seen in the sky over the Netherlands - at least for people using a camera with a long exposure time in particular. With the naked eye it was difficult to observe. It did produce many beautiful pictures, in any case. A small selection is shown below.",
-    "sourceHash": "849ad338ac2d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:90f28c39",
@@ -30954,17 +31009,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:9542d171",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Vinícius gets a red card after pulling hair, furious José Mourinho skips press conference",
-    "lead": "Real Madrid secured a narrow 1-0 win over Villarreal on Saturday evening, but afterwards there was hardly any talk about the winning goal scored by Yan Diomandé. Star player Vinícius Junior went too far by pulling an opponent's hair and was shown a red card for it.",
-    "sourceHash": "5e2deb311567",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:95470ff4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31161,6 +31205,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:9638df0a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Eleven people taken to hospital after tasting brewing water at Grolsch brewery",
+    "lead": "During a guided tour of the Grolsch brewery in Enschede on Saturday, eleven people became unwell after tasting brewing water, a spokesperson confirms to NU.nl after reporting by Tubantia . The group was taken to hospital with complaints such as nausea and vomiting.",
+    "sourceHash": "19e385712a0c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:963db895",
@@ -34496,6 +34551,17 @@
     "translated": "2026-10-14"
   },
   {
+    "id": "news:a6522056",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Alligator of nearly four meters kills 71-year-old fisherman in Florida",
+    "lead": "A 71-year-old man in the US state of Florida has died after an attack by an alligator. The man was fishing in the town of Winter Garden when the animal attacked him and dragged him into the water.",
+    "sourceHash": "cde0ded2e0d9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
     "id": "news:a66d0892",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36179,17 +36245,6 @@
     "translated": "2026-10-15"
   },
   {
-    "id": "news:add66d48",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "At least 12 dead and 309 injured in Houthi attack on Saudi Arabian airport",
-    "lead": "Yemeni Houthi rebels carried out an air attack on the international airport of Riyadh in Saudi Arabia. At least twelve people were killed, local authorities report. According to The New York Times, that makes it the deadliest attack in a Gulf state since the start of the American-Israeli war with Iran. 309 people are reported to have been injured, several of whom are in critical condition.",
-    "sourceHash": "832ca6c9d87b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:ae00a294",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36644,9 +36699,9 @@
     "id": "news:af37914f",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Burning city hall tower in Limoges collapses",
+    "title": "1.200 arrests and 150 police officers injured in riots in France",
     "lead": null,
-    "sourceHash": "f04c273b0b2f",
+    "sourceHash": "a4270122636c",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -37222,17 +37277,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
-  },
-  {
-    "id": "news:b2ad885e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Ajax gets away lightly against NEC (1-1), also in the refereeing",
-    "lead": null,
-    "sourceHash": "629996897c27",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:b2ae4465",
@@ -38432,6 +38476,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:b8fb310d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Daughter of Emile Ratelband offers 2500 euro for tip leading to missing father",
+    "lead": "The eldest daughter of Emile Ratelband has shared an appeal on LinkedIn for the golden tip in the search for her father. 'I miss my father! I haven't seen him in 1 year and 9 months,' writes Minou Ratelband. She is offering a reward of 2500 euro for the tip that leads to finding her father.",
+    "sourceHash": "40b43e8bb552",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:b90054d9",
@@ -41250,17 +41305,6 @@
     "translated": "2026-10-17"
   },
   {
-    "id": "news:c896e32a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Ajax drops points again in the Eredivisie after a disappointing draw against NEC",
-    "lead": "Ajax did not get beyond a 1-1 draw against NEC on Saturday evening. With this third draw of the season at the Johan Cruijff ArenA, the gap to new leaders Feyenoord has grown to five points.",
-    "sourceHash": "cfa3038ba320",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:c8a9afff",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41883,6 +41927,17 @@
     "title": "Interim review after 250 days of Jordi Cruijff at Ajax: flopped million-euro signings, but also top performers such as Brandt and Tolu",
     "lead": "Jordi Cruijff (52) is at the helm this week for 250 days. The outlines and consequences of his way of working are becoming clearer. What stands out so far? With the tough away game against FC Groningen on the horizon, we draw an interim review of eight conclusions.",
     "sourceHash": "44e567b3d518",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
+  },
+  {
+    "id": "news:cb9e8eb9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sparta finally knows the feeling of winning at Het Kasteel again on party evening",
+    "lead": "On the party evening marking the 110th anniversary of Het Kasteel, Sparta finally managed to win at home again. Bottom-placed Willem II was sent packing 3-2 after an entertaining football evening.",
+    "sourceHash": "b89ccb2e719e",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -44850,9 +44905,9 @@
     "id": "news:d95490aa",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "European diplomats attacked by Israeli settlers in the West Bank",
+    "title": "US ambassador calls on Israel to prosecute settlers for violence, European diplomats also attacked",
     "lead": null,
-    "sourceHash": "f44e140f953e",
+    "sourceHash": "a73d870f9139",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -46365,17 +46420,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:e1deaabf",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "From an anonymous bit part in Lisbon to natural leader of Feyenoord: \"We are working hard to keep him this fit\"",
-    "lead": "Things have changed a lot at Feyenoord, and the league leaders seem stronger than ever. Jeremiah St. Juste plays a major role in this. The defender who was pushed into a leadership role last season is now emerging as a natural leader of a Feyenoord side that has now gone three matches without conceding a goal.",
-    "sourceHash": "66f85a50d684",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:e20c8776",
     "language": "nl",
     "sourceLanguage": "en",
@@ -47399,17 +47443,6 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:e6e3452b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "New setback for Michael van Gerwen: knocked out straight away in Basel after defeat to world number 56",
-    "lead": "Michael van Gerwen was knocked out of a tournament straight away, just as at the World Grand Prix at the end of September. The three-time world champion, who has slipped to ninth place in the world rankings, lost to Austrian Mensur Suljovic at the Swiss Darts Trophy.",
-    "sourceHash": "b19c255a10c0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:e6f13eb2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48051,9 +48084,9 @@
     "id": "news:e9f3630f",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Fire, tear gas and a collapsed town hall tower: violent demonstrations in France",
-    "lead": "The spire of the town hall in the French city of Limoges has completely collapsed. Earlier, demonstrators reportedly set fire to the historic tower. It is restless in several places in France due to ongoing protests.",
-    "sourceHash": "1ad0b4dbe786",
+    "title": "1.200 arrests and 150 injured police officers at protests in France",
+    "lead": "At the large-scale protests in France, 1.200 people have been arrested. 150 police officers were also injured. That is what French Prime Minister Sébastien Lecornu reports. In several places things got out of hand: in Limoges the spire of the town hall collapsed after it was set on fire.",
+    "sourceHash": "eefcf6532400",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -49995,17 +50028,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:f4c4b7b1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "FC Barcelona has no problems with Getafe and remains unbeaten, Real Madrid also wins despite a red card",
-    "lead": "FC Barcelona remains unbeaten in La Liga. The team coached by Hansi Flick had little trouble with Getafe on Saturday evening: 3-0. Frenkie de Jong, who has been back on the training pitch since this week after his long knee injury, was not in the match squad.",
-    "sourceHash": "38e47d8c7325",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:f4c5a833",
     "language": "en",
     "sourceLanguage": "nl",
@@ -50433,6 +50455,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:f74b30b7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "1,200 arrests and 150 police officers injured, also riots in Italian cities",
+    "lead": "In several French, Italian and Belgian cities, protests have escalated into riots. Between 550,000 and 800,000 demonstrators were present at the actions in France, 1,200 people were arrested and 150 police officers were injured. The situation is still unrest in various places. Follow all developments below in our live blog.",
+    "sourceHash": "4d4f29f1b339",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-17"
   },
   {
     "id": "news:f74bd411",
