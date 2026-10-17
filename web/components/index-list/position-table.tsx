@@ -92,16 +92,16 @@ function PositionTableRow({ row }: { row: PositionRow }) {
   const tooltip = [row.n, row.o, row.h != null && row.hc != null && row.hc > 0 ? t("idxMoreHolders", { name: row.h, n: row.hc }) : row.h]
     .filter((part): part is string => typeof part === "string" && part !== "")
     .join("\n");
-  const cell = "min-w-0 truncate text-xs leading-snug text-ink-muted";
+  const cell = "min-w-0 break-words text-[11px] leading-snug text-ink-muted";
   return (
-    <li className={`relative grid min-h-11 min-w-0 items-center gap-x-2 border-b border-line/80 py-1.5 hover:bg-surface @min-[40rem]:gap-x-3 ${COLS}`}>
-      <div className="flex min-w-0 items-center gap-1.5 overflow-hidden">
-        <IconTile color={color} icon={TYPE_ICON[row.t] ?? BriefcaseBusiness} size="xs" />
+    <li className={`relative grid min-h-11 min-w-0 items-start gap-x-2 border-b border-line/80 py-1.5 hover:bg-surface @min-[40rem]:gap-x-3 ${COLS}`}>
+      <div className="flex min-w-0 items-start gap-1.5">
+        <IconTile color={color} icon={TYPE_ICON[row.t] ?? BriefcaseBusiness} size="xs" className="mt-px" />
         <Link
           href={`/posities/${row.s}/`}
           prefetch={false}
           title={tooltip}
-          className="min-w-0 flex-1 truncate text-[13px] font-medium leading-snug text-ink underline-offset-2 outline-none after:absolute after:inset-0 hover:text-accent-text hover:underline focus-visible:after:outline-2 focus-visible:after:outline-offset-[-2px] focus-visible:after:outline-focus"
+          className="min-w-0 flex-1 break-words text-[11px] font-medium leading-snug text-ink underline-offset-2 outline-none after:absolute after:inset-0 hover:text-accent-text hover:underline focus-visible:after:outline-2 focus-visible:after:outline-offset-[-2px] focus-visible:after:outline-focus"
         >
           {row.n}
         </Link>
@@ -118,8 +118,8 @@ function PositionTableRow({ row }: { row: PositionRow }) {
 
 /**
  * Windowed table of positions. Three columns at every width: title, body,
- * holder. Each row is one link to the position (ADR 0017). Long values
- * truncate; the tooltip has the full line.
+ * holder. Each row is one link to the position (ADR 0017). Long values wrap;
+ * the type is small so more of the name stays on screen.
  */
 export function PositionTable({ rows, signature }: { rows: PositionRow[]; signature: string }) {
   const t = useT("entity");

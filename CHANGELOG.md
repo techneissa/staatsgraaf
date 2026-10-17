@@ -6,7 +6,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (17-10-2026, positions table)
 
-- The positions list is one sortable table: Positie, Orgaan, Houder. Each heading sorts the list, each row is a link to the position, and the three columns stay side by side on a phone. Long values truncate; the tooltip has the full line.
+- The positions list is one sortable table: Positie, Orgaan, Houder. Each heading sorts the list, each row is a link to the position, and the three columns stay side by side on a phone. Names wrap onto extra lines in a smaller type, with no ellipsis.
 
 ### Changed (17-10-2026, positions index)
 
