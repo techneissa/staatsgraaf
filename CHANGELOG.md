@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (17-10-2026, no contributions, maintainer docs)
+
+- The project does not accept pull requests or other contributions. `CONTRIBUTING.md` says so. Maintainer plans and the operations runbook stay on disk and out of the published tree (ADR 0023 amendment 17-10-2026). A wrong fact can still be reported as an issue.
+
 ### Changed (17-10-2026, peek leadership)
 
 - Peek popovers list every current leading official of a body, not the first two plus "and N more". Ordinary members stay out of that list. Current holders of a position, a person's roles, memberships and a topic's responsible bodies are listed in full too.

@@ -38,7 +38,7 @@ Runs on every pull request and on pushes to `main`. Steps:
 
 1. checkout, setup Bun and Node 24 (Node only for Next.js and tsc)
 2. `bun run validate`
-3. `python3 scripts/format-dates.py --check` over every markdown file outside `research/raw/` and `ATTRIBUTION.md` (`CONTRIBUTING.md` section 6: dates in documents are dd-MM-YYYY)
+3. `python3 scripts/format-dates.py --check` over every markdown file outside `research/raw/` and `ATTRIBUTION.md` (dates in documents are dd-MM-YYYY)
 4. `bun run research:check`
 5. `bun test pipelines web/lib`
 6. `cd web && bun install --frozen-lockfile && bun run typecheck && bun run build`

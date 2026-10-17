@@ -54,3 +54,7 @@ Honest limits, recorded so nobody reads more into the licence than it does:
 Third-party dependencies keep their own licences (Next.js, React, Radix UI, Tailwind CSS and morphicons are MIT; lucide is ISC with some icons MIT). They are not relicensed. The notice requirement is met by the header of `LICENSE` and by each package's own licence file.
 
 Open point for a lawyer, without any change to the data licence. `data/sources.json` holds 378 source records licensed CC BY-SA 4.0 (and 34 more under CC BY-SA 3.0 and 2.0), for example the nl.wikipedia lists behind the mayor and dijkgraaf entries and Wikimedia Commons portraits. This ADR already decided how those are handled: facts are not copyrightable, the dataset licence covers only the project's own selection, structure, descriptions and summaries, and a source's own terms stay with the source record and with each photo (`LICENSE-DATA`, `ATTRIBUTION.md`, `data/media.json`). That decision stands. Whether the ShareAlike term of those sources reaches the compiled dataset (a database, not the facts) has not been confirmed by a lawyer. Photos keep their own licence and are not part of the CC BY grant. The code licence is separate from this question, because the code does not incorporate those sources.
+
+## Amendment 17-10-2026: no contributions
+
+The owner does not accept pull requests or other contributions (ADR 0023, amendment 17-10-2026). There is no contribution licence. `CONTRIBUTING.md` states that. The code and data licences above are unchanged.

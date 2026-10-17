@@ -9,7 +9,7 @@ Staatsgraaf is a static, read-only publication. It has no user accounts, no runt
 - The integrity of the published data: a fact that was altered outside the pipeline.
 - The shared contract in `shared/` and the web app in `web/`.
 
-A wrong fact is a data-correctness issue, not a security issue. It follows the correction path in `docs/09-content-and-ai-policy.md` section 8 and `CONTRIBUTING.md` section 12.
+A wrong fact is a data-correctness issue, not a security issue. It follows the correction path in `docs/09-content-and-ai-policy.md` section 8. Open an issue; do not send a pull request.
 
 ## 2. What is out of scope
 

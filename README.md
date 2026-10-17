@@ -119,9 +119,9 @@ The code and the data have separate licences.
 
 To cite the data: "Staatsgraaf, dataset version v1, snapshot 05-10-2026. Source: {source-url}, retrieved {YYYY-MM-DD}. Available under CC BY 4.0."
 
-## Corrections and contributing
+## Corrections
 
-A published fact is never edited silently. A correction keeps the old value, the new value, the date and the reason. To report a wrong fact or a missing source, open an issue in the repository. Read `CONTRIBUTING.md` before you open a pull request, `SECURITY.md` to report a vulnerability, and `CODE_OF_CONDUCT.md` for how we work together.
+A published fact is never edited silently. A correction keeps the old value, the new value, the date and the reason. To report a wrong fact or a missing source, open an issue. Pull requests and other contributions are not accepted (`CONTRIBUTING.md`). Security reports go through `SECURITY.md`.
 
 ## Inspiration
 

@@ -65,3 +65,13 @@ What the licence does and does not do:
 - Not legal advice. A lawyer should confirm the points listed in `docs/adr/0001-licenses.md`, second amendment of 05-10-2026, including whether ShareAlike data sources (378 CC BY-SA 4.0 source records) affect the compiled dataset. The data licence is not changed by this amendment.
 
 Alternatives not taken: keep PolyForm Noncommercial (no credit or ShareAlike term), or PolyForm Shield, AGPL-3.0 or MIT (all allow commercial use). The consequence "no commercial licences are offered" stands. Offering one later needs a contributor licence agreement or each contributor's consent, as before.
+
+## Amendment 17-10-2026: no contributions; maintainer docs stay private
+
+The owner decided:
+
+1. **The project does not accept contributions.** No pull requests, patches, or other outside changes. `CONTRIBUTING.md` states that. A wrong fact or a broken source can still be reported as an issue. Security reports stay on the private vulnerability path (`SECURITY.md`).
+2. **Maintainer docs stay out of the published tree**, not only the agent files and the runbook from point 5. That now includes the research workstream plan (`docs/05`), the build plan (`docs/06`), the workflow and roadmap (`docs/07`), the acceptance gate (`docs/08`), delivery and collaboration (`docs/11`), and the graph rebuild plan (`docs/13`). They remain on the maintainer's disk through `.gitignore`. The public tree keeps the product docs a reader of the dataset needs: vision, the reference spec, the Dutch government model, the data model, the content policy, privacy and accessibility, and the ADRs.
+3. **Point 4 of the decision is withdrawn.** There is no contribution licence, because there are no contributions.
+
+The GitHub repository is still private as of 17-10-2026. Making it public without a purged history would republish the old commits that still hold `AGENTS.md`, the prompts, the runbook and `research/raw/`. The migration plan above stands.

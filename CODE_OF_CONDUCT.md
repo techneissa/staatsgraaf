@@ -1,6 +1,6 @@
 # Code of conduct
 
-Staatsgraaf is a public-interest project about the Dutch state. It is built and used by citizens, students, journalists, researchers, and civil servants. Everyone who takes part deserves a place where the work can be discussed on its merits. This code applies to issues, pull requests, reviews, and any other project space.
+Staatsgraaf is a public-interest project about the Dutch state. It does not accept pull requests or other contributions. This code still applies to issues and any other project space.
 
 ## Expected behavior
 
