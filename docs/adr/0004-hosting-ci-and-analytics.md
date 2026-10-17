@@ -50,3 +50,7 @@ The owner is not publishing the repository yet (ADR 0023 purge still outstanding
 Point 2 of the decision (private repository for now) stands. The 05-10-2026 amendment's "repository becomes public" line is not in effect until the purged-history migration runs.
 
 Limits: one runner, so jobs queue. The Mac must be awake for `news.yml` (every 3 hours) and `link-check.yml` (Mondays). A sleeping machine skips the schedule. Operator notes are in `.github/workflows/README.md`.
+
+## Amendment 17-10-2026: Cloudflare Git auto-deploys stay off
+
+The Pages project `staatsgraaf` is still linked to `techneissa/staatsgraaf` on GitHub, but automatic deployments from that link are off (`deployments_enabled` and `production_deployments_enabled` false, preview setting `none`). Cloudflare's Git build has an empty build command and does not produce `web/out`, so a push to `main` was publishing a broken production site (HTML that pointed at missing JS chunks, the default Cloudflare `robots.txt`, no `_headers`). The only producer is Wrangler from GitHub Actions, as point 3 of the decision already said. Do not turn the Git production deploys back on.
