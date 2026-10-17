@@ -4,6 +4,7 @@ import { useDeferredValue, useMemo } from "react";
 import {
   parsePositionSortDir,
   parsePositionSortKey,
+  parsePositionWrap,
   positionSearchText,
   searchTerms,
   sortPositionRows,
@@ -18,13 +19,13 @@ import { PositionSortHeader, PositionTable } from "./position-table";
 import { useIndexParams } from "./use-index-params";
 import { useIndexRows } from "./use-index-rows";
 
-const PARAMS = ["q", "groep", "sort", "dir"] as const;
+const PARAMS = ["q", "groep", "sort", "dir", "wrap"] as const;
 
 /**
  * The positions index: a sticky search, type grid and sortable column
  * headers, then one windowed table of clickable rows. The server renders the
  * first screen; the whole list is one JSON file filtered here, and the choice
- * lives in the URL (?q=, ?groep=, ?sort=, ?dir=).
+ * lives in the URL (?q=, ?groep=, ?sort=, ?dir=, ?wrap=).
  */
 export function PositionsIndexView({
   initial,
@@ -41,6 +42,7 @@ export function PositionsIndexView({
   const filtering = values.q.trim() !== "" || values.groep !== "";
   const sort = parsePositionSortKey(values.sort);
   const dir = parsePositionSortDir(values.dir);
+  const wrap = parsePositionWrap(values.wrap);
 
   const searchTexts = useMemo(() => rows.map(positionSearchText), [rows]);
   const matches = useMemo(() => {
@@ -80,7 +82,7 @@ export function PositionsIndexView({
         total={total}
         onQuery={(value) => set("q", value)}
         onGroup={(value) => set("groep", value)}
-        toolbar={<PositionSortHeader sort={sort} dir={dir} onSort={onSort} />}
+        toolbar={<PositionSortHeader sort={sort} dir={dir} wrap={wrap} onSort={onSort} onWrap={(value) => set("wrap", value ? "" : "0")} />}
       />
 
       <ListStatus
@@ -95,7 +97,7 @@ export function PositionsIndexView({
       />
 
       <NoScriptNote />
-      <PositionTable rows={matches} signature={`${query.trim()}|${values.groep}|${sort}|${dir}`} />
+      <PositionTable rows={matches} wrap={wrap} signature={`${query.trim()}|${values.groep}|${sort}|${dir}|${wrap ? "wrap" : "line"}`} />
     </>
   );
 }

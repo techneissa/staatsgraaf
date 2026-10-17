@@ -324,6 +324,11 @@ export function parsePositionSortDir(value: string): PositionSortDir {
   return value === "desc" ? "desc" : "asc";
 }
 
+/** Names wrap onto extra lines unless the URL says wrap=0. */
+export function parsePositionWrap(value: string): boolean {
+  return value !== "0";
+}
+
 const POSITION_COLLATOR = new Intl.Collator("nl", { sensitivity: "base", numeric: true });
 
 function sortValue(row: PositionRow, key: PositionSortKey): string {

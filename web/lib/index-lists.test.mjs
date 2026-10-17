@@ -12,6 +12,7 @@ import {
   personSearchText,
   parsePositionSortDir,
   parsePositionSortKey,
+  parsePositionWrap,
   positionFamily,
   positionSearchText,
   positionSections,
@@ -83,6 +84,8 @@ describe("position sort", () => {
     expect(parsePositionSortKey("nope")).toBe("title");
     expect(parsePositionSortDir("")).toBe("asc");
     expect(parsePositionSortDir("desc")).toBe("desc");
+    expect(parsePositionWrap("")).toBe(true);
+    expect(parsePositionWrap("0")).toBe(false);
   });
 
   test("title sort is alphabetical, and a missing holder sits last in both directions", () => {
