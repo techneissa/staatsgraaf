@@ -13,8 +13,7 @@ import { IconTile } from "./org-visual";
 import { WindowedGrid, type RowHeightHint } from "./windowed-grid";
 
 const LIST_ID = "posities-lijst";
-const HEADER_COLS = "grid-cols-[minmax(0,1.8fr)_minmax(0,0.95fr)_minmax(0,0.75fr)]";
-const ROW_COLS = "grid-cols-1 @min-[24rem]:grid-cols-[minmax(0,1.8fr)_minmax(0,0.95fr)_minmax(0,0.75fr)]";
+const COLS = "grid-cols-[minmax(0,1.4fr)_minmax(0,1.1fr)_minmax(0,0.9fr)]";
 const ROW_HEIGHT_MEMORY = new Map<string, number>();
 
 const TYPE_ICON: Record<OrgType, IconNode> = {
@@ -33,7 +32,7 @@ const COLUMNS: { key: PositionSortKey; label: "idxColPosition" | "idxColBody" | 
 ];
 
 const SORT_BTN =
-  "inline-flex min-h-11 min-w-0 items-center gap-1 text-start text-xs font-medium text-ink-muted transition-fast hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus";
+  "inline-flex min-h-11 min-w-0 items-center gap-0.5 text-start text-xs font-medium text-ink-muted transition-fast hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus";
 
 function SortMark({ active, dir }: { active: boolean; dir: PositionSortDir }) {
   const icon = !active ? ChevronsUpDown : dir === "asc" ? ChevronUp : ChevronDown;
@@ -56,14 +55,14 @@ export function PositionSortHeader({
 }) {
   const t = useT("entity");
   return (
-    <div className={`mt-2 grid ${HEADER_COLS} gap-x-3 border-t border-line/70 px-0.5 pt-0.5`}>
+    <div className={`mt-2 grid ${COLS} gap-x-2 border-t border-line/70 px-0.5 pt-0.5 @min-[40rem]:gap-x-3`}>
       {COLUMNS.map((column) => {
         const active = sort === column.key;
         const label = t(column.label);
         const nextDir = active && dir === "asc" ? t("idxSortDesc") : t("idxSortAsc");
         return (
-          <div key={column.key} className="flex min-w-0 items-center gap-2">
-            {column.key === "title" ? <span aria-hidden="true" className="hidden w-5 shrink-0 @min-[24rem]:block" /> : null}
+          <div key={column.key} className="flex min-w-0 items-center gap-1.5">
+            {column.key === "title" ? <span aria-hidden="true" className="w-5 shrink-0" /> : null}
             <button
               type="button"
               aria-pressed={active}
@@ -93,10 +92,10 @@ function PositionTableRow({ row }: { row: PositionRow }) {
   const tooltip = [row.n, row.o, row.h != null && row.hc != null && row.hc > 0 ? t("idxMoreHolders", { name: row.h, n: row.hc }) : row.h]
     .filter((part): part is string => typeof part === "string" && part !== "")
     .join("\n");
-  const cell = "min-w-0 truncate text-[13px] leading-snug text-ink-muted @max-[24rem]:mt-0.5";
+  const cell = "min-w-0 truncate text-xs leading-snug text-ink-muted";
   return (
-    <li className={`relative grid min-h-11 min-w-0 items-center gap-x-2 border-b border-line/80 py-1.5 hover:bg-surface @min-[24rem]:gap-x-3 ${ROW_COLS}`}>
-      <div className="flex min-w-0 items-center gap-2 overflow-hidden">
+    <li className={`relative grid min-h-11 min-w-0 items-center gap-x-2 border-b border-line/80 py-1.5 hover:bg-surface @min-[40rem]:gap-x-3 ${COLS}`}>
+      <div className="flex min-w-0 items-center gap-1.5 overflow-hidden">
         <IconTile color={color} icon={TYPE_ICON[row.t] ?? BriefcaseBusiness} size="xs" />
         <Link
           href={`/posities/${row.s}/`}
@@ -107,12 +106,10 @@ function PositionTableRow({ row }: { row: PositionRow }) {
           {row.n}
         </Link>
       </div>
-      <div lang="nl" title={row.o ?? undefined} className={`${cell} ${row.o ? "" : "@max-[24rem]:hidden"}`}>
-        <span className="hidden text-[11px] text-ink-faint @max-[24rem]:inline">{t("idxColBody")} </span>
+      <div lang="nl" title={row.o ?? undefined} className={cell}>
         {row.o ?? ""}
       </div>
-      <div title={holder ?? undefined} className={`${cell} ${holder ? "" : "@max-[24rem]:hidden"}`}>
-        <span className="hidden text-[11px] text-ink-faint @max-[24rem]:inline">{t("idxColHolder")} </span>
+      <div title={holder ?? undefined} className={cell}>
         {holder ?? ""}
       </div>
     </li>
@@ -120,9 +117,9 @@ function PositionTableRow({ row }: { row: PositionRow }) {
 }
 
 /**
- * Windowed table of positions. Each row is one link to the position (ADR
- * 0017). On a narrow column the three cells stack under the title; the sort
- * buttons stay in the sticky bar above.
+ * Windowed table of positions. Three columns at every width: title, body,
+ * holder. Each row is one link to the position (ADR 0017). Long values
+ * truncate; the tooltip has the full line.
  */
 export function PositionTable({ rows, signature }: { rows: PositionRow[]; signature: string }) {
   const t = useT("entity");
