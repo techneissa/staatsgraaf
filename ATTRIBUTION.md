@@ -16,7 +16,7 @@ Photos are not under the dataset licence. Each one keeps the licence its author 
 
 ## Source families
 
-Where facts come from, grouped by publisher and licence. 8,359 sources are recorded in all: 3,175 in the table, 4,738 news links and 446 with no established licence (each below).
+Where facts come from, grouped by publisher and licence. 8,383 sources are recorded in all: 3,177 in the table, 4,759 news links and 447 with no established licence (each below).
 
 | Publisher or website | What we use it for | Licence | Terms | Sources |
 | --- | --- | --- | --- | ---: |
@@ -24,7 +24,7 @@ Where facts come from, grouped by publisher and licence. 8,359 sources are recor
 | Wikidata | Identifiers, birth dates, links to photos | CC0 1.0 | <https://www.wikidata.org/wiki/Wikidata:Licensing> | 688 |
 | Rijksoverheid and other central government sites | Offices, office holders, organisation structure | CC0 1.0 | <https://www.rijksoverheid.nl/service/copyright> | 279 |
 | Laws and official gazettes (overheid.nl) | Legal bases, appointments, decrees | CC0 1.0 | <https://www.overheid.nl/help/officiele-bekendmakingen/bestanden-en-hergebruik> | 205 |
-| Register van Overheidsorganisaties (KOOP) | Public bodies and their managers | CC0 1.0 | <https://data.overheid.nl/dataset/overheidsorganisaties-xml> | 154 |
+| Register van Overheidsorganisaties (KOOP) | Public bodies and their managers | CC0 1.0 | <https://data.overheid.nl/dataset/overheidsorganisaties-xml> | 156 |
 | Eerste Kamer | Members, committees (facts only, no photos) | CC BY 4.0 (recorded as such; custom reuse right: source URL, extraction date and annotation) | <https://www.eerstekamer.nl/begrip/colofon> | 133 |
 | Rechtspraak | Courts and judges (facts only, no photos) | CC BY 4.0 (recorded as such; custom attribution right: name the source, imply no endorsement) | <https://www.rechtspraak.nl/colofon> | 21 |
 | Kiesraad and verkiezingsuitslagen.nl | Election results and dates | CC0 1.0 | <https://www.kiesraad.nl/service/copyright> | 29 |
@@ -46,11 +46,11 @@ The site shows scaled-down and cropped copies, and says so in the credit. For CC
 
 ## News
 
-4,738 sources are news articles or news-outlet pages. Their publishers keep all rights, so Staatsgraaf links to them and shows only the headline and the link, never the article text or its images. No credit is owed beyond naming the outlet, which every link does.
+4,759 sources are news articles or news-outlet pages. Their publishers keep all rights, so Staatsgraaf links to them and shows only the headline and the link, never the article text or its images. No credit is owed beyond naming the outlet, which every link does.
 
 ## Sources with no established licence
 
-446 sources have no established licence (`unknown` or empty in `data/sources.json`). They supply facts only, never text or images. The full list, with each endpoint, is in `data/sources.json`.
+447 sources have no established licence (`unknown` or empty in `data/sources.json`). They supply facts only, never text or images. The full list, with each endpoint, is in `data/sources.json`.
 
 ## Inspiration
 
