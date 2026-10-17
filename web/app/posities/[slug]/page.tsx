@@ -7,7 +7,8 @@ import { DateT } from "@/components/content/local-date";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { SourceList } from "@/components/source-list";
 import { NewsPanel } from "@/components/news/news-panel";
-import { L, T } from "@/components/i18n/t";
+import { L, LocalText, T } from "@/components/i18n/t";
+import { positionEn } from "@/lib/name-gloss";
 import { FILL_METHOD_LABELS, POSITION_TYPE_LABELS } from "@/lib/labels";
 import { EntityConnections } from "@/components/entity/entity-connections";
 import { GapNote } from "@/components/entity/gap-note";
@@ -143,7 +144,7 @@ export default async function PositionPage({ params }: { params: Promise<{ slug:
   const breadcrumbItems: BreadcrumbItem[] = [
     { label: SITE_NAME, href: "/" },
     { label: <T area="common" k="navPositions" />, href: "/posities/" },
-    { label: position.title },
+    { label: <LocalText nl={position.title} en={positionEn(position.title)} /> },
   ];
   const state = holderState({ currentHolders: currentHolders.length, lastEnded, vacancy: vacancy !== null, memberCount: bodyMembers });
   const holderGap = state.kind === "unknown" ? unknownHolderGap(position) : null;

@@ -5,7 +5,8 @@ import { LocalizedRich } from "@/components/entity/localized-description";
 import { renderOfficeCopyMarkup } from "@/components/entity/office-copy";
 import { PersonPortrait, PersonPortraitCredit } from "@/components/entity/person-portrait";
 import { SUMMARY_CLASS } from "@/components/entity/entity-connections";
-import { Gloss, L, T } from "@/components/i18n/t";
+import { OrgNameTip } from "@/components/entity/org-header-tips";
+import { L, LocalText, T } from "@/components/i18n/t";
 import { LocaleLabel } from "@/components/i18n/locale-label";
 import { EntityPeekLink } from "@/components/peek/entity-peek-link";
 import { ShareButton } from "@/components/share-button";
@@ -70,10 +71,16 @@ export function PositionHeader({
       </p>
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-x-2.5">
         <div className="min-w-0">
-          <h1 className="text-lg font-semibold leading-snug tracking-tight text-ink break-words">
-            {position.title}
-          </h1>
-          <Gloss text={english} className="mt-0.5 block text-sm font-normal tracking-normal text-ink-muted" />
+          <div>
+            <h1 className="inline text-lg font-semibold leading-snug tracking-tight text-ink break-words">
+              <LocalText nl={position.title} en={english} />
+            </h1>
+            <OrgNameTip
+              name={position.title}
+              englishName={english}
+              aliases={position.aliases.filter((alias) => alias !== position.title)}
+            />
+          </div>
           {holders.length === 0 && summary !== null ? (
             <p className="mt-1 max-w-prose text-sm leading-snug text-ink-muted">
               <L nl={summary.nl} en={summary.en} />
