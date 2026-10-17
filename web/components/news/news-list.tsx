@@ -1,4 +1,5 @@
 import { NewsEntityLink } from "./news-entity-link";
+import { NEWS_GRID_CLASS } from "./news-grid";
 import { NewsCard } from "@/components/news-card";
 import { T } from "@/components/i18n/t";
 import { DateT } from "@/components/content/local-date";
@@ -36,7 +37,7 @@ export function NewsList({
 
   return (
     <div>
-      <ol className="mt-3 list-none space-y-2 p-0">
+      <ol className={`mt-3 ${NEWS_GRID_CLASS}`}>
         {visible.map((item, index) => (
           <li key={item.id}>
             <NewsCard item={item} rank={index + 1} as="div" />
@@ -53,7 +54,7 @@ export function NewsList({
               <T area="news" k="newsListShowLess" />
             </span>
           </summary>
-          <ol className="mt-3 list-none space-y-2 p-0">
+          <ol className={`mt-3 ${NEWS_GRID_CLASS}`}>
             {hidden.map((item, index) => (
               <li key={item.id}>
                 <NewsCard item={item} rank={visible.length + index + 1} as="div" />

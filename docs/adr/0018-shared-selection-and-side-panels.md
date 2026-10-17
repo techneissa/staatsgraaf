@@ -48,3 +48,15 @@ Decision:
 8. **The Tweede Kamer opens first** in the hierarchy view, since the kabinet can be reached from its bench.
 
 Consequences: the seat chart shows who governs (the coalition fracties), who carries the kabinet and whether they have a majority in one picture, with the published seat plans as the source. Workstream S's gap is half closed: the Eerste Kamer seat of every member is now in the data, and the Tweede Kamer seat per fractie; the Tweede Kamer seat per member stays a named gap. The plans must be refreshed when a chamber publishes a new edition; until then, the fallback keeps the chart honest.
+
+## Amendment 4: the page is first on tablet and computer (18-10-2026)
+
+The owner asked on 18-10-2026 for an expanded webpage on iPad and computer: the left page column takes the full screen, with no graph beside it, and the editorial cards use that width (news two or three in a row).
+
+Decision:
+
+1. **Page-first from 48 rem.** On a phone the home page is still the graph, and other routes still fold the canvas to one toolbar row. From 768 px the page is first on every route, including home. The canvas starts closed. A "Toon grafiek" row (below lg) or an edge tab (from lg) brings it back. The choice is stored as `staatsgraaf.panels.canvas`; only a stored `open` restores the graph on the next visit.
+2. **Closing the canvas expands the page.** From lg the workspace is still three columns, but a closed canvas gives the page `minmax(0, 1fr)` and lets `.sg-page-inner` grow, so the cards reflow. Opening the canvas restores the 32 rem page column beside the graph. The details panel is unchanged.
+3. **Cards follow the column, not the window.** `main` is a container. News lists use one column below about 40 rem of that container, two from 40 rem, three from 64 rem. A 32 rem column beside the graph stays one card wide. Home places recent changes beside the overview from 48 rem of the column. No horizontal scrolling; the 390 / 820 / 1440 checks still apply.
+
+Consequences: iPad and computer readers land on the editorial page, not the graph. The graph remains one control away and still expands to full screen. The phone home graph is unchanged.

@@ -50,12 +50,12 @@ function MetaItem({ children }: { children: ReactNode }) {
 export function SiteFooter({ datasetDate }: { datasetDate: string | null }) {
   return (
     <footer className="border-t border-line pb-[max(1.25rem,var(--safe-bottom))] pl-[max(1rem,var(--safe-left))] pr-[max(1rem,var(--safe-right))] pt-4 max-sm:pb-[max(4.75rem,calc(var(--safe-bottom)+3.75rem))] lg:pl-[max(2rem,var(--safe-left))] lg:pr-8">
-      <div className="mx-auto w-full max-w-[44rem] lg:mx-0 lg:max-w-none">
+      <div className="@container mx-auto w-full max-w-[44rem] md:mx-0 md:max-w-none">
         <nav aria-labelledby="voettekst-navigatie">
           <span id="voettekst-navigatie" className="sr-only">
             <T area="common" k="footerNavigation" />
           </span>
-          <ul className="grid grid-cols-2 gap-1.5">
+          <ul className="grid grid-cols-2 gap-1.5 @[40rem]:grid-cols-4">
             {PAGES.map((item) => (
               <li key={item.href} className="min-w-0">
                 <Link href={item.href} className={CHIP}>

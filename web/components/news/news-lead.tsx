@@ -92,7 +92,7 @@ export function NewsLead({
           aria-expanded={open}
           aria-controls={bodyId}
           onClick={() => setOpen((value) => !value)}
-          className="relative -ms-1 mt-0.5 inline-flex min-h-6 items-center rounded-sm px-1 text-xs font-medium text-accent-text underline-offset-2 hover:underline pointer-coarse:after:absolute pointer-coarse:after:-inset-x-1 pointer-coarse:after:-inset-y-2.5 pointer-coarse:after:content-['']"
+          className="relative -ms-1 mt-0.5 inline-flex min-h-6 items-center rounded-sm px-1 text-xs font-medium text-accent-text underline-offset-2 hover:underline pointer-coarse:min-h-11"
         >
           {open ? lessLabel : moreLabel}
         </button>
