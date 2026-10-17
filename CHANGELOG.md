@@ -4,9 +4,9 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
-### Added (18-10-2026, details collapse and expand)
+### Added (18-10-2026, page collapse and expand)
 
-- The details panel has icon buttons that morph: show or hide, widen or narrow. Widen fills the leftover width after the page. The old 32 vw cap is gone. Showing the graph on computer is the same kind of icon, not a sliver on the edge.
+- The page column (left) has morphing icon buttons: hide or show it, and widen it by folding the details column. The graph has its own icon when it is closed. The old 32 vw cap on the details column is gone.
 
 ### Added (18-10-2026, page-first layout)
 
