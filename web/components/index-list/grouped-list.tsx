@@ -54,14 +54,13 @@ export function GroupedList<Item>({
   const hint = useMemo(() => ({ rowHeight, onRowHeight }), [rowHeight, onRowHeight]);
 
   return (
-    <>
+    <div className="isolate [overflow-anchor:none]">
       {groups.map((group, index) => (
         <section key={group.key} data-group={group.key} aria-labelledby={group.anchor} className={sectionClassName}>
           <h2 id={group.anchor} className={headingClassName}>
             {group.heading}
           </h2>
           <WindowedGrid
-            key={`${signature}|${group.key}`}
             memoryKey={`${listId}|${signature}|${group.key}`}
             items={group.items}
             chunk={chunk}
@@ -73,6 +72,6 @@ export function GroupedList<Item>({
           />
         </section>
       ))}
-    </>
+    </div>
   );
 }

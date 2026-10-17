@@ -2,32 +2,26 @@
 
 import { useDeferredValue, useMemo } from "react";
 import { LocalCount } from "@/components/content/local-date";
-import { useLocale } from "@/components/i18n/language-provider";
+import { L } from "@/components/i18n/t";
 import { LocaleLabel } from "@/components/i18n/locale-label";
-import { useT } from "@/components/i18n/use-t";
-import { positionSearchText, searchTerms, type PositionRow } from "@/lib/index-lists";
+import { positionSearchText, positionSections, searchTerms, type PositionRow, type PositionSectionItem } from "@/lib/index-lists";
 import type { OrgType } from "@/lib/types";
 import { GroupedList, type ListGroup } from "./grouped-list";
 import { ListStatus } from "./list-status";
 import { NoScriptNote } from "./no-script-note";
 import { PositionCard } from "./position-card";
-import { IndexSearchField } from "./search-field";
+import { PositionFilters } from "./position-filters";
 import { useIndexParams } from "./use-index-params";
 import { useIndexRows } from "./use-index-rows";
-import { formatCountIn } from "@/lib/format";
 
 const LIST_ID = "posities-lijst";
 const PARAMS = ["q", "groep"] as const;
 
-const CHIP =
-  "inline-flex h-8 shrink-0 items-center gap-1.5 whitespace-nowrap rounded-pill border px-3 text-sm transition-[border-color,background-color,color] duration-150 motion-reduce:transition-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus pointer-coarse:h-11";
-
 /**
- * The positions index: a search field, one chip per type with its count, and
- * the position cards per type. Same pattern as the people index: the server
- * renders the first screen, the whole list is one JSON file filtered here
- * across every row, the choice lives in the URL (?q=, ?groep=), and a group
- * with no match leaves no heading.
+ * The positions index: a sticky search and type grid, then directory rows
+ * grouped by type and by repeated office stems (burgemeester, minister,
+ * fractievoorzitter). The server renders the first screen, the whole list is
+ * one JSON file filtered here, and the choice lives in the URL (?q=, ?groep=).
  */
 export function PositionsIndexView({
   initial,
@@ -38,8 +32,6 @@ export function PositionsIndexView({
   groups: { key: OrgType; count: number }[];
   total: number;
 }) {
-  const t = useT("entity");
-  const locale = useLocale();
   const { rows, full, failed, retry } = useIndexRows("posities", initial);
   const { values, set, clear, ready } = useIndexParams(PARAMS);
   const query = useDeferredValue(values.q);
@@ -47,7 +39,6 @@ export function PositionsIndexView({
 
   const searchTexts = useMemo(() => rows.map(positionSearchText), [rows]);
   const matches = useMemo(() => {
-    if (!full && filtering) return null;
     const terms = searchTerms(query);
     if (terms.length === 0 && values.groep === "") return rows;
     const out: PositionRow[] = [];
@@ -57,67 +48,51 @@ export function PositionsIndexView({
       out.push(rows[index]);
     }
     return out;
-  }, [rows, searchTexts, query, values.groep, full, filtering]);
+  }, [rows, searchTexts, query, values.groep]);
 
   const sections = useMemo(() => {
-    const list: ListGroup<PositionRow>[] = [];
-    const byType = new Map<string, ListGroup<PositionRow>>();
-    for (const row of matches ?? []) {
-      let group = byType.get(row.t);
-      if (!group) {
-        group = { key: row.t, anchor: `type-${row.t}`, heading: null, items: [] };
-        byType.set(row.t, group);
-        list.push(group);
-      }
-      group.items.push(row);
-    }
-    for (const group of list) {
-      group.heading = (
-        <>
-          <LocaleLabel kind="type" value={group.key} />
-          <span className="ms-2 text-sm font-normal tabular-nums text-ink-faint">
-            <LocalCount value={group.items.length} />
-          </span>
-        </>
-      );
+    const list: ListGroup<PositionSectionItem>[] = [];
+    for (const section of positionSections(matches)) {
+      const typeLabel = <LocaleLabel kind="type" value={section.type} />;
+      list.push({
+        key: section.key,
+        anchor: section.family ? `type-${section.type}-${section.family.key}` : `type-${section.type}`,
+        heading: section.family ? (
+          <>
+            <span className="mb-0.5 block text-xs font-medium uppercase tracking-wide text-ink-faint">{typeLabel}</span>
+            <L nl={section.family.label.nl} en={section.family.label.en} />{" "}
+            <span className="text-sm font-normal tabular-nums text-ink-faint">
+              <LocalCount value={section.items.length} />
+            </span>
+          </>
+        ) : (
+          <>
+            {typeLabel}{" "}
+            <span className="text-sm font-normal tabular-nums text-ink-faint">
+              <LocalCount value={section.items.length} />
+            </span>
+          </>
+        ),
+        items: section.items,
+      });
     }
     return list;
   }, [matches]);
 
   return (
     <>
-      <div className="mt-6 flex flex-col gap-2 @xl:flex-row @xl:items-center">
-        <IndexSearchField
-          value={values.q}
-          onChange={(value) => set("q", value)}
-          label={t("idxSearchPositions")}
-          placeholder={t("idxSearchPositionsPlaceholder")}
-          className="@xl:w-72"
-        />
-        <div className="scroll-row min-w-0 flex-1 gap-1.5 py-0.5 ps-0.5 pe-4" role="group" aria-label={t("idxTypeFilterLabel")}>
-          {groups.map((group) => {
-            const active = values.groep === group.key;
-            return (
-              <button
-                key={group.key}
-                type="button"
-                aria-pressed={active}
-                onClick={() => set("groep", active ? "" : group.key)}
-                className={`${CHIP} ${
-                  active ? "border-ink bg-surface-raised text-ink" : "border-line bg-surface text-ink-muted hover:border-line-strong hover:text-ink"
-                }`}
-              >
-                <LocaleLabel kind="type" value={group.key} />
-                <span className="text-xs tabular-nums text-ink-muted">{formatCountIn(group.count, locale)}</span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
+      <PositionFilters
+        query={values.q}
+        group={values.groep}
+        groups={groups}
+        total={total}
+        onQuery={(value) => set("q", value)}
+        onGroup={(value) => set("groep", value)}
+      />
 
       <ListStatus
         noun="Positions"
-        shown={matches?.length ?? null}
+        shown={full ? matches.length : filtering ? null : matches.length}
         total={total}
         filtering={filtering && ready}
         loading={!full && filtering && !failed}
@@ -131,15 +106,15 @@ export function PositionsIndexView({
         listId={LIST_ID}
         signature={`${query.trim()}|${values.groep}`}
         groups={sections}
-        defaultRowHeight={84}
+        defaultRowHeight={64}
         chunk={48}
         sectionClassName="mt-8"
-        headingClassName="scroll-mt-20 border-b border-line pb-2 text-lg font-semibold tracking-tight text-ink"
-        gridClassName="mt-3 grid list-none grid-cols-1 gap-2 p-0 sm:grid-cols-2 xl:grid-cols-3"
-        keyOf={(row) => row.s}
-        render={(row) => (
+        headingClassName="scroll-mt-28 border-b border-line pb-2 text-lg font-semibold tracking-tight text-ink"
+        gridClassName="mt-3 grid list-none grid-cols-1 gap-1.5 p-0 @lg:grid-cols-2"
+        keyOf={(item) => item.row.s}
+        render={(item) => (
           <li className="min-w-0">
-            <PositionCard row={row} />
+            <PositionCard row={item.row} label={item.label} />
           </li>
         )}
       />
