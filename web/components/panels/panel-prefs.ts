@@ -48,7 +48,7 @@ export function availableDetailsMax(viewportWidth: number, canvasOpen: boolean):
   return Math.max(DETAILS_WIDTH.min, Math.min(DETAILS_WIDTH.max, Math.floor(viewportWidth - reserved)));
 }
 
-export function clampDetailsWidth(value: number, max = DETAILS_WIDTH.max): number {
+export function clampDetailsWidth(value: number, max: number = DETAILS_WIDTH.max): number {
   if (!Number.isFinite(value)) return DETAILS_WIDTH.initial;
   const ceiling = Math.max(DETAILS_WIDTH.min, max);
   return Math.round(Math.min(ceiling, Math.max(DETAILS_WIDTH.min, value)));
@@ -81,7 +81,7 @@ export function parseCanvasOpen(raw: string | null | undefined): boolean {
  * the limits. Shift makes a larger step. `max` is the live ceiling for this
  * window (End and Shift-left stop there).
  */
-export function widthAfterKey(width: number, key: string, shift = false, max = DETAILS_WIDTH.max): number | null {
+export function widthAfterKey(width: number, key: string, shift = false, max: number = DETAILS_WIDTH.max): number | null {
   const step = shift ? DETAILS_WIDTH.step * 4 : DETAILS_WIDTH.step;
   switch (key) {
     case "ArrowLeft":
