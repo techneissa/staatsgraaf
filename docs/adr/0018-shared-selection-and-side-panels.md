@@ -61,11 +61,11 @@ Decision:
 
 Consequences: iPad and computer readers land on the editorial page, not the graph. The graph remains one control away and still expands to full screen. The phone home graph is unchanged.
 
-## Amendment 5: labeled collapse and expand (18-10-2026)
+## Amendment 5: collapse, expand, and widen (18-10-2026)
 
-The owner asked on 18-10-2026 for a button to collapse and expand the details panel, and to make that panel wide. The 20 px edge tab only hid it. A 32 vw cap and a 30 rem max stopped it going wide.
+The owner asked on 18-10-2026 for a button to collapse and expand the details panel, and to make that panel wide. The 20 px edge tab only hid it. A 32 vw cap and a 30 rem max stopped it going wide. The first pass used labeled text; the owner asked for morphing icons instead.
 
 Decision:
 
-1. **Labeled buttons, not a sliver.** From lg, "Detailpaneel tonen" sits on the page when the panel is closed. Inside the open panel, "Detailpaneel verbergen" hides it and "Verbreden" / "Versmallen" switches between the default 20 rem and the leftover width after the page (and canvas, when open) keep their minima. "Grafiek tonen" is the same kind of labeled button when the canvas is closed.
+1. **Icon buttons, no visible text.** From lg, a morphing panel icon (`PanelRightOpen` / `PanelRightClose`) shows or hides the details column. A morphing maximize / minimize icon widens it to the leftover width or returns it to 20 rem. "Grafiek tonen" is the same kind of icon when the canvas is closed. The Dutch and English names stay on `aria-label` and `title`.
 2. **No 32 vw cap.** The details column may use the space that is left after 22 rem for the page. A stored width still restores. Dragging the divider still works; it is not the only control.

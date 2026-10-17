@@ -6,7 +6,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Added (18-10-2026, details collapse and expand)
 
-- The details panel has labeled buttons: show, hide, widen, and narrow. Widen fills the leftover width after the page. The old 32 vw cap is gone. "Grafiek tonen" is a labeled button on computer too, not only a sliver on the edge.
+- The details panel has icon buttons that morph: show or hide, widen or narrow. Widen fills the leftover width after the page. The old 32 vw cap is gone. Showing the graph on computer is the same kind of icon, not a sliver on the edge.
 
 ### Added (18-10-2026, page-first layout)
 
