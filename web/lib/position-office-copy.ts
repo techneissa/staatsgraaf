@@ -161,6 +161,64 @@ const GRIFFIER: OfficeTemplate = {
   en: 'Each of the two chambers of the Staten-Generaal appoints a griffier (<law>Grondwet</law>, <law art="61">article 61, paragraph 2</law>).',
 };
 
+const BURGEMEESTER: OfficeTemplate = {
+  law: "BWBR0005416",
+  nl: 'De burgemeester wordt bij koninklijk besluit benoemd voor zes jaar (<law art="61">artikel 61</law> van de <law>Gemeentewet</law>). De burgemeester is voorzitter van het <entity role="college">college van burgemeester en wethouders</entity> (<law art="34">artikel 34, lid 2</law>).',
+  en: 'The burgemeester is appointed by royal decree for six years (<law>Gemeentewet</law>, <law art="61">article 61</law>). The burgemeester chairs the <entity role="college">college of burgemeester en wethouders</entity> (<law art="34">article 34, paragraph 2</law>).',
+};
+
+const COMMISSARIS: OfficeTemplate = {
+  law: "BWBR0005645",
+  nl: 'De commissaris van de Koning wordt bij koninklijk besluit benoemd voor zes jaar (<law art="61">artikel 61</law> van de <law>Provinciewet</law>). De commissaris en de gedeputeerden vormen <entity role="college">gedeputeerde staten</entity> (<law art="34">artikel 34</law>).',
+  en: 'The commissaris van de Koning is appointed by royal decree for six years (<law>Provinciewet</law>, <law art="61">article 61</law>). The commissaris and the gedeputeerden form <entity role="college">gedeputeerde staten</entity> (<law art="34">article 34</law>).',
+};
+
+const DIJKGRAAF: OfficeTemplate = {
+  law: "BWBR0005108",
+  nl: 'De voorzitter van het waterschap wordt bij koninklijk besluit benoemd voor zes jaar (<law art="46">artikel 46</law> van de <law>Waterschapswet</law>).',
+  en: 'The chair of the water board is appointed by royal decree for six years (<law>Waterschapswet</law>, <law art="46">article 46</law>).',
+};
+
+const GEZAGHEBBER: OfficeTemplate = {
+  law: "BWBR0028142",
+  nl: 'De gezaghebber wordt bij koninklijk besluit benoemd voor zes jaar (<law art="73">artikel 73</law> van de <law>Wet openbare lichamen Bonaire, Sint Eustatius en Saba</law>). De gezaghebber is voorzitter van de <entity role="council">eilandsraad</entity> (<law art="10">artikel 10</law>) en van het <entity role="college">bestuurscollege</entity> (<law art="36">artikel 36, lid 2</law>).',
+  en: 'The gezaghebber is appointed by royal decree for six years (<law art="73">article 73</law> of the <law>Wet openbare lichamen Bonaire, Sint Eustatius en Saba</law>). The gezaghebber chairs the <entity role="council">eilandsraad</entity> (<law art="10">article 10</law>) and the <entity role="college">bestuurscollege</entity> (<law art="36">article 36, paragraph 2</law>).',
+};
+
+const MINISTER: OfficeTemplate = {
+  law: "BWBR0001840",
+  nl: 'Ministers worden bij koninklijk besluit benoemd (<law art="43">artikel 43</law> van de <law>Grondwet</law>). Een ministerie staat onder leiding van een minister (<law art="44">artikel 44, lid 1</law>).',
+  en: 'Ministers are appointed by royal decree (<law>Grondwet</law>, <law art="43">article 43</law>). A ministry is headed by a minister (<law art="44">article 44, paragraph 1</law>).',
+};
+
+const STAATSSECRETARIS: OfficeTemplate = {
+  law: "BWBR0001840",
+  nl: 'Staatssecretarissen kunnen bij koninklijk besluit worden benoemd en ontslagen (<law art="46">artikel 46, lid 1</law> van de <law>Grondwet</law>).',
+  en: 'State secretaries may be appointed and dismissed by royal decree (<law>Grondwet</law>, <law art="46">article 46, paragraph 1</law>).',
+};
+
+const MINISTER_PRESIDENT: OfficeTemplate = {
+  law: "BWBR0001840",
+  nl: 'De minister-president wordt bij koninklijk besluit benoemd (<law art="43">artikel 43</law> van de <law>Grondwet</law>) en is voorzitter van de ministerraad (<law art="45">artikel 45, lid 2</law>).',
+  en: 'The minister-president is appointed by royal decree (<law>Grondwet</law>, <law art="43">article 43</law>) and chairs the council of ministers (<law art="45">article 45, paragraph 2</law>).',
+};
+
+/** Unique offices whose copy was written from a fetched official page, keyed by position id. */
+const UNIQUE: Record<string, OfficeTemplate> = {
+  "pos:justitiele-informatiedienst-algemeendirecteur": {
+    nl: 'De algemeen directeur staat aan het hoofd van de <entity role="body">Justitiële Informatiedienst</entity>, een agentschap van het <entity role="ministry">ministerie van Justitie en Veiligheid</entity>.',
+    en: 'The algemeen directeur heads the <entity role="body">Justitiële Informatiedienst</entity>, an agency of the <entity role="ministry">Ministry of Justice and Security</entity>.',
+  },
+  "pos:rijksdienst-voor-identiteitsgegevens-algemeendirecteur": {
+    nl: 'De algemeen directeur staat aan het hoofd van de <entity role="body">Rijksdienst voor Identiteitsgegevens</entity>, een agentschap van het <entity role="ministry">ministerie van Binnenlandse Zaken en Koninkrijksrelaties</entity>.',
+    en: 'The algemeen directeur heads the <entity role="body">Rijksdienst voor Identiteitsgegevens</entity>, an agency of the <entity role="ministry">Ministry of the Interior and Kingdom Relations</entity>.',
+  },
+  "pos:justitiele-ict-organisatie-algemeendirecteur": {
+    nl: 'De algemeen directeur staat aan het hoofd van de <entity role="body">Justitiële ICT Organisatie</entity>, de ICT-dienstverlener van het <entity role="ministry">ministerie van Justitie en Veiligheid</entity>.',
+    en: 'The algemeen directeur heads the <entity role="body">Justitiële ICT Organisatie</entity>, the ICT service of the <entity role="ministry">Ministry of Justice and Security</entity>.',
+  },
+};
+
 /** The wetten.overheid.nl JCI permalink for a BWB, or one article of it. */
 export function wettenArtikelUrl(bwb: string, artikel?: string): string {
   if (artikel === undefined || artikel === "") return `https://wetten.overheid.nl/${bwb}`;
@@ -176,13 +234,22 @@ export function stripOfficeCopyMarkup(text: string): string {
  * Sibling ids for the tagged roles in a template. Derived from the body's id
  * scheme; a missing record stays plain text in the renderer.
  */
-export function officeCopyRoles(position: { title: string; organization?: string }): Record<string, string> {
+export function officeCopyRoles(position: {
+  title: string;
+  organization?: string;
+  parent?: string | null;
+}): Record<string, string> {
   const org = position.organization;
   if (org === undefined) return {};
   const { title } = position;
   const suffix = (prefix: string): string | null => {
     if (!org.startsWith(prefix)) return null;
     return org.slice(prefix.length);
+  };
+  const withParent = (roles: Record<string, string>): Record<string, string> => {
+    if (position.parent) roles.ministry = position.parent;
+    roles.body = org;
+    return roles;
   };
   if (title === "Wethouder") {
     const place = suffix("org:college-van-bw-");
@@ -219,7 +286,31 @@ export function officeCopyRoles(position: { title: string; organization?: string
   if (title === "Lid van de Eerste Kamer der Staten-Generaal") return { chamber: org };
   if (title.startsWith("Griffier van de ")) return { chamber: org };
   if (title.startsWith("Statenlid van ")) return { staten: org };
-  return {};
+  if (title.startsWith("Burgemeester")) {
+    const place = suffix("org:gemeente-");
+    return withParent(
+      place === null
+        ? { body: org }
+        : { college: `org:college-van-bw-${place}`, council: `org:gemeenteraad-${place}`, body: org },
+    );
+  }
+  if (title.startsWith("Commissaris van de Koning")) {
+    const place = suffix("org:provincie-");
+    return withParent(
+      place === null ? { body: org } : { college: `org:gedeputeerde-staten-${place}`, body: org },
+    );
+  }
+  if (title.startsWith("Gezaghebber van ")) {
+    const place = suffix("org:openbaar-lichaam-");
+    return withParent(
+      place === null
+        ? { body: org }
+        : { council: `org:eilandsraad-${place}`, college: `org:bestuurscollege-${place}`, body: org },
+    );
+  }
+  if (title.startsWith("Dijkgraaf")) return withParent({ body: org });
+  if (title.startsWith("Minister") || title.startsWith("Staatssecretaris")) return withParent({ ministry: org, body: org });
+  return withParent({});
 }
 
 function fillCopy(template: OfficeTemplate, roles: Record<string, string>): PositionOfficeCopy {
@@ -243,11 +334,16 @@ function fillCopy(template: OfficeTemplate, roles: Record<string, string>): Posi
  * Entity and law tags are filled from the body's id.
  */
 export function positionOfficeCopy(position: {
+  id?: string;
   title: string;
   organization?: string;
+  parent?: string | null;
+  country?: string;
+  subtype?: string | null;
 }): PositionOfficeCopy | null {
   const { title } = position;
   const roles = officeCopyRoles(position);
+  if (position.id !== undefined && UNIQUE[position.id] !== undefined) return fillCopy(UNIQUE[position.id], roles);
   if (title === "Wethouder") return fillCopy(WETHOUDER, roles);
   if (title === "Gedeputeerde") return fillCopy(GEDEPUTEERDE, roles);
   if (title === "Secretaris-generaal") {
@@ -266,5 +362,13 @@ export function positionOfficeCopy(position: {
   if (island !== null) return fillCopy(eilandgedeputeerde(island[1]), roles);
   const country = /^Statenlid van (.+)$/u.exec(title);
   if (country !== null) return fillCopy(statenlid(country[1]), roles);
+  if (title.startsWith("Burgemeester")) return fillCopy(BURGEMEESTER, roles);
+  if (title.startsWith("Commissaris van de Koning")) return fillCopy(COMMISSARIS, roles);
+  if (title.startsWith("Dijkgraaf")) return fillCopy(DIJKGRAAF, roles);
+  if (title.startsWith("Gezaghebber van ")) return fillCopy(GEZAGHEBBER, roles);
+  const dutchRijk = position.country === "nederland" && position.subtype === "ministerie";
+  if (title === "Minister-president en Minister van Algemene Zaken") return fillCopy(MINISTER_PRESIDENT, roles);
+  if (dutchRijk && title.startsWith("Staatssecretaris")) return fillCopy(STAATSSECRETARIS, roles);
+  if (dutchRijk && title.startsWith("Minister van ") && !title.includes("Stichting")) return fillCopy(MINISTER, roles);
   return null;
 }

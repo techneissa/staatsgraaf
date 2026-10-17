@@ -9179,6 +9179,44 @@
     }
   },
   {
+    "id": "tenure:justitiele-informatiedienst-marjan-bakker",
+    "person": "person:marjan-bakker",
+    "position": "pos:justitiele-informatiedienst-algemeendirecteur",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:register-71277",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
+    "id": "tenure:rijksdienst-voor-identiteitsgegevens-bas-den-hollander",
+    "person": "person:bas-den-hollander",
+    "position": "pos:rijksdienst-voor-identiteitsgegevens-algemeendirecteur",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd",
+    "appointedBy": null,
+    "predecessor": null,
+    "successor": null,
+    "endReason": null,
+    "source": {
+      "source": "src:register-96832",
+      "retrieved": "2026-10-17",
+      "confidence": "high"
+    }
+  },
+  {
     "id": "tenure:koenders-voorzitter-aiv-2021",
     "person": "person:bert-koenders",
     "position": "pos:voorzitter-aiv",

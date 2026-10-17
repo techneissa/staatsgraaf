@@ -54,7 +54,14 @@ export function PositionHeader({
   const termLength = position.termLengthMonths ?? null;
   const english = positionEn(position.title);
   const body = organization;
-  const officeCopy = positionOfficeCopy({ title: position.title, organization: position.organization });
+  const officeCopy = positionOfficeCopy({
+    id: position.id,
+    title: position.title,
+    organization: position.organization,
+    parent: organization?.parent ?? null,
+    country: organization?.country,
+    subtype: organization?.subtype ?? null,
+  });
 
   return (
     <header className="mt-4">

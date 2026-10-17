@@ -169,6 +169,52 @@ test("Griffier cites Grondwet article 61", () => {
   assert.match(stripOfficeCopyMarkup(copy.nl), /artikel 61/);
 });
 
+test("Burgemeester cites Gemeentewet articles 61 and 34", () => {
+  const copy = positionOfficeCopy({
+    title: "Burgemeester van Aa en Hunze",
+    organization: "org:gemeente-aa-en-hunze",
+  });
+  assert.ok(copy);
+  const nl = stripOfficeCopyMarkup(copy.nl);
+  assert.match(nl, /koninklijk besluit benoemd voor zes jaar/);
+  assert.match(nl, /artikel 61 van de Gemeentewet/);
+  assert.match(copy.nl, /<entity id="org:college-van-bw-aa-en-hunze">/);
+});
+
+test("a Dutch minister cites Grondwet articles 43 and 44; a Caribbean minister does not", () => {
+  const nlMin = positionOfficeCopy({
+    title: "Minister van Justitie en Veiligheid",
+    organization: "org:ministerie-van-justitie-en-veiligheid",
+    country: "nederland",
+    subtype: "ministerie",
+  });
+  assert.ok(nlMin);
+  assert.match(stripOfficeCopyMarkup(nlMin.nl), /artikel 43 van de Grondwet/);
+  assert.equal(
+    positionOfficeCopy({ title: "Minister van Financiën", organization: "org:ministerie-financien-curacao" }),
+    null,
+  );
+});
+
+test("Dijkgraaf cites Waterschapswet article 46", () => {
+  const copy = positionOfficeCopy({ title: "Dijkgraaf van Waterschap Aa en Maas", organization: "org:waterschap-aa-en-maas" });
+  assert.ok(copy);
+  assert.match(stripOfficeCopyMarkup(copy.nl), /artikel 46 van de Waterschapswet/);
+});
+
+test("the Justid and RvIG director copy is keyed on the position id", () => {
+  const justid = positionOfficeCopy({
+    id: "pos:justitiele-informatiedienst-algemeendirecteur",
+    title: "Algemeen Directeur Justitiële Informatiedienst",
+    organization: "org:justitiele-informatiedienst",
+    parent: "org:ministerie-van-justitie-en-veiligheid",
+  });
+  assert.ok(justid);
+  assert.match(stripOfficeCopyMarkup(justid.nl), /Justitiële Informatiedienst/);
+  assert.match(justid.nl, /<entity id="org:justitiele-informatiedienst">/);
+  assert.match(justid.nl, /<entity id="org:ministerie-van-justitie-en-veiligheid">/);
+});
+
 test("titles without sourced copy return null", () => {
   assert.equal(positionOfficeCopy({ title: "Lid gemeenteraad" }), null);
   assert.equal(positionOfficeCopy({ title: "Lid Commissie voor Financiën (FIN)" }), null);
