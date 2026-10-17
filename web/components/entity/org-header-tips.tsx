@@ -31,7 +31,7 @@ export function OrgNameTip({
       {showDutch ? (
         <>
           <p className="text-[10px] font-medium uppercase tracking-wide text-ink-faint">{t("dutchNameLabel")}</p>
-          <p lang="nl" className="mt-0.5 font-medium text-ink">
+          <p lang="nl" className="mt-0.5 break-words font-medium text-ink">
             {name}
           </p>
         </>

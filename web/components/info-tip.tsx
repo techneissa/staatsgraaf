@@ -1,14 +1,15 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { createPortal } from "react-dom";
+import { placeAnchored } from "@/lib/place-anchored";
 
 /**
- * A small (i) that opens a note, for a remark that belongs to a heading but
- * should not take a line of its own. A native `details`, like the portrait
- * credit (components/entity/credit-text.tsx): Enter, Space and a tap open it,
- * Escape and a press outside close it, and the hit area grows to 44 px on
- * touch without moving the layout. The note opens below the (i) and shifts
- * left as far as needed to stay inside the column.
+ * A small (i) that opens a note. Native `details`: Enter, Space and a tap
+ * open it, Escape and a press outside close it, and the hit area grows to
+ * 44 px on touch without moving the layout. The note is portalled and
+ * placed with `placeAnchored`, so a parent with overflow-x-hidden cannot
+ * clip it, and it flips above the (i) when there is no room below.
  */
 export function InfoTip({
   label,
@@ -24,26 +25,48 @@ export function InfoTip({
 }) {
   const ref = useRef<HTMLDetailsElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
-  const [shift, setShift] = useState(0);
+  const [open, setOpen] = useState(false);
+  const [box, setBox] = useState<{ top: number; left: number; maxHeight: number } | null>(null);
 
-  const place = () => {
+  const place = useCallback(() => {
     const details = ref.current;
-    if (!details?.open) return;
-    let left = 0;
-    let right = document.documentElement.clientWidth;
-    for (let node = details.parentElement; node; node = node.parentElement) {
-      if (getComputedStyle(node).overflowX !== "visible") {
-        const box = node.getBoundingClientRect();
-        left = Math.max(left, box.left);
-        right = Math.min(right, box.right);
-        break;
-      }
+    const panel = panelRef.current;
+    const summary = details?.querySelector("summary");
+    if (!details?.open || !panel || !summary) return;
+    setBox(
+      placeAnchored({
+        anchor: summary.getBoundingClientRect(),
+        width: panel.offsetWidth,
+        height: panel.offsetHeight,
+        viewportWidth: document.documentElement.clientWidth,
+        viewportHeight: window.innerHeight,
+      }),
+    );
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!open) {
+      setBox(null);
+      return;
     }
-    const start = details.getBoundingClientRect().left;
-    const width = panelRef.current?.offsetWidth ?? 240;
-    const overflow = start + width - (right - 8);
-    setShift(overflow > 0 ? Math.min(overflow, start - (left + 8)) : 0);
-  };
+    place();
+  }, [open, place, children]);
+
+  useEffect(() => {
+    if (!open) return;
+    let frame = 0;
+    const onMove = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(place);
+    };
+    window.addEventListener("scroll", onMove, true);
+    window.addEventListener("resize", onMove);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onMove, true);
+      window.removeEventListener("resize", onMove);
+    };
+  }, [open, place]);
 
   useEffect(() => {
     const details = ref.current;
@@ -54,7 +77,9 @@ export function InfoTip({
       details.querySelector("summary")?.focus();
     };
     const onPress = (event: PointerEvent) => {
-      if (details.open && event.target instanceof Node && !details.contains(event.target)) details.open = false;
+      if (!details.open || !(event.target instanceof Node)) return;
+      if (details.contains(event.target) || panelRef.current?.contains(event.target)) return;
+      details.open = false;
     };
     document.addEventListener("keydown", onKey);
     document.addEventListener("pointerdown", onPress);
@@ -64,8 +89,28 @@ export function InfoTip({
     };
   }, []);
 
+  const panel =
+    open && typeof document !== "undefined" ? (
+      <div
+        ref={panelRef}
+        data-info-tip-panel=""
+        role="note"
+        style={{
+          top: box?.top ?? 0,
+          left: box?.left ?? 0,
+          maxHeight: box?.maxHeight,
+          visibility: box ? "visible" : "hidden",
+        }}
+        className={`fixed z-50 max-w-[calc(100vw-1rem)] overflow-x-hidden overflow-y-auto break-words rounded-md border border-line bg-surface p-2.5 text-xs font-normal leading-snug tracking-normal text-ink-muted shadow-lg ${
+          panelClassName ? "" : trigger ? "w-72" : "w-60"
+        } ${panelClassName ?? ""}`.trim()}
+      >
+        {children}
+      </div>
+    ) : null;
+
   return (
-    <details ref={ref} className="group relative inline-block align-middle" onToggle={place}>
+    <details ref={ref} className="group relative inline-block align-middle" onToggle={(event) => setOpen(event.currentTarget.open)}>
       <summary
         aria-label={label}
         title={label}
@@ -82,15 +127,7 @@ export function InfoTip({
           </svg>
         )}
       </summary>
-      <div
-        ref={panelRef}
-        style={{ left: -shift }}
-        className={`absolute z-30 max-w-[calc(100vw-2rem)] rounded-md border border-line bg-surface p-2.5 text-xs font-normal leading-snug tracking-normal text-ink-muted shadow-lg ${
-          trigger ? "top-full mt-1 w-72" : "top-6 w-60"
-        } ${panelClassName ?? ""}`.trim()}
-      >
-        {children}
-      </div>
+      {panel ? createPortal(panel, document.body) : null}
     </details>
   );
 }
