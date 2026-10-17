@@ -75,11 +75,7 @@ export function PositionHeader({
             <h1 className="inline text-lg font-semibold leading-snug tracking-tight text-ink break-words">
               <LocalText nl={position.title} en={english} />
             </h1>
-            <OrgNameTip
-              name={position.title}
-              englishName={english}
-              aliases={position.aliases.filter((alias) => alias !== position.title)}
-            />
+            <OrgNameTip name={position.title} englishName={english} aliases={[]} />
           </div>
           {holders.length === 0 && summary !== null ? (
             <p className="mt-1 max-w-prose text-sm leading-snug text-ink-muted">
