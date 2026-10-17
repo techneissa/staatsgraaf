@@ -7,7 +7,7 @@ import type { IconNode } from "lucide";
 import { LucideIcon } from "@/components/icons/lucide-icon";
 import { useT } from "@/components/i18n/use-t";
 import { branchColorVar } from "@/lib/branch-colors";
-import type { PositionRow, PositionSortDir, PositionSortKey } from "@/lib/index-lists";
+import { positionDisplayRest, type PositionRow, type PositionSortDir, type PositionSortKey } from "@/lib/index-lists";
 import type { OrgType } from "@/lib/types";
 import { IconTile } from "./org-visual";
 import { WindowedGrid, type RowHeightHint } from "./windowed-grid";
@@ -108,6 +108,7 @@ function PositionTableRow({ row, wrap }: { row: PositionRow; wrap: boolean }) {
   const t = useT("entity");
   const color = row.b != null ? branchColorVar(row.b) : branchColorVar("zelfstandig");
   const holder = holderLine(row);
+  const rest = positionDisplayRest(row.n, row.o);
   const tooltip = [row.n, row.o, row.h != null && row.hc != null && row.hc > 0 ? t("idxMoreHolders", { name: row.h, n: row.hc }) : row.h]
     .filter((part): part is string => typeof part === "string" && part !== "")
     .join("\n");
@@ -124,6 +125,7 @@ function PositionTableRow({ row, wrap }: { row: PositionRow; wrap: boolean }) {
           className={`min-w-0 flex-1 ${flow} text-[11px] font-medium leading-snug text-ink underline-offset-2 outline-none after:absolute after:inset-0 hover:text-accent-text hover:underline focus-visible:after:outline-2 focus-visible:after:outline-offset-[-2px] focus-visible:after:outline-focus`}
         >
           {row.n}
+          {rest != null ? <span className="font-normal text-ink-muted"> · {rest}</span> : null}
         </Link>
       </div>
       <div lang="nl" title={row.o ?? undefined} className={cell}>

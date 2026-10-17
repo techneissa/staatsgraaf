@@ -253,6 +253,27 @@ export function positionFamily(title: string): PositionFamily | null {
   return null;
 }
 
+/**
+ * Distinctive rest for a title that is only the office stem. Taken from the
+ * body name already on the row, so "Wethouder" of Aa en Hunze does not look
+ * like every other wethouder. Titles that already carry a rest
+ * (Burgemeester van Amsterdam) return null.
+ */
+const BARE_TITLE_ORG_PREFIX: Record<string, string> = {
+  Wethouder: "College van burgemeester en wethouders van ",
+  Gedeputeerde: "Gedeputeerde Staten van ",
+  "Secretaris-generaal": "Ministerie van ",
+};
+
+export function positionDisplayRest(title: string, orgName: string | null | undefined): string | null {
+  if (orgName == null || orgName === "") return null;
+  if (positionFamily(title) !== null) return null;
+  const prefix = BARE_TITLE_ORG_PREFIX[title];
+  if (prefix == null || !orgName.startsWith(prefix)) return null;
+  const rest = orgName.slice(prefix.length).trim();
+  return rest !== "" ? rest : null;
+}
+
 /** A family only becomes its own heading when this many of the current matches share it. */
 export const POSITION_FAMILY_MIN = 4;
 
