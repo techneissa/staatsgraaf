@@ -13,6 +13,8 @@ import {
   type PointerEvent,
   type ReactNode,
 } from "react";
+import { Maximize2, Minimize2, PanelLeftOpen, PanelRightClose, PanelRightOpen } from "lucide";
+import { Morph } from "@/components/icons/morph";
 import { useDict } from "@/components/i18n/use-t";
 import {
   DETAILS_WIDTH,
@@ -145,8 +147,7 @@ function Chevron({ pointsLeft }: { pointsLeft: boolean }) {
   );
 }
 
-const PANEL_BTN =
-  "tap-target inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 rounded-sm border border-line bg-surface px-3 text-sm font-medium text-ink transition-fast hover:border-line-strong";
+const ICON_BTN = "bar-control tap-target transition-fast hover:border-line-strong hover:text-ink";
 
 /**
  * A slim tab on an edge of the canvas that folds the column on that side
@@ -316,6 +317,7 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
   }, []);
   const detailsMax = desktop && typeof window !== "undefined" ? availableDetailsMax(window.innerWidth, canvasOpen) : DETAILS_WIDTH.max;
   const detailsWide = width >= detailsMax - 16;
+  const [chromeUsed, setChromeUsed] = useState(false);
 
   const { current } = useSelection();
   const state = useMemo(
@@ -340,39 +342,58 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
           label={pageOpen ? t("pageHide") : t("pageShow")}
           hidden={!canvasOpen}
         />
-        {!canvasOpen || !detailsOpen ? (
-          <div
-            className={`relative z-20 hidden flex-col items-stretch gap-2 justify-self-end lg:flex lg:row-start-1 ${
-              canvasOpen ? "lg:col-start-2" : "lg:col-start-1"
-            } ${detailsOpen ? "self-end mb-16" : "self-center"}`}
+        <div
+          className={`relative z-20 hidden items-center gap-1 lg:flex lg:row-start-1 ${
+            detailsOpen ? "self-start justify-self-start ms-2 mt-3 lg:col-start-3" : canvasOpen ? "self-center justify-self-end lg:col-start-2" : "self-center justify-self-end lg:col-start-1"
+          }`}
+        >
+          {canvasOpen ? null : (
+            <button
+              type="button"
+              id="sg-canvas-show"
+              onClick={() => {
+                setChromeUsed(true);
+                setCanvasOpen(true);
+              }}
+              aria-expanded={false}
+              aria-controls={CANVAS_ID}
+              aria-label={t("canvasShow")}
+              title={t("canvasShow")}
+              className={ICON_BTN}
+            >
+              <Morph icon={PanelLeftOpen} size={16} strokeWidth={1.8} still={!chromeUsed} />
+            </button>
+          )}
+          <button
+            type="button"
+            onClick={() => {
+              setChromeUsed(true);
+              setDetailsOpen(!detailsOpen);
+            }}
+            aria-expanded={detailsOpen}
+            aria-controls={DETAILS_ID}
+            aria-label={detailsOpen ? t("detailsHide") : t("detailsShow")}
+            title={detailsOpen ? t("detailsHide") : t("detailsShow")}
+            className={ICON_BTN}
           >
-            {canvasOpen ? null : (
-              <button
-                type="button"
-                id="sg-canvas-show"
-                onClick={() => setCanvasOpen(true)}
-                aria-expanded={false}
-                aria-controls={CANVAS_ID}
-                className={PANEL_BTN}
-              >
-                <Chevron pointsLeft={false} />
-                {t("canvasShow")}
-              </button>
-            )}
-            {detailsOpen ? null : (
-              <button
-                type="button"
-                onClick={() => setDetailsOpen(true)}
-                aria-expanded={false}
-                aria-controls={DETAILS_ID}
-                className={PANEL_BTN}
-              >
-                <Chevron pointsLeft={false} />
-                {t("detailsShow")}
-              </button>
-            )}
-          </div>
-        ) : null}
+            <Morph icon={detailsOpen ? PanelRightClose : PanelRightOpen} size={16} strokeWidth={1.8} still={!chromeUsed} />
+          </button>
+          {detailsOpen ? (
+            <button
+              type="button"
+              onClick={() => {
+                setChromeUsed(true);
+                const max = availableDetailsMax(window.innerWidth, canvasOpen);
+                setWidth(width >= max - 16 ? DETAILS_WIDTH.initial : max, true);
+              }}
+              aria-label={detailsWide ? t("detailsNarrow") : t("detailsWiden")}
+              title={detailsWide ? t("detailsNarrow") : t("detailsWiden")}
+              className={ICON_BTN}
+            >
+              <Morph icon={detailsWide ? Minimize2 : Maximize2} size={16} strokeWidth={1.8} still={!chromeUsed} />
+            </button>
+          ) : null}
+        </div>
         <div
           id={PAGE_COLUMN_ID}
           className="sg-page-col relative flex min-h-0 min-w-0 flex-col lg:col-start-1 lg:row-start-1 lg:overflow-y-auto lg:overflow-x-hidden"
@@ -384,22 +405,6 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
           aria-label={t("detailsLabel")}
           className="sg-details-col relative hidden min-h-0 min-w-0 overflow-hidden border-s border-line bg-surface lg:col-start-3 lg:row-start-1 lg:flex lg:flex-col"
         >
-          <div className="flex shrink-0 flex-wrap items-center gap-2 border-b border-line px-2 py-2">
-            <button type="button" onClick={() => setDetailsOpen(false)} aria-expanded={true} aria-controls={DETAILS_ID} className={PANEL_BTN}>
-              <Chevron pointsLeft={true} />
-              {t("detailsHide")}
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                const max = availableDetailsMax(window.innerWidth, canvasOpen);
-                setWidth(width >= max - 16 ? DETAILS_WIDTH.initial : max, true);
-              }}
-              className={PANEL_BTN}
-            >
-              {detailsWide ? t("detailsNarrow") : t("detailsWiden")}
-            </button>
-          </div>
           <div className="sg-details-inner flex min-h-0 min-w-0 flex-1 flex-col">
             {desktop ? <DetailsPanel /> : null}
           </div>
