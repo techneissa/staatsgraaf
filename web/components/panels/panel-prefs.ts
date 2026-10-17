@@ -29,12 +29,29 @@ export const PANEL_ATTR = {
 /** The CSS variable the grid reads for the details panel width. */
 export const DETAILS_WIDTH_VAR = "--details-w";
 
-/** Details panel width in CSS pixels: about 16rem to 30rem, 20rem by default. */
-export const DETAILS_WIDTH = { min: 256, max: 480, initial: 320, step: 16 } as const;
+/** Matches `--page-w` min in globals.css: the page column never shrinks below this. */
+export const PAGE_COL_MIN_PX = 352;
 
-export function clampDetailsWidth(value: number): number {
+/** Space kept for the canvas when it is open, so dragging details cannot crush it. */
+export const CANVAS_COL_MIN_PX = 288;
+
+/**
+ * Details panel width in CSS pixels. The default is 20rem. The reader can drag
+ * it as wide as the window allows after the page (and canvas, when open) keep
+ * their minima. `max` is only a ceiling for a huge stored value.
+ */
+export const DETAILS_WIDTH = { min: 256, max: 2400, initial: 320, step: 16 } as const;
+
+/** How wide the details column may go in this window. */
+export function availableDetailsMax(viewportWidth: number, canvasOpen: boolean): number {
+  const reserved = PAGE_COL_MIN_PX + (canvasOpen ? CANVAS_COL_MIN_PX : 0);
+  return Math.max(DETAILS_WIDTH.min, Math.min(DETAILS_WIDTH.max, Math.floor(viewportWidth - reserved)));
+}
+
+export function clampDetailsWidth(value: number, max = DETAILS_WIDTH.max): number {
   if (!Number.isFinite(value)) return DETAILS_WIDTH.initial;
-  return Math.round(Math.min(DETAILS_WIDTH.max, Math.max(DETAILS_WIDTH.min, value)));
+  const ceiling = Math.max(DETAILS_WIDTH.min, max);
+  return Math.round(Math.min(ceiling, Math.max(DETAILS_WIDTH.min, value)));
 }
 
 /** A stored width, or the default when nothing valid is stored. */
@@ -61,19 +78,20 @@ export function parseCanvasOpen(raw: string | null | undefined): boolean {
  * The width after a key press on the resize handle, or null for a key the
  * handle does not use. The handle sits on the panel's left edge, so the left
  * arrow widens the panel and the right arrow narrows it; Home and End jump to
- * the limits. Shift makes a larger step.
+ * the limits. Shift makes a larger step. `max` is the live ceiling for this
+ * window (End and Shift-left stop there).
  */
-export function widthAfterKey(width: number, key: string, shift = false): number | null {
+export function widthAfterKey(width: number, key: string, shift = false, max = DETAILS_WIDTH.max): number | null {
   const step = shift ? DETAILS_WIDTH.step * 4 : DETAILS_WIDTH.step;
   switch (key) {
     case "ArrowLeft":
-      return clampDetailsWidth(width + step);
+      return clampDetailsWidth(width + step, max);
     case "ArrowRight":
-      return clampDetailsWidth(width - step);
+      return clampDetailsWidth(width - step, max);
     case "Home":
       return DETAILS_WIDTH.min;
     case "End":
-      return DETAILS_WIDTH.max;
+      return clampDetailsWidth(max, max);
     default:
       return null;
   }

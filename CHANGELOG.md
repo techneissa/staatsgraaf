@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Added (18-10-2026, details collapse and expand)
+
+- The details panel has labeled buttons: show, hide, widen, and narrow. Widen fills the leftover width after the page. The old 32 vw cap is gone. "Grafiek tonen" is a labeled button on computer too, not only a sliver on the edge.
+
 ### Added (18-10-2026, page-first layout)
 
 - On iPad and computer the page column fills the screen and the graph starts closed. News cards sit two or three in a row when the column is wide. A "Toon grafiek" control restores the canvas. Phones keep the home graph.

@@ -709,7 +709,7 @@
  * Workspace (components/panels/workspace.tsx): the page column, the canvas
  * and the details panel. From lg they are three grid columns; the reader can
  * fold the canvas (the default) so the page uses the remaining width, fold
- * either side column, and drag the details panel wider. The stored choices
+ * either side column, and widen the details panel with a button (or drag). The stored choices
  * arrive on <html> before first paint (PANELS_INIT_SCRIPT), so the columns
  * never open and shut again on load. A folding side column keeps its content
  * at full width and is clipped as it narrows, so its text slides away
@@ -721,7 +721,9 @@
 @media (min-width: 64rem) {
   .sg-workspace {
     --page-w: clamp(22rem, 34vw, 32rem);
-    --details-w-resolved: min(var(--details-w, 20rem), 32vw);
+    --page-min: 22rem;
+    --canvas-min: 18rem;
+    --details-w-resolved: min(var(--details-w, 20rem), calc(100% - var(--page-min) - var(--canvas-min)));
     grid-template-columns: var(--page-col, var(--page-w)) var(--canvas-col, minmax(0, 1fr)) var(--details-col, var(--details-w-resolved));
   }
   html[data-page-panel="closed"] .sg-workspace {
@@ -730,6 +732,7 @@
   html[data-canvas-panel="closed"] .sg-workspace {
     --page-col: minmax(0, 1fr);
     --canvas-col: 0px;
+    --details-w-resolved: min(var(--details-w, 20rem), calc(100% - var(--page-min)));
   }
   html[data-page-panel="closed"][data-canvas-panel="closed"] .sg-workspace {
     --page-col: 0px;

@@ -19,6 +19,7 @@ import {
   DETAILS_WIDTH_VAR,
   PANEL_ATTR,
   PANEL_STORAGE,
+  availableDetailsMax,
   clampDetailsWidth,
   parseCanvasOpen,
   parseDetailsWidth,
@@ -138,11 +139,14 @@ function useColumnOpen(
 
 function Chevron({ pointsLeft }: { pointsLeft: boolean }) {
   return (
-    <svg aria-hidden="true" viewBox="0 0 12 12" width="12" height="12" className="transition-transform duration-200" style={{ transform: pointsLeft ? "none" : "scaleX(-1)" }}>
+    <svg aria-hidden="true" viewBox="0 0 12 12" width="12" height="12" className="shrink-0 transition-transform duration-200" style={{ transform: pointsLeft ? "none" : "scaleX(-1)" }}>
       <path d="M7.5 2.5 4 6l3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
+
+const PANEL_BTN =
+  "tap-target inline-flex min-h-11 shrink-0 items-center justify-center gap-1.5 rounded-sm border border-line bg-surface px-3 text-sm font-medium text-ink transition-fast hover:border-line-strong";
 
 /**
  * A slim tab on an edge of the canvas that folds the column on that side
@@ -170,7 +174,7 @@ function EdgeToggle({
   column?: "page" | "canvas" | "details";
   hidden?: boolean;
   pointsLeft?: boolean;
-  align?: "center" | "end";
+  align?: "start" | "center" | "end";
   buttonId?: string;
 }) {
   const shape =
@@ -180,7 +184,7 @@ function EdgeToggle({
   const col =
     column === "page" ? "lg:col-start-1" : column === "details" ? "lg:col-start-3" : "lg:col-start-2";
   const chevronLeft = pointsLeft ?? (side === "start" ? open : !open);
-  const alignClass = align === "end" ? "self-end mb-16" : "self-center";
+  const alignClass = align === "end" ? "self-end mb-16" : align === "start" ? "self-start mt-20" : "self-center";
   return (
     <button
       type="button"
@@ -202,10 +206,19 @@ function EdgeToggle({
  * the arrow keys change the width (Home and End jump to the limits, Shift
  * takes larger steps); the width is stored when the drag or key press ends.
  */
-function ResizeHandle({ width, onWidth }: { width: number; onWidth: (width: number, commit: boolean) => void }) {
+function ResizeHandle({
+  width,
+  canvasOpen,
+  onWidth,
+}: {
+  width: number;
+  canvasOpen: boolean;
+  onWidth: (width: number, commit: boolean) => void;
+}) {
   const t = useDict("panels");
   const drag = useRef<{ x: number; width: number; pointer: number } | null>(null);
   const frame = useRef<number | null>(null);
+  const liveMax = () => availableDetailsMax(window.innerWidth, canvasOpen);
 
   const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
     if (event.button !== 0) return;
@@ -217,7 +230,7 @@ function ResizeHandle({ width, onWidth }: { width: number; onWidth: (width: numb
   const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
     const start = drag.current;
     if (!start || start.pointer !== event.pointerId) return;
-    const next = clampDetailsWidth(start.width + (start.x - event.clientX));
+    const next = clampDetailsWidth(start.width + (start.x - event.clientX), liveMax());
     if (frame.current !== null) cancelAnimationFrame(frame.current);
     frame.current = requestAnimationFrame(() => onWidth(next, false));
   };
@@ -226,10 +239,10 @@ function ResizeHandle({ width, onWidth }: { width: number; onWidth: (width: numb
     if (!start || start.pointer !== event.pointerId) return;
     drag.current = null;
     document.documentElement.removeAttribute("data-panels-resizing");
-    onWidth(clampDetailsWidth(start.width + (start.x - event.clientX)), true);
+    onWidth(clampDetailsWidth(start.width + (start.x - event.clientX), liveMax()), true);
   };
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    const next = widthAfterKey(width, event.key, event.shiftKey);
+    const next = widthAfterKey(width, event.key, event.shiftKey, liveMax());
     if (next === null) return;
     event.preventDefault();
     onWidth(next, true);
@@ -243,7 +256,7 @@ function ResizeHandle({ width, onWidth }: { width: number; onWidth: (width: numb
       aria-controls={DETAILS_ID}
       aria-label={t("detailsResize")}
       aria-valuemin={DETAILS_WIDTH.min}
-      aria-valuemax={DETAILS_WIDTH.max}
+      aria-valuemax={typeof window === "undefined" ? DETAILS_WIDTH.max : availableDetailsMax(window.innerWidth, canvasOpen)}
       aria-valuenow={width}
       aria-valuetext={t("detailsWidthValue", { n: width })}
       onPointerDown={onPointerDown}
@@ -251,11 +264,11 @@ function ResizeHandle({ width, onWidth }: { width: number; onWidth: (width: numb
       onPointerUp={end}
       onPointerCancel={end}
       onKeyDown={onKeyDown}
-      className="sg-resize-handle group z-30 -ms-1.5 hidden w-3 cursor-col-resize touch-none justify-self-start outline-none lg:col-start-3 lg:row-start-1 lg:flex lg:justify-center"
+      className="sg-resize-handle group z-30 -ms-1.5 hidden w-3 cursor-col-resize touch-none justify-self-start outline-none pointer-coarse:w-11 lg:col-start-3 lg:row-start-1 lg:flex lg:justify-center"
     >
       <span
         aria-hidden="true"
-        className="h-full w-px bg-transparent transition-fast group-hover:w-0.5 group-hover:bg-line-strong group-focus-visible:w-0.5 group-focus-visible:bg-focus group-active:bg-accent"
+        className="h-full w-px bg-line transition-fast group-hover:w-0.5 group-hover:bg-line-strong group-focus-visible:w-0.5 group-focus-visible:bg-focus group-active:bg-accent"
       />
     </div>
   );
@@ -301,6 +314,8 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
     document.documentElement.style.setProperty(DETAILS_WIDTH_VAR, `${next}px`);
     if (commit) store(PANEL_STORAGE.detailsWidth, String(next));
   }, []);
+  const detailsMax = desktop && typeof window !== "undefined" ? availableDetailsMax(window.innerWidth, canvasOpen) : DETAILS_WIDTH.max;
+  const detailsWide = width >= detailsMax - 16;
 
   const { current } = useSelection();
   const state = useMemo(
@@ -325,26 +340,39 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
           label={pageOpen ? t("pageHide") : t("pageShow")}
           hidden={!canvasOpen}
         />
-        <EdgeToggle
-          side="end"
-          open={canvasOpen}
-          onToggle={() => setCanvasOpen(!canvasOpen)}
-          controls={CANVAS_ID}
-          label={canvasOpen ? t("canvasHide") : t("canvasShow")}
-          column="page"
-          hidden={canvasOpen}
-          pointsLeft={false}
-          buttonId="sg-canvas-show"
-        />
-        <EdgeToggle
-          side={canvasOpen ? "end" : detailsOpen ? "start" : "end"}
-          open={detailsOpen}
-          onToggle={() => setDetailsOpen(!detailsOpen)}
-          controls={DETAILS_ID}
-          label={detailsOpen ? t("detailsHide") : t("detailsShow")}
-          column={canvasOpen ? "canvas" : detailsOpen ? "details" : "page"}
-          align={canvasOpen || detailsOpen ? "center" : "end"}
-        />
+        {!canvasOpen || !detailsOpen ? (
+          <div
+            className={`relative z-20 hidden flex-col items-stretch gap-2 justify-self-end lg:flex lg:row-start-1 ${
+              canvasOpen ? "lg:col-start-2" : "lg:col-start-1"
+            } ${detailsOpen ? "self-end mb-16" : "self-center"}`}
+          >
+            {canvasOpen ? null : (
+              <button
+                type="button"
+                id="sg-canvas-show"
+                onClick={() => setCanvasOpen(true)}
+                aria-expanded={false}
+                aria-controls={CANVAS_ID}
+                className={PANEL_BTN}
+              >
+                <Chevron pointsLeft={false} />
+                {t("canvasShow")}
+              </button>
+            )}
+            {detailsOpen ? null : (
+              <button
+                type="button"
+                onClick={() => setDetailsOpen(true)}
+                aria-expanded={false}
+                aria-controls={DETAILS_ID}
+                className={PANEL_BTN}
+              >
+                <Chevron pointsLeft={false} />
+                {t("detailsShow")}
+              </button>
+            )}
+          </div>
+        ) : null}
         <div
           id={PAGE_COLUMN_ID}
           className="sg-page-col relative flex min-h-0 min-w-0 flex-col lg:col-start-1 lg:row-start-1 lg:overflow-y-auto lg:overflow-x-hidden"
@@ -354,13 +382,29 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
         <aside
           id={DETAILS_ID}
           aria-label={t("detailsLabel")}
-          className="sg-details-col relative hidden min-h-0 min-w-0 overflow-hidden border-s border-line bg-surface lg:col-start-3 lg:row-start-1 lg:flex"
+          className="sg-details-col relative hidden min-h-0 min-w-0 overflow-hidden border-s border-line bg-surface lg:col-start-3 lg:row-start-1 lg:flex lg:flex-col"
         >
-          <div className="sg-details-inner flex min-h-0 flex-col">
+          <div className="flex shrink-0 flex-wrap items-center gap-2 border-b border-line px-2 py-2">
+            <button type="button" onClick={() => setDetailsOpen(false)} aria-expanded={true} aria-controls={DETAILS_ID} className={PANEL_BTN}>
+              <Chevron pointsLeft={true} />
+              {t("detailsHide")}
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                const max = availableDetailsMax(window.innerWidth, canvasOpen);
+                setWidth(width >= max - 16 ? DETAILS_WIDTH.initial : max, true);
+              }}
+              className={PANEL_BTN}
+            >
+              {detailsWide ? t("detailsNarrow") : t("detailsWiden")}
+            </button>
+          </div>
+          <div className="sg-details-inner flex min-h-0 min-w-0 flex-1 flex-col">
             {desktop ? <DetailsPanel /> : null}
           </div>
         </aside>
-        {detailsOpen ? <ResizeHandle width={width} onWidth={setWidth} /> : null}
+        {detailsOpen ? <ResizeHandle width={width} canvasOpen={canvasOpen} onWidth={setWidth} /> : null}
       </div>
       {desktop || current === null ? null : <DetailsSheet />}
     </PanelStateContext.Provider>
