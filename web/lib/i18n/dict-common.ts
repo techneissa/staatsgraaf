@@ -144,10 +144,8 @@ export const COMMON_DICT = {
   footerNavigation: { nl: "Voettekstnavigatie", en: "Footer navigation" },
   canvasShow: { nl: "Toon grafiek", en: "Show graph" },
   canvasHide: { nl: "Verberg grafiek", en: "Hide graph" },
-  footerLicenseData: { nl: "Gegevens: CC BY 4.0", en: "Data: CC BY 4.0" },
-  footerLicenseCode: { nl: "Broncode: CC BY-NC-SA 4.0", en: "Source code: CC BY-NC-SA 4.0" },
-  footerSourceNote: { nl: "Elk feit heeft een bron.", en: "Every fact has a source." },
-  footerDatasetLink: { nl: "Dataset en bronvermelding", en: "Dataset and credit" },
+  footerLicenseData: { nl: "Gegevens CC BY 4.0", en: "Data CC BY 4.0" },
+  footerLicenseCode: { nl: "Broncode CC BY-NC-SA 4.0", en: "Source code CC BY-NC-SA 4.0" },
   errorTitle: { nl: "Deze pagina kon niet worden geladen", en: "This page could not be loaded" },
   errorBody: {
     nl: "Er ging iets mis bij het laden. Laad de pagina opnieuw; dat lost het meestal op, ook als de site net is bijgewerkt terwijl dit tabblad openstond.",

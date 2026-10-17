@@ -52,8 +52,8 @@ export const PAGES_DICT = {
 
   footerNavLabel: { nl: "Voettekst", en: "Footer" },
   footerIndependent: {
-    nl: "Onafhankelijke publicatie, niet verbonden aan de Nederlandse overheid.",
-    en: "Independent publication, not affiliated with the Dutch government.",
+    nl: "Niet verbonden aan de Nederlandse overheid.",
+    en: "Not affiliated with the Dutch government.",
   },
   updatedLabel: { nl: "Laatst bijgewerkt:", en: "Last updated:" },
   updatedUnknown: { nl: "onbekend", en: "unknown" },
