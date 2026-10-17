@@ -104,7 +104,6 @@ export const COMMON_DICT = {
   peekResponsible: { nl: "Verantwoordelijk", en: "Responsible" },
   peekVacant: { nl: "Geen huidige bekleder in de dataset", en: "No current holder in the dataset" },
   peekActing: { nl: "waarnemend", en: "acting" },
-  peekAndMore: { nl: "en {n} meer", en: "and {n} more" },
   peekMembers: { nl: "{n} leden", en: "{n} members" },
   peekMembersOne: { nl: "1 lid", en: "1 member" },
   peekSeats: { nl: "{n} zetels", en: "{n} seats" },

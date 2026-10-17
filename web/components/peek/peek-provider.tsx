@@ -823,7 +823,7 @@ function PeekBody({
           <dl className="space-y-3">
             {record.roles.length > 0 ? (
               <Fact label={t("peekNow")}>
-                {record.roles.map((role, index) => (
+                {record.roles.map((role) => (
                   <span key={role.id} className="block">
                     {link(role)}
                     {role.acting ? <span className="text-ink-faint"> ({t("peekActing")})</span> : null}
@@ -832,9 +832,6 @@ function PeekBody({
                         {" "}
                         {t("peekAt")} {link(role.organization)}
                       </span>
-                    ) : null}
-                    {index === record.roles.length - 1 && record.roleCount > record.roles.length ? (
-                      <span className="text-ink-faint"> · {t("peekAndMore", { n: record.roleCount - record.roles.length })}</span>
                     ) : null}
                   </span>
                 ))}
@@ -849,9 +846,6 @@ function PeekBody({
                     {link(ref)}
                   </span>
                 ))}
-                {record.memberOfCount > record.memberOf.length ? (
-                  <span className="text-ink-faint"> · {t("peekAndMore", { n: record.memberOfCount - record.memberOf.length })}</span>
-                ) : null}
               </Fact>
             ) : null}
 
@@ -883,9 +877,6 @@ function PeekBody({
                     {link(ref)}
                   </span>
                 ))}
-                {record.relatedCount > record.related.length ? (
-                  <span className="text-ink-faint"> · {t("peekAndMore", { n: record.relatedCount - record.related.length })}</span>
-                ) : null}
               </Fact>
             ) : null}
           </dl>
@@ -1046,9 +1037,6 @@ function HolderList({
           </span>
         </span>
       ))}
-      {record.holderCount > record.holders.length ? (
-        <span className="block text-xs text-ink-faint">{t("peekAndMore", { n: record.holderCount - record.holders.length })}</span>
-      ) : null}
     </span>
   );
 }
