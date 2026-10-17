@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Fixed (18-10-2026, info tips)
+
+- The (i) notes (Dutch name, aliases, portrait and logo credit, translation, child-body count) are portalled and stay inside the viewport. They were `position: absolute` inside the page column, which clips overflow, so a long Dutch name was cut off.
+
 ### Fixed (17-10-2026, production)
 
 - Cloudflare Pages Git auto-deploys were overwriting the Wrangler upload with an empty build. Automatic Git deploys are off. Production is the Wrangler export again.
