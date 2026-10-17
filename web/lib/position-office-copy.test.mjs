@@ -285,3 +285,90 @@ test("the Rekenkamer president and KNMI hoofddirecteur are keyed on the position
   assert.ok(knmi);
   assert.match(stripOfficeCopyMarkup(knmi.nl), /eindverantwoordelijk voor het KNMI/);
 });
+
+test("the King, korpschef, ombudsman and kamer chairs cite the fetched articles", () => {
+  const king = positionOfficeCopy({ id: "pos:koning", title: "Koning der Nederlanden" });
+  assert.ok(king);
+  assert.match(stripOfficeCopyMarkup(king.nl), /artikel 24 van de Grondwet/);
+  assert.match(stripOfficeCopyMarkup(king.nl), /artikel 42/);
+  const korps = positionOfficeCopy({
+    title: "Korpschef van de politie",
+    organization: "org:politie",
+  });
+  assert.ok(korps);
+  assert.match(stripOfficeCopyMarkup(korps.nl), /leiding en het beheer/);
+  assert.match(stripOfficeCopyMarkup(korps.nl), /artikel 27 van de Politiewet 2012/);
+  const ombudsman = positionOfficeCopy({
+    id: "pos:nationale-ombudsman",
+    title: "Nationale ombudsman",
+    organization: "org:nationale-ombudsman",
+  });
+  assert.ok(ombudsman);
+  assert.match(stripOfficeCopyMarkup(ombudsman.nl), /benoemd door de Tweede Kamer/);
+  assert.match(ombudsman.nl, /<entity id="org:tweede-kamer">/);
+  const tk = positionOfficeCopy({
+    title: "Voorzitter van de Tweede Kamer der Staten-Generaal",
+    organization: "org:tweede-kamer",
+  });
+  assert.ok(tk);
+  assert.match(stripOfficeCopyMarkup(tk.nl), /artikel 61, lid 1 van de Grondwet/);
+  const ondervoorzitter = positionOfficeCopy({
+    title: "Eerste ondervoorzitter van de Tweede Kamer der Staten-Generaal",
+    organization: "org:tweede-kamer",
+  });
+  assert.ok(ondervoorzitter);
+  assert.match(stripOfficeCopyMarkup(ondervoorzitter.nl), /artikel 3.5/);
+  assert.match(stripOfficeCopyMarkup(ondervoorzitter.nl), /Presidium/);
+});
+
+test("a gouverneur cites that land's reglement article 1", () => {
+  const aruba = positionOfficeCopy({ title: "Gouverneur van Aruba", organization: "org:regering-aruba" });
+  assert.ok(aruba);
+  assert.match(stripOfficeCopyMarkup(aruba.nl), /vertegenwoordiger van de Koning/);
+  assert.match(aruba.nl, /BWBR0003900/);
+  const curacao = positionOfficeCopy({ title: "Gouverneur van Curaçao" });
+  assert.ok(curacao);
+  assert.match(curacao.nl, /BWBR0028105/);
+});
+
+test("CRvB and CBb presidents reuse Wet RO articles 15 and 27", () => {
+  const crvb = positionOfficeCopy({
+    title: "President van de Centrale Raad van Beroep",
+    organization: "org:centrale-raad-van-beroep",
+  });
+  assert.ok(crvb);
+  assert.match(stripOfficeCopyMarkup(crvb.nl), /titel van president/);
+  assert.match(crvb.nl, /<entity id="org:centrale-raad-van-beroep">/);
+});
+
+test("the Raad voor de rechtspraak cites Wet RO article 84", () => {
+  const chair = positionOfficeCopy({
+    title: "Voorzitter van de Raad voor de rechtspraak",
+    organization: "org:raad-voor-de-rechtspraak",
+  });
+  assert.ok(chair);
+  assert.match(stripOfficeCopyMarkup(chair.nl), /artikel 84 van de Wet op de rechterlijke organisatie/);
+  const lid = positionOfficeCopy({
+    title: "Rechterlijk lid van de Raad voor de rechtspraak",
+    organization: "org:raad-voor-de-rechtspraak",
+  });
+  assert.ok(lid);
+  assert.match(stripOfficeCopyMarkup(lid.nl), /ten minste drie en ten hoogste vijf leden/);
+});
+
+test("Hoge Raad and Raad van State heads are keyed on the position id", () => {
+  const hr = positionOfficeCopy({
+    id: "pos:president-hoge-raad",
+    title: "President van de Hoge Raad",
+    organization: "org:hoge-raad",
+  });
+  assert.ok(hr);
+  assert.match(stripOfficeCopyMarkup(hr.nl), /artikel 72 van de Wet op de rechterlijke organisatie/);
+  const vp = positionOfficeCopy({
+    id: "pos:vice-president-raad-van-state",
+    title: "Vice-president Raad van State",
+    organization: "org:raad-van-state",
+  });
+  assert.ok(vp);
+  assert.match(stripOfficeCopyMarkup(vp.nl), /voor het leven benoemd/);
+});

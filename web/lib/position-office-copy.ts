@@ -69,6 +69,24 @@
  * - Eerste Kamer committee seats: the fetched EK RvO (BWBR0007428) is marked
  *   materieel uitgewerkt per 13-06-2023, so it is not used.
  * - Caribbean ministers stay empty until their own laws are fetched.
+ * - Grondwet art. 24: "Het koningschap wordt erfelijk vervuld door de wettige opvolgers van Koning Willem I, Prins van Oranje-Nassau."
+ * - Grondwet art. 42: "1 De regering wordt gevormd door de Koning en de ministers. 2 De Koning is onschendbaar; de ministers zijn verantwoordelijk."
+ * - Grondwet art. 61 lid 1: "Elk der kamers benoemt uit de leden een voorzitter."
+ * - Politiewet 2012 (geldend van 12-06-2026) art. 27 lid 1: "De korpschef is belast met de leiding en het beheer van de politie. De korpschef legt over de uitoefening van zijn taken en bevoegdheden verantwoording af aan Onze Minister."
+ * - Wet RO art. 72 lid 1: "De Hoge Raad bestaat uit een president, ten hoogste zeven vice-presidenten, ten hoogste dertig raadsheren en ten hoogste twintig raadsheren in buitengewone dienst."
+ * - Wet RO art. 111 lid 1: "Er is een parket bij de Hoge Raad, aan het hoofd waarvan de procureur-generaal bij de Hoge Raad staat."
+ * - Wet RO art. 130 lid 1-3: there is a College van procureurs-generaal at the head of the OM; a chair is appointed by royal decree for at most three years.
+ * - Wet Nationale ombudsman art. 2 lid 1-3: "Er is een Nationale ombudsman." Appointed by the Tweede Kamer for six years.
+ * - Wet Nationaal rapporteur art. 1: "Er is een Nationaal rapporteur mensenhandel en seksueel geweld tegen kinderen." Art. 3: appointed by royal decree for at most four years. Art. 5: research, advise, report.
+ * - Wet op de Raad van State art. 1 lid 1: "De Raad van State bestaat, buiten de Koning als voorzitter, uit een vice-president en ten hoogste tien leden." Art. 2: appointed for life by royal decree.
+ * - Wet op de Raad van State art. 30a lid 1 and 5: a chair of the Afdeling bestuursrechtspraak is appointed from its members; that chair arranges the division's work.
+ * - RvO Tweede Kamer art. 3.5 lid 1: "De Kamer benoemt na elke voorzittersbenoeming een door haar te bepalen aantal Ondervoorzitters, en stelt daarbij hun onderlinge rangorde vast."
+ * - RvO Tweede Kamer art. 3.6 lid 1: "De Voorzitter en de Ondervoorzitters vormen samen het Presidium."
+ * - Beroepswet art. 3 and Wet bestuursrechtspraak bedrijfsorganisatie art. 4: Wet RO chapter 2 (including the title of president) applies correspondingly to the CRvB and the CBb.
+ * - Rijkswet reglement gouverneur Aruba (BWBR0003900), Curaçao (BWBR0028105) and Sint Maarten (BWBR0028096) art. 1 lid 1-2: the governor represents the King as head of that country's government and the Kingdom government, and is appointed by royal decree for six years.
+ * - Aanwijzingen voor de Planbureaus (BWBR0031972) name the three bureaus and do not describe the directeur, so those pages stay empty.
+ * - Kaderwet zelfstandige bestuursorganen art. 12 names how members of a publiekrechtelijk ZBO are appointed, but not every ZBO is publiekrechtelijk, so it is not used as shared copy.
+ * - Wet RO art. 84 lid 2-5: the Raad voor de rechtspraak has three to five members appointed by royal decree for six years; one of the judicial members is appointed chair.
  */
 
 export type PositionOfficeCopy = { nl: string; en: string };
@@ -86,6 +104,15 @@ export const REGELING_AGENTSCHAPPEN_SOURCE = "https://wetten.overheid.nl/BWBR005
 export const RVO_TWEEDE_KAMER_SOURCE = "https://wetten.overheid.nl/BWBR0044975";
 export const COMPTABILITEITSWET_SOURCE = "https://wetten.overheid.nl/BWBR0039429";
 export const KNMI_BESTUUR_SOURCE = "https://www.knmi.nl/over-het-knmi/bestuur";
+export const POLITIEWET_SOURCE = "https://wetten.overheid.nl/BWBR0031788";
+export const WET_NATIONALE_OMBUDSMAN_SOURCE = "https://wetten.overheid.nl/BWBR0003372";
+export const WET_NATIONAAL_RAPPORTEUR_SOURCE = "https://wetten.overheid.nl/BWBR0034176";
+export const WET_RAAD_VAN_STATE_SOURCE = "https://wetten.overheid.nl/BWBR0002367";
+export const BEROEPSWET_SOURCE = "https://wetten.overheid.nl/BWBR0002170";
+export const WET_BRBO_SOURCE = "https://wetten.overheid.nl/BWBR0002144";
+export const REGLEMENT_GOUVERNEUR_ARUBA_SOURCE = "https://wetten.overheid.nl/BWBR0003900";
+export const REGLEMENT_GOUVERNEUR_CURACAO_SOURCE = "https://wetten.overheid.nl/BWBR0028105";
+export const REGLEMENT_GOUVERNEUR_SINT_MAARTEN_SOURCE = "https://wetten.overheid.nl/BWBR0028096";
 export const SECRETARIS_GENERAAL_SOURCES = [
   "https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken/organisatie/organogram/secretaris-generaal",
   "https://www.rijksoverheid.nl/ministeries/ministerie-van-buitenlandse-zaken/organisatie/organogram/secretaris-generaal-en-plaatsvervangend-sg",
@@ -256,6 +283,55 @@ const TK_VASTE_COMMISSIE_VOORZITTER: OfficeTemplate = {
   en: 'A newly established committee of the <entity role="chamber">Tweede Kamer</entity> appoints a chair from among its members at its first meeting (<law>Reglement van Orde</law>, <law art="7.12">article 7.12</law>). The committee chair leads the committee\'s work (<law art="7.13">article 7.13</law>).',
 };
 
+const TK_VASTE_COMMISSIE_ONDERVOORZITTER: OfficeTemplate = {
+  law: "BWBR0044975",
+  nl: 'Een nieuw ingestelde commissie van de <entity role="chamber">Tweede Kamer</entity> benoemt in haar eerste vergadering uit haar midden een commissievoorzitter en een commissieondervoorzitter (<law art="7.12">artikel 7.12</law> van het <law>Reglement van Orde</law>).',
+  en: 'A newly established committee of the <entity role="chamber">Tweede Kamer</entity> appoints a chair and a deputy chair from among its members at its first meeting (<law>Reglement van Orde</law>, <law art="7.12">article 7.12</law>).',
+};
+
+const KAMER_VOORZITTER: OfficeTemplate = {
+  law: "BWBR0001840",
+  nl: 'Elk der kamers van de Staten-Generaal benoemt uit de leden een voorzitter (<law art="61">artikel 61, lid 1</law> van de <law>Grondwet</law>).',
+  en: 'Each chamber of the Staten-Generaal appoints a chair from among its members (<law>Grondwet</law>, <law art="61">article 61, paragraph 1</law>).',
+};
+
+const TK_KAMER_ONDERVOORZITTER: OfficeTemplate = {
+  law: "BWBR0044975",
+  nl: 'De <entity role="chamber">Tweede Kamer</entity> benoemt na elke voorzittersbenoeming een door haar te bepalen aantal ondervoorzitters (<law art="3.5">artikel 3.5</law> van het <law>Reglement van Orde</law>). De Voorzitter en de ondervoorzitters vormen het Presidium (<law art="3.6">artikel 3.6</law>).',
+  en: 'After each election of the Speaker, the <entity role="chamber">Tweede Kamer</entity> appoints a number of deputy Speakers that it determines (<law>Reglement van Orde</law>, <law art="3.5">article 3.5</law>). The Speaker and the deputy Speakers form the Presidium (<law art="3.6">article 3.6</law>).',
+};
+
+const KORPSCHEF: OfficeTemplate = {
+  law: "BWBR0031788",
+  nl: 'De korpschef is belast met de leiding en het beheer van de <entity role="body">politie</entity> en legt daarover verantwoording af aan de minister (<law art="27">artikel 27</law> van de <law>Politiewet 2012</law>).',
+  en: 'The korpschef is charged with the leadership and management of the <entity role="body">police</entity> and is accountable for this to the minister (<law>Politiewet 2012</law>, <law art="27">article 27</law>).',
+};
+
+function gouverneur(country: string): OfficeTemplate {
+  return {
+    nl: `De gouverneur van ${country} is vertegenwoordiger van de Koning als hoofd van de regering van dat land, en tevens vertegenwoordiger van de regering van het Koninkrijk (<law art="1">artikel 1</law> van het <law>Reglement voor de gouverneur</law>). Hij wordt bij koninklijk besluit voor zes jaar benoemd.`,
+    en: `The governor of ${country} represents the King as head of that country's government, and also represents the government of the Kingdom (<law art="1">article 1</law> of the <law>Reglement voor de gouverneur</law>). They are appointed by royal decree for six years.`,
+  };
+}
+
+const GOUVERNEUR_LAW: Record<string, string> = {
+  Aruba: "BWBR0003900",
+  Curaçao: "BWBR0028105",
+  "Sint Maarten": "BWBR0028096",
+};
+
+const RAAD_VOOR_DE_RECHTSPRAAK_VOORZITTER: OfficeTemplate = {
+  law: "BWBR0001830",
+  nl: 'Een van de rechterlijke leden van de <entity role="body">Raad voor de rechtspraak</entity> wordt bij koninklijk besluit tot voorzitter benoemd (<law art="84">artikel 84</law> van de <law>Wet op de rechterlijke organisatie</law>).',
+  en: 'One of the judicial members of the <entity role="body">Raad voor de rechtspraak</entity> is appointed chair by royal decree (<law>Wet op de rechterlijke organisatie</law>, <law art="84">article 84</law>).',
+};
+
+const RAAD_VOOR_DE_RECHTSPRAAK_LID: OfficeTemplate = {
+  law: "BWBR0001830",
+  nl: 'De <entity role="body">Raad voor de rechtspraak</entity> bestaat uit ten minste drie en ten hoogste vijf leden, die bij koninklijk besluit voor zes jaar worden benoemd (<law art="84">artikel 84</law> van de <law>Wet op de rechterlijke organisatie</law>).',
+  en: 'The <entity role="body">Raad voor de rechtspraak</entity> consists of at least three and at most five members, appointed by royal decree for six years (<law>Wet op de rechterlijke organisatie</law>, <law art="84">article 84</law>).',
+};
+
 /** Unique offices whose copy was written from a fetched official page, keyed by position id. */
 const UNIQUE: Record<string, OfficeTemplate> = {
   "pos:justitiele-informatiedienst-algemeendirecteur": {
@@ -278,6 +354,51 @@ const UNIQUE: Record<string, OfficeTemplate> = {
   "pos:koninklijk-nederlands-meteorologisch-instituut-hoofddirecteur": {
     nl: 'De hoofddirecteur is eindverantwoordelijk voor het <entity role="body">KNMI</entity>.',
     en: 'The hoofddirecteur is ultimately responsible for <entity role="body">KNMI</entity>.',
+  },
+  "pos:koning": {
+    law: "BWBR0001840",
+    nl: 'Het koningschap wordt erfelijk vervuld door de wettige opvolgers van Koning Willem I (<law art="24">artikel 24</law> van de <law>Grondwet</law>). De regering wordt gevormd door de Koning en de ministers; de Koning is onschendbaar en de ministers zijn verantwoordelijk (<law art="42">artikel 42</law>).',
+    en: 'The kingship is held by hereditary succession from King Willem I (<law>Grondwet</law>, <law art="24">article 24</law>). The government is formed by the King and the ministers; the King is inviolable and the ministers are responsible (<law art="42">article 42</law>).',
+  },
+  "pos:nationale-ombudsman": {
+    law: "BWBR0003372",
+    nl: 'Er is een Nationale ombudsman, benoemd door de <entity role="chamber">Tweede Kamer</entity> voor zes jaar (<law art="2">artikel 2</law> van de <law>Wet Nationale ombudsman</law>).',
+    en: 'There is a National Ombudsman, appointed by the <entity role="chamber">Tweede Kamer</entity> for six years (<law>Wet Nationale ombudsman</law>, <law art="2">article 2</law>).',
+  },
+  "pos:zbo-nationaal-rapporteur-mensenhandel-en-seksueel-geweld-tegen-kinderen-nationaal-rapporteur-mensenhandel-en-seksueel-geweld-tegen-kinderen": {
+    law: "BWBR0034176",
+    nl: 'Er is een Nationaal rapporteur mensenhandel en seksueel geweld tegen kinderen, die bij koninklijk besluit voor ten hoogste vier jaar wordt benoemd (<law art="1">artikel 1</law> en <law art="3">artikel 3</law> van de <law>Wet Nationaal rapporteur mensenhandel en seksueel geweld tegen kinderen</law>). De rapporteur onderzoekt die onderwerpen, adviseert de regering en rapporteert periodiek (<law art="5">artikel 5</law>).',
+    en: 'There is a National Rapporteur on Trafficking in Human Beings and Sexual Violence against Children, appointed by royal decree for at most four years (<law art="1">article 1</law> and <law art="3">article 3</law> of the <law>Wet Nationaal rapporteur mensenhandel en seksueel geweld tegen kinderen</law>). The rapporteur researches those subjects, advises the government and reports periodically (<law art="5">article 5</law>).',
+  },
+  "pos:vice-president-raad-van-state": {
+    law: "BWBR0002367",
+    nl: 'De <entity role="body">Raad van State</entity> bestaat, buiten de Koning als voorzitter, uit een vice-president en ten hoogste tien leden (<law art="1">artikel 1</law> van de <law>Wet op de Raad van State</law>). De vice-president wordt bij koninklijk besluit voor het leven benoemd (<law art="2">artikel 2</law>).',
+    en: 'The <entity role="body">Raad van State</entity> consists, besides the King as chair, of a vice-president and at most ten members (<law>Wet op de Raad van State</law>, <law art="1">article 1</law>). The vice-president is appointed for life by royal decree (<law art="2">article 2</law>).',
+  },
+  "pos:voorzitter-afdeling-bestuursrechtspraak": {
+    law: "BWBR0002367",
+    nl: 'Bij koninklijk besluit wordt uit de leden van de Afdeling bestuursrechtspraak een voorzitter van die afdeling benoemd (<law art="30a">artikel 30a</law> van de <law>Wet op de Raad van State</law>). De voorzitter regelt de werkzaamheden van de afdeling.',
+    en: 'A chair of the Administrative Jurisdiction Division is appointed by royal decree from among the members of that division (<law>Wet op de Raad van State</law>, <law art="30a">article 30a</law>). The chair arranges the division\'s work.',
+  },
+  "pos:president-hoge-raad": {
+    law: "BWBR0001830",
+    nl: 'De <entity role="body">Hoge Raad</entity> bestaat uit een president, ten hoogste zeven vice-presidenten, ten hoogste dertig raadsheren en ten hoogste twintig raadsheren in buitengewone dienst (<law art="72">artikel 72</law> van de <law>Wet op de rechterlijke organisatie</law>).',
+    en: 'The <entity role="body">Hoge Raad</entity> consists of a president, at most seven vice-presidents, at most thirty justices and at most twenty justices extraordinary (<law>Wet op de rechterlijke organisatie</law>, <law art="72">article 72</law>).',
+  },
+  "pos:procureur-generaal-hoge-raad": {
+    law: "BWBR0001830",
+    nl: 'Er is een parket bij de <entity role="body">Hoge Raad</entity>, aan het hoofd waarvan de procureur-generaal bij de Hoge Raad staat (<law art="111">artikel 111</law> van de <law>Wet op de rechterlijke organisatie</law>).',
+    en: 'There is a procuratorate at the <entity role="body">Hoge Raad</entity>, headed by the procureur-generaal at the Hoge Raad (<law>Wet op de rechterlijke organisatie</law>, <law art="111">article 111</law>).',
+  },
+  "pos:voorzitter-college-van-procureurs-generaal": {
+    law: "BWBR0001830",
+    nl: 'Het College van procureurs-generaal staat aan het hoofd van het openbaar ministerie. Bij koninklijk besluit wordt een van de procureurs-generaal tot voorzitter van het College benoemd voor ten hoogste drie jaar (<law art="130">artikel 130</law> van de <law>Wet op de rechterlijke organisatie</law>).',
+    en: 'The College van procureurs-generaal heads the public prosecution service. One of the procureurs-generaal is appointed chair of the College by royal decree for at most three years (<law>Wet op de rechterlijke organisatie</law>, <law art="130">article 130</law>).',
+  },
+  "pos:procureur-generaal-lid-college": {
+    law: "BWBR0001830",
+    nl: 'Er is een College van procureurs-generaal. Het College bestaat uit ten minste drie en ten hoogste vijf procureurs-generaal en staat aan het hoofd van het openbaar ministerie (<law art="130">artikel 130</law> van de <law>Wet op de rechterlijke organisatie</law>).',
+    en: 'There is a College van procureurs-generaal. The College consists of at least three and at most five procureurs-generaal and heads the public prosecution service (<law>Wet op de rechterlijke organisatie</law>, <law art="130">article 130</law>).',
   },
 };
 
@@ -372,12 +493,25 @@ export function officeCopyRoles(position: {
   }
   if (title.startsWith("Dijkgraaf")) return withParent({ body: org });
   if (title.startsWith("Minister") || title.startsWith("Staatssecretaris")) return withParent({ ministry: org, body: org });
-  if (title.startsWith("President van de Rechtbank") || title.startsWith("President van het Gerechtshof")) {
+  if (
+    title.startsWith("President van de Rechtbank") ||
+    title.startsWith("President van het Gerechtshof") ||
+    title === "President van de Centrale Raad van Beroep" ||
+    title === "President van het College van Beroep voor het bedrijfsleven"
+  ) {
     return withParent({ body: org });
   }
-  if (title.startsWith("Lid Vaste commissie") || title.startsWith("Voorzitter Vaste commissie")) {
+  if (title.startsWith("Lid Vaste commissie") || title.startsWith("Voorzitter Vaste commissie") || title.startsWith("Ondervoorzitter Vaste commissie")) {
     return { chamber: "org:tweede-kamer", body: org };
   }
+  if (
+    title.startsWith("Voorzitter van de Tweede Kamer") ||
+    title.startsWith("Voorzitter van de Eerste Kamer") ||
+    title.includes("ondervoorzitter van de Tweede Kamer")
+  ) {
+    return { chamber: org, body: org };
+  }
+  if (title === "Nationale ombudsman") return { chamber: "org:tweede-kamer", body: org };
   return withParent({});
 }
 
@@ -438,11 +572,43 @@ export function positionOfficeCopy(position: {
   if (title === "Minister-president en Minister van Algemene Zaken") return fillCopy(MINISTER_PRESIDENT, roles);
   if (dutchRijk && title.startsWith("Staatssecretaris")) return fillCopy(STAATSSECRETARIS, roles);
   if (dutchRijk && title.startsWith("Minister van ") && !title.includes("Stichting")) return fillCopy(MINISTER, roles);
-  if (title.startsWith("President van de Rechtbank") || title.startsWith("President van het Gerechtshof")) {
+  if (
+    title.startsWith("President van de Rechtbank") ||
+    title.startsWith("President van het Gerechtshof") ||
+    title === "President van de Centrale Raad van Beroep" ||
+    title === "President van het College van Beroep voor het bedrijfsleven"
+  ) {
     return fillCopy(PRESIDENT_GERECHT, roles);
   }
   if (title.startsWith("Lid Vaste commissie")) return fillCopy(TK_VASTE_COMMISSIE_LID, roles);
   if (title.startsWith("Voorzitter Vaste commissie")) return fillCopy(TK_VASTE_COMMISSIE_VOORZITTER, roles);
+  if (title.startsWith("Ondervoorzitter Vaste commissie")) return fillCopy(TK_VASTE_COMMISSIE_ONDERVOORZITTER, roles);
+  if (
+    title === "Voorzitter van de Tweede Kamer der Staten-Generaal" ||
+    title === "Voorzitter van de Eerste Kamer der Staten-Generaal"
+  ) {
+    return fillCopy(KAMER_VOORZITTER, roles);
+  }
+  if (
+    title === "Eerste ondervoorzitter van de Tweede Kamer der Staten-Generaal" ||
+    title === "Tweede ondervoorzitter van de Tweede Kamer der Staten-Generaal"
+  ) {
+    return fillCopy(TK_KAMER_ONDERVOORZITTER, roles);
+  }
+  if (title === "Voorzitter van de Raad voor de rechtspraak") {
+    return fillCopy(RAAD_VOOR_DE_RECHTSPRAAK_VOORZITTER, roles);
+  }
+  if (
+    title === "Rechterlijk lid van de Raad voor de rechtspraak" ||
+    title === "Niet-rechterlijk lid van de Raad voor de rechtspraak"
+  ) {
+    return fillCopy(RAAD_VOOR_DE_RECHTSPRAAK_LID, roles);
+  }
+  if (title.startsWith("Korpschef")) return fillCopy(KORPSCHEF, roles);
+  const gov = /^Gouverneur van (.+)$/u.exec(title);
+  if (gov !== null && GOUVERNEUR_LAW[gov[1]] !== undefined) {
+    return fillCopy({ ...gouverneur(gov[1]), law: GOUVERNEUR_LAW[gov[1]] }, roles);
+  }
   if (position.subtype === "agentschap" && /directeur/i.test(title)) return fillCopy(AGENTSCHAP_HEAD, roles);
   const gevolm = /^Gevolmachtigde minister van (.+)$/u.exec(title);
   if (gevolm !== null) return fillCopy(gevolmachtigde(gevolm[1]), roles);
