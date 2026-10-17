@@ -13,6 +13,7 @@ import {
   parsePositionSortDir,
   parsePositionSortKey,
   parsePositionWrap,
+  positionDisplayRest,
   positionFamily,
   positionSearchText,
   positionSections,
@@ -71,6 +72,15 @@ describe("position families", () => {
     const leftoverElected = sections.find((section) => section.key === "elected");
     expect(leftoverElected?.items.map((item) => item.label)).toEqual(["Fractievoorzitter BBB", "Fractievoorzitter CDA"]);
   });
+
+  test("a bare office stem takes its rest from the body name", () => {
+    expect(positionDisplayRest("Wethouder", "College van burgemeester en wethouders van Aa en Hunze")).toBe("Aa en Hunze");
+    expect(positionDisplayRest("Gedeputeerde", "Gedeputeerde Staten van Drenthe")).toBe("Drenthe");
+    expect(positionDisplayRest("Secretaris-generaal", "Ministerie van Financiën")).toBe("Financiën");
+    expect(positionDisplayRest("Burgemeester van Amsterdam", "Gemeente Amsterdam")).toBeNull();
+    expect(positionDisplayRest("Wethouder", "Tweede Kamer")).toBeNull();
+    expect(positionDisplayRest("Wethouder", null)).toBeNull();
+  });
 });
 
 describe("position sort", () => {
@@ -124,6 +134,9 @@ describe("list rows", () => {
     expect(positions.groups.reduce((sum, group) => sum + group.count, 0)).toBe(positions.total);
     expect(positions.rows.some((row) => typeof row.h === "string" && row.h.length > 0)).toBe(true);
     expect(positions.rows.every((row) => row.hc == null || (row.h != null && row.hc > 0))).toBe(true);
+    const bare = positions.rows.filter((row) => row.n === "Wethouder" || row.n === "Gedeputeerde" || row.n === "Secretaris-generaal");
+    expect(bare.length).toBeGreaterThan(4);
+    expect(bare.every((row) => positionDisplayRest(row.n, row.o) != null)).toBe(true);
   });
 
   test("rows come in display order: people by letter, groups in group order", () => {
