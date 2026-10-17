@@ -79,7 +79,7 @@ Never echo a secret. The workflows pass secrets only as step-level environment v
 
 ## Self-hosted runner
 
-The runner lives outside the repository, in `~/actions-runner`, with the label `staatsgraaf`. It is a LaunchAgent for the logged-in user.
+The runner lives outside the repository, in `~/actions-runner`, with the label `staatsgraaf`. It is a LaunchAgent for the logged-in user. `~/actions-runner/.path` must be a single colon-separated PATH (the service script assigns the file to `PATH` as-is); include `/usr/bin` and `/opt/homebrew/bin` so `tar` and Homebrew `git` resolve. Apple's Xcode `git` hangs `git version` inside the service, so `brew install git` is required.
 
 ```sh
 cd ~/actions-runner

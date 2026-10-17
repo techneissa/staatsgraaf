@@ -44,6 +44,7 @@ jobs:
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           persist-credentials: false
+          fetch-depth: 1
 
       # Bun installs packages and runs the validator and the tests.
       - name: Setup Bun
