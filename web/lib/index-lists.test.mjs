@@ -10,10 +10,13 @@ import {
   organizationTree,
   OTHER_SUBGROUP,
   personSearchText,
+  parsePositionSortDir,
+  parsePositionSortKey,
   positionFamily,
   positionSearchText,
   positionSections,
   searchTerms,
+  sortPositionRows,
 } from "./index-lists";
 import { buildOrganizationRows, buildPeopleRows, buildPositionRows } from "./index-rows";
 import { getOrganizations, getPeople, getPositions } from "./data";
@@ -66,6 +69,27 @@ describe("position families", () => {
     expect(leftoverHeads?.items.map((item) => item.label)).toEqual(["Koning der Nederlanden"]);
     const leftoverElected = sections.find((section) => section.key === "elected");
     expect(leftoverElected?.items.map((item) => item.label)).toEqual(["Fractievoorzitter BBB", "Fractievoorzitter CDA"]);
+  });
+});
+
+describe("position sort", () => {
+  const rows = [
+    { s: "utrecht", n: "Burgemeester van Utrecht", t: "dept_head", o: "Gemeente Utrecht", h: "Sharon Dijksma" },
+    { s: "financien", n: "Minister van Financiën", t: "dept_head", o: "Ministerie van Financiën", h: "Eelco Heinen" },
+    { s: "koning", n: "Koning der Nederlanden", t: "dept_head", o: "Koninklijk Huis" },
+  ];
+
+  test("unknown keys fall back to title, ascending", () => {
+    expect(parsePositionSortKey("nope")).toBe("title");
+    expect(parsePositionSortDir("")).toBe("asc");
+    expect(parsePositionSortDir("desc")).toBe("desc");
+  });
+
+  test("title sort is alphabetical, and a missing holder sits last in both directions", () => {
+    expect(sortPositionRows(rows, "title", "asc").map((row) => row.s)).toEqual(["utrecht", "koning", "financien"]);
+    expect(sortPositionRows(rows, "holder", "asc").map((row) => row.s)).toEqual(["financien", "utrecht", "koning"]);
+    expect(sortPositionRows(rows, "holder", "desc").map((row) => row.s)).toEqual(["utrecht", "financien", "koning"]);
+    expect(sortPositionRows(rows, "org", "asc").map((row) => row.s)).toEqual(["utrecht", "koning", "financien"]);
   });
 });
 

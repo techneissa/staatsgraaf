@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useLocale } from "@/components/i18n/language-provider";
 import { LocaleLabel } from "@/components/i18n/locale-label";
 import { useT } from "@/components/i18n/use-t";
@@ -29,6 +30,7 @@ export function PositionFilters({
   total,
   onQuery,
   onGroup,
+  toolbar,
 }: {
   query: string;
   group: string;
@@ -36,6 +38,8 @@ export function PositionFilters({
   total: number;
   onQuery: (value: string) => void;
   onGroup: (value: string) => void;
+  /** Column headers of the positions table, kept in the sticky bar. */
+  toolbar?: ReactNode;
 }) {
   const t = useT("entity");
   const locale = useLocale();
@@ -80,6 +84,7 @@ export function PositionFilters({
           );
         })}
       </div>
+      {toolbar}
     </div>
   );
 }

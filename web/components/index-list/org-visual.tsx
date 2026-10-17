@@ -101,6 +101,7 @@ const TILE_SIZE = {
   lg: { box: "h-9 w-9 rounded-lg", icon: 19 },
   md: { box: "h-8 w-8 rounded-lg", icon: 17 },
   sm: { box: "h-7 w-7 rounded-md", icon: 15 },
+  xs: { box: "h-5 w-5 rounded", icon: 12 },
 } as const;
 
 export type VisualSize = keyof typeof TILE_SIZE;
