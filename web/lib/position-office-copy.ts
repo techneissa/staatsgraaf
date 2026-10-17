@@ -34,6 +34,16 @@
  * - Grondwet art. 54 lid 1: Tweede Kamer members are elected directly by Dutch nationals aged eighteen or over.
  * - Grondwet art. 55 lid 1: Eerste Kamer members are elected by members of provinciale staten and of the kiescolleges.
  * - Grondwet art. 61 lid 2: "Elk der kamers benoemt een griffier."
+ * - Wet RO (geldend van 01-01-2026) art. 15 lid 3: "De voorzitter van het bestuur draagt de titel van president."
+ * - Wet RO art. 15 lid 4: "De bestuursleden worden bij koninklijk besluit op voordracht van Onze Minister benoemd voor een periode van zes jaar."
+ * - Wet RO art. 27: "De president vertegenwoordigt het gerecht."
+ * - Regeling agentschappen 2024 (geldend van 01-01-2025) art. 1 lid 1: "eindverantwoordelijke binnen het agentschap: de hoogstgeplaatste ambtenaar die binnen het agentschap de eindverantwoordelijkheid draagt voor het beleid en de algemene gang van zaken;"
+ * - RvO Tweede Kamer (BWBR0044975, geldend van 16-06-2026) art. 7.1 lid 1: "Er is een vaste commissie voor elk ministerie, met uitzondering van het ministerie van Algemene Zaken."
+ * - RvO Tweede Kamer art. 7.11 lid 2: "De Voorzitter benoemt in overleg met de fracties en groepen de leden, en voor zover hij dit wenselijk acht, plaatsvervangende leden."
+ * - RvO Tweede Kamer art. 7.12 lid 1: "Een nieuw ingestelde commissie benoemt in haar eerste vergadering uit haar midden een commissievoorzitter en een commissieondervoorzitter."
+ * - RvO Tweede Kamer art. 7.13 lid 1 onder a: "het leiden van de werkzaamheden van een commissie;"
+ * - Comptabiliteitswet 2016 art. 7.8 lid 1: "De president houdt toezicht op de werkzaamheden van de Algemene Rekenkamer en op de juiste toepassing van het bij of krachtens dit hoofdstuk bepaalde."
+ * - knmi.nl/over-het-knmi/bestuur, fetched 2026-10-17: "Maarten van Aalst is sinds 1 februari 2023 eindverantwoordelijk voor het KNMI."
  * - rijksoverheid.nl organogram pages, "ambtelijke leiding over het ministerie":
  *   AZ "De secretaris-generaal (SG) is belast met de ambtelijke leiding van het ministerie.",
  *   BZ "heeft sinds 12 augustus 2024 de ambtelijke leiding over het ministerie van Buitenlandse Zaken",
@@ -53,6 +63,12 @@
  *   inspecteur-generaal "verantwoordelijk voor de uitvoerende diensten van het
  *   ministerie", the OCW inspecties page says nothing on the office). Omitted.
  * - Statuut art. 46 states no seat counts; none are written here.
+ * - Statuut art. 7: "De raad van ministers van het Koninkrijk is samengesteld uit de door de Koning benoemde ministers en de door de regering van Aruba, Curaçao onderscheidenlijk Sint Maarten benoemde Gevolmachtigde Minister."
+ * - Statuut art. 8 lid 1: "De Gevolmachtigde Ministers handelen namens de regeringen van hun land, die hen benoemen en ontslaan."
+ * - Fractievoorzitter: neither Kamer RvO uses the word; named gap.
+ * - Eerste Kamer committee seats: the fetched EK RvO (BWBR0007428) is marked
+ *   materieel uitgewerkt per 13-06-2023, so it is not used.
+ * - Caribbean ministers stay empty until their own laws are fetched.
  */
 
 export type PositionOfficeCopy = { nl: string; en: string };
@@ -65,6 +81,11 @@ export const EILANDGEDEPUTEERDE_SOURCE = "https://wetten.overheid.nl/BWBR0028142
 export const STATUUT_SOURCE = "https://wetten.overheid.nl/BWBR0002154";
 export const WATERSCHAPSWET_SOURCE = "https://wetten.overheid.nl/BWBR0005108";
 export const GRONDWET_SOURCE = "https://wetten.overheid.nl/BWBR0001840";
+export const WET_RO_SOURCE = "https://wetten.overheid.nl/BWBR0001830";
+export const REGELING_AGENTSCHAPPEN_SOURCE = "https://wetten.overheid.nl/BWBR0050264";
+export const RVO_TWEEDE_KAMER_SOURCE = "https://wetten.overheid.nl/BWBR0044975";
+export const COMPTABILITEITSWET_SOURCE = "https://wetten.overheid.nl/BWBR0039429";
+export const KNMI_BESTUUR_SOURCE = "https://www.knmi.nl/over-het-knmi/bestuur";
 export const SECRETARIS_GENERAAL_SOURCES = [
   "https://www.rijksoverheid.nl/ministeries/ministerie-van-algemene-zaken/organisatie/organogram/secretaris-generaal",
   "https://www.rijksoverheid.nl/ministeries/ministerie-van-buitenlandse-zaken/organisatie/organogram/secretaris-generaal-en-plaatsvervangend-sg",
@@ -203,6 +224,38 @@ const MINISTER_PRESIDENT: OfficeTemplate = {
   en: 'The minister-president is appointed by royal decree (<law>Grondwet</law>, <law art="43">article 43</law>) and chairs the council of ministers (<law art="45">article 45, paragraph 2</law>).',
 };
 
+const PRESIDENT_GERECHT: OfficeTemplate = {
+  law: "BWBR0001830",
+  nl: 'De voorzitter van het bestuur van het <entity role="body">gerecht</entity> draagt de titel van president en wordt bij koninklijk besluit benoemd voor zes jaar (<law art="15">artikel 15</law> van de <law>Wet op de rechterlijke organisatie</law>). De president vertegenwoordigt het gerecht (<law art="27">artikel 27</law>).',
+  en: 'The chair of the board of the <entity role="body">court</entity> holds the title of president and is appointed by royal decree for six years (<law>Wet op de rechterlijke organisatie</law>, <law art="15">article 15</law>). The president represents the court (<law art="27">article 27</law>).',
+};
+
+const AGENTSCHAP_HEAD: OfficeTemplate = {
+  law: "BWBR0050264",
+  nl: 'De hoogstgeplaatste ambtenaar van het <entity role="body">agentschap</entity> draagt de eindverantwoordelijkheid voor het beleid en de algemene gang van zaken (<law art="1">artikel 1</law> van de <law>Regeling agentschappen 2024</law>).',
+  en: 'The highest-ranking official of the <entity role="body">agency</entity> bears final responsibility for policy and the general course of affairs (<law>Regeling agentschappen 2024</law>, <law art="1">article 1</law>).',
+};
+
+const TK_VASTE_COMMISSIE_LID: OfficeTemplate = {
+  law: "BWBR0044975",
+  nl: 'De <entity role="chamber">Tweede Kamer</entity> heeft een vaste commissie voor elk ministerie, met uitzondering van het ministerie van Algemene Zaken (<law art="7.1">artikel 7.1</law> van het <law>Reglement van Orde</law>). De Voorzitter benoemt de leden in overleg met de fracties (<law art="7.11">artikel 7.11</law>).',
+  en: 'The <entity role="chamber">Tweede Kamer</entity> has a standing committee for each ministry except the Ministry of General Affairs (<law>Reglement van Orde</law>, <law art="7.1">article 7.1</law>). The Speaker appoints the members in consultation with the parliamentary groups (<law art="7.11">article 7.11</law>).',
+};
+
+function gevolmachtigde(country: string): OfficeTemplate {
+  return {
+    law: "BWBR0002154",
+    nl: `De gevolmachtigde minister van ${country} handelt namens de regering van dat land, die hem benoemt en ontslaat (<law art="8">artikel 8</law> van het <law>Statuut voor het Koninkrijk der Nederlanden</law>). Hij heeft zitting in de raad van ministers van het Koninkrijk (<law art="7">artikel 7</law>).`,
+    en: `The gevolmachtigde minister of ${country} acts on behalf of that country's government, which appoints and dismisses them (<law art="8">article 8</law> of the <law>Statuut voor het Koninkrijk der Nederlanden</law>). They sit on the council of ministers of the Kingdom (<law art="7">article 7</law>).`,
+  };
+}
+
+const TK_VASTE_COMMISSIE_VOORZITTER: OfficeTemplate = {
+  law: "BWBR0044975",
+  nl: 'Een nieuw ingestelde commissie van de <entity role="chamber">Tweede Kamer</entity> benoemt in haar eerste vergadering uit haar midden een commissievoorzitter (<law art="7.12">artikel 7.12</law> van het <law>Reglement van Orde</law>). De commissievoorzitter leidt de werkzaamheden van de commissie (<law art="7.13">artikel 7.13</law>).',
+  en: 'A newly established committee of the <entity role="chamber">Tweede Kamer</entity> appoints a chair from among its members at its first meeting (<law>Reglement van Orde</law>, <law art="7.12">article 7.12</law>). The committee chair leads the committee\'s work (<law art="7.13">article 7.13</law>).',
+};
+
 /** Unique offices whose copy was written from a fetched official page, keyed by position id. */
 const UNIQUE: Record<string, OfficeTemplate> = {
   "pos:justitiele-informatiedienst-algemeendirecteur": {
@@ -216,6 +269,15 @@ const UNIQUE: Record<string, OfficeTemplate> = {
   "pos:justitiele-ict-organisatie-algemeendirecteur": {
     nl: 'De algemeen directeur staat aan het hoofd van de <entity role="body">Justitiële ICT Organisatie</entity>, de ICT-dienstverlener van het <entity role="ministry">ministerie van Justitie en Veiligheid</entity>.',
     en: 'The algemeen directeur heads the <entity role="body">Justitiële ICT Organisatie</entity>, the ICT service of the <entity role="ministry">Ministry of Justice and Security</entity>.',
+  },
+  "pos:president-algemene-rekenkamer": {
+    law: "BWBR0039429",
+    nl: 'De president houdt toezicht op de werkzaamheden van de <entity role="body">Algemene Rekenkamer</entity> (<law art="7.8">artikel 7.8</law> van de <law>Comptabiliteitswet 2016</law>).',
+    en: 'The president supervises the work of the <entity role="body">Algemene Rekenkamer</entity> (<law>Comptabiliteitswet 2016</law>, <law art="7.8">article 7.8</law>).',
+  },
+  "pos:koninklijk-nederlands-meteorologisch-instituut-hoofddirecteur": {
+    nl: 'De hoofddirecteur is eindverantwoordelijk voor het <entity role="body">KNMI</entity>.',
+    en: 'The hoofddirecteur is ultimately responsible for <entity role="body">KNMI</entity>.',
   },
 };
 
@@ -310,6 +372,12 @@ export function officeCopyRoles(position: {
   }
   if (title.startsWith("Dijkgraaf")) return withParent({ body: org });
   if (title.startsWith("Minister") || title.startsWith("Staatssecretaris")) return withParent({ ministry: org, body: org });
+  if (title.startsWith("President van de Rechtbank") || title.startsWith("President van het Gerechtshof")) {
+    return withParent({ body: org });
+  }
+  if (title.startsWith("Lid Vaste commissie") || title.startsWith("Voorzitter Vaste commissie")) {
+    return { chamber: "org:tweede-kamer", body: org };
+  }
   return withParent({});
 }
 
@@ -370,5 +438,13 @@ export function positionOfficeCopy(position: {
   if (title === "Minister-president en Minister van Algemene Zaken") return fillCopy(MINISTER_PRESIDENT, roles);
   if (dutchRijk && title.startsWith("Staatssecretaris")) return fillCopy(STAATSSECRETARIS, roles);
   if (dutchRijk && title.startsWith("Minister van ") && !title.includes("Stichting")) return fillCopy(MINISTER, roles);
+  if (title.startsWith("President van de Rechtbank") || title.startsWith("President van het Gerechtshof")) {
+    return fillCopy(PRESIDENT_GERECHT, roles);
+  }
+  if (title.startsWith("Lid Vaste commissie")) return fillCopy(TK_VASTE_COMMISSIE_LID, roles);
+  if (title.startsWith("Voorzitter Vaste commissie")) return fillCopy(TK_VASTE_COMMISSIE_VOORZITTER, roles);
+  if (position.subtype === "agentschap" && /directeur/i.test(title)) return fillCopy(AGENTSCHAP_HEAD, roles);
+  const gevolm = /^Gevolmachtigde minister van (.+)$/u.exec(title);
+  if (gevolm !== null) return fillCopy(gevolmachtigde(gevolm[1]), roles);
   return null;
 }
