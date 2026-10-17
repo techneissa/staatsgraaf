@@ -4,7 +4,8 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 const URL_DEBOUNCE_MS = 200;
 
-function writeParams<Key extends string>(keys: readonly Key[], values: Record<Key, string>) {
+function writeParams<Key extends string>(keys: readonly Key[], values: Record<Key, string>, pathname: string) {
+  if (window.location.pathname !== pathname) return;
   const url = new URL(window.location.href);
   for (const key of keys) {
     const value = values[key].trim();
@@ -26,9 +27,11 @@ export function useIndexParams<Key extends string>(keys: readonly Key[]) {
   const [ready, setReady] = useState(false);
   const keysRef = useRef(keys);
   const valuesRef = useRef(values);
+  const pathRef = useRef("");
   valuesRef.current = values;
 
   useEffect(() => {
+    pathRef.current = window.location.pathname;
     const params = new URLSearchParams(window.location.search);
     setValues(Object.fromEntries(keysRef.current.map((key) => [key, params.get(key) ?? ""])) as Record<Key, string>);
     setReady(true);
@@ -36,13 +39,13 @@ export function useIndexParams<Key extends string>(keys: readonly Key[]) {
 
   useEffect(() => {
     if (!ready) return;
-    const id = window.setTimeout(() => writeParams(keysRef.current, valuesRef.current), URL_DEBOUNCE_MS);
+    const id = window.setTimeout(() => writeParams(keysRef.current, valuesRef.current, pathRef.current), URL_DEBOUNCE_MS);
     return () => window.clearTimeout(id);
   }, [values, ready]);
 
   useEffect(() => {
     if (!ready) return;
-    return () => writeParams(keysRef.current, valuesRef.current);
+    return () => writeParams(keysRef.current, valuesRef.current, pathRef.current);
   }, [ready]);
 
   const set = useCallback((key: Key, value: string) => setValues((current) => (current[key] === value ? current : { ...current, [key]: value })), []);

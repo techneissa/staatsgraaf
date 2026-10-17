@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (17-10-2026, positions table)
+
+- The positions list is one sortable table: Positie, Orgaan, Houder. Each heading sorts the list, each row is a link to the position, and the title stays on one line in a smaller type with a smaller type icon. On a narrow column the cells stack under the title.
+
 ### Changed (17-10-2026, positions index)
 
 - The positions list is a directory of rows with a type icon, the body, and a current holder when the dataset has one. Repeated office stems (burgemeester, minister, fractievoorzitter) get their own heading. Type filters are a compact labelled grid, not a scrolling pill row. Typing a search no longer remounts the list or jumps the page.

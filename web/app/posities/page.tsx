@@ -14,15 +14,15 @@ import { absoluteUrl, pageMetadata, SITE_NAME } from "@/lib/site";
 export const metadata: Metadata = pageMetadata({
   title: "Posities",
   description:
-    "Alle posities in de dataset, gegroepeerd naar type, met de organisatie waar de positie toe hoort en een bron per wettelijke basis.",
+    "Alle posities in de dataset, te sorteren op titel, orgaan of houder, met de organisatie waar de positie toe hoort en een bron per wettelijke basis.",
   path: "/posities/",
   snapshotDate: getDatasetDate(),
 });
 
 /**
- * The positions index. The page carries the first screen of cards; the whole
+ * The positions index. The page carries the first screen of rows; the whole
  * list is one JSON file (/peek/lists/posities.json) that the view fetches at
- * once, searches and windows on the client.
+ * once, searches, sorts and windows on the client.
  */
 export default function PositionsIndexPage() {
   const { rows, groups, total } = buildPositionRows();

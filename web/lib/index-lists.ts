@@ -311,3 +311,44 @@ export function positionSections(rows: PositionRow[], minFamily = POSITION_FAMIL
   }
   return out;
 }
+
+export const POSITION_SORT_KEYS = ["title", "org", "holder"] as const;
+export type PositionSortKey = (typeof POSITION_SORT_KEYS)[number];
+export type PositionSortDir = "asc" | "desc";
+
+export function parsePositionSortKey(value: string): PositionSortKey {
+  return POSITION_SORT_KEYS.includes(value as PositionSortKey) ? (value as PositionSortKey) : "title";
+}
+
+export function parsePositionSortDir(value: string): PositionSortDir {
+  return value === "desc" ? "desc" : "asc";
+}
+
+const POSITION_COLLATOR = new Intl.Collator("nl", { sensitivity: "base", numeric: true });
+
+function sortValue(row: PositionRow, key: PositionSortKey): string {
+  if (key === "org") return row.o ?? "";
+  if (key === "holder") return row.h ?? "";
+  return row.n;
+}
+
+/**
+ * Orders a filtered positions list by title, body or holder. Empty values
+ * (no body, no current holder) sit last in both directions, then the title
+ * breaks ties so a sort is stable to look at.
+ */
+export function sortPositionRows(rows: PositionRow[], key: PositionSortKey, dir: PositionSortDir): PositionRow[] {
+  const copy = rows.slice();
+  copy.sort((a, b) => {
+    const av = sortValue(a, key);
+    const bv = sortValue(b, key);
+    const aEmpty = av === "";
+    const bEmpty = bv === "";
+    if (aEmpty !== bEmpty) return aEmpty ? 1 : -1;
+    const cmp = POSITION_COLLATOR.compare(av, bv);
+    const ordered = dir === "asc" ? cmp : -cmp;
+    if (ordered !== 0) return ordered;
+    return POSITION_COLLATOR.compare(a.n, b.n) || a.s.localeCompare(b.s);
+  });
+  return copy;
+}
