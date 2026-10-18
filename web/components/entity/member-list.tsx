@@ -41,14 +41,14 @@ export function MemberList({
           const body = getOrganizationById(membership.organization);
           const roleColor = body ? branchColorVar(body.branch) : "var(--kind-position)";
           return (
-            <li key={membership.id} className="flex w-[calc(50%-0.25rem)] min-w-0 flex-col items-center @[28rem]:w-28">
+            <li key={membership.id} className="flex w-[calc(50%-0.25rem)] min-w-0 flex-col items-center sm:w-28">
               <EntityPeekLink
                 id={person.id}
                 variant="bare"
                 className="flex w-full flex-col items-center gap-1 text-center"
               >
                 <PersonPortrait person={person} size={48} />
-                <span className="text-xs font-medium leading-tight [overflow-wrap:anywhere]">{person.name}</span>
+                <span className="text-xs font-medium leading-tight">{person.name}</span>
               </EntityPeekLink>
               <PersonPortraitCredit person={person} />
               {showParty && membership.fractie !== null ? (
@@ -80,9 +80,9 @@ export function MemberList({
     );
   }
   return (
-    <ol className="divide-y divide-line/60 @[40rem]:grid @[40rem]:grid-cols-2 @[40rem]:gap-x-8 @[40rem]:divide-y-0">
+    <ol className="divide-y divide-line/60">
       {members.map(({ membership, person }) => (
-        <li key={membership.id} className="flex min-w-0 items-start gap-3 py-2 @[40rem]:border-b @[40rem]:border-line/60">
+        <li key={membership.id} className="flex items-start gap-3 py-2">
           <PersonPortrait person={person} size={36} className="mt-0.5" />
           <div className="min-w-0 flex-1">
             <div>

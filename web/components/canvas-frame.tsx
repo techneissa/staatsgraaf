@@ -61,23 +61,18 @@ const ConnectionsView = dynamic(() => import("./power/connections-view").then((m
 
 export function CanvasFrame() {
   const pathname = usePathname();
-  /** The home page is the graph on a phone; from tablet width the page is first. */
+  /** The home page is the graph; every other route is a page that shares the workspace with it. */
   const isHome = pathname === "/";
-  const { desktop, tablet, canvasOpen, setCanvasOpen } = usePanelState();
-  // Phone home still leads with the graph, so its data starts with the HTML.
-  // From tablet the canvas is closed unless the reader opened it; preload only
-  // then, so an iPad does not fetch graph.json for a page it is not showing.
-  preload("/graph.json", {
-    as: "fetch",
-    crossOrigin: "anonymous",
-    ...(canvasOpen ? {} : { media: "(max-width: 47.999rem)" }),
-  });
+  // The graph is the first thing the home page shows, and from lg the middle
+  // column of every page, so its data starts downloading with the HTML, before
+  // any script has run. A phone on any other page folds the graph and skips it.
+  preload("/graph.json", { as: "fetch", crossOrigin: "anonymous", ...(isHome ? {} : { media: "(min-width: 64rem)" }) });
+  const { desktop } = usePanelState();
   /**
-   * Below md a page other than the home page folds the canvas to one toolbar
+   * Below lg a page other than the home page folds the canvas to one toolbar
    * row so its own content starts on the first screen; this opens it. The
    * choice lasts for the visit (lib/canvas-prefs.ts) and is mirrored on <html>
-   * where globals.css reads it before hydration. From md, canvasOpen does
-   * the same job on every route, including home.
+   * where globals.css reads it before hydration.
    */
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -99,28 +94,14 @@ export function CanvasFrame() {
    * needs more room than the column gives.
    */
   const [expanded, setExpanded] = useState(false);
-  /**
-   * matchMedia is false on the server, so the first client paint would treat
-   * an iPad or desktop as a phone and fetch the graph on home. Wait one frame
-   * for the real breakpoint before the canvas counts as on screen, unless the
-   * reader already opened or expanded it.
-   */
-  const [layoutReady, setLayoutReady] = useState(false);
-  useEffect(() => {
-    setLayoutReady(true);
-  }, []);
-  /**
-   * Whether the canvas is on screen. On a phone the home page is the graph and
-   * other routes wait for the fold button. From tablet width the page is first
-   * and the graph loads only when the reader opened it, or when it is expanded.
-   */
-  const onScreen = expanded || canvasOpen || (layoutReady && !tablet && (isHome || open));
+  /** Whether the canvas is on screen: always on the home page and from lg, else when the reader opened it. */
+  const onScreen = isHome || desktop || open || expanded;
   /**
    * Parsing graph.json and mounting the wheel blocks the main thread. On a
    * page that is not the graph, wait until the page (and the top bar) have
    * painted. Opening or expanding the canvas skips the wait.
    */
-  const [heavyReady, setHeavyReady] = useState(false);
+  const [heavyReady, setHeavyReady] = useState(isHome);
   useEffect(() => {
     if (!onScreen) return;
     if (isHome || open || expanded) {
@@ -254,11 +235,8 @@ export function CanvasFrame() {
         const id = detail.id ?? (detail.slug ? personBySlug.get(detail.slug) ?? `person:${detail.slug}` : null);
         if (id) select({ kind: "person", id, surface: "power" });
       }
-      // From tablet width the canvas starts closed: open the column (or the
-      // folded band below lg) so the focused person is actually on screen.
-      if (window.matchMedia("(min-width: 48rem)").matches) {
-        setCanvasOpen(true);
-      }
+      // On a phone or tablet the canvas sits above the content: open it if it
+      // is folded, and bring it into view.
       if (window.matchMedia("(max-width: 1023.98px)").matches) {
         setOpen(true);
         writeCanvasOpen(true);
@@ -268,7 +246,7 @@ export function CanvasFrame() {
     };
     window.addEventListener("staatsgraaf:focus", handler);
     return () => window.removeEventListener("staatsgraaf:focus", handler);
-  }, [bundle, personBySlug, select, setCanvasOpen]);
+  }, [bundle, personBySlug, select]);
 
   useEffect(() => {
     setExpanded(false);
@@ -334,17 +312,16 @@ export function CanvasFrame() {
       >
         {/* A page other than the home page folds this band to this one row below
             lg (globals.css, "Graph band"); a native button, remembered for the visit. */}
-        {expanded ? null : (
+        {isHome || expanded ? null : (
           <button
             type="button"
-            data-canvas-fold
-            onClick={() => (tablet ? setCanvasOpen(!canvasOpen) : toggleOpen())}
-            aria-expanded={tablet ? canvasOpen : open}
+            onClick={toggleOpen}
+            aria-expanded={open}
             aria-controls="sg-canvas-body"
             className="tap-target flex min-h-11 w-full items-center gap-2 rounded-sm border border-line bg-surface px-3 text-sm font-medium text-ink transition-fast hover:border-line-strong lg:hidden"
           >
-            <LucideIcon icon={(tablet ? canvasOpen : open) ? ChevronUp : Orbit} size={16} />
-            <span>{(tablet ? canvasOpen : open) ? t("canvasHide") : t("canvasShow")}</span>
+            <LucideIcon icon={open ? ChevronUp : Orbit} size={16} />
+            <span>{open ? t("canvasHide") : t("canvasShow")}</span>
           </button>
         )}
         <div data-canvas-tools className="flex min-w-0 flex-1 flex-wrap items-center justify-between gap-x-3 gap-y-2">
@@ -361,24 +338,6 @@ export function CanvasFrame() {
             datedEdges={datedEdges}
           />
         </div>
-        {desktop && canvasOpen && !expanded ? (
-          <button
-            type="button"
-            data-canvas-tools
-            onClick={() => {
-              setCanvasOpen(false);
-              requestAnimationFrame(() => document.getElementById("sg-canvas-show")?.focus());
-            }}
-            aria-label={t("canvasHide")}
-            title={t("canvasHide")}
-            className="tap-target hidden shrink-0 items-center justify-center gap-1.5 rounded-sm border border-line bg-surface px-2 py-1 text-xs font-medium text-ink-muted transition-fast hover:border-line-strong hover:text-ink lg:flex"
-          >
-            <svg aria-hidden="true" viewBox="0 0 12 12" width="12" height="12">
-              <path d="M7.5 2.5 4 6l3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-            <span className="max-[1180px]:sr-only">{t("canvasHide")}</span>
-          </button>
-        ) : null}
         <button
           type="button"
           data-canvas-tools

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { DETAILS_WIDTH, PAGE_COL_MIN_PX, CANVAS_COL_MIN_PX, PANELS_INIT_SCRIPT, availableDetailsMax, clampDetailsWidth, parseCanvasOpen, parseDetailsWidth, parseOpen, widthAfterKey } from "./panel-prefs.ts";
+import { DETAILS_WIDTH, PANELS_INIT_SCRIPT, clampDetailsWidth, parseDetailsWidth, parseOpen, widthAfterKey } from "./panel-prefs.ts";
 import { compactValue, normalizePanelRecord, panelShard } from "./panel-data.ts";
 
 describe("panel preferences", () => {
@@ -15,28 +15,12 @@ describe("panel preferences", () => {
     expect(parseOpen("open")).toBe(true);
     expect(parseOpen("closed")).toBe(false);
   });
-  test("the canvas starts closed unless a stored 'open' restores it", () => {
-    expect(parseCanvasOpen(null)).toBe(false);
-    expect(parseCanvasOpen("closed")).toBe(false);
-    expect(parseCanvasOpen("open")).toBe(true);
-  });
-  test("the head script closes the canvas by default", () => {
-    expect(PANELS_INIT_SCRIPT).toContain("data-canvas-panel");
-    expect(PANELS_INIT_SCRIPT).toContain("!==\"open\"");
-    expect(PANELS_INIT_SCRIPT).toMatch(/catch\(e\)\{try\{document\.documentElement\.setAttribute\("data-canvas-panel","closed"\)/);
-  });
   test("arrow keys resize from the left edge", () => {
     expect(widthAfterKey(320, "ArrowLeft")).toBe(336);
     expect(widthAfterKey(320, "ArrowRight")).toBe(304);
     expect(widthAfterKey(320, "ArrowRight", true)).toBe(256);
     expect(widthAfterKey(320, "End")).toBe(DETAILS_WIDTH.max);
-    expect(widthAfterKey(320, "End", false, 800)).toBe(800);
     expect(widthAfterKey(320, "a")).toBeNull();
-  });
-  test("details can fill the leftover width after the page minimum", () => {
-    expect(availableDetailsMax(1440, false)).toBe(1440 - PAGE_COL_MIN_PX);
-    expect(availableDetailsMax(1440, true)).toBe(1440 - PAGE_COL_MIN_PX - CANVAS_COL_MIN_PX);
-    expect(availableDetailsMax(400, false)).toBe(DETAILS_WIDTH.min);
   });
   test("the head script is valid JavaScript", () => {
     expect(() => new Function(PANELS_INIT_SCRIPT)).not.toThrow();

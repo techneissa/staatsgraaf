@@ -708,33 +708,20 @@
 /*
  * Workspace (components/panels/workspace.tsx): the page column, the canvas
  * and the details panel. From lg they are three grid columns; the reader can
- * fold the canvas (the default) so the page uses the remaining width, fold
- * either side column, and widen the page with a button (it folds details). The stored choices
- * arrive on <html> before first paint (PANELS_INIT_SCRIPT), so the columns
- * never open and shut again on load. A folding side column keeps its content
- * at full width and is clipped as it narrows, so its text slides away
- * instead of rewrapping on every frame. Closing the canvas is the opposite:
- * the page inner grows and the editorial cards reflow. The column width is
- * the fourth deliberate exception to "only transform and opacity" in the
- * motion system.
+ * fold either side column away and drag the details panel wider. The stored
+ * choices arrive on <html> before first paint (PANELS_INIT_SCRIPT), so the
+ * columns never open and shut again on load. A folding column keeps its
+ * content at full width and is clipped as it narrows, so its text slides
+ * away instead of rewrapping on every frame. The column width is the fourth
+ * deliberate exception to "only transform and opacity" in the motion system.
  */
 @media (min-width: 64rem) {
   .sg-workspace {
     --page-w: clamp(22rem, 34vw, 32rem);
-    --page-min: 22rem;
-    --canvas-min: 18rem;
-    --details-w-resolved: min(var(--details-w, 20rem), calc(100% - var(--page-min) - var(--canvas-min)));
-    grid-template-columns: var(--page-col, var(--page-w)) var(--canvas-col, minmax(0, 1fr)) var(--details-col, var(--details-w-resolved));
+    --details-w-resolved: min(var(--details-w, 20rem), 32vw);
+    grid-template-columns: var(--page-col, var(--page-w)) minmax(0, 1fr) var(--details-col, var(--details-w-resolved));
   }
   html[data-page-panel="closed"] .sg-workspace {
-    --page-col: 0px;
-  }
-  html[data-canvas-panel="closed"] .sg-workspace {
-    --page-col: minmax(0, 1fr);
-    --canvas-col: 0px;
-    --details-w-resolved: min(var(--details-w, 20rem), calc(100% - var(--page-min)));
-  }
-  html[data-page-panel="closed"][data-canvas-panel="closed"] .sg-workspace {
     --page-col: 0px;
   }
   html[data-details-panel="closed"] .sg-workspace {
@@ -743,16 +730,12 @@
   .sg-page-inner {
     width: var(--page-w);
   }
-  html[data-canvas-panel="closed"] .sg-page-inner {
-    width: auto;
-  }
   .sg-details-inner {
     width: var(--details-w-resolved);
   }
   /* A folded column leaves the tab order and the accessibility tree once it has slid away. */
   html[data-page-panel="closed"] .sg-page-col,
-  html[data-details-panel="closed"] .sg-details-col,
-  html[data-canvas-panel="closed"] [data-canvas-frame]:not([data-expanded]) {
+  html[data-details-panel="closed"] .sg-details-col {
     visibility: hidden;
     transition: visibility 0s linear var(--motion-slow);
   }
@@ -776,31 +759,18 @@ html[data-panels-resizing] {
 }
 
 /*
- * Graph band (components/canvas-frame.tsx). Below md the canvas sits above the
- * page in the one-column stack. On a phone the home page is the graph; every
- * other route folds to one toolbar row ("Toon grafiek") so the page starts on
- * the first screen (data-canvas-open, CANVAS_INIT_SCRIPT). From md the page is
- * first on every route, including home: the band folds unless the reader
- * opened the canvas (data-canvas-panel). From lg the canvas is its own column
- * and this band rule does not apply.
+ * Graph band (components/canvas-frame.tsx). Below lg the canvas sits above the
+ * page in the one-column stack. On the home page it is the page. On every
+ * other route it folds to one toolbar row ("Toon grafiek") so the page's own
+ * content starts on the first screen; the reader's choice arrives on <html> as
+ * data-canvas-open before first paint (CANVAS_INIT_SCRIPT), so an open graph
+ * does not shut and open again between pages. From lg nothing folds.
  */
-@media (max-width: 47.999rem) {
+@media (max-width: 63.999rem) {
   html:not([data-canvas-open]) [data-canvas-frame][data-route="page"]:not([data-expanded]) {
     height: auto;
   }
   html:not([data-canvas-open]) [data-canvas-frame][data-route="page"]:not([data-expanded]) :is([data-canvas-body], [data-canvas-tools]) {
-    display: none;
-  }
-  /* Phone home is still the graph; the fold control is for every other layout. */
-  [data-canvas-frame][data-route="home"] [data-canvas-fold] {
-    display: none;
-  }
-}
-@media (min-width: 48rem) and (max-width: 63.999rem) {
-  html[data-canvas-panel="closed"] [data-canvas-frame]:not([data-expanded]) {
-    height: auto;
-  }
-  html[data-canvas-panel="closed"] [data-canvas-frame]:not([data-expanded]) :is([data-canvas-body], [data-canvas-tools]) {
     display: none;
   }
 }

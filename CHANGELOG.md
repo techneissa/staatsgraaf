@@ -4,13 +4,13 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
-### Added (18-10-2026, page collapse and expand)
+### Fixed (18-10-2026, layout revert)
 
-- The page column (left) has morphing icon buttons: hide or show it, and widen it by folding the details column. The graph has its own icon when it is closed. The old 32 vw cap on the details column is gone.
+- Reverted the page-first and panel-button work. It covered the page heading and crushed the details column.
 
-### Added (18-10-2026, page-first layout)
+### Changed (18-10-2026, wrangler upload)
 
-- On iPad and computer the page column fills the screen and the graph starts closed. News cards sit two or three in a row when the column is wide. A "Toon grafiek" control restores the canvas. Phones keep the home graph.
+- Pages deploys from this Mac upload one stream at a time (`scripts/pages-deploy.mjs`). Wrangler otherwise opens 3 bulk streams, or 50 for Edge KV, which fills the home uplink.
 
 ### Fixed (18-10-2026, info tips)
 

@@ -2,7 +2,7 @@
 
 Four GitHub Actions workflows run the refresh, the push deploy, the CI gate, and the weekly link check. Host and deploy path are fixed in `docs/adr/0004-hosting-ci-and-analytics.md` (including its amendment of 05-10-2026): Cloudflare Pages, project `staatsgraaf`, production branch `main`, Wrangler deploy from GitHub Actions.
 
-Jobs run on a self-hosted runner on the maintainer's Mac (`runs-on: [self-hosted, staatsgraaf]`). GitHub does not charge minutes for that. The repository stays private. Cloudflare Pages Git auto-deploys stay off; only Wrangler from these workflows (or a manual `wrangler pages deploy`) may publish. The Git link is still there so the dashboard can show the repo, but a push must not start a Cloudflare build. Every third-party action is pinned to a full commit SHA with its version in a comment; bump them by hand or with Dependabot. The machine must be awake for the 3-hourly refresh and the weekly link check; a sleeping Mac skips the schedule until the next tick.
+Jobs run on a self-hosted runner on the maintainer's Mac (`runs-on: [self-hosted, staatsgraaf]`). GitHub does not charge minutes for that. The repository stays private. Cloudflare Pages Git auto-deploys stay off; only Wrangler from these workflows (or a manual `bun scripts/pages-deploy.mjs`) may publish. Uploads run one stream at a time so the home uplink stays usable. The Git link is still there so the dashboard can show the repo, but a push must not start a Cloudflare build. Every third-party action is pinned to a full commit SHA with its version in a comment; bump them by hand or with Dependabot. The machine must be awake for the 3-hourly refresh and the weekly link check; a sleeping Mac skips the schedule until the next tick.
 
 ## Workflows
 

@@ -199,7 +199,7 @@ function HolderFaces({ holders }: { holders: Tenure[] }) {
         const person = getPersonById(tenure.person);
         if (person === undefined) return null;
         return (
-          <li key={tenure.id} className="flex w-[calc(50%-0.25rem)] min-w-0 flex-col items-center @[28rem]:w-28">
+          <li key={tenure.id} className="flex w-[calc(50%-0.25rem)] min-w-0 flex-col items-center sm:w-28">
             <EntityPeekLink
               id={person.id}
               variant="bare"

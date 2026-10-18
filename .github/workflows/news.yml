@@ -250,10 +250,11 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
       - name: Deploy to Cloudflare Pages
-        run: bunx wrangler pages deploy web/out --project-name=staatsgraaf --branch=main
+        run: bun scripts/pages-deploy.mjs
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_UPLOAD_CONCURRENCY: "1"
 
   # On any failure above, open or comment on a single ops issue. If the issue API is
   # unavailable, print the same summary so the failure is still visible in the log.
