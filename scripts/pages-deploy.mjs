@@ -4,14 +4,13 @@
  *
  * Wrangler hardcodes 3 bulk upload streams and up to 50 for Edge KV. This
  * Mac is the Actions runner, so that fills the home uplink. There is no
- * flag. Copy the bundled CLI, pin both to 1, then run the same
- * `pages deploy` the workflows used to call.
+ * flag. Patch the cached CLI for this process, run the same
+ * `bunx wrangler pages deploy` as before, then put the file back.
  *
  * Override with WRANGLER_UPLOAD_CONCURRENCY (default 1).
  */
 import { spawnSync } from "node:child_process";
-import { mkdtempSync, readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
-import { tmpdir } from "node:os";
+import { readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const cap = Math.max(1, Number.parseInt(process.env.WRANGLER_UPLOAD_CONCURRENCY || "1", 10) || 1);
@@ -34,8 +33,8 @@ if (dirs.length === 0) {
 }
 
 const cli = join(dirs[0], "wrangler-dist/cli.js");
-let src = readFileSync(cli, "utf8");
-const before = src;
+const orig = readFileSync(cli, "utf8");
+let src = orig;
 src = src.replaceAll("BULK_UPLOAD_CONCURRENCY = 3", `BULK_UPLOAD_CONCURRENCY = ${cap}`);
 src = src.replaceAll("BULK_UPLOAD_CONCURRENCY2 = 3", `BULK_UPLOAD_CONCURRENCY2 = ${cap}`);
 src = src.replaceAll("EDGE_KV_UPLOAD_CONCURRENCY = 50", `EDGE_KV_UPLOAD_CONCURRENCY = ${cap}`);
@@ -43,20 +42,22 @@ src = src.replace(
   "return value > 0 ? Math.floor(value) : EDGE_KV_UPLOAD_CONCURRENCY;",
   `return ${cap};`,
 );
-if (src === before) {
+if (src === orig) {
   process.stderr.write(`could not patch wrangler upload concurrency in ${cli}\n`);
   process.exit(1);
 }
 
-const dir = mkdtempSync(join(tmpdir(), "sg-wrangler-"));
-const out = join(dir, "cli.js");
-writeFileSync(out, src);
+writeFileSync(cli, src);
 process.stderr.write(`wrangler upload concurrency ${cap}\n`);
-
-const node = Bun.which("node") || process.execPath;
-const result = spawnSync(
-  node,
-  [out, "pages", "deploy", "web/out", "--project-name=staatsgraaf", "--branch=main", ...extra],
-  { stdio: "inherit", env: process.env },
-);
-process.exit(result.status ?? 1);
+let status = 1;
+try {
+  const result = spawnSync(
+    "bunx",
+    ["wrangler", "pages", "deploy", "web/out", "--project-name=staatsgraaf", "--branch=main", ...extra],
+    { stdio: "inherit", env: process.env },
+  );
+  status = result.status ?? 1;
+} finally {
+  writeFileSync(cli, orig);
+}
+process.exit(status);
