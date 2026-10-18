@@ -13,17 +13,13 @@ import {
   type PointerEvent,
   type ReactNode,
 } from "react";
-import { Maximize2, Minimize2, Orbit, PanelLeftClose, PanelLeftOpen } from "lucide";
-import { Morph } from "@/components/icons/morph";
 import { useDict } from "@/components/i18n/use-t";
 import {
   DETAILS_WIDTH,
   DETAILS_WIDTH_VAR,
   PANEL_ATTR,
   PANEL_STORAGE,
-  availableDetailsMax,
   clampDetailsWidth,
-  parseCanvasOpen,
   parseDetailsWidth,
   parseOpen,
   widthAfterKey,
@@ -43,29 +39,16 @@ const DetailsSheet = dynamic(() => import("./details-sheet").then((module) => mo
 
 export const PAGE_COLUMN_ID = "sg-page-column";
 const DETAILS_ID = "sg-details";
-const CANVAS_ID = "sg-canvas-body";
 const DESKTOP = "(min-width: 64rem)";
-const TABLET = "(min-width: 48rem)";
 
 type PanelState = {
   /** True from the lg breakpoint, where the three columns sit side by side. */
   desktop: boolean;
-  /** True from md, where the page is first and the canvas starts closed. */
-  tablet: boolean;
   pageOpen: boolean;
   detailsOpen: boolean;
-  canvasOpen: boolean;
-  setCanvasOpen: (open: boolean) => void;
 };
 
-const PanelStateContext = createContext<PanelState>({
-  desktop: false,
-  tablet: false,
-  pageOpen: true,
-  detailsOpen: true,
-  canvasOpen: false,
-  setCanvasOpen: () => {},
-});
+const PanelStateContext = createContext<PanelState>({ desktop: false, pageOpen: true, detailsOpen: true });
 
 /** Whether the side columns are showing, for panels that adapt to the other one being hidden. */
 export function usePanelState(): PanelState {
@@ -78,24 +61,10 @@ function subscribeDesktop(onChange: () => void) {
   return () => query.removeEventListener("change", onChange);
 }
 
-function subscribeTablet(onChange: () => void) {
-  const query = window.matchMedia(TABLET);
-  query.addEventListener("change", onChange);
-  return () => query.removeEventListener("change", onChange);
-}
-
 function useDesktop(): boolean {
   return useSyncExternalStore(
     subscribeDesktop,
     () => window.matchMedia(DESKTOP).matches,
-    () => false,
-  );
-}
-
-function useTablet(): boolean {
-  return useSyncExternalStore(
-    subscribeTablet,
-    () => window.matchMedia(TABLET).matches,
     () => false,
   );
 }
@@ -117,16 +86,11 @@ function read(key: string): string | null {
 }
 
 /** A column's open state, mirrored on <html> where the grid reads it and in localStorage. */
-function useColumnOpen(
-  storageKey: string,
-  attr: string,
-  parse: (raw: string | null) => boolean = parseOpen,
-  defaultOpen = true,
-): [boolean, (open: boolean) => void] {
-  const [open, setOpenState] = useState(defaultOpen);
+function useColumnOpen(storageKey: string, attr: string): [boolean, (open: boolean) => void] {
+  const [open, setOpenState] = useState(true);
   useEffect(() => {
-    setOpenState(parse(read(storageKey)));
-  }, [storageKey, parse]);
+    setOpenState(parseOpen(read(storageKey)));
+  }, [storageKey]);
   const setOpen = useCallback(
     (next: boolean) => {
       setOpenState(next);
@@ -139,26 +103,60 @@ function useColumnOpen(
   return [open, setOpen];
 }
 
-const ICON_BTN = "bar-control tap-target transition-fast hover:border-line-strong hover:text-ink";
+function Chevron({ pointsLeft }: { pointsLeft: boolean }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 12 12" width="12" height="12" className="transition-transform duration-200" style={{ transform: pointsLeft ? "none" : "scaleX(-1)" }}>
+      <path d="M7.5 2.5 4 6l3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/**
+ * A slim tab on an edge of the canvas that folds the column on that side
+ * away or back. It sits where the column meets the canvas, so it travels
+ * with the edge and always points the way the column will move.
+ */
+function EdgeToggle({
+  side,
+  open,
+  onToggle,
+  controls,
+  label,
+}: {
+  side: "start" | "end";
+  open: boolean;
+  onToggle: () => void;
+  controls: string;
+  label: string;
+}) {
+  const shape =
+    side === "start"
+      ? "justify-self-start rounded-e-md border-s-0"
+      : "justify-self-end rounded-s-md border-e-0";
+  return (
+    <button
+      type="button"
+      onClick={onToggle}
+      aria-expanded={open}
+      aria-controls={controls}
+      aria-label={label}
+      title={label}
+      className={`z-20 hidden h-12 w-5 items-center justify-center self-center border border-line bg-surface/90 text-ink-faint shadow-sm backdrop-blur transition-fast hover:w-6 hover:text-ink focus-visible:w-6 focus-visible:text-ink lg:col-start-2 lg:row-start-1 lg:flex ${shape}`}
+    >
+      <Chevron pointsLeft={side === "start" ? open : !open} />
+    </button>
+  );
+}
 
 /**
  * The drag handle on the inner edge of the details panel. Pointer drags and
  * the arrow keys change the width (Home and End jump to the limits, Shift
  * takes larger steps); the width is stored when the drag or key press ends.
  */
-function ResizeHandle({
-  width,
-  canvasOpen,
-  onWidth,
-}: {
-  width: number;
-  canvasOpen: boolean;
-  onWidth: (width: number, commit: boolean) => void;
-}) {
+function ResizeHandle({ width, onWidth }: { width: number; onWidth: (width: number, commit: boolean) => void }) {
   const t = useDict("panels");
   const drag = useRef<{ x: number; width: number; pointer: number } | null>(null);
   const frame = useRef<number | null>(null);
-  const liveMax = () => availableDetailsMax(window.innerWidth, canvasOpen);
 
   const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
     if (event.button !== 0) return;
@@ -170,7 +168,7 @@ function ResizeHandle({
   const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
     const start = drag.current;
     if (!start || start.pointer !== event.pointerId) return;
-    const next = clampDetailsWidth(start.width + (start.x - event.clientX), liveMax());
+    const next = clampDetailsWidth(start.width + (start.x - event.clientX));
     if (frame.current !== null) cancelAnimationFrame(frame.current);
     frame.current = requestAnimationFrame(() => onWidth(next, false));
   };
@@ -179,10 +177,10 @@ function ResizeHandle({
     if (!start || start.pointer !== event.pointerId) return;
     drag.current = null;
     document.documentElement.removeAttribute("data-panels-resizing");
-    onWidth(clampDetailsWidth(start.width + (start.x - event.clientX), liveMax()), true);
+    onWidth(clampDetailsWidth(start.width + (start.x - event.clientX)), true);
   };
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    const next = widthAfterKey(width, event.key, event.shiftKey, liveMax());
+    const next = widthAfterKey(width, event.key, event.shiftKey);
     if (next === null) return;
     event.preventDefault();
     onWidth(next, true);
@@ -196,7 +194,7 @@ function ResizeHandle({
       aria-controls={DETAILS_ID}
       aria-label={t("detailsResize")}
       aria-valuemin={DETAILS_WIDTH.min}
-      aria-valuemax={typeof window === "undefined" ? DETAILS_WIDTH.max : availableDetailsMax(window.innerWidth, canvasOpen)}
+      aria-valuemax={DETAILS_WIDTH.max}
       aria-valuenow={width}
       aria-valuetext={t("detailsWidthValue", { n: width })}
       onPointerDown={onPointerDown}
@@ -204,11 +202,11 @@ function ResizeHandle({
       onPointerUp={end}
       onPointerCancel={end}
       onKeyDown={onKeyDown}
-      className="sg-resize-handle group z-30 -ms-1.5 hidden w-3 cursor-col-resize touch-none justify-self-start outline-none pointer-coarse:w-11 lg:col-start-3 lg:row-start-1 lg:flex lg:justify-center"
+      className="sg-resize-handle group z-30 -ms-1.5 hidden w-3 cursor-col-resize touch-none justify-self-start outline-none lg:col-start-3 lg:row-start-1 lg:flex lg:justify-center"
     >
       <span
         aria-hidden="true"
-        className="h-full w-px bg-line transition-fast group-hover:w-0.5 group-hover:bg-line-strong group-focus-visible:w-0.5 group-focus-visible:bg-focus group-active:bg-accent"
+        className="h-full w-px bg-transparent transition-fast group-hover:w-0.5 group-hover:bg-line-strong group-focus-visible:w-0.5 group-focus-visible:bg-focus group-active:bg-accent"
       />
     </div>
   );
@@ -216,39 +214,15 @@ function ResizeHandle({
 
 /**
  * The page layout: the page column, the canvas and the details panel, three
- * columns from the lg breakpoint and one stack below it. From tablet width
- * the canvas starts closed so the page can use the full width. Owns the
- * reader's column choices (panel-prefs.ts); the grid itself lives in
- * globals.css ("Workspace"), so the stored widths apply before hydration.
+ * columns from the lg breakpoint and one stack below it. Owns the reader's
+ * column choices (panel-prefs.ts); the grid itself lives in globals.css
+ * ("Workspace"), so the stored widths apply before hydration.
  */
 export function Workspace({ canvas, children }: { canvas: ReactNode; children: ReactNode }) {
   const t = useDict("panels");
   const desktop = useDesktop();
-  const tablet = useTablet();
   const [pageOpen, setPageOpen] = useColumnOpen(PANEL_STORAGE.page, PANEL_ATTR.page);
   const [detailsOpen, setDetailsOpen] = useColumnOpen(PANEL_STORAGE.details, PANEL_ATTR.details);
-  const [canvasOpen, setCanvasOpenState] = useColumnOpen(
-    PANEL_STORAGE.canvas,
-    PANEL_ATTR.canvas,
-    parseCanvasOpen,
-    false,
-  );
-  // Closing the canvas with the page already folded would hide every control
-  // that can bring a column back. Reopen the page so the icons stay on screen.
-  const setCanvasOpen = useCallback(
-    (open: boolean) => {
-      if (!open) setPageOpen(true);
-      setCanvasOpenState(open);
-    },
-    [setCanvasOpenState, setPageOpen],
-  );
-  const setPageOpenSafe = useCallback(
-    (open: boolean) => {
-      if (!open && !canvasOpen && !detailsOpen) setDetailsOpen(true);
-      setPageOpen(open);
-    },
-    [canvasOpen, detailsOpen, setDetailsOpen, setPageOpen],
-  );
   const [width, setWidthState] = useState<number>(DETAILS_WIDTH.initial);
 
   useEffect(() => {
@@ -260,14 +234,9 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
     document.documentElement.style.setProperty(DETAILS_WIDTH_VAR, `${next}px`);
     if (commit) store(PANEL_STORAGE.detailsWidth, String(next));
   }, []);
-  const pageWide = pageOpen && !detailsOpen;
-  const [chromeUsed, setChromeUsed] = useState(false);
 
   const { current } = useSelection();
-  const state = useMemo(
-    () => ({ desktop, tablet, pageOpen, detailsOpen, canvasOpen, setCanvasOpen }),
-    [desktop, tablet, pageOpen, detailsOpen, canvasOpen, setCanvasOpen],
-  );
+  const state = useMemo(() => ({ desktop, pageOpen, detailsOpen }), [desktop, pageOpen, detailsOpen]);
 
   // Both side columns are `relative` so they are the containing block for
   // absolutely positioned content inside them (the sr-only labels among it).
@@ -278,65 +247,20 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
     <PanelStateContext.Provider value={state}>
       <div className="sg-workspace grid min-h-0 flex-1 grid-cols-1">
         {canvas}
-        <div
-          id="sg-page-chrome"
-          className={`relative z-20 hidden items-center gap-1 lg:flex lg:row-start-1 ${
-            pageOpen
-              ? "self-start justify-self-start ms-2 mt-3 lg:col-start-1"
-              : canvasOpen
-                ? "self-start justify-self-start ms-2 mt-3 lg:col-start-2"
-                : "self-start justify-self-start ms-2 mt-3 lg:col-start-3"
-          }`}
-        >
-          {canvasOpen ? null : (
-            <button
-              type="button"
-              id="sg-canvas-show"
-              onClick={() => {
-                setChromeUsed(true);
-                setCanvasOpen(true);
-              }}
-              aria-expanded={false}
-              aria-controls={CANVAS_ID}
-              aria-label={t("canvasShow")}
-              title={t("canvasShow")}
-              className={ICON_BTN}
-            >
-              <Morph icon={Orbit} size={16} strokeWidth={1.8} still={!chromeUsed} />
-            </button>
-          )}
-          <button
-            type="button"
-            id="sg-page-toggle"
-            onClick={() => {
-              setChromeUsed(true);
-              setPageOpenSafe(!pageOpen);
-            }}
-            aria-expanded={pageOpen}
-            aria-controls={PAGE_COLUMN_ID}
-            aria-label={pageOpen ? t("pageHide") : t("pageShow")}
-            title={pageOpen ? t("pageHide") : t("pageShow")}
-            className={ICON_BTN}
-          >
-            <Morph icon={pageOpen ? PanelLeftClose : PanelLeftOpen} size={16} strokeWidth={1.8} still={!chromeUsed} />
-          </button>
-          {pageOpen ? (
-            <button
-              type="button"
-              id="sg-page-widen"
-              onClick={() => {
-                setChromeUsed(true);
-                setDetailsOpen(!detailsOpen);
-              }}
-              aria-pressed={pageWide}
-              aria-label={pageWide ? t("pageNarrow") : t("pageWiden")}
-              title={pageWide ? t("pageNarrow") : t("pageWiden")}
-              className={ICON_BTN}
-            >
-              <Morph icon={pageWide ? Minimize2 : Maximize2} size={16} strokeWidth={1.8} still={!chromeUsed} />
-            </button>
-          ) : null}
-        </div>
+        <EdgeToggle
+          side="start"
+          open={pageOpen}
+          onToggle={() => setPageOpen(!pageOpen)}
+          controls={PAGE_COLUMN_ID}
+          label={pageOpen ? t("pageHide") : t("pageShow")}
+        />
+        <EdgeToggle
+          side="end"
+          open={detailsOpen}
+          onToggle={() => setDetailsOpen(!detailsOpen)}
+          controls={DETAILS_ID}
+          label={detailsOpen ? t("detailsHide") : t("detailsShow")}
+        />
         <div
           id={PAGE_COLUMN_ID}
           className="sg-page-col relative flex min-h-0 min-w-0 flex-col lg:col-start-1 lg:row-start-1 lg:overflow-y-auto lg:overflow-x-hidden"
@@ -346,13 +270,13 @@ export function Workspace({ canvas, children }: { canvas: ReactNode; children: R
         <aside
           id={DETAILS_ID}
           aria-label={t("detailsLabel")}
-          className="sg-details-col relative hidden min-h-0 min-w-0 overflow-hidden border-s border-line bg-surface lg:col-start-3 lg:row-start-1 lg:flex lg:flex-col"
+          className="sg-details-col relative hidden min-h-0 min-w-0 overflow-hidden border-s border-line bg-surface lg:col-start-3 lg:row-start-1 lg:flex"
         >
-          <div className="sg-details-inner flex min-h-0 min-w-0 flex-1 flex-col">
+          <div className="sg-details-inner flex min-h-0 flex-col">
             {desktop ? <DetailsPanel /> : null}
           </div>
         </aside>
-        {detailsOpen ? <ResizeHandle width={width} canvasOpen={canvasOpen} onWidth={setWidth} /> : null}
+        {detailsOpen ? <ResizeHandle width={width} onWidth={setWidth} /> : null}
       </div>
       {desktop || current === null ? null : <DetailsSheet />}
     </PanelStateContext.Provider>

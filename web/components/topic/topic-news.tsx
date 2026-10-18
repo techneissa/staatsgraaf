@@ -1,7 +1,6 @@
 import { T } from "@/components/i18n/t";
 import { DictEmptyState } from "@/components/budget/dict-empty-state";
 import { NewsCard } from "@/components/news-card";
-import { NEWS_GRID_CLASS } from "@/components/news/news-grid";
 import type { NewsItem } from "@/lib/types";
 
 export function TopicNews({ items, total }: { items: NewsItem[]; total?: number }) {
@@ -23,7 +22,7 @@ export function TopicNews({ items, total }: { items: NewsItem[]; total?: number 
           <T area="news" k="topicNewsCount" vars={{ shown: items.length, total: count }} />
         </p>
       ) : null}
-      <ol className={`mt-3 ${NEWS_GRID_CLASS}`}>
+      <ol className="mt-3 space-y-3">
         {items.map((item) => (
           <li key={item.id}>
             <NewsCard item={item} />

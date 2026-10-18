@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
-import { NEWS_GRID_CLASS } from "./news-grid";
 import { NewsItemCard } from "./news-item-card";
 import type { NewsItemView } from "./news-view";
 import { formatCountIn } from "@/lib/format";
@@ -47,7 +46,7 @@ export function WindowedCards({
   const rest = items.length - shown;
   return (
     <>
-      <ol className={`mt-3 ${NEWS_GRID_CLASS}`}>
+      <ol className="mt-3 list-none space-y-2 p-0">
         {items.slice(0, shown).map((item) => (
           <li key={item.id}>
             <NewsItemCard item={item} displayLanguage={language} />

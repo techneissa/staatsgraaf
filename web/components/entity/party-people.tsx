@@ -28,7 +28,7 @@ function Face({ entry }: { entry: PartyPerson }) {
   const body = leadPosition ? getOrganizationById(leadPosition.organization) : undefined;
   const roleColor = body ? branchColorVar(body.branch) : "var(--kind-position)";
   return (
-    <li className="flex w-[calc(50%-0.25rem)] min-w-0 flex-col items-center @[28rem]:w-28">
+    <li className="flex w-[calc(50%-0.25rem)] min-w-0 flex-col items-center sm:w-28">
       <EntityPeekLink
         id={entry.person.id}
         variant="bare"

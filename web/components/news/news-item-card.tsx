@@ -25,7 +25,7 @@ const DATE: Record<NewsLanguage, Intl.DateTimeFormat> = {
 const AVATARS_IN_LINE = 2;
 
 const SOURCE_HIT =
-  "relative inline-flex min-w-0 max-w-full items-center truncate font-medium text-ink-muted no-underline decoration-1 underline-offset-[3px] transition-fast hover:text-ink hover:underline pointer-coarse:min-h-11";
+  "relative min-w-0 truncate font-medium text-ink-muted no-underline decoration-1 underline-offset-[3px] transition-fast hover:text-ink hover:underline pointer-coarse:after:absolute pointer-coarse:after:-inset-x-1 pointer-coarse:after:-inset-y-3.5 pointer-coarse:after:content-['']";
 
 /**
  * The mentioned line in English uses an established gloss (ADR 0012) when one
@@ -111,7 +111,7 @@ export function NewsItemCard({
   return (
     <Tag
       aria-labelledby={headingId}
-      className={`grid h-full min-w-0 grid-cols-[minmax(0,1fr)_auto] gap-x-3 rounded-md border border-line bg-surface transition-fast hover:border-line-strong sm:gap-x-4 ${
+      className={`grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 rounded-md border border-line bg-surface transition-fast hover:border-line-strong sm:gap-x-4 ${
         compact ? "p-3 sm:px-4" : "p-4"
       }`}
     >
@@ -175,7 +175,7 @@ export function NewsItemCard({
                       variant="quiet"
                       lang={shown.lang}
                       title={shown.lang === "en" ? entry.label : undefined}
-                      className="relative inline-flex min-h-0 items-center pointer-coarse:min-h-11"
+                      className="relative inline-flex items-center pointer-coarse:after:absolute pointer-coarse:after:-inset-x-1 pointer-coarse:after:-inset-y-3.5 pointer-coarse:after:content-['']"
                     >
                       {people.includes(entry) ? (
                         <Avatar

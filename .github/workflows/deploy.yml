@@ -107,10 +107,11 @@ jobs:
         run: bun run contract web/out/data/v1
 
       - name: Deploy to Cloudflare Pages
-        run: bunx wrangler pages deploy web/out --project-name=staatsgraaf --branch=main
+        run: bun scripts/pages-deploy.mjs
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_UPLOAD_CONCURRENCY: "1"
 
   report-failure:
     name: report failure

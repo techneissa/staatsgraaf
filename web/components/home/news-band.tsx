@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { EmptyStateT } from "@/components/change/empty-state-t";
 import { NewsCard } from "@/components/news-card";
-import { NEWS_GRID_CLASS } from "@/components/news/news-grid";
 import { T } from "@/components/i18n/t";
 import { getHomeNewsRelevant } from "@/lib/news";
 import type { NewsItem } from "@/lib/types";
@@ -20,7 +19,7 @@ export function NewsBand({ items }: { items: NewsItem[] }) {
 
   return (
     <div>
-      <ol className={NEWS_GRID_CLASS}>
+      <ol className="space-y-2.5">
         {shown.map((item, index) => (
           <li key={item.id}>
             <NewsCard item={item} rank={index + 1} />

@@ -82,34 +82,32 @@ export default function HomePage() {
         </section>
       ) : null}
 
-      <div className="grid @[48rem]:grid-cols-2 @[48rem]:gap-x-8">
-        <section aria-labelledby="wijzigingen-titel" className="min-w-0 border-b border-line py-6">
-          <h2 id="wijzigingen-titel" className="text-lg font-semibold tracking-tight text-ink">
-            <L nl="Recente wijzigingen" en="Recent changes" />
-          </h2>
-          <ChangePanel />
-        </section>
+      <section aria-labelledby="wijzigingen-titel" className="border-b border-line py-6">
+        <h2 id="wijzigingen-titel" className="text-lg font-semibold tracking-tight text-ink">
+          <L nl="Recente wijzigingen" en="Recent changes" />
+        </h2>
+        <ChangePanel />
+      </section>
 
-        <section aria-labelledby="overzicht-titel" className="min-w-0 border-b border-line py-6">
-          <div className="flex flex-wrap items-baseline justify-between gap-3">
-            <h2 id="overzicht-titel" className="text-lg font-semibold tracking-tight text-ink">
-              <L nl="Overzicht" en="Overview" />
-            </h2>
-            <Link
-              href="/organisaties/"
-              className="inline-flex min-h-11 items-center rounded-sm px-1 text-sm font-medium text-accent-text underline-offset-2 hover:underline sm:min-h-0"
-            >
-              <L nl="Alle organisaties" en="All organizations" />
-            </Link>
-          </div>
-          <OverviewCounts
-            total={counts.total}
-            subOrganizations={subOrganizations}
-            byType={counts.byType}
-            byBranch={counts.byBranch}
-          />
-        </section>
-      </div>
+      <section aria-labelledby="overzicht-titel" className="border-b border-line py-6">
+        <div className="flex flex-wrap items-baseline justify-between gap-3">
+          <h2 id="overzicht-titel" className="text-lg font-semibold tracking-tight text-ink">
+            <L nl="Overzicht" en="Overview" />
+          </h2>
+          <Link
+            href="/organisaties/"
+            className="inline-flex min-h-11 items-center rounded-sm px-1 text-sm font-medium text-accent-text underline-offset-2 hover:underline sm:min-h-0"
+          >
+            <L nl="Alle organisaties" en="All organizations" />
+          </Link>
+        </div>
+        <OverviewCounts
+          total={counts.total}
+          subOrganizations={subOrganizations}
+          byType={counts.byType}
+          byBranch={counts.byBranch}
+        />
+      </section>
 
       <section aria-labelledby="begroting-titel" className="border-b border-line py-6">
         <div className="flex flex-wrap items-baseline justify-between gap-3">

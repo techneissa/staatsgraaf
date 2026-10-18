@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useEffect, useLayoutEffect, useMemo, useState } from "react";
 import { NewsFilterBar, pillClass } from "./news-filter-bar";
-import { NEWS_GRID_CLASS } from "./news-grid";
 import { NewsItemCard } from "./news-item-card";
 import type { NewsItemView } from "./news-view";
 import { NEWS_WINDOW_STEP, ShowMoreButton } from "./windowed-cards";
@@ -295,7 +294,7 @@ export function NewsExplorer({
                       <p className="mt-3 text-sm text-ink-faint">{messages.noItemsFilterLabel}</p>
                     ) : (
                       <>
-                        <ol className={`mt-3 ${NEWS_GRID_CLASS}`}>
+                        <ol className="mt-3 list-none space-y-2 p-0">
                           {visible.map((item) => (
                             <li key={item.id}>
                               <NewsItemCard item={item} displayLanguage={uiLanguage} />
@@ -389,7 +388,7 @@ function MoreItems({
       </summary>
       {opened ? (
         <>
-          <ol className={`mt-3 ${NEWS_GRID_CLASS}`}>
+          <ol className="mt-3 list-none space-y-2 p-0">
             {items.slice(0, shown).map((item) => (
               <li key={item.id}>
                 <NewsItemCard item={item} displayLanguage={language} />
