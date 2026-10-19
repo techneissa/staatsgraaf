@@ -1,16 +1,5 @@
 [
   {
-    "id": "news:10133cdf",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Word search",
-    "lead": null,
-    "sourceHash": "270011d47bdc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:10133ce0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -75,6 +64,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:10133ce6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Word search",
+    "lead": null,
+    "sourceHash": "270011d47bdc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:101abc7e",
@@ -1309,6 +1309,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:1609b513",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Column Willem van Hanegem | Golden opportunity for Feyenoord, though a performance like that against Telstar is a wrong signal",
+    "lead": "Columnist Willem van Hanegem believes there is a golden opportunity for Feyenoord to become champions now that PSV has a considerable problem. 'But letting Telstar come back three times in the match also means that Feyenoord is vulnerable.'",
+    "sourceHash": "3d24e896c919",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:1646687b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1815,6 +1826,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:18bf1321",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dead and three injured in Russian attack on Kyiv metro station",
+    "lead": "A woman has died in a Russian air attack on a metro station in the Ukrainian capital Kyiv. Besides the metro station, a 25-storey residential tower and other buildings were also damaged. Follow all developments in the war in Ukraine in our liveblog.",
+    "sourceHash": "711bfedbbc84",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:18dddf6a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1934,17 +1956,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
-  },
-  {
-    "id": "news:19ca0961",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Anger at universities over Zuidas lobby proposal to reform tax education",
-    "lead": "The professional association of tax advisers wants only three universities to still be involved in tax education, and for the courses to become even more practice-oriented. Law faculties are reacting with surprise. 'This advice is quite improper.'",
-    "sourceHash": "f71c8db47f9b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:19d2701c",
@@ -3520,17 +3531,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:22384659",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Chinese restaurant",
-    "lead": "Recently I went to get food again at a Chinese restaurant that has been there for at least 30 years. When I arrived, there was an older woman standing in front of me to pick up an order.",
-    "sourceHash": "a09cbc81772b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:223f8ced",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4851,17 +4851,6 @@
     "translated": "2026-10-18"
   },
   {
-    "id": "news:289ee97e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Vorto",
-    "lead": null,
-    "sourceHash": "e0d279537212",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:289ee97f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4926,6 +4915,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:289ee985",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Vorto",
+    "lead": null,
+    "sourceHash": "e0d279537212",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:28a12474",
@@ -5223,17 +5223,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
-  },
-  {
-    "id": "news:2a377895",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Quentin Tarantino directs a play for the first time, lead role for Sacha Baron Cohen",
-    "lead": "The star of the Borat films has a new job: lead actor in the stage debut of screenwriter and director Quentin Tarantino. Oscar winner Tarantino wrote his first play, The Popinjay Cavalier. The premiere is in March next year in London.",
-    "sourceHash": "a1e0674e8499",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:2a43de4e",
@@ -5839,6 +5828,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:2d1573dc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Lula and Bolsonaro clash in first debate ahead of the second round of elections",
+    "lead": "Brazilian presidential candidates Luiz Inácio Lula da Silva and Flávio Bolsonaro have fiercely attacked each other in the first of two televised debates. Sitting president Lula and the son of former president Jair Bolsonaro called each other liars and corrupt, among other things.",
+    "sourceHash": "0938691789fc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:2d1ead08",
@@ -6873,6 +6873,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:31c9f1be",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'My childless uncle wanted to have me in exchange for a cow'",
+    "lead": null,
+    "sourceHash": "2024377c8254",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:31d96902",
@@ -8019,6 +8030,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:37bc30a3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "How AI threatens to push the national budget deep into the red",
+    "lead": "Today in Dagkoers: what if AI makes part of income tax disappear? Meanwhile, AI is storming the retail world & housing investor Vesteda remains in a tight financial spot.",
+    "sourceHash": "f450e43bca6a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:37c2d656",
     "language": "nl",
     "sourceLanguage": "en",
@@ -8657,17 +8679,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:3aafff30",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cinco",
-    "lead": null,
-    "sourceHash": "b5d17bb2750c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:3aafff31",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8732,6 +8743,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:3aafff37",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cinco",
+    "lead": null,
+    "sourceHash": "b5d17bb2750c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:3ac3555f",
@@ -8820,6 +8842,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:3b38a3c9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "More than a hundred arrests in new riots in Paris: 'Young people with criminal intentions'",
+    "lead": "French police made more than a hundred further arrests on Sunday after new disorder in Paris. According to the security services, it mainly involved 'young people from the suburbs who sought opportunities to loot'. Follow all developments below in our liveblog.",
+    "sourceHash": "cd57f4f0613f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:3b41f553",
@@ -9174,6 +9207,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:3cc07b3a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'The men from Justice said: you don't need us here. Soulwax said exactly the same thing when I played them my demos'",
+    "lead": null,
+    "sourceHash": "affb82f7cdcd",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:3cc56b99",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9271,6 +9315,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:3d345aa",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Andrea Vreede has been 'our woman in the Vatican' for almost 25 years. 'Yes, hallelujah! It's really fun to report on this, isn't it?'",
+    "lead": null,
+    "sourceHash": "e58d74050a5b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:3d4628c6",
@@ -9584,12 +9639,12 @@
     "id": "news:3f1b9b68",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Fire spread 'in 30 to 60 seconds' across Canadian military base: 4 dead and 19 in critical condition",
-    "lead": "The deadly fire at a military base in the Canadian province of Alberta spread extremely rapidly across the site on Saturday. At least four people died, Prime Minister Mark Carney reports during a press conference. Nearly forty people were also injured, at least nineteen of them are in critical condition. What exactly happened is still unclear.",
-    "sourceHash": "48c5ad593d6c",
+    "title": "Fire spread 'in 30 to 60 seconds' across Canadian military base: 19 more people in critical condition",
+    "lead": "The deadly fire at a military base in the Canadian province of Alberta spread extremely quickly across the site on Saturday. At least four people were killed, Prime Minister Mark Carney said at a press conference. Nearly forty people were also injured, at least nineteen of them are in critical condition. What exactly happened is still unclear.",
+    "sourceHash": "a7595cfdb77b",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-18"
+    "translated": "2026-10-19"
   },
   {
     "id": "news:3f1cae23",
@@ -10596,12 +10651,12 @@
     "id": "news:435c428e",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Cindy Crawford responds to death of son Presley: 'We are deeply heartbroken'",
-    "lead": "Cindy Crawford has responded for the first time to the death of her son Presley at the age of 27. \"We are deeply heartbroken that we have to miss our beloved son and brother\", the model, Rande Gerber and daughter Kaia Gerber announced on Instagram.",
-    "sourceHash": "f29574272df6",
+    "title": "Cindy Crawford responds to death of son Presley: 'We are heartbroken'",
+    "lead": "Cindy Crawford has responded for the first time to the death of her son Presley at the age of 27. \"We are heartbroken that we have to miss our beloved son and brother\", the model, Rande Gerber and daughter Kaia Gerber said on Instagram.",
+    "sourceHash": "613b69fdf442",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-18"
+    "translated": "2026-10-19"
   },
   {
     "id": "news:43664c0b",
@@ -10934,17 +10989,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:4533d17a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Brilliant",
-    "lead": null,
-    "sourceHash": "c5eb20e21098",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:4533d17b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11009,6 +11053,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:4533d181",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Brilliant",
+    "lead": null,
+    "sourceHash": "c5eb20e21098",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:45443053",
@@ -12144,17 +12199,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:4b0b80c4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Explorer of famous Urzulei caves buried under a layer of rubble after landslide",
-    "lead": "Dramatic news from Italy: an explorer of the famous Urzulei caves on Sardinia was buried under a load of rubble on Sunday. That is reported by the National Corps for Cave and Mountain Rescue (CNSAS). A landslide blocked the entrance of the cave with rubble.",
-    "sourceHash": "96d4b29f0bc7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:4b1f23ec",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12683,17 +12727,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:4df0bfd0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Judge bans TV ads for Trump paid for with taxpayers' money",
-    "lead": "A US judge on Sunday had controversial advertising spots by President Donald Trump taken off the air. The judge imposed the ban because the adverts, broadcast in the run-up to the mid-term elections, were paid for with taxpayers' money.",
-    "sourceHash": "fbdb5f538169",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:4df82e9e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12804,17 +12837,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:4e62a87c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Bolle Jos has become 'too hot': even the cartels now doubt his ability to make money for them",
-    "lead": null,
-    "sourceHash": "c1366682e387",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:4e84012a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12868,6 +12890,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:4ea25540",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'I often already know exactly who is behind which bridge and which shrub'",
+    "lead": null,
+    "sourceHash": "036be199b164",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:4eab9a15",
@@ -13090,23 +13123,23 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:4fffd6e8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Four dead and dozens seriously injured in large fire at military base in Canada",
+    "lead": null,
+    "sourceHash": "5f17379e133c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:5000fe58",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Professor Voermans: financial plans of Cabinet-Jetten face a 'perilous adventure' in Eerste Kamer",
     "lead": "The cabinet of D66, VVD and CDA must get its financial plans through both chambers, but does not yet have a majority there. <entity id=\"org:tweede-kamer\">Tweede Kamer</entity> deliberates on 12 and 26 October about the Belastingplan, debates on 4 and 10 November and votes on 12 November. The Eerste Kamer debates on 7 and 8 December and […]",
     "sourceHash": "d350ae711b6b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:50075b24",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Will it end well between Ronaldo and Portugal? 'The majority are against him'",
-    "lead": "With the football association's suspension of Cristiano Ronaldo, a next chapter was added on Saturday to the soap between the 41-year-old star and the Portuguese national team. Has the five-time Ballon d'Or winner played his last international? \"Ninety minutes against France is no longer possible.\"",
-    "sourceHash": "b418f809cfcd",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -13651,6 +13684,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:52e5c89b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "More than a hundred people arrested after new riots in Paris",
+    "lead": "During new unrest in Paris, 108 arrests were made on Sunday, the police report. In the first hour of the night from Sunday to Monday, nine more arrests followed. The police speak of \"youths with opportunistic, criminal intentions\" who are looting shops.",
+    "sourceHash": "8782531b6f12",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:52ebadf5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13728,6 +13772,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:533e9ba3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Flight from Tel Aviv to Vienna makes emergency landing after bomb threat",
+    "lead": "A plane from Tel Aviv to Vienna made an emergency landing in the Bulgarian capital Sofia on Sunday evening. The aircraft diverted due to a bomb threat, a spokesperson for airline Austrian Airlines told news agency Reuters.",
+    "sourceHash": "62cf65691964",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:534a39d0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13778,17 +13833,6 @@
     "title": "Cabinet wants structural insight into tasks and funds",
     "lead": "The cabinet wants to structurally show which tasks municipalities and provinces have and whether they receive enough money for them. That is what minister <entity id=\"person:pieter-heerma\">Pieter Heerma</entity> of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity> writes to <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity>. The insight should lead to a better conversation with decentralised governments about tasks and funds.",
     "sourceHash": "f37eac4e0378",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:53b11e4b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dead and injured after new attack on Riyadh airport, airport in eastern Saudi Arabia also targeted",
-    "lead": null,
-    "sourceHash": "691ac2ef0156",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -15277,6 +15321,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
+  },
+  {
+    "id": "news:5af8826b",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Enquête: Minstens 10 Gelderse gemeenten weten niet of ze kwetsbare bruggen hebben",
+    "lead": "Twee jaar na het instorten van een brug in Dresden, Duitsland, hebben sommige Gelderse gemeenten nog steeds geen zicht op mogelijk kwetsbare bruggen binnen hun grenzen, volgens een",
+    "sourceHash": "5d00aefa24e1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:5b07e757",
@@ -17177,17 +17232,6 @@
     "title": "Explosion at hairdresser in Vlaardingen, possibly linked to 'hairdresser war'",
     "lead": "In Vlaardingen, an explosion took place at a hairdresser's shop last night around 23.00 hours. The explosion caused damage to the facade. A shop window was completely blown out. The cause of the explosion has not been announced. Photos show a piece of heavy fireworks and a loose brick. There have been more incidents involving hairdresser's shops in Vlaardingen. Regional broadcaster Rijnmond and the AD reported last summer about a so-called 'hairdresser war' in the South Holland municipality. The hairdresser's shop on Westhavenkade had also previously been the target of vandalism. Bricks were thrown at the shop window at that time, Rijnmond reported. The reason for the attacks is unclear, but it is being speculated that they could be related to unfair competition. The hairdressers who are targets are said to be charging prices for haircuts that are below the usual rates, the AD wrote earlier this year.",
     "sourceHash": "071b0f005b42",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:5d2501d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "North Korea fires multiple ballistic missiles towards the sea",
-    "lead": "North Korea has fired several ballistic missiles towards the waters east of the country. That is according to the South Korean military. The South Korean military leadership says the missiles were launched from an area around the North Korean capital Pyongyang. North Korea has regularly used the airport there as a launch site in recent years. The military has not said how many missiles were exactly observed or what distance they covered. The Japanese Ministry of Defence said it had detected at least two missiles and estimated that they landed in open sea, outside Japan's exclusive economic zone. The launch of the missiles followed a few days after a test by South Korea. On Friday a projectile was tested that can reach at least five times the speed of sound and is designed to evade missile defence systems. North Korea is also increasing the number of weapons tests. On 3 October the regime said it tested a hypersonic medium-range missile designed precisely to bypass the missile defence of South Korea and Japan. Landmine explosions Besides this, North Korea carried out other missile tests and put a new warship into use. North Korean leader Kim Jong Un continues to showcase his nuclear programme with this, while rejecting proposals from the United States and South Korea to resume stalled diplomatic talks. Tensions between the countries increased further last month when three South Korean soldiers were injured by landmine explosions near the heavily guarded border between the two Koreas. According to the South Korean military and the United Nations, the explosions were caused by mines planted by North Korea. Pyongyang denies any involvement and has rejected South Korean demands for an apology.",
-    "sourceHash": "9ce1e017cbd1",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -20089,12 +20133,12 @@
     "id": "news:5d2d83e",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Macron lashes out at rioters in TV address as riots continue in Paris",
-    "lead": "A day after the demonstrations that completely got out of hand in Paris and other French cities, French President Macron lashed out at the rioters in a televised address. He said that those who caused destruction \"must pay\". \"We will not compromise,\" he added. He also said he wants the damage caused to be recovered from the perpetrators of violence. \"Whoever caused destruction must pay. Whoever looted must compensate the damage,\" he said. He explicitly pointed to extreme left-wing groups in the country. \"Whoever wanted to bring down the Republic will be held to account.\" Macron clearly distinguished between the demonstrators who protested peacefully yesterday and the looters and arsonists. \"We must never confuse demonstrators with legitimate demands with those who caused destruction. Their voice must be heard without prejudice and without downplaying the problems.\" 'Enforce order firmly' He further called the violence \"unbridled\" and \"not justifiable\". Besides Paris, yesterday, after weeks of pupil protests, people also took to the streets in at least 110 other places in the country to protest against government policy, the state of education and the rising cost of living. In many places this went orderly and calmly, also in Paris, but where it went wrong, it went badly wrong too. In Limoges the 19th-century town hall was set on fire, after which the tower collapsed. In Marseille the bust of Marianne, the symbol of the French Republic, was destroyed in the city hall. Across the country many cars and buildings were also set on fire and there was widespread looting. At least 2000 arrests were made. In his TV address Macron said he understands the demonstrators' problems. \"Our responsibility is therefore twofold: listen to the anger and address its causes, and firmly uphold the republican order.\" He did not, however, announce concrete measures to curb the ever-rising cost of daily life in France. Fragment from Macron's TV address: He did, however, point to the conflict in the Middle East as the main cause of price rises in French supermarkets and at the pump. Tomorrow his three-day tour of the Gulf states begins, he then emphasised. He promised the French people that he is continuing his efforts to secure France's fuel and gas supply. Finally, he called on all political parties and social organisations to unambiguously condemn all violence. \"The country needs order and reconciliation, not escalation.\" Whether that will come about is the question. The centre-right presidential candidate Bruno Retailleau finds Macron's speech \"very worrying\", he writes on X. According to him, Macron should have declared a state of emergency to \"protect the French people\". The Paris senator Yannick Jadot calls the performance a \"terrible demonstration of powerlessness\". \"Our country is like a drunken ship without a captain taking on water from all sides.\" Unrest again in Paris While Macron addressed the rioters, it was again unrest in the streets of Paris. Already in the afternoon the riot police had to intervene at Place de la République. They deployed tear gas to disperse dozens of masked participants of a demonstration not registered with the city council. A message had circulated on social media calling to \"continue the movement\". Several French media reported that it then quickly got out of hand again. In the centre of the French capital shops were looted, and many large fires were also started. Images show dozens of young people destroying the stone fountain around the Monument to the Republic and then throwing debris at the police. After the Paris police, as yesterday, deployed the CRS 8, an elite unit of the French police specifically trained in combating urban violence, the rioters spread into surrounding streets. Especially on the busy Faubourg du Temple, which runs from Place de la République to the north-east of the city, things got out of hand between young people who tried to make themselves unrecognisable with hoods and the security services. The French newspaper Le Monde reports that rubbish bins are still being set on fire and the rioters are using electric bikes to build burning barricades. Shops close The newspaper also writes that at the start of the evening young people entered a tobacconist's and looted it. Yesterday this shop was also already a victim. The owner was then in her shop to protect it against the rioters. Eventually she had to be taken to hospital with a head wound. The district mayor of central Paris calls on shopkeepers on X to close their shops. He speaks of vandalism and arson that have flared up again.",
-    "sourceHash": "d384aabea612",
+    "title": "Macron lashes out at rioters in TV speech as riots continue in Paris",
+    "lead": "One day after the demonstrations that completely got out of hand in Paris and other French cities, French President Macron lashed out at the rioters in a televised speech. He said that those who caused damage \"must pay\". \"We will not compromise\", he added. He also said he wants the damage caused to be recovered from the perpetrators of violence. \"Whoever caused damage must pay. Whoever looted must compensate the damage\", he said. He explicitly pointed to far-left groups in the country. \"Whoever wanted to bring down the Republic will be held accountable.\" Macron clearly distinguished between the demonstrators who protested peacefully yesterday, and the looters and arsonists. \"We must never confuse demonstrators with legitimate demands with those who caused damage. Their voice must be heard without prejudice and without trivialising the problems.\" 'Firmly uphold order' He further called the violence \"unbridled\" and \"not justifiable\". Besides in Paris, yesterday, after weeks of pupil protests, people also took to the streets in at least 110 other places in the country to protest government policy, the state of education and rising costs of living. In many places this went orderly and calmly, also in Paris, but where it went wrong, it also went badly wrong. In Limoges the 19th-century town hall was set on fire, after which the tower collapsed. In Marseille the bust of Marianne, the symbol of the French Republic, was destroyed in the town hall. Also, many cars and buildings were set on fire across the country and there was widespread looting. According to the French Ministry of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity> 2397 people have been arrested. In his TV speech Macron said he understood the demonstrators' problems. \"Our responsibility is therefore twofold: listen to the anger and address its causes, and firmly uphold republican order.\" However, he did not announce concrete measures to curb the ever-rising cost of living in France. Excerpt from Macron's TV speech: He did point to the conflict in the Middle East as the main cause of price increases in French supermarkets and at the pump. Tomorrow his three-day tour of the Gulf states begins, he then emphasised. He promised the French people that he is continuing his efforts to secure France's fuel and gas supply. Finally, he called on all political parties and social organisations to unequivocally condemn all violence. \"The country needs order and reconciliation, not escalation.\" It remains to be seen whether that will happen. Centre-right presidential candidate Bruno Retailleau finds Macron's speech \"very disturbing\", he writes on X. According to him, Macron should have declared a state of emergency to \"protect the French people\". Paris senator Yannick Jadot calls the performance a \"terrible demonstration of powerlessness\". \"Our country is like a drunken ship without a captain taking water from all sides.\" Unrest again in Paris While Macron addressed the rioters, it was again restless in the streets of Paris. As early as the afternoon, the public order police had to intervene at Place de la République. They deployed tear gas to disperse dozens of masked participants in a demonstration not registered with the city council. A message had circulated on social media calling to \"continue the movement\". Several French media reported that it then quickly got out of hand again. In the centre of the French capital shops were looted, and many large fires were set. Footage shows dozens of young people destroying the stone fountain around the Monument to the Republic and then throwing debris at the police. After the Paris police, as yesterday, deployed the CRS 8, an elite unit of the French police specifically trained in combating urban violence, the rioters spread into surrounding streets. Especially on the busy Faubourg du Temple street, which runs from Place de la République to the northeast of the city, it got out of hand between youths who tried to make themselves unrecognisable with hoods and the law enforcement services. French newspaper Le Monde reports that rubbish bins are still being set on fire and the rioters are using electric bicycles to build burning barricades. Shops close Also the paper writes that at the start of the evening youths entered a tobacco shop and looted it. Yesterday this shop was also a victim. The owner was in her shop at the time to protect it against the rioters. Eventually she had to be taken to hospital with a head wound. The district mayor of central Paris calls on X for shopkeepers to close their shops. He speaks of vandalism and arson that have flared up again.",
+    "sourceHash": "45d528ad331f",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-18"
+    "translated": "2026-10-19"
   },
   {
     "id": "news:5d2d842",
@@ -20106,6 +20150,39 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:5d2d861",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "19 more people in critical condition after fatal fire at military base in Canada",
+    "lead": "19 of the 39 people who were injured and taken to hospital in the fire at a military base in Canada on Saturday are in critical condition. That is what the premier of the province of Alberta announced. The fire in Wainwright in Alberta killed four soldiers. The incident happened when live ammunition was fired on the military grounds during an exercise. A gas pipeline or gas well may have been hit, after which an explosion followed and the fire broke out. How exactly this could have happened is still being investigated. According to the army there are no indications of a terrorist act. Fire spread quickly. A senior general says that shortly after the fire broke out, it was assumed the fire was under control, when the wind suddenly shifted. The fire then moved rapidly toward places where soldiers were training. According to the general, \"the fire was one kilometre away when the wind turned, after which the fire moved one kilometre within 36 seconds\". It was not known before the exercise began that it would blow so hard. In the province, gusts of up to 100 kilometres per hour were measured on Saturday. In the province, \"code orange\" was declared because of the fire, after which emergency services turned out with, among others, 22 ambulances, six aircraft and two helicopters. The victims have been taken to four hospitals in the region. The four soldiers who died have been identified and their families have been informed. Some of the injured have suffered serious burns and may need weeks to months of rehabilitation, says the premier of Alberta. Canadian Prime Minister Mark Carney speaks of \"one of the greatest tragedies for the Canadian army on its own soil in peacetime\". He has ordered that flags on government buildings be flown at half-mast.",
+    "sourceHash": "ab55b81d2f6a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
+    "id": "news:5d2d862",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Flight from Tel Aviv to Vienna makes precautionary landing in Bulgaria after bomb threat",
+    "lead": "A flight that was en route from the Israeli city of Tel Aviv to Vienna in Austria has diverted to Sofia airport in Bulgaria after a bomb threat was made. The Bulgarian authorities report this. The aircraft is being searched; it has not been announced whether an explosive was found on board. A special team is investigating the incident. The flight of the Austrian airline Austrian Airlines departed from Israel at 18.40 local time and landed in Sofia at 21.25. This happened after the crew reported a \"bomb threat signal\" at the Romanian border, the Bulgarian Ministry of Transport says. Thereupon, as is customary according to the ministry, a combat aircraft was deployed, which escorted the passenger plane to the Bulgarian airport. Once there, the passengers were taken off board and rebooked onto another flight. Austrian Airlines tells Sky News that \"we can confirm that a threat was made against the flight from Tel Aviv to Vienna, making a stopover in Sofia necessary\". There were 51 passengers and six crew members on board. According to the Israeli newspaper Haaretz, the bomb threat was made by an Austrian national who was not on board the flight. Flydubai flight: Last month, an aircraft en route from Dubai to Tel Aviv made a nosedive and landed at an airport in Saudi Arabia. This happened after the co-pilot of the Flydubai flight stabbed the captain. A struggle ensued. Eventually the co-pilot was overpowered by passengers on board. According to the public prosecutor of the United Arab Emirates (UAE), the co-pilot, a man from Oman, intended to crash the aircraft, carrying mainly Israelis, at Tel Aviv airport.",
+    "sourceHash": "aa5aa2ae8d26",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
+    "id": "news:5d2d863",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Wake-up call 19/10: Canadian province of Alberta votes on possible secession • French ministers meet after riots",
+    "lead": "Good morning! In the Canadian province of Alberta a referendum is being held on a possible secession, and in France the ministers are meeting in a crisis session to discuss the riots of last weekend. First, the weather: cloudy this morning, with mist in the south. Later more sun. It will be 13 to 16 degrees. Are you going out today? Here you can find the overview of traffic jams and roadworks, and here everything about the situation on the rail network. What can you expect today? What did you miss? It was also restless last night in Paris. In the early morning, young people were again arrested for looting shops. This weekend nearly 2,400 people have already been arrested in connection with riots at protests in several cities. Last night, garbage bins and electric bicycles were set on fire. In addition, young people threw pieces of a vandalised fountain at police officers. The demonstrations were mainly aimed at rising prices in France and the state of education. During the course of the day they turned into riots. President Macron says that the perpetrators of the vandalism and violence will pay for it. Other news from the night: And then just this: Yesterday, a day after the demonstrations that completely got out of hand in Paris and other French cities, French President Macron used a televised address to lash out at the rioters. He said that those who caused the vandalism \"must pay\". He also called for calm. Meanwhile the riots in Paris simply continued. Have a nice day!",
+    "sourceHash": "a09b934c7263",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:5d2ff394",
@@ -20185,6 +20262,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:5d82b8ee",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Skipper, want to ferry across? Yes, but not alone: ferry workers concerned about experiment",
+    "lead": null,
+    "sourceHash": "7bf82569e996",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:5db435c9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -20227,6 +20315,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:5dded066",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "28 ghost passengers on Russian ships carrying tanks and armoured vehicles toward Africa",
+    "lead": "Dozens of passengers with false identities are sailing on Russian cargo ships full of heavy military equipment toward Africa. This is shown by international research by FTM and media partners.",
+    "sourceHash": "d65a43616cbb",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:5de45d8e",
@@ -20875,17 +20974,6 @@
     "sourceHash": "e1f64ef00a34",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:60e33a58",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Young Zuidas worker less quick to approach a client",
-    "lead": "Today in Dagkoers: the Big Four are focusing on improving staff's social skills, ABP has rapidly sold all its American government bonds and KLM is in serious trouble.",
-    "sourceHash": "448e02cef7a6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
     "translated": "2026-10-13"
   },
   {
@@ -21978,6 +22066,17 @@
     "translated": "2026-10-18"
   },
   {
+    "id": "news:659d2377",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Most expensive toll road after Paris opens next month: this is what you will pay",
+    "lead": "After years of environmental protests, nothing stands in the way of opening the A69 motorway between Toulouse and Castres in France any longer: it will happen at the beginning of November. But the protest is not over with that. The high toll in particular is now drawing criticism: with a return price of 17 euros for just over 100 kilometres, the A69 becomes one of the most expensive motorways in France.",
+    "sourceHash": "569a29d12593",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:65d878ef",
     "language": "en",
     "sourceLanguage": "nl",
@@ -22561,6 +22660,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:68fbac7d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Opinion: 'Alderman stages a little play to protect Amsterdammers from their own fries'",
+    "lead": null,
+    "sourceHash": "1496c650829f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:690aa33",
     "language": "en",
     "sourceLanguage": "nl",
@@ -22957,6 +23067,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:6ae4d12a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Everyone wants clear choices, until you make them",
+    "lead": "It is autumn, the leaves are falling, budgets are being published and annual plans are being prepared. Do we realise how important this period of the year is? I don't think so, because budgets and annual plans sometimes seem more like a ritual dance than the moment in the year when we consider how, as professionals, we can get the best out of ourselves.",
+    "sourceHash": "2df1f0d73fdc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:6b165c06",
     "language": "en",
     "sourceLanguage": "nl",
@@ -23076,6 +23197,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:6be63ac3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Thirty journalists killed this year, and over three hundred jailed for their work",
+    "lead": null,
+    "sourceHash": "a3e117d83150",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:6be650d1",
@@ -23672,17 +23804,6 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:6eebbc8b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Michiel Herkemij: 'My biggest mistake was leaving Heineken'",
-    "lead": "Under the leadership of Michiel Herkemij, the Dutch interior brand Eichholtz opened fifty stores worldwide. But before that, his career took him through cigars, baby milk, beer and meat.",
-    "sourceHash": "eecef5c61b43",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:6f0160ff",
     "language": "en",
     "sourceLanguage": "nl",
@@ -23736,17 +23857,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
-  },
-  {
-    "id": "news:6f53b737",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Drinking a lot of coffee, driving too fast, eating cheese... many small traits are linked to intelligence",
-    "lead": "Many human traits have an unexpected relationship with intelligence. That says nothing about individuals. But it does provide knowledge about the relationship between genes and IQ.",
-    "sourceHash": "61dce550d459",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:6f5497c6",
@@ -23901,6 +24011,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:6ffa142e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The accusation of polarisation is a weapon of the far right that presents the concept as a matter of tone",
+    "lead": null,
+    "sourceHash": "5d08dc36648c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:70181916",
@@ -24374,6 +24495,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:71fd413b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sanne Wevers (35) is nevertheless competing at her eleventh World Championships: 'I was really done with gymnastics'",
+    "lead": "Sanne Wevers starts her eleventh World Championships in gymnastics on Monday in Rotterdam. The 2016 Olympic balance beam champion thought she was finished with the sport, until it started to itch again during a trip to Australia.",
+    "sourceHash": "db205c5fae12",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:720eac7e",
@@ -25100,6 +25232,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:759c2be7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Small plane makes nosedive and crashes onto busy street in California",
+    "lead": "A small plane with three people on board came down in a nosedive on one of the busiest streets in San Jose in the American state of California on Saturday afternoon. Everyone on board was injured, but none of them is in critical condition.",
+    "sourceHash": "42a12da03d48",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:759ed901",
@@ -25870,17 +26013,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
-  },
-  {
-    "id": "news:79b12e7b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "One of the pupils in the guest lesson thought that 'the Second World War was very long ago and nobody cared'",
-    "lead": null,
-    "sourceHash": "33f10989c4c9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:79b58b4d",
@@ -27401,17 +27533,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:81819b14",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Autumn week has two faces: drizzle and temperatures up to 21 degrees",
-    "lead": "The weather this week doesn't look bad at all for October: on most days we see the sun shining through the clouds. Especially on Wednesday this brings warmer temperatures. Tomorrow and also Friday it is cloudy and there is occasional light rain or drizzle.",
-    "sourceHash": "6b4d1e4f8395",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:81966b5c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -27498,17 +27619,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
-  },
-  {
-    "id": "news:8225f4c2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "University diplomas are overvalued, says this UvA political scientist: 'There is a study crisis in higher education, I experience that firsthand'",
-    "lead": null,
-    "sourceHash": "c9901663013d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:822b6265",
@@ -27652,6 +27762,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:82ea01dd",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "First Kafka visited the NS, then we had to deal with chatbot Jens",
+    "lead": null,
+    "sourceHash": "5f054f25354a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:82f924e7",
@@ -28081,6 +28202,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:84f3406b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Flight from Tel Aviv to Vienna makes emergency landing after bomb threat",
+    "lead": null,
+    "sourceHash": "45a3d3791b8a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:84f781f1",
@@ -29128,17 +29260,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:8a1caec5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Is running a (half) marathon good for the body?",
-    "lead": null,
-    "sourceHash": "6cf202ae4aec",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:8a202c9a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29447,6 +29568,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:8c02b8f0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Daughter",
+    "lead": "Recently I remembered a beautiful October day in 2003. On a boat we sailed on the Holland and Utrecht waters, to process a turbulent period.",
+    "sourceHash": "f9f5468295a0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:8c18de28",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29753,17 +29885,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
-  },
-  {
-    "id": "news:8d5e51f2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "How far can Putin go before NATO strikes back?",
-    "lead": "Russia is becoming increasingly aggressive in Europe with its actions. But they stay just below the threshold of real war, says diplomatic editor Michel Kerres.",
-    "sourceHash": "d3456a29bb15",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:8d6ea16e",
@@ -30415,6 +30536,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:90289059",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Flight from Tel Aviv to Vienna makes emergency landing after bomb threat",
+    "lead": null,
+    "sourceHash": "45a3d3791b8a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:9047d8d4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30589,6 +30721,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:90f815c7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Lula and Bolsonaro clash in first debate ahead of the second round of elections",
+    "lead": null,
+    "sourceHash": "763478046a9f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:91096c4b",
@@ -31108,6 +31251,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:939e4c74",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Looking, looking and fake buying: the dopamine hit, but not the cost",
+    "lead": "More and more sites are appearing where you can shop for all sorts of things but cannot buy anything. Experts see something in them as a weapon against our endless urge to shop. \"See it as a nicotine patch, only for online shopping.\"",
+    "sourceHash": "560879046a1b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:93a36779",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31273,6 +31427,17 @@
     "translated": "2026-10-17"
   },
   {
+    "id": "news:942f3a69",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Conspiracy thinking is not just for crackpots, says this expert: women often fall for 'conspiracy care'",
+    "lead": "The corona shot full of tracking devices? A network of high-placed satanic child abusers? Reptiles disguised as humans who rule the world? These are conspiracy theories that go too far for many people. Yet most of us have a small conspiracy thinker in us. And women do it differently than men.",
+    "sourceHash": "de6fb6aa792e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:9434e4ca",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31337,6 +31502,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:94809d87",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Zelensky: Ukraine again receives intelligence from the US",
+    "lead": null,
+    "sourceHash": "fe8aa1548239",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:94a30052",
@@ -31524,6 +31700,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
+  },
+  {
+    "id": "news:9577819f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Low incomes pay more for childcare: could save ten euros a month",
+    "lead": "Parents with low incomes are paying more for childcare. The price of childcare locations will probably rise further above the amount the government reckons with in 2027. That mainly has a disadvantageous effect on people with a low income.",
+    "sourceHash": "45736063b351",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:957c3118",
@@ -31733,6 +31920,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:96bc6312",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Priest in Ecuador dies during service when cross falls on him",
+    "lead": "In Ecuador a Roman Catholic priest died during his service. While he was celebrating the evening mass, a large wooden cross fell from the wall, crushing the priest.",
+    "sourceHash": "e7e514cfbd38",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:96c6133",
@@ -32241,17 +32439,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:993b87ba",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Chinese restaurant",
-    "lead": "Recently I went to get food again at a Chinese restaurant that has been there for at least 30 years. When I arrived, there was an older woman standing in front of me to pick up an order.",
-    "sourceHash": "77c9cee02182",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:99563a2d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -32439,17 +32626,6 @@
     "translated": "2026-10-15"
   },
   {
-    "id": "news:9a4a612",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Exactly four",
-    "lead": null,
-    "sourceHash": "e7fcdf3c307a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:9a4a613",
     "language": "en",
     "sourceLanguage": "nl",
@@ -32514,6 +32690,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:9a4a619",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Exactly four",
+    "lead": null,
+    "sourceHash": "e7fcdf3c307a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:9a4f9516",
@@ -32758,6 +32945,17 @@
     "translated": "2026-10-17"
   },
   {
+    "id": "news:9b595818",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "One year after the heist, the Louvre's crown jewels are still missing: 'Recovery could take 40 years'",
+    "lead": "One year after the spectacular break-in at the Louvre, the stolen crown jewels are still missing. On 19 October 2025 the thieves stole nine jewels with an estimated value of around 88 million dollars. Ten days after the robbery, four main suspects were arrested. But where the loot has gone remains a mystery for the <entity id=\"org:politie\">politie</entity>.",
+    "sourceHash": "6e8c82d25640",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:9b7658ad",
     "language": "en",
     "sourceLanguage": "nl",
@@ -32992,12 +33190,12 @@
     "id": "news:9c7f5fe",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Zelensky: US resumes intelligence, Starlink restrictions remain",
+    "title": "Dead and injured in Russian attack on metro in Kyiv",
     "lead": null,
-    "sourceHash": "e35e6e6d9703",
+    "sourceHash": "7132d80ef4da",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-18"
+    "translated": "2026-10-19"
   },
   {
     "id": "news:9c803429",
@@ -33328,17 +33526,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
-  },
-  {
-    "id": "news:9f15f53a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "People whose filler treatment went wrong can turn to the filler consultation hour",
-    "lead": null,
-    "sourceHash": "b25602d3c4fa",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
   },
   {
     "id": "news:9f32cff2",
@@ -34023,6 +34210,17 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:a250122f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Canadian prisoner smuggles fast food order into prison by drone",
+    "lead": "In the prison in Quebec, an inmate got his meal in a very unusual way. Via a drone, he chose not to smuggle cigarettes, a phone or drugs into the prison, but a McDonald's order and some alcoholic drinks. That is what the Canadian broadcaster CTV News reports.",
+    "sourceHash": "3ec5d9db1fe7",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:a251c6d1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -34285,6 +34483,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:a3a36aaf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Anne (48) and Cynthia (39) make books full of glued-in small finds, such as Landrot: 'The drawings enter into a conversation with the text'",
+    "lead": null,
+    "sourceHash": "e0fc0352db50",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:a3aff4c6",
@@ -35195,17 +35404,6 @@
     "title": "Thanks to war, Egypt will probably get away with deadly attack on Sudanese miners",
     "lead": null,
     "sourceHash": "49ba93008500",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:a78d6683",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "LIVE Middle East | Dead and injured after new attack on Riyadh airport",
-    "lead": "In a new attack on Sunday at Riyadh's international airport, a resident of Pakistan lost his life. Eleven people were also injured. Saudi Arabia's aviation authorities announced this on Monday. Follow all developments in the Middle East in our live blog.",
-    "sourceHash": "e035d6bd2c33",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -36773,17 +36971,6 @@
     "translated": "2026-10-18"
   },
   {
-    "id": "news:ae5c6734",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Your Move",
-    "lead": null,
-    "sourceHash": "0ca9c42013e9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:ae5c6735",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36848,6 +37035,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:ae5c673b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Your Move",
+    "lead": null,
+    "sourceHash": "0ca9c42013e9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:ae5ddfd1",
@@ -37455,6 +37653,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:b0ba05a9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "AI will operate while the surgeon watches: 'In 20 years, AI may perhaps operate better than we do now'",
+    "lead": null,
+    "sourceHash": "b989f078d736",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:b0c35172",
     "language": "en",
     "sourceLanguage": "nl",
@@ -37464,6 +37673,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:b0e951e3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sun breaks through during the course of Monday, chance of first frost at night",
+    "lead": "The temperature has started a sharp decline, as could already be noticed on Sunday. Those conditions appear to continue at the start of next week. On Monday night there is even a chance of the first frost after a warm summer.",
+    "sourceHash": "0af048666a1c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:b0ec1873",
@@ -38113,6 +38333,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:b4fff861",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "War in space? Why the Netherlands is building its own space force",
+    "lead": "The Dutch air force nowadays is not only concerned with what happens in the air, but also with space. <entity id=\"org:ministerie-van-defensie\">Defensie</entity> is investing hundreds of millions of euros in its own space force. But why? We explain it to you.",
+    "sourceHash": "6d3bdf20f2a1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:b51564a4",
@@ -39578,6 +39809,17 @@
     "translated": "2026-10-17"
   },
   {
+    "id": "news:bc2d7d48",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Doctors walked out of the strictest asylum centre in the Netherlands: 'Psychiatric patients do not belong here'",
+    "lead": "Despite warnings from treating doctors, the <entity id=\"org:zbo-centraal-orgaan-opvang-asielzoekers\">COA</entity> also placed asylum seekers with serious psychiatric conditions in the HTL in Hoogeveen. Medical objections led to conflicts and were pushed aside. \"I fear the moment this leads to a major incident.\"",
+    "sourceHash": "a7ad896e41f0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:bc30b1a8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -40161,6 +40403,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:bf8b5a11",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Talpa acquires broadcasting rights to Saudi football league",
+    "lead": "Talpa will broadcast matches from the Saudi Pro League over the next three years. The company has obtained the broadcasting rights. The matches of the top league in Saudi Arabia will be broadcast on KIJK, Talpa's streaming platform. The footage may also be used in programmes such as Vandaag Inside and De Oranjezondag.",
+    "sourceHash": "ff8645e26c5a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:bf8e61be",
     "language": "en",
     "sourceLanguage": "nl",
@@ -40486,17 +40739,6 @@
     "title": "No bonus for now due to Albert Heijn IT incident: 'A bit of a pity'",
     "lead": "Albert Heijn, but also Gall&Gall and Etos, are struggling with IT problems. As a result, the websites, apps and customer service are temporarily unavailable. The Albert Heijn bonus also sometimes fails as well.",
     "sourceHash": "5a7a652dd251",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:c18786ba",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dutch people in Kyiv see attacks getting closer: 'It goes on all day'",
-    "lead": "Russia has significantly stepped up attacks on the Ukrainian capital Kyiv since this summer. Now the bridges between the east and west of the city are also targets, Dutch people are also seeing. \"The nights are constantly interrupted by explosions.\"",
-    "sourceHash": "93652a17a43d",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -41514,6 +41756,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:c5dbf9c9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Deceased person found in car in water along A325 near Elst",
+    "lead": "In the night from Sunday to Monday, a person died in a serious accident on the A325 near Elst. A car left the road for an unknown reason and ended up in the water. The <entity id=\"org:politie\">politie</entity>, fire brigade and ambulances responded in large numbers, but help could no longer save the victim.",
+    "sourceHash": "2c32da8c6389",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:c5e10f24",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41820,6 +42073,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:c817ee47",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Explainer | What if Trump loses the majority after the midterms?",
+    "lead": null,
+    "sourceHash": "5c791c38e430",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:c83d9dc3",
@@ -42139,6 +42403,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:c9e9f659",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Lula and Bolsonaro clash in first debate ahead of the second round of elections",
+    "lead": null,
+    "sourceHash": "763478046a9f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:c9ef9fae",
@@ -42944,17 +43219,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:cde44fc1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'Are you attracted to men or women?' Bisexual Joris (57) refuses to be put in a box",
-    "lead": "'Are you attracted to men or to women?' or 'It's just a phase, right?': these are questions that people who identify as bisexual, such as Joris (57), often hear. He has been struggling with this since his teenage years: \"We are expected to choose.\"",
-    "sourceHash": "dd8b86fd2490",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:cde96dcd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43021,17 +43285,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:ce4c15fb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Somersault",
-    "lead": null,
-    "sourceHash": "19fc40e02aae",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:ce4c15fc",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43096,6 +43349,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:ce4c1602",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Somersault",
+    "lead": null,
+    "sourceHash": "19fc40e02aae",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:ce4f37fa",
@@ -43505,17 +43769,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:d05259bf",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sudoku",
-    "lead": "Place the numbers 1 through 9 in the diagram so that each number appears exactly once in each row, each column, the nine bold-outlined 3x3 boxes and the four grey 3x3 boxes.",
-    "sourceHash": "e3ef981d015b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:d05259c0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43558,6 +43811,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:d05259c6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sudoku",
+    "lead": "Place the numbers 1 through 9 in the diagram so that each number appears exactly once in each row, column, nine bold-outlined 3x3 boxes and the four grey 3x3 boxes.",
+    "sourceHash": "e3ef981d015b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:d05b2bfb",
@@ -43923,15 +44187,26 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:d181a868",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Not only Idfa, but the broad Amsterdam cultural sector groans under higher accommodation prices: 'Raising the tourist tax also drives away the very people you actually want to have'",
+    "lead": null,
+    "sourceHash": "55834fcd5a2d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:d181c295",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "'In ten years, 80 percent of wine bottles could be reusable'",
-    "lead": "After three years of trying, it has succeeded: a sustainable wine bottle design that manufacturers can refill again, as already happens with beer bottles. \"If you reuse our bottles twenty times, your CO2 emissions are 80 percent lower than when using newly made bottles.\"",
-    "sourceHash": "b3e5b33834e1",
+    "title": "'Within ten years 80 percent of wine bottles could be reusable'",
+    "lead": "After three years of trials, it has succeeded: designing a sustainable wine bottle that manufacturers can refill again, as already happens with beer bottles. Nienke Nijholt, co-creator of the reusable wine bottle: \"If you reuse our bottles twenty times, your CO₂ emissions are 80 percent lower than when using newly made bottles.\"",
+    "sourceHash": "cf879f88d99e",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-18"
+    "translated": "2026-10-19"
   },
   {
     "id": "news:d184523e",
@@ -43995,17 +44270,6 @@
     "title": "EU schort hulpgelden aan Sierra Leone op vanwege de uitlevering van Bolle Jos",
     "lead": "De Europese Commissie heeft de betalingen aan Sierra Leone met onmiddellijke ingang stopgezet omdat het land de voortvluchtige drugshandelaar niet zal uitleveren...",
     "sourceHash": "dba1a2c92119",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:d1e49223",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Centre parties do have a story, but lose out to what is being pushed online",
-    "lead": null,
-    "sourceHash": "4223c16967c2",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -44121,17 +44385,6 @@
     "translated": "2026-10-15"
   },
   {
-    "id": "news:d27d261f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Number Pad",
-    "lead": null,
-    "sourceHash": "773ba346c5f3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:d27d2620",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44196,6 +44449,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:d27d2626",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Number block",
+    "lead": null,
+    "sourceHash": "773ba346c5f3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:d291198e",
@@ -44572,6 +44836,17 @@
     "translated": "2026-10-14"
   },
   {
+    "id": "news:d4aacc81",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Afternoons full of sunshine, with more and more showers and wind toward the end of the week",
+    "lead": "Today stays dry and mainly this afternoon the sun will increasingly shine. Only tomorrow, after the sun has shown itself fully, the chance of clouds and light rain increases. The nights will become colder and toward the end of the working week the wind will also blow harder.",
+    "sourceHash": "ecd0fdeab74a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:d4b00904",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44592,6 +44867,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
+  },
+  {
+    "id": "news:d4b9b8c2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Amsterdam cultural sector groans under high accommodation costs: 'Increasing tourist tax drives away the very people you want to attract'",
+    "lead": null,
+    "sourceHash": "d2d3eada245e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:d4c3ee8a",
@@ -45901,6 +46187,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
+  },
+  {
+    "id": "news:da8a12a4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Red Cross top man Pierre Krähenbühl: 'Waging war is becoming normalised, diplomacy is being pushed to the back seat'",
+    "lead": null,
+    "sourceHash": "dd4dca391aab",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:dab63d10",
@@ -48653,6 +48950,17 @@
     "translated": "2026-10-14"
   },
   {
+    "id": "news:e96b3f7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Over a hundred arrests during new unrest in Paris: 'Criminal intentions'",
+    "lead": "During new unrest in Paris, 108 arrests were made on Sunday, the police report. In the first hour of the night from Sunday to Monday, nine more arrests followed. The police speak of 'young people with opportunistic, criminal intentions' who are looting shops.",
+    "sourceHash": "d9aeebcdc489",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
+  },
+  {
     "id": "news:e978db70",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48857,17 +49165,6 @@
     "title": "Despite irritation in Europe, Van Weel repeats: 'EU money to Sierra Leone stopped over Bolle Jos'",
     "lead": "Irritation has arisen in the European Commission over the way <entity id=\"person:david-van-weel\">David van Weel</entity> of <entity id=\"org:ministerie-van-justitie-en-veiligheid\">Justitie en Veiligheid</entity> (VVD) expressed himself yesterday about Sierra Leone. Van Weel said that the European Commission has immediately stopped payments to Sierra Leone because of the country's support for drug baron Jos Leijdekkers, who is known as Bolle Jos.",
     "sourceHash": "44bb81842e8d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:eaab649d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "12 dead after Houthi attack on international airport in Saudi Arabia",
-    "lead": null,
-    "sourceHash": "13493a87003b",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -49544,15 +49841,15 @@
     "translated": "2026-10-15"
   },
   {
-    "id": "news:ee8b96dd",
+    "id": "news:ee983944",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Cabinet gambles in vain on 'Binnenhof full of love' for consultation round 2",
+    "title": "We all hesitate, but still click: four in ten have sometimes experienced click regret",
     "lead": null,
-    "sourceHash": "f7f56f672e73",
+    "sourceHash": "b29bb139aa15",
     "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:ee9879c",
@@ -49652,6 +49949,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
+  },
+  {
+    "id": "news:ef92c940",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "UN summit on biodiversity begins: what is at stake?",
+    "lead": null,
+    "sourceHash": "dfab667d348f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-19"
   },
   {
     "id": "news:ef92ddf7",
