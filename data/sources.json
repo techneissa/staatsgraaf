@@ -267,7 +267,7 @@
     "publisher": "CBS",
     "type": "api",
     "published": null,
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-20",
     "license": "CC-BY-4.0",
     "archiveUrl": null,
     "notes": "Onafhankelijke telling van gemeenten en provincies met de provincie per gemeente. Bron: Centraal Bureau voor de Statistiek (CBS), Gebieden in Nederland 2026 (CBS tabel 86247NED), geraadpleegd 2026-10-06."
@@ -19537,7 +19537,7 @@
     "title": "Register van Overheidsorganisaties: export gemeenten (CSV)",
     "publisher": "KOOP / Overheid.nl",
     "type": "register",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-20",
     "license": "CC0-1.0",
     "notes": "342 gemeenten met website, inwonertal, totaal aantal raadszetels en organisatiecode gm#### (join met CBS 86247NED).",
     "archiveUrl": null
@@ -20406,7 +20406,7 @@
     "publisher": "KOOP / Overheid.nl",
     "type": "register",
     "published": null,
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-20",
     "license": "CC0-1.0",
     "archiveUrl": null,
     "notes": "Bestuurders per organisatie met functie. Het register noemt geen benoemingsdatum. Alleen personen met een gemodelleerde publieke functie worden overgenomen (research/O-licenses.md, sectie 1.4)."
@@ -20430,7 +20430,7 @@
     "publisher": "KOOP / Overheid.nl",
     "type": "register",
     "published": null,
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-20",
     "license": "CC0-1.0",
     "archiveUrl": null,
     "notes": "Bestuurders per organisatie met functie. Het register noemt geen benoemingsdatum. Alleen personen met een gemodelleerde publieke functie worden overgenomen (research/O-licenses.md, sectie 1.4)."
@@ -20442,7 +20442,7 @@
     "publisher": "KOOP / Overheid.nl",
     "type": "register",
     "published": null,
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-20",
     "license": "CC0-1.0",
     "archiveUrl": null,
     "notes": "Bestuurders per organisatie met functie. Het register noemt geen benoemingsdatum. Alleen personen met een gemodelleerde publieke functie worden overgenomen (research/O-licenses.md, sectie 1.4)."
@@ -20729,7 +20729,7 @@
     "title": "Register van Overheidsorganisaties: export provincies (CSV)",
     "publisher": "KOOP / Overheid.nl",
     "type": "register",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-20",
     "license": "CC0-1.0",
     "notes": "12 provincies met website en adresgegevens.",
     "archiveUrl": null
@@ -20773,7 +20773,7 @@
     "title": "Register van Overheidsorganisaties: export waterschappen (CSV)",
     "publisher": "KOOP / Overheid.nl",
     "type": "register",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-20",
     "license": "CC0-1.0",
     "notes": "21 waterschappen met officiële naam en website.",
     "archiveUrl": null
@@ -21125,18 +21125,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-108bbcaa",
-    "url": "https://www.volkskrant.nl/tech/openai-ontdekt-opnameapparatuur-in-kantoor-medewerker-opgepakt~b7417701",
-    "title": "OpenAI ontdekt opnameapparatuur in kantoor, medewerker opgepakt",
-    "publisher": "de Volkskrant",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-10c3b4e8",
@@ -21559,18 +21547,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van Sargasso. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-128ad723",
-    "url": "https://www.trouw.nl/buitenland/strafproces-over-nord-stream-sabotage-leidt-tot-ongemakkelijke-vragen-in-berlijn~bb482de1",
-    "title": "Strafproces over Nord Stream-sabotage leidt tot ongemakkelijke vragen in Berlijn",
-    "publisher": "Trouw",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-14",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-1294eb8d",
     "url": "https://www.trouw.nl/duurzaamheid-economie/wat-doet-opgroeien-in-armoede-met-je-latere-baankansen~b74298f88",
     "title": "Wat doet opgroeien in armoede met je latere baankansen?",
@@ -21991,6 +21967,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-147b37f0",
+    "url": "https://www.nrc.nl/nieuws/2026/10/20/ethan-hawke-als-nobele-outlaw-in-stoeremannenfilm-the-weight-a4939260",
+    "title": "Ethan Hawke als nobele outlaw in stoeremannenfilm ‘The Weight’",
+    "publisher": "NRC",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-148bc853",
     "url": "https://www.ad.nl/auto/hier-gaan-je-schadevrije-jaren-heen-wanneer-jouw-partner-overlijdt~aaab71aa",
     "title": "Hier gaan je schadevrije jaren heen wanneer jouw partner overlijdt",
@@ -22073,6 +22061,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-14f14525",
+    "url": "https://fd.nl/tech-en-innovatie/1616290/haagse-cyberbeveiliger-hekelt-om-over-opvragen-informatie",
+    "title": "Haagse cyberbeveiliger hekelt OM over opvragen informatie",
+    "publisher": "FD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-1515b62f",
@@ -22565,18 +22565,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-178f9534",
-    "url": "https://www.nrc.nl/nieuws/2026/10/11/how-europe-should-deal-with-the-new-china-shock-a4938619",
-    "title": "How Europe should deal with the new China shock",
-    "publisher": "NRC",
-    "type": "news",
-    "published": "2026-10-11",
-    "retrieved": "2026-10-12",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-17900761",
@@ -23138,6 +23126,18 @@
     "type": "news",
     "published": "2026-10-14",
     "retrieved": "2026-10-14",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-1a2b872",
+    "url": "https://www.nu.nl/buitenland/6413851/pools-parlement-versoepelt-strenge-abortuswetten-president-kan-dwarsbomen.html",
+    "title": "Pools parlement versoepelt strenge abortuswetten, president kan dwarsbomen",
+    "publisher": "NU.nl",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
@@ -23803,6 +23803,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-1da5cbdb",
+    "url": "https://www.rtl.nl/nieuws/binnenland/video/1b293e81-4a8b-4777-8c19-d766f0b58ef2/van-vreugdevuur-naar-onrust-waarom-het",
+    "title": "Van vreugdevuur naar onrust: waarom het rommelt in Floradorp",
+    "publisher": "RTL Nieuws",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-1daf7b2a",
     "url": "https://www.binnenlandsbestuur.nl/ruimte-en-milieu/raad-van-state-geeft-noord-brabant-nieuwe-deadline",
     "title": "Raad van State geeft Noord-Brabant nieuwe deadline over pluimveehouders",
@@ -24031,6 +24043,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-1ece8fc4",
+    "url": "https://www.parool.nl/uit-in-amsterdam/dit-advocatenstel-opent-een-tweede-koffiezaak-nu-in-oost-mijn-moeder-broer-en-schoonzus-draaien-ook-mee~bbe87e52",
+    "title": "Dit advocatenstel opent een tweede koffiezaak, nu in Oost: ‘Mijn moeder, broer en schoonzus draaien ook mee’",
+    "publisher": "Het Parool",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-1ed114ba",
     "url": "https://www.nrc.nl/nieuws/2026/10/20/tijdens-de-eerste-wereldoorlog-was-er-veel-waardering-voor-mannen-die-vrouwenrollen-op-zich-namen-a4939268",
     "title": "‘Tijdens de Eerste Wereldoorlog was er veel waardering voor mannen die vrouwenrollen op zich namen’",
@@ -24062,6 +24086,18 @@
     "type": "news",
     "published": "2026-10-18",
     "retrieved": "2026-10-18",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-1efc5700",
+    "url": "https://www.volkskrant.nl/buitenland/ebola-uitbraak-breidt-zich-uit-over-afrika-eerste-besmetting-vastgesteld-in-nigeria~b341f678",
+    "title": "Ebola-uitbraak breidt zich uit over Afrika: eerste besmetting vastgesteld in Nigeria",
+    "publisher": "de Volkskrant",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
@@ -24199,18 +24235,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-1fab33ee",
-    "url": "https://www.trouw.nl/opinie/opinie-lang-leve-het-compromis~bd55de27",
-    "title": "Opinie: Lang leve het compromis",
-    "publisher": "Trouw",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-1fabe475",
     "url": "https://www.volkskrant.nl/politiek/yesilgoz-wil-bij-volgende-verkiezingen-weer-vvd-lijsttrekker-worden~b10ee715",
     "title": "Yesilgöz wil bij volgende verkiezingen weer VVD-lijsttrekker worden",
@@ -24317,18 +24341,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-200d3554",
-    "url": "https://www.ad.nl/binnenland/victoria-maakt-van-borstkankerlittekens-iets-moois-er-wordt-veel-gehuild-maar-ze-gaan-stralend-weg~a0c7e98c",
-    "title": "Victoria maakt van borstkankerlittekens iets moois: ‘Er wordt veel gehuild, maar ze gaan stralend weg’",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-201fc506",
@@ -25435,6 +25447,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-24eef541",
+    "url": "https://www.nu.nl/voetbal/6413816/teruglezen-champions-league-zo-boekte-psv-de-welkome-zege-op-fc-porto.html",
+    "title": "Teruglezen Champions League | Zo boekte PSV de welkome zege op FC Porto",
+    "publisher": "NU.nl",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-24f88925",
     "url": "https://www.ad.nl/voetbal/heerenveen-verlengt-contract-van-twee-vaste-krachten-psv-legt-cornecion-18-voor-vijf-jaar-vast~abfbf81f",
     "title": "Heerenveen verlengt contract van twee vaste krachten, PSV legt Cornecion (18) voor vijf jaar vast",
@@ -26407,18 +26431,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-29af0770",
-    "url": "https://www.trouw.nl/opinie/opinie-tandheelkunde-studeren-moet-ook-kunnen-in-zuidwest-nederland~bb0a1543",
-    "title": "Opinie: Tandheelkunde studeren moet ook kunnen in Zuidwest-Nederland",
-    "publisher": "Trouw",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-29cd906f",
     "url": "https://bnnvara.nl/joop/artikelen/jij-moet-niet-sterven-voor-je-land-dat-moet-die-klootzak-aan-de-andere-kant-doen",
     "title": "'Jij moet niet sterven voor je land, dat moet die klootzak aan de andere kant doen'",
@@ -26815,6 +26827,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-2b97e69b",
+    "url": "https://www.ad.nl/show/sacha-baron-cohen-verdedigt-terugkeer-omstreden-personage-ali-g~a47876d4",
+    "title": "Sacha Baron Cohen verdedigt terugkeer omstreden personage Ali G",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-2badd0af",
     "url": "https://www.nrc.nl/nieuws/2026/10/02/er-staat-nergens-dat-je-niet-voor-natuur-bent-als-je-bij-de-bbb-zit-a4937814",
     "title": "‘Er staat nergens dat je niet voor natuur bent als je bij de BBB zit’",
@@ -27209,18 +27233,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-2d421bb9",
-    "url": "https://www.trouw.nl/cultuur-media/bestaan-er-in-onze-taal-pendanten-van-jane-doe~b4c19ef8",
-    "title": "Bestaan er in onze taal pendanten van Jane Doe?",
-    "publisher": "Trouw",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-2d426478",
@@ -28135,18 +28147,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-30d51e26",
-    "url": "https://www.nrc.nl/nieuws/2026/10/13/ambassadeur-vs-in-griekenland-stapt-op-na-beschuldiging-van-corruptie-a4938897",
-    "title": "Ambassadeur VS in Griekenland stapt op na beschuldiging van corruptie",
-    "publisher": "NRC",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-30daf8b1",
     "url": "https://www.nu.nl/midden-oostenconflict/6412774/westerse-leiders-veroordelen-houthi-aanval-vliegveld-riyad-spiraal-van-geweld.html",
     "title": "Westerse leiders veroordelen Houthi-aanval vliegveld Riyad: 'Spiraal van geweld'",
@@ -28243,6 +28243,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-314d4b78",
+    "url": "https://www.ad.nl/show/is-liefde-echt-blind-robin-en-eline-bewezen-al-in-1991-dat-liefde-op-televisie-kan-ontstaan~a2830e52",
+    "title": "Is liefde écht blind? Robin en Eline bewezen al in 1991 dat liefde op televisie kan ontstaan",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-31500962",
     "url": "https://www.ad.nl/binnenland/bakker-wilfried-stopt-na-100-jaar-het-familiebedrijf-bakken-was-voor-ons-gewoon-een-sport~a2af2892",
     "title": "Bakker Wilfried stopt na 100 jaar het familiebedrijf: ‘bakken was voor ons gewoon een sport’",
@@ -28289,6 +28301,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-3194944a",
+    "url": "https://sargasso.nl/closing-time-la-sagrada-familia-elevation-in-love",
+    "title": "Closing Time – La Sagrada Família – Elevation in love",
+    "publisher": "Sargasso",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Sargasso. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-31c9f1be",
@@ -28783,18 +28807,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-33cc1b22",
-    "url": "https://www.nrc.nl/nieuws/2026/10/13/oud-bendeleider-krijgt-veertig-jaar-cel-voor-de-moord-op-tupac-a4938904",
-    "title": "Oud-bendeleider krijgt veertig jaar cel voor de moord op Tupac",
-    "publisher": "NRC",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-33ddce7b",
     "url": "https://fd.nl/opinie/1614514/strafbeschikking-verlicht-juist-werkdruk-rechter",
     "title": "Een strafbeschikking van het OM voorkomt extra vertraging door langzame rechtsgang",
@@ -29081,6 +29093,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van Binnenlands Bestuur. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-3516c204",
+    "url": "https://www.trouw.nl/opinie/opinie-15-miljoen-historische-foto-s-in-het-nationaal-archief-maar-binnenkort-kun-je-er-niet-meer-goed-bij~b8d58ada8",
+    "title": "Opinie: 15 miljoen historische foto’s in het Nationaal Archief, maar binnenkort kun je er niet meer goed bij",
+    "publisher": "Trouw",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-3519cb7c",
@@ -29729,6 +29753,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-37bdcdd3",
+    "url": "https://www.ad.nl/binnenland/een-docent-die-kinderen-wil-helpen-dat-is-je-taak-en-expertise-helemaal-niet-vindt-deze-school~a5413756",
+    "title": "Een docent die kinderen wil 'helpen'? Dat is je taak en expertise helemaal niet, vindt deze school",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-37c2d656",
@@ -30535,18 +30571,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-3ac3555f",
-    "url": "https://www.trouw.nl/cultuur-media/staat-de-toekomst-van-programma-s-als-podium-klassiek-diskotabel-en-de-zaterdagmatinee-op-het-spel~bac93d3d",
-    "title": "Staat de toekomst van programma’s als ‘Podium Klassiek’, ‘Diskotabel’ en ‘de Zaterdagmatinee’ op het spel?",
-    "publisher": "Trouw",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-3ac36997",
     "url": "https://www.rtl.nl/nieuws/politiek/video/5335009b-ad5c-4f34-9321-773062eae13c/spandoeken-met-steun-aan-hamas-nieuwe",
     "title": "Van Weel wil vaart achter nieuwe wet tegen spandoeken met steun aan Hamas",
@@ -31339,6 +31363,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van DutchNews.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-3dec723a",
+    "url": "https://www.rtl.nl/nieuws/sport/artikel/5660195/paris-saint-germain-verslaat-fc-barcelona-champions-league",
+    "title": "Paris Saint-Germain verslaat FC Barcelona in Champions League",
+    "publisher": "RTL Nieuws",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-3e1742de",
     "url": "https://www.nrc.nl/nieuws/2026/10/18/randstadrail-is-een-van-de-verliezers-van-de-verschuiving-in-infrastructuur-maar-de-weekendreizigers-zitten-er-niet-mee-a4939183",
     "title": "RandstadRail is een van de verliezers van de verschuiving in infrastructuur, maar de weekendreizigers zitten er niet mee",
@@ -31399,18 +31435,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-3ea37001",
-    "url": "https://bnnvara.nl/joop/artikelen/de-moderne-brandstapel",
-    "title": "De moderne brandstapel",
-    "publisher": "Joop",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Joop. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-3eba2923",
     "url": "https://www.rijksoverheid.nl/actueel/nieuws/2026/10/16/duidelijkheid-over-locatie-lelystad-breezanddijk-en-petten-in-definitief-nprd",
     "title": "Duidelijkheid over locatie Lelystad, Breezanddijk en Petten in definitief NPRD",
@@ -31469,6 +31493,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-3ed84911",
+    "url": "https://www.ad.nl/voetbal/stand-cl-psv-in-middenmoot-na-overwinning-feyenoord-kan-woensdag-voorbij-eindhovenaren~a7ceca5d",
+    "title": "Stand CL | PSV in middenmoot na overwinning, Feyenoord kan woensdag voorbij Eindhovenaren",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-3edd2128",
@@ -31675,18 +31711,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-3fe0ddff",
-    "url": "https://www.trouw.nl/opinie/europa-heeft-betere-voorbeelden-nodig-dan-de-gaulle~b0f626b5",
-    "title": "Europa heeft betere voorbeelden nodig dan De Gaulle",
-    "publisher": "Trouw",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-14",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-3fe2f6ec",
     "url": "https://www.ad.nl/politiek/pro-probeert-abortus-opnieuw-uit-het-strafrecht-te-halen~a32d1e1a",
     "title": "PRO probeert abortus opnieuw uit het strafrecht te halen",
@@ -31879,18 +31903,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-40b748e2",
-    "url": "https://www.trouw.nl/nieuws/de-landmijnen-zijn-geruimd-het-huis-van-simeon-in-syrie-is-weer-open-voor-publiek~b408a045",
-    "title": "De landmijnen zijn geruimd, het Huis van Simeon in Syrië is weer open voor publiek",
-    "publisher": "Trouw",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-14",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-40bdacc9",
     "url": "https://nltimes.nl/2026/10/15/albert-heijn-distribution-centers-start-supplying-stores-website-still-offline",
     "title": "Albert Heijn distribution centers start supplying stores again; Website still offline",
@@ -32081,18 +32093,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-41543c83",
-    "url": "https://www.nu.nl/buitenland/6413043/cornell-schorst-studentenfeesten-tot-zomer-na-vermeende-groepsverkrachting.html",
-    "title": "Cornell schorst studentenfeesten tot zomer na vermeende groepsverkrachting",
-    "publisher": "NU.nl",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-415f2e0d",
@@ -33427,6 +33427,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-46a1f9b1",
+    "url": "https://www.rtl.nl/nieuws/buitenland/artikel/5660182/italie-scherpt-wet-tegen-rellen-aan-na-gewelddadig-weekend-milaan",
+    "title": "Militairen en zwaardere straffen: Italië scherpt wet aan na plunderingen in Milaan",
+    "publisher": "RTL Nieuws",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-46a2e7d2",
     "url": "https://www.volkskrant.nl/buitenland/staatssecretaris-tielen-als-scholen-zeggen-geen-zin-te-hebben-in-een-telefoonverbod-dan-denk-ik-kom-op-jongens~bb180f2d1",
     "title": "Staatssecretaris Tielen: ‘Als scholen zeggen geen zin te hebben in een telefoonverbod, dan denk ik: kom op, jongens’",
@@ -34351,18 +34363,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-4b4e752",
-    "url": "https://www.rtl.nl/nieuws/sport/artikel/5658886/psv-lijdt-champions-league-nipte-nederlaag-bij-rb-leipzig",
-    "title": "PSV lijdt in Champions League nipte nederlaag bij RB Leipzig",
-    "publisher": "RTL Nieuws",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-4b59278c",
     "url": "https://www.rtl.nl/nieuws/economie/artikel/5660118/rekenkamer-eu-tientallen-coronamiljarden-leverden-bitter-weinig-op",
     "title": "Rekenkamer EU: tientallen coronamiljarden leverden bitter weinig op",
@@ -35227,6 +35227,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-4f6ee203",
+    "url": "https://www.rtl.nl/nieuws/sport/artikel/5660178/veerman-bereidt-winnende-doelpunt-van-borussia-dortmund-voor",
+    "title": "Veerman bereidt winnende doelpunt van Borussia Dortmund voor",
+    "publisher": "RTL Nieuws",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-4f810b7",
     "url": "https://www.rtl.nl/nieuws/binnenland/artikel/5658105/twintig-asielzoekers-sliepen-gras-bij-aanmeldcentrum-ter-apel",
     "title": "Twintig asielzoekers sliepen in gras bij Ter Apel: 'Pijnlijk om te zien'",
@@ -35587,6 +35599,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-516fe7dd",
+    "url": "https://www.nrc.nl/nieuws/2026/10/20/how-to-lose-money-betting-against-europe-a4939124",
+    "title": "How to lose money betting against Europe",
+    "publisher": "NRC",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-51a01560",
     "url": "https://fd.nl/politiek/1615914/bedrijven-bij-lelystad-airport-moeten-wijken-voor-defensie",
     "title": "Bedrijven bij Lelystad Airport moeten wijken voor Defensie",
@@ -35935,6 +35959,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-52fdb21a",
+    "url": "https://www.rtl.nl/nieuws/sport/artikel/5660188/nederlandse-turners-zevende-wk-finale-goud-japan",
+    "title": "Nederlandse turners zevende in WK-finale, goud Japan",
+    "publisher": "RTL Nieuws",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-530c7d30",
     "url": "https://www.ad.nl/voetbal/liverpool-pakt-zege-in-jubileumduel-virgil-van-dijk-zian-flemming-scoort-voor-ipswich-tegen-city~aa0c653a",
     "title": "Liverpool pakt zege in jubileumduel Virgil van Dijk, Zian Flemming scoort voor Ipswich tegen City",
@@ -36005,6 +36041,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-533b7d3e",
+    "url": "https://www.ad.nl/andere-sporten/nederlandse-turners-kunnen-niet-verrassen-in-teamfinale-wk-goud-voor-japan-in-ahoy~a96c9d6c",
+    "title": "Nederlandse turners kunnen niet verrassen in teamfinale WK, goud voor Japan in Ahoy",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-533e9ba3",
@@ -36835,18 +36883,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-56712aac",
-    "url": "https://www.nrc.nl/nieuws/2026/10/13/defensiebedrijven-zijn-een-doelwit-voor-russische-hackers-europa-moet-duidelijker-maken-cyberaanvallen-niet-te-accepteren-a4938847",
-    "title": "Defensiebedrijven zijn een doelwit voor Russische hackers. ‘Europa moet duidelijker maken cyberaanvallen niet te accepteren’",
-    "publisher": "NRC",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-5672af96",
     "url": "https://www.volkskrant.nl/columns-opinie/opinie-bescherm-vrouwen-in-de-overgang-niet-tegen-hun-eigen-keuze~b91771fe",
     "title": "Bescherm vrouwen in de overgang niet tegen hun eigen keuze",
@@ -37243,6 +37279,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van CPB. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Bron: CPB, Schaven aan begroting brengt Europa niet verder, geraadpleegd 2026-10-06. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-5879a396",
+    "url": "https://nltimes.nl/2026/10/20/prosecutors-seek-five-years-man-accused-arranging-child-sexual-abuse-online",
+    "title": "Prosecutors seek five years for man accused of arranging child sexual abuse online",
+    "publisher": "NL Times",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NL Times. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-588289e6",
     "url": "https://www.trouw.nl/politiek/vijlbrief-twijfelt-of-hij-dwangsommen-wel-wil-afschaffen~b7de9d3a",
     "title": "Vijlbrief twijfelt of hij dwangsommen wel wil afschaffen",
@@ -37351,18 +37399,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van NPO Radio 1. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-590f127a",
-    "url": "https://www.trouw.nl/opinie/lezersreacties-hoopvol-het-geloof-in-het-andere-rusland~b529d965",
-    "title": "Lezersreacties: Hoopvol, het geloof in het ‘andere Rusland’",
-    "publisher": "Trouw",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-59365ae1",
     "url": "https://www.trouw.nl/recensies/recensie-geld-of-verzamelwoede-de-rolstoelrovers-draait-niet-om-wie-het-heeft-gedaan-maar-waarom-de-kunst-is-geroofd~be6dad5a",
     "title": "Recensie: Geld of verzamelwoede? ‘De Rolstoelrovers’ draait niet om wie het heeft gedaan, maar waarom de kunst is geroofd",
@@ -37466,6 +37502,18 @@
     "type": "news",
     "published": "2026-10-18",
     "retrieved": "2026-10-18",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-59815940",
+    "url": "https://www.nu.nl/331477/video/van-dijk-gaat-flink-in-de-fout-bij-tegengoal-liverpool-in-cl.html",
+    "title": "Video | Virgil van Dijk gaat flink in de fout bij tegengoal Liverpool in CL",
+    "publisher": "NU.nl",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
@@ -38071,6 +38119,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-5c41f317",
+    "url": "https://www.trouw.nl/nieuws/live-israel-palestina-zeven-doden-gemeld-bij-israelische-aanvallen-in-gaza~bcf72583",
+    "title": "Zeven doden gemeld bij Israëlische aanvallen in Gaza",
+    "publisher": "Trouw",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-5c474a0a",
     "url": "https://www.parool.nl/video/een-kijkje-achter-de-schermen-bij-musical-cabaret-het-onderwerp-is-helaas-weer-relevant~b38a43a1",
     "title": "Een kijkje achter de schermen bij musical Cabaret: ‘Het onderwerp is helaas weer relevant’",
@@ -38213,18 +38273,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-5cd8f70d",
-    "url": "https://nltimes.nl/2026/10/13/psv-beaten-1-0-german-side-rb-leipzig-second-game-uefa-champions-league-season",
-    "title": "PSV beaten 1-0 by German side RB Leipzig in second game of UEFA Champions League season",
-    "publisher": "NL Times",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NL Times. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-5cd929c5",
@@ -40375,57 +40423,9 @@
     "notes": "Kop en inleiding uit de RSS-feed van NOS. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-5d25903",
-    "url": "https://nos.nl/l/2634864",
-    "title": "'Iran voert aanvallen op schepen in Straat van Hormuz weer op'",
-    "publisher": "NOS",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NOS. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-5d25905",
     "url": "https://nos.nl/l/2634866",
     "title": "Explosieven in huis van man die aanslag op Poolse premier zou hebben willen plegen",
-    "publisher": "NOS",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NOS. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-5d25921",
-    "url": "https://nos.nl/l/2634871",
-    "title": "40 jaar cel voor voormalig bendelid dat achter moord op Tupac Shakur zat",
-    "publisher": "NOS",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NOS. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-5d25924",
-    "url": "https://nos.nl/l/2634874",
-    "title": "Ambassadeur VS weg uit Griekenland na beschuldigingen van corruptie",
-    "publisher": "NOS",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NOS. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-5d25942",
-    "url": "https://nos.nl/l/2634881",
-    "title": "Spaans koningspaar bezoekt Ceuta 2,5 maand na stormloop, 'was hard nodig'",
     "publisher": "NOS",
     "type": "news",
     "published": "2026-10-13",
@@ -43615,6 +43615,78 @@
     "notes": "Kop en inleiding uit de RSS-feed van NOS. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-5d34f16",
+    "url": "https://nos.nl/l/2636012",
+    "title": "4 jaar cel geëist tegen man die aanslag wilde plegen op beoogd azc in Doetinchem",
+    "publisher": "NOS",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NOS. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-5d34f17",
+    "url": "https://nos.nl/l/2636013",
+    "title": "Twee verdachten opnieuw opgepakt om incident bij Engelse luchtmachtbasis",
+    "publisher": "NOS",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NOS. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-5d34f18",
+    "url": "https://nos.nl/l/2636014",
+    "title": "Brandweer redt mensen van dak bij woningbrand Hengelo",
+    "publisher": "NOS",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NOS. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-5d34f35",
+    "url": "https://nos.nl/l/2636020",
+    "title": "Hackers maakten ruim 400.000 AfD-mails buit, ook van partijleider Weidel",
+    "publisher": "NOS",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NOS. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-5d34f3c",
+    "url": "https://nos.nl/l/2636027",
+    "title": "'Verdachte in zaak-Hajar opgepakt na mishandeling pleegvader'",
+    "publisher": "NOS",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NOS. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-5d34f3d",
+    "url": "https://nos.nl/l/2636028",
+    "title": "WSJ: Musk achter Starlink-beperkingen voor Oekraïne",
+    "publisher": "NOS",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NOS. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-5d3fc14f",
     "url": "https://www.parool.nl/amsterdam/de-boelelaan-in-amsterdam-zuid-vanaf-2-november-zeven-maanden-gedeeltelijk-afgesloten-vanwege-werkzaamheden~bb18a18d",
     "title": "De Boelelaan in Amsterdam-Zuid vanaf 2 november zeven maanden gedeeltelijk afgesloten vanwege werkzaamheden",
@@ -43999,18 +44071,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-5ed7b7ad",
-    "url": "https://www.nu.nl/tech/6413062/medewerker-openai-gearresteerd-voor-plaatsen-van-verborgen-afluisterapparaat.html",
-    "title": "Medewerker OpenAI gearresteerd voor plaatsen van verborgen afluisterapparaat",
-    "publisher": "NU.nl",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-5edcc4ca",
     "url": "https://www.nu.nl/economie/6413075/asml-apparatuur-zo-erg-in-trek-dat-bedrijf-niet-aan-vraag-kan-voldoen.html",
     "title": "ASML-apparatuur zo erg in trek dat bedrijf niet aan vraag kan voldoen",
@@ -44126,6 +44186,18 @@
     "type": "news",
     "published": "2026-10-17",
     "retrieved": "2026-10-17",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-5f1a6907",
+    "url": "https://www.rtl.nl/nieuws/sport/artikel/5660179/psv-begint-met-bajraktarevic-en-gasiorowski-tegen-fc-porto",
+    "title": "PSV begint met Bajraktarević en Gąsiorowski tegen FC Porto",
+    "publisher": "RTL Nieuws",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
@@ -45295,6 +45367,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van Elsevier Weekblad. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-649d0702",
+    "url": "https://www.ad.nl/voetbal/ad-voetbalpodcast-guus-til-is-wel-heel-vaak-beslissend-op-belangrijke-momenten-voor-psv~a42af5cd9",
+    "title": "AD Voetbalpodcast | ‘Guus Til is wel heel vaak beslissend op belangrijke momenten voor PSV’",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-649e7728",
     "url": "https://www.ad.nl/tech/ethisch-hacker-joost-hackte-de-overheid-en-nasa-ai-baart-hem-zorgen-scholier-kan-bedrijven-hacken~ae7638c1",
     "title": "Ethisch hacker Joost hackte de overheid en Nasa, AI baart hem zorgen: ‘Scholier kan bedrijven hacken’",
@@ -46135,6 +46219,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-6806ca86",
+    "url": "https://www.trouw.nl/politiek/coalitie-blijft-verdeeld-over-terrorismewet-d66-is-nog-niet-overtuigd~b43ceca2",
+    "title": "Coalitie blijft verdeeld over terrorismewet. D66 is nog niet overtuigd",
+    "publisher": "Trouw",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-6808aef1",
     "url": "https://www.ad.nl/mezza/geen-reactie-op-mijn-bericht-in-de-appgroep-van-ons-gezin~acebc79d",
     "title": "Geen reactie op mijn bericht in de appgroep van ons gezin",
@@ -46891,6 +46987,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-6b4dbe3a",
+    "url": "https://www.rtl.nl/nieuws/buitenland/artikel/5660202/oekraine-krijgt-weer-inlichtingen-van-vs-volgens-zelensky-na",
+    "title": "Na ontmoeting in Oslo 'deelt VS weer inlichtingen met Oekraïne', zegt Zelensky",
+    "publisher": "RTL Nieuws",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-6b645b96",
     "url": "https://www.rtl.nl/nieuws/artikel/5660086/meisje-15-dood-gevonden-instelling-na-heftig-incident",
     "title": "Meisje (15) dood gevonden in begeleid-wonen-huis: 'Ernstig geschrokken'",
@@ -47395,6 +47503,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-6dd1e0fb",
+    "url": "https://bnnvara.nl/joop/artikelen/trump-en-zijn-zware-jongens",
+    "title": "Trump en zijn zware jongens",
+    "publisher": "Joop",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Joop. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-6ddc06a4",
     "url": "https://bnnvara.nl/joop/artikelen/hoe-trump-zich-laat-beinvloeden-door-poetin",
     "title": "Hoe Trump zich laat beïnvloeden door Poetin",
@@ -47609,18 +47729,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-6ec1d4fc",
-    "url": "https://fd.nl/financiele-markten/1615690/wall-street-nipt-in-het-rood-six-flags-verliest-fors-na-dodelijk-ongeval",
-    "title": "Wall Street nipt in het rood, Six Flags verliest fors na dodelijk ongeval",
-    "publisher": "FD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-6ec26112",
@@ -47861,18 +47969,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-6fdf5a",
-    "url": "https://www.parool.nl/sport/oranje-spaart-hongarije-in-tilburg-maar-is-probleemloos-door-naar-laatste-wk-play-off~b56ad083",
-    "title": "Oranje spaart Hongarije in Tilburg, maar is probleemloos door naar laatste WK-play-off",
-    "publisher": "Het Parool",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-6fe0a052",
@@ -48391,6 +48487,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-719c64aa",
+    "url": "https://www.rtl.nl/nieuws/buitenland/video/befb037e-9ac0-4d20-aed3-e8736e2a21a2/nederlandse-die-fietstours-organiseert",
+    "title": "Nederlandse fietsgids in Parijs ziet annuleringen binnenstromen",
+    "publisher": "RTL Nieuws",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-71a0ed3",
     "url": "https://www.nu.nl/opmerkelijk/6413223/australische-vrouw-aangeklaagd-omdat-ze-collega-curry-met-slakkengif-gaf.html",
     "title": "Australische vrouw aangeklaagd omdat ze collega curry met slakkengif gaf",
@@ -48422,18 +48530,6 @@
     "type": "news",
     "published": "2026-10-20",
     "retrieved": "2026-10-20",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-71ab50e0",
-    "url": "https://www.ad.nl/show/girls-keert-na-tien-jaar-terug-met-vijf-nieuwe-afleveringen~af957df0",
-    "title": "Girls keert na tien jaar terug met vijf nieuwe afleveringen",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
@@ -48775,6 +48871,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-72ed9a83",
+    "url": "https://fd.nl/bedrijfsleven/1616175/personalia-woensdag-21-oktober",
+    "title": "Personalia woensdag 21 oktober",
+    "publisher": "FD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-72f9bf77",
     "url": "https://www.ad.nl/voetbal/van-bommel-mist-porto-uit-en-mikt-op-topper-tegen-feyenoord-til-ondanks-vervelende-val-wel-van-de-partij~a6251c4a",
     "title": "Van Bommel mist Porto-uit en mikt op topper tegen Feyenoord, Til ondanks vervelende val wel van de partij",
@@ -48967,6 +49075,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van NPO Radio 1. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-73bea35b",
+    "url": "https://fd.nl/financiele-markten/1616330/eli-lilly-naar-recordhoogte-op-wall-street",
+    "title": "Eli Lilly naar recordhoogte op Wall Street",
+    "publisher": "FD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-73c8ed83",
     "url": "https://www.trouw.nl/duurzaamheid-economie/energie-via-warmtenet-kost-na-1-januari-tot-een-kwart-meer~b057df79",
     "title": "Energie via warmtenet kost na 1 januari tot een kwart meer",
@@ -48998,18 +49118,6 @@
     "type": "news",
     "published": "2026-10-09",
     "retrieved": "2026-10-09",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-73e74a74",
-    "url": "https://www.ad.nl/voetbal/viking-verrast-bayern-munchen-club-brugge-stunt-in-milaan~afa59f88",
-    "title": "Viking verrast Bayern München, Club Brugge stunt in Milaan",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
@@ -49469,6 +49577,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-75be64c3",
+    "url": "https://nltimes.nl/2026/10/20/psv-pick-first-uefa-champions-league-win-season-away-fc-porto",
+    "title": "PSV pick up first UEFA Champions League win of the season away to FC Porto",
+    "publisher": "NL Times",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NL Times. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-75dc98a2",
@@ -50155,18 +50275,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-78e0c63f",
-    "url": "https://www.ad.nl/wielrennen/podcast-in-het-wiel-roxane-knetemann-over-start-eneco-tour-dit-was-een-wereld-van-verschil-met-vorig-jaar~a5ea502e",
-    "title": "Podcast In Het Wiel | Roxane Knetemann over start Eneco Tour: ‘Dit was een wereld van verschil met vorig jaar’",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-78e81089",
     "url": "https://www.rtl.nl/nieuws/politiek/video/47b06258-5228-4ec9-8fc6-adb98bcda0ec/kleine-spaarders-worden-toch-ontzien-na",
     "title": "Kleine spaarders worden toch ontzien na druk Kamer: 'Gaan we niet doen'",
@@ -50477,18 +50585,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-7a248c7a",
-    "url": "https://www.volkskrant.nl/buitenland/longkanker-aangetroffen-bij-paus-leo-tijdens-geplande-operatie~bf6070f4",
-    "title": "Longkanker aangetroffen bij Paus Leo tijdens geplande operatie",
-    "publisher": "de Volkskrant",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-14",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-7a2a190d",
@@ -51967,6 +52063,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-8134dd0c",
+    "url": "https://www.trouw.nl/cultuur-media/wat-is-de-gewone-naam-voor-een-loods-vol-computers-en-servers~bd25277e",
+    "title": "Wat is de gewone naam voor een loods vol computers en servers?",
+    "publisher": "Trouw",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-8136d0fc",
     "url": "https://www.trouw.nl/binnenland/ontoerekeningsvatbare-trump-laat-den-haag-koorddansen~b352f37d",
     "title": "‘Ontoerekeningsvatbare’ Trump laat Den Haag koorddansen",
@@ -53083,18 +53191,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-8624ed",
-    "url": "https://www.rtl.nl/nieuws/buitenland/artikel/5658878/lichaam-overleden-fransman-ligt-al-14-jaar-mortuarium",
-    "title": "Lichaam overleden Fransman ligt al 14 jaar in mortuarium",
-    "publisher": "RTL Nieuws",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-862794cd",
     "url": "https://www.volkskrant.nl/sport/tiental-psv-verslikt-zich-in-ado-den-haag-na-rode-kaart-mijnans-en-verliest-met-2-1~bcc208ce",
     "title": "Tiental PSV verslikt zich in ADO Den Haag na rode kaart Mijnans en verliest met 2-1",
@@ -53299,6 +53395,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-874132d1",
+    "url": "https://www.volkskrant.nl/columns-van-de-dag/en-weer-probeert-de-vvd-een-niet-bestaand-probleem-met-verbeten-ijver-op-te-lossen~b3c8ed5f",
+    "title": "En weer probeert de VVD een niet-bestaand probleem met verbeten ijver op te lossen",
+    "publisher": "de Volkskrant",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-874e1d65",
     "url": "https://www.parool.nl/nederland/brussel-wil-50-miljard-euro-ophalen-met-nieuwe-eu-heffingen-nederland-zegt-niet-direct-nee~be1769f3",
     "title": "Brussel wil 50 miljard euro ophalen met nieuwe EU-heffingen, Nederland zegt niet direct nee",
@@ -53429,6 +53537,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-87fea393",
+    "url": "https://bnnvara.nl/joop/artikelen/rechts-probeert-uit-alle-macht-linkse-melenchon-de-schuld-te-geven-van-het-geweld-fransen-trappen-er-niet-in",
+    "title": "Rechts probeert uit alle macht linkse Mélenchon de schuld te geven van het geweld, Fransen trappen er niet in",
+    "publisher": "Joop",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Joop. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-8801c3ca",
@@ -53657,6 +53777,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-89812652",
+    "url": "https://www.trouw.nl/sport/gescheurde-kruisbanden-uitputting-en-tig-tweede-plaatsen-turnfenomeen-rebeca-andrade-geeft-nooit-op~b7a3cbef",
+    "title": "Gescheurde kruisbanden, uitputting en tig tweede plaatsen: turnfenomeen Rebeca Andrade geeft nooit op",
+    "publisher": "Trouw",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-898b25b9",
@@ -55123,18 +55255,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-8fae5dd9",
-    "url": "https://www.volkskrant.nl/buitenland/cornell-university-verbiedt-alle-feesten-van-mannendisputen-na-verkrachtingszaak~b82ea4aa",
-    "title": "Cornell University verbiedt alle feesten van mannendisputen na verkrachtingszaak",
-    "publisher": "de Volkskrant",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-8fb7a04d",
     "url": "https://www.nu.nl/buitenland/6413513/ruim-duizend-arrestaties-na-franse-rellen-macron-wil-blok-vormen-tegen-chaos.html",
     "title": "Ruim duizend arrestaties na Franse rellen, Macron wil ‘blok vormen tegen chaos",
@@ -55927,18 +56047,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van NL Times. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-92e9ecc1",
-    "url": "https://www.nrc.nl/nieuws/2026/10/13/armoedeproblematiek-kost-samenleving-jaarlijks-13-tot-20-miljard-euro-a4938884",
-    "title": "‘Armoedeproblematiek kost samenleving jaarlijks 13 tot 20 miljard euro’",
-    "publisher": "NRC",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-93180567",
     "url": "https://www.trouw.nl/cultuur-media/twee-genomineerde-essays-voor-de-joost-zwagerman-prijs-geschreven-met-ai~bf476e12",
     "title": "Twee genomineerde essays voor de Joost Zwagerman Prijs geschreven met AI",
@@ -55961,6 +56069,18 @@
     "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van Joop. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-933a1401",
+    "url": "https://www.parool.nl/misdaad/misdaadverslaggever-wouter-laumans-over-de-zaak-hajar-ik-heb-nog-honderd-vragen-natuurlijk~b284423e",
+    "title": "Misdaadverslaggever Wouter Laumans over de zaak-Hajar: ‘Ik heb nog honderd vragen natuurlijk’",
+    "publisher": "Het Parool",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-933eddd0",
@@ -56258,6 +56378,18 @@
     "type": "news",
     "published": "2026-10-19",
     "retrieved": "2026-10-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-94436f6c",
+    "url": "https://www.ad.nl/voetbal/barcelona-lijdt-eerste-nederlaag-van-het-seizoen-wervelend-paris-saint-germain-te-sterk-in-vermakelijke-kraker~a41679d4",
+    "title": "Barcelona lijdt eerste nederlaag van het seizoen: wervelend Paris Saint-Germain te sterk in vermakelijke kraker",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
@@ -56767,18 +56899,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-9696b82e",
-    "url": "https://www.trouw.nl/cultuur-media/oud-bendelid-krijgt-40-jaar-cel-voor-dood-rapper-tupac~bd522581",
-    "title": "Oud-bendelid krijgt 40 jaar cel voor dood rapper Tupac",
-    "publisher": "Trouw",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-96adccd9",
     "url": "https://www.rtl.nl/nieuws/politiek/artikel/5657896/tweede-kamer-minimaal-helft-subsidie-elektrische-autos-naar-laagste",
     "title": "Tweede Kamer: minimaal helft subsidie elektrische auto’s naar laagste inkomens",
@@ -57163,6 +57283,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van Elsevier Weekblad. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-983cdbbe",
+    "url": "https://www.nu.nl/voetbal/6413839/ronaldo-mist-strafschop-in-jacht-op-mijlpaal-reijnders-goud-waard-in-slotminuut.html",
+    "title": "Ronaldo mist strafschop in jacht op mijlpaal, Reijnders goud waard in slotminuut",
+    "publisher": "NU.nl",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-98400860",
     "url": "https://fd.nl/politiek/1615850/vooral-ja21-en-pro-spinnen-garen-bij-ongewis-lot-belastingplan",
     "title": "Vooral JA21 en Pro spinnen garen bij ongewis lot belastingplan",
@@ -57170,6 +57302,18 @@
     "type": "news",
     "published": "2026-10-16",
     "retrieved": "2026-10-16",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-9844be62",
+    "url": "https://fd.nl/opinie/1616201/toevallig-kinderloos",
+    "title": "Toevallig kinderloos",
+    "publisher": "FD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
@@ -57185,18 +57329,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-9859531b",
-    "url": "https://www.ad.nl/voetbal/stand-cl-psv-valt-terug-na-nederlaag-feyenoord-op-33ste-plaats-barcelona-aan-kop-dit-is-de-ranglijst~a7ceca5d",
-    "title": "Stand CL | PSV valt terug na nederlaag, Feyenoord op 33ste plaats, Barcelona aan kop: dit is de ranglijst",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-9876e5a9",
@@ -57667,18 +57799,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-9a4f9516",
-    "url": "https://www.ad.nl/voetbal/oranje-leeuwinnen-sparen-hongarije-in-tilburg-maar-plaatsen-zich-gemakkelijk-voor-finale-play-offs~a56ad083",
-    "title": "Oranje Leeuwinnen sparen Hongarije in Tilburg, maar plaatsen zich gemakkelijk voor finale play-offs",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-9a6012ed",
     "url": "https://nltimes.nl/2026/10/15/dutch-lawmakers-press-cabinet-rescue-nearly-bankrupt-seal-center-lauwesoog",
     "title": "Dutch lawmakers press Cabinet to rescue nearly bankrupt seal center in Lauwesoog",
@@ -57787,16 +57907,16 @@
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-9ae6ba18",
-    "url": "https://www.trouw.nl/duurzaamheid-economie/voor-de-tweede-keer-in-korte-tijd-ligt-een-deel-van-het-ov-plat-waarom-staakt-het-streekvervoer~b57386bc",
-    "title": "Voor de tweede keer in korte tijd ligt een deel van het ov plat: waarom staakt het streekvervoer?",
-    "publisher": "Trouw",
+    "id": "src:news-9ae5ec0c",
+    "url": "https://www.nrc.nl/nieuws/2026/10/20/animatiefilm-wildwood-oogt-verbazingwekkend-realitistisch-maar-alles-wat-je-ziet-is-gemaakt-door-kunstenaars-a4939293",
+    "title": "Animatiefilm ‘Wildwood’ oogt verbazingwekkend realitistisch, maar alles wat je ziet, is gemaakt door kunstenaars",
+    "publisher": "NRC",
     "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
     "license": "all-rights-reserved",
     "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+    "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-9ae749ba",
@@ -57833,18 +57953,6 @@
     "license": "CC0-1.0",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van Rijksoverheid. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-9b0fd55d",
-    "url": "https://www.nu.nl/voetbal/6413045/psv-lijdt-nipte-champions-league-nederlaag-in-leipzig-na-gemiste-penalty-perisic.html",
-    "title": "PSV lijdt nipte Champions League-nederlaag in Leipzig na gemiste penalty Perisic",
-    "publisher": "NU.nl",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-9b12197a",
@@ -57941,6 +58049,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-9b35bc4b",
+    "url": "https://www.rtl.nl/nieuws/sport/artikel/5660193/liverpool-wint-na-verdedigende-fouten-alsnog-van-villarreal",
+    "title": "Liverpool wint na verdedigende fouten alsnog van Villarreal",
+    "publisher": "RTL Nieuws",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-9b3816ec",
@@ -58411,6 +58531,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van Binnenlands Bestuur. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-9d2bf706",
+    "url": "https://www.trouw.nl/columnisten/het-debat-over-abortus-is-opeens-heel-lelijk-geworden~b3b79b41",
+    "title": "Het debat over abortus is opeens heel lelijk geworden",
+    "publisher": "Trouw",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-9d40f3fb",
     "url": "https://fd.nl/samenleving/1615393/werk-van-pas-afgestudeerde-ontwerpers-idealistisch-en-persoonlijk",
     "title": "Werk van pas afgestudeerde ontwerpers: idealistisch en persoonlijk",
@@ -58591,6 +58723,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van DutchNews.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-9e692d17",
+    "url": "https://www.trouw.nl/recepten/roerbakgroenten-met-garnalen-en-zwartebonensaus~b982ca17",
+    "title": "Roerbakgroenten met garnalen en zwartebonensaus",
+    "publisher": "Trouw",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-9e69b4ee",
     "url": "https://www.nu.nl/331348/video/waarom-de-democraten-hier-een-kansloze-race-aan-gaan.html",
     "title": "Explainer | De tactiek achter de kansloze strijd van deze Democraat in Tennessee",
@@ -58613,18 +58757,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-9eaf6b7d",
-    "url": "https://www.trouw.nl/recepten/pasta-met-miso-en-paddenstoelen~b653232d",
-    "title": "Pasta met miso en paddenstoelen",
-    "publisher": "Trouw",
-    "type": "news",
-    "published": "2026-10-12",
-    "retrieved": "2026-10-12",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-9edd5dff",
@@ -58879,6 +59011,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-9fca01a1",
+    "url": "https://www.ad.nl/voetbal/liverpool-komt-dramatische-start-en-fout-van-dijk-te-boven-tegen-villarreal-donyell-malen-trefzeker-voor-as-roma~acc2af2d",
+    "title": "Liverpool komt dramatische start en fout Van Dijk te boven tegen Villarreal, Donyell Malen trefzeker voor AS Roma",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-9fcc8a3d",
     "url": "https://www.rtl.nl/nieuws/buitenland/artikel/5659130/zelensky-oekraine-hervat-aanvallen-op-russische-energiedoelen",
     "title": "Oekraïne hervat aanvallen op Russische energiedoelen ondanks druk van Trump",
@@ -59045,18 +59189,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-a0741e83",
-    "url": "https://www.trouw.nl/opinie/op-deze-manier-verliezen-de-nobelprijzen-hun-geloofwaardigheid~bbee114f",
-    "title": "Op deze manier verliezen de Nobelprijzen hun geloofwaardigheid",
-    "publisher": "Trouw",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-a08ad767",
@@ -59393,18 +59525,6 @@
     "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van NL Times. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-a1cd45d3",
-    "url": "https://www.nrc.nl/nieuws/2026/10/13/russische-turnbond-wereldkampioene-meerkamp-angelina-melnikova-krijgt-geen-visum-van-nederland-voor-wk-a4938905",
-    "title": "Russische turnbond: wereldkampioene meerkamp Angelina Melnikova krijgt geen visum van Nederland voor WK",
-    "publisher": "NRC",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-a1ebf98c",
@@ -60571,13 +60691,13 @@
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-a6bc9240",
-    "url": "https://www.trouw.nl/binnenland/in-de-berichtgeving-over-gaza-gaven-nederlandse-media-israel-de-meeste-ruimte~b7410e50",
-    "title": "In de berichtgeving over Gaza gaven Nederlandse media Israël de meeste ruimte",
+    "id": "src:news-a689f04",
+    "url": "https://www.trouw.nl/opinie/lezersreacties-hier-een-reactie-uitlichten~ba4eef11",
+    "title": "Lezersreacties: [hier één reactie uitlichten]",
     "publisher": "Trouw",
     "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-14",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
@@ -60845,18 +60965,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-a7e201b8",
-    "url": "https://www.ad.nl/buitenland/michel-lag-al-14-jaar-in-frans-mortuarium-niemand-miste-hem-ergens-is-iets-heel-erg-misgegaan~acd22de0",
-    "title": "Michel lag al 14 jaar in Frans mortuarium, niemand miste hem: ‘Ergens is iets heel erg misgegaan’",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-a7e988f5",
@@ -61315,6 +61423,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-a949a08",
+    "url": "https://www.nu.nl/binnenland/6413821/man-opgepakt-voor-dood-hajar-29-werd-eerder-als-getuige-aangemerkt.html",
+    "title": "Man opgepakt voor dood Hajar (29), werd eerder als getuige aangemerkt",
+    "publisher": "NU.nl",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-a952cab8",
     "url": "https://fd.nl/samenleving/1615703/uit-de-kluiten-gewassen-beren-voor-volwassenen",
     "title": "Uit de kluiten gewassen beren voor volwassenen",
@@ -61505,6 +61625,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-aa2306ec",
+    "url": "https://www.trouw.nl/cultuur-media/terwijl-ade-van-start-gaat-wankelt-de-magie-van-de-nacht-we-hebben-de-roes-van-collectieve-vervoering-nodig~b1be032c",
+    "title": "Terwijl ADE van start gaat, wankelt de magie van de nacht. ‘We hebben de roes van collectieve vervoering nodig’",
+    "publisher": "Trouw",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-aa395091",
@@ -61927,6 +62059,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van Joop. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-ac0ef500",
+    "url": "https://www.trouw.nl/opinie/yanis-varoufakis-melenchon-heeft-gelijk-met-zijn-plan-om-per-direct-van-een-deel-van-de-franse-staatsschuld-af-te-komen~b07337e0",
+    "title": "Yanis Varoufakis: Mélenchon heeft gelijk met zijn plan om per direct van een deel van de Franse staatsschuld af te komen",
+    "publisher": "Trouw",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-ac1b59f4",
     "url": "https://www.nu.nl/331445/video/beer-duwt-grote-rolcontainer-tegen-geparkeerde-autos-aan-in-turkije.html",
     "title": "Video | Beer duwt grote rolcontainer tegen geparkeerde auto's aan in Turkije",
@@ -61997,6 +62141,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-ac3a5e43",
+    "url": "https://www.ad.nl/buitenland/elon-musk-ziet-een-fusie-tussen-tesla-en-spacex-wel-zitten~a3edb2dd",
+    "title": "Elon Musk ziet een fusie tussen Tesla en SpaceX wel zitten",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-ac541453",
@@ -63307,18 +63463,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-b1300f3a",
-    "url": "https://nltimes.nl/2026/10/13/netherlands-beat-hungary-3-0-move-within-one-tie-womens-world-cup",
-    "title": "Netherlands beat Hungary 3-0 to move within one tie of Women's World Cup",
-    "publisher": "NL Times",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NL Times. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-b143af40",
     "url": "https://www.ad.nl/binnenland/ik-wil-het-leven-makkelijker-maken-voor-mensen-zo-geeft-hielke-31-de-groentewinkel-een-eigentijdse-draai~a4005a95",
     "title": "‘Ik wil het leven makkelijker maken voor mensen’: zo geeft Hielke (31) de groentewinkel een eigentijdse draai",
@@ -63547,6 +63691,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-b21a08f7",
+    "url": "https://www.volkskrant.nl/buitenland/amerikaanse-defensieminister-hegseth-bezoekt-onaangekondigd-netanyahu~b2d71a17",
+    "title": "Amerikaanse Defensieminister Hegseth bezoekt onaangekondigd Netanyahu",
+    "publisher": "de Volkskrant",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-b225d080",
     "url": "https://www.rtl.nl/nieuws/binnenland/artikel/5659183/beverwijk-heemskerk-geweld-openbaar-ministerie-strafeis",
     "title": "OM eist tot twee jaar cel voor mishandelen en vernederen Haarlemmer in Beverwijk",
@@ -63629,18 +63785,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-b2a55cb0",
-    "url": "https://www.parool.nl/amsterdam/gewonde-na-explosie-bij-portiekflat-op-jan-cupidohof-in-slotermeer-de-klap-was-enorm~b422c5a8",
-    "title": "Gewonde na explosie bij portiekflat op Jan Cupidohof in Slotermeer: ‘De klap was enorm’",
-    "publisher": "Het Parool",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-14",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-b2b0825f",
@@ -63907,18 +64051,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-b3ec6ba",
-    "url": "https://www.ad.nl/voetbal/lisandro-martinez-loopt-helemaal-leeg-na-verliespartij-tegen-atletico-ik-verwacht-meer-van-onze-technisch-directeur~acddbb25",
-    "title": "Lisandro Martínez loopt helemaal leeg na verliespartij tegen Atlético: ‘Ik verwacht meer van onze technisch directeur’",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-b3ed2c61",
     "url": "https://www.ad.nl/politiek/in-stilte-repareert-asielminister-de-flater-rond-strengere-wetten-nu-stemt-senaat-wel-in~a43d58b6",
     "title": "In stilte repareert asielminister de flater rond strengere wetten: nu stemt senaat wél in",
@@ -64051,18 +64183,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-b4a4a1b2",
-    "url": "https://fd.nl/opinie/1615561/wat-natuurlijk-is-bepaalt-blijkbaar-de-mens",
-    "title": "Wat natuurlijk is, bepaalt blijkbaar de mens",
-    "publisher": "FD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-b4b5e39d",
     "url": "https://nltimes.nl/2026/10/11/govt-support-247-alcohol-monitoring-convicted-related-crimes",
     "title": "Most of the gov't support 24/7 alcohol monitoring for those convicted of related crimes",
@@ -64073,6 +64193,18 @@
     "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van NL Times. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-b4ca89d1",
+    "url": "https://www.ad.nl/buitenland/ooit-was-dit-slaperige-dorpje-een-booming-bedevaartsoort-nu-trekken-de-pelgrims-liever-naar-andere-plekken~ad7e2ab2",
+    "title": "Ooit was dit slaperige dorpje een booming bedevaartsoort, nu trekken de pelgrims liever naar andere plekken",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-b4e9c769",
@@ -64243,18 +64375,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van Binnenlands Bestuur. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-b5c55842",
-    "url": "https://www.ad.nl/buitenland/openai-ontdekt-opnameapparatuur-in-kantoor-medewerker-opgepakt~acac7a67",
-    "title": "OpenAI ontdekt opnameapparatuur in kantoor, medewerker opgepakt",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-b5c607ee",
     "url": "https://www.nu.nl/muziek/6412965/roxeanne-hazes-vond-geluid-van-haar-nieuwe-album-na-goede-zenuwinzinking.html",
     "title": "Roxeanne Hazes vond geluid van haar nieuwe album na 'goede zenuwinzinking'",
@@ -64373,6 +64493,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-b66cc0d7",
+    "url": "https://www.trouw.nl/duurzaamheid-economie/duim-omhoog-voor-het-klimaat-liften-hoe-doe-je-dat~b262b553",
+    "title": "Duim omhoog voor het klimaat: liften, hoe doe je dat?",
+    "publisher": "Trouw",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-b66e4ea0",
@@ -64555,6 +64687,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-b73067fb",
+    "url": "https://www.trouw.nl/opinie/zonder-gedegen-plan-lijkt-de-verplichte-hybride-warmtepomp-een-zwaktebod~bd4bd407",
+    "title": "Zonder gedegen plan lijkt de verplichte (hybride) warmtepomp een zwaktebod",
+    "publisher": "Trouw",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-b73aee65",
     "url": "https://www.volkskrant.nl/economie/groen-beleggen-moet-veel-eenvoudiger~b68cf8cf",
     "title": "Groen beleggen moet veel eenvoudiger",
@@ -64685,6 +64829,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-b7c37071",
+    "url": "https://www.nrc.nl/nieuws/2026/10/20/wicker-is-een-charmant-hartverwarmend-sprookje-over-de-liefde-tussen-visvrouw-en-haar-man-van-riet-a4939258",
+    "title": "‘Wicker’ is een charmant, hartverwarmend sprookje over de liefde tussen Visvrouw en haar man van riet",
+    "publisher": "NRC",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-b7c7ab9b",
@@ -65671,6 +65827,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-bbdba7ce",
+    "url": "https://www.rtl.nl/nieuws/sport/artikel/5660194/malen-met-goal-en-assist-belangrijk-voor-roma-champions-league",
+    "title": "Malen met goal en assist belangrijk voor Roma in Champions League",
+    "publisher": "RTL Nieuws",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-bbf53c6b",
     "url": "https://www.trouw.nl/buitenland/live-oorlog-midden-oosten-saudi-arabie-stelt-tennistoernooi-uit-na-aanvallen-houthi-s~b4cda6da",
     "title": "Saudi-Arabië stelt tennistoernooi uit na aanvallen Houthi's",
@@ -66427,6 +66595,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-bfce948d",
+    "url": "https://www.ad.nl/voetbal/psv-boekt-zwaarbevochten-eerste-zege-in-cl-guus-til-maakt-het-verschil-tegen-fc-porto-van-francesco-farioli~af7a7edc",
+    "title": "PSV boekt zwaarbevochten eerste zege in CL: Guus Til maakt het verschil tegen FC Porto van Francesco Farioli",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-bfdb69e4",
     "url": "https://www.volkskrant.nl/politiek/heel-bijzonder-zegt-minister-yesilgoz-zoveel-draagvlak-voor-defensie-in-de-kamer~b96beb54",
     "title": "‘Heel bijzonder’, zegt minister Yesilgöz, zoveel draagvlak voor defensie in de Kamer",
@@ -66787,18 +66967,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-c1d241af",
-    "url": "https://www.ad.nl/wielrennen/experiment-met-mannen-en-vrouwen-bij-proloog-valt-in-de-smaak-de-afwisseling-is-erg-leuk~a9469202",
-    "title": "Experiment met mannen en vrouwen bij proloog valt in de smaak: ‘De afwisseling is erg leuk’",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-c1dfe1e9",
     "url": "https://www.nu.nl/achterklap/6413110/elise-van-der-horst-en-hedwiges-maduro-uit-elkaar-zangeres-heeft-nieuwe-liefde.html",
     "title": "Elise van der Horst en Hedwiges Maduro uit elkaar, zangeres heeft nieuwe liefde",
@@ -66979,18 +67147,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van NL Times. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-c282c3c9",
-    "url": "https://www.rtl.nl/nieuws/sport/artikel/5658884/voetbalsters-door-wk-kwalificatie-na-nieuwe-zege-op-hongarije",
-    "title": "Voetbalsters door in WK-kwalificatie na nieuwe zege op Hongarije",
-    "publisher": "RTL Nieuws",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-c288f321",
     "url": "https://www.nrc.nl/nieuws/2026/10/16/rapper-en-schrijver-massih-hutak-ik-heb-heel-lang-gezegd-ik-kan-bij-vrienden-terecht-ik-wandel-ik-boks-ik-heb-geen-therapie-nodig-a4937906",
     "title": "Rapper en schrijver Massih Hutak: ‘Ik heb heel lang gezegd: ik kan bij vrienden terecht, ik wandel, ik boks – ik heb geen therapie nodig’",
@@ -67025,18 +67181,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-c2a40150",
-    "url": "https://www.ad.nl/voetbal/ad-voetbalpodcast-ik-denk-dat-dit-voor-psv-toch-een-harde-nederlaag-is~a42af5cd9",
-    "title": "AD Voetbalpodcast | ‘Ik denk dat dit voor PSV toch een harde nederlaag is’",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-c2b505ca",
@@ -67118,18 +67262,6 @@
     "type": "news",
     "published": "2026-10-14",
     "retrieved": "2026-10-14",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-c2f1bbbb",
-    "url": "https://www.nu.nl/voetbal/6413051/oranjevrouwen-nog-een-horde-verwijderd-van-wk-na-nieuwe-zege-op-hongarije.html",
-    "title": "Oranjevrouwen nog één horde verwijderd van WK na nieuwe zege op Hongarije",
-    "publisher": "NU.nl",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
@@ -69055,6 +69187,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-cb4988e9",
+    "url": "https://www.nrc.nl/nieuws/2026/10/20/biodiversiteit-kan-geen-265-jaar-wachten-a4939363",
+    "title": "Biodiversiteit kan geen 265 jaar wachten",
+    "publisher": "NRC",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-cb4f9f02",
     "url": "https://www.volkskrant.nl/boeken/collectie-onuitgegeven-boeken-krijgt-plekje-voor-de-eeuwigheid-bij-de-koninklijke-bibliotheek~bfeb66bf",
     "title": "Collectie onuitgegeven boeken krijgt plekje voor de eeuwigheid bij de Koninklijke Bibliotheek",
@@ -69283,6 +69427,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-cc3eb312",
+    "url": "https://www.nrc.nl/nieuws/2026/10/13/acteur-javier-bardem-heeft-al-tal-van-onvergetelijke-personages-op-zijn-naam-staan-en-schittert-nu-weer-a4938596",
+    "title": "Javier Bardem heeft tal van onvergetelijke personages op zijn naam staan en schittert nu in The Beloved",
+    "publisher": "NRC",
+    "type": "news",
+    "published": "2026-10-13",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-cc418626",
     "url": "https://www.trouw.nl/zorg/1-070-000-euro-voor-hulp-aan-een-kind-waarom-valt-jeugdzorg-soms-zo-duur-uit~ba1c528b5",
     "title": "1.070.000 euro voor hulp aan één kind: waarom valt jeugdzorg soms zo duur uit?",
@@ -69463,6 +69619,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-cd19dbb9",
+    "url": "https://fd.nl/financiele-markten/1616108/apple-investeert-weinig-in-ai-en-is-toch-een-beurslieveling-ter-waarde-van-5000-mrd",
+    "title": "Apple investeert weinig in AI en is toch een beurslieveling ter waarde van $5000 mrd",
+    "publisher": "FD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-cd2992ba",
     "url": "https://www.trouw.nl/religie-filosofie/in-de-mooiste-kerk-van-nederland-ontdekten-zaterdag-honderden-bezoekers-wat-mooi-betekent~b2a4eebc",
     "title": "In de ‘Mooiste Kerk van Nederland’ ontdekten zaterdag honderden bezoekers wat ‘mooi’ betekent",
@@ -69533,18 +69701,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-cd6ef4c3",
-    "url": "https://www.nu.nl/buitenland/6413055/paus-leo-geopereerd-aan-kwaadaardige-knobbel-deel-van-long-verwijderd.html",
-    "title": "Paus Leo geopereerd aan kwaadaardige knobbel: deel van long verwijderd",
-    "publisher": "NU.nl",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-cd825ada",
@@ -69725,6 +69881,18 @@
     "license": "CC-BY-3.0-NL",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van CPB. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Bron: CPB, Doorrekening beleidsopties WW, geraadpleegd 2026-10-06. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-ce30c844",
+    "url": "https://www.trouw.nl/duurzaamheid-economie/verkoop-van-nieuwbouw-stokt-door-hogere-rente-en-mismatch-in-vraag-en-aanbod~bd6c8f19",
+    "title": "Verkoop van nieuwbouw stokt door hogere rente en mismatch in vraag en aanbod",
+    "publisher": "Trouw",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-ce321b5b",
@@ -70097,18 +70265,6 @@
     "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van NPO Radio 1. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-cf4a0868",
-    "url": "https://www.ad.nl/voetbal/psv-betaalt-de-prijs-voor-misser-ivan-perisic-en-gaat-nipt-onderuit-in-vermakelijk-duel-met-rb-leipzig~a6ab409e",
-    "title": "PSV betaalt de prijs voor misser Ivan Perisic en gaat nipt onderuit in vermakelijk duel met RB Leipzig",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-cf4ab108",
@@ -71971,18 +72127,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van Joop. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-d698e36f",
-    "url": "https://www.ad.nl/voetbal/timber-helpt-arsenal-met-schitterende-treffer-aan-zege-op-lille-madueke-schreeuwde-dat-ik-moest-schieten~a3b20439",
-    "title": "Timber helpt Arsenal met schitterende treffer aan zege op Lille: ‘Madueke schreeuwde dat ik moest schieten’",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-d69e6426",
     "url": "https://www.nu.nl/asielcrisis/6413773/landelijke-kerken-roepen-plaatselijke-kerken-op-statushouders-op-te-vangen.html",
     "title": "Landelijke kerken roepen plaatselijke kerken op statushouders op te vangen",
@@ -72151,18 +72295,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-d74ae541",
-    "url": "https://www.ad.nl/wielrennen/talentvolle-nederlander-grijpt-net-naast-verrassende-zege-in-proloog-lieke-nooijen-wint-bij-vrouwen~abffcc4a",
-    "title": "Talentvolle Nederlander grijpt net naast verrassende zege in proloog, Lieke Nooijen wint bij vrouwen",
-    "publisher": "AD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-d74bc15b",
     "url": "https://www.ad.nl/politiek/defensie-wil-desinformatie-over-dienstplicht-op-tiktok-bestrijden-maar-mag-app-niet-op-van-het-rijk~ae559b50",
     "title": "Defensie wil desinformatie over dienstplicht op TikTok bestrijden, maar mag app niet op van het Rijk",
@@ -72173,6 +72305,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-d751e5e7",
+    "url": "https://www.volkskrant.nl/sport/gehavend-paris-saint-germain-trekt-prachtige-prestigestrijd-met-fc-barcelona-in-slotfase-naar-zich-toe-4-2~be9c086e",
+    "title": "Gehavend Paris Saint-Germain trekt prachtige prestigestrijd met FC Barcelona in slotfase naar zich toe: 4-2",
+    "publisher": "de Volkskrant",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-d758c3bf",
@@ -72305,18 +72449,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-d7f30876",
-    "url": "https://www.volkskrant.nl/sport/nederlandse-voetbalsters-verslaan-hongarije-en-kunnen-wk-bijna-ruiken~b20b4307",
-    "title": "Nederlandse voetbalsters verslaan Hongarije en kunnen WK bijna ruiken",
-    "publisher": "de Volkskrant",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-d7f9ede5",
@@ -72629,6 +72761,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-d97b9a8b",
+    "url": "https://www.nrc.nl/nieuws/2026/10/20/acteurs-harvey-keitel-en-danny-trejo-in-maga-land-a4939307",
+    "title": "Acteurs Harvey Keitel en Danny Trejo in MAGA-land",
+    "publisher": "NRC",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-d97f0c15",
@@ -73123,6 +73267,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van NL Times. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-db9da17",
+    "url": "https://www.ad.nl/wielrennen/groene-hulk-joris-nieuwenhuis-wint-wereldkampioen-lucinda-brand-verrassend-verslagen~aec596f9",
+    "title": "‘Groene Hulk’ Joris Nieuwenhuis wint, wereldkampioen Lucinda Brand verrassend verslagen",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-dbaaf01a",
     "url": "https://www.parool.nl/echt-waar/waarom-heb-je-na-een-slaaptekort-meer-zin-in-kroketten-en-chips~bf23b992",
     "title": "Waarom heb je na een slaaptekort meer zin in kroketten en chips?",
@@ -73145,18 +73301,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-dbb87a2f",
-    "url": "https://www.parool.nl/amsterdam/felle-woningbrand-in-indische-buurt-een-persoon-naar-ziekenhuis~bcf77ba90",
-    "title": "Felle woningbrand in Indische Buurt, één persoon naar ziekenhuis",
-    "publisher": "Het Parool",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-dbd8d835",
@@ -73553,18 +73697,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-ddce45ab",
-    "url": "https://nltimes.nl/2026/10/13/two-arrested-fatal-shooting-nijmegen-vierdaagse-festivities",
-    "title": "Two more arrested over fatal shooting during Nijmegen Vierdaagse festivities",
-    "publisher": "NL Times",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van NL Times. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-dddf8745",
@@ -74803,6 +74935,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-e368f315",
+    "url": "https://www.nu.nl/formule-1/6413846/fia-baas-verdedigt-f1-races-in-qatar-en-abu-dhabi-er-is-daar-niets-aan-de-hand.html",
+    "title": "FIA-baas verdedigt F1-races in Qatar en Abu Dhabi: 'Er is daar niets aan de hand'",
+    "publisher": "NU.nl",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-e36afe90",
     "url": "https://www.dutchnews.nl/2026/10/mps-move-to-curb-small-schools-amid-cost-and-curricula-concerns",
     "title": "MPs move to curb small schools amid cost and curricula concerns",
@@ -75101,18 +75245,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-e4d60f15",
-    "url": "https://www.parool.nl/amsterdam/een-gewonde-na-explosie-bij-portiekflat-op-jan-cupidohof-in-slotermeer-de-klap-was-enorm~b422c5a8",
-    "title": "Eén gewonde na explosie bij portiekflat op Jan Cupidohof in Slotermeer: ‘De klap was enorm’",
-    "publisher": "Het Parool",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van Het Parool. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-e4de5a31",
@@ -76169,18 +76301,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-e93c65f",
-    "url": "https://www.volkskrant.nl/buitenland/voormalig-bendelid-krijgt-40-jaar-cel-voor-spraakmakende-moord-op-hiphoplegende-tupac~bb15dff7e",
-    "title": "Voormalig bendelid krijgt 40 jaar cel voor spraakmakende moord op hiphoplegende Tupac",
-    "publisher": "de Volkskrant",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-e95fc505",
@@ -77611,6 +77731,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van Trouw. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-f0507c35",
+    "url": "https://bnnvara.nl/joop/artikelen/de-metrostellen-zijn-besteld-maar-kabinet-geeft-geen-geld-voor-de-rails-waar-ze-op-moeten-rijden",
+    "title": "De metrostellen zijn besteld maar kabinet geeft geen geld voor de rails waar ze op moeten rijden",
+    "publisher": "Joop",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "Koppen en deep links; geen overname van artikeltekst of beeld.",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van Joop. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-f050c800",
     "url": "https://www.rtl.nl/nieuws/buitenland/artikel/5659846/verdwijning-vliegtuig-amelia-earhart-blijft-mysterie-wrak-wat",
     "title": "Verdwijning vliegtuig Amelia Earhart blijft mysterie: 'wrak' is wat anders",
@@ -77762,6 +77894,18 @@
     "type": "news",
     "published": "2026-10-19",
     "retrieved": "2026-10-19",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-f0cc2473",
+    "url": "https://www.volkskrant.nl/sport/sterk-psv-verslaat-porto-0-1-en-boekt-eerste-zege-in-champions-league~bd0efbea",
+    "title": "Sterk PSV verslaat Porto (0-1) en boekt eerste zege in Champions League",
+    "publisher": "de Volkskrant",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
@@ -78091,6 +78235,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van RTL Nieuws. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-f2710b9b",
+    "url": "https://www.nu.nl/voetbal/6413840/psv-knokt-zich-naar-belangrijke-zege-bij-fc-porto-in-champions-league.html",
+    "title": "PSV knokt zich naar belangrijke zege bij FC Porto in Champions League",
+    "publisher": "NU.nl",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-f271d1fe",
     "url": "https://www.ad.nl/binnenland/olifantenverbod-gezinnen-naar-tanzania-sturen-om-een-olifant-te-zien-kan-ook-niet~aef484d1",
     "title": "Olifantenverbod? ‘Gezinnen naar Tanzania sturen om een olifant te zien kan ook niet’",
@@ -78113,6 +78269,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van NRC. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-f2948761",
+    "url": "https://www.ad.nl/economie/spacex-voert-omzet-flink-op-dankzij-ai-tak-en-groei-bij-starlink~ab866924",
+    "title": "SpaceX voert omzet flink op dankzij AI-tak en groei bij Starlink",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-f295f2e5",
@@ -78619,6 +78787,18 @@
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
+    "id": "src:news-f49d8fdd",
+    "url": "https://www.nu.nl/buitenland/6413842/trump-staat-weer-naast-poetin-oekraine-moet-wil-hebben-om-oorlog-te-stoppen.html",
+    "title": "Trump staat weer naast Poetin: 'Oekraïne moet wil hebben om oorlog te stoppen'",
+    "publisher": "NU.nl",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
     "id": "src:news-f4af8d9d",
     "url": "https://www.nu.nl/economie/6413101/albert-heijn-begint-vandaag-weer-met-leveringen-aan-winkels.html",
     "title": "Albert Heijn begint vandaag weer met leveringen aan winkels",
@@ -78710,6 +78890,18 @@
     "type": "news",
     "published": "2026-10-16",
     "retrieved": "2026-10-16",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-f56b3e1c",
+    "url": "https://www.ad.nl/binnenland/fundament-onder-wikipedia-in-gevaar-als-je-googelt-hoef-je-niet-meer-naar-die-site-te-klikken~a8306099",
+    "title": "Fundament onder Wikipedia in gevaar: als je googelt, hoef je niet meer naar die site te klikken",
+    "publisher": "AD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
@@ -79205,6 +79397,18 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van AD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
+  },
+  {
+    "id": "src:news-f7543818",
+    "url": "https://fd.nl/opinie/1616277/sterke-beats-en-vluchtige-banden",
+    "title": "Sterke beats en vluchtige banden",
+    "publisher": "FD",
+    "type": "news",
+    "published": "2026-10-20",
+    "retrieved": "2026-10-20",
+    "license": "all-rights-reserved",
+    "archiveUrl": null,
+    "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-f7555f56",
@@ -80419,18 +80623,6 @@
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
-    "id": "src:news-fcdb36eb",
-    "url": "https://www.volkskrant.nl/sport/psv-verliest-onnodig-bij-rb-leipzig-1-0-na-gemiste-strafschop-perisic~b25b95f3",
-    "title": "PSV verliest onnodig bij RB Leipzig (1-0) na gemiste strafschop Perisic",
-    "publisher": "de Volkskrant",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van de Volkskrant. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
     "id": "src:news-fce5654d",
     "url": "https://www.nrc.nl/nieuws/2026/10/20/oplichting-in-nieuw-jasje-a4939368",
     "title": "Oplichting in nieuw jasje",
@@ -80633,18 +80825,6 @@
     "license": "all-rights-reserved",
     "archiveUrl": null,
     "notes": "Kop en inleiding uit de RSS-feed van NU.nl. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
-  },
-  {
-    "id": "src:news-fe033553",
-    "url": "https://fd.nl/opinie/1615681/begroten-met-veto",
-    "title": "Begroten met veto",
-    "publisher": "FD",
-    "type": "news",
-    "published": "2026-10-13",
-    "retrieved": "2026-10-13",
-    "license": "all-rights-reserved",
-    "archiveUrl": null,
-    "notes": "Kop en inleiding uit de RSS-feed van FD. Samenvatting is een originele Nederlandse weergave van kop en inleiding; niets buiten de feed is beweerd. Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5."
   },
   {
     "id": "src:news-fe0b696b",
@@ -84935,7 +85115,7 @@
     "title": "Overzicht commissarissen van de Koning per provincie (bijgewerkt 28-01-2026)",
     "publisher": "Rijksoverheid",
     "type": "page",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-20",
     "license": "CC0-1.0",
     "notes": "Naam, partij, datum van benoeming en geboortedatum per provincie.",
     "archiveUrl": null
@@ -93861,7 +94041,7 @@
     "publisher": "KOOP / Overheid.nl",
     "type": "register",
     "published": null,
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-20",
     "license": "unknown",
     "archiveUrl": null,
     "notes": "Officiële organisatiecodes, begin- en einddata en herindelingen (JSON-LD). Een licentieverklaring staat niet op de set of op standaarden.overheid.nl/tooi; alleen feiten (codes, data) worden gebruikt. Licentie niet vastgesteld; endpoint: https://identifier.overheid.nl/tooi/id/gemeente?format=json"
@@ -93873,7 +94053,7 @@
     "publisher": "KOOP / Overheid.nl",
     "type": "register",
     "published": null,
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-20",
     "license": "unknown",
     "archiveUrl": null,
     "notes": "Officiële organisatiecodes, begin- en einddata en herindelingen (JSON-LD). Een licentieverklaring staat niet op de set of op standaarden.overheid.nl/tooi; alleen feiten (codes, data) worden gebruikt. Licentie niet vastgesteld; endpoint: https://identifier.overheid.nl/tooi/id/provincie?format=json"
@@ -93885,7 +94065,7 @@
     "publisher": "KOOP / Overheid.nl",
     "type": "register",
     "published": null,
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-20",
     "license": "unknown",
     "archiveUrl": null,
     "notes": "Officiële organisatiecodes, begin- en einddata en herindelingen (JSON-LD). Een licentieverklaring staat niet op de set of op standaarden.overheid.nl/tooi; alleen feiten (codes, data) worden gebruikt. Licentie niet vastgesteld; endpoint: https://identifier.overheid.nl/tooi/id/waterschap?format=json"
