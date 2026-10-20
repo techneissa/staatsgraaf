@@ -1,7 +1,7 @@
 {
   "bewindspersonen": {
     "cabinetSlug": "kabinet-jetten",
-    "lastRun": "2026-10-19T20:37:38.206Z",
+    "lastRun": "2026-10-20T14:21:42.936Z",
     "slugsHash": null
   },
   "decentral": {
@@ -820,7 +820,7 @@
     "colofon": {
       "annotationAnnounced": true,
       "annotationText": null,
-      "checked": "2026-10-13T06:50:41.492Z",
+      "checked": "2026-10-20T14:21:42.936Z",
       "dateRequired": true,
       "imagesForbidden": true,
       "sourceRequired": true
@@ -829,7 +829,7 @@
       "fracties": "0c1a14c56c26b6052121358d62eda103f1045bf4e4a06bcc0e2bf3a6ff07dd26",
       "mutaties": "18011dbde2e6953e03db4f58422a8e59066b7046ce6d84a8c96950819d87a555"
     },
-    "lastFullRun": "2026-10-19T20:37:38.206Z"
+    "lastFullRun": "2026-10-20T14:21:42.936Z"
   },
   "electionDates": {
     "gaps": [],
@@ -967,11 +967,11 @@
     "lastRun": "2026-10-20T00:24:50.529Z"
   },
   "lastRun": {
-    "at": "2026-10-20T00:24:50.529Z",
+    "at": "2026-10-20T14:21:42.936Z",
     "outcome": "updated"
   },
   "news": {
-    "lastRun": "2026-10-19T20:37:38.206Z",
+    "lastRun": "2026-10-20T14:21:42.936Z",
     "sitemapLastmod": null
   },
   "note": "State of `bun run live` (ADR 0024). Cursors are Tweede Kamer ApiGewijzigdOp values; personMap maps a Tweede Kamer Persoon.Id to a person id in data/people.json. Written by the pipeline, not by hand.",
@@ -983,7 +983,7 @@
       "vacature": "2026-09-02T13:39:18.4481246Z"
     },
     "lastCounts": null,
-    "lastFullRun": "2026-10-19T20:37:38.206Z",
+    "lastFullRun": "2026-10-20T14:21:42.936Z",
     "pendingGuard": null,
     "personMap": {
       "0004fa63-2652-43fe-9866-4130ca4652d8": "person:maikel-christiaan-hendrikus-boon",
