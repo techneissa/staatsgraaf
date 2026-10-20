@@ -11,17 +11,6 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:10133ce0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Word search",
-    "lead": null,
-    "sourceHash": "270011d47bdc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:10133ce1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -86,6 +75,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:10133cfe",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Woordzoeker",
+    "lead": null,
+    "sourceHash": "270011d47bdc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:1021a72d",
@@ -380,17 +380,6 @@
     "title": "Experts on new zzp law: 'Solves nothing as long as there is no enforcement'",
     "lead": "Experts doubt whether the new zzp law will really prevent sham self-employment. <entity id=\"org:kabinet\">Het kabinet</entity> announced last week the new bill for 2028: the Self-Employed Persons Act. Many NU.nl readers wondered to what extent this law really makes clearer who is an entrepreneur.",
     "sourceHash": "5e715c7c3485",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:114834c7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Top darts player expresses regret 'to all women' after sexist joke: 'The remark was completely inappropriate'",
-    "lead": "Riling up the crowd a bit extra just as your opponent is about to throw before the match. Mensur Suljovic thought this was a good idea over the weekend at the Swiss Darts Trophy in Basel. His opponent Ross Smith was not pleased with the Austrian's behaviour, but he showed not a trace of regret. Instead, he even rubbed salt into the wound.",
-    "sourceHash": "eb5650889894",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -735,17 +724,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
-  },
-  {
-    "id": "news:12cb1c59",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Pieterburen Seal Centre in distress, likely to file for bankruptcy within two weeks",
-    "lead": null,
-    "sourceHash": "577e3d9c7323",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:12cc58b4",
@@ -1287,6 +1265,17 @@
     "translated": "2026-10-14"
   },
   {
+    "id": "news:15c2aa9e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Glass and stones thrown at police in Floradorp, two arrests",
+    "lead": null,
+    "sourceHash": "5cc03ab10df9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
+  },
+  {
     "id": "news:15c305d2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1296,6 +1285,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:15cb1043",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US Withholds Patriot Missiles from Ukraine, Washington Post Reports",
+    "lead": null,
+    "sourceHash": "ed7c85ed518f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:15f6ca6f",
@@ -3124,6 +3124,17 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:1fe5ef2d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "American teenager (18) suspected of plotting a terrorist attack on a large shopping center",
+    "lead": "In the United States an 18-year-old teenager has been arrested on suspicion of plotting a terrorist attack on a large shopping center in Minnesota. He had bought an AK-47 weapon from an undercover FBI agent.",
+    "sourceHash": "0fcc57ba0ace",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
+  },
+  {
     "id": "news:1ff0280a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4906,17 +4917,6 @@
     "translated": "2026-10-18"
   },
   {
-    "id": "news:289ee97f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Vorto",
-    "lead": null,
-    "sourceHash": "e0d279537212",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:289ee980",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4981,6 +4981,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:289ee99d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Vorto",
+    "lead": null,
+    "sourceHash": "e0d279537212",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:28a12474",
@@ -6281,6 +6292,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:2ea45b02",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Zo profiteert neutraal Oman van de Iran-oorlog",
+    "lead": "De Golfstaat Oman houdt vast aan zijn decennialange credo: vriend van iedereen, vijand van niemand. Maar hoelang blijft die positie van allemansvriend nog houdbaar?",
+    "sourceHash": "4e4d98b64ad7",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
+  },
+  {
     "id": "news:2ea6f6c7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -6433,6 +6455,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:2f2761f9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Australian Lawmaker (65) Still in Critical Condition After Surgery",
+    "lead": "Australian lawmaker Helen Haines, who was reportedly hit by a vehicle deliberately, remains in critical condition, Prime Minister Anthony Albanese said at a press conference. Haines has since undergone surgery and is still in hospital.",
+    "sourceHash": "329b9f584420",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:2f292dfd",
@@ -7159,6 +7192,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:32cfa048",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "LIVE Ukraine War | Trump Administration Withholds Patriot Missiles from Ukraine, Washington Post Says",
+    "lead": "According to The Washington Post, the government of President Donald Trump has not yet approved the transfer of Patriot interceptor missiles to Ukraine. Those missiles are needed to protect the country against Russian missile and drone attacks. Follow all developments in the war in Ukraine in our liveblog.",
+    "sourceHash": "2723b3f5b9ea",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:32e4d713",
@@ -8734,17 +8778,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:3aafff31",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cinco",
-    "lead": null,
-    "sourceHash": "b5d17bb2750c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:3aafff32",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8809,6 +8842,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:3aafff4f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cinco",
+    "lead": null,
+    "sourceHash": "b5d17bb2750c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:3ac3555f",
@@ -9007,6 +9051,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:3b7bf5de",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Russian gymnasts banned? 'This action by the Netherlands blows a hole in the international sports system'",
+    "lead": null,
+    "sourceHash": "7896a2b5aafd",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:3b85b2a3",
@@ -11066,17 +11121,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:4533d17b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Brilliant",
-    "lead": null,
-    "sourceHash": "c5eb20e21098",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:4533d17c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11141,6 +11185,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:4533d199",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Briljant",
+    "lead": null,
+    "sourceHash": "c5eb20e21098",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:45443053",
@@ -12056,6 +12111,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:49b78cd8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Trumps Barbertje heet Volodymyr Zelensky",
+    "lead": "Trump maakt Zelensky tot zondebok voor zijn eigen falende beleid en hij gokt erop dat de Maga-kiezer hem gelooft, schrijft columnist Bernard Hammelburg.",
+    "sourceHash": "e569b571b6e0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
+  },
+  {
     "id": "news:49c3a063",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12331,6 +12397,17 @@
     "translated": "2026-10-18"
   },
   {
+    "id": "news:4b975906",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Smouldering Glances",
+    "lead": "We are sitting in our local pub. All of us around sixty, and we behave the way we feel; much younger.",
+    "sourceHash": "0e7324017648",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
+  },
+  {
     "id": "news:4b998d58",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12604,6 +12681,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:4cf1a8cb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Spurs record first Premier League season win against Coventry",
+    "lead": "Tottenham Hotspur finally recorded their first win in matchday seven of the Premier League. The team of internationals Micky van de Ven and Jan Paul van Hecke won 3-1 against Coventry City at their own stadium. Thanks to the deserved 3 points, the Spurs left the last place and now even sit above Coventry in sixteenth place.",
+    "sourceHash": "3ff0fc59551d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:4cfc8a9b",
@@ -14509,17 +14597,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:5645f163",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "ING transfers €5 bn in risks to pension administrator PGGM",
-    "lead": "Financial institutions have successfully lobbied for easing of the rules for risk transactions. All lights are green for more transactions.",
-    "sourceHash": "1a363efaccdd",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:564b4441",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14529,6 +14606,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:566ae989",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "AI-cadeautjes",
+    "lead": "Proberen AI-bedrijven nu met het uitdelen van spiegeltjes en kraaltjes te laten zien dat ze heus aan de rest van de wereld denken?",
+    "sourceHash": "23b6de67d18e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:56712aac",
@@ -15123,6 +15211,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:59973c14",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "NautaDutilh zet in op eigen AI-platform",
+    "lead": "Het advocatenkantoor gaat zelf AI-toepassingen ontwikkelen. Experts verwachten dat andere kantoren zullen volgen. Daarmee verandert ook de rol van de huidige leveranciers van juridische AI.",
+    "sourceHash": "1a0f4cda3dda",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:59a547bd",
@@ -15761,17 +15860,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
-  },
-  {
-    "id": "news:5d0ab1dd",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Seal rescue centre Wadden Sea to go bankrupt within two weeks without financial aid",
-    "lead": null,
-    "sourceHash": "033027cb5ad4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:5d10c794",
@@ -17496,28 +17584,6 @@
     "title": "Major cyber incident at Albert Heijn: 'You don't just take measures like these lightly'",
     "lead": "Cybersecurity experts consider it very plausible that someone has broken into the systems of Albert Heijn. Since Sunday afternoon, the online systems of the supermarket chain have been taken offline as a precaution, which is causing major problems in the stores. Albert Heijn does not want to say whether there has been a hack and for now itself speaks of a digital security incident. \"Such a large organisation does not just take major measures of this kind lightly,\" says cybersecurity expert Joey Fennis. \"If malicious actors have turned the key in the front door lock, they have probably also looked inside and viewed or taken data.\" Fennis says that similar measures are taken when that happens. As a result of the outage, Albert Heijn's systems are unavailable, online orders cannot be delivered and some distribution centres are at a standstill, leaving stores with empty shelves. According to Fennis, the top of the company must give permission to take this kind of measure. \"Apparently the concern is so great that it reminds me of the <entity id=\"org:openbaar-ministerie\">Openbaar Ministerie</entity> last year.\" The OM was hacked at the time via a vulnerability in a program that employees use to work from home. 'Outages usually don't last that long' The fact that drastic action has been taken also leads cybersecurity expert Pim Takkenberg to suspect that there is more going on. \"It seems quite clear that a malicious actor has been in the system. Albert Heijn has preventively shut down a number of systems, which is very common to prevent further damage when someone is in your systems,\" he says on Nieuwsuur. \"An outage usually doesn't last that long.\" Customers at an Albert Heijn branch in Zaandam saw many empty shelves in the store: If a criminal group is behind the outage, according to Takkenberg they are usually after money. \"They try to hack systems, steal data and then threaten to publish it if you don't pay. Perhaps a group will come forward later.\" According to him, it could be a state actor such as Russia, or so-called 'hacktivists' with some kind of ideological aim. But Takkenberg considers it most plausible that a criminal group is responsible. \"I think there is no Russian state actor involved in the Netherlands, because all the signals I am seeing now are of a different order of magnitude, although I cannot rule it out. It seems unlikely to me that this belongs to a Russian state actor. This incident fits much more the pattern of criminal groups,\" said the cybersecurity expert. Fennis fears for customers' data, because those systems have also gone offline. \"Just like with Flink, they may be after personal data.\" An unknown group of hackers broke into that grocery delivery service. Customers were digitally extorted. According to cybersecurity expert Eward Driehuis, it may also be that Albert Heijn itself has found a vulnerability in its system. \"If that is not easy to fix, they may be closing the digital doors as a precaution.\" \"What does become clear is how dependent we are on IT and the cyber domain, including for people who do not work with it daily,\" says Driehuis. \"That becomes very concrete now that you can't do your grocery shopping. It is, however, a good eye-opener for people.\" Because of the outage, Albert Heijn branches are increasingly running out of supplies. Throughout the day, photos came in of stores without stock; fresh products in particular are missing. Meanwhile, other supermarket chains are seeing an increase in orders. Number of days? According to Fennis, it cannot be said how long the problems will last. \"That depends on whether they were in time. The question is how far any criminals have got and how long they have been able to carry on, but that is still speculation for now. The investigation will have to show that.\" \"Albert Heijn only communicated about the outage this morning, even though it had been going on for some time. In the best case, I think it will take a number of days.\"",
     "sourceHash": "1e4f98730b94",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:5d25484",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Smulders, Ostermann and Yentl en de Boer win cabaret prize Poelifinario",
-    "lead": "Ruud Smulders, Lisa Ostermann and the duo Yentl en de Boer have won a Poelifinario, the most important Dutch cabaret prize. This took place during the Cabaret Gala at Theater Diligentia in The Hague. The Neerlands Hoop prize for promising theatre maker went to David Linszen. The prizes are awarded by the Vereniging van Schouwburg- en Concertgebouwdirecties (VSCD). Smulders won the prize in the Entertainment category. It was the first time he won the prize. Ostermann won in the Engagement category. It was her second Poelifinario. The jury praised her combination of \"pure candour and delightfully nonsensical silliness\". Bears on the road: The duo Yentl en de Boer also received a Poelifinario for the second time. They won in the Kleinkunst category. \"Their distinctive humour gives free rein to crazy songs about bears on the road, promised presents you never had and the bizarre experience of a man being sung to on his deathbed\", the jury said. At the gala there was also attention for the recently deceased cabaret performer and writer Paulien Cornelisse. For the award ceremony, the duo Yentl en de Boer sang a song for her.",
-    "sourceHash": "b1aa9467a357",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:5d25485",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Breaking Bad actor RJ Mitte dies at age 34",
-    "lead": "American actor RJ Mitte, best known from the TV series Breaking Bad , has died at the age of 34. A spokesperson for Mitte told The New York Times. No cause of death has been announced. In Breaking Bad, Mitte played Junior, the teenage son of main character Walter White, a chemistry teacher at a high school who starts making crystal meth to get out of financial trouble. In the series, Junior suffers from cerebral palsy, a movement disorder resulting from brain damage at a young age. Mitte himself also had cerebral palsy. Breaking Bad marked his breakthrough as an actor. The role of Junior \"was exactly like my own life\", Mitte said in an interview. \"Except for the meth.\" A scene from Breaking Bad with Junior and Walter White: Before Breaking Bad, Mitte had hardly any acting experience. \"There is a perfect role for everyone\", he told the newspaper The Oregonian in 2010. Besides Breaking Bad (2008-2013), Mitte appeared in lesser-known series such as Switched at Birth (2011) and The Guardians of Justice (2022). He was also active as a representative of organisations such as United Cerebral Palsy and Shriners Children's, which aim to help people with his disability with regard to care and career.",
-    "sourceHash": "94b4b01de8ef",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -20442,11 +20508,33 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Poland as Europe's growth champion: why the takeover of neighbourhood supermarket Zabka says a lot",
-    "lead": "They are impossible to miss in Poland, because they are everywhere: Zabka stores. Sometimes across from each other, or in the same building. These characteristic neighbourhood supermarkets with green facades and logo sell all sorts of things: from simple groceries to drinks and a hot dog. The popularity of Zabka is telling in several respects of the flourishing Polish economy. It shows that consumers in Poland have more and more money and that the country is becoming increasingly attractive to foreign investors. Canadian Alimentation Couche-Tard wants to take over the chain for about 7.5 billion euros. The takeover is expected to be completed in December. Yes, a Zabka store is a bit more expensive than a regular supermarket. \"But you save time with it,\" says Rafal. He is a stylist, on his way to work, and has just bought coffee at a neighbourhood supermarket in the centre of Warsaw. \"I have one in my apartment building too, I do my shopping there every day.\" Europe's growth champion In the Netherlands we may know similar shops, such as Hema or Albert Heijn to Go. But Zabka appears about ten times more often in proportion. According to the company, half of the 37 million Poles now live within 500 metres of a Zabka. Poland is the 'growth champion of Europe', concludes economist Marcin Piatkowski. He is affiliated with the Kozminski University in Warsaw. \"Poland has changed dramatically from a poorly performing, bankrupt communist economy, where no sausage could be found in the shops, into a country where investing in consumer goods is the right choice,\" he tells the NOS. The Polish economy was already growing strongly, but after joining the EU in 2004 it went even faster. The European market offered many opportunities for a country with high production capacity. EU subsidies also contributed to economic development, among other things by financing the construction of motorways. The transformation of Poland can be seen and felt everywhere. In Warsaw one skyscraper after another is being built. Since 2022 the Polish capital has even had the tallest building in the European Union: the Varso Tower, which is 310 metres high including its spire. Economic growth Poland's economic growth has been above the European average for years. This year the economy is expected to grow by 3.4 percent, considerably faster than the Netherlands (1.5 percent) and the EU average of 1.4 percent. Poles are relatively well educated and want to work long hours, but labour in many sectors is still half as expensive as in the Netherlands, Piatkowski states. \"But they do want to become just as rich as the Dutch.\" Moreover, the Polish economy is highly diversified and therefore not dependent on a single sector. That makes the country less vulnerable to problems in individual industries, such as the car industry, which is currently having a difficult time. Zabka is certainly not the only Polish company attracting foreign interest. InPost, which grew big with lockers for parcels, has been taken over by a large consortium in which the American parcel delivery company Fedex plays a major role. According to economist Piatkowski, it shows that Poland has secured a strong place on the world's economic map. \"People realise that Poland is a reliable and safe place to invest.\" Challenges Still, Poland also faces major economic challenges. A towering budget deficit that <entity id=\"org:regering\">de regering</entity> is not managing to bring under control is one of them. In addition, Poland is also experiencing a tight labour market. Rising wages are also gradually making it harder for Poland to compete. For now, however, the expectation is that growth will continue. Poland's standing is also growing internationally. In December the country was invited as a guest to the G20 summit in Miami, where the leaders of the world's largest economies gather. Piotr (40) comes out of the Zabka wearing a cap. He has just bought a phone card and a bar that was in the bonus. Yes, that budget deficit is indeed a worrying matter. But otherwise Piotr is positive about the future of his country. According to him, Warsaw is unrecognisable compared with the nineties. \"If someone had left back then and came back now, they would be pleasantly surprised,\" he concludes. \"Because the progress is clearly visible.\"",
-    "sourceHash": "0e318cc0fa26",
+    "lead": "You can't miss them in Poland, because they are everywhere: Zabka stores. Sometimes opposite each other, or in the same building. These characteristic neighbourhood supermarkets with green facades and logo sell everything: from simple groceries to drinks and a hotdog. The popularity of Zabka is telling on several levels of the thriving Polish economy. It shows that consumers in Poland have more and more money, and that the country is becoming increasingly attractive to foreign investors. Canadian company Alimentation Couche-Tard is planning to take over the store chain for about 7.5 billion euros. The takeover is expected to be completed in December. Yes, a Zabka store is more expensive than a regular supermarket. \"But you save time with it\", says Rafal. He is a stylist, on his way to work, and has just bought coffee at a neighbourhood supermarket in the centre of Warsaw. \"I have one in my apartment building too, I do my shopping there every day.\" Europe's growth champion In the Netherlands we may know similar shops, such as Hema or Albert Heijn to Go. But Zabka appears about ten times more often in proportion. According to the company, half of Poland's 37 million people now live within 500 metres of a Zabka. Poland is Europe's 'growth champion', concludes economist Marcin Piatkowski. He is affiliated with the Kozminski University in Warsaw. \"Poland has changed dramatically from a poorly performing, bankrupt communist economy, where you couldn't find sausage in the shops, to a country where investing in consumer goods is the right choice\", he tells NOS. The Polish economy was already growing strongly, but after joining the EU in 2004 it accelerated even further. The European market offered many opportunities for a country with high production capacity. EU subsidies also contributed to economic development, including funding for the construction of motorways. The transformation of Poland can be seen and felt everywhere. In Warsaw one skyscraper after another is being built. Since 2022 the Polish capital has even been home to the tallest building in the European Union: the Varso Tower, which is 310 metres high including its spire. Economic growth Poland's economic growth has been above the European average for years. This year the economy is expected to grow by 3.4 percent, considerably faster than the Netherlands (1.5 percent) and the EU average of 1.4 percent. Poles are relatively well educated and want to work long hours, but labour in many sectors still costs half as much as in the Netherlands, Piatkowski notes. \"But they do want to become just as rich as the Dutch.\" Moreover, the Polish economy is highly diversified and therefore not dependent on a single sector. That makes the country less vulnerable to problems in individual industries, such as the car industry, which is currently struggling. Zabka is certainly not the only Polish company attracting foreign interest. InPost, which grew big with parcel lockers, has been taken over by a large consortium in which the American parcel company Fedex plays a major role. According to economist Piatkowski, this shows that Poland has secured a strong place on the world's economic map. \"People realise that Poland is a reliable and safe place to invest.\" Still, Poland also faces major economic challenges. A towering budget deficit that <entity id=\"org:regering\">de regering</entity> has not been able to bring under control is one of them. In addition, Poland is also experiencing a tight labour market. Rising wages are also gradually making it harder for Poland to compete. For now, however, growth is expected to continue. Poland's international standing is also growing. In December the country has been invited as a guest to the G20 summit in Miami, where the leaders of the world's largest economies gather. Piotr (40) comes out of Zabka with a cap on. He has just bought a phone card and a bar that was part of a bonus offer. Yes, that budget deficit is certainly worrying. But otherwise Piotr is positive about his country's future. In his view, Warsaw is unrecognisable compared with the nineties. \"If someone had left back then and came back now, he would be pleasantly surprised\", he concludes. \"Because the progress is clearly visible.\"",
+    "sourceHash": "3d497f685a29",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-19"
+    "translated": "2026-10-20"
+  },
+  {
+    "id": "news:5d2e5ab",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Opnieuw onrustig in Amsterdamse Floradorp: stenen en glas naar politie gegooid",
+    "lead": "In de wijk Floradorp in <entity id=\"org:gemeente-amsterdam\">Amsterdam</entity>-Noord is het vanavond opnieuw onrustig geweest. Daarbij zijn twee mensen aangehouden. Aan het einde van de middag verzamelde zich een groep buurtbewoners rond de Sneeuwbalstraat. Er werd vuurwerk afgestoken en er werden kleine brandjes gesticht op de weg en in ondergrondse afvalcontainers. Later op de avond sloeg de sfeer om en werd het grimmiger. Er werden stenen en glazen flessen naar de politie gegooid. De ME werd opgeroepen om de rust te herstellen. Een man van 39 jaar is aangehouden op verdenking van het gooien van vuurwerk naar politieagenten. Een jongen van 14 jaar is opgepakt voor openlijke geweldpleging. Bonfire Aanleiding voor de onrust is een brief van burgemeester <entity id=\"person:femke-halsema\">Femke Halsema</entity>. Daarin werd een kleinschaliger alternatief voor het jaarlijkse vreugdevuur afgewezen, schrijft AT5. Bewoners hadden een alternatief bedacht voor hun traditionele vreugdevuur, dat vorig jaar werd verboden vanwege veiligheidsrisico's. De wijk stelde voor een kleiner vuur te ontsteken in een open container, maar volgens de brandweer is een open vuur in een woonwijk nog altijd te gevaarlijk. Halsema heeft het advies van de brandweer overgenomen. Sinds dit besluit is het meerdere keren onrustig geweest in de wijk. Vorig week waren er relletjes en moest de ME meerdere keren worden ingezet. Volgens Het Parool speelt ook een sterfgeval in de buurt een rol bij de onrust. Youth workers Er zijn al meerdere keren mensen opgepakt, onder wie minderjarigen. Afgelopen zaterdag kreeg een 22-jarige Amsterdammer een taakstraf opgelegd van 40 uur. De man werd die woensdagavond aangehouden nadat hij onder meer een tuintafel van een buurtbewoner in het vuur had gegooid. Twee minderjarigen werden doorverwezen naar Halt . De politie zegt dat buurtbewoners zich zorgen maken over de onrust en dat er daarom \"volop is geïnvesteerd in de buurt om contact aan te gaan\". Zo is de politie met (wijk)agenten en jongerenwerkers aanwezig. De politie raadt buurtbewoners aan om contact op te nemen met de wijkagenten of het niet-spoedeisende politienummer. De spanningen rond het jaarlijkse vreugdevuur spelen al langer in de wijk. Eind 2025 was het ook onrustig in Floradorp nadat het jaarlijkse vreugdevuur officieel werd verboden. Ook toen werd er meerdere keren brand gesticht en moest de ME ingrijpen.",
+    "sourceHash": "a5aa3c2aff35",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
+  },
+  {
+    "id": "news:5d2e5c3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "At least 14 dead in landslide at illegal gold mine in Colombia",
+    "lead": "Due to a landslide at an illegal gold mine in a remote area in Colombia, at least fourteen people have died, local authorities report. Seven people were injured. Rescue services are still searching for missing people who are lying under the rubble. The accident took place this morning at around 08.00 local time in the department of Nariño, in southwest Colombia. At that moment thirty people were working in the gold mine, a Colombian media outlet writes . How do landslides occur? Landslides like this one are often caused by heavy rainfall. Due to the rain, the ground becomes heavier and less stable. The construction of (illegal) gold mines can worsen the consequences. When building mines, a lot is dug deep. As a result, the soil becomes even more vulnerable to landslides. Illegal mines are not regulated and no precautionary measures are taken to prevent collapse. In bad weather the miners are then especially vulnerable. Rescue workers have difficulty reaching the site. Santa Bárbara de Iscuandé is surrounded by rainforest and can only be reached by boat or small plane. \"At this moment our priority is to save lives, support the families and ensure an adequate response to this painful tragedy\", writes Luis Alfonso Escobar, governor of Nariño. 'Protecting lives' Mining accidents occur more often in Colombia, especially in illegal mines. In the department of Nariño, on the border with Ecuador, a lot of illegal mining takes place and various armed groups are active, including dissidents of the former guerrilla movement FARC. Among other things, they profit from that mining. In a statement, the Colombian ombudsman called on armed groups in the area to allow humanitarian aid to pass through to the affected area. \"All our efforts must be aimed at protecting lives and tackling this emergency.\" In August, thirteen miners died in a similar mining accident in Policarpa, also in Nariño.",
+    "sourceHash": "82715291d034",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:5d2ff394",
@@ -20469,6 +20557,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
+  },
+  {
+    "id": "news:5d4dc0bc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Wouter and Mart want a child, but try finding a surrogate mother",
+    "lead": "Just like <entity id=\"person:rob-jetten\">premier Jetten</entity> and his fiancée, Wouter and Mart badly want a child. But the legislation does not make it any easier. Wouter hopes that Jetten's baby news will bring this problem more attention in the Netherlands, he tells RTL Nieuws.",
+    "sourceHash": "0fc316e1872f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:5d4dcdf1",
@@ -20755,6 +20854,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
+  },
+  {
+    "id": "news:5ec34ee5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Zelensky: 'US decisions on Ukraine are difficult to understand'",
+    "lead": "Donald Trump and Volodymyr Zelensky keep going at each other. The Ukrainian president has long wanted the US to increase pressure on Russia and criticises the Americans. Trump does not appreciate this and wants \"someone else to negotiate on behalf of Ukraine.\"",
+    "sourceHash": "4933f976a94a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:5eccaba9",
@@ -21173,17 +21283,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
-  },
-  {
-    "id": "news:6051c9ed",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cristiano Ronaldo scores after restless evening in Riyadh: Al-Nassr match delayed by an hour due to rocket attack",
-    "lead": "Cristiano Ronaldo was once again on target for Al-Nassr on Monday evening. But that football could be played at all against Neftchi Fergana was far less self-evident. The kick-off of the match in the Asian Champions League had to be delayed by an hour because a rocket had been fired at the Saudi capital Riyadh.",
-    "sourceHash": "79c95ea2f84f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:60633c92",
@@ -25311,17 +25410,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:743503c1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sven Botman cannot prevent heavy Newcastle defeat with goal",
-    "lead": "Sven Botman scored a goal but could not prevent Newcastle United from losing the away match against Coventry City by a wide margin. The Dutch defender and his team went down 4-1.",
-    "sourceHash": "c359357012ac",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:743ee3a4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -25705,17 +25793,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
-  },
-  {
-    "id": "news:762d41af",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'It was completely inappropriate': controversial top darts player expresses regret 'to all women' after very unfortunate remarks",
-    "lead": "Riling up the crowd a bit extra just as your opponent is about to throw before the match. Mensur Suljovic thought this was a good idea over the weekend at the Swiss Darts Trophy in Basel. His opponent Ross Smith was not pleased with the Austrian's behaviour, but he showed not a trace of regret. Instead, he even rubbed salt into the wound.",
-    "sourceHash": "c58df9f6cda5",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:7639a1b2",
@@ -26266,17 +26343,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
-  },
-  {
-    "id": "news:78d9fbbd",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cabaret awards for Ruud Smulders, Lisa Ostermann and Yentl en de Boer",
-    "lead": "The VSCD Cabaret Awards, the Poelifinario's, for the most impressive cabaret programmes of the year go to Ruud Smulders, Lisa Ostermann, Yentl en de Boer and David Linszen.",
-    "sourceHash": "ddcee82aec38",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:78db47ec",
@@ -29172,17 +29238,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:879e6462",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Trump smells diesel in Moscow",
-    "lead": "Trump is turning his back on his sanctions policy against Russia now that the diesel price at the American pump is rising too high. Putin benefits, Europe is left empty-handed and Ukraine threatens to end up footing the bill.",
-    "sourceHash": "e67ca7cecab1",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:87d1be91",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29203,17 +29258,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
-  },
-  {
-    "id": "news:881dab3a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Expectations",
-    "lead": "After speculation about who will win the Nobel Prize in Economics, guessing begins about a possible underlying message from the Swedish prize committee.",
-    "sourceHash": "c812ac104f3c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:8838ce2e",
@@ -29665,17 +29709,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
-  },
-  {
-    "id": "news:8a333125",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Smulders, Ostermann and Yentl en de Boer win Poelifinario's",
-    "lead": null,
-    "sourceHash": "eba6ec9d1c13",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:8a4eea9f",
@@ -31790,6 +31823,17 @@
     "translated": "2026-10-18"
   },
   {
+    "id": "news:93f514f5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "AD Voetbalpodcast | 'Porto-PSV is meteen een zespuntenduel in de Champions League'",
+    "lead": "PSV treft vanavond FC Porto in de Champions League. De ploeg van Francesco Farioli heeft nog geen punt gepakt in de Champions League en PSV slechts één. In de jacht op tien punten is een zege broodnodig. Helemaal voor PSV, dat van de laatste vier duels er drie verloor en een bak aan blessures heeft.",
+    "sourceHash": "e44a392c9632",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
+  },
+  {
     "id": "news:941d2510",
     "language": "en",
     "sourceLanguage": "nl",
@@ -32527,17 +32571,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:97ac66bb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Breaking Bad star RJ Mitte (34) dies suddenly: 'This is so heartbreaking'",
-    "lead": "American actor RJ Mitte, known from the American crime series Breaking Bad, has died at the age of 34. American media reported this on Monday.",
-    "sourceHash": "2dd4e34f8955",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:97b79bf3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33044,17 +33077,6 @@
     "translated": "2026-10-15"
   },
   {
-    "id": "news:9a4a613",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Exactly four",
-    "lead": null,
-    "sourceHash": "e7fcdf3c307a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:9a4a614",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33119,6 +33141,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:9a4a631",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Precies vier",
+    "lead": null,
+    "sourceHash": "e7fcdf3c307a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:9a4f9516",
@@ -33603,6 +33636,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:9c74a701",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Appointments Tuesday 20 October",
+    "lead": "New job? Email personalia@fd.nl, with a high-resolution photo and a job description in Dutch.",
+    "sourceHash": "2c2069a49541",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:9c7f5fe",
@@ -34262,17 +34306,6 @@
     "sourceHash": "0816d31213fe",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:a07636bc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Personnel Tuesday 13 October",
-    "lead": "New job? Email personalia@fd.nl, with a high-resolution photo and a job description in Dutch.",
-    "sourceHash": "47668bf95b7c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
     "translated": "2026-10-13"
   },
   {
@@ -36025,17 +36058,6 @@
     "translated": "2026-10-18"
   },
   {
-    "id": "news:a86e7972",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Botman cannot prevent heavy Newcastle defeat with goal",
-    "lead": "Sven Botman scored a goal but could not prevent Newcastle United from losing the away match against Coventry City by a wide margin. The Dutch defender and his team went down 4-1.",
-    "sourceHash": "bf954315669b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:a87d2950",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36617,6 +36639,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:aaecc539",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tottenham Hotspur finally win a match and escape the hated last place",
+    "lead": null,
+    "sourceHash": "4f874e989e53",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:ab0bbf0f",
@@ -37323,17 +37356,6 @@
     "translated": "2026-10-18"
   },
   {
-    "id": "news:ae5c6735",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Your Move",
-    "lead": null,
-    "sourceHash": "0ca9c42013e9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:ae5c6736",
     "language": "en",
     "sourceLanguage": "nl",
@@ -37398,6 +37420,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:ae5c6753",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Aan Zet",
+    "lead": null,
+    "sourceHash": "0ca9c42013e9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:ae5ddfd1",
@@ -37620,17 +37653,6 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:af3bce36",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Breaking Bad actor RJ Mitte dies at age 34",
-    "lead": "American actor RJ Mitte died on Monday at the age of 34. He was best known for his role as Walter White Jr. in the series Breaking Bad, in which he played the son of the character played by Bryan Cranston.",
-    "sourceHash": "a0d1e3fac907",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:af42de72",
     "language": "en",
     "sourceLanguage": "nl",
@@ -37640,17 +37662,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
-  },
-  {
-    "id": "news:af470a84",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Musk pours millions of dollars into US midterm elections to keep Republicans in power",
-    "lead": "Elon Musk has donated more than 276 million dollars (247 million euros) since July to support the Republicans in the US midterm elections. As far as is known, this makes him the largest individual donor. Follow all developments in the United States via our liveblog.",
-    "sourceHash": "e817f3cc1808",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:af5adaea",
@@ -37772,6 +37783,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:afe21415",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tottenham Hotspur finally gets first win of the season, Swede returns after 526 days",
+    "lead": "Tottenham Hotspur has finally taken the first win of the new season. The struggling top club beat promoted side Coventry City at home, winning 3-1. Midfielder Dejan Kulusevski made his return after 526 days.",
+    "sourceHash": "9e0f81b4730b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:afe6fae0",
@@ -38894,6 +38916,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:b5e197f9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Two finals for gymnast Visser at World Championships, team eleventh",
+    "lead": "Gymnast Naomi Visser (25) has qualified for the all-around and uneven bars finals at the World Championships in Rotterdam. Visser was the only Dutch woman in Rotterdam to qualify for the finals.",
+    "sourceHash": "10903446174c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:b5e2d964",
@@ -40236,17 +40269,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
-  },
-  {
-    "id": "news:bbff0c04",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "German top surgeon (57), known for the 'Brazilian Butt Lift', shot dead in his own clinic in Marbella",
-    "lead": "The jet set of Marbella is in shock after the murder of German top surgeon Alexander Aslani (57). The doctor, known for the 'Brazilian Butt Lift', was shot in the head in his own luxury clinic. It may be a contract killing, with a dissatisfied client as the commissioner.",
-    "sourceHash": "8258f38356f7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:bc0968fc",
@@ -41723,17 +41745,6 @@
     "translated": "2026-10-15"
   },
   {
-    "id": "news:c3a30a15",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "ABP shuns France when reinvesting American bond billions",
-    "lead": "The civil servants' pension fund withdrew €29 bn from the United States. That money has been invested in various European countries, but France was passed over. Government bonds were sold there.",
-    "sourceHash": "87936096f353",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:c3a3bb23",
     "language": "nl",
     "sourceLanguage": "en",
@@ -42361,17 +42372,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:c64aa358",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dead and several injured in accident with Six Flags roller coaster in United States",
-    "lead": "One person died and several people were injured in a serious accident involving a roller coaster at Six Flags in the United States on Monday afternoon. The police have announced this.",
-    "sourceHash": "13230bb1308e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:c658b780",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42458,6 +42458,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
+  },
+  {
+    "id": "news:c6c4a313",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US Withholds Patriot Missiles from Ukraine, Washington Post Reports",
+    "lead": null,
+    "sourceHash": "ed7c85ed518f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:c6cc46a2",
@@ -43406,6 +43417,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:cc09dee7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Japanese probe on its way to Phobos, one of the moons of Mars",
+    "lead": "Japan launched a space probe yesterday that is on its way to Phobos and Deimos, the two moons of the planet Mars. The unmanned vehicle is due, among other things, to land on Phobos to collect dust there and bring it back to Earth so scientists can study it. Nothing like this has ever been done before.",
+    "sourceHash": "00b7e31fd94a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
+  },
+  {
     "id": "news:cc1a993",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43857,17 +43879,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:ce4c15fc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Somersault",
-    "lead": null,
-    "sourceHash": "19fc40e02aae",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:ce4c15fd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43932,6 +43943,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:ce4c161a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Koprol",
+    "lead": null,
+    "sourceHash": "19fc40e02aae",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:ce4f37fa",
@@ -44352,17 +44374,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:d05259c0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sudoku",
-    "lead": "Place the digits 1 to 9 in the diagram so that each digit appears exactly once in each row, column, nine bold-outlined 3x3 boxes and the four grey 3x3 boxes.",
-    "sourceHash": "e3ef981d015b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:d05259c1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44405,6 +44416,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:d05259de",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sudoku",
+    "lead": "Place the numbers 1 to 9 in the diagram so that each number occurs exactly once in each row, each column, the nine bold-bordered 3x3 boxes and the four grey 3x3 boxes.",
+    "sourceHash": "e3ef981d015b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:d05b2bfb",
@@ -44924,17 +44946,6 @@
     "translated": "2026-10-15"
   },
   {
-    "id": "news:d27d2620",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Number Block",
-    "lead": null,
-    "sourceHash": "773ba346c5f3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:d27d2621",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44999,6 +45010,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:d27d263e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Number Block",
+    "lead": null,
+    "sourceHash": "773ba346c5f3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:d291198e",
@@ -45513,17 +45535,6 @@
     "title": "Hans Glaubitz (1947-2026), ambassador who did not fit the mould of Foreign Affairs",
     "lead": "In the conservative stronghold of Foreign Affairs, Hans Glaubitz, an epicurean observer with no big ego, was regarded as an unconventional diplomat. He casually mentioned that he lived with a man and above all did not want to be a role model.",
     "sourceHash": "72a885792575",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:d521c9db",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "US ultramarathon halted due to extreme weather, leader still had 56 kilometres to go",
-    "lead": "An ultramarathon in the American state of Utah was halted on Sunday due to extreme weather conditions. Heavy rain, flooding and strong wind made parts of the course unsafe. The leader had to abandon his race with 56 kilometres still to go.",
-    "sourceHash": "feb056618273",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -48224,17 +48235,6 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:e2ef12d4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Ronaldo scores after restless evening in Riyadh: Al-Nassr match delayed by an hour due to rocket attack",
-    "lead": "Cristiano Ronaldo was once again on target for Al-Nassr on Monday evening. But that football could be played at all against Neftchi Fergana was far less self-evident. The kick-off of the match in the Asian Champions League had to be delayed by an hour because a rocket had been fired at the Saudi capital Riyadh.",
-    "sourceHash": "824583ca9c9c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:e2f1869",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48860,17 +48860,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
-  },
-  {
-    "id": "news:e5f97312",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Staying Over",
-    "lead": "After a joint visit to museum More in Gorssel, my husband and I (in our sixties) are staying with my parents-in-law (92 and 90).",
-    "sourceHash": "1f45a3f6c6f2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:e609c96d",
@@ -50534,6 +50523,17 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:ee4da7f9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Egypt still fined for insulting referees during World Cup; suspensions for head coach and player",
+    "lead": null,
+    "sourceHash": "1a2bd5a34d2b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
+  },
+  {
     "id": "news:ee549cee",
     "language": "en",
     "sourceLanguage": "nl",
@@ -50578,6 +50578,17 @@
     "translated": "2026-10-14"
   },
   {
+    "id": "news:ee7ae941",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Twee aanhoudingen na nieuwe onrust in Floradorp, ME wederom bekogeld",
+    "lead": "De <entity id=\"org:politie\">politie</entity> heeft maandagavond twee mannen gearresteerd in Floradorp in <entity id=\"org:gemeente-amsterdam\">Amsterdam</entity>-Noord. Het gaat om een 39-jarige man die vuurwerk naar de politie gooide en een jongen van 14 jaar die verdacht wordt van openlijke geweldpleging. Sinds vorige week is het onrustig in de wijk, waar een vreugdevuur tijdens de jaarwisseling door burgemeester <entity id=\"person:femke-halsema\">Femke Halsema</entity> werd verboden.",
+    "sourceHash": "a97159aae44d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
+  },
+  {
     "id": "news:ee84b5bb",
     "language": "en",
     "sourceLanguage": "nl",
@@ -50620,6 +50631,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:eec4c56b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "De Rijksoverheidssite trekt minder bezoekers en dat komt door AI",
+    "lead": "Mensen gebruiken AI om informatie te vinden, waardoor het aantal bezoeken aan rijksoverheid.nl terugloopt. Die ontwikkeling roept fundamentele vragen op, zeggen experts, die wijzen op de risico's.",
+    "sourceHash": "15951082057c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:eedfd3d3",
@@ -50801,12 +50823,12 @@
     "id": "news:effc206",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Online fraud: why you click on that wrong link despite doubts",
-    "lead": "Today a campaign begins that warns the Dutch about online deception and fraud. Under the motto 'Don't let yourself be interneppen', the government wants to convey a message: think for three seconds before you click, respond or pay.",
-    "sourceHash": "09125ab6e8c1",
+    "title": "Online fraud: why you click on that dubious link despite doubts",
+    "lead": "Yesterday a campaign began warning people in the Netherlands about online deception and fraud. Under the motto 'Don't let yourself get scammed online', the government wants to get a message across: think for three seconds before you click, respond or pay.",
+    "sourceHash": "b169d419c3e0",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-19"
+    "translated": "2026-10-20"
   },
   {
     "id": "news:f00c7eb3",
@@ -51973,17 +51995,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
-  },
-  {
-    "id": "news:f5e48bda",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Pregnant women will no longer receive a 13-week scan from 2027",
-    "lead": null,
-    "sourceHash": "a669fe1288f5",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:f5e6ad15",
@@ -53733,6 +53744,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:fea34ae8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Who will pick up free agent Luuk de Jong (36) after serious knee injury? 'I feel good, I am fit'",
+    "lead": "Luuk de Jong is open to a new adventure. The striker has recovered from a knee injury he sustained last year. Since last summer the former international has been a free agent.",
+    "sourceHash": "2d4cc16383ea",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-20"
   },
   {
     "id": "news:feb313cf",
