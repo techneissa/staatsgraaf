@@ -6,11 +6,11 @@
   },
   "decentral": {
     "commissarissen": {
-      "lastAttempt": "2026-10-23T04:57:51.722Z",
+      "lastAttempt": "2026-10-24T11:08:10.504Z",
       "lastCounts": {
         "items": 12
       },
-      "lastRun": "2026-10-23T04:57:51.722Z",
+      "lastRun": "2026-10-24T11:08:10.504Z",
       "pendingGuard": null,
       "pendingRetry": false
     },
@@ -361,13 +361,13 @@
         "gm1992": "org:gemeente-voorne-aan-zee"
       },
       "holdersBootstrapped": "2026-10-06",
-      "lastAttempt": "2026-10-23T04:57:51.722Z",
+      "lastAttempt": "2026-10-24T11:08:10.504Z",
       "lastCounts": {
         "cbs": 342,
         "register": 342,
         "tooi": 342
       },
-      "lastRun": "2026-10-23T04:57:51.722Z",
+      "lastRun": "2026-10-24T11:08:10.504Z",
       "names": {
         "gm0014": "Groningen",
         "gm0034": "Almere",
@@ -732,13 +732,13 @@
         "pv31": "org:provincie-limburg"
       },
       "holdersBootstrapped": "2026-10-06",
-      "lastAttempt": "2026-10-23T04:57:51.722Z",
+      "lastAttempt": "2026-10-24T11:08:10.504Z",
       "lastCounts": {
         "cbs": 12,
         "register": 12,
         "tooi": 12
       },
-      "lastRun": "2026-10-23T04:57:51.722Z",
+      "lastRun": "2026-10-24T11:08:10.504Z",
       "names": {
         "pv20": "Groningen",
         "pv21": "Fryslân",
@@ -782,13 +782,13 @@
         "ws0665": "org:waterschap-limburg"
       },
       "holdersBootstrapped": "2026-10-06",
-      "lastAttempt": "2026-10-23T04:57:51.722Z",
+      "lastAttempt": "2026-10-24T11:08:10.504Z",
       "lastCounts": {
         "cbs": null,
         "register": 21,
         "tooi": 21
       },
-      "lastRun": "2026-10-23T04:57:51.722Z",
+      "lastRun": "2026-10-24T11:08:10.504Z",
       "names": {
         "ws0152": "Rijn en IJssel",
         "ws0155": "Amstel, Gooi en Vecht",
@@ -967,7 +967,7 @@
     "lastRun": "2026-10-20T00:24:50.529Z"
   },
   "lastRun": {
-    "at": "2026-10-24T04:42:53.971Z",
+    "at": "2026-10-24T11:08:10.504Z",
     "outcome": "updated"
   },
   "news": {
