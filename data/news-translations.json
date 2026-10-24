@@ -297,15 +297,15 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:111eb9d2",
+    "id": "news:10f9e7f6",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Important UN climate report delayed: how that can have major consequences worldwide",
-    "lead": "This week the United Nations climate panel (IPCC) met to discuss the new climate report. But the countries did not reach agreement and so a delay threatens. While the report is important for climate policy worldwide.",
-    "sourceHash": "e485781c49f9",
+    "title": "Video | Napoli player Anguissa scores with an overhead kick from 11 meters against Roma",
+    "lead": null,
+    "sourceHash": "805c43ba5a56",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-17"
+    "translated": "2026-10-24"
   },
   {
     "id": "news:1122e100",
@@ -504,17 +504,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:121cbcc2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "PSV loses to late goal at ADO after Mijnans red card in first half",
-    "lead": "PSV unexpectedly lost on Saturday at promoted side ADO Den Haag. The reigning champions played for a long time with ten men after a red card for Sven Mijnans, and that broke the team: 2-1. In added time Matej Sín scored the winning goal.",
-    "sourceHash": "565e9ecbae78",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:12420a5e",
@@ -836,17 +825,6 @@
     "translated": "2026-10-21"
   },
   {
-    "id": "news:135a1889",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "On stubborn northerners and steep Calvinists",
-    "lead": null,
-    "sourceHash": "1708346ace50",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-16"
-  },
-  {
     "id": "news:135b81ca",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1155,17 +1133,6 @@
     "translated": "2026-10-24"
   },
   {
-    "id": "news:14778657",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Leaders FC Barcelona win comfortably at Real Betis",
-    "lead": "FC Barcelona also won its ninth match in La Liga. Spain's leader was too strong for third-placed Real Betis in Seville, winning 5-2.",
-    "sourceHash": "37e8708aac55",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:147b37f0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1386,6 +1353,17 @@
     "translated": "2026-10-22"
   },
   {
+    "id": "news:15a887da",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "After fourteen years in power, Serbian leader Aleksandar Vucic is wavering, and is even accused of working with the drug mafia. Serbia votes tomorrow",
+    "lead": "Discontent with Serbian leader Aleksandar Vucic grew over the past two years. Sunday's parliamentary elections must show whether the new party, Studentska Lista (Studentenlijst), poses a threat to him. 'By operating leaderless they avoid political smear campaigns.'",
+    "sourceHash": "99d069c99b0e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:15c2aa9e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1540,6 +1518,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:167e1b23",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "French police find book Mein Kampf at home of suspect in shooting in Paris suburbs",
+    "lead": "French police found a copy of Mein Kampf, the book in which Adolf Hitler sets out his racist ideas, at the home of the shooter in Trappes. That is what sources told French media such as news agency AFP.",
+    "sourceHash": "26d46216d383",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:1694ace0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1672,17 +1661,6 @@
     "translated": "2026-10-21"
   },
   {
-    "id": "news:172491c",
-    "language": "nl",
-    "sourceLanguage": "en",
-    "title": "Nederlandse gemeenten melden toenemende overlast van straatpredikers",
-    "lead": "Het aantal straatpredikers in Nederland neemt toe, en daarmee de overlast in sommige gemeenten. Dit bleek uit een enquête van de NOS onder meerdere gemeenten.",
-    "sourceHash": "08686a03a991",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:17297853",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1802,6 +1780,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
+  },
+  {
+    "id": "news:17a84d7f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Members of Racoon may now call themselves Knights",
+    "lead": "The members of Racoon were appointed Knights in the Order of Orange-Nassau on Saturday. The honour was presented by <entity id=\"pos:burgemeester-goes\">burgemeester van Goes</entity>, <entity id=\"person:cees-van-den-bos\">Cees van den Bos</entity>, prior to the band's concert at the Zeelandhallen.",
+    "sourceHash": "812329ffbf91",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:17ad8b3e",
@@ -1945,17 +1934,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
-  },
-  {
-    "id": "news:18196692",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Telstar goalkeeper Koeman Jr. furious after Feyenoord penalty: 'This is really unbelievable'",
-    "lead": "Telstar goalkeeper Ronald Koeman Jr. is furious with referee Jeroen Manschot. The son of former national coach Ronald Koeman finds it incomprehensible that Feyenoord was awarded a penalty for a handball shortly after half-time on Saturday.",
-    "sourceHash": "84fa28c39acd",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:1831e115",
@@ -2827,6 +2805,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:1d056201",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Copy of Mein Kampf found in home of French shooter",
+    "lead": "French police found a copy of Mein Kampf, the book in which Adolf Hitler sets out his racist views, in the home of the shooter in Trappes. Sources told French media, such as the news agency AFP, this.",
+    "sourceHash": "aa3092e48c67",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:1d19a3cf",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2913,17 +2902,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
-  },
-  {
-    "id": "news:1d803adc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Turner Schmidt relieved at World Championships after days of doubt",
-    "lead": "Turner Casimir Schmidt (30) earlier this week doubted whether he could get into action at the World Championships in Rotterdam. He said so after the qualifying match.",
-    "sourceHash": "26061ba6be20",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:1d80cad9",
@@ -3716,17 +3694,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
-  },
-  {
-    "id": "news:2127aedf",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Max Verstappen puts on a little show at his GTWC debut, strong teammate gets in the way of podium chances",
-    "lead": "Max Verstappen finished ninth on his debut in the GT World Challenge Europe. The Dutchman showed his strength, but a podium place did not materialise. Compatriot Morris Schuring did finish on the podium. Legend Valentino Rossi also took to the track in the Portuguese city of Portimão.",
-    "sourceHash": "e90cf2d03dbc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:212dfa6b",
@@ -5302,6 +5269,17 @@
     "translated": "2026-10-14"
   },
   {
+    "id": "news:287d3abf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Petrol station closes after 38 years and goes out with a bang: fuel for 1 euro per liter",
+    "lead": "In Voorst in Gelderland, you could fill up very cheaply today. For one hour, between 16.00 and 17.00, petrol and diesel cost only one euro per liter. The promotion caused huge crowds. The stunt was a farewell: the petrol station is closing after 38 years.",
+    "sourceHash": "91e894cd6788",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:2890c911",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5764,17 +5742,6 @@
     "translated": "2026-10-21"
   },
   {
-    "id": "news:2a95faf4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Brazil is a right-wing country now",
-    "lead": "The Bolsonaro clan promises to align with Donald Trump, and to attack democratic institutions.",
-    "sourceHash": "87b8169e940d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-15"
-  },
-  {
     "id": "news:2a9bc72e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5839,17 +5806,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
-  },
-  {
-    "id": "news:2abf73d3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "In Noord, Ajax fans let themselves be cut like Jari Litmanen, and the Finn picks the best lookalike: 'That's a little 2001 one. Modern, smooth. Quite a hairstyle for today.'",
-    "lead": null,
-    "sourceHash": "f06d2c763640",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:2ac058f7",
@@ -6193,17 +6149,6 @@
     "translated": "2026-10-23"
   },
   {
-    "id": "news:2c055c21",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dancing and swinging nimbly on bars, the 'silver generation' moves through the city",
-    "lead": null,
-    "sourceHash": "396da20677bf",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:2c05a9a3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -6334,17 +6279,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
-  },
-  {
-    "id": "news:2cdf1519",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Menno and Jennifer's daughter abused at age 5 behind their house: 'We all have life sentences'",
-    "lead": "The daughter of Menno (33) and Jennifer (35) was abused right behind their house by a complete stranger. In the run-up to the appeal, the Oud-Beijerlanders describe the hell they have ended up in.",
-    "sourceHash": "816a8aea5807",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:2ce5d145",
@@ -6710,15 +6644,15 @@
     "translated": "2026-10-21"
   },
   {
-    "id": "news:2e8d78fb",
+    "id": "news:2e8df83e",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "The Amsterdam of children's author Kevin Hassing: 'T's Teabar on Jan Evertsenstraat is the best place to meet up'",
-    "lead": null,
-    "sourceHash": "264d9466f917",
+    "title": "In a belly-button top and sneakers, preacher Nienke preaches to dancing youth: 'Bless us and bless this rave'",
+    "lead": "No organ, but house and trance. The preacher tonight is DJ Domineetrixx. In a belly-button top and sneakers she dances among over a hundred young people in the Aboretumkerk in Wageningen. This church looks nothing like a 'regular' church tonight. A report.",
+    "sourceHash": "a67722ec59c2",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-17"
+    "translated": "2026-10-24"
   },
   {
     "id": "news:2e8e1e82",
@@ -6754,6 +6688,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:2e9cec7f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "That we would spend some time together, those crazy beasts and I, felt predestined",
+    "lead": null,
+    "sourceHash": "4bb82fb851b3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:2ea45b02",
     "language": "en",
     "sourceLanguage": "nl",
@@ -6774,17 +6719,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
-  },
-  {
-    "id": "news:2eb1ddd1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "PSG sees off Strasbourg ahead of CL duel with Barcelona",
-    "lead": "Between the Champions League matches against Manchester City and FC Barcelona, Paris Saint-Germain secured a hard-fought 3-1 win at RC Strasbourg. After an early deficit, PSG scored three goals in the final stages.",
-    "sourceHash": "0f4f1b582f0a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:2eb81806",
@@ -7313,17 +7247,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
-  },
-  {
-    "id": "news:30fce487",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Willem II brings back tension with a successful long-range shot against Sparta",
-    "lead": "Sparta has had a mixed start to the new season. The Rotterdammers can climb to the midfield today by beating Willem II. Follow it live here from 21.00 hours.",
-    "sourceHash": "659ce4d682e0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:311cac85",
@@ -7885,17 +7808,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:33ee3dc7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "1.800 arrests after protests and riots in France, 'We will form a block against those who sow chaos', says President Macron",
-    "lead": "Hundreds of thousands of citizens took to the streets across France to protest the cost of living. In several cities the demonstrations turned into riots.",
-    "sourceHash": "b7d0bb33a2e6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:33f5ebb8",
@@ -8800,17 +8712,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:37c36518",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Harald Jähner: 'Talking about the brown past was impossible in most West German families'",
-    "lead": null,
-    "sourceHash": "f5b451d71f36",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:37c5f24d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8875,6 +8776,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
+  },
+  {
+    "id": "news:381efbb0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "This autumn is the time of the witch: mysterious, intriguing and a tad sexy",
+    "lead": null,
+    "sourceHash": "631f0bdfbcba",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:3838cb96",
@@ -9359,6 +9271,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:3aa87c13",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Minority cabinet: new negotiations with opposition over tax plan",
+    "lead": "The minority cabinet wants to negotiate with opposition parties in the coming days to still find a majority for the tax plan and the budgets. All parties previously spoken to are invited to continue negotiating. These are the opposition parties JA21 and SGP, PRO and Volt, ChristenUnie, 50PLUS and BBB.",
+    "sourceHash": "817bb01b9748",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:3aafff36",
@@ -10879,6 +10802,17 @@
     "translated": "2026-10-21"
   },
   {
+    "id": "news:40ee714c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Filthy images on TV, but behind Jie's restaurant lies a heartbreaking story: 'Lost my wife and my grip on my life'",
+    "lead": "Live worms are crawling across the floor of the ladies' toilet. Drinking glasses are dull from limescale. In the refrigerated open buffet, meat for the Korean barbecue lies at 17 degrees, far too warm to serve safely. Rob Geus shakes his head. \"When was this last cleaned?\"",
+    "sourceHash": "66fc6b096785",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:40f75bb7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11011,6 +10945,17 @@
     "translated": "2026-10-23"
   },
   {
+    "id": "news:41a879a7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Take your baby to the office",
+    "lead": "The separation between work and childcare is not a law of nature, states Roanne van Voorst . Bringing a young baby to work can be good for both child and parents.",
+    "sourceHash": "c656b2c02a66",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:41ae0a4d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11033,23 +10978,23 @@
     "translated": "2026-10-18"
   },
   {
+    "id": "news:41b092a5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Motorist killed in head-on collision with lorry near Gilze",
+    "lead": "A motorist was killed on Saturday in a head-on collision with a lorry on the N260 near Gilze. Both vehicles caught fire after the collision. The accident happened on the Langenbergseweg.",
+    "sourceHash": "7743f1280bcb",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:41b2f0bf",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Yesilgöz under fire, but she does not seem to be panicking, and that has several reasons",
     "lead": "The VVD is under pressure: party leader Dilan Yesilgöz is under fire. Yet the party leadership insists: there is no panic. Our reporters have long followed Yesilgöz closely and describe three reasons why the VVD leadership, despite all criticism, has no intention of changing course.",
     "sourceHash": "997acd1bcb53",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
-    "id": "news:41b399ec",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Settlers attack European diplomats in the West Bank",
-    "lead": "Israeli settlers attacked European diplomats on Saturday during a visit to the occupied West Bank. They are representatives from Belgium, France and Poland. The Israeli police is investigating the attack.",
-    "sourceHash": "ff1655faa6c6",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
@@ -11473,17 +11418,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:43ce7762",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Settlers attack European diplomats in the West Bank",
-    "lead": "Israeli settlers attacked European diplomats on Saturday during a visit to the occupied West Bank. They are representatives from Belgium, France and Poland. The Israeli police has announced it will investigate the attack.",
-    "sourceHash": "75a22a1e153a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:43dfb340",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11603,6 +11537,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
+  },
+  {
+    "id": "news:4463aceb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Norway has too much money and that is a problem",
+    "lead": "Norway has been extremely prosperous for quite some time. Norwegians owe this largely to their huge reserves of oil and gas. Since the invasion of Ukraine, gas prices have tripled and, because of the sanctions against Russia, Norway is now Europe's largest gas supplier. As a result, the Norwegian oil and gas fund grew from 1.2 […]",
+    "sourceHash": "fa3260aba53a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:44644f60",
@@ -11946,6 +11891,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:45a2ab5c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The lasting influence of a hundred-year-old discovery by Dutch physicists: 'Spin is everything in this field of research'",
+    "lead": null,
+    "sourceHash": "6ef063ac1e02",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:45b7ec17",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11999,6 +11955,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:4602bb48",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Man krijgt een maand cel wegens seksueel misbruik van een paard in Oss",
+    "lead": "Harun A., 26, uit Oss, krijgt een maand cel voor seksuele handelingen met een paard, zo stellen de officieren van justitie.",
+    "sourceHash": "869093f4ae62",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:46089e4f",
@@ -12444,9 +12411,9 @@
     "id": "news:48287a18",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Celebrated French philosopher on his favourite films, literature and life in Parisian cafés as a symbol of an alternative existence, a freer life",
+    "title": "Sociologist Didier Eribon, a pupil of Pierre Bourdieu and mentor of Édouard Louis, explains how taste is used to perpetuate class differences",
     "lead": null,
-    "sourceHash": "e1bb2a89e44a",
+    "sourceHash": "eeb9e6af2a67",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -14245,17 +14212,6 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:51215b50",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "RB Leipzig suffers heavy defeat at Bayern Munich after win over PSV",
-    "lead": "Bayern Munich won with big numbers at home against RB Leipzig: 6-1. Luis Díaz was important for the home side with a hat-trick. Leipzig won 1-0 against PSV in the Champions League on Tuesday.",
-    "sourceHash": "8f43054f9ea1",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:5123f083",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14276,17 +14232,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:514c23be",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Anger at Telstar over disputed penalty against Feyenoord: 'I really have to hold myself back'",
-    "lead": "A handball that was barely visible on the footage: Telstar conceded a disputed penalty in the home match against Feyenoord (3-4). Captain Ronald Koeman Jr. did not understand the decision.",
-    "sourceHash": "81316920c11c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:514d80b5",
@@ -14641,17 +14586,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:530c7d30",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Liverpool wins Virgil van Dijk's anniversary match, Zian Flemming scores for Ipswich against City",
-    "lead": "Liverpool secured an important win against Brentford. In Virgil van Dijk's 200th match as captain of The Reds, the away side won with difficulty, 1-2. Manchester City also won, despite a counter goal from Zian Flemming.",
-    "sourceHash": "41ed089cbee0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:5310606b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14771,6 +14705,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
+  },
+  {
+    "id": "news:5379467",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Mysterious Batman pays for fuel and parking fines in London",
+    "lead": "A mysterious Batman has appeared in London helping random people. He pays for fuel for motorists who are struggling financially and covers parking fines for people who have visited a loved one in hospital. Who is behind the mask is not known. His good deeds are meanwhile earning him more and more followers on social media.",
+    "sourceHash": "4d7c653411c6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:53810261",
@@ -15123,6 +15068,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:54a24a8b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Live blog | Nearly a thousand arrests in France after 'well-run' protests",
+    "lead": "Hello and welcome to this blog. Here you can read back everything about the demonstrations that took place on Saturday in France and other European countries.",
+    "sourceHash": "fd5deecebdaa",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:54ac49a0",
@@ -15774,6 +15730,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:574b6b0b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Prepared for the autumn storms: how do you limit the damage?",
+    "lead": null,
+    "sourceHash": "fde41ae985e0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:57554419",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15950,6 +15917,17 @@
     "translated": "2026-10-18"
   },
   {
+    "id": "news:583f47e0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Live F1 | Verstappen works towards qualifying for the US Grand Prix",
+    "lead": "Good evening and welcome to this live blog! My name is Laurine Slingerland and I will keep you informed of the third free practice and the qualifying for the United States Grand Prix. Enjoy!",
+    "sourceHash": "15ca1720091a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:5879a396",
     "language": "nl",
     "sourceLanguage": "en",
@@ -16003,6 +15981,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
+  },
+  {
+    "id": "news:58a0dadd",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Bosnian man has a remarkable friendship with a bear",
+    "lead": "Bosnian man Petar Tubic found bear Masa alone in the forest when she was a cub. She had presumably been abandoned by her mother. Tubic fed her and raised her, and as a result they developed a friendly bond.",
+    "sourceHash": "9d54d4db9717",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:58a3d9a6",
@@ -16390,17 +16379,6 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:5aa26aae",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Paris motor show has become a battleground: China doubles, Europe fights back",
-    "lead": "The Paris motor show, which opened this week, turns out to be mainly a battleground. Compared with the previous edition, the number of Chinese brands has doubled. They are clamouring for attention, while European manufacturers hit back with concept cars that promise a bright future.",
-    "sourceHash": "519ec8a2d6b2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:5aa2790b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -16522,6 +16500,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:5b32e921",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "France furious at those in power: 'Everything we fight for is coming together now'",
+    "lead": "For the second week in a row, tens of thousands of French people took to the streets on Saturday. It is no longer only about the state of education. All frustrations are coming to the surface, from tax avoiders to injustice in Gaza. NU.nl walked along in Paris.",
+    "sourceHash": "ed6089003cca",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:5b53b2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -16553,6 +16542,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:5b9c0c45",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Europe has lots of pleasant cities but too few that matter",
+    "lead": "A tale of too many cities.",
+    "sourceHash": "93c859a83457",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:5bba0e90",
@@ -19833,17 +19833,6 @@
     "translated": "2026-10-18"
   },
   {
-    "id": "news:5d2d080",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "US wants to extend 'war on drugs' to mainland Latin America",
-    "lead": "The United States is increasingly getting involved in the anti-drug war in a number of Latin American countries. It began in 2025 with attacks on suspected drug boats at sea. Now the fight against drugs is moving to the mainland of Latin America. Hundreds of soldiers are being sent these days, initially to Panama, Colombia and Honduras. The Americans are holding joint exercises with soldiers from these countries. US special units will also provide support and advice to army units in Latin America that carry out operations against drug traffickers. The cooperation stems from the establishment of the so-called Shields of the Americas . This is a regional body that was set up earlier this year by US President Trump and which nineteen Latin American countries have since joined. The aim is to jointly fight drugs and work more closely together on security issues in the region. Trump is urging leaders across the region to take harder military action against people smuggling groups and to allow joint operations with the United States. Shift to the right Trump made clear at the latest UN General Assembly that it is about more than just security. It is also about economic cooperation and \"securing raw materials in the region\", as he put it. Many countries in this region have shifted to the right in recent elections and are now ideologically close to Trump. He has repeatedly indicated that he would prefer to have Latin America within his sphere of influence. China's economic power, which grew sharply in Latin America in recent years, is a thorn in Trump's side and he wants to curb it. With the arrival of American soldiers in Colombia, the radical right-wing president De la Espriella, who took office in August, wants to fulfil his election promise: a tough approach to drug cartels in order to create a safer country. Combat drones Colombia is the world's largest cocaine producer and is plagued by drug cartels. Between 2000 and 2015 there was already close cooperation between the US and Colombia and a military aid plan, the so-called Plan Colombia. The US now wants to deploy, in addition to 600 soldiers, very advanced equipment. For example, special combat drones are being moved from Africa to Latin America to carry out precision strikes on cartel leaders, among others. Population divided The population of the Latin American countries is divided over the arrival of American soldiers. There had already been training of American soldiers in Ecuador. There are also plans to reopen an American base in the country that was closed earlier. This met with fierce resistance from the population and the opposition. In a referendum on the possible reopening of the American base, a majority of Ecuadorians voted against the plans. The presence of American soldiers in Latin America is also sensitive because of the past of many countries in this region. Between the 1960s and 1980s, military dictatorships were in power in many Latin American countries. Bloody regimes in countries such as Argentina, Brazil and Chile were helped into the saddle by the US, which wanted to prevent left-wing governments from being elected here. Alleged drug boats Human rights organisations have been warning for some time about the attacks on alleged drug boats at sea. Since last year these have already cost the lives of more than 200 people. The US provides no evidence that these are actually boats of drug smugglers. Moreover, according to legal experts, these attacks violate international law. The expansion by the US from attacks at sea to attacks on land is therefore being closely watched by human rights organisations. They fear that the growing military presence of the US in Latin America endangers the citizens of these countries. In addition, it is questionable whether killing cartel members really helps against the drug trade, because members are quickly replaced.",
-    "sourceHash": "a081eae4adc3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:5d2d39e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -22586,9 +22575,9 @@
     "id": "news:5d3603d",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Sytze Faber (89), former CDA Tweede Kamer member and journalist, dies",
-    "lead": "Former CDA Tweede Kamer member and journalist Sytze Faber has died in <entity id=\"org:gemeente-leeuwarden\">Leeuwarden</entity> at the age of 89. His family reports this in an obituary in NRC . Faber grew up in a Frisian, Reformed environment, studied political science at the Vrije Universiteit in <entity id=\"org:gemeente-amsterdam\">Amsterdam</entity> and earned his doctorate in 1974. After working in academia for years, he became a Tweede Kamer member in 1977. The Frisian entered <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity> on behalf of the ARP, which merged into the CDA in 1980. He was regarded as a left-wing CDA member and had major objections to the formation of <entity id=\"org:kabinet\">het kabinet</entity>-Van Agt I, consisting of his CDA and the VVD. Independent spirit Nevertheless, he did not belong to the so-called loyalists, a group of initially six CDA members from the left wing of the party, who took a critical stance towards the coalition agreement with the VVD. As a result, they held an important position of power, since the Van Agt I cabinet had a narrow majority with 77 seats. Faber did not join them, in keeping with his independent spirit of not binding himself in advance to groupthink. Even so, he regularly deviated from the party line. He played an important role in the debates on the constitutional revision and in 1979 opposed the deployment of American cruise missiles in the Netherlands together with nine other CDA members. He combined his membership of the Tweede Kamer with the shared editor-in-chief position at the Friesch Dagblad. \"That combination with politics was completely normal at the time: it was the pillar era and a pillar newspaper\", Faber said earlier this year in an interview with that newspaper. When Ruud Lubbers became prime minister in 1982, Bert de Vries succeeded him as CDA parliamentary leader. Within the party, there was stronger pressure for unity, and as a result the position of critical members of parliament came under pressure. Faber remained a Tweede Kamer member until January 1985. Mayoralty He was then appointed mayor of the Drenthe municipality of <entity id=\"org:gemeente-hoogeveen\">Hoogeveen</entity>. In 1988, Faber became involved in an incident in <entity id=\"org:gemeente-zwolle\">Zwolle</entity> after a pub visit. There, Faber and the <entity id=\"pos:burgemeester-smallingerland\">burgemeester van Smallingerland</entity>, Bert Smallenbroek, had an argument with a group of young people. Smallenbroek reportedly came to blows with them. The then minister of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity> Van Dijk even looked into the matter, also known as \"the Zwolle affair\". After an investigation by the national detective agency, he concluded that the mayors had not committed any criminal offences. He considered the incident \"too trivial, too petty\" to warrant dismissal, but did reprimand them because they had damaged the dignity of their office. Smallenbroek, who died last year, resigned. Faber retained the confidence of the municipal council and ultimately remained <entity id=\"pos:burgemeester-hoogeveen\">burgemeester van Hoogeveen</entity> until 1998. After leaving Hoogeveen, Faber returned to the Friesch Dagblad as a political columnist, where he wrote a weekly column. In 2007 he wrote the book De wet van de koestal. Gereformeerden in <entity id=\"org:gemeente-s-gravenhage\">Den Haag</entity>, about the formation of the Balkende IV cabinet. Faber died last Thursday in Leeuwarden.",
-    "sourceHash": "b6a9ba8be195",
+    "title": "Sytze Faber (89), former CDA Tweede Kamer member and journalist, has died",
+    "lead": "Former CDA Tweede Kamer member and journalist Sytze Faber has died at the age of 89 in <entity id=\"org:gemeente-leeuwarden\">Leeuwarden</entity>. His family reports this in an obituary in NRC . Faber grew up in a Frisian, Reformed environment, studied political science at the Vrije Universiteit in <entity id=\"org:gemeente-amsterdam\">Amsterdam</entity> and earned his doctorate in 1974. After working in academia for years, he became a Tweede Kamer member in 1977. The Frisian entered <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity> in on behalf of the ARP, which merged into the CDA in 1980. He was regarded as a left-wing CDA member and had major objections to the formation of <entity id=\"org:kabinet\">het kabinet</entity>-Van Agt I, consisting of his CDA and the VVD. Independent spirit Nevertheless, he did not belong to the so-called loyalists, a group of initially six CDA members from the left wing of the party, who took a critical stance toward the coalition agreement with the VVD. As a result, they held an important position of power, since the Van Agt I cabinet had a narrow majority with 77 seats. Faber did not join them, in keeping with his independent spirit of not binding himself to groupthink in advance. Still, he regularly deviated from the party line. He played an important role in the debates on the constitutional revision and in 1979 opposed the placement of American cruise missiles in the Netherlands together with nine other CDA members. He combined his membership of the Tweede Kamer with the shared editor-in-chief position at the Friesch Dagblad. \"That combination with politics was completely normal back then: it was the pillar era and a pillar newspaper,\" Faber said earlier this year in an interview with that newspaper. When Ruud Lubbers became prime minister in 1982, Bert de Vries succeeded him as CDA parliamentary group leader. Within the party, unity was pushed more strongly, so the position of critical Kamer members came under pressure. Faber remained a Tweede Kamer member until January 1985. Mayoralty Afterwards he was appointed mayor of the Drenthe municipality of <entity id=\"org:gemeente-hoogeveen\">Hoogeveen</entity>. In 1988 Faber became involved in an incident in <entity id=\"org:gemeente-zwolle\">Zwolle</entity> after a pub visit. There Faber and the <entity id=\"pos:burgemeester-smallingerland\">burgemeester van Smallingerland</entity>, Bert Smallenbroek, had an argument with a group of young people. Smallenbroek reportedly came to blows with them. The then minister of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity> Van Dijk even looked into the matter, also known as \"the Zwolle affair\". After an investigation by the national police detectives, he concluded that the mayors had not committed any criminal offences. He considered the incident \"too trivial, too petty\" for dismissal, but did reprimand them because they had damaged the dignity of their office. Smallenbroek, who died last year, resigned. Faber retained the confidence of the municipal council and ultimately remained <entity id=\"pos:burgemeester-hoogeveen\">burgemeester van Hoogeveen</entity> until 1998. After leaving Hoogeveen, Faber returned to the Friesch Dagblad as a political columnist, where he wrote a weekly column. In 2007 he wrote the book De wet van de koestal. Gereformeerden in <entity id=\"org:gemeente-s-gravenhage\">Den Haag</entity>, about the formation of the Balkenende IV cabinet. Faber died last Thursday in Leeuwarden.",
+    "sourceHash": "51246caeb5c3",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -22620,8 +22609,8 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Mummies no longer displayed in Glasgow museums for privacy reasons",
-    "lead": "Two museums in Scotland's Glasgow have stopped displaying mummies. In one case the human remains have been removed from the display entirely, in the other the mummy is now covered with a cloth. A third museum also plans to make changes. The change came to light when a visitor wanted to show his daughter the mummy of priest Nekht at the Kelvingrove Museum. They found only a card stating that \"human remains have been removed as a sign of respect\". A head, foot and hand that were visible in mummified form also turned out to be gone. \"We believe that showing more respect to the deceased individuals means not displaying ancient Egyptian human remains\", the museum responds in the British press. An exception can be made if there is \"consent from the deceased or their relatives\", but that is of course not possible in this case. Hidden under a cloth A second museum in the city turns out to have made changes for the same reasons as early as August last year. The mummy of Sjep-En-Hor in the Hunterian was always displayed in her richly decorated sarcophagus, but has now been made invisible with cloth. The coffin can still be seen by visitors. The Hunterian says it \"aims to become a more ethical institution\" and therefore believes the woman, who died 2600 years ago, \"deserves privacy after her death\". Sjep-En-Hor had been on display since 1820. The mummy of Nekht, about 4000 years old, was excavated at the beginning of the last century. Museum operator Glasgow Life says it plans to also remove some pieces from the religious museum St. Mungo. These include a coffin and several mummified remains. 'History hidden' The changes stem from tightened guidelines from the International Council of Museums, ICOM. These state that, \"for the sake of human dignity\", display of body parts should be approached with restraint. \"Decisions about this must always be made in consultation with descendants or the communities from which they originate.\" Critics speak of overzealous political correctness. \"History is being hidden\", fears Conservative politician Murdo Fraser. \"Glasgow's museums should be showing off our history, not secretly removing it because of the latest trend in political correctness.\" \"British museums are too busy censoring and filtering history to meet the demands of woke fanatics\", says Chris McGovern, history adviser under former prime minister Thatcher, to the Daily Mail. \"Next the Bayeux Tapestry won't be allowed to be shown either because there is too much violence, death and corpses to see.\" Mummy issues Other museums say in the British media they will not follow Glasgow's example. National Museums Scotland, which includes several heavily visited institutions in Edinburgh, has no plans to change anything. The renowned British Museum also has no mummy issues, as the Daily Mail puts it. A spokesperson for the London museum says human remains can be displayed \"with respect, care and dignity\", as long as sufficient context is provided. The museum points to the educational, historical and scientific value of such pieces. There are therefore no plans to change anything. The Glasgow museums have not yet said what will happen to the mummies now. A spokesperson says they are open to returning them to Egypt. 'Choices change' Museums in the Netherlands know the debate. The Rijksmuseum voor Oudheden in Leiden says that always \"careful handling\" is applied \"with respect for human dignity\", but \"considers it important to tell historical stories, not only about life but also about death and the handling of the dead body\". The Amsterdam Allard Pierson has chosen to display the mummies in such a way that visitors can choose not to look. It admits that the \"choices we make today (or yesterday) are not necessarily the choices we will make in the future\".",
-    "sourceHash": "5d9093907060",
+    "lead": "Two museums in Glasgow, Scotland, have stopped displaying mummies. In one case the human remains have been removed from the display entirely, and at the other the mummy is now covered with a cloth. A third museum also plans to make changes. The change came to light when a visitor wanted to show his daughter the mummy of the priest Nekht at the Kelvingrove Museum. They found only a card saying that \"human remains have been removed as a sign of respect\". A head, foot and hand that were mummified, which had also been on display, turned out to be gone too. \"We believe that showing more respect to the deceased individuals means not displaying ancient Egyptian human remains,\" the museum said in the British press. An exception can be made if there is \"consent from the deceased or their next of kin\", but of course that is not possible in this case. Hidden under a cloth. A second museum in the city was found to have made changes for the same reasons as long ago as August last year. The mummy of Sjep-En-Hor at the Hunterian had always been displayed in her richly decorated sarcophagus, but is now hidden from view with a cloth. The coffin can still be seen by visitors. The Hunterian says it \"aims to become a more ethical institution\" and therefore believes that the woman, who died 2600 years ago, \"deserves privacy after her death\". Sjep-En-Hor had been on display since 1820. The mummy of Nekht, around 4000 years old, was excavated at the beginning of the last century. Museum operator Glasgow Life says it plans to remove some items from the St. Mungo Museum of Religious Life and Art as well. These include a coffin and several mummified remains. 'History hidden'. The changes stem from tightened guidelines from the International Council of Museums, ICOM. These state that, \"for the sake of human dignity\", the display of body parts should be approached with restraint. \"Decisions on this must always be made in consultation with descendants or the communities from which they originate.\" Critics speak of political correctness gone too far. \"History is being hidden,\" fears Conservative politician Murdo Fraser. \"Glasgow's museums should be showing off our history, not secretly removing it because of the latest trend in political correctness.\" \"British museums are too busy censoring and filtering history to meet the demands of woke fanatics,\" says Chris McGovern, a history adviser under former prime minister Thatcher, speaking to the Daily Mail. \"Soon the Bayeux Tapestry won't be allowed to be shown either, because there is too much violence, death and corpses to see.\" Mummy issues. Other museums say in the British media that they will not follow Glasgow's example. National Museums Scotland, which includes several popular institutions in Edinburgh, has no plans to make any changes. The renowned British Museum also has no \"mummy issues\", as the Daily Mail puts it. A spokesperson for the London museum says that human remains can be shown \"with respect, care and dignity\" as long as sufficient context is provided. The museum points to the educational, historical and scientific value of such items. There are therefore no plans to change anything. The Glasgow museums have not yet said what will happen to the mummies. A spokesperson says the museums are open to sending them back to Egypt. 'Choices change'. Museums in the Netherlands are familiar with the debate. The Rijksmuseum van Oudheden in Leiden says that it always handles these objects \"carefully, with respect for human dignity\", but \"considers it important to tell historical stories, not only about life, but also about death and the treatment of the dead body\". Allard Pierson in Amsterdam has chosen to display the mummies in such a way that visitors can choose not to look. It admits that \"the choices we make today (or yesterday) are not necessarily the choices we will make in the future\".",
+    "sourceHash": "bce54fdfc2fe",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -22675,8 +22664,8 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Confused man arrested over devastating fire at Hitler's Eagle's Nest",
-    "lead": "German police believe a confused man is behind the devastating fire overnight at Hitler's retreat, the Eagle's Nest. According to the German Public Prosecutor's Office, the 33-year-old man who was arrested overnight has psychological problems. Yesterday evening, a fire broke out around 9.15 p.m. at the Kehlsteinhaus on the Obersalzberg, built in 1938 as a place where Adolf Hitler could receive (foreign) guests. The dictator had a retreat on the same mountain in the Alps, as did many other high-ranking Nazis. By the time the fire brigade arrived, the flames were already coming out of the building. Putting out the fire was difficult because of the bad weather, a lack of extinguishing water and the hard-to-reach location at over 1,800 metres altitude. The firefighting, by about 250 firefighters from six municipalities, even had to be halted for several hours for safety reasons. Arrested immediately The suspect could be arrested almost at once, because he was riding his motorcycle towards the fire brigade and police on the narrow access road. He was stopped because his motorcycle had no registration plate, but agents soon realised that he may have had more to do with the fire. He had an injury to one hand, but it is not yet clear whether that came from the fire. The prosecutor says the suspect's mental problems probably played a major role in his motive. He also speaks of possible political motives, but that needs further investigation. The man has been admitted to a psychiatric institution. According to the prosecution, he has \"a connection\" with the region, but does not live there. If he is convicted, he could face 1 to 10 years in prison for arson, although the prosecutor also takes into account that the man may be declared not criminally responsible. Although the fire is now under control, the extinguishing work is expected to continue all afternoon. It is taking so long partly because the fire brigade cannot enter the building due to the risk of falling debris. Therefore it is not clear how great the structural damage is in the burnt-out building. The area around the Kehlsteinhaus will remain closed to visitors for the time being. The Bavarian Minister of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity> Herrmann has already stated the intention to rebuild the Eagle's Nest. \"We can't just leave a ruin standing, can we?\" he replied when asked about future plans. The German state owns the building. Heritage from the Nazi era is not uncontroversial. For example, in Braunau am Inn a long search was held for a suitable use for Hitler's birthplace, for fear that it would attract neo-Nazis. In the end it was decided to set up a police station there. Herrmann acknowledges that \"difficult\" conversations will also have to be held here, but points out that it was also a place of remembrance and had been a popular tourist destination for years. He added, however, that only \"12 hours after the fire\" he was not yet able to present concrete plans, but he believes that \"a suitable solution\" will be found. The operator of the building supports the minister. According to him, it has been shown that providing context is precisely how the past is treated respectfully. \"If visitors only find a ruin here, you get exactly the kind of tourism you don't want.\" Herrmann also noted that the building was insured and that the costs of a rebuild do not have to fall on the taxpayer. The Kehlsteinhaus opened in 1952 as a café-restaurant. With 300,000 visitors a year, it is still regarded as an important tourist attraction, because of its history and panoramic view over the Bavarian Alps. Hitler's nearby residence, the Berghof, was destroyed during the Second World War. World War II newsletter Interested in World War II? Subscribe to our newsletter here.",
-    "sourceHash": "ee945be7533e",
+    "lead": "German police believe a confused man is behind the devastating fire at Hitler's retreat, the Eagle's Nest, last night. According to the German Public Prosecutor's Office, the 33-year-old man who was arrested last night has psychological problems. Yesterday evening, around 21.15, a fire broke out at the Kehlsteinhaus on the Obersalzberg, built in 1938 as a place where Adolf Hitler could receive (foreign) guests. The dictator had a retreat on the same mountain in the Alps, as did many other senior Nazis. When the fire brigade arrived, the flames were already coming out of the building. Extinguishing the fire was difficult because of the bad weather, a lack of firefighting water and the hard-to-reach location at over 1800 metres altitude. The firefighting, carried out by around 250 firefighters from six municipalities, even had to be halted for several hours for safety reasons. Arrested immediately. The suspect could be arrested almost immediately, because he was riding his motorcycle towards the fire brigade and police on the narrow access road. He was stopped because his motorcycle had no number plate, but officers soon realised that he might have had more to do with the fire. He was injured in one hand, but it is not yet clear whether this was caused by the fire. The prosecutor says the suspect's mental problems probably played a major role in his motive. He also speaks of possible political motives, but further investigation is needed. The man has been admitted to a psychiatric institution. According to the Public Prosecution Service, he has \"a connection\" to the region, but does not live there. If he is convicted, he could receive 1 to 10 years in prison for arson, although the prosecutor also takes into account that the man may be declared not criminally responsible. Although the fire is now under control, the post-fire extinguishing work is expected to last all afternoon. It is taking so long partly because the fire brigade cannot enter the building due to the risk of falling debris. For this reason it is not yet clear how large the structural damage is to the burned-out building. The area around the Kehlsteinhaus will remain closed to visitors for the time being. The Bavarian Minister of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity> Herrmann has already expressed the intention to rebuild the Eagle's Nest. \"We cannot simply leave a ruin standing, can we?\" he replied when asked about future plans. The German state owns the building. Heritage from the Nazi era is not uncontroversial. For example, in Braunau am Inn a long search was held for a suitable use for Hitler's birthplace, out of fear that it would attract neo-Nazis. Eventually it was decided to establish a police station there. Herrmann acknowledges that \"difficult\" conversations will also need to be held here, but points out that it was also a place of remembrance and had been a popular tourist destination for many years. He added, however, that he could not yet present concrete plans \"only 12 hours after the fire\", but believes that \"a suitable solution\" will be found. The operator of the building supports the minister. According to him, it has been proven that providing context is precisely what allows the past to be treated respectfully. \"If visitors only find a ruin here, you get exactly the kind of tourism you do not want.\" Herrmann further noted that the building was insured and that the costs of rebuilding need not fall on the taxpayer. The Kehlsteinhaus opened in 1952 as a café-restaurant. With 300,000 visitors a year, it is still regarded as an important tourist attraction, because of its history and the panoramic view over the Bavarian Alps. Hitler's nearby residence, the Berghof, was destroyed during the Second World War. Second World War newsletter. Interested in the Second World War? Subscribe to our newsletter here.",
+    "sourceHash": "893db1871590",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -22685,9 +22674,9 @@
     "id": "news:5d360a3",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Shock after devastating fire in Limburg saloon: 'Our pride burned down'",
-    "lead": "Members of shooting club Davy Crockett in Meterik react in shock to the fire that destroyed a wooden clubhouse last night . The shooting club has barely been able to enjoy the saloon, which the members built themselves, for a single day. The morning after the fire, chairman Jan Joosten walks through the smouldering remains. \"Seven months we have built it, with all our might. And now it's gone,\" he tells regional broadcaster L1 Nieuws . \"Our pride has burned down. That hurts.\" Smoke from the wall The building had been built by the members over seven months to mark the club's 60th anniversary. Today an open day was to be held to show the newly completed clubroom to the public for the first time. But last night, during the opening party of the saloon, things went wrong. \"Around 23:30 we saw smoke coming out of the wall,\" Joosten recalls, tears in his eyes. \"We cleared everyone out immediately. There were about 150 people at the opening evening. Club members, friends and sponsors. We got everyone safely outside, but the fire was already in the walls.\" Trying to fight it ourselves with a garden hose While the fire brigade was on its way, the shooters tried to put out the fire themselves with a garden hose. \"We soon saw that this made no sense. The fire was in the walls, the insulation material had caught fire. The whole room was also full of smoke.\" The last glimmer of hope that the building could still be saved vanished when the fire brigade started work. \"When the fire brigade began breaking and demolishing to get to the flames, you could draw the conclusion. The saloon could no longer be saved.\" The shooting club, with an enormous fondness for North American history, decided to give itself a fitting gift for the anniversary in the form of the wooden saloon. That was done in full style: a high wooden space, neatly decorated with western paintings, a wagon wheel on the ceiling, a passage to the shooting range and, of course, a staircase to the rooms above the bar. Only the swinging doors were missing, because they would make it difficult to walk through with a full tray. Rebuilding The rustic saloon stood next to the shooting range. That stone building was spared in the sea of flames. \"That does have water damage, so we need to look at what work we still need to do there,\" says Joosten. He does not want to speculate about the cause. \"I have no knowledge of that, it is the first time we have experienced something like this,\" he says. Relieved: \"We are fortunately insured, so we hope everything will work out. We are waiting to see what the experts say, and after that we will start again. A new saloon, new wood.\"",
-    "sourceHash": "97793505b85b",
+    "title": "Grief after devastating fire at Limburg saloon: 'Our pride has burned down'",
+    "lead": "Members of shooting club Davy Crockett in Meterik are reacting in shock after the fire that destroyed their wooden clubhouse last night. The club has barely had a day to enjoy the saloon, which the members built themselves. The morning after the fire, chairman Jan Joosten walks through the smouldering remains. \"We spent seven months building it, with all our might. And now it's gone,\" he tells regional broadcaster L1 Nieuws. \"Our pride has burned down. That hurts.\" Smoke from the wall. The building was constructed by the members for the club's 60th anniversary. Today an open day was due to be held to show the newly completed clubhouse to the public for the first time. But last night, during the opening party of the saloon, things went wrong. \"Around 23.30 we saw smoke coming out of the wall,\" Joosten recalls, tears in his eyes. \"We evacuated everyone immediately. There were about 150 people at the opening evening. Club members, friends and sponsors. We got everyone safely outside, but the fire was already in the walls.\" Hands-on with a garden hose. While the fire brigade was on its way, the shooters tried to put out the fire with a garden hose. \"We soon saw that this was pointless. The insulation material had caught fire. The whole room was also full of smoke.\" The last glimmer of hope that the building could still be saved vanished the moment the fire brigade started work. \"When the fire brigade began breaking and demolishing to get to the flames, you could draw your conclusion. The saloon could no longer be saved.\" The shooting club, with a huge fondness for North American history, decided to give itself a fitting gift for its anniversary in the form of the wooden saloon. The saloon was decorated with Western paintings, had a wagon wheel on the ceiling and had a passage to the shooting range. Only the swinging doors were missing, because they would make it difficult to walk through with a full tray. Rebuilding. The rustic saloon stood next to the shooting range. That stone building was spared. \"It has water damage, though. We need to see what work we still have to do there,\" says Joosten. He does not want to speculate about the cause. \"I have no expertise in that, it is the first time we have experienced something like this,\" he says. \"Fortunately we are insured, so we hope everything will be all right. We are waiting to see what the experts say, and then we will start again. A new saloon, again made of wood.\"",
+    "sourceHash": "bba83f871ec8",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -22696,9 +22685,9 @@
     "id": "news:5d360be",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Caretaker at Beekse Bergen safari park seriously injured in panther attack, condition is worrying",
-    "lead": "In safari park Beekse Bergen in Hilvarenbeek a caretaker was seriously injured this morning after being attacked in the panther enclosure. A park spokesperson reports that she is conscious, but that her condition is worrying. How the incident could happen is being investigated. There are two panthers in the park. Whether she was attacked by one or both panthers is currently unclear. The <entity id=\"org:politie\">politie</entity> received a report about the attack around 11 o'clock. The caretaker was able to raise the alarm herself with her radio. The panthers were indoors because of the poor weather conditions. After the report, the ambulance service and a trauma helicopter went to the park. The woman was given medical treatment immediately and taken to hospital. Her family has been informed. The park reports that the caretaker has worked in the park for 25 years and with the panthers for 8 years.",
-    "sourceHash": "a62c6b6fb2b3",
+    "title": "Keeper at Beekse Bergen safari park injured in panther attack, condition serious",
+    "lead": "At safari park Beekse Bergen in Hilvarenbeek, a female keeper was seriously injured this morning after being attacked in the panther enclosure. The woman has since undergone surgery, but her condition remains serious. How the incident could happen is being investigated. There are two panthers in the park. It is not yet clear whether she was attacked by one or by both panthers. The <entity id=\"org:politie\">politie</entity> received a report of the attack around 11 a.m. The keeper was able to raise the alarm herself with her radio. The panthers were indoors because of the poor weather. After the report, the ambulance service and a trauma helicopter went to the park. The woman was given medical treatment immediately and taken to hospital. Her family has been informed. The park reports that the keeper has worked at the park for 25 years and has worked with the panthers for 8 years.",
+    "sourceHash": "6882d76b52a4",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -22707,9 +22696,9 @@
     "id": "news:5d360c2",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Demonstration in Paris passes peacefully, riots in other cities",
-    "lead": "Tens of thousands of protesters have again gathered for protest marches across France today. The big question is whether, as last week, it will end in mass violence. In Paris the protest march is so far passing peacefully. The route of the march was moved away from the places where things got out of hand last week to a more southern part of the city. According to police, 110,000 people joined the march. A large police force has been deployed. Protesters are being kept away from central places such as Place de la République and Place de la Bastille. Instead they are urged to walk the route between Porte d'Italie and Porte de Vincennes. The first demonstrators arrived there late in the afternoon. Reporter Mattijs van de Wiel is in Paris at the relocated demonstration: Around midday police called on the public who had nonetheless come to Place de la Bastille to leave. This happened without incidents in the presence of a few dozen officers. In several cities, including Nice, Lyon, Marseille and Lille, police intervened at protests with tear gas or a water cannon. In Grenoble riot police were attacked by 400 masked people, and in Bordeaux projectiles were thrown at police and barricades erected by demonstrators. Students, unions, yellow vests: The radical-left presidential candidate Jean-Luc Mélenchon, one of the driving forces behind the protests, called on participants to abide by the rules. According to him, Prime Minister Lecornu tried to frustrate the protesters by having the protest route in Paris start 5 kilometres further away at the last moment, but he urged them \"not to let his provocations succeed\". The protests in France stem from social unrest over President Macron's policies. Ongoing student protests in recent weeks for improvements in education turned last Saturday into a broader protest with trade unions, farmers and the yellow vest opposition movement. Hundreds of thousands took to the streets. Rioters and looters turned the peaceful mood of the protests into widespread looting, vandalism and arson. Damage running into hundreds of millions of euros was caused, and hundreds of suspects have been arrested. Carrying pétanque balls: To prevent new violence, the right to demonstrate has been severely restricted today. For example, President Macron permits only protests by trade unions, and in various places across the country a curfew and bans on gatherings apply. Young people may not be outside in central Lille between 20:00 and 06:00, and people may not gather there until 22:00 today. In cities such as Montpellier, Nancy and Caen, no permission was given for protest. 70,000 police officers have been deployed across the country, supported by the army. In various places across the country, hundreds of people were already preventively searched this morning, \"to deter people with bad intentions\". In doing so, objects that could be used as weapons were confiscated: besides knives, batons and fireworks also a samurai sword and several pétanque balls. Clothing that can be used to withstand tear gas was also seized, such as masks with filters and diving goggles. By early afternoon, 135 arrests had been made across France. At that time, according to Minister Nuñez of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity>, 35,000 people were also out across France. Many businesses have boarded up their shopfronts as a precaution. Museums such as the Louvre and the Musée d'Orsay remain closed today, as do 24 Paris metro stations. Several football matches have been postponed. In Orléans the party congress of the radical-right Rassemblement National went ahead. Thousands of left-wing demonstrators turned up there; authorities expected at least 20,000. No violence has been reported here so far.",
-    "sourceHash": "082dca0b9aa4",
+    "title": "Nearly 1000 arrests at demonstrations in France, riots here and there",
+    "lead": "Across France today, more than 400,000 people joined protest marches, according to the French Minister of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity>. The march through Paris was largely peaceful. The route was moved away from the places where things got out of hand last week to a more southern part of the city. According to the police, 110,000 people took part in the march through Paris. There was a large police presence. Demonstrators were kept away from central places such as Place de la République and Place de la Bastille. Instead, they were directed to walk the route between Porte d'Italie and Porte de Vincennes. The first demonstrators arrived there at the end of the afternoon. Afterwards, riots broke out and the police used water cannons and tear gas to disperse around 500 rioters. According to the police, the rioters tried to break into a car dealership. At the end of the afternoon, the French police intervened in various cities. In several cities, including Nice, Lyon, Marseille and Lille, the police intervened at protests with tear gas or a water cannon. In Grenoble, riot police were attacked by 400 masked people, and in Bordeaux projectiles were thrown at the police and barricades were erected by demonstrators. Across France, nearly a thousand people were arrested at the demonstrations, according to Minister Nuñez of Interior. He says he expects that \"this number will rise\". At the riots on 17 October, 385 people were arrested. According to Nuñez, the police intervention prevented looting. He also says that, due to the police action, no public buildings were attacked. Schoolchildren, unions, yellow vests The radical left presidential candidate Jean-Luc Mélenchon, one of the driving forces behind the protests, called on participants to stay within the rules. According to him, Prime Minister Lecornu tried to frustrate the demonstrators by moving the protest route in Paris 5 kilometres further at the last minute, but he asked people \"not to let his provocations succeed\". The protests in France stem from social unrest over the policies of President Macron. Ongoing protests by schoolchildren in recent weeks calling for improvements in education turned last Saturday into a broader protest involving trade unions, farmers and the yellow vest opposition movement. Hundreds of thousands took to the streets. Rioters and looters turned the peaceful mood of the protests into widespread looting, vandalism and arson. Damage amounting to hundreds of millions of euros was caused, and hundreds of suspects have been arrested. Pétanque balls on the way To prevent new violence, the right to demonstrate was considerably restricted today. President Macron, for example, only allowed protests by trade unions, and in various places across the country a curfew and bans on gatherings apply. Young people may not be outside in central Lille between 20.00 and 06.00, and people may not gather there until 22.00 today. In cities such as Montpellier, Nancy and Caen, no permission was given for protests. 70,000 police officers were deployed across the country, supported by the army. In various places in the country, hundreds of people were searched preventively this morning \"to deter people with bad intentions\". Objects that could be used as weapons were confiscated: besides knives, batons and fireworks, also a samurai sword and several pétanque balls. Clothing that can be used to withstand tear gas was also seized, such as masks with filters and diving goggles. According to Minister Nuñez of Interior, 410,000 people took part in demonstrations in France today. Last week there were 550,000. According to the unions, nearly 800,000 people went out onto the streets to demonstrate today. Many business owners had precautionarily boarded up their shopfronts. Museums such as the Louvre and the Musée d'Orsay remained closed today, as did 24 Paris metro stations. Several football matches have been postponed. In Orléans, the party congress of the radical right Rassemblement National went ahead. According to the mayor of the city, 13,000 left-wing demonstrators turned up there. The demonstration in Orléans passed without any notable incidents.",
+    "sourceHash": "6d27553fb519",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -22718,9 +22707,9 @@
     "id": "news:5d360e3",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "'It will be an expensive vote': expats make special trips back to Israel to vote",
-    "lead": "Tens of thousands of Israeli expats are going back to their country to vote ahead of the elections on 27 October. Not only in Israel, but also outside it there is a sense that a lot is at stake and that precisely now every vote counts in determining the country's direction. By law you can only vote if you are in Israel. Only Israeli soldiers, diplomats and settlers in the occupied West Bank, the Golan Heights and East Jerusalem are exempt. Israelis living in the Netherlands are therefore also boarding planes. \"If Netanyahu stays in power, Israel as a democratic state is finished\", says Barak Oserovitz during a transfer on his way to Israel. \"The chance to stop him is now. It will never come back.\" He is coming over from the Netherlands for a few days. \"It will be an expensive vote\", says Keren Hirsch. \"The tickets and rental cars are much more expensive than usual.\" They are not the only ones who want to be in the country on Tuesday to vote. Many people come especially from the United States. There is even an organisation active there that arranges the trip to Israel, to the annoyance of the Israeli government. The organisation is linked to the people who also support the often massive protests against <entity id=\"org:regering\">de regering</entity> in Israel. Netanyahu or Eisenkot The elections are now do-or-die, you hear from the groups of American and French Israelis who have come over, but also from people living in Israel. \"The government is not functioning\", says Oserovitz. \"The Jewish-Orthodox and Arab parts of society are not involved. They do not serve in the army. Orthodox Jews receive more money than they contribute through taxes. In addition, Netanyahu is holding back an investigation into the mistakes that allowed Hamas to carry out a major attack on Israel on 7 October 2023.\" These are things Netanyahu's biggest challenger, former general Gadi Eisenkot, wants done differently. An independent investigation into 7 October, an independent judiciary and conscription for everyone. Hirsch: \"Ultimately under Netanyahu you get a kind of theocracy. And the opposition stands for, even though some of them are also right-wing parties, a secular democracy in my view. That is very important to me.\" Palestinians Netanyahu has in recent years, either out of personal conviction or as a compromise to the radical and/or religious parties in his <entity id=\"org:kabinet\">kabinet</entity>, increasingly tackled criticism from the media, maintained an exemption from conscription for Orthodox Jews and downplayed violence by settlers in the West Bank. Under his premiership, settlers were also armed and the administration of the occupied territories fell under radical ministers. Because the Israeli judiciary occasionally pushed back against him, he tried to limit that power or make it political. Hirsch: \"Gaza is close to my heart, let that be clear, but also in the West Bank violence by Israeli settlers against Palestinians still too often goes unpunished. And yes, there is also violence from Palestinians against Israelis, I will not deny that\". Every vote counts Netanyahu is campaigning with the slogan \"Choose Eisenkot, and you get Palestine\". Yet there seems to be little difference in how both candidates want to deal with the threat from Hamas and other actors in the region. For now there is also no difference between the two camps in their approach to Palestinian voters in Israel. Israeli Arabs make up around 20 percent of <entity id=\"org:kiesgerechtigden-nederland\">het electoraat</entity>, but a coalition with parties representing them is ruled out by almost everyone. Whether the vote of Israelis flown in makes the difference is still an open question. Because a lot is at stake, high turnout is expected, even among Arab voters in Israel. As a result, each vote counts for relatively less. That does not stop Barak Oserovitz from boarding the plane to Israel. \"I am not saying which party I will vote for, but assume it is in favour of change!\" Live from 19.30 at the demonstration In Tel Aviv a large demonstration by opponents of the Israeli government of Prime Minister Netanyahu is taking place this evening. Elections are next Tuesday. Correspondent Lennard Swolfs and reporter Sander van Hoorn will be there live from 19.30.",
-    "sourceHash": "3e18b6113851",
+    "title": "'It will be an expensive vote': expats travel back to Israel specially to vote",
+    "lead": "Tens of thousands of Israelis living abroad are going back to their country to vote ahead of the elections on 27 October. Not only in Israel, but also outside it, there is a sense that a lot is at stake and that precisely now every vote counts in determining the direction of the country. By law, you can only vote if you are in Israel. Only Israeli soldiers, diplomats and settlers in the occupied West Bank, the Golan Heights and East Jerusalem are exempt from this. Israelis living in the Netherlands are therefore also boarding planes. \"If Netanyahu stays in power, Israel as a democratic state is finished\", says Barak Oserovitz during a transfer on his way to Israel. \"The chance to stop him is now. It will never come back.\" He is flying in from the Netherlands for a few days. \"It will be an expensive vote\", says Keren Hirsch. \"The tickets and rental cars are much more expensive than usual.\" They are not the only ones who want to be in the country on Tuesday to vote. Many people come especially from the United States. There is even an organisation active there that arranges travel to Israel, to the annoyance of the Israeli government. The organisation is linked to the people who also support the often massive protests against <entity id=\"org:regering\">de regering</entity> in Israel. Netanyahu or Eisenkot. It will be a now-or-never election, hear the groups of American and French Israelis who have come over, but also the people who live in Israel. \"The government is not functioning\", says Oserovitz. \"The Jewish-Orthodox and Arab parts of society are not being included. They do not serve in the army. Orthodox Jews receive more money than they contribute through taxes. In addition, Netanyahu is holding back an investigation into the mistakes that were made which allowed Hamas to carry out a major attack on Israel on 7 October 2023.\" These are things that Netanyahu's biggest challenger, former general Gadi Eisenkot, wants to do differently. An independent investigation into 7 October, an independent judiciary and conscription for everyone. Hirsch: \"Ultimately, under Netanyahu you get a kind of theocracy. And the opposition, for me, although some of them are also right-wing parties, stands for a secular democracy. That is very important to me.\" Palestinians. Over the past years, Netanyahu, either out of personal conviction or as a compromise to the radical and/or religious parties in his <entity id=\"org:kabinet\">kabinet</entity>, has increasingly attacked criticism from the media, maintained an exemption from conscription for Orthodox Jews, and downplayed violence by settlers in the West Bank. Under his premiership, settlers were also armed, and the administration of the occupied territories came under radical ministers. Because the Israeli judiciary occasionally pushed him back, he made attempts to limit that power or make it political. Hirsch: \"Gaza is close to my heart, let that be clear, but violence from Israeli settlers against Palestinians in the West Bank also remains too often unpunished. And yes, there is also violence from Palestinians against Israelis, and I will not deny that\". Every vote counts. Netanyahu is campaigning with the slogan \"Choose Eisenkot, and you get Palestine\". Yet there seems to be little difference in how both candidates want to deal with the threat from Hamas and other actors in the region. For now, there is also no difference between the two camps in their approach to Palestinian voters in Israel. Israeli Arabs make up around 20 percent of <entity id=\"org:kiesgerechtigden-nederland\">het electoraat</entity>, but a coalition with parties representing them is ruled out by almost everyone. Whether the vote of flown-in Israelis makes a difference is still an open question. Because a lot is at stake, high turnout is expected, even among Arab voters in Israel. As a result, each vote counts relatively less. That does not stop Barak Oserovitz from boarding the plane to Israel. \"I'm not saying which party I will vote for, but assume it's for change!\" Nieuwsuur made this video ahead of the Israeli parliamentary elections:",
+    "sourceHash": "09d105959cef",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -22730,8 +22719,8 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "French newspaper: Paris attacker wanted to kill Black and Arab people",
-    "lead": "The arrested suspect in the attack in the Paris suburb of Trappes wanted to attack Black people and people of Arab appearance. That is what sources told the French newspaper Le Monde. Based on the suspect's modus operandi, his choice of victims, his first statements and the results of the house searches, the judiciary sees indications that this was a racially motivated terrorist act. The sources also report that a copy of Mein Kampf, Hitler's banned book, was found on the man. The 39-year-old gunman Kevin T. opened fire on passersby with a machine gun yesterday morning. One person lost their life and five others were injured, including a 12-year-old child. After the man was arrested, he reportedly said, according to Le Monde, that he had taken revenge on the shopkeepers whose shops were looted during last week's riots by attacking \"Blacks and Arabs\". He gave this statement to the first officers on the scene. A 'lone wolf'. As a result, the French authorities are investigating whether this is a case of \"murder and attempted murder in connection with a terrorist motive, with the aggravating circumstance that the acts were committed because of the actual or perceived origin, ethnicity, nationality or religion of the victims\". Kevin T. has been taken into custody at the headquarters of the French anti-terrorism unit. Investigators are now waiting to see whether he repeats his racist remarks during interrogations, Le Monde reports. The initial investigation shows that during his drive between Trappes and La Verriere, T. exclusively targeted non-white people and shot at them from his Renault Clio. Whether he had ties to far-right groups is being examined using seized computer equipment. Sources close to the investigation who spoke to the newspaper describe him for now as a \"lone wolf\". 'Racist ideology'. During the house search, explosives experts and a special intervention unit of the French <entity id=\"org:politie\">nationale politie</entity> were deployed after an improvised explosive was discovered in the apartment. According to the authorities, it was a device with three gas cylinders and electrical wires connected to a timer. French President Macron expressed his horror yesterday, during a visit to Trappes, at the intentions and actions of the suspect: \"A man was killed this morning by one of our fellow citizens on the basis of a racist ideology.\" And: \"It is the first time a planned terrorist attack has been carried out to kill our compatriots, our children, because of their skin colour or the faith they adhere to. This is a turning point for our Republic.\"",
-    "sourceHash": "5f3cafef8315",
+    "lead": "The arrested suspect in the attack in the Paris suburb of Trappes wanted to attack Black people and people with an Arab appearance. Sources report this to the French newspaper Le Monde. Justice sees in the suspect's conduct, his choice of victims, his first statements and the results of the house searches indications that there was a racially motivated terrorist act. The sources also report that a copy of Mein Kampf, Hitler's banned book, was found on the man. The 39-year-old shooter Kevin T. opened fire on passers-by with a machine gun yesterday morning. One person was killed and five others were injured, including a 12-year-old child. After the man was arrested, he reportedly said, according to Le Monde, that he had taken revenge on the shopkeepers whose shops were looted during the riots last week by attacking \"Blacks and Arabs\". He gave this statement to the first officers on the scene. A 'lone wolf'. As a result, the French authorities are investigating whether this is a case of \"murder and attempted murder in connection with a terrorist motive, with the aggravating circumstance that the acts were committed because of the actual or presumed origin, ethnicity, nationality or religion of the victims\". Kevin T. has been taken into custody at the headquarters of the French anti-terrorism unit. Investigators are now waiting to see whether he repeats his racist statements during interrogations, Le Monde reports. The first investigation shows that T., during his drive between Trappes and La Verriere, exclusively chose non-white people as targets and shot at them from his Renault Clio. Whether he had ties with far-right groups is being examined on the basis of seized computer equipment. Sources close to the investigation who spoke with the newspaper describe him provisionally as a \"lone wolf\". 'Racist ideology'. During the house search, explosives experts and a special intervention unit of the French <entity id=\"org:politie\">nationale politie</entity> were deployed after an improvised explosive device was discovered in the apartment. According to the authorities, it was a construction with three gas cylinders and electric wires connected to a timer. French President Macron, during a visit to Trappes yesterday, expressed his horror at the intentions and deeds of the suspect: \"A man was killed this morning by one of our fellow citizens on the basis of a racist ideology.\" And: \"It is the first time there has been a planned terrorist attack to kill our compatriots, our children, because of their skin colour or the faith they adhere to. This is a turning point in our Republic.\"",
+    "sourceHash": "cd74383ef816",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -22751,9 +22740,75 @@
     "id": "news:5d36105",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Crowds at a Gelderland petrol station with stunt prices: an hour of refuelling for 1 euro",
-    "lead": "At a petrol station in Voorst it is exceptionally busy this afternoon. The petrol station is permanently closing its doors and is staging a stunt with fuel prices on its last day. Between 16.00 and 17.00 hours visitors could fill up their tanks for 1 euro per litre. That led to chaotic scenes. After 38 years the petrol station is closing its doors to make way for homes. To give Voorst a \"dignified farewell\", the owner decided to lower the price of a litre of petrol on the very last day. All day a litre of petrol cost 2,13 euro, but the petrol station saved its biggest stunt for the last hour. A maximum of 100 litres may be pumped, and filling jerrycans is not allowed. \"This whole day is a gift for the village\", says outgoing pump attendant Jan de Croon. 'You don't see this often' The first customers were already waiting at 13.30 hours, for the moment they could fill up at a bottom price. \"I knew it would get busy, so I wanted to be here on time. Petrol for 1 euro per litre, you don't see that often\", said one of them. \"I'm going to fill up the car nicely now, for 50 euro you already have a full tank.\" \"There's a lot of honking\", says a reporter for Omroep Gelderland . \"There are both happy and angry people. The tension seems to be rising. Someone even called the <entity id=\"org:politie\">politie</entity> because of the long queue.\" According to the broadcaster it is questionable whether everyone will get their turn before closing time, 17.00 hours. Busy already early this morning. The farewell drew many visitors early this morning. Soon it was, according to the regional broadcaster, a constant coming and going of cars. Almost everyone in the surrounding area tried to get their bargain. Besides cheap fuel, customers could also take part in a sort of \"wheel of fortune\", where a free fill-up could be won. \"I had predicted something\", said owner Jan de Croon to Omroep Gelderland this morning, \"but I didn't expect such a crowd this early. In the first half hour we already had four times as many customers as normal.\" The petrol station had prepared for the crowds. Two traffic controllers and six petrol station staff have tried to keep the day under control.",
-    "sourceHash": "9d13ed2d9691",
+    "title": "Busy scenes at Gelderland petrol station with bargain prices: an hour of refuelling for 1 euro",
+    "lead": "At a petrol station in Voorst it was exceptionally busy this afternoon. The petrol station is permanently closing its doors and is staging a stunt with fuel prices on its last day. Between 16.00 and 17.00 hours visitors could fill their tanks for 1 euro per litre. That led to chaotic scenes. The petrol station is closing its doors after 38 years and will make way for homes. To give Voorst a \"dignified farewell\", the owner decided to lower the price of a litre of petrol on the very last day. All day a litre of petrol cost 2.13 euros, but the biggest stunt the petrol station saved for the last hour. However, a maximum of 100 litres could be pumped and filling jerrycans was not allowed. \"This whole day is a gift for the village\", says outgoing pump attendant Jan de Croon. The first customers were already waiting at 13.30 hours for the moment they could fill up at the bottom price. \"I knew it would get busy, so I wanted to be here on time. Petrol for 1 euro per litre, you don't see that often\", said one of them. \"I'm going to fill up the car nicely, for 50 euros you already have a full tank.\" Rows of cars through the whole village. Eventually traffic towards the petrol station came to a complete standstill. By 16.00 hours the queue of cars already stretched the full length of the Gelderland village. The grounds of an unmanned petrol station across the road were also full of people waiting. \"People are honking like crazy\", said a reporter for Omroep Gelderland. \"There are both happy and angry people. The tension seems to be rising. Someone even already called the <entity id=\"org:politie\">politie</entity> because of the long queue.\" People from far away came to Voorst to fill up cheaply. \"One euro per litre, you can't pass up an offer like that\", says a motorist who drove fifty minutes for the promotion. \"I'm a taxi driver, so this is brilliant.\" The crowds also drew many curious residents. \"We just have a very boring village and now something finally happens\", says a woman. \"So we thought, let's go there for a bit. And it's really cosy here too.\" Police intervene at access roads. As far as is known, no major disturbances occurred during the promotion. The police did intervene at the access roads and stopped motorists there, as there were already so many interested people in the queue in the village that joining it no longer made sense. Shortly before 17.00 hours the gates of the petrol station were closed. The pump attendant had already announced that he wanted to close punctually at 17.00 hours: that was when the farewell drinks for staff began. Busy from early this morning. The farewell already drew many visitors early this morning. Soon, according to the regional broadcaster, it was a constant coming and going of cars. Almost everyone in the surrounding area tried to get a bargain. Besides cheap fuel, customers could also take part in a sort of 'wheel of fortune', with which a free tank of fuel could be won. \"I did predict something\", said owner Jan de Croon to Omroep Gelderland this morning, \"but I didn't expect such a crowd this early. In the first half hour we already had four times as many customers as normal.\" The petrol station had prepared for the crowds. Two traffic controllers and six petrol station staff tried to guide the day in the right direction.",
+    "sourceHash": "2d129d675550",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
+    "id": "news:5d36121",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ukrainian department stores under fire as residents prepare for winter",
+    "lead": "Russia has recently been targeting not only Ukrainian power plants, military facilities and apartment blocks. Increasingly, Ukraine's economy is also a target, with attacks on warehouses, distribution centres, post offices and department stores. Such as those of retail giant Epitsentr. In the last few days alone, four branches have been destroyed. Among them in Kyiv, where several ballistic missiles hit a shopping centre in the north of the city this week. At the locations that are still intact, work continues. Operations director Maksim Sjeremet walks between the large shelves of garden tools, electronics and holiday decorations in an Epitsentr store. \"It seems like a new wave\", he observes, with dark circles under his eyes. Because of all the attacks he is so busy that he has hardly been able to sleep. Empty shelves The store has had to completely adjust its way of working because of the war, Sjeremet says. Goods no longer go through distribution centres because those have also been destroyed. Items stay in lorries until they have been delivered to the store. As a result, it takes longer to deliver products and the range is more limited. Sjeremet points to almost empty shelves where some gas burners are displayed. Previously they had gas burners from ten different brands, now there is only one. In Ukraine, they believe Russia wants to make life for residents completely impossible with this kind of attack. Because it is precisely in this kind of store that Ukrainians stock up on things to prepare for winter, for example jerrycans, gas burners and power banks. Branches of the DIY chain Dnipro M have also been attacked, where generators are among the items for sale. Ukrainian intelligence services recently obtained Russian plans for attacks on cities such as Kyiv in the coming winter. The documents describe a planned campaign that could have major consequences for the population. This concerns attacks on the power and heating supply, but also on the water supply and sewerage. Deteriorated relationship with the US Meanwhile, the relationship with President Trump has reached a new low in recent weeks. American intelligence needed to warn the population of attacks in time did not get through. This has now been restored. Deliveries of interceptor missiles for Patriot air defence systems from the US are also taking their time. In addition, the use of the Starlink satellite system, crucial for the Ukrainian armed forces, has been restricted. President Zelensky sees all of this as attempts by Trump to pressure Ukraine. Residents of Kyiv are bracing themselves for what could become the harshest winter so far. Especially because Ukraine does not have enough air defence to protect the country against the large-scale, prolonged attacks with ballistic missiles and jet drones. 'Don't just sit still' This means that the Epitsentr stores could be hit at any moment. When the air raid alarm sounds, Sjeremet moves with staff and customers to a shelter bunker next to the department store. A drone has been spotted nearby. \"Of course the threat is extremely high\", says the operations director. \"Every day we get up and get back to work. What is destroyed, we rebuild. We certainly cannot just sit still.\" Since the start of the large-scale invasion, 23 Epitsentr locations have been destroyed. Mostly shopping centres, but also three logistics hubs and a tile factory of the company. At this moment, 59 branches are still open. In the bunker sits 39-year-old Anna with her little son. She is busy renovating her home, while her husband serves at the front. The apartment has already been prepared for winter with a portable battery for emergency power and a camping gas stove, she says. Anna likes to come to Epitsentr. \"There are fewer and fewer of them, unfortunately\", she says. \"But life goes on. People want to keep building and so do we. If possible, we will keep coming here to shop.\"",
+    "sourceHash": "a4fba7ff24b0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
+    "id": "news:5d36128",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Breda woman is world champion in nipple tattooing: 'It is such a valuable profession'",
+    "lead": "She creates tattoos that almost no one recognises as a tattoo. Mariska de Jong from Breda tattoos nipples on people who have had breast surgery. She does it so well that since yesterday she may call herself the best in the world. Yesterday evening the world championship of the World Universal League of Permanent Makeup, an international organisation that organises competitions and educational congresses for permanent make-up specialists, took place in Turkey. Mariska de Jong works at a skin clinic in Breda and has been making medical tattoos for fifteen years. She specialises in so-called nipple reconstructions, in which she tattoos nipples on people who have had, for example, a mastectomy or treatment for breast cancer. 57 opponents In September she was already crowned champion of the Benelux. That meant she was allowed to go on to the world championship. This week she flew to Turkey, and De Jong was able to show what she can do. \"I sat with 57 other participants in two halls. On my table was a piece of latex, which I had to tattoo on\", she tells Omroep Brabant. \"I had my pigments, but no photo. Normally I do have that. Now I had to do everything from memory. We had one hour. There was a big clock and some people walked around to watch how we were doing it.\" De Jong says she was not nervous for a moment. \"No, I really enjoyed it. It went so well too: it was really my most beautiful work ever.\" Premonition During the prize ceremonies De Jong soon had a feeling that she was the winner. When her category came up, the third and second places were announced first. \"By then I more or less already knew. The number two is a woman I look up to enormously. I thought: if she is second, then I must be number one. And that was the case.\" De Jong says the prize means a lot to her. \"It is such a valuable profession. I have had many operations myself, so I know how it feels when things don't turn out well, but a reconstruction helps you feel like yourself again. I get to pass that on to someone.\" Besides the pride, the prize brings her something else special. Because of all the attention she already received when she became Benelux champion, hospitals have approached her wanting to work with her. According to De Jong, that cooperation could mean that some health insurers that do not yet do so will start reimbursing her work. \"That is of course not sorted out tomorrow, but it would be so nice if that possibility came. That would really be the icing on the cake.\"",
+    "sourceHash": "4ccb2c93718b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
+    "id": "news:5d36459",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Demonstrations in European cities: riots in Tirana, soldiers deployed in Milan",
+    "lead": "Although the protests in France are receiving the most international attention, today there have also been large demonstrations in several other European cities, including Milan, Madrid, Lisbon, Brussels and Tirana. Italian Prime Minister Meloni today sent 500 soldiers to Milan. Together with thousands of police officers, they must prevent the disorder of last week from being repeated. The demonstrations there are mainly about the rising cost of living. Concerns are especially great in Milan's luxury shopping district. Several well-known fashion stores have boarded up their shop windows as a precaution. Last weekend clothing stores were among the targets of looters. Corriere Della Sera reports that several people have been arrested preventively, including minors. Otherwise, for now it is limited to a few minor incidents, the newspaper reports. Faces left uncovered Security measures were also tightened in Rome. Luxury shopping streets were partly closed off and extra checks took place at various locations. In addition, hundreds of students marched peacefully through the city to make clear that they reject the violence of last week. A separate anti-war demonstration also marched through the centre of Rome. The organizers tried to nip possible disorder in the bud by asking participants to leave their faces uncovered and keep their hands visible. Later this evening, however, there were serious clashes between demonstrators and police. Protesters pelted officers with fireworks, eggs and other objects, after which police deployed water cannons. As a precaution, entrances to Termini station were closed. According to Italian media, 96 demonstrators were taken to the police station. Unrest in Bologna and Turin Elsewhere in Italy it also turned unruly. In Bologna police temporarily deployed tear gas and water cannons to prevent a demonstration from reaching the station. In Turin security forces pushed demonstrators back with shields. Images of various demonstrations: In the Albanian capital Tirana there were again clashes between demonstrators and police. Officers used water cannons against protesters who, among other things, threw objects at the police and set fires. The protests have now lasted more than a week. Pupils and students demand lower study costs, more investment in education and a tougher approach to corruption within education. Part of the demonstrators have joined a broader movement that demands the departure of Prime Minister Rama. The government says it wants to talk with the students, but warns that violence will not be tolerated. Images of the demonstrations in Albania: In the Spanish capital Madrid the demonstrations today passed peacefully. Thousands of people marched through the centre of the Spanish capital to protest against plans that, in their view, put the public pension system under pressure. The protests come shortly before next month's elections. Pensions are an important topic in the campaign. In the Portuguese capital Lisbon demonstrators marched through the city demanding more affordable housing. They oppose government plans that would make it easier to raise rents and to evict tenants with rent arrears. Prime Minister Montenegro has defended the measures, arguing that they must strengthen trust between tenants and landlords and stimulate the rental market. Demonstrators, by contrast, feel the proposals make tenants more vulnerable. Nine arrests in Brussels Also in Brussels there was a demonstration today. According to police, about 400 people came to a gathering announced via social media. During speeches, protest was mainly directed at what activists see as excessive police violence at earlier demonstrations. Among the demonstrators there is also discontent over high housing costs, rising study costs and limited future prospects for young people, the newspaper Het Laatste Nieuws reports. Nine people were arrested, four of them for illegal possession of weapons and incitement to riot. Large-scale disorder did not occur, according to police.",
+    "sourceHash": "341654c2939c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
+    "id": "news:5d3645c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'You cannot censor a free press': thousands of Turks take to the streets for press freedom",
+    "lead": "Thousands of people, including many journalists, took to the streets in Turkey today for press freedom. Journalist associations and the New Party (an opposition party) had called on people to demonstrate in ten cities across the country. \"You cannot censor a free press,\" the demonstrators chanted. The reason for the demonstrations is censorship, the pressure on journalists and the takeover of several broadcasters by the government, the organizers say. In twenty months at least five broadcasters have been taken over. Not all of them are opposition broadcasters, and the reasons for the takeovers vary. Even so, there are fears that the independence of journalism will come under even more pressure. For example, last week there was a police raid at the popular opposition broadcaster Halk TV. Afterwards the broadcaster was placed under the management of a trustee. Since then, reruns have been broadcast. For a while the broadcaster continued online, but the X account with 3 million followers has been blocked, and for three days no new videos have been uploaded to YouTube. The Turkish Public Prosecution Service suspects the chair of the broadcaster of bribery, money laundering and fraud, but the opposition says the raid is politically motivated and is intended to silence critical voices in the country. 'More police than demonstrators' \"There is a culture of fear in Turkey,\" says a woman who is a member of the New Party and would prefer to remain anonymous. She is afraid that if her name becomes known, she or her family could get into trouble. \"Criticism has consequences, we see that. Look around you and see how many police are standing here now. There are more officers than demonstrators.\" Still, she is determined to take part. In her hands she holds a newspaper. \"A journalist from the Turkish newspaper Birgun is in prison because of an article he wrote. With this newspaper in my hands I am calling attention to press freedom in Turkey,\" she says. She explains that it is precisely now that people in Turkey must stand in solidarity with the press. According to Reporters Without Borders, Turkey is one of the countries with the worst scores on press freedom. Several journalists are also in prison. According to the Committee to Protect Journalists (CPJ), the Turkish government is using the disinformation law to intimidate journalists. That law punishes, among other things, spreading false information concerning domestic and foreign security. This year, according to the organization, sixteen people have been arrested for spreading disinformation. Major stock market scandal Another demonstrator, who is also a journalist, notes that journalists are being suppressed more and more. According to him, Halk TV was taken over because the opposition broadcaster reported on a major stock market scandal. \"One of our colleagues is in prison for that,\" he says, \"because he asked about money that was being siphoned away from the people. Because he was doing his job.\" Last month Turkey was shaken when it became known that 455,000 Turkish savers had lost their savings, while others made tens of millions of dollars in profits. In the media it was compared to a pyramid scheme. People at the top of the ruling AK party, such as the vice chair, were also named. She has since stepped down pending a criminal investigation. Looking to the future Retired journalists also took to the streets today. \"I am old, but I stand here for the future, for my young colleagues,\" says a 70-year-old woman in Istanbul. She is pessimistic about the future because in her view there should have been more people out in the city, which has at least 15 million inhabitants. \"Today everyone should, as far as I am concerned, have gone out to support the journalists.\"",
+    "sourceHash": "bd98a6f753e6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
+    "id": "news:5d3647a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Nearly 1,000 arrests in France, minister satisfied with how the protests went",
+    "lead": "French police today arrested nearly a thousand people at demonstrations across the country. This was announced by French Minister of <entity id=\"org:tweede-kamer-commissie-biza\">Binnenlandse Zaken</entity> Nuñez. He expects that \"this number will rise\". According to the minister, 410,000 people took part in demonstrations across France. According to the trade unions, nearly twice as many people, around 800,000, took to the streets today to demonstrate. Nuñez says that thanks to the police intervention, looting was prevented. According to him, police action also prevented public buildings from being attacked, as happened during last weekend's riots. Today the government had also called up around 70,000 extra officers, supported by the army. After the events of last week there was much criticism of Nuñez because the police were not sufficiently prepared for the large number of demonstrators. He acknowledged last week that the authorities had lost control in some cities. He offered his resignation, but President Macron did not accept it. Looting and violence Last Saturday, 385 people were arrested. In several cities, demonstrations later in the evening got seriously out of hand, with large-scale violence and looting. In Limoges the town hall tower collapsed after a fire. The protests in France are directed against government policy, the state of education and the rising cost of living. Large demonstrations also took place today in several other European cities, including Milan, Madrid, Lisbon, Brussels and Tirana. Nuñez expressed satisfaction with how the demonstrations went. Most passed off calmly. There were, however, \"as we had expected\" some risk groups, he said. \"They acted according to a fairly classic pattern. They broke out and tried to commit violence. They were stopped when they tried to reach the city centres.\" Paris In Paris the protest march largely passed off calmly. The route was changed to avoid places where things got out of hand last week. According to the police, around 110,000 people took part in the march. Ahead of the demonstration, preventive searches were carried out and objects that could be used as weapons were seized: besides knives, batons and fireworks, also a samurai sword and several boules balls. When the demonstrators arrived at Porte Vincennes at the end of the afternoon, riots broke out there and the police used water cannons and tear gas to disperse around 500 rioters. According to the police, the rioters tried to break into a car dealership. Other cities In other French cities too, including Nice, Lyon, Marseille and Lille, the police intervened with tear gas or a water cannon at protests. In Grenoble, riot police were attacked by 400 masked people, and in Bordeaux projectiles were thrown at the police and barricades were erected by demonstrators. Nuñez speaks of \"extreme violence by ultra-left groups\". In several French cities the police intervened:",
+    "sourceHash": "edef542e93c6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
+    "id": "news:5d3647f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Summer time ends: tonight the clocks go back one hour",
+    "lead": "Tonight at 03.00 hours summer time ends. This means the clock is set back one hour and most people can sleep an hour longer tomorrow morning. In the morning it gets light earlier, and in the evening it gets dark earlier. Other European countries also switch to 'winter time' tonight. Winter time is the normal time for the Netherlands. Summer time starts again on 28 March 2027. Then the clock goes forward one hour again. The mnemonic is therefore: in spring the clock goes forward. Changing the clock In 1916 the Netherlands introduced summer time for the first time. This followed the Germans. They introduced summer time to save coal during the First World War. Changing the time was abolished in the Netherlands in 1946 but reintroduced in 1977. Moving the clock was meant to save energy during the oil crisis, because in summer time the lighting came on one hour later. Debate Europe changes time every half year. After years of discussion, the European Commission wanted to stop this in 2018. A European summer time survey showed that a majority of respondents agreed with this. The main argument for introducing summer time in 1977 was energy saving, but a study showed that only 0.3 percent of energy was actually saved. Another argument was that some people suffer from changing the clock. They are thrown off their rhythm, lie awake the first nights after the time change, or get cravings for food at odd moments. Although many European countries want to get rid of changing the clock, there is no agreement on which time should then be kept. As a result, the plan to arrive at one standard time has been shelved again.",
+    "sourceHash": "3534dd873fcd",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -22878,6 +22933,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:5dc12937",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Under Micky van de Ven, Spurs win away at Chelsea: 0-2",
+    "lead": null,
+    "sourceHash": "a5685cb93108",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:5dc180ae",
@@ -23054,17 +23120,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
-  },
-  {
-    "id": "news:5ef99c8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Feyenoord beats Telstar in spectacular duel: 3-4",
-    "lead": "Feyenoord has continued its good run with a win over Telstar. The side coached by Giovanni van Bronckhorst won 4-3 in Velsen after a very entertaining match.",
-    "sourceHash": "7e1542d0a885",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:5eff2650",
@@ -23760,17 +23815,6 @@
     "translated": "2026-10-24"
   },
   {
-    "id": "news:62809f3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "1.200 arrests after French riots, Macron wants to 'form a bloc against chaos'",
-    "lead": "1.200 people were arrested at the demonstrations in France and 150 police officers and other law enforcement officers were injured, French Prime Minister Sébastien Lecornu reported on Saturday evening. Two officers were taken unconscious to hospital.",
-    "sourceHash": "b0f95e37473b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:62a1b016",
     "language": "en",
     "sourceLanguage": "nl",
@@ -23791,6 +23835,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:62d59a97",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "French police find Hitler's Mein Kampf at home of suspect in racist attack",
+    "lead": "French police found a copy of Mein Kampf, the book in which Adolf Hitler sets out his racist ideas, at the home of the shooter in Trappes. That is what sources told French media, including AFP and BFMTV .",
+    "sourceHash": "4aff39600b03",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:62e51b45",
@@ -24123,6 +24178,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:63fe9164",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Is the Herepoort in the garden of the Rijksmuseum a case of domestic looted art?",
+    "lead": null,
+    "sourceHash": "7b9e63247a91",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:640ebd9e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -24231,6 +24297,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:6498708f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Willem II makes a fool of itself in match after Stegeman's dismissal, Cambuur achieves biggest win ever in eredivisie",
+    "lead": "SC Cambuur recorded the biggest win ever in the Vriendenloterij Eredivisie. The Leeuwarden side ran riot as visitors at bottom club Willem II: 1-6. The old record stood at 0-4, against Sparta in 2021.",
+    "sourceHash": "aa6f8f835643",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:649d0702",
@@ -24387,6 +24464,17 @@
     "translated": "2026-10-24"
   },
   {
+    "id": "news:651e3ad8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Trouble for singers: what menopause does to your voice",
+    "lead": null,
+    "sourceHash": "ef8bfb10e3f8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:6536caa8",
     "language": "nl",
     "sourceLanguage": "en",
@@ -24464,17 +24552,6 @@
     "translated": "2026-10-23"
   },
   {
-    "id": "news:659643b7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Doetinchem mayor Mark Boumans is stepping down",
-    "lead": "Mark Boumans is stepping down as <entity id=\"pos:burgemeester-doetinchem\">burgemeester van Doetinchem</entity>. The 51-year-old administrator, who had been mayor of the Achterhoek municipality since 2017, will move on 1 December to the Vereniging Hogescholen, of which he will become chair.",
-    "sourceHash": "c6c3be9c289d",
-    "engine": "claude-opus-5-5",
-    "method": "claude-code-session",
-    "translated": "2026-09-24"
-  },
-  {
     "id": "news:6597d65d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -24517,6 +24594,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
+  },
+  {
+    "id": "news:65b1be6e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Animal keeper at Beekse Bergen operated on after panther attack, situation 'worrying'",
+    "lead": "The animal keeper at Safaripark Beekse Bergen who was seriously injured after an attack by a Persian panther has been operated on. According to a spokesperson, her situation remains \"worrying\". The park and the labour inspectorate are investigating how the animal could attack.",
+    "sourceHash": "d2257ce364b3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:65c7da3",
@@ -24693,6 +24781,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:667a6008",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "ADE stops festival an hour and a half earlier due to storm Boelo, also strong gusts along the coast",
+    "lead": "The <entity id=\"org:koninklijk-nederlands-meteorologisch-instituut\">KNMI</entity> again warns on Saturday evening and night for strong gusts in the coastal areas, the western Wadden region and the Limburg hills. Cause: storm Boelo. In Amsterdam a festival had to be halted an hour and a half earlier. Follow all developments around the storm in our liveblog.",
+    "sourceHash": "cb1e5a8855b7",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:66841c65",
@@ -25223,6 +25322,17 @@
     "translated": "2026-10-22"
   },
   {
+    "id": "news:688f0571",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Closing Time | Altın Gün",
+    "lead": "I have posted videos of KEXP sessions here many times before. A good live recording often interests me more than a music video. Many good bands play at KEXP, and it always sounds excellent. So KEXP will probably turn up in my CT's more often. Last week a session by Altın […] appeared on KEXP's YouTube channel. Read more posts on Sargasso",
+    "sourceHash": "0f95aa99425c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:6892e596",
     "language": "en",
     "sourceLanguage": "nl",
@@ -25397,6 +25507,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
+  },
+  {
+    "id": "news:695e859f",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Verkeersmedewerkers zeggen dat Rijkswaterstaat hen dwingt om traag en onveilige software te gebruiken",
+    "lead": "Verkeersleiders bij Rijkswaterstaat zijn het oneens met hun leidinggevenden over nieuwe software die wordt gebruikt om incidenten op de wegen te registreren.",
+    "sourceHash": "ee64b87cd288",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:696fce20",
@@ -25740,17 +25861,6 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:6b2bd3d0",
-    "language": "nl",
-    "sourceLanguage": "en",
-    "title": "Wolven maken herten en wilde zwijnen op de Veluwe alerter, blijkt uit onderzoek",
-    "lead": "Wilde zwijnen, reeën en edelherten op de Veluwe hebben hun gedrag de afgelopen jaren allemaal aangepast aan de aanwezigheid van de wolven, concludeerde Faunabeheereenheid Gelderland na monitoring.",
-    "sourceHash": "469f4419f59e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:6b2fb0d8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -25938,17 +26048,6 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:6bee4d42",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dutch gymnasts provisionally second at World Championships: 'One of the most beautiful competitions of my life'",
-    "lead": "The Dutch men are provisionally in second place in the country ranking at the World Gymnastics Championships in Rotterdam. Only Russia, which competes under the neutral name World Gymnastics 2, ranks above the Netherlands.",
-    "sourceHash": "58c4203362b7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:6c109da7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -26032,6 +26131,17 @@
     "title": "Israeli army invades cities in the West Bank",
     "lead": null,
     "sourceHash": "e045f1097eed",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
+    "id": "news:6c9904c5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "In traffic there is only one motto: me, me and me again",
+    "lead": null,
+    "sourceHash": "bce324f52cf6",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -26609,6 +26719,17 @@
     "translated": "2026-10-21"
   },
   {
+    "id": "news:6fd54627",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Yellow warning in force in many places, Amsterdam festival ends early",
+    "lead": "Storm Boelo is raging through several provinces tonight. The <entity id=\"org:koninklijk-nederlands-meteorologisch-instituut\">KNMI</entity> warns of severe gusts in the coastal areas, the western Wadden area and the Limburg hills until tomorrow morning. In those places code yellow applies and, with local variations, gusts between 75 and 100 kilometers per hour are expected.",
+    "sourceHash": "c5bb86cb8e87",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:6ff86d7f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -26708,17 +26829,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:70513bbc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "In pictures: burning tower of Limoges town hall collapses",
-    "lead": "The spire of the town hall in the French city of Limoges has completely collapsed. Earlier, demonstrators reportedly set the historic tower on fire. There is unrest in several places in France due to ongoing protests.",
-    "sourceHash": "a9135e73d0e3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:705b224",
     "language": "en",
     "sourceLanguage": "nl",
@@ -26728,17 +26838,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
-  },
-  {
-    "id": "news:705d9199",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Feyenoord beats Telstar in a spectacular match and profits from PSV's defeat",
-    "lead": "Feyenoord won its fifth consecutive match in the Eredivisie on Saturday. The team of coach Giovanni van Bronckhorst won 3-4 at Telstar in a spectacular match and so takes the lead over PSV.",
-    "sourceHash": "4ec0902b0647",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:7060bc83",
@@ -26871,17 +26970,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
-  },
-  {
-    "id": "news:70daf862",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Amazon deforestation is slowing down. Just as Brazilian President Lula promised",
-    "lead": "Deforestation of the rainforest in Brazil has fallen to its lowest level since 1988. This can be seen as a success for President Lula, who made protecting the rainforest one of his main promises. But whether it will help him win the elections next week is open to question.",
-    "sourceHash": "16f2faf6e237",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:70e670b4",
@@ -27533,6 +27621,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:7388fd29",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Kenneth Taylor helps Lazio to top spot with goal, high-scoring draw between Napoli and AS Roma",
+    "lead": "Napoli and AS Roma ended a spectacular match in a 3-3 draw. Napoli twice gave up a lead. Lazio won, partly thanks to a goal by Kenneth Taylor of Parma (2-1), and is for now the new leader of Serie A.",
+    "sourceHash": "091e25b38ba1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:738b4641",
     "language": "en",
     "sourceLanguage": "nl",
@@ -27951,6 +28050,17 @@
     "translated": "2026-10-23"
   },
   {
+    "id": "news:7535c76f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Demonstrators occupy the Colosseum in Rome",
+    "lead": null,
+    "sourceHash": "39b5532e24dc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:75407f96",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28171,6 +28281,17 @@
     "translated": "2026-10-17"
   },
   {
+    "id": "news:75f5113",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Revived Zwolle lets FC Utrecht equalise in injury time",
+    "lead": "PEC Zwolle has come back to life under interim coach Dennis van der Ree. After a goal by substitute Elias Sørensen, the club seemed on its way to a win over FC Utrecht. Sem van Duijn, however, equalised in injury time (1-1).",
+    "sourceHash": "77a0b77a779b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:76105a9f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28345,6 +28466,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
+  },
+  {
+    "id": "news:76dedd04",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Max Verstappen goes after pole position at the US GP",
+    "lead": "Max Verstappen is in top form towards the end of the season. In the last two races the four-time world champion claimed the win and also took pole position. Will he manage that at the Grand Prix of the United States at the Circuit of the Americas in Austin? At 23.00 Dutch time the lights go green. Follow it here!",
+    "sourceHash": "36e7369b6f6d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:76e03bdd",
@@ -28578,17 +28710,6 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:787641e2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sour taste: visitors unwell on Grolsch tour after sip of spring water",
-    "lead": "Several people became unwell this afternoon during a tour of the Grolsch brewery in Enschede. It happened after they were allowed to taste the spring water used to brew the beer.",
-    "sourceHash": "bcdf7d33e43f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:78879255",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28642,28 +28763,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
-  },
-  {
-    "id": "news:78bf6808",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Gymnast and mother Vera van Pol wants to make gymnastics a sport for women, not just for girls",
-    "lead": null,
-    "sourceHash": "12f7964b3f25",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-16"
-  },
-  {
-    "id": "news:78db47ec",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dozens of officers injured after French riots, Macron wants to 'form a bloc against chaos'",
-    "lead": "At the demonstrations in France on Saturday at least four hundred people were arrested, and about sixty police officers and other law enforcement officers were injured. Two officers were taken to hospital unconscious.",
-    "sourceHash": "5e8c630bfa70",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:78df8781",
@@ -28895,17 +28994,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:79e6026e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "FC Barcelona stays unbeaten after spectacular clash with Real Betis, which ends with ten men after headbutt",
-    "lead": "On Saturday evening FC Barcelona won its ninth consecutive La Liga victory with a 2-5 win away at Real Betis. The match was marred by a red card for Facundo Bernal, who headbutted Lamine Yamal. Frenkie de Jong was in the match squad for the first time this season, but did not get any minutes.",
-    "sourceHash": "5144690884aa",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:79eb44e6",
@@ -29304,17 +29392,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:7bc05342",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Video | Tower of French town hall collapses after arson by protesters",
-    "lead": null,
-    "sourceHash": "e80f8c26f2b6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:7bc3bedb",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29497,17 +29574,6 @@
     "title": "After a 'pleasant and constructive' conversation, the cabinet can resume negotiations with unions and employers",
     "lead": null,
     "sourceHash": "224d52cc2544",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:7cc031f3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Minister dons sackcloth: 'Impression given that I downplay crime report figures'",
-    "lead": "Minister of Justice <entity id=\"person:david-van-weel\">David van Weel</entity> has offered <entity id=\"org:tweede-kamer\">de Kamer</entity> apologies for how he handled the investigation by the <entity id=\"org:algemene-rekenkamer\">Rekenkamer</entity> into ten thousand untreated reports. The minister regrets that he \"gave the impression\" of \"calling the report into question\".",
-    "sourceHash": "e8921a6e55d4",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -29777,6 +29843,17 @@
     "translated": "2026-10-24"
   },
   {
+    "id": "news:7e4dd880",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Israeli forces expel thousands of residents from Palestinian city after shooting",
+    "lead": "Israel has expelled 2000 Palestinian civilians from the city of Hebron. The Israeli Minister of Defence said that these civilians may not return until the army has dealt with all 'Hamas issues' in their neighbourhood. Follow all developments on the Middle East in our liveblog.",
+    "sourceHash": "a188c982793a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:7e555ee5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29940,6 +30017,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
+  },
+  {
+    "id": "news:7f0db69",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Houthis claim to have attacked Saudi targets again",
+    "lead": null,
+    "sourceHash": "c35b22952557",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:7f14faad",
@@ -30600,6 +30688,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:821e50e2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Griekspoor reaches second final this year in Brussels",
+    "lead": "Tennis player Tallon Griekspoor reached the final of an ATP tournament for the second time this year on Saturday. In the semifinal of the European Open in Brussels, the Dutchman was too strong in three sets for Argentinian world number 21 Francisco Cerúndolo: 2-6 6-3 7-6 (4). In the final, Griekspoor will face the winner of the match between Frenchman Arthur Fils and German Jan-Lennard Struff on Sunday.",
+    "sourceHash": "2edd9ee6027d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:821ff429",
@@ -31482,15 +31581,15 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:862794cd",
+    "id": "news:86108470",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "PSV's ten men choke against ADO Den Haag after Mijnans red card, lose 2-1",
-    "lead": null,
-    "sourceHash": "e4beba358adf",
+    "title": "ICE agents in Europe: Slovenia shows that it can happen just like that",
+    "lead": "25.000 Slovenes were removed from the population register in 1992 because they had been born in another part of the former Yugoslavia. That should serve as a warning for today's Europe, where words like 'remigration' are being normalised at a rapid pace, writes Miha Mazzini .",
+    "sourceHash": "056db90f279e",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-17"
+    "translated": "2026-10-24"
   },
   {
     "id": "news:86507eee",
@@ -31741,6 +31840,17 @@
     "title": "Energy prices keep rising, and the outlook for next year looks grim too",
     "lead": "A one-year energy contract has become about 1,100 euros more expensive in ten months. A household now pays well over 2,700 euros per year at average energy consumption, and for now there seems little prospect of improvement.",
     "sourceHash": "f8adedfe8e33",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
+    "id": "news:8790d1d9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "\"You cannot blame us for the far right misusing our demonstrations\", is heard in the streets of Paris",
+    "lead": "Once again, demonstrators took to the streets of Paris en masse this weekend. Besides dissatisfaction with the government, some now protested explicitly against the police violence of last week. \"I am afraid to die by coming here; that is why I am here.\"",
+    "sourceHash": "82138d8c9bcd",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -32362,6 +32472,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:8ab0bd6b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Midfielder Taylor helps Lazio to top spot with goal",
+    "lead": "Midfielder Kenneth Taylor made an important contribution to a new victory for Lazio by scoring the opening goal against Parma. The team from Rome won 2-1 at home and has therefore regained the top spot. Internazionale can draw level on Sunday with a win over Fiorentina.",
+    "sourceHash": "b097dad3ac0c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:8ab3e680",
     "language": "en",
     "sourceLanguage": "nl",
@@ -32657,17 +32778,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:8bec24d7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Fred van Leer after a hellish summer: 'For the first time in my life I look forward to tomorrow'",
-    "lead": "Fred van Leer went through a heavy summer in which he sank deeper into his depression than ever before. For several months the presenter and theatre maker has been in an upward spiral. Van Leer is curious about tomorrow and is working on a next theatre show.",
-    "sourceHash": "9c0a735be346",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:8bf8a96f",
@@ -33363,17 +33473,6 @@
     "translated": "2026-10-17"
   },
   {
-    "id": "news:8f744692",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "PSV coach Bosz 'not worried' after defeat to ADO",
-    "lead": "PSV coach Peter Bosz has no concerns about his team ahead of next week's Champions League match against FC Porto. That is what the 62-year-old coach said after the 2-1 defeat in the Eredivisie at ADO Den Haag, speaking to the camera of ESPN.",
-    "sourceHash": "bb323e668f75",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:8f8ac0bb",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33405,17 +33504,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:8fb7a04d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Over a thousand arrests after French riots, Macron wants to 'form a bloc against chaos",
-    "lead": "1,200 people were arrested at the demonstrations in France and 150 police officers and other law enforcement officers were injured, French Prime Minister Sébastien Lecornu reported on Saturday evening. Two officers were taken to hospital unconscious.",
-    "sourceHash": "94b94070c9b6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:8fc13907",
@@ -33803,17 +33891,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:910a7c43",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Turner De Munck hopes World Championship team final is achievable",
-    "lead": "Turner Loran de Munck (27) hopes the team score of the Dutch team is sufficient for a place in the team final. After three of the six opening groups, the Netherlands is in second place. The best eight national teams advance to the final.",
-    "sourceHash": "5db471043fc6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:911863a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33999,17 +34076,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
-  },
-  {
-    "id": "news:920541b2",
-    "language": "nl",
-    "sourceLanguage": "en",
-    "title": "Nederlandse clouddiensten bezorgd na Amerikaans verzoek dat leidt tot inbeslagname van server in Amsterdam",
-    "lead": "De Nederlandse brancheorganisatie voor de cloud- en internetsector, de Dutch Cloud Community (DCC), heeft ernstige zorgen geuit over een server die deze week is in beslag genomen in een datacenter in Amsterdam-Oost.",
-    "sourceHash": "0d3f811b5dc3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:920580",
@@ -34826,6 +34892,17 @@
     "translated": "2026-10-23"
   },
   {
+    "id": "news:956864a0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Verstappen drives second fastest time in final free practice in Austin",
+    "lead": "Max Verstappen set the second fastest time in the third and final free practice for the Grand Prix of the United States. The four-time Formula 1 world champion reached a fastest lap of 1.35,061 at the Circuit of the Americas in Austin (Texas). The Briton Lewis Hamilton, in his Ferrari, was a little under two tenths of a second faster than the 29-year-old Dutchman from Red Bull, who regularly voiced his dissatisfaction with his car.",
+    "sourceHash": "93d56c8459fa",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:95691535",
     "language": "en",
     "sourceLanguage": "nl",
@@ -34934,17 +35011,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:95c0c8fb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Car show in Paris is mainly a battleground: fight between China and Europe",
-    "lead": "The Paris car show, which started this week, turns out to be mainly a battleground. Compared with the previous edition, the number of Chinese brands has doubled. They are clamouring for attention, while European manufacturers are hitting back with concept cars that promise a bright future.",
-    "sourceHash": "83a1ebcdc49f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:95c71616",
@@ -35110,6 +35176,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:96a7d78b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Queen Máxima and Princess Alexia let loose at a party during ADE",
+    "lead": "The Amsterdam Dance Event (ADE) draws visitors from all over the world, but on Saturday evening there were very high-profile guests. Queen Máxima and Princess Alexia were spotted at a party in Zaandam.",
+    "sourceHash": "0d3db1e23690",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:96adccd9",
@@ -35365,6 +35442,17 @@
     "translated": "2026-10-18"
   },
   {
+    "id": "news:97861e99",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Willem II makes a complete fool of itself with a shameful display: disastrous return of interim coach Koster",
+    "lead": "Humiliating, shameful, below all standards. There are no other words for the performance of Willem II in the crucial home match against SC Cambuur. Under interim coach Adrie Koster, the Tilburg side put on a truly dramatic display. It ended 1-6.",
+    "sourceHash": "f04f4f960769",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:97951c21",
     "language": "en",
     "sourceLanguage": "nl",
@@ -35616,6 +35704,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
+  },
+  {
+    "id": "news:98e2dd86",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Can ADO Den Haag prevent defeat against SC Heerenveen? Final push underway",
+    "lead": "Can ADO Den Haag avoid defeat against SC Heerenveen? The Frisians lead 2-3 in difficult conditions. Substitute Nigel Thomas brings the tension back with The Hague side's goal to close the gap. The climax is approaching. Follow the end of the match here.",
+    "sourceHash": "66db2a57fd37",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:98e7eea1",
@@ -35902,17 +36001,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
-  },
-  {
-    "id": "news:9a94714a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Table-topping Internazionale bounces back with win over Bologna",
-    "lead": "Internazionale has bounced back after its home defeat to Club Brugge (3-4) in the Champions League. The Serie A leader won the away match against Bologna 3-1.",
-    "sourceHash": "376a001a6fa7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:9ab15c24",
@@ -36278,6 +36366,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:9c3d0bbf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Injured in stabbing on Nieuwendijk",
+    "lead": null,
+    "sourceHash": "0f69960ffb1d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:9c510445",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36364,6 +36463,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:9c92db2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Arsenal beat Everton and close the gap with leaders Manchester City",
+    "lead": "Arsenal moved level on points with league leaders Manchester City on Saturday after a 2-0 home win over Everton, while City had suffered their first league defeat of the season earlier that day. Both reigning champions Arsenal and the Manchester club now have 21 points from eight matches. City, which lost 2-1 at Aston Villa, remain top of the Premier League on goal difference.",
+    "sourceHash": "8d0ee5c202e1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:9cb9aa3d",
@@ -36553,17 +36663,6 @@
     "translated": "2026-10-24"
   },
   {
-    "id": "news:9d719097",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Body of 29-year-old woman found on Amsteldijk, police suspect a crime was committed",
-    "lead": null,
-    "sourceHash": "255b9f95b739",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:9d8339d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36639,17 +36738,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
-  },
-  {
-    "id": "news:9dffeead",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Death flew along: in the 1950s a fighter jet crashed in the Netherlands every month",
-    "lead": "Between 1947 and 1960, 173 pilots lost their lives in the Netherlands in accidents involving a military aircraft. The Thunderjet in particular was deadly, but because of the need to keep flying during the Cold War, this was kept quiet. The Royal Netherlands Air Force now calls that \"very painful\".",
-    "sourceHash": "8e898bb905d9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:9e064498",
@@ -37018,9 +37106,9 @@
     "id": "news:9f8b4783",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "French police intervene in several cities during protests",
-    "lead": "Demonstrations are taking place today in several French cities because the government wants to cut spending and everything keeps getting more expensive. Police have had to intervene in multiple cities. Follow the events in this liveblog.",
-    "sourceHash": "ac22c15d7fea",
+    "title": "Protests across Europe: nearly 1000 arrests in France",
+    "lead": "Large protests took place today at various locations across Europe. The police had to intervene in several cities.",
+    "sourceHash": "7797ed5a5ab1",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -37620,17 +37708,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:a295bbb1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sem Steijn guides Feyenoord past Telstar in goal fest, gap with PSV now four points",
-    "lead": "Feyenoord has opened a four-point gap on rival PSV. The win in Velsen-Zuid was not one to look back on with pride for long: 3-4. The Rotterdam side let Telstar repeatedly come back into the match.",
-    "sourceHash": "f385a5e7125f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:a2982f4b",
     "language": "nl",
     "sourceLanguage": "en",
@@ -37717,6 +37794,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
+  },
+  {
+    "id": "news:a3301458",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Willem II loses to SC Cambuur (1-6) with interim coach Koster",
+    "lead": "The dismissal of John Stegeman and the appointment of Adri Koster as interim coach have not yet led to the desired result at Willem II. The club suffered a hopeless defeat to SC Cambuur (1-6) in front of its own supporters.",
+    "sourceHash": "8e39370b7d3f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:a331b45",
@@ -37961,17 +38049,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:a426ea8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Hungarian prime minister willing to let Ukrainian grain through after request",
-    "lead": null,
-    "sourceHash": "119785d61c07",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:a42a971f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -38159,6 +38236,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:a4c07a96",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Rob Oudkerk on Israeli elections: 'Nothing will really change at all'",
+    "lead": "Israel goes to the polls on Tuesday. According to presenter Rob Oudkerk, it is far from certain that much will change. Even if Benjamin Netanyahu loses a substantial share of his seats, that does not automatically mean he has to step aside. \"My biggest fear is that after the elections in Israel there will be very difficult coalition negotiations, Netanyahu will then remain caretaker for a long time, and nothing will change at all,\" says Oudkerk on the radio programme WNL In de Kantine.",
+    "sourceHash": "b73a8ab279ff",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:a4cfc9a6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -38324,17 +38412,6 @@
     "translated": "2026-10-23"
   },
   {
-    "id": "news:a5b48498",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "In pictures | Enormous damage and violence at devastating protests in France",
-    "lead": "Protests in France and Belgium have again turned violent in several places. Demonstrators clashed with police, hundreds of arrests were made and major damage occurred in several cities.",
-    "sourceHash": "bedeeb94694c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:a5b621a0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -38432,6 +38509,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:a613986d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Large-scale destruction on West Bank just before Israeli elections",
+    "lead": "On the West Bank, the Israeli army is currently carrying out large-scale raids and demolitions of homes. This is in response to a shooting in which two Israeli soldiers were killed yesterday. Meanwhile, some 2200 Palestinians have already been forced to leave their homes. The Palestinian authorities are calling for 'direct intervention' by the international community to prevent further escalation.",
+    "sourceHash": "cf3aad80e578",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:a6480edc",
@@ -38718,17 +38806,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:a80962b9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Israeli terrorists attack European diplomats",
-    "lead": "Israeli army only shows up after three hours",
-    "sourceHash": "fcb662f98604",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:a8097651",
@@ -39413,6 +39490,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:aaf8913c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Nearly a thousand arrests in France, protests largely went smoothly",
+    "lead": null,
+    "sourceHash": "c44f249d87a6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:ab1b01e1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -39433,6 +39521,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
+  },
+  {
+    "id": "news:ab33aeb2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tottenham Hotspur pulls off a shock at Chelsea and wins at Stamford Bridge for the first time in eight years",
+    "lead": "Tottenham Hotspur secured a surprise victory over Chelsea. In the London derby the visitors made the difference late in the match: 0-2.",
+    "sourceHash": "9b61ab0ea70d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:ab3ba2cc",
@@ -39939,6 +40038,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:ad94cd24",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Why are so many large European cities protesting this weekend?",
+    "lead": "Massive demonstrations are taking place in several large cities in Europe this Saturday. Tens of thousands of young people are demonstrating for a better future, and the protests are therefore also called the 'Gen Z protests'. At the same time, it involves a colourful mix of reasons for protesting that are also bringing other generations onto the street, including dissatisfaction with pension systems.",
+    "sourceHash": "f4cbf8bc92dd",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:ad9d5e53",
@@ -40568,17 +40678,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:b0021c18",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Tower of French town collapses after arson, also riots in Italian cities",
-    "lead": "Protests in several French, Italian and Belgian cities have turned into riots. Between 550,000 and 800,000 demonstrators were present at the actions in France, and hundreds of rioters were arrested. It is still unrest. Follow all developments below in our liveblog.",
-    "sourceHash": "df3b14d41077",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:b01207e4",
     "language": "nl",
     "sourceLanguage": "en",
@@ -40813,12 +40912,12 @@
     "id": "news:b123b3fb",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Techoligarch Ellison, twice briefly the richest man in the world, is already betting all his money on AI",
-    "lead": "The founder and chief executive of tech company Oracle sees AI as the future heart of the world economy, with data as the oxygen it needs. Oracle's international network of data centres is meant to form the bloodstream. But with the enormous sums that Larry Ellison is investing in this, he is taking a gamble that could turn out disastrously.",
-    "sourceHash": "46b69c4fc324",
+    "title": "Techno-oligarch Larry Ellison, twice briefly the richest man in the world, is now putting all his money on AI",
+    "lead": "The founder of Oracle sees AI as the future heart of the world economy, and data as the necessary oxygen. Oracle's network of data centres is then to form the circulatory system. But with the enormous sums he is investing, Ellison is taking a gamble that could turn out disastrously.",
+    "sourceHash": "452aa3331adc",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-23"
+    "translated": "2026-10-24"
   },
   {
     "id": "news:b153f869",
@@ -41954,6 +42053,17 @@
     "translated": "2026-10-21"
   },
   {
+    "id": "news:b6c3f415",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Merel Helderman's Amsterdam: 'At 15 I snuck into Awakenings at the Gashouder with a fake ID'",
+    "lead": null,
+    "sourceHash": "a51d68889c48",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:b6cc6c0b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42482,6 +42592,17 @@
     "translated": "2026-10-21"
   },
   {
+    "id": "news:b9306842",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "What is parasomnia and who is affected? 'Some people are more predisposed to it than others'",
+    "lead": "Tonight the clocks go back an hour for the switch to winter time. That means an extra hour of sleep. At least, if the night passes quietly. But what if you sleepwalk, talk or thrash around wildly while you sleep? These are forms of parasomnia: unusual behaviour during sleep. Two sleep experts explain how it arises and what you can do about it.",
+    "sourceHash": "f0d7f05bdd1c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:b936bfd5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42568,6 +42689,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
+  },
+  {
+    "id": "news:b9f841b9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Two young cows take an unexpected dip: fire brigade comes to the rescue",
+    "lead": "The fire brigade was called out yesterday for an unusual rescue operation: two young cows had escaped in Driebergen and ended up in a swimming pool.",
+    "sourceHash": "ae94c12055a3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:ba049dc1",
@@ -42856,17 +42988,6 @@
     "translated": "2026-10-23"
   },
   {
-    "id": "news:bb6b821e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Closing Time | Lagrimas Negras",
-    "lead": "We're making it a Cuban day today, if only to symbolically give a boost to the Cubans who are standing firm against American aggression. Just with a traditional Cuban tune: Lagrimas Negras (black tears), a classic Cuban bolero son from 1930, in which tears are shed over a sweetheart [...] Read more posts on Sargasso",
-    "sourceHash": "4838dcc2c425",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-15"
-  },
-  {
     "id": "news:bb729566",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43019,17 +43140,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:bc0e20cb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Over 120: Gian van Veen throws record average in Maastricht, Van Gerwen knocked out",
-    "lead": "Europe's best darts players have arrived in Maastricht this weekend for the Euro Tour. On Friday evening the first Dutch players will compete in front of their home crowd. Follow the live blog here for the results and the most important developments of the Dutch Darts Championship.",
-    "sourceHash": "7978917ed6a5",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:bc2319b2",
@@ -43582,17 +43692,6 @@
     "translated": "2026-10-21"
   },
   {
-    "id": "news:bf804b1a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Turner Jermain Grünberg: \"When I think of grandma, I know giving up is not an option\"",
-    "lead": null,
-    "sourceHash": "1399b4f9b754",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-16"
-  },
-  {
     "id": "news:bf8215ae",
     "language": "nl",
     "sourceLanguage": "en",
@@ -43855,17 +43954,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:c0ecf615",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Gerri Eickhof: 'I was in between everything: I was not rich, not poor, not Black, not white'",
-    "lead": "For almost forty years Gerri Eickhof was the familiar face of the NOS Journaal. Now the newly retired man looks back on his turbulent youth, his eventful journalistic career and the healing effect of an iconic fur hat. You can also listen to this interview:",
-    "sourceHash": "201891ab202b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:c0ed053a",
@@ -44339,17 +44427,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
-  },
-  {
-    "id": "news:c325e95e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Settler violence hits diplomats: French mayor injured",
-    "lead": "Israeli settlers today attacked a group of European diplomats in the occupied West Bank. A French mayor was injured in the attack.",
-    "sourceHash": "d9073334e6a2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:c32f6408",
@@ -44999,6 +45076,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
+  },
+  {
+    "id": "news:c5a07caf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "LIVE Protests in Europe | Nine arrests after demonstrations in eight Italian cities, more than 1000 in France",
+    "lead": "On Saturday large protests are again taking place in major European cities. From Brussels to Tirana, hundreds of thousands of people have taken to the streets to voice their discontent. The authorities are bracing for another day full of violence. Follow all developments around the protests in Europe in our liveblog.",
+    "sourceHash": "c43ed9489cdc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:c5a0a1e7",
@@ -45672,6 +45760,17 @@
     "translated": "2026-10-24"
   },
   {
+    "id": "news:c889a872",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ferrari also fastest team in final free practice in Austin, Max Verstappen sets second time",
+    "lead": "Ferrari looks set to be the team to beat in qualifying for the Grand Prix of the United States. After Charles Leclerc set the fastest time in both free practice sessions yesterday, today in the final practice session it was Lewis Hamilton's turn.",
+    "sourceHash": "c6165e85aa27",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:c89b7cbe",
     "language": "en",
     "sourceLanguage": "nl",
@@ -45714,17 +45813,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:c8e6b3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Hello government. Stop running breathlessly from one poll to the next on the leash of Maurice de Hond",
-    "lead": null,
-    "sourceHash": "018e548a2c9d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:c8f16056",
@@ -46297,17 +46385,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
-  },
-  {
-    "id": "news:cafeabf",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Correspondent between tear gas and stun grenades: 'Paris has become a battlefield'",
-    "lead": "Correspondent Olaf Koens is in Paris, where a large protest has turned into riots.",
-    "sourceHash": "0cfcca4f31d4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:cb078d03",
@@ -47003,6 +47080,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:cde7aa8",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Tientallen kerken melden zich aan om asielzoekers op te vangen vanwege woningtekort",
+    "lead": "Tientallen kerken in heel Nederland hebben zich aangemeld om asielzoekers tijdelijk onderdak te bieden.",
+    "sourceHash": "b96e71bd46eb",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:cded3031",
     "language": "en",
     "sourceLanguage": "nl",
@@ -47023,6 +47111,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
+  },
+  {
+    "id": "news:cdef0297",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tottenham beats Chelsea in rainy London derby",
+    "lead": "Tottenham Hotspur won the London derby against Chelsea on Saturday 2-0 in pouring rain at Stamford Bridge. With the win, the Spurs climb from eighteenth to twelfth place in the Premier League, now with 9 points from eight matches. Chelsea remains fourth with 13 points.",
+    "sourceHash": "60fbb698fa16",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:cdf30b37",
@@ -47100,6 +47199,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:ce3cdad1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Festival Into the Woods stops Saturday evening earlier due to storm",
+    "lead": null,
+    "sourceHash": "841d28797aa9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:ce3f44d9",
@@ -47397,17 +47507,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
-  },
-  {
-    "id": "news:cf16e55f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Ten-man PSV choke against ADO Den Haag (2-1) after red card for Mijnans",
-    "lead": null,
-    "sourceHash": "e65eb2438d65",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:cf2428d7",
@@ -48004,6 +48103,17 @@
     "translated": "2026-10-14"
   },
   {
+    "id": "news:d1768c7f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Is the fear of the AI monster realistic or ridiculous? Reporter Hans Nijenhuis explains",
+    "lead": "It is one of the most written about and filmed human fears: we create a monster with the help of technology that then destroys us. Now that fear is resurfacing with the rise of AI. Realistic or ridiculous? \"A hammer does not itself realise that you can also use it to hit someone over the head.\" AI does. In this special, Hans Nijenhuis sets out the arguments, fears and expectations side by side.",
+    "sourceHash": "e813542e72f5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:d181a868",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48444,6 +48554,17 @@
     "translated": "2026-10-24"
   },
   {
+    "id": "news:d3403694",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "KLM flew over Iraq against US rules: this is how passenger safety was affected",
+    "lead": "KLM did not adhere to agreements the airline made with American Delta Air Lines about flying over Iraq. Those rules are meant to ensure safety. Were passengers in danger during those flights? \"Careful consideration.\"",
+    "sourceHash": "c5c2e63df0c8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:d34bf1b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48607,6 +48728,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:d40c7269",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Permanent winter time is the most beneficial, but European countries keep hesitating",
+    "lead": "The clocks go back one hour in the night from Saturday to Sunday due to winter time. Although there is broad support in Europe for abolishing the clock change, countries cannot agree on which time they want to keep permanently.",
+    "sourceHash": "233ee25a6517",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:d4180a3",
@@ -48794,17 +48926,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
-  },
-  {
-    "id": "news:d4f12595",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Why Chinese electric cars are so much cheaper: Europe faces a costly problem",
-    "lead": "Chinese carmakers can produce electric cars for thousands of euros less than European competitors. Additional import duties hardly help as long as the big difference in the factories remains.",
-    "sourceHash": "89ab69e85427",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:d4fb35fc",
@@ -49412,17 +49533,6 @@
     "translated": "2026-10-21"
   },
   {
-    "id": "news:d76b7c48",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Pope is back at the Vatican after lung surgery",
-    "lead": null,
-    "sourceHash": "74a2c179069f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:d7782e0d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -49520,17 +49630,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
-  },
-  {
-    "id": "news:d811e983",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Anti-tyrants are throwing an American garden party on the Museumplein. 'If things go wrong, it could be the end of democracy in America'",
-    "lead": "The non-profit organisation Indivisible organised a demonstration in Amsterdam to protest against President Trump and to urge Americans in the Netherlands to vote above all. \"These are the most important midterm elections ever.\"",
-    "sourceHash": "8a2a3ee084aa",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:d8136207",
@@ -49786,6 +49885,17 @@
     "translated": "2026-10-18"
   },
   {
+    "id": "news:d964aaaa",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'Doesn't someone miss her?' Fifty years after the discovery of the body of the Heul girl, her identity is still unknown",
+    "lead": null,
+    "sourceHash": "faaea8a5701a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:d967ac33",
     "language": "en",
     "sourceLanguage": "nl",
@@ -49828,6 +49938,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
+  },
+  {
+    "id": "news:d9a38975",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Nearly 1,000 arrests in France, protests went well",
+    "lead": null,
+    "sourceHash": "895b41c50dd0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:d9b4a010",
@@ -50270,6 +50391,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:dbc0ee6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Maarten Spanjer buried in private circle, but in the presence of friends",
+    "lead": "Actor and writer Maarten Spanjer was buried on Saturday in a private ceremony in Amsterdam, on the day he would have turned 74. Among others, René van der Gijp, Theo Hiddema and Keje Molenaar attended the funeral.",
+    "sourceHash": "5821a0f430f5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:dbd06515",
     "language": "en",
     "sourceLanguage": "nl",
@@ -50688,17 +50820,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:de2b7367",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'This one hurts': PSV down to ten men concede in final second at ADO Den Haag",
-    "lead": "PSV lost costly points in the Eredivisie match at ADO Den Haag. The champions went 1-0 up through Sven Mijnans, but that same striker picked up his second yellow card before half-time. The home side took advantage and grabbed the full prize in the last second of stoppage time: 2-1.",
-    "sourceHash": "36eeea065027",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:de4052be",
     "language": "en",
     "sourceLanguage": "nl",
@@ -50730,6 +50851,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:de4b1a19",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Google breaks the law with data center construction",
+    "lead": "Cartoon more better everything",
+    "sourceHash": "dc2a897058f6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:de4d6a53",
@@ -50820,15 +50952,15 @@
     "translated": "2026-10-23"
   },
   {
-    "id": "news:de97651",
+    "id": "news:de8dfc5e",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Erdogan has the Turkish media in his grip",
-    "lead": "The population may not be informed by independent journalists",
-    "sourceHash": "755d3408bf8c",
+    "title": "Defending champion Van Veen knocked out early at the European Darts Championship",
+    "lead": "Defending champion Gian van Veen has been knocked out early at the European Darts Championship in Dortmund. In the round of 16 the Englishman Luke Woodhouse was too strong: 6-10. Last year Van Veen won his first major title at the European Championship by beating the Englishman Luke Humphries in the final.",
+    "sourceHash": "afce31dd3f90",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-17"
+    "translated": "2026-10-24"
   },
   {
     "id": "news:deac8a79",
@@ -51038,17 +51170,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:dfe0cb0b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Liverpool narrowly beat Brentford, Frimpong injured",
-    "lead": "Liverpool secured a hard-fought win at Brentford. The team of coach Andoni Iraola won 2-1 in London thanks to two goals in the last half hour. The home side finished the match with nine men. Netherlands international Jeremie Frimpong picked up an injury during a brief substitute appearance.",
-    "sourceHash": "2587622211e3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:dfe1fd3a",
@@ -51293,17 +51414,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:e0d670f3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dutch gymnasts in fifth place after first day of World Championships, Japan leads",
-    "lead": "Gymnasts Casimir Schmidt, Elijah Faverus, Amine Abaidi, Loran de Munck and Jermain Grünberg hold fifth place in the country ranking after four of the six start groups (subdivisions) at the World Championships in Rotterdam. Olympic team champion Japan leads with 254,529 points, followed by European champion Great Britain with 251,460.",
-    "sourceHash": "31a571f0c69f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:e0d6d7ea",
     "language": "en",
     "sourceLanguage": "nl",
@@ -51491,6 +51601,17 @@
     "translated": "2026-10-18"
   },
   {
+    "id": "news:e15f28d6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Petra Zuidema (58) has to get by on 50 euros a week: 'A new mattress is not an option'",
+    "lead": null,
+    "sourceHash": "0952305ed166",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:e17466c4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -51546,17 +51667,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:e1be1190",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Several dead in attacks back and forth in Yemen",
-    "lead": null,
-    "sourceHash": "73b697a50b89",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:e1c1cdc1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -51601,17 +51711,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:e21357f6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Verstappen impresses with comeback race in GT3, penalty for teammate costs him podium",
-    "lead": "Max Verstappen finished ninth on Saturday at the GT World Challenge in Portugal despite a fine comeback race. A penalty for teammate Chris Lulham set Team Verstappen back considerably, after which the Dutchman made up ground in the final phase.",
-    "sourceHash": "d98240f4a250",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:e2160edc",
     "language": "en",
     "sourceLanguage": "nl",
@@ -51654,6 +51753,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
+  },
+  {
+    "id": "news:e278174e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Borussia Dortmund wins again in Bundesliga after two draws",
+    "lead": "Borussia Dortmund has won again in the Bundesliga after two draws and is for now top of the table once more. With Oranje international Joey Veerman playing the entire match, the team of coach Niko Kovač narrowly beat Eintracht Frankfurt 1-0 in front of their own supporters. Substitute Maximilian Beier scored the only goal ten minutes from time with a placed shot into the far corner.",
+    "sourceHash": "87d8852d7f6e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:e288955c",
@@ -51755,6 +51865,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:e30cb463",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Maintenance of storm surge barriers is falling behind, and that causes concern: this is why",
+    "lead": "This weekend a rare twin storm is sweeping across our country. With gusts up to 105 kilometers per hour, autumn storms Austen and Boelo are causing surging seawater. Storm surge barriers are supposed to protect us against this, but they have not been maintained sufficiently.",
+    "sourceHash": "22dedb8f928a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:e31a7d19",
     "language": "en",
     "sourceLanguage": "nl",
@@ -51852,17 +51973,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
-  },
-  {
-    "id": "news:e36d8791",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Seizure of 'Antifa server' at American request raises questions and concerns",
-    "lead": "Amsterdam police this week seized a server that may be shared with American authorities. According to the OM, the server was allowed to be taken, but the secrecy surrounding the request from the US raises questions.",
-    "sourceHash": "168638fb4e0f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:e3716220",
@@ -52008,6 +52118,17 @@
     "translated": "2026-10-24"
   },
   {
+    "id": "news:e49fc7e4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Griekspoor reaches second ATP final of the year after hard-fought win in Brussels: 'Very happy and proud'",
+    "lead": "Tennis player Tallon Griekspoor reached the final of an ATP tournament for the second time this year on Saturday. In the semifinal of the European Open in Brussels, the Dutchman was too strong in three sets for Argentinian world number 21 Francisco Cerúndolo: 2-6 6-3 7-6 (4).",
+    "sourceHash": "6d4136b5655c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:e4a2dc46",
     "language": "en",
     "sourceLanguage": "nl",
@@ -52039,6 +52160,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:e4af5f61",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "All Dutch players out before quarter-finals at European darts championship, Luke Littler shows crazy high level",
+    "lead": "The European Championship has ended in disappointment for the Dutch darts players. On Saturday evening Jermaine Wattimena and Kevin Doets also lost in the second round, so all their compatriots are already eliminated before the quarter-finals. Defending champion Gian van Veen went down on Saturday afternoon.",
+    "sourceHash": "ea579104dcf3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:e4ba8648",
@@ -52270,6 +52402,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
+  },
+  {
+    "id": "news:e5a99824",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Proud Griekspoor reaches Brussels final after thriller and goes for fourth ATP title",
+    "lead": "Tallon Griekspoor reached the final of the ATP tournament in Brussels on Saturday. The Dutchman won a thriller against third-seeded Argentinian Francisco Cerúndolo: 2-6, 6-3 and 7-6 (4). He can win his fourth ATP title.",
+    "sourceHash": "a64dd8adcf65",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:e5b94afb",
@@ -53392,17 +53535,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
-  },
-  {
-    "id": "news:e9f3630f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "1.200 arrests and 150 injured police officers at protests in France",
-    "lead": "At the large-scale protests in France, 1.200 people have been arrested. 150 police officers were also injured. That is what French Prime Minister Sébastien Lecornu reports. In several places things got out of hand: in Limoges the spire of the town hall collapsed after it was set on fire.",
-    "sourceHash": "eefcf6532400",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:ea019b89",
@@ -54912,17 +55044,6 @@
     "translated": "2026-10-23"
   },
   {
-    "id": "news:f0f83fb0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Man dragged away and killed by 3,5 meter long alligator in Florida",
-    "lead": "A 71-year-old man was killed on Friday by an alligator more than 3,5 meters long in the US state of Florida. The man was fishing in an area known for its alligator population when he was dragged away by the animal.",
-    "sourceHash": "66fb6ccbf630",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:f0fcb676",
     "language": "en",
     "sourceLanguage": "nl",
@@ -54987,28 +55108,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:f13fdd7e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dutch gymnasts will have to wait for now at World Championships",
-    "lead": "The Dutch gymnasts will have to wait a long time at the World Championships in Rotterdam before it is clear where their team total of 242,995 points will place them. After three of the six start groups (subdivisions), gymnasts Casimir Schmidt, Loran de Munck, Elijah Faverus, Amine Abaidi and Jermain Grünberg hold second place in the national ranking. The Russian team, competing as World Gymnastics 2, is for now in the lead with 249,162 points.",
-    "sourceHash": "3479e912888b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
-    "id": "news:f17fd71d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Matchwinner Matej Sin celebrated at ADO Den Haag: 'That euphoric moment is fantastic'",
-    "lead": "Matej Sin became the matchwinner against PSV with his first goal for ADO Den Haag, with PSV having last lost in the capital in 1991. The AZ loanee was celebrated and cheered after the match. \"This exceeds my expectations.\"",
-    "sourceHash": "e0648f8673ef",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:f1824916",
@@ -55119,6 +55218,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:f1f7f329",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "In pictures: bus ends up in water after stormy weather",
+    "lead": "Storm Boelo is sweeping through several provinces this evening. In <entity id=\"org:provincie-fryslan\">Friesland</entity> a bus ended up in the water after it hit a tree.",
+    "sourceHash": "119f95f53750",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:f201e81f",
@@ -55251,6 +55361,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:f29afbfd",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "\"Super happy\" Naomi Visser sets her best result ever on beam in Rotterdam: \"I always find finals very exciting\"",
+    "lead": "Naomi Visser finished fifth in the beam final at the World Gymnastics Championships in Rotterdam. The 25-year-old Dutch gymnast scored 14,366 points after a solid routine and thereby narrowly missed out on a medal. Nevertheless, it was her best ever result on beam at a World Championships.",
+    "sourceHash": "4240fa9381b6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:f2a2894",
@@ -56144,17 +56265,6 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:f74b30b7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "1,200 arrests and 150 police officers injured, also riots in Italian cities",
-    "lead": "In several French, Italian and Belgian cities, protests have escalated into riots. Between 550,000 and 800,000 demonstrators were present at the actions in France, 1,200 people were arrested and 150 police officers were injured. The situation is still unrest in various places. Follow all developments below in our live blog.",
-    "sourceHash": "4d4f29f1b339",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:f74bd411",
     "language": "en",
     "sourceLanguage": "nl",
@@ -56738,17 +56848,6 @@
     "translated": "2026-10-21"
   },
   {
-    "id": "news:fa26e7c2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Higher VAT and tourist tax strain Idfa: 'Filmmakers must be given space, instead of TikTok creators'",
-    "lead": null,
-    "sourceHash": "8bdbd4d440fa",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:fa364f4a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -56777,17 +56876,6 @@
     "title": "Renovation of the Binnenhof more expensive again, now due to higher interest costs: 'This is how we will really rack up the 3 billion euros'",
     "lead": null,
     "sourceHash": "64cba0c8e680",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
-    "id": "news:fa4c984a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "PSV throws away lead with ten men at ADO and loses 2-1",
-    "lead": "PSV dropped points in the Eredivisie with a 2-1 defeat at ADO Den Haag. The team of coach Peter Bosz played more than half the match a man down. Sven Mijnans, scorer of the opening goal, was sent off with two yellow cards while Eindhoven were leading. Juho Kilo equalised. Matěj Šín scored the winning goal for ADO just before the final whistle.",
-    "sourceHash": "db4191a02dae",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
@@ -57365,17 +57453,6 @@
     "translated": "2026-10-23"
   },
   {
-    "id": "news:fd360ec4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "71-year-old man dragged away and killed by 3.5 metre long alligator in Florida",
-    "lead": "A 71-year-old man was killed on Friday by an alligator more than 3.5 metres long in the American state of Florida. The man was fishing in an area known for its alligator population when the animal dragged him away.",
-    "sourceHash": "064635fe71ae",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:fd4b04ae",
     "language": "en",
     "sourceLanguage": "nl",
@@ -57618,6 +57695,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:fe7d5374",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Why are protests taking place in so many major European cities this weekend?",
+    "lead": null,
+    "sourceHash": "347cbff85e7f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:fe8199b8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -57693,17 +57781,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
-  },
-  {
-    "id": "news:fefa8ac5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Limoges town hall set on fire during education protests, French police arrest 400 people",
-    "lead": null,
-    "sourceHash": "9cb6e797c3f1",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:fefdb063",
@@ -57822,6 +57899,17 @@
     "title": "Storm Austen: boom valt op auto in Amsterdam en maakt gat in dak van boerderij",
     "lead": "Er zijn meldingen binnengekomen van omgevallen bomen en afgebroken takken uit het hele land na de komst van Storm Austen vrijdagnacht.",
     "sourceHash": "1ecf47527a3f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
+    "id": "news:ff7c4b76",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "An absurdist who always colours neatly within the lines",
+    "lead": null,
+    "sourceHash": "f2e706a9b71b",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
