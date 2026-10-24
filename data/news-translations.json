@@ -454,9 +454,9 @@
     "id": "news:11f0a74d",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Where is Bokito?",
-    "lead": "After the death of Bokito, notorious for an attack on a visitor, Diergaarde Blijdorp faces a dilemma. Taxidermists are eager to mount him, but the zoo fears that such a tribute would be seen as glorifying aggression. \"It must not become a sensational object.\"",
-    "sourceHash": "61625ffb3090",
+    "title": "Where is Bokito? The quiet disappearance of an iconic ape",
+    "lead": "Following the death of Bokito, notorious for an attack on a visitor, Diergaarde Blijdorp faces a dilemma. Taxidermists are eager to stuff him, but the zoo fears that such a tribute will be seen as glorifying aggression. \"It must not become a sensation object.\"",
+    "sourceHash": "fde0ef477bc8",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -4642,6 +4642,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:2594db3b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "EK darts results | Dutch players disappoint in Dortmund: no compatriots in the last eight",
+    "lead": "The darts players are competing this week in Dortmund for the European title. In total eight Dutch players took part, but all of them were eliminated before the quarter-finals.",
+    "sourceHash": "c07aab16e149",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:25963c79",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4992,6 +5003,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:274382e1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Largely peaceful protest march in Paris ends in clashes with police: 'Down with oppression!'",
+    "lead": null,
+    "sourceHash": "367645e69c5a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:275a53a",
@@ -8063,6 +8085,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:34bf8ebf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Grand Prix of the United States | This is when Max Verstappen takes to the track on Sunday at the GP in Texas",
+    "lead": "Formula 1 is making the trip to the other side of the world. Max Verstappen and his colleagues are heading to the United States for the second time this season. The first two free practice sessions are behind them. Check below for the start times of the remaining sessions in Austin, Texas.",
+    "sourceHash": "ec41b8217dd2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:34c42e04",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8842,6 +8875,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:38757fd6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "REPLAY | Nine arrests after demonstrations in eight Italian cities, more than 1000 in France",
+    "lead": "On Saturday there are again large protests in major European cities. From Brussels to Tirana, hundreds of thousands of people have taken to the streets to voice their discontent. The authorities are bracing for another day full of violence. This liveblog has now been closed.",
+    "sourceHash": "b67d599082a8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:388eacf4",
@@ -10923,17 +10967,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:419679d7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "1.200 arrests and 150 police officers injured at large-scale protests in France",
-    "lead": null,
-    "sourceHash": "5101e5529427",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:419cd69d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -10982,8 +11015,8 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Motorist killed in head-on collision with lorry near Gilze",
-    "lead": "A motorist was killed on Saturday in a head-on collision with a lorry on the N260 near Gilze. Both vehicles caught fire after the collision. The accident happened on the Langenbergseweg.",
-    "sourceHash": "7743f1280bcb",
+    "lead": "A motorist died on Saturday in a head-on collision with a lorry on the N260 near Gilze. Both vehicles caught fire after the collision. The accident happened on the Langenbergseweg.",
+    "sourceHash": "b281d3bf8b06",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -13838,6 +13871,17 @@
     "translated": "2026-10-24"
   },
   {
+    "id": "news:4f67f3d6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Noraly Beyer: 'I am very jealous of people who cry. Death is so cruel'",
+    "lead": "Noraly Beyer wrote a memoir about her years at a boarding school in Roermond, her work in the Netherlands and Suriname, and the loss of her friend Joost Prinsen. \"I wanted to be able to deviate from what he had dictated about his own farewell.\"",
+    "sourceHash": "1d7f0e59723c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:4f6ee203",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14353,17 +14397,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:5231acff",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Minister Van Weel gets benefit of the doubt after additional apology to House",
-    "lead": "David van Weel has been given another chance by <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity>. The minister of justice on Thursday, at the urging of the House, again offered apologies after a heated and difficult debate on the aftermath of ten thousand untreated reports.",
-    "sourceHash": "90c81e9b12b4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:523c523a",
@@ -15684,6 +15717,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
+  },
+  {
+    "id": "news:5713d611",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Gymnast Naomi Visser is still happy in the waiting room after resounding success: 'This is maximum for me for now'",
+    "lead": null,
+    "sourceHash": "03c93de4681a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:5720d2ca",
@@ -19833,17 +19877,6 @@
     "translated": "2026-10-18"
   },
   {
-    "id": "news:5d2d39e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Israeli settlers attack European diplomats in the West Bank",
-    "lead": "Israeli settlers have attacked Palestinians and European diplomats in the West Bank, which Israel occupies. European countries report this. The attacks follow violence from a day earlier, when Palestinians were attacked during their annual olive harvest. Among others, a Belgian representative in the Palestinian Territories has been attacked, says Belgian Foreign Minister Prévot. According to him, diplomats from Poland and France were also attacked in the Christian village of Taybeh, as were representatives of the Catholic Church. \"As the occupying power, the Israeli authorities must protect Palestinians, ensure the safety of diplomats and journalists, and bring those responsible to justice. Impunity for violent settlers must end\", Prévot writes on X. Knocked to the ground Among the besieged diplomats is also a French mayor. \"I was thrown to the ground\", says Bernard Baudoux. He said he had travelled to the area to show his solidarity with the Palestinians. The Polish Ministry of Foreign Affairs confirms the attack on its diplomats. According to the ministry they are unharmed, but a spokesperson calls the violence against the European delegation \"absolutely unacceptable\". 'Israeli troublemakers' Israeli Foreign Minister Saar also condemns the settlers' attacks. He refers to the group as \"Israeli troublemakers\". According to him, it would have been better if the diplomats had coordinated their visit with the Israeli army. The Israeli police say they are investigating the incident. The senior Palestinian official Hussein al-Sheikh calls the attacks an example of the daily terrorism Palestinians face. Violence during olive harvest On Friday, dozens of Israeli settlers already attacked Palestinians in an olive grove in the West Bank. The masked, black-clad settlers also set olive trees on fire. The annual olive harvest is an important event for Palestinian villagers. The Israeli army intervened, but the soldiers did not stand by the Palestinians, instead they sided with the settlers. The soldiers used tear gas against the villagers and, according to British and Palestinian news agencies, live ammunition was also fired. During this harvest season, which began this month, at least four people have been killed in the occupied West Bank and more than a hundred people were injured, the Palestinian Ministry of Health says. The attack of yesterday was captured on video:",
-    "sourceHash": "06adbac1dfcb",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:5d2d3bf",
     "language": "en",
     "sourceLanguage": "nl",
@@ -22719,8 +22752,8 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "French newspaper: Paris attacker wanted to kill Black and Arab people",
-    "lead": "The arrested suspect in the attack in the Paris suburb of Trappes wanted to attack Black people and people with an Arab appearance. Sources report this to the French newspaper Le Monde. Justice sees in the suspect's conduct, his choice of victims, his first statements and the results of the house searches indications that there was a racially motivated terrorist act. The sources also report that a copy of Mein Kampf, Hitler's banned book, was found on the man. The 39-year-old shooter Kevin T. opened fire on passers-by with a machine gun yesterday morning. One person was killed and five others were injured, including a 12-year-old child. After the man was arrested, he reportedly said, according to Le Monde, that he had taken revenge on the shopkeepers whose shops were looted during the riots last week by attacking \"Blacks and Arabs\". He gave this statement to the first officers on the scene. A 'lone wolf'. As a result, the French authorities are investigating whether this is a case of \"murder and attempted murder in connection with a terrorist motive, with the aggravating circumstance that the acts were committed because of the actual or presumed origin, ethnicity, nationality or religion of the victims\". Kevin T. has been taken into custody at the headquarters of the French anti-terrorism unit. Investigators are now waiting to see whether he repeats his racist statements during interrogations, Le Monde reports. The first investigation shows that T., during his drive between Trappes and La Verriere, exclusively chose non-white people as targets and shot at them from his Renault Clio. Whether he had ties with far-right groups is being examined on the basis of seized computer equipment. Sources close to the investigation who spoke with the newspaper describe him provisionally as a \"lone wolf\". 'Racist ideology'. During the house search, explosives experts and a special intervention unit of the French <entity id=\"org:politie\">nationale politie</entity> were deployed after an improvised explosive device was discovered in the apartment. According to the authorities, it was a construction with three gas cylinders and electric wires connected to a timer. French President Macron, during a visit to Trappes yesterday, expressed his horror at the intentions and deeds of the suspect: \"A man was killed this morning by one of our fellow citizens on the basis of a racist ideology.\" And: \"It is the first time there has been a planned terrorist attack to kill our compatriots, our children, because of their skin colour or the faith they adhere to. This is a turning point in our Republic.\"",
-    "sourceHash": "cd74383ef816",
+    "lead": "The arrested suspect in the attack in the Paris suburb of Trappes wanted to attack Black people and people with an Arab appearance. Sources report this to the French newspaper Le Monde. Justice sees in the suspect's modus operandi, his choice of victims, his first statements and the results of the house searches indications that a racially motivated terrorist act took place. The sources also report that a copy of Mein Kampf, Hitler's book, was found on the man. The 39-year-old shooter Kevin T. opened fire with a machine gun on passersby yesterday morning. One person died and five others were injured, including a 12-year-old child. After the man was arrested, he reportedly told Le Monde that he had taken revenge on the shopkeepers whose shops were looted during last week's riots by attacking \"Black people and Arabs\". He gave this statement to the first officers on the scene. A 'lone wolf' As a result, the French authorities are investigating whether this involves \"murder and attempted murder in connection with a terrorist motive, with the aggravating circumstance that the facts were committed because of the actual or alleged origin, ethnicity, nationality or religion of the victims\". Kevin T. has been taken into custody at the headquarters of the French anti-terrorism unit. Investigators are now waiting to see whether he repeats his racist remarks during interrogations, Le Monde reports. The initial investigation shows that during his drive between Trappes and La Verrière, T. exclusively chose non-white people as targets and shot at them from his Renault Clio. Whether he had ties to far-right groups is being examined using seized computer equipment. Sources close to the investigation who spoke with the newspaper provisionally describe him as a \"lone wolf\". 'Racist ideology' During the house search, explosives experts and a special intervention unit of the French <entity id=\"org:politie\">nationale politie</entity> were deployed after an improvised explosive device was discovered in the apartment. According to the authorities, it was a construction with three gas cylinders and electrical wires connected to a timer. French President Macron expressed his horror yesterday during a visit to Trappes at the intentions and deeds of the suspect: \"A man was killed this morning by one of our fellow citizens on the basis of a racist ideology.\" And: \"This is the first time a planned terrorist attack has aimed to kill our compatriots, our children, because of their skin colour or the faith they adhere to. This is a turning point for our Republic.\"",
+    "sourceHash": "54e3616ee46f",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -22787,6 +22820,17 @@
     "title": "'You cannot censor a free press': thousands of Turks take to the streets for press freedom",
     "lead": "Thousands of people, including many journalists, took to the streets in Turkey today for press freedom. Journalist associations and the New Party (an opposition party) had called on people to demonstrate in ten cities across the country. \"You cannot censor a free press,\" the demonstrators chanted. The reason for the demonstrations is censorship, the pressure on journalists and the takeover of several broadcasters by the government, the organizers say. In twenty months at least five broadcasters have been taken over. Not all of them are opposition broadcasters, and the reasons for the takeovers vary. Even so, there are fears that the independence of journalism will come under even more pressure. For example, last week there was a police raid at the popular opposition broadcaster Halk TV. Afterwards the broadcaster was placed under the management of a trustee. Since then, reruns have been broadcast. For a while the broadcaster continued online, but the X account with 3 million followers has been blocked, and for three days no new videos have been uploaded to YouTube. The Turkish Public Prosecution Service suspects the chair of the broadcaster of bribery, money laundering and fraud, but the opposition says the raid is politically motivated and is intended to silence critical voices in the country. 'More police than demonstrators' \"There is a culture of fear in Turkey,\" says a woman who is a member of the New Party and would prefer to remain anonymous. She is afraid that if her name becomes known, she or her family could get into trouble. \"Criticism has consequences, we see that. Look around you and see how many police are standing here now. There are more officers than demonstrators.\" Still, she is determined to take part. In her hands she holds a newspaper. \"A journalist from the Turkish newspaper Birgun is in prison because of an article he wrote. With this newspaper in my hands I am calling attention to press freedom in Turkey,\" she says. She explains that it is precisely now that people in Turkey must stand in solidarity with the press. According to Reporters Without Borders, Turkey is one of the countries with the worst scores on press freedom. Several journalists are also in prison. According to the Committee to Protect Journalists (CPJ), the Turkish government is using the disinformation law to intimidate journalists. That law punishes, among other things, spreading false information concerning domestic and foreign security. This year, according to the organization, sixteen people have been arrested for spreading disinformation. Major stock market scandal Another demonstrator, who is also a journalist, notes that journalists are being suppressed more and more. According to him, Halk TV was taken over because the opposition broadcaster reported on a major stock market scandal. \"One of our colleagues is in prison for that,\" he says, \"because he asked about money that was being siphoned away from the people. Because he was doing his job.\" Last month Turkey was shaken when it became known that 455,000 Turkish savers had lost their savings, while others made tens of millions of dollars in profits. In the media it was compared to a pyramid scheme. People at the top of the ruling AK party, such as the vice chair, were also named. She has since stepped down pending a criminal investigation. Looking to the future Retired journalists also took to the streets today. \"I am old, but I stand here for the future, for my young colleagues,\" says a 70-year-old woman in Istanbul. She is pessimistic about the future because in her view there should have been more people out in the city, which has at least 15 million inhabitants. \"Today everyone should, as far as I am concerned, have gone out to support the journalists.\"",
     "sourceHash": "bd98a6f753e6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
+    "id": "news:5d36461",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cabinet invites seven opposition parties to negotiations on tax plan",
+    "lead": "The cabinet has made arrangements on how it wants to meet the opposition halfway and will invite seven parties next week to negotiate further on the tax plan. This is the outcome of a meeting of the top of the cabinet today. These are the parties the cabinet already spoke with earlier: Pro, JA21, BBB, SGP, ChristenUnie, 50Plus and Volt. The cabinet therefore still aims for a broad agreement with both left and right, rather than looking to one side. The tax plan is important for the cabinet, because it sets out how taxes will be arranged in the coming years. This year, for example, the cabinet plans to extend the reduction of the excise duty on petrol and diesel by 1 year, until the end of 2027. It also wants to implement a reduction of the starter's deduction for entrepreneurs. Opposition parties have so far put forward completely different and firm demands in exchange for their support. For example, Pro wants the higher income tax for the coming years to be removed entirely, JA21 wants stricter asylum measures, BBB asks for an adjustment of the nitrogen plans, and SGP wants the cabinet to do more to prevent abortions. Some of these demands are sensitive within the coalition of D66, VVD and CDA. That is why today <entity id=\"person:rob-jetten\">premier Jetten</entity>, deputy prime ministers Yesilgöz and Van den Brink, <entity id=\"person:eelco-heinen\">minister Heinen</entity> and <entity id=\"person:eelco-eerenberg\">staatssecretaris Eerenberg</entity> (both <entity id=\"org:ministerie-van-financien\">Financiën</entity>) discussed how much negotiating room the cabinet has. Asylum, nitrogen and abortions. Next week the opposition parties will negotiate with Prime Minister Jetten and minister Heinen. Other ministers may join, for example minister Van den Brink (<entity id=\"org:tweede-kamer-commissie-am\">Asiel en Migratie</entity>) or <entity id=\"person:jaimi-van-essen\">minister Van Essen</entity> (Agriculture). It appears that the cabinet is therefore still willing to adjust its plans on asylum and nitrogen. Notably, the minister of Health is not on this list. It seems to be a signal from the cabinet that, despite the wish of the SGP, there are no plans to change the abortion laws. 'Serious negotiations'. Ahead of Budget Day, the cabinet has spoken with many opposition parties and included their wishes in the budget. No real negotiations have taken place so far. That changes next week. Pro <entity id=\"person:jesse-feras-klaver\">leider Klaver</entity> already invited himself to Prime Minister Jetten last week to begin \"serious negotiations\" on the tax plan. He tried in this way to get the cabinet to agree to a single deal on the left. The cabinet did not respond to this and now wants to negotiate with many more parties. Because the <entity id=\"org:belastingdienst\">Belastingdienst</entity> needs time to implement these measures, the tax plan cannot be postponed for too long. On Monday, <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity> will discuss it further. The intention is that it will be put to a vote on 12 November. In addition, a problem regarding the wealth tax (box 3) still persists. A majority of the Tweede Kamer agrees with the plan that minister Heinen has put forward for this. It is only still unclear how it will be paid for. The plan to have smaller savers and investors pay, the cabinet withdrew again after heavy criticism. The cabinet must also find a solution for this. Insiders say the three coalition parties are now more or less in agreement internally, but a majority in the Eerste and Tweede Kamer must still be found for this as well.",
+    "sourceHash": "7b0d973f45f7",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -26510,17 +26554,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:6ea4ce07",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Car drives into football match in US; two dead, including a child",
-    "lead": "Two people have died at a football match in the American state of Kansas, including a 6-year-old boy, when a motorist drove onto the pitch. Eleven people were injured.",
-    "sourceHash": "200274257ee4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:6ec26112",
     "language": "en",
     "sourceLanguage": "nl",
@@ -26596,6 +26629,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:6f474fe7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Antonelli keeps Verstappen off pole for possible championship race in Austin",
+    "lead": "The chance has become slightly greater that Kimi Antonelli will become world champion on Sunday at the United States Grand Prix in Austin. The championship leader took pole position in qualifying on Saturday. Max Verstappen finished second.",
+    "sourceHash": "58c7bad5bde0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:6f5497c6",
@@ -26708,6 +26752,17 @@
     "translated": "2026-10-23"
   },
   {
+    "id": "news:6fc0a7e1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "UFC 333: Volkanovski dominates unbeaten opponent, Yan makes a dream comeback",
+    "lead": "Alexander Volkanovski has once again defended his featherweight title. The Australian top fighter won the main event of UFC 333 in Abu Dhabi against the still unbeaten Movsar Evloev. As a result, his second reign as champion in the Ultimate Fighting Championship continues for now.",
+    "sourceHash": "46f046c49fb4",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:6fceaed5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -26728,17 +26783,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
-  },
-  {
-    "id": "news:6ff86d7f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "LIVE Middle East | US ambassador calls on Israel to prosecute settlers for violence, European diplomats also attacked",
-    "lead": "The US ambassador in Israel has called on the country to prosecute the settlers responsible for the violent attack on a journalist from The Washington Post. A group of Western diplomats was also attacked. Follow all developments in the Middle East in our liveblog.",
-    "sourceHash": "a7a1e95fe7ce",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:6ffa142e",
@@ -27311,6 +27355,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:724524f5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Atlético Madrid secures narrow win ahead of Clásico",
+    "lead": "Atlético Madrid made no mistakes against RC Deportivo ahead of the 'Clásico' between leaders FC Barcelona and Real Madrid on Sunday evening. The number 2 won at home by the narrowest margin against the club from A Coruña, thanks to a goal from striker Julián Álvarez. This reduced Atlético's gap to Barcelona to 2 points. Real follows on 4 points from their stadium neighbour.",
+    "sourceHash": "4f71f06c7dd0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:7249c4a2",
@@ -29368,6 +29423,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
+  },
+  {
+    "id": "news:7b6a4ec3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Owners of Elvis Presley's music sue AI company Anthropic",
+    "lead": null,
+    "sourceHash": "0c1e8b110798",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:7b72df08",
@@ -31999,17 +32065,6 @@
     "translated": "2026-10-21"
   },
   {
-    "id": "news:8854adfb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "1.200 arrests and 150 police officers injured after education protests in France",
-    "lead": null,
-    "sourceHash": "d120f75a82bf",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:885a89dd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33020,6 +33075,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
+  },
+  {
+    "id": "news:8d0fa44e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Live F1 | Verstappen had little grip in Q3: 'Felt like a kangaroo'",
+    "lead": "Good evening and welcome to this liveblog! My name is Laurine Slingerland and I will keep you updated on qualifying for the Grand Prix of the United States. Enjoy!",
+    "sourceHash": "fab00576d29b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:8d0ff1ca",
@@ -34565,9 +34631,9 @@
     "id": "news:93d92944",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Trump already files lawsuit against election result in Alaska",
+    "title": "Trump casts early vote for midterms",
     "lead": null,
-    "sourceHash": "8e00ada353cb",
+    "sourceHash": "445fa52feb3c",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
@@ -34703,6 +34769,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:9478275a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Yellow warning for wind gusts up to 100 km/h in coastal areas, Limburg",
+    "lead": "The <entity id=\"org:koninklijk-nederlands-meteorologisch-instituut\">KNMI</entity> warns of severe wind gusts in the coastal areas, the western Wadden region and the Limburg hills. A yellow warning applies in these areas until at least Sunday morning. Wind gusts between 75 and 100 kilometres per hour are expected.",
+    "sourceHash": "3c38d733cdd8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:94809d87",
@@ -35110,17 +35187,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
-  },
-  {
-    "id": "news:9638df0a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Eleven people taken to hospital after tasting brewing water at Grolsch brewery",
-    "lead": "Eleven people became unwell on Saturday after tasting brewing water during a tour of the Grolsch brewery in Enschede, a spokesperson confirms to NU.nl following reports by Tubantia.",
-    "sourceHash": "e807bf604e1f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:963db895",
@@ -38533,17 +38599,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:a6522056",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Alligator of nearly four meters kills 71-year-old fisherman in Florida",
-    "lead": "A 71-year-old man in the US state of Florida has died after an attack by an alligator. The man was fishing in the town of Winter Garden when the animal attacked him and dragged him into the water.",
-    "sourceHash": "cde0ded2e0d9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:a66d0892",
     "language": "en",
     "sourceLanguage": "nl",
@@ -40271,17 +40326,6 @@
     "translated": "2026-10-15"
   },
   {
-    "id": "news:ae710bbf",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "US ambassador calls on Israel to prosecute settlers for violence; European diplomats also attacked",
-    "lead": "The American ambassador to Israel has urged the country to prosecute the settlers responsible for the violent attack on a journalist from The Washington Post. A group of Western diplomats was also attacked. Follow all developments in the Middle East in our liveblog.",
-    "sourceHash": "742f008230ee",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:ae751a82",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41248,6 +41292,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
+  },
+  {
+    "id": "news:b29272a6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sc Heerenveen wins away at ADO in harsh conditions",
+    "lead": "In stormy and rainy The Hague, Sc Heerenveen secured a hard-fought Eredivisie win at ADO: 2-3. The Dane Jacob Trenskow was important for the Frisians with two goals, and Maxence Rivera provided two assists. ADO did not follow up on their first league win of the season, last week against reigning champions PSV.",
+    "sourceHash": "c6c6c829dda6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:b2937e99",
@@ -42526,17 +42581,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:b8fb310d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Daughter of Emile Ratelband offers 2500 euro for tip leading to missing father",
-    "lead": "The eldest daughter of Emile Ratelband has shared an appeal on LinkedIn for the golden tip in the search for her father. 'I miss my father! I haven't seen him in 1 year and 9 months,' writes Minou Ratelband. She is offering a reward of 2500 euro for the tip that leads to finding her father.",
-    "sourceHash": "40b43e8bb552",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:b9015d2e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43373,6 +43417,17 @@
     "translated": "2026-10-18"
   },
   {
+    "id": "news:bd9b00cc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "ADO come off worst in entertaining match against Heerenveen in harsh conditions",
+    "lead": "ADO Den Haag and SC Heerenveen provided entertainment in the Eredivisie under harsh conditions, with strong wind and heavy rain. The Frisians left with the win: 2-3.",
+    "sourceHash": "dd44c927d237",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:bda07d91",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44075,6 +44130,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
+  },
+  {
+    "id": "news:c1a0716a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Trump casts early vote for midterms",
+    "lead": null,
+    "sourceHash": "445fa52feb3c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:c1afbd31",
@@ -46574,17 +46640,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:cb9e8eb9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sparta finally knows the feeling of winning at Het Kasteel again on party evening",
-    "lead": "On the party evening marking the 110th anniversary of Het Kasteel, Sparta finally managed to win at home again. Bottom-placed Willem II was sent packing 3-2 after an entertaining football evening.",
-    "sourceHash": "b89ccb2e719e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
-  },
-  {
     "id": "news:cbb3b158",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48620,6 +48675,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:d3784af7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Police intervene in fights during Walibi Fright Nights, riot police deployed",
+    "lead": "A large police force had to intervene on Saturday evening at Walibi Fright Night after several fights broke out. The mobile unit (ME) even had to be deployed. On social media, young people write that they felt unsafe during the unrest at the event.",
+    "sourceHash": "3f20752136a5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:d3816b08",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48794,6 +48860,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
+  },
+  {
+    "id": "news:d454207c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Disastrous European Championship for Dutch darts players, Luke Littler shows insane high level",
+    "lead": "The European Championship has turned into a disaster for the Dutch darts players. On Saturday evening Jermaine Wattimena and Kevin Doets also lost in the second round, so all compatriots are already eliminated before the quarter-finals. Defending champion Gian van Veen already crashed out on Saturday afternoon.",
+    "sourceHash": "71b2bc152dbd",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:d454a1a8",
@@ -52646,6 +52723,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:e692cb46",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Max Verstappen misses out on third consecutive pole, Kimi Antonelli starts from pole in pursuit of first world title",
+    "lead": "Max Verstappen secured his third consecutive pole position at the Circuit of the Americas, but he missed out on it. On Sunday (21.00 Dutch time), championship leader Kimi Antonelli starts from first place at the United States Grand Prix in pursuit of his first world title. Verstappen follows in P2, ahead of teammate Isack Hadjar (P3).",
+    "sourceHash": "2275d8ec3ef0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:e697b4c5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -54384,6 +54472,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:ed7fcab2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Under the leadership of Micky van de Ven, Spurs finally win at Chelsea: 0-2",
+    "lead": null,
+    "sourceHash": "2b1479380836",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
+  },
+  {
     "id": "news:ed936690",
     "language": "en",
     "sourceLanguage": "nl",
@@ -54976,6 +55075,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
+  },
+  {
+    "id": "news:f08a47a7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Patriarch Jair Bolsonaro may be held under house arrest, his family can keep steering Brazil to the right for many years",
+    "lead": "Whoever wins on Sunday, leftist president Lula da Silva or his challenger Flávio Bolsonaro, the radical right-wing Bolsonaro family is more powerful than ever in Brazilian politics. \"We will still have to deal with this clan for a very long time.\"",
+    "sourceHash": "c25c9e999364",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-24"
   },
   {
     "id": "news:f0a7b1c5",
