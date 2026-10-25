@@ -121,6 +121,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:10270d4b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "More than eighty injured after bus plunges into ravine near Barcelona",
+    "lead": "More than eighty people were injured on Sunday after a bus plunged into a ravine in Spain. Seven of them are seriously injured.",
+    "sourceHash": "e242d0641e2a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:102b29c5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -693,6 +704,17 @@
     "translated": "2026-10-21"
   },
   {
+    "id": "news:12c27383",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Silicon Valley has always felt chosen",
+    "lead": "The tech bros who wield the sceptre over social media and AI stand in a tradition, sees Jurgen Masure . In Silicon Valley the view has existed for much longer that a small tech elite may decide where humanity is headed.",
+    "sourceHash": "2420ddf34d7f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:12e23a23",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1021,6 +1043,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:140b3e94",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Historic election result in Serbia: students oust corruption-accused former president",
+    "lead": "Serbian president Aleksandar Vucic admitted defeat on Sunday in the parliamentary elections, which were won by the student-led protest movement.",
+    "sourceHash": "c4b66072d574",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:1415f656",
@@ -1428,6 +1461,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
+  },
+  {
+    "id": "news:15fcd972",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "MAGA foreign policy is a mess",
+    "lead": "Democrats disagree on what comes next.",
+    "sourceHash": "052e9a2a607b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:15fe64b6",
@@ -2044,6 +2088,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
+  },
+  {
+    "id": "news:18bd243a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Hopefully the Israelis seize their chance in the elections",
+    "lead": null,
+    "sourceHash": "c028087a9582",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:18bf1321",
@@ -4796,6 +4851,17 @@
     "translated": "2026-10-22"
   },
   {
+    "id": "news:25d99cc8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Opinion: Thankfully, artists are absent from the cabinet's plans for culture",
+    "lead": null,
+    "sourceHash": "dc01df03f8b8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:25e09b17",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5159,6 +5225,17 @@
     "translated": "2026-10-23"
   },
   {
+    "id": "news:278f3177",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Live F1 | Verstappen surprised by Red Bull strategy, Antonelli happy that updates finally work",
+    "lead": "Good evening and welcome to this live blog! My name is Laurine Slingerland and I will keep you updated on the Grand Prix of the United States here. Enjoy!",
+    "sourceHash": "ea01a431890a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:278f9852",
     "language": "nl",
     "sourceLanguage": "en",
@@ -5355,6 +5432,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:28720bfe",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Max Verstappen eindigt als derde in Austin terwijl Kimi Antonelli dichterbij de F1-titel komt",
+    "lead": "Max Verstappen eindigde zondag als derde in de Grand Prix van de Verenigde Staten in Austin, Texas.",
+    "sourceHash": "558828d87a18",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:28751a91",
@@ -5861,6 +5949,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:2b248875",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Vucic acknowledges defeat in Serbian elections, students declare victory",
+    "lead": null,
+    "sourceHash": "2282fb7c7e87",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:2b2a2649",
@@ -8129,17 +8228,6 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:34da56b4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Hospital bots mainly target claims, not illnesses",
-    "lead": "In the United States, health insurers are sounding the alarm: AI use in hospitals there caused as much as $1 mrd in extra healthcare costs over the last two years, columnist Sophie van Gool writes.",
-    "sourceHash": "0f59cad6ba79",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:34ebcba",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8424,17 +8512,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:35fa67af",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Proud and cowardly",
-    "lead": "A rescue by the ECB comes with many conditions that France certainly does not want to meet.",
-    "sourceHash": "5ea87a42e7cb",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:361db881",
@@ -10560,17 +10637,6 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:3fa24d3d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'Bergkamp-style' Kylian Mbappé shows Golden Ball form with sublime goal and panenka",
-    "lead": "Kylian Mbappé has once again shown that he is among the top favourites for next Monday's Golden Ball award. With two fine goals he helped Real Madrid to a 4-1 win over Sevilla.",
-    "sourceHash": "e012e9868272",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:3fac12bd",
     "language": "nl",
     "sourceLanguage": "en",
@@ -11284,6 +11350,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:428b31a7",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Twente verrast AZ met late doelpunten terwijl Willem II in de problemen blijft",
+    "lead": "AZ Alkmaar miste zondagavond de kans om de achterstand op koploper Feyenoord te verkleinen en verloor thuis met 2-0 van FC Twente.",
+    "sourceHash": "3d1874603302",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:429afe4f",
@@ -13453,6 +13530,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:4d147db6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "FC Twente overtakes AZ after win in Alkmaar",
+    "lead": "FC Twente closed the tenth matchday of the Eredivisie with a win over AZ and has overtaken the club from Alkmaar in the standings. In the AFAS Stadion in Alkmaar the score was 0-2. Twente now sit fourth with 20 points, level with fifth-placed AZ and third-placed PSV. Feyenoord lead the table with 24 points.",
+    "sourceHash": "c550ca76559f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:4d2627f2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13517,6 +13605,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
+  },
+  {
+    "id": "news:4d629d2c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Antonelli moves closer to title with win in Austin, Verstappen 3rd",
+    "lead": "Kimi Antonelli, with victory in the Grand Prix of the United States, is within reach of his first Formula 1 world title. The Italian stayed ahead of Monegasque Charles Leclerc in the Ferrari and Max Verstappen in the Red Bull in his Mercedes and won his ninth Grand Prix by a large margin.",
+    "sourceHash": "1c084d430f3f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:4d74e7db",
@@ -13794,6 +13893,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:4e4a0f3c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Former president Vucic admits defeat in Serbian elections, students win",
+    "lead": "Serbia's former president Aleksandar Vucic admitted on Sunday that he had lost the parliamentary elections. This appears to mean that a protest movement led by students has won. The victory means a \"fundamental political shift\".",
+    "sourceHash": "6dd4d397f29d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:4e5aa913",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13924,17 +14034,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
-  },
-  {
-    "id": "news:4ef6912b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Lazio remain joint leaders in Serie A after win over Juventus",
-    "lead": "Lazio continue to perform well in the Italian football league. The team coached by Gennaro Gattuso won the away match against Juventus 3-0. After seven matchdays Lazio have 19 points and share the top spot with reigning champions Internazionale.",
-    "sourceHash": "07fd964dca40",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:4ef9ee3d",
@@ -14883,6 +14982,17 @@
     "translated": "2026-10-21"
   },
   {
+    "id": "news:5375c82b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Student movement wins elections in Serbia after years of protests, Vučić concedes defeat",
+    "lead": null,
+    "sourceHash": "0647510f6fb4",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:5379467",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15026,6 +15136,17 @@
     "translated": "2026-10-24"
   },
   {
+    "id": "news:53d940c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Míchel on Ajax's narrow win over Sparta: 'Ter Stegen was the best man on the pitch'",
+    "lead": null,
+    "sourceHash": "7c75c50c4068",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:53dd2f60",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15136,6 +15257,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:543b6e36",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Problems with high water on Texel and in Friesland, Hollandsche IJssel barrier closed",
+    "lead": "The Hollandsche IJssel barrier near Krimpen aan den IJssel closed last night around 21.00 hours to protect the hinterland against high water. This is the first time this storm season, <entity id=\"org:rijkswaterstaat\">Rijkswaterstaat</entity> reports.",
+    "sourceHash": "cd3973299a96",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:543ce343",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15200,6 +15332,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:548a886b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dead and thousands of homes without power after storm Boelo in the United Kingdom",
+    "lead": "In the United Kingdom two people have died due to storm Boelo. Due to the extreme weather more than 150,000 homes are without power.",
+    "sourceHash": "4ad6981fb1f6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:548bf94b",
@@ -23170,8 +23313,8 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Cheaper and more control: companies look with interest at Chinese AI",
-    "lead": "What if you could use AI more cheaply and still keep control over the information you share? Companies and organisations working with AI technology are looking with great interest at open AI models, which are mainly made by Chinese companies. While major American AI companies such as Anthropic, OpenAI and Google charge subscription fees and charge for use of their most powerful closed AI models, open AI models are free to download. Users can therefore choose for themselves on which servers an open AI model runs, whereas with closed models the maker decides. That can be risky if you want to process personal or sensitive information with a closed AI model: that data is processed on computer equipment you do not manage yourself. The most popular open AI models are made by Chinese companies such as Alibaba, DeepSeek, Moonshot and Z.ai. A number of American companies also release open AI models, including Meta, the company behind Facebook and Instagram. Great interest in open AI models. The law firm Driven Lawyers in Amsterdam makes gratefully use of this. The company runs a small version of the AI model Qwen on computer servers in Germany, says founder Arvid van Oorschot. \"That model is less good than the large American AI models, but for some tasks it is very suitable. We use it, for example, to make summaries of legal contracts.\" \"Previously that was handwork, now we do it with AI. We really don't want to use an expensive American AI model for that. If you keep going, the costs add up considerably. It is important for a company to keep an eye on that.\" There is a lot of interest among companies in this kind of open model, says Philip Gast. He is one of the founders of The Stack, a network of companies and people working with AI technology. \"For some tasks you really don't need an expensive AI model.\" \"You can download open models for free. The biggest and most powerful AI models cannot simply be run on your laptop. For that you still need expensive equipment with a lot of computing power. That is why there are also companies that offer various open AI models on their servers. That also costs money, but you can still come out cheaper.\" One of those companies is OpenRouter, worldwide one of the largest parties offering various AI models. Global usage figures from the American company show that AI use is increasing enormously and that open models are being used more and more. At the end of last year about 30 percent of AI use was of open models and 70 percent of 'closed' AI models, such as Claude (from Anthropic), GPT (OpenAI) and Gemini (Google). Recently that has reversed: 70 percent of AI use now comes from open models, mainly from Chinese companies. Working with sensitive data. Besides cost, it also plays a role that with an open AI model you have much more control over your data. \"As a law firm we work with a lot of sensitive files and information,\" says Van Oorschot. \"We don't want to send those to servers in America or China.\" Because you can simply download the model, as a company you can decide yourself on which servers it runs. For many companies it is important or even necessary that the information stays within Europe, for example in healthcare or the defence industry. Open models therefore pose a serious threat to American AI companies, says Gast. Keeping control of your information is important, but for many companies it is mainly about cost. \"If you can do your work with much cheaper AI models from China, why would you still use an expensive American model?\" China wants to impose restrictions. Until now Chinese AI companies have been able to make their open models freely available, but the question is how long that will last. The Chinese government plans to impose restrictions on AI technology. If the rules come, that could mean open AI models will from now on only be made public with a licence, or even be banned outside China, tomorrow. The licensing requirement, according to the current plan, does not apply to AI models that have already been made public, such as the popular models from DeepSeek and Z.ai, which are now also widely used in Europe and the United States. China correspondent Gabi Verberg: \"China wants with the restrictions to ensure that the country can use valuable knowledge as much as possible itself, while the major competitor, the United States, does not benefit from it. Earlier this year the Chinese government still blocked the takeover of the Chinese AI company Manus by the American company Meta.\" \"Since last month it has been much easier for the Chinese government to stop Chinese people who want to travel abroad. According to experts this measure is also intended to make Chinese AI talent easier to control.\" \"The proposal now on the table creates a lot of uncertainty. The question is whether the leading Chinese AI companies will be able to keep sharing their best new models as open models with the rest of the world in future, and under what conditions. That could be a major blow for the American and European companies that are only too keen to use Chinese AI technology.\"",
-    "sourceHash": "4aef3bdc525c",
+    "lead": "What if you could use AI more cheaply and still keep control over the information you share? Companies and organisations that work with AI technology are looking with great interest at open AI models, which are mostly made by Chinese companies. While major American AI companies such as Anthropic, OpenAI and Google charge subscription fees and charge for use of their most powerful closed AI models, open AI models can be downloaded for free. Users can therefore choose for themselves on which servers an open AI model runs, whereas with closed models the maker decides. That can be risky if you want to process personal or sensitive information with a closed AI model: that data is processed on computer equipment you do not manage yourself. The most popular open AI models are made by Chinese companies such as Alibaba, DeepSeek, Moonshot and Z.ai. A number of American companies also release open AI models, including Meta, the company behind Facebook and Instagram. High interest in open AI models The law firm Driven Lawyers in Amsterdam makes good use of this. The firm runs a small version of the AI model Qwen on computer servers in Germany, says founder Arvid van Oorschot. \"That model is less good than the large American AI models, but for some tasks it is very suitable. We use it, for example, to make summaries of legal contracts.\" \"In the past that was manual work, now we do it with AI. We really don't want to use an expensive American AI model for that. If you keep going, the costs add up considerably. It is important for a company to keep an eye on that.\" There is a lot of interest from companies in this kind of open model, says Philip Gast. He is one of the founders of The Stack, a network of companies and people who work with AI technology. \"For some tasks you really don't need an expensive AI model.\" \"You can download open models for free. The largest and most powerful AI models can't simply be run on your laptop. For that you still need expensive equipment with a lot of computing power. That is why there are also companies that offer various open AI models on their servers. That also costs money, but you can still come out cheaper.\" One of those companies is OpenRouter, worldwide one of the largest providers offering various AI models. Global user figures from the American company show that AI use is increasing enormously and that open models are being used more and more. At the end of last year, about 30 percent of AI use was open and 70 percent was 'closed' AI models, such as Claude (from Anthropic), GPT (OpenAI) and Gemini (Google). Recently that has reversed: 70 percent of AI use now comes from open models, mainly from Chinese companies. Working with sensitive data Besides cost, another factor is that with an open AI model you have much more control over your data. \"As a law firm we work with a great many sensitive files and information,\" says Van Oorschot. \"We don't want to send those to servers in America or China.\" Because you can simply download the model, a company can decide for itself on which servers it runs. For many companies it is important, or even necessary, that the information stays within Europe, for example in healthcare or the defence industry. Open models therefore pose a serious threat to the American AI companies, says Gast. Keeping control over your information is important, but for many companies it is mainly about cost. \"If you can do your work with much cheaper AI models from China, why would you still use an expensive American model?\" China wants to impose restrictions Until now Chinese AI companies have been able to make their open models freely available, but the question is how long that will last. The Chinese government plans to impose restrictions on AI technology. If the rules come, open AI models could in future only be made public with a licence, or even be banned outside China. According to the current plan the licence requirement does not apply to AI models that are already public, such as the popular models from DeepSeek and Z.ai that are already widely used in Europe and the United States. China correspondent Gabi Verberg: \"With these restrictions China wants to make sure that the country can use valuable knowledge as much as possible itself, while the major competitor, the United States, does not benefit from it. Earlier this year the Chinese government still blocked the takeover of the Chinese AI company Manus by the American company Meta.\" \"Since last month it has been much easier for the Chinese government to stop Chinese people who want to travel abroad. According to experts this measure is also meant to make Chinese AI talent easier to control.\" \"The proposal now on the table creates a lot of uncertainty. The question is whether the leading Chinese AI companies will be able to keep sharing their best new models as open models with the rest of the world in the future, and under what conditions. That could be a major blow for American and European companies that are only too eager to use Chinese AI technology.\"",
+    "sourceHash": "8c6fb6c6752b",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
@@ -23181,8 +23324,8 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Woman found dead in apartment in Eindhoven, man arrested",
-    "lead": "In an apartment in Eindhoven, a woman was found dead under suspicious circumstances this afternoon. A man who is suspected of involvement in her death has been arrested. The <entity id=\"org:politie\">politie</entity> rules out that the woman died a natural death, says the spokesperson for the Oost-Brabant unit. The suspect was arrested \"near the apartment\". A detective team and forensic investigators are at the home tonight to carry out an investigation. The police received a report around 16.30 hours. The deceased woman was subsequently found in the apartment on Van Kinsbergenstraat in the north of Eindhoven. Whether the suspect and the victim knew each other, the police cannot say in the interest of the investigation. The police may come with more information tomorrow.",
-    "sourceHash": "f21c60d94151",
+    "lead": "In an apartment in Eindhoven a woman was found dead this afternoon under suspicious circumstances. A man suspected of involvement in her death has been arrested. The <entity id=\"org:politie\">politie</entity> rules out that the woman died a natural death, says the spokesperson for the Oost-Brabant unit. The suspect was arrested \"near the apartment\". A detective team and forensic investigators are at the home this evening to carry out an investigation. The police received a report around 16.30 hours. The deceased woman was subsequently found in the apartment on Van Kinsbergenstraat in the north of Eindhoven. Whether the suspect and the victim knew each other, the police cannot say in the interest of the investigation. The police may have more information tomorrow.",
+    "sourceHash": "1c3e2e6a66d6",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
@@ -23213,9 +23356,31 @@
     "id": "news:5d36948",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Former president Vucic admits defeat as student movement wins Serbia elections",
-    "lead": "The Student List in Serbia has won the most votes in the parliamentary elections. That is what former president Vuvic says based on an exit poll. He thereby acknowledges his defeat. An exit poll is not an official result, but a poll based on a sample of voters. These are the most exciting elections in Serbia in a long time, in which a large-scale student protest movement, the Student List, is taking on the autocratic leader Aleksandar Vucic and his Serbian Progressive Party (SNS). Voters have turned out in record numbers. Turnout at 19.00 was 67.6 percent, according to polling agencies and observer organisations CeSID and Ipsos. That is the highest turnout since the breakup of Yugoslavia in 1992. The polling stations close at 20.00. The first results are expected around 22.00. Long queues Long queues formed today at polling stations throughout Serbia and at embassies abroad. According to news agency Reuters, Vucic also had to wait almost two hours to vote. Vucic stepped down as president in September and wanted to become prime minister now in order to stay in power. The student movement had called on people to vote early today, because the party feared that Vucic would try to stay in power with the help of fraud. Incidents at polling stations Reports are circulating of violent incidents at a number of polling stations. The European ambassador to Serbia expressed his concern on X. \"We call on all those involved to remain calm, act responsibly and refrain from violence and provocations. We also call on the competent authorities to guarantee the safety of everyone involved in the electoral process\", he wrote. Images are also circulating on social media of groups of men dressed in black roaming the capital Belgrade. The riot police has been deployed at various locations in the centre. Mass protests The Student List grew out of two years of mass protests against Vucic. These began when part of the station in the city of Novi Sad collapsed, killing sixteen people. The renovation of the station was reportedly carried out poorly by companies with close ties to the SNS, according to criticism. In recent weeks, stories have emerged that civil servants, their friends and their families have been pressured to prove that they vote for Vuvic and his SNS.",
-    "sourceHash": "fb00a0ebe300",
+    "title": "Former president Vucic admits defeat: student movement wins Serbian elections",
+    "lead": "The Studentenlijst in Serbia has won the most votes in the parliamentary elections. That is what former president Vucic says based on an exit poll. He thereby acknowledges his defeat. \"We do not have final results yet, but based on a sample it is clear that we have lost these elections. The Studentenlijst has won. They will get between 135 and 140 seats, while we will win 105\", said Vucic. These are the most exciting elections in Serbia in a long time, in which a large-scale student protest movement, the Studentenlijst, is taking on the autocratic leader Aleksandar Vucic and his Serbian Progressive Party (SNS). In Belgrade people are celebrating: cars drive through the streets honking and people are shouting \"victory\" and \"he's finished\". The spokesperson for the Studentenlijst said that \"the voice of the people has been heard\". \"Tonight we celebrate the victory, tomorrow we build the future\", he added. Correspondent Thijs Kettenis is in Belgrade and is barely audible right after Vucic admitted his defeat: The voters have turned out in record numbers. Turnout stood at 67.6 percent at 19.00 hours, according to polling agencies and observer organisations CeSID and Ipsos. That is the highest turnout since the breakup of Yugoslavia in 1992. There were long queues at polling stations across Serbia and at embassies abroad today. According to news agency Reuters, Vucic also had to wait almost two hours to be able to vote. He stepped down in September after nine years as president and wanted to become prime minister now in order to stay in power. The student movement had called on people to vote early today, because the party feared that Vucic would try to stay in power with the help of fraud. Early in the evening, reports circulated of violent incidents at a number of polling stations. The European ambassador to Serbia expressed his concern on X. \"We call on all parties to remain calm, act responsibly and refrain from violence and provocations. We also call on the competent authorities to guarantee the safety of everyone involved in the electoral process\", he wrote. Images also circulated on social media of groups of men dressed in black marching through the capital Belgrade. The riot police have been deployed at various locations in the centre. Mass protests The Studentenlijst grew out of two years of mass protests against Vucic. These began when part of the station in the city of Novi Sad collapsed, killing sixteen people. The renovation of the station was reportedly poorly carried out by companies with close ties to the SNS, according to the criticism. In recent weeks, reports have emerged that civil servants, their friends and their families have been pressured to prove that they vote for Vuvic and his SNS.",
+    "sourceHash": "a766b5ac0c53",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
+    "id": "news:5d36962",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Polling stations in Brazil open two hours longer after intervention by Supreme Court",
+    "lead": "Polling stations in Brazil will remain open two hours longer today for the decisive round of the presidential election, the Supreme Court has decided. The reason is problems voters are experiencing with transport to polling stations. Originally, polling stations would close at 17.00 Brazilian time (21.00 Dutch time). Voting has now been extended on the order of the Supreme Court until 19.00 Brazilian time (23.00 Dutch time). In view of the ruling, the highest Brazilian electoral court (TSE) decided to temporarily halt the processing and publication of the interim results. Brazil votes electronically. This is at stake in these elections: The decision of the Supreme Court was taken by judge Cristiano Zanin and came after requests from the two presidential candidates Lula da Silva (80) and Flávio Bolsonaro (45). The team of the current left-wing president Lula said that voters in nine states were hindered by problems with buses from casting their vote in time. His opponent, the far-right Flávio Bolsonaro, submitted a similar request to the Supreme Court due to heavy rainfall in southern Brazil, where flooding made transport to polling stations difficult. According to the judge, extending voting by two hours was justified \"given the seriousness of the reported facts\". Neck-and-neck race Candidate Lula is trying to become president for the fourth time and is locked in a neck-and-neck race with his ideological counterpart Bolsonaro. Bolsonaro surprisingly won the first round of the presidential election, while Lula led in the polls. Because Bolsonaro did not obtain an absolute majority, a second round was needed to determine a winner. The result determines whether Brazil, with more than 200 million inhabitants, continues on its left-wing course or turns to the right. The elections are seen as important for the political balance in South America. Earlier this year, Trump-friendly right-wing candidates won the presidential elections in Peru and Colombia . In Chile that happened at the end of last year . A win for Lula would mean that Brazil, like Mexico, retains a left-wing <entity id=\"org:regering\">regering</entity>.",
+    "sourceHash": "e0e7be520e91",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
+    "id": "news:5d36969",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sven Kockelmann (56) wins Sonja Barend Award for interview with former prime minister Schoof",
+    "lead": "Sven Kockelmann (56) has won the Sonja Barend Award. The journalist wins the prize for his interview with former prime minister Schoof. BNNVARA, the broadcaster that presents the prize, praises Kockelmann for the way he turned the interview with the then outgoing prime minister into \"not a political cross-examination, but a personal conversation about a turbulent premiership\". The interview took place on 20 February of this year during a special broadcast of the WNL programme Café Kockelmann. Kockelmann was chosen by a jury of fifty journalists. \"A revealing conversation,\" says jury member Maartje van Weegen in a press release. His interview was one of the nine conversations on the longlist for the Sonja Barend Award this year. 'Honest look back' He received the award tonight from last year's winner, Coen Verbraak, during the broadcast of talk show Pauw & De Wit. Eva Jinek finished in second place with her interview with SGP leader Chris Stoffer about abortion. Verbraak came third with his interview with journalist Frits Abrahams about his wife's dementia in the Human programme Over Leven. Kockelmann says on the BNNVARA website that with the conversation he mainly wanted to get to know the person behind the prime minister. \"The intention was an honest look back, with openness about matters. I wanted to know what had gone on inside him and how he had experienced the events.\" Kockelmann calls the interview with the prime minister \"remarkable\", mainly because of Schoof's candour. \"I did wonder: was it sharp enough? Was it complete enough? The doubt remains, no matter how long I do this work. Even the people who were technically involved in the recording were silent afterwards.\" Sonja Barend has died Sonja Barend passed away in April of this year, but her trade prize for the best television interview continues to exist, as she herself wanted. It is the first time that 'The queen of the talk show' will not present the prize named after her.",
+    "sourceHash": "f6cfbbe64471",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
@@ -23428,6 +23593,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:5e321590",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "This is what Kimi Antonelli must do to win the world title next weekend in Mexico",
+    "lead": "Kimi Antonelli does not yet have his very first Formula 1 world title secured. The 20-year-old Italian did win the Grand Prix of the United States, but his pursuers Lewis Hamilton and George Russell each finished one place higher than they should have.",
+    "sourceHash": "27fb6cd81200",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:5e45868e",
@@ -23923,6 +24099,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:60cad55f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Real Madrid hand FC Barcelona their first league defeat",
+    "lead": "Real Madrid handed FC Barcelona their first defeat of the season in the Spanish league in El Clásico. At Camp Nou it was 2-1 for the visitors from Madrid. Kylian Mbappé scored twice for Real, and Raphinha scored Barcelona's goal.",
+    "sourceHash": "36d2bea112ac",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:60d400cc",
@@ -25661,6 +25848,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
+  },
+  {
+    "id": "news:688ba2aa",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sven Kockelmann wins Sonja Barend Award for interview with outgoing prime minister Dick Schoof",
+    "lead": null,
+    "sourceHash": "a92bd26be572",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:688da971",
@@ -27610,15 +27808,15 @@
     "translated": "2026-10-23"
   },
   {
-    "id": "news:71ee1b71",
+    "id": "news:71f567e",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Real Madrid beat Sevilla with fine goals from Güler and Mbappé",
-    "lead": "Real Madrid won the last league match before next week's top match against FC Barcelona. Coach José Mourinho saw his side beat Sevilla 4-1 at the Bernabéu stadium.",
-    "sourceHash": "92e4ec353ecb",
+    "title": "Student list wins elections in Serbia, autocrat Vucic defeated",
+    "lead": "The brand-new 'student party', made up of inexperienced experts and academics, received 51 percent of the votes, while the ruling party SNS received 40 percent. Despite repression and without a figurehead, the message of change struck a broad chord.",
+    "sourceHash": "46fb63b8c6f7",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-18"
+    "translated": "2026-10-25"
   },
   {
     "id": "news:71fd413b",
@@ -27921,9 +28119,9 @@
     "id": "news:73326e90",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Ajax wins away match against Sparta and climbs to second place",
-    "lead": "Ajax has continued its good form from the wins over FC Groningen and Atalanta with a victory at Sparta Rotterdam. At Het Kasteel, the team coached by Míchel Sánchez won 2-1 thanks to goals from Tolu Arokodare and Abdellah Ouazane. Jens Toornstra scored for Sparta.",
-    "sourceHash": "3b9b838c7041",
+    "title": "Ajax win away at Sparta, FC Twente now alongside AZ and PSV",
+    "lead": "Ajax continued their good form of wins over FC Groningen and Atalanta with a victory at Sparta Rotterdam. At Het Kasteel the side coached by Míchel Sánchez won 2-1 thanks to goals from Tolu Arokodare and Abdellah Ouazane. Jens Toornstra scored for Sparta.",
+    "sourceHash": "ea2728c064be",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
@@ -28422,6 +28620,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:7527bf7b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Late bloomers, despite an icy east wind",
+    "lead": null,
+    "sourceHash": "751f3105a642",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:752fc8e2",
@@ -28985,6 +29194,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:77ae6a56",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Frenkie de Jong makes comeback for FC Barcelona in El Clásico",
+    "lead": "Frenkie de Jong played his first minutes of the season for FC Barcelona on Sunday evening. He came on as a substitute in the 74th minute of El Clásico against Real Madrid with the score at 1-1. De Jong had not yet played due to a knee injury he suffered while playing for the Dutch national team during last summer's World Cup in the United States, Canada and Mexico.",
+    "sourceHash": "4bb6e81a52e6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:77e169d8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29258,17 +29478,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
-  },
-  {
-    "id": "news:794a6960",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Europe's lame-duck year could hardly come at a worse time",
-    "lead": "Elections will sap what little resolve the continent has to make tough decisions.",
-    "sourceHash": "b6d0fe33881b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-16"
   },
   {
     "id": "news:7959eae4",
@@ -30151,17 +30360,6 @@
     "translated": "2026-10-15"
   },
   {
-    "id": "news:7dcddf38",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dutch gymnasts reach surprise World Championships team final in front of home crowd",
-    "lead": null,
-    "sourceHash": "5c1377c170a4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:7dd7a26c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30613,6 +30811,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:7f77ab7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'If I had called her mama, I would have confirmed her motherly role'",
+    "lead": null,
+    "sourceHash": "8735fa3b95ae",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:7f8af5d7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30699,17 +30908,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
-  },
-  {
-    "id": "news:7ffdc29",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Niels Zonneveld wins his first darts title after dream weekend in Maastricht",
-    "lead": "Niels Zonneveld won the first darts title of his career on Sunday. The Noord-Holland native won the Euro Tour tournament in Maastricht, where he booked several impressive wins. In the final he got the better of Danny Noppert: 8-5.",
-    "sourceHash": "2c5a851631ff",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:8000b5e0",
@@ -31986,6 +32184,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:866ebf8b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Live Clásico | Real Madrid celebrates after win at FC Barcelona, De Jong returns",
+    "lead": "Welcome to this live blog! My name is Tim Siekman and I will keep you updated on the clash between FC Barcelona and Real Madrid in La Liga. Enjoy!",
+    "sourceHash": "0a4266c0d5b2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:8675bdb4",
@@ -33451,6 +33660,17 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:8d4a5c21",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Frenkie de Jong's comeback falls flat due to Mbappé's goals in Barcelona-Real",
+    "lead": "Frenkie de Jong made his long-awaited return for FC Barcelona on Sunday. The Dutch substitute could not prevent a 1-2 defeat in El Clásico against Real Madrid. Kylian Mbappé scored both goals for the visitors.",
+    "sourceHash": "077608f8428e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:8d4b6251",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33658,6 +33878,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:8e6353d6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "How a stern portrait became the American symbol of motherly love",
+    "lead": null,
+    "sourceHash": "fc08803ba090",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:8e6ce674",
@@ -34755,6 +34986,17 @@
     "title": "Why the rainbow flag increasingly provokes resistance (and what the cause of that is)",
     "lead": "They are stolen, smeared or vandalised. The rainbow flag is under fire in the Netherlands. And the intensity is something new, experts say.",
     "sourceHash": "e872afc2c169",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
+    "id": "news:933062bb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Antonelli wins, but still falls short of the title, Verstappen third at GP in Austin",
+    "lead": null,
+    "sourceHash": "971ec19430f1",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
@@ -36201,6 +36443,17 @@
     "translated": "2026-10-24"
   },
   {
+    "id": "news:994b44f5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "French prime minister to meet with pupils tomorrow after a month of protests",
+    "lead": "After more than a month of protest actions, representatives of French pupils will be received tomorrow at 2:30 p.m. by prime minister Sébastien Lecornu. This is according to the organisations Renouveau lycéen and Les Lycéens!",
+    "sourceHash": "7a70696fd3b6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:99501b39",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36749,6 +37002,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
+  },
+  {
+    "id": "news:9bd784cb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sven Kockelmann wins Sonja Barend Award for interview with Dick Schoof",
+    "lead": "Sven Kockelmann won on Sunday the Sonja Barend Award, the prize for the best interview of the past TV season. The presenter receives the prize for his conversation with outgoing prime minister Dick Schoof.",
+    "sourceHash": "49a9d878e028",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:9beb459c",
@@ -37565,6 +37829,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:9f76341d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Opinion: Help Surinamese people with subsidy applications to the Netherlands",
+    "lead": null,
+    "sourceHash": "3af98a4e4b40",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:9f7b33ba",
     "language": "en",
     "sourceLanguage": "nl",
@@ -37607,17 +37882,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
-  },
-  {
-    "id": "news:9fba0651",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Maarten Spanjer got married in hospital just five days before his death",
-    "lead": "Maarten Spanjer married five days before his death. His widow Monique Waterham told De Telegraaf . \"As a married man, I want to go into the coffin\", Spanjer said according to the newspaper when he knew he did not have long left.",
-    "sourceHash": "0aa46e09b7e4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:9fc21c9e",
@@ -38962,17 +39226,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:a5e08cee",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Flight from Tel Aviv to Vienna makes emergency landing after bomb threat",
-    "lead": "An aircraft en route from the Israeli city of Tel Aviv to Vienna has made an emergency landing in Sofia. According to the Bulgarian Ministry of Transport and Communications, this happened because of a bomb threat.",
-    "sourceHash": "ef2d6d790833",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:a5e1caaa",
     "language": "en",
     "sourceLanguage": "nl",
@@ -39196,9 +39449,9 @@
     "id": "news:a6fdf5f1",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Reader reactions: Could I secretly be a boomer after all?",
+    "title": "Could I secretly be a boomer after all?",
     "lead": null,
-    "sourceHash": "7f44a0ec16ae",
+    "sourceHash": "86cfd5c4d6aa",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
@@ -40997,17 +41250,6 @@
     "translated": "2026-10-24"
   },
   {
-    "id": "news:af42de72",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Niels Zonneveld wins first PDC title and 41.000 euros in Maastricht: 'This is indescribable'",
-    "lead": "Niels Zonneveld has won his first PDC title. Triple Z had a fantastic weekend in Maastricht and beat fellow countryman Danny Noppert in the final of the Dutch Darts Championship (5-8).",
-    "sourceHash": "48ffb9879810",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:af4c7351",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41237,6 +41479,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:b0158967",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ross Smith wins final against Martin Schindler and claims the European Darts Championship for the second time in his career",
+    "lead": "Ross Smith has won the European Darts Championship for the second time in his career. The Englishman beat German Martin Schindler 11-8 in the final. Top favourite Luke Littler had already been knocked out earlier in the day in the quarter-finals.",
+    "sourceHash": "1ae6ef6df6fd",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:b02b8c85",
@@ -41591,17 +41844,6 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:b1c6e11f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Personnel news Monday 19 October",
-    "lead": "New job? Email personalia@fd.nl, with a high-resolution photo and a job description in Dutch.",
-    "sourceHash": "642285c8338a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:b1c6eeb0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41820,17 +42062,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
-  },
-  {
-    "id": "news:b27fb428",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Woman drowned in Spain after flooding and torrential rain",
-    "lead": "In Spain a Mediterranean storm caused many problems on Sunday. Flooding after torrential rain has left streets under water and traffic disrupted. A woman also died by drowning.",
-    "sourceHash": "de97e0a863fc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:b28ebccf",
@@ -43351,6 +43582,17 @@
     "translated": "2026-10-21"
   },
   {
+    "id": "news:b9efd275",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The spider is unloved. But for some people every spider is a source of tension",
+    "lead": "In a spider-rich country like the Netherlands, arachnophobia can affect a person's entire life. That fear of spiders can be overcome. How does that work?",
+    "sourceHash": "4b544210a640",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:b9f841b9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43360,17 +43602,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
-  },
-  {
-    "id": "news:ba049dc1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "NEC draw with Fortuna for the fourth time in a row",
-    "lead": "NEC have drawn for the fourth time in a row. Coach Dick Schreuder's side had to settle for a 2-2 draw at home against Fortuna Sittard. The last three matches against Go Ahead Eagles, Ajax and Levski Sofia all ended 1-1.",
-    "sourceHash": "672468493ddf",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:ba0bcfd6",
@@ -43813,6 +44044,17 @@
     "translated": "2026-10-25"
   },
   {
+    "id": "news:bc53505c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Serbian leader Vučić concedes election defeat, students head for victory",
+    "lead": "A defeat for Vučić would mean that a student protest movement has for the first time succeeded in defeating an authoritarian leader at the ballot box.",
+    "sourceHash": "cff809172ebf",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:bc5ac9ef",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43962,6 +44204,17 @@
     "title": "Long unthinkable, now it's happening: salmon farmers are feeding their fish chicken scraps",
     "lead": null,
     "sourceHash": "bab2299cee7b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
+    "id": "news:bd2cbe81",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cabinet advisory council: New world order calls for a radically different development cooperation policy",
+    "lead": null,
+    "sourceHash": "23edf277fa90",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
@@ -45518,6 +45771,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:c4bd5017",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cyclist killed in Amsterdam and surfer missing at the coast due to storm Boelo",
+    "lead": "A cyclist died on Sunday after a tree fell over in Amsterdam. The tree fell over during storm Boelo. In Scheveningen the search for a missing water sports enthusiast has been called off.",
+    "sourceHash": "c6c937351b78",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:c4ce9ff9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -46088,6 +46352,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
+  },
+  {
+    "id": "news:c6a0fc85",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Good (joint) singing and making lovely songs is back in fashion, as also shown at the Left of the Dial festival",
+    "lead": null,
+    "sourceHash": "c3248975f17a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:c6b3e200",
@@ -46836,6 +47111,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:c980bbed",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "FC Twente strikes late against AZ, Lucas Vennegoor of Hesselink scores first Eredivisie goal",
+    "lead": "FC Twente earned a deserved win away at AZ on Sunday evening. Thanks to late goals from Norwegian left winger Sondre Ørjasæter and substitute Lucas Vennegoor of Hesselink, the score became 0-2 in Alkmaar.",
+    "sourceHash": "c50e4a22e197",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:c984c37d",
@@ -47608,6 +47894,17 @@
     "translated": "2026-10-21"
   },
   {
+    "id": "news:ccae1436",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Interview with outgoing prime minister Schoof earns Sven Kockelmann the first Sonja Barend Award",
+    "lead": "The Sonja Barend Award, the prize for the best interview of the past TV season, has been won this year by Sven Kockelmann. The presenter receives the prize for his conversation with outgoing prime minister Dick Schoof in a special broadcast of Café Kockelmann on NPO 2.",
+    "sourceHash": "cc06f93964ed",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:cce57d97",
     "language": "en",
     "sourceLanguage": "nl",
@@ -47971,6 +48268,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:ce0bf263",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Antonelli has to postpone title celebration despite win in Austin, Verstappen third",
+    "lead": "Kimi Antonelli won the Grand Prix of the United States on Sunday, but still has to wait a little longer for his first world title. Lewis Hamilton and George Russell postponed his title celebration in Austin. Max Verstappen finished third behind Charles Leclerc.",
+    "sourceHash": "d96e9028cf2f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:ce14933b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48134,17 +48442,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
-  },
-  {
-    "id": "news:ce6fe90",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Four soldiers killed in major fire at Canadian military base, at least 19 injured and in life-threatening condition",
-    "lead": null,
-    "sourceHash": "88c0ef3c2a39",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:ce7ccdd2",
@@ -48686,6 +48983,17 @@
     "translated": "2026-10-21"
   },
   {
+    "id": "news:d0710404",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Polling stations in Brazil open two hours longer after Supreme Court intervenes",
+    "lead": "Brazil's Supreme Court has ruled that Brazilians will have two hours longer to vote on Sunday. The court agreed with a request from both candidates.",
+    "sourceHash": "a7a2aeedc75e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:d07bdc05",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48917,6 +49225,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:d181c295",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'Within ten years, 80 percent of wine bottles could be reusable'",
+    "lead": "After three years of trying, it has worked: a sustainable wine bottle design that producers can refill again, as already happens with beer bottles. In conversation with Nienke Nijholt, co-creator of the reusable wine bottle.",
+    "sourceHash": "f6ebad6879a0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:d182f289",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48948,6 +49267,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:d1972f9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "FC Twente back among the top after win over AZ in Alkmaar",
+    "lead": null,
+    "sourceHash": "173a1fce8e16",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:d1a681bc",
@@ -49454,17 +49784,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:d3a83a5f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "FC Twente lose their first home defeat against FC Utrecht",
-    "lead": "FC Twente have lost a home Eredivisie match for the first time this season. FC Utrecht were too strong at the Grolsch Veste, winning 2-1. A win would have taken FC Twente up to joint second place in the standings, but they are now fifth, six points behind leaders Feyenoord.",
-    "sourceHash": "abb23da223fa",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:d3ad6c30",
@@ -50556,17 +50875,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:d86ed7bf",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Part of bondholders refuse to give Vesteda extra leeway again",
-    "lead": "The residential investor wants to tighten the conditions under which bondholders can reclaim their money if Vesteda has to shrink significantly. That has only partly succeeded.",
-    "sourceHash": "244b6067a4a5",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:d87a14ce",
     "language": "en",
     "sourceLanguage": "nl",
@@ -50884,6 +51192,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-14"
+  },
+  {
+    "id": "news:da6f897b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Video | Harbour on Texel under water due to storm Boelo",
+    "lead": null,
+    "sourceHash": "d7b14405a1fc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:da887718",
@@ -51423,6 +51742,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:dcd0938f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Charivarius in a tight spot due to a grammar school girl",
+    "lead": null,
+    "sourceHash": "385d01e3fde7",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:dd05d309",
@@ -51997,6 +52327,17 @@
     "translated": "2026-10-21"
   },
   {
+    "id": "news:dfadf2bc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sven Kockelmann receives Sonja Barend Award for interview with departing prime minister Schoof",
+    "lead": null,
+    "sourceHash": "a6afecaf5970",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:dfc495ee",
     "language": "en",
     "sourceLanguage": "nl",
@@ -52019,6 +52360,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:dfef2d63",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Verstappen lacked the speed to fight for victory in Austin",
+    "lead": "Max Verstappen did not have the speed to be able to drive for victory at the Grand Prix of the United States. That is what the Red Bull driver said in the interview after his third place at the Circuit of The Americas in Austin, where Italian Kimi Antonelli in the Mercedes took the win.",
+    "sourceHash": "397b507e2de0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:dff335c1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -52028,6 +52380,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:dff84b3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Mourinho ends Barcelona's impressive winning streak in his familiar Camp Nou",
+    "lead": null,
+    "sourceHash": "0ca990e4cc9c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:e017fa1d",
@@ -53128,6 +53491,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
+  },
+  {
+    "id": "news:e5198bb5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Lennox Heitinga (15) shows his talent at the Messi Cup in Miami: Ajax talent scores twice directly from a corner",
+    "lead": "Lennox Heitinga, captain of Ajax Under-16, has made a name for himself at the prestigious Messi Cup in Miami. The son of former international and ex-Ajax coach John Heitinga scored twice in identical fashion against same-age players from Internazionale of Milan.",
+    "sourceHash": "86614d690c03",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:e51d38f5",
@@ -55110,6 +55484,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:eccec0bc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Grumbling Max Verstappen takes maximum points with third place, Antonelli (not yet) just short of championship",
+    "lead": "Kimi Antonelli is not yet the youngest Formula 1 champion ever. The Italian did what he had to do himself: win the Grand Prix of the United States, but teammate George Russell (P8) and Lewis Hamilton (P4) are just not yet eliminated from the world championship battle. Max Verstappen is. After two wins, he had to settle for P3, behind Charles Leclerc.",
+    "sourceHash": "35588b101a5e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:ecd0304",
     "language": "en",
     "sourceLanguage": "nl",
@@ -55911,17 +56296,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:f0e99716",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Turkey faces a high bill for stock exchange scandal",
-    "lead": "If the government does not tighten oversight of the stock exchange after a scandal last month, index provider MSCI is considering withdrawing the country's status as an 'emerging market'.",
-    "sourceHash": "a9a0de790e56",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:f0f741c0",
@@ -57035,23 +57409,23 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:f654d2bc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Four dead in major fire at Canadian military base, at least 19 injured in life-threatening condition",
-    "lead": "Four soldiers died in the fire at the military base in the Canadian province of Alberta on the night of Saturday into Sunday. Canadian Prime Minister Mark Carney announced this on Sunday during a press conference in Ottawa.",
-    "sourceHash": "37bbc919a800",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:f65c7c83",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "This is how I knew love again: somewhat suffocating. I slept as I used to",
     "lead": null,
     "sourceHash": "05b89602bc6b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
+    "id": "news:f65d6f11",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tension back in Spain: Kylian Mbappé decides El Clásico on Frenkie de Jong's return",
+    "lead": "Kylian Mbappé helped Real Madrid to a hard-fought win in El Clásico on Sunday evening. The French star player put De Koninklijke ahead before halftime with a curious goal, after which Barcelona equalised in the second half through top scorer Raphinha. Just before time, Mbappé definitively became the celebrated man by scoring the 1-2.",
+    "sourceHash": "6afa172b0172",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
