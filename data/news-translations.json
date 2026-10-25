@@ -22,17 +22,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:10133ce5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Word search",
-    "lead": null,
-    "sourceHash": "270011d47bdc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:10133ce6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -97,6 +86,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:10133d03",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Word Search",
+    "lead": null,
+    "sourceHash": "270011d47bdc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:101f5ac9",
@@ -174,6 +174,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:104ea091",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Our favourite animals from five hundred episodes of Dierenrijk",
+    "lead": null,
+    "sourceHash": "d34bd762af72",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:1050ec6c",
@@ -5302,23 +5313,23 @@
     "translated": "2026-10-24"
   },
   {
+    "id": "news:288449a7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "New York Archdiocese pays sexual abuse victims 800 million dollars in compensation",
+    "lead": null,
+    "sourceHash": "9aaae43e8f05",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:2890c911",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "How the weather shaped the invasion of Normandy",
     "lead": "It is going to storm on D-Day, so don't even think about it, the Allies' weather forecaster warned. But how do you keep 150,000 men in check? Rob van Scheers discusses Pressure, about the diabolical dilemma in June 1944.",
     "sourceHash": "7c05d377ac95",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
-    "id": "news:289ee984",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Vorto",
-    "lead": null,
-    "sourceHash": "e0d279537212",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
@@ -5388,6 +5399,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:289ee9a2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Vorto",
+    "lead": null,
+    "sourceHash": "e0d279537212",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:28a12474",
@@ -6765,6 +6787,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:2ed14f64",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The American success of Willem de Kooning | Audio story on Sunday",
+    "lead": "A hundred years ago, Rotterdam native Willem de Kooning boarded a ship to America. There he became one of the figureheads of modern painting.",
+    "sourceHash": "301b8f2ca5b2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:2edbb868",
     "language": "en",
     "sourceLanguage": "nl",
@@ -7469,6 +7502,17 @@
     "translated": "2026-10-23"
   },
   {
+    "id": "news:31f0771",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "ADO Den Haag comes out on the losing end of an entertaining match against SC Heerenveen in harsh conditions",
+    "lead": "ADO Den Haag and SC Heerenveen provided entertainment in the Eredivisie under harsh conditions, with strong wind and heavy rain. The Frisians took the win: 2-3.",
+    "sourceHash": "cade2c5c2eae",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:31f36dea",
     "language": "en",
     "sourceLanguage": "nl",
@@ -7522,17 +7566,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
-  },
-  {
-    "id": "news:3244786",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The Alblasserwaard is a breeding ground for miracles | Sunday listening story",
-    "lead": "Modern faith healers are popular in the Alblasserwaard, traditionally an orthodox Protestant area. How does that come about, and who are all these healers?",
-    "sourceHash": "c2677ec0ce45",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:3251392d",
@@ -7643,17 +7676,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
-  },
-  {
-    "id": "news:32e8eeae",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'I was a kind of dictator to my employees'",
-    "lead": "FD Gazelle Eef Ester had to learn how to lead: 'I don't think I was a nice boss.'",
-    "sourceHash": "61d9eecea399",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:32f91fe",
@@ -9328,17 +9350,6 @@
     "translated": "2026-10-24"
   },
   {
-    "id": "news:3aafff36",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cinco",
-    "lead": null,
-    "sourceHash": "b5d17bb2750c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:3aafff37",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9403,6 +9414,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:3aafff54",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cinco",
+    "lead": null,
+    "sourceHash": "b5d17bb2750c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:3ab6fa4c",
@@ -10802,6 +10824,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:40af6490",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Van 't Wout and Velzeboer win medals in short track in Vancouver",
+    "lead": "Short tracker Jens van 't Wout won gold in the 500 meters at the first race of the World Tour in Vancouver. He finished ahead of Canadian Maxime Laoun and Turk Furkan Akar.",
+    "sourceHash": "e018d01880bf",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:40b220b7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11594,6 +11627,17 @@
     "translated": "2026-10-22"
   },
   {
+    "id": "news:448df088",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Winter time has started: earlier daylight in the morning and earlier darkness in the evening",
+    "lead": "Winter time has started again. In the night from Saturday to Sunday, the clock was set back from 3.00 to 2.00. This means it is standard time again. From now on, it gets light earlier in the morning and the lamps need to be turned on earlier in the evening.",
+    "sourceHash": "bc56534c15f7",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:4490d039",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11737,17 +11781,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:4533d180",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Brilliant",
-    "lead": null,
-    "sourceHash": "c5eb20e21098",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:4533d181",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11812,6 +11845,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:4533d19e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Brilliant",
+    "lead": null,
+    "sourceHash": "c5eb20e21098",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:4535aa1f",
@@ -12133,17 +12177,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:469c16b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Owner of China daycare sentenced to life for poisoning more than 200 children",
-    "lead": "The owner of a Chinese daycare centre and five of her employees have been sentenced to prison terms for poisoning more than two hundred children with non-edible paint. The owner has been given a life sentence.",
-    "sourceHash": "d9ae91dd9d0a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:46a1f9b1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12373,17 +12406,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
-  },
-  {
-    "id": "news:47e1852e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The unusual love story of Bart, Trees and Ada: 'We never wanted to cause offense'",
-    "lead": "Ada is married to Bart and has a 6-year-old son when she falls in love with Trees. That spark ignites in 1978. Until Bart's death in 2012, the three live under one roof. Now Ada (86) and Trees (80) live in their first shared home. \"We never wanted to cause offense.\"",
-    "sourceHash": "8fbfb9dec6d8",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:48032b80",
@@ -15453,17 +15475,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
-  },
-  {
-    "id": "news:56175a82",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Eleven still missing after boat capsized off Baja California coast; survivors attacked by sharks",
-    "lead": "The US Coast Guard and navy are searching for possible survivors of a boat that capsized on Saturday off the coast of Baja California. On Friday, 16 Mexican people on board were already rescued.",
-    "sourceHash": "05a3f934e783",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:5620e1d1",
@@ -19899,28 +19910,6 @@
     "translated": "2026-10-18"
   },
   {
-    "id": "news:5d2d3d9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "At least nineteen people crushed at festival in Indian city of Kolkata",
-    "lead": "At a festival in the Indian city of Kolkata, at least nineteen people died after panic broke out in the crowd. Also, 25 people were injured. According to local media, panic broke out at the exit. According to the premier of the state of West Bengal, this happened after a misleading announcement. The people may have been standing close together to take shelter from the rain at that moment and were crushed. Most of the victims are women and children. Kolkata police have arrested twelve people, who will be questioned. They are organisers, volunteers and security guards.",
-    "sourceHash": "8db7af91df10",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
-    "id": "news:5d2d3da",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Car hits spectators at football match in Kansas: 2 dead and 11 injured",
-    "lead": "In the American state of Kansas, a car hit a group of spectators during a football match. Two people died: a boy of 6 and a man of 35. Eleven others were injured. The incident took place at a sports complex in the city of Wichita. A lot of people were present at the time, who also saw it happen. The driver of the car is a 34-year-old woman. She was driving a black pick-up truck, which also contained two children. The woman has been arrested. One of the woman's children was playing football on another field in the complex at the time of the incident. It is not known whether the children in the car are also the woman's. Police in Wichita are investigating what happened.",
-    "sourceHash": "e93be0df33a5",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:5d2d3de",
     "language": "en",
     "sourceLanguage": "nl",
@@ -22850,12 +22839,56 @@
     "id": "news:5d3647f",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Summer time ends: tonight the clocks go back one hour",
-    "lead": "Tonight at 03.00 hours summer time ends. This means the clock is set back one hour and most people can sleep an hour longer tomorrow morning. In the morning it gets light earlier, and in the evening it gets dark earlier. Other European countries also switch to 'winter time' tonight. Winter time is the normal time for the Netherlands. Summer time starts again on 28 March 2027. Then the clock goes forward one hour again. The mnemonic is therefore: in spring the clock goes forward. Changing the clock In 1916 the Netherlands introduced summer time for the first time. This followed the Germans. They introduced summer time to save coal during the First World War. Changing the time was abolished in the Netherlands in 1946 but reintroduced in 1977. Moving the clock was meant to save energy during the oil crisis, because in summer time the lighting came on one hour later. Debate Europe changes time every half year. After years of discussion, the European Commission wanted to stop this in 2018. A European summer time survey showed that a majority of respondents agreed with this. The main argument for introducing summer time in 1977 was energy saving, but a study showed that only 0.3 percent of energy was actually saved. Another argument was that some people suffer from changing the clock. They are thrown off their rhythm, lie awake the first nights after the time change, or get cravings for food at odd moments. Although many European countries want to get rid of changing the clock, there is no agreement on which time should then be kept. As a result, the plan to arrive at one standard time has been shelved again.",
-    "sourceHash": "3534dd873fcd",
+    "title": "Daylight saving time is over: tonight the clock went back one hour",
+    "lead": "Tonight daylight saving time ended. That means the clock was set back one hour and most people can sleep an hour longer. In the morning it gets light earlier, and in the evening it gets dark earlier. Other European countries also switch to 'winter time' tonight. Winter time is the standard time for the Netherlands. Daylight saving time returns on 28 March 2027. Then the clock will go forward an hour again. The mnemonic is: in spring the clock goes forward. Changing the clock In 1916 the Netherlands introduced daylight saving time for the first time. This followed the Germans. They introduced it to save coal during the First World War. Changing the time was abolished in the Netherlands in 1946 but reintroduced in 1977. Changing the clock was meant to save energy during the oil crisis, because in summer time the lights came on an hour later. Discussion Every half year Europe changes time. After years of discussion, the European Commission wanted to stop this in 2018. A European daylight saving time survey showed that a majority of respondents agreed. The main argument for introducing daylight saving time in 1977 was energy saving, but a study showed that only 0.3 percent energy was actually saved. Another argument was that some people have trouble with changing the clock. They are thrown off their rhythm, lie awake the first nights after the change or get cravings for food at odd moments. Although many European countries want to get rid of changing the clock, there is no agreement on which time should then be kept. As a result, the plan to reach one standard time has been shelved again.",
+    "sourceHash": "72db29210b81",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-24"
+    "translated": "2026-10-25"
+  },
+  {
+    "id": "news:5d3649f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Musk: Ukraine violated terms of satellite system Starlink",
+    "lead": "Elon Musk says the Ukrainian army violated the terms of use of Starlink. On his social media platform X he writes that it was never permitted to use the satellite system for offensive drone attacks to kill people. \"It was never permitted to use the commercial satellite service Starlink, which is meant for civilians, for offensive drone attacks to kill people. Nor should it ever be,\" Musk writes. According to him, his company SpaceX closed off that possibility last week. Speed restored Musk reacted after Ukrainian president Zelensky reported yesterday that the connections of Starlink and the military variant Starshield had been restored. \"The speeds are now as they should be,\" Zelensky wrote on X. Ukraine uses both Starlink, the commercial satellite internet service of SpaceX, and Starshield, the military variant intended for governments and defence. On 14 October the Ukrainian army reported problems with the satellite connections. At certain speeds the connections dropped out, making military drones harder to control. Military missions were also disrupted. The restrictions among other things complicated the deployment of Ukrainian interceptor drones against Russian attack drones. Tensions The matter has further increased tensions between Kyiv and Washington. The Wall Street Journal reported on Wednesday that Musk himself had ordered the speed of the military satellite connections to be limited. Musk has confirmed that SpaceX limited the speed of Starlink. About Starshield he said that the US government has control over changes to the military system. The problems arose a few days after President Donald Trump had announced that he wanted to buy Russian diesel and had suspended new sanctions against Moscow. He had also called on Ukraine to stop attacks on Russian oil refineries.",
+    "sourceHash": "cebab28dda37",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
+    "id": "news:5d364a0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Storm Boelo causes nuisance in several places",
+    "lead": "The strong wind last night and overnight caused damage or nuisance in various places, mainly due to fallen trees. In Amsterdam-Noord a moving car was hit and its driver was injured. In Rijnsburg, near Leiden, a house was damaged. In Culemborg a tree fell onto a parked car. The car is a total loss. Here and there trees came down on through roads. For example, the N207 near Alphen aan den Rijn was blocked, and in Nijeveen in Drenthe a residential area was temporarily inaccessible until the fire brigade sawed the fallen tree into pieces and removed it. In Gouderak near Gouda an electricity pole fell over a road. Storm Boelo The Amsterdam Dance Event also suffered from the strong wind. For example, the festival Into the Woods at the NDSM wharf was stopped early as a precaution to prevent dangerous situations. The <entity id=\"org:koninklijk-nederlands-meteorologisch-instituut\">KNMI</entity> issued code yellow for the coastal areas and South Limburg due to severe gusts. The turbulent weather is caused by storm Boelo, which crossed the North Sea from Scotland. In IJmuiden wind force 9 was measured overnight.",
+    "sourceHash": "cd90a4c51df2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
+    "id": "news:5d364a1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Renewed disturbances during Walibi Fright Nights",
+    "lead": "At the Walibi amusement park in Biddinghuizen, fights broke out last night during the so-called Fright Nights. Footage circulating on social media shows groups of visitors coming to blows with each other. The <entity id=\"org:politie\">politie</entity> tried to disperse the fighting groups. Dogs and batons were used. It is not known whether anyone has been arrested. According to Omroep Flevoland, the unrest started toward the end of the evening. What the cause was is still unclear. The Fright Nights were also disrupted by fights last year. Walibi then announced extra measures for this year to tackle unwanted behaviour. Walibi holds special evenings around Halloween in which actors are deployed to scare people. The event attracts thousands of visitors every year. Earlier, the actors complained that they were hit, groped and harassed by visitors. Walibi also promised improvement back then.",
+    "sourceHash": "f68d1c253f95",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
+    "id": "news:5d364a2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Thousands of Israelis demand investigation into October 7, a day before elections",
+    "lead": "In the Israeli city of Tel Aviv, thousands of people demonstrated on Saturday evening, three days before the Israeli elections, against the government of Prime Minister Benjamin Netanyahu. The demonstrators demand an independent state investigation into the failures that preceded the Hamas attack of October 7, 2023. Netanyahu refuses such an investigation. According to the organizers, more than 100,000 people attended the demonstration. The demonstration was held at the so-called Hostages Square, where weekly demonstrations were held during the war for the release of the people abducted to Gaza. Among the demonstrators were former hostages and relatives. The father of a man who was murdered in Gaza after his abduction also addressed the crowd. He said that political leaders still have not decided to find out the truth about that day. Opposition leader Gadi Eisenkot was also present. He is considered one of Netanyahu's most important challengers. His election program states that he wants an independent investigation into the events of October 7. On Tuesday, Israelis can go to the polls to elect a new parliament. Foreknowledge Netanyahu is accused in Israel, among other things, of delaying agreements on the release of hostages, as a result of which they remained captive longer. Last month it became known that the prime minister was warned a week and a half before the Hamas terror attack of October 7, 2023, that the terrorist organization was preparing a major attack on Israel. According to two Israeli journalists, however, Netanyahu did nothing with that information and did not share it with the intelligence services. According to official Israeli figures, about 1,200 people lost their lives in the attack of October 7, 2023. More than 250 people were also abducted and taken to the Gaza Strip. Since then, more than 74,000 Palestinians have been killed by Israel in Gaza in total, among them many children. In that period, 175,000 people were also injured.",
+    "sourceHash": "5d929319af7e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:5d3fc14f",
@@ -23518,17 +23551,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:6070bb70",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Explainer | How does an American firing squad work? This is how the unique execution will take place",
-    "lead": null,
-    "sourceHash": "4d8801a9e96e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:60a5648d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -23769,17 +23791,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
-  },
-  {
-    "id": "news:623f65ef",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Laughing out loud in the hospital",
-    "lead": "Cabaret performer Saman Amini is giving a show, and the audience can briefly slap their thighs over sometimes painful subjects.",
-    "sourceHash": "81be71024bee",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-17"
   },
   {
     "id": "news:623f7825",
@@ -25751,17 +25762,6 @@
     "translated": "2026-10-21"
   },
   {
-    "id": "news:6a479b6d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Chinese daycare owner gets life sentence for poisoning over 200 children",
-    "lead": "The owner of a Chinese daycare center has been sentenced to life imprisonment for poisoning more than two hundred children with non-edible paint. Five staff members must also go to prison.",
-    "sourceHash": "1098fbc85f8e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:6a5cade",
     "language": "en",
     "sourceLanguage": "nl",
@@ -26123,17 +26123,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:6c1b62ae",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "India holds the world's largest census. How do you count 1.4 billion people?",
-    "lead": null,
-    "sourceHash": "6d6746d22e05",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:6c2d5d6b",
@@ -26884,6 +26873,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:705d4237",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Barack Obama blames Trump for higher cost of living",
+    "lead": null,
+    "sourceHash": "6379f8ae6570",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:7060bc83",
     "language": "en",
     "sourceLanguage": "nl",
@@ -27423,6 +27423,17 @@
     "translated": "2026-10-23"
   },
   {
+    "id": "news:727254ae",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Actually, you can conclude that Albert Heijn has things pretty well sorted",
+    "lead": null,
+    "sourceHash": "e2e84ac48521",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:7281a0dd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -27841,6 +27852,17 @@
     "translated": "2026-10-23"
   },
   {
+    "id": "news:7411f380",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Verstappen starts second at GP in Austin, Antonelli on pole",
+    "lead": "Max Verstappen failed in Austin to win pole position for the third time in a row in Formula 1. The four-time world champion of Red Bull had to acknowledge only the superiority of championship leader Kimi Antonelli in qualifying for the Grand Prix of the United States and took the second starting position. Verstappen's teammate Isack Hadjar and the Monegasque Charles Leclerc of Ferrari make up the second row.",
+    "sourceHash": "b8399dd6d6c8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:741ca8a2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -27872,17 +27894,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:7441fbc7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Paul Scheffer and Dolf van den Brink on Europe, Michiel Herkemij on his biggest mistake, and batteries from Eindhoven",
-    "lead": "Specially selected for you by the FD editorial team: six articles from the past week that are well worth reading this Sunday.",
-    "sourceHash": "53fbc815cece",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:7469ef15",
@@ -27960,6 +27971,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
+  },
+  {
+    "id": "news:74ce73be",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Actress and author Nadja Hüpscher (54): 'In Amsterdam you have to be street-smart, stand your ground, it's pretty tough for children'",
+    "lead": null,
+    "sourceHash": "9f8e490c150b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:74cf3e3d",
@@ -28644,6 +28666,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:777d1af6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Amsterdam's Sinterklaas steamboat needs to be restored for 3 million euros: 'Otherwise it will end up on dry land'",
+    "lead": null,
+    "sourceHash": "dcc3ad15044f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:77892da0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28741,6 +28774,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:7846f9d4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "That Andrzej Steinbach would become an artist was anything but expected: now his photographs are in Huis Marseille",
+    "lead": null,
+    "sourceHash": "41881bfd3270",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:78476f09",
@@ -29711,6 +29755,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:7cfebaea",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Barack Obama blames Trump for rise in cost of living: 'Two years of chaos, cruelty, corruption and incompetence'",
+    "lead": "Former US president Barack Obama has delivered harsh criticism of President Donald Trump during a Democratic campaign event. Obama blames Trump for the higher cost of living. According to him, the current president has made a 'number of bad decisions'. \"The most important thing is that he started an unnecessary war that nobody asked for,\" said Obama. Follow all developments in the United States via our liveblog.",
+    "sourceHash": "9fc1b7adb8aa",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:7d2a62b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30017,17 +30072,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:7eba0a3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Problems mount for PSV in tough weeks: 'But we are not going to play the victim'",
-    "lead": "It is a difficult time for PSV, with three defeats in the last four matches and a heavy week ahead. Coach Peter Bosz sees more and more players dropping out, but mainly tries to stay positive.",
-    "sourceHash": "0982ec0cd7d5",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:7eba5fce",
@@ -30569,6 +30613,17 @@
     "translated": "2026-10-23"
   },
   {
+    "id": "news:8130b6af",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Georgia (25) went viral after being filmed with 'spy glasses'. But is that allowed? 'I had no idea'",
+    "lead": null,
+    "sourceHash": "5cb014d2ba03",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:8134dd0c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30655,17 +30710,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:81af4a11",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dead and injured in incident with major fire at military base in Canada",
-    "lead": null,
-    "sourceHash": "9211bc2ea7db",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:81c882fc",
@@ -30954,6 +30998,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:82c0a83d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Israel closes West Bank during Tuesday's elections",
+    "lead": null,
+    "sourceHash": "1115e9ca6ed5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:82ea01dd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31194,17 +31249,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:843b7c5d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Peaceful protest march of tens of thousands of French demonstrators overshadowed by violence from rioters",
-    "lead": null,
-    "sourceHash": "d7ffe6fb26da",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:845285fd",
@@ -31876,6 +31920,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:87761444",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "They are very young, skilled with weapons and merciless: Scandinavian teenagers are hired to carry out assassinations, including in Amsterdam",
+    "lead": null,
+    "sourceHash": "ae7310f7776b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:878033c2",
@@ -32844,6 +32899,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:8bfb15c0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "More than a hundred arrests after looting and arson by young people in Barcelona city centre",
+    "lead": null,
+    "sourceHash": "bbd6794960e8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:8bff1df9",
@@ -34056,17 +34122,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:91b7f02f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Fisherman (71) killed by 3.5 meter long alligator at lake in Florida",
-    "lead": "A 71-year-old man who was fishing on the bank of a lake in Florida has been killed by an alligator just over 3.5 meters long. It is already the second fatal alligator attack in the United States this year.",
-    "sourceHash": "09780437754c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:91bf2d23",
     "language": "en",
     "sourceLanguage": "nl",
@@ -34631,12 +34686,12 @@
     "id": "news:93d92944",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Trump casts early vote for midterms",
+    "title": "Barack Obama blames Trump for higher cost of living",
     "lead": null,
-    "sourceHash": "445fa52feb3c",
+    "sourceHash": "6379f8ae6570",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-24"
+    "translated": "2026-10-25"
   },
   {
     "id": "news:93dc452a",
@@ -35970,6 +36025,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:9a0df8e2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "New York abuse victims receive 800 million dollars in compensation from Catholic Church",
+    "lead": "The New York Archdiocese and lawyers for about 1,300 parishioners who say they were sexually abused by clergy of the diocese have agreed on a total compensation of 800 million dollars (nearly 715 million euros).",
+    "sourceHash": "598c0433bb57",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:9a26dd43",
     "language": "en",
     "sourceLanguage": "nl",
@@ -35990,17 +36056,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:9a4a618",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Exactly four",
-    "lead": null,
-    "sourceHash": "e7fcdf3c307a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:9a4a619",
@@ -36067,6 +36122,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:9a4a636",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Exactly four",
+    "lead": null,
+    "sourceHash": "e7fcdf3c307a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:9ab15c24",
@@ -37173,11 +37239,11 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Protests across Europe: nearly 1000 arrests in France",
-    "lead": "Large protests took place today at various locations across Europe. The police had to intervene in several cities.",
-    "sourceHash": "7797ed5a5ab1",
+    "lead": "Protests were held in various places across Europe yesterday, including against spending cuts and the rising cost of living. Police had to intervene in a number of cities. Read back the main events here.",
+    "sourceHash": "22526c4e367a",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-24"
+    "translated": "2026-10-25"
   },
   {
     "id": "news:9fa7f0be",
@@ -37334,6 +37400,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:a044a093",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Musk: 'Ukraine used drones to kill people and did not abide by the terms of Starlink'",
+    "lead": "Ukraine did not abide by the conditions for being allowed to use Starlink and used drones to kill people. That is what Elon Musk, head of SpaceX, which owns Starlink, says. Follow all developments in the war in Ukraine in our liveblog.",
+    "sourceHash": "37fd8b0e435d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:a053d203",
     "language": "en",
     "sourceLanguage": "nl",
@@ -37466,17 +37543,6 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:a0df5a77",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "With his further rapprochement with Russia, Trump hopes to solve all his problems in one go",
-    "lead": null,
-    "sourceHash": "b6b26883b753",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:a0e2bcbe",
     "language": "en",
     "sourceLanguage": "nl",
@@ -37486,17 +37552,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:a0e64085",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Filipino-born Krisha (26) picked Amsterdam over Manila: 'I'm not an expat, I'm an immigrant'",
-    "lead": null,
-    "sourceHash": "62ab8b4d3b34",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:a10d7ed",
@@ -37917,6 +37972,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:a354b78",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Elon Musk: 'Ukraine violated Starlink's terms and used drones to kill people'",
+    "lead": null,
+    "sourceHash": "e7ae9ebc1198",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:a354dab5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -38322,6 +38388,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
+  },
+  {
+    "id": "news:a4dd997e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Max Verstappen on Formula 1 in Rwanda: \"You can think something about a lot of countries\"",
+    "lead": "Formula 1 is racing ahead during this period. Follow all developments here.",
+    "sourceHash": "ba490386e169",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:a4ea09d2",
@@ -39501,17 +39578,6 @@
     "translated": "2026-10-21"
   },
   {
-    "id": "news:aaad9d26",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dead and injured after incident with large fire at military base in Canada",
-    "lead": "An unknown number of people have been killed and injured at a military base in the Canadian province of Alberta. Prime Minister Mark Carney wrote on X of 'a serious incident that caused a large fire'.",
-    "sourceHash": "089ffefa5941",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:aaba023c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -40238,17 +40304,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:ae5c673a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Your Move",
-    "lead": null,
-    "sourceHash": "0ca9c42013e9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:ae5c673b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -40313,6 +40368,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:ae5c6758",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Your Move",
+    "lead": null,
+    "sourceHash": "0ca9c42013e9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:ae5ddfd1",
@@ -40764,17 +40830,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
-  },
-  {
-    "id": "news:b051d77f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Ada (86) and Trees (80) lived together with Bart for 34 years and are now a couple: 'Love is not exclusive'",
-    "lead": "Ada is married to Bart and has a 6-year-old son. Then Trees moves into the village and they help with the move. While carrying boxes, it happens, completely unexpectedly: Ada falls in love. With her.",
-    "sourceHash": "022c592fb0af",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:b073ab62",
@@ -41679,6 +41734,17 @@
     "translated": "2026-10-24"
   },
   {
+    "id": "news:b4e8be5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Code yellow due to gusts of up to 100 kilometers per hour in coastal areas and Limburg",
+    "lead": "The <entity id=\"org:koninklijk-nederlands-meteorologisch-instituut\">KNMI</entity> warns of strong gusts of wind in the coastal areas, the western Wadden area and the Limburg hills. Code yellow applies in those areas until at least Sunday morning. Gusts of between 75 and 100 kilometers per hour are expected.",
+    "sourceHash": "f3e068a579d3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:b4e9c769",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41721,6 +41787,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:b533b75",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'We always talk about fatbikes, but Anne-Martine with her flapping hair and Floris with his tote bag also behave antisocially on their VanMoofs'",
+    "lead": null,
+    "sourceHash": "e52310a6b5e6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:b53929ce",
@@ -42031,6 +42108,17 @@
     "translated": "2026-10-22"
   },
   {
+    "id": "news:b654af7e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Lobsterman Josh from Maine is busier surviving than with the midterms",
+    "lead": "While the world looks at the American state of Maine, which can decide which party wins <entity id=\"org:eerste-kamer\">de Senaat</entity> in the midterms, lobster fisherman Josh is mainly trying to keep his head above water. \"If this continues, I can no longer bear the losses.\"",
+    "sourceHash": "6d5481abc4ab",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:b65a4c56",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42284,6 +42372,17 @@
     "translated": "2026-10-18"
   },
   {
+    "id": "news:b7be0016",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Seedorf finally 'really' on the bench as coach, but Corinthians lose again after a crazy final phase",
+    "lead": "For the first time, Clarence Seedorf was officially allowed to sit in the dugout as Corinthians coach on Saturday evening and move along the touchline in the away match against Vasco da Gama. It was not a success: in a thrilling final phase, his team, without the injured Memphis Depay, threw away a 2-1 lead in Rio de Janeiro and lost 3-2.",
+    "sourceHash": "066b1ecac650",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:b7c37071",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42491,6 +42590,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:b886c92",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "More than a hundred arrests after looting and arson by young people in Barcelona city centre",
+    "lead": null,
+    "sourceHash": "bbd6794960e8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:b8a82fdc",
@@ -42843,6 +42953,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:ba70f78",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Verstappen starts in Austin from P2, pole for Antonelli",
+    "lead": "Max Verstappen failed to win pole position for the third time in a row in Formula 1 in Austin. The four-time world champion of Red Bull had to concede to World Championship leader Kimi Antonelli in qualifying for the United States Grand Prix and secured the second starting position.",
+    "sourceHash": "b8b12ec79715",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:ba7c9bd",
@@ -43646,6 +43767,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:bf0dcbc8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Elon Musk: 'Ukraine violated Starlink's terms and used drones to kill people'",
+    "lead": null,
+    "sourceHash": "e7ae9ebc1198",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:bf1513d4",
@@ -44528,6 +44660,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:c35657be",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Israel closes West Bank during Tuesday's elections, Israeli army expels thousands of residents from Hebron",
+    "lead": "The West Bank will be closed off during Israel's parliamentary elections on Tuesday. The Israeli army has announced this. The army has also expelled 2000 Palestinian civilians from the city of Hebron. The Israeli minister of Defence said they may not return until the army is finished with all 'Hamas issues' in their neighbourhood. Follow all developments in the Middle East in our liveblog.",
+    "sourceHash": "c055cf1a71a0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:c35b3793",
     "language": "nl",
     "sourceLanguage": "en",
@@ -45120,17 +45263,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:c57cc33d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Explainer | US army forms unique firing squad: this is how the execution will proceed",
-    "lead": null,
-    "sourceHash": "01e51e934b2c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:c58b76a8",
@@ -45903,6 +46035,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:c8feb08d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'Kangaroo' Max Verstappen invites the circuit boss to drive in his car: 'Then he won't be able to walk anymore'",
+    "lead": "Max Verstappen, who is not satisfied with P2. That is the four-time world champion we know. With painkillers against the bumps, the Dutchman bounced 'like a kangaroo' to second place in qualifying for the United States Grand Prix. \"This is not what I expected.\"",
+    "sourceHash": "5c9ba6db27d1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:c9020ad7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -46209,6 +46352,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:c9a4b979",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "New York Archdiocese pays sexual abuse victims 800 million dollars in compensation",
+    "lead": null,
+    "sourceHash": "9aaae43e8f05",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:c9cf5ef8",
@@ -47278,17 +47432,6 @@
     "translated": "2026-10-24"
   },
   {
-    "id": "news:ce4c1601",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Forward Roll",
-    "lead": null,
-    "sourceHash": "19fc40e02aae",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:ce4c1602",
     "language": "en",
     "sourceLanguage": "nl",
@@ -47353,6 +47496,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:ce4c161f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Forward Roll",
+    "lead": null,
+    "sourceHash": "19fc40e02aae",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:ce4e331a",
@@ -47828,17 +47982,6 @@
     "translated": "2026-10-23"
   },
   {
-    "id": "news:d05259c5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sudoku",
-    "lead": null,
-    "sourceHash": "f81c9a141075",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:d05259c6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -47881,6 +48024,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:d05259e3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sudoku",
+    "lead": null,
+    "sourceHash": "f81c9a141075",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:d056d1f5",
@@ -48367,17 +48521,6 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:d27d2625",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Number Block",
-    "lead": null,
-    "sourceHash": "773ba346c5f3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:d27d2626",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48442,6 +48585,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:d27d2643",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Number Pad",
+    "lead": null,
+    "sourceHash": "773ba346c5f3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:d2815336",
@@ -50941,17 +51095,6 @@
     "translated": "2026-10-24"
   },
   {
-    "id": "news:de4d6a53",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The car that depreciates the most is surprisingly a Toyota: this is the reason",
-    "lead": "A Toyota that loses tens of thousands of euros in value in four years? It sounds almost unbelievable, but on the used car market a model can be found that has indeed plunged very hard.",
-    "sourceHash": "ad6e38ca30f9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
-  },
-  {
     "id": "news:de51685b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -52358,6 +52501,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
+  },
+  {
+    "id": "news:e52f0507",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Israel closes West Bank during Tuesday's elections",
+    "lead": null,
+    "sourceHash": "1115e9ca6ed5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:e52fdcb3",
@@ -54516,6 +54670,17 @@
     "translated": "2026-10-14"
   },
   {
+    "id": "news:ede77e95",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "More than a hundred arrests after looting and arson by youths in central Barcelona",
+    "lead": "In central Barcelona, youths looted shops on Saturday and set containers and cars on fire. This is reported by various Spanish media, including El Periódico and El Confidencial .",
+    "sourceHash": "7f5b440ccba8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
+  },
+  {
     "id": "news:edfbda85",
     "language": "nl",
     "sourceLanguage": "en",
@@ -55275,17 +55440,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:f1bbad0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Jetten defends International Criminal Court after Trump criticism: 'Hands off'",
-    "lead": "<entity id=\"person:rob-jetten\">Rob Jetten</entity> defended the International Criminal Court in The Hague in his first speech to the United Nations General Assembly. The prime minister was responding to recent statements by Donald Trump, although he did not name the American president.",
-    "sourceHash": "cbb8b3435a8d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:f1c077a3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -55713,6 +55867,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:f39a9133",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The many lives of the Omval: just when the Omval no longer existed, it finally received recognition",
+    "lead": null,
+    "sourceHash": "db3955ce45b8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-25"
   },
   {
     "id": "news:f3a18c4a",
@@ -56967,17 +57132,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
-  },
-  {
-    "id": "news:fa41d145",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Putin's village on Spitsbergen worries Norwegians",
-    "lead": "Spitsbergen is Norway's Achilles heel. The Russians set foot ashore there almost a century ago and have no intention of leaving the strategic island group.",
-    "sourceHash": "85b8029bbbd8",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:fa472b8a",
