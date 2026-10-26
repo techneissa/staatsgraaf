@@ -22,17 +22,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:10133ce6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Word search",
-    "lead": null,
-    "sourceHash": "270011d47bdc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:10133cfe",
     "language": "en",
     "sourceLanguage": "nl",
@@ -97,6 +86,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
+  },
+  {
+    "id": "news:10133d04",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Word Search",
+    "lead": null,
+    "sourceHash": "270011d47bdc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:101f5ac9",
@@ -361,6 +361,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:113b6f69",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Grumbling Verstappen takes maximum points with third place, Antonelli (not yet) narrowly misses title",
+    "lead": "Kimi Antonelli is not yet the youngest Formula 1 champion ever. The Italian did his part by winning the Grand Prix of the United States, but teammate George Russell (P8) and Lewis Hamilton (P4) have just narrowly not been eliminated from the championship fight. Max Verstappen has. After two wins, he had to settle for P3, behind Charles Leclerc.",
+    "sourceHash": "03c446d2977f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:113fb0da",
@@ -814,6 +825,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:1320ef73",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Development cooperation must be overhauled, argues government adviser, not for the first time",
+    "lead": null,
+    "sourceHash": "4ff62f79ceb4",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:132baed7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1155,6 +1177,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:146793df",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Shuttle bus plunges into ravine near Barcelona: over 80 injured",
+    "lead": "Over eighty people were injured in a bus accident near Barcelona, the Spanish broadcaster RTVE reports. For reasons still unknown, the shuttle bus plunged about twenty meters down into a ravine.",
+    "sourceHash": "86393ef7bc4c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:1468a0ee",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1494,17 +1527,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:1609b513",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Column Willem van Hanegem | Golden opportunity for Feyenoord, though a performance like that against Telstar is a wrong signal",
-    "lead": "Columnist Willem van Hanegem believes there is a golden opportunity for Feyenoord to become champions now that PSV has a considerable problem. 'But letting Telstar come back three times in the match also means that Feyenoord is vulnerable.'",
-    "sourceHash": "3d24e896c919",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:1630c86b",
@@ -2101,17 +2123,6 @@
     "translated": "2026-10-25"
   },
   {
-    "id": "news:18bf1321",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dead and three injured in Russian attack on Kyiv metro station",
-    "lead": "A woman has died in a Russian air attack on a metro station in the Ukrainian capital Kyiv. Besides the metro station, a 25-storey residential tower and other buildings were also damaged. Follow all developments in the war in Ukraine in our liveblog.",
-    "sourceHash": "711bfedbbc84",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:18d42982",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2286,17 +2297,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
-  },
-  {
-    "id": "news:19b62293",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Ethical hacker Joost (25) hacked the government and Nasa, AI worries him: 'A schoolchild can hack companies'",
-    "lead": null,
-    "sourceHash": "6ceb88791deb",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:19c42f1e",
@@ -2508,6 +2508,17 @@
     "translated": "2026-10-25"
   },
   {
+    "id": "news:1b1099d5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "More than eighty injured in bus accident near Barcelona",
+    "lead": "In a bus accident near Barcelona, 83 people were injured on Sunday, seven of them seriously. The bus left the road and plunged about 20 meters down a slope, reports Spanish broadcaster RTVE.",
+    "sourceHash": "04c6deeb7e07",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:1b219ebd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2583,6 +2594,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:1bab3012",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "What has happened to Sweden's welfare model, as famous as its flat-pack furniture?",
+    "lead": "If Sweden were a socialist utopia, it would be \"socialism that is good for yacht buyers\", wrote The Economist. The country, famous for protection from the cradle to the grave, is changing rapidly. \"The welfare state as it is now organised is no longer based on solidarity.\"",
+    "sourceHash": "65acdbd73b2d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:1bc51e5",
@@ -3460,17 +3482,6 @@
     "title": "Amsterdam asks minister for plan to treat crack addicts",
     "lead": "Amsterdam is asking minister <entity id=\"person:sophie-hermans\">Sophie Hermans</entity> of <entity id=\"org:ministerie-van-volksgezondheid-welzijn-en-sport\">Volksgezondheid, Welzijn en Sport</entity> to quickly provide clarity on the halting of a study into a medicine for people with a severe crack or cocaine addiction. Mayor <entity id=\"person:femke-halsema\">Femke Halsema</entity> and alderman Alexander Scholtes of Zorg write in a letter that they want Hermans to bring the parties involved together before 1 November to look for a solution.",
     "sourceHash": "21a0883a8832",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:1fa30a13",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Zoë Papaikonomou (44) rewrites news headlines: 'It is not an asylum crisis, but a reception scandal'",
-    "lead": null,
-    "sourceHash": "ad7214727e24",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -4884,17 +4895,6 @@
     "translated": "2026-10-23"
   },
   {
-    "id": "news:2600aff2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sanne Wevers (35) back at the world gymnastics championships in Ahoy after sixteen years: 'Very bizarre'",
-    "lead": "Sanne Wevers starts her eleventh world gymnastics championships in Rotterdam on Monday. The 2016 Olympic balance beam champion thought she was done with the sport, until the itch returned during a trip to Australia.",
-    "sourceHash": "7d61735d01f9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:260236fe",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5478,17 +5478,6 @@
     "translated": "2026-10-25"
   },
   {
-    "id": "news:289ee985",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Vorto",
-    "lead": null,
-    "sourceHash": "e0d279537212",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:289ee99d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5553,6 +5542,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
+  },
+  {
+    "id": "news:289ee9a3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Vorto",
+    "lead": null,
+    "sourceHash": "e0d279537212",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:28a12474",
@@ -6457,17 +6457,6 @@
     "translated": "2026-10-24"
   },
   {
-    "id": "news:2d1573dc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Lula and Bolsonaro clash in first debate ahead of the second round of elections",
-    "lead": "Brazilian presidential candidates Luiz Inácio Lula da Silva and Flávio Bolsonaro have fiercely attacked each other in the first of two televised debates. Sitting president Lula and the son of former president Jair Bolsonaro called each other liars and corrupt, among other things.",
-    "sourceHash": "0938691789fc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:2d1eef64",
     "language": "en",
     "sourceLanguage": "nl",
@@ -7236,17 +7225,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
-  },
-  {
-    "id": "news:3036eb31",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "You are better off taking the train than flying, but NS International makes it very difficult this way",
-    "lead": null,
-    "sourceHash": "dff4c9b20088",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:303d2ade",
@@ -8173,6 +8151,17 @@
     "translated": "2026-10-25"
   },
   {
+    "id": "news:34a21fb2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Chinese cars are selling like hot cakes; Germans and French are left behind",
+    "lead": "Dutch buyers have no doubts left about buying a Chinese car. In the first nine months of this year, 18,175 units were sold, a growth of nearly 125 percent. Traditional European car nations such as Germany and France are losing heavily.",
+    "sourceHash": "810bfcd8e33f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:34a2ad65",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8259,6 +8248,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:35083fef",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Serbian students beat Vucic: 'The last dictator of Europe has been defeated'",
+    "lead": null,
+    "sourceHash": "8fcf3e7e6f61",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:350c00b8",
@@ -8591,6 +8591,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:367b5dbf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Bite, swallow and off again: where can you best eat and have drinks near Amsterdam Centraal?",
+    "lead": null,
+    "sourceHash": "489b46a9ca8b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:367f6559",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8800,6 +8811,17 @@
     "translated": "2026-10-24"
   },
   {
+    "id": "news:379cb24f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "This humanitarian disaster must not become epic in proportions",
+    "lead": "Fighting the Houthis this way makes little sense, and it would not be a crazy idea for the Western allies of MbS to whisper that to him.",
+    "sourceHash": "f74d609750ec",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:37a72fe3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8831,17 +8853,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:37bc30a3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "How AI threatens to push the national budget deep into the red",
-    "lead": "Today in Dagkoers: what if AI makes part of income tax disappear? Meanwhile, AI is storming the retail world & housing investor Vesteda remains in a tight financial spot.",
-    "sourceHash": "f450e43bca6a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:37bdcdd3",
@@ -9493,17 +9504,6 @@
     "translated": "2026-10-24"
   },
   {
-    "id": "news:3aafff37",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cinco",
-    "lead": null,
-    "sourceHash": "b5d17bb2750c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:3aafff4f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9570,6 +9570,17 @@
     "translated": "2026-10-25"
   },
   {
+    "id": "news:3aafff55",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cinco",
+    "lead": null,
+    "sourceHash": "b5d17bb2750c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:3ab6fa4c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9634,17 +9645,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
-  },
-  {
-    "id": "news:3b38a3c9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "More than a hundred arrests in new riots in Paris: 'Young people with criminal intentions'",
-    "lead": "French police made more than a hundred further arrests on Sunday after new disorder in Paris. According to the security services, it mainly involved 'young people from the suburbs who sought opportunities to loot'. Follow all developments below in our liveblog.",
-    "sourceHash": "cd57f4f0613f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:3b3efbff",
@@ -10239,6 +10239,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
+  },
+  {
+    "id": "news:3df9d902",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Schiphol gets new noise limits, but will it also become quieter?",
+    "lead": "This week an important decision will be made for Schiphol and the people living close to the airport.",
+    "sourceHash": "70ac27bc464b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:3dff71d8",
@@ -11440,17 +11451,6 @@
     "translated": "2026-10-21"
   },
   {
-    "id": "news:430555ea",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Amsterdam cultural sector is suffering under high accommodation costs: 'Increasing tourist tax, drives away the very people you want to attract'",
-    "lead": null,
-    "sourceHash": "61bd06324415",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:4318ebd5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11869,17 +11869,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:4533d181",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Brilliant",
-    "lead": null,
-    "sourceHash": "c5eb20e21098",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:4533d199",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11944,6 +11933,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
+  },
+  {
+    "id": "news:4533d19f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Brilliant",
+    "lead": null,
+    "sourceHash": "c5eb20e21098",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:4535aa1f",
@@ -12826,6 +12826,17 @@
     "translated": "2026-10-23"
   },
   {
+    "id": "news:490fca31",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Lula da Silva wins Brazilian elections and remains president",
+    "lead": "Luiz Inácio Lula da Silva won Brazil's presidential election on Sunday. The Latin American country thereby keeps its leftist trend. The incumbent president won against right-wing senator Flávio Bolsonaro, who does not accept his defeat.",
+    "sourceHash": "28767d6faa40",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:49462b98",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13398,6 +13409,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:4c5f45d2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Who Deserves the Ballon d'Or Most? 'It Is Hard to Explain That Kylian Mbappé Has Never Won It'",
+    "lead": "The Ballon d'Or is being presented tonight in London. There is no clear favourite this year, so we asked our football reporters: who in your opinion deserves the prize? It produced five different names.",
+    "sourceHash": "cd41ea75ef18",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:4c64728c",
     "language": "nl",
     "sourceLanguage": "en",
@@ -13827,6 +13849,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:4e2596e7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dutch short track speed skaters win gold medals at first World Tour in Vancouver",
+    "lead": "The Dutch short track speed skaters won gold at the first World Tour in the Canadian city of Vancouver in the mixed relay. Selma Poutsma, Xandra Velzeboer, Teun Boer and Jens van 't Wout led the race from start to finish.",
+    "sourceHash": "e4bc44976915",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:4e2b326",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13959,6 +13992,17 @@
     "translated": "2026-10-24"
   },
   {
+    "id": "news:4e99d25b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Left-Wing President Lula Makes Comeback and Wins Brazil's Fourth Term",
+    "lead": "A surprising result in the Brazilian presidential election: incumbent left-wing president Luiz Inácio Lula da Silva (80) has nonetheless won against radical-right Flávio Bolsonaro (45). Earlier, Brazilian media reported that the young Bolsonaro could no longer be overtaken, but the contest has taken a surprising turn.",
+    "sourceHash": "5ed792cdd6e9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:4e9ad1fb",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13968,17 +14012,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:4ea25540",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'I often already know exactly who is behind which bridge and which shrub'",
-    "lead": null,
-    "sourceHash": "036be199b164",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:4eb26ecb",
@@ -14254,17 +14287,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
-  },
-  {
-    "id": "news:4fffd6e8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Four dead and dozens seriously injured in large fire at military base in Canada",
-    "lead": null,
-    "sourceHash": "5f17379e133c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:5000fe58",
@@ -14850,17 +14872,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:52e5c89b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "More than a hundred people arrested after new riots in Paris",
-    "lead": "During new unrest in Paris, 108 arrests were made on Sunday, the police report. In the first hour of the night from Sunday to Monday, nine more arrests followed. The police speak of \"youths with opportunistic, criminal intentions\" who are looting shops.",
-    "sourceHash": "8782531b6f12",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:52fb2388",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14925,17 +14936,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
-  },
-  {
-    "id": "news:533e9ba3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Flight from Tel Aviv to Vienna makes emergency landing after bomb threat",
-    "lead": "A plane from Tel Aviv to Vienna made an emergency landing in the Bulgarian capital Sofia on Sunday evening. The aircraft diverted due to a bomb threat, a spokesperson for airline Austrian Airlines told news agency Reuters.",
-    "sourceHash": "62cf65691964",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:534422cc",
@@ -15741,17 +15741,6 @@
     "translated": "2026-10-21"
   },
   {
-    "id": "news:562b9ef4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Harmen (68) moved from the city centre to new-build housing in Noord: 'When I heard the house was mine, I was walking on air all day'",
-    "lead": null,
-    "sourceHash": "7bbcc0d86b49",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:562e9931",
     "language": "en",
     "sourceLanguage": "nl",
@@ -16058,6 +16047,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
+  },
+  {
+    "id": "news:574b6b0b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Well prepared for the autumn storms: how do you limit the damage?",
+    "lead": null,
+    "sourceHash": "fde41ae985e0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:574d97f6",
@@ -16489,6 +16489,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:596da41f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "After-school art class",
+    "lead": "I teach after-school art classes to teenagers. On this gloomy October afternoon, two girls are sitting on the floor chatting cheerfully, with their hands in the papier-mâché.",
+    "sourceHash": "dba5698b4934",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:59815940",
     "language": "en",
     "sourceLanguage": "nl",
@@ -16819,17 +16830,6 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:5af8826b",
-    "language": "nl",
-    "sourceLanguage": "en",
-    "title": "Enquête: Minstens 10 Gelderse gemeenten weten niet of ze kwetsbare bruggen hebben",
-    "lead": "Twee jaar na het instorten van een brug in Dresden, Duitsland, hebben sommige Gelderse gemeenten nog steeds geen zicht op mogelijk kwetsbare bruggen binnen hun grenzen, volgens een",
-    "sourceHash": "5d00aefa24e1",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:5afe2c33",
     "language": "nl",
     "sourceLanguage": "en",
@@ -17136,6 +17136,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:5c510251",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Time is running out for promised hip-hop venue in De Amsterdamse Poort, but municipality still fails to deliver",
+    "lead": null,
+    "sourceHash": "537e9eebd75a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:5c548990",
@@ -20284,39 +20295,6 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:5d2d861",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "19 more people in critical condition after fatal fire at military base in Canada",
-    "lead": "19 of the 39 people who were injured and taken to hospital in the fire at a military base in Canada on Saturday are in critical condition. That is what the premier of the province of Alberta announced. The fire in Wainwright in Alberta killed four soldiers. The incident happened when live ammunition was fired on the military grounds during an exercise. A gas pipeline or gas well may have been hit, after which an explosion followed and the fire broke out. How exactly this could have happened is still being investigated. According to the army there are no indications of a terrorist act. Fire spread quickly. A senior general says that shortly after the fire broke out, it was assumed the fire was under control, when the wind suddenly shifted. The fire then moved rapidly toward places where soldiers were training. According to the general, \"the fire was one kilometre away when the wind turned, after which the fire moved one kilometre within 36 seconds\". It was not known before the exercise began that it would blow so hard. In the province, gusts of up to 100 kilometres per hour were measured on Saturday. In the province, \"code orange\" was declared because of the fire, after which emergency services turned out with, among others, 22 ambulances, six aircraft and two helicopters. The victims have been taken to four hospitals in the region. The four soldiers who died have been identified and their families have been informed. Some of the injured have suffered serious burns and may need weeks to months of rehabilitation, says the premier of Alberta. Canadian Prime Minister Mark Carney speaks of \"one of the greatest tragedies for the Canadian army on its own soil in peacetime\". He has ordered that flags on government buildings be flown at half-mast.",
-    "sourceHash": "ab55b81d2f6a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
-    "id": "news:5d2d862",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Flight from Tel Aviv to Vienna makes precautionary landing in Bulgaria after bomb threat",
-    "lead": "A flight that was en route from the Israeli city of Tel Aviv to Vienna in Austria was diverted last evening to Sofia airport in Bulgaria after a bomb threat was made. Bulgarian authorities report this. The Austrian airline Austrian Airlines, which operated the flight, reports this morning that no explosive was found on board. The Austrian Airlines flight had departed from Israel at 18:40 local time and landed in Sofia at 21:42 local time. This happened after the crew reported a \"bomb threat signal\" at the Romanian border, the Bulgarian Ministry of Transport says. Fighter jet deployed: as is customary according to the ministry, a fighter jet was then deployed to escort the passenger plane to the Bulgarian airport. Once there, the passengers were disembarked and rebooked onto another flight. Austrian Airlines tells Sky News that \"we can confirm that a threat was made against the Tel Aviv to Vienna flight, which made a stopover in Sofia necessary\". There were 51 passengers and six crew members on board. According to the Israeli newspaper Haaretz, the bomb threat was made by an Austrian citizen who was not on board the flight. Flydubai flight: last month, an aircraft en route from Dubai to Tel Aviv made a dive and landed at an airport in Saudi Arabia. This happened after the co-pilot of the Flydubai flight stabbed the captain. A struggle ensued. Eventually the co-pilot was overpowered by passengers on board. According to the public prosecutor of the United Arab Emirates (UAE), the co-pilot, a man from Oman, intended to crash the aircraft, carrying mainly Israelis, at Tel Aviv airport.",
-    "sourceHash": "83f58424603f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
-    "id": "news:5d2d863",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Wake-up call 19/10: Canadian province of Alberta votes on possible secession • French ministers meet after riots",
-    "lead": "Good morning! In the Canadian province of Alberta a referendum is being held on a possible secession, and in France the ministers are meeting in a crisis session to discuss the riots of last weekend. First, the weather: cloudy this morning, with mist in the south. Later more sun. It will be 13 to 16 degrees. Are you going out today? Here you can find the overview of traffic jams and roadworks, and here everything about the situation on the rail network. What can you expect today? What did you miss? It was also restless last night in Paris. In the early morning, young people were again arrested for looting shops. This weekend nearly 2,400 people have already been arrested in connection with riots at protests in several cities. Last night, garbage bins and electric bicycles were set on fire. In addition, young people threw pieces of a vandalised fountain at police officers. The demonstrations were mainly aimed at rising prices in France and the state of education. During the course of the day they turned into riots. President Macron says that the perpetrators of the vandalism and violence will pay for it. Other news from the night: And then just this: Yesterday, a day after the demonstrations that completely got out of hand in Paris and other French cities, French President Macron used a televised address to lash out at the rioters. He said that those who caused the vandalism \"must pay\". He also called for calm. Meanwhile the riots in Paris simply continued. Have a nice day!",
-    "sourceHash": "a09b934c7263",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:5d2d87e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -23386,6 +23364,17 @@
     "translated": "2026-10-25"
   },
   {
+    "id": "news:5d36985",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Lula Wins Election in Brazil, Bolsonaro Does Not Accept Defeat",
+    "lead": "The election in Brazil has been won by incumbent president Lula. He received about 52 percent of the votes, the electoral council has announced. The election was a close race between radical-right Flávio Bolsonaro (45) and left-wing Lula da Silva (80). The first round was won by Bolsonaro, although Lula had led in the polls. Because neither had an absolute majority, a second round had to follow. In this new round, the difference was ultimately about 4 million votes in favour of Lula. Lula also led Brazil between 2003 and 2011 and took office again as president in 2023. Now he begins his fourth term, which makes him history. Left-Wing Course With Lula's victory, the country is again choosing a left-wing course. He campaigned with a progressive and social agenda, including special family allowances for the poor. Bolsonaro, son of former president Jair Bolsonaro, is instead in favour of a free market with little government interference. He also wants the <entity id=\"org:politie\">politie</entity> to act harshly against crime. Lula was welcomed with loud music at a gathering in Sao Paulo after the result. In a victory speech he thanked his voters. \"We managed to convince people that voting was extremely important to keep democracy in Brazil safe.\" After losing the first round, Lula's supporters, many of them young people, began to mobilise. In groups they took to the streets to win over undecided voters. The fierce struggle between the two candidates shows how divided the country is. Part of the Brazilian population is celebrating and relieved that the presidency remains in Lula's hands. Another part of the population feels defeated and disappointed. Lula promised that he will be a president for all 215 million Brazilians. \"There is no electoral opponent anymore.\" Bolsonaro Does Not Accept Result Bolsonaro refuses to accept the defeat. In a speech he said he wants the result declared invalid. In this he points to the decision of the Supreme Court to keep the polling stations open two hours longer. Bolsonaro calls that \"unacceptable\", which is striking, since he himself had asked for a longer voting period. Originally the polls would close at 17.00 Brazilian time (21.00 Dutch time). But on the orders of the Supreme Court they closed at 19.00 Brazilian time (23.00 Dutch time). Bolsonaro asked for an extension because voters in the south of the country had difficulty reaching polling stations due to heavy rainfall. Lula also wanted the polling stations kept open longer because voters in nine states could not otherwise cast their votes in time due to bus problems. Bolsonaro's refusal to recognise the election result could increase tension in an already polarised Brazil. The situation resembles 2022, when his father, former president Bolsonaro, also refused to accept his defeat. Angry and incited supporters stormed government buildings. Meanwhile, Bolsonaro and others planned a coup, which was eventually called off because there was too little support from the military. Last year Bolsonaro was sentenced to 27 years in prison for this. Governing Will Not Be Easy Governing will not be easy for Lula. In the National Congress he faces a powerful right-wing bloc, so it is unclear how much support he will get for his plans. In addition, the power of the Bolsonaro family has grown considerably. Members of the family are represented in both the Chamber of Deputies and <entity id=\"org:eerste-kamer\">de Senaat</entity>. Lula will also have to take seriously the concerns of a large part of the population that did not vote for him. These Brazilians are drawn to the so-called bolsonarismo, the conservative radical-right movement around former president Bolsonaro. For them, issues such as crime and the economy were important election themes. For the Amazon and Indigenous Brazilians, Lula's victory is good news. Under his presidency deforestation decreased in recent years. Under Bolsonaro senior, more logging took place and large landowners got more room for production in the Amazon. The fear was that this policy would be continued under Bolsonaro junior. Left in a Right-Leaning Region Under Lula, Brazil is one of the few remaining left-wing countries in Latin America. The region has moved steadily further to the right over the past year and a half. US President Trump is trying to exert his influence in the region as much as possible. He prefers to do business with right-wing governments that are ideologically close to him.",
+    "sourceHash": "1afa05301d6a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:5d3fc14f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -23463,15 +23452,15 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:5d82b8ee",
+    "id": "news:5d7cbaf5",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Skipper, want to ferry across? Yes, but not alone: ferry workers concerned about experiment",
+    "title": "Time is running out for the promised hip-hop venue in De Amsterdamse Poort, but the municipality still fails to deliver",
     "lead": null,
-    "sourceHash": "7bf82569e996",
+    "sourceHash": "d42e4a4d518b",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-19"
+    "translated": "2026-10-26"
   },
   {
     "id": "news:5d987250",
@@ -23936,17 +23925,6 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:5feac6b8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Flight from Tel Aviv to Vienna makes stopover in Sofia after bomb threat",
-    "lead": "A plane from Tel Aviv to Vienna had to make a stopover in the Bulgarian capital Sofia on Sunday evening. The aircraft diverted due to a bomb threat, a spokesperson for airline Austrian Airlines told news agency Reuters.",
-    "sourceHash": "7f95fc67dbd6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:5ffd29c9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -24220,17 +24198,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:61b48cab",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Code red in Mallorca and Valencia due to heavy rain; schools closed, residents asked to stay indoors",
-    "lead": "Heavy rain is expected in the east of Spain and on the Balearic Islands on Sunday night and Monday morning. Weather services forecast locally up to 90 liters of water per square meter per hour. The civil protection agency urges people to stay indoors.",
-    "sourceHash": "0ad6a0f27904",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-18"
   },
   {
     "id": "news:61cd9c64",
@@ -24948,17 +24915,6 @@
     "translated": "2026-10-23"
   },
   {
-    "id": "news:64afcc07",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'When I walk past a park or a viaduct, I see places where people sleep'",
-    "lead": null,
-    "sourceHash": "abb9eb8cb7a6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:64b1afe4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -25168,17 +25124,6 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:659d2377",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Most expensive toll road after Paris opens next month: this is what you will pay",
-    "lead": "After years of environmental protests, nothing stands in the way of opening the A69 motorway between Toulouse and Castres in France any longer: it will happen at the beginning of November. But the protest is not over with that. The high toll in particular is now drawing criticism: with a return price of 17 euros for just over 100 kilometres, the A69 becomes one of the most expensive motorways in France.",
-    "sourceHash": "569a29d12593",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:65af6d5a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -25199,17 +25144,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
-  },
-  {
-    "id": "news:65c7da3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The food lobby, the Easter bunny and the ban on marketing to children",
-    "lead": "Children are surrounded by chocolate Sinterklaas figures, chips with race cars and soft drinks for gamers. In the supermarket, on TV and online.",
-    "sourceHash": "ad9707fc9e68",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:65e234a2",
@@ -25287,6 +25221,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:661b08d3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Europe wants fewer Chinese inverters for solar panels, but its own industry is in serious trouble",
+    "lead": "\"If we wait too long with measures, the manufacturers here will have gone under within three years\", warns MEP Bart Groothuis (VVD).",
+    "sourceHash": "d89fb543880b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:661ed642",
@@ -25606,6 +25551,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:677db22b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The new noise limits around Schiphol mainly offer room for more noise. 'With this limit you are saying: everything Schiphol wants must be possible'",
+    "lead": "The new noise limits around Schiphol are meant to finally protect residents from aircraft noise. But they mainly offer room for more noise, according to research by NRC . Over parts of Amsterdam, Schiphol can make 80 percent more noise at night than the airport needs according to calculations.",
+    "sourceHash": "040f1f6505c7",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:678522da",
@@ -26543,17 +26499,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:6be63ac3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Thirty journalists killed this year, and over three hundred jailed for their work",
-    "lead": null,
-    "sourceHash": "a3e117d83150",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:6be7696a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -27027,6 +26972,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:6ea828f2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Not left or right, but with or without Netanyahu is the choice for Israel",
+    "lead": "Israel faces its most important election in years on Tuesday. With several wars on the back burner, the campaign revolves mainly around security: who will ensure it, and how? The question is whether that will be with or without Prime Minister Benjamin Netanyahu.",
+    "sourceHash": "7dcb4f156312",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:6eb3df66",
     "language": "en",
     "sourceLanguage": "nl",
@@ -27267,6 +27223,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
+  },
+  {
+    "id": "news:6fd1641d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "100% peanut butter without additives, is it really much healthier and more sustainable?",
+    "lead": null,
+    "sourceHash": "9c033d1f48fe",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:6fd54627",
@@ -27742,17 +27709,6 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:71c91996",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Anne Lichthart (48) and Cynthia Borst (39) make books full of pasted-in small finds, such as Landrot: 'The drawings enter into a conversation with the text'",
-    "lead": null,
-    "sourceHash": "4e58c726957b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:71cf6860",
     "language": "en",
     "sourceLanguage": "nl",
@@ -27817,17 +27773,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
-  },
-  {
-    "id": "news:71fd413b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sanne Wevers (35) is nevertheless competing at her eleventh World Championships: 'I was really done with gymnastics'",
-    "lead": "Sanne Wevers starts her eleventh World Championships in gymnastics on Monday in Rotterdam. The 2016 Olympic balance beam champion thought she was finished with the sport, until it started to itch again during a trip to Australia.",
-    "sourceHash": "db205c5fae12",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:7212dba3",
@@ -28719,17 +28664,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
-  },
-  {
-    "id": "news:759c2be7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Small plane makes nosedive and crashes onto busy street in California",
-    "lead": "A small plane with three people on board came down in a nosedive on one of the busiest streets in San Jose in the American state of California on Saturday afternoon. Everyone on board was injured, but none of them is in critical condition.",
-    "sourceHash": "42a12da03d48",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:75ab484d",
@@ -29722,17 +29656,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:7a08b8d1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Jan Calsbeek (100): 'I think it's a rotten time. There are more and more men who want to be the boss'",
-    "lead": null,
-    "sourceHash": "8f8bc62fdebd",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:7a0c0fd7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30118,6 +30041,17 @@
     "translated": "2026-10-23"
   },
   {
+    "id": "news:7c2abc31",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Surprising election result in Serbia: students drive out former president accused of corruption",
+    "lead": "The Serbian president Aleksandar Vucic acknowledged his defeat on Sunday in the parliamentary elections, which were won by the student-led protest movement.",
+    "sourceHash": "5aedb431a31e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:7c39876c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30138,17 +30072,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:7c4575fb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "No suspicious items found on flight diverted to Bulgaria",
-    "lead": "A flight from Austrian Airlines made an emergency landing in the Bulgarian capital Sofia last night after a bomb threat. The airline said this morning that searches found nothing suspicious. The flight from Tel Aviv to Vienna had to divert yesterday due to a threat.",
-    "sourceHash": "1908253b96c9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:7c69e613",
@@ -30957,12 +30880,12 @@
     "id": "news:8015953a",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Vučić concedes defeat in Serbian parliamentary elections",
-    "lead": "In the early parliamentary elections in Serbia, the Serbian Progressive Party (SNS) of former president Aleksandar Vučić has lost. Vučić has meanwhile conceded his defeat, news agency Reuters reports.",
-    "sourceHash": "b5b4832f7013",
+    "title": "Vučić concedes defeat in Serbian parliamentary elections, students win",
+    "lead": "In the early parliamentary elections in Serbia, the Serbian Progressive Party (SNS) of former president Aleksandar Vučić lost. The SNS received 40 percent of the votes, while the new party Studentenlijst won just over 51 percent. Vučić has since conceded his loss, news agency Reuters reports.",
+    "sourceHash": "becd86954f9e",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-25"
+    "translated": "2026-10-26"
   },
   {
     "id": "news:801a2aac",
@@ -31515,15 +31438,15 @@
     "translated": "2026-10-25"
   },
   {
-    "id": "news:82ea01dd",
+    "id": "news:82c7e10e",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "First Kafka visited the NS, then we had to deal with chatbot Jens",
-    "lead": null,
-    "sourceHash": "5f054f25354a",
+    "title": "Strong wind persists along the coast, tomorrow a very mild autumn day",
+    "lead": "After a stormy weekend, we have unsettled weather today and tomorrow. Mornings start cloudy and a strong wind still blows along the coast. Tomorrow will be a very mild day for the time of year.",
+    "sourceHash": "f6b083c50d2c",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-19"
+    "translated": "2026-10-26"
   },
   {
     "id": "news:82f0ac99",
@@ -31942,28 +31865,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:84f3406b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Flight from Tel Aviv to Vienna makes emergency landing after bomb threat",
-    "lead": null,
-    "sourceHash": "45a3d3791b8a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
-    "id": "news:8503d63d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "France is trapped in a vicious circle of powerlessness and violence",
-    "lead": null,
-    "sourceHash": "0ebb115da915",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:8506f4d",
@@ -33418,17 +33319,6 @@
     "translated": "2026-10-24"
   },
   {
-    "id": "news:8c02b8f0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Daughter",
-    "lead": "Recently I remembered a beautiful October day in 2003. On a boat we sailed on the Holland and Utrecht waters, to process a turbulent period.",
-    "sourceHash": "f9f5468295a0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:8c0c6895",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33493,6 +33383,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:8c4a2208",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Rising interest rates could disrupt the transition to a new pension system",
+    "lead": "There is a risk that the agreements pension funds have made on dividing assets among participants no longer add up.",
+    "sourceHash": "39ae335692d6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:8c7d97f9",
@@ -34243,17 +34144,6 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:90289059",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Flight from Tel Aviv to Vienna makes emergency landing after bomb threat",
-    "lead": null,
-    "sourceHash": "45a3d3791b8a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:9039088d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -34483,17 +34373,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:90f815c7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Lula and Bolsonaro clash in first debate ahead of the second round of elections",
-    "lead": null,
-    "sourceHash": "763478046a9f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:91096c4b",
@@ -34881,6 +34760,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:9286846",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Incumbent President Lula da Silva Wins Brazilian Election After Close Race, Bolsonaro Does Not Accept Result",
+    "lead": null,
+    "sourceHash": "d29195182e0f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:929013fe",
     "language": "en",
     "sourceLanguage": "nl",
@@ -34961,12 +34851,12 @@
     "id": "news:92fbf6d9",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Trees on the tracks, a death in Amsterdam, a missing person at sea and much storm damage across the country",
-    "lead": "Because of a tree on the tracks, no trains are running this evening between Haarlem and Zandvoort. Train traffic between Haarlem and Amsterdam Centraal is also disrupted because a tree is lying on the tracks: fewer Sprinters run on that stretch. In Amsterdam one person died, near Schiermonnikoog a ship ran into trouble at sea, and near Scheveningen a watersports enthusiast is still missing.",
-    "sourceHash": "c6cd0d4f0512",
+    "title": "Trees on the tracks, a death in Amsterdam, a missing person at sea and a lot of storm damage across the country",
+    "lead": "Storm Boelo caused quite a lot of damage yesterday. On at least two sections in North Holland, train disruption arose due to a tree on the track. In Amsterdam one person died, near Schiermonnikoog a ship ran into trouble at sea, and near Scheveningen a watersports enthusiast is still missing.",
+    "sourceHash": "574fd113ee7b",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-25"
+    "translated": "2026-10-26"
   },
   {
     "id": "news:92fd421e",
@@ -35055,6 +34945,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:935053b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Euphoria prevails after historic victory of Lula da Silva: 'We must not let ourselves be paralysed by fear now'",
+    "lead": null,
+    "sourceHash": "8455e1f6c8e3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:9363cc96",
@@ -35176,17 +35077,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:939e4c74",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Looking, looking and fake buying: the dopamine hit, but not the cost",
-    "lead": "More and more sites are appearing where you can shop for all sorts of things but cannot buy anything. Experts see something in them as a weapon against our endless urge to shop. \"See it as a nicotine patch, only for online shopping.\"",
-    "sourceHash": "560879046a1b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:93a36779",
@@ -35321,17 +35211,6 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:942f3a69",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Conspiracy thinking is not just for crackpots, says this expert: women often fall for 'conspiracy care'",
-    "lead": "The corona shot full of tracking devices? A network of high-placed satanic child abusers? Reptiles disguised as humans who rule the world? These are conspiracy theories that go too far for many people. Yet most of us have a small conspiracy thinker in us. And women do it differently than men.",
-    "sourceHash": "de6fb6aa792e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:94436f6c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -35385,17 +35264,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
-  },
-  {
-    "id": "news:94809d87",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Zelensky: Ukraine again receives intelligence from the US",
-    "lead": null,
-    "sourceHash": "fe8aa1548239",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:94a22eb2",
@@ -35616,17 +35484,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
-  },
-  {
-    "id": "news:9577819f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Low incomes pay more for childcare: could save ten euros a month",
-    "lead": "Parents with low incomes are paying more for childcare. The price of childcare locations will probably rise further above the amount the government reckons with in 2027. That mainly has a disadvantageous effect on people with a low income.",
-    "sourceHash": "45736063b351",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:957c3118",
@@ -35880,17 +35737,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:96bc6312",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Priest in Ecuador dies during service when cross falls on him",
-    "lead": "In Ecuador a Roman Catholic priest died during his service. While he was celebrating the evening mass, a large wooden cross fell from the wall, crushing the priest.",
-    "sourceHash": "e7e514cfbd38",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:96c5a7eb",
@@ -36446,12 +36292,12 @@
     "id": "news:994b44f5",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "French prime minister to meet with pupils tomorrow after a month of protests",
-    "lead": "After more than a month of protest actions, representatives of French pupils will be received tomorrow at 2:30 p.m. by prime minister Sébastien Lecornu. This is according to the organisations Renouveau lycéen and Les Lycéens!",
-    "sourceHash": "7a70696fd3b6",
+    "title": "After a month of protests, French prime minister to talk with schoolchildren",
+    "lead": "After more than a month of protest actions, representatives of French pupils will be received by prime minister Sébastien Lecornu on Monday at 14:30. This is according to the organisations Renouveau lycéen and Les Lycéens!",
+    "sourceHash": "89535cf38af5",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-25"
+    "translated": "2026-10-26"
   },
   {
     "id": "news:99501b39",
@@ -36619,17 +36465,6 @@
     "translated": "2026-10-25"
   },
   {
-    "id": "news:9a4a619",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Exactly four",
-    "lead": null,
-    "sourceHash": "e7fcdf3c307a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:9a4a631",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36694,6 +36529,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
+  },
+  {
+    "id": "news:9a4a637",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Exactly Four",
+    "lead": null,
+    "sourceHash": "e7fcdf3c307a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:9ab15c24",
@@ -37409,6 +37255,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
+  },
+  {
+    "id": "news:9da0d7b7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Premium panic",
+    "lead": "The biggest premium increase ever turns out to be not so bad after all, looking ahead.",
+    "sourceHash": "2cfb3504e26e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:9dcfc51d",
@@ -38170,6 +38027,17 @@
     "translated": "2026-10-25"
   },
   {
+    "id": "news:a104e6fc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Podcast | 'Absurdly much faster Antonelli was than Russell'",
+    "lead": "Kimi Antonelli blew everyone away in Austin, but the difference with his teammate George Russell stood out the most. That and much more you hear in this review of the Grand Prix of the United States. With driver Ho-Pin Tung and NU.nl reporters Joost Nederpelt, Patrick Moeke and Bas Scharwachter.",
+    "sourceHash": "5c2759c7ce91",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:a10d7ed",
     "language": "en",
     "sourceLanguage": "nl",
@@ -38410,17 +38278,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
-  },
-  {
-    "id": "news:a250122f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Canadian prisoner smuggles fast food order into prison by drone",
-    "lead": "In the prison in Quebec, an inmate got his meal in a very unusual way. Via a drone, he chose not to smuggle cigarettes, a phone or drugs into the prison, but a McDonald's order and some alcoholic drinks. That is what the Canadian broadcaster CTV News reports.",
-    "sourceHash": "3ec5d9db1fe7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:a25a826",
@@ -38709,17 +38566,6 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:a3a36aaf",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Anne (48) and Cynthia (39) make books full of glued-in small finds, such as Landrot: 'The drawings enter into a conversation with the text'",
-    "lead": null,
-    "sourceHash": "e0fc0352db50",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:a3a37c43",
     "language": "en",
     "sourceLanguage": "nl",
@@ -38927,6 +38773,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
+  },
+  {
+    "id": "news:a47c6aff",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "For the first time in her long acting career, Betty Schuurman (63) is doing a monologue: 'I find it really, really exciting'",
+    "lead": null,
+    "sourceHash": "4b96d1410783",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:a47fd7ad",
@@ -40579,17 +40436,6 @@
     "translated": "2026-10-24"
   },
   {
-    "id": "news:ac541453",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Amsterdam cultural sector squeezed by rising tourist tax and hotel VAT",
-    "lead": null,
-    "sourceHash": "24a8435153c4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:ac56b831",
     "language": "en",
     "sourceLanguage": "nl",
@@ -40964,17 +40810,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:ae5c673b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Your Move",
-    "lead": null,
-    "sourceHash": "0ca9c42013e9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:ae5c6753",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41039,6 +40874,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
+  },
+  {
+    "id": "news:ae5c6759",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Your Move",
+    "lead": null,
+    "sourceHash": "0ca9c42013e9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:ae5ddfd1",
@@ -41591,17 +41437,6 @@
     "translated": "2026-10-23"
   },
   {
-    "id": "news:b0ba05a9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "AI will operate while the surgeon watches: 'In 20 years, AI may perhaps operate better than we do now'",
-    "lead": null,
-    "sourceHash": "b989f078d736",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:b0d74b22",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41624,17 +41459,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:b0e951e3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sun breaks through during the course of Monday, chance of first frost at night",
-    "lead": "The temperature has started a sharp decline, as could already be noticed on Sunday. Those conditions appear to continue at the start of next week. On Monday night there is even a chance of the first frost after a warm summer.",
-    "sourceHash": "0af048666a1c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:b0ec1873",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41644,17 +41468,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:b0fb956f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Family business Möller keeps up with the times and now repairs 'computers on wheels'",
-    "lead": null,
-    "sourceHash": "4bd506ec6588",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:b1035c0a",
@@ -42108,17 +41921,6 @@
     "translated": "2026-10-24"
   },
   {
-    "id": "news:b2b0825f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "These comediennes are not funny at all",
-    "lead": null,
-    "sourceHash": "f725ed0b513f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:b2cbb4fd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42381,6 +42183,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:b42fb9fa",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'Every day when I wake up, I think: hip hip hooray, I'm still here'",
+    "lead": null,
+    "sourceHash": "29ed34d43504",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:b43eff03",
@@ -42953,6 +42766,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:b6cbe18c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Wrong Tyre Choice, Slow Pit Stop, Verstappen Not in Podium Parade After Tenth Podium of 2026: 'Too Much Went Wrong'",
+    "lead": "Max Verstappen says he did not get the maximum out of the United States Grand Prix. After already being disappointed with P2 in qualifying, he also called third place in the race 'frustrating'. \"This was simply not a good race for us.\"",
+    "sourceHash": "59453b2c30fd",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:b6cc6c0b",
@@ -43629,12 +43453,12 @@
     "id": "news:ba1f2c67",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Walibi amusement park after disturbances: 'Young people were deliberately out to cause unrest'",
-    "lead": "\"These young people clearly aimed to create unrest.\" That is what amusement park Walibi says about the disturbances during Halloween Fright Nights last night, in a statement. The <entity id=\"org:politie\">politie</entity> had to deploy the Mobile Unit (ME) because young people got into fights with each other and vandalism was carried out.",
-    "sourceHash": "c3cfe9f04653",
+    "title": "Amusement park Walibi after disturbances: 'Young people were deliberately out to cause unrest'",
+    "lead": "\"These young people clearly aimed to create unrest.\" That is what amusement park Walibi says about the disturbances during Halloween Fright Nights on Saturday evening, in a statement. The <entity id=\"org:politie\">politie</entity> had to deploy the Mobile Unit (ME) because young people got into fights with each other and acts of vandalism were committed.",
+    "sourceHash": "3573a3a4b31e",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-25"
+    "translated": "2026-10-26"
   },
   {
     "id": "news:ba2199a0",
@@ -44627,17 +44451,6 @@
     "translated": "2026-10-21"
   },
   {
-    "id": "news:bf8b5a11",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Talpa acquires broadcasting rights to Saudi football league",
-    "lead": "Talpa will broadcast matches from the Saudi Pro League over the next three years. The company has obtained the broadcasting rights. The matches of the top league in Saudi Arabia will be broadcast on KIJK, Talpa's streaming platform. The footage may also be used in programmes such as Vandaag Inside and De Oranjezondag.",
-    "sourceHash": "ff8645e26c5a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:bf8e61be",
     "language": "en",
     "sourceLanguage": "nl",
@@ -45507,6 +45320,17 @@
     "translated": "2026-10-21"
   },
   {
+    "id": "news:c39e04d7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Also in UK major problems due to storm Boelo: two dead from falling trees",
+    "lead": "Autumn storm Boelo caused major problems this weekend in the Netherlands and the rest of Northwest Europe. In Amsterdam a man was found dead under a fallen tree, and a water sports enthusiast went missing off the coast of Scheveningen. Two people also died in the UK from falling trees. Follow the latest developments in our liveblog.",
+    "sourceHash": "35b42e052d9e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:c3a63e9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -45912,6 +45736,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
+  },
+  {
+    "id": "news:c5240df7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "In a week full of rate decisions, a pause is expected at the ECB and the Fed",
+    "lead": "The picture has not become any clearer. Inflation has risen. At the same time, policymakers must take into account higher capital market rates and waning confidence in the growth boost from AI.",
+    "sourceHash": "f132708e8792",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:c52bd878",
@@ -46673,17 +46508,6 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:c817ee47",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Explainer | What if Trump loses the majority after the midterms?",
-    "lead": null,
-    "sourceHash": "5c791c38e430",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:c81a93e0",
     "language": "nl",
     "sourceLanguage": "en",
@@ -47221,17 +47045,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:c9e9f659",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Lula and Bolsonaro clash in first debate ahead of the second round of elections",
-    "lead": null,
-    "sourceHash": "763478046a9f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:c9ebb55a",
@@ -47930,12 +47743,12 @@
     "id": "news:ccf7f311",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Beekse Bergen: chance of recovery for animal caretaker is very small, situation deteriorating",
-    "lead": "The condition of the animal caretaker at Safaripark Beekse Bergen has deteriorated. She was seriously injured yesterday in a panther attack. According to the park, the chance of recovery is 'very small'.",
-    "sourceHash": "558d8b92a466",
+    "title": "Beekse Bergen: chance of recovery for animal caretaker is very small, condition is deteriorating",
+    "lead": "The condition of the animal caretaker at Safaripark Beekse Bergen has deteriorated. She was seriously injured by a panther attack on Saturday. According to the park, the chance of recovery is 'very small'.",
+    "sourceHash": "f6e13794c4e9",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-25"
+    "translated": "2026-10-26"
   },
   {
     "id": "news:cd0d5c63",
@@ -48345,17 +48158,6 @@
     "translated": "2026-10-24"
   },
   {
-    "id": "news:ce4c1602",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Somersault",
-    "lead": null,
-    "sourceHash": "19fc40e02aae",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:ce4c161a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48420,6 +48222,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
+  },
+  {
+    "id": "news:ce4c1620",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Forward Roll",
+    "lead": null,
+    "sourceHash": "19fc40e02aae",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:ce4e331a",
@@ -48873,17 +48686,6 @@
     "translated": "2026-10-25"
   },
   {
-    "id": "news:d05259c6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sudoku",
-    "lead": "Place the numbers 1 through 9 in the diagram so that each number appears exactly once in each row, column, nine bold-outlined 3x3 boxes and the four grey 3x3 boxes.",
-    "sourceHash": "e3ef981d015b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:d05259de",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48926,6 +48728,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
+  },
+  {
+    "id": "news:d05259e4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sudoku",
+    "lead": "Place the digits 1 through 9 in the diagram so that each digit appears exactly once in each row, each column, the nine bold-outlined 3x3 boxes and the four grey 3x3 boxes.",
+    "sourceHash": "e3ef981d015b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:d056d1f5",
@@ -49214,17 +49027,6 @@
     "translated": "2026-10-24"
   },
   {
-    "id": "news:d181a868",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Not only Idfa, but the broad Amsterdam cultural sector groans under higher accommodation prices: 'Raising the tourist tax also drives away the very people you actually want to have'",
-    "lead": null,
-    "sourceHash": "55834fcd5a2d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:d181c295",
     "language": "en",
     "sourceLanguage": "nl",
@@ -49434,17 +49236,6 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:d27d2626",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Number block",
-    "lead": null,
-    "sourceHash": "773ba346c5f3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:d27d263e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -49509,6 +49300,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
+  },
+  {
+    "id": "news:d27d2644",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Number Pad",
+    "lead": null,
+    "sourceHash": "773ba346c5f3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:d27fec1b",
@@ -49665,6 +49467,17 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:d331b359",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Xandra Velzeboer Wins First World Tour Victory on 500 Meters",
+    "lead": "Shorttrack skater Xandra Velzeboer won gold in the 500 meters on Sunday evening at the first World Tour race in Vancouver. The skater finished ahead of Canadian Courtney Sarault and Selma Poutsma.",
+    "sourceHash": "0ee8f37ce43b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:d337a169",
     "language": "en",
     "sourceLanguage": "nl",
@@ -49685,6 +49498,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:d33d1142",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Despite harsh rhetoric, US quietly grants International Criminal Court an exception for use of American tech",
+    "lead": null,
+    "sourceHash": "57ad045d86a5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:d3403694",
@@ -50017,17 +49841,6 @@
     "translated": "2026-10-19"
   },
   {
-    "id": "news:d4b9b8c2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Amsterdam cultural sector groans under high accommodation costs: 'Increasing tourist tax drives away the very people you want to attract'",
-    "lead": null,
-    "sourceHash": "d2d3eada245e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:d4c06e72",
     "language": "en",
     "sourceLanguage": "nl",
@@ -50257,6 +50070,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:d59f79b2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Historic Reversal in Brazil: Lula Re-elected as President After All, Flávio Bolsonaro Does Not Accept Result",
+    "lead": "Luiz Inácio Lula da Silva has surprisingly been re-elected as president of Brazil. The left-wing Lula (80) received 51.78 percent of the votes on Sunday in a second round of the presidential election that was chaotic.",
+    "sourceHash": "719a0e26de46",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:d5cfcad1",
@@ -50664,6 +50488,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:d75b9cbf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Van 't Wout wins third individual gold at World Tour Vancouver",
+    "lead": "Short track speed skater Jens van 't Wout won the 1000 meters on Sunday evening at the first World Tour race in Vancouver, after the 500 and 1500 meters. The short tracker finished ahead of Italian Thomas Nadalini and South Korean Seochan Bae.",
+    "sourceHash": "cf54eb92a40c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:d7658b69",
@@ -51227,17 +51062,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:da8a12a4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Red Cross top man Pierre Krähenbühl: 'Waging war is becoming normalised, diplomacy is being pushed to the back seat'",
-    "lead": null,
-    "sourceHash": "dd4dca391aab",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:da9338b7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -51755,6 +51579,17 @@
     "translated": "2026-10-25"
   },
   {
+    "id": "news:dcff36fc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "\"The Negreira scandal surrounding Barcelona still lingers\"",
+    "lead": "The shadow of the Negreira scandal still hangs over FC Barcelona - Real Madrid. AD columnist and journalist Sjoerd Mossou shines his light daily on the world of (top) football. Sometimes straight from behind the scenes, sometimes through a very personal lens.",
+    "sourceHash": "a27ae2da6697",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:dd05d309",
     "language": "en",
     "sourceLanguage": "nl",
@@ -51868,12 +51703,12 @@
     "id": "news:dd857fe2",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Cyclist dies in Amsterdam after a tree falls on him",
-    "lead": "A cyclist in Amsterdam died this afternoon when an uprooted tree on the Sloterweg fell on him. The accident happened around 17.20 hours. Various emergency services attended.",
-    "sourceHash": "caff6a98af24",
+    "title": "Cyclist in Amsterdam dies after tree falls on him",
+    "lead": "A cyclist in Amsterdam died on Sunday afternoon when a fallen tree landed on him on the Sloterweg. The accident happened around 17.20 hours. Various emergency services responded.",
+    "sourceHash": "17fc418f6da8",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-25"
+    "translated": "2026-10-26"
   },
   {
     "id": "news:dda41c65",
@@ -52424,6 +52259,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
+  },
+  {
+    "id": "news:e04b3ccb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Why do we get dry eyes in autumn?",
+    "lead": null,
+    "sourceHash": "88d1de9d6c71",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:e05c7956",
@@ -53251,17 +53097,6 @@
     "translated": "2026-10-15"
   },
   {
-    "id": "news:e3eac79e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "More than a hundred arrests after new riots in Paris, Macron refuses minister's resignation",
-    "lead": "French President Emmanuel Macron refuses to accept the resignation of his Interior Minister Laurent Nuñez after the violent riots of last weekend. After new unrest in Paris on Sunday, more than a hundred people have been arrested.",
-    "sourceHash": "0fbe2fab3e50",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:e3ed1613",
     "language": "en",
     "sourceLanguage": "nl",
@@ -53614,6 +53449,17 @@
     "translated": "2026-10-23"
   },
   {
+    "id": "news:e548fba4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Robin Radar for sale: politically and militarily sensitive",
+    "lead": "Today in Dagkoers: the sale of Robin Radar is militarily and politically sensitive. The rise in interest rates could be very difficult for pension funds. And America goes to the polls next week. Where will it get exciting?",
+    "sourceHash": "8d5722b5e167",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:e55052a2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -53656,17 +53502,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
-  },
-  {
-    "id": "news:e58e3cfe",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Once again the battle over the money for the WW and WIA erupts: who gets the billions?",
-    "lead": null,
-    "sourceHash": "f2539d4a0564",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:e5905024",
@@ -54063,6 +53898,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:e6d45289",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Zelensky expects meeting with US and Russia in November: 'Ready to talk'",
+    "lead": "Ukrainian president Zelensky said on Sunday that a meeting will take place in November between Ukraine, the US and Russia, with the aim of breathing new life into the stalled peace talks. Follow all developments in the war in Ukraine in our liveblog.",
+    "sourceHash": "2803f4c527ef",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:e6d4fc89",
@@ -54714,17 +54560,6 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:e96b3f7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Over a hundred arrests during new unrest in Paris: 'Criminal intentions'",
-    "lead": "During new unrest in Paris, 108 arrests were made on Sunday, the police report. In the first hour of the night from Sunday to Monday, nine more arrests followed. The police speak of 'young people with opportunistic, criminal intentions' who are looting shops.",
-    "sourceHash": "d9aeebcdc489",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:e970b347",
     "language": "en",
     "sourceLanguage": "nl",
@@ -55022,6 +54857,17 @@
     "translated": "2026-10-19"
   },
   {
+    "id": "news:eaa0bf1e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Planting bulbs in autumn? This is how to do it sustainably",
+    "lead": null,
+    "sourceHash": "30c76add1e9d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:eaa75753",
     "language": "en",
     "sourceLanguage": "nl",
@@ -55141,6 +54987,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:eb5e212d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Lula wins narrowly, but must govern a divided country in a divided region",
+    "lead": "Once again the 80-year-old Lula da Silva managed to make history. But the challenges for his fourth presidency are great, both at home and abroad.",
+    "sourceHash": "2e2fbae8fdd0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:eb6f3177",
@@ -55792,6 +55649,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:ee878126",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Printing a document, how harmful is that really for the environment?",
+    "lead": null,
+    "sourceHash": "ecaee7cdbc82",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:ee983944",
     "language": "en",
     "sourceLanguage": "nl",
@@ -55990,17 +55858,6 @@
     "translated": "2026-10-21"
   },
   {
-    "id": "news:ef92c940",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "UN summit on biodiversity begins: what is at stake?",
-    "lead": null,
-    "sourceHash": "dfab667d348f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
-  },
-  {
     "id": "news:ef92ddf7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -56144,6 +56001,28 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:f0210887",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'My father always spoke fluent French and Arabic, now he could hardly get a word out'",
+    "lead": null,
+    "sourceHash": "9bfded258f08",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
+    "id": "news:f039541d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "President Lula da Silva Wins Surprise Brazilian Election, Bolsonaro Contests Result",
+    "lead": null,
+    "sourceHash": "3c9bb3d544f0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:f0448828",
     "language": "en",
     "sourceLanguage": "nl",
@@ -56263,17 +56142,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:f0c66884",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Ban on headscarves in Azerbaijani schools now causes diplomatic tensions with Turkey and Iran",
-    "lead": null,
-    "sourceHash": "eca6e2e3a00b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-19"
   },
   {
     "id": "news:f0cc2473",
@@ -56791,6 +56659,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:f333f405",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "With winter time, the busiest moments on the road are even busier: nearly a quarter more traffic jams",
+    "lead": null,
+    "sourceHash": "4a1097470e1e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:f3515e03",
@@ -57508,6 +57387,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:f714b7b7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Money as medicine",
+    "lead": "From Brazil to Rotterdam. Give the poorest families money and thereby prevent costly crisis care, writes columnist Sophie van Gool.",
+    "sourceHash": "327489962f30",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
+  },
+  {
     "id": "news:f7214713",
     "language": "en",
     "sourceLanguage": "nl",
@@ -58089,6 +57979,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:f985183",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tuesday may be the day I no longer have to be ashamed of the country that once felt like my second home",
+    "lead": null,
+    "sourceHash": "96a68bde0dae",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:f9944cfc",
@@ -58870,6 +58771,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:fdae903c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Whatever the rich lobby comes up with: a millionaires' tax works",
+    "lead": null,
+    "sourceHash": "4cbc7d4c7863",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-10-26"
   },
   {
     "id": "news:fdd057cf",
