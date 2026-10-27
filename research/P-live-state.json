@@ -832,7 +832,14 @@
     "lastFullRun": "2026-10-26T20:33:31.266Z"
   },
   "electionDates": {
-    "gaps": [],
+    "gaps": [
+      {
+        "endpoint": "https://www.kiesraad.nl/verkiezingen/europees-parlement",
+        "resume": "Controleer de pagina en pas het patroon in pipelines/election-dates.mjs aan; tot die tijd blijft de vorige datum staan.",
+        "what": "Verkiezingsdatum Europees Parlement",
+        "why": "de Kiesraad-pagina bevat de verwachte zin over de volgende verkiezing niet meer (andere formulering of andere paginaopbouw)"
+      }
+    ],
     "items": [
       {
         "body": "org:eerste-kamer",
@@ -844,7 +851,7 @@
         "quote": "De volgende Eerste Kamerverkiezing is op 24 mei 2027.",
         "source": {
           "confidence": "high",
-          "retrieved": "2026-10-20",
+          "retrieved": "2026-10-27",
           "source": "src:kiesraad-eerste-kamer"
         },
         "type": "ek",
@@ -876,7 +883,7 @@
         "quote": "De volgende gemeenteraadsverkiezingen zijn in maart 2030.",
         "source": {
           "confidence": "high",
-          "retrieved": "2026-10-20",
+          "retrieved": "2026-10-27",
           "source": "src:kiesraad-verkiezingen-gemeenteraden"
         },
         "type": "gr",
@@ -893,7 +900,7 @@
         "scope": "Hilversum en Wijdemeren",
         "source": {
           "confidence": "high",
-          "retrieved": "2026-10-20",
+          "retrieved": "2026-10-27",
           "source": "src:kiesraad-verkiezingen-herindelingen"
         },
         "type": "her",
@@ -909,7 +916,7 @@
         "quote": "De volgende verkiezingen voor de Provinciale Staten zijn op 17 maart 2027.",
         "source": {
           "confidence": "high",
-          "retrieved": "2026-10-20",
+          "retrieved": "2026-10-27",
           "source": "src:kiesraad-ps"
         },
         "type": "ps",
@@ -925,7 +932,7 @@
         "quote": "De laatste Tweede Kamerverkiezing vond plaats op 29 oktober 2025.",
         "source": {
           "confidence": "high",
-          "retrieved": "2026-10-20",
+          "retrieved": "2026-10-27",
           "source": "src:kiesraad-tweede-kamer"
         },
         "type": "tk",
@@ -941,7 +948,7 @@
         "quote": "De volgende reguliere Tweede Kamerverkiezing is op 15 mei 2030.",
         "source": {
           "confidence": "high",
-          "retrieved": "2026-10-20",
+          "retrieved": "2026-10-27",
           "source": "src:kiesraad-tweede-kamer"
         },
         "type": "tk",
@@ -957,17 +964,17 @@
         "quote": "De volgende waterschapsverkiezingen zijn op 17 maart 2027.",
         "source": {
           "confidence": "high",
-          "retrieved": "2026-10-20",
+          "retrieved": "2026-10-27",
           "source": "src:kiesraad-ws"
         },
         "type": "ws",
         "url": "https://www.kiesraad.nl/verkiezingen/waterschappen"
       }
     ],
-    "lastRun": "2026-10-20T00:24:50.529Z"
+    "lastRun": "2026-10-27T00:30:24.182Z"
   },
   "lastRun": {
-    "at": "2026-10-26T20:33:31.266Z",
+    "at": "2026-10-27T00:30:24.182Z",
     "outcome": "updated"
   },
   "news": {
