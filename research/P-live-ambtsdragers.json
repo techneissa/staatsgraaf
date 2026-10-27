@@ -1,6 +1,6 @@
 {
   "workstream": "P",
-  "generatedAt": "2026-10-26T00:00:00.000Z",
+  "generatedAt": "2026-10-27T00:00:00.000Z",
   "endpointsUsed": [
     {
       "url": "https://www.rijksoverheid.nl/regering/bewindspersonen",
@@ -36469,7 +36469,7 @@
       "publisher": "Kiesraad",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-20",
+      "retrieved": "2026-10-27",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Typepagina van de Kiesraad met de datum van de eerstvolgende verkiezing in één zin. Voor deze website geldt de Creative Commons zero-verklaring (CC0 1.0)."
@@ -36481,7 +36481,7 @@
       "publisher": "Kiesraad",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-20",
+      "retrieved": "2026-10-27",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Typepagina van de Kiesraad met de datum van de eerstvolgende verkiezing in één zin. Voor deze website geldt de Creative Commons zero-verklaring (CC0 1.0)."
@@ -36493,7 +36493,7 @@
       "publisher": "Kiesraad",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-20",
+      "retrieved": "2026-10-27",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Typepagina van de Kiesraad met de datum van de eerstvolgende verkiezing in één zin. Voor deze website geldt de Creative Commons zero-verklaring (CC0 1.0)."
@@ -36517,7 +36517,7 @@
       "publisher": "Kiesraad",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-20",
+      "retrieved": "2026-10-27",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Typepagina van de Kiesraad met de datum van de eerstvolgende verkiezing in één zin. Voor deze website geldt de Creative Commons zero-verklaring (CC0 1.0)."
@@ -36529,7 +36529,7 @@
       "publisher": "Kiesraad",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-20",
+      "retrieved": "2026-10-27",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Typepagina van de Kiesraad met de datum van de eerstvolgende verkiezing in één zin. Voor deze website geldt de Creative Commons zero-verklaring (CC0 1.0)."
@@ -36541,7 +36541,7 @@
       "publisher": "Kiesraad",
       "type": "page",
       "published": null,
-      "retrieved": "2026-10-20",
+      "retrieved": "2026-10-27",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Typepagina van de Kiesraad met de datum van de eerstvolgende verkiezing in één zin. Voor deze website geldt de Creative Commons zero-verklaring (CC0 1.0)."
@@ -36728,18 +36728,5 @@
     }
   ],
   "media": [],
-  "gaps": [
-    {
-      "what": "Fractievoorzitter van Fractie-Van Gasteren",
-      "why": "de fractiepagina noemt geen fractievoorzitter",
-      "endpoint": "https://www.eerstekamer.nl/fractie/fractie_van_gasteren",
-      "resume": "De bestaande tenure blijft staan."
-    },
-    {
-      "what": "G10: de annotatietekst die het colofon van de Eerste Kamer voorschrijft",
-      "why": "het colofon zegt \"Als annotatie wordt daarbij het volgende vermeld:\" maar de pagina bevat daarna geen tekst",
-      "endpoint": "https://www.eerstekamer.nl/begrip/colofon",
-      "resume": "Neem contact op met de Eerste Kamer of lees de pagina gerenderd; tot die tijd vermeldt elke bron de URL en de extractiedatum."
-    }
-  ]
+  "gaps": []
 }
