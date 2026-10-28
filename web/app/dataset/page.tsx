@@ -11,6 +11,7 @@ import {
   Database,
   Download,
   FileDiff,
+  Files,
   Flag,
   Gavel,
   Handshake,
@@ -25,6 +26,7 @@ import {
   Newspaper,
   Quote,
   Route,
+  Rows3,
   Scale,
   ShieldCheck,
   Tags,
@@ -37,6 +39,7 @@ import { T } from "@/components/i18n/t";
 import { LucideIcon } from "@/components/icons/lucide-icon";
 import { SectionHeading } from "@/components/icons/section-heading";
 import { DownloadButton } from "./download-button";
+import { CountBadge } from "./count-badge";
 import { CountUp, FileSize, Rise } from "./motion";
 import { manifestFileCount, recordCount } from "@/lib/dataset-counts";
 import { getS } from "@/lib/i18n/server-strings";
@@ -175,54 +178,59 @@ type DownloadFile = {
   tint: Tint;
   count: number | null;
   countKey: "recordsWord" | "filesListedWord";
+  countIcon: IconNode;
   bytes: number | null;
 };
 
+/** Width of one monospace character, with a little margin, in em. */
+const MONO_EM = 0.62;
+
 /**
- * Two columns: icon, file name and label on the left; download button, record
- * count and size on the right. The icon box is as tall as the 44 px button, so
- * the name sits right under both. The count sits on the file name's row and the
- * size on the label's row. The left column may shrink and wrap a long name.
+ * The file name runs the full width of the card on one line, never wrapped or
+ * cut. It is 12 px, and shrinks only as far as the longest names need to fit.
+ * The card is a size container, so 100cqw is the width inside its padding.
+ */
+function nameFontSize(name: string): string {
+  return `min(12px, calc(100cqw / ${(name.length * MONO_EM).toFixed(2)}))`;
+}
+
+/**
+ * A card has the icon and the 44 px download button on top, the file name on
+ * its own full-width line, then the label on the left with the record count and
+ * the size stacked under the button on the right. The count shows an icon, not
+ * the word "records"; the word stays for screen readers and the tooltip.
  */
 function DownloadCard({ file }: { file: DownloadFile }) {
   const href = `/data/v1/${file.name}`;
-  // The extension may drop to the next line before the name breaks mid-word.
-  const dot = file.name.lastIndexOf(".");
-  const stem = dot > 0 ? file.name.slice(0, dot) : file.name;
-  const extension = dot > 0 ? file.name.slice(dot) : "";
-  const right = "justify-self-end whitespace-nowrap text-end text-xs leading-snug text-ink-faint";
+  const right = "col-start-2 justify-self-end whitespace-nowrap text-xs leading-snug text-ink-faint";
   return (
     <div
       id={fileAnchor(file.name)}
-      className={`grid h-full scroll-mt-4 grid-cols-[minmax(0,1fr)_auto] content-start gap-x-2 p-2.5 ${CARD}`}
+      className={`@container grid h-full scroll-mt-4 grid-cols-[minmax(0,1fr)_auto] content-start gap-x-1.5 p-2 ${CARD}`}
     >
       <span className={`col-start-1 row-start-1 flex size-11 shrink-0 items-center justify-center rounded-md ${TINT[file.tint]}`}>
         <LucideIcon icon={file.icon} size={20} strokeWidth={1.9} />
       </span>
-      <p
-        title={file.name}
-        className="col-start-1 row-start-2 mt-1.5 min-w-0 font-mono text-xs leading-snug text-ink [overflow-wrap:anywhere]"
-      >
-        {stem}
-        <wbr />
-        {extension}
-      </p>
-      <p className="col-start-1 row-start-3 min-w-0 text-xs leading-snug text-ink-muted">
-        <T area="pages" k={file.labelKey} />
-      </p>
       <div className="col-start-2 row-start-1 justify-self-end">
         <DownloadButton file={file.name} href={href} />
       </div>
+      <p
+        title={file.name}
+        style={{ fontSize: nameFontSize(file.name) }}
+        className="col-span-2 row-start-2 mt-1.5 whitespace-nowrap font-mono leading-snug text-ink"
+      >
+        {file.name}
+      </p>
+      <p className="col-start-1 row-span-2 row-start-3 min-w-0 text-xs leading-snug text-ink-muted [overflow-wrap:anywhere]">
+        <T area="pages" k={file.labelKey} />
+      </p>
       {file.count !== null ? (
-        <p className={`col-start-2 row-start-2 mt-1.5 ${right}`}>
-          <span className="font-medium text-ink-muted">
-            <CountUp value={file.count} />
-          </span>{" "}
-          <T area="pages" k={file.countKey} />
+        <p className={`row-start-3 ${right}`}>
+          <CountBadge value={file.count} icon={file.countIcon} wordKey={file.countKey} />
         </p>
       ) : null}
       {file.bytes !== null ? (
-        <p className={`col-start-2 row-start-3 tabular-nums ${right}`}>
+        <p className={`row-start-4 tabular-nums ${right}`}>
           <FileSize bytes={file.bytes} />
         </p>
       ) : null}
@@ -280,6 +288,7 @@ export default function DatasetPage() {
             tint: "raad" as const,
             count: manifestFiles,
             countKey: "filesListedWord" as const,
+            countIcon: Files,
             bytes: manifestBytes,
           },
         ]
@@ -291,6 +300,7 @@ export default function DatasetPage() {
       tint: type.tint,
       count,
       countKey: "recordsWord" as const,
+      countIcon: Rows3,
       bytes: fileBytes(join(DATA_DIR, type.file)),
     })),
     {
@@ -300,6 +310,7 @@ export default function DatasetPage() {
       tint: "raad",
       count: null,
       countKey: "recordsWord",
+      countIcon: Rows3,
       bytes: fileBytes(join(DATA_DIR, "meta.json")),
     },
   ];
@@ -390,7 +401,7 @@ export default function DatasetPage() {
         <Section id="downloaden" titleKey="datasetDownloadTitle" icon={Download}>
           {/* Two columns once the section is 22rem wide, so a 320 px phone gets one. */}
           <div className="@container">
-            <ul className="grid grid-cols-1 gap-2 @[26rem]:grid-cols-2">
+            <ul className="grid grid-cols-1 gap-2 @[22rem]:grid-cols-2">
               {downloads.map((file) => (
                 <li key={file.name}>
                   <Rise>
