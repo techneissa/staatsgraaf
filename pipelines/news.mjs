@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { basename, join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 import { buildGazetteer, buildTopicIndex, linkArticle, loadTitleAliases, pointsAbroad } from "./link.mjs";
@@ -13,6 +13,7 @@ export const DEFAULT_USER_AGENT =
 export const RETENTION_DAYS = 30;
 export const THROTTLE_MS = 1000;
 export const MAX_RETRIES = 2;
+const VALIDATORS_FILE = "validators.json";
 export const MAX_SUMMARY_LENGTH = 320;
 export const DEFAULT_FEED_LANGUAGE = "nl";
 export const DEFAULT_PUBLISHER_KIND = "online";
@@ -496,17 +497,22 @@ export function carryOverItems({
   return kept;
 }
 
-async function fetchWithRetry(url, { userAgent = DEFAULT_USER_AGENT, retries = MAX_RETRIES, fetchImpl = fetch } = {}) {
+async function fetchWithRetry(url, { userAgent = DEFAULT_USER_AGENT, retries = MAX_RETRIES, fetchImpl = fetch, validators = null } = {}) {
   let attempt = 0;
   let lastError = null;
+  const headers = { "User-Agent": userAgent, Accept: "application/rss+xml, application/atom+xml, application/xml, text/xml, */*" };
+  if (validators?.etag) headers["If-None-Match"] = validators.etag;
+  if (validators?.lastModified) headers["If-Modified-Since"] = validators.lastModified;
   while (attempt <= retries) {
     attempt += 1;
     try {
-      const response = await fetchImpl(url, {
-        headers: { "User-Agent": userAgent, Accept: "application/rss+xml, application/atom+xml, application/xml, text/xml, */*" },
-        redirect: "follow",
-      });
-      if (response.status === 200) return { ok: true, body: await response.text(), status: 200 };
+      const response = await fetchImpl(url, { headers, redirect: "follow" });
+      if (response.status === 304 && (validators?.etag || validators?.lastModified)) return { ok: true, notModified: true, status: 304 };
+      if (response.status === 200) {
+        const etag = response.headers?.get?.("etag") ?? null;
+        const lastModified = response.headers?.get?.("last-modified") ?? null;
+        return { ok: true, body: await response.text(), status: 200, validators: etag || lastModified ? { etag, lastModified } : null };
+      }
       if (response.status === 403 || response.status === 401 || response.status === 402) {
         return { ok: false, status: response.status, error: `blocked (${response.status})` };
       }
@@ -590,6 +596,11 @@ export async function fetchFeeds({
   log = () => {},
 }) {
   await mkdir(cacheDir, { recursive: true });
+  // ETag / Last-Modified of each cached feed body, kept next to the bodies. A feed whose host
+  // answers 304 is read from its cached body and not downloaded again. The CI job keeps this
+  // folder between runs in the Actions cache; without a cached body no conditional header is sent.
+  const validatorsFile = join(cacheDir, VALIDATORS_FILE);
+  const validators = offline ? {} : await readValidators(validatorsFile);
   const results = [];
   for (const [index, feed] of feedConfigs.entries()) {
     const safeName = feed.publisher
@@ -609,11 +620,17 @@ export async function fetchFeeds({
       }
     } else {
       if (index > 0) await new Promise((resolve) => setTimeout(resolve, throttleMs));
-      const response = await fetchWithRetry(feed.url, { userAgent, fetchImpl });
-      if (response.ok) {
+      const known = existsSync(cacheFile) ? validators[basename(cacheFile)] : null;
+      const response = await fetchWithRetry(feed.url, { userAgent, fetchImpl, validators: known });
+      if (response.ok && response.notModified) {
+        body = await readFile(cacheFile, "utf8");
+        status = "not-modified";
+      } else if (response.ok) {
         body = response.body;
         status = "fetched";
         await writeFile(cacheFile, body, "utf8");
+        if (response.validators) validators[basename(cacheFile)] = response.validators;
+        else delete validators[basename(cacheFile)];
       } else {
         status = "failed";
         error = response.error;
@@ -635,7 +652,17 @@ export async function fetchFeeds({
     results.push({ ...feed, cacheFile, status, error, items });
     log(`  ${feed.publisher.padEnd(22)} ${status.padEnd(12)} ${String(items.length).padStart(3)} item(s)`);
   }
+  if (!offline) await writeFile(validatorsFile, `${JSON.stringify(validators, null, 1)}\n`, "utf8");
   return results;
+}
+
+async function readValidators(file) {
+  try {
+    const parsed = JSON.parse(await readFile(file, "utf8"));
+    return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
 }
 
 export async function runNewsPipeline({
@@ -863,7 +890,7 @@ export async function runNewsPipeline({
 
   const stats = {
     feeds: feedConfigs.length,
-    feedsOk: feedReport.filter((report) => report.status === "fetched" || report.status === "cache").length,
+    feedsOk: feedReport.filter((report) => report.status === "fetched" || report.status === "not-modified" || report.status === "cache").length,
     rawItems: allItems.length,
     dedupedItems: deduped.length,
     keptItems: news.length,

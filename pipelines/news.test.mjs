@@ -12,6 +12,7 @@ import {
   carryOverItems,
   dedupeItems,
   feedConfigsFromEnvelope,
+  fetchFeeds,
   imageHostAllowed,
   isExcludedUrl,
   isRelevantStored,
@@ -871,4 +872,64 @@ test("runNewsPipeline reads a news sitemap feed of an official body", async () =
   assert.equal(result.news[0].publisherKind, "overheid");
   assert.equal(result.news[0].publisher, "Rijksoverheid");
   assert.equal(result.news[0].published, "2026-10-06T10:26:10.241Z");
+});
+
+test("fetchFeeds sends the stored ETag and Last-Modified and reads a 304 from the cached body", async () => {
+  const dir = await mkdtemp(join(tmpdir(), "news-conditional-"));
+  const feedConfigs = [{ publisher: "Testkrant", url: "https://example.test/feed.xml" }];
+  const xml = '<rss><channel><item><title>Kabinet valt</title><link>https://example.test/a</link><pubDate>Mon, 26 Oct 2026 10:00:00 GMT</pubDate></item></channel></rss>';
+  const seen = [];
+
+  // First run: no cached body, so no conditional header; the validators are stored.
+  const first = await fetchFeeds({
+    feedConfigs,
+    cacheDir: dir,
+    throttleMs: 0,
+    fetchImpl: async (url, init) => {
+      seen.push(init.headers);
+      return new Response(xml, { status: 200, headers: { ETag: '"v1"', "Last-Modified": "Mon, 26 Oct 2026 10:00:00 GMT" } });
+    },
+  });
+  assert.equal(first[0].status, "fetched");
+  assert.equal(seen[0]["If-None-Match"], undefined);
+  assert.equal(seen[0]["If-Modified-Since"], undefined);
+
+  // Second run: both validators go out; a 304 keeps the cached items without a download.
+  const second = await fetchFeeds({
+    feedConfigs,
+    cacheDir: dir,
+    throttleMs: 0,
+    fetchImpl: async (url, init) => {
+      seen.push(init.headers);
+      return new Response(null, { status: 304 });
+    },
+  });
+  assert.equal(seen[1]["If-None-Match"], '"v1"');
+  assert.equal(seen[1]["If-Modified-Since"], "Mon, 26 Oct 2026 10:00:00 GMT");
+  assert.equal(second[0].status, "not-modified");
+  assert.equal(second[0].items.length, 1);
+  assert.equal(second[0].items[0].title, "Kabinet valt");
+
+  // A 304 without stored validators is not trusted: it counts as a failed fetch.
+  const fresh = await mkdtemp(join(tmpdir(), "news-conditional-"));
+  const third = await fetchFeeds({
+    feedConfigs,
+    cacheDir: fresh,
+    throttleMs: 0,
+    fetchImpl: async () => new Response(null, { status: 304 }),
+  });
+  assert.equal(third[0].status, "failed");
+  assert.equal(third[0].items.length, 0);
+
+  // A changed feed (200) replaces the body and the validators.
+  const changed = await fetchFeeds({
+    feedConfigs,
+    cacheDir: dir,
+    throttleMs: 0,
+    fetchImpl: async () => new Response(xml.replace("Kabinet valt", "Kabinet herstelt"), { status: 200, headers: { ETag: '"v2"' } }),
+  });
+  assert.equal(changed[0].status, "fetched");
+  assert.equal(changed[0].items[0].title, "Kabinet herstelt");
+  const stored = JSON.parse(await readFile(join(dir, "validators.json"), "utf8"));
+  assert.deepEqual(Object.values(stored), [{ etag: '"v2"', lastModified: null }]);
 });

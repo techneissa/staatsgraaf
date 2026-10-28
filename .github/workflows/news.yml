@@ -9,7 +9,7 @@ name: refresh
 # this run does not do (docs/adr/0004-hosting-ci-and-analytics.md, amendment 05-10-2026).
 #
 # Third-party actions are pinned to full commit SHAs, with the version they resolve
-# to in a comment. Jobs run on the maintainer's self-hosted Mac (label staatsgraaf).
+# to in a comment. Jobs run on GitHub-hosted runners (ubuntu-24.04); no runner of ours.
 on:
   schedule:
     # Every 3 hours, at 15 minutes past. GitHub documents that scheduled runs can be
@@ -30,7 +30,7 @@ jobs:
     name: refresh, validate, commit
     # Forks never run it, and it only publishes from the default branch.
     if: ${{ !github.event.repository.fork && github.ref == 'refs/heads/main' }}
-    runs-on: [self-hosted, staatsgraaf]
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     permissions:
       contents: write # push the data commit; no secret other than the translation keys is in this job
@@ -39,8 +39,12 @@ jobs:
       changed: ${{ steps.changed.outputs.changed }}
       sha: ${{ steps.commit.outputs.sha }}
     steps:
+      # One commit is enough: the data commit is pushed with a rebase onto the newest main.
+      # The token stays in the checkout because scripts/commit-refresh.sh pushes with it.
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 1
 
       # Bun installs packages and runs the pipelines, the validator, and the tests.
       # Node is not needed here; only the deploy job builds the site.
@@ -48,15 +52,6 @@ jobs:
         uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
         with:
           bun-version-file: .bun-version
-
-      # Warm the Bun package cache so `bun install` stays a few seconds.
-      - name: Cache Bun packages
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
-        with:
-          path: ~/.bun/install/cache
-          key: bun-${{ runner.os }}-${{ hashFiles('web/bun.lock') }}
-          restore-keys: |
-            bun-${{ runner.os }}-
 
       # One command refetches the official sources and applies what changed (ADR 0006 and
       # 0024): Tweede Kamer by change cursor, Eerste Kamer by page hash, the cabinet list
@@ -77,8 +72,28 @@ jobs:
           if [ "${code}" -eq 0 ] || [ "${code}" -eq 2 ]; then exit 0; fi
           exit "${code}"
 
+      # The news feeds are fetched with If-None-Match / If-Modified-Since: the feed bodies and
+      # their validators (pipelines/.cache/news) come from the previous run, so a feed that did
+      # not change answers 304 and is not downloaded again. Same cache pattern as the translations
+      # below: restore the newest entry by prefix, save a new one only when the content changed.
+      - name: Restore the news feed cache
+        uses: actions/cache/restore@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: pipelines/.cache/news
+          key: news-feeds-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            news-feeds-
+
       - name: Refresh news
         run: bun run news
+
+      - name: Save the news feed cache
+        if: always()
+        continue-on-error: true
+        uses: actions/cache/save@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
+        with:
+          path: pipelines/.cache/news
+          key: news-feeds-${{ hashFiles('pipelines/.cache/news/**') }}
 
       # Machine translation of new or changed news items (ADR 0016). The result lands
       # in data/ and is committed below; the Actions cache only seeds the next run
@@ -167,7 +182,7 @@ jobs:
     name: build and deploy
     needs: refresh
     if: ${{ needs.refresh.outputs.changed == 'true' }}
-    runs-on: [self-hosted, staatsgraaf]
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
       contents: read # no write access to the repository while the site is built
@@ -190,14 +205,6 @@ jobs:
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: "24"
-
-      - name: Cache Bun packages
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
-        with:
-          path: ~/.bun/install/cache
-          key: bun-${{ runner.os }}-${{ hashFiles('web/bun.lock') }}
-          restore-keys: |
-            bun-${{ runner.os }}-
 
       # The Next.js build cache. The key has no data hash on purpose: a refresh changes
       # data/ on almost every run, and Next invalidates only the pages whose inputs
@@ -240,10 +247,10 @@ jobs:
 
       - name: Ensure the Cloudflare Pages project exists
         run: |
-          if bunx wrangler pages project list | grep -q 'staatsgraaf'; then
+          if bunx wrangler@4.154.0 pages project list | grep -q 'staatsgraaf'; then
             echo "Pages project staatsgraaf already exists"
           else
-            bunx wrangler pages project create staatsgraaf --production-branch=main
+            bunx wrangler@4.154.0 pages project create staatsgraaf --production-branch=main
           fi
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -254,7 +261,6 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          WRANGLER_UPLOAD_CONCURRENCY: "1"
 
   # On any failure above, open or comment on a single ops issue. If the issue API is
   # unavailable, print the same summary so the failure is still visible in the log.
@@ -262,7 +268,7 @@ jobs:
     name: report failure
     needs: [refresh, deploy]
     if: ${{ failure() }}
-    runs-on: [self-hosted, staatsgraaf]
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     permissions:
       issues: write

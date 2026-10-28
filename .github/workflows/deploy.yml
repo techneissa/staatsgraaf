@@ -35,7 +35,7 @@ jobs:
   deploy:
     name: build and deploy
     if: ${{ !github.event.repository.fork }}
-    runs-on: [self-hosted, staatsgraaf]
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
       contents: read
@@ -57,15 +57,6 @@ jobs:
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: "24"
-
-      # Warm the Bun package cache so `bun install` stays a few seconds.
-      - name: Cache Bun packages
-        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4.3.0
-        with:
-          path: ~/.bun/install/cache
-          key: bun-${{ runner.os }}-${{ hashFiles('web/bun.lock') }}
-          restore-keys: |
-            bun-${{ runner.os }}-
 
       # The Next.js build cache, keyed like the refresh workflow so both share entries.
       # Why the key has no data hash and an ISO week: see the comment in news.yml
@@ -111,13 +102,12 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          WRANGLER_UPLOAD_CONCURRENCY: "1"
 
   report-failure:
     name: report failure
     needs: deploy
     if: ${{ failure() }}
-    runs-on: [self-hosted, staatsgraaf]
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     permissions:
       issues: write
