@@ -36,6 +36,7 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { T } from "@/components/i18n/t";
 import { LucideIcon } from "@/components/icons/lucide-icon";
 import { SectionHeading } from "@/components/icons/section-heading";
+import { DownloadButton } from "./download-button";
 import { CountUp, FileSize, Rise } from "./motion";
 import { getS } from "@/lib/i18n/server-strings";
 import { SITE_NAME, SITE_URL, canonical } from "@/lib/site";
@@ -180,20 +181,19 @@ type DownloadFile = {
 function DownloadCard({ file }: { file: DownloadFile }) {
   const href = `/data/v1/${file.name}`;
   return (
-    <div id={fileAnchor(file.name)} className={`flex h-full scroll-mt-4 flex-col gap-2.5 p-3 ${CARD}`}>
-      <div className="flex min-w-0 items-start gap-3">
+    <div id={fileAnchor(file.name)} className={`flex h-full scroll-mt-4 flex-col gap-2 p-2.5 ${CARD}`}>
+      <div className="flex items-start justify-between gap-2">
         <span className={`flex size-8 shrink-0 items-center justify-center rounded-md ${TINT[file.tint]}`}>
           <LucideIcon icon={file.icon} size={16} strokeWidth={1.9} />
         </span>
-        <div className="min-w-0">
-          <p className="break-all font-mono text-xs leading-snug text-ink">{file.name}</p>
-          <p className="text-xs leading-snug text-ink-muted">
-            <T area="pages" k={file.labelKey} />
-          </p>
-        </div>
+        <DownloadButton file={file.name} href={href} />
       </div>
-      <div className="mt-auto flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-        <p className="flex flex-wrap gap-x-3 text-xs text-ink-faint">
+      <div className="min-w-0">
+        <p className="break-all font-mono text-xs leading-snug text-ink">{file.name}</p>
+        <p className="text-xs leading-snug text-ink-muted">
+          <T area="pages" k={file.labelKey} />
+        </p>
+        <p className="mt-1 flex flex-wrap gap-x-3 text-xs text-ink-faint">
           {file.count !== null ? (
             <span>
               <span className="font-medium text-ink-muted">
@@ -208,15 +208,6 @@ function DownloadCard({ file }: { file: DownloadFile }) {
             </span>
           ) : null}
         </p>
-        <a
-          href={href}
-          download={file.name}
-          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border border-line bg-surface px-3 text-sm font-medium text-ink transition-[border-color,background-color,color,scale] duration-150 hover:border-accent/40 hover:bg-accent-soft hover:text-accent-text motion-safe:active:scale-[0.98]"
-        >
-          <LucideIcon icon={Download} size={15} strokeWidth={1.9} className="shrink-0" />
-          <T area="pages" k="downloadButton" />
-          <span className="sr-only">{file.name}</span>
-        </a>
       </div>
     </div>
   );
@@ -381,15 +372,18 @@ export default function DatasetPage() {
         </Section>
 
         <Section id="downloaden" titleKey="datasetDownloadTitle" icon={Download}>
-          <ul className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,14rem),1fr))] gap-2">
-            {downloads.map((file) => (
-              <li key={file.name}>
-                <Rise>
-                  <DownloadCard file={file} />
-                </Rise>
-              </li>
-            ))}
-          </ul>
+          {/* Two columns once the section is 22rem wide, so a 320 px phone gets one. */}
+          <div className="@container">
+            <ul className="grid grid-cols-1 gap-2 @[22rem]:grid-cols-2">
+              {downloads.map((file) => (
+                <li key={file.name}>
+                  <Rise>
+                    <DownloadCard file={file} />
+                  </Rise>
+                </li>
+              ))}
+            </ul>
+          </div>
         </Section>
 
         <Section id="onafhankelijk" titleKey="datasetIndependenceTitle" icon={ShieldCheck}>

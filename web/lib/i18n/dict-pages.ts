@@ -247,13 +247,13 @@ export const PAGES_DICT = {
 
   datasetTitle: { nl: "Dataset", en: "Dataset" },
   datasetIntro: {
-    nl: "De hele dataset staat als losse JSON-bestanden op deze site. Elk feit heeft een bron met een URL en een ophaaldatum. De bestanden zijn bedoeld voor hergebruik, onderzoek en de iOS-app die op dezelfde gegevens werkt.",
-    en: "The whole dataset is on this site as separate JSON files. Every fact has a source with a URL and a retrieval date. The files are meant for reuse, research and the iOS app that works on the same data.",
+    nl: "De hele dataset staat als JSON-bestanden op deze site. Elk feit heeft een bron met een URL en een ophaaldatum. De bestanden zijn bedoeld voor hergebruik en onderzoek, en voor een iOS-app die nog in ontwikkeling is.",
+    en: "The whole dataset is on this site as JSON files. Every fact has a source with a URL and a retrieval date. They are for reuse and research, and for an iOS app that is still in development.",
   },
   datasetContentsTitle: { nl: "Wat de dataset bevat", en: "What the dataset contains" },
   datasetContentsP2: {
-    nl: "Elk bestand heeft een vaste naam en een vaste vorm. Verwijzingen tussen records lopen via een id, nooit via een naam. De dataset is een momentopname en geen live feed: nieuwe feiten komen pas in een volgende versie.",
-    en: "Every file has a fixed name and a fixed shape. References between records run through an id, never through a name. The dataset is a snapshot and not a live feed: new facts only enter in a next version.",
+    nl: "Records verwijzen naar elkaar met een id, nooit met een naam. Ambtsdragers en nieuws worden elke 3 uur op wijzigingen gecontroleerd.",
+    en: "Records refer to each other by id, never by name. Office holders and news are checked for changes every 3 hours.",
   },
   datasetLicenseTitle: { nl: "Licentie", en: "Licence" },
   datasetLicenseP1: {
@@ -313,7 +313,7 @@ export const PAGES_DICT = {
   fileMedia: { nl: "Media", en: "Media" },
   fileMeta: { nl: "Metadata", en: "Metadata" },
   fileManifest: { nl: "Overzicht van alle bestanden", en: "Overview of all files" },
-  downloadButton: { nl: "Downloaden", en: "Download" },
+  downloadFile: { nl: "{file} downloaden", en: "Download {file}" },
   recordsWord: { nl: "records", en: "records" },
   filesWord: { nl: "bestanden", en: "files" },
   fileElections: { nl: "Verkiezingen", en: "Elections" },
@@ -334,107 +334,95 @@ export const PAGES_DICT = {
 
   privacyTitle: { nl: "Privacy", en: "Privacy" },
   privacyIntro: {
-    nl: "Staatsgraaf is een onafhankelijke publicatie over de Nederlandse overheid. De site is niet verbonden aan de Nederlandse overheid of aan enige overheidsinstantie. Deze verklaring zegt wat de site doet en wat de site niet doet.",
-    en: "Staatsgraaf is an independent publication about the Dutch government. The site is not affiliated with the Dutch government or with any government body. This statement says what the site does and what the site does not do.",
+    nl: "Staatsgraaf plaatst geen cookies, gebruikt geen analyse of advertenties en kent geen accounts of formulieren.",
+    en: "Staatsgraaf sets no cookies, runs no analytics or ads, and has no accounts or forms.",
   },
-  privacyNotTitle: { nl: "Wat de site niet doet", en: "What the site does not do" },
-  privacyNot1: {
-    nl: "De site plaatst geen cookies en gebruikt geen vergelijkbare volgtechniek.",
-    en: "The site places no cookies and uses no similar tracking technique.",
+  privacyStoredTitle: { nl: "Opgeslagen in je browser", en: "Saved in your browser" },
+  privacyStoredP1: {
+    nl: "De site onthoudt een paar keuzes op je eigen apparaat. Ze verlaten je browser nooit en blijven staan tot je de gegevens van de site wist.",
+    en: "The site remembers a few choices on your device. They never leave your browser, and they stay until you clear the site's data.",
   },
-  privacyNot2: {
-    nl: "De site heeft geen bezoekersstatistiek en geen advertentie- of analysedienst. De code bevat geen analytics.",
-    en: "The site has no visitor statistics and no advertising or analytics service. The code contains no analytics.",
+  privacyStored1: { nl: "Thema en taal", en: "Theme and language" },
+  privacyStored2: {
+    nl: "Of de paginakolom en het detailpaneel openstaan, en hoe breed het detailpaneel is",
+    en: "Whether the page column and the details panel are open, and how wide the details panel is",
   },
-  privacyNot3: {
-    nl: "De site laadt geen externe scripts, widgets of lettertypen van derden. Alles komt van de site zelf. Het zoekveld haalt alleen een indexbestand van de site zelf op.",
-    en: "The site loads no external scripts, widgets or fonts from third parties. Everything comes from the site itself. The search field only fetches an index file from the site itself.",
+  privacyStored3: { nl: "Je laatste vijf zoekopdrachten", en: "Your last five searches" },
+  privacyStored4: {
+    nl: "De weergave van de Kamer en of die foto's toont",
+    en: "The chamber layout and whether it shows photos",
   },
-  privacyNot4: {
-    nl: "De site heeft geen accounts en geen formulieren die persoonsgegevens opslaan.",
-    en: "The site has no accounts and no forms that store personal data.",
+  privacyStored5: {
+    nl: "Dat je de welkomstbanner hebt gesloten",
+    en: "That you closed the welcome banner",
   },
-  privacyThemeNote: {
-    nl: "De enige voorkeur die lokaal wordt bewaard, is het gekozen thema (licht of donker). Die voorkeur staat in de opslag van je eigen browser, wordt niet naar een server verstuurd, en verdwijnt wanneer je de opslag van de site wist.",
-    en: "The only preference stored locally is the chosen theme (light or dark). That preference sits in your own browser's storage, is not sent to a server, and disappears when you clear the site's storage.",
+  privacyStoredP2: {
+    nl: "Scrollposities en of de grafiek openstaat, blijven alleen bewaard tot je het tabblad sluit.",
+    en: "Scroll positions and whether the graph is open are kept only until you close the tab.",
   },
-  privacyDatasetTitle: { nl: "Welke gegevens de dataset bevat", en: "Which data the dataset contains" },
-  privacyDatasetP1: {
-    nl: "De dataset gaat over personen met een publieke functie. De gegevens komen uit bronnen die de overheid zelf openbaar maakt, zoals wetten, benoemingsbesluiten, registers en de websites van de organen.",
-    en: "The dataset is about people in public office. The data comes from sources the government itself makes public, such as laws, appointment decisions, registers and the websites of the bodies.",
+  privacyElsewhereTitle: { nl: "Van elders geladen", en: "Loaded from elsewhere" },
+  privacyElsewhereP1: {
+    nl: "De site draait op Cloudflare Pages. Cloudflare handelt elk verzoek af en kan technische gegevens loggen, zoals je IP-adres.",
+    en: "The site runs on Cloudflare Pages. Cloudflare handles every request and may log technical details such as your IP address.",
   },
-  privacyDatasetP2: {
-    nl: "De grondslag is het algemeen belang bij een publiek overzicht van de overheid, in combinatie met het feit dat de gegevens al openbaar zijn. De dataset bevat naam, functie, organisatie, datums van aanstelling en vertrek en, als een openbare bron die publiceert, de geboortedatum, met per feit een bron.",
-    en: "The basis is the public interest in a public overview of the government, combined with the fact that the data is already public. The dataset contains name, position, organization, dates of appointment and departure and, where a public source publishes it, the date of birth, with a source per fact.",
+  privacyElsewhereP2: {
+    nl: "Sommige nieuwskaarten tonen een afbeelding van de server van de nieuwsbron zelf. Je browser haalt die daar op, dus die bron ziet je IP-adres. Scripts, lettertypen en al het andere komen van deze site.",
+    en: "Some news cards show a picture from the outlet's own server. Your browser fetches it there, so that outlet can see your IP address. Scripts, fonts and everything else come from this site.",
   },
-  privacyDatasetP3: {
-    nl: "Er zijn geen contactgegevens, privéadressen of gezinsgegevens. Van politici en andere ambtsdragers staat de geboortedatum vermeld als een openbare bron die publiceert, zoals de open data van de Tweede Kamer of Wikidata. Wat niet nodig is voor het overzicht, wordt niet verzameld.",
-    en: "There are no contact details, private addresses or family data. For politicians and other office holders, the date of birth is shown when a public source publishes it, such as the Tweede Kamer open data or Wikidata. Anything not needed for the overview is not collected.",
+  privacyDataTitle: { nl: "De gegevens", en: "The data" },
+  privacyDataP1: {
+    nl: "De dataset gaat over personen met een publieke functie: naam, functie, data in functie en, als een openbare bron die geeft, de geboortedatum. Elk feit noemt zijn bron. Er zijn geen contactgegevens, privéadressen of gezinsgegevens.",
+    en: "The dataset covers people in public office: name, role, dates in office and, where a public source gives it, date of birth. Every fact names its source. There are no contact details, private addresses or family details.",
   },
-  privacyLogsTitle: { nl: "Serverlogbestanden", en: "Server logs" },
-  privacyLogsP1: {
-    nl: "De site wordt als statische bestanden gehost. De hostingpartij kan technische logbestanden bijhouden, zoals IP-adressen en opgevraagde bestanden. Welke partij dat is en hoe lang die logbestanden worden bewaard, staat nog niet vast. Dat is een benoemde leemte. Zodra de host bekend is, worden de termijn en de verwerking hier vermeld.",
-    en: "The site is hosted as static files. The hosting party may keep technical logs, such as IP addresses and requested files. Which party that is and how long those logs are kept is not yet fixed. That is a named gap. Once the host is known, the retention period and the processing will be listed here.",
+  privacyDataP2: {
+    nl: "De grondslag is het algemeen belang bij een open overzicht van de overheid. Oudere versies van de data blijven bewaard, zodat correcties te herleiden zijn. Verantwoordelijk is het onafhankelijke project Staatsgraaf. Geen enkel overheidsorgaan is erbij betrokken.",
+    en: "The basis is the public interest in an open overview of government. Older versions of the data are kept so corrections can be traced. The independent Staatsgraaf project is responsible. No government body is involved.",
   },
-  privacyRetentionTitle: { nl: "Bewaartermijn", en: "Retention period" },
-  privacyRetentionP1: {
-    nl: "De datasetgeschiedenis en de gedateerde ruwe momentopnames worden bewaard om eerdere gepubliceerde versies te kunnen herleiden en om correcties te kunnen controleren. Er is nog geen vaste bewaartermijn vastgelegd. Dat is een open punt.",
-    en: "The dataset history and the dated raw snapshots are kept so that earlier published versions can be traced and corrections can be checked. No fixed retention period has been recorded yet. That is an open point.",
-  },
-  privacyCorrectionTitle: { nl: "Correctie of verwijdering", en: "Correction or removal" },
+  privacyCorrectionTitle: { nl: "Correcties en verwijdering", en: "Corrections and removal" },
   privacyCorrectionP1: {
-    nl: "Een persoon kan een feitelijke fout laten corrigeren. De fout wordt hersteld en de wijziging komt met datum en reden in het correctielogboek. Een verzoek om een gegeven over een publieke functie te verwijderen, wordt beoordeeld tegen de grondslag van het algemeen belang en het recht van bezwaar.",
-    en: "A person can have a factual error corrected. The error is fixed and the change enters the correction log with date and reason. A request to remove a fact about a public office is assessed against the basis of the public interest and the right to object.",
-  },
-  privacyCorrectionP2: {
-    nl: "Er is nog geen openbaar contactadres en nog geen publieke repository-URL vastgelegd. Daardoor is er nog geen concrete plek waar een verzoek kan worden ingediend. Dat is een benoemde leemte. Zodra die gegevens er zijn, staat hier hoe je een correctie of verwijdering aanvraagt.",
-    en: "No public contact address and no public repository URL have been recorded yet. There is therefore no concrete place yet where a request can be submitted. That is a named gap. Once that information exists, this page will describe how to request a correction or removal.",
-  },
-  privacyControllerTitle: { nl: "Verwerkingsverantwoordelijke", en: "Data controller" },
-  privacyControllerP1: {
-    nl: "De verwerkingsverantwoordelijke is het onafhankelijke project Staatsgraaf. Er is geen overheidsinstantie bij de verwerking betrokken en er is geen Functionaris Gegevensbescherming aangesteld.",
-    en: "The data controller is the independent project Staatsgraaf. No government body is involved in the processing and no Data Protection Officer has been appointed.",
-  },
-  privacyFooterPre: {
-    nl: "Deze verklaring is opgesteld op 18 september 2026.",
-    en: "This statement was written on 18 September 2026.",
+    nl: "Je kunt vragen een feitelijke fout te herstellen of een gegeven te verwijderen. Een verzoek tot verwijdering wordt afgewogen tegen het algemeen belang en je recht van bezwaar. Er is nog geen openbaar contactadres, dus voorlopig is er geen plek om een verzoek in te dienen. Zodra die er is, staat die hier.",
+    en: "You can ask for a factual error to be fixed, or for a fact to be removed. Removal requests are weighed against the public interest and your right to object. There is no public contact address yet, so for now there is nowhere to send a request. This page will say where once there is.",
   },
 
   accessTitle: { nl: "Toegankelijkheid", en: "Accessibility" },
   accessIntro: {
-    nl: "Staatsgraaf wil voor iedereen leesbaar en bedienbaar zijn. Deze verklaring beschrijft het nagestreefde niveau, waar de site nog tekortschiet, en hoe je een probleem meldt.",
-    en: "Staatsgraaf wants to be readable and operable for everyone. This statement describes the level aimed for, where the site still falls short, and how to report a problem.",
+    nl: "Staatsgraaf streeft naar WCAG 2.2 niveau AA. Deze pagina zegt wat werkt, wat nog niet werkt en hoe je een probleem meldt.",
+    en: "Staatsgraaf aims to meet WCAG 2.2 level AA. This page says what works, what does not yet, and how to report a problem.",
   },
-  accessGoalTitle: { nl: "Doel", en: "Goal" },
-  accessGoalP1: {
-    nl: "De site streeft naar WCAG 2.2 niveau AA. Dat geldt voor de leesbare pagina's en voor de interactieve onderdelen zoals de grafiek en het zoeken. De latere iOS- en iPadOS-app volgt de toegankelijkheidsfuncties van het platform.",
-    en: "The site aims for WCAG 2.2 level AA. That applies to the readable pages and to the interactive parts such as the graph and search. The later iOS and iPadOS app follows the platform's accessibility features.",
+  accessWorksTitle: { nl: "Wat werkt", en: "What works" },
+  accessWorks1: {
+    nl: "Je kunt de site met het toetsenbord bedienen. Een link bovenaan springt naar de inhoud, de focus is altijd zichtbaar en de grafiek beweegt mee met de pijltjestoetsen.",
+    en: "The site works with a keyboard. A skip link at the top jumps to the content, focus is always visible, and the graph moves with the arrow keys.",
   },
-  accessLimitsTitle: { nl: "Bekende beperkingen", en: "Known limitations" },
+  accessWorks2: {
+    nl: "Animaties stoppen als je systeem om minder beweging vraagt.",
+    en: "Animations stop when your system asks for reduced motion.",
+  },
+  accessWorks3: {
+    nl: "Tekst en bedieningselementen halen in het lichte en het donkere thema het contrast van WCAG AA. Een script controleert dat.",
+    en: "Text and controls meet WCAG AA contrast in both the light and the dark theme. A script checks this.",
+  },
+  accessWorks4: {
+    nl: "Pagina's hebben koppen, oriëntatiepunten en labels, zodat een schermlezer erdoorheen kan. Op smalle schermen schuift de lay-out mee, zonder zijwaarts scrollen.",
+    en: "Pages have headings, landmarks and labels, so a screen reader can move through them. On narrow screens the layout reflows without sideways scrolling.",
+  },
+  accessLimitsTitle: { nl: "Bekende beperkingen", en: "Known limits" },
   accessLimits1: {
-    nl: "De grafiek is in de kern visueel. De positie van knooppunten en de vorm van het netwerk worden niet aan een schermlezer beschreven. Dezelfde relaties staan in het lijstalternatief en op de organisatiepagina's.",
-    en: "The graph is visual at its core. The position of nodes and the shape of the network are not described to a screen reader. The same relations are in the list alternative and on the organization pages.",
+    nl: "De grafiek is vooral visueel. Een schermlezer krijgt de vorm van het netwerk niet te horen. Dezelfde verbanden staan in de lijstweergave en op de pagina van elke organisatie.",
+    en: "The graph is mostly visual. A screen reader does not get the shape of the network. The same links are in the list view and on each organization's page.",
   },
   accessLimits2: {
-    nl: "De labels in de grafiek gebruiken vaste pixelgroottes. Daardoor schalen ze niet mee met tekstzoom in de browser. Bij een hoge tekstschaal kunnen de labels klein blijven.",
-    en: "The labels in the graph use fixed pixel sizes. They therefore do not scale with text zoom in the browser. At a high text scale the labels may stay small.",
+    nl: "Labels in de grafiek hebben een vaste grootte. Tekstzoom in de browser maakt ze niet groter.",
+    en: "Labels in the graph have a fixed size. Text zoom in the browser does not enlarge them.",
   },
   accessLimits3: {
-    nl: "De vaste tweekolomsindeling kan bij 200 procent tekstzoom krap worden. Dat is nog niet in een echte browser getest.",
-    en: "The fixed two-column layout can get tight at 200 percent text zoom. That has not been tested in a real browser yet.",
-  },
-  accessLimits4: {
-    nl: "Er is nog geen volledige handmatige controle met een schermlezer en een echte browser afgerond. Een structurele scan en de contrastcontrole zijn wel uitgevoerd.",
-    en: "A full manual check with a screen reader and a real browser has not been completed yet. A structural scan and the contrast check have been done.",
-  },
-  accessLimitsOutro: {
-    nl: "Deze punten worden bijgehouden en in latere rondes opgelost.",
-    en: "These points are tracked and will be fixed in later rounds.",
+    nl: "We hebben nog niet met een schermlezer of op 200 procent tekstzoom getest in echte browsers.",
+    en: "We have not yet tested with a screen reader, or at 200 percent text zoom, in real browsers.",
   },
   accessReportTitle: { nl: "Een probleem melden", en: "Reporting a problem" },
   accessReportP1: {
-    nl: "Loop je tegen een toegankelijkheidsprobleem aan, dan kun je dat melden. Er is nog geen openbaar contactadres en nog geen publieke repository-URL vastgelegd, dus er is nog geen concrete plek voor een melding. Dat is een benoemde leemte. Zodra die gegevens er zijn, staat hier hoe je meldt en binnen welke termijn je een reactie kunt verwachten.",
-    en: "If you run into an accessibility problem, you can report it. No public contact address and no public repository URL have been recorded yet, so there is no concrete place for a report yet. That is a named gap. Once that information exists, this page will describe how to report and within which period you can expect a reply.",
+    nl: "Er is nog geen openbaar contactadres, dus voorlopig is er geen plek voor een melding. Zodra die er is, staat hier waar je terechtkunt en hoe snel je antwoord kunt verwachten.",
+    en: "There is no public contact address yet, so for now there is nowhere to send a report. This page will say where, and how soon to expect an answer, once there is.",
   },
 } as const satisfies Record<string, LocString>;
 
