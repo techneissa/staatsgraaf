@@ -315,7 +315,7 @@ export const PAGES_DICT = {
   fileManifest: { nl: "Overzicht van alle bestanden", en: "Overview of all files" },
   downloadFile: { nl: "{file} downloaden", en: "Download {file}" },
   recordsWord: { nl: "records", en: "records" },
-  filesWord: { nl: "bestanden", en: "files" },
+  filesListedWord: { nl: "bestanden vermeld", en: "files listed" },
   fileElections: { nl: "Verkiezingen", en: "Elections" },
   fileCoalitions: { nl: "Coalities", en: "Coalitions" },
   fileCareers: { nl: "Loopbaanstappen", en: "Career steps" },
