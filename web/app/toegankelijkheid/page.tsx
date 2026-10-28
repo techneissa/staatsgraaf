@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { CircleAlert, MessageSquareWarning, Target, type IconNode } from "lucide";
+import { CircleAlert, CircleCheck, MessageSquareWarning, type IconNode } from "lucide";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { SectionHeading } from "@/components/icons/section-heading";
 import { T } from "@/components/i18n/t";
@@ -13,7 +13,7 @@ import { canonical, SITE_NAME } from "@/lib/site";
 export const metadata: Metadata = {
   title: getS("pages", "accessTitle"),
   description:
-    "Toegankelijkheidsverklaring van Staatsgraaf: het nagestreefde niveau, de bekende beperkingen en hoe je een probleem meldt.",
+    "Toegankelijkheidsverklaring van Staatsgraaf: wat werkt, de bekende beperkingen en hoe je een probleem meldt.",
   alternates: canonical("/toegankelijkheid/"),
 };
 
@@ -54,10 +54,21 @@ export default function AccessibilityPage() {
       </p>
 
       <div className="mt-4">
-        <Section id="doel" titleKey="accessGoalTitle" icon={Target}>
-          <p>
-            <T area="pages" k="accessGoalP1" />
-          </p>
+        <Section id="werkt" titleKey="accessWorksTitle" icon={CircleCheck}>
+          <List>
+            <li>
+              <T area="pages" k="accessWorks1" />
+            </li>
+            <li>
+              <T area="pages" k="accessWorks2" />
+            </li>
+            <li>
+              <T area="pages" k="accessWorks3" />
+            </li>
+            <li>
+              <T area="pages" k="accessWorks4" />
+            </li>
+          </List>
         </Section>
 
         <Section id="beperkingen" titleKey="accessLimitsTitle" icon={CircleAlert}>
@@ -71,13 +82,7 @@ export default function AccessibilityPage() {
             <li>
               <T area="pages" k="accessLimits3" />
             </li>
-            <li>
-              <T area="pages" k="accessLimits4" />
-            </li>
           </List>
-          <p>
-            <T area="pages" k="accessLimitsOutro" />
-          </p>
         </Section>
 
         <Section id="melden" titleKey="accessReportTitle" icon={MessageSquareWarning}>

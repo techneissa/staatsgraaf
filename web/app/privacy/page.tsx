@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Clock, Database, EyeOff, PenLine, Server, UserCheck, type IconNode } from "lucide";
+import { Database, HardDrive, PenLine, Server, type IconNode } from "lucide";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { LocalDate } from "@/components/content/local-date";
 import { SectionHeading } from "@/components/icons/section-heading";
 import { T } from "@/components/i18n/t";
 import { getS } from "@/lib/i18n/server-strings";
@@ -13,7 +14,7 @@ import { canonical, SITE_NAME } from "@/lib/site";
 export const metadata: Metadata = {
   title: getS("pages", "privacyTitle"),
   description:
-    "Privacyverklaring van Staatsgraaf: welke gegevens de site wel en niet verwerkt, op welke grondslag dat gebeurt, en hoe correctie of verwijdering werkt.",
+    "Privacyverklaring van Staatsgraaf: wat de site in je browser opslaat en van elders laadt, welke gegevens de dataset bevat en hoe correctie of verwijdering werkt.",
   alternates: canonical("/privacy/"),
 };
 
@@ -42,6 +43,9 @@ function List({ children }: { children: ReactNode }) {
   return <ul className="list-disc space-y-1.5 ps-5 marker:text-ink-faint">{children}</ul>;
 }
 
+/** The day this statement last changed. Update it with the text. */
+const UPDATED = "2026-10-28";
+
 export default function PrivacyPage() {
   return (
     <>
@@ -54,47 +58,47 @@ export default function PrivacyPage() {
       </p>
 
       <div className="mt-4">
-        <Section id="niet" titleKey="privacyNotTitle" icon={EyeOff}>
+        <Section id="opslag" titleKey="privacyStoredTitle" icon={HardDrive}>
+          <p>
+            <T area="pages" k="privacyStoredP1" />
+          </p>
           <List>
             <li>
-              <T area="pages" k="privacyNot1" />
+              <T area="pages" k="privacyStored1" />
             </li>
             <li>
-              <T area="pages" k="privacyNot2" />
+              <T area="pages" k="privacyStored2" />
             </li>
             <li>
-              <T area="pages" k="privacyNot3" />
+              <T area="pages" k="privacyStored3" />
             </li>
             <li>
-              <T area="pages" k="privacyNot4" />
+              <T area="pages" k="privacyStored4" />
+            </li>
+            <li>
+              <T area="pages" k="privacyStored5" />
             </li>
           </List>
           <p>
-            <T area="pages" k="privacyThemeNote" />
+            <T area="pages" k="privacyStoredP2" />
           </p>
         </Section>
 
-        <Section id="dataset" titleKey="privacyDatasetTitle" icon={Database}>
+        <Section id="elders" titleKey="privacyElsewhereTitle" icon={Server}>
           <p>
-            <T area="pages" k="privacyDatasetP1" />
+            <T area="pages" k="privacyElsewhereP1" />
           </p>
           <p>
-            <T area="pages" k="privacyDatasetP2" />
-          </p>
-          <p>
-            <T area="pages" k="privacyDatasetP3" />
+            <T area="pages" k="privacyElsewhereP2" />
           </p>
         </Section>
 
-        <Section id="logs" titleKey="privacyLogsTitle" icon={Server}>
+        <Section id="gegevens" titleKey="privacyDataTitle" icon={Database}>
           <p>
-            <T area="pages" k="privacyLogsP1" />
+            <T area="pages" k="privacyDataP1" />
           </p>
-        </Section>
-
-        <Section id="bewaren" titleKey="privacyRetentionTitle" icon={Clock}>
           <p>
-            <T area="pages" k="privacyRetentionP1" />
+            <T area="pages" k="privacyDataP2" />
           </p>
         </Section>
 
@@ -102,20 +106,11 @@ export default function PrivacyPage() {
           <p>
             <T area="pages" k="privacyCorrectionP1" />
           </p>
-          <p>
-            <T area="pages" k="privacyCorrectionP2" />
-          </p>
-        </Section>
-
-        <Section id="verantwoordelijke" titleKey="privacyControllerTitle" icon={UserCheck}>
-          <p>
-            <T area="pages" k="privacyControllerP1" />
-          </p>
         </Section>
       </div>
 
-      <p className="py-6 text-xs text-ink-faint">
-        <T area="pages" k="privacyFooterPre" />
+      <p className="py-6 text-end text-xs text-ink-faint">
+        <LocalDate iso={UPDATED} />
       </p>
     </>
   );
