@@ -161,6 +161,18 @@ export const COMMON_DICT = {
     nl: "Of zoek met de knop Zoeken bovenaan de pagina.",
     en: "Or use the Search button at the top of the page.",
   },
+  welcomeLabel: { nl: "Over dit project", en: "About this project" },
+  welcomeNotAffiliated: {
+    nl: "Onafhankelijk project, niet verbonden aan de Nederlandse overheid",
+    en: "Independent project, not affiliated with the Dutch government",
+  },
+  welcomeInspiredBy: { nl: "Geïnspireerd door ", en: "Inspired by " },
+  welcomeInspiredLink: { nl: "de Gov Graph van CivLab", en: "CivLab's Gov Graph" },
+  welcomePurpose: {
+    nl: "Gemaakt door iemand die wilde begrijpen hoe de Nederlandse overheid in elkaar zit",
+    en: "Made by someone who wanted to understand how the Dutch government fits together",
+  },
+  welcomeDismiss: { nl: "Melding sluiten", en: "Close this notice" },
 } as const satisfies Record<string, LocString>;
 
 export type DictAreaKey = keyof typeof COMMON_DICT;
