@@ -54,3 +54,7 @@ Limits: one runner, so jobs queue. The Mac must be awake for `news.yml` (every 3
 ## Amendment 17-10-2026: Cloudflare Git auto-deploys stay off
 
 The Pages project `staatsgraaf` is still linked to `techneissa/staatsgraaf` on GitHub, but automatic deployments from that link are off (`deployments_enabled` and `production_deployments_enabled` false, preview setting `none`). Cloudflare's Git build has an empty build command and does not produce `web/out`, so a push to `main` was publishing a broken production site (HTML that pointed at missing JS chunks, the default Cloudflare `robots.txt`, no `_headers`). The only producer is Wrangler from GitHub Actions, as point 3 of the decision already said. Do not turn the Git production deploys back on.
+
+## Amendment 28-10-2026: hosted runners again, no self-hosted runner
+
+The self-hosted runner of amendment 17-10-2026 moved about 160 GB in 7 days through the maintainer's home connection (cache restores, source fetches, Pages uploads), and the monthly allowance ran out. The repository becomes public through the purged-history migration of ADR 0023, and GitHub Actions minutes are free for public repositories. All workflows run on `ubuntu-24.04`. No self-hosted runner is registered: on a public repository a fork pull request could run code on it. The Mac no longer has to be awake for the schedule. The 3-hour refresh interval is unchanged. Details are in `.github/workflows/README.md`.

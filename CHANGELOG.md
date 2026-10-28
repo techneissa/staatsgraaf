@@ -4,6 +4,14 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Changed (28-10-2026, hosted runners)
+
+- All workflows (`ci`, `refresh`, `deploy`, `link-check`) run on GitHub-hosted `ubuntu-24.04` runners again. The self-hosted runner on the maintainer's Mac is gone: the Mac moved about 160 GB in 7 days, mostly through it (a 147 MB Bun cache restored on every run, source fetches, and a Pages upload of about 8,700 files per deploy). No self-hosted runner may be registered, because a public repository would let fork pull requests run code on it.
+- The 3-hourly refresh keeps its schedule. News feeds are fetched with `If-None-Match` and `If-Modified-Since`; the feed bodies and their validators are kept between runs in the Actions cache, so an unchanged feed answers 304 and is not downloaded again (`pipelines/news.mjs`).
+- The Bun package cache (147 MB, restored in every job) is dropped: a fresh `bun install --frozen-lockfile` is quicker on a hosted runner than restoring that archive. The Next.js build cache stays.
+- `scripts/pages-deploy.mjs` runs a plain `bunx wrangler@4.154.0 pages deploy`; the pinned version replaces the unpinned `bunx wrangler`. The one-stream upload throttle now runs only when `WRANGLER_UPLOAD_CONCURRENCY` is set, for a manual deploy from a home connection.
+- ADR 0004 has an amendment for this; the operator notes in `.github/workflows/README.md` are rewritten.
+
 ### Fixed (18-10-2026, layout revert)
 
 - Reverted the page-first and panel-button work. It covered the page heading and crushed the details column.

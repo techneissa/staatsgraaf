@@ -1,24 +1,35 @@
 #!/usr/bin/env bun
 /**
- * Deploy web/out with Wrangler, one upload stream at a time.
+ * Deploy web/out to Cloudflare Pages with Wrangler.
  *
- * Wrangler hardcodes 3 bulk upload streams and up to 50 for Edge KV. This
- * Mac is the Actions runner, so that fills the home uplink. There is no
- * flag. Patch the cached CLI for this process, run the same
- * `bunx wrangler pages deploy` as before, then put the file back.
- *
- * Override with WRANGLER_UPLOAD_CONCURRENCY (default 1).
+ * On a GitHub-hosted runner this is a plain `bunx wrangler pages deploy`. The
+ * upload throttle below exists only for a deploy from a home connection
+ * (`WRANGLER_UPLOAD_CONCURRENCY=1 bun scripts/pages-deploy.mjs`): Wrangler
+ * hardcodes 3 bulk upload streams and up to 50 for Edge KV, with no flag, so
+ * with the variable set this patches the cached CLI for this process and puts
+ * the file back afterwards. The workflows do not set it.
  */
 import { spawnSync } from "node:child_process";
 import { readFileSync, readdirSync, statSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-const cap = Math.max(1, Number.parseInt(process.env.WRANGLER_UPLOAD_CONCURRENCY || "1", 10) || 1);
-const extra = process.argv.slice(2);
+// Pinned, so a deploy never runs a Wrangler release nobody has looked at.
+const WRANGLER = "wrangler@4.154.0";
 
-const version = spawnSync("bunx", ["wrangler", "--version"], { encoding: "utf8" });
+const extra = process.argv.slice(2);
+const deploy = () =>
+  spawnSync("bunx", [WRANGLER, "pages", "deploy", "web/out", "--project-name=staatsgraaf", "--branch=main", ...extra], {
+    stdio: "inherit",
+    env: process.env,
+  });
+
+if (!process.env.WRANGLER_UPLOAD_CONCURRENCY) process.exit(deploy().status ?? 1);
+
+const cap = Math.max(1, Number.parseInt(process.env.WRANGLER_UPLOAD_CONCURRENCY, 10) || 1);
+
+const version = spawnSync("bunx", [WRANGLER, "--version"], { encoding: "utf8" });
 if (version.status !== 0) {
-  process.stderr.write(version.stderr || "bunx wrangler --version failed\n");
+  process.stderr.write(version.stderr || `bunx ${WRANGLER} --version failed\n`);
   process.exit(version.status || 1);
 }
 
@@ -51,12 +62,7 @@ writeFileSync(cli, src);
 process.stderr.write(`wrangler upload concurrency ${cap}\n`);
 let status = 1;
 try {
-  const result = spawnSync(
-    "bunx",
-    ["wrangler", "pages", "deploy", "web/out", "--project-name=staatsgraaf", "--branch=main", ...extra],
-    { stdio: "inherit", env: process.env },
-  );
-  status = result.status ?? 1;
+  status = deploy().status ?? 1;
 } finally {
   writeFileSync(cli, orig);
 }

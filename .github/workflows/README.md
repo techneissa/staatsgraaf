@@ -2,7 +2,7 @@
 
 Four GitHub Actions workflows run the refresh, the push deploy, the CI gate, and the weekly link check. Host and deploy path are fixed in `docs/adr/0004-hosting-ci-and-analytics.md` (including its amendment of 05-10-2026): Cloudflare Pages, project `staatsgraaf`, production branch `main`, Wrangler deploy from GitHub Actions.
 
-Jobs run on a self-hosted runner on the maintainer's Mac (`runs-on: [self-hosted, staatsgraaf]`). GitHub does not charge minutes for that. The repository stays private. Cloudflare Pages Git auto-deploys stay off; only Wrangler from these workflows (or a manual `bun scripts/pages-deploy.mjs`) may publish. Uploads run one stream at a time so the home uplink stays usable. The Git link is still there so the dashboard can show the repo, but a push must not start a Cloudflare build. Every third-party action is pinned to a full commit SHA with its version in a comment; bump them by hand or with Dependabot. The machine must be awake for the 3-hourly refresh and the weekly link check; a sleeping Mac skips the schedule until the next tick.
+Every job runs on a GitHub-hosted runner (`runs-on: ubuntu-24.04`); GitHub does not charge minutes for a public repository. No self-hosted runner is registered anywhere, and none may be: on a public repository a pull request from a fork could run code on it. Cloudflare Pages Git auto-deploys stay off; only Wrangler from these workflows (or a manual `bun scripts/pages-deploy.mjs`) may publish. The Git link is still there so the dashboard can show the repo, but a push must not start a Cloudflare build. Every third-party action is pinned to a full commit SHA with its version in a comment; bump them by hand or with Dependabot. Wrangler is pinned to one version (`wrangler@4.154.0`) in `news.yml` and `scripts/pages-deploy.mjs`. Nothing depends on a machine being awake: the schedule runs on GitHub's side.
 
 ## Workflows
 
@@ -12,17 +12,17 @@ The only scheduled workflow besides the weekly link check. It runs every 3 hours
 
 Job `refresh` (permission: `contents: write`):
 
-1. checkout, setup Bun (`.bun-version`), restore the Bun package cache
+1. shallow checkout (`fetch-depth: 1`), setup Bun (`.bun-version`)
 2. `bun run refresh-official` (office holders from Rijksoverheid, Tweede Kamer, and Eerste Kamer; `docs/adr/0006-live-official-sources.md`)
 3. `bun run merge`
-4. `bun run news`
+4. `bun run news`, with the feed cache restored first and saved after (see Caches): a feed that sends an ETag or Last-Modified is asked "changed since?" and, when it answers 304, is not downloaded again
 5. restore the translation cache, `bun install --frozen-lockfile`, `bun run translate` (never fails the run), save the cache
 6. `bun run changes`
 7. `bun run validate`, then `bun test pipelines web/lib`
 8. `bun scripts/data-changed.mjs ...`: is there a real change? Differences in `generatedAt` alone do not count
 9. only if something changed: `bash scripts/commit-refresh.sh` commits `data/`, `ATTRIBUTION.md`, `research/P-live-ambtsdragers.json`, `research/P-live-ambtsdragers.md`, and `research/merge-log.entries.jsonl` to `main` as `github-actions[bot]` with the message `data: refresh <ISO date> [skip ci]`. If the push loses a race it rebases with `git pull --rebase` and retries, up to 5 times. A rebase conflict fails the run and publishes nothing; the next run starts from the new `main`.
 
-Job `deploy` (permission: `contents: read`, runs only when job `refresh` committed a change): checks out the pushed commit, restores the Bun and Next.js caches, validates again, builds the web app (with `NEXT_PUBLIC_SITE_URL`), runs the contract check on `web/out/data/v1`, makes sure the Pages project `staatsgraaf` exists, and deploys with `bunx wrangler pages deploy web/out --project-name=staatsgraaf --branch=main`. When nothing changed, the whole run ends after step 8 with a green result: no commit, no build, no deploy.
+Job `deploy` (permission: `contents: read`, runs only when job `refresh` committed a change): checks out the pushed commit, restores the Next.js cache, validates again, builds the web app (with `NEXT_PUBLIC_SITE_URL`), runs the contract check on `web/out/data/v1`, makes sure the Pages project `staatsgraaf` exists, and deploys with `bunx wrangler pages deploy web/out --project-name=staatsgraaf --branch=main`. When nothing changed, the whole run ends after step 8 with a green result: no commit, no build, no deploy.
 
 Job `report-failure` (permission: `issues: write`): on any failure it opens or comments on one `ops` issue titled "Refresh mislukt"; if the issue API is unreachable it prints the same summary in the log.
 
@@ -30,7 +30,7 @@ The `nightly-refresh` concurrency group is shared with `deploy.yml`: two deploym
 
 ### `deploy.yml`
 
-Runs on a push to `main` and on demand. This is the fast path: it builds and deploys the committed dataset and does not refetch office holders or news. Steps: checkout, setup Bun and Node, restore the Bun and Next.js caches, `bun run validate`, `bun test pipelines web/lib`, the web build, the contract check, and the Wrangler deploy. It ignores pushes that only touch `docs/**`, `research/qa/**`, markdown files, or the workflow README (`paths-ignore`). It does not ignore `research/*.json` (the search index build reads it) or `LICENSE*` (the build serves them as `/data/v1/LICENSE*.txt`). The data commits that `news.yml` pushes do not start this workflow: GitHub does not create workflow runs for events caused by `GITHUB_TOKEN`, so the refresh run deploys its own commit.
+Runs on a push to `main` and on demand. This is the fast path: it builds and deploys the committed dataset and does not refetch office holders or news. Steps: checkout, setup Bun and Node, restore the Next.js cache, `bun run validate`, `bun test pipelines web/lib`, the web build, the contract check, and the Wrangler deploy. It ignores pushes that only touch `docs/**`, `research/qa/**`, markdown files, or the workflow README (`paths-ignore`). It does not ignore `research/*.json` (the search index build reads it) or `LICENSE*` (the build serves them as `/data/v1/LICENSE*.txt`). The data commits that `news.yml` pushes do not start this workflow: GitHub does not create workflow runs for events caused by `GITHUB_TOKEN`, so the refresh run deploys its own commit.
 
 ### `ci.yml`
 
@@ -52,12 +52,16 @@ Runs weekly (Mondays 04:23 UTC) and on demand. It builds the site and checks eve
 
 ## Caches
 
-The Bun package cache is keyed on `web/bun.lock`. The Next.js build cache (`web/.next/cache`) is keyed on `web/bun.lock` plus the ISO week, with the lockfile-only and the bare prefixes as restore keys. It is restored and saved only in the job that builds. The reason, from the GitHub Actions documentation (docs.github.com, "Dependency caching reference", read 05-10-2026):
+There is no Bun package cache. A hosted runner installs from the registry from a lockfile (`bun install --frozen-lockfile`) in seconds, and restoring the old 147 MB archive in every job (twice per refresh that deploys) cost more than it saved. Wrangler is fetched once per deploy job.
+
+The Next.js build cache (`web/.next/cache`) is keyed on `web/bun.lock` plus the ISO week, with the lockfile-only and the bare prefixes as restore keys. It is restored and saved only in the job that builds. The reason, from the GitHub Actions documentation (docs.github.com, "Dependency caching reference", read 05-10-2026):
 
 - a cache cannot be changed once its key exists ("You cannot change the contents of an existing cache"), so a key made only of the lockfile hash would freeze the cache at its first build;
 - the cache total is capped at 10 GB per repository by default, and entries not accessed for 7 days are evicted, so a key per run (8 runs a day) would fill the cap and evict the translation cache.
 
 One entry per week keeps the cache fresh and the total small. The data hash is deliberately not in the key: `data/` changes on almost every refresh, and Next invalidates only the pages whose inputs changed.
+
+Two small caches belong to the refresh job. The translation cache (`pipelines/.cache/translations`) seeds the next run with items translated but not yet committed. The news feed cache (`pipelines/.cache/news`, about 10 MB) holds each feed's last body and its `ETag` / `Last-Modified` in `validators.json`. It is restored by prefix (`news-feeds-`, newest entry) and saved under a key made of the hash of its content, so a run in which no feed changed saves nothing. Without a cached body a feed is fetched in full, so a lost cache costs one normal run. The official sources need no such cache: `bun run live` keeps its cursors, ETags and page hashes in the committed `research/P-live-state.json`.
 
 ## Secrets and variables
 
@@ -76,19 +80,6 @@ Set these in **Settings > Secrets and variables > Actions**.
 | `GITHUB_TOKEN` | automatic | Pushes the data commit and opens the `ops` issue. Do not set it yourself. |
 
 Never echo a secret. The workflows pass secrets only as step-level environment variables, and no step prints them. The Cloudflare credentials appear only in the Pages steps of the `deploy` job, which has read-only repository access.
-
-## Self-hosted runner
-
-The runner lives outside the repository, in `~/actions-runner`, with the label `staatsgraaf`. It is a LaunchAgent for the logged-in user. `~/actions-runner/.path` must be a single colon-separated PATH (the service script assigns the file to `PATH` as-is); include `/usr/bin` and `/opt/homebrew/bin` so `tar` and Homebrew `git` resolve. Apple's Xcode `git` hangs `git version` inside the service, so `brew install git` is required. Jobs must not use `osxkeychain`: `~/actions-runner/.env` points `GIT_CONFIG_GLOBAL` at a runner-only gitconfig with an empty credential helper, otherwise every checkout pops the Keychain dialog. Interactive `git` in Terminal is unchanged.
-
-```sh
-cd ~/actions-runner
-./svc.sh status    # is it running?
-./svc.sh stop      # stop taking jobs
-./svc.sh start     # take jobs again
-```
-
-GitHub Settings > Actions > Runners shows it as Idle or Active. After a Mac reboot, log in once so launchd starts the agent. If a run sits on "Waiting for a runner", the machine is asleep or the service is down.
 
 ## Repository settings the workflows rely on
 
@@ -125,6 +116,6 @@ From https://developers.cloudflare.com/pages/platform/limits/ (page dated 05-09-
 
 ## Named gaps
 
-1. **The Mac must be awake.** Scheduled refresh and link-check jobs are skipped while the machine sleeps. They run at the next scheduled tick after it wakes.
+1. **Scheduled runs can start late.** GitHub documents that scheduled workflows may be delayed under load and that a tick can be dropped; the next tick catches up because every run refetches the current state.
 2. **Secrets and variables are not verifiable from a checkout.** The table above lists the names; the values live only in the repository settings.
 3. **The refresh is not a fixed point yet.** On 05-10-2026 two consecutive local runs of `refresh-official`, `merge`, `news`, and `changes` produced different tenures for two ministers (closed, then open again). Until that is fixed in `pipelines/`, a refresh can commit on every run.
