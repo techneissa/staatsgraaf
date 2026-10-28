@@ -1,15 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { X } from "lucide";
-import { Morph } from "./icons/morph";
+import { Info, X } from "lucide";
+import { LucideIcon } from "./icons/lucide-icon";
 import { useT } from "./i18n/use-t";
 import { CIVLAB_URL, WELCOME_BANNER_ATTR, readDismissed, writeDismissed } from "@/lib/welcome-banner";
 
 /**
- * The three statements, once. The banner renders this twice: the real copy
- * and an aria-hidden clone that makes the scrolling loop seamless. The clone's
- * link is out of the tab order, so only the real copy takes focus.
+ * The three statements, once, ending in a separator so the next copy follows
+ * at the same spacing. The banner renders this several times so one half of
+ * the scrolling track is wider than any screen: the first copy is the real
+ * text, the rest are aria-hidden clones whose link is out of the tab order.
  */
 function Statements({ clone }: { clone: boolean }) {
   const t = useT("common");
@@ -35,12 +36,18 @@ function Statements({ clone }: { clone: boolean }) {
         ·
       </span>
       <span>{t("welcomePurpose")}</span>
+      <span aria-hidden="true" className="sg-welcome-sep sg-welcome-sep-end">
+        ·
+      </span>
     </p>
   );
 }
 
+/** Copies per half of the track: three of about 1100 px outrun a 2560 px screen. */
+const COPIES = [0, 1, 2];
+
 /**
- * A coloured strip above the top bar, on every page until the reader closes
+ * A slim notice pill above the top bar, on every page until the reader closes
  * it. It says the project is independent, where the idea came from and why it
  * exists. The text scrolls (globals.css, "Welcome banner"); it pauses on hover
  * and on focus, and stands still and wraps under prefers-reduced-motion.
@@ -70,15 +77,26 @@ export function WelcomeBanner() {
 
   return (
     <section aria-label={t("welcomeLabel")} data-welcome-banner className="sg-welcome">
-      <div className="sg-welcome-view">
-        <div className="sg-welcome-track">
-          <Statements clone={false} />
-          <Statements clone />
+      <div className="sg-welcome-pill">
+        <LucideIcon icon={Info} size={14} strokeWidth={2} className="sg-welcome-icon" />
+        <div className="sg-welcome-view">
+          <div className="sg-welcome-track">
+            <div className="sg-welcome-half">
+              {COPIES.map((n) => (
+                <Statements key={n} clone={n > 0} />
+              ))}
+            </div>
+            <div className="sg-welcome-half">
+              {COPIES.map((n) => (
+                <Statements key={n} clone />
+              ))}
+            </div>
+          </div>
         </div>
+        <button type="button" onClick={dismiss} aria-label={t("welcomeDismiss")} className="sg-welcome-close">
+          <LucideIcon icon={X} size={13} strokeWidth={2.25} />
+        </button>
       </div>
-      <button type="button" onClick={dismiss} aria-label={t("welcomeDismiss")} className="sg-welcome-close">
-        <Morph icon={X} size={18} strokeWidth={2} still />
-      </button>
     </section>
   );
 }
