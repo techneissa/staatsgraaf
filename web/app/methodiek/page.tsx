@@ -54,14 +54,17 @@ export default function MethodPage() {
             <L nl="De Nederlandse rijksoverheid in kaart" en="The Dutch national government, mapped" />
           </p>
           <p>
-            <L nl="Staatsgraaf is een persoonlijk project. Het project is geïnspireerd door " en="Staatsgraaf is a personal project. The project is inspired by " />
+            <L
+              nl="Staatsgraaf is een persoonlijk project. Ik maak het voor mezelf en voor iedereen die een algemeen beeld wil van hoe de Nederlandse overheid werkt: welke organisaties er zijn, wie welk ambt bekleedt, wie er komt en gaat, en wat het nieuws erover zegt. Het is geïnspireerd door "
+              en="Staatsgraaf is a personal project. I made it for myself and for anyone who wants a general picture of how the Dutch government works: which organisations exist, who holds which office, who comes and goes, and what the news says about it. It is inspired by "
+            />
             <a href="https://graph.civlab.org/us" className={LINK} target="_blank" rel="noopener noreferrer">
               <L nl="de Gov Graph van CivLab" en="CivLab's Gov Graph" />
             </a>
             .{" "}
             <L
-              nl="Dank aan CivLab voor het idee. Staatsgraaf is niet verbonden aan CivLab en gebruikt er niets van. Het project is gemaakt voor mezelf en voor iedereen die een algemeen beeld wil van hoe de Nederlandse overheid werkt: wie welk ambt bekleedt, welke organisaties er zijn, wat er verandert in beleid en regelgeving, en wat het nieuws erover zegt."
-              en="Thanks to CivLab for the idea. Staatsgraaf is not affiliated with CivLab and uses nothing from it. The project is created for myself and anyone who wants a general picture of how the Dutch government works: who holds which office, which organisations exist, what changes in policy and regulation, and what the news says about it."
+              nl="Dank aan CivLab voor het idee. Staatsgraaf is niet verbonden aan CivLab en gebruikt er niets van."
+              en="Thanks to CivLab for the idea. Staatsgraaf is not affiliated with CivLab and uses nothing from it."
             />
           </p>
           <p>
