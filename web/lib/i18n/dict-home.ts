@@ -151,11 +151,6 @@ export const HOME_DICT = {
   peopleUnlinked: { nl: "Wijziging zonder gekoppelde persoon of positie", en: "Change without a linked person or position" },
   peopleShowMore: { nl: "Toon nog {count}", en: "Show {count} more" },
   peopleShowLess: { nl: "Toon minder", en: "Show fewer" },
-  chgIntro: {
-    nl: "Staatsgraaf is een openbare, bronvermelde graaf van de Nederlandse staat: organisaties, functionarissen, begroting en wijzigingen, elk feit met een bron.",
-    en: "Staatsgraaf is a public, source-backed graph of the Dutch state: organizations, office holders, budget and changes, every fact with a source.",
-  },
-  chgIntroLink: { nl: "Methode en bronnen", en: "Method and sources" },
   chgNowLabel: { nl: "Nu", en: "Now" },
   chgNowGroupAria: { nl: "De stand van nu, los van de periode", en: "The state right now, apart from the period" },
   chgActingLabel: { nl: "waarnemende ambtsdragers", en: "acting office holders" },

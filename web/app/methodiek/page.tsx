@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { LocalCount } from "@/components/content/local-date";
 import type { ReactNode } from "react";
 import { CircleDashed, Info, Link as LinkGlyph, Scale, Sparkles, type IconNode } from "lucide";
 import { Breadcrumb } from "@/components/breadcrumb";
 import { SectionHeading } from "@/components/icons/section-heading";
 import { L, T } from "@/components/i18n/t";
-import { getDataset } from "@/lib/data";
 import { getS } from "@/lib/i18n/server-strings";
 import { canonical, SITE_NAME } from "@/lib/site";
 
@@ -43,9 +41,6 @@ function Section({
 const LINK = "text-accent-text underline-offset-2 hover:underline";
 
 export default function MethodPage() {
-  const { people } = getDataset();
-  const withPortrait = people.filter((person) => person.portrait !== null).length;
-
   return (
     <>
       <Breadcrumb items={[{ label: SITE_NAME, href: "/" }, { label: <T area="pages" k="aboutTitle" /> }]} />
@@ -59,33 +54,46 @@ export default function MethodPage() {
             <L nl="De Nederlandse rijksoverheid in kaart" en="The Dutch national government, mapped" />
           </p>
           <p>
-            <T area="common" k="brandTagline" />
-          </p>
-          <p>
             <L
-              nl="Staatsgraaf is een persoonlijk project. Ik bouw het voor mezelf en publiceer het voor iedereen die een algemeen beeld wil krijgen van hoe de Nederlandse overheid in elkaar zit: wie welke functie heeft, welke organisaties er zijn, wat er aan beleid en regelgeving verandert en wat het nieuws erover zegt."
-              en="Staatsgraaf is a personal project. I build it for myself and publish it for anyone who wants a general picture of how the Dutch government works: who holds which office, which organisations exist, what changes in policy and regulation, and what the news says about it."
+              nl="Staatsgraaf is een persoonlijk project: een open kaart van de Nederlandse rijksoverheid met organisaties, posities, personen en hun verbindingen. Ik bouw het om te begrijpen hoe de Nederlandse overheid in elkaar zit, en deel het met iedereen die een algemeen beeld wil."
+              en="Staatsgraaf is a personal project: an open map of the Dutch national government with its organizations, positions, people and the connections between them. I build it to understand how the Dutch government fits together, and I share it with anyone who wants the general picture."
             />
           </p>
           <p>
             <L
-              nl="De inhoud is zo neutraal mogelijk: feiten uit officiële en openbare bronnen, zonder oordeel."
-              en="The content aims to be as neutral as possible: facts from official and public sources, without judgement."
+              nl="De feiten komen uit officiële en openbare bronnen. Ik beschrijf ze zo neutraal mogelijk, zonder oordeel."
+              en="The facts come from official and public sources. I state them as neutrally as possible, without judgement."
+            />{" "}
+            <L nl="Waar ze vandaan komen staat bij " en="Where they come from is under " />
+            <a href="#bronnen" className={LINK}>
+              <L nl="Bronnen" en="Sources" />
+            </a>
+            <L nl="; onder welke voorwaarden je ze mag gebruiken bij " en="; what you may do with them is under " />
+            <a href="#licenties" className={LINK}>
+              <L nl="Licenties" en="Licences" />
+            </a>
+            .
+          </p>
+          <p className="font-medium text-danger">
+            Staatsgraaf is{" "}
+            <strong className="font-bold underline">
+              <L nl="niet" en="not" />
+            </strong>
+            {" "}
+            <L
+              nl="verbonden aan de Nederlandse overheid of aan een ander overheidsorgaan."
+              en="affiliated with the Dutch government or any government body."
             />
           </p>
           <p>
-            <L nl="Geïnspireerd door de" en="Inspired by the" />{" "}
-            <a href="https://graph.civlab.org/us" className={LINK} rel="noopener noreferrer">
-              Gov Graph
-            </a>{" "}
-            <L nl="van" en="by" />{" "}
-            <a href="https://www.civlab.org/" className={LINK} rel="noopener noreferrer">
-              CivLab
+            <L nl="Geïnspireerd door " en="Inspired by " />
+            <a href="https://graph.civlab.org/us" className={LINK} target="_blank" rel="noopener noreferrer">
+              <L nl="de Gov Graph van CivLab" en="CivLab's Gov Graph" />
             </a>
             .{" "}
             <L
-              nl="Dank aan CivLab voor het idee. Staatsgraaf is niet verbonden aan CivLab en gebruikt niets van CivLab."
-              en="Thanks to CivLab for the idea. Staatsgraaf is not affiliated with CivLab and uses nothing from CivLab."
+              nl="Dank aan CivLab voor het idee. Staatsgraaf is niet verbonden aan CivLab en gebruikt er niets van."
+              en="Thanks to CivLab for the idea. Staatsgraaf is not affiliated with CivLab and uses nothing from it."
             />
           </p>
         </Section>
@@ -126,17 +134,15 @@ export default function MethodPage() {
         <Section id="grenzen" icon={CircleDashed} title={<L nl="Wat nog ontbreekt" en="What is still missing" />}>
           <ul className="list-disc space-y-1.5 ps-5 marker:text-ink-faint">
             <li>
-              <L nl="Portretten:" en="Portraits:" /> <LocalCount value={withPortrait} /> <L nl="van" en="of" />{" "}
-              <LocalCount value={people.length} />
               <L
-                nl=". Wie geen vrij gelicentieerde foto heeft, krijgt initialen."
-                en=". People without a freely licensed photo show initials."
+                nl="Niet elke persoon heeft een portret. Een foto staat er alleen als de licentie hergebruik toestaat. Anders toont de pagina initialen."
+                en="Not every individual has a portrait. A photo is shown only when its licence allows reuse. Otherwise the page shows initials."
               />
             </li>
             <li>
               <L
-                nl="Provincies, gemeenten en waterschappen worden dagelijks bijgewerkt uit officiële bronnen (TOOI, het Register van Overheidsorganisaties, CBS en Rijksoverheid): de lichamen, hun zetels, de burgemeesters, dijkgraven en commissarissen van de Koning. Wethouders, raadsleden, gedeputeerden en de besturen van waterschappen staan er nog niet in."
-                en="Provinces, municipalities and water boards are refreshed daily from official sources (TOOI, the Register of Government Organisations, CBS and Rijksoverheid): the bodies, their council seats, the mayors, dijkgraven and Commissioners of the King. Aldermen, councillors, gedeputeerden and water board councils are not in yet."
+                nl="Gemeenten, provincies en waterschappen komen uit officiële bronnen (TOOI, het Register van Overheidsorganisaties, CBS en Rijksoverheid) en worden automatisch bijgewerkt. Daarin staan de bestuursorganen, hun raadszetels, de burgemeesters, dijkgraven en commissarissen van de Koning. Wethouders, raadsleden, gedeputeerden en de besturen van waterschappen ontbreken nog."
+                en="Municipalities, provinces and water boards come from official sources (TOOI, the Register of Government Organisations, CBS and Rijksoverheid) and are refreshed automatically. They include the bodies, their council seats, the mayors, dijkgraven and Commissioners of the King. Aldermen, councillors, gedeputeerden and water board councils are not in yet."
               />
             </li>
           </ul>
