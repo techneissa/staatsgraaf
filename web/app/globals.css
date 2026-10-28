@@ -776,26 +776,25 @@ html[data-panels-resizing] {
 }
 
 /*
- * Welcome banner (components/welcome-banner.tsx). Sits in the flow above the
- * top bar, so it pushes the page down and covers nothing. Accent fill with
- * accent-ink text (checked by check:contrast, the same pair in both themes).
- * The text scrolls only under prefers-reduced-motion: no-preference; without
- * it the statements are plain text that wraps and the loop copy is gone.
+ * Welcome banner (components/welcome-banner.tsx). A slim pill in the flow
+ * above the top bar, as wide as the reading column at most, so it pushes the
+ * page down and covers nothing. Quiet look: the accent tint with a thin accent
+ * border, normal ink text and an info icon; ink and accent-text on accent-soft
+ * are checked by check:contrast in both themes.
+ * The text scrolls only under prefers-reduced-motion: no-preference. Both
+ * halves of the track hold the same copies (each ends in a separator), so the
+ * loop seam has the same gap as the gaps between statements. Without motion
+ * the statements are plain text that wraps and the loop copies are gone.
  * Hover or focus anywhere in the banner pauses the scroll (WCAG 2.2.2); the
  * close button hides it for good. A head script marks <html> when this
  * browser closed it already, so it never flashes in.
  */
 .sg-welcome {
-  display: flex;
-  align-items: center;
+  /* Above the top bar (z-20) so the close button's larger hit area wins over the bar's top padding. */
+  position: relative;
+  z-index: 21;
   flex-shrink: 0;
-  padding-top: var(--safe-top);
-  padding-left: max(0.75rem, var(--safe-left));
-  padding-right: max(0rem, var(--safe-right));
-  background-color: var(--t-color-accent);
-  color: var(--t-color-accent-ink);
-  font-size: var(--t-text-sm);
-  line-height: var(--t-leading-snug);
+  padding: calc(var(--safe-top) + 0.3125rem) max(0.75rem, var(--safe-right)) 0.25rem max(0.75rem, var(--safe-left));
 }
 html[data-welcome-dismissed] [data-welcome-banner] {
   display: none;
@@ -804,75 +803,108 @@ html[data-welcome-dismissed] [data-welcome-banner] {
 html:not([data-welcome-dismissed]) [data-welcome-banner] + header {
   padding-top: 0;
 }
+.sg-welcome-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  box-sizing: border-box;
+  min-height: 1.75rem;
+  width: 100%;
+  max-width: 46rem;
+  margin-inline: auto;
+  padding-inline: 0.625rem 0.25rem;
+  border: 1px solid var(--t-color-accent);
+  border-radius: 999px;
+  background-color: var(--t-color-accent-soft);
+  color: var(--t-color-ink);
+  font-size: 0.8125rem;
+  line-height: 1.2;
+}
+.sg-welcome-icon {
+  flex-shrink: 0;
+  color: var(--t-color-accent-text);
+}
 .sg-welcome-view {
   flex: 1 1 0%;
   min-width: 0;
   overflow: hidden;
-  padding-block: 0.625rem;
-}
-.sg-welcome-track > .sg-welcome-group + .sg-welcome-group {
-  display: none;
+  padding-block: 0.3125rem;
 }
 .sg-welcome-group {
   margin: 0;
 }
+.sg-welcome-half > .sg-welcome-group + .sg-welcome-group,
+.sg-welcome-half + .sg-welcome-half,
+.sg-welcome-sep-end {
+  display: none;
+}
 .sg-welcome-sep {
   margin-inline: 0.5em;
+  color: var(--t-color-accent-text);
 }
 .sg-welcome-link {
-  color: inherit;
+  color: var(--t-color-accent-text);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 .sg-welcome-link:hover {
   text-decoration-thickness: 2px;
 }
-.sg-welcome :focus-visible {
-  outline: 2px solid var(--t-color-accent-ink);
-  outline-offset: 1px;
-}
+/* A 24 px mark inside the slim pill; the ::after grows the hit area to 44 px. */
 .sg-welcome-close {
+  position: relative;
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  margin-right: max(0.125rem, var(--safe-right));
-  border-radius: var(--t-radius-sm);
-  color: inherit;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 999px;
+  color: var(--t-color-ink-muted);
+}
+.sg-welcome-close::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
 }
 .sg-welcome-close:hover {
-  background-color: color-mix(in srgb, var(--t-color-accent-ink) 16%, transparent);
-}
-.sg-welcome-close:focus-visible {
-  outline-offset: -4px;
+  background-color: color-mix(in srgb, var(--t-color-accent) 22%, transparent);
+  color: var(--t-color-ink);
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  .sg-welcome-pill {
+    height: 1.75rem;
+  }
   .sg-welcome-view {
-    padding-block: 0;
-    min-height: 44px;
     display: flex;
     align-items: center;
+    padding-block: 0;
+    /* Soft edges where the text slides in and out. */
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 0.75rem, #000 calc(100% - 0.75rem), transparent);
+    mask-image: linear-gradient(to right, transparent, #000 0.75rem, #000 calc(100% - 0.75rem), transparent);
   }
   .sg-welcome-track {
     display: flex;
     width: max-content;
-    animation: sg-welcome-run 50s linear infinite;
+    animation: sg-welcome-run 75s linear infinite;
   }
-  .sg-welcome-track > .sg-welcome-group + .sg-welcome-group {
+  .sg-welcome-half,
+  .sg-welcome-half + .sg-welcome-half {
+    display: flex;
+    flex-shrink: 0;
+  }
+  .sg-welcome-half > .sg-welcome-group + .sg-welcome-group {
     display: flex;
   }
-  /* Both copies are the same width (at least the screen), so the jump back at -50% is invisible. */
   .sg-welcome-group {
     display: flex;
     flex-shrink: 0;
     align-items: center;
-    justify-content: space-around;
-    min-width: 100vw;
-    padding-inline: 1rem;
     white-space: nowrap;
+  }
+  .sg-welcome-sep-end {
+    display: inline;
   }
   .sg-welcome:hover .sg-welcome-track,
   .sg-welcome:focus-within .sg-welcome-track {
