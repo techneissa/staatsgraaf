@@ -315,7 +315,7 @@ export const PAGES_DICT = {
   fileManifest: { nl: "Overzicht van alle bestanden", en: "Overview of all files" },
   downloadFile: { nl: "{file} downloaden", en: "Download {file}" },
   recordsWord: { nl: "records", en: "records" },
-  filesWord: { nl: "bestanden", en: "files" },
+  filesListedWord: { nl: "bestanden vermeld", en: "files listed" },
   fileElections: { nl: "Verkiezingen", en: "Elections" },
   fileCoalitions: { nl: "Coalities", en: "Coalitions" },
   fileCareers: { nl: "Loopbaanstappen", en: "Career steps" },
@@ -380,8 +380,16 @@ export const PAGES_DICT = {
   },
   privacyCorrectionTitle: { nl: "Correcties en verwijdering", en: "Corrections and removal" },
   privacyCorrectionP1: {
-    nl: "Je kunt vragen een feitelijke fout te herstellen of een gegeven te verwijderen. Een verzoek tot verwijdering wordt afgewogen tegen het algemeen belang en je recht van bezwaar. Er is nog geen openbaar contactadres, dus voorlopig is er geen plek om een verzoek in te dienen. Zodra die er is, staat die hier.",
-    en: "You can ask for a factual error to be fixed, or for a fact to be removed. Removal requests are weighed against the public interest and your right to object. There is no public contact address yet, so for now there is nowhere to send a request. This page will say where once there is.",
+    nl: "Je kunt vragen een feitelijke fout te herstellen of een gegeven te verwijderen. Een verzoek tot verwijdering wordt afgewogen tegen het algemeen belang en je recht van bezwaar.",
+    en: "You can ask for a factual error to be fixed, or for a fact to be removed. Removal requests are weighed against the public interest and your right to object.",
+  },
+  privacyCorrectionP2Pre: {
+    nl: "Om een fout te melden of een verwijdering te vragen, open je een issue op",
+    en: "To report an error or ask for a removal, open an issue on",
+  },
+  privacyCorrectionP2Post: {
+    nl: ". Een issue is openbaar, zet er dus geen privégegevens in.",
+    en: ". An issue is public, so leave private details out of it.",
   },
 
   accessTitle: { nl: "Toegankelijkheid", en: "Accessibility" },
@@ -420,9 +428,13 @@ export const PAGES_DICT = {
     en: "We have not yet tested with a screen reader, or at 200 percent text zoom, in real browsers.",
   },
   accessReportTitle: { nl: "Een probleem melden", en: "Reporting a problem" },
-  accessReportP1: {
-    nl: "Er is nog geen openbaar contactadres, dus voorlopig is er geen plek voor een melding. Zodra die er is, staat hier waar je terechtkunt en hoe snel je antwoord kunt verwachten.",
-    en: "There is no public contact address yet, so for now there is nowhere to send a report. This page will say where, and how soon to expect an answer, once there is.",
+  accessReportPre: {
+    nl: "Om een toegankelijkheidsprobleem te melden, open je een issue op",
+    en: "To report an accessibility problem, open an issue on",
+  },
+  accessReportPost: {
+    nl: ". Zet erbij om welke pagina het gaat en welk apparaat of welke hulpmiddel je gebruikt.",
+    en: ". Say which page it is on and which device or assistive tool you use.",
   },
 } as const satisfies Record<string, LocString>;
 

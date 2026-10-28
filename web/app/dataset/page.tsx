@@ -38,6 +38,7 @@ import { LucideIcon } from "@/components/icons/lucide-icon";
 import { SectionHeading } from "@/components/icons/section-heading";
 import { DownloadButton } from "./download-button";
 import { CountUp, FileSize, Rise } from "./motion";
+import { manifestFileCount, recordCount } from "@/lib/dataset-counts";
 import { getS } from "@/lib/i18n/server-strings";
 import { SITE_NAME, SITE_URL, canonical } from "@/lib/site";
 
@@ -78,8 +79,7 @@ function fileBytes(path: string): number | null {
 /** Number of records in a data file, read at build time; null when the file is not a list. */
 function countRecords(name: string): number | null {
   try {
-    const value: unknown = JSON.parse(readFileSync(join(DATA_DIR, name), "utf8"));
-    return Array.isArray(value) ? value.length : null;
+    return recordCount(JSON.parse(readFileSync(join(DATA_DIR, name), "utf8")));
   } catch {
     return null;
   }
@@ -174,7 +174,7 @@ type DownloadFile = {
   icon: IconNode;
   tint: Tint;
   count: number | null;
-  countKey: "recordsWord" | "filesWord";
+  countKey: "recordsWord" | "filesListedWord";
   bytes: number | null;
 };
 
@@ -249,8 +249,7 @@ export default function DatasetPage() {
   const manifestBytes = fileBytes(manifestPath);
   let manifestFiles: number | null = null;
   try {
-    const manifest = JSON.parse(readFileSync(manifestPath, "utf8")) as { files?: unknown };
-    manifestFiles = Array.isArray(manifest.files) ? manifest.files.length : null;
+    manifestFiles = manifestFileCount(JSON.parse(readFileSync(manifestPath, "utf8")));
   } catch {
     manifestFiles = null;
   }
@@ -263,7 +262,7 @@ export default function DatasetPage() {
             icon: FileJson,
             tint: "raad" as const,
             count: manifestFiles,
-            countKey: "filesWord" as const,
+            countKey: "filesListedWord" as const,
             bytes: manifestBytes,
           },
         ]

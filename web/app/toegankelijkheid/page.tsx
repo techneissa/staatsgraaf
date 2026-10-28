@@ -4,6 +4,7 @@ import { CircleAlert, CircleCheck, MessageSquareWarning, type IconNode } from "l
 import { Breadcrumb } from "@/components/breadcrumb";
 import { SectionHeading } from "@/components/icons/section-heading";
 import { T } from "@/components/i18n/t";
+import { IssuesLink } from "@/components/issues-link";
 import { getS } from "@/lib/i18n/server-strings";
 import { canonical, SITE_NAME } from "@/lib/site";
 
@@ -87,7 +88,8 @@ export default function AccessibilityPage() {
 
         <Section id="melden" titleKey="accessReportTitle" icon={MessageSquareWarning}>
           <p>
-            <T area="pages" k="accessReportP1" />
+            <T area="pages" k="accessReportPre" /> <IssuesLink />
+            <T area="pages" k="accessReportPost" />
           </p>
         </Section>
       </div>
