@@ -18,6 +18,7 @@
   --t-color-accent-soft: #33200D;
   --t-color-accent-ink: #1A0F03;
   --t-color-focus: #FFA24D;
+  --t-color-danger: #FF8A80;
   --t-color-overlay: #000000A6;
   --t-color-sector-regering: #D97A26;
   --t-color-sector-staten-generaal: #E05B5B;
@@ -47,6 +48,7 @@
   --t-color-accent-soft: #F8E8D8;
   --t-color-accent-ink: #1A0F03;
   --t-color-focus: #9C4A00;
+  --t-color-danger: #B3261E;
   --t-color-overlay: #10131059;
   --t-color-sector-regering: #B45E12;
   --t-color-sector-staten-generaal: #C24343;
@@ -119,6 +121,7 @@
   --color-accent-soft: var(--t-color-accent-soft);
   --color-accent-ink: var(--t-color-accent-ink);
   --color-focus: var(--t-color-focus);
+  --color-danger: var(--t-color-danger);
   --color-overlay: var(--t-color-overlay);
   --color-sector-regering: var(--t-color-sector-regering);
   --color-sector-staten-generaal: var(--t-color-sector-staten-generaal);
