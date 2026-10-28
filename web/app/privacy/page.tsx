@@ -5,6 +5,7 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { LocalDate } from "@/components/content/local-date";
 import { SectionHeading } from "@/components/icons/section-heading";
 import { T } from "@/components/i18n/t";
+import { IssuesLink } from "@/components/issues-link";
 import { getS } from "@/lib/i18n/server-strings";
 import { canonical, SITE_NAME } from "@/lib/site";
 
@@ -105,6 +106,10 @@ export default function PrivacyPage() {
         <Section id="correctie" titleKey="privacyCorrectionTitle" icon={PenLine}>
           <p>
             <T area="pages" k="privacyCorrectionP1" />
+          </p>
+          <p>
+            <T area="pages" k="privacyCorrectionP2Pre" /> <IssuesLink />
+            <T area="pages" k="privacyCorrectionP2Post" />
           </p>
         </Section>
       </div>

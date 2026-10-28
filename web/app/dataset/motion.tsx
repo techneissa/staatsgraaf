@@ -2,6 +2,7 @@
 
 import { useEffect, useLayoutEffect, useRef, useState, type ReactNode, type RefObject } from "react";
 import { useLocale } from "@/components/i18n/language-provider";
+import { REVEAL_ROOT_MARGIN, isOnScreen } from "@/lib/count-reveal";
 import { formatCountIn } from "@/lib/format";
 
 const useIsoLayoutEffect = typeof document === "undefined" ? useEffect : useLayoutEffect;
@@ -29,7 +30,7 @@ function useFirstView<E extends Element>(onEnter: () => void): [RefObject<E | nu
     // Already on screen when the script starts: the reader has seen the real
     // number in the server HTML, so resetting it to zero would only flash.
     const box = node.getBoundingClientRect();
-    if (box.top < window.innerHeight && box.bottom > 0) return;
+    if (isOnScreen(box.top, box.bottom, window.innerHeight)) return;
     setArmed(true);
     const observer = new IntersectionObserver(
       (entries) => {
@@ -37,7 +38,7 @@ function useFirstView<E extends Element>(onEnter: () => void): [RefObject<E | nu
         observer.disconnect();
         enter.current();
       },
-      { rootMargin: "0px 0px -8% 0px" },
+      { rootMargin: REVEAL_ROOT_MARGIN },
     );
     observer.observe(node);
     return () => observer.disconnect();
