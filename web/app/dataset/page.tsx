@@ -11,6 +11,7 @@ import {
   Database,
   Download,
   FileDiff,
+  Files,
   Flag,
   Gavel,
   Handshake,
@@ -25,6 +26,7 @@ import {
   Newspaper,
   Quote,
   Route,
+  Rows3,
   Scale,
   ShieldCheck,
   Tags,
@@ -37,6 +39,7 @@ import { T } from "@/components/i18n/t";
 import { LucideIcon } from "@/components/icons/lucide-icon";
 import { SectionHeading } from "@/components/icons/section-heading";
 import { DownloadButton } from "./download-button";
+import { CountBadge } from "./count-badge";
 import { CountUp, FileSize, Rise } from "./motion";
 import { manifestFileCount, recordCount } from "@/lib/dataset-counts";
 import { getS } from "@/lib/i18n/server-strings";
@@ -175,40 +178,62 @@ type DownloadFile = {
   tint: Tint;
   count: number | null;
   countKey: "recordsWord" | "filesListedWord";
+  countIcon: IconNode;
   bytes: number | null;
 };
 
+/** Width of one monospace character, with a little margin, in em. */
+const MONO_EM = 0.62;
+
+/**
+ * The file name runs the full width of the card on one line, never wrapped or
+ * cut. It is 12 px, and shrinks only as far as the longest names need to fit.
+ * The card is a size container, so 100cqw is the width inside its padding.
+ */
+function nameFontSize(name: string): string {
+  return `min(12px, calc(100cqw / ${(name.length * MONO_EM).toFixed(2)}))`;
+}
+
+/**
+ * A card has the icon and the 44 px download button on top, the file name on
+ * its own full-width line, then the label on the left with the record count and
+ * the size stacked under the button on the right. The count shows an icon, not
+ * the word "records"; the word stays for screen readers and the tooltip.
+ */
 function DownloadCard({ file }: { file: DownloadFile }) {
   const href = `/data/v1/${file.name}`;
+  const right = "col-start-2 justify-self-end whitespace-nowrap text-xs leading-snug text-ink-faint";
   return (
-    <div id={fileAnchor(file.name)} className={`flex h-full scroll-mt-4 flex-col gap-2 p-2.5 ${CARD}`}>
-      <div className="flex items-start justify-between gap-2">
-        <span className={`flex size-8 shrink-0 items-center justify-center rounded-md ${TINT[file.tint]}`}>
-          <LucideIcon icon={file.icon} size={16} strokeWidth={1.9} />
-        </span>
+    <div
+      id={fileAnchor(file.name)}
+      className={`@container grid h-full scroll-mt-4 grid-cols-[minmax(0,1fr)_auto] content-start gap-x-1.5 p-2 ${CARD}`}
+    >
+      <span className={`col-start-1 row-start-1 flex size-11 shrink-0 items-center justify-center rounded-md ${TINT[file.tint]}`}>
+        <LucideIcon icon={file.icon} size={20} strokeWidth={1.9} />
+      </span>
+      <div className="col-start-2 row-start-1 justify-self-end">
         <DownloadButton file={file.name} href={href} />
       </div>
-      <div className="min-w-0">
-        <p className="break-all font-mono text-xs leading-snug text-ink">{file.name}</p>
-        <p className="text-xs leading-snug text-ink-muted">
-          <T area="pages" k={file.labelKey} />
+      <p
+        title={file.name}
+        style={{ fontSize: nameFontSize(file.name) }}
+        className="col-span-2 row-start-2 mt-1.5 whitespace-nowrap font-mono leading-snug text-ink"
+      >
+        {file.name}
+      </p>
+      <p className="col-start-1 row-span-2 row-start-3 min-w-0 text-xs leading-snug text-ink-muted [overflow-wrap:anywhere]">
+        <T area="pages" k={file.labelKey} />
+      </p>
+      {file.count !== null ? (
+        <p className={`row-start-3 ${right}`}>
+          <CountBadge value={file.count} icon={file.countIcon} wordKey={file.countKey} />
         </p>
-        <p className="mt-1 flex flex-wrap gap-x-3 text-xs text-ink-faint">
-          {file.count !== null ? (
-            <span>
-              <span className="font-medium text-ink-muted">
-                <CountUp value={file.count} />
-              </span>{" "}
-              <T area="pages" k={file.countKey} />
-            </span>
-          ) : null}
-          {file.bytes !== null ? (
-            <span className="tabular-nums">
-              <FileSize bytes={file.bytes} />
-            </span>
-          ) : null}
+      ) : null}
+      {file.bytes !== null ? (
+        <p className={`row-start-4 tabular-nums ${right}`}>
+          <FileSize bytes={file.bytes} />
         </p>
-      </div>
+      ) : null}
     </div>
   );
 }
@@ -263,6 +288,7 @@ export default function DatasetPage() {
             tint: "raad" as const,
             count: manifestFiles,
             countKey: "filesListedWord" as const,
+            countIcon: Files,
             bytes: manifestBytes,
           },
         ]
@@ -274,6 +300,7 @@ export default function DatasetPage() {
       tint: type.tint,
       count,
       countKey: "recordsWord" as const,
+      countIcon: Rows3,
       bytes: fileBytes(join(DATA_DIR, type.file)),
     })),
     {
@@ -283,6 +310,7 @@ export default function DatasetPage() {
       tint: "raad",
       count: null,
       countKey: "recordsWord",
+      countIcon: Rows3,
       bytes: fileBytes(join(DATA_DIR, "meta.json")),
     },
   ];
