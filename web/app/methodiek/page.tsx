@@ -54,9 +54,14 @@ export default function MethodPage() {
             <L nl="De Nederlandse rijksoverheid in kaart" en="The Dutch national government, mapped" />
           </p>
           <p>
+            <L nl="Staatsgraaf is een persoonlijk project. Het project is geïnspireerd door " en="Staatsgraaf is a personal project. The project is inspired by " />
+            <a href="https://graph.civlab.org/us" className={LINK} target="_blank" rel="noopener noreferrer">
+              <L nl="de Gov Graph van CivLab" en="CivLab's Gov Graph" />
+            </a>
+            .{" "}
             <L
-              nl="Staatsgraaf is een persoonlijk project: een open kaart van de Nederlandse rijksoverheid met organisaties, posities, personen en hun verbindingen. Ik bouw het om te begrijpen hoe de Nederlandse overheid in elkaar zit, en deel het met iedereen die een algemeen beeld wil."
-              en="Staatsgraaf is a personal project: an open map of the Dutch national government with its organizations, positions, people and the connections between them. I build it to understand how the Dutch government fits together, and I share it with anyone who wants the general picture."
+              nl="Dank aan CivLab voor het idee. Staatsgraaf is niet verbonden aan CivLab en gebruikt er niets van. Het project is gemaakt voor mezelf en voor iedereen die een algemeen beeld wil van hoe de Nederlandse overheid werkt: wie welk ambt bekleedt, welke organisaties er zijn, wat er verandert in beleid en regelgeving, en wat het nieuws erover zegt."
+              en="Thanks to CivLab for the idea. Staatsgraaf is not affiliated with CivLab and uses nothing from it. The project is created for myself and anyone who wants a general picture of how the Dutch government works: who holds which office, which organisations exist, what changes in policy and regulation, and what the news says about it."
             />
           </p>
           <p>
@@ -83,17 +88,6 @@ export default function MethodPage() {
             <L
               nl="verbonden aan de Nederlandse overheid of aan een ander overheidsorgaan."
               en="affiliated with the Dutch government or any government body."
-            />
-          </p>
-          <p>
-            <L nl="Geïnspireerd door " en="Inspired by " />
-            <a href="https://graph.civlab.org/us" className={LINK} target="_blank" rel="noopener noreferrer">
-              <L nl="de Gov Graph van CivLab" en="CivLab's Gov Graph" />
-            </a>
-            .{" "}
-            <L
-              nl="Dank aan CivLab voor het idee. Staatsgraaf is niet verbonden aan CivLab en gebruikt er niets van."
-              en="Thanks to CivLab for the idea. Staatsgraaf is not affiliated with CivLab and uses nothing from it."
             />
           </p>
         </Section>
