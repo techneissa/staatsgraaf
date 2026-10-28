@@ -37,6 +37,8 @@ const textPairs = [
   ["accent-text", "surface-raised"],
   ["accent-text", "accent-soft"],
   ["accent-ink", "accent"],
+  ["ink", "accent-soft"],
+  ["ink-muted", "accent-soft"],
   ["danger", "canvas"],
   ["danger", "surface"],
   ["danger", "surface-raised"],
