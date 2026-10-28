@@ -2,6 +2,11 @@
 
 Staatsgraaf is a public map of the Dutch state. It lists the government bodies, the people who hold office in them, and how the bodies relate to each other, and it shows recent appointments and departures. Each fact links to the official source it came from.
 
+I made Staatsgraaf to help myself understand how the Dutch government fits together.
+
+> [!IMPORTANT]
+> Staatsgraaf is an independent project. It is not run by, connected to, or endorsed by the Dutch government or any government body. See `DISCLAIMER.md`.
+
 Live site: https://staatsgraaf.pages.dev (Dutch, with an English switch)
 
 The idea comes from the CivLab Gov Graph for the United States (https://graph.civlab.org/us). Staatsgraaf applies the idea to the Netherlands: the Rijk, provinces, gemeenten, waterschappen, the courts, the two Kamers and the cabinet.
@@ -17,7 +22,7 @@ The idea comes from the CivLab Gov Graph for the United States (https://graph.ci
 
 ## Where the facts come from
 
-Each non-trivial fact in the dataset has three things attached: the URL it came from, the date it was retrieved, and a confidence value. When a source cannot be reached or does not say something, the dataset marks it as unknown instead of guessing.
+Each fact in the dataset carries the URL of its source and the date it was retrieved. When a source cannot be reached or does not say something, the dataset marks it as unknown instead of guessing.
 
 | Subject | Source |
 | --- | --- |
