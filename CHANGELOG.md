@@ -4,6 +4,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ## [Unreleased]
 
+### Added (28-10-2026, welcome banner)
+
+- A scrolling banner above the top bar says the project is independent of the Dutch government, was inspired by CivLab's Gov Graph (linked) and was made to understand how the Dutch state fits together. The close button remembers the choice in `localStorage` (`staatsgraaf.welcome-banner`); no cookie, nothing is sent. The text pauses on hover and focus and stands still under reduced motion.
+
 ### Changed (28-10-2026, hosted runners)
 
 - All workflows (`ci`, `refresh`, `deploy`, `link-check`) run on GitHub-hosted `ubuntu-24.04` runners again. The self-hosted runner on the maintainer's Mac is gone: the Mac moved about 160 GB in 7 days, mostly through it (a 147 MB Bun cache restored on every run, source fetches, and a Pages upload of about 8,700 files per deploy). No self-hosted runner may be registered, because a public repository would let fork pull requests run code on it.

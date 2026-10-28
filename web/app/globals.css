@@ -774,3 +774,114 @@ html[data-panels-resizing] {
     display: none;
   }
 }
+
+/*
+ * Welcome banner (components/welcome-banner.tsx). Sits in the flow above the
+ * top bar, so it pushes the page down and covers nothing. Accent fill with
+ * accent-ink text (checked by check:contrast, the same pair in both themes).
+ * The text scrolls only under prefers-reduced-motion: no-preference; without
+ * it the statements are plain text that wraps and the loop copy is gone.
+ * Hover or focus anywhere in the banner pauses the scroll (WCAG 2.2.2); the
+ * close button hides it for good. A head script marks <html> when this
+ * browser closed it already, so it never flashes in.
+ */
+.sg-welcome {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: var(--safe-top);
+  padding-left: max(0.75rem, var(--safe-left));
+  padding-right: max(0rem, var(--safe-right));
+  background-color: var(--t-color-accent);
+  color: var(--t-color-accent-ink);
+  font-size: var(--t-text-sm);
+  line-height: var(--t-leading-snug);
+}
+html[data-welcome-dismissed] [data-welcome-banner] {
+  display: none;
+}
+/* The banner carries the notch padding while it shows. */
+html:not([data-welcome-dismissed]) [data-welcome-banner] + header {
+  padding-top: 0;
+}
+.sg-welcome-view {
+  flex: 1 1 0%;
+  min-width: 0;
+  overflow: hidden;
+  padding-block: 0.625rem;
+}
+.sg-welcome-track > .sg-welcome-group + .sg-welcome-group {
+  display: none;
+}
+.sg-welcome-group {
+  margin: 0;
+}
+.sg-welcome-sep {
+  margin-inline: 0.5em;
+}
+.sg-welcome-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.sg-welcome-link:hover {
+  text-decoration-thickness: 2px;
+}
+.sg-welcome :focus-visible {
+  outline: 2px solid var(--t-color-accent-ink);
+  outline-offset: 1px;
+}
+.sg-welcome-close {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-right: max(0.125rem, var(--safe-right));
+  border-radius: var(--t-radius-sm);
+  color: inherit;
+}
+.sg-welcome-close:hover {
+  background-color: color-mix(in srgb, var(--t-color-accent-ink) 16%, transparent);
+}
+.sg-welcome-close:focus-visible {
+  outline-offset: -4px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .sg-welcome-view {
+    padding-block: 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .sg-welcome-track {
+    display: flex;
+    width: max-content;
+    animation: sg-welcome-run 50s linear infinite;
+  }
+  .sg-welcome-track > .sg-welcome-group + .sg-welcome-group {
+    display: flex;
+  }
+  /* Both copies are the same width (at least the screen), so the jump back at -50% is invisible. */
+  .sg-welcome-group {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100vw;
+    padding-inline: 1rem;
+    white-space: nowrap;
+  }
+  .sg-welcome:hover .sg-welcome-track,
+  .sg-welcome:focus-within .sg-welcome-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes sg-welcome-run {
+  to {
+    transform: translateX(-50%);
+  }
+}

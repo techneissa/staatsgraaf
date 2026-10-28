@@ -56,4 +56,4 @@ The accent is Rijkshuisstijl oranje `#E17000`, with separate text and focus vari
 
 ## Accessibility baseline
 
-One `h1` per page, ordered headings, `header`/`nav`/`main`/`aside`/`footer` landmarks, a skip link to `#inhoud`, visible focus rings, no colour-only meaning, a system font stack only, and a global `prefers-reduced-motion` reset. The contrast script and these rules are the floor, not the finished statement: axe checks in CI and a manual keyboard and screen reader pass still belong to the QA gate.
+One `h1` per page, ordered headings, `header`/`nav`/`main`/`aside`/`footer` landmarks, a skip link to `#inhoud`, visible focus rings, no colour-only meaning, a system font stack only, and a global `prefers-reduced-motion` reset. The welcome banner (`components/welcome-banner.tsx`) scrolls its text only when motion is allowed, pauses on hover and focus (WCAG 2.2.2), and its close button hides it for good (`staatsgraaf.welcome-banner` in `localStorage`). The contrast script and these rules are the floor, not the finished statement: axe checks in CI and a manual keyboard and screen reader pass still belong to the QA gate.

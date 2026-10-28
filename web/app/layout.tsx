@@ -16,9 +16,11 @@ import { RevealObserver } from "@/components/reveal-observer";
 import { SiteFooter } from "@/components/site-footer";
 import { SkipLink } from "@/components/skip-link";
 import { TopBar } from "@/components/top-bar";
+import { WelcomeBanner } from "@/components/welcome-banner";
 import { getDatasetDate } from "@/lib/data";
 import { CANVAS_INIT_SCRIPT } from "@/lib/canvas-prefs";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL, THEME_INIT_SCRIPT } from "@/lib/site";
+import { WELCOME_BANNER_INIT_SCRIPT } from "@/lib/welcome-banner";
 
 export const metadata: Metadata = {
   metadataBase: SITE_URL ? new URL(SITE_URL) : undefined,
@@ -60,6 +62,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <script dangerouslySetInnerHTML={{ __html: PANELS_INIT_SCRIPT }} />
         <script dangerouslySetInnerHTML={{ __html: CANVAS_INIT_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{ __html: WELCOME_BANNER_INIT_SCRIPT }} />
       </head>
       <body>
         <LanguageProvider>
@@ -68,6 +71,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <SelectionProvider>
             {/* svh, not dvh: iOS dvh tracks the URL bar and reflows the page while you scroll. */}
             <div className="flex min-h-svh flex-col lg:h-dvh lg:min-h-0 lg:overflow-hidden">
+              <WelcomeBanner />
               <TopBar />
               {/* Three columns from lg (page, canvas, details), one stack below it;
                   the grid and the stored column choices live in Workspace. */}
