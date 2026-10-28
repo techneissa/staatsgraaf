@@ -178,37 +178,54 @@ type DownloadFile = {
   bytes: number | null;
 };
 
+/**
+ * Two columns: icon, file name and label on the left; download button, record
+ * count and size on the right. The icon box is as tall as the 44 px button, so
+ * the name sits right under both. The count sits on the file name's row and the
+ * size on the label's row. The left column may shrink and wrap a long name.
+ */
 function DownloadCard({ file }: { file: DownloadFile }) {
   const href = `/data/v1/${file.name}`;
+  // The extension may drop to the next line before the name breaks mid-word.
+  const dot = file.name.lastIndexOf(".");
+  const stem = dot > 0 ? file.name.slice(0, dot) : file.name;
+  const extension = dot > 0 ? file.name.slice(dot) : "";
+  const right = "justify-self-end whitespace-nowrap text-end text-xs leading-snug text-ink-faint";
   return (
-    <div id={fileAnchor(file.name)} className={`flex h-full scroll-mt-4 flex-col gap-2 p-2.5 ${CARD}`}>
-      <div className="flex items-start justify-between gap-2">
-        <span className={`flex size-8 shrink-0 items-center justify-center rounded-md ${TINT[file.tint]}`}>
-          <LucideIcon icon={file.icon} size={16} strokeWidth={1.9} />
-        </span>
+    <div
+      id={fileAnchor(file.name)}
+      className={`grid h-full scroll-mt-4 grid-cols-[minmax(0,1fr)_auto] content-start gap-x-2 p-2.5 ${CARD}`}
+    >
+      <span className={`col-start-1 row-start-1 flex size-11 shrink-0 items-center justify-center rounded-md ${TINT[file.tint]}`}>
+        <LucideIcon icon={file.icon} size={20} strokeWidth={1.9} />
+      </span>
+      <p
+        title={file.name}
+        className="col-start-1 row-start-2 mt-1.5 min-w-0 font-mono text-xs leading-snug text-ink [overflow-wrap:anywhere]"
+      >
+        {stem}
+        <wbr />
+        {extension}
+      </p>
+      <p className="col-start-1 row-start-3 min-w-0 text-xs leading-snug text-ink-muted">
+        <T area="pages" k={file.labelKey} />
+      </p>
+      <div className="col-start-2 row-start-1 justify-self-end">
         <DownloadButton file={file.name} href={href} />
       </div>
-      <div className="min-w-0">
-        <p className="break-all font-mono text-xs leading-snug text-ink">{file.name}</p>
-        <p className="text-xs leading-snug text-ink-muted">
-          <T area="pages" k={file.labelKey} />
+      {file.count !== null ? (
+        <p className={`col-start-2 row-start-2 mt-1.5 ${right}`}>
+          <span className="font-medium text-ink-muted">
+            <CountUp value={file.count} />
+          </span>{" "}
+          <T area="pages" k={file.countKey} />
         </p>
-        <p className="mt-1 flex flex-wrap gap-x-3 text-xs text-ink-faint">
-          {file.count !== null ? (
-            <span>
-              <span className="font-medium text-ink-muted">
-                <CountUp value={file.count} />
-              </span>{" "}
-              <T area="pages" k={file.countKey} />
-            </span>
-          ) : null}
-          {file.bytes !== null ? (
-            <span className="tabular-nums">
-              <FileSize bytes={file.bytes} />
-            </span>
-          ) : null}
+      ) : null}
+      {file.bytes !== null ? (
+        <p className={`col-start-2 row-start-3 tabular-nums ${right}`}>
+          <FileSize bytes={file.bytes} />
         </p>
-      </div>
+      ) : null}
     </div>
   );
 }
@@ -373,7 +390,7 @@ export default function DatasetPage() {
         <Section id="downloaden" titleKey="datasetDownloadTitle" icon={Download}>
           {/* Two columns once the section is 22rem wide, so a 320 px phone gets one. */}
           <div className="@container">
-            <ul className="grid grid-cols-1 gap-2 @[22rem]:grid-cols-2">
+            <ul className="grid grid-cols-1 gap-2 @[26rem]:grid-cols-2">
               {downloads.map((file) => (
                 <li key={file.name}>
                   <Rise>
