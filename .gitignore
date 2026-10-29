@@ -9,66 +9,49 @@ coverage/
 .DS_Store
 Thumbs.db
 
-# research/raw is the local fetch cache of third-party pages. It is not published
-# (docs/adr/0023-public-repository.md); the pipelines refetch and recreate it.
-# Two things inside it are kept: the licence evidence (ADR 0014) and the hand
-# review of portrait identities, which the portraits pipeline reads as input.
-# The star form (not research/raw/**) is what lets the negations below work.
+# Maintainer-only trees stay out of the public tip (full copies live in
+# techneissa/staatsgraaf-private). Guard against `git add -A` restoring them.
+/docs/
+/prompts/
+/AGENTS.md
+/CLAUDE.md
+/GEMINI.md
+/.cursorrules
+/.claude/
+/SECURITY.md
+/CONTRIBUTING.md
+/CODE_OF_CONDUCT.md
+/schema/README.md
+/.github/workflows/README.md
+*PROMPT*.md
+research/graph-variants/
+research/merge-log.md
+research/merge-log.entries.jsonl
+research/[A-OQ-V]-*.md
+research/[A-OQ-V]-*.json
+research/00-*.md
+research/party-colours-*.md
+
+# Fetch cache (pipelines recreate it). Keep licence evidence + portrait review.
 research/raw/*
 !research/raw/portraits/
 research/raw/portraits/*
 !research/raw/portraits/licences/
 !research/raw/portraits/review.json
-# The licence evidence for the coats of arms (ADR 0029).
 !research/raw/logos/
 research/raw/logos/*
 !research/raw/logos/licences/
 
-# Agent batches, agent-written reports and templates. They stay on the maintainer's
-# disk and never ship (docs/adr/0023-public-repository.md). research/qa keeps the
-# three files the pipelines read and write.
-research/desc/
-research/validation-report*.md
+# Refresh writes under qa/; only these three stay in git.
 research/qa/*
 !research/qa/live-review-queue.md
 !research/qa/live-run-latest.json
 !research/qa/link-check.md
-research/graph-variants/README.md
-research/graph-variants/report.md
-shared/workstream-template.md
-scripts/purge-history.sh
 
-# Re-fetchable news feed cache; never a data payload
 pipelines/.cache/
-
-# Derived at build time from data/ (web/scripts/build-dataset.mjs, build-search-index.mjs)
 web/public/data/v1/
 web/public/search-index.json
-
-# Python bytecode from scripts/format-dates.py
 __pycache__/
-
-# Agent, prompt, plan, and operating files. They stay on the maintainer's disk
-# and never ship (docs/adr/0023-public-repository.md).
-AGENTS.md
-CLAUDE.md
-GEMINI.md
-.cursorrules
-.cursor/
-.windsurfrules
-.claude/
-*PROMPT*.md
-*.local.md
-docs/superpowers/
-docs/05-research-workstreams.md
-docs/06-build-plan.md
-docs/07-workflow-and-roadmap.md
-docs/08-acceptance-and-qa.md
-docs/10-operations-runbook.md
-docs/11-delivery-and-collaboration.md
-docs/13-graph-rebuild-plan.md
-
-# Secrets, local tooling state, editors
 .wrangler/
 .dev.vars
 .idea/

@@ -1,8 +1,6 @@
 # Staatsgraaf: web app
 
-The Next.js App Router client for Staatsgraaf, built as a static export with TypeScript, Tailwind CSS, and Radix primitives. This is build area L: the app shell and the design system. The feature areas (canvas, search, change feed, news, topics, budgets) mount into it later.
-
-Read `../docs/06-build-plan.md` sections 3 to 5 for the stack and the ownership split, and `../docs/12-discovery-privacy-accessibility-security.md` for the accessibility and security requirements this app follows from the start.
+The Next.js App Router client for Staatsgraaf, built as a static export with TypeScript, Tailwind CSS, and Radix primitives.
 
 ## Run
 
@@ -44,8 +42,8 @@ The accent is Rijkshuisstijl oranje `#E17000`, with separate text and focus vari
 ## Layout, routes, and mounting points
 
 - Two-column spine: a scrollable editorial column on the left and a persistent canvas frame on the right. Below the `lg` breakpoint the canvas frame moves under the editorial column instead of being hidden.
-- `data-search-mount` in the top bar, where the search overlay (build area O) mounts.
-- `data-graph-mount` in the canvas frame, where the SVG graph and the power map (build area O) mount.
+- `data-search-mount` in the top bar, where the search overlay mounts.
+- `data-graph-mount` in the canvas frame, where the SVG graph and the power map mount.
 - The canvas frame is a placeholder with disabled Grafiek, Machtskaart, and Legenda controls. It is an `aside` with no focusable children, so it never blocks keyboard use.
 - Routes: `/`, `/organisaties/[slug]/`, `/personen/[slug]/`, `/posities/[slug]/`, plus the stubs `/methodiek/`, `/privacy/`, and `/toegankelijkheid/`.
 - All UI strings are Dutch; slugs and code keys are English.
@@ -56,4 +54,4 @@ The accent is Rijkshuisstijl oranje `#E17000`, with separate text and focus vari
 
 ## Accessibility baseline
 
-One `h1` per page, ordered headings, `header`/`nav`/`main`/`aside`/`footer` landmarks, a skip link to `#inhoud`, visible focus rings, no colour-only meaning, a system font stack only, and a global `prefers-reduced-motion` reset. The welcome banner (`components/welcome-banner.tsx`) scrolls its text only when motion is allowed, pauses on hover and focus (WCAG 2.2.2), and its close button hides it for good (`staatsgraaf.welcome-banner` in `localStorage`). The contrast script and these rules are the floor, not the finished statement: axe checks in CI and a manual keyboard and screen reader pass still belong to the QA gate.
+One `h1` per page, ordered headings, `header`/`nav`/`main`/`aside`/`footer` landmarks, a skip link to `#inhoud`, visible focus rings, no colour-only meaning, a system font stack only, and a global `prefers-reduced-motion` reset. The welcome banner (`components/welcome-banner.tsx`) scrolls its text only when motion is allowed, pauses on hover and focus (WCAG 2.2.2), and its close button hides it for good (`staatsgraaf.welcome-banner` in `localStorage`). The contrast script and these rules are the floor, not the finished statement: CI runs axe, and a manual keyboard and screen reader pass still belongs before a release.

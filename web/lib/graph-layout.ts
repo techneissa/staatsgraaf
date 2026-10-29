@@ -1,5 +1,5 @@
 /**
- * The packer for layout `nl-tiers-v1` (spec: web/lib/graph-layout.md).
+ * The packer for layout `nl-tiers-v1`.
  *
  * This runs at build time in `web/scripts/build-graph.mjs` and in the tests. It
  * never ships to the browser: the client reads the coordinates it writes into

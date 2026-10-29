@@ -64,7 +64,7 @@ function readArray<T>(file: string): T[] {
 /**
  * An optional dataset file: a missing file is an empty list, not a build
  * failure. Used for files another pipeline fills in over time, such as the
- * news translations (docs/adr/0016-news-machine-translation.md).
+ * news translations ().
  */
 function readOptionalArray<T>(file: string): T[] {
   const fullPath = join(DATA_DIR, file);

@@ -1,6 +1,6 @@
 name: link-check
 
-# Weekly source health check (.github/workflows/README.md). The checker verifies every
+# Weekly source health check. The checker verifies every
 # internal href in the built export and every source URL in data/sources.json.
 # It never evades a block: allowlisted hosts are reported as WARN, not FAIL.
 # A FAIL means a source died or moved; the fetcher gets fixed, the fact keeps

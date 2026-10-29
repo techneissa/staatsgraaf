@@ -1,7 +1,7 @@
 import { isRelevantNews, outlets } from "./news";
 import type { NewsLanguage, NewsItem, PublisherKind } from "./types";
 
-/** One entry of pipelines/feeds.json (docs/adr/0007 point 1). */
+/** One entry of pipelines/feeds.json ( point 1). */
 export type NewsFeed = {
   url: string;
   publisher: string;
@@ -22,7 +22,7 @@ export type NewsSourceRow = {
   kind: PublisherKind;
   languages: NewsLanguage[];
   count: number;
-  /** Items of this outlet that name the state (docs/adr/0021). */
+  /** Items of this outlet that name the state (). */
   relevant: number;
   /** Licences recorded on the outlet's source records. */
   licenses: string[];

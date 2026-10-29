@@ -6,13 +6,13 @@
  * A line is a centreline and a width profile.
  *
  * - The centreline is one cubic Bezier with a gentle bow. The bow is about 6%
- *   of the length, capped, and bends the way a hash of the line's id says (or
- *   toward a given point), so a line looks the same on every render, on the
- *   server and on the client. A tiny seeded wobble of the two control points
- *   (never more than `WOBBLE_MAX` px at the curve) keeps the ruler out of it.
+ * of the length, capped, and bends the way a hash of the line's id says (or
+ * toward a given point), so a line looks the same on every render, on the
+ * server and on the client. A tiny seeded wobble of the two control points
+ * (never more than `WOBBLE_MAX` px at the curve) keeps the ruler out of it.
  * - The width tapers from the start to the end, and swells a little where the
- *   line meets a circle, like ink pooling at a root. The ends run on under the
- *   circle's outline, so no flat edge, stub or gap shows.
+ * line meets a circle, like ink pooling at a root. The ends run on under the
+ * circle's outline, so no flat edge, stub or gap shows.
  *
  * The outline is a closed path, a filled brush stroke with round ends. Reveal
  * it with a mask that strokes the centreline (see `SketchLine`).

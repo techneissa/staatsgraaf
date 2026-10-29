@@ -30,7 +30,7 @@ import {
 import { peekClickAction, peekOutsidePointerCloses, swallowNextClick } from "@/lib/peek-swap";
 
 /**
- * The peek popover for inline entity links (docs/adr/0017).
+ * The peek popover for inline entity links ().
  *
  * One delegated click listener handles every `a[data-peek]` on the page, so
  * server components render plain anchors and no client component per link.

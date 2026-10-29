@@ -19,7 +19,7 @@ export const DEFAULT_FEED_LANGUAGE = "nl";
 export const DEFAULT_PUBLISHER_KIND = "online";
 export const MAX_KEYWORDS = 8;
 export const MAX_IMAGE_BYTES = 2_500_000;
-/** The only feed scope: a feed or section that is wholly about Dutch politics and government (docs/adr/0021, amendment 06-10-2026). */
+/** The only feed scope: a feed or section that is wholly about Dutch politics and government. */
 export const POLITICS_SCOPE = "politiek";
 /** Carried-over items that name nothing and have no politics source are kept this many days only. */
 export const CARRY_UNRELEVANT_DAYS = 7;
@@ -27,9 +27,9 @@ export const CARRY_UNRELEVANT_DAYS = 7;
 export const MAX_FUTURE_MS = 60 * 60 * 1000;
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const DEFAULT_FEEDS = join(ROOT, "research", "J-nieuwsbronnen.json");
 const DEFAULT_FEEDS_REGISTRY = join(ROOT, "pipelines", "feeds.json");
-const DEFAULT_TOPICS = join(ROOT, "research", "K-topics.json");
+const DEFAULT_ALIASES = join(ROOT, "data", "news-aliases.json");
+const DEFAULT_TOPICS = join(ROOT, "data", "topics.json");
 const DEFAULT_CACHE = join(ROOT, "pipelines", ".cache", "news");
 const DEFAULT_DATA = join(ROOT, "data");
 const DEFAULT_MEDIA = join(ROOT, "web", "public", "media");
@@ -452,7 +452,7 @@ export function itemScope(feedScope, { title = "", lede = "" } = {}) {
 }
 
 /**
- * The same rule as `isRelevantNews` in web/lib/news.ts (docs/adr/0021): an entity, a topic with
+ * The same rule as `isRelevantNews` in web/lib/news.ts: an entity, a topic with
  * evidence, a politics section, or an official body. web/lib/news.test.mjs checks the two agree.
  */
 export function isRelevantStored(item) {
@@ -667,7 +667,7 @@ async function readValidators(file) {
 
 export async function runNewsPipeline({
   feedsPath = DEFAULT_FEEDS_REGISTRY,
-  aliasPath = DEFAULT_FEEDS,
+  aliasPath = DEFAULT_ALIASES,
   topicsPath = DEFAULT_TOPICS,
   cacheDir = DEFAULT_CACHE,
   dataDir = DEFAULT_DATA,
@@ -681,22 +681,21 @@ export async function runNewsPipeline({
   fetchImpl = fetch,
   log = console.log,
 } = {}) {
-  const loaded = existsSync(feedsPath) ? JSON.parse(await readFile(feedsPath, "utf8")) : null;
-  const usesRegistry = Array.isArray(loaded?.feeds);
-  const feedEnvelope = usesRegistry ? loaded : loaded ?? JSON.parse(await readFile(DEFAULT_FEEDS, "utf8"));
+  if (!existsSync(feedsPath)) {
+    throw new Error(`feeds registry missing: ${feedsPath}`);
+  }
+  const feedEnvelope = JSON.parse(await readFile(feedsPath, "utf8"));
   const feedConfigs = feedConfigsFromEnvelope(feedEnvelope);
   const configByFeedUrl = new Map(feedConfigs.map((config) => [config.url, config]));
 
-  const topicEnvelope = existsSync(topicsPath) ? JSON.parse(await readFile(topicsPath, "utf8")) : { topics: [] };
-  const topicIndex = buildTopicIndex(topicEnvelope.topics ?? []);
-  const topicsById = new Map((topicEnvelope.topics ?? []).map((topic) => [topic.id, topic]));
+  const topicRaw = existsSync(topicsPath) ? JSON.parse(await readFile(topicsPath, "utf8")) : [];
+  const topics = Array.isArray(topicRaw) ? topicRaw : (topicRaw.topics ?? []);
+  const topicIndex = buildTopicIndex(topics);
+  const topicsById = new Map(topics.map((topic) => [topic.id, topic]));
 
-  const aliasEnvelope = usesRegistry
-    ? existsSync(aliasPath)
-      ? JSON.parse(await readFile(aliasPath, "utf8"))
-      : { aliases: [] }
-    : feedEnvelope;
-  const gazetteer = buildGazetteer([...(aliasEnvelope.aliases ?? []), ...(await loadTitleAliases(dataDir))]);
+  const aliasRaw = existsSync(aliasPath) ? JSON.parse(await readFile(aliasPath, "utf8")) : [];
+  const curatedAliases = Array.isArray(aliasRaw) ? aliasRaw : (aliasRaw.aliases ?? []);
+  const gazetteer = buildGazetteer([...curatedAliases, ...(await loadTitleAliases(dataDir))]);
 
   log(`Fetching ${feedConfigs.length} feed(s) with a ${THROTTLE_MS} ms throttle${offline ? " (offline/cache mode)" : ""}`);
   const feedResults = await fetchFeeds({ feedConfigs, cacheDir, userAgent, throttleMs, offline, fetchImpl, now, log });
@@ -1068,7 +1067,7 @@ function feedEnvelopePublisher(envelope, url) {
 function parseArgs(argv) {
   const options = {
     feedsPath: DEFAULT_FEEDS_REGISTRY,
-    aliasPath: DEFAULT_FEEDS,
+    aliasPath: DEFAULT_ALIASES,
     topicsPath: DEFAULT_TOPICS,
     cacheDir: DEFAULT_CACHE,
     dataDir: DEFAULT_DATA,

@@ -59,8 +59,8 @@ type EntityFilter = { id: string; label: string; href: string | null; kind: Peek
 /**
  * The news section: items that name the state, in every original language, shown
  * in the interface language with machine translations where they exist
- * (docs/adr/0016). Items that name nothing in the dataset sit behind a "show all
- * news" toggle (docs/adr/0021). Filters: original language, outlet kind, outlet,
+ * (). Items that name nothing in the dataset sit behind a "show all
+ * news" toggle (). Filters: original language, outlet kind, outlet,
  * and, from a peek popover's news link, one mentioned entity (`?entity=<id>`).
  *
  * `fixedLanguage` pins the interface language (the /news/ route is English);

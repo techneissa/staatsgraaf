@@ -100,7 +100,7 @@ function PartyLinks({ party }: { party: PartyRecord | null }) {
 }
 
 /* ------------------------------------------------------------------ */
-/* Organisation                                                        */
+/* Organisation */
 /* ------------------------------------------------------------------ */
 
 /** Where a body sits and what it touches, from the graph bundle: the part both panels share. */
@@ -480,7 +480,7 @@ function Footer({ source, href, website }: { source: PanelOrg["source"]; href: s
 }
 
 /* ------------------------------------------------------------------ */
-/* Person                                                              */
+/* Person */
 /* ------------------------------------------------------------------ */
 
 export function PersonBody({
@@ -595,7 +595,7 @@ export function PersonBody({
 }
 
 /* ------------------------------------------------------------------ */
-/* Fractie, cluster, sector                                            */
+/* Fractie, cluster, sector */
 /* ------------------------------------------------------------------ */
 
 export function FractieBody({
@@ -750,7 +750,7 @@ export function SectorBody({ id, layout, variant }: { id: string; layout: PanelL
 }
 
 /* ------------------------------------------------------------------ */
-/* News and topic                                                      */
+/* News and topic */
 /* ------------------------------------------------------------------ */
 
 export function NewsBody({ record, variant }: { record: PanelNewsRecord | null; variant: PanelVariant }) {
@@ -827,7 +827,7 @@ export function TopicBody({ record, variant }: { record: PanelTopic | null; vari
 }
 
 /* ------------------------------------------------------------------ */
-/* Nothing picked                                                      */
+/* Nothing picked */
 /* ------------------------------------------------------------------ */
 
 export function DefaultBody({ index, layout }: { index: PanelIndex | null; layout: PanelLayout | null }) {

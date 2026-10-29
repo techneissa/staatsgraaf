@@ -123,7 +123,7 @@ export type RelevanceFields = Pick<NewsItem, "entities" | "topics"> & {
 
 /**
  * An item is relevant when it names the state or comes from a source that is about it
- * (docs/adr/0021 and its amendment of 06-10-2026). Three routes, any one is enough:
+ * ( and its amendment of 06-10-2026). Three routes, any one is enough:
  * the linker matched at least one entity (person, organisation, position); the item has a
  * topic with evidence (the pipeline stores the keywords that produced each topic in
  * `keywords`, and a topic with an empty keyword list proves nothing; items from before the

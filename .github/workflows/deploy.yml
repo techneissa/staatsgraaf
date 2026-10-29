@@ -15,11 +15,8 @@ on:
     branches:
       - main
     paths-ignore:
-      - "docs/**"
       - "research/qa/**"
       - "**/*.md"
-      - ".github/workflows/README.md"
-      # research/*.json is not ignored: web/scripts/build-search-index.mjs reads it.
       # LICENSE and LICENSE-DATA are not ignored: the build serves them as /data/v1/LICENSE*.txt.
   workflow_dispatch:
 

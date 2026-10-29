@@ -15,7 +15,7 @@ export type NewsFilterState = {
   publisher: string | null;
   /** One mentioned entity (person:, org:, pos: or topic: id), or null. */
   entity: string | null;
-  /** True when the items that name nothing in the dataset are shown too (docs/adr/0021). */
+  /** True when the items that name nothing in the dataset are shown too (). */
   showAll: boolean;
 };
 

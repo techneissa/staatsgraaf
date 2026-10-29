@@ -5,12 +5,12 @@
  * the same numbers.
  *
  * - `layoutOrgChart`: the head in a large centre circle, a thick ring around
- *   it cut into one coloured segment per group, a solid bar from each segment
- *   out to its hub, and each hub's people as portrait circles on short bars
- *   around it, each with a name and role placed outside by a collision pass.
+ * it cut into one coloured segment per group, a solid bar from each segment
+ * out to its hub, and each hub's people as portrait circles on short bars
+ * around it, each with a name and role placed outside by a collision pass.
  * - `layoutFocusSides`: a picked person in the centre with a double ring, bars
- *   left and right to the heads of the two strongest groups, and each head's
- *   members as a chain above and below it, labels on the outer side.
+ * left and right to the heads of the two strongest groups, and each head's
+ * members as a chain above and below it, labels on the outer side.
  *
  * Below `orgChartFits` / `focusSidesFits` the view stacks instead.
  */

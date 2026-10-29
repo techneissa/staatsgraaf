@@ -6,12 +6,12 @@
  * Two shapes:
  *
  * - The overview ranks the most connected people by the summed strength of
- *   their ties (lib/power-connections.ts) and groups them by role: the
- *   cabinet, the Kamers, and everyone else.
+ * their ties (lib/power-connections.ts) and groups them by role: the
+ * cabinet, the Kamers, and everyone else.
  * - The focus is an ego network. The picked person or body sits in the
- *   centre; its ties are grouped by kind (office and body, cabinet, party and
- *   fractie, shared news) into labelled columns on the left and the right.
- *   A stronger tie sits closer to the centre and gets a heavier line.
+ * centre; its ties are grouped by kind (office and body, cabinet, party and
+ * fractie, shared news) into labelled columns on the left and the right.
+ * A stronger tie sits closer to the centre and gets a heavier line.
  *
  * Columns instead of a circle keep every label horizontal and one row apart,
  * so names never collide at any width the diagram is drawn at. Below that

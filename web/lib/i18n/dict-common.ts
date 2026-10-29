@@ -80,7 +80,7 @@ export const COMMON_DICT = {
   backUpLabel: { nl: "Terug naar het overzicht", en: "Back to the overview" },
   forwardLabel: { nl: "Volgende", en: "Next" },
 
-  // Peek popover (components/peek/peek-provider.tsx, docs/adr/0017)
+  // Peek popover (components/peek/peek-provider.tsx, )
   peekOpenPage: { nl: "Open pagina", en: "Open page" },
   peekClose: { nl: "Sluiten", en: "Close" },
   sheetExpand: { nl: "Paneel vergroten", en: "Expand panel" },

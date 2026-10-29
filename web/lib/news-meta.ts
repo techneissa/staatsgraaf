@@ -8,7 +8,7 @@ import type { NewsItem, NewsLanguage, PublisherKind } from "./types";
  */
 
 export const NEWS_HOME_LIMIT = 6;
-/** The most items one outlet may put in the home band (docs/adr/0021, amendment 06-10-2026). */
+/** The most items one outlet may put in the home band (, amendment 06-10-2026). */
 export const NEWS_HOME_PER_OUTLET = 2;
 export const NEWS_PAGE_SIZE = 8;
 /** Items shown per recency group and language on /nieuws/ before the day archive takes over. */

@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to Staatsgraaf are recorded here. The format follows Keep a Changelog. The dataset schema follows the process in `docs/04-data-model.md` section 18; data conflict decisions are in `research/merge-log.md`.
+All notable changes to Staatsgraaf are recorded here. The format follows Keep a Changelog.
 
 ## [Unreleased]
 
@@ -10,11 +10,11 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (28-10-2026, hosted runners)
 
-- All workflows (`ci`, `refresh`, `deploy`, `link-check`) run on GitHub-hosted `ubuntu-24.04` runners again. The self-hosted runner on the maintainer's Mac is gone: the Mac moved about 160 GB in 7 days, mostly through it (a 147 MB Bun cache restored on every run, source fetches, and a Pages upload of about 8,700 files per deploy). No self-hosted runner may be registered, because a public repository would let fork pull requests run code on it.
+- All workflows (`ci`, `refresh`, `deploy`, `link-check`) run on GitHub-hosted `ubuntu-24.04` runners. No self-hosted runner may be registered: on a public repository a pull request from a fork could run code on it.
 - The 3-hourly refresh keeps its schedule. News feeds are fetched with `If-None-Match` and `If-Modified-Since`; the feed bodies and their validators are kept between runs in the Actions cache, so an unchanged feed answers 304 and is not downloaded again (`pipelines/news.mjs`).
 - The Bun package cache (147 MB, restored in every job) is dropped: a fresh `bun install --frozen-lockfile` is quicker on a hosted runner than restoring that archive. The Next.js build cache stays.
 - `scripts/pages-deploy.mjs` runs a plain `bunx wrangler@4.154.0 pages deploy`; the pinned version replaces the unpinned `bunx wrangler`. The one-stream upload throttle now runs only when `WRANGLER_UPLOAD_CONCURRENCY` is set, for a manual deploy from a home connection.
-- ADR 0004 has an amendment for this; the operator notes in `.github/workflows/README.md` are rewritten.
+- ADR 0004 has an amendment for this.
 
 ### Fixed (18-10-2026, layout revert)
 
@@ -22,7 +22,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (18-10-2026, wrangler upload)
 
-- Pages deploys from this Mac upload one stream at a time (`scripts/pages-deploy.mjs`). Wrangler otherwise opens 3 bulk streams, or 50 for Edge KV, which fills the home uplink.
+- Pages deploys upload one stream at a time (`scripts/pages-deploy.mjs`). Wrangler otherwise opens 3 bulk streams, or 50 for Edge KV.
 
 ### Fixed (18-10-2026, info tips)
 
@@ -32,13 +32,13 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 - Cloudflare Pages Git auto-deploys were overwriting the Wrangler upload with an empty build. Automatic Git deploys are off. Production is the Wrangler export again.
 
-### Changed (17-10-2026, self-hosted Actions)
+### Changed (17-10-2026, Actions runners)
 
-- CI, deploy, the 3-hourly refresh and the weekly link check run on a self-hosted runner on the maintainer's Mac. GitHub-hosted minutes are no longer used. The repository stays private. The runner's git does not use the macOS Keychain, so checkouts no longer pop the osxkeychain password dialog.
+- CI, deploy, the 3-hourly refresh and the weekly link check briefly ran on a self-hosted runner, then moved back to GitHub-hosted runners.
 
-### Changed (17-10-2026, no contributions, maintainer docs)
+### Changed (17-10-2026, no contributions)
 
-- The project does not accept pull requests or other contributions. `CONTRIBUTING.md` says so. Maintainer plans and the operations runbook stay on disk and out of the published tree (ADR 0023 amendment 17-10-2026). A wrong fact can still be reported as an issue.
+- The project does not accept pull requests or other contributions. A wrong fact can still be reported as an issue.
 
 ### Changed (17-10-2026, peek leadership)
 
@@ -148,10 +148,10 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Added (16-10-2026, descriptions and addresses)
 
-- Every gemeente, provincie, waterschap, veiligheidsregio, council, college and BES body has a short Dutch description with an English translation: 1162 that had none. Each says what the body is (place, inhabitants on 1 January 2026, seat), what it does (its main tasks, each from the law that gives it), and how it is run. Sources: the Register van Overheidsorganisaties, CBS table 70072ned, the merger laws for 45 gemeenten, and the articles named in `research/desc/describe-bodies.py`.
-- 108 thin descriptions are rewritten in the same shape: the Eerste Kamer committees (from their own pages), the GGDs and omgevingsdiensten (Wet publieke gezondheid, Omgevingswet 18.21), the zbo clusters, the CBS departments and nine Curaçao ministries (from gobiernu.cw). See `research/desc/rewrite-weak.py`.
-- Organisation pages show the visiting address. It opens in Apple Maps on Apple devices and in Google Maps elsewhere. A council or college shows the address of the body it governs. 703 addresses: 623 from the register, 80 found by research agents and kept only when the cited page states them (`research/desc/verify-scouted.py`). Schema: optional `address` on an organisation (`docs/04-data-model.md`).
-- Named gaps: no visiting address for most Aruba, Curaçao and Sint Maarten ministries, eight courts with several locations and no stated seat, and the bodies in `research/desc/rejected.json`. The Aruba and Sint Maarten ministry descriptions are still stubs.
+- Every gemeente, provincie, waterschap, veiligheidsregio, council, college and BES body has a short Dutch description with an English translation: 1162 that had none. Each says what the body is (place, inhabitants on 1 January 2026, seat), what it does (its main tasks, each from the law that gives it), and how it is run. Sources: the Register van Overheidsorganisaties, CBS table 70072ned, the merger laws for 45 gemeenten, and the articles named in.
+- 108 thin descriptions are rewritten in the same shape: the Eerste Kamer committees (from their own pages), the GGDs and omgevingsdiensten (Wet publieke gezondheid, Omgevingswet 18.21), the zbo clusters, the CBS departments and nine Curaçao ministries (from gobiernu.cw).
+- Organisation pages show the visiting address. It opens in Apple Maps on Apple devices and in Google Maps elsewhere. A council or college shows the address of the body it governs. 703 addresses: 623 from the register, 80 found during research and kept only when the cited page states them (). Schema: optional `address` on an organisation ().
+- Named gaps: no visiting address for most Aruba, Curaçao and Sint Maarten ministries, eight courts with several locations and no stated seat, and the bodies in. The Aruba and Sint Maarten ministry descriptions are still stubs.
 
 ### Changed (16-10-2026, organisation title)
 
@@ -259,7 +259,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 - 147 more bodies show their official logo, loaded from their own website (ADR 0029, amendment 2): zbo's such as the AFM, the KvK, the RDW, the SVB and Staatsbosbeheer, the GGD's, omgevingsdiensten and veiligheidsregio's, the Politie, the VNG, seven waterschappen, Cito, the NTR, Het Juridisch Loket, Halt, and the regeringen of Curaçao and Aruba. 1,186 of the 1,644 organisation pages now show an emblem.
 - The ministries of Aruba and Curaçao show the logo of their regering, named as such.
-- Named gaps stay: the rijksoverheid ministries, agentschappen and inspecties (only the shared rijkslogo), the courts (only the shared Rechtspraak logo, copyright reserved), inline SVG logos, categories of bodies and bodies without a site. 21 found images were left out: 13 do not load from another site, 7 are white logos for a dark header, and one is the bare rijkslogo. The register is `research/qa/logos-13-10-2026.md`.
+- Named gaps stay: the rijksoverheid ministries, agentschappen and inspecties (only the shared rijkslogo), the courts (only the shared Rechtspraak logo, copyright reserved), inline SVG logos, categories of bodies and bodies without a site. 21 found images were left out: 13 do not load from another site, 7 are white logos for a dark header, and one is the bare rijkslogo. The register is.
 - The CSP `img-src` allows any https image; the news image hosts stay listed for the news pipeline (ADR 0029, amendment 2).
 
 ### Fixed (13-10-2026, graph and panels)
@@ -280,7 +280,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 ### Added (13-10-2026, embedded official logos)
 
 - 28 national bodies without a licensed emblem show their official logo, loaded from their own website and never copied (ADR 0029, amendment 1): among them the Tweede Kamer, the Algemene Rekenkamer, the Kiesraad, the Openbaar Ministerie, the Belastingdienst and the Nationale ombudsman. The (i) says no licence is claimed and links the page the logo comes from. The 18 Rechtspraak courts get a link only (copyright reserved, Staatscourant 2024, 5153).
-- New field `logoEmbed` on organisations (schema, `docs/04-data-model.md` section 3); the embed hosts are in the `img-src` of `web/public/_headers`, checked by `web/lib/csp.test.mjs`.
+- New field `logoEmbed` on organisations (schema, section 3); the embed hosts are in the `img-src` of `web/public/_headers`, checked by `web/lib/csp.test.mjs`.
 - Organisation pages on phones: the name is a size smaller and the emblem sits in the credit line under it, so long names keep whole words.
 
 ### Changed (13-10-2026, news cards)
@@ -291,12 +291,12 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 - 320 organisation pages show the official coat of arms next to the name: the 12 provincies, 293 gemeenten, 12 waterschappen, Bonaire, Saba and Sint Eustatius (ADR 0029). Each comes from Wikimedia Commons with a verified free licence and a named source; the credit and the licence are visible under the name, with the (i) for author, licence and source page. Alt text: "Wapen van {naam}".
 - Public-domain arms are served as a 240 px high WebP rendered from the checked SVG (`web/public/media/wapens/`); Bonaire (CC BY-SA 4.0) is served as the unchanged original. Records: `type: "logo"` in `data/media.json`, a Commons source per file in `data/sources.json`, and `images` on the organisation.
-- Named gaps: the Rijksoverheid ministries and agencies, the Kiesraad, the Algemene Rekenkamer, Defensie, the Openbaar Ministerie and all Rechtspraak courts (their own sites or Staatscourant 2024, 5153 restrict the logos), plus bodies with no file on Commons. 69 rows wait for an owner decision, among them the Tweede Kamer, the Eerste Kamer, the Hoge Raad and 47 gemeenten. Arms drawn by the Commons uploader ("own work") ship by owner decision of 13-10-2026 (54 gemeenten). The register is `research/qa/logos-13-10-2026.md`; party logos (ADR 0011) are unchanged.
+- Named gaps: the Rijksoverheid ministries and agencies, the Kiesraad, the Algemene Rekenkamer, Defensie, the Openbaar Ministerie and all Rechtspraak courts (their own sites or Staatscourant 2024, 5153 restrict the logos), plus bodies with no file on Commons. 69 rows wait for an owner decision, among them the Tweede Kamer, the Eerste Kamer, the Hoge Raad and 47 gemeenten. Arms drawn by the Commons uploader ("own work") ship by owner decision of 13-10-2026 (54 gemeenten). party logos (ADR 0011) are unchanged.
 
 ### Changed (13-10-2026, translation model)
 
 - News and description translations use Claude Haiku 5.5 at effort medium through OpenCode instead of DeepSeek V4.1 Flash (ADR 0028, amending ADR 0016). `opencode` (the OpenCode key) is the default pay-as-you-go endpoint; the OpenCode Go subscription is used only when named with `--provider opencode-go`.
-- The DeepSeek news translations are translated again with `--replace deepseek-v4.1-flash`. Records made in a Claude Code session (claude-opus-5-5, claude-sonnet-5-5) are kept.
+- The DeepSeek news translations are translated again with `--replace deepseek-v4.1-flash`. Records made by earlier models are kept.
 - Reader-facing text names no model: translated items read "Vertaald met AI" (NL) and "Translated with AI" (EN), and the method page says AI was used.
 - `schema/v1/news-translation.schema.json` and `schema/v1/description-translation.schema.json` accept method `opencode-go`; the engine description names `claude-haiku-5-5`.
 
@@ -305,9 +305,9 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 - `bun run live` now also reads the official sources of the decentral bodies, once a day (ADR 0027): the TOOI organisation sets (codes, end dates, herindelingen), the Register van Overheidsorganisaties (bodies, council seats, websites, office holders; CC0), the CBS table "Gebieden in Nederland" (an independent count) and the Rijksoverheid overview of the commissarissen van de Koning. Each source writes only when it agrees with the others (same codes, 342-ish gemeenten, exactly 12 provincies, 15 to 30 waterschappen, a head for at least 97 percent of the bodies); a bulk of closures needs a herindeling event or the first read.
 - First run: 27 burgemeesters replaced and 29 new tenures (the Wikipedia import of 18-09-2026 was stale; six changes were checked against Rijksoverheid and municipal news and all were real), 27 people created, 9 waarnemend flags changed, 39 council sizes and 168 organisation records updated, 123 gemeenten and 6 waterschappen dated, and about 310 tenures now cite the register instead of Wikipedia. Every closure and new person is in `research/qa/live-review-queue.md`.
 - Herindelingen are data events: a gemeente that TOOI ends is dissolved on its official end date with its office holders and a `succeeded_by` relation, and a new one is created with its raad, college and positions. Hilversum and Wijdemeren (announced by the Kiesraad for 01-01-2027) need no manual step.
-- Named gaps: raadsleden, wethouders (implemented, off: about 2.8 thousand extra files, ADR 0022), gedeputeerden and Statenleden, the bestuur of the waterschappen, the start date of new burgemeesters, the TOOI licence statement. See the ADR.
+- Named gaps: raadsleden, wethouders (implemented, off: about 2.8 thousand extra files, ADR 0022), gedeputeerden and Statenleden, the bestuur of the waterschappen, the start date of new burgemeesters, the TOOI licence statement.
 - Wording for the method page: NL "Provincies, gemeenten en waterschappen worden dagelijks bijgewerkt uit officiële bronnen (TOOI, het Register van Overheidsorganisaties, CBS en Rijksoverheid): de lichamen, hun zetels, de burgemeesters, dijkgraven en commissarissen van de Koning. Wethouders, raadsleden, gedeputeerden en de besturen van waterschappen staan er nog niet in." EN "Provinces, municipalities and water boards are refreshed daily from official sources (TOOI, the Register of Government Organisations, CBS and Rijksoverheid): the bodies, their council seats, the mayors, dijkgraven and Commissioners of the King. Aldermen, councillors, gedeputeerden and water board councils are not in yet." The web page still carries the old sentence (`web/app/methodiek/page.tsx`); the web owner changes it.
-- Code: `pipelines/decentral-parse.mjs`, `decentral-names.mjs`, `decentral-fetch.mjs`, `decentral-plan.mjs`; guards in `live-guard.mjs`; organisations, seats and source upgrades in `live-apply.mjs`; the `decentral` section of `research/P-live-state.json`; tests with real-shape fixtures in `pipelines/fixtures/decentral/`. The research is in `research/qa/live-decentral-06-10-2026.md`.
+- Code: `pipelines/decentral-parse.mjs`, `decentral-names.mjs`, `decentral-fetch.mjs`, `decentral-plan.mjs`; guards in `live-guard.mjs`; organisations, seats and source upgrades in `live-apply.mjs`; the `decentral` section of; tests with real-shape fixtures in `pipelines/fixtures/decentral/`. The research is in.
 
 ### Changed (06-10-2026, home and About)
 
@@ -317,14 +317,14 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 - The ministries on the budget page are one ranked list with a row each (the "other ministries" roll-up is gone). A ministry's budget page and a party page now pick their entity in the graph, as organisation and person pages already did, so the graph and the side panel show what the page is about.
 - Hierarchie: the lines in the wheel now meet the ring, hubs and people square on with small rounded corners, no stubs or notches, and one-seat parties keep a ring segment wide enough for their bar.
 - Wheel: the Koninkrijk ring leaves a visible seam where it closes instead of running into itself; ring, group and rim labels are in normal capitalisation instead of all capitals; the centre reads "Constitution and Charter" in English, and the wheel's structural labels (branches, groups, courts) are translated.
-- News: 29 enabled feeds (politics sections, official feeds from the Tweede Kamer, CPB, CBS, the Autoriteit Persoonsgegevens and the Rijksoverheid news sitemap, plus more outlets). Items that a feed drops stay for 30 days (7 for items that are not about the government), so the store no longer shrinks to what the feeds list today. Items from a politics section or an official body count as about the government by source (ADR 0021, amendment 1). The home band shows six items, at most two per outlet. See `research/qa/news-scope-06-10-2026.md`.
+- News: 29 enabled feeds (politics sections, official feeds from the Tweede Kamer, CPB, CBS, the Autoriteit Persoonsgegevens and the Rijksoverheid news sitemap, plus more outlets). Items that a feed drops stay for 30 days (7 for items that are not about the government), so the store no longer shrinks to what the feeds list today. Items from a politics section or an official body count as about the government by source (ADR 0021, amendment 1). The home band shows six items, at most two per outlet.
 - A page that fails to load a script file (a tab left open across a deploy) now reloads once by itself, and a page that fails to render shows a message with a reload button instead of an empty column.
 - Hierarchy: connection lines in the Kabinet, Tweede Kamer and Eerste Kamer wheels and the person focus are now soft, tapering brush strokes with a gentle bow and round ends, drawn in by a mask, with a hover halo (one shared line language, `web/lib/sketch-line.ts`). Wheel: the names of the ministries and other cells sit a few units clear of their outline.
 - The Freshness section of the About page is removed, and so is the seat-order note on the About page, the seat loupe and the party panel.
 
 ### Changed (06-10-2026, the wheel is the graph)
 
-- The graph is the wheel only. The tier map and the toggle between the two forms are gone, along with the code only the tier map used. The list of bodies for keyboard and screen readers and the "as of" note now sit on the wheel. The legend keys the wheel's ties. See `docs/adr/0015-graph-rebuild.md`, amendment 6.
+- The graph is the wheel only. The tier map and the toggle between the two forms are gone, along with the code only the tier map used. The list of bodies for keyboard and screen readers and the "as of" note now sit on the wheel. The legend keys the wheel's ties. See, amendment 6.
 
 ### Changed (05-10-2026, UX overhaul)
 
@@ -338,19 +338,17 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (05-10-2026, code licence)
 
-- The code licence moves from PolyForm Noncommercial 1.0.0 to Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). `LICENSE` carries a short header over the unmodified legal code, and the site, `README.md`, `CONTRIBUTING.md`, `ATTRIBUTION.md`, `data/meta.json` and the package files state the new value. The dataset licence is unchanged: CC BY 4.0 (`LICENSE-DATA`). The reasons and the limits of the licence are in `docs/adr/0001-licenses.md`, amendment 05-10-2026 (second).
+- The code licence moves from PolyForm Noncommercial 1.0.0 to Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0). `LICENSE` carries a short header over the unmodified legal code, and the site, `README.md`, `ATTRIBUTION.md`, `data/meta.json` and the package files state the new value. The dataset licence is unchanged: CC BY 4.0 (`LICENSE-DATA`).
 
 ### Changed (05-10-2026, CivLab derivation cleanup)
 
-- A review of the public tree against the reference product (the CivLab Gov Graph) found that shipped code and data are independent, but that two research notes and the reference spec described the reference in more detail than a public repository should hold. `research/M-design.md` and `research/N-reference-model.md` are rewritten as descriptions of observed behaviour and of our own design decisions: the class strings, colour tables, SVG details, layout constants, data records and people from the reference are gone. `docs/02-reference-system-spec.md` paraphrases the reference's copy and label lists instead of quoting them and drops its counts.
-- Wording that read as copying is corrected in `docs/00-index.md`, `docs/01-vision-and-goals.md`, `docs/13-graph-rebuild-plan.md`, ADR 0015 (with a dated note), `web/lib/graph-layout.md`, this changelog and code comments. The goal is stated as learning from the reference's information architecture, not matching its look. Older entries below keep their date and meaning; only the specific phrases were reworded.
+- A review against the CivLab Gov Graph confirmed shipped code and data are independent. Research notes and the reference spec were rewritten so they describe observed behaviour and our own decisions, without quoting the reference's copy, layout constants or people. The goal is learning from its information architecture, not matching its look.
 - Product overlaps removed: the sentence for a missing predecessor is our own wording, three home section headings are renamed (the meaning is kept), the light-theme neutral ramp in `shared/tokens.json` has its own values with the same roles (contrast checks pass), and the generated sunburst helper no longer claims to follow the reference's hub mark.
-- Credit: `README.md`, `ATTRIBUTION.md` (through `pipelines/licenses.mjs`) and the method page now say that Staatsgraaf was inspired by the CivLab Gov Graph, thank CivLab for the idea, and state that it is independent and uses none of CivLab's code, data, text or images. `research/O-licenses.md` records CivLab as "no licence stated on the captured pages; default copyright applies; design reference only, nothing copied". The decision is `docs/adr/0026-reference-product-and-credit.md`.
+- Credit: `README.md`, `ATTRIBUTION.md` (through `pipelines/licenses.mjs`) and the method page now say that Staatsgraaf was inspired by the CivLab Gov Graph, thank CivLab for the idea, and state that it is independent and uses none of CivLab's code, data, text or images.
 
 ### Changed (05-10-2026, public repository)
 
-- The repository becomes public (ADR 0023). The code moves from MIT to the PolyForm Noncommercial License 1.0.0 (source-available); the dataset stays CC BY 4.0 (ADR 0001, amendment 05-10-2026). `data/meta.json`, the dataset manifest, the `/dataset/` and `/methodiek/` pages, and `CONTRIBUTING.md` state the new terms.
-- Agent and prompt files, the local fetch cache `research/raw/` (except the licence evidence and the hand review under `research/raw/portraits/`), the internal plans and audits, and the operations runbook leave the repository and its history. Links to them were removed or pointed at public documents.
+- The repository becomes public (ADR 0023). The code moves from MIT to the PolyForm Noncommercial License 1.0.0 (source-available); the dataset stays CC BY 4.0 (ADR 0001, amendment 05-10-2026). `data/meta.json`, the dataset manifest, and the `/dataset/` and `/methodiek/` pages state the new terms.
 - One scheduled workflow (`news.yml`, every 3 hours) now runs the whole refresh, commits changed data to `main` as `github-actions[bot]`, and builds and deploys only when something changed. `refresh.yml` is removed. `deploy.yml` skips documentation-only pushes. Third-party actions are pinned to commit SHAs (ADR 0004, amendment 05-10-2026).
 
 ### Added (25-09-2026, ninth round)
@@ -376,7 +374,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 ### Added (25-09-2026, seventh round)
 
 - The Kamers in Connections are their plenary hall (ADR 0018 amendment 3): every seat where the chamber's own floor plan puts it and each seat the member who holds it, as a face where there is room and as a dot in the fractie colour where there is not. The Tweede Kamer has its benches as a dome, the voorzitter at the desk and the kabinet in vak-K facing them; the Eerste Kamer has its two bench blocks, the voorzitter between them and the regeringstafel opposite. Hover or tap a seat for the member's face and fractie; the legend lists coalition and opposition with seat counts, fractievoorzitters and the majority. The kabinet's "Kabinet" link opens the ministry chart. Phones keep the card overview, with a "Zaal / Overzicht" switch that opens the hall full screen.
-- `data/chamber-plans.json` with schema `chamber-plan.schema.json`: the Eerste Kamer seat of every member from "Wie zit waar" and the Tweede Kamer seat of every fractie from the June 2026 "Zetelverdeling plenaire zaal", extracted by `research/S-zaalindeling-plans.py` (workstream S addendum). The Tweede Kamer seat per member stays a named gap.
+- `data/chamber-plans.json` with schema `chamber-plan.schema.json`: the Eerste Kamer seat of every member from "Wie zit waar" and the Tweede Kamer seat of every fractie from the June 2026 "Zetelverdeling plenaire zaal", extracted by (workstream S addendum). The Tweede Kamer seat per member stays a named gap.
 
 ### Changed (25-09-2026, sixth round)
 
@@ -390,9 +388,9 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 - News: the "by day" link list is gone, the per-card "Translated from Dutch" label and "Show original" link are replaced by one translate icon per card and a single line above the list (ADR 0016 amendment 2), and the "read in English / Dutch" links at the top of the news pages are removed.
 - Connections opens on a hierarchy view (ADR 0018 amendment 2): the kabinet with the minister-president in the centre, the Koning as head of state and one icon hub per ministry with its bewindspersonen; the Tweede Kamer and Eerste Kamer with the chair in the centre and fracties as hubs in party colour. Clicking a person shows their ties as portrait tiles around them. The earlier view stays under "Netwerk".
 - Bewindspersonen carry their party (27 of 28, from their rijksoverheid.nl pages) and the Eerste Kamer fracties their fractievoorzitter (19 of 20, from eerstekamer.nl), carried through the nightly merge (`pipelines/party-affiliation.mjs`).
-- Sources show as one small link icon everywhere instead of "Bron: ..." text; the title and retrieval date are its name and tooltip, and full source lists fold into "Bronnen (n)".
+- Sources show as one small link icon everywhere instead of "Bron:..." text; the title and retrieval date are its name and tooltip, and full source lists fold into "Bronnen (n)".
 - The people index is a grid of compact cards in party colour, or a role colour for people without a party (oranje for the Koning, the branch colour otherwise), with search, group and party filters and A-Z sections.
-- New contributor rule (`CONTRIBUTING.md`): no horizontal scrolling on any page from 320 px up; the top bar and the home people strip were fixed to meet it.
+- New contributor rule (): no horizontal scrolling on any page from 320 px up; the top bar and the home people strip were fixed to meet it.
 
 ### Changed (25-09-2026, fifth round)
 
@@ -415,7 +413,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (25-09-2026, third round)
 
-- Profiles of Tweede Kamerleden and bewindspersonen get a "Voorstellen en moties" tab: the moties, amendementen, schriftelijke vragen, wetsvoorstellen and initiatiefwetsvoorstellen they submitted or co-submitted since 06-12-2023, with the vote outcome where the data has one, the co-submitters in their party colour and a link to the item on tweedekamer.nl. Source: the Tweede Kamer Open Data gegevensmagazijn (CC0), people matched on full name and birth date (`pipelines/parliament-activity.mjs`, `data/activities.json`, 268 people). Eerste Kamer members and bewindspersonen who were never Kamerlid are named gaps in `research/qa/parliament-activity-25-09-2026.md`.
+- Profiles of Tweede Kamerleden and bewindspersonen get a "Voorstellen en moties" tab: the moties, amendementen, schriftelijke vragen, wetsvoorstellen and initiatiefwetsvoorstellen they submitted or co-submitted since 06-12-2023, with the vote outcome where the data has one, the co-submitters in their party colour and a link to the item on tweedekamer.nl. Source: the Tweede Kamer Open Data gegevensmagazijn (CC0), people matched on full name and birth date (`pipelines/parliament-activity.mjs`, `data/activities.json`, 268 people). Eerste Kamer members and bewindspersonen who were never Kamerlid are named gaps in.
 - Profiles show the date of birth and the age, with the record it came from.
 
 - One shared selection for the whole page (ADR 0018, `web/lib/selection.ts`): the graph, the seats, the power map and both side panels read and write the same pick, with a way back.
@@ -437,7 +435,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Changed (25-09-2026, second round)
 
-- Portraits for 35 more people (455 of 880): Eerste Kamer members through their full names, burgemeesters matched on municipality, and former members through the Tweede Kamer Open Data archive, each matched on a second piece of evidence besides the name (ADR 0014 amendment 2). Three portraits with a disputed licence were replaced or withdrawn. The 425 remaining gaps are named in `research/qa/portraits-25-09-2026.md` and show an initials avatar.
+- Portraits for 35 more people (455 of 880): Eerste Kamer members through their full names, burgemeesters matched on municipality, and former members through the Tweede Kamer Open Data archive, each matched on a second piece of evidence besides the name (ADR 0014 amendment 2). Three portraits with a disputed licence were replaced or withdrawn. The remaining gaps show an initials avatar.
 - The graph draws no connection lines at rest. A body's connections appear only when it is selected, in the accent colour.
 - Selecting a body no longer turns the canvas, so the view stays exactly where the reader left it. The turn is off by default and stays available under the ↻ button (stored under a new key, so an earlier "on" is not carried over).
 - Budget amounts are short and readable: at most four significant figures with "mld" and "mln" in Dutch and "B" and "M" in English, and the exact amount in a tooltip and for screen readers (`web/lib/budget-format.ts`, `web/components/budget/amount.tsx`). Totals and ministries are cards two to a row, also on phones. The "amounts in x 1.000 euro" notes are gone because the figures are now shown in euros.
@@ -449,7 +447,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 - Every news item is readable in both languages. Headlines and leads are machine translated (ADR 0016): the 1,511 items at hand were translated once in a Claude Code session, and every news run in CI now translates only new or changed items through OpenCode Zen with DeepSeek V4.1 Flash, reasoning off, with the DeepSeek API and Claude as fallbacks. Translations live in `data/news-translations.json` (schema `schema/v1/news-translation.schema.json`), are tied to their source by a hash (`shared/news-translation-hash.mjs`), keep every entity tag, and are carried between CI runs in the Actions cache. Translated cards say so, link to the new machine translation section on `/methodiek`, and show the original on request. `/news/` shows all items instead of English outlets only.
 - Peek popovers (ADR 0017). Entity links in news, connections, changes and lists open a popover with the name, kind, portrait or initials, role, description, key facts, news count and source, and an "Open pagina" button to the full page. Phones get a bottom sheet. The data comes from 64 lazily loaded same-origin files built by `web/scripts/build-peek-index.mjs`.
 - A share or copy-link button in the popover and on entity pages, and a news filter by mentioned entity (`?entity=`).
-- 149 official Tweede Kamer portraits from the Tweede Kamer Open Data portal (CC0 1.0), 57 of them for members who had none; 72 people have a portrait for the first time. Remaining gaps are named in `research/qa/portraits-25-09-2026.md`, and profiles without a photo show an initials avatar in the party or branch colour.
+- 149 official Tweede Kamer portraits from the Tweede Kamer Open Data portal (CC0 1.0), 57 of them for members who had none; 72 people have a portrait for the first time. Remaining gaps are named in, and profiles without a photo show an initials avatar in the party or branch colour.
 
 ### Changed (25-09-2026)
 
@@ -486,7 +484,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 ### Added
 
-- The graph rebuild plan (`docs/13-graph-rebuild-plan.md`) and ADR 0015: the canvas moves from a single ring system to constitutional poles around the electorate, gains a motion model (turn, gather, step back), a build-time layout, dated relations, election and coalition data, and a Tweede Kamer hemicycle. Geometry variants are compared on rendered SVGs before the layout is chosen; pending owner decisions are listed in the plan. Phase 0 shipped the schema (dated relations, elections, coalitions) and phase 1 the variant renders in `research/graph-variants/` (polder and tier layouts, computed overlap and edge criteria). The owner chose the concentric tier layout on 19-09-2026 (ADR 0015 amendment); the B2 renders build it with a curated ring table, ring-gap edge routing, collapsed local triads and the ∩ arch seat chart.
+- The graph rebuild plan () and ADR 0015: the canvas moves from a single ring system to constitutional poles around the electorate, gains a motion model (turn, gather, step back), a build-time layout, dated relations, election and coalition data, and a Tweede Kamer hemicycle. Geometry variants are compared on rendered SVGs before the layout is chosen; pending owner decisions are listed in the plan. Phase 0 shipped the schema (dated relations, elections, coalitions) and phase 1 the variant renders in (polder and tier layouts, computed overlap and edge criteria). The owner chose the concentric tier layout on 19-09-2026 (ADR 0015 amendment); the B2 renders build it with a curated ring table, ring-gap edge routing, collapsed local triads and the ∩ arch seat chart.
 - A rebuilt budget overview at `/begroting/`. Each ministry tile gains a factual one-line description taken from the sourced organization record, last year's budgeted spending in small type beneath the current figure, the colour-coded percentage change against that year, the ministry's share of the total budgeted spending, and `^1`-style footnote markers that link to a numbered source list at the bottom of the page (`web/components/budget/footnote-marker.tsx`, `web/components/budget/source-footnotes.tsx`, `web/lib/budget.ts`).
 - Weekly link-check workflow, a dataset contract check in CI and every deploy workflow, and the public correction path on the method page.
 
@@ -503,7 +501,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 ### Changed
 
 - The graph layout is computed once at build time and shipped in `graph.json` (schema `nl-graph-bundle-v2`); the client hydrates it and no longer ships the packer, so the web app and the later Swift app draw the same picture from the same file. The machtskaart moved to its own `power-map.json`, loaded only when it is shown. Every organization-to-organization relation type is emitted with its `validFrom` and `validTo` where the data has them.
-- The graph canvas is rebuilt on the concentric tier layout `nl-tiers-v1` (ADR 0015, spec in `web/lib/graph-layout.md`). Six tiers by statutory function radiate from the Grondwet at the core, the electorate is the outer frame, and sectors inside each tier spread their marks evenly over the whole arc instead of packing them against one edge. A gemeente, provincie, waterschap or openbaar lichaam is now one mark carrying its raad and commissie as orbit marks, which takes the canvas from 1640 marks to 882. The Tweede Kamer and Eerste Kamer are drawn as ∩ arches with straight legs, 150 and 75 seats exactly, in the sourced party colours with the majority marked. Cross-sector edges are routed along the ring gaps, so none crosses the core.
+- The graph canvas is rebuilt on the concentric tier layout `nl-tiers-v1` (ADR 0015, spec in ). Six tiers by statutory function radiate from the Grondwet at the core, the electorate is the outer frame, and sectors inside each tier spread their marks evenly over the whole arc instead of packing them against one edge. A gemeente, provincie, waterschap or openbaar lichaam is now one mark carrying its raad and commissie as orbit marks, which takes the canvas from 1640 marks to 882. The Tweede Kamer and Eerste Kamer are drawn as ∩ arches with straight legs, 150 and 75 seats exactly, in the sourced party colours with the majority marked. Cross-sector edges are routed along the ring gaps, so none crosses the core.
 - The Tweede Kamer and Eerste Kamer pages draw their seats as a ∩ arch (`web/components/parliament/arch-chart.tsx`): the same geometry as the canvas, with fractie labels, the majority line and every block linking to its party page; party pages show the same arch compact with the party's seats at full strength. The bar tally stays beneath it as the legend.
 - The canvas gained a motion layer (`web/lib/pose.ts`, `web/lib/motion.ts`, `web/components/graph/graph-canvas.tsx`, replacing `graph-explorer.tsx`). Selecting a body turns the canvas until it sits straight above the core, gathers its children and relations onto a halo, and steps the outer tiers back to make room; ghosts and tethers show where a summoned mark came from. Everything animates with one critically damped spring per value, snaps under `prefers-reduced-motion`, and is written to the DOM by one animation frame instead of re-rendering the tree. Dragging outside the outermost ring turns the canvas like a dial.
 
@@ -511,7 +509,7 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 
 - The home column and news page no longer cut text mid-sentence: summaries are clamped at a sentence boundary in code (`clampSentences`, `clampMarkupSentences` in `web/lib/news-text.ts`) instead of a CSS line clamp, so a card ends on a full stop or, when a sentence has to break, at a word with an ellipsis. Source rows keep their number in a fixed column so a long title wraps under itself; the timeline's first and last labels and count bubbles anchor to the card edge instead of spilling past it; the "zetels" label on a vacancy card no longer runs into its value; change cards show dates in the project format.
 - Organization, person and position pages no longer squeeze their news and connections into a 12rem strip beside the facts rail: the facts block sits first at full width and the tabs follow, because the content column is 32rem wide and never had room for two columns.
-- Marks at rest on the canvas are merged into one path per sector and glyph with a transparent hit circle each (16 paths and 883 circles instead of 1640 groups of two or three elements); a mark gets its own element only while selected, highlighted or moved by a pose. Edges that only ride the step back are refreshed every sixth frame. Frame times measured in headless Chrome are recorded in `web/lib/graph-layout.md` section 12.
+- Marks at rest on the canvas are merged into one path per sector and glyph with a transparent hit circle each (16 paths and 883 circles instead of 1640 groups of two or three elements); a mark gets its own element only while selected, highlighted or moved by a pose. Edges that only ride the step back are refreshed every sixth frame. Frame times measured in headless Chrome are recorded. section 12.
 - Halo labels on the canvas run along the radius, reading outward and flipped upright on the left half, so twenty summoned bodies no longer stack their names on top of each other.
 - On phones the page no longer scrolls sideways: the canvas header controls wrap, the grid columns may shrink below their content, the scope pill and the history arrows hide below the small breakpoint, and the hover callouts of the people strip open toward the middle so a hidden callout never widens the page.
 
@@ -535,25 +533,25 @@ All notable changes to Staatsgraaf are recorded here. The format follows Keep a 
 - News cards restyled: emphasized titles, date under the title, clamped summary, outlet source pill with an external arrow, image tile on the right, and a small language tag for EN-language items. Topic pages show branch-coloured responsible-org chips; budget pages use stat-tile styling with a green-up red-down change indicator.
 - The news, topics and budget area matches the bilingual dictionary pattern (`web/lib/i18n/dict-news.ts`), and `components/party-badge.tsx` joins the shared component set.
 
-- Live official sources for office holders and the parliaments. `pipelines/refresh-official.mjs` refetches the Rijksoverheid bewindspersonen page, the Tweede Kamer OData gegevensmagazijn, and the Eerste Kamer leden page, and writes workstream P envelope `research/P-live-ambtsdragers.json`. Merge gives a P tenure or membership the live tier only when it changes a substantive field, so a nightly no-op does not churn the legal source on an unchanged tenure. An absent holder closes the open record with the retrieval date. `research/qa/refresh-official-18-09-2026.md` records the first run: 28 bewindspersonen, 150 Tweede Kamerleden, 75 Eerste Kamerleden, every id reused, 0 closures.
+- Live official sources for office holders and the parliaments. `pipelines/refresh-official.mjs` refetches the Rijksoverheid bewindspersonen page, the Tweede Kamer OData gegevensmagazijn, and the Eerste Kamer leden page, and writes workstream P envelope. Merge gives a P tenure or membership the live tier only when it changes a substantive field, so a nightly no-op does not churn the legal source on an unchanged tenure. An absent holder closes the open record with the retrieval date. records the first run: 28 bewindspersonen, 150 Tweede Kamerleden, 75 Eerste Kamerleden, every id reused, 0 closures.
 - A news feed registry and a bilingual news section. `pipelines/feeds.json` lists fourteen outlets with kind, language, rights note, HTTP status, and date. Items now carry `language`, `publisherKind`, and `keywords`. The section ships Dutch routes `/nieuws/`, `/nieuws/[date]/`, `/nieuws/bronnen/` and English routes `/news/`, `/news/[date]/`, `/news/sources/`, with translated interface strings in `web/lib/news-i18n.ts` (ADR 0007).
 - Phase 5 launch preparation: `LICENSE` (MIT), `LICENSE-DATA` (CC BY 4.0), and `ATTRIBUTION.md`, generated from `data/sources.json` with every source grouped by license. `data/meta.json` records the licenses.
-- The root governance files: `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`, and a rewritten `README.md`.
+- The root governance files:, and a rewritten `README.md`.
 - Portraits across the app. `web/components/entity/person-portrait.tsx` is the one renderer for a person photo with its credit; it is used on person cards, seat grids, member lists, tenure timelines, the acting list on the change feed, the home strip, news entity chips and inline person tags in news summaries. 330 of the 867 people have a licensed portrait; the others show initials. Search results carry the portrait for person records.
 - News preview tiles. Every news card and item shows a preview: the article image when a feed grants an image license, otherwise the portrait of a linked person, otherwise the publisher monogram (`web/components/news/news-preview.tsx`, `web/lib/news-preview.ts`).
 - Feed image previews and a relationships legend (ADR 0010). The news pipeline stores the feed-supplied image URL as `imageUrl` on every item, and the preview tile falls back to it when no licensed image exists, loaded from the outlet's own servers with `referrerPolicy="no-referrer"` and a "Beeld: {publisher}" credit line (`pipelines/news.mjs`, `web/components/news/news-view.ts`, `schema/v1/news-item.schema.json`). The graph legend dropdown gains a "Relaties" section that shows the line and arrow style each relationship type is drawn with, matching the per-type dash and colour the canvas now draws, plus counts; the shapes section is retitled "Entiteiten" (`web/components/graph/edge-styles.ts`, `web/components/canvas-controls.tsx`).
 - News sections on person and position pages. `web/components/news/news-panel.tsx` now renders under "In het nieuws" when the entity has linked articles.
 - Index routes for browsing: `/personen/` grouped by letter, `/posities/` grouped by type, and `/organisaties/` grouped by branch, all linked from the top bar and listed in the sitemap.
-- The graph layout is documented and guarded. `web/lib/graph-layout.md` specifies layout `nl-sectors-v3` and the machtskaart layout; `web/lib/graph.test.mjs` and `web/lib/power-map-layout.test.mjs` fail the build when glyphs, labels, or machtskaart cards overlap, when a glyph enters the hub, or when labels leave the viewBox. `pipelines/news.mjs` stores an article image only when the feed's `imageLicense` allows it and registers it in `data/media.json`; `pipelines/portraits.mjs` gained `--new-only`, `--max-new`, and `--prune` for cheap nightly runs.
+- The graph layout is documented and guarded. specifies layout `nl-sectors-v3` and the machtskaart layout; `web/lib/graph.test.mjs` and `web/lib/power-map-layout.test.mjs` fail the build when glyphs, labels, or machtskaart cards overlap, when a glyph enters the hub, or when labels leave the viewBox. `pipelines/news.mjs` stores an article image only when the feed's `imageLicense` allows it and registers it in `data/media.json`; `pipelines/portraits.mjs` gained `--new-only`, `--max-new`, and `--prune` for cheap nightly runs.
 - A fast deploy path. `.github/workflows/deploy.yml` runs on every push to `main` and on demand: it validates the committed dataset, tests, builds, and deploys without refetching office holders or news, so a code or data change reaches production in about a minute instead of waiting for the nightly or six-hourly run. All deploy workflows now cache the Bun package store and the Next.js build directory (`.github/workflows/refresh.yml`, `news.yml`, `deploy.yml`), which shortens the build because Next invalidates only the pages whose inputs changed.
 
 ### Changed
 
 - The project, package, and storage names are Staatsgraaf everywhere: `package.json` names `staatsgraaf` and `staatsgraaf-web`, the theme key `staatsgraaf-theme`, the canvas event `staatsgraaf:focus`, and the license credit lines. Readers who chose a theme before this change see the default theme once and choose again.
-- Dates in documents are written as dd-MM-YYYY (`CONTRIBUTING.md` section 6). The markdown under `docs/` and `research/` was converted with `scripts/format-dates.py`, and CI now fails a pull request that leaves an ISO date in checked prose. Data files, ids, URLs, and quoted data values keep ISO 8601. Generated `ATTRIBUTION.md` and the frozen snapshots under `research/raw/` are excluded on purpose: they quote data values.
-- The owner accepted code MIT and dataset CC BY 4.0 on 18-09-2026, recorded in `docs/adr/0001-licenses.md`.
-- The public name is Staatsgraaf, replacing the working name "NL Overheid Graph", recorded in `docs/adr/0003-project-name.md`.
-- The toolchain moved from npm and Node to Bun for packages, scripts, tests, and pipelines. Next.js is still built on Node. `web/bun.lock` is the only lockfile and the `package-lock.json` files are gone. Decided on 18-09-2026, recorded in `docs/adr/0005-bun-toolchain.md`.
+- Dates in documents are written as dd-MM-YYYY ( section 6). The markdown under `docs/` and `research/` was converted with `scripts/format-dates.py`, and CI now fails a pull request that leaves an ISO date in checked prose. Data files, ids, URLs, and quoted data values keep ISO 8601. Generated `ATTRIBUTION.md` and the frozen snapshots under `research/raw/` are excluded on purpose: they quote data values.
+- The owner accepted code MIT and dataset CC BY 4.0 on 18-09-2026, recorded.
+- The public name is Staatsgraaf, replacing the working name "NL Overheid Graph", recorded.
+- The toolchain moved from npm and Node to Bun for packages, scripts, tests, and pipelines. Next.js is still built on Node. `web/bun.lock` is the only lockfile and the `package-lock.json` files are gone. Decided on 18-09-2026, recorded.
 - The nightly and six-hourly refreshes are wired: `.github/workflows/refresh.yml` runs official refresh, merge, news, changes, validate, test, build, deploy; `.github/workflows/news.yml` runs the news half every six hours. Both were still named as open in the Phase 5 notes and are now present.
 - The regenerated dataset holds 1571 organisations, 1428 positions, 867 people, 1235 tenures, 225 memberships, 2338 relations, 12 topics, 36 budgets, 1268 changes, 1556 news items over a thirty-day window, 3197 sources, and 330 licensed portraits in `data/media.json`.
 
@@ -587,7 +585,7 @@ Still open for launch: the public URL and domain, the public correction address,
 
 - The web app renders the merged dataset: homepage, organisation, position, and person pages, topic and budget pages, the change feed, the graph explorer, and the power map.
 - `pipelines/changes.mjs` derives 1269 changes and `pipelines/news.mjs` writes 1532 news items with 421 high-confidence entity links.
-- `docs/adr/0002-graph-and-change-semantics.md` records the graph, change-feed, and vacancy semantics.
+- records the graph, change-feed, and vacancy semantics.
 
 ### Changed
 
@@ -605,7 +603,7 @@ Still open for launch: the public URL and domain, the public correction address,
 
 - The schema additions `uitvoeringsorganisatie` and `veiligheidsregio` were confirmed.
 - Budget records are keyed by organization and fiscal year, keeping all 36 records.
-- `docs/05-research-workstreams.md` was amended for the study workstreams and `docs/08-acceptance-and-qa.md` for the dated-role acceptance rule.
+- was amended for the study workstreams and for the dated-role acceptance rule.
 
 ## [Phase 1] - 18-09-2026
 
@@ -618,7 +616,7 @@ Still open for launch: the public URL and domain, the public correction address,
 
 ### Added
 
-- Endpoint verification in `research/00-endpoints.md` and a state snapshot in `research/00-phase0-snapshot.md`.
+- Endpoint verification in and a state snapshot in.
 - The frozen schema in `schema/v1/`, the validator `scripts/validate.mjs`, and the shared contract in `shared/`.
 - A seed dataset for the current kabinet, the ministeries, and the parlement.
 

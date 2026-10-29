@@ -1,8 +1,7 @@
 #!/usr/bin/env bun
 // Per-source license and provenance application for Staatsgraaf.
 //
-// Everything here is derived from research/O-licenses.md (sections 1, 3.3 and 7).
-// The mapping is deterministic: an exact source id first (where O singles one
+// Licence mapping for sources: an exact source id first (where one is singled
 // out), then the URL hostname. Every source ends with one of the SPDX values in
 // SPDX_LICENSES and never with license: null.
 //
@@ -28,12 +27,12 @@ export const DEFAULT_USER_AGENT =
 export const WAYBACK_THROTTLE_MS = 4000;
 
 export const NEWS_FACTS_ONLY_NOTE =
-  "Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet. Zie research/O-licenses.md sectie 1.5.";
+  "Feiten uit dit bericht mogen worden gebruikt; de tekst en het beeld van de bron niet.";
 
 export const GAP_NOTE_PREFIX = "Licentie niet vastgesteld; endpoint:";
 
 // Hosts where automated fetches are blocked, so the link check reports WARN/FAIL
-// and an archive copy is the fallback. research/qa/link-check.md names both.
+// and an archive copy is the fallback.
 export const BLOCKED_HOSTS = Object.freeze(["www.hogeraad.nl", "www.raadvanstate.nl"]);
 
 // O singles out the two Wikipedia-derived bulk rows (burgemeester and dijkgraaf
@@ -161,10 +160,10 @@ function hostLookup(host) {
 /**
  * Deterministic license for one source record.
  *
- * Order, per the task: exact id (where research/O-licenses.md singles one out),
- * then URL hostname. A host not covered by O keeps an already-recorded license
- * (so an out-of-scope host is never silently relabelled); a news source without
- * one is all-rights-reserved; anything else is a named gap, unknown.
+ * Order: exact id (where one is singled out), then URL hostname. A host not in
+ * the map keeps an already-recorded license (so an out-of-scope host is never
+ * silently relabelled); a news source without one is all-rights-reserved;
+ * anything else is a named gap, unknown.
  */
 export function licenseForSource(source) {
   if (!source || typeof source !== "object") return "unknown";
@@ -411,8 +410,8 @@ function licenseLabel(license) {
  * The source families of the table, in reading order. A source belongs to the
  * first family that lists its hostname; news records and records with no
  * established licence are counted in their own paragraphs, and everything else
- * falls into "Other public bodies". `terms` is the page that states the licence
- * (research/O-licenses.md has the evidence and retrieval date for each).
+ * falls into "Other public bodies". `terms` is the page that states the licence;
+ * evidence and retrieval dates live on each source in `data/sources.json`.
  */
 export const SOURCE_FAMILIES = Object.freeze([
   {
@@ -514,7 +513,7 @@ export const SOURCE_FAMILIES = Object.freeze([
 const OTHER_FAMILY = Object.freeze({
   name: "Other public bodies",
   use: "Offices and office holders from the body's own site",
-  terms: "the site's own copyright page; see research/O-licenses.md",
+  terms: "the site's own copyright page",
 });
 
 function familyOf(host) {
@@ -591,7 +590,7 @@ function licenseCell(counts, family) {
  * The credit to the project that inspired Staatsgraaf. English, fixed text:
  * the README and the method page carry the same statement in their own
  * wording. The claim of independence is true only while no CivLab code, data,
- * text or image is in the repository (docs/adr/0026-reference-product-and-credit.md).
+ * text or image is in the repository.
  */
 export const INSPIRATION_CREDIT =
   "Staatsgraaf was inspired by the Gov Graph (https://graph.civlab.org/us) by CivLab, which maps the United States federal government. We thank CivLab for the idea. Staatsgraaf is an independent project: it is not affiliated with or endorsed by CivLab, and it uses none of CivLab's code, data, text or images. The Dutch data, the layout and the wording are our own, from the sources listed in this file.";
@@ -631,7 +630,7 @@ export function buildAttribution(sources, media = null) {
   );
   lines.push("");
   lines.push(
-    "Photos are not under the dataset licence. Each one keeps the licence its author gave it, see Portraits below. The per-source licence decisions, with evidence and retrieval dates, are in `research/O-licenses.md`.",
+    "Photos are not under the dataset licence. Each one keeps the licence its author gave it, see Portraits below. The per-source licence is recorded in `data/sources.json` with its retrieval date.",
   );
   lines.push("");
   lines.push("## Source families");
@@ -657,7 +656,7 @@ export function buildAttribution(sources, media = null) {
   );
   lines.push("");
   lines.push(
-    "The site shows scaled-down and cropped copies, and says so in the credit. For CC BY-SA photos the copy is shared under the same licence. The decision and the licence texts it rests on are in `docs/adr/0025-photo-credits.md`.",
+    "The site shows scaled-down and cropped copies, and says so in the credit. For CC BY-SA photos the copy is shared under the same licence.",
   );
   lines.push("");
   lines.push("## News");
@@ -680,7 +679,6 @@ export function buildAttribution(sources, media = null) {
   lines.push("");
   lines.push("- `data/sources.json`: every source, with its URL, publisher, licence and retrieval date.");
   lines.push("- `data/media.json`: every photo, with its credit, author, licence and source.");
-  lines.push("- `research/O-licenses.md`: the licence determination per publisher, with the terms page and the date it was read.");
   lines.push("");
   return `${lines.join("\n").replace(/\n+$/, "")}\n`;
 }

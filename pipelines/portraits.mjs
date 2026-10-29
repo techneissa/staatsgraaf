@@ -5,7 +5,7 @@
 // wbgetentities), waarna van Wikimedia Commons de licentie- en auteursinformatie
 // van de P18-afbeelding wordt opgehaald en een thumbnail van 320 px wordt
 // gedownload. Alleen bestanden met een herkenbare licentie komen in aanmerking;
-// alles daarbuiten is een benoemde gap. research/O-licenses.md is de regel.
+// alles daarbuiten is een benoemde gap.
 //
 // De pipeline draait na `bun run merge` en schrijft data/media.json,
 // data/sources.json en de portret-, Wikidata- en Wikipedia-velden in
@@ -24,7 +24,7 @@
 // geboortedatum (naamgenoot) weigert, en het Commons-bestand moet de persoon zelf
 // noemen. `--discover` zoekt kandidaten op Commons en schrijft ze naar
 // research/raw/portraits/deep/; het past er nooit een toe, dat blijft handwerk
-// via review.json (docs/adr/0014, amendement 3).
+// via review.json.
 //
 // No dependencies. Node ESM only.
 

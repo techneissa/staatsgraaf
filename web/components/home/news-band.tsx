@@ -7,7 +7,7 @@ import type { NewsItem } from "@/lib/types";
 
 /**
  * The home news band. It shows the newest relevant items across outlets, `NEWS_HOME_LIMIT`
- * of them and at most `NEWS_HOME_PER_OUTLET` from one outlet (docs/adr/0021 and its
+ * of them and at most `NEWS_HOME_PER_OUTLET` from one outlet ( and its
  * amendment of 06-10-2026), and falls back to the newest items of any kind only when none
  * is relevant. `items` only tells whether the dataset has news at all.
  */

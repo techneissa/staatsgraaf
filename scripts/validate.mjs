@@ -570,9 +570,6 @@ if (RESEARCH_MODE) {
     if (record.source && typeof record.source.source === "string") refs.push(record.source.source);
     return refs;
   };
-  const lettersWithMd = new Set(
-    readdirSync(RESEARCH_DIR).filter((f) => f.endsWith(".md")).map((f) => f.split("-")[0])
-  );
   for (const [f, env] of parsedFiles) {
     const where = `research/${f}`;
     validate(env, { $ref: ENVELOPE }, ENVELOPE, where);
@@ -580,7 +577,6 @@ if (RESEARCH_MODE) {
     if (env.workstream !== undefined && env.workstream !== letter) {
       fail(where, `filename letter ${letter} does not match envelope.workstream ${env.workstream}`);
     }
-    if (!lettersWithMd.has(letter)) fail(where, `no markdown report for workstream ${letter}`);
     const counts = [];
     for (const [key, defName] of Object.entries(ENTITY_DEFS)) {
       const items = env[key] ?? [];

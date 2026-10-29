@@ -1,6 +1,6 @@
 {
   "generatedAt": "2026-10-06T14:00:00.000Z",
-  "notes": "Registry of news feeds for the Staatsgraaf news layer; only feeds fetched and parsed as RSS or Atom are enabled. Images are only downloaded and stored from a feed whose imageLicense names a license; imageLicense null means no image is downloaded or stored, while the feed-supplied image URL is still shown as a remote preview credited to the outlet when its host is in the CSP img-src (ADR 0010). scope \"politiek\" marks a feed or section that is wholly about Dutch politics and government; its items count as relevant by source (ADR 0021, amendment 06-10-2026). publisherKind overheid counts the same. datesAreAmsterdamLocal marks a feed that writes Amsterdam wall-clock time with a UTC label. Several feeds may share one publisher.",
+  "notes": "Registry of news feeds for the Staatsgraaf news layer; only feeds fetched and parsed as RSS or Atom are enabled. Images are only downloaded and stored from a feed whose imageLicense names a license; imageLicense null means no image is downloaded or stored, while the feed-supplied image URL is still shown as a remote preview credited to the outlet when its host is in the CSP img-src. scope \"politiek\" marks a feed or section that is wholly about Dutch politics and government; its items count as relevant by source. publisherKind overheid counts the same. datesAreAmsterdamLocal marks a feed that writes Amsterdam wall-clock time with a UTC label. Several feeds may share one publisher.",
   "feeds": [
     {
       "url": "https://feeds.nos.nl/nosnieuwsalgemeen",
@@ -287,7 +287,7 @@
       "status": 200,
       "retrieved": "2026-10-06",
       "enabled": false,
-      "notes": "Uitgeschakeld op 06-10-2026: de feed antwoordt (HTTP 200, 20 berichten) maar het nieuwste bericht is van 29-10-2025. Licentie niet vastgesteld. Weer inschakelen zodra er nieuwe berichten zijn; alle berichten tellen dan als relevant op grond van de bron (scope politiek, ADR 0021, aanvulling 06-10-2026).",
+      "notes": "Uitgeschakeld op 06-10-2026: de feed antwoordt (HTTP 200, 20 berichten) maar het nieuwste bericht is van 29-10-2025. Licentie niet vastgesteld. Weer inschakelen zodra er nieuwe berichten zijn; alle berichten tellen dan als relevant op grond van de bron (scope politiek).",
       "scope": "politiek"
     },
     {
@@ -367,7 +367,7 @@
       "status": 200,
       "retrieved": "2026-10-06",
       "enabled": true,
-      "notes": "Officieel orgaan van de Nederlandse staat: berichten tellen als relevant op grond van de bron (publisherKind overheid, ADR 0021, aanvulling 06-10-2026). Weinig berichten per maand (10 in de feed, de oudste van 19-05-2021); licentie niet vastgesteld (research/O-licenses.md sectie 7)."
+      "notes": "Officieel orgaan van de Nederlandse staat: berichten tellen als relevant op grond van de bron (publisherKind overheid). Weinig berichten per maand (10 in de feed, de oudste van 19-05-2021); licentie niet vastgesteld (licentie niet vastgesteld)."
     },
     {
       "url": "https://www.autoriteitpersoonsgegevens.nl/feed/article/rss.xml",
@@ -380,7 +380,7 @@
       "status": 200,
       "retrieved": "2026-10-06",
       "enabled": true,
-      "notes": "Officieel orgaan van de Nederlandse staat: berichten tellen als relevant op grond van de bron (publisherKind overheid, ADR 0021, aanvulling 06-10-2026). Adres na doorsturing van /rss; licentiepagina gaf 403, dus licentie niet vastgesteld."
+      "notes": "Officieel orgaan van de Nederlandse staat: berichten tellen als relevant op grond van de bron (publisherKind overheid). Adres na doorsturing van /rss; licentiepagina gaf 403, dus licentie niet vastgesteld."
     },
     {
       "url": "https://www.cpb.nl/rss/algemeen.xml",
@@ -393,7 +393,7 @@
       "status": 200,
       "retrieved": "2026-10-06",
       "enabled": true,
-      "notes": "Officieel orgaan van de Nederlandse staat: berichten tellen als relevant op grond van de bron (publisherKind overheid, ADR 0021, aanvulling 06-10-2026). Combinatie van alle CPB-feeds (https://www.cpb.nl/rss); licentie volgens https://www.cpb.nl/copyright, gelezen op 06-10-2026."
+      "notes": "Officieel orgaan van de Nederlandse staat: berichten tellen als relevant op grond van de bron (publisherKind overheid). Combinatie van alle CPB-feeds (https://www.cpb.nl/rss); licentie volgens https://www.cpb.nl/copyright, gelezen op 06-10-2026."
     },
     {
       "url": "https://www.cbs.nl/nl-nl/rss-feeds/overheid-en-politiek",
@@ -406,7 +406,7 @@
       "status": 200,
       "retrieved": "2026-10-06",
       "enabled": true,
-      "notes": "Officieel orgaan van de Nederlandse staat: berichten tellen als relevant op grond van de bron (publisherKind overheid, ADR 0021, aanvulling 06-10-2026). Thema Overheid en politiek; CC BY 4.0 volgens https://www.cbs.nl/nl-nl/over-ons/website/copyright, gelezen op 06-10-2026."
+      "notes": "Officieel orgaan van de Nederlandse staat: berichten tellen als relevant op grond van de bron (publisherKind overheid). Thema Overheid en politiek; CC BY 4.0 volgens https://www.cbs.nl/nl-nl/over-ons/website/copyright, gelezen op 06-10-2026."
     },
     {
       "url": "https://www.rijksoverheid.nl/news/sitemap.xml",
@@ -419,7 +419,7 @@
       "status": 200,
       "retrieved": "2026-10-06",
       "enabled": true,
-      "notes": "Officieel orgaan van de Nederlandse staat: berichten tellen als relevant op grond van de bron (publisherKind overheid, ADR 0021, aanvulling 06-10-2026). Google News-sitemap van Rijksoverheid.nl (format news-sitemap): alleen kop, link en tijd, de laatste twee dagen; het oude RSS-adres feeds.rijksoverheid.nl bestaat niet meer. Licentie CC0 volgens research/O-licenses.md.",
+      "notes": "Officieel orgaan van de Nederlandse staat: berichten tellen als relevant op grond van de bron (publisherKind overheid). Google News-sitemap van Rijksoverheid.nl (format news-sitemap): alleen kop, link en tijd, de laatste twee dagen; het oude RSS-adres feeds.rijksoverheid.nl bestaat niet meer. Licentie CC0.",
       "format": "news-sitemap"
     }
   ],

@@ -47,14 +47,14 @@ export type NewsItemView = {
   summary: string | null;
   entities: NewsEntityRef[];
   keywords: string[];
-  /** True when the item names an entity or a topic from the dataset (docs/adr/0021). */
+  /** True when the item names an entity or a topic from the dataset (). */
   relevant: boolean;
   /** The lead as published: summary markup with the headline prefix removed, or null. */
   lead: string | null;
   /** The plain summary without the publisher-and-headline prefix, for items without markup. */
   plainLead: string | null;
   /**
-   * A machine translation into the other interface language (docs/adr/0016),
+   * A machine translation into the other interface language (),
    * present only while its hash matches this item. Null when the item has no
    * valid translation yet; the card then shows the original, tagged with its language.
    */

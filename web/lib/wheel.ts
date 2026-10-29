@@ -5,10 +5,10 @@
  *
  * - the Grondwet en Statuut in the centre;
  * - three national rings split into four branch wedges: wetgevend (top),
- *   uitvoerend (right), toezicht en advies (bottom), rechtspraak en
- *   controle (left), each wedge filled with its bodies from the core out;
+ * uitvoerend (right), toezicht en advies (bottom), rechtspraak en
+ * controle (left), each wedge filled with its bodies from the core out;
  * - one ring of decentrale overheden around the whole disc (provincies,
- *   gemeenten per provincie, waterschappen, Caribisch Nederland);
+ * gemeenten per provincie, waterschappen, Caribisch Nederland);
  * - one ring for the Koninkrijk (Aruba, Curaçao, Sint Maarten);
  * - the voters as the frame.
  *

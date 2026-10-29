@@ -5,8 +5,8 @@ import { join, dirname } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
-const DEFAULT_GAZETTEER = join(ROOT, "research", "J-nieuwsbronnen.json");
-const DEFAULT_TOPICS = join(ROOT, "research", "K-topics.json");
+const DEFAULT_GAZETTEER = join(ROOT, "data", "news-aliases.json");
+const DEFAULT_TOPICS = join(ROOT, "data", "topics.json");
 const DEFAULT_DATA = join(ROOT, "data");
 
 export const STOPWORDS = new Set([
@@ -16,9 +16,9 @@ export const STOPWORDS = new Set([
   "zich", "zij", "zijn", "zo",
 ]);
 
-// Precision rules (docs/adr/0021). A match is only a real mention of the Dutch state
-// when nothing in the text points abroad or to a non-government meaning. Every set
-// below was built from headlines the linker got wrong; see pipelines/link.test.mjs.
+// Precision rules. A match is only a real mention of the Dutch state when nothing
+// in the text points abroad or to a non-government meaning. Every set below was
+// built from headlines the linker got wrong; see pipelines/link.test.mjs.
 
 /** Foreign adjectives, countries, places and leaders. Used to spot items about another state. */
 const FOREIGN_WORDS = [
@@ -281,7 +281,7 @@ function resolveMentions(found, { haystack, pointsAbroad, governmentOutlet }) {
  * True when the text is about another state: it names a foreign country, adjective,
  * capital or leader and carries no Dutch anchor. The same test the linker uses to drop
  * generic institutions, exported so the news run can apply it to a politics section
- * (docs/adr/0021, amendment 06-10-2026).
+ * .
  */
 export function pointsAbroad(text) {
   const haystack = String(text ?? "");
@@ -337,7 +337,7 @@ export function linkArticle({ title = "", text = "", gazetteer = [], topicIndex 
     summaryMarkup,
     entities,
     topics: topicMatches.map((match) => match.id),
-    // The keywords that attached the topics, so the reader can see why (docs/adr/0021).
+    // The keywords that attached the topics, so the reader can see why .
     topicEvidence: [...new Set(topicMatches.flatMap((match) => match.keywords))],
     fallbackTopics,
     matches: matches.map((match) => ({
@@ -445,8 +445,14 @@ export async function loadTitleAliases(dataDir = DEFAULT_DATA) {
 }
 
 /** The curated aliases plus the title aliases built from the dataset's current tenures. */
+function aliasesFromFile(parsed) {
+  if (Array.isArray(parsed)) return parsed;
+  if (parsed && Array.isArray(parsed.aliases)) return parsed.aliases;
+  return [];
+}
+
 export async function loadAliases(path = DEFAULT_GAZETTEER, dataDir = DEFAULT_DATA) {
-  const curated = existsSync(path) ? (JSON.parse(await readFile(path, "utf8")).aliases ?? []) : [];
+  const curated = existsSync(path) ? aliasesFromFile(JSON.parse(await readFile(path, "utf8"))) : [];
   return [...curated, ...(await loadTitleAliases(dataDir))];
 }
 
@@ -458,7 +464,8 @@ export async function loadGazetteer(path = DEFAULT_GAZETTEER, dataDir = DEFAULT_
 export async function loadTopicIndex(path = DEFAULT_TOPICS) {
   if (!existsSync(path)) return [];
   const parsed = JSON.parse(await readFile(path, "utf8"));
-  return buildTopicIndex(parsed.topics ?? []);
+  const topics = Array.isArray(parsed) ? parsed : (parsed.topics ?? []);
+  return buildTopicIndex(topics);
 }
 
 export async function linkText(text, { gazetteerPath = DEFAULT_GAZETTEER, topicsPath = DEFAULT_TOPICS } = {}) {

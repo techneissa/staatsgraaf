@@ -99,7 +99,7 @@ export type Organization = {
   images: string[];
   /** The official logo on the body's own site, loaded from there; never copied (ADR 0029, amendment 1). */
   logoEmbed?: LogoEmbed | null;
-  /** The visiting address of the main office (docs/04-data-model.md section 3). */
+  /** The visiting address of the main office ( section 3). */
   address?: Address | null;
   sources: SourceRef[];
 };
@@ -351,7 +351,7 @@ export type NewsItem = {
   /**
    * "politiek" when the item comes from a feed or section that is wholly about Dutch politics
    * and the text does not point abroad. Written by the news run, never by a feed; makes the
-   * item relevant by source (docs/adr/0021, amendment 06-10-2026). Absent means no scope.
+   * item relevant by source (, amendment 06-10-2026). Absent means no scope.
    */
   scope?: NewsScope;
   summary: string | null;
@@ -368,7 +368,7 @@ export type NewsItem = {
 
 /**
  * A machine translation of a news item's headline and lead into the other
- * interface language (data/news-translations.json, docs/adr/0016). Shown only
+ * interface language (data/news-translations.json, ). Shown only
  * while `sourceHash` matches the current item.
  */
 export type NewsTranslation = {

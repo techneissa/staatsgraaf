@@ -3,7 +3,7 @@ import { getDataset } from "./data";
 import type { NewsItem, NewsLanguage, NewsTranslation } from "./types";
 
 /**
- * Machine translations of news headlines and leads (docs/adr/0016). Server
+ * Machine translations of news headlines and leads (). Server
  * only: it reads the dataset and hashes with node:crypto at build time.
  *
  * The hash formula is the shared contract in

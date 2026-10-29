@@ -38,7 +38,7 @@ const RESPONSIVE_MONOGRAM: Record<TileSize, string> = {
  * outlet monogram on our own tokens instead of a blank frame (adr/0010:
  * "an unreadable image degrades to an empty tile" is upgraded to this
  * fallback). Credits stay with the image: a visible caption is rendered by the
- * card so it sits next to the tile as docs/12 requires.
+ * card so it sits next to the tile as requires.
  */
 export function NewsPreviewTile({
   preview,

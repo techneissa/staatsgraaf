@@ -398,7 +398,7 @@ function buildShortNames() {
 const hub = hubOrg ? { id: hubOrg.id, slug: hubOrg.slug, name: hubOrg.name } : null;
 
 // The layout is computed here, once, and shipped. The client hydrates it and
-// never runs the packer (docs/13-graph-rebuild-plan.md, phase 2).
+// never runs the packer (, phase 2).
 const { chambers, seatPeople } = buildChambers();
 const layout = computeLayout({ hub, nodes, edges, chambers });
 const hubNode = hub ? nodes.find((node) => node.id === hub.id) : null;

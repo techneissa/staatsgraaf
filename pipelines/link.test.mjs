@@ -205,7 +205,7 @@ test("topic matching is case-insensitive on word boundaries", () => {
   assert.equal(falsePositive.length, 0);
 });
 
-// Relevance precision and recall (docs/adr/0021). The fixtures below use the real
+// Relevance precision and recall The fixtures below use the real
 // gazetteer and topic list so each rule is proven on the headlines that motivated it.
 
 const REAL_GAZETTEER = await loadGazetteer();
@@ -374,12 +374,20 @@ test("three everyday keywords of one topic, or one policy keyword, still attach 
   assert.ok(realLink("Stikstof blokkeert nieuwe woningbouw").topics.includes("topic:stikstof-en-landbouw"));
 });
 
-test("the gazetteer only points at records that exist in the dataset", async () => {
+test("aliases on data records only point at records that exist in the dataset", async () => {
   const load = async (name) => JSON.parse(await readFile(new URL(`../data/${name}.json`, import.meta.url), "utf8"));
   const ids = new Set();
   for (const name of ["organizations", "people", "positions", "topics"]) for (const record of await load(name)) ids.add(record.id);
-  const envelope = JSON.parse(await readFile(new URL("../research/J-nieuwsbronnen.json", import.meta.url), "utf8"));
-  const dangling = envelope.aliases.filter((entry) => !ids.has(entry.target)).map((entry) => `${entry.alias} -> ${entry.target}`);
+  const dangling = [];
+  for (const name of ["organizations", "people", "positions"]) {
+    for (const record of await load(name)) {
+      for (const alias of record.aliases ?? []) {
+        if (typeof alias === "object" && alias && typeof alias.target === "string" && !ids.has(alias.target)) {
+          dangling.push(`${alias.alias ?? "?"} -> ${alias.target}`);
+        }
+      }
+    }
+  }
   assert.deepEqual(dangling, []);
 });
 

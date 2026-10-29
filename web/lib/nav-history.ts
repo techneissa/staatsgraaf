@@ -2,9 +2,9 @@
  * In-app history, for two jobs the Next router does not do by itself:
  *
  * 1. Say whether "back" and "forward" have an entry to go to, so the top bar
- *    never offers a dead button.
+ * never offers a dead button.
  * 2. Remember where each history entry was scrolled to, so back returns to the
- *    same spot and a fresh navigation always lands at the top.
+ * same spot and a fresh navigation always lands at the top.
  *
  * It also marks how the page changed (`data-nav` on <html>), so the page
  * transition can run the right way: a step back slides in from the left, a

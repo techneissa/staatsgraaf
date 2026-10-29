@@ -66,9 +66,9 @@ Method: one HTTPS GET per distinct URL, browser User-Agent, redirects followed, 
 | 403 | src:hr-organisatie | https://www.hogeraad.nl/over/organisatie/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403 |
 | 403 | src:hr-parket | https://www.hogeraad.nl/parket/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403 |
 | 403 | src:hr-bleichrodt | https://www.hogeraad.nl/parket/edwin-bleichrodt/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403 |
-| 403 | src:raad-van-state-website | https://www.raadvanstate.nl/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403; allowlisted in research/00-endpoints.md (blocked 403, documented in research/00-endpoints.md) |
-| 403 | src:rvs-uylenburg | https://www.raadvanstate.nl/actueel/nieuws/augustus/rosa-uylenburg-voorzitter-bestuursrecht/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403; allowlisted in research/00-endpoints.md (blocked 403, documented in research/00-endpoints.md) |
-| 403 | src:rvs-afdeling | https://www.raadvanstate.nl/overrvs/organisatie/afdeling/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403; allowlisted in research/00-endpoints.md (blocked 403, documented in research/00-endpoints.md) |
+| 403 | src:raad-van-state-website | https://www.raadvanstate.nl/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403; allowlisted in the allowlist in scripts/check-links.mjs (blocked 403, allowlisted) |
+| 403 | src:rvs-uylenburg | https://www.raadvanstate.nl/actueel/nieuws/augustus/rosa-uylenburg-voorzitter-bestuursrecht/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403; allowlisted in the allowlist in scripts/check-links.mjs (blocked 403, allowlisted) |
+| 403 | src:rvs-afdeling | https://www.raadvanstate.nl/overrvs/organisatie/afdeling/ | 18-09-2026 | 18-09-2026 | blocked HTTP 403; allowlisted in the allowlist in scripts/check-links.mjs (blocked 403, allowlisted) |
 
 #### Re-verification of the flagged URLs (18-09-2026)
 
@@ -86,10 +86,10 @@ and with `curl -sSL` using the same browser User-Agent.
   same User-Agent on `/` and `/hoge-raad/`. The host is soft-blocking the
   Node/TLS client while a normal browser can read it. This is a WARN, not a
   FAIL, and a newly discovered soft block: it is not in the
-  `research/00-endpoints.md` allowlist. Record it as a GAP so an alternative
+  `the allowlist in scripts/check-links.mjs` allowlist. Record it as a GAP so an alternative
   source or an archive is added.
 - The three `www.raadvanstate.nl` URLs return HTTP 403 with both clients.
-  Allowlisted in `research/00-endpoints.md`; WARN is correct and no fix is owed
+  Allowlisted in `the allowlist in scripts/check-links.mjs`; WARN is correct and no fix is owed
   to the link checker.
 
 Allowlist coverage note: `uvw.nl`, `waterschappen.nl`,
@@ -102,7 +102,7 @@ was observed on this pass, so that allowlist entry was not needed.
 
 | gap | endpoint to fix | source ids |
 | --- | --- | --- |
-| Host www.hogeraad.nl could not be verified (status 403 to Node fetch; newly discovered soft block, not in research/00-endpoints.md; curl with the same User-Agent returns 200). 6 source URL(s) affected. | Find an alternative Hogeraad page or archive (candidate landing page https://www.hogeraad.nl/over/organisatie/ is blocked to fetch but 200 in curl) | src:hr-bleichrodt, src:hr-bleichrodt-installatie, src:hr-de-groot, src:hr-hoge-raad, src:hr-organisatie, src:hr-parket |
+| Host www.hogeraad.nl could not be verified (status 403 to Node fetch; newly discovered soft block, not in the allowlist in scripts/check-links.mjs; curl with the same User-Agent returns 200). 6 source URL(s) affected. | Find an alternative Hogeraad page or archive (candidate landing page https://www.hogeraad.nl/over/organisatie/ is blocked to fetch but 200 in curl) | src:hr-bleichrodt, src:hr-bleichrodt-installatie, src:hr-de-groot, src:hr-hoge-raad, src:hr-organisatie, src:hr-parket |
 | Host www.raadvanstate.nl could not be verified (status 403); 3 source URL(s) affected. | https://www.raadvanstate.nl/ | src:raad-van-state-website, src:rvs-afdeling, src:rvs-uylenburg |
 | No checked source record carries an archiveUrl, so a blocked or moved source has no archive fallback. | data/sources.json (add archiveUrl per record, for example a web.archive.org or repository.overheid.nl copy) | - |
 

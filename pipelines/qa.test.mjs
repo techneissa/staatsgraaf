@@ -36,17 +36,18 @@ function dataset() {
 
 let gazetteerPromise = null;
 function gazetteer() {
-  gazetteerPromise ??= readJson(join(ROOT, "research", "J-nieuwsbronnen.json")).then((envelope) =>
-    buildGazetteer(envelope.aliases ?? []),
+  gazetteerPromise ??= readJson(join(DATA_DIR, "news-aliases.json")).then((parsed) =>
+    buildGazetteer(Array.isArray(parsed) ? parsed : (parsed.aliases ?? [])),
   );
   return gazetteerPromise;
 }
 
 let topicIndexPromise = null;
 function topicIndex() {
-  topicIndexPromise ??= readJson(join(ROOT, "research", "K-topics.json")).then((envelope) =>
-    buildTopicIndex(envelope.topics ?? []),
-  );
+  topicIndexPromise ??= readJson(join(DATA_DIR, "topics.json")).then((parsed) => {
+    const topics = Array.isArray(parsed) ? parsed : (parsed.topics ?? []);
+    return buildTopicIndex(topics);
+  });
   return topicIndexPromise;
 }
 

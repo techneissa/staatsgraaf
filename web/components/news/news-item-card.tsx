@@ -60,7 +60,7 @@ function mentionedText(entry: NewsEntityRef, language: NewsLanguage): { text: st
  * whole card from the small breakpoint up. An item without a lead is a compact card
  * (headline, mentions and source line, no empty gap), not a stub.
  *
- * Language (docs/adr/0016): the card shows the item in `displayLanguage`, or
+ * Language (): the card shows the item in `displayLanguage`, or
  * in the site language when none is given. When the item was published in the
  * other language and a valid machine translation exists, the translation is
  * shown with a "Translated from ..." label and a toggle back to the original;

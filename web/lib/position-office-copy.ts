@@ -45,29 +45,29 @@
  * - Comptabiliteitswet 2016 art. 7.8 lid 1: "De president houdt toezicht op de werkzaamheden van de Algemene Rekenkamer en op de juiste toepassing van het bij of krachtens dit hoofdstuk bepaalde."
  * - knmi.nl/over-het-knmi/bestuur, fetched 2026-10-17: "Maarten van Aalst is sinds 1 februari 2023 eindverantwoordelijk voor het KNMI."
  * - rijksoverheid.nl organogram pages, "ambtelijke leiding over het ministerie":
- *   AZ "De secretaris-generaal (SG) is belast met de ambtelijke leiding van het ministerie.",
- *   BZ "heeft sinds 12 augustus 2024 de ambtelijke leiding over het ministerie van Buitenlandse Zaken",
- *   BZK "heeft de ambtelijke leiding over het ministerie van BZK.",
- *   EZK "De sg heeft de ambtelijke leiding over het ministerie.",
- *   LVVN "De sg heeft de ambtelijke leiding over het ministerie.",
- *   SZW "heeft de ambtelijke leiding van het ministerie.",
- *   VWS "De ambtelijke leiding van VWS ligt bij secretaris-generaal ...",
- *   Defensie "is er ook iemand belast met de ambtelijke leiding over het departement. Dat is de secretaris-generaal (SG).",
- *   OCW "De ambtelijke leiding van het departement bestaat uit de bestuursraad OCW, met aan het hoofd de secretaris-generaal."
+ * AZ "De secretaris-generaal (SG) is belast met de ambtelijke leiding van het ministerie.",
+ * BZ "heeft sinds 12 augustus 2024 de ambtelijke leiding over het ministerie van Buitenlandse Zaken",
+ * BZK "heeft de ambtelijke leiding over het ministerie van BZK.",
+ * EZK "De sg heeft de ambtelijke leiding over het ministerie.",
+ * LVVN "De sg heeft de ambtelijke leiding over het ministerie.",
+ * SZW "heeft de ambtelijke leiding van het ministerie.",
+ * VWS "De ambtelijke leiding van VWS ligt bij secretaris-generaal ...",
+ * Defensie "is er ook iemand belast met de ambtelijke leiding over het departement. Dat is de secretaris-generaal (SG).",
+ * OCW "De ambtelijke leiding van het departement bestaat uit de bestuursraad OCW, met aan het hoofd de secretaris-generaal."
  *
  * Named gaps, not covered:
  * - Secretaris-generaal at Financien: the fetched page (ambtelijke-leiding) has
- *   no sentence on what the secretaris-generaal does, so that title returns null.
+ * no sentence on what the secretaris-generaal does, so that title returns null.
  * - Inspecteur-generaal: the Ambtenarenwet art. 1 does not describe the office
- *   and the rijksoverheid pages give no shared sentence (SZW names the
- *   inspecteur-generaal "verantwoordelijk voor de uitvoerende diensten van het
- *   ministerie", the OCW inspecties page says nothing on the office). Omitted.
+ * and the rijksoverheid pages give no shared sentence (SZW names the
+ * inspecteur-generaal "verantwoordelijk voor de uitvoerende diensten van het
+ * ministerie", the OCW inspecties page says nothing on the office). Omitted.
  * - Statuut art. 46 states no seat counts; none are written here.
  * - Statuut art. 7: "De raad van ministers van het Koninkrijk is samengesteld uit de door de Koning benoemde ministers en de door de regering van Aruba, Curaçao onderscheidenlijk Sint Maarten benoemde Gevolmachtigde Minister."
  * - Statuut art. 8 lid 1: "De Gevolmachtigde Ministers handelen namens de regeringen van hun land, die hen benoemen en ontslaan."
  * - Fractievoorzitter: neither Kamer RvO uses the word; named gap.
  * - Eerste Kamer committee seats: the fetched EK RvO (BWBR0007428) is marked
- *   materieel uitgewerkt per 13-06-2023, so it is not used.
+ * materieel uitgewerkt per 13-06-2023, so it is not used.
  * - Caribbean ministers now cite each land's Staatsregeling; the Grondwet is not used for them.
  * - Grondwet art. 24: "Het koningschap wordt erfelijk vervuld door de wettige opvolgers van Koning Willem I, Prins van Oranje-Nassau."
  * - Grondwet art. 42: "1 De regering wordt gevormd door de Koning en de ministers. 2 De Koning is onschendbaar; de ministers zijn verantwoordelijk."

@@ -123,7 +123,10 @@ test("buildAttribution carries the counts and the licence terms of the families"
     text.includes('7 portraits are on record: 1 CC0 1.0, 2 CC BY (1 marked only "Attribution" on Commons), 2 CC BY-SA, 1 public domain, 1 European Parliament.'),
   );
   assert.ok(text.includes("| Centraal Bureau voor de Statistiek | Statistics | CC BY 4.0 | <https://www.cbs.nl/nl-nl/over-ons/website/copyright> | 1 |"));
-  assert.ok(text.includes("docs/adr/0025-photo-credits.md"));
+  assert.ok(text.includes("data/sources.json"));
+  assert.ok(text.includes("data/media.json"));
+  assert.ok(!text.includes("docs/adr/"));
+  assert.ok(!text.includes("research/O-licenses.md"));
 });
 
 test("buildAttribution still works without a media file", () => {

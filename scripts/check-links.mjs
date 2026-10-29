@@ -32,24 +32,24 @@ const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 " +
   "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36";
 
-// Hosts documented as intentionally blocked or unreachable in
-// research/00-endpoints.md. A block on these hosts is a WARN/GAP, never a FAIL.
+// Hosts that block automated fetches. A block on these hosts is a WARN/GAP,
+// never a FAIL: the source stays, and the checker records the block.
 const ALLOW_HOSTS = new Map([
-  ["www.raadvanstate.nl", "blocked 403, documented in research/00-endpoints.md"],
-  ["raadvanstate.nl", "blocked 403, documented in research/00-endpoints.md"],
-  ["www.uvw.nl", "blocked 403, documented in research/00-endpoints.md"],
-  ["uvw.nl", "blocked 403, documented in research/00-endpoints.md"],
-  ["www.waterschappen.nl", "blocked 403, documented in research/00-endpoints.md"],
-  ["waterschappen.nl", "blocked 403, documented in research/00-endpoints.md"],
-  ["www.waarstaatjegemeente.nl", "unreachable 000, documented in research/00-endpoints.md"],
-  ["waarstaatjegemeente.nl", "unreachable 000, documented in research/00-endpoints.md"],
-  ["www.bnr.nl", "blocked 403, documented in research/00-endpoints.md"],
-  ["bnr.nl", "blocked 403, documented in research/00-endpoints.md"],
+  ["www.raadvanstate.nl", "blocked 403 (allowlisted)"],
+  ["raadvanstate.nl", "blocked 403 (allowlisted)"],
+  ["www.uvw.nl", "blocked 403 (allowlisted)"],
+  ["uvw.nl", "blocked 403 (allowlisted)"],
+  ["www.waterschappen.nl", "blocked 403 (allowlisted)"],
+  ["waterschappen.nl", "blocked 403 (allowlisted)"],
+  ["www.waarstaatjegemeente.nl", "unreachable 000 (allowlisted)"],
+  ["waarstaatjegemeente.nl", "unreachable 000 (allowlisted)"],
+  ["www.bnr.nl", "blocked 403 (allowlisted)"],
+  ["bnr.nl", "blocked 403 (allowlisted)"],
 ]);
 
-// Individual source records documented as intentionally blocked.
+// Individual source records that are intentionally blocked.
 const ALLOW_IDS = new Map([
-  ["src:j-news-10", "known NU.nl 403, documented in research/00-endpoints.md"],
+  ["src:j-news-10", "known NU.nl 403 (allowlisted)"],
 ]);
 
 // Hosts where this product is shown a consent wall instead of the article.
@@ -348,7 +348,7 @@ function classify(rec, result, allowHost, allowId) {
   if ([401, 402, 403].includes(result.status)) {
     return {
       level: "WARN",
-      reason: `blocked HTTP ${result.status}${allowlisted ? "; allowlisted in research/00-endpoints.md" : ""}${reason ? ` (${reason})` : ""}`,
+      reason: `blocked HTTP ${result.status}${allowlisted ? "; host allowlisted" : ""}${reason ? ` (${reason})` : ""}`,
     };
   }
   if (result.status === 404 || result.status === 410) {
@@ -493,32 +493,34 @@ function renderWarnTable(warns) {
 
 function buildGaps(internal, external) {
   const gaps = [];
-  const blockedHosts = new Map();
-  for (const r of external.results) {
-    if (r.level === "WARN" && /blocked|unreachable|DNS|rate-limited|server error|non-200/.test(r.reason || "")) {
-      if (!blockedHosts.has(r.host)) blockedHosts.set(r.host, []);
-      blockedHosts.get(r.host).push(r);
+  if (external) {
+    const blockedHosts = new Map();
+    for (const r of external.results) {
+      if (r.level === "WARN" && /blocked|unreachable|DNS|rate-limited|server error|non-200/.test(r.reason || "")) {
+        if (!blockedHosts.has(r.host)) blockedHosts.set(r.host, []);
+        blockedHosts.get(r.host).push(r);
+      }
+    }
+    for (const [host, rows] of [...blockedHosts.entries()].sort()) {
+      const ids = [...new Set(rows.flatMap((r) => r.ids))].sort();
+      const statuses = [...new Set(rows.map(statusLabel))].join(", ");
+      gaps.push({
+        gap: `Host ${host} could not be verified (status ${statuses}); ${rows.length} source URL(s) affected.`,
+        endpoint: rows[0].url,
+        ids,
+      });
+    }
+    const archived = external.results.filter((r) => r.archiveUrl).length;
+    if (archived === 0) {
+      gaps.push({
+        gap:
+          "No checked source record carries an archiveUrl, so a blocked or moved source has no archive fallback.",
+        endpoint: "data/sources.json (add archiveUrl per record, for example a web.archive.org or repository.overheid.nl copy)",
+        ids: [],
+      });
     }
   }
-  for (const [host, rows] of [...blockedHosts.entries()].sort()) {
-    const ids = [...new Set(rows.flatMap((r) => r.ids))].sort();
-    const statuses = [...new Set(rows.map(statusLabel))].join(", ");
-    gaps.push({
-      gap: `Host ${host} could not be verified (status ${statuses}); ${rows.length} source URL(s) affected.`,
-      endpoint: rows[0].url,
-      ids,
-    });
-  }
-  const archived = external.results.filter((r) => r.archiveUrl).length;
-  if (archived === 0) {
-    gaps.push({
-      gap:
-        "No checked source record carries an archiveUrl, so a blocked or moved source has no archive fallback.",
-      endpoint: "data/sources.json (add archiveUrl per record, for example a web.archive.org or repository.overheid.nl copy)",
-      ids: [],
-    });
-  }
-  if (!internal.navOk || internal.brokenCount > 0) {
+  if (internal && (!internal.navOk || internal.brokenCount > 0)) {
     gaps.push({
       gap: "Broken internal links or missing navigation routes must be fixed before launch.",
       endpoint: "web/out (rebuild the static export after the fix)",
@@ -531,8 +533,8 @@ function buildGaps(internal, external) {
 function renderReport({ internal, external, opts, startedAt }) {
   const ip = internal;
   const ext = external;
-  const fails = ext.results.filter((r) => r.level === "FAIL");
-  const warns = ext.results.filter((r) => r.level === "WARN");
+  const fails = ext ? ext.results.filter((r) => r.level === "FAIL") : [];
+  const warns = ext ? ext.results.filter((r) => r.level === "WARN") : [];
   const gaps = buildGaps(ip, ext);
   const commands = opts.commands
     ? opts.commands
@@ -550,22 +552,32 @@ function renderReport({ internal, external, opts, startedAt }) {
   lines.push("");
   lines.push("## Summary counts");
   lines.push("");
-  lines.push(`- Internal pages scanned: ${ip.pagesScanned}`);
-  lines.push(`- Internal href/src checked (occurrences): ${ip.internalOccurrences}`);
-  lines.push(`- Internal distinct href/src values: ${ip.distinctInternalRefs}`);
-  lines.push(`- Internal broken links: ${ip.brokenCount}`);
-  lines.push(`- External href in HTML (not checked here): ${ip.externalRefsInHtml}`);
-  lines.push(`- Source records in data/sources.json: ${ext.totals.records}`);
-  lines.push(`- External distinct source URLs checked: ${ext.totals.checked} of ${ext.totals.distinctUrls}`);
-  lines.push(`- PASS: ${ext.totals.PASS}`);
-  lines.push(`- WARN: ${ext.totals.WARN}`);
-  lines.push(`- FAIL: ${ext.totals.FAIL}`);
+  if (ip) {
+    lines.push(`- Internal pages scanned: ${ip.pagesScanned}`);
+    lines.push(`- Internal href/src checked (occurrences): ${ip.internalOccurrences}`);
+    lines.push(`- Internal distinct href/src values: ${ip.distinctInternalRefs}`);
+    lines.push(`- Internal broken links: ${ip.brokenCount}`);
+    lines.push(`- External href in HTML (not checked here): ${ip.externalRefsInHtml}`);
+  } else {
+    lines.push("- Internal check: skipped");
+  }
+  if (ext) {
+    lines.push(`- Source records in data/sources.json: ${ext.totals.records}`);
+    lines.push(`- External distinct source URLs checked: ${ext.totals.checked} of ${ext.totals.distinctUrls}`);
+    lines.push(`- PASS: ${ext.totals.PASS}`);
+    lines.push(`- WARN: ${ext.totals.WARN}`);
+    lines.push(`- FAIL: ${ext.totals.FAIL}`);
+    lines.push(`- Consent-wall redirects (still PASS with final HTTP 200): ${ext.totals.consentWalls}`);
+  } else {
+    lines.push("- External check: skipped");
+  }
   lines.push(`- GAP: ${gaps.length}`);
-  lines.push(`- Consent-wall redirects (still PASS with final HTTP 200): ${ext.totals.consentWalls}`);
   lines.push("");
   lines.push("## 1. Internal links (web/out)");
   lines.push("");
-  if (ip.brokenCount === 0 && ip.navOk) {
+  if (!ip) {
+    lines.push("_Skipped (external-only run)._");
+  } else if (ip.brokenCount === 0 && ip.navOk) {
     lines.push(
       `PASS. All ${ip.internalOccurrences} internal href/src occurrences across ${ip.pagesScanned} pages resolve to a file in \`web/out\`. Navigation (top bar, footer, root) resolves; breadcrumbs are data-driven links covered by the same scan.`,
     );
@@ -589,15 +601,20 @@ function renderReport({ internal, external, opts, startedAt }) {
       lines.push("");
     }
   }
-  lines.push("");
-  lines.push("### Navigation route check");
-  lines.push("");
-  lines.push("| area | href | resolves | file |");
-  lines.push("| --- | --- | --- | --- |");
-  for (const n of ip.nav) lines.push(`| ${esc(n.where)} | ${esc(n.href)} | ${n.ok ? "yes" : "no"} | ${esc(n.file || "")} |`);
+  if (ip) {
+    lines.push("");
+    lines.push("### Navigation route check");
+    lines.push("");
+    lines.push("| area | href | resolves | file |");
+    lines.push("| --- | --- | --- | --- |");
+    for (const n of ip.nav) lines.push(`| ${esc(n.where)} | ${esc(n.href)} | ${n.ok ? "yes" : "no"} | ${esc(n.file || "")} |`);
+  }
   lines.push("");
   lines.push("## 2. External source URLs (data/sources.json)");
   lines.push("");
+  if (!ext) {
+    lines.push("_Skipped (internal-only run)._");
+  } else {
   lines.push(
     "Method: one HTTPS GET per distinct URL, browser User-Agent, redirects followed, no cookies, no retry, per-request timeout " +
       `${opts.timeout} ms, at most ${opts.concurrency} hosts in flight, ${opts.delay} ms between requests to the same host. ` +
@@ -627,15 +644,25 @@ function renderReport({ internal, external, opts, startedAt }) {
   for (const h of ext.perHost) {
     lines.push(`| ${esc(h.host)} | ${h.checked} | ${h.pass} | ${h.warn} | ${h.fail} | ${h.allowlisted ? "yes" : "no"} |`);
   }
+  }
   lines.push("");
   lines.push("## 3. Verdict");
   lines.push("");
+  if (!ext) {
+    lines.push(
+      ip && ip.brokenCount === 0 && ip.navOk
+        ? "Internal links resolve. External check skipped."
+        : "Internal check found broken links or missing navigation; external check skipped.",
+    );
+  } else {
   lines.push(
     fails.length === 0
       ? "No open FAIL. External blocks and unreachable hosts are recorded as WARN/GAP above; internal links resolve."
       : `${fails.length} open FAIL(s): see the FAIL table. A build cannot ship with an open FAIL.`,
   );
+  }
   lines.push("");
+  if (ext) {
   lines.push("## Appendix A. Every external source URL checked");
   lines.push("");
   lines.push("Status is the final HTTP status after redirects (0 means a network error; the error code is shown).");
@@ -647,6 +674,7 @@ function renderReport({ internal, external, opts, startedAt }) {
   }
   lines.push("```");
   lines.push("");
+  }
   return lines.join("\n");
 }
 
@@ -689,7 +717,7 @@ async function main() {
   }
 
   if (opts.report) {
-    if (!internal || !external) throw new Error("--report requires both internal and external checks");
+    if (!internal && !external) throw new Error("--report requires an internal and/or external check");
     mkdirSync(dirname(opts.report), { recursive: true });
     writeFileSync(opts.report, renderReport({ internal, external, opts, startedAt }));
     console.log(`report written: ${opts.report}`);

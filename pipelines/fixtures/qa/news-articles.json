@@ -1,7 +1,7 @@
 {
   "workstream": "QA-fixtures",
   "generatedAt": "2026-09-18",
-  "note": "Deterministic news-linker fixture for pipelines/qa.test.mjs. Nothing is fetched at test time. Titles and ledes are synthetic sentences built only from real entity names and aliases that exist in research/J-nieuwsbronnen.json; they assert nothing about the world. URLs use the reserved .invalid TLD. kind 'positive' means a real entity name or alias appears and must link; kind 'negative' means the sentence must not produce a high-confidence wrong link.",
+  "note": "Deterministic news-linker fixture for pipelines/qa.test.mjs. Nothing is fetched at test time. Titles and ledes are synthetic sentences built only from real entity names and aliases that exist in data/news-aliases.json; they assert nothing about the world. URLs use the reserved .invalid TLD. kind 'positive' means a real entity name or alias appears and must link; kind 'negative' means the sentence must not produce a high-confidence wrong link.",
   "articles": [
     {
       "id": "qa-news-01",

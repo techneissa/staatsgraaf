@@ -44,7 +44,7 @@ De onafhankelijkheidsverklaring van het project geldt bij elk hergebruik, zie hi
 ## Scope and exceptions
 
 - Facts from `wetten.overheid.nl` and `officielebekendmakingen.nl` are reused under Article 11 of the Auteurswet and the CC0 dataset registration.
-- CBS, CPB, and PBL data carry the attribution the table above and `research/O-licenses.md` require.
+- CBS, CPB, and PBL data carry the attribution the table above requires.
 - The two Wikipedia-derived rows are CC BY-SA 4.0 and carry their share-alike term until they are re-sourced from the KB.
 - Wikimedia Commons portraits are licensed per file; an image without a recorded license and credit does not ship.
-- `data/sources.json` records the per-source license under which each source is used. `research/O-licenses.md` holds the evidence and retrieval dates.
+- `data/sources.json` records the per-source license under which each source is used, with retrieval dates.

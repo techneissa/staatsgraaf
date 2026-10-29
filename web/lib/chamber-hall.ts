@@ -9,11 +9,11 @@
  *
  * - The Eerste Kamer names the member in every seat ("person" basis).
  * - The Tweede Kamer publishes which fractie sits where, not which member
- *   ("fractie" basis). Members fill their fractie's seats in the stable order
- *   of lib/seats.ts, front row first, and the chart says so.
+ * ("fractie" basis). Members fill their fractie's seats in the stable order
+ * of lib/seats.ts, front row first, and the chart says so.
  * - When a plan no longer matches the sitting members (someone left, a
- *   fractie split), the plan's seats are kept and refilled by fractie blocks,
- *   largest first ("blocks" basis), and the chart says the plan is out of date.
+ * fractie split), the plan's seats are kept and refilled by fractie blocks,
+ * largest first ("blocks" basis), and the chart says the plan is out of date.
  *
  * Only the kabinet's place is sourced (vak-K in the Tweede Kamer, the
  * regeringstafel opposite the chair in the Eerste Kamer); who sits where on

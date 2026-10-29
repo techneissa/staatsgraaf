@@ -6,14 +6,14 @@
       "terms": [
         "DUO"
       ],
-      "reason": "DUO is the abbreviation the Dienst Uitvoering Onderwijs is known by and docs/08 requires an alias test for it. The gazetteer already links DUO at medium confidence; the overlay pins it as an exact match."
+      "reason": "DUO is the abbreviation the Dienst Uitvoering Onderwijs is known by. The gazetteer already links DUO at medium confidence; the overlay pins it as an exact match."
     },
     {
       "target": "org:belastingdienst",
       "terms": [
         "Belastingdienst"
       ],
-      "reason": "docs/08 requires the Belastingdienst to resolve from its own name. The record carries the alias already; the overlay makes the expectation explicit."
+      "reason": "The Belastingdienst should resolve from its own name. The record carries the alias already; the overlay makes the expectation explicit."
     },
     {
       "target": "org:vereniging-van-nederlandse-gemeenten",
@@ -27,7 +27,7 @@
       "terms": [
         "BZK"
       ],
-      "reason": "docs/08 requires BZK to resolve to the ministerie. The gazetteer links BZK at medium confidence; the overlay allows an exact match rather than a name prefix."
+      "reason": "BZK should resolve to the ministerie. The gazetteer links BZK at medium confidence; the overlay allows an exact match rather than a name prefix."
     },
     {
       "target": "org:kabinet",

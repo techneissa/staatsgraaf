@@ -371,7 +371,11 @@ async function listResearchFiles(researchDir) {
   } catch {
     return [];
   }
-  return entries.filter((name) => /^[A-Z]-.*\.json$/.test(name)).sort();
+  // Workstream envelopes (Letter-name.json). Skip live cursor state, which is
+  // not an envelope and must never be merged into data/.
+  return entries
+    .filter((name) => /^[A-Z]-.*\.json$/.test(name) && name !== "P-live-state.json")
+    .sort();
 }
 
 async function writeJson(file, value) {
@@ -529,12 +533,18 @@ function parseArgs(argv) {
     else if (argv[i] === "--archive-report") options.archiveReportPath = argv[(i += 1)];
     else if (argv[i] === "--no-archive") options.archive = false;
   }
-  if (!options.logPath) options.logPath = join(options.researchDir, "merge-log.entries.jsonl");
+  if (!options.logPath) options.logPath = join(options.researchDir, "qa", "merge-log.entries.jsonl");
   return options;
 }
 
 async function main() {
   const options = parseArgs(process.argv.slice(2));
+  const envelopes = await listResearchFiles(options.researchDir);
+  if (envelopes.length === 0) {
+    throw new Error(
+      `merge: no workstream envelopes under ${options.researchDir} (expected [A-OQ-V]-*.json). Refusing to rewrite data/.`,
+    );
+  }
   const result = await mergeDataset(options);
   console.log(`Merged ${result.files} research file(s) from ${options.researchDir}`);
   console.log(`${"file".padEnd(22)} ${"records".padStart(8)}`);

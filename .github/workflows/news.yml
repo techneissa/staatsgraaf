@@ -6,7 +6,7 @@ name: refresh
 #   - something changed: it commits data/ to main as github-actions[bot] and, only
 #     after that commit succeeded, builds and deploys to Cloudflare Pages.
 # The file keeps the name news.yml; the nightly refresh.yml it replaces did nothing
-# this run does not do (docs/adr/0004-hosting-ci-and-analytics.md, amendment 05-10-2026).
+# this run does not do.
 #
 # Third-party actions are pinned to full commit SHAs, with the version they resolve
 # to in a comment. Jobs run on GitHub-hosted runners (ubuntu-24.04); no runner of ours.
@@ -147,7 +147,7 @@ jobs:
       # count. See scripts/data-changed.mjs for the rule.
       - name: Check for changes
         id: changed
-        run: bun scripts/data-changed.mjs data ATTRIBUTION.md research/P-live-ambtsdragers.json research/P-live-ambtsdragers.md research/P-live-state.json research/qa/live-review-queue.md research/merge-log.entries.jsonl
+        run: bun scripts/data-changed.mjs data ATTRIBUTION.md research/P-live-ambtsdragers.json research/P-live-ambtsdragers.md research/P-live-state.json research/qa/live-review-queue.md
 
       # Commit to main as the bot. The script rebases and retries the push when another
       # push got there first, and fails on a real conflict (scripts/commit-refresh.sh).

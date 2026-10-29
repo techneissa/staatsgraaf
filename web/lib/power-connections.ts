@@ -4,17 +4,17 @@
  * inferred beyond what the records say:
  *
  * - `news`: two entities named in the same news item. Each item counts once,
- *   weighted by its age (a half-life, so last week's story weighs more than
- *   last quarter's). Evidence: the news item ids.
+ * weighted by its age (a half-life, so last week's story weighs more than
+ * last quarter's). Evidence: the news item ids.
  * - `tenure`: a person holds a current position at a body, a minister and
- *   their ministry for example; a seat on a commission weighs half. Evidence:
- *   the tenure id.
+ * their ministry for example; a seat on a commission weighs half. Evidence:
+ * the tenure id.
  * - `kabinet`: both hold a current minister or staatssecretaris post.
- *   Evidence: both tenure ids.
+ * Evidence: both tenure ids.
  * - `fractie`: both are current members of the same fractie in the same
- *   chamber. Evidence: both membership ids.
+ * chamber. Evidence: both membership ids.
  * - `organisation`: both hold a current position at the same body, a
- *   Kamercommissie for example. Evidence: the tenure ids.
+ * Kamercommissie for example. Evidence: the tenure ids.
  *
  * A pair's weight is the sum of its reasons. Every anchor keeps its strongest
  * `perEntity` ties above `minWeight`; a tie survives when either end keeps it.

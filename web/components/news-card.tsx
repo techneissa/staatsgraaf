@@ -7,7 +7,7 @@ import type { NewsItem } from "@/lib/types";
  * entity pages. It resolves the item into the same serialisable view the news
  * explorer uses and renders the one shared card, so every news card looks and
  * behaves the same. The card follows the site language, including machine
- * translations (docs/adr/0016).
+ * translations ().
  */
 export function NewsCard({
   item,

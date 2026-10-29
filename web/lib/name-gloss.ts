@@ -10,36 +10,36 @@
  *
  * Sources:
  * - Ministry portfolio names: https://www.government.nl/ministries (retrieved
- *   19-09-2026). The official English names on that page are "Ministry of
- *   General Affairs", "Ministry of the Interior and Kingdom Relations",
- *   "Ministry of Agriculture, Fisheries, Food Security and Nature", "Ministry
- *   of Economic Affairs", "Ministry of Education, Culture and Science",
- *   "Ministry of Finance", "Ministry of Foreign Affairs", "Ministry of Health,
- *   Welfare and Sport", "Ministry of Infrastructure and Water Management",
- *   "Ministry of Justice and Security", "Ministry of Social Affairs and
- *   Employment", "Ministry of Defence". The three ministries created in 2024
- *   use the English names on government.nl: "Ministry of Asylum and
- *   Migration", "Ministry of Climate Policy and Green Growth", "Ministry of
- *   Housing and Spatial Planning" (https://www.government.nl/latest/news/2024/07/02/schoof-government-sworn-in,
- *   retrieved 19-09-2026).
+ * 19-09-2026). The official English names on that page are "Ministry of
+ * General Affairs", "Ministry of the Interior and Kingdom Relations",
+ * "Ministry of Agriculture, Fisheries, Food Security and Nature", "Ministry
+ * of Economic Affairs", "Ministry of Education, Culture and Science",
+ * "Ministry of Finance", "Ministry of Foreign Affairs", "Ministry of Health,
+ * Welfare and Sport", "Ministry of Infrastructure and Water Management",
+ * "Ministry of Justice and Security", "Ministry of Social Affairs and
+ * Employment", "Ministry of Defence". The three ministries created in 2024
+ * use the English names on government.nl: "Ministry of Asylum and
+ * Migration", "Ministry of Climate Policy and Green Growth", "Ministry of
+ * Housing and Spatial Planning" (https://www.government.nl/latest/news/2024/07/02/schoof-government-sworn-in,
+ * retrieved 19-09-2026).
  * - Independent body names follow each body's own official English name (for
- *   example the Netherlands Court of Audit, Statistics Netherlands, the
- *   Public Prosecution Service). Each was checked against the body's English
- *   website; entries are curated, not machine translated.
+ * example the Netherlands Court of Audit, Statistics Netherlands, the
+ * Public Prosecution Service). Each was checked against the body's English
+ * website; entries are curated, not machine translated.
  * - Extra executive bodies added 17-10-2026 from the body's own English page
- *   or government.nl: Medicines Evaluation Board (government.nl/ministries/
- *   ministry-of-health-welfare-and-sport/services-and-institutions), Central
- *   Judicial Collection Agency (cjib.nl/en/what-cjib), Netherlands Forensic
- *   Institute (forensicinstitute.nl), Cultural Heritage Agency of the
- *   Netherlands (english.cultureelerfgoed.nl), National Office for Identity
- *   Data (rvig.nl/service/about-rvig), Judicial Information Service
- *   (government.nl/themes/justice-security-and-defence/sentences-and-non-punitive-orders/view-your-criminal-record),
- *   Dutch Authority for the Financial Markets (afm.nl/en/over-de-afm),
- *   Central Committee on Research Involving Human Subjects
- *   (english.ccmo.nl), Authority for the Prevention of Online Terrorist
- *   Content and Child Pornography (government.nl/latest/news/2024/06/05/
- *   authority-may-require-hosting-companies-to-remove-online-child-sexual-abuse-material-from-servers).
- *   CIBG keeps the abbreviation on government.nl.
+ * or government.nl: Medicines Evaluation Board (government.nl/ministries/
+ * ministry-of-health-welfare-and-sport/services-and-institutions), Central
+ * Judicial Collection Agency (cjib.nl/en/what-cjib), Netherlands Forensic
+ * Institute (forensicinstitute.nl), Cultural Heritage Agency of the
+ * Netherlands (english.cultureelerfgoed.nl), National Office for Identity
+ * Data (rvig.nl/service/about-rvig), Judicial Information Service
+ * (government.nl/themes/justice-security-and-defence/sentences-and-non-punitive-orders/view-your-criminal-record),
+ * Dutch Authority for the Financial Markets (afm.nl/en/over-de-afm),
+ * Central Committee on Research Involving Human Subjects
+ * (english.ccmo.nl), Authority for the Prevention of Online Terrorist
+ * Content and Child Pornography (government.nl/latest/news/2024/06/05/
+ * authority-may-require-hosting-companies-to-remove-online-child-sexual-abuse-material-from-servers).
+ * CIBG keeps the abbreviation on government.nl.
  */
 
 import { PARTIES, partyByDataset } from "./parties";

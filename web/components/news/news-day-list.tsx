@@ -68,7 +68,7 @@ function DayNav({
 
 /**
  * The hour sections of a day archive, with the same controls as the main list: original
- * language, kind and outlet, and the "show all news" toggle (docs/adr/0021). A busy day
+ * language, kind and outlet, and the "show all news" toggle (). A busy day
  * holds hundreds of items, so the cards come in windows of `NEWS_WINDOW_STEP` with a
  * "show more" button (NW-19). `fixedLanguage` pins the interface language of the route.
  */

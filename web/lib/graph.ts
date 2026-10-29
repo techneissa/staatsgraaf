@@ -9,8 +9,7 @@ export type { Bench } from "./bench";
 export type OrgBranchLike = OrgBranch;
 
 /**
- * Layout `nl-tiers-v1`: the concentric tier layout (spec: web/lib/graph-layout.md,
- * decision: docs/adr/0015-graph-rebuild.md, plan: docs/13-graph-rebuild-plan.md).
+ * Layout `nl-tiers-v1`: the concentric tier layout.
  *
  * This module is what the client ships: the bundle contract, the geometry
  * constants, the glyph and edge helpers, the ∩ arch, and `hydrateLayout`, which
@@ -297,7 +296,7 @@ export type PowerBody = { name: string; slug: string; branch: OrgBranch };
 export type PowerNewsItem = {
   id: string;
   title: string;
-  /** Machine translation of the title (docs/adr/0016), when there is one. */
+  /** Machine translation of the title (), when there is one. */
   titleEn?: string;
   publisher: string | null;
   /** ISO date of publication. */

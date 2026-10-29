@@ -22,7 +22,7 @@ pause="${REFRESH_RETRY_SLEEP:-3}"
 date_iso="${REFRESH_DATE:-$(date -u +%F)}"
 
 # What a refresh run writes and the site depends on. research/qa reports are left out on purpose: one new file per day.
-paths=(data ATTRIBUTION.md research/P-live-ambtsdragers.json research/P-live-ambtsdragers.md research/P-live-state.json research/qa/live-review-queue.md research/merge-log.entries.jsonl)
+paths=(data ATTRIBUTION.md research/P-live-ambtsdragers.json research/P-live-ambtsdragers.md research/P-live-state.json research/qa/live-review-queue.md)
 
 emit() { [ -z "${GITHUB_OUTPUT:-}" ] || printf '%s\n' "$1" >> "$GITHUB_OUTPUT"; }
 

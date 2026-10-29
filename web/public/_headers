@@ -1,15 +1,13 @@
 # Security headers for the Staatsgraaf static export, deployed at the site root.
 # Format: Netlify and Cloudflare Pages _headers syntax (path line, indented headers).
-# The Content-Security-Policy is documented in /_headers.md, including the
-# recorded gap for inline scripts and the SHA-256 hashes of the stable ones.
 # Do not add hashes to script-src alongside 'unsafe-inline': a hash or nonce
 # makes a browser ignore 'unsafe-inline', which would break hydration.
 #
-# Cache-Control lives in the rules below the security block. ADR 0022 explains
-# the numbers. Cloudflare joins the values of every matching rule with a comma,
-# so no path may match two Cache-Control rules and /* must never set one.
-# Anything not listed keeps the Pages default (max-age=0, must-revalidate).
-# Cloudflare Pages Free allows 100 rules in this file; this file uses 27.
+# Cache-Control lives in the rules below the security block. Cloudflare joins
+# the values of every matching rule with a comma, so no path may match two
+# Cache-Control rules and /* must never set one. Anything not listed keeps the
+# Pages default (max-age=0, must-revalidate). Cloudflare Pages Free allows 100
+# rules in this file; this file uses 27.
 
 /*
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload

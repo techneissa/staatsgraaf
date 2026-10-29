@@ -6,9 +6,9 @@
  * Three trees:
  *
  * - `kabinet`: the minister-president in the centre, the Koning as head of
- *   state, and one hub per ministry with its ministers and staatssecretarissen.
+ * state, and one hub per ministry with its ministers and staatssecretarissen.
  * - `tweede-kamer` and `eerste-kamer`: the chair in the centre and one hub
- *   per fractie with its seats, its fractievoorzitter and its members.
+ * per fractie with its seats, its fractievoorzitter and its members.
  *
  * `buildHierarchy` is pure and runs once at build time
  * (web/scripts/build-graph.mjs), which writes `public/hierarchy.json`. The

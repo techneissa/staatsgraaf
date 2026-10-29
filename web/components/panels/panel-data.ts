@@ -160,7 +160,7 @@ export type PanelNewsRecord = PanelNews & {
   kind: "news";
   summaryMarkup: string | null;
   entities: PanelEntity[];
-  /** A machine translation into the other interface language (docs/adr/0016), or null. */
+  /** A machine translation into the other interface language (), or null. */
   translation: { language: NewsLanguage; title: string; lead: string | null } | null;
   source: PanelSource | null;
 };

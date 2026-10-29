@@ -66,7 +66,7 @@ function useBoxSize<T extends HTMLElement>() {
 /**
  * Verbanden (Connections), the canvas view with the internal id `power`: who
  * is tied to whom through office, cabinet, party and shared news. An adapter
- * of the selection store (docs/adr/0018): a pick focuses a person or body, a
+ * of the selection store (): a pick focuses a person or body, a
  * news pick lights up whom it names, and "back" and Escape step back.
  *
  * Nothing picked: the most connected people, by role. A focus: an ego

@@ -8,7 +8,7 @@ export type SummaryEntity = { href: string; kind: PeekKind };
 
 /**
  * Renders summary markup as text with the entity mentions as inline peek links
- * (docs/adr/0017). Pure: the href and kind for every entity id come from a
+ * (). Pure: the href and kind for every entity id come from a
  * lookup the caller provides (the resolved news view carries them), so no data
  * registry is needed and the function is safe inside the client explorer.
  * The markup is parsed, never injected as HTML.

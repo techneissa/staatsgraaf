@@ -92,7 +92,7 @@ export function sourceDefs(level, cbsTable = null) {
       publisher: "KOOP / Overheid.nl",
       type: "register",
       license: "CC0-1.0",
-      notes: "Bestuurders per organisatie met functie. Het register noemt geen benoemingsdatum. Alleen personen met een gemodelleerde publieke functie worden overgenomen (research/O-licenses.md, sectie 1.4).",
+      notes: "Bestuurders per organisatie met functie. Het register noemt geen benoemingsdatum. Alleen personen met een gemodelleerde publieke functie worden overgenomen.",
     },
   };
   if (cbsTable) {

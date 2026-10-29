@@ -12,11 +12,11 @@ The dataset (the compiled data, the descriptions and the summaries) is licensed 
 
 The code has its own licence, CC BY-NC-SA 4.0 (`CC-BY-NC-SA-4.0`), see `LICENSE`. To reuse the code, credit "Staatsgraaf (https://github.com/techneissa/staatsgraaf), CC BY-NC-SA 4.0", use it for noncommercial purposes only, and share your adaptations under the same licence. The data licence above does not change that.
 
-Photos are not under the dataset licence. Each one keeps the licence its author gave it, see Portraits below. The per-source licence decisions, with evidence and retrieval dates, are in `research/O-licenses.md`.
+Photos are not under the dataset licence. Each one keeps the licence its author gave it, see Portraits below. The per-source licence is recorded in `data/sources.json` with its retrieval date.
 
 ## Source families
 
-Where facts come from, grouped by publisher and licence. 9,328 sources are recorded in all: 3,177 in the table, 5,704 news links and 447 with no established licence (each below).
+Where facts come from, grouped by publisher and licence. 9,405 sources are recorded in all: 3,177 in the table, 5,781 news links and 447 with no established licence (each below).
 
 | Publisher or website | What we use it for | Licence | Terms | Sources |
 | --- | --- | --- | --- | ---: |
@@ -34,7 +34,7 @@ Where facts come from, grouped by publisher and licence. 9,328 sources are recor
 | Wikipedia | Lists of mayors and dijkgraven (facts) | CC BY-SA 4.0 | <https://nl.wikipedia.org/wiki/Wikipedia:Auteursrechten> | 228 |
 | Wikimedia Commons | Photo file pages (the source of each portrait) | Per file (CC0, CC BY, CC BY-SA, public domain) | <https://commons.wikimedia.org/wiki/Commons:Licensing> | 708 |
 | Parlement.com and overheid.nl site pages | Cross-checks (facts only) | all rights reserved | <https://www.parlement.com/over-deze-site> | 76 |
-| Other public bodies | Offices and office holders from the body's own site | CC0 1.0 | the site's own copyright page; see research/O-licenses.md | 2 |
+| Other public bodies | Offices and office holders from the body's own site | CC0 1.0 | the site's own copyright page | 2 |
 
 Where a licence asks for a credit (CC BY and CC BY-SA, the Eerste Kamer, Rechtspraak), the credit is the publisher's name plus the source URL and retrieval date from `data/sources.json`. Where a source is licensed CC0, no credit is owed, but the dataset still names it. Do not imply that any publisher endorses Staatsgraaf.
 
@@ -42,11 +42,11 @@ Where a licence asks for a credit (CC BY and CC BY-SA, the Eerste Kamer, Rechtsp
 
 Photos come from Wikimedia Commons and the Tweede Kamer open data, never from a source with no stated licence. The author, licence and source page of each photo are shown in the (i) next to the photo on its person page, and stored with the photo in `data/media.json` (credit, author, licence, source) and `data/sources.json` (source page, retrieval date). 457 portraits are on record: 182 CC0 1.0, 126 CC BY (4 marked only "Attribution" on Commons), 139 CC BY-SA, 6 public domain, 1 Copyrighted free use, 3 European Parliament.
 
-The site shows scaled-down and cropped copies, and says so in the credit. For CC BY-SA photos the copy is shared under the same licence. The decision and the licence texts it rests on are in `docs/adr/0025-photo-credits.md`.
+The site shows scaled-down and cropped copies, and says so in the credit. For CC BY-SA photos the copy is shared under the same licence.
 
 ## News
 
-5,704 sources are news articles or news-outlet pages. Their publishers keep all rights, so Staatsgraaf links to them and shows only the headline and the link, never the article text or its images. No credit is owed beyond naming the outlet, which every link does.
+5,781 sources are news articles or news-outlet pages. Their publishers keep all rights, so Staatsgraaf links to them and shows only the headline and the link, never the article text or its images. No credit is owed beyond naming the outlet, which every link does.
 
 ## Sources with no established licence
 
@@ -60,4 +60,3 @@ Staatsgraaf was inspired by the Gov Graph (https://graph.civlab.org/us) by CivLa
 
 - `data/sources.json`: every source, with its URL, publisher, licence and retrieval date.
 - `data/media.json`: every photo, with its credit, author, licence and source.
-- `research/O-licenses.md`: the licence determination per publisher, with the terms page and the date it was read.

@@ -2,9 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
-  // Next 16 writes its own AGENTS.md and CLAUDE.md into web/ on dev. Those
-  // agent files are not part of the published repository (docs/adr/0023), so
-  // do not generate them.
+  // Next 16 writes its own AGENTS.md and CLAUDE.md into web/ on dev. Do not
+  // generate them.
   agentRules: false,
   trailingSlash: true,
   reactStrictMode: true,

@@ -111,20 +111,20 @@ export const PAGES_DICT = {
     en: "The build runs in phases. First a baseline measurement records the countable starting points: the composition of the cabinet, the ministries, the seats in the Senate and the House of Representatives, and the numbers of provinces, municipalities and water boards. Every fact gets a source and a date.",
   },
   methodBuildP2: {
-    nl: "Daarna werken vijftien onderzoekswerkstromen parallel aan deelgebieden: de regering en de ministeries, rijksdiensten, zelfstandige bestuursorganen en rechtspersonen met een wettelijke taak, het parlement, de rechterlijke macht, hoge colleges en adviescolleges, de decentrale overheid, de wettelijke grondslagen, personen en benoemingen, nieuws en koppeling, onderwerpen, begroting, en de studies naar ontwerp, referentiemodel en licentie.",
-    en: "Fifteen research workstreams then work in parallel on sub-areas: the government and the ministries, national services, independent administrative bodies and legal entities with a statutory task, the parliament, the judiciary, the high councils and advisory councils, the decentralised government, the legal foundations, people and appointments, news and linking, topics, budget, and the studies on design, reference model and licence.",
+    nl: "Daarna worden de deelgebieden gevuld: de regering en de ministeries, rijksdiensten, zelfstandige bestuursorganen en rechtspersonen met een wettelijke taak, het parlement, de rechterlijke macht, hoge colleges en adviescolleges, de decentrale overheid, de wettelijke grondslagen, personen en benoemingen, nieuws en koppeling, onderwerpen en begroting.",
+    en: "The sub-areas are then filled: the government and the ministries, national services, independent administrative bodies and legal entities with a statutory task, the parliament, the judiciary, the high councils and advisory councils, the decentralised government, the legal foundations, people and appointments, news and linking, topics and budget.",
   },
   methodBuildP3: {
-    nl: "Elke werkstroom levert dezelfde vorm van uitvoer: een JSON-bestand en een markdown-rapport. Bij elk feit staat een bron, een ophaaldatum en een betrouwbaarheidsniveau (hoog, midden of laag).",
-    en: "Every workstream delivers the same form of output: a JSON file and a markdown report. Each fact carries a source, a retrieval date and a confidence level (high, medium or low).",
+    nl: "Elk feit in de dataset draagt een bron, een ophaaldatum en een betrouwbaarheidsniveau (hoog, midden of laag).",
+    en: "Every fact in the dataset carries a source, a retrieval date and a confidence level (high, medium or low).",
   },
   methodBuildP4a: {
-    nl: "De merge-stap voegt de bestanden samen tot de dataset in de map",
-    en: "The merge step joins the files into the dataset in the folder",
+    nl: "De bestanden worden samengevoegd tot de dataset in de map",
+    en: "The files are joined into the dataset in the folder",
   },
   methodBuildP4b: {
-    nl: ". Conflicten worden niet stil opgelost, maar vastgelegd in",
-    en: ". Conflicts are not resolved silently, but recorded in",
+    nl: ". Conflicten worden niet stil opgelost, maar vastgelegd",
+    en: ". Conflicts are not resolved silently, but recorded",
   },
   methodBuildP4c: {
     nl: ". Daarna controleren validators de dataset tegen het schema en op verwijzingen tussen records. De web-app leest de samengevoegde dataset op buildtijd en doet geen runtime-verzoeken aan bronnen.",
@@ -153,8 +153,8 @@ export const PAGES_DICT = {
     en: "Every change carries the date of the underlying fact and the source of the record that caused the change. Without a source, the change is not published.",
   },
   methodChangesP4a: {
-    nl: "Zolang er geen eerdere versie is, schrijft de vergelijking geen geschiedenis. De eerste vulling komt uit een aparte, deterministische stap die alleen feiten met een datum of een zetelaantal overneemt. Een leemte in de vorige versie blijft een leemte. De volledige regels staan in",
-    en: "As long as there is no earlier version, the comparison writes no history. The initial fill comes from a separate, deterministic step that only carries over facts with a date or a seat count. A gap in the previous version stays a gap. The full rules are in",
+    nl: "Zolang er geen eerdere versie is, schrijft de vergelijking geen geschiedenis. De eerste vulling komt uit een aparte, deterministische stap die alleen feiten met een datum of een zetelaantal overneemt. Een leemte in de vorige versie blijft een leemte.",
+    en: "As long as there is no earlier version, the comparison writes no history. The initial fill comes from a separate, deterministic step that only carries over facts with a date or a seat count. A gap in the previous version stays a gap.",
   },
   methodAiTitle: { nl: "Taalmodellen en menselijke controle", en: "Language models and human review" },
   methodAiP1: {

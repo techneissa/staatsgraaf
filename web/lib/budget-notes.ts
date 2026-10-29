@@ -2,8 +2,7 @@
  * Comparability notes for budget records: where a year-on-year change in the
  * source is a change in what the chapter contains, not in what is spent.
  * Dataset-free, so tests and client components can import it. Each note names
- * its source; the figures come from research/L-budget-en-financien.md
- * ("Like-for-like check Infrastructuur en Waterstaat").
+ * its source (rijksfinancien.nl begrotingsstaten).
  */
 export type BudgetComparabilityNote = {
   nl: string;
@@ -37,7 +36,7 @@ export function budgetComparabilityNote(organizationId: string): BudgetComparabi
 /**
  * A series that starts later than the others because the source has no own
  * chapter before that year. A named gap, shown instead of an empty chart
- * stretch. Source: research/L-budget-en-financien.md, gap 5.
+ * stretch. Named gap in the rijksfinancien.nl series.
  */
 export type BudgetSeriesGap = {
   nl: string;

@@ -4,10 +4,9 @@ import type { LocString } from "./i18n/locales";
  * Official party colours for the people and factions in the dataset.
  *
  * This table is a sourced data file, not free design choice: every colour carries
- * the source it came from and a retrieval date. Confidence follows the party
- * colour research of 18-09-2026 (research/party-colours-2026-09-18.md). Hex
- * values stay lowercase without alpha. NULL colour means no sourced colour
- * exists; such parties render in neutral grey and never get an invented value.
+ * the source it came from and a retrieval date. Hex values stay lowercase
+ * without alpha. NULL colour means no sourced colour exists; such parties
+ * render in neutral grey and never get an invented value.
  */
 export type PartyRecord = {
   key: string;

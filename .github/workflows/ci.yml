@@ -69,7 +69,7 @@ jobs:
       - name: Install, typecheck, and build the web app
         run: cd web && bun install --frozen-lockfile && bun run typecheck && bun run build
 
-      # The committed /data/v1 artifact is the contract for every client. The
-      # dataset files here are byte-copies of data/, so the contract must hold.
-      - name: Contract check on the committed dataset
+      # The build writes web/public/data/v1 from data/. That export is the
+      # contract for every client; the files are byte-copies of data/.
+      - name: Contract check on the built dataset
         run: bun run contract web/public/data/v1
