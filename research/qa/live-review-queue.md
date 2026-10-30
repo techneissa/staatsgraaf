@@ -168,3 +168,12 @@ Entries the live run (`bun run live`, ADR 0024) lists for a weekly human glance:
 - [ ] 27-10-2026 zetelwijziging: org:gemeenteraad-molenlanden: het aantal zetels is 28 in de dataset en 29 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-molenlanden|29 -->
 - [ ] 28-10-2026 zetelwijziging: org:gemeenteraad-albrandswaard: het aantal zetels is 21 in de dataset en 20 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-albrandswaard|20 -->
 - [ ] 28-10-2026 zetelwijziging: org:gemeenteraad-borsele: het aantal zetels is 18 in de dataset en 19 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-borsele|19 -->
+- [ ] 30-10-2026 zetelwijziging: org:gemeenteraad-de-bilt: het aantal zetels is 25 in de dataset en 27 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-de-bilt|27 -->
+- [ ] 30-10-2026 zetelwijziging: org:gemeenteraad-eemnes: het aantal zetels is 14 in de dataset en 15 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-eemnes|15 -->
+- [ ] 30-10-2026 zetelwijziging: org:gemeenteraad-amstelveen: het aantal zetels is 38 in de dataset en 37 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-amstelveen|37 -->
+- [ ] 30-10-2026 zetelwijziging: org:gemeenteraad-gouda: het aantal zetels is 34 in de dataset en 35 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-gouda|35 -->
+- [ ] 30-10-2026 zetelwijziging: org:gemeenteraad-leiden: het aantal zetels is 38 in de dataset en 39 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-leiden|39 -->
+- [ ] 30-10-2026 zetelwijziging: org:gemeenteraad-goes: het aantal zetels is 26 in de dataset en 27 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-goes|27 -->
+- [ ] 30-10-2026 zetelwijziging: org:gemeenteraad-boxtel: het aantal zetels is 22 in de dataset en 23 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-boxtel|23 -->
+- [ ] 30-10-2026 zetelwijziging: org:gemeenteraad-landgraaf: het aantal zetels is 24 in de dataset en 25 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-landgraaf|25 -->
+- [ ] 30-10-2026 zetelwijziging: org:gemeenteraad-alphen-chaam: het aantal zetels is 15 in de dataset en 16 in het register; het register is overgenomen. <!-- key: seat-change|org:gemeenteraad-alphen-chaam|16 -->
