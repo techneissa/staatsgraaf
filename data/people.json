@@ -15961,6 +15961,21 @@
     ]
   },
   {
+    "id": "person:korthuis-noordenveld",
+    "slug": "korthuis-noordenveld",
+    "name": "Korthuis",
+    "aliases": [
+      "Mw. Korthuis"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-11-01",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "person:kristel-dirkx",
     "slug": "kristel-dirkx",
     "name": "Kristel Dirkx",

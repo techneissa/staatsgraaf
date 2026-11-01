@@ -994,8 +994,8 @@
     "summary": "Benoeming: Klaas Smid wordt Burgemeester van Noordenveld.",
     "source": {
       "source": "src:koop-medewerkers-gemeenten",
-      "retrieved": "2026-10-06",
-      "confidence": "high"
+      "retrieved": "2026-11-01",
+      "confidence": "medium"
     },
     "position": "pos:burgemeester-noordenveld",
     "organization": "org:gemeente-noordenveld",
@@ -30659,7 +30659,30 @@
     "id": "change:2026-10-06-departure-burgemeester-wierden"
   },
   {
-    "date": "2026-10-31",
+    "date": "2026-11-01",
+    "kind": "departure",
+    "summary": "Klaas Smid vertrekt als Burgemeester van Noordenveld.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-11-01",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-noordenveld",
+    "organization": "org:gemeente-noordenveld",
+    "out": {
+      "tenure": "tenure:burgemeester-noordenveld",
+      "person": "person:klaas-smid",
+      "label": "Klaas Smid - Burgemeester van Noordenveld"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-noordenveld-korthuis",
+      "person": "person:korthuis-noordenveld",
+      "label": "Korthuis - Burgemeester van Noordenveld"
+    },
+    "id": "change:2026-11-01-departure-burgemeester-noordenveld"
+  },
+  {
+    "date": "2026-11-01",
     "kind": "vacancy",
     "summary": "Vacature: Procureur-generaal (lid van het College van procureurs-generaal) bij Openbaar Ministerie heeft één onvervulde zetel.",
     "source": {
@@ -30679,6 +30702,6 @@
       "person": null,
       "label": "1 vacante zetel"
     },
-    "id": "change:2026-10-31-vacancy-procureur-generaal-lid-college"
+    "id": "change:2026-11-01-vacancy-procureur-generaal-lid-college"
   }
 ]
