@@ -11,17 +11,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:10133d04",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Word Search",
-    "lead": null,
-    "sourceHash": "270011d47bdc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:10133d05",
     "language": "en",
     "sourceLanguage": "nl",
@@ -88,6 +77,17 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:1013c91f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Word Search",
+    "lead": null,
+    "sourceHash": "270011d47bdc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:1019272c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -119,17 +119,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:10270d4b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "More than eighty injured after bus plunges into ravine near Barcelona",
-    "lead": "More than eighty people were injured on Sunday after a bus plunged into a ravine in Spain. Seven of them are seriously injured.",
-    "sourceHash": "e242d0641e2a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:10300433",
@@ -361,17 +350,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
-  },
-  {
-    "id": "news:113b6f69",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Grumbling Verstappen takes maximum points with third place, Antonelli (not yet) narrowly misses title",
-    "lead": "Kimi Antonelli is not yet the youngest Formula 1 champion ever. The Italian did his part by winning the Grand Prix of the United States, but teammate George Russell (P8) and Lewis Hamilton (P4) have just narrowly not been eliminated from the championship fight. Max Verstappen has. After two wins, he had to settle for P3, behind Charles Leclerc.",
-    "sourceHash": "03c446d2977f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
   },
   {
     "id": "news:114e712",
@@ -957,6 +935,17 @@
     "translated": "2026-10-26"
   },
   {
+    "id": "news:1318dc52",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Zelensky open to direct talks with Putin in Turkey",
+    "lead": null,
+    "sourceHash": "7ca200f8fd95",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:1319ab09",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1164,17 +1153,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:140b3e94",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Historic election result in Serbia: students oust corruption-accused former president",
-    "lead": "Serbian president Aleksandar Vucic admitted defeat on Sunday in the parliamentary elections, which were won by the student-led protest movement.",
-    "sourceHash": "c4b66072d574",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:1426b261",
@@ -1507,6 +1485,17 @@
     "translated": "2026-10-27"
   },
   {
+    "id": "news:154d96b0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Feyenoord drops points against Fortuna, competition does win: \"Competition is so incredibly interesting\"",
+    "lead": "What do the numbers say? Data analyst Bart Frouws drops into the NOS Langs de Lijn studio every week to examine the most striking statistics from the Eredivisie matches played. Today Frouws, together with analyst Robert Maaskant, analyses the matches of Feyenoord, Ajax and PSV.",
+    "sourceHash": "bc3cdab4ed47",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:1561dcd0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1725,6 +1714,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
+  },
+  {
+    "id": "news:160da114",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Twente schrijft geschiedenis met 9-0 zege terwijl PSV Willem II ook met zeven doelpunten verslaat",
+    "lead": "PSV won zaterdag met 7-0 van Willem II.",
+    "sourceHash": "49ac089c7654",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:163f884e",
@@ -2310,28 +2310,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:18bd243a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Hopefully the Israelis seize their chance in the elections",
-    "lead": null,
-    "sourceHash": "c028087a9582",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
-    "id": "news:18d42982",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'I've seen smarter cabinets at Ikea': how the protest sign became a viral one-liner",
-    "lead": null,
-    "sourceHash": "a7ca1d5a6379",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:18d6e14d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2750,6 +2728,17 @@
     "translated": "2026-10-28"
   },
   {
+    "id": "news:1a96e1f4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Kimi Antonelli youngest Formula 1 world champion ever, Max Verstappen wins Mexican GP",
+    "lead": null,
+    "sourceHash": "796193170efe",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:1ab835e6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2805,6 +2794,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:1af3b738",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Mexican Grand Prix resumes after Bottas crash: Verstappen leads",
+    "lead": "The Formula 1 Mexico City Grand Prix has resumed after a delay of about 40 minutes. The race at the high-altitude Autódromo Hermanos Rodríguez was stopped for a long time after a heavy crash by Valtteri Bottas.",
+    "sourceHash": "3c30a2bb03b9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:1afa0437",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2814,17 +2814,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
-  },
-  {
-    "id": "news:1b028b40",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "LIVE War in Ukraine | Zelensky expects meeting with US and Russia in November: 'Ready to talk'",
-    "lead": "Ukrainian President Zelensky said on Sunday that a meeting will take place in November between Ukraine, the US and Russia, aimed at reviving the stalled peace talks. Follow all developments in the war in Ukraine in our live blog.",
-    "sourceHash": "40d7824ab0a8",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:1b1099d5",
@@ -2904,6 +2893,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:1b72536e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Live F1 | Antonelli speechless after world title, Verstappen 'was sweating' because of Hamilton",
+    "lead": "Good evening and welcome to this live blog! My name is Laurine Slingerland and I will keep you updated on the Mexican Grand Prix. Enjoy!",
+    "sourceHash": "bf6933f25639",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:1b746bf",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2935,17 +2935,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
-  },
-  {
-    "id": "news:1bab3012",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "What has happened to Sweden's welfare model, as famous as its furniture packages?",
-    "lead": "If Sweden were a socialist paradise, it would be \"socialism that is good for yacht buyers\", wrote The Economist. The country, famous for protection from the cradle to the grave, is changing rapidly. \"The welfare state as it is now organised is no longer based on solidarity.\"",
-    "sourceHash": "f9ff5cc52f58",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
   },
   {
     "id": "news:1bab935c",
@@ -3960,6 +3949,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:210e6d5c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Antonelli in tears after first Formula 1 world title: 'I am speechless'",
+    "lead": "Kimi Antonelli was emotional after winning his first Formula 1 world title. The twenty-year-old Italian thanked his team and family in Mexico.",
+    "sourceHash": "028f4a9cb674",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:2118237e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4266,6 +4266,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:2293d4c0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Exit poll: pro-Russian ally of prime minister wins Bulgarian presidential election",
+    "lead": null,
+    "sourceHash": "c784ad2ccdb6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:229629ae",
@@ -5016,17 +5027,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:25d99cc8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Opinion: Thankfully, artists are absent from the cabinet's plans for culture",
-    "lead": null,
-    "sourceHash": "dc01df03f8b8",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:25dafe23",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5665,17 +5665,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:28720bfe",
-    "language": "nl",
-    "sourceLanguage": "en",
-    "title": "Max Verstappen eindigt als derde in Austin terwijl Kimi Antonelli dichterbij de F1-titel komt",
-    "lead": "Max Verstappen eindigde zondag als derde in de Grand Prix van de Verenigde Staten in Austin, Texas.",
-    "sourceHash": "558828d87a18",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:2874f053",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5742,17 +5731,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:289ee9a3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Vorto",
-    "lead": null,
-    "sourceHash": "e0d279537212",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:289ee9a4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5817,6 +5795,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:289f75be",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Vorto",
+    "lead": null,
+    "sourceHash": "e0d279537212",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:28a12474",
@@ -6622,17 +6611,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:2bfcf511",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Vucic admits defeat: 'Student list wins elections in Serbia'",
-    "lead": null,
-    "sourceHash": "1b177ab3631c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:2c05a9a3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -6642,6 +6620,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:2c1b2f06",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Juventus win thanks to fine goals, Teun Koopmeiners and Noa Lang play the full match",
+    "lead": "Juventus recorded a 2-0 win over Napoli in Turin on Sunday evening. Kerim Alajbegovic and Jérémie Boga scored the fine goals for Juventus in the last twenty minutes. On Thursday evening, Juventus will play the away match at AZ in the Europa League.",
+    "sourceHash": "3fe02497b947",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:2c21d9a9",
@@ -6842,6 +6831,17 @@
     "translated": "2026-10-31"
   },
   {
+    "id": "news:2ca746b7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "With these tips you can always cook a tasty and nutritious meal from the pantry",
+    "lead": "Very important, an emergency kit, but how do you make sure you can still cook something reasonably decent with it? With these ingredients in your pantry you can also make something tasty when the shelves are empty.",
+    "sourceHash": "9a38676e40c3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:2ca90807",
     "language": "en",
     "sourceLanguage": "nl",
@@ -7016,17 +7016,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
-  },
-  {
-    "id": "news:2da86c3d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "American woman who faked pregnancies must spend thirty days in jail",
-    "lead": "An American woman who pretended three times to be pregnant has been sentenced to thirty days in prison. One of the children was reportedly fathered by a participant in the programme The Bachelor.",
-    "sourceHash": "3285406b07d6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:2dd26e6d",
@@ -7555,6 +7544,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:2fd17c40",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Car thieves plague village: one neighbour even sleeps in his car out of fear of thieves",
+    "lead": "Following a wave of burglaries in the Gouden Buurten in Berkel, in which several Mini control systems were stolen, thieves are striking again. This time residents of the Gouden Griffelbuurt in the same village are the victims. \"They first look around and then simply rob to order.\"",
+    "sourceHash": "9b8c54b44935",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:2fd23586",
@@ -8327,17 +8327,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:334ead4c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Americans in the Netherlands know it: Trump has never been a friend of Europe. \"We are in shellshock\"",
-    "lead": null,
-    "sourceHash": "6a1764dbdfe8",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:3354b9e0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9042,6 +9031,17 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:35c2edeb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The remarkable statistics of Kimi Antonelli's title: the youngest ever and Max Verstappen's record still within reach",
+    "lead": "Kimi Antonelli is the 36th world champion in Formula 1. The Mercedes driver will lift the world cup for the first time in his still young career at the FIA gala next month. And Antonelli does so with some impressive statistics to his name.",
+    "sourceHash": "4b0e87c9332b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:35d4e0af",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9339,17 +9339,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:36bb0eda",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Prince of Liechtenstein blocks easing of strict abortion law",
-    "lead": null,
-    "sourceHash": "eb97de98e39c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:36c3f565",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9447,17 +9436,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
-  },
-  {
-    "id": "news:37351190",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Over eighty injured after a bus plunges into a ravine near Barcelona",
-    "lead": "Over eighty people were injured on Sunday in Spain after a bus plunged into a ravine. Seven of them are in critical condition.",
-    "sourceHash": "249089ba8af0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
   },
   {
     "id": "news:37432c1",
@@ -10197,15 +10175,15 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:3aafff55",
+    "id": "news:3aa9acad",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Cinco",
+    "title": "Maha voters in Iowa partly turn away from Trump just before the election: 'It was all fake'",
     "lead": null,
-    "sourceHash": "b5d17bb2750c",
+    "sourceHash": "e66cb432c5e0",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-26"
+    "translated": "2026-11-02"
   },
   {
     "id": "news:3aafff56",
@@ -10272,6 +10250,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:3ab08b70",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cinco",
+    "lead": null,
+    "sourceHash": "b5d17bb2750c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:3ac36997",
@@ -10360,6 +10349,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:3b25c4d8",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Max Verstappen wint Mexicaanse GP na start als vijfde; Kimi Antonelli tot kampioen gekroond",
+    "lead": "Max Verstappen won zondag de Grand Prix van Mexico.",
+    "sourceHash": "85580d25e217",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:3b276b24",
@@ -10780,6 +10780,17 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:3cc002b2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Kimi Antonelli youngest Formula 1 world champion ever, Max Verstappen wins Mexican GP",
+    "lead": null,
+    "sourceHash": "796193170efe",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:3cc1eafa",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11196,17 +11207,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
-  },
-  {
-    "id": "news:3ed92cae",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Fokke & Sukke",
-    "lead": null,
-    "sourceHash": "35921cf57cad",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:3ef8b7ad",
@@ -11990,17 +11990,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:428b31a7",
-    "language": "nl",
-    "sourceLanguage": "en",
-    "title": "Twente verrast AZ met late doelpunten terwijl Willem II in de problemen blijft",
-    "lead": "AZ Alkmaar miste zondagavond de kans om de achterstand op koploper Feyenoord te verkleinen en verloor thuis met 2-0 van FC Twente.",
-    "sourceHash": "3d1874603302",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:429afe4f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12010,6 +11999,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:42af2309",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "DNB: for successful application of AI, the rigid polder model must be shaken up",
+    "lead": "AI could give productivity in the Netherlands a boost, but vocational education and dismissal law will first need to be overhauled. That is what De Nederlandsche Bank says.",
+    "sourceHash": "62869f0e5378",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:42dca281",
@@ -12175,17 +12175,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
-  },
-  {
-    "id": "news:43618292",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Kitesurfers enjoy strong wind, jumps of up to 30 metres",
-    "lead": "For one group of people the wind cannot blow hard enough: kitesurfers. Among others at the beach of Scheveningen, they made optimal use of the storm today. This resulted in jumps of up to thirty metres high.",
-    "sourceHash": "ee49146d1d49",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:4380adba",
@@ -12562,17 +12551,6 @@
     "translated": "2026-11-01"
   },
   {
-    "id": "news:4533d19f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Brilliant",
-    "lead": null,
-    "sourceHash": "c5eb20e21098",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:4533d1a0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12637,6 +12615,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:45345dba",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Brilliant",
+    "lead": null,
+    "sourceHash": "c5eb20e21098",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:4539d725",
@@ -12879,6 +12868,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-26"
+  },
+  {
+    "id": "news:46298f0c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Getting fit before an operation makes sense. 'Patients said: I am really doing something, not just worrying'",
+    "lead": "Those who go into an operation fitter have a lower chance of complications. That sounds logical, but it has barely been demonstrated. Joëlle Dhanis did that for gynaecological cancers. \"At the Radboudumc in Nijmegen this has already been introduced as standard.\"",
+    "sourceHash": "7a6e3287913a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:4630da15",
@@ -13189,6 +13189,17 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:47442ad7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Two men break into Klaas Gubbels' (92) workshop, months later he finally understands why",
+    "lead": "For the second time in his life, forged artworks by Klaas Gubbels are turning up. To the great frustration of the 92-year-old Arnhem artist himself. The worst part is that the forgers visited him in his workshop, his safe domain. \"I find it terrible.\"",
+    "sourceHash": "7487aaa32829",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:474b5149",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13220,6 +13231,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:476329d2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Verstappen wins GP Mexico, Antonelli youngest world champion ever",
+    "lead": "Kimi Antonelli is the new world champion in Formula 1. The 20-year-old Italian scored the necessary points with his third place in the Mexico City Grand Prix for an insurmountable lead in the title fight. His rivals George Russell and Lewis Hamilton can no longer catch him in the remaining four races of this season.",
+    "sourceHash": "668c69b00738",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:476f1814",
@@ -13272,17 +13294,6 @@
     "title": "Is the typically Dutch Chinese-Indonesian restaurant still salvageable?",
     "lead": "Can you still find a Chinese-Indonesian restaurant in your area? Or are you willing to travel a bit for your babi pangang or foe yong hai? Because the number of Chinese-Indonesian restaurants in the Netherlands is steadily decreasing. \"There is often no successor, and you can't offer cooks much career prospect because it is very difficult to attract them\", says Lide Chung, owner of Restaurant Azië, on Spraakmakers.",
     "sourceHash": "6d643f7f6549",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
-    "id": "news:47b94019",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "ASML increasingly contributes to the Dutch economy",
-    "lead": "The Veldhoven-based chip machine manufacturer is estimated to account for 2.2% of the economy this year. This way, the Netherlands is increasingly benefiting from the \"tech boom\", researchers at ING state.",
-    "sourceHash": "8a50d9a0db50",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-26"
@@ -14058,6 +14069,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:4aca7f2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Housemates overpower burglar in student house, police arrest suspect",
+    "lead": "A group of students managed to overpower a burglar after he had stolen items from their student house in Tilburg at night. The burglar did not manage to get away with it: he was held by the housemates until the police arrived.",
+    "sourceHash": "ac93514ddc9f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:4ad9854e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14188,6 +14210,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
+  },
+  {
+    "id": "news:4b9072c8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Antonelli overtakes Vettel as youngest Formula 1 world champion",
+    "lead": "Kimi Antonelli can now call himself the youngest world champion in Formula 1. The Italian from Mercedes won the world title at the Mexican Grand Prix at the age of 20 years and 68 days. He is the 36th world champion since the start of Formula 1 in 1950.",
+    "sourceHash": "72017b745285",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:4b910a7b",
@@ -14410,17 +14443,6 @@
     "translated": "2026-10-26"
   },
   {
-    "id": "news:4c5f45d2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Who Deserves the Ballon d'Or Most? 'It Is Hard to Explain That Kylian Mbappé Has Never Won It'",
-    "lead": "The Ballon d'Or is being presented tonight in London. There is no clear favourite this year, so we asked our football reporters: who in your opinion deserves the prize? It produced five different names.",
-    "sourceHash": "cd41ea75ef18",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:4c6afb9b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14531,17 +14553,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:4d147db6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "FC Twente overtakes AZ after win in Alkmaar",
-    "lead": "FC Twente closed the tenth matchday of the Eredivisie with a win over AZ and has overtaken the club from Alkmaar in the standings. In the AFAS Stadion in Alkmaar the score was 0-2. Twente now sit fourth with 20 points, level with fifth-placed AZ and third-placed PSV. Feyenoord lead the table with 24 points.",
-    "sourceHash": "c550ca76559f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:4d1c0ac8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14628,17 +14639,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
-  },
-  {
-    "id": "news:4d629d2c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Antonelli wins in Austin, moving closer to the title; Verstappen third",
-    "lead": "Kimi Antonelli has, with victory in the Grand Prix of the United States, his first Formula 1 world title within reach. The Italian stayed in his Mercedes ahead of the Monegasque Charles Leclerc in the Ferrari and Max Verstappen in the Red Bull, and won his ninth Grand Prix by a large margin.",
-    "sourceHash": "47dc20f8d1c2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
   },
   {
     "id": "news:4d74e7db",
@@ -14749,17 +14749,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-26"
-  },
-  {
-    "id": "news:4dd76afe",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Feyenoord has a difference maker that PSV lacks, and both teams do not (yet) have a deep bench",
-    "lead": "The 1-1 draw in PSV - Feyenoord kept the head-to-head points gap on the league table unchanged. The top match at the Philips Stadium clearly showed how the two title contenders relate to each other. Where are the differences and similarities? Four points highlighted.",
-    "sourceHash": "fa06011da296",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:4ddd3abe",
@@ -14949,17 +14938,6 @@
     "translated": "2026-10-15"
   },
   {
-    "id": "news:4e4a0f3c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Former president Vucic admits defeat in Serbian elections, students win",
-    "lead": "Serbia's former president Aleksandar Vucic admitted on Sunday that he had lost the parliamentary elections. This appears to mean that a protest movement led by students has won. The victory means a \"fundamental political shift\".",
-    "sourceHash": "6dd4d397f29d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:4e50d7fa",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14969,17 +14947,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:4e5aa913",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Phone ban in schools, what does it achieve? \"Breaks are much more fun now\"",
-    "lead": null,
-    "sourceHash": "7074e2347c1b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-16"
   },
   {
     "id": "news:4e60f328",
@@ -15057,6 +15024,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:4f2184a5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Nine dead in private jet crash in Florida residential area, plane explodes next to busy road",
+    "lead": "All nine people on board have died in a plane crash in a residential area in the American state of Florida today. The private jet came down right next to a busy road and burst into flames. Footage shows the aircraft diving down at high speed.",
+    "sourceHash": "eaab7826884a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:4f2e0820",
@@ -15510,6 +15488,17 @@
     "translated": "2026-10-27"
   },
   {
+    "id": "news:50db063a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "AFM reprimands pension providers over deficient information on survivors' pensions",
+    "lead": "Pension providers must clearly and fully inform survivors about the pension after a death. That is not happening enough at the moment, the regulator stresses.",
+    "sourceHash": "51e2ace7aa6a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:50dffe26",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15917,17 +15906,6 @@
     "translated": "2026-10-21"
   },
   {
-    "id": "news:5324b622",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The peace movement is filling up with young people: 'Decisions are being made about us without asking us anything'",
-    "lead": null,
-    "sourceHash": "8fb4d4b30edd",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:533461ff",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15981,17 +15959,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-26"
-  },
-  {
-    "id": "news:5375c82b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Student movement wins elections in Serbia after years of protests, Vučić concedes defeat",
-    "lead": null,
-    "sourceHash": "0647510f6fb4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:539e1e69",
@@ -16124,17 +16091,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
-  },
-  {
-    "id": "news:53d940c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Míchel on Ajax's narrow win over Sparta: 'Ter Stegen was the best man on the pitch'",
-    "lead": null,
-    "sourceHash": "7c75c50c4068",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:53ef4ff9",
@@ -16289,17 +16245,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:548a886b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dead and thousands of homes without power after storm Boelo in the United Kingdom",
-    "lead": "In the United Kingdom two people have died due to storm Boelo. Due to the extreme weather more than 150,000 homes are without power.",
-    "sourceHash": "4ad6981fb1f6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:548d7868",
@@ -16929,6 +16874,17 @@
     "translated": "2026-10-24"
   },
   {
+    "id": "news:56d1d6d8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tim Prins gets lucky after Olympic drama: 'It can never be normal with me'",
+    "lead": "Things finally went Tim Prins's way on Sunday. After the Olympic drama of last season, the Frisian secured a World Cup ticket on Sunday, at the expense of Kjeld Nuis. The difference was 0.01 seconds. \"I still had some credit from above.\"",
+    "sourceHash": "2c691c3ccd6c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:56f0bbd2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -16938,6 +16894,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:56f0f73c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Times for the São Paulo Grand Prix | This is when Max Verstappen races next weekend in Brazil",
+    "lead": "The end of the Formula 1 season is approaching quickly. First the drivers and teams still have one of the most iconic circuits on the calendar to tackle: the Interlagos circuit in Brazil. See below when Max Verstappen and his colleagues are in action.",
+    "sourceHash": "34c096494d4f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:56f3aa38",
@@ -17391,17 +17358,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:596da41f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "After-school art class",
-    "lead": "I teach after-school art classes to teenagers. On this gloomy October afternoon, two girls are sitting on the floor chatting cheerfully, with their hands in the papier-mâché.",
-    "sourceHash": "dba5698b4934",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:5978cfe3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -17422,6 +17378,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
+  },
+  {
+    "id": "news:598b90da",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Axios: 'Trump wants a diplomatic solution with Iran, Netanyahu wants to resume attacks right after the midterms'",
+    "lead": "Donald Trump reportedly wants to prioritise a diplomatic solution to the war with Iran, while Israeli Prime Minister Benjamin Netanyahu reportedly wants to resume the attacks immediately after the midterm elections in the US next week. That is what the news site Axios reports. According to the site, Trump and Netanyahu reportedly had a 'heavy' and 'frank' phone call about the matter on Saturday. Follow all developments about the Middle East in our live blog.",
+    "sourceHash": "484cd91eeeac",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:598fb802",
@@ -17741,6 +17708,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
+  },
+  {
+    "id": "news:5b53a43",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Pro-Russian candidate wins presidential election in Bulgaria",
+    "lead": null,
+    "sourceHash": "e53613e1dd5a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:5b53b2",
@@ -18687,6 +18665,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:5d21b250",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Antonelli after 73 years third Italian world champion",
+    "lead": "Kimi Antonelli is the third Italian world champion in Formula 1. His two predecessors are Nino Farina and Alberto Ascari, who made a splash in the early years of the top class of motorsport. Farina was the very first world champion in 1950, and Ascari won two titles: in 1952 and 1953. Antonelli is therefore the third Italian world champion 73 years after Ascari.",
+    "sourceHash": "1bc038dc44ed",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:5d220693",
@@ -22671,17 +22660,6 @@
     "translated": "2026-10-25"
   },
   {
-    "id": "news:5d36947",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Pro-Russian presidential candidate in Bulgaria in the lead after first election round",
-    "lead": "The moderately pro-Russian president Iliana Jotova of Bulgaria has, according to exit polls, received the most votes in the first round of the presidential elections. Due to a historically low turnout, a second round will be needed on 1 November. According to various Bulgarian projections, just over 20 percent of eligible voters cast their vote. According to several exit polls, Jotova obtained between 35.2 and 36.5 percent of the votes. The pro-Western candidate, Andrej Gjoerov, the former interim prime minister and banker, received 32.2 to 32.4 percent of eligible voters' votes. The presidential elections revolved mainly around the war Russia started in Ukraine, the economic situation in Bulgaria and drone attacks on ships in the Black Sea. Important test The election is seen as an important test for the centre-left Progressive Bulgaria party of Prime Minister Roemen Radev. He won the parliamentary elections in April and was previously president until January. At that time he stepped down to run for the premiership. Jotova, previously vice president for nine years, succeeded him. The 62-year-old Jotova is considered an independent candidate, but enjoys the support of Radev's pro-Russian party and the Socialist Party, where she began her career. She wants to strengthen ties with Russia and, like Radev, does not want to provide military aid to Ukraine. In addition, Jotova advocates lifting sanctions against Russia. In doing so she departs from the EU's course, which wants to increase pressure on Moscow and continues to support Ukraine militarily. If Jotova wins, she will become the first elected female president of Bulgaria. Gjoerov, who enjoys the support of the reform-minded opposition, stands precisely for support for Ukraine. During his interim premiership, between February and May of this year, he signed, among other things, a security cooperation agreement with that country. The preliminary results are expected to be published tomorrow.",
-    "sourceHash": "dd4577e96960",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:5d36948",
     "language": "en",
     "sourceLanguage": "nl",
@@ -22699,17 +22677,6 @@
     "title": "Polling stations in Brazil open two hours longer after intervention by Supreme Court",
     "lead": "Polling stations in Brazil will remain open two hours longer today for the decisive round of the presidential election, the Supreme Court has decided. The reason is problems voters are experiencing with transport to polling stations. Originally, polling stations would close at 17.00 Brazilian time (21.00 Dutch time). Voting has now been extended on the order of the Supreme Court until 19.00 Brazilian time (23.00 Dutch time). In view of the ruling, the highest Brazilian electoral court (TSE) decided to temporarily halt the processing and publication of the interim results. Brazil votes electronically. This is at stake in these elections: The decision of the Supreme Court was taken by judge Cristiano Zanin and came after requests from the two presidential candidates Lula da Silva (80) and Flávio Bolsonaro (45). The team of the current left-wing president Lula said that voters in nine states were hindered by problems with buses from casting their vote in time. His opponent, the far-right Flávio Bolsonaro, submitted a similar request to the Supreme Court due to heavy rainfall in southern Brazil, where flooding made transport to polling stations difficult. According to the judge, extending voting by two hours was justified \"given the seriousness of the reported facts\". Neck-and-neck race Candidate Lula is trying to become president for the fourth time and is locked in a neck-and-neck race with his ideological counterpart Bolsonaro. Bolsonaro surprisingly won the first round of the presidential election, while Lula led in the polls. Because Bolsonaro did not obtain an absolute majority, a second round was needed to determine a winner. The result determines whether Brazil, with more than 200 million inhabitants, continues on its left-wing course or turns to the right. The elections are seen as important for the political balance in South America. Earlier this year, Trump-friendly right-wing candidates won the presidential elections in Peru and Colombia . In Chile that happened at the end of last year . A win for Lula would mean that Brazil, like Mexico, retains a left-wing <entity id=\"org:regering\">regering</entity>.",
     "sourceHash": "e0e7be520e91",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
-    "id": "news:5d36969",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sven Kockelmann (56) wins Sonja Barend Award for interview with former prime minister Schoof",
-    "lead": "Sven Kockelmann (56) has won the Sonja Barend Award. The journalist wins the prize for his interview with former prime minister Schoof. BNNVARA, the broadcaster that presents the prize, praises Kockelmann for the way he turned the interview with the then outgoing prime minister into \"not a political cross-examination, but a personal conversation about a turbulent premiership\". The interview took place on 20 February of this year during a special broadcast of the WNL programme Café Kockelmann. Kockelmann was chosen by a jury of fifty journalists. \"A revealing conversation,\" says jury member Maartje van Weegen in a press release. His interview was one of the nine conversations on the longlist for the Sonja Barend Award this year. 'Honest look back' He received the award tonight from last year's winner, Coen Verbraak, during the broadcast of talk show Pauw & De Wit. Eva Jinek finished in second place with her interview with SGP leader Chris Stoffer about abortion. Verbraak came third with his interview with journalist Frits Abrahams about his wife's dementia in the Human programme Over Leven. Kockelmann says on the BNNVARA website that with the conversation he mainly wanted to get to know the person behind the prime minister. \"The intention was an honest look back, with openness about matters. I wanted to know what had gone on inside him and how he had experienced the events.\" Kockelmann calls the interview with the prime minister \"remarkable\", mainly because of Schoof's candour. \"I did wonder: was it sharp enough? Was it complete enough? The doubt remains, no matter how long I do this work. Even the people who were technically involved in the recording were silent afterwards.\" Sonja Barend has died Sonja Barend passed away in April of this year, but her trade prize for the best television interview continues to exist, as she herself wanted. It is the first time that 'The queen of the talk show' will not present the prize named after her.",
-    "sourceHash": "f6cfbbe64471",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
@@ -25809,12 +25776,12 @@
     "id": "news:5d3f1c2",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Israeli strikes kill at least eight Palestinians in Gaza",
-    "lead": "Israeli strikes have killed at least eight Palestinians. Hospital workers report this to Al Jazeera. In Gaza City, three people were killed in a drone strike, including a father and his 4-year-old son. In a drone strike in Khan Younis, in the south of Gaza, five police officers were killed. People were also injured in the attack. According to an Al Jazeera journalist, Israeli drones are still flying over eastern Gaza City at this moment. Since October last year, a ceasefire has been in effect between Israel and Hamas, but in practice the truce is violated almost daily by Israel. It is estimated that more than a thousand Palestinians have been killed since the ceasefire began. Israel says it has lost five soldiers.",
-    "sourceHash": "15e0acb04090",
+    "title": "Israeli attacks kill at least eight Palestinians in Gaza",
+    "lead": "Israeli attacks have killed at least eight Palestinians. Hospital staff report this to Al Jazeera . In Gaza City three people died in a drone strike, including a father and his 3-year-old son. In a drone strike in Khan Younis, in the south of Gaza, five police officers were killed. Others were also injured. According to an Al Jazeera journalist, Israeli drones are still flying over eastern Gaza City at this moment. A ceasefire between Israel and Hamas has been in effect since October last year, but in practice the truce is violated almost daily by Israel. It is estimated that more than a thousand Palestinians have been killed since the start of the ceasefire. Israel says it has lost five soldiers.",
+    "sourceHash": "63123729c7cc",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-01"
+    "translated": "2026-11-02"
   },
   {
     "id": "news:5d3f1cb",
@@ -25875,12 +25842,12 @@
     "id": "news:5d3f57f",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "800-year-old churches in Groningen buckle under summer drought",
-    "lead": "Besides earthquake damage, medieval churches in Groningen may also be suffering damage from drought. That is what climate and soil experts state in an exploratory study commissioned by the <entity id=\"org:provincie-groningen\">provincie Groningen</entity> and Stichting Oude Groninger Kerken. They examined the influence of drought on the mounds (wierden) on which the churches stand in Oostum and Den Ham, northwest of the city of Groningen. The reason for the study is that in 2018 new damage appeared in the church in Oostum, where presumed earthquake damage had been repaired just two years earlier. Since then there have been no major earthquakes there, but the damage still appears to be increasing. The researchers therefore think that ground movements caused by the drought play a role. They warn that more heritage faces this problem. The nave of the small church in Oostum has stood for 800 years, say caretakers Hesther le Grand and Niels Smit Duyzentkunst. They love \"their little church\". Le Grand: \"I always find it sounds a bit sappy, but it does something to the energy that it is already so old. Somehow you feel it.\" Age That long history is clearly visible to a trained eye. \"It was a barrel-vaulted church, but after just two centuries they were fed up with it and put a beamed ceiling in\", says Smit Duyzentkunst, pointing at the roof. \"Two centuries later the pulpit was added, along with the pews for the local gentry. The whole history can be seen here.\" It offers a lovely picture of the past, but in recent years more and more cracks have appeared in the walls. Where there are cracks, water seeps in and age takes hold of this centuries-old house of God, which as a result is falling into decay. The cracks in the building are clearly visible: \"It is not a given that the church will still be standing here in 800 years, because the ageing is now going very fast\", says Floris Boogaard, lecturer in climate adaptation at the Hanze University of Applied Sciences. \"Groningen pride\", he calls churches of this kind, of which, according to him, more than the two studied buildings are struggling with this problem. \"We have looked at the movement of the building and also at the mounds. You can see that the church in Oostum is moving\", he explains. The study runs for two years, and longer-term research is needed before definitive conclusions can be drawn. Boogaard is already certain that the ground under the church is sensitive to shrinking and swelling. That can have far-reaching effects during prolonged drought. Longer dry periods \"You can see that groundwater levels are dropping\", says Boogaard, who mapped the soil. \"It is known that peat oxidises and can become more compact. And then there is clay. We sampled that in the laboratory and it turns out to be 'shrink-swell clay'. That means it swells when water is added and that the ground sinks when there is drought.\" The scientist stresses that all kinds of factors play a role in cracking in churches; besides drought, for example heavier traffic, changes in the surroundings and earthquakes. But apart from the drought, none of these factors have changed significantly in this region in recent years, while the cracks have become much worse. Boogaard: \"The climate is changing. The drought periods are significantly longer: in 2018 it was two months dry and that really has an effect\". This year too has seen exceptionally long dry periods. \"The intensity of this kind of long drought period can be seen in the structural condition of this building.\" Another 800 years Solutions are still being investigated, but what the researchers consider necessary in any case is a stable water management system around the old churches. At Oostum, for example, some pits could be dug around the church so that water collects there and slowly seeps into the ground. They think measures of this kind could offer relief in more places. Caretakers Smit Duyzentkunst and Le Grand are pleased with the study. \"I think it is very good that people are now looking into what it is and what we can do about it\", says Smit Duyzentkunst. \"For the whole community it would be lovely if places like this could continue to exist.\" Le Grand: \"Also in another 800 years.\"",
-    "sourceHash": "598155b80360",
+    "title": "800-year-old churches in Groningen crack under summer drought",
+    "lead": "Besides earthquake damage, medieval churches in Groningen may also be suffering from drought damage. That is what climate and soil experts state in an exploratory study commissioned by the <entity id=\"org:provincie-groningen\">provincie Groningen</entity> and the Stichting Oude Groninger Kerken. They examined the influence of drought on the wierden (mounds) on which churches stand in Oostum and Den Ham, northwest of the city of Groningen. The reason for the study is damage to the church in Oostum. It was discovered in 2018, while suspected earthquake damage had been repaired just two years earlier. Since then there have been no major earthquakes there, but the damage still appears to be increasing. The researchers therefore think soil movements caused by drought play a role. They warn that more heritage faces this problem. The nave of the small church in Oostum has stood for 800 years, say caretakers Hesther le Grand and Niels Smit Duyzentkunst. They love their church. Le Grand: \"I always think it sounds a bit corny, but it does something to the energy that it is already so old. Somehow you feel it.\" Age That long history is easy to see for a trained eye. \"It was a barrel-vaulted church, but after two centuries they were fed up with it and put a beamed ceiling in,\" says Smit Duyzentkunst, pointing at the roof. \"Two centuries later the pulpit came in, and the family pews. The whole history can be seen here.\" It makes for a lovely picture of the times, but in recent years more and more cracks have appeared in the walls. Where there are cracks, water seeps in and age takes hold of the centuries-old house of God, which as a result is falling into decay. The cracks in the building are clearly visible: \"It is not a given that the church will still be standing here in 800 years, because the aging is now going very fast,\" says lecturer in climate adaptation Floris Boogaard of the Hanze University of Applied Sciences. \"Groningen pride,\" he calls this kind of small church, of which, according to him, more than the two buildings studied struggle with this problem. \"We have looked at the movement of the building and also at the wierden. You can see that the church in Oostum is moving,\" he explains. The research runs for two years, and longer-term research is needed before definitive conclusions can be drawn. Boogaard is already certain that the ground under the church is sensitive to shrinking and swelling. That can have far-reaching effects during prolonged drought. Longer dry periods \"You can see the groundwater levels dropping,\" says Boogaard, who mapped the soil. \"Peat is known to oxidise and can become more compact. And then there is clay. We sampled that in the laboratory and it turns out to be 'shrink-swell clay'. That means it swells when water is added, and that the ground sinks during drought.\" The scientist stresses that all kinds of factors play a role in crack formation in churches; besides drought, for example, heavier traffic, changes in the surroundings and earthquakes. Apart from the drought, none of these factors has changed significantly in this region in recent years, while the cracks have become much worse. Boogaard: \"The climate is changing. The drought periods are significantly longer: in 2018 it was dry for two months, and that simply has a real effect.\" This year also saw exceptionally long dry periods. \"The intensity can be seen in the structural condition of this building.\" Digging pits Solutions are still being investigated, but what the researchers consider necessary in any case is a stable water management system at the old churches. At Oostum, for example, some pits could be dug around the church so that water collects there and slowly sinks into the ground. Such measures could offer relief in more places, they think. The caretakers in Oostum are pleased with the study. \"I think it is wonderful that people are now looking into what it is and what we can do about it,\" says Smit Duyzentkunst. \"For the whole community it would be lovely if places like this could continue to exist.\" Le Grand: \"Even in 800 years' time.\"",
+    "sourceHash": "3b1c4a0078aa",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-01"
+    "translated": "2026-11-02"
   },
   {
     "id": "news:5d3f583",
@@ -25916,6 +25883,61 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:5d3f5a1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "UN withdraws peacekeeping mission from Western Sahara, conflict not yet over",
+    "lead": "There will be an end to the Minurso peacekeeping mission in Western Sahara. That is what the United Nations has announced. The UN troops and equipment will return in the coming weeks to the countries that took part in the mission. On Friday Russia vetoed an American proposal to extend the mandate of Minurso. As a result, after 35 years the peacekeeping operation will end, without the conflict having been resolved. The struggle over Western Sahara is one of the longest-running and most complex conflicts in the world. The area on the Atlantic Ocean is six times the size of the Netherlands and is rich in the valuable raw material phosphate. Morocco says it has always belonged to the kingdom, long before the former Spanish colonizer incorporated the area in 1884. Struggle since 1975 On the other side is the independence movement Polisario, which fights for an independent state. The diplomatic and sometimes armed struggle over the area has been raging since 1975. Morocco controls most of Western Sahara. Polisario, supported by neighbouring Algeria, controls areas east of the Moroccan military sand wall. In 1991 the United Nations set up the Minurso peacekeeping mission. It was to oversee the ceasefire between Morocco and Polisario and pave the way for a referendum on the future of Western Sahara. But since 2020 the ceasefire has broken down and there are small-scale clashes. Minurso reported these incidents to the UN, but with the mission's departure the independent observer also disappears. Referendum In the planned referendum the population could vote for their own state or for continuing as part of Morocco, but it never happened. Morocco and Polisario did not agree, among other things, on who would be allowed to vote. Later Morocco turned against a referendum in which independence was one of the options. End of the ceasefire In November 2020 the ceasefire between Morocco and the independence movement Polisario ended after 30 years. The trigger was a Moroccan military operation at the Guerguerat border crossing. Polisario supporters blocked the passage for weeks, until the Moroccan army intervened. Polisario considered that a violation of the 1991 ceasefire and announced it would resume the armed struggle. Since then there have again been armed clashes, although there is no large-scale war. On 10 December 2020 an important diplomatic development followed: the American president Trump recognised Moroccan sovereignty over Western Sahara. This happened after Morocco had agreed to normalise relations with Israel. It was a breakthrough for Morocco, but Polisario condemned the decision. In 2007 Morocco presented an alternative plan for resolving the conflict. The area would receive self-government in a number of fields, but would definitively become part of Moroccan territory. Since 2020 more and more Western countries, such as the United States, France and Spain, have backed this autonomy plan. Different role for UN On Friday, at a session of the UN Security Council where the extension of the Minurso mandate was voted on, the American UN ambassador Mike Waltz presented a new resolution. It provided for a different role for the UN mission. The reference to the referendum - the R - would also disappear from the name; the mission would from then on be called Minuso. In response the Russian delegation submitted a counterproposal to leave the mission's name unchanged and keep the referendum plan on the negotiating table. The Security Council voted that down. When announcing the withdrawal of the UN troops, Secretary-General António Guterres made clear that peace negotiations would continue. The special envoy for Western Sahara, Staffan de Mistura, remains in place as leader of the negotiations between Polisario and Morocco. Concerns about rising violence Guterres has also called on both parties to keep to the ceasefire. The UN chief fears that violence in the area will flare up again once the UN troops are gone. <entity id=\"pos:minister-van-buitenlandse-zaken\">Minister van Buitenlandse Zaken</entity> Nasser Bourita promised that Morocco will support the UN troops in their withdrawal. He also said Morocco continues to abide by the ceasefire. Morocco remains willing to hold peace negotiations, but on condition that the Moroccan autonomy plan is the only basis for talks about the future of the area. Polisario says in a response that it is very concerned about the possible consequences of the withdrawal of the UN troops. The movement thanks Russia for vetoing the American proposal and for its support for the self-determination right of the Sahrawi population.",
+    "sourceHash": "073e3ad22796",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
+    "id": "news:5d3f5a9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "After the elections and a bewildering week in Brazil, what now?",
+    "lead": "A week after the tense elections in Brazil, which were surprisingly won by incumbent president Lula da Silva, the spectacular events are following one another at breakneck speed. Brazilians are left bewildered, as if they had ended up in a soap opera. Flávio Bolsonaro, of the radical right PL party, fled to the United States and called himself the elected president, even though he had just lost the elections. His party was not happy with the claim. Some of his supporters find it understandable that Bolsonaro fled the country. \"He would have been arrested in Brazil and locked up, just like his father. I do understand that he left. The justice system here is not impartial, they would hunt him down,\" says Uber driver Henrique Santos Silva a few days after Bolsonaro's departure. 'I hope he comes back' A colleague who also voted for Bolsonaro would have preferred to see Flávio stay in Brazil. \"If he has nothing to hide, he doesn't need to flee. I believe he is innocent, I hope he comes back,\" says driver Diogo Neto. The justice system already expected that Bolsonaro might try to flee the country. Several judicial investigations are underway against him, including for corruption and money laundering. After the Brazilian election result, he initially refused to accept his defeat and made accusations of fraud. America involved? His party, the Partido Liberal (PL), on the other hand, did recognise the victory of President Lula da Silva. The party was not aware of his plans to flee the country. Bolsonaro left in secret and without a passport. The Brazilian justice system had given him 24 hours after the election result to hand in his passport. After his flight, on a private plane via Argentina and Ecuador, Flávio Bolsonaro landed in Miami, where he received a visa from US President Trump. The American minister Rubio of <entity id=\"org:ministerie-van-buitenlandse-zaken\">Buitenlandse Zaken</entity> denied this weekend that the US was directly involved in Flávio Bolsonaro's flight from Brazil. Nevertheless, according to various media, the Trump administration played an important role behind the scenes. More Bolsonaros in <entity id=\"org:eerste-kamer\">de Senaat</entity> In Brazil, sixty million Brazilians voted for Bolsonaro. His party has grown strongly in the National Congress, and several members of the Bolsonaro family were elected to the Brazilian Chamber of Deputies and the Senate. Two younger brothers have won seats in the Senate, as has his father's wife Michelle. The party now has to regroup, with Flávio Bolsonaro in the US and father Jair Bolsonaro serving a prison sentence at home. He received 27 years for an attempted coup. In a letter Flávio published from the US last week, he calls himself the \"true and rightful president of Brazil\". In a second version he changed this to \"leader of Brazil\". The letter has not gone down well with his party. PL chairman Costa Neto rejects the descriptions. \"I found that nothing,\" says the chairman of the Partido Liberal. It is still unclear who will take over the actual leadership of the party in Brazil. Bolsonaro has announced that he wants to run for the presidency again in 2030. 'We have been woken up' Meanwhile, supporters of President Lula da Silva are still euphoric about the surprising election victory. In the first round they had still lost to Bolsonaro. \"The idea that Bolsonarism would have so much power, with gains in Congress and also a president, has woken us up,\" says student Lucas Correa (20), who campaigned hard together with many other students. But Lula's Workers' Party PT also has to reflect on the future. Lula is 81 and begins his fourth and final term in January. So a successor will have to emerge. Moreover, governing will not be easy, because the president faces a strong bloc of right-wing parties in the National Congress, including, of course, Bolsonaro's party.",
+    "sourceHash": "23e21d22fa19",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
+    "id": "news:5d3f5c3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Bulgaria gets pro-Russian president in Yotova, support for Prime Minister Radev",
+    "lead": "Bulgaria is getting its first elected female president. According to the exit polls, the pro-Russian Iliana Yotova has won 56 to 58 percent of the votes. Her opponent, the pro-European Andrej Gjoerov, who gets 38 to 40 percent, has congratulated her on her victory. The official result is expected tomorrow, once all votes have been counted. Yotova (62) is currently acting president. She was vice president from 2017 until early this year, when the current pro-Russian prime minister Radev was president. When he went for the prime ministership, she became his successor. The presidency of Bulgaria is a largely ceremonial function. Turnout was 27 to 29 percent, slightly higher than in the first round last week, when only 23 percent of eligible voters turned out, a record low. Yotova won that first round, but because of the low turnout a second round was necessary. Support for policy Yotova thanked the voters for their trust and the parties united in Progressive Bulgaria for their support of her candidacy. The result is a boost for the policy of Radev, who has been prime minister since April. Like Radev, Yotova is opposed to financial and military support for Ukraine and wants to strengthen ties with Russia. The elections took place against the backdrop of a number of drone attacks on ships in the Black Sea, in and just outside Bulgarian territorial waters. Russia in the spotlight It is not yet clear who was behind the attacks, but fingers were pointed at Russia. Prime Minister Radev summoned the Russian ambassador and spoke with NATO Secretary General Rutte. The attacks were condemned internationally and raised concerns about how far the war in Ukraine could spread. In response to the attacks, Bulgaria asked allies for military assistance to guarantee security at sea. Last Wednesday, a Greek container ship sank after it was hit by drones. A number of crew members from an earlier sunken ship are still missing.",
+    "sourceHash": "edb42fa04644",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
+    "id": "news:5d3f5e4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Private jet crashes into residential area in Florida, all nine people on board killed",
+    "lead": "In the US state of Florida a private plane with nine people on board has crashed. Everyone on board has died, Transport Minister Sean Duffy reports. The identity of the victims has not been released. The cause of the crash is also still unclear. The aircraft, a Learjet 60, had taken off in Texas and was en route to the Bahamas, off the coast of Florida. The plane had taken off from Austin-Bergstrom International Airport in Texas. A spokesperson for that airport calls the accident with the small plane \"absolutely a tragedy\". Crater In footage it can be seen how the plane falls straight down out of the sky right next to a busy road by a mobile home park. Shortly afterwards a huge fireball erupts, after which the aircraft is engulfed in flames. \"It looked like a missile crashing,\" says Florida Governor Ron DeSantis. The aircraft gouged a crater in a road only a few metres from the residential area. According to the governor, there are no reports of fatalities on the ground. Because of the investigation into the crash, about 600 people have been evacuated. The plane crashed in the town of Greenacres, a few kilometres from Mar-a-Lago, the estate of President Trump. Trump was earlier today in the area, but left a little over an hour before the crash with Air Force One from the nearby West Palm Beach airport.",
+    "sourceHash": "e5f0edd3d703",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
+    "id": "news:5d3f5e5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "App warning Ukrainians sends fake message about nuclear attack 'due to hack'",
+    "lead": "An app that warns Ukrainians about imminent Russian air strikes sent a fake message last night warning of a chemical or nuclear attack and of impending street fighting. According to the Ukrainian air force, the app had been hacked, causing several false warnings to be sent, reports Ukrainian news outlet Kyiv Independent . In one of the messages, written in Russian: \"Hello, a nuclear alarm is about to sound across all of Ukraine! Don't worry: an Oreshnik missile is on its way\". An Oreshnik missile is a hypersonic Russian missile that is difficult to intercept because of the high speed at which it flies. The projectile can carry nuclear warheads and fly ten times faster than sound. Air raid alarms In some parts of the country, according to Kyiv Independent, air raid alarms also wrongly sounded. The Ukrainian air force reported shortly afterwards: \"The 'Air Alert' app has probably been hacked by the enemy. There is no radiation threat! Please remain calm and follow our instructions on our Telegram channel.\" Regional governors also informed citizens via their social media channels that false alerts were being sent. They also warned people not to click on links. Around midnight the warning system was restored.",
+    "sourceHash": "36e50da10ff8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:5d4dc0bc",
     "language": "en",
     "sourceLanguage": "nl",
@@ -25936,6 +25958,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:5d501808",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Kjeld Nuis leaves Thialf fuming: 'This was completely nothing, far below my level'",
+    "lead": "He was ill for a long time during preparations for this season. Kjeld Nuis secured a ticket for 'his' 1500 metres on Saturday, but still left Thialf fuming after missing a World Cup start in the 1000 metres by one hundredth. \"It was just crap.\"",
+    "sourceHash": "1556209e8bb0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:5d5ea7",
@@ -26123,17 +26156,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
-  },
-  {
-    "id": "news:5e321590",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "This is what Kimi Antonelli must do to win the world title next weekend in Mexico",
-    "lead": "Kimi Antonelli does not yet have his very first Formula 1 world title secured. The 20-year-old Italian did win the Grand Prix of the United States, but his pursuers Lewis Hamilton and George Russell each finished one place higher than they should have.",
-    "sourceHash": "27fb6cd81200",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:5e45868e",
@@ -26334,17 +26356,6 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:5f1e6e32",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "There are also right-wing voters who want wealth to be taxed more heavily. And so the VVD is struggling",
-    "lead": null,
-    "sourceHash": "6e988dd4eb31",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:5f2c12f5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -26365,6 +26376,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:5f35d4b9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "CDA think tank wants to scrap allowances: 'People are afraid of the Tax Authorities'",
+    "lead": null,
+    "sourceHash": "3c3df1dd0250",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:5f383979",
@@ -26719,17 +26741,6 @@
     "translated": "2026-10-28"
   },
   {
-    "id": "news:60cad55f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Real Madrid hand FC Barcelona their first league defeat",
-    "lead": "Real Madrid handed FC Barcelona their first defeat of the season in the Spanish league in El Clásico. At Camp Nou it was 2-1 for the visitors from Madrid. Kylian Mbappé scored twice for Real, and Raphinha scored Barcelona's goal.",
-    "sourceHash": "36d2bea112ac",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:60dd1a35",
     "language": "en",
     "sourceLanguage": "nl",
@@ -26840,6 +26851,17 @@
     "translated": "2026-10-29"
   },
   {
+    "id": "news:61786d6b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Demonstrations also took place in several European cities this weekend",
+    "lead": null,
+    "sourceHash": "94208d00043d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:618993ff",
     "language": "en",
     "sourceLanguage": "nl",
@@ -26917,17 +26939,6 @@
     "translated": "2026-11-01"
   },
   {
-    "id": "news:61cd9c64",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Make Mars habitable? According to this planetologist, that would be a waste. 'That Planet B story is big nonsense'",
-    "lead": null,
-    "sourceHash": "34f7845922c6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:61d78ee2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -26983,15 +26994,15 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:6225ca72",
+    "id": "news:620188db",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Míchel after the narrow win over Sparta: 'Ter Stegen was the best man on the pitch'",
-    "lead": null,
-    "sourceHash": "ca8b4f81e5ad",
+    "title": "Judge rejects Trump's request to block Alaska result if he loses",
+    "lead": "A federal judge has rejected Trump's request to block the result of the midterm elections in Alaska should the Republican candidate lose. Trump had asked the judge for this because a candidate is running with an almost identical name to the Republican.",
+    "sourceHash": "05cdaab36328",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-25"
+    "translated": "2026-11-02"
   },
   {
     "id": "news:622986f1",
@@ -27269,15 +27280,15 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:63363e0f",
+    "id": "news:632d05a1",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Tallon Griekspoor fought with himself and his coaches, now he leaves the struggle behind: 'Best win of my career'",
-    "lead": "Tallon Griekspoor doubted himself so much this year that he considered a tennis sabbatical. For months he searched in vain for his form and dropped from 25th to 60th in the world. On Sunday, with an ATP title in Brussels, he left a large part of his struggles behind.",
-    "sourceHash": "372132dd131f",
+    "title": "Reader reactions: Should primary schools ban AI?",
+    "lead": null,
+    "sourceHash": "3a290138d480",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-25"
+    "translated": "2026-11-02"
   },
   {
     "id": "news:6342c37e",
@@ -27841,6 +27852,17 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:6534037a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Antonelli is speechless after winning the Formula 1 world title",
+    "lead": "Kimi Antonelli cried with joy when he finished third during the Mexico City Grand Prix and, with that position, secured the Formula 1 world title as the youngest ever. \"I did it, I have no words for it. I need to process this first,\" said the 20-year-old Italian from Mercedes during the interview on the track.",
+    "sourceHash": "c27146e44049",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:65366352",
     "language": "en",
     "sourceLanguage": "nl",
@@ -27938,17 +27960,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:6585cf06",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "How France became ungovernable at home yet unstoppable in Brussels",
-    "lead": "The paradox of Parisian power.",
-    "sourceHash": "a7cf38e3664d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-23"
   },
   {
     "id": "news:6585e4e9",
@@ -28138,17 +28149,6 @@
     "translated": "2026-10-26"
   },
   {
-    "id": "news:661b08d3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Europe wants fewer Chinese inverters for solar panels, but its own industry is in serious trouble",
-    "lead": "\"If we wait too long with measures, the manufacturers here will have gone under within three years\", warns MEP Bart Groothuis (VVD).",
-    "sourceHash": "d89fb543880b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:661ed642",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28202,6 +28202,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
+  },
+  {
+    "id": "news:6662ea4d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Personnel news Monday 2 November",
+    "lead": "New job? Email personalia@fd.nl, with a high-resolution photo and a job description in Dutch.",
+    "sourceHash": "8cbc8cbf88bc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:66749136",
@@ -28886,17 +28897,6 @@
     "translated": "2026-10-31"
   },
   {
-    "id": "news:688ba2aa",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sven Kockelmann wins Sonja Barend Award for interview with outgoing prime minister Dick Schoof",
-    "lead": null,
-    "sourceHash": "a92bd26be572",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:688f0571",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29480,6 +29480,17 @@
     "translated": "2026-10-27"
   },
   {
+    "id": "news:6ad91ed",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "In the middle",
+    "lead": "Across: 1. Far too expensive pig feed 5. Addis __ 9. Nordic pest 11. Up to the __ 12. Salman __ 14. Tail piece 15. Gadwall, pochard, teal 21.",
+    "sourceHash": "53442b91556f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:6ad968cd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29887,6 +29898,17 @@
     "translated": "2026-10-26"
   },
   {
+    "id": "news:6ca09348",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Private jet with nine on board crashes in Florida, a few kilometres from Trump's Mar-a-Lago resort",
+    "lead": "A private Learjet crashed into a residential area in the south of the American state of Florida on Sunday. All nine people on board died, American authorities reported.",
+    "sourceHash": "7e35db39f4d2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:6cb31cf2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29931,15 +29953,26 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:6cdb69ef",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Nothing less than a cautious analysis",
+    "lead": null,
+    "sourceHash": "2375191a1d5b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:6cf5cec7",
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Mariëtte Hamer must step down as government commissioner for transgressive behaviour: 'The conversation is not over yet'",
-    "lead": "No new government commissioner will follow her to try to curb transgressive behaviour and sexual violence. To the regret of Mariëtte Hamer, who did see progress in recent years. \"What I really find very nice is that bystanders increasingly find it 'appropriate' to take action when they see sexually transgressive behaviour.\"",
-    "sourceHash": "f72c693c5549",
+    "lead": "After her, there will be no new government commissioner trying to curb transgressive behaviour and sexual violence. To the regret of Mariëtte Hamer, who saw progress in recent years. \"What I really think is wonderful is that bystanders increasingly find it 'appropriate' to take action.\"",
+    "sourceHash": "0a7656cfefec",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-01"
+    "translated": "2026-11-02"
   },
   {
     "id": "news:6d055b3d",
@@ -30305,6 +30338,17 @@
     "translated": "2026-10-26"
   },
   {
+    "id": "news:6ec3f724",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Bandara was injured and his wife is in a wheelchair after an attack by an elephant. Due to deforestation in Sri Lanka, it has less and less room",
+    "lead": null,
+    "sourceHash": "e0a93e13bd70",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:6ed456bc",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30314,17 +30358,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:6eee8e96",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Luke Littler unexpectedly knocked out at European darts championship, Ross Smith and Martin Schindler play the final",
-    "lead": "The European darts championship has started its final day without Dutch players. Jermaine Wattimena and Kevin Doets were the last compatriots eliminated on Saturday. Top favourite Luke Littler was knocked out in the quarter-finals. Meanwhile the semi-finals have begun in Dortmund. You can follow the highlights in this live blog.",
-    "sourceHash": "de44fa2a4041",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:6ef7ceeb",
@@ -30701,17 +30734,6 @@
     "translated": "2026-10-26"
   },
   {
-    "id": "news:7100594c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Verstappen takes lead in race after Antonelli pit stop, but does not seem happy with chosen strategy",
-    "lead": "Max Verstappen is in top form towards the end of the season. After his victories in Malaysia and Singapore, the Red Bull driver is hunting for 'three in a row' in Austin. He starts from second place, just behind Kimi Antonelli. The Italian could become world champion today already. The race begins at 21.00. Follow it here.",
-    "sourceHash": "ace88d7c5bf9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:71100f4c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30910,6 +30932,17 @@
     "translated": "2026-10-31"
   },
   {
+    "id": "news:71c4d4c6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Kimi Antonelli youngest Formula 1 world champion ever, Max Verstappen wins Mexican GP",
+    "lead": null,
+    "sourceHash": "796193170efe",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:71cf6860",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30993,17 +31026,6 @@
     "title": "Authors give their royalties to Sally Rooney, who can no longer sell books in the UK due to her support for Palestinians",
     "lead": "It remains bizarre: the successful Sally Rooney cannot sell her books in the United Kingdom any longer, because she is concerned about the Palestinians",
     "sourceHash": "b88ccd7c3e92",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
-    "id": "news:71f567e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Student list wins elections in Serbia, autocrat Vucic defeated",
-    "lead": "The brand-new \"student party\", made up of politically inexperienced experts and academics, received 51 percent of the votes, the ruling party SNS 40 percent. Despite repression and without a figurehead, the message of change struck a broad chord.",
-    "sourceHash": "d4c16a63f438",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-26"
@@ -31735,17 +31757,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:7527bf7b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Late bloomers, despite an icy east wind",
-    "lead": null,
-    "sourceHash": "751f3105a642",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:752d3f7a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -32329,17 +32340,6 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:77ae6a56",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Frenkie de Jong makes comeback for FC Barcelona in El Clásico",
-    "lead": "Frenkie de Jong played his first minutes of the season for FC Barcelona on Sunday evening. He came on as a substitute in the 74th minute of El Clásico against Real Madrid with the score at 1-1. De Jong had not yet played due to a knee injury he suffered while playing for the Dutch national team during last summer's World Cup in the United States, Canada and Mexico.",
-    "sourceHash": "4bb6e81a52e6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:77b28299",
     "language": "en",
     "sourceLanguage": "nl",
@@ -32404,6 +32404,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
+  },
+  {
+    "id": "news:780dde5b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Blow for Nadine and Rik: 1 million for Muk (5) turns out not to be enough for life-saving injection",
+    "lead": "Another blow for the parents of Muk (5), who has childhood dementia: the 1 million euros they raised in the Netherlands for a life-saving injection in America for Muk turns out not to be enough.",
+    "sourceHash": "3f52d87cc587",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:7832b23b",
@@ -32580,6 +32591,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:79117562",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Mexico City Grand Prix suspended after heavy Bottas crash",
+    "lead": "The Mexico City Grand Prix in Formula 1 has been suspended indefinitely in the 46th of 71 laps after a serious crash involving Valtteri Bottas. The Finn flew off the circuit at high speed in his Cadillac after a broken front suspension. The driver remained seated in his cockpit, somewhat dazed, but after some time got out of the car under his own power.",
+    "sourceHash": "7eb28026ea4d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:7912da96",
@@ -33130,17 +33152,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
-  },
-  {
-    "id": "news:7c2abc31",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Surprising election result in Serbia: students drive out former president accused of corruption",
-    "lead": "The Serbian president Aleksandar Vucic acknowledged his defeat on Sunday in the parliamentary elections, which were won by the student-led protest movement.",
-    "sourceHash": "5aedb431a31e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
   },
   {
     "id": "news:7c38b4d7",
@@ -33957,6 +33968,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:7fd5e3e8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dead woman found in house in Tilburg, possible crime",
+    "lead": "The <entity id=\"org:politie\">politie</entity> today found the body of a woman in a house on Berkenrodelaan in Tilburg. She may have died as a result of a crime, a police spokesperson says. The police are conducting an investigation in and around the house.",
+    "sourceHash": "f91356eb9102",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:7fd7769c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33988,17 +34010,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
-  },
-  {
-    "id": "news:8015953a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Vučić concedes defeat in Serbian parliamentary elections, students win",
-    "lead": "In the early parliamentary elections in Serbia, the Serbian Progressive Party (SNS) of former president Aleksandar Vučić lost. The SNS received 40 percent of the votes, while the new party Studentenlijst won just over 51 percent. Vučić has since conceded his loss, news agency Reuters reports.",
-    "sourceHash": "becd86954f9e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
   },
   {
     "id": "news:801a2aac",
@@ -34221,6 +34232,17 @@
     "translated": "2026-10-26"
   },
   {
+    "id": "news:8152e0a2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Verstappen wins spectacular race in Mexico, Antonelli world champion after third place",
+    "lead": "Max Verstappen spectacularly won the Grand Prix of Mexico on Sunday. The Dutchman worked his way forward from fifth on the grid and claimed his third win of the year. Kimi Antonelli finished third and became world champion.",
+    "sourceHash": "d62901771410",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:8163950a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -34318,6 +34340,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
+  },
+  {
+    "id": "news:81f0f5cc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cloudy white is Pantone's 'color of the year'. How can white show so much and yet so little?",
+    "lead": "The American color authority Pantone has chosen Cloud Dancer Pantone 11-4201 as its color of the year. In other words: a shade of white. That led to a flood of criticism, from 'white isn't even a color' to 'tone-deaf'. Because a lot clings to white: it is the color of exclusion and revelation, of life and of death, of innocence and of power.",
+    "sourceHash": "9d0dfd93bb53",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:821b13d0",
@@ -35068,6 +35101,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:85971430",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'It is as if the uterus has been completely forgotten in scientific research.' Women with health complaints often feel not taken seriously",
+    "lead": "Many women with physical complaints still feel not taken seriously and are dissatisfied with the care they receive, two major studies show. There is growing attention to differences between men and women in healthcare. \"But patient organisations have been putting this on the agenda for at least 24 years.\"",
+    "sourceHash": "8b23e4016acf",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:85a72b68",
     "language": "en",
     "sourceLanguage": "nl",
@@ -35189,17 +35233,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:8633e42",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Suriname is being treated like a stepchild",
-    "lead": null,
-    "sourceHash": "64d12dca73da",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:86507eee",
     "language": "en",
     "sourceLanguage": "nl",
@@ -35220,17 +35253,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
-  },
-  {
-    "id": "news:866ebf8b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Live Clásico | Real Madrid celebrates after win at FC Barcelona, De Jong returns",
-    "lead": "Welcome to this live blog! My name is Tim Siekman and I will keep you updated on the clash between FC Barcelona and Real Madrid in La Liga. Enjoy!",
-    "sourceHash": "0a4266c0d5b2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:866f4b6b",
@@ -35693,17 +35715,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
-  },
-  {
-    "id": "news:8836bd3d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "FC Twente secures deserved win thanks to late goals at AZ",
-    "lead": "FC Twente earned a deserved victory away at AZ on Sunday evening. Thanks to late goals from Norwegian left winger Sondre Ørjasæter and substitute Lucas Vennegoor of Hesselink, the score became 0-2 in Alkmaar.",
-    "sourceHash": "1188271c5642",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:884d81f",
@@ -36498,6 +36509,17 @@
     "translated": "2026-10-29"
   },
   {
+    "id": "news:8bb752cb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "F1 champion Antonelli already did 'incredible things' behind the wheel as a child",
+    "lead": "In his first F1 year, 2025, Kimi Antonelli (20) was still inconsistent, as you would expect from someone his age. This season, on his way to the world title, he was unassailable and unprecedentedly stable.",
+    "sourceHash": "d22df1b34cb1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:8bbd8eac",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36619,17 +36641,6 @@
     "translated": "2026-10-26"
   },
   {
-    "id": "news:8c30b878",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "President Lula da Silva narrowly wins the Brazilian election, but Flávio Bolsonaro refuses to accept it",
-    "lead": null,
-    "sourceHash": "c3d588ec03cd",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:8c3341fd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36683,17 +36694,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:8c4a2208",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Rising interest rates could disrupt the transition to a new pension system",
-    "lead": "There is a risk that the agreements pension funds have made on dividing assets among participants no longer add up.",
-    "sourceHash": "39ae335692d6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
   },
   {
     "id": "news:8c517db",
@@ -36795,6 +36795,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:8ce1bd31",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Antonelli (20) youngest Formula 1 world champion ever, Verstappen wins in Mexico",
+    "lead": "Italian Formula 1 driver Kimi Antonelli has become world champion at the age of 20. With his third place in the Mexico City Grand Prix, he has built an insurmountable lead over his rivals. Max Verstappen won the race after an exciting battle with Lewis Hamilton.",
+    "sourceHash": "11431527d104",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:8cf4838f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36870,17 +36881,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:8d4a5c21",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Frenkie de Jong's comeback falls flat due to Mbappé's goals in Barcelona-Real",
-    "lead": "Frenkie de Jong made his long-awaited return for FC Barcelona on Sunday. The Dutch substitute could not prevent a 1-2 defeat in El Clásico against Real Madrid. Kylian Mbappé scored both goals for the visitors.",
-    "sourceHash": "077608f8428e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:8d507461",
@@ -37068,17 +37068,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
-  },
-  {
-    "id": "news:8e6353d6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "How a stern portrait became the American symbol of motherly love",
-    "lead": null,
-    "sourceHash": "fc08803ba090",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:8e6ce674",
@@ -37332,6 +37321,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
+  },
+  {
+    "id": "news:8f4068a8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Prog rock king Steven Wilson wanted his new album to sound imperfect: 'Thanks to modern music techniques, everything sounds perfect, which makes it all a bit boring'",
+    "lead": null,
+    "sourceHash": "cf998c6664f8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:8f4c1235",
@@ -37673,6 +37673,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
+  },
+  {
+    "id": "news:9085bbf4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Zelensky is open to direct talks with Putin in Turkey",
+    "lead": null,
+    "sourceHash": "7ca200f8fd95",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:90884f07",
@@ -38192,17 +38203,6 @@
     "translated": "2026-10-28"
   },
   {
-    "id": "news:9286846",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Incumbent President Lula da Silva Wins Brazilian Election After Close Race, Bolsonaro Does Not Accept Result",
-    "lead": null,
-    "sourceHash": "d29195182e0f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:929d6c4b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -38280,17 +38280,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:92fbf6d9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Trees on the tracks, a death in Amsterdam, a missing person at sea and a lot of storm damage across the country",
-    "lead": "Storm Boelo caused quite a lot of damage yesterday. On at least two sections in North Holland, train disruption arose due to a tree on the track. In Amsterdam one person died, near Schiermonnikoog a ship ran into trouble at sea, and near Scheveningen a watersports enthusiast is still missing.",
-    "sourceHash": "574fd113ee7b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:9311d0e7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -38344,17 +38333,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:933062bb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Antonelli wins, but still falls short of the title, Verstappen third at GP in Austin",
-    "lead": null,
-    "sourceHash": "971ec19430f1",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:933b48fa",
@@ -39369,6 +39347,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:9761cf94",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "AI bot or MP: who represents the voter?",
+    "lead": "As many as 68 MPs used AI this year, according to research by Investico and De Groene Amsterdammer. Dangerous that AI now also penetrates the heart of our democracy, writes columnist Sophie van Gool.",
+    "sourceHash": "b64c975a2c9b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:976551",
     "language": "en",
     "sourceLanguage": "nl",
@@ -39787,17 +39776,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:994b44f5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "After a month of protests, French prime minister to talk with schoolchildren",
-    "lead": "After more than a month of protest actions, representatives of French pupils will be received by prime minister Sébastien Lecornu on Monday at 14:30. This is according to the organisations Renouveau lycéen and Les Lycéens!",
-    "sourceHash": "89535cf38af5",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:99501b39",
     "language": "en",
     "sourceLanguage": "nl",
@@ -40084,17 +40062,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:9a4a637",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Exactly Four",
-    "lead": null,
-    "sourceHash": "e7fcdf3c307a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:9a4a638",
     "language": "en",
     "sourceLanguage": "nl",
@@ -40159,6 +40126,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:9a53252",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Exactly four",
+    "lead": null,
+    "sourceHash": "e7fcdf3c307a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:9a5fcef1",
@@ -40436,6 +40414,17 @@
     "translated": "2026-10-29"
   },
   {
+    "id": "news:9b7d7b42",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Virgil van Dijk criticises VAR after action by Jurriën Timber: 'There are fifty cameras'",
+    "lead": "Liverpool defender Virgil van Dijk was not happy on Sunday with the officiating in the lost Premier League clash against Arsenal (0-1). The experienced Dutchman felt his team should have been awarded a penalty after an action by his compatriot Jurriën Timber.",
+    "sourceHash": "22e1931f564f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:9b90700e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -40522,17 +40511,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:9bd784cb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sven Kockelmann wins the Sonja Barend Award for interview with Dick Schoof",
-    "lead": "Sven Kockelmann won the Sonja Barend Award on Sunday for the best interview of the past TV season. The presenter receives the prize for his conversation with outgoing prime minister Dick Schoof.",
-    "sourceHash": "00f5a1f1004d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
   },
   {
     "id": "news:9beb459c",
@@ -40821,17 +40799,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:9d35d813",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Americans in the Netherlands know it: Trump has never been a friend of Europe",
-    "lead": null,
-    "sourceHash": "79ceb98e02ca",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:9d3d6909",
     "language": "en",
     "sourceLanguage": "nl",
@@ -40929,17 +40896,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
-  },
-  {
-    "id": "news:9da0d7b7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Premium panic",
-    "lead": "The biggest premium increase ever turns out to be not so bad when put in perspective.",
-    "sourceHash": "2eafee852d5d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
   },
   {
     "id": "news:9dd28652",
@@ -41481,17 +41437,6 @@
     "translated": "2026-10-31"
   },
   {
-    "id": "news:9f76341d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Opinion: Help Surinamese people with subsidy applications to the Netherlands",
-    "lead": null,
-    "sourceHash": "3af98a4e4b40",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:9f77acc0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41776,6 +41721,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:a086da4c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ukrainian warning app hacked, false alarms about nuclear threat",
+    "lead": "The Ukrainian Air Alert emergency warning app has been hacked, the Ukrainian Air Force reports. The app sent false notifications on Sunday about a nuclear threat and street fighting. The Air Force reports that there is no radiation danger and calls for calm.",
+    "sourceHash": "44a81a4b8275",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:a08a0809",
@@ -42141,6 +42097,17 @@
     "translated": "2026-10-26"
   },
   {
+    "id": "news:a1b8862f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Kader Abdolah wrote a book about Jesus. 'I look at him with a different gaze. That of an exile'",
+    "lead": null,
+    "sourceHash": "275117b746d8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:a1be9efc",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42326,6 +42293,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:a275e01f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Trump and Netanyahu had a 'tough' and 'frank' conversation about resuming the war against Iran",
+    "lead": null,
+    "sourceHash": "e6682af06afa",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:a2788d97",
@@ -42636,6 +42614,17 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:a3991441",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Break",
+    "lead": "This morning I did my shopping at the local supermarket. Two young shelf stackers were chatting about the upcoming break.",
+    "sourceHash": "7867b3c60895",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:a39c2ef0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42832,6 +42821,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
+  },
+  {
+    "id": "news:a46fcf4e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "A half life in asylum reception centres has not broken footballer Irakli Yegoian",
+    "lead": null,
+    "sourceHash": "2636f71926c0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:a47c6aff",
@@ -43230,6 +43230,17 @@
     "translated": "2026-10-28"
   },
   {
+    "id": "news:a62cd0e1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Moroccan cartoonist sentenced to four years in prison for 'insulting the king' with online cartoon",
+    "lead": "A Moroccan court has sentenced a cartoonist to four years in prison for \"insulting the king\", his lawyer says. The 22-year-old Yasser Mounbir had made caricatures of Moroccan King Mohammed VI and posted them on Instagram.",
+    "sourceHash": "70a8de80db45",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:a65353e8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43338,17 +43349,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:a6fdf5f1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Could I secretly be a boomer after all?",
-    "lead": null,
-    "sourceHash": "86cfd5c4d6aa",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:a70effc1",
@@ -44132,6 +44132,17 @@
     "translated": "2026-10-31"
   },
   {
+    "id": "news:a984a2c2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "No flight shame: we are flying again just as much as before corona",
+    "lead": null,
+    "sourceHash": "a13cf1ffddca",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:a991b60a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44319,17 +44330,6 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:aa674dc1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Griekspoor is done with criticism of his 'emotions' after fourth title: 'They can get off my back'",
-    "lead": "Tallon Griekspoor won the ATP tournament in Brussels on Sunday almost out of nowhere. The Dutch tennis player had recently considered ending his season. He had a dig at people who criticise his \"emotions\" on the court.",
-    "sourceHash": "91a5bd1fb56d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:aa71b6ad",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44493,6 +44493,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:ab2e8ab7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Standings Formula 1 | Kimi Antonelli takes title, Max Verstappen moves up to second place in championship",
+    "lead": "Kimi Antonelli has pulled it off. The Mercedes driver finished on the podium in Mexico and thereby secured the world championship for this season. Winner Max Verstappen can therefore no longer win the title, but has nevertheless moved closer to the Italian in one fell swoop.",
+    "sourceHash": "c71e4bd0e146",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:ab2fec0e",
@@ -45298,6 +45309,17 @@
     "translated": "2026-10-28"
   },
   {
+    "id": "news:ae498c16",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Surprising turn in Michigan: Democratic representative endorses Republican candidate",
+    "lead": "Representative Haley Stevens, who lost the Democratic primary for a Senate seat for the US state of Michigan, has expressed her support for Republican candidate Mike Rogers. This makes the break with Democratic candidate Abdul El-Sayed final. Follow all developments in the United States via our live blog.",
+    "sourceHash": "892e98bdd16d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:ae4d10a4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -45318,17 +45340,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:ae5c6759",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Your Move",
-    "lead": null,
-    "sourceHash": "0ca9c42013e9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
   },
   {
     "id": "news:ae5c675a",
@@ -45395,6 +45406,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:ae5cf374",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Your Move",
+    "lead": null,
+    "sourceHash": "0ca9c42013e9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:ae5ddfd1",
@@ -45716,6 +45738,17 @@
     "translated": "2026-10-29"
   },
   {
+    "id": "news:afc5df30",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Pro-Russian candidate wins Bulgarian presidential election",
+    "lead": "The result is not yet official, but all exit polls point to a victory for Iliana Yotova in the second round of the presidential election in Bulgaria. Bulgarians could choose between a pro-Russian and a pro-European candidate.",
+    "sourceHash": "71fd204e5b1e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:afc68fee",
     "language": "en",
     "sourceLanguage": "nl",
@@ -45802,17 +45835,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
-  },
-  {
-    "id": "news:b0158967",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Ross Smith wins final against Martin Schindler and claims the European Darts Championship for the second time in his career",
-    "lead": "Ross Smith has won the European Darts Championship for the second time in his career. The Englishman beat German Martin Schindler 11-8 in the final. Top favourite Luke Littler had already been knocked out earlier in the day in the quarter-finals.",
-    "sourceHash": "1ae6ef6df6fd",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:b01b8a73",
@@ -46200,17 +46222,6 @@
     "translated": "2026-10-26"
   },
   {
-    "id": "news:b1fd6fdd",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Former president Vučić admits defeat in Serbia's parliamentary elections",
-    "lead": "Serbian president Aleksandar Vucic admitted on Sunday that he had lost the parliamentary elections, which were won by the student-led protest movement.",
-    "sourceHash": "68ff925b9455",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:b209127d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -46264,17 +46275,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:b23084ac",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Live | Two deaths reported after Russian drone attack on student flat and school building",
-    "lead": "Hello and welcome to this liveblog. Here we keep you informed of the latest developments around the war in Ukraine. Do you have a question? Email it to redactie@nu.nl.",
-    "sourceHash": "97b00d9c44d7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-01"
   },
   {
     "id": "news:b2342de4",
@@ -46352,6 +46352,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
+  },
+  {
+    "id": "news:b25c4806",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "No scam",
+    "lead": "Mathijs Bouman asks what the difference is with a tax discount for business owners in box 2 and letting the budget deficit increase.",
+    "sourceHash": "6e4bce511739",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:b2811e5b",
@@ -46662,17 +46673,6 @@
     "translated": "2026-10-26"
   },
   {
-    "id": "news:b3b6158c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Kylian Mbappé puts Real Madrid ahead with a stroke of luck in intense El Clásico",
-    "lead": "A delicious fixture to close off Sunday with: the dazzling FC Barcelona play at home against arch-rival Real Madrid. With a win, the home club would already put the rival from the capital nine points back. Follow the clash live from Camp Nou from 21.00 here.",
-    "sourceHash": "c7a6efe0c3ac",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:b3b9f61f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -46902,6 +46902,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:b4766c19",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Nuis regrets failed ride in 1000 meters against De Boo",
+    "lead": "Kjeld Nuis narrowly missed out on a ticket for the World Cup over 1000 meters a day after his win over 1500 meters, with \"a super bad ride\". The 36-year-old skater was 0.01 seconds slower than teammate Tim Prins, who finished fifth with 1.08.72.",
+    "sourceHash": "2202da5f6507",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:b48c5a63",
@@ -47485,17 +47496,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
-  },
-  {
-    "id": "news:b6eaa153",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "In the open and exciting battle between PSV and Feyenoord (1-1), tactics revolved to a large extent around one player",
-    "lead": "The top match revolved to a large extent around creative Feyenoord attacker Anis Hadj Moussa. First he is outplayed for a long time, but out of nowhere he shows how dangerous he can be.",
-    "sourceHash": "1fc4fb213175",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:b6f13fbd",
@@ -48466,6 +48466,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:bacfc35e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Nine dead in plane crash on mobile home park in United States",
+    "lead": "A small plane crashed into a mobile home park in the American state of Florida on Sunday afternoon (local time). All nine people on board died in the crash, writes US Secretary of Transportation Sean Duffy in a post on X .",
+    "sourceHash": "3cab54f05d5f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:bae62ed1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48502,12 +48513,12 @@
     "id": "news:bb33186e",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "With stage fright, the AI sector enters the month of November",
-    "lead": "Is this the peak of the hype on the stock markets around artificial intelligence (AI), or is it a bump in the road? That question arises after a brutal week on the American stock markets.",
-    "sourceHash": "1a2e1e25619d",
+    "title": "AI sector shivers into November with stage fright",
+    "lead": "It was a brutal week on the American stock exchanges. Is it stage fright before a glorious premiere? Or will the actors and the script disappoint once the curtain rises?",
+    "sourceHash": "136bd341c75f",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-01"
+    "translated": "2026-11-02"
   },
   {
     "id": "news:bb33cd15",
@@ -48653,17 +48664,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:bbeffac4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Google co-founder Sergey Brin is another 'techbro' making the shift to the right",
-    "lead": null,
-    "sourceHash": "e17e553e4e85",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:bbf4949f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48752,17 +48752,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:bc53505c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Serbian leader Vučić concedes election defeat, students head for victory",
-    "lead": "A defeat for Vučić would mean that a student protest movement has for the first time succeeded in defeating an authoritarian leader at the ballot box.",
-    "sourceHash": "cff809172ebf",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:bc58aa23",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48849,6 +48838,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:bc90203e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Due to the use of AI, applying for science grants is starting to look like a lottery",
+    "lead": null,
+    "sourceHash": "3eaea0e1268e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:bc9796c7",
@@ -49038,17 +49038,6 @@
     "translated": "2026-11-01"
   },
   {
-    "id": "news:bd1fca84",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Long unthinkable, now it's happening: salmon farmers are feeding their fish chicken scraps",
-    "lead": null,
-    "sourceHash": "bab2299cee7b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:bd2cbe81",
     "language": "en",
     "sourceLanguage": "nl",
@@ -49181,6 +49170,17 @@
     "translated": "2026-10-27"
   },
   {
+    "id": "news:bdd324d3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Kimi Antonelli youngest world champion ever after chaotic race, hard-fought win for Max Verstappen",
+    "lead": "Andrea Kimi Antonelli, the 20-year-old Mercedes driver from Bologna, is the youngest world champion ever in Formula 1. A chaotic Grand Prix of Mexico, marred by a serious crash of Valtteri Bottas, was won by Max Verstappen, but Antonelli's third place was more than enough for sporting history.",
+    "sourceHash": "030096525a8d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:bdd44cee",
     "language": "en",
     "sourceLanguage": "nl",
@@ -49212,6 +49212,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:be1249b9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ozempic and Hamas deserve the same yardstick",
+    "lead": "Might citizens be allowed to decide for themselves which information is relevant?",
+    "sourceHash": "547f8ce22224",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:be1476d",
@@ -49322,6 +49333,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
+  },
+  {
+    "id": "news:bea846ec",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Waiting lists and membership stops: a million Dutch people cannot join the sports club of their choice",
+    "lead": "Ahead of the sports debate in <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity>, sports umbrella organisation NOC*NSF urgently appeals to <entity id=\"org:kabinet\">het kabinet</entity> to release 50 million euros to increase sports capacity. \"Clubs are increasingly constrained by a lack of space, literally and financially.\"",
+    "sourceHash": "4a3eb886fa93",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:bea976ae",
@@ -50094,6 +50116,17 @@
     "translated": "2026-10-29"
   },
   {
+    "id": "news:c1b23276",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "NOC*NSF concerned: million people unable to join sports club",
+    "lead": "Over 1 million adults, 8 percent of all Dutch people, were unable to join the sports club of their choice last year. In almost three quarters of cases this was due to membership stops or waiting lists. This emerges from a study into the accessibility of club sport in our country, carried out on behalf of NOC*NSF.",
+    "sourceHash": "2dedadb71d0f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:c1b9dda8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -50130,12 +50163,12 @@
     "id": "news:c1dbfa1d",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Residents of American town talk about bitter election campaign: 'Disrespectful campaigning'",
-    "lead": "The US midterm elections on Tuesday appear to be heading for a rebuke of the Republican Party, although a bitter battle between candidates is still raging in many places. In the prosperous town of Cold Spring, an hour and a half from New York, they are experiencing it firsthand.",
-    "sourceHash": "46ddb1bcc5f1",
+    "title": "Voters in small American town flooded with campaign material: 'It is ridiculous'",
+    "lead": "The US congressional elections next Tuesday look set to end in a rebuke of the Republican Party, although a bitter battle between candidates is still raging in many places. In the prosperous town of Cold Spring, an hour and a half from New York, they are experiencing it first-hand.",
+    "sourceHash": "a184497c358e",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-01"
+    "translated": "2026-11-02"
   },
   {
     "id": "news:c1e5d404",
@@ -50622,17 +50655,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:c39e04d7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Also in UK major problems due to storm Boelo: two dead from falling trees",
-    "lead": "Autumn storm Boelo caused major problems this weekend in the Netherlands and the rest of Northwest Europe. In Amsterdam a man was found dead under a fallen tree, and a water sports enthusiast went missing off the coast of Scheveningen. Two people also died in the UK from falling trees. Follow the latest developments in our liveblog.",
-    "sourceHash": "35b42e052d9e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:c3a63e9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -50996,17 +51018,6 @@
     "translated": "2026-10-26"
   },
   {
-    "id": "news:c5240df7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "In a week full of rate decisions, a pause is expected at the ECB and the Fed",
-    "lead": "The picture has not become any clearer. Inflation has risen. At the same time, policymakers must take into account higher capital market rates and waning confidence in the growth boost from AI.",
-    "sourceHash": "f132708e8792",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:c5263fce",
     "language": "en",
     "sourceLanguage": "nl",
@@ -51282,15 +51293,15 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:c6b3b464",
+    "id": "news:c695ab5a",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Philosopher Tinneke Beeckman: The future does not come to meet our expectations on its own",
-    "lead": null,
-    "sourceHash": "d8fe73cabb79",
+    "title": "Juventus win against Napoli, next up is away trip to AZ",
+    "lead": "Juventus travel to Alkmaar with a good feeling for Thursday's away match against AZ in the Europa League. The Turin club won the home match against Napoli 2-0.",
+    "sourceHash": "07467dbe5c03",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-26"
+    "translated": "2026-11-02"
   },
   {
     "id": "news:c6cc46a2",
@@ -51953,17 +51964,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:c980bbed",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "FC Twente strikes late against AZ, Lucas Vennegoor of Hesselink scores first Eredivisie goal",
-    "lead": "FC Twente earned a deserved win away at AZ on Sunday evening. Thanks to late goals from Norwegian left winger Sondre Ørjasæter and substitute Lucas Vennegoor of Hesselink, the score became 0-2 in Alkmaar.",
-    "sourceHash": "c50e4a22e197",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:c984c37d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -52074,6 +52074,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:c9d06f6f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Short track skater Velzeboer wins 500 meters again in World Tour",
+    "lead": "Short track skater Xandra Velzeboer also won the 500 meters at the World Tour races in Montreal. Canada's Danaé Blais finished second, just ahead of her compatriot Courtney Sarault.",
+    "sourceHash": "51b85652bc0f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:c9e0a84a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -52149,6 +52160,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:ca4a16ac",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tom Dumoulin enjoys top time in New York marathon: 'What an amazing experience'",
+    "lead": "Former top athletes Erben Wennemars and Marit Bouwmeester took part in the Hague marathon on Sunday, but Tom Dumoulin was one of the 60,000 participants in the New York marathon. The 35-year-old Limburger shared beautiful photos afterwards.",
+    "sourceHash": "15ba7dab56f9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:ca6227a7",
@@ -52250,17 +52272,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:cacbb356",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Ballot boxes in Brazil stay open two hours longer after complaints from Lula's team",
-    "lead": null,
-    "sourceHash": "7abe238d6ffa",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:cad7736a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -52338,15 +52349,15 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:cb12eece",
+    "id": "news:cb18ef3d",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Zelensky: trilateral meeting Ukraine-Russia-US in November",
-    "lead": null,
-    "sourceHash": "37d8b6c88a2b",
+    "title": "The political impasse has deeper causes. The Hague, think about it",
+    "lead": "A major explanation for the administrative impasse is the crisis of the political party. The better the party looks out for itself, the more negative its influence on governance. A brief analysis of the issue, and an exploration of the solution.",
+    "sourceHash": "aa1c4c32d66e",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-25"
+    "translated": "2026-11-02"
   },
   {
     "id": "news:cb249e66",
@@ -52734,17 +52745,6 @@
     "translated": "2026-10-28"
   },
   {
-    "id": "news:ccae1436",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Interview with outgoing prime minister Schoof earns Sven Kockelmann the first Sonja Barend Award",
-    "lead": "The Sonja Barend Award, the prize for the best interview of the past TV season, has been won this year by Sven Kockelmann. The presenter receives the prize for his conversation with outgoing prime minister Dick Schoof in a special broadcast of Café Kockelmann on NPO 2.",
-    "sourceHash": "cc06f93964ed",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:ccaf0fbe",
     "language": "en",
     "sourceLanguage": "nl",
@@ -53075,17 +53075,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:ce0bf263",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Antonelli has to postpone title celebration despite win in Austin, Verstappen third",
-    "lead": "Kimi Antonelli won the Grand Prix of the United States on Sunday, but still has to wait a little longer for his first world title. Lewis Hamilton and George Russell postponed his title celebration in Austin. Max Verstappen finished third behind Charles Leclerc.",
-    "sourceHash": "d96e9028cf2f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:ce2336b3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -53119,15 +53108,15 @@
     "translated": "2026-10-28"
   },
   {
-    "id": "news:ce4c1620",
+    "id": "news:ce47abbe",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Forward Roll",
+    "title": "Plenty of sexually suggestive names in nature: from tepelhoren to lippenplant and beflijster",
     "lead": null,
-    "sourceHash": "19fc40e02aae",
+    "sourceHash": "f85ec1ef8d1a",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-26"
+    "translated": "2026-11-02"
   },
   {
     "id": "news:ce4c1621",
@@ -53194,6 +53183,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:ce4ca23b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Somersault",
+    "lead": null,
+    "sourceHash": "19fc40e02aae",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:ce4f03f1",
@@ -53315,17 +53315,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-26"
-  },
-  {
-    "id": "news:ced48b29",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'We hardly talk about the Israel issue anymore'",
-    "lead": "Opinions on Israel have hardened and a conversation on the subject quickly escalates into an argument. \"We hardly talk about the Israel issue anymore\", says journalist Hans Nijenhuis today in the AD. In Goed Ingelichte Kring with Patrick Lodiers he explains what he means by that. And why should we precisely not avoid this conversation?",
-    "sourceHash": "b086bb149e27",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:ceea72c4",
@@ -53757,17 +53746,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:d05259e4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sudoku",
-    "lead": "Place the digits 1 through 9 in the diagram so that each digit appears exactly once in each row, each column, the nine bold-outlined 3x3 boxes and the four grey 3x3 boxes.",
-    "sourceHash": "e3ef981d015b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:d05259e6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -53898,17 +53876,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:d0710404",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Polling stations in Brazil open two hours longer after Supreme Court intervenes",
-    "lead": "Brazil's Supreme Court has ruled that Brazilians will have two hours longer to vote on Sunday. The court agreed with a request from both candidates.",
-    "sourceHash": "a7a2aeedc75e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:d0762402",
@@ -54142,6 +54109,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:d0f95a6e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Zelensky open to direct talks with Putin in Turkey: 'We are ready for them'",
+    "lead": "Ukrainian President Volodymyr Zelensky is willing to meet Russian President Vladimir Putin for direct talks in Turkey. He said so on Sunday in an interview with the broadcaster CNN Türk. Follow all developments in the war in Ukraine in our liveblog.",
+    "sourceHash": "0ecfb09f82da",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:d0fcf71a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -54305,17 +54283,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
-  },
-  {
-    "id": "news:d1972f9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "FC Twente back among the top after win over AZ in Alkmaar",
-    "lead": null,
-    "sourceHash": "173a1fce8e16",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:d1a4f8e5",
@@ -54538,17 +54505,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:d27d2644",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Number Pad",
-    "lead": null,
-    "sourceHash": "773ba346c5f3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:d27d2645",
     "language": "en",
     "sourceLanguage": "nl",
@@ -54613,6 +54569,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:d27db25f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Number Block",
+    "lead": null,
+    "sourceHash": "773ba346c5f3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:d2841a9b",
@@ -55143,17 +55110,6 @@
     "translated": "2026-10-28"
   },
   {
-    "id": "news:d47e2317",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "I don't want a world where soon almost no one knows or can do anything anymore, is that so strange?",
-    "lead": "Kitty Herweijer writes three times a week about what occupies her.",
-    "sourceHash": "bb89e46a80c7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:d47ff8c2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -55504,17 +55460,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
-  },
-  {
-    "id": "news:d59f79b2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Historic Reversal in Brazil: Lula Re-elected as President After All, Flávio Bolsonaro Does Not Accept Result",
-    "lead": "Luiz Inácio Lula da Silva has surprisingly been re-elected as president of Brazil. The left-wing Lula (80) received 51.78 percent of the votes on Sunday in a second round of the presidential election that was chaotic.",
-    "sourceHash": "719a0e26de46",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
   },
   {
     "id": "news:d5a13e89",
@@ -56606,17 +56551,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:da6f897b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Video | Harbour on Texel under water due to storm Boelo",
-    "lead": null,
-    "sourceHash": "d7b14405a1fc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:da90be2c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -57178,17 +57112,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:dcd0938f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Charivarius in a tight spot due to a grammar school girl",
-    "lead": null,
-    "sourceHash": "385d01e3fde7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:dcd3be1c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -57231,17 +57154,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
-  },
-  {
-    "id": "news:dcff36fc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "\"The Negreira scandal surrounding Barcelona still lingers\"",
-    "lead": "The shadow of the Negreira scandal still hangs over FC Barcelona - Real Madrid. AD columnist and journalist Sjoerd Mossou shines his light daily on the world of (top) football. Sometimes straight from behind the scenes, sometimes through a very personal lens.",
-    "sourceHash": "a27ae2da6697",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
   },
   {
     "id": "news:dd05d309",
@@ -57783,6 +57695,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:df74e46f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sleep influencers promise quick fixes, but the best remedy for insomnia is often actually doing less",
+    "lead": null,
+    "sourceHash": "9550bf59d902",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:df794cde",
     "language": "en",
     "sourceLanguage": "nl",
@@ -57860,17 +57783,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:dfadf2bc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sven Kockelmann receives Sonja Barend Award for interview with departing prime minister Schoof",
-    "lead": null,
-    "sourceHash": "a6afecaf5970",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:dfae44de",
     "language": "en",
     "sourceLanguage": "nl",
@@ -57913,28 +57825,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:dfef2d63",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Verstappen lacked the speed to fight for victory in Austin",
-    "lead": "Max Verstappen did not have the speed to be able to drive for victory at the Grand Prix of the United States. That is what the Red Bull driver said in the interview after his third place at the Circuit of The Americas in Austin, where Italian Kimi Antonelli in the Mercedes took the win.",
-    "sourceHash": "397b507e2de0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
-    "id": "news:dff84b3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Mourinho ends Barcelona's impressive winning streak in his familiar Camp Nou",
-    "lead": null,
-    "sourceHash": "0ca990e4cc9c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:e017fa1d",
@@ -58133,6 +58023,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:e0e5141f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Wonderful words from Sebastian Vettel for successor Kimi Antonelli: 'Now go and enjoy it'",
+    "lead": "Formula 1 is rolling on in this period. Follow all developments here.",
+    "sourceHash": "3e4a1f363296",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:e0e89726",
@@ -59224,17 +59125,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:e5198bb5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Lennox Heitinga (15) shows his talent at the Messi Cup in Miami: Ajax talent scores twice directly from a corner",
-    "lead": "Lennox Heitinga, captain of Ajax Under-16, has made a name for himself at the prestigious Messi Cup in Miami. The son of former international and ex-Ajax coach John Heitinga scored twice in identical fashion against same-age players from Internazionale of Milan.",
-    "sourceHash": "86614d690c03",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:e51ffd6c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -59387,6 +59277,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:e5cb4e1f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Lizzy van Leeuwen considered writing about sex in the Dutch East Indies far more important than colonial violence",
+    "lead": "Anthropologist Lizzy van Leeuwen did not shy away from controversial subjects. Such as the sexualisation of Indonesian and Indies women, which was never talked about.",
+    "sourceHash": "40cf05d9ac9d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:e5df6147",
@@ -59565,6 +59466,17 @@
     "translated": "2026-10-28"
   },
   {
+    "id": "news:e679584e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "French stock market in tatters, like thousands of shop windows",
+    "lead": "As one of the few stock exchanges, the French CAC 40 is down this year. Investors are worried about the riots, national debt and rising interest rates. Is it time to buy 'le dip'?",
+    "sourceHash": "7ee9cb0b5342",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:e67a42fa",
     "language": "en",
     "sourceLanguage": "nl",
@@ -59695,17 +59607,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:e6d45289",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Zelensky expects meeting with US and Russia in November: 'Ready to talk'",
-    "lead": "Ukrainian president Zelensky said on Sunday that a meeting will take place in November between Ukraine, the US and Russia, with the aim of breathing new life into the stalled peace talks. Follow all developments in the war in Ukraine in our liveblog.",
-    "sourceHash": "2803f4c527ef",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
   },
   {
     "id": "news:e6d4fc89",
@@ -60467,6 +60368,17 @@
     "translated": "2026-10-23"
   },
   {
+    "id": "news:ea8a7078",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "High interest rates threaten to nip property market recovery in the bud",
+    "lead": "The already fragile recovery of the property market appears to be over. Deals are being renegotiated or postponed, and prices threaten to fall. \"If you don't have to buy now, you don't buy.\"",
+    "sourceHash": "06947da171b9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:ea91a7c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -60894,17 +60806,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
-  },
-  {
-    "id": "news:eccec0bc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Grumbling Max Verstappen takes maximum points with third place, Antonelli (not yet) just short of championship",
-    "lead": "Kimi Antonelli is not yet the youngest Formula 1 champion ever. The Italian did what he had to do himself: win the Grand Prix of the United States, but teammate George Russell (P8) and Lewis Hamilton (P4) are just not yet eliminated from the world championship battle. Max Verstappen is. After two wins, he had to settle for P3, behind Charles Leclerc.",
-    "sourceHash": "35588b101a5e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
   },
   {
     "id": "news:ecd5576",
@@ -61534,17 +61435,6 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:efc08afd",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "We no longer have a player who plays football with the flair of a potential Ballon d'Or winner",
-    "lead": null,
-    "sourceHash": "243d4c7a1737",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:efd0e718",
     "language": "en",
     "sourceLanguage": "nl",
@@ -61675,17 +61565,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
-  },
-  {
-    "id": "news:f039541d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "President Lula da Silva Wins Surprise Brazilian Election, Bolsonaro Contests Result",
-    "lead": null,
-    "sourceHash": "3c9bb3d544f0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
   },
   {
     "id": "news:f04c62ef",
@@ -62370,6 +62249,17 @@
     "translated": "2026-10-27"
   },
   {
+    "id": "news:f30aceb7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Opinion: Seal must not be the victim of the bankruptcy of WEC",
+    "lead": null,
+    "sourceHash": "af973b1c69fd",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:f31893df",
     "language": "en",
     "sourceLanguage": "nl",
@@ -62810,6 +62700,17 @@
     "translated": "2026-10-29"
   },
   {
+    "id": "news:f52ef89f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Video | Dashcam films private jet crashing into the ground in US",
+    "lead": null,
+    "sourceHash": "435222507056",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:f52fcafc",
     "language": "en",
     "sourceLanguage": "nl",
@@ -62852,6 +62753,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
+  },
+  {
+    "id": "news:f5682aac",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "AI companies are causing enormous damage. Make them pay for it themselves too",
+    "lead": null,
+    "sourceHash": "860554b7a082",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:f56ed7b0",
@@ -63129,17 +63041,6 @@
     "translated": "2026-10-28"
   },
   {
-    "id": "news:f65d6f11",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Tension back in Spain: Kylian Mbappé decides El Clásico on Frenkie de Jong's return",
-    "lead": "Kylian Mbappé helped Real Madrid to a hard-fought win in El Clásico on Sunday evening. The French star player put De Koninklijke ahead before halftime with a curious goal, after which Barcelona equalised in the second half through top scorer Raphinha. Just before time, Mbappé definitively became the celebrated man by scoring the 1-2.",
-    "sourceHash": "6afa172b0172",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:f66af68",
     "language": "en",
     "sourceLanguage": "nl",
@@ -63228,17 +63129,6 @@
     "translated": "2026-10-26"
   },
   {
-    "id": "news:f6b6892a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Live Clásico | Mbappé puts Real ahead in fortunate fashion at FC Barcelona",
-    "lead": "Welcome to this liveblog! My name is Tim Siekman and I will keep you updated on the clash between FC Barcelona and Real Madrid in La Liga. Enjoy!",
-    "sourceHash": "2ae563c2ed75",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-25"
-  },
-  {
     "id": "news:f6b9bcc1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -63259,17 +63149,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
-  },
-  {
-    "id": "news:f714b7b7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Money as medicine",
-    "lead": "From Brazil to Rotterdam. Give the poorest families money and thereby prevent costly crisis care, writes columnist Sophie van Gool.",
-    "sourceHash": "327489962f30",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
   },
   {
     "id": "news:f746cb2a",
@@ -63734,17 +63613,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:f9152bc4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Hardly anything comes of the exception to the fireworks ban",
-    "lead": null,
-    "sourceHash": "a0f083b0ed7e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
-  },
-  {
     "id": "news:f91cf4dd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -63842,6 +63710,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-26"
+  },
+  {
+    "id": "news:f999b845",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dutch short trackers start season in style, although things also sometimes go wrong",
+    "lead": null,
+    "sourceHash": "e5e9416c1277",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:f9bba04e",
@@ -64625,6 +64504,17 @@
     "translated": "2026-10-27"
   },
   {
+    "id": "news:fd452c7f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Axios: 'Trump would prefer a diplomatic solution with Iran, Netanyahu wants to attack again right after the midterms'",
+    "lead": null,
+    "sourceHash": "bc68e7bffef4",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
+  },
+  {
     "id": "news:fd557b10",
     "language": "en",
     "sourceLanguage": "nl",
@@ -64678,6 +64568,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-26"
+  },
+  {
+    "id": "news:fd6cd90c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Ignore AI and ask for that pay rise",
+    "lead": "Fear of a technological revolution may be suppressing wages.",
+    "sourceHash": "2061f539b149",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-02"
   },
   {
     "id": "news:fd84dcc6",
@@ -64744,17 +64645,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
-  },
-  {
-    "id": "news:fdae903c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Whatever the rich lobby comes up with: a millionaires' tax works",
-    "lead": null,
-    "sourceHash": "4cbc7d4c7863",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-26"
   },
   {
     "id": "news:fdb5eb35",
@@ -64892,12 +64782,12 @@
     "id": "news:fe46c110",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Thousands of demonstrators take to the streets in Israel in favour of cooperation with Arab parties",
-    "lead": "In Tel Aviv, an estimated two thousand people took to the streets on Saturday evening to call for cooperation between Zionist and non-Zionist parties to form a government.",
-    "sourceHash": "b131564ccb99",
+    "title": "Israeli election committee refutes Likud claims of fraud: 'Elections not undermined'",
+    "lead": "In Tel Aviv on Saturday evening, an estimated two thousand people took to the streets to call for cooperation between Zionist and non-Zionist parties to form a government.",
+    "sourceHash": "bd6e21f3207a",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-01"
+    "translated": "2026-11-02"
   },
   {
     "id": "news:fe512407",
