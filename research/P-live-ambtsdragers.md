@@ -16,6 +16,7 @@
 | Presidium (Voorzitter en ondervoorzitters van de Tweede Kamer) | https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0/CommissieZetelVastPersoon?$filter=CommissieZetel/Commissie/Afkorting eq 'PRES' | 03-11-2026 | 200 |
 | Eerste Kamer alle leden | https://www.eerstekamer.nl/alle_leden | 03-11-2026 | 200 |
 | Eerste Kamer fracties en fractiebesturen | https://www.eerstekamer.nl/fracties | 03-11-2026 | 200 |
+| Rijksoverheid overzicht commissarissen van de Koning | https://www.rijksoverheid.nl/themas/overheid-en-democratie/provincies/commissaris-van-de-koning/overzicht/commissarissen-van-de-koning | 03-11-2026 | 200 |
 
 ## Tellingen
 
@@ -25,11 +26,11 @@
 - Gemeenten (TOOI, register, CBS): 0 gelezen, 0 gekoppeld.
 - Provincies (TOOI, register, CBS): 0 gelezen, 0 gekoppeld.
 - Waterschappen (TOOI, register): 0 gelezen, 0 gekoppeld.
-- Commissarissen van de Koning (Rijksoverheid): 0 gelezen, 0 gekoppeld.
+- Commissarissen van de Koning (Rijksoverheid): 12 gelezen, 12 gekoppeld.
 - Nieuwe personen: 0.
 - Uitgegeven tenures: 458. Uitgegeven memberships: 225.
 - Geopend: 0. Gesloten: 0.
-- Gestopt door de bewaking: 0. Gaps: 2.
+- Gestopt door de bewaking: 0. Gaps: 5.
 
 ## Toelichting
 
@@ -40,6 +41,9 @@
 
 ## Gaps
 
-1. Fractievoorzitter van Fractie-Van Gasteren (https://www.eerstekamer.nl/fractie/fractie_van_gasteren): de fractiepagina noemt geen fractievoorzitter. Vervolg: De bestaande tenure blijft staan.
-2. G10: de annotatietekst die het colofon van de Eerste Kamer voorschrijft (https://www.eerstekamer.nl/begrip/colofon): het colofon zegt "Als annotatie wordt daarbij het volgende vermeld:" maar de pagina bevat daarna geen tekst. Vervolg: Neem contact op met de Eerste Kamer of lees de pagina gerenderd; tot die tijd vermeldt elke bron de URL en de extractiedatum.
+1. Live bron gemeenten (TOOI, register, CBS) kon niet worden opgehaald (https://identifier.overheid.nl/tooi/id/gemeente?format=json): netwerk- of parsefout: unknown certificate verification error. Vervolg: Controleer de endpoints of probeer het later opnieuw; de vorige records blijven ongewijzigd.
+2. Live bron provincies (TOOI, register, CBS) kon niet worden opgehaald (https://identifier.overheid.nl/tooi/id/provincie?format=json): netwerk- of parsefout: unknown certificate verification error. Vervolg: Controleer de endpoints of probeer het later opnieuw; de vorige records blijven ongewijzigd.
+3. Live bron waterschappen (TOOI, register) kon niet worden opgehaald (https://identifier.overheid.nl/tooi/id/waterschap?format=json): netwerk- of parsefout: unknown certificate verification error. Vervolg: Controleer de endpoints of probeer het later opnieuw; de vorige records blijven ongewijzigd.
+4. Fractievoorzitter van Fractie-Van Gasteren (https://www.eerstekamer.nl/fractie/fractie_van_gasteren): de fractiepagina noemt geen fractievoorzitter. Vervolg: De bestaande tenure blijft staan.
+5. G10: de annotatietekst die het colofon van de Eerste Kamer voorschrijft (https://www.eerstekamer.nl/begrip/colofon): het colofon zegt "Als annotatie wordt daarbij het volgende vermeld:" maar de pagina bevat daarna geen tekst. Vervolg: Neem contact op met de Eerste Kamer of lees de pagina gerenderd; tot die tijd vermeldt elke bron de URL en de extractiedatum.
 

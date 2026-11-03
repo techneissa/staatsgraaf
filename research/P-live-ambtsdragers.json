@@ -94,7 +94,7 @@
     },
     {
       "url": "https://www.rijksoverheid.nl/themas/overheid-en-democratie/provincies/commissaris-van-de-koning/overzicht/commissarissen-van-de-koning",
-      "retrieved": "2026-11-02",
+      "retrieved": "2026-11-03",
       "notes": "Rijksoverheid overzicht commissarissen van de Koning"
     }
   ],
@@ -37130,7 +37130,7 @@
       "publisher": "Rijksoverheid",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-02",
+      "retrieved": "2026-11-03",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Naam, partij, datum van benoeming en geboortedatum per provincie."
@@ -37222,6 +37222,24 @@
   ],
   "media": [],
   "gaps": [
+    {
+      "what": "Live bron gemeenten (TOOI, register, CBS) kon niet worden opgehaald",
+      "why": "netwerk- of parsefout: unknown certificate verification error",
+      "endpoint": "https://identifier.overheid.nl/tooi/id/gemeente?format=json",
+      "resume": "Controleer de endpoints of probeer het later opnieuw; de vorige records blijven ongewijzigd."
+    },
+    {
+      "what": "Live bron provincies (TOOI, register, CBS) kon niet worden opgehaald",
+      "why": "netwerk- of parsefout: unknown certificate verification error",
+      "endpoint": "https://identifier.overheid.nl/tooi/id/provincie?format=json",
+      "resume": "Controleer de endpoints of probeer het later opnieuw; de vorige records blijven ongewijzigd."
+    },
+    {
+      "what": "Live bron waterschappen (TOOI, register) kon niet worden opgehaald",
+      "why": "netwerk- of parsefout: unknown certificate verification error",
+      "endpoint": "https://identifier.overheid.nl/tooi/id/waterschap?format=json",
+      "resume": "Controleer de endpoints of probeer het later opnieuw; de vorige records blijven ongewijzigd."
+    },
     {
       "what": "Fractievoorzitter van Fractie-Van Gasteren",
       "why": "de fractiepagina noemt geen fractievoorzitter",
