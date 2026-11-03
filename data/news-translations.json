@@ -11,17 +11,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:10133d05",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Word Search",
-    "lead": null,
-    "sourceHash": "270011d47bdc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:10133d06",
     "language": "en",
     "sourceLanguage": "nl",
@@ -86,6 +75,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:1013c920",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Woordzoeker",
+    "lead": null,
+    "sourceHash": "270011d47bdc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:1019272c",
@@ -251,6 +251,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
+  },
+  {
+    "id": "news:109cf4b6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Van de Zandschulp exits masters tournament in Paris in first round",
+    "lead": "Botic van de Zandschulp has been knocked out in the first round of the Paris masters tournament. The 31-year-old Dutch tennis player lost in three sets to Frenchman Ugo Humbert: 7-6 (5) 6-7 (9) 6-3.",
+    "sourceHash": "e6051599579e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:10d2d592",
@@ -647,6 +658,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:125b5ad4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "This new BMW drives superbly, but is overshadowed by its electric counterpart",
+    "lead": "BMW is launching the new 3 Series simultaneously as a petrol car and as the electric i3. From a distance they look very similar, but beneath the bodywork they are two very different cars.",
+    "sourceHash": "766d0bc080d6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:126aaf3f",
@@ -1133,6 +1155,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:140ee678",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "GPs give anaesthetic when inserting coil, against guideline",
+    "lead": "A number of GPs in the Netherlands give an anaesthetic injection when inserting a coil, while the guideline for doctors advises numbing the pain with paracetamol. Many women experience inserting a coil as very painful. With the anaesthetic injection, that can largely be reduced, say the doctors who perform it.",
+    "sourceHash": "9a6e0d13137b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:14247a33",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1219,17 +1252,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
-  },
-  {
-    "id": "news:14af1aae",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Unknown crypto billionaire comes out of nowhere to first place in Quote 500",
-    "lead": null,
-    "sourceHash": "777584a59557",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:14b030c2",
@@ -1529,17 +1551,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:15c0aa0b",
-    "language": "nl",
-    "sourceLanguage": "en",
-    "title": "Grensgemeenten vrezen massale omzeiling van vuurwerkverbod door winkelen in Duitsland, België",
-    "lead": "Grensgemeenten maken zich zorgen dat het nieuwe vuurwerkverbod grotendeels wordt omze",
-    "sourceHash": "4f0756e8341d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:15c2aa9e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -1648,6 +1659,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:1625cc7b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "AD Football Podcast | 'If you're already afraid of being relegated now, that's opportunistic'",
+    "lead": "Once again a coach has been sacked early in the season. Robin Peter became champion with ADO Den Haag of the KKD last season, but after eleven matches in the Eredivisie he is no longer the right man. And so coach number 3 is already out in the Eredivisie.",
+    "sourceHash": "790726420f11",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:1645e311",
@@ -2277,6 +2299,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:18be308b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Hannah and Tahrim present Café Parool: 'So much happens in Amsterdam, you could talk about it endlessly'",
+    "lead": null,
+    "sourceHash": "8c77a32fb343",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:18d6e14d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2684,17 +2717,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:1a84f54c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Mbappé's remark about Mao goes down badly in China: sponsors scrap deals",
-    "lead": "Three Chinese companies have immediately ended their partnerships with Kylian Mbappé over a remark the star footballer made in passing in a podcast. The clip went viral on social media. The Chinese drinks company Dongpeng says Mbappé 'has hurt national feelings'.",
-    "sourceHash": "95aee63c422d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:1a8ad93c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2704,6 +2726,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
+  },
+  {
+    "id": "news:1a8da167",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US carries out a series of attacks on Iranian island Qeshm, five explosions heard",
+    "lead": null,
+    "sourceHash": "d0275576acfd",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:1a96e1f4",
@@ -3106,11 +3139,11 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Dead and seriously injured in shooting in car in Rotterdam, three arrests",
-    "lead": "A man died on Monday evening in a shooting in a car in Rotterdam-Oost. He was the driver. The three other occupants have been named as suspects and have been arrested. One of them was seriously injured.",
-    "sourceHash": "9e47bec491bd",
+    "lead": "A 36-year-old man died in a shooting in a car in Rotterdam-Oost on Monday evening. He was the driver. The three other occupants have been named as suspects and arrested. One of them was seriously injured.",
+    "sourceHash": "c6ae9ca70c5b",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-02"
+    "translated": "2026-11-03"
   },
   {
     "id": "news:1ca6849",
@@ -3377,17 +3410,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:1ddbfb16",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Jordan carries out airstrikes on Syria in retaliation for deadly church attack, at least eight dead reported",
-    "lead": null,
-    "sourceHash": "7962827c62ea",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:1de6c4c6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3617,17 +3639,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:1ef19646",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Harry Kane wins Ballon d'Or, beating Lamine Yamal and Kylian Mbappé",
-    "lead": "Harry Kane won the Ballon d'Or on Monday evening. The English striker of Bayern Munich received the Golden Ball during the seventieth edition of the gala. Kylian Mbappé and Lamine Yamal missed out on the top prize. Alèxia Putellas is the best female player of the year.",
-    "sourceHash": "f52df06c7474",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:1ef9a1cc",
@@ -4026,17 +4037,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:2118237e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Substantial doubling of households with assets of at least one million euros since 2019",
-    "lead": null,
-    "sourceHash": "0d593c1d7ec7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:212148cc",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4068,17 +4068,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
-  },
-  {
-    "id": "news:214b954b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Oxfam: super-rich profit from the climate disasters they cause",
-    "lead": "The richest 0.1 percent of the world, that is 8 million people, emits more CO2 than nearly half of the world's population. At the same time, this group is earning more and more from climate disasters, Oxfam states in a report published today.",
-    "sourceHash": "036243225d41",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:21563d64",
@@ -4268,17 +4257,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:222ef8e2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Nobody knows anything about the new richest Dutchman. We spoke to him",
-    "lead": "The new number 1 on the Quote 500 looks like the captain of a charter yacht and introduces himself as 'the man who does not exist'. In the book Cryptomanie, published by Follow the Money, journalist Zeke Faux spoke with the mysterious Jean-Louis van der Velde. He brushed off critical questions. 'You are being manipulated.'",
-    "sourceHash": "e4cbcda8a9bc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:22366516",
     "language": "en",
     "sourceLanguage": "nl",
@@ -4387,6 +4365,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:22a0548a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Scots caught with almost 17,000 euros of cocaine in car and lamb 'Pablo' on back seat",
+    "lead": "Scottish officers did not know what to make of it when they stopped a car and found a lamb named Pablo on the back seat, calmly eating chips from a bag. Meanwhile, hidden under the front seat was almost 17,000 euros' worth of heroin and cocaine.",
+    "sourceHash": "641653f1c900",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:22a31ea6",
@@ -5214,17 +5203,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:264197cb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Six dead in Jordanian retaliatory attacks in Syria",
-    "lead": null,
-    "sourceHash": "daefe9969bc0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:26531953",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5333,6 +5311,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
+  },
+  {
+    "id": "news:26e887e2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Zelensky: 26 dead in Russian attack on Ukrainian emergency services",
+    "lead": "An attack in the Ukrainian town of Komysjoevacha, not far from the city of Zaporizhzhia, has claimed the lives of at least 26 people. Five others were injured.",
+    "sourceHash": "ea1d12661522",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:26f580ef",
@@ -5731,6 +5720,17 @@
     "translated": "2026-10-20"
   },
   {
+    "id": "news:281c4420",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Connection stop on electricity grid for 16 municipalities in Gelderland",
+    "lead": "A setback for sixteen municipalities in the province of Gelderland. The power grid is so full that a connection stop has been announced for them.",
+    "sourceHash": "46a9a2d5ff8d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:2825f5e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5863,17 +5863,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:289ee9a4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Vorto",
-    "lead": null,
-    "sourceHash": "e0d279537212",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:289ee9a5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5940,6 +5929,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:289f75bf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Vorto",
+    "lead": null,
+    "sourceHash": "e0d279537212",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:28a12474",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5993,17 +5993,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
-  },
-  {
-    "id": "news:28d6af76",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Weather change on the way: after days of rain, the sun shows itself again",
-    "lead": "After a series of grey and drizzly days, the end of the precipitation is (for now) in sight. The weather is turning and making way for a dry and sunny period. On Tuesday the temperature rises to remarkably high values for the time of year, Weeronline reports.",
-    "sourceHash": "085751c62d09",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:28dda4f0",
@@ -6875,17 +6864,6 @@
     "translated": "2026-10-25"
   },
   {
-    "id": "news:2c3f445a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Paying twice as much for your parking permit: will that mean fewer cars on the street?",
-    "lead": null,
-    "sourceHash": "253224d14dca",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:2c51d084",
     "language": "en",
     "sourceLanguage": "nl",
@@ -7258,6 +7236,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:2e41b867",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The US makes a new attempt at peace talks with Ukraine and Russia in Abu Dhabi",
+    "lead": null,
+    "sourceHash": "c15fcf0c78d3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:2e46ddbb",
@@ -7931,6 +7920,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:30eebf2f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Housing supply in the private rental sector continues to shrink: 22,000 rental homes sold",
+    "lead": "For the second year in a row, the private rental sector has shrunk, the <entity id=\"org:zbo-centraal-bureau-voor-de-statistiek\">Centraal Bureau voor de Statistiek</entity> (CBS) reports. During 2025 some 22,000 homes disappeared from this sector, leaving 1.16 million private rental homes at the start of 2026. The decline in 2025 was considerably higher than in 2024, when just over 3,000 homes left the sector.",
+    "sourceHash": "5f189aa178f6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:30f0a3ea",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8019,6 +8019,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:3156fa4c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "First-time buyers miss out due to depleted loan funds at municipalities",
+    "lead": "The number of applications for starter loans is growing, partly due to rising house prices. Some first-time buyers are in for surprises and are missing out on purchases.",
+    "sourceHash": "c72ec9896d90",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:31646d56",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8074,17 +8085,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:31b0b0f0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dutch bitcoin company Bitonic hacked, bitcoin of three customers stolen",
-    "lead": null,
-    "sourceHash": "4cee220e2325",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:31b250a9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8138,17 +8138,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:31fd6384",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Within three quarters of an hour the doctor knew he had Parkinson's, Herman Koch told Eva Jinek without frills",
-    "lead": null,
-    "sourceHash": "59b7f50fbfe5",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:31ff00fb",
@@ -8226,17 +8215,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
-  },
-  {
-    "id": "news:3256e333",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "I turned out to have been giving away a fortune for years to obscure charities such as Egels zonder stekeltjes and Stichting Uilen naar Athene",
-    "lead": null,
-    "sourceHash": "a2584d857455",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:326d784d",
@@ -8347,6 +8325,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:32b3055a",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Naar verwachting stijgt het aantal wereldwijde luchtvaartpassagiers volgend jaar, ondanks hoge tarieven, becijferde ING",
+    "lead": "Naar verwachting zal het aantal wereldwijde luchtvaartpassagiers volgend jaar stijgen, ook al blijven de ticketprijzen hoog, volgens een rapport van ING.",
+    "sourceHash": "f3eabbaa9383",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:32b3300c",
@@ -8712,17 +8701,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:344f7fd5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Court rejects Trump plan not to count 20,000 votes in California",
-    "lead": "A federal court on Monday rejected President Donald Trump's plan to withhold twenty thousand votes from registered voters in the American state of California. According to the government, these people are not American citizens.",
-    "sourceHash": "6730df0649d1",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:345f1fd0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8864,17 +8842,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
-  },
-  {
-    "id": "news:34c08030",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The Israeli elections are not not about the fate of the Palestinians",
-    "lead": "The whole world is looking at Israel today, where Israelis are going to the polls. There is a chance that Benjamin Netanyahu will no longer wield the sceptre after this.",
-    "sourceHash": "9b9169afb494",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:34c42e04",
@@ -9062,6 +9029,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:35aafa0d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "How to keep your houseplants alive through the dark winter months",
+    "lead": null,
+    "sourceHash": "e0a254eafc2b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:35b35af5",
@@ -9460,17 +9438,6 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:372f8949",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Netanyahu wanted to carry out another attack on Iran before election day",
-    "lead": "In the run-up to the crucial Israeli elections, Prime Minister Benjamin Netanyahu spent weeks trying to carry out a new air strike on Iran. The New York Times reports this. It was army chief Eyal Zamir who halted the attack, three senior Israeli defence officials told the newspaper.",
-    "sourceHash": "ca2572783e22",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:37432c1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9559,17 +9526,6 @@
     "translated": "2026-10-28"
   },
   {
-    "id": "news:37df33a6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Many Dutch people do not yet have an emergency plan for when things 'really go wrong'",
-    "lead": "The Netherlands is not well prepared for an emergency situation. Although nearly half of adult Dutch people have an emergency kit at home, many households lack a concrete emergency plan. That is according to the Red Cross.",
-    "sourceHash": "1fd1469e8a39",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:37e2edc1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9612,17 +9568,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
-  },
-  {
-    "id": "news:3831cf32",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Party of Flavio Bolsonaro says it will respect Lula's win in Brazilian elections",
-    "lead": null,
-    "sourceHash": "4d5cf388f5d7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:3838cb96",
@@ -9777,17 +9722,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
-  },
-  {
-    "id": "news:38f8c1ac",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Spain's Putellas world's best female footballer for the third time",
-    "lead": "Alèxia Putellas was elected world's best female footballer for the third time in her career on Monday evening. The Spanish midfielder of London City Lionesses, who played for FC Barcelona last season, received the Ballon d'Or Féminin in London. The three Dutch nominees, Esmee Brugts, Kerstin Casparij and Vivianne Miedema, finished well outside the top 10.",
-    "sourceHash": "46562dd5a579",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:38fdcce5",
@@ -9966,6 +9900,17 @@
     "translated": "2026-10-28"
   },
   {
+    "id": "news:39815854",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Broke? Not all young adults dare to say so to their friends",
+    "lead": "Young adults don't always dare to say so when they are broke. When asked to buy new sneakers or to go out to eat or go away for a weekend, four in ten young adults (41 percent) aged 18 to 30 find it difficult to admit that something is too expensive. Almost a quarter (23 percent) also sometimes present their finances as better than they are.",
+    "sourceHash": "a8e4e1679601",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:398599fd",
     "language": "en",
     "sourceLanguage": "nl",
@@ -10142,17 +10087,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:3a1d245e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Man loses leg after backpack gets caught on departing train in Belgium",
-    "lead": "A man in Belgium lost his leg on Monday evening after getting caught on a departing train. His backpack became stuck on the train, and he then ended up on the tracks.",
-    "sourceHash": "e08119da8255",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:3a597fad",
     "language": "en",
     "sourceLanguage": "nl",
@@ -10206,17 +10140,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
-  },
-  {
-    "id": "news:3aafff56",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cinco",
-    "lead": null,
-    "sourceHash": "b5d17bb2750c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:3aafff57",
@@ -10283,6 +10206,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:3ab08b71",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cinco",
+    "lead": null,
+    "sourceHash": "b5d17bb2750c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:3ac36997",
@@ -10472,6 +10406,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:3b5492d7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "North Korea calls FBI accusations over billion-dollar hack \"serious political provocation\"",
+    "lead": "North Korea has called the FBI's accusations over the hack of the crypto platform Binance a \"serious political provocation\".",
+    "sourceHash": "f568b9b0ec71",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:3b6f51d4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -10558,6 +10503,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:3ba35442",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "North Korea calls FBI accusations over billion-dollar hack \"serious political provocation\"",
+    "lead": null,
+    "sourceHash": "cafde1409110",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:3ba80a5e",
@@ -11165,6 +11121,17 @@
     "translated": "2026-10-28"
   },
   {
+    "id": "news:3e96ab92",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Explainer | Texans want to send a signal to Elon Musk: 'We are not for sale'",
+    "lead": null,
+    "sourceHash": "3eccc0c15778",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:3ea697a6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11229,6 +11196,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:3ef387b6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "In a year, 22.000 rental homes have moved to the owner-occupied market",
+    "lead": "The number of private rental homes in the Netherlands has fallen by 22.000 within a year. Mainly private landlords sold large numbers of homes. Many of those sold homes are now owner-occupied homes.",
+    "sourceHash": "6b159d57b941",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:3ef8b7ad",
@@ -11671,6 +11649,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:40b914d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Democrats see an opportunity in conservative Texas at the midterms",
+    "lead": "Texas has been a Republican stronghold for decades, but that could change today at the elections. 'It is intolerable that as a Republican I would have to support candidates whom I know to be unfit, corrupt and completely self-centred.'",
+    "sourceHash": "ea254657a658",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:40c8b4e9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -11814,15 +11803,15 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:41a1b592",
+    "id": "news:41a82b7d",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Striker Harry Kane brings the Ballon d'Or back to England after a quarter century",
-    "lead": null,
-    "sourceHash": "45d51796174f",
+    "title": "Will Trump be reined in? Americans vote today in midterms",
+    "lead": "For the first time in two years, President Trump's power could be curbed. Americans vote today in the midterms, the parliamentary elections. In this video we tell you what you need to know on this election day.",
+    "sourceHash": "d6ef3b11e698",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-27"
+    "translated": "2026-11-03"
   },
   {
     "id": "news:41b2f0bf",
@@ -12573,6 +12562,17 @@
     "translated": "2026-10-31"
   },
   {
+    "id": "news:44f6eb92",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Supreme Court rejects Trump's attempt to prevent ballots in California from being counted",
+    "lead": null,
+    "sourceHash": "58b9ae450bc5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:44fa85ea",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12637,17 +12637,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
-  },
-  {
-    "id": "news:4533d1a0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Brilliant",
-    "lead": null,
-    "sourceHash": "c5eb20e21098",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:4533d1a1",
@@ -12716,6 +12705,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:45345dbb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Briljant",
+    "lead": null,
+    "sourceHash": "c5eb20e21098",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:4539d725",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12758,17 +12758,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:455ab90a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Bolsonaro's party acknowledges Lula's win in Brazilian election, Bolsonaro must hand in his passport",
-    "lead": null,
-    "sourceHash": "32e8d7de70bb",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:456bc96f",
@@ -13506,17 +13495,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
-  },
-  {
-    "id": "news:48039b11",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Voters' fear of Flávio Bolsonaro gives Lula victory after all",
-    "lead": "Never before has a Brazilian presidential candidate won after trailing in the first round. While the right wins one election after another elsewhere in Latin America, Lula is keeping the Bolsonaro family out of the presidential palace.",
-    "sourceHash": "05ed5f16e1ca",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:480401dd",
@@ -14619,6 +14597,17 @@
     "translated": "2026-10-28"
   },
   {
+    "id": "news:4c93dbab",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Former Philips divisions now worth 100 times more than Philips itself",
+    "lead": "Philips once partly or fully owned ASML, TSMC and NXP. Had Philips not sold its stakes, it would have been one of the most valuable companies in the world.",
+    "sourceHash": "985e89fae0d3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:4c9f30e1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14782,6 +14771,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:4d572d5c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "No one has any say over their own origins",
+    "lead": null,
+    "sourceHash": "631da15e87ea",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:4d5b8007",
@@ -15112,6 +15112,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:4e67ffed",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "North Korea denies involvement in mega hack on Binance",
+    "lead": "North Korea rejects American accusations that it is responsible for a cyberattack in which an estimated 6.3 billion dollars (just over 5.6 billion euros) in digital assets was stolen from crypto exchange Binance.",
+    "sourceHash": "a8fdd9fe1fc9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:4e7eea63",
@@ -15455,17 +15466,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:500e5557",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Jorrit Bergsma (40) is not done with skating yet, and that black hole? 'For the rest I can't do anything at all'",
-    "lead": "Jorrit Bergsma, 40 again, had the perfect Winter Games in Milan. But stop? Really not. The Frisian veteran does not even rule out the 2030 Olympics in his Friesland. 'You never know.'",
-    "sourceHash": "9166f31d5084",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:501d4aba",
     "language": "en",
     "sourceLanguage": "nl",
@@ -15585,6 +15585,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
+  },
+  {
+    "id": "news:5080aa9c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cabinet meets this morning for an extra, unscheduled Council of Ministers meeting on tax plan, box 3",
+    "lead": null,
+    "sourceHash": "1456697a95f6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:5082bba8",
@@ -16797,6 +16808,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:564b5cc2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Pim opened a bar with eleven friends on Ten Katestraat: \"People asked whether it would become a yuppie tent\"",
+    "lead": null,
+    "sourceHash": "01006289152d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:564c4b57",
     "language": "en",
     "sourceLanguage": "nl",
@@ -16960,6 +16982,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:56ab4361",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "De Gashouder is open again after a long renovation: 'In the next fifty years, no hall like this will open within the Ring'",
+    "lead": null,
+    "sourceHash": "7fc574f81e14",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:56ad98f7",
@@ -17402,6 +17435,17 @@
     "translated": "2026-10-16"
   },
   {
+    "id": "news:58a6630f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The midterms are less exciting than they appear",
+    "lead": "The midterms look set to become a political earthquake, but for Donald Trump the damage will probably be limited. After all, losses for the incumbent party are more the rule than the exception, writes columnist Bernard Hammelburg.",
+    "sourceHash": "cc9985ce26d6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:58ab4c3b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -17455,17 +17499,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
-  },
-  {
-    "id": "news:59335f97",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The soul of Israel is at stake, yet there is no attention for the fate of the Palestinians",
-    "lead": null,
-    "sourceHash": "c8a11ff92ec3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:59364d39",
@@ -17631,6 +17664,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:59eaa821",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Fireworks retailers feel they have been 'ripped off' and prepare legal action",
+    "lead": "A large group of Dutch fireworks retailers is demanding higher financial compensation for the fireworks ban. They have joined forces to achieve this. <entity id=\"org:kabinet\">Het kabinet</entity> is shortchanging them with the current allowance, they say. \"We feel we have been ripped off.\"",
+    "sourceHash": "73f65677d9af",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:59efad18",
@@ -17851,6 +17895,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
+  },
+  {
+    "id": "news:5b12c027",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Trump is no longer an asset in these elections but an obstacle, and it will only get harder for him",
+    "lead": null,
+    "sourceHash": "b0f5860dff6b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:5b1a93a0",
@@ -18172,17 +18227,6 @@
     "translated": "2026-10-18"
   },
   {
-    "id": "news:5c5fe7dc",
-    "language": "nl",
-    "sourceLanguage": "en",
-    "title": "Politie onderzoekt drugsreclamefolders bezorgd bij huishoudens in Utrecht",
-    "lead": "Er zijn flyers met reclame voor drugs bezorgd in verschillende brievenbussen in Utrecht.",
-    "sourceHash": "7bfd5d052ad2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:5c62ef2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -18346,17 +18390,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
-  },
-  {
-    "id": "news:5d06e865",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'We need to stop pretending that dance and drug trafficking have nothing to do with each other'",
-    "lead": null,
-    "sourceHash": "41ed54aac4aa",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:5d0c955e",
@@ -23045,17 +23078,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:5d3711e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Man in Belgium loses leg after backpack gets caught on departing train",
-    "lead": "In Belgium, a man lost a leg after he ended up under the train. That happened when the train departed and his backpack got stuck, Belgian media report. The accident occurred around 17:15 at Heide station, near Kalmthout north of Antwerp. The victim reportedly was removed from the train together with a fellow passenger. According to witnesses, he then struck the train doors. \"The victim then got caught with his backpack on the train, and so he ended up on the tracks, under the train. That is how he lost his leg,\" a police spokesperson told VRT . Life-threatening condition The man was resuscitated on the spot and taken to hospital. He is still in a life-threatening condition. The man's identity has not yet been made public. Because of the accident, train traffic between Kapellen and Essen was interrupted for a time.",
-    "sourceHash": "c47cedebc766",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:5d37121",
     "language": "en",
     "sourceLanguage": "nl",
@@ -23089,28 +23111,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:5d37124",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Microsoft offers 60,000 employees a voluntary departure scheme",
-    "lead": "Microsoft has offered 60,000 employees a voluntary departure scheme. That is about 27 percent of the total number of people who work at the American tech giant. The scheme was announced yesterday by the company and targets employees in Canada, India, the United Kingdom and the United States. \"The voluntary departure offer is new for us,\" writes HR chief Amy Coleman. \"At the same time we continue to help people focus on the work that really matters, help them develop new skills and - where that makes sense - find new opportunities within the company,\" she writes. Quarterly figures The company presents its quarterly figures on Wednesday and had about 223,000 employees at the end of June. This month the company's share price reached a historic high. According to financial news agency Bloomberg, Microsoft expects the percentage of employees who accept the offer to be considerably lower than the 30 percent who accepted an early retirement scheme earlier this year. The company already announced in July that it would cut 4,800 jobs. Like Google among others, the company is investing heavily in artificial intelligence. In this calendar year alone Microsoft expects to spend 175 billion dollars on AI. To keep profit margins high for shareholders, operational costs such as personnel therefore have to be cut.",
-    "sourceHash": "e0706781d635",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
-    "id": "news:5d37125",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Russians attack Kyiv again: bridge damaged and one dead",
-    "lead": "Kyiv was attacked again by Russia yesterday evening and overnight. In attacks with several ballistic missiles at least one person was killed and ten people were injured, Mayor Vitali Klytsjko reports. The Kyiv Independent reports that a university campus was among the places hit. Most of the injured are students, the mayor says. According to him, two medical facilities were also damaged in the attack. At the intensive care unit of one of those facilities, the windows shattered from the blast of the attack, Klytsjko says. A school building, a park and a number of homes were also damaged. Explosions were also heard near a metro station. The Zuidbrug, one of Kyiv's main traffic arteries, was also hit. It is still unclear how great the damage is. President Zelensky condemned the attacks. Kyiv has been attacked regularly in recent weeks. On 22 October at least one person died and 24 people were injured. And in the night of 13 to 14 October at least three people died in the city and more than 25 people were injured. Meanwhile, a humanitarian ceasefire that was announced last Friday has come into effect around the Ukrainian town of Olesjky. The temporary ceasefire is intended to provide help to civilians trapped in the area. The ceasefire applies to Olesjky and surrounding areas in the Kherson district.",
-    "sourceHash": "00b677670826",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:5d3713d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -23128,17 +23128,6 @@
     "title": "Wake-up service 27/10: Israel goes to the polls • Ruling on explosion at Schammenkamp",
     "lead": "Good morning! Israel goes to the polls to elect a new parliament and in <entity id=\"org:gemeente-rotterdam\">Rotterdam</entity> the court rules on the explosion in 2024 in a business premises on the Rotterdam Schammenkamp. First the weather: the day starts dry with some sun, later showers. With 15 to 19 degrees it is quite warm for the time of year. Are you heading out today? Here you can find the overview of traffic jams and roadworks, and here you can see the situation on the railways. What can you expect today? What did you miss: Jean-Louis van der Velde is, according to the Quote 500, the new richest Dutchman. He is dethroning Charlene de Carvalho-Heineken, who has led the list since 2012. His fortune, estimated at 26 billion euros, Van der Velde earned with cryptocurrencies. The list shows that the 500 richest Dutch people became even richer over the past year and that the Netherlands has more billionaires. The total wealth of the 500 richest Dutch people amounts to 300 billion euros, comparable to a quarter of the total Dutch economy. Other news from the night: And finally: A resident of <entity id=\"org:gemeente-utrecht\">Utrecht</entity> has made an app that is handy for the fellow residents of his apartment complex, but it has already cost the municipality 50,000 euros. Have a nice day!",
     "sourceHash": "117c4a31f167",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
-    "id": "news:5d3713f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Car drives into group of people in Germany, police open fire",
-    "lead": "In Germany, a car drove into a group of people late last night. The exact circumstances are not yet known, but the police are assuming intent. There is a suspicion that the driver was known to the victims. The incident took place in Neustadt am Rübenberge, near Hannover. Four or five people were taken to hospital for treatment. Some of the victims were seriously injured, but none of them is in mortal danger. Because a traffic check had just been held nearby, officers were able to get to the scene quickly. They opened fire on the fleeing driver. The perpetrator's car was found some time later in the area. Despite a large search, in which police dogs and a helicopter were also deployed, no one could be arrested. The investigation into the case continues today.",
-    "sourceHash": "3b41a8f79a19",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
@@ -26249,12 +26238,12 @@
     "id": "news:5d3fa45",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Coalition parties agree among themselves on tax plan and box 3, emergency Council of Ministers meeting tomorrow",
-    "lead": "The coalition parties D66, VVD and CDA have agreed on adjusting the tax plan for next year and introducing a capital gains tax in box 3. Details are not yet known. Tomorrow morning <entity id=\"org:kabinet\">het kabinet</entity> meets, after which the proposals will be sent to <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity>. On Wednesday evening there is a debate on the tax plan. Today the coalition leadership spent hours discussing the matter. Until now the minority cabinet tried to secure a majority in advance by seeking an agreement with opposition parties. But over the weekend, talks with both left-wing and right-wing parties again did not lead to a breakthrough. The left-wing bloc of Pro and Volt wants investors to pay more tax and workers less. But the VVD was not willing to go along with that. The right-wing bloc of JA21, SGP and BBB wants to abolish the obligation for municipalities to accommodate asylum seekers and wants changes regarding nitrogen and the liberal abortion practice. And those demands went too far for D66 in particular. Offers In the letter with amendments that goes to the House tomorrow, the cabinet will make offers to the opposition, in the hope that support will still come. If that does not happen, <entity id=\"person:rob-jetten\">premier Jetten</entity> could also let it come to the debate on Wednesday. In the dynamics of that debate, a package could still emerge that can win the approval of a majority. Parties can also propose amendments in the debate itself. The government parties might embrace those. But entering the debate without prospect of a majority is risky for the cabinet. If the tax plan is voted down, that has major consequences for both taxpaying citizens and the state treasury. Today finding a majority was made even harder by an advice from the <entity id=\"org:raad-van-state\">Raad van State</entity>. It is scathing about the haste the cabinet has in introducing the tax on gains from capital in box 3. That change would be introduced in 2028, but according to the Raad van State that is not feasible. More than 250 additional civil servants are needed for that at the <entity id=\"org:belastingdienst\">Belastingdienst</entity>, and the banks are also not yet able to supply their customers' data on capital gains to the tax authorities. Therefore the Raad van State calls on the cabinet to postpone the plans.",
-    "sourceHash": "b99f2514320f",
+    "title": "Coalition parties agree among themselves on tax plan and box 3, extra Council of Ministers this morning",
+    "lead": "The coalition parties D66, VVD and CDA have reached agreement on adjusting the tax plan for next year and introducing a capital gains tax in box 3. According to insiders, the new form of wealth tax will be postponed by one year. Furthermore, the coalition parties are not choosing between the left-wing or right-wing opposition to achieve a majority. This morning <entity id=\"org:kabinet\">het kabinet</entity> will meet in an additional Council of Ministers meeting, after which the proposals will be sent to <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity>. On Wednesday evening there is a debate on the tax plan. On Monday the top of the coalition discussed the matter for hours. Until now the minority cabinet tried to secure a majority in advance by seeking an agreement with opposition parties. But over the weekend, talks with both left-wing and right-wing parties again did not lead to a breakthrough. The left-wing bloc of Pro and Volt wants investors to pay more tax and workers less. But the VVD did not want that. The right-wing bloc of JA21, SGP and BBB wants to abolish the obligation for municipalities to accommodate asylum seekers and wants changes in the area of nitrogen and the liberal abortion practice. And those demands went too far for D66 in particular. Offers In the letter with adjustments that goes to the Chamber tomorrow, the cabinet will make offers to the opposition. That mainly concerns some extra tax relief for citizens. But that does not mean a choice is made for left or right. The coalition is charting its own course. With that, <entity id=\"person:rob-jetten\">premier Jetten</entity>, unlike he initially wanted, is letting it come to the debate on Wednesday. In the dynamics of that debate, a package could still emerge that can gather approval from a majority. Parties can also propose amendments during the debate itself. The government parties might embrace those. But entering the debate without prospects of a majority is risky for the cabinet. If the tax plan is voted down, that has major consequences for both taxpaying citizens and the treasury of the Kingdom. Haste Today finding a majority became even harder due to an advice from the <entity id=\"org:raad-van-state\">Raad van State</entity>. It judges harshly the haste the cabinet has in introducing the tax on gains from wealth in box 3. That change would be introduced in 2028, but according to the Raad van State that is not feasible. More than 250 extra civil servants are needed for that at the <entity id=\"org:belastingdienst\">Belastingdienst</entity>, and the banks are also not yet able to supply the data on their clients' wealth gains to the tax authorities. Therefore the Raad van State calls on the cabinet to postpone the plans until at least 2030. But the cabinet therefore does not want to go beyond a one-year postponement for now.",
+    "sourceHash": "03de522892f2",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-02"
+    "translated": "2026-11-03"
   },
   {
     "id": "news:5d3fa46",
@@ -26271,23 +26260,23 @@
     "id": "news:5d3fa47",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Dead and seriously injured in shooting in car in residential area Rotterdam-Oost",
-    "lead": "In a shooting in a car in a residential area in Rotterdam-Oost, the driver of the vehicle died this evening. Another man was seriously injured in the shooting, the <entity id=\"org:politie\">politie</entity> writes on X. The shooting took place shortly after 20.00 on the Evenaar in the Oosterflank neighbourhood. Because it is not yet clear how this could have happened, the other three occupants have been named suspects and arrested. The seriously injured man has been taken to hospital. Footage shows several ambulances present: A trauma helicopter was also called. An investigation is underway at the scene of the shooting. The police cannot yet say anything about how it happened.",
-    "sourceHash": "65ea0e7dc5dd",
+    "title": "Dead and seriously injured in shooting in car in residential area of Rotterdam-Oost",
+    "lead": "A driver of a vehicle died tonight in a shooting in a car in a residential area in Rotterdam-Oost. In a press release, the <entity id=\"org:politie\">politie</entity> reports that the deceased is a 36-year-old man from Dordrecht. Another man was seriously injured in the shooting, the police write on X. The shooting took place shortly after 20.00 hours on the Evenaar in the Oosterflank neighborhood. Because it is not yet clear how this could happen, the other three occupants have been named as suspects and arrested. The seriously injured man is one of the arrestees. He has been taken to hospital. Footage shows that several ambulances are present: A trauma helicopter was also called out. Investigators worked at the scene of the shooting for a long time.",
+    "sourceHash": "9cd4acdfa7cc",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-02"
+    "translated": "2026-11-03"
   },
   {
     "id": "news:5d3fd5c",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Private jet that crashed in Florida possibly lost parts in the air",
-    "lead": "The private aircraft that crashed almost vertically in Florida last night appears to have already lost parts in the air. \"We have indications that the aircraft broke apart before impact,\" American media quote Tom Chapman of the NTSB, the agency that investigates aviation accidents in the US. At a press conference, Chapman announced new details about the fatal accident. Parts of the aircraft have presumably landed at a considerable distance from the crater. Investigators are still in the dark about the cause of the accident. 'Rocket strike' All nine occupants died. The private jet came down at high speed and crashed right next to a mobile home park. Governor Ron DeSantis described it as a rocket strike. None of the 77 residents of the mobile home park died, but people still may not return to their homes. The moment of impact was filmed from the ground: The co-pilot has been identified as 20-year-old Nathalia Gadelha Filgueiras. Her identity was made public by her mother. No information has yet been released about the other occupants. \"We are going to crash,\" the pilot said shortly before the aircraft hit the ground. \"We have no more time,\" were the last words from the cockpit, as can be heard in publicly released recordings. The aircraft had got into trouble shortly after pilots reported ice formation on the aircraft.",
-    "sourceHash": "483403ace45f",
+    "title": "Privately owned jet that crashed in Florida may have lost parts in the air",
+    "lead": "The private plane that crashed almost vertically in Florida overnight appears to have already lost parts in the air. \"We have indications that the plane broke apart before impact\", U.S. media quote Tom Chapman of the NTSB, the agency that investigates aviation accidents in the US. Chapman announced new details about the fatal accident at a press conference. Parts of the plane presumably landed well away from the crater. Investigators are still in the dark about the cause of the accident. 'Rocket strike' All nine occupants died. The private jet came down at high speed and crashed right next to a trailer park. Governor Ron DeSantis described it as a rocket strike. None of the 77 residents of the trailer park died, but people still may not return to their homes. The moment of impact was filmed from the ground: The co-pilot has been identified as 20-year-old Nathalia Gadelha Filgueiras. Her identity was made public by her mother. A family with two young children and the nanny also died in the crash. Two other passengers have also been identified. The identity of the pilot has not yet been made public. \"We are going to crash\", the pilot said shortly before the plane hit the ground. \"We have no time left\", were the last words from the cockpit, as can be heard in publicly released recordings. The plane had run into trouble shortly after pilots reported ice forming on the aircraft.",
+    "sourceHash": "9202ead316e8",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-02"
+    "translated": "2026-11-03"
   },
   {
     "id": "news:5d3fd5d",
@@ -26299,6 +26288,72 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:5d3fd7d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US announces Ukraine-Russia talks in Abu Dhabi",
+    "lead": "Led by US envoys Steve Witkoff and Jared Kushner, talks will be held in Abu Dhabi on 10 and 11 November on ending the war in Ukraine. Steve Witkoff announced this on X. According to the Americans, delegations from both Ukraine and Russia will be present. A US official told news agency Reuters on Monday that the talks between the three countries would cover security guarantees for the period after the war and de-escalation. The American negotiators want to force a breakthrough in the war between the two countries before winter sets in. The Americans' previous attempt to reach an agreement dates from February, before the United States and Israel began a war against Iran. Ukraine has not yet responded to the proposed talks. Russian president Putin reportedly agreed two weeks ago after a meeting with envoy Witkoff in Saint Petersburg. Also talks in Brussels. According to a US official, there are also talks with various European countries in Brussels this week. Representatives from France, Germany, the United Kingdom, the European Union and NATO are reportedly to be at the table. Topics would include, among other things, security guarantees for Ukraine, security in Europe, and economic support for and reconstruction of Ukraine. Russia and Ukraine are still far apart on the conditions of a possible peace agreement. Trump has recently been increasing pressure on Ukraine. The American president wants Ukraine to stop air strikes on Russian oil refineries. Meanwhile Russia continues its attacks on Ukraine, and civilian casualties occur almost daily. Yesterday 26 people were killed in air strikes on a village near Zaporizja. The Russians reportedly bombed a former school in Komysjoevacha where aid goods were being distributed. President Zelensky called the attack \"utterly gruesome\".",
+    "sourceHash": "01388da9c0b3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
+    "id": "news:5d3fd7e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Hotel in Amsterdam evacuated due to major fire",
+    "lead": "During a major fire at a hotel in Amsterdam, 140 guests were evacuated overnight. The fire possibly started because of an appliance that caught fire. The fire brigade quickly had the fire under control. Several hotel guests were checked by ambulance personnel. Two of them had to go to hospital for a check-up because they had inhaled smoke. The fire at the hotel on Johan Cruijff Boulevard broke out at 23:45 on Monday evening. Because many calls came in to the emergency services and because of the smoke, the fire brigade escalated to 'major fire'. Since there were around 140 hotel guests present, the fire brigade searched the building several times to make sure all people were out of the hotel in time. The evacuated hotel guests were initially taken in at the concourse of Bijlmer Arena station. Later in the night they were housed in hotels nearby.",
+    "sourceHash": "c8e62b04c138",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
+    "id": "news:5d3fd7f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "North Korea denies being behind the Binance hack",
+    "lead": "North Korea has for the first time responded to the American accusations that it is behind the theft of billions of euros from crypto platform Binance. Kim Yo-jong, the influential sister of leader Kim Jong-un, now denies that the country is behind the hack and calls the accusation \"absurd rhetoric\". The FBI announced last weekend that North Korea is responsible for the theft of more than 5.6 billion euros in virtual assets from Binance, the largest crypto platform in the world. It would be the largest financial heist ever. According to the American security service, a hacker unit directed by North Korea converted the stolen bitcoins into ethereum, another cryptocurrency, and \"further laundering stages\" may follow to erase traces. Kim Yo-jong calls the American accusations a \"serious political provocation\". \"The US is misleading international public opinion by suggesting that all cybercrime in the world is our work\", Kim responded. She is referring to an earlier hack at the beginning of this year. Then too, the FBI named a North Korean hacker group as the perpetrator after a hack at the popular crypto exchange ByBit. In that case 1.5 billion dollars in digital money was stolen. That heist was then considered the largest ever in the crypto world. Binance has announced that most of the crypto assets stolen from the platform have since been reimbursed.",
+    "sourceHash": "07c11b7612e5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
+    "id": "news:5d3fd82",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Two million retirees, including former civil servants, can expect a significantly higher pension",
+    "lead": "For some 2 million retired Dutch people, 2027 looks set to start off financially very well. This is shown by a calculation by pension adviser Aon at the request of NOS. Pension funds that switch to the new pension system on 1 January are in a very good position right now. If that is still the case in two months, their members will benefit considerably. An increase of between 12 and 25 percent is very possible. It concerns 37 funds with 7.7 million members, of whom 2 million are retired. These include retired civil servants, shop workers, transport workers, bank employees and metal workers. Distributing reserves In the new pension system, the collective pot of money is divided into individual pension pots. Into that personal pot goes what you have built up during your working life. In addition, funds also distribute their reserves, the remaining money in the bank after all obligations to members have been met. The larger that reserve, the more there is to distribute. Part of that reserve is needed as a buffer to still top up retirees' payments in case of poorer stock market results. And part is needed for pension compensation. What is left over is distributed among retirees and workers. This is sometimes also called the sailing-in bonus. Workers receive that one-off increase in their pot too, but that money continues to be invested. Retirees see the effect of that amount directly in their monthly payment. 2 million retirees Pension adviser Aon looked at the ten largest pension funds that are now making the switch to the new system. Those funds account for 95 percent of all Dutch people who will be transferred in 2027. Retirees of those funds are on average set to gain 17 percent. This differs per fund. The final increase may also differ by age. In general, the increase for older retirees will be somewhat lower than for younger retirees. The increase applies from 1 January, but retirees will have to wait for the final calculation in the new year. Once everything has been correctly calculated, retirees will see that increase in their monthly payment. The increase for the first months of 2027 will be paid to them with retroactive effect. \"The outlook is rosy for members of pension funds that switch to the new system on 1 January\", says Corine Reedijk of Aon. \"The last two months of the year will remain tense, but if the situation stays stable, members of these funds will also have a good start in the new system\". Civil servants With more than 3 million members, of whom one million are pensioners, civil servants' pension fund ABP is by far the largest fund now making the switch. The most recent figures, from the end of September, show that ABP has invested assets of 543 billion and a coverage ratio of 132 percent. That means that even after paying out all accrued pensions (100 percent), it still has money in the bank (32 percent). If not too much changes in the coming two months, there will be a lot of money left to distribute among members. ABP does not wish to make forecasts itself. \"How much it will be for individual members cannot be directly linked to the coverage ratio, but also depends on their personal situation\", says the spokesperson. The pension fund points out that at ABP more personal factors count towards the final pension increase. One example is that at ABP some members receive a higher compensation if they missed indexation in the past. Wait and see It is still a matter of waiting and seeing for the pension funds and their 7.7 million members. For instance, a falling interest rate can lead to a lower coverage ratio, leaving less money to distribute. Earlier this year interest rates rose, but in recent months they have fallen again somewhat. Setbacks on the stock market can also affect the pension funds. For example, tech company share prices are extremely high, but they have been fluctuating quite a lot recently. The funds that made the switch last year were also able to raise pensions considerably thanks to the sailing-in bonus. That concerned 1.5 million retired workers from healthcare, technology, construction, hospitality and temp agency sectors. The windfall is one-off. Whether their pensions rise again this year depends on how well their funds have invested.",
+    "sourceHash": "ae15782ffcaa",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
+    "id": "news:5d3fd83",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Wake-up call 3/11: Americans head to the polls • Verdict in Woudenberg sex offence suspects case",
+    "lead": "Good morning! In the United States it is election day today. American voters are voting for Congress, their parliament. And the former couple from Woudenberg suspected of abusing children they babysat is hearing the verdict. First the weather: This morning locally some sun, but from the east also a lot of cloud, from which here and there some rain may fall. This afternoon from Germany more sunny spells and gradually dry. With a moderate northeasterly wind, maxima range between 9 and 12 degrees. The coming days relatively quiet and dry autumn weather with maxima around 10 degrees. A look back at the weather of October and the forecast for the coming days can be seen in this video: Are you going out today? Here you find the overview of traffic jams and roadworks, and here you can see the situation on the railways. What can you expect today? What did you miss? North Korea has responded to American accusations that the country is behind the billion-euro theft from crypto platform Binance. Kim Yo-jong, the influential sister of leader Kim Jong-un, denies this and calls the accusation \"absurd rhetoric\". The FBI said last weekend that North Korea must be responsible for the theft of over 5.6 billion euros in virtual assets from Binance, the largest crypto platform in the world. It would be the largest financial heist ever. Kim Yo-jong calls the American accusations a \"serious political provocation\". \"The US is misleading international public opinion by suggesting that all cybercrime in the world is our work,\" Kim responded. Other news from the night: And then also this: Researchers from the University of Pisa have observed a very unusual friendship in Africa between two male animals. On the highlands of Ethiopia they saw a bull and a donkey repeatedly moving towards each other. The animals licked and cuddled each other, and the bull regularly climbed onto the donkey in an excited state. Homosexuality is not unusual in the animal kingdom, but what is very exceptional is that it occurs between different animal species. The researchers published about it this week in the scientific journal Current Biology . Have a nice day!",
+    "sourceHash": "2f33c6990027",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
+    "id": "news:5d3fd86",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dead and injured after two helicopters collide on Mount Everest",
+    "lead": "Two helicopters collided and crashed on Mount Everest. One person died and two people were injured. Mount Everest lies on the border between Nepal and China and is the highest mountain in the world. There are no roads on the mountain, so helicopters are the only way to bring sick or exhausted hikers down. The helicopters crashed in the village of Pheriche, which lies at about 4,200 metres altitude. Rainy season over. A 47-year-old tourist from India died in the accident, news agency AP reports. A traveller from New Zealand and one of the helicopter pilots were also injured. It is not clear how many people were in the helicopters. Autumn is a popular season to climb Mount Everest, because the rainy season is over and it is less cold than in the winter months. But the trek is also very popular with hikers in the rest of the year. So popular that the Nepalese government has in the past taken measures to curb the number of climbers, but without a clear effect.",
+    "sourceHash": "cc3677ce1241",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:5d4dc0bc",
@@ -26332,6 +26387,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:5d528962",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Botic van de Zandschulp exits in first round of Paris masters tournament",
+    "lead": "Botic van de Zandschulp has been knocked out in the first round of the Paris masters tournament. The 31-year-old Dutch tennis player lost in three sets to Frenchman Ugo Humbert: 6-7 (5), 7-6 (9), 3-6.",
+    "sourceHash": "e17f98ef1345",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:5d5ea7",
@@ -26527,17 +26593,6 @@
     "title": "How the NPO leadership piled up wrong assessments and completely failed to return to Eurovision Song Contest participation",
     "lead": null,
     "sourceHash": "fd984a01f41f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
-    "id": "news:5e25451d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Man loses leg after backpack gets caught on train in Belgium",
-    "lead": "A man lost his leg on Monday after his backpack became caught on a departing train in Belgium. The victim is in life-threatening condition, Belgian media report.",
-    "sourceHash": "17624559cc15",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
@@ -26761,17 +26816,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:5f4b7cbc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Homes in Amsterdam Nieuw-West evacuated over possible explosive find",
-    "lead": "A possible explosive was found at a house on Schillingdijk in Amsterdam-West last night. Ten houses have been evacuated and half of the street has been cordoned off.",
-    "sourceHash": "bb828784dc14",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:5f558a2d",
@@ -27025,6 +27069,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:605692ba",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "At least 26 dead in 'horrific attack' by Russians on Ukrainian aid post",
+    "lead": "A Russian attack on the Ukrainian village of Komysjoevacha killed at least 26 people on Monday. The bombs fell on a school that is used as an aid post. According to Ukrainian president Volodymyr Zelensky, it was a so-called double tap attack.",
+    "sourceHash": "9cd572213200",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:6057ca17",
@@ -27718,6 +27773,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:63374832",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Youngest daughter of Brad Pitt also officially drops his surname",
+    "lead": "The youngest daughter of actors Angelina Jolie and Brad Pitt, Vivienne, has officially had her father's surname removed, court documents in the hands of People, among others, show. A judge in California approved the change on Monday.",
+    "sourceHash": "4b0a9c329c1f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:6342c37e",
@@ -28468,6 +28534,17 @@
     "translated": "2026-10-31"
   },
   {
+    "id": "news:65e0e89b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Hip-hop collective Buiten Westen is back after more than twenty years and performs at the Gashouder: 'It feels like 2004 was yesterday'",
+    "lead": null,
+    "sourceHash": "8b783fde0597",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:65e234a2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28620,6 +28697,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
+  },
+  {
+    "id": "news:6661e57",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Increasing number of people receiving unemployment benefits have a higher education",
+    "lead": "Partly due to the rise of AI, a higher vocational or university degree no longer offers job security, says <entity id=\"org:zbo-uitvoeringsinstituut-werknemersverzekeringen\">UWV</entity> director Judith Duveen.",
+    "sourceHash": "83cc9c174549",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:6662ea4d",
@@ -28873,17 +28961,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
-  },
-  {
-    "id": "news:6738158",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Number of millionaires in Amsterdam grows to 37,200, nationally too more and more rich people are joining them",
-    "lead": null,
-    "sourceHash": "79a10743998d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:673a7be0",
@@ -29447,6 +29524,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:6928f07a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "From Volendam to the Kuip, via a forgotten deadline and a speech by Van Persie: the remarkable rise of Givairo Read",
+    "lead": "As a youth player, Givairo Read had to learn to be patient. He is now on the radar of foreign top clubs. About a defender who was once too young for a professional debut and who, partly thanks to Robin van Persie, chose Feyenoord.",
+    "sourceHash": "6877ff53205d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:692f0716",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29865,17 +29953,6 @@
     "translated": "2026-10-23"
   },
   {
-    "id": "news:6ad05d3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "In the middle",
-    "lead": "Across: 4. Lost in Serbia 7. Fits for opener or catcher 8. Fits for cloth or sermon 10. Volatile substance 12. Interval 13. Fits for thunder or bear 14. Little fish 15.",
-    "sourceHash": "d9190f2107e2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:6ad91ed",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29948,17 +30025,6 @@
     "title": "Coach Fenerbahçe steps down after defeat to rival, former Twente striker new head coach of Costa Rica",
     "lead": "The transfer market in the Netherlands has been closed since Wednesday evening 2 September. The market in the foreign top competitions closed a day earlier. Clubs can still sign free agents. Follow all transfer news here.",
     "sourceHash": "ffe511cc79de",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
-    "id": "news:6b2e163",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Man loses leg after backpack gets caught on departing train in Belgium",
-    "lead": "A man in Belgium lost his leg on Monday evening after getting caught on a departing train. His backpack became stuck to the train, after which he ended up on the tracks.",
-    "sourceHash": "4a20df96d2f1",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
@@ -30085,6 +30151,17 @@
     "translated": "2026-10-27"
   },
   {
+    "id": "news:6bb83a7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Our survival instinct does not work against a threat of our own making",
+    "lead": null,
+    "sourceHash": "d032cbde3d40",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:6bc3320e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30151,17 +30228,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:6c12901c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Podcast | 'Nobody escapes the addictive algorithms of big tech'",
-    "lead": "In 'Follow the Money interviewt' journalists Annette van Soest and Harm Ede Botje speak with key figures from various FTM dossiers. From regulators and scientists to politicians and lawyers. Whether it concerns fraud and money laundering, our rule of law or the future of our agricultural policy: Follow the Money interviews.",
-    "sourceHash": "a378212ca618",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:6c5c272f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30204,6 +30270,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:6c8796e9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Many young people drop out of the workplace due to mental health complaints. What could be done better?",
+    "lead": "Relatively many people in their twenties are off sick at home with mental health complaints. Is this a task for employers, or should young people also work on their own resilience? A debate.",
+    "sourceHash": "36e3fe398bce",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:6c8bbe45",
@@ -30261,6 +30338,17 @@
     "translated": "2026-10-18"
   },
   {
+    "id": "news:6cc0a1d6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "How fugitive Brabant cocaine baron Jos L. was able to get Sierra Leone in his grip",
+    "lead": null,
+    "sourceHash": "39b48ae11099",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:6cc35c1e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -30281,6 +30369,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:6cde6152",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The paradox of Paris: how the EU is becoming ever more French, despite France",
+    "lead": "France is weakened. It is struggling with protests and looting, does not reform, and pays sky-high interest rates on its government debt. Yet precisely now the European Union is taking on more and more French traits. How is that possible?",
+    "sourceHash": "25c074b5d68d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:6cf5cec7",
@@ -30457,6 +30556,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:6dc77344",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Covid centres have only just got going, and now their survival is at risk again",
+    "lead": "The facts: Hermans changes postcovid research: loss of expertise threatens. Source: openoverheid.nl, ANP, <entity id=\"org:rwt-nederlandse-omroep-stichting-nos\">NOS</entity> Patients with postcovid are very worried about the plans of Minister of Health <entity id=\"person:sophie-hermans\">Sophie Hermans</entity> (VVD). She wants to scale back the funding of the postcovid expertise centres from 2028 onward. The centres research and treat patients with postcovid and record which approach […]",
+    "sourceHash": "33a53e23fcf2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:6dcc26e9",
@@ -31174,6 +31284,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:71444c80",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Prime Minister Burnham open to apologising for Britain's role in the slave trade",
+    "lead": null,
+    "sourceHash": "3bf6e44ffc2a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:7158084c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -31557,17 +31678,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:728759a7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Accounting and advisory firm EY is surprised by increase in government contracts",
-    "lead": "EY Netherlands recorded over 5% more turnover in the past financial year, thanks in part to the government, among others.",
-    "sourceHash": "8b236baa1ead",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:728a6bd3",
@@ -32153,17 +32263,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:7509f4b8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Elections in Israel: Ousting Netanyahu from power is one thing, forming a government is something else",
-    "lead": null,
-    "sourceHash": "b38fbe2b340c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:7514920",
     "language": "en",
     "sourceLanguage": "nl",
@@ -32516,17 +32615,6 @@
     "translated": "2026-10-17"
   },
   {
-    "id": "news:76ea2bca",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Eyal flies back to Israel for exciting elections: 'Optimistic that we can get rid of Netanyahu'",
-    "lead": "Israel goes to the polls today. And that can only be done in Israel itself, so Israelis abroad are flying back specifically for these exciting elections. Also Eyal Bazelet from Amsterdam: \"For me these are the most important elections since 1948.\"",
-    "sourceHash": "89372998d5e7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:76ed3f7f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -32635,6 +32723,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
+  },
+  {
+    "id": "news:7719d9e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "LIVE War in Ukraine | Russia and Ukraine carry out new attacks on energy facilities",
+    "lead": "Russia has carried out a large-scale attack on Ukrainian energy facilities in the Vinnytsia, Dnipropetrovsk and Kharkiv regions. News agency Interfax reported this on Tuesday morning, based on information from the Russian Ministry of Defence. Follow all developments in the war in Ukraine in our liveblog.",
+    "sourceHash": "c3ee857bb6e1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:77252ef2",
@@ -32767,6 +32866,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:77689674",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Private plane may have broken apart before crash in Florida",
+    "lead": "The plane that crashed on Sunday into a residential neighbourhood in the US state of Florida may have broken apart in the air before it hit the ground at high speed. The US National Transportation Safety Board (NTSB) said this on Monday, based on an investigation.",
+    "sourceHash": "0dad8d1bf128",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:776c879e",
@@ -33055,6 +33165,17 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:78e79ac8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "After the midterms, Trump's future and that of his ministers hangs by a thread",
+    "lead": "Will Trump remain firmly in the saddle or will his position become considerably more wobbly? That is what is at stake in the midterms, the congressional elections held on Tuesday in the US. The Republican majority in the American 'parliament' is at stake, precisely now that the president is at the lowest point of his popularity.",
+    "sourceHash": "8a7e387a8c61",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:78f1d75",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33229,6 +33350,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
+  },
+  {
+    "id": "news:7991372e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Director Daria Bukvić (37) gives 'our dark times' a place in Cabaret: 'I refer to ICE agents and bring forth a kind of drag Trump'",
+    "lead": null,
+    "sourceHash": "827812b656bd",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:79916865",
@@ -33484,15 +33616,15 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:7ad2ee1d",
+    "id": "news:7a97c6",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Free sex and the swing to the right: what is true of prejudices about the baby boomers?",
-    "lead": "The first-wave baby boomers turn eighty this year. Was it the generation of free sex, VINEX neighbourhoods, screaming at The Beatles, sit-ins, stubborn greed and...",
-    "sourceHash": "c4af21072ca6",
+    "title": "Former AIVD officer Eric Schouten on hack of refrigeration systems: 'It is about weakening the enemy'",
+    "lead": "Hackers have succeeded again. In several countries, including the Netherlands, shop refrigeration systems have been turned up. In some cases even to 70 degrees Celsius. Why is that cooling so interesting? And to whom? Former AIVD officer and espionage expert Eric Schouten answered those questions on <entity id=\"org:rwt-nederlandse-omroep-stichting-nos\">NOS</entity> Met het Oog op Morgen.",
+    "sourceHash": "ec3e8729a3bc",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-27"
+    "translated": "2026-11-03"
   },
   {
     "id": "news:7ae9339f",
@@ -33636,6 +33768,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:7bc3390d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Two Amsterdam residents arrested after violent robbery of 93-year-old woman in Slotervaart",
+    "lead": null,
+    "sourceHash": "87b32ca0f5da",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:7bdcf861",
@@ -33867,6 +34010,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-20"
+  },
+  {
+    "id": "news:7cfdad5d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Lots of cloud, some drizzle and a bit of sun this afternoon",
+    "lead": "Today and tomorrow we have a lot of cloud and some drizzle. The sun will show itself this afternoon. Later this week it will clear up further: the second half of the week is dominated by plenty of sun. It will also stay dry then. This comes with lower temperatures, with the first light frost at night.",
+    "sourceHash": "2a5527d4bcc7",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:7d13b6f0",
@@ -34430,6 +34584,17 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:7fa7e49a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sunny autumn weather ahead, but the mercury could dip below zero this week for the first time",
+    "lead": "Autumn weather takes a different turn in the coming days. Where an umbrella is still needed locally on Tuesday morning, sun and a chilly northeast wind take over afterwards.",
+    "sourceHash": "bee266a1ef9f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:7fb4e41b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -34452,6 +34617,17 @@
     "translated": "2026-10-22"
   },
   {
+    "id": "news:7fbae172",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Man (36) killed in shooting in Rotterdam: 'Four bangs. I knew: this is not fireworks'",
+    "lead": "A man died on Monday evening in a shooting on the Evenaar in Rotterdam. According to the <entity id=\"org:politie\">politie</entity>, it concerns a 36-year-old resident of Dordrecht. The victim turned out to be the driver of a car in which four people were in total.",
+    "sourceHash": "12ef0d8dc3f0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:7fc5c9c3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -34461,17 +34637,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:7fc79621",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "The elections that will determine the rest of Trump's term: which states, races, candidates and donors should you watch?",
-    "lead": "In the Congressional elections of 3 November, President Trump's Republicans risk losing heavily. Will the anticipated Democratic gain take the form of a 'blue' ripple, a wave or even a tsunami? And what would that mean for the second half of Trump's term?",
-    "sourceHash": "7a50769ffa77",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-02"
   },
   {
     "id": "news:7fd5e3e8",
@@ -34527,17 +34692,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:802c4ef8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Bolsonaro's party acknowledges Lula's win in Brazilian election, Bolsonaro must surrender his passport",
-    "lead": null,
-    "sourceHash": "32e8d7de70bb",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:803abc3",
@@ -34736,6 +34890,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:8133da54",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "North Korea calls FBI accusations over billion-dollar hack \"serious political provocation\"",
+    "lead": null,
+    "sourceHash": "cafde1409110",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:813e0cd2",
@@ -35046,17 +35211,6 @@
     "translated": "2026-10-28"
   },
   {
-    "id": "news:82c90a07",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Harry Kane named best football player in the world, Putellas receives award as best female player",
-    "lead": null,
-    "sourceHash": "f57152b4aee7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:82d46a0d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -35088,6 +35242,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:83001c6c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Live | US midterms | California decides on ballots itself, according to a judge",
+    "lead": "Hello and welcome to this live blog. Here we keep you informed of developments in the midterm elections in the United States. Do you have questions? Email them to redactie@nu.nl.",
+    "sourceHash": "9a2dbc05bc1a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:83069a4e",
@@ -35132,17 +35297,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
-  },
-  {
-    "id": "news:831e7ab",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Milwaukee Brewers one win away from World Series title",
-    "lead": "The Milwaukee Brewers baseball players also won the third game of the World Series. In the night from Monday to Tuesday, the Brewers were too strong for the visiting Tampa Bay Rays, winning 10-1. The Milwaukee team thereby leads the best-of-seven series 3-0 and could decide the final of the American baseball competition (MLB) in the fourth game.",
-    "sourceHash": "d9660d405d80",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:8320268",
@@ -35728,17 +35882,6 @@
     "translated": "2026-10-28"
   },
   {
-    "id": "news:8672269b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "For his film about a hacker, Thijs Meuwese (39) worked with cybersecurity experts: 'All hacks were actually carried out'",
-    "lead": null,
-    "sourceHash": "421a7799b06b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:86762e76",
     "language": "en",
     "sourceLanguage": "nl",
@@ -35880,17 +36023,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:86fd1bd6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Pina (65) receives an allowance of 60 euros a week and lives with her daughter and granddaughter: 'We only have one bedroom'",
-    "lead": null,
-    "sourceHash": "ccdf6e5086d8",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:871099cd",
@@ -36097,17 +36229,6 @@
     "title": "Video: Mogelijk explosief zorgt voor evacuatie van 10 woningen in Amsterdam",
     "lead": "De vondst van een mogelijk explosief leidde maandagavond tot de evacuatie van tien woningen in de Amsterdamse wijk Osdorp.",
     "sourceHash": "e7a53a29f9d3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
-    "id": "news:87f0c136",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Why we are ordering fewer parcels from China",
-    "lead": "Today in Dagkoers: PostNL is feeling the effects of the levy on small parcels from outside the EU. Fraud with expense claims has become much easier thanks to AI, and the cabinet wants to cut the number of civil servants by 25,000.",
-    "sourceHash": "f2ef40cda1a7",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
@@ -36397,17 +36518,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
-  },
-  {
-    "id": "news:89708861",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'The street lighting here in Kyiv has now gone out too. Not pleasant if you want to go for an evening stroll'",
-    "lead": null,
-    "sourceHash": "531e9fe85879",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:8970ea7d",
@@ -37037,6 +37147,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:8bf7ffb2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Number of single AOW recipients growing faster among men than among women",
+    "lead": "The <entity id=\"org:zbo-sociale-verzekeringsbank\">Sociale Verzekeringsbank</entity> (SVB) is paying out more and more single AOW pensions to men. That group is growing much faster than older women without a partner. Even so, women of AOW eligible age make up by far the majority.",
+    "sourceHash": "0664fca8c3db",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:8bff1df9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -37156,6 +37277,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
+  },
+  {
+    "id": "news:8c73527f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "A simple action of less than a second can prevent thousands of euros in damage to your car",
+    "lead": "A sleeping cat under the bonnet or a beech marten that has hidden there: in winter this happens more often than you think. With a few taps on the bonnet you can prevent both animal suffering and a very expensive repair.",
+    "sourceHash": "f1149eae84aa",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:8c783b7c",
@@ -37466,17 +37598,6 @@
     "translated": "2026-11-01"
   },
   {
-    "id": "news:8e36fb9a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "New Kids makers come with new film about carnival, including binge drinking, bad songs and sex",
-    "lead": "Leave it to the makers of the New Kids films to come up with a completely 'wasted' feature film about carnival. All prejudices about the southern festivities come up: binge drinking, slurring, singing bad songs and quick sex. 'We don't care what people will think of it.'",
-    "sourceHash": "1cb06ae4935d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:8e562c70",
     "language": "en",
     "sourceLanguage": "nl",
@@ -37607,17 +37728,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:8ec2cbc",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Poor French",
-    "lead": "'The French grow up venerating and reenacting their historical uprisings.'",
-    "sourceHash": "cad9054a9619",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:8ec350f6",
@@ -38621,6 +38731,17 @@
     "translated": "2026-10-15"
   },
   {
+    "id": "news:9225691c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "The pope fears artificial intelligence, but offers few concrete solutions",
+    "lead": "Popes occasionally address, with a weighty document called an encyclical, 'all people of good will', as the Roman Catholic formulation goes. Such a 'circular letter' shows the Vatican's most important concerns at that moment. When it comes to socio-economic issues, the message often sounds remarkably progressive. For example, Paul VI in 1967 […]",
+    "sourceHash": "cbd06195fb62",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:922790ad",
     "language": "en",
     "sourceLanguage": "nl",
@@ -38696,6 +38817,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:9290bc15",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Demi Vollering and Mathieu van der Poel chosen as best cyclists of the Netherlands",
+    "lead": "Demi Vollering and Mathieu van der Poel have been chosen as the best cyclists of 2026. The 29-year-old cyclist of FDJ United-Suez received the Keetie van Oosten-Hage Trophy at the Wielergala in Utrecht. Van der Poel was not present, but he did win.",
+    "sourceHash": "e117c33cfe66",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:929d6c4b",
@@ -38806,6 +38938,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:930ebd",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Dead and seriously injured in shooting in Rotterdam",
+    "lead": "A shooting incident in the Rotterdam neighborhood of Oosterflank has left one man dead. A second man was seriously injured. They were sitting in a car with two other men when shots were fired. What exactly happened in the car is unclear.",
+    "sourceHash": "2fa13e8fd175",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:931879b0",
@@ -38982,17 +39125,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
-  },
-  {
-    "id": "news:93cd75d0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Flavio Bolsonaro may not leave Brazil after election defeat",
-    "lead": "Flavio Bolsonaro may not leave Brazil after his election defeat. A few hours after the result, the right-wing senator was given a travel ban. Flavio also had to hand in his passport, because he is suspected of money laundering.",
-    "sourceHash": "4bcd229d9b9a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:93d0a042",
@@ -39246,17 +39378,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:94e3869e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Listed buildings must have an energy label, but the government does not follow that rule itself",
-    "lead": "Since May of this year, a large part of listed buildings in the Netherlands must have an energy label. However, the government itself does not comply with that rule: of the hundreds of monuments owned by the central government, only a few dozen have an energy label. According to the inspectorate, the government is therefore violating the law.",
-    "sourceHash": "1f349b326aa4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:94ffcf42",
@@ -40040,6 +40161,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:97fd42a3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Countries that will help Ukraine after the war hold military exercise in Poland",
+    "lead": "France and Great Britain will soon lead a military exercise in Poland, in which 2,800 soldiers from eleven countries will take part. It will be the first major military exercise of the so-called 'coalition of the willing'. This group of countries will support Ukraine once the war is over.",
+    "sourceHash": "2732c512d8b4",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:97fdcc15",
     "language": "en",
     "sourceLanguage": "nl",
@@ -40148,17 +40280,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:98b5f734",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Applied Materials wants to double its stake in Besi to around 20%",
-    "lead": "The American chip equipment manufacturer wants to cooperate more closely with the Dutch industry peer and sees the larger stake as a long-term investment. Besi's share opens sharply higher on Tuesday.",
-    "sourceHash": "a41c3fa684b8",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:98b9787e",
@@ -40357,17 +40478,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
-  },
-  {
-    "id": "news:99859b50",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "AD Football podcast | 'In recent years you could already name the champion in the Netherlands, not this season'",
-    "lead": "Will the battle for the national title be between five clubs, or will it end up with the traditional top 3 after all?",
-    "sourceHash": "bf572160916e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:998ac6b2",
@@ -40579,17 +40689,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:9a4a638",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Precies vier",
-    "lead": null,
-    "sourceHash": "e7fcdf3c307a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:9a4a639",
     "language": "en",
     "sourceLanguage": "nl",
@@ -40654,6 +40753,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:9a53253",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Precies vier",
+    "lead": null,
+    "sourceHash": "e7fcdf3c307a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:9a5fcef1",
@@ -41360,17 +41470,6 @@
     "translated": "2026-10-23"
   },
   {
-    "id": "news:9d717010",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Flávio Bolsonaro not allowed to leave Brazil after election defeat",
-    "lead": "Flávio Bolsonaro is not allowed to leave Brazil after his election defeat. A few hours after the results were announced, the right-wing senator was given a travel ban. He also had to hand in his passport, because he is suspected of money laundering.",
-    "sourceHash": "5e1688bcc383",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:9d7e246a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41657,17 +41756,6 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:9ea55deb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cruise with 3000 people on board collides with cargo ships",
-    "lead": "In Germany, a cruise ship collided with several cargo ships. The cruise is said to have been pushed off course by strong winds. There were more than 3000 people on board; no one was injured.",
-    "sourceHash": "3bdc974b33f1",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:9eb3422b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41776,6 +41864,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
+  },
+  {
+    "id": "news:9efdc97c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Why is the European Investment Bank so secretive about the death of a trainee?",
+    "lead": "In 2013 the 24-year-old Ofelia died after a fall at the headquarters of the European Investment Bank (EIB). To what extent is the EIB responsible for that? Thirteen years after her death, her brothers and sister are speaking about it for the first time.",
+    "sourceHash": "0d1c5c99486e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:9effdba9",
@@ -42097,6 +42196,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:9fd3257e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "British man who drugged and had his own wife raped for 20 years had more than a million photos on his phone",
+    "lead": "The British man who drugged and raped his own wife for more than twenty years, and invited strangers to take part in the abuse, had 'more than a million photos and videos' of the events on his phone.",
+    "sourceHash": "1c69b2b66e16",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:9fd480a1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42262,6 +42372,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:a07528e7",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Centrale bank: Een aanzienlijk deel van de Nederlandse werknemers heeft banen die AI kan veranderen",
+    "lead": "Een aanzienlijk deel van de Nederlandse werknemers heeft banen waarin de opkomst van kunstmatige intelligentie een grote verandering teweeg kan brengen, zei de centrale bank van Nederland in een nieuw rapport over de economische impact van AI.",
+    "sourceHash": "51d7008aa0e2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:a086da4c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42348,17 +42469,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
-  },
-  {
-    "id": "news:a0aab9ce",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Busy",
-    "lead": "Every month I try to arrange a day with my father (84) to visit a museum together. After some back and forth messaging, the upcoming date turns out to be difficult to fit in.",
-    "sourceHash": "e5e7be65a23c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:a0abe883",
@@ -42471,17 +42581,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:a12a607c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Centraal Beheer: over the past ten years more than 200 thousand damage claims due to extreme weather",
-    "lead": "Extreme weather has over the past ten years caused hundreds of thousands of cases of damage to homes insured with Centraal Beheer. In roughly six out of ten cases, the insurer has compensated the damage.",
-    "sourceHash": "1f4abb5038ef",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:a14342e9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42491,17 +42590,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
-  },
-  {
-    "id": "news:a148528c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dutchman (40) dies suddenly during FC Twente trip in Gibraltar, in front of his friends",
-    "lead": "A supporters' trip to Gibraltar last Friday ended in tragedy. The 40-year-old FC Twente supporter Ronald Draaisma fell ill in the morning and died on the spot in front of his friends. He had travelled to the Southern European enclave for the match against Lincoln Red Imps in the UEFA Conference League.",
-    "sourceHash": "81b12a5a3396",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:a1552ddf",
@@ -43318,17 +43406,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:a4463d86",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "All or nothing for Bibi Netanyahu",
-    "lead": "Israeli voters vote today on Netanyahu, although they have little say over the geopolitical course. Meanwhile Trump and Netanyahu are forging big plans, writes columnist Bernard Hammelburg.",
-    "sourceHash": "7979525802e0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:a45a46c8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43514,6 +43591,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-22"
+  },
+  {
+    "id": "news:a500797e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Julia got an anaesthetic injection for inserting a coil: 'Truly a relief'",
+    "lead": "When GPs insert a coil, the official guideline is to relieve the pain with paracetamol. But women can still experience a lot of pain. Two GPs devised an alternative: an anaesthetic injection before inserting the coil.",
+    "sourceHash": "1ed09497492d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:a507196a",
@@ -43967,6 +44055,17 @@
     "translated": "2026-10-31"
   },
   {
+    "id": "news:a79b119c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "German churches are preparing for war. Are they making war possible?",
+    "lead": null,
+    "sourceHash": "c3f42bde8070",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:a7a3acd3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44198,17 +44297,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:a86186c9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Paying twice as much for your parking permit in Amsterdam: will that mean fewer cars on the street?",
-    "lead": null,
-    "sourceHash": "aae0264e3cd2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:a864f6ad",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44273,6 +44361,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
+  },
+  {
+    "id": "news:a884dcac",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US subsidiary of Philips reaches settlement of €288 mln in sleep apnea case",
+    "lead": "The settlement with the US Department of Justice marks a new step for Philips in resolving the sleep apnea affair. Philips is sticking to its expectations for the whole of 2026.",
+    "sourceHash": "0efaec5b96ac",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:a8894642",
@@ -44484,17 +44583,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:a8fed8a0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Jay-Z performs during Super Bowl halftime show: 'Dream come true'",
-    "lead": "Jay-Z will perform during the next halftime show at the Super Bowl. In February next year the rapper will take the stage at SoFi Stadium in Los Angeles for the halftime show of the final of the American football season.",
-    "sourceHash": "35bc070d64b3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:a90f6c05",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44680,6 +44768,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
+  },
+  {
+    "id": "news:a9b5a219",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Eva Crutzen played Pippi Longstocking brilliantly as a noisy, spoiled brat",
+    "lead": null,
+    "sourceHash": "25ef7a4d71b6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:a9c37840",
@@ -45078,6 +45177,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:ab3bb4b5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'In Amsterdam you really don't need to use an e-bike'",
+    "lead": null,
+    "sourceHash": "64bb59ad1b5c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:ab466e76",
     "language": "en",
     "sourceLanguage": "nl",
@@ -45422,12 +45532,12 @@
     "id": "news:acd68163",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "With solid candidates and discipline, Democrats tried to capitalise on discontent with Trump in the midterms",
-    "lead": "Democrats, with the finish line in sight, still find it hard to get in their own way in these Congressional elections. But Trump's unpopularity and the weakness of Republican candidates dominated this campaign. \"Act as if I am on the ballot.\"",
-    "sourceHash": "c15344142d69",
+    "title": "With solid candidates and discipline, Democrats try to cash in on discontent with Trump at the midterms",
+    "lead": "Democrats are, with the finish line in sight, still finding it hard to make things difficult for themselves in these Congressional elections. But Trump's unpopularity and the weakness of Republican candidates dominated this campaign. \"Act as if I am on the ballot.\"",
+    "sourceHash": "25c33f1d5bbc",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-02"
+    "translated": "2026-11-03"
   },
   {
     "id": "news:ace6635f",
@@ -45516,17 +45626,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
-  },
-  {
-    "id": "news:ad2d7ac2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Man in Belgium loses leg: backpack got caught on train",
-    "lead": "In Belgium a man has lost his leg after getting under a train. He reportedly banged on the doors of the vehicle when things went wrong.",
-    "sourceHash": "25675f803f83",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:ad2de27a",
@@ -45749,17 +45848,6 @@
     "translated": "2026-11-01"
   },
   {
-    "id": "news:add139ad",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "How residents of Lisbon and Barcelona protect their culinary traditions: 'A symbol of a much bigger problem'",
-    "lead": null,
-    "sourceHash": "ae76ec924433",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:add44a8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -45925,17 +46013,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:ae5c675a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Your Move",
-    "lead": null,
-    "sourceHash": "0ca9c42013e9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:ae5c675b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -46000,6 +46077,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:ae5cf375",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Aan Zet",
+    "lead": null,
+    "sourceHash": "0ca9c42013e9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:ae5ddfd1",
@@ -47641,17 +47729,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:b58c5ad0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Renewed call for protest in France despite new education measures",
-    "lead": "In France, students have once again called for protests. The protest movement considers the government's education plans insufficient.",
-    "sourceHash": "b56f277b1689",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:b58e346a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -47839,17 +47916,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:b632f75b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Wopke Hoekstra: 'Last summer was the warmest ever, but also the coldest of the next ten years'",
-    "lead": "The damage from climate change 'is really getting out of hand', says European Commissioner Wopke Hoekstra. That is why many more people need to insure themselves against it. On Tuesday he will announce in Brussels how he intends to achieve that. \"No one can think it will pass them by.\"",
-    "sourceHash": "c735093d4d1b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:b636c5f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -47991,17 +48057,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:b6d74140",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Israel goes to the polls: will the population continue with Netanyahu?",
-    "lead": "Israel is choosing a new parliament today. These are the first elections since the Hamas attack on 7 October 2023 and the subsequent wars with Hamas in Gaza and Hezbollah in Lebanon and Iran. The main theme is therefore security. How, but above all who should ensure that? In the polls it is neck and neck between Prime Minister Benjamin Netanyahu and opposition leader Gadi Eisenkot.",
-    "sourceHash": "be2f9014616e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:b6ddceb6",
@@ -48367,17 +48422,6 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:b86741e8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Jordan carries out airstrikes on Syria in retaliation for deadly church attack, at least six dead reported",
-    "lead": null,
-    "sourceHash": "e6685267abe0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:b86bf2f1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48675,6 +48719,17 @@
     "translated": "2026-10-28"
   },
   {
+    "id": "news:b9468491",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Schiphol is reaching the desired reduction in serious nuisance next year already, and that has nothing to do with the new aircraft rules",
+    "lead": null,
+    "sourceHash": "f01108c6a047",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:b956e10b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48796,6 +48851,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:b9bcad95",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sietze (24) has three coffee carts and pays himself 2500 euros a month: 'That is partly based on how much my friends earn'",
+    "lead": null,
+    "sourceHash": "1381db684ee6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:b9cc8288",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48893,6 +48959,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
+  },
+  {
+    "id": "news:ba55e6a8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Julius Nuiten (28) cooked Bistro de la Mer to a Michelin star a few years ago, now he prepares dishes at Le Souterrain",
+    "lead": null,
+    "sourceHash": "34b6bcac3fdf",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:ba5c0013",
@@ -49036,6 +49113,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
+  },
+  {
+    "id": "news:bb01124d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Breakfast tutorial",
+    "lead": "In preparation for her recovery from a hip operation, my wife sent me a text message with a detailed tutorial on how she would like her breakfast made.",
+    "sourceHash": "b2382c63e167",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:bb33186e",
@@ -49665,17 +49753,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:bd73782",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "No Dembélé, no problem: PSG beat Lyon without former Ballon d'Or winner",
-    "lead": "Paris Saint-Germain beat Olympique Lyon while the Ballon d'Or gala was taking place. The Parisians did so without star forward and last year's Ballon d'Or winner Ousmane Dembélé, and only made the difference late on. At the Parc des Princes it finished 2-0.",
-    "sourceHash": "2e3af949e89a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:bd9337f5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -49861,17 +49938,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
-  },
-  {
-    "id": "news:be77200f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Former FBI director Comey charged for the third time by the Trump administration",
-    "lead": null,
-    "sourceHash": "c9330221e0c4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:be775529",
@@ -50061,17 +50127,6 @@
     "translated": "2026-10-31"
   },
   {
-    "id": "news:bf0ade85",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Crypto billionaire dethrones Heineken heiress on debut in list of richest Dutch people",
-    "lead": "The combined wealth of the five hundred richest Dutch people has risen by more than 10 percent to a record level of over 300 billion euros. Crypto entrepreneur Jean-Louis van der Velde is the richest Dutch person, with a fortune of 26 billion euros.",
-    "sourceHash": "eb09a2dddb20",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:bf372d15",
     "language": "en",
     "sourceLanguage": "nl",
@@ -50094,15 +50149,15 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:bf3d68ca",
+    "id": "news:bf4775f2",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Nobel laureate advocates global climate deal: 'It can also happen without the US'",
-    "lead": "Nobel laureate Esther Duflo has a comprehensive plan to save the climate: a tax on billionaires, more money for poor countries. 'That is where THAT big emissions will take place in the coming years.'",
-    "sourceHash": "15f99e0c77b1",
+    "title": "For Democrats, these elections feel like their democracy is at stake",
+    "lead": null,
+    "sourceHash": "9c71bd31ecf4",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-27"
+    "translated": "2026-11-03"
   },
   {
     "id": "news:bf58e1f2",
@@ -50378,17 +50433,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
-  },
-  {
-    "id": "news:c069c8f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Noaberschap in a Twente housing project",
-    "lead": "The 72-year-old Els <entity id=\"org:gemeente-altena\">Altena</entity> cuts a piece of cake in the new meeting room. This is Hof Markgraven. Since this spring, Altena has lived in this lovely courtyard with fourteen different homes in <entity id=\"org:gemeente-almelo\">Almelo</entity> Noordoost. Finally. It took a while, she laughs. An understatement; a full twelve years ago, a group of Almelo residents already came up with the first ideas for a shared housing project.",
-    "sourceHash": "b24827c00dff",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:c06c5a8f",
@@ -50895,17 +50939,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
-  },
-  {
-    "id": "news:c22c3c2c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Today Israel goes to the polls: will this be the end of the road for Prime Minister Benjamin Netanyahu?",
-    "lead": "Tension is high in Israel. Will Netanyahu, the youngest prime minister the country has ever had, also become its oldest, or will the 'anti-Bibi' Gadi Eisenkot push him off the throne? And what will the outcome mean for the future? Correspondent Gilad Perez explains what you need to know about the Israeli elections.",
-    "sourceHash": "65655b24d29f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:c22e25ee",
@@ -51634,17 +51667,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:c4f1ea3a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "German drone maker Helsing moves into anti-aircraft missiles to tackle faster Russian Geran drone",
-    "lead": "German drone company Helsing will launch a new air defence system in mid-2027, intended as an answer to new, hard-to-counter Russian Geran-5 drones.",
-    "sourceHash": "6ab4348c7b39",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:c4f31060",
     "language": "en",
     "sourceLanguage": "nl",
@@ -51995,17 +52017,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:c6d52171",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "With posters, videos and scaremongering, Netanyahu is heading for 20 percent of the population: Arab Israelis",
-    "lead": null,
-    "sourceHash": "1221a77f9f77",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:c6e9932",
@@ -52481,17 +52492,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:c8f16056",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "State Secretary Erkens wants to end unstunned slaughter: 'Does not fit our idea of animal welfare'",
-    "lead": "The debate over unstunned slaughter is flaring up again this Animal Day. VVD State Secretary Silvio Erkens for Animal Welfare tells RTL Nieuws in an interview about animal welfare that it is very awkward that other countries such as Belgium already have a ban, but our country does not yet. This month the Party for the Animals will send a private member's bill to the House to ban unstunned slaughter.",
-    "sourceHash": "9db3e499fe2b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:c8fce6b2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -52745,6 +52745,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:c99f2d7f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "What happens to Aletta Jacobs' office if the university museum in Groningen has to close?",
+    "lead": null,
+    "sourceHash": "ba1f59cbc75e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:c99f33e0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -52831,6 +52842,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
+  },
+  {
+    "id": "news:ca0ca106",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Actor John Malkovich does what he likes: \"That is a luxury I can afford\"",
+    "lead": "Will actor John Malkovich win an Oscar for the first time in his career? His superb portrayal of a troubled CIA agent in the black comedy Wild horse nine means it can hardly go wrong. At the recent Venice Film Festival he was already named best actor for this role.",
+    "sourceHash": "13a4276f3c9f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:ca29f620",
@@ -53097,6 +53119,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:cb25898e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "America goes to the polls for parliamentary elections: what's the background again?",
+    "lead": "After two years of presidency, Americans can today, halfway through his term, settle accounts with Trump. They are voting on the division of parliament. Although Trump's name is not on the ballot, the elections are largely about the president and how much room he has to carry out his plans.",
+    "sourceHash": "c636e5dbaf49",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:cb290005",
     "language": "en",
     "sourceLanguage": "nl",
@@ -53117,6 +53150,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:cb429a1b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Russia launches major attack on Ukrainian energy facilities",
+    "lead": null,
+    "sourceHash": "0558d3c7df7f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:cb4f9f02",
@@ -53416,6 +53460,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:cc959dc2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Director Sofia Coppola on 'Making Marie Antoinette': 'I had to fight for the female perspective'",
+    "lead": "The mother of director Sofia Coppola filmed her in 2005 in Versailles on the set of the costume drama Marie Antoinette . After her death, Coppola completed the documentary herself.",
+    "sourceHash": "1dd6bec32cb4",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:cca6b472",
     "language": "en",
     "sourceLanguage": "nl",
@@ -53447,17 +53502,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
-  },
-  {
-    "id": "news:ccdca1f5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Renewed call for protest in France despite measures for better education",
-    "lead": "In France, students have again called for protests. The protest movement considers the government's proposal for improvements in education insufficient.",
-    "sourceHash": "c0d8138f3270",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:cceda798",
@@ -53617,12 +53661,12 @@
     "id": "news:cd81403d",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Opinion: 'I was spat at by a boy on a fatbike, but I am not going to avoid any places now'",
+    "title": "'I was spat on by a boy on a fatbike, but I am not going to avoid places now'",
     "lead": null,
-    "sourceHash": "75e4e0551157",
+    "sourceHash": "1e746edac837",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-02"
+    "translated": "2026-11-03"
   },
   {
     "id": "news:cd88f88b",
@@ -53667,17 +53711,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
-  },
-  {
-    "id": "news:cdb807c2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Godts helps PSG to top spot in home match against Lyon",
-    "lead": "Paris Saint-Germain took the top spot in Ligue 1 for the first time this season on Monday evening, in the home match against Olympique Lyon. At the Parc des Princes it finished 2-0 in favour of the reigning champions. PSG are now leaders with 17 points from eight matches, 1 point more than Stade Rennais. Lyon remain on 14 points and have slipped to fifth place.",
-    "sourceHash": "d83d507c75ae",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:cdd19c6d",
@@ -53834,17 +53867,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:ce4c1621",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Somersault",
-    "lead": null,
-    "sourceHash": "19fc40e02aae",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:ce4c1622",
     "language": "en",
     "sourceLanguage": "nl",
@@ -53909,6 +53931,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:ce4ca23c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Koprol",
+    "lead": null,
+    "sourceHash": "19fc40e02aae",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:ce4f03f1",
@@ -54505,6 +54538,17 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:d052e600",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sudoku",
+    "lead": "Place the numbers 1 through 9 in the diagram so that each number appears exactly once in each row, each column, the nine bold-outlined 3x3 boxes, and the four grey 3x3 boxes.",
+    "sourceHash": "e3ef981d015b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:d05311b4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -54723,17 +54767,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:d0ceab51",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Small group of billionaires emits more than billions of poor people",
-    "lead": "A small group of rich people emits more greenhouse gases than the poorest 3.5 billion combined, according to calculations by aid organisation Oxfam Novib. The very richest are also better protected against the consequences of climate change than people living in poverty.",
-    "sourceHash": "77bc9672b00b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:d0d9c37f",
@@ -54967,6 +55000,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:d19fff27",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Zo'n 22.000 woningen verdwenen vorig jaar uit de particuliere huursector in Nederland",
+    "lead": "Voor het tweede achtereenvolgende jaar kromp de particuliere huursector in Nederland vorig jaar, meldde het Centraal Bureau voor de Statistiek (CBS).",
+    "sourceHash": "9381311f5069",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:d1a681bc",
     "language": "en",
     "sourceLanguage": "nl",
@@ -55198,17 +55242,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:d27d2645",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Number puzzle",
-    "lead": null,
-    "sourceHash": "773ba346c5f3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:d27d2646",
     "language": "en",
     "sourceLanguage": "nl",
@@ -55273,6 +55306,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:d27db260",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Number block",
+    "lead": null,
+    "sourceHash": "773ba346c5f3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:d28330c5",
@@ -55479,17 +55523,6 @@
     "title": "Klaver (PRO) wants to cooperate with cabinet on budget: 'We are willing to compromise'",
     "lead": "PRO is willing to make compromises with the minority cabinet over support for the budget. \"We are willing to compromise, we want to cooperate\", says PRO leader Jesse Klaver to RTL Nieuws.",
     "sourceHash": "815477dac34b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
-    "id": "news:d3164322",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Israel heads to the polls: elections could end Netanyahu's long period in power",
-    "lead": "Israel goes to the polling stations on Tuesday for the parliamentary elections. It is the first time Israelis have been able to vote for parliament since Hamas's attack on 7 October 2023.",
-    "sourceHash": "e9d05a19b728",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
@@ -55713,17 +55746,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:d41e02ed",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Microsoft offers 60,000 employees voluntary departure scheme and focuses on AI",
-    "lead": "The American tech company Microsoft is offering approximately 60,000 employees the option to voluntarily leave the company with financial support. That is 27 percent of the total workforce. The scheme comes at a time when the company is investing billions in AI.",
-    "sourceHash": "3e2ac3034806",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:d42a594c",
@@ -56056,17 +56078,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:d53df7ae",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Mild autumn weather with rain later in the day, dry and more sun from tomorrow",
-    "lead": "We have a very mild autumn day today. For this time of year it is quite warm: it may reach as much as 19 degrees in Limburg. This morning there is occasional sun, and later this afternoon rain arrives from the west. From tomorrow it will be calm and dry with more sun.",
-    "sourceHash": "fc6b4f1002e0",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:d54a854d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -56287,17 +56298,6 @@
     "translated": "2026-10-28"
   },
   {
-    "id": "news:d61115e5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Kane elected world's best footballer for the first time",
-    "lead": "Harry Kane (33) was elected world's best footballer on Monday evening. The Bayern Munich and England striker received the Ballon d'Or in London for his performances in the past football season. Kane is the first English winner since Michael Owen in 2001.",
-    "sourceHash": "f478d695539b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:d6227637",
     "language": "en",
     "sourceLanguage": "nl",
@@ -56412,11 +56412,11 @@
     "language": "en",
     "sourceLanguage": "nl",
     "title": "Dead and seriously injured in shooting in Rotterdam",
-    "lead": "In a residential area in Rotterdam, a car was shot at this evening. One man died and another was seriously injured.",
-    "sourceHash": "d04d07a02e9e",
+    "lead": "In a residential area of Rotterdam, a car was shot at this evening. A 36-year-old man from Dordrecht died in the attack, and another person was seriously injured.",
+    "sourceHash": "9c439a2f0b9c",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-02"
+    "translated": "2026-11-03"
   },
   {
     "id": "news:d68ac2d4",
@@ -56527,6 +56527,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:d6d051fe",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Major fire in hotel in Amsterdam, 140 guests evacuated",
+    "lead": "The easyHotel on Johan Cruijff Boulevard in Amsterdam-Zuidoost was evacuated overnight from Monday to Tuesday due to a major fire. Several people were checked by ambulance personnel for smoke inhalation.",
+    "sourceHash": "3341a31a9270",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:d6ebff60",
@@ -56670,6 +56681,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:d7a28b59",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Box 3 plans postponed after criticism from Council of State",
+    "lead": "Today in Dagkoers: the fierce criticism of the plans for box 3, the new hack at Ahold and other European supermarkets, and a preview of today's midterms.",
+    "sourceHash": "e5a8baa5866d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:d7a4a9fb",
@@ -57156,6 +57178,17 @@
     "translated": "2026-10-29"
   },
   {
+    "id": "news:d9a7b5d9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Apple warns of lower profit margins",
+    "lead": "Apple is facing rising costs and headwinds in the lucrative sale of subscriptions and apps. The tech group forecasts lower profitability for the current quarter.",
+    "sourceHash": "6cc475c301e1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:d9b4a010",
     "language": "en",
     "sourceLanguage": "nl",
@@ -57231,6 +57264,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-24"
+  },
+  {
+    "id": "news:da0a53a1",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Supreme Court rejects Trump's attempt to prevent ballots in California from being counted",
+    "lead": null,
+    "sourceHash": "58b9ae450bc5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:da12d55e",
@@ -57706,6 +57750,17 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:dc37a9bb",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Californian dreamin'",
+    "lead": "A few hundred billionaires against 23 million voters. That doesn't seem too difficult, but tax the rich turns out to be remarkably hard in practice.",
+    "sourceHash": "cecd02f19673",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:dc3f8327",
     "language": "en",
     "sourceLanguage": "nl",
@@ -57880,17 +57935,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:dcd3be1c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Milwaukee Brewers deal a crushing blow with record inning in World Series against Tampa Bay Rays",
-    "lead": "The Milwaukee Brewers baseball players are close to the first World Series win in club history after a 10-1 victory over the Tampa Bay Rays. After a crazy inning in which they scored no fewer than eight runs with two outs, the team of former Netherlands national team coach Pat Murphy took a 3-0 lead in the best-of-seven series.",
-    "sourceHash": "f72a10bc2c1a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:dce590aa",
@@ -58267,17 +58311,6 @@
     "translated": "2026-11-01"
   },
   {
-    "id": "news:de7dc9f4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Chip shares push AEX toward a green close",
-    "lead": "The AI companies stormed the capital markets to finance their investment plans. For now, it could not spoil the mood this week. The oil price fell to $115 per barrel.",
-    "sourceHash": "2a0d4f43eb7c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:de980e97",
     "language": "en",
     "sourceLanguage": "nl",
@@ -58652,6 +58685,17 @@
     "translated": "2026-10-28"
   },
   {
+    "id": "news:e02ca0c8",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Life-prolonging breast cancer medicine not reimbursed for Dutch women, as the only ones in Europe",
+    "lead": "In all European countries, women with metastatic breast cancer can get the drug Enhertu reimbursed, except in the Netherlands. Here it has not been possible to bring the price low enough. Or are we too 'focused on the money'? \"More attention for the patient.\"",
+    "sourceHash": "b6a6d7d98cbe",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:e0418634",
     "language": "en",
     "sourceLanguage": "nl",
@@ -58883,17 +58927,6 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:e1123d9b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Harry Kane voted best football player in the world, Putellas receives award as best female player",
-    "lead": null,
-    "sourceHash": "f57152b4aee7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:e11a2b59",
     "language": "en",
     "sourceLanguage": "nl",
@@ -58969,6 +59002,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
+  },
+  {
+    "id": "news:e1576026",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Live: North Korea denies involvement in Binance hack",
+    "lead": "It is the day when the US midterms will no doubt dominate the news, but plenty of other things are happening too. Quarterly results, for example, from Philips, AMD, Pfizer and many more.",
+    "sourceHash": "9837fd7420c8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:e159cc44",
@@ -59147,6 +59191,17 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:e1f65c9f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Crashed aircraft in US with nine people on board may have broken apart in the air",
+    "lead": "The private aircraft that crashed Sunday into a residential neighbourhood in the American state of Florida may have broken apart in the air before it hit the ground at high speed. The American National Transportation Safety Board (NTSB) established this on Monday on the basis of an investigation.",
+    "sourceHash": "77e18169918f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:e2042623",
     "language": "en",
     "sourceLanguage": "nl",
@@ -59222,6 +59277,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:e28aa92a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Hotel in Amsterdam-Zuidoost evacuated due to major fire",
+    "lead": null,
+    "sourceHash": "24e77ee9759d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:e28e73e3",
@@ -59893,6 +59959,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-26"
+  },
+  {
+    "id": "news:e56d7e2b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US midterms determine how Trump's last two years will look",
+    "lead": "Americans go to the polls today for the midterm elections, better known as the midterms. To a large extent, these determine how the last two years of President Donald Trump's term will unfold.",
+    "sourceHash": "19ce542b6143",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:e5741254",
@@ -60874,6 +60951,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:e9825815",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'Doesn't Kenya have any clubs?' Criticism in Kenya of the practice match between Ajax and Bayern Munich, ahead of the opening of the national stadium",
+    "lead": null,
+    "sourceHash": "cb9815cd884c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:e989ec73",
     "language": "en",
     "sourceLanguage": "nl",
@@ -61600,17 +61688,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:ed37a89c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "This is an ode to the people fighting for democracy, precisely when victory seems far away",
-    "lead": null,
-    "sourceHash": "d88620d4a16e",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:ed3c542c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -61642,6 +61719,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
+  },
+  {
+    "id": "news:ed709f9f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Plane that crashed in Florida may have broken apart in the air",
+    "lead": "The small plane that crashed on Sunday into a mobile home park in the US state of Florida may have already broken apart in the air. All nine people on board died in the crash.",
+    "sourceHash": "c18ff63bfd47",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:ed73bb72",
@@ -61966,23 +62054,12 @@
     "id": "news:eef7af32",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Extra Council of Ministers meeting tomorrow on tax plan and box 3",
-    "lead": "Tomorrow morning at 09.00 an extra, unscheduled Council of Ministers meeting will be held. The meeting follows a day of frantic consultations at the top of <entity id=\"org:kabinet\">het kabinet</entity> about the problems that have arisen around the tax plan and box 3.",
-    "sourceHash": "7351a9b4bbb7",
+    "title": "Extra Council of Ministers meeting today on tax plan and box 3",
+    "lead": "This morning at 09.00 an unscheduled, extra Council of Ministers meeting will be held. The meeting follows a day of frantic consultation at the top of <entity id=\"org:kabinet\">het kabinet</entity> about the problems that arose around the tax plan and box 3.",
+    "sourceHash": "ca223b9b617c",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-02"
-  },
-  {
-    "id": "news:ef1cf42b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "French groups call for 'sustained mobilisation': not yet satisfied with government concessions",
-    "lead": "Representatives of the protesting French secondary school pupils had a meeting with Prime Minister Sébastien Lecornu yesterday. In it, the government presented the first measures to calm the crisis surrounding the ongoing unrest. But these were not good enough for the pupils: after the meeting, they called for 'sustained mobilisation'.",
-    "sourceHash": "57cb9e2c19f6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
+    "translated": "2026-11-03"
   },
   {
     "id": "news:ef1df2f9",
@@ -62082,28 +62159,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
-  },
-  {
-    "id": "news:ef64d00d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'Unknown' crypto billionaire ousts Heineken heiress after fourteen years as richest person in the Netherlands",
-    "lead": "The Netherlands has 56 billionaires, four more than last year. And a virtually unknown crypto billionaire ousts Heineken heiress Charlene de Carvalho-Heineken from the throne as the richest person in the Netherlands after fourteen years, according to the latest Quote 500.",
-    "sourceHash": "c531172924e1",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
-    "id": "news:ef8c1276",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Alèxia Putellas wins Ballon d'Or for the third time, Harry Kane best male footballer",
-    "lead": "Alèxia Putellas (FC Barcelona) and Harry Kane (Bayern Munich) are the best footballers of last season. This was just announced during the 70th edition of the Ballon d'Or gala in London. They are thereby the successors of Frenchman Ousmane Dembélé and the Spanish Aitana Bonmatí.",
-    "sourceHash": "e7d4b4febdbd",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:ef8e9d44",
@@ -62381,15 +62436,15 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:f083d0ce",
+    "id": "news:f09f8d4c",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Dead pilot whale washed ashore at Egmond: 'Exceptional year for stranded animals'",
-    "lead": "A dead pilot whale washed ashore at Egmond on Monday morning. The animal was in an advanced state of decomposition. This year, twelve different cetaceans have already stranded in the Netherlands. According to SOS Dolfijn, that is \"exceptionally many\".",
-    "sourceHash": "ed104968ae38",
+    "title": "LIVE Middle East | US carries out series of attacks on Iranian island Qeshm, five explosions heard",
+    "lead": "The United States has carried out a series of attacks on the Iranian island of Qeshm and surrounding areas near the Strait of Hormuz. The attacks took place while the US and Iran are conducting indirect negotiations, which Iranian Foreign Minister Abbas Araghchi on Monday still called 'very intensive'. Follow all developments on the Middle East in our liveblog.",
+    "sourceHash": "9a44af1307bf",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-27"
+    "translated": "2026-11-03"
   },
   {
     "id": "news:f0a7b1c5",
@@ -62412,6 +62467,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:f0c58347",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Retail property investor records higher rental income despite economic headwinds",
+    "lead": "The net rental income of the listed real estate company rose by 4.7% in the first nine months of 2026 compared with the same period last year, to €119.1 million.",
+    "sourceHash": "ad20b81346cb",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:f0c9f76b",
@@ -62491,17 +62557,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:f12abd91",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Personnel news Tuesday 27 October",
-    "lead": "New job? Email personalia@fd.nl, with a high-resolution photo and a job description in Dutch.",
-    "sourceHash": "816c6e9e4d37",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:f138a41a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -62511,6 +62566,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
+  },
+  {
+    "id": "news:f13c594b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "What does a car-free Oxford Street do to the image of London? 'Without taxis and double-decker buses, sometimes you almost don't know you're walking there'",
+    "lead": null,
+    "sourceHash": "d732c87f3a40",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:f13e767a",
@@ -62612,17 +62678,6 @@
     "translated": "2026-10-28"
   },
   {
-    "id": "news:f1a140c0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Former FBI director Comey charged for the third time by the Trump administration",
-    "lead": "Former FBI director James Comey is once again facing a criminal case for the third time, brought against him under pressure from the government of President Donald Trump. And Trump is offering 1 million dollars (almost 895,000 euros) for anyone who reports voter fraud that leads to an arrest and conviction. Follow all developments in the United States via our liveblog.",
-    "sourceHash": "5bc67824b363",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:f1ad8a17",
     "language": "en",
     "sourceLanguage": "nl",
@@ -62711,17 +62766,6 @@
     "translated": "2026-10-15"
   },
   {
-    "id": "news:f1df29f4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Kane beats Yamal and Mbappé in battle for Golden Ball after season with 73 goals",
-    "lead": "Harry Kane won the Golden Ball at the annual football gala on Monday. The Bayern Munich striker beat Kylian Mbappé and Lamine Yamal, among others, in London. The Englishman is honoured for a remarkably productive season.",
-    "sourceHash": "0aa5dd1db995",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:f1e094a1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -62742,17 +62786,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
-  },
-  {
-    "id": "news:f1ecebb",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "In the ring: KNVB introduces individual award for best players in cup tournament",
-    "lead": "From this season, the KNVB is putting the standout players of the cup tournament in the spotlight. The best player and the greatest talent, in the men's and women's competitions, will receive an individual award: the Eurojackpot KNVB Beker Ring.",
-    "sourceHash": "5b463bf4433f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:f1f7f329",
@@ -63184,6 +63217,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:f3c46d39",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cabinet, introduce a nationwide ban on advertising that is harmful to the climate",
+    "lead": null,
+    "sourceHash": "6037d404d6e1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:f3cb23c2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -63193,17 +63237,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
-  },
-  {
-    "id": "news:f3e21f26",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Everyone equally to blame for the climate crisis? Nonsense, says Oxfam Novib: 'Super-rich are setting the earth on fire'",
-    "lead": "The richest people in the world emit the most CO2, are therefore the biggest causes of climate change and even profit from that climate misery. That is the provocative conclusion of a new report by Oxfam Novib.",
-    "sourceHash": "830a2cbc5e51",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:f3e6531c",
@@ -63347,6 +63380,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
+  },
+  {
+    "id": "news:f4c4f768",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Space telescope to fall to Earth Wednesday, debris could hit",
+    "lead": "An American space telescope of nearly 1500 kilos is expected to fall to Earth on Wednesday. Most of it will burn up in the atmosphere, but according to NASA some parts, including pieces of the heat-resistant metal tungsten, may reach the Earth's surface.",
+    "sourceHash": "ff9aa275abcc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:f4dd7e33",
@@ -63602,17 +63646,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:f5c347",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Flavio Bolsonaro's party says it will respect Lula's win in Brazilian elections",
-    "lead": "The Brazilian Liberal Party of senator Flavio Bolsonaro has stated that it recognises the result of the decisive election round. This is apparent from a statement party leader Valdemar Costa Neto released on Monday.",
-    "sourceHash": "7e5d7f52ea54",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:f5cb7f3c",
     "language": "nl",
     "sourceLanguage": "en",
@@ -63776,17 +63809,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
-  },
-  {
-    "id": "news:f656f6a4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Crypto baron Van der Velde debuts in first place in Quote 500 with a fortune of 26 billion",
-    "lead": null,
-    "sourceHash": "d245a3f73ef6",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:f65a6f53",
@@ -64218,17 +64240,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:f85d4f3a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Thousands of tourists book a cruise to the Bahamas but end up in Canada with woolly hats",
-    "lead": "Swimwear in the suitcase, flip-flops packed and all set for the Bahamas. Only the Royal Caribbean cruise ship turned the other way at the last moment. More than five thousand holidaymakers saw their sunny trip turn into a detour to Canada, where the temperature stuck at 12 degrees.",
-    "sourceHash": "723c9adeefe9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:f87719bc",
     "language": "en",
     "sourceLanguage": "nl",
@@ -64304,17 +64315,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
-  },
-  {
-    "id": "news:f8e8366e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "American farmers feel abandoned",
-    "lead": "Republicans could once count on support in rural areas. But after import tariffs and sky-high diesel prices, that could change.",
-    "sourceHash": "3388ef800366",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:f8ee340d",
@@ -64658,6 +64658,17 @@
     "translated": "2026-10-26"
   },
   {
+    "id": "news:fa7763dc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Where and how will climate monster El Niño affect the world",
+    "lead": "The super El Niño, the Godzilla among climate monsters, is coming. We are increasingly learning why, how and where this monster emerges.",
+    "sourceHash": "468167abbf96",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:fa910281",
     "language": "en",
     "sourceLanguage": "nl",
@@ -64788,17 +64799,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
-  },
-  {
-    "id": "news:fb3f06c9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Herman Koch has Parkinson's, he told Eva Jinek in a matter-of-fact tone",
-    "lead": null,
-    "sourceHash": "90d99bac772d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:fb437c8d",
@@ -65087,6 +65087,17 @@
     "translated": "2026-10-29"
   },
   {
+    "id": "news:fc413ef2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "LIVE Midterms VS | Supreme Court rejects Trump's bid to stop ballots in California from being counted",
+    "lead": "Americans are preparing for the midterms, which could significantly change the balance of power in Congress. Residents vote on Tuesday for the House of Representatives, <entity id=\"org:eerste-kamer\">De Senaat</entity>, governors and local representatives. Follow everything about the midterms via our liveblog below.",
+    "sourceHash": "5219e84b6663",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
+  },
+  {
     "id": "news:fc415d30",
     "language": "en",
     "sourceLanguage": "nl",
@@ -65228,17 +65239,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
-  },
-  {
-    "id": "news:fd40a863",
-    "language": "nl",
-    "sourceLanguage": "en",
-    "title": "Aantal Nederlandse miljonairs stijgt met 23%, vooral door stijgende woningwaarden",
-    "lead": "Nederland heeft opnieuw een stijging gezien van het aantal huishoudens met vermogens van €1 miljoen of meer, volgens voorlopige cijfers van het CBS.",
-    "sourceHash": "634660ccd740",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:fd452c7f",
@@ -65527,17 +65527,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:fe512407",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Several injured after car drives into crowd in Germany",
-    "lead": "Several people were injured on Monday evening when a car drove into a crowd in Germany. The police fired on the vehicle, a spokeswoman said.",
-    "sourceHash": "95ffbe4e3d5a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
-  },
-  {
     "id": "news:fe682643",
     "language": "en",
     "sourceLanguage": "nl",
@@ -65547,6 +65536,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:fe6c3c30",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Highest revenue and profit ever for Apple, iPhone sales through the roof",
+    "lead": "American technology company Apple recorded its highest revenue and profit ever in the past quarter. Revenue came to 114.5 billion dollars, an increase of 12 percent compared with a year earlier. That is above the expectations of market analysts.",
+    "sourceHash": "7e87b4cb27fc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-03"
   },
   {
     "id": "news:fe7b5928",
