@@ -28653,6 +28653,21 @@
     ]
   },
   {
+    "id": "person:vroomen-westervoort",
+    "slug": "vroomen-westervoort",
+    "name": "Vroomen",
+    "aliases": [
+      "Dhr. Vroomen"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-11-03",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "person:w-c-p-h-jaspers",
     "slug": "w-c-p-h-jaspers",
     "name": "W.C.P.H. Jaspers",

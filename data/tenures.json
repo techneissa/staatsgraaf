@@ -6555,16 +6555,35 @@
     "position": "pos:burgemeester-westervoort",
     "seat": null,
     "start": "2013-09-06",
-    "end": null,
+    "end": "2026-11-03",
     "acting": false,
     "entryMode": "benoemd-bij-kb",
     "appointedBy": null,
     "predecessor": null,
+    "successor": "tenure:burgemeester-westervoort-vroomen",
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-11-03",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "tenure:burgemeester-westervoort-vroomen",
+    "person": "person:vroomen-westervoort",
+    "position": "pos:burgemeester-westervoort",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": true,
+    "entryMode": "waarnemend",
+    "appointedBy": null,
+    "predecessor": "tenure:burgemeester-westervoort",
     "successor": null,
     "endReason": null,
     "source": {
       "source": "src:koop-medewerkers-gemeenten",
-      "retrieved": "2026-10-06",
+      "retrieved": "2026-11-03",
       "confidence": "high"
     }
   },

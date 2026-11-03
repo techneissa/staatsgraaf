@@ -557,8 +557,8 @@
     "summary": "Benoeming: Arend van Hout wordt Burgemeester van Westervoort.",
     "source": {
       "source": "src:koop-medewerkers-gemeenten",
-      "retrieved": "2026-10-06",
-      "confidence": "high"
+      "retrieved": "2026-11-03",
+      "confidence": "medium"
     },
     "position": "pos:burgemeester-westervoort",
     "organization": "org:gemeente-westervoort",
@@ -30680,6 +30680,29 @@
       "label": "Korthuis - Burgemeester van Noordenveld"
     },
     "id": "change:2026-11-01-departure-burgemeester-noordenveld"
+  },
+  {
+    "date": "2026-11-03",
+    "kind": "departure",
+    "summary": "Arend van Hout vertrekt als Burgemeester van Westervoort.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-11-03",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-westervoort",
+    "organization": "org:gemeente-westervoort",
+    "out": {
+      "tenure": "tenure:burgemeester-westervoort",
+      "person": "person:arend-van-hout",
+      "label": "Arend van Hout - Burgemeester van Westervoort"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-westervoort-vroomen",
+      "person": "person:vroomen-westervoort",
+      "label": "Vroomen - Burgemeester van Westervoort"
+    },
+    "id": "change:2026-11-03-departure-burgemeester-westervoort"
   },
   {
     "date": "2026-11-03",
