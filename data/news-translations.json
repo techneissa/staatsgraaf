@@ -11,17 +11,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:10133d06",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Word search",
-    "lead": null,
-    "sourceHash": "270011d47bdc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:10133d07",
     "language": "en",
     "sourceLanguage": "nl",
@@ -86,6 +75,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
+  },
+  {
+    "id": "news:1013c921",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Word Search",
+    "lead": null,
+    "sourceHash": "270011d47bdc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:1019272c",
@@ -660,17 +660,6 @@
     "translated": "2026-10-28"
   },
   {
-    "id": "news:1240ed3c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "More than half of the votes counted after Israeli elections: Netanyahu bloc remains in the lead",
-    "lead": null,
-    "sourceHash": "d59bf670efe3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:12420a5e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -768,17 +757,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
-  },
-  {
-    "id": "news:128c3645",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Long-running cruise around the world stranded in Cambodia due to high fuel prices",
-    "lead": "An unpleasant surprise for passengers of a cruise ship that is in the middle of a long cruise around the world. Due to the 'high fuel costs', the journey has suddenly been ended. The passengers on board are stranded in Cambodia.",
-    "sourceHash": "3e891f40d138",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:1292c1c7",
@@ -1670,17 +1648,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
-  },
-  {
-    "id": "news:15fe64b6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Beware of the 'Pick me FG'",
-    "lead": "Dear administrator in public administration, watch out for the 'Pick me FG'.",
-    "sourceHash": "8dc51741c046",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:1606a06e",
@@ -2640,6 +2607,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:199bb6ec",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Americans settle the score with Trump: Democrats heading for landslide victory in Congress",
+    "lead": null,
+    "sourceHash": "1fa35cbab854",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:19a40859",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2728,6 +2706,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:1a01d12b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "American elections 2026: see the results here",
+    "lead": null,
+    "sourceHash": "02ce4bce9e10",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:1a0d04f7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -2737,6 +2726,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-26"
+  },
+  {
+    "id": "news:1a1e4b8f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Inflation in the Netherlands rises again, petrol more expensive once more",
+    "lead": "Living costs rose by 3.7 percent in October compared with a year earlier, reports <entity id=\"org:zbo-centraal-bureau-voor-de-statistiek\">Centraal Bureau voor de Statistiek</entity> (CBS). That is more than in September, when inflation came to 3.4 percent.",
+    "sourceHash": "b15522e74f25",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:1a22d816",
@@ -2957,6 +2957,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:1b34e062",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Democrats reclaim Senate and House of Representatives, Trump acknowledges defeat",
+    "lead": "Democrats have won both <entity id=\"org:eerste-kamer\">de Senaat</entity> and the House of Representatives in the American midterms. The party won a majority in typically Republican states such as Texas and South Carolina. President Donald Trump says he accepts the defeat.",
+    "sourceHash": "30c5aa7552f6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:1b457b50",
@@ -3344,6 +3355,17 @@
     "translated": "2026-11-03"
   },
   {
+    "id": "news:1cbd512",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Car expert Niek Schenk: 'Driving must stay affordable and fun'",
+    "lead": "Niek Schenk, the car expert of this site, wants to keep driving affordable and fun. That is why he is launching, in collaboration with AutoWeek, a new podcast with solutions to everything motorists encounter.",
+    "sourceHash": "43ccfeee3cbc",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:1cbf4497",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3531,17 +3553,6 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:1d78572c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Colonial deforestation by the Netherlands continues to affect Indonesian forest fires",
-    "lead": null,
-    "sourceHash": "b97c570ccd49",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:1d80cad9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -3595,6 +3606,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:1dcb448f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Democrats win Senate seats in Republican strongholds",
+    "lead": null,
+    "sourceHash": "45e9aa9ff513",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:1de6c4c6",
@@ -3782,17 +3804,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:1eca677a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Flávio Bolsonaro has left Brazil and is on his way to the US, despite travel ban",
-    "lead": null,
-    "sourceHash": "bc444d2babac",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-27"
   },
   {
     "id": "news:1ee23729",
@@ -4939,6 +4950,17 @@
     "translated": "2026-10-29"
   },
   {
+    "id": "news:24187069",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Medewerkers van ABN Amro bereiden zich voor op staking na mislukte onderhandelingen over salaris en aanwezigheid op kantoor",
+    "lead": "Medewerkers van ABN Amor zullen naar verwachting binnenkort protesteren of staken na het mislukken van de onderhandelingen over een nieuwe cao, aldus FNV-vertegenwoordiger Bob Bolte.",
+    "sourceHash": "da614a45743c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:241b2007",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5313,17 +5335,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:25d3ce99",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Discrimination at UWV: people with a bicultural surname receive more and higher fines",
-    "lead": "UWV imposes more and higher fines on people with a bicultural surname in fraud investigations. This is shown by research by this site and EenVandaag based on confidential documents and conversations with employees who claim that discrimination and racism are inextricably linked to the functioning of the Enforcement department.",
-    "sourceHash": "f0805dc21580",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:25dafe23",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5489,17 +5500,6 @@
     "translated": "2026-11-03"
   },
   {
-    "id": "news:2697f146",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "US defence costs of the war against Iran rise sharply: over 47 billion already spent",
-    "lead": null,
-    "sourceHash": "ab9d65a2d88c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:26b2913c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -5520,6 +5520,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:26c7631a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "In the afternoon at Varkenoord, the Feyenoord youth impress against Inter, but in the evening with the pros the Italians are supreme",
+    "lead": "Feyenoord falls short both physically and technically against European powerhouse Internazionale. Earlier in the day, at the confrontation in the Youth League, there was more tension to be experienced.",
+    "sourceHash": "afd114d1e001",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:26c78094",
@@ -6061,17 +6072,6 @@
     "translated": "2026-10-28"
   },
   {
-    "id": "news:289ee9a5",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Vorto",
-    "lead": null,
-    "sourceHash": "e0d279537212",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:289ee9a6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -6136,6 +6136,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
+  },
+  {
+    "id": "news:289f75c0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Vorto",
+    "lead": null,
+    "sourceHash": "e0d279537212",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:28a12474",
@@ -6325,17 +6336,6 @@
     "translated": "2026-11-03"
   },
   {
-    "id": "news:29c574c4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Preliminary results of Israeli election leave everyone empty-handed",
-    "lead": null,
-    "sourceHash": "d2219fc128ed",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:29c584ae",
     "language": "en",
     "sourceLanguage": "nl",
@@ -6378,17 +6378,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-21"
-  },
-  {
-    "id": "news:29dba90d",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "How Trump is making America more socialist",
-    "lead": "'Stalin. Mao. Castro. Democrats.' The message with which the Republican Party kicked off the election season via X this summer left little to the imagination. The midterms of Tuesday 3 November, in which the American electorate (re)elects all 435 members of the House of Representatives and 35 of the 100 Senators, come according to the Grand Old Party […]",
-    "sourceHash": "d2e23ab1778d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:29e6db3a",
@@ -6598,6 +6587,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
+  },
+  {
+    "id": "news:2accf9e0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tonight it becomes clear who thinks about the future of our children. And who about their own future",
+    "lead": null,
+    "sourceHash": "184ffcc641f2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:2acdf301",
@@ -7159,6 +7159,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
+  },
+  {
+    "id": "news:2c9e9cc7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Right-wing parties seem to be the only route for the cabinet's tax plan",
+    "lead": "Today in Dagkoers: the cabinet seems to need right-wing parties to reach a deal on the tax plan, the largest takeover amount this year fluctuates amid market turmoil, and the Brenninkmeijer family's investment company is stopping two divisions after losses.",
+    "sourceHash": "121104dd17b5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:2ca0d201",
@@ -7799,17 +7810,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:2f98a66b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "\"Most visitors to the Rembrandt House are tourists: is it really desirable to be so dependent on them?\"",
-    "lead": null,
-    "sourceHash": "f2b57d430616",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:2f9ae62d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8371,6 +8371,17 @@
     "translated": "2026-10-27"
   },
   {
+    "id": "news:3197e10a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US midterm results: see the most important outcomes of the midterm elections in America",
+    "lead": "America went to the polls on Tuesday for the midterm elections, the so-called midterms. A lot is at stake for the balance of power in Congress. See the most important results for <entity id=\"org:eerste-kamer\">de Senaat</entity> and the House of Representatives in this article, which is continuously updated as new results come in.",
+    "sourceHash": "c77579143607",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:31a950d3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -8567,6 +8578,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-18"
+  },
+  {
+    "id": "news:329e2344",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "French municipality left red-faced after 13 million renovation: swimming pool is three centimetres too small",
+    "lead": "They spared no expense or effort to realise their dream. Two years of work? No problem. A bill of no less than 13 million euros? Paid. Yet the French municipality of Belley is left with a bitter disappointment. The swimming pool, into which so much time and effort was put, turns out to be too small for competitions.",
+    "sourceHash": "2f06f7585134",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:329e66f3",
@@ -8787,6 +8809,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:33783030",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "For a while, Willem-Alexander was king of Liverpool",
+    "lead": null,
+    "sourceHash": "8fffb16d9576",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:337c408a",
@@ -9339,6 +9372,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:35ca78c7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Karien van Gennip: 'Hire someone wearing a headscarf, have coffee with someone who votes PVV'",
+    "lead": "Former minister Karien van Gennip is concerned about a lack of cohesion in Europe. Too many people feel they do not belong, according to the new CEO of Randstad Nederland.",
+    "sourceHash": "38dd5bb40891",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:35d4e0af",
     "language": "en",
     "sourceLanguage": "nl",
@@ -9678,6 +9722,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:36d67305",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sister of the late Lindsey Graham loses in South Carolina",
+    "lead": "The sister of the late Republican figure Lindsey Graham loses the Senate election in South Carolina, NBC News and Decision Desk HQ project. Political newcomer Darline Graham proved no match for Democrat Annie Andrews.",
+    "sourceHash": "2f4eb03309e7",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:36d8ca1d",
@@ -10318,17 +10373,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:39c04de8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Former cup winner Go Ahead wins first round against amateurs HFC",
-    "lead": "Go Ahead Eagles won comfortably in the first round of the KNVB Cup against the amateurs of Koninklijke HFC. The former cup winners from Deventer were too strong, winning 5-0.",
-    "sourceHash": "feadb1c74f9b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:39d3d33d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -10349,6 +10393,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
+  },
+  {
+    "id": "news:39ede353",
+    "language": "nl",
+    "sourceLanguage": "en",
+    "title": "Politie deelde honderden boetes uit aan taxichauffeurs tijdens ADE in Amsterdam",
+    "lead": "De politie van Amsterdam heeft honderden boetes uitgedeeld aan taxichauffeurs voor overtreding van verkeers- en andere regels tijdens het Amsterdam Dance Event.",
+    "sourceHash": "961bf076d993",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:3a080b9b",
@@ -10417,17 +10472,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:3aafff57",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cinco",
-    "lead": null,
-    "sourceHash": "b5d17bb2750c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:3aafff58",
     "language": "en",
     "sourceLanguage": "nl",
@@ -10492,6 +10536,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
+  },
+  {
+    "id": "news:3ab08b72",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cinco",
+    "lead": null,
+    "sourceHash": "b5d17bb2750c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:3ac36997",
@@ -11902,17 +11957,6 @@
     "translated": "2026-11-01"
   },
   {
-    "id": "news:40a6cfe4",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Israel's opposition has a small but unique chance to sideline Netanyahu",
-    "lead": "A \"historic chance\" to replace Prime Minister Benjamin Netanyahu and bring \"real change\" is what the opposition bloc in Israel says following the preliminary election results. But Netanyahu is not giving up easily. The opposition must show that it really wants to replace him.",
-    "sourceHash": "add8d35c13e7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:40a794d7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -12650,15 +12694,15 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:43e3cbad",
+    "id": "news:43f55c10",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Several webshops tighten sales of 2G alarm buttons after EenVandaag investigation",
-    "lead": "Several webshops are going to tighten the sale of devices, including emergency buttons, that will stop working once the 2G network is switched off. They told EenVandaag this. The shops are Bol, Thuiszorgwinkel.nl and LifeWatcher.",
-    "sourceHash": "540309004d1f",
+    "title": "Beat it: talent of discipline?",
+    "lead": "Talent gives you a head start, but is no guarantee of success. What ultimately weighs more: an exceptional brain, or years of practice, discipline and perseverance? Columnist Brankele Frank asks herself this question.",
+    "sourceHash": "8d200179837d",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-10-28"
+    "translated": "2026-11-04"
   },
   {
     "id": "news:441bb478",
@@ -12936,17 +12980,6 @@
     "translated": "2026-11-01"
   },
   {
-    "id": "news:4533d1a1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Brilliant",
-    "lead": null,
-    "sourceHash": "c5eb20e21098",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:4533d1a2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13011,6 +13044,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
+  },
+  {
+    "id": "news:45345dbc",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Brilliant",
+    "lead": null,
+    "sourceHash": "c5eb20e21098",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:4539d725",
@@ -13277,6 +13321,17 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:4619535",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Government has caused farmers 'great suffering' over ten years, says National Ombudsman: 'Don't dismiss them as nutters, they aren't'",
+    "lead": "The government has caused farmers 'great suffering' over the past ten years. That is the conclusion of the National Ombudsman in his latest report. According to him, farmers have been 'simply pushed into uncertainty' and treated as 'nutters'. Reporter Elodie Verweij talks with him.",
+    "sourceHash": "dcde60c8442c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:461ec8d5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13475,6 +13530,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:46c23dd5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Polls: American voters dissatisfied with Trump and economy, concerns about the future",
+    "lead": "Americans are generally dissatisfied with the state of the country, the state of the economy and the performance of President Donald Trump. CNN reports this based on a survey about the midterms.",
+    "sourceHash": "d11202318673",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:46c6e9b2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -13671,17 +13737,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
-  },
-  {
-    "id": "news:476f1814",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Some northern municipalities lost dozens of bus stops in recent years",
-    "lead": "Over the past six years more than 1100 bus stops have disappeared in the Netherlands. Especially in <entity id=\"org:provincie-drenthe\">Drenthe</entity> and <entity id=\"org:gemeente-groningen\">Groningen</entity> the supply decreased: both provinces have lost more than 13 percent of their stops since 2020.",
-    "sourceHash": "2cca9d9f80b8",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:477a4945",
@@ -13981,6 +14036,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:48875282",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Historic Democratic victory: here is what you need to know about the midterm results",
+    "lead": "In a harsh rebuke to President Trump, the Democrats have regained the House of Representatives and and <entity id=\"org:eerste-kamer\">de Senaat</entity>. In both chambers, the Republicans had held the upper hand in recent years.",
+    "sourceHash": "082e173d8b94",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:488c262b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -14012,6 +14078,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:489cdcd2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Flap Tapper",
+    "lead": "The flap tapper is right by the checkout. Two boys of about ten are standing in line in front of me. \"What's that for?\" asks one of them.",
+    "sourceHash": "1c208a1a4cd0",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:48a3742f",
@@ -14078,17 +14155,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:48c0ac03",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Bolsonaro flees Brazil after election defeat and receives US visa",
-    "lead": null,
-    "sourceHash": "0364a3f8f93b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:48c45ae6",
@@ -15510,6 +15576,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:4eb10af3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "AD Football Podcast | 'Feyenoord fell short on all fronts against Inter'",
+    "lead": "Feyenoord had a bad European evening. At De Kuip they lost 0-3 to a battered Internazionale. With that, the team of Giovanni van Bronckhorst remain on three points after four matches in the Champions League.",
+    "sourceHash": "138447405e24",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:4eb39451",
     "language": "nl",
     "sourceLanguage": "en",
@@ -15607,6 +15684,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
+  },
+  {
+    "id": "news:4f5a8c48",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "D66 minister blocks legal back route towards opening Lelystad Airport",
+    "lead": "The minister of Agriculture is blocking an attempt by Lelystad Airport to obtain a nature permit by being classified as a PAS reporter. According to the minister, that route is ruled out.",
+    "sourceHash": "c687505c0f89",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:4f5db642",
@@ -15882,6 +15970,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:5044f2fa",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Senate seat in Minnesota stays in Democratic hands, Republican veteran in Maine has to concede defeat",
+    "lead": null,
+    "sourceHash": "66a51857805e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:50454a3c",
@@ -16489,6 +16588,17 @@
     "translated": "2026-11-03"
   },
   {
+    "id": "news:535b3b6b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "About saving and investing for your child or grandchild. What are the options and what should you watch out for?",
+    "lead": "Many parents set money aside for their minor child, for example as a contribution towards a study or driving licence, or as a helping hand at the start of their adult life. Grandparents sometimes also have a pot of money for their grandchild. The Nationaal Instituut voor Budgetvoorlichting (Nibud) has a calculation tool with which (grand)parents can work out how much they […]",
+    "sourceHash": "b63cee15d748",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:5382963e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -16696,6 +16806,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
+  },
+  {
+    "id": "news:54249701",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "All sights set on energy- and space-draining data centers. But aren't they vital for our smartphones too? 'The balance is lost'",
+    "lead": null,
+    "sourceHash": "3a900cd8effe",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:54249d67",
@@ -17589,17 +17710,6 @@
     "translated": "2026-10-31"
   },
   {
-    "id": "news:57786dda",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "In beeld: longest freight train ever, 7,5 kilometer long, runs in South Africa",
-    "lead": "In South Africa the longest freight train ever has run. It is more than 7,5 kilometres long and has almost 700 wagons. The train made a test run of about 860 kilometres.",
-    "sourceHash": "e27ba1e5bbe4",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:578f7225",
     "language": "en",
     "sourceLanguage": "nl",
@@ -17664,6 +17774,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:57c164f0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Blow to Trump: Democrats win big in midterms",
+    "lead": "With a blue tsunami and Senate victories in Texas, South Carolina, North Carolina, Kansas, Iowa and Ohio, Democrats have finally shaken off their PTSD from 2024. 'Nauseously optimistic', meaning sickeningly optimistic. Playing on 'cautiously (cautious) optimistic', minority leader in <entity id=\"org:eerste-kamer\">de Senaat</entity> Chuck Schumer aptly captured the Democratic feelings about yesterday's midterm elections. His [...]",
+    "sourceHash": "ab3a44047979",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:57d02e0",
@@ -17972,6 +18093,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
+  },
+  {
+    "id": "news:594ff312",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Farming families have suffered greatly for ten years due to an unreliable government",
+    "lead": "Farmers could not rely on the government over the past ten years. This was due to rules that kept changing and policy that was unclear. Farmers and their families have suffered considerably as a result.",
+    "sourceHash": "18c5a4ccaa49",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:5969b5e",
@@ -18291,17 +18423,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:5ae171a0",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Passengers stranded in Cambodia on years-long luxury cruise due to fuel prices",
-    "lead": "A luxury cruise ship that was making a years-long world voyage has suspended the trip due to exceptionally high fuel costs. Passengers are now stranded in Cambodia.",
-    "sourceHash": "2b6c1df7df84",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:5aeda647",
@@ -23749,39 +23870,6 @@
     "translated": "2026-10-27"
   },
   {
-    "id": "news:5d375e7",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Rare nanotyrannus skeleton sold for 42 million euros",
-    "lead": "A rare skeleton of a nanotyrannus, the smaller cousin of a tyrannosaurus rex, was sold at an auction in New York for just over 42 million euros. That makes it one of the world's most expensive fossils. The skeleton has been given the name Jodi and is named after the person who found the remains in 2019 in the American state of Montana. Auction house Sotheby's had expected the skeleton to fetch between five and eight million euros, but in a twelve-minute bidding battle it turned out someone was willing to pay many times that. According to the British newspaper The Guardian, six people bid against each other online and by phone. Who the buyer is has not been disclosed. The skeleton is 4.7 meters long from nose to tail and about 2.7 meters high. For comparison; a tyrannosaurus rex could grow to about 13 meters long and 5 meters high. An employee of Sotheby's shows the nanotyrannus: The excavated nanotyrannus consists of about 191 fossil bones. A skeleton this complete is rare. Only three are known. The auction house described the nanotyrannus as a \"fast carnivore that lived at the end of the Cretaceous, about 67 million years ago\". Initially the nanotyrannus was seen as a young, not yet fully grown T-rex, but further research showed that it is a different species. Criticism of dinosaur auctions A few months ago a tyrannosaurus rex also went under the hammer and fetched 44 million euros. Criticism of this kind of auction, in which major fossil finds go to unknown buyers, comes from the scientific community. A university lecturer at an American university told The Guardian that they are worried that \"potentially scientifically important fossils may be lost to research and the public if they are in private hands\". He also finds the amount paid disproportionate. \"The total cost of excavating and mounting a skeleton like this is probably at most one million dollars.\"",
-    "sourceHash": "bb4335c64534",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
-    "id": "news:5d375e8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Netanyahu wants a 'strong, right-wing government' after elections, but there is no clear winner yet",
-    "lead": "Israeli prime minister Benjamin Netanyahu, in a speech on election night, called for a \"strong, national, right-wing\" government. According to him, the exit polls show that the right wing has achieved a \"large majority\" among Israel's \"Zionist voters\". Netanyahu points out that his Likud party remains the largest party after yesterday's parliamentary elections. At present, his party stands at 27 seats in the exit polls. That is a loss of five seats. The elections have so far not produced a clear winner. The pro-Netanyahu bloc, consisting of Likud and four other parties, stands at 52 seats in the latest exit poll. The anti-Netanyahu bloc of former army chief Gadi Eisenkot stands at 49 seats. In other exit polls the blocs are evenly balanced. In the exit polls, neither has enough seats for a majority in the parliament, which has 120 seats. Arab parties The two blocs with Arab parties have together won 18 or 19 seats according to the exit polls. That would be a record. As a result, they could play an important role in forming a government without Netanyahu, although Jewish opposition leaders would then have to be willing to work with them. Netanyahu warned in his speech against cooperation with the Arab parties and said it would be a \"disgrace\" for parties to be willing to do so. According to him, Israel is \"together with our friend President Trump facing a historic opportunity to eliminate the Iranian threat once and for all. Iran is weaker than ever and Israel is stronger than ever.\" 'Motion of no confidence' Earlier in the evening Eisenkot said the exit polls show \"a lack of confidence\" in Netanyahu and that Israelis have voted for change and against Netanyahu. He called on the 77-year-old prime minister to \"accept the motion of no confidence from the people\" and to leave politics. Eisenkot promised to form a government that should usher in a \"new era of hope\" for Israelis. The Arab party Ra'am, which stands at 7 seats, has already said it wants to be part of a new coalition. According to the party's number two, Yoav Segalovitz, it is \"nonsense\" to think that after the Hamas attack of 7 October 2023 it is impossible to work with Arab parties. There is no final result yet. Around 03.00 hours last night about a quarter of the votes had been counted. According to the electoral commission, turnout was 77.7 percent. That is the highest percentage since 1999.",
-    "sourceHash": "59fb193fe2e1",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
-    "id": "news:5d375e9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Tensions between the US and Cuba lead to argument and shouting at the UN",
-    "lead": "Representatives of the United States and Cuba have had an argument at the General Assembly of the United Nations. The American ambassador to the UN, Mike Waltz, launched a fierce attack on the Cuban regime in a speech. The Cuban delegation, including Foreign Minister Bruno Rodriguez, did not appreciate this and began pounding on the tables and shouting. The Cubans asked the chair to intervene, but he said that Waltz could finish his speech. Rodriguez meanwhile walked toward Waltz's lectern to debate with him and shouted: \"You are a liar.\" The American responded: \"This is America, my friend. This is the United Nations. This is not your communist dictatorship. You cannot silence me.\" Waltz: \"Mr. Chair, this person must leave this podium. He will not intimidate me in the United States of America the way he does with political prisoners.\" And then: \"Back off. This is not Havana.\" The exchange went on for minutes. This scuffle full of non-diplomatic language at the UN shows how great the tensions between the two countries are. The United States, under President Trump, is running a harsh campaign against Cuba. At the end of January, Trump announced that he would impose import tariffs on any country that sells or supplies oil to Cuba. That warning led to enormous fuel shortages on the island. The consequences are severe. Communist Cuba faces prolonged power outages every day. The economy has collapsed and hardly any tourists come anymore. Read here about the consequences of the total oil boycott in April 2026, when correspondent Nina Jurna visited the country: Under pressure from American sanctions, Cuba agreed in June to sweeping reforms that would loosen the country's socialist model somewhat. One of the most important changes was that companies, banks and the real estate sector would be privatised, but Cuban President Miguel Díaz-Canel stressed that the reforms would not mean the end of the socialist state model. Today the United Nations is voting on a resolution condemning the US economic embargo against Cuba. This has been voted on annually for 34 years, and the resolution is always adopted by an overwhelming majority. Last year 165 countries voted in favour and 7 against. There were 12 abstentions at that time. Last year Argentina, Ukraine and Hungary voted against for the first time. The resolution is not binding, but it does reflect how the American economic embargo against Cuba is viewed worldwide.",
-    "sourceHash": "6131c419527f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:5d375ea",
     "language": "en",
     "sourceLanguage": "nl",
@@ -23799,17 +23887,6 @@
     "title": "Wake-up call 28/10: House debates infrastructure • Court case over desecration of graves in Utrecht",
     "lead": "Good morning! The <entity id=\"org:tweede-kamer\">Tweede Kamer</entity> is debating spending on bridges, roads, locks and other infrastructure, and in Utrecht women are appearing in court for holding a seance at children's graves. First, the weather: today there is plenty of sun but also occasional cloud. It stays dry in most places, with highs of 14 or 15 degrees and a moderate south-westerly wind. This evening more cloud, and with the exception of the south, there is a local chance of some rain. The coming days bring quiet autumn weather with sun, clouds and sometimes mist. Are you heading out today? Here you can find the overview of traffic jams and roadworks, and here you can see the situation on the rail network. What can you expect today? What did you miss: Israeli Prime Minister Benjamin Netanyahu, in a speech on election night, called for a \"strong, national, right-wing\" <entity id=\"org:regering\">regering</entity>. According to him, the exit polls show that the right wing has won a \"large majority\" among Israel's \"Zionist voters\". Nearly 42 percent of all votes have been counted. The pro-Netanyahu bloc, with 57 seats for now, has ten seats more than the bloc of former army chief Gadi Eisenkot. Other news from the night: And finally: a nipple tattoo is often the last step for women after a major period, such as a mastectomy or breast cancer treatment. Mariska de Jong is a medical tattoo artist and may call herself the best in the world. Have a nice day!",
     "sourceHash": "6aa37614758f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
-    "id": "news:5d37604",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Bloc around Prime Minister Netanyahu in the lead in Israeli election",
-    "lead": "With 76,8 percent of the votes counted in Israel's parliamentary election, the Likud party of Prime Minister Netanyahu is in the lead, with 27 seats for now. Combined with the seats of other parties that support him, he comes to 54 seats. That gives the pro-Netanyahu bloc a lead of seven over the anti-Netanyahu bloc (47 seats) in the count. The preliminary results were announced by the Central Elections Committee. The Knesset, Israel's parliament, has 120 seats. A majority government therefore requires 61 seats. It has never happened that one party won an absolute majority. That means parties always have to form a coalition to be able to govern or need toleration support. Windfall for Netanyahu The preliminary result seems more positive for Netanyahu than expected. In the exit polls, the opposition bloc led by Gadi Eisenkot was still ahead. In 2022 Netanyahu's Likud party won the election and the Netanyahu bloc won a majority in the Knesset. That the political landscape does not seem really changed in Israel, despite everything that has happened since 2022, shows that security is still the most important theme. There is a lot of criticism of Netanyahu, but voters also see no good alternative. That is why an important part of the population still seems to think that Netanyahu is the best person to protect Israel. In a speech on election night, Netanyahu called for a \"strong, national, right-wing\" government. According to him, it has become clear that the right wing has won a \"large majority\" among Israel's \"Zionist voters\". Both Netanyahu and rival Eisenkot showed themselves ready to fight for their supporters: forming a coalition has often failed in recent years, which is why new elections had to be held. Arab parties The two blocs with Arab parties have 19 seats between them according to the preliminary counts. That means they could play an important role in forming a government without Netanyahu, although the current opposition leaders would then have to be willing to work with them. In his speech, Netanyahu warned against cooperation with the Arab parties and said it would be a \"disgrace\" for parties that would be willing to do so. It is still an open question whether Jewish opposition parties will break their election promise and work with the Arab parties. If so, a minority government supported from outside by a number of Arab parties could be considered. Another option the president, who appoints a formateur, could steer toward is a unity government in which Eisenkot and Netanyahu cooperate. A third possibility for Netanyahu is that he persuades an opposition party to join him and so forms a coalition. If nobody manages to form a coalition, new elections will have to be held. Turnout for the Israeli parliamentary election was high at 77,7 percent, the highest percentage since 1999. That amounts to 5,69 million of the roughly 7,33 million eligible voters.",
-    "sourceHash": "25ee62245662",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-28"
@@ -26843,12 +26920,12 @@
     "id": "news:5d401df",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Stream, blog, map: how to follow the results from America at the NOS",
-    "lead": "The results of the Congressional elections in the United States can be followed live at the NOS tonight. At 01.00 hours the polling stations in the first states close. Throughout the night more and more states will be added and a first picture of the results will likely emerge. We are tracking all developments in a liveblog on NOS.nl and in the NOS-app. From 03.00 hours we are on air for no less than 6.5 hours with a livestream. There is also plenty of attention for the midterms on TV and radio. An overview: Curious what is at stake in the Congressional elections? Our correspondent explains it in the video:",
-    "sourceHash": "f6c56dd87b94",
+    "title": "Stream, blog, map: here's how to follow the results from America at NOS",
+    "lead": "Results of the congressional elections in the United States can be followed live at NOS tonight. At 01:00 the polling stations closed in the first states. During the night, more and more states will be added and a first picture of the results will emerge. We are tracking all developments in a liveblog on NOS.nl and in the NOS app. From 03:00 we are there with a livestream for no less than 6.5 hours. There is also plenty of attention on TV and radio for the midterms . An overview: Curious what is at stake in the congressional elections? Our correspondent explains it in the video:",
+    "sourceHash": "5c4880eab893",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-03"
+    "translated": "2026-11-04"
   },
   {
     "id": "news:5d401e1",
@@ -26937,6 +27014,94 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
+  },
+  {
+    "id": "news:5d40225",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "NOS podcast De Dag named best daily podcast",
+    "lead": "The NOS podcast De Dag has been named best daily podcast at the Dutch Podcast Awards. According to the jury, the series makes complex topics easy for listeners to follow. \"As a result, after the episodes on various topics, listeners can join the conversation at a layered level\", is the verdict. In De Dag, each daily episode of about twenty minutes goes deeper into a topic from the news. The regular presenters are Elisabeth Steinz and Marco Geijtenbeek. De Dag started on 1 February 2018, and more than 2300 episodes have since been made. The jury speaks of a \"richly filled podcast\", in which \"there is a balance between information and calm, so that De Dag never overwhelms. That reflects strong editorial work\". Also want to listen? You can listen to all episodes of De Dag via NPO Luister and all other podcast apps. Do you like it? Then don't forget to subscribe. The Dutch Podcast Awards, an initiative of BNR Nieuwsradio, present prizes every year in various categories. A jury of 37 people decided this year who would take home the prizes. The main prize, for 'best podcast of the Netherlands', went to De Rolverdeling by broadcaster NTR. Journalist Sara de Monchy spent a year following children from a group 8 class at a primary school in Rotterdam for that. Last year the NOS podcast Mino's Imperium , about football agent Mino Raiola, won. Roxanne and André Hazes took home the audience prize. In their podcast ADHAZES, the brother and sister discuss a range of topics, from their youth to everyday worries. An overview of all winners:",
+    "sourceHash": "e6f1952f07a8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
+    "id": "news:5d40226",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Government was unreliable for farmers, says National Ombudsman",
+    "lead": "The government was unreliable for farmers over the past ten years. That is the finding of the National Ombudsman, based among other things on conversations with 32 farmers. Shifting rules, contradictory policy and unclear decisions caused uncertainty. According to ombudsman <entity id=\"person:reinier-van-zutphen\">Reinier van Zutphen</entity>, this affected not only the farmers' businesses but also their families. New agricultural policy is not enough to win back the trust of the sector, warns Van Zutphen, the day after <entity id=\"org:kabinet\">het kabinet</entity> presented a new nitrogen law . \"Farmers have suffered under the actions of the government and the uncertainty about the future. They can only go on if the government acknowledges what has gone wrong and what consequences that has had.\" Caught in a bind Farmers paid the price, according to Van Zutphen, for changing rules on nitrogen, manure, nature, water and animal welfare. \"As a result, investments were postponed and plans for sustainability and innovation came under pressure.\" According to the ombudsman, the government took too little control, was insufficiently reliable and transparent, and listened too little to farmers. The effects of the uncertainty carry over within families, Van Zutphen heard. In farming families, work and private life often run together. \"Different views on continuing, stopping or adapting can put relationships under pressure.\" The way governments communicate can also breed distrust. Several farmers said that important decisions are often announced on a Friday or just before a holiday. They then cannot reach officials with questions or criticism, and they think this is done deliberately in the hope that the anger will have subsided by the time they return from holiday. Experiences are central Notably, the ombudsman did not take the actual conduct of governments as the main starting point. The conversations held with farmers since 2019 are central to the investigation. The ombudsman's team spoke with 32 farmers from across the country, from different sectors, both organic and conventional. The ombudsman distilled common threads from their unverified stories. The ombudsman also spoke with farmers' interest organisations, Natuurmonumenten, scientists and other experts, including from Rabobank. Those conversations took place between November 2025 and May 2026, before agriculture minister Van Essen presented his nitrogen plans. In the report, the ombudsman writes that farmers themselves also contribute to the uncertainty they face. \"On the one hand, they are confronted daily with changeable policy and laws and regulations. On the other hand, the sector actively lobbies politics. As a result, farmers sometimes contribute to the changeability themselves, while that same changeability does not make the day-to-day running of their farm any easier.\" Recommendations \"Set goals for the long term and stick to them\", advises the National Ombudsman based on what he heard in the conversations. Van Zutphen also believes that the minister of <entity id=\"org:ministerie-van-landbouw-visserij-voedselzekerheid-en-natuur\">Landbouw, Visserij, Voedselzekerheid en Natuur</entity> should take more control and ensure that the rules and plans of different governments align better with one another. Finally, Van Zutphen believes that \"common sense among farmers has been ignored too often in recent years.\" Governments should make better use of the knowledge and experience of farmers in the decisions they make.",
+    "sourceHash": "b2ee1ef96d64",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
+    "id": "news:5d40227",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Light flares fired into stadium from outside De Kuip, two arrests",
+    "lead": "The <entity id=\"org:politie\">politie</entity> in Rotterdam has arrested two people for setting off fireworks outside the Feyenoord stadium, the police tell news agency ANP. The flares landed on the pitch and the roof of De Kuip. The incident occurred during the second half of the Champions League match between Feyenoord and Internazionale. The match was then briefly halted. Nothing is yet known about the identity of the two people arrested. It is clear, however, that they were arrested outside the stadium. Feyenoord lost the match 0-3, by the way. According to AD, the fireworks caused a hole in the stadium roof. Nothing is yet known about the extent of the damage. Not the first time Coach Giovanni van Bronckhorst was annoyed after the match about the fireworks. \"That of course should not happen and will probably result in another fine,\" he said. \"I was glad it was not in the crowd, but this is of course something you do not want to see.\" The Rotterdam club still has a conditional penalty pending with the European football association UEFA following earlier disturbances. This season Feyenoord already received a fine from UEFA for several incidents with supporters at the away match against FC Barcelona. In the Netherlands, there was a sanction after fireworks at the away match against SC Cambuur in Leeuwarden.",
+    "sourceHash": "df11f9ce0069",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
+    "id": "news:5d40229",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "University of Maastricht cancels Jewish gathering for safety reasons",
+    "lead": "The University of Maastricht cancelled a gathering of a Jewish student association last night. The educational institution says safety could not be guaranteed due to online calls from both supporters and opponents. A room in a university building had been made available for a gathering of student association IJAR and the pro-Israel organisation StandWithUs. University lecturer Eli Sapir was to give a lecture there on the theme 'Three years after 7 October', referring to the terrorist attacks by Hamas in 2023. Unacceptable manner The University of Maastricht writes in a statement that several pro-Palestinian groups had announced they wanted to prevent the gathering. \"Information about the lecturer involved was also shared online in an unacceptable manner.\" StandWithUs then called on people to come to Maastricht. \"We will not be silenced\" was written in the call on social media. Taken together, this led according to the university to \"too great uncertainty about the safety of the gathering\", after which the decision to cancel was taken. \"An accumulation of risks\", the university writes. \"First by the announcement by others that they wanted to prevent the gathering and thereby curtail academic freedom, and then the counter-reaction and the call to come to Maastricht.\" Intimidation According to the organisers of the gathering, the university informed them less than an hour before the start that the lecture could not go ahead. In a statement on Instagram, IJAR and StandWithUs write that the educational institution \"gives in to intimidation\". According to the organisers, it is also the third time the University of Maastricht has cancelled an event of Jewish students, which amounts to \"a systematic suppression of Jewish student life on campus\". The University of Maastricht says it was also proposed to hold an online gathering, but the student association declined.",
+    "sourceHash": "ecbf259fc8e8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
+    "id": "news:5d40243",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Suspected instigator of Starlink sabotage in Poland arrested",
+    "lead": "German police believe they have arrested the instigator of an arson attack at the end of September at a Starlink station in Poland. The Turkish man was arrested in Reutlingen, south of Stuttgart. Last month, two other Turkish men were already arrested in the same area. They are suspected of carrying out the sabotage. The two were arrested at Poland's request and are still in custody. The Polish government previously said it assumed the Russians were behind the incident. Prime Minister Tusk spoke of an \"act of hybrid warfare\". Starlink is crucial for the Ukrainian army, which uses the network to control drones and for communication on the battlefield. Eight mobile phones The man who has now been arrested is suspected of preparing a terrorist offence. Eight mobile phones and ammunition were seized during his arrest. According to prosecutors, he directed the two perpetrators from Germany. He also reportedly arranged for another suspect to take the two men to Poland. The two perpetrators reportedly went to Poland on the night of 23 September to commit the arson. Last month, attempts were also made to set fire to Starlink installations in Bulgaria and Lithuania. Two Germans were arrested in Duisburg for the sabotage in Bulgaria. They are in custody pending their extradition to Bulgaria.",
+    "sourceHash": "f852adbc9d71",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
+    "id": "news:5d4024a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Huge win for Democrats in midterms, Republicans lose House and Senate",
+    "lead": "President Trump and his policies have been punished in the midterm elections in the United States. The results are still coming in, but it is clear that the Republicans are not only losing their majority in the House of Representatives, as expected, but also in <entity id=\"org:eerste-kamer\">de Senaat</entity>. That means a gigantic victory for the Democrats and makes governing a lot more difficult for the president. Live blog and -stream Follow the latest developments in our live blog or via our livestream . All results can be viewed on our results map . A blue wave was mentioned beforehand as a possibility, but American media now even speak of a blue tsunami. At least six seats in the Senate are going from a Republican to a Democrat: Texas, Kansas, Iowa, Ohio, North Carolina and South Carolina. That means that from January, when the winners take their seats, there will be a Democratic majority in the Senate. Especially in the red states Texas and Kansas, the Democrats' win is a big surprise. It is the first time since 1990 that the Democrats have elected a senator in Texas. For a blue Kansas we have to go much further back: 94 years. Not yet certain In a number of states it is not yet certain who will win a Senate seat, for example in Maine, Michigan and Alaska. Counting is still ongoing there. According to CNN and NBC News, Maine too, in the far northeast of the US, is going to the Democrats. That would also be a big surprise, because Republican Susan Collins has been a senator there since 1997, and the Democrats saw their dream candidate Graham Platner drop out due to allegations of sexual abuse. After Platner's fall, Troy Jackson was hastily put forward, and according to several media this turns out to be a success. That would mean a seventh Republican state goes to the Democrats. Blue wave visible early The Democrats' victory in the House of Representatives became apparent early in the night through surprises in Florida. Several constituencies that had been redrawn by the Republicans in their favour nevertheless turned blue. In addition, in various rural districts in other states, the Democrats did much better than expected. That things went the wrong way for the Republicans specifically in rural areas is largely due to the rising cost of living and high fuel prices, as a result of Trump's war in Iran. Farmers among others have been hit hard by the sometimes nearly doubled prices of diesel, which they need for their agricultural vehicles. Trump: willing to accept results In a first reaction to the poor results for his Republican party, President Trump says he hopes to be able to work with the Democratic politicians in the House and Senate. \"I think they want to work with me,\" he told broadcaster <entity id=\"org:zbo-centraal-bureau-voor-de-statistiek\">CBS</entity>. \"Otherwise I will just veto everything and they don't want that.\" Beforehand there was fear that he would not accept a bad result, as he still does not accept his own defeat in 2020. But he cautiously reached out: \"We will work with the Democrats, we look forward to working with them. We can surely arrange something.\" Incidentally, shortly after that message he posted an image prominently featuring the word 'VETO' on social media, so it remains to be seen what he will make of his offer. The midterms often turn into a referendum on the policy of the sitting president, and his party regularly loses Congress seats. That was not different today. Not all results are in. View them all here on our interactive map:",
+    "sourceHash": "8af9c0844892",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
+    "id": "news:5d4024b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tax plan meets opposition from both left and right in the Senate",
+    "lead": "<entity id=\"org:kabinet\">Het kabinet</entity> has difficulty finding sufficient support for the tax plan in <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity>, but in the Senate the political puzzle becomes even more complicated. The minority cabinet needs support from opposition parties on the left or right, but both Pro and BBB show little willingness to help the plan get a majority, according to Nieuwsuur. \"It means quite a lot to vote down a tax plan,\" admits Paul Rosenmöller, parliamentary leader of Pro in the Senate. But in his view, passing a bad tax plan also has consequences. The cabinet has adjusted the plans on several points to gain support, but that does not mean the objections have disappeared. BBB parliamentary leader Ilona Lagas is also very worried about the way the cabinet operates. She calls the current state of affairs \"far beyond an experiment\" and even speaks of a \"disaster scenario\". 'Buckshot' The cabinet has tried to accommodate several opposition parties. For example, the VAT increase on ornamental plant products, also known as the flower tax, has been shelved for now. Other adjustments have also been made in other areas. SGP parliamentary leader Peter Schalk sees in this mainly an attempt to gather support on all fronts. \"There have been a number of gestures made in all directions. It's a kind of buckshot, in the hope that everyone says: okay, just leave the other things be.\" Pro leader Jesse Klaver is also critical of the cabinet's approach. He calls it an \"enormous gamble\" and believes the cabinet is taking a major risk with the stability of the Netherlands. According to Klaver, this shows a \"complete lack of leadership\". Pro says it has been willing to compromise several times, but according to Klaver it gets stuck on the VVD. That party does not want an increase in the tax on wealth, which according to Klaver makes cooperation impossible. Still, he does not want to give up yet. \"In the debate we will really make one final attempt to reach an agreement anyway.\" For Volt, the cabinet, for example, set aside extra money for new AI policy. But that does not remove the party's objections. Parliamentary leader Gaby Perin calls the cabinet's approach \"downright irresponsible\". According to her, Jetten should have talked with Volt to secure a reliable majority. \"The responsibility for whether the plan gets through or not really lies with the cabinet,\" says Perin. Lagas is also not impressed by the concessions. She considers it insufficient that the VAT increase on flowers and plants has been postponed by a year. \"If we are only supposed to be satisfied with a postponement of the flower tax, I don't know how you would feel about that. We even feel a bit insulted by it.\" 50Plus and ChristenUnie open to it Still, there is also support in the Senate for the tax plan. The cabinet has at least secured that from 50Plus. Parliamentary leader Martin van Rooijen says his party is constructively involved in the process. \"I really don't like talking about votes against at all. Assume that we support the tax plan.\" ChristenUnie parliamentary leader Mirjam Bikker in the House of Representatives is glad that the cabinet has listened to her party. She had been urging since May that working people and families should not have to pay for the cabinet's extra spending and that the sick should stay out of the first round of cuts. \"Finally, that has been listened to. I think that is good news for these people and therefore also a step towards a more sensible tax plan,\" she says. JA21 meanwhile is not showing its hand. Political commentator Arjan Noorlander \"The cabinet is no longer in charge now, but the Senate and the House of Representatives are. It has actually long stopped being about meaningful plans for the future of the Netherlands. It is about the survival of this cabinet, about stumbling over coincidental majorities in the Senate and House, so that the cabinet can last another year and then they can try again. Then, if they are still in office, perhaps something will come of all those grand ambitions.\" In the House of Representatives, the cabinet seems able to get sufficient support, with backing from, among others, ChristenUnie, 50Plus and Groep Markuszower. In the Senate that is more complicated. There the cabinet has no fixed majority and depends on opposition parties that have not all declared their positions yet. Rosenmöller hopes that sufficient support will eventually come for the tax plan and the budgets. He does not want new elections: \"No one is waiting for that at all.\"",
+    "sourceHash": "3458d807c8c1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
+    "id": "news:5d40266",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Morning briefing 4/11: US results come in • Lawsuit over Tarwekamp explosion",
+    "lead": "Good morning! In The Hague, the trial of the four suspects in the 2024 attack on a bridal fashion shop begins, and the quintessentially Dutch department store chain HEMA turns exactly one hundred years old. First, the weather: this morning there is a mix of clouds and sunshine. During the afternoon it will gradually clear up further. It will be 9 or 10 degrees, with a strong north-easterly wind. The coming days bring fresh autumn weather with plenty of sun and quite cold nights. Are you heading out today? Here you can find the overview of traffic jams and roadworks, and here you can see the situation on the rail network. What can you expect today? What did you miss? The elections in the United States have resulted in a huge defeat for the Republicans and a win for the Democrats. Exactly how large that victory will be will become clearer during the course of today. What is already clear is that the Democrats have obtained a majority in both the House of Representatives and <entity id=\"org:eerste-kamer\">de Senaat</entity>. The first was widely expected, the second was much more uncertain beforehand. Follow the results in our liveblog or in our stream . And here you can find all the results on our interactive map . Other news from overnight: And finally, one more thing: not only on earth, but also in space, people voted. On the International Space Station ISS, the three American astronauts cast their votes. Astronaut Anil Menon posted a video of the event on X. \"Yes! You can even vote from space\", he wrote. Have a good day!",
+    "sourceHash": "a3e480f5ae96",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:5d4dc0bc",
@@ -27082,6 +27247,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:5d990f63",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Speak up and ask your questions about the American elections",
+    "lead": "On Tuesday there were midterm elections in America. The Democrats have now won <entity id=\"org:eerste-kamer\">de Senaat</entity> and in the House of Representatives they also appear set to gain a majority. Ask your questions here.",
+    "sourceHash": "1048abee625c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:5d9d3d1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -27168,6 +27344,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:5dfae2d6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "This is how the votes of millions of Americans are counted",
+    "lead": "Tens of millions of Americans cast their vote today. An enormous task to count all of them. US correspondent Raquel Schilder is looking on at a place where they are working on that all night.",
+    "sourceHash": "2eb3bc72ec71",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:5e0fbf68",
@@ -27632,6 +27819,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:604bca50",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Amsterdammer Manon Danker has looked after birds for many years: 'They never bore me, they are real masters of life'",
+    "lead": null,
+    "sourceHash": "042267ef2157",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:604ed61",
     "language": "en",
     "sourceLanguage": "nl",
@@ -27995,6 +28193,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:61b3118f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Major lawsuit over Tarwekamp explosion gets under way: here is what it is about",
+    "lead": "Almost two years after the devastating explosion at Tarwekamp in The Hague, the substantive hearing of the case begins today. The explosion cost six people their lives, and several homes collapsed. We set out what the case is about, who must answer to the court and how the substantive hearing will proceed.",
+    "sourceHash": "265facfd6958",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:61b652f7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28193,17 +28402,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:6291db1b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "French government wants to block posts on social media that call for violence",
-    "lead": null,
-    "sourceHash": "8edfbcedac9b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:62a1b016",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28213,6 +28411,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:62a61037",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Canada will not let Russian ice hockey players take part in tournament, despite sports tribunal ruling",
+    "lead": "Canada does not intend to admit Russian players to the junior ice hockey world championship, which starts next month in the province of Alberta. Prime Minister Mark Carney said so on Tuesday to reporters.",
+    "sourceHash": "601d95b8b955",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:62ad7ddd",
@@ -28290,6 +28499,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
+  },
+  {
+    "id": "news:62dfc423",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Refugees from Siberia are living here on a diet of insects",
+    "lead": "In 1968 they were suddenly everywhere: nutcrackers. Siegfried Woldhek thought at the time, as a beginning birder, that such an invasion was normal. That turned out to be a mistake. Only now has it happened again.",
+    "sourceHash": "1ace2c835557",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:62e51b45",
@@ -28600,17 +28820,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:63d4ef58",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Principal of school in Noord has given almost one million euros in assignments to companies of family members since 2023",
-    "lead": null,
-    "sourceHash": "f1386d06cdbb",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:63de1b8b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -28807,17 +29016,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-15"
-  },
-  {
-    "id": "news:64c7a528",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Preliminary results in Israel point to a difficult road to coalition formation: no majority without Arab parties",
-    "lead": "The preliminary results of the Israeli elections show a neck-and-neck race between the opposition bloc and the Netanyahu bloc, but the Likud party appears set to become the largest.",
-    "sourceHash": "277ecc3133d7",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:64d988a7",
@@ -29051,6 +29249,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:65644496",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Fireworks fired from outside De Kuip onto pitch: 'What do you do about that?'",
+    "lead": "During the match between Feyenoord and Internazionale in the Champions League, fireworks were fired onto the pitch from outside De Kuip last night. Feyenoord coach Giovanni van Bronckhorst was annoyed by this. \"What do you do about that?\" he said.",
+    "sourceHash": "d0a143e82084",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:65776941",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29271,17 +29480,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:665f7fa",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Can anyone now be hacked thanks to AI?",
-    "lead": "Hacking organisations and taking websites offline is easier than ever thanks to AI. Investigative journalist Rik Wassens explains how little knowledge cybercriminals still need to carry out hacks…",
-    "sourceHash": "519a0ee2e6c3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:6661e57",
     "language": "en",
     "sourceLanguage": "nl",
@@ -29412,17 +29610,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-27"
-  },
-  {
-    "id": "news:66e56ecd",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Explainer | Why Russian holiday homes worry Sweden",
-    "lead": null,
-    "sourceHash": "1e6e05afac10",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:66eb1483",
@@ -30501,6 +30688,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:6ad91ef",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "In the middle",
+    "lead": "Across: 1. Performance 4. That trading platform was hit by the middle word 9. __ Maria 10. Pure __ 11. Deceptively appearing 13.",
+    "sourceHash": "81d6c66549c4",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:6ad968cd",
@@ -32065,17 +32263,6 @@
     "translated": "2026-10-14"
   },
   {
-    "id": "news:71e6faa",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "World-famous writer Deborah Levy in Amsterdam for Brainwash Festival: \"You have to enjoy thinking, really thinking\"",
-    "lead": null,
-    "sourceHash": "99cefe86af2d",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:71f321a2",
     "language": "en",
     "sourceLanguage": "nl",
@@ -32195,6 +32382,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:726d911b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Video | Republicans in denial after defeat: 'Still okay in Texas'",
+    "lead": null,
+    "sourceHash": "4a36ae0e914d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:7270fd16",
@@ -33132,6 +33330,17 @@
     "translated": "2026-10-29"
   },
   {
+    "id": "news:76b550de",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Considerable interest among Dutch people in becoming a civilian reservist",
+    "lead": null,
+    "sourceHash": "4f36b9e86274",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:76bf12e0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33275,17 +33484,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:771134a8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Netanyahu's bloc temporarily ahead in Israeli elections",
-    "lead": "The elections in Israel yesterday have not yet produced a clear winner. According to the exit polls, prime minister Benjamin Netanyahu and the opposition bloc of Gadi Eisenkot both lack enough seats for a majority. Even so, both leaders seemed convinced they could lead the country.",
-    "sourceHash": "b0d666a1c35b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:7719d9e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -33416,6 +33614,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:77681125",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "National Ombudsman: government has been unreliable in policy for farmers",
+    "lead": null,
+    "sourceHash": "230725eb1e41",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:77689674",
@@ -33614,6 +33823,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-26"
+  },
+  {
+    "id": "news:784faf78",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US gets first Black female governor with Keisha Lance Bottoms",
+    "lead": "Keisha Lance Bottoms wins the governor elections in Georgia, according to NBC News' forecast. That would make her the first Black female governor of the US. The Democrat ran against Republican billionaire Rick Jackson.",
+    "sourceHash": "46c4f608a857",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:785cfb6a",
@@ -33971,12 +34191,12 @@
     "id": "news:79b833e0",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Live: follow everything about the midterms in America",
-    "lead": "America is going to the polls. In this liveblog, our correspondents and editors will keep you informed.",
-    "sourceHash": "bba3e94b5816",
+    "title": "Live: Democrats surprise with large majority in Senate",
+    "lead": "The Democrats are heading for a large majority in <entity id=\"org:eerste-kamer\">de Senaat</entity>, after the House was already firmly in their hands. In this liveblog our correspondents and editors keep you informed.",
+    "sourceHash": "f472db87f2ef",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-03"
+    "translated": "2026-11-04"
   },
   {
     "id": "news:79b93a83",
@@ -34040,17 +34260,6 @@
     "title": "No rainbow flag at Oldebroek town hall, but there is one at the church: 'We must respect each other'",
     "lead": "On Sunday the rainbow flag flies in many places for Coming Out Day, but the flag does not create unity everywhere. Oldebroek was the first municipality to decide no longer to hoist the flag at the town hall. It is causing unrest among residents.",
     "sourceHash": "65cd709d8c97",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
-    "id": "news:79ff96d2",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'Dutchman appointed minister in controversial Sudan government'",
-    "lead": "A man from the Netherlands was appointed Minister of Justice in early May in a controversial government of the Rapid Support Forces (RSF) in Sudan. That is reported by <entity id=\"org:rwt-nederlandse-omroep-stichting-nos\">NOS</entity> based on its own research.",
-    "sourceHash": "337b1f473719",
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
@@ -34617,6 +34826,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:7d2cb4ee",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Live | US midterms | Trump after the results: 'Democrats have done well'",
+    "lead": "Hello and welcome to this liveblog. Here I, Nick Augusteijn, will keep you informed of developments in the US midterm elections. Do you have questions? Email them to redactie@nu.nl.",
+    "sourceHash": "144b7bee1c69",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:7d38bcd6",
     "language": "en",
     "sourceLanguage": "nl",
@@ -35024,17 +35244,6 @@
     "translated": "2026-10-25"
   },
   {
-    "id": "news:7ed59234",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Arjan from Zuid wants to stop letting his dog pee against façades, and calls for special dog toilets: \"It's just disgusting\"",
-    "lead": null,
-    "sourceHash": "0cf15265791c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:7edfb24b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -35145,17 +35354,6 @@
     "translated": "2026-10-13"
   },
   {
-    "id": "news:7f820b1b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "We need truly realistic thinkers, such as Ulrike Herrmann",
-    "lead": null,
-    "sourceHash": "0791b2a673bc",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:7f878333",
     "language": "en",
     "sourceLanguage": "nl",
@@ -35253,6 +35451,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:7fd592e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Possibly no reunion for Kuijt and Liverpool: Fenerbahçe presents new coach",
+    "lead": "Interim coach Dirk Kuijt of Fenerbahçe may miss a reunion with his former club Liverpool on Wednesday. The Turkish top club presented Emre Belözoglu as its new coach on Tuesday evening.",
+    "sourceHash": "e21b4388b9b6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:7fd5e3e8",
@@ -36036,17 +36245,6 @@
     "translated": "2026-10-22"
   },
   {
-    "id": "news:83a41b78",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Pjotr Sauer: 'My mother looked under the car every morning'",
-    "lead": "He grew up among the children of Russian oligarchs. Now Pjotr Sauer works as a journalist reporting on the atrocities in Ukraine. 'Friends from the past support Putin.'",
-    "sourceHash": "c2de79ca195c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:83c59f25",
     "language": "en",
     "sourceLanguage": "nl",
@@ -36100,6 +36298,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-02"
+  },
+  {
+    "id": "news:8439d8b5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'The chill is off' in administrative relations",
+    "lead": "Anyone who often works in public administration and deals with government finances has to dodge around to avoid running into Philip van Veller at least once. This public administration scholar and administrator-politician has explored administrative and political Netherlands from almost every angle, in diverse roles.",
+    "sourceHash": "153ae9b819d6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:8448876d",
@@ -36166,17 +36375,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
-  },
-  {
-    "id": "news:84903f76",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cyber threat is spreading, but tech city Amsterdam has no warning service of its own: \"We have been asleep at the wheel\"",
-    "lead": null,
-    "sourceHash": "e6592a6ee87f",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:8492a3b4",
@@ -36600,12 +36798,12 @@
     "id": "news:86996345",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "ManUnited turns it around after goal by Donyell Malen, Frenkie de Jong wins 300th match for Barcelona",
-    "lead": "Manchester United have won a match for the first time since early September. The side of Michael Carrick went 0-2 down against Donyell Malen's AS Roma, but fought back to a 3-2 win. Bayern Munich and Barcelona also won in the Champions League.",
-    "sourceHash": "91dffc4090b7",
+    "title": "ManUnited turns it all around after goal by Donyell Malen, Frenkie de Jong wins 300th match for Barcelona",
+    "lead": "Manchester United have won a match for the first time since early September. The team of coach Michael Carrick went 0-2 down to AS Roma of Donyell Malen, but fought back at Old Trafford to a 3-2 win. Elsewhere, Bayern Munich and FC Barcelona also won in the Champions League.",
+    "sourceHash": "d0cd05abdc4f",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-03"
+    "translated": "2026-11-04"
   },
   {
     "id": "news:86ada5b9",
@@ -38478,17 +38676,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:8f0a7609",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Slightly more organ donors than last year, mainly because people do NOT make a choice",
-    "lead": "The number of organ donors in the Netherlands has risen slightly. At the beginning of this year, 8.2 million adults were registered as organ donors. That is just over 90,000 more than a year earlier.",
-    "sourceHash": "ac5980555d0a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:8f0af664",
     "language": "en",
     "sourceLanguage": "nl",
@@ -38784,6 +38971,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:900a0ecf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Stop shuffling money internally",
+    "lead": "Ask a financial adviser about internal cross-charges and you get a sigh. Ask a budget holder and you get a puzzled look. A member of the executive or council often does not even know it exists. Yet in almost every municipality a lot of time goes into it every year.",
+    "sourceHash": "71a9e290b41f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:90152d4",
@@ -39468,6 +39666,17 @@
     "translated": "2026-10-28"
   },
   {
+    "id": "news:92632122",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'After I cut my hair, everyone said: what a shame, you had such beautiful hair. I mainly felt relief myself. It was liberating'",
+    "lead": null,
+    "sourceHash": "a041e16746ed",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:927920a1",
     "language": "en",
     "sourceLanguage": "nl",
@@ -40060,6 +40269,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:94e58fda",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Feyenoord faces possible UEFA penalty: fireworks on pitch and roof of De Kuip",
+    "lead": "Feyenoord's hopeless 0-3 defeat to Internazionale may have further unpleasant consequences for the Rotterdam club. During the Champions League match, fireworks were set off outside De Kuip, landing on the stadium roof and on the pitch. As a result, Feyenoord risks receiving a penalty from UEFA.",
+    "sourceHash": "ac3e23317fc5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:95003c50",
@@ -41371,17 +41591,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:9a4a639",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Exactly Four",
-    "lead": null,
-    "sourceHash": "e7fcdf3c307a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:9a4a63a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -41446,6 +41655,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
+  },
+  {
+    "id": "news:9a53254",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Exactly Four",
+    "lead": null,
+    "sourceHash": "e7fcdf3c307a",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:9a5fcef1",
@@ -41943,17 +42163,6 @@
     "translated": "2026-10-28"
   },
   {
-    "id": "news:9c78bb24",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "A good-humoured, curious and adventurous lover of life who would rather have become an astronaut than an astronomer",
-    "lead": null,
-    "sourceHash": "b9d21f77dab9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:9c962c99",
     "language": "en",
     "sourceLanguage": "nl",
@@ -42227,6 +42436,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:9e0addb5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Suspects in Tarwekamp explosion go before the judge: this is what you need to know about the case",
+    "lead": "While the residents of The Hague's Tarwekamp are still in deep sleep, an explosion in a bridal fashion business blows a hole in the neighbourhood. 6 people die and many others are scarred for life. Almost 2 years after the incident, the criminal case begins today.",
+    "sourceHash": "8b1576f5ee94",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:9e113d8a",
@@ -43373,6 +43593,17 @@
     "translated": "2026-10-23"
   },
   {
+    "id": "news:a17f5929",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Groceries slightly cheaper, but inflation in the Netherlands rises again",
+    "lead": "Daily life in the Netherlands became 3.7 percent more expensive in October than a year earlier, according to a rapid estimate by <entity id=\"org:zbo-centraal-bureau-voor-de-statistiek\">Centraal Bureau voor de Statistiek</entity> (CBS). Inflation has thus risen further, after climbing to 3.4 percent in September. Groceries became slightly cheaper compared with a year ago, but energy and motor fuels became more expensive again.",
+    "sourceHash": "6413151fdbe2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:a18676a3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -43464,12 +43695,12 @@
     "id": "news:a2072fa7",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "They are voting in the US for the first time: 'It's a shame I became politically aware so late'",
+    "title": "They were voting for the first time: 'It's a pity I became politically aware so late'",
     "lead": null,
-    "sourceHash": "cfd1ac3e352a",
+    "sourceHash": "5beb568093ca",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-03"
+    "translated": "2026-11-04"
   },
   {
     "id": "news:a21341a",
@@ -43989,6 +44220,17 @@
     "translated": "2026-10-28"
   },
   {
+    "id": "news:a3b20f8c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Rumour of discovery of fraudulent ballot papers debunked, agents in California warned",
+    "lead": "The US investigative service FBI says there was no raid on a storage facility in Texas where thousands of fraudulent ballot papers were allegedly found, as claimed in messages spread online. Various American media, including CNN, report this.",
+    "sourceHash": "339ce21b46f1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:a3cd1729",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44020,17 +44262,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
-  },
-  {
-    "id": "news:a3f137d6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Heat, drought and disease: climate warming takes a heavy toll on health",
-    "lead": "Climate change is having ever greater effects on our health. The number of heat deaths is rising rapidly, and a warmer climate is also causing problems through drought and infectious diseases. According to experts there is a global crisis: \"Health must be central to every climate decision.\"",
-    "sourceHash": "70ea4fa362ab",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:a4087b65",
@@ -44198,6 +44429,17 @@
     "translated": "2026-10-28"
   },
   {
+    "id": "news:a4c6cf2a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "That Borsato hired the most expensive lawyers can be explained, everything was at stake",
+    "lead": "He will hope this really is the last time he has to go to court. Marco Borsato will this Wednesday reclaim 391,000 euros in legal costs before the judge in Utrecht after he was acquitted of groping a minor. Five questions about this hearing.",
+    "sourceHash": "94d53764b4a7",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:a4c876a9",
     "language": "nl",
     "sourceLanguage": "en",
@@ -44341,6 +44583,17 @@
     "translated": "2026-10-22"
   },
   {
+    "id": "news:a5529c9",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "American voters settle the score with Trump: Democrats win even more than expected",
+    "lead": null,
+    "sourceHash": "746fdee813e5",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:a55b4ce3",
     "language": "en",
     "sourceLanguage": "nl",
@@ -44350,17 +44603,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
-  },
-  {
-    "id": "news:a561813b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Supervisor ACM confirms what everyone already thought: the market for school textbooks does not work",
-    "lead": null,
-    "sourceHash": "08b1ef08136a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:a57ead74",
@@ -45650,6 +45892,17 @@
     "translated": "2026-10-31"
   },
   {
+    "id": "news:aa85d197",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Lunet (69) met Piet (76) at Rembrandtplein: 'I looked beyond his clothes and his farmer's accent, and I'm very glad I did'",
+    "lead": null,
+    "sourceHash": "05de086a19b6",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:aa903abe",
     "language": "en",
     "sourceLanguage": "nl",
@@ -45747,17 +46000,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-26"
-  },
-  {
-    "id": "news:aaf8913c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "French government wants to block posts on social media that call for violence",
-    "lead": null,
-    "sourceHash": "8edfbcedac9b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:ab1b01e1",
@@ -46508,17 +46750,6 @@
     "translated": "2026-11-03"
   },
   {
-    "id": "news:adefbbde",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Dry and sunny autumn weather today, quiet for the coming days",
-    "lead": "We are entering a quiet and dry period. From tomorrow there will hardly be any wind. Furthermore we regularly see sun, and in the night and morning the chance of fog increases. The afternoon temperature will not change much in the first few days.",
-    "sourceHash": "b27a9664a027",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:adfe5583",
     "language": "en",
     "sourceLanguage": "nl",
@@ -46651,17 +46882,6 @@
     "translated": "2026-10-30"
   },
   {
-    "id": "news:ae5c675b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Your Move",
-    "lead": null,
-    "sourceHash": "0ca9c42013e9",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:ae5c675c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -46726,6 +46946,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
+  },
+  {
+    "id": "news:ae5cf376",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Your Move",
+    "lead": null,
+    "sourceHash": "0ca9c42013e9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:ae5ddfd1",
@@ -47905,17 +48136,6 @@
     "translated": "2026-11-01"
   },
   {
-    "id": "news:b385da90",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Cor Jongejeugd (56) was diagnosed with autism at a later age: 'I have come to regard dancing as therapy'",
-    "lead": null,
-    "sourceHash": "4c026bbe0c5c",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:b3a095f5",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48057,17 +48277,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
-  },
-  {
-    "id": "news:b4076430",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Football nomad André Krul back in the Netherlands: 'Slept on the ground in Senegal'",
-    "lead": "After his successful mission to play football on six different continents, André Krul is back in the Netherlands at amateur club VVSB. The 39-year-old world traveller wants to embark on the next adventure soon. \"Playing football in Bhutan sounds nice to me.\"",
-    "sourceHash": "f5fd01b3cb02",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:b4186a3f",
@@ -48345,17 +48554,6 @@
     "translated": "2026-11-01"
   },
   {
-    "id": "news:b54154e3",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Narrow lead for Netanyahu's bloc with over half of Israeli votes counted",
-    "lead": "With about 70 percent of the votes counted, the bloc of incumbent prime minister Benjamin Netanyahu narrowly leads. According to the preliminary results, his bloc has 54 seats, compared with 48 for the opposition bloc of Gadi Eisenkot. A clear winner has not yet emerged.",
-    "sourceHash": "13bfee46ebf2",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:b546e70",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48631,6 +48829,17 @@
     "translated": "2026-10-26"
   },
   {
+    "id": "news:b649d0c7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Influencer pays almost 230 euros for eleven hours of parking: 'I thought the meter was broken'",
+    "lead": "A day of tennis came with a very expensive sequel for a well-known Swiss. Influencer Peter Bolliger had to pay almost 230 euros for eleven hours of parking. Yet the sky-high bill was no mistake, but the result of a deliberate pricing strategy.",
+    "sourceHash": "462a44c5efaf",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:b64bb29a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48862,6 +49071,17 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:b768df67",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Man who escaped from prison after a week arrested in US",
+    "lead": "In the United States a man has been arrested who escaped from a prison more than a week ago. The convicted murderer managed to travel more than 700 kilometers.",
+    "sourceHash": "29029b6334a8",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:b76ac7cf",
     "language": "en",
     "sourceLanguage": "nl",
@@ -48893,17 +49113,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-23"
-  },
-  {
-    "id": "news:b79801a1",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "David (33) and Miriam (30) met at Club Raum: ‘She made me see that I needed to stop being an idiot with my second-guessing’",
-    "lead": null,
-    "sourceHash": "e51277bab8ca",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:b7b17d98",
@@ -49195,12 +49404,12 @@
     "id": "news:b8d8ca59",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "LIVE | Midterms: Americans head to the polls",
-    "lead": "Follow all developments here on the American midterms.",
-    "sourceHash": "20e6a9e07117",
+    "title": "LIVE | Trump after midterm debacle: 'I was not on the ballot'",
+    "lead": "Follow all developments in the American midterms here.",
+    "sourceHash": "3489327edc4f",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-03"
+    "translated": "2026-11-04"
   },
   {
     "id": "news:b8e594d0",
@@ -49333,6 +49542,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:b929ea68",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Sri Lanka corruption scandal costs Dutch state nearly €30 million",
+    "lead": "Through insurer Atradius, the state acted as guarantor for a loan from Rabobank to the Sri Lankan government. That government did not repay the final part.",
+    "sourceHash": "71977502fcf3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:b92a1981",
@@ -49786,6 +50006,17 @@
     "translated": "2026-11-03"
   },
   {
+    "id": "news:bb1141ca",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "US gets first gay senator and Black female governor",
+    "lead": "The parliamentary elections in the United States have already produced two historic winners overnight. For the first time, the country gets a Black female governor. A gay senator has also been elected for the first time.",
+    "sourceHash": "d4b6b7a46aea",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:bb1bfdd9",
     "language": "en",
     "sourceLanguage": "nl",
@@ -49861,6 +50092,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
+  },
+  {
+    "id": "news:bb550ce3",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Trump responds to defeat: 'Wants to work with Democrats'",
+    "lead": "According to his own words, US President Donald Trump will accept the outcome of the midterm elections. \"I am absolutely willing to accept the outcome\", he just told The New York Times.",
+    "sourceHash": "2a0261a76f60",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:bb832324",
@@ -51656,6 +51898,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:c27ce54e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Cabinet has not yet covered a fifth of the missed box 3 revenue, calculates the Ministry of Finance",
+    "lead": "Not taxing paper gains in box 3 from 2028 onward will cost the treasury a total of 21.8 billion euros through 2040. Only a limited part, about 4.2 billion euros, is compensated by the cover measures the cabinet has proposed. That is evident from a table that the Ministry of Finance released at the urging of <entity id=\"org:tweede-kamer\">de Tweede Kamer</entity>.",
+    "sourceHash": "2c2d06a13b09",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:c28fbef4",
     "language": "en",
     "sourceLanguage": "nl",
@@ -51973,6 +52226,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
+  },
+  {
+    "id": "news:c3a55ddf",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'My neighbour loves online shopping, but leaves accepting parcels to others'",
+    "lead": null,
+    "sourceHash": "14c823cd2331",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:c3a63e9",
@@ -52523,6 +52787,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-17"
+  },
+  {
+    "id": "news:c5b6bf8f",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Zwijndrecht and The Hague oppose agreements on reception of asylum seekers and status holders in court: 'It simply isn't working'",
+    "lead": null,
+    "sourceHash": "1786136b24f9",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:c5c43594",
@@ -54109,17 +54384,6 @@
     "translated": "2026-11-03"
   },
   {
-    "id": "news:cbd05b0c",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Beware of the 'Pick me FG'",
-    "lead": "Dear administrator in public administration, watch out for the 'Pick me FG'.",
-    "sourceHash": "df07cf06b05b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:cbd54b2a",
     "language": "en",
     "sourceLanguage": "nl",
@@ -54714,17 +54978,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:ce4c1622",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Somersault",
-    "lead": null,
-    "sourceHash": "19fc40e02aae",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:ce4c1623",
     "language": "en",
     "sourceLanguage": "nl",
@@ -54791,6 +55044,17 @@
     "translated": "2026-11-03"
   },
   {
+    "id": "news:ce4ca23d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Somersault",
+    "lead": null,
+    "sourceHash": "19fc40e02aae",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:ce4f37fa",
     "language": "en",
     "sourceLanguage": "nl",
@@ -54822,6 +55086,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
+  },
+  {
+    "id": "news:ce7bf8ea",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Explosion at Tarwekamp caused major damage to Joanna's (90) ballet school: 'But I still teach every day'",
+    "lead": "2 years after the devastating explosion on Tarwekamp, the criminal case against the four suspects begins. Residents and business owners have been trying to get back on their feet since the shocking incident. So too Joanna (90), who runs a ballet school next to the exploded business.",
+    "sourceHash": "20608afbd339",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:ce8be66c",
@@ -55066,6 +55341,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:cf4c116",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Trump accepts the result, but also sneers: with me on the ballot we would have won",
+    "lead": "U.S. President Donald Trump says he will accept the outcome of the midterm elections. \"I am absolutely willing to accept the outcome,\" he told The New York Times. The Democrats are heading for a major victory in both the House of Representatives and <entity id=\"org:eerste-kamer\">de Senaat</entity>. According to the White House, that also has to do with the quality of the Republican candidates.",
+    "sourceHash": "9f9a3236df4b",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:cf51f71f",
     "language": "en",
     "sourceLanguage": "nl",
@@ -55308,17 +55594,6 @@
     "translated": "2026-10-23"
   },
   {
-    "id": "news:d05259e6",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Sudoku",
-    "lead": "Place the numbers 1 to 9 in the diagram so that each number appears exactly once in each row, column, nine bold-outlined 3x3 boxes and the four grey 3x3 boxes.",
-    "sourceHash": "e3ef981d015b",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:d05259e7",
     "language": "en",
     "sourceLanguage": "nl",
@@ -55517,6 +55792,17 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:d0abd37b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "On a disappointing Champions League evening, only Jerayno Schaken brings a smile",
+    "lead": "Jerayno Schaken enjoyed his first real appearance in the Champions League. Giovanni van Bronckhorst saw his promising talent come on well. After the hopeless mission against Internazionale, at least there was something to be happy about.",
+    "sourceHash": "dd39a0a7d209",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:d0ae3b2e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -55691,17 +55977,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-26"
-  },
-  {
-    "id": "news:d10b1bf8",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Bolsonaro lands in Miami after fleeing investigation by Brazilian Justice",
-    "lead": null,
-    "sourceHash": "f84e6d114c3a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:d12b6a44",
@@ -55990,17 +56265,6 @@
     "translated": "2026-11-01"
   },
   {
-    "id": "news:d23c77d9",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Fleetwood Town, a fourth-tier side, stuns reigning champion Arsenal",
-    "lead": "Reigning English champion Arsenal has been knocked out of the round of 16 of the League Cup by Fleetwood Town, a team that plays at the fourth level in England. The side of coach Mikel Arteta lost on penalties, with Jurriën Timber in the starting lineup.",
-    "sourceHash": "fc84008c9877",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:d23f7df",
     "language": "en",
     "sourceLanguage": "nl",
@@ -56067,17 +56331,6 @@
     "translated": "2026-10-29"
   },
   {
-    "id": "news:d27d2646",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Number Block",
-    "lead": null,
-    "sourceHash": "773ba346c5f3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:d27d2647",
     "language": "en",
     "sourceLanguage": "nl",
@@ -56142,6 +56395,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
+  },
+  {
+    "id": "news:d27db261",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Number Pad",
+    "lead": null,
+    "sourceHash": "773ba346c5f3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:d28330c5",
@@ -56274,6 +56538,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-19"
+  },
+  {
+    "id": "news:d2d884c6",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "First midterm polls show dissatisfaction with Trump",
+    "lead": "American voters are generally dissatisfied with the state of the country, the economy and the performance of President Donald Trump, according to a first poll by AP among others .",
+    "sourceHash": "b9aca0323dd2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:d2dfb91e",
@@ -57068,6 +57343,17 @@
     "translated": "2026-10-30"
   },
   {
+    "id": "news:d5a270d0",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Tirelessly energetic poet Ton Peters (1952-2026) could compose sonnets while cycling",
+    "lead": null,
+    "sourceHash": "7384e956b2be",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:d5aa846c",
     "language": "en",
     "sourceLanguage": "nl",
@@ -57176,17 +57462,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
-  },
-  {
-    "id": "news:d600a66e",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Tens of thousands of alarm buttons for the elderly will stop working when the 2G network is switched off: \"It could be life-threatening\"",
-    "lead": "Tens of thousands of emergency buttons for the elderly will stop working when 2G is shut down. They are also still sold online without a warning, according to an EenVandaag investigation. The industry and the seniors' association warn of life-threatening situations.",
-    "sourceHash": "90460a77f0dd",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:d606c38a",
@@ -57684,6 +57959,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:d7e3581a",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Democrat wins House seat in district where Trump has a golf club",
+    "lead": "Democrat Rebecca Bennett has won a seat in the House of Representatives in the state of New Jersey, NBC News among others projects. She defeated the sitting House member, Republican Thomas Kean Jr., the son of a former governor of the state.",
+    "sourceHash": "cf50ab84ef19",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:d7f75f19",
     "language": "en",
     "sourceLanguage": "nl",
@@ -57704,17 +57990,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
-  },
-  {
-    "id": "news:d7fbb8de",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Senators as political poker chips",
-    "lead": "by Simon Otjes On 30 August, Paul Rosenmöller (PRO) announced that he would no longer stand in the next Senate elections. For eight years Rosenmöller sat in <entity id=\"org:eerste-kamer\">de Senaat</entity>. What has he done over the past eight years? Of course Rosenmöller has not been idle. As a senator he submitted 40 motions, secured eight commitments and [...] Read more posts on Sargasso",
-    "sourceHash": "89930b1bbf9a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
   },
   {
     "id": "news:d81119b7",
@@ -58443,6 +58718,17 @@
     "translated": "2026-10-31"
   },
   {
+    "id": "news:db30261b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Live: Democrats regain Congress, futures lower",
+    "lead": "The American midterms have turned into a rebuke for President Donald Trump. Even Kansas turns blue for the first time since 1932. It now seems fairly certain that the Democrats will get a majority in the House of Representatives and <entity id=\"org:eerste-kamer\">de Senaat</entity>.",
+    "sourceHash": "53eac3763293",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:db311d86",
     "language": "en",
     "sourceLanguage": "nl",
@@ -58542,6 +58828,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:dbad1983",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "An attack so severe that suspects risk life imprisonment for the Tarwekamp explosion",
+    "lead": "For the first time in the Netherlands, a life sentence can be imposed for an attack with such a motive. Six people died at Tarwekamp in The Hague in 2024 because Moshtag B. was out for revenge on his ex-girlfriend.",
+    "sourceHash": "8859d13b11b1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:dbaf776e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -58617,6 +58914,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:dc1afd00",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Complete rebuke for Trump: Democrats score a huge victory in the elections, with a majority in the House and the Senate",
+    "lead": "Democrats are winning Senate seats in Texas, Ohio, Kansas, Iowa, North and South Carolina, securing a majority in the Senate and winning governorships they did not dare dream of until recently. The rebuke of Donald Trump and his second presidency is complete. What leaps does this cat make when cornered?",
+    "sourceHash": "dcf44f8955c1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:dc24a31",
@@ -58850,6 +59158,17 @@
     "translated": "2026-11-02"
   },
   {
+    "id": "news:dcebd9c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Black woman elected governor in US for the first time",
+    "lead": "Keisha Lance Bottoms has won the election for a seat in the House of Representatives. The Democratic candidate secured victory in Georgia.",
+    "sourceHash": "b66283b1ec85",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:dcef13d0",
     "language": "en",
     "sourceLanguage": "nl",
@@ -58870,6 +59189,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:dcfe0cd7",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Mirjam van Dorssen led the relief efforts in Gaza: 'Between the tents, people planted mint and eggplant'",
+    "lead": null,
+    "sourceHash": "ae6443bab026",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:dd05d309",
@@ -59092,6 +59422,17 @@
     "translated": "2026-10-31"
   },
   {
+    "id": "news:dde85bba",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "American voter punishes Trump with a clear Democratic victory",
+    "lead": "In the midterm elections, the Democrats win the majority in both the House of Representatives and <entity id=\"org:eerste-kamer\">de Senaat</entity> thanks to victories in 'red' states.",
+    "sourceHash": "b11004ef53c2",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:ddf446c8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -59213,6 +59554,17 @@
     "translated": "2026-10-13"
   },
   {
+    "id": "news:de694d2c",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Setback for Trump in the midterms: House and Senate go to Democrats",
+    "lead": "American media predict that the Democrats will win a majority in both the House of Representatives and <entity id=\"org:eerste-kamer\">de Senaat</entity>. It is a setback for Trump's Republican party. \"This shows how great the discontent is among the American population,\" says correspondent Erik Mouthaan. Follow everything in this live blog.",
+    "sourceHash": "30f941b0123c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:de72519e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -59233,6 +59585,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-30"
+  },
+  {
+    "id": "news:de9adda2",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Personnel news Wednesday 4 November",
+    "lead": "New job? Email personalia@fd.nl, with a high-resolution photo and a job description in Dutch.",
+    "sourceHash": "39c1f0864959",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:de9dcea4",
@@ -59565,6 +59928,17 @@
     "translated": "2026-11-03"
   },
   {
+    "id": "news:dfec593b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Fake webshops? We hardly recognise them anymore, research shows",
+    "lead": "As many as seven in ten Dutch people no longer recognise fake webshops, new research shows. Moreover, we sometimes order products from webshops even though we doubt their reliability. Young people in particular often take risks.",
+    "sourceHash": "89b5ba256a64",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:e017fa1d",
     "language": "en",
     "sourceLanguage": "nl",
@@ -59574,17 +59948,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
-  },
-  {
-    "id": "news:e0290e2f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "'Bolsonaro has left Brazil, has arrived in the US'",
-    "lead": "Allies of Brazilian senator Flávio Bolsonaro tell CNN Brasil that he has left the country. He is said to have travelled with his wife and two daughters to the United States. The Supreme Court had previously banned Bolsonaro from leaving the country. The US would reportedly want to give him a visa.",
-    "sourceHash": "71110bfc6f96",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:e02ca0c8",
@@ -60434,6 +60797,17 @@
     "translated": "2026-10-29"
   },
   {
+    "id": "news:e3752a70",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Democrats score big win with majority in Senate and likely also in House of Representatives",
+    "lead": "The Democrats are likely to also gain the upper hand in the House of Representatives, following <entity id=\"org:eerste-kamer\">de Senaat</entity>. That is what American media predict after the midterms. The victories in Texas, North Carolina and Ohio in particular stand out for the Democrats.",
+    "sourceHash": "2ac43343edc1",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:e39148ad",
     "language": "en",
     "sourceLanguage": "nl",
@@ -60630,17 +61004,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-29"
-  },
-  {
-    "id": "news:e44a10fa",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "With more than 70 percent of votes counted, Netanyahu's bloc takes the lead",
-    "lead": "The Israeli parliamentary elections have not yet produced a clear winner, but Prime Minister Benjamin Netanyahu's bloc narrowly takes the lead. Read the updates from the live blog here.",
-    "sourceHash": "28e1f05ab23a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:e44d7170",
@@ -61402,6 +61765,17 @@
     "translated": "2026-10-29"
   },
   {
+    "id": "news:e7242402",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Donald Trump now a 'lame duck president' after the US midterms: the possible consequences for Europe",
+    "lead": "For years, President Trump kept the world on edge with tariffs and threats, but in 2026 the shock effect seems to have worn off. Now that the midterm results are becoming clearer, Europe must consider how to relate to the US.",
+    "sourceHash": "de5560fe636f",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:e73139ce",
     "language": "en",
     "sourceLanguage": "nl",
@@ -61570,12 +61944,12 @@
     "id": "news:e80e05b2",
     "language": "en",
     "sourceLanguage": "nl",
-    "title": "Hole in roof of De Kuip caused by flares, Van Bronckhorst incredulous: 'Fireworks from outside the stadium, what can you do about that?'",
-    "lead": "During the Champions League match between Feyenoord and Internazionale (0-3) on Tuesday evening, damage was caused to the roof of De Kuip. Several flares were fired from outside the stadium, with one projectile burning a hole in the roof structure.",
-    "sourceHash": "10c8a57d0f43",
+    "title": "Hole in roof of De Kuip caused by flares, disbelief at Van Bronckhorst: 'Fireworks from outside the stadium, what can you do about that?'",
+    "lead": "During the Champions League match between Feyenoord and Internazionale (0-3) on Tuesday evening, damage was caused to the roof of De Kuip. Several flares were fired from outside the stadium, with one projectile burning a hole in the 32-year-old roof structure.",
+    "sourceHash": "01a5f3cd1b82",
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
-    "translated": "2026-11-03"
+    "translated": "2026-11-04"
   },
   {
     "id": "news:e817921a",
@@ -61587,6 +61961,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-03"
+  },
+  {
+    "id": "news:e8209ea",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Master drummer Ponda O'Bryan (1957-2026) also knew the spiritual side of drums",
+    "lead": null,
+    "sourceHash": "fe2a0802abd3",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:e8233620",
@@ -62106,17 +62491,6 @@
     "translated": "2026-10-20"
   },
   {
-    "id": "news:ea9b856a",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Social rental homes for starters increasingly go to status holders",
-    "lead": "Status holders make up a growing share of the starters who are allocated a social rental home. While the number of social rental homes for starters stayed roughly the same each year, 21 percent of them went to status holders in 2024. Six years earlier that was 9 percent.",
-    "sourceHash": "9ca02a284890",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:eaa0bf1e",
     "language": "en",
     "sourceLanguage": "nl",
@@ -62513,17 +62887,6 @@
     "translated": "2026-10-16"
   },
   {
-    "id": "news:ec89408b",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Racism and discrimination at UWV enforcement department, new top boss offers apologies",
-    "lead": "Racism, discrimination and ethnic profiling are part of the culture at the enforcement department of the benefits agency UWV. This is shown by research by AD and EenVandaag based on confidential documents and conversations with (former) employees.",
-    "sourceHash": "c220ea7d06c3",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-go",
-    "translated": "2026-10-13"
-  },
-  {
     "id": "news:ec9113",
     "language": "en",
     "sourceLanguage": "nl",
@@ -62599,17 +62962,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
-  },
-  {
-    "id": "news:ecded01f",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Flu Shot",
-    "lead": "Well before opening time, a considerable queue has already formed at the GP practice for the annual flu shot.",
-    "sourceHash": "f61c2e042429",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
   },
   {
     "id": "news:ecf554bc",
@@ -62810,6 +63162,17 @@
     "translated": "2026-10-14"
   },
   {
+    "id": "news:edb02d86",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Peace in Europe cannot happen without a kowtow",
+    "lead": null,
+    "sourceHash": "2ca893adb348",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:edd05e53",
     "language": "en",
     "sourceLanguage": "nl",
@@ -62951,6 +63314,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-11-01"
+  },
+  {
+    "id": "news:ee8e267e",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Poor Johannesburg looks enviously at prosperous Cape Town, but progress there also has its downsides",
+    "lead": null,
+    "sourceHash": "ff3dfcc4154e",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:ee983944",
@@ -63171,6 +63545,28 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-go",
     "translated": "2026-10-13"
+  },
+  {
+    "id": "news:ef944dc5",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "LIVE US Midterms | Democrats take majority in Senate and probably also House, even Republicans lose in Texas",
+    "lead": "Democrats are heading for a major victory in the American midterms. A Democratic majority in <entity id=\"org:eerste-kamer\">de Senaat</entity> is already certain: even in the conservative states of Kansas, Texas and Ohio they received the most votes. A loss for the Republicans is also predicted in the House of Representatives. Follow everything about the midterms via our liveblog below.",
+    "sourceHash": "8baba3177974",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
+    "id": "news:efa42905",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Gambling on more",
+    "lead": "<entity id=\"person:rob-jetten\">Premier Jetten</entity> takes the ultimate gamble. The tax plan goes to parliament without a majority in advance.",
+    "sourceHash": "eab6d5b6d812",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:efaf32e7",
@@ -63492,6 +63888,17 @@
     "translated": "2026-11-01"
   },
   {
+    "id": "news:f0d34345",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Want to know quickly anyway: is democracy already dead or does it still last a little while?",
+    "lead": null,
+    "sourceHash": "2f623534b94c",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:f0fab257",
     "language": "en",
     "sourceLanguage": "nl",
@@ -63501,6 +63908,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
+  },
+  {
+    "id": "news:f1140d8d",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "National Ombudsman: government left farmers in uncertainty for years",
+    "lead": "Farmers have had to deal with an unreliable government over the past ten years. The National Ombudsman reaches this conclusion in a report to be published on Wednesday. Changing rules and contradictory policy took a heavy toll on farm businesses and families.",
+    "sourceHash": "021dafc3246d",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:f114cbce",
@@ -63875,6 +64293,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-31"
+  },
+  {
+    "id": "news:f230350b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "Democrats win majority in Senate, Republicans lose even in Texas",
+    "lead": null,
+    "sourceHash": "515f44067244",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:f2380bbd",
@@ -64812,17 +65241,6 @@
     "translated": "2026-11-02"
   },
   {
-    "id": "news:f65b9028",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Ukrainian children learn to pilot kamikaze drones",
-    "lead": "Today in Dagkoers: Applied Materials doubles its stake in Besi, at Enexis electricity substations sit idle in storage, and in Ukraine pupils learn to pilot drones.",
-    "sourceHash": "e609bee03fef",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-10-28"
-  },
-  {
     "id": "news:f66194b8",
     "language": "en",
     "sourceLanguage": "nl",
@@ -65426,6 +65844,17 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-16"
+  },
+  {
+    "id": "news:f99725b",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "After years of deep red, Texas now turns blue, Democrats very happy",
+    "lead": "Correspondent Raquel Schilder is at a Democratic party in Texas. Their party achieved a historic victory.",
+    "sourceHash": "be2d8b126099",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
   },
   {
     "id": "news:f999b845",
@@ -66462,6 +66891,17 @@
     "translated": "2026-11-03"
   },
   {
+    "id": "news:fe0513a4",
+    "language": "en",
+    "sourceLanguage": "nl",
+    "title": "'I'm happy to help, but then the whole flat will rely on me'",
+    "lead": null,
+    "sourceHash": "1144d6c4cb30",
+    "engine": "claude-haiku-5-5",
+    "method": "opencode-zen",
+    "translated": "2026-11-04"
+  },
+  {
     "id": "news:fe0b696b",
     "language": "en",
     "sourceLanguage": "nl",
@@ -66548,17 +66988,6 @@
     "engine": "claude-haiku-5-5",
     "method": "opencode-zen",
     "translated": "2026-10-25"
-  },
-  {
-    "id": "news:fe46c110",
-    "language": "en",
-    "sourceLanguage": "nl",
-    "title": "Israeli election commission refutes Likud fraud claims: 'Elections not undermined'",
-    "lead": "In Tel Aviv on Saturday evening, an estimated two thousand people took to the streets to call for cooperation between Zionist and non-Zionist parties to form a government.",
-    "sourceHash": "bd6e21f3207a",
-    "engine": "claude-haiku-5-5",
-    "method": "opencode-zen",
-    "translated": "2026-11-03"
   },
   {
     "id": "news:fe634770",
