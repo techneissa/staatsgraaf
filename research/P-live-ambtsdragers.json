@@ -94,7 +94,7 @@
     },
     {
       "url": "https://www.rijksoverheid.nl/themas/overheid-en-democratie/provincies/commissaris-van-de-koning/overzicht/commissarissen-van-de-koning",
-      "retrieved": "2026-11-04",
+      "retrieved": "2026-11-05",
       "notes": "Rijksoverheid overzicht commissarissen van de Koning"
     }
   ],
@@ -37249,7 +37249,7 @@
       "publisher": "Rijksoverheid",
       "type": "page",
       "published": null,
-      "retrieved": "2026-11-04",
+      "retrieved": "2026-11-05",
       "license": "CC0-1.0",
       "archiveUrl": null,
       "notes": "Naam, partij, datum van benoeming en geboortedatum per provincie."
@@ -37340,18 +37340,5 @@
     }
   ],
   "media": [],
-  "gaps": [
-    {
-      "what": "Fractievoorzitter van Fractie-Van Gasteren",
-      "why": "de fractiepagina noemt geen fractievoorzitter",
-      "endpoint": "https://www.eerstekamer.nl/fractie/fractie_van_gasteren",
-      "resume": "De bestaande tenure blijft staan."
-    },
-    {
-      "what": "G10: de annotatietekst die het colofon van de Eerste Kamer voorschrijft",
-      "why": "het colofon zegt \"Als annotatie wordt daarbij het volgende vermeld:\" maar de pagina bevat daarna geen tekst",
-      "endpoint": "https://www.eerstekamer.nl/begrip/colofon",
-      "resume": "Neem contact op met de Eerste Kamer of lees de pagina gerenderd; tot die tijd vermeldt elke bron de URL en de extractiedatum."
-    }
-  ]
+  "gaps": []
 }
