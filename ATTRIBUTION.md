@@ -16,7 +16,7 @@ Photos are not under the dataset licence. Each one keeps the licence its author 
 
 ## Source families
 
-Where facts come from, grouped by publisher and licence. 9,821 sources are recorded in all: 3,177 in the table, 6,196 news links and 448 with no established licence (each below).
+Where facts come from, grouped by publisher and licence. 9,803 sources are recorded in all: 3,177 in the table, 6,178 news links and 448 with no established licence (each below).
 
 | Publisher or website | What we use it for | Licence | Terms | Sources |
 | --- | --- | --- | --- | ---: |
@@ -46,7 +46,7 @@ The site shows scaled-down and cropped copies, and says so in the credit. For CC
 
 ## News
 
-6,196 sources are news articles or news-outlet pages. Their publishers keep all rights, so Staatsgraaf links to them and shows only the headline and the link, never the article text or its images. No credit is owed beyond naming the outlet, which every link does.
+6,178 sources are news articles or news-outlet pages. Their publishers keep all rights, so Staatsgraaf links to them and shows only the headline and the link, never the article text or its images. No credit is owed beyond naming the outlet, which every link does.
 
 ## Sources with no established licence
 

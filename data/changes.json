@@ -17255,8 +17255,8 @@
     "summary": "Waarnemend benoemd: Tytsy Willemsma als Burgemeester van Ameland.",
     "source": {
       "source": "src:koop-medewerkers-gemeenten",
-      "retrieved": "2026-10-06",
-      "confidence": "high"
+      "retrieved": "2026-11-05",
+      "confidence": "medium"
     },
     "position": "pos:burgemeester-ameland",
     "organization": "org:gemeente-ameland",
@@ -30705,7 +30705,30 @@
     "id": "change:2026-11-03-departure-burgemeester-westervoort"
   },
   {
-    "date": "2026-11-04",
+    "date": "2026-11-05",
+    "kind": "departure",
+    "summary": "Tytsy Willemsma vertrekt als Burgemeester van Ameland.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-11-05",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-ameland",
+    "organization": "org:gemeente-ameland",
+    "out": {
+      "tenure": "tenure:burgemeester-ameland",
+      "person": "person:tytsy-willemsma",
+      "label": "Tytsy Willemsma - Burgemeester van Ameland"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-ameland-van-keijzerswaard",
+      "person": "person:van-keijzerswaard-ameland",
+      "label": "van Keijzerswaard - Burgemeester van Ameland"
+    },
+    "id": "change:2026-11-05-departure-burgemeester-ameland"
+  },
+  {
+    "date": "2026-11-05",
     "kind": "vacancy",
     "summary": "Vacature: Procureur-generaal (lid van het College van procureurs-generaal) bij Openbaar Ministerie heeft één onvervulde zetel.",
     "source": {
@@ -30725,6 +30748,6 @@
       "person": null,
       "label": "1 vacante zetel"
     },
-    "id": "change:2026-11-04-vacancy-procureur-generaal-lid-college"
+    "id": "change:2026-11-05-vacancy-procureur-generaal-lid-college"
   }
 ]

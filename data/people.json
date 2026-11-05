@@ -28400,6 +28400,21 @@
     ]
   },
   {
+    "id": "person:van-keijzerswaard-ameland",
+    "slug": "van-keijzerswaard-ameland",
+    "name": "van Keijzerswaard",
+    "aliases": [
+      "Dhr. van Keijzerswaard"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-11-05",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "person:veni-naganathar",
     "slug": "veni-naganathar",
     "name": "Veni Naganathar",

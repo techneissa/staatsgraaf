@@ -285,16 +285,35 @@
     "position": "pos:burgemeester-ameland",
     "seat": null,
     "start": "2025-09-29",
-    "end": null,
+    "end": "2026-11-05",
     "acting": true,
     "entryMode": "waarnemend",
     "appointedBy": null,
     "predecessor": null,
+    "successor": "tenure:burgemeester-ameland-van-keijzerswaard",
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-11-05",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "tenure:burgemeester-ameland-van-keijzerswaard",
+    "person": "person:van-keijzerswaard-ameland",
+    "position": "pos:burgemeester-ameland",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd-bij-kb",
+    "appointedBy": null,
+    "predecessor": "tenure:burgemeester-ameland",
     "successor": null,
     "endReason": null,
     "source": {
       "source": "src:koop-medewerkers-gemeenten",
-      "retrieved": "2026-10-06",
+      "retrieved": "2026-11-05",
       "confidence": "high"
     }
   },
