@@ -37,6 +37,21 @@
     ]
   },
   {
+    "id": "person:a-g-rosier",
+    "slug": "a-g-rosier",
+    "name": "A.G. Rosier",
+    "aliases": [
+      "Dhr. A.G. Rosier"
+    ],
+    "sources": [
+      {
+        "source": "src:koop-medewerkers-gemeenten",
+        "retrieved": "2026-11-10",
+        "confidence": "high"
+      }
+    ]
+  },
+  {
     "id": "person:a-j-m-van-kesteren",
     "slug": "a-j-m-van-kesteren",
     "name": "A.J.M. van Kesteren",

@@ -15461,8 +15461,8 @@
     "summary": "Waarnemend benoemd: Anja Haga als Burgemeester van Dantumadiel.",
     "source": {
       "source": "src:koop-medewerkers-gemeenten",
-      "retrieved": "2026-10-06",
-      "confidence": "high"
+      "retrieved": "2026-11-10",
+      "confidence": "medium"
     },
     "position": "pos:burgemeester-dantumadiel",
     "organization": "org:gemeente-dantumadiel",
@@ -30728,7 +30728,30 @@
     "id": "change:2026-11-05-departure-burgemeester-ameland"
   },
   {
-    "date": "2026-11-09",
+    "date": "2026-11-10",
+    "kind": "departure",
+    "summary": "Anja Haga vertrekt als Burgemeester van Dantumadiel.",
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-11-10",
+      "confidence": "medium"
+    },
+    "position": "pos:burgemeester-dantumadiel",
+    "organization": "org:gemeente-dantumadiel",
+    "out": {
+      "tenure": "tenure:burgemeester-dantumadiel",
+      "person": "person:anja-haga",
+      "label": "Anja Haga - Burgemeester van Dantumadiel"
+    },
+    "in": {
+      "tenure": "tenure:burgemeester-dantumadiel-a-g-rosier",
+      "person": "person:a-g-rosier",
+      "label": "A.G. Rosier - Burgemeester van Dantumadiel"
+    },
+    "id": "change:2026-11-10-departure-burgemeester-dantumadiel"
+  },
+  {
+    "date": "2026-11-10",
     "kind": "vacancy",
     "summary": "Vacature: Procureur-generaal (lid van het College van procureurs-generaal) bij Openbaar Ministerie heeft één onvervulde zetel.",
     "source": {
@@ -30748,6 +30771,6 @@
       "person": null,
       "label": "1 vacante zetel"
     },
-    "id": "change:2026-11-09-vacancy-procureur-generaal-lid-college"
+    "id": "change:2026-11-10-vacancy-procureur-generaal-lid-college"
   }
 ]

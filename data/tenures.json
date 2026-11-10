@@ -1292,16 +1292,35 @@
     "position": "pos:burgemeester-dantumadiel",
     "seat": null,
     "start": "2024-11-18",
-    "end": null,
+    "end": "2026-11-10",
     "acting": true,
     "entryMode": "waarnemend",
     "appointedBy": null,
     "predecessor": null,
+    "successor": "tenure:burgemeester-dantumadiel-a-g-rosier",
+    "endReason": null,
+    "source": {
+      "source": "src:koop-medewerkers-gemeenten",
+      "retrieved": "2026-11-10",
+      "confidence": "medium"
+    }
+  },
+  {
+    "id": "tenure:burgemeester-dantumadiel-a-g-rosier",
+    "person": "person:a-g-rosier",
+    "position": "pos:burgemeester-dantumadiel",
+    "seat": null,
+    "start": null,
+    "end": null,
+    "acting": false,
+    "entryMode": "benoemd-bij-kb",
+    "appointedBy": null,
+    "predecessor": "tenure:burgemeester-dantumadiel",
     "successor": null,
     "endReason": null,
     "source": {
       "source": "src:koop-medewerkers-gemeenten",
-      "retrieved": "2026-10-06",
+      "retrieved": "2026-11-10",
       "confidence": "high"
     }
   },
